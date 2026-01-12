@@ -7761,8 +7761,8 @@ declare namespace window {
      *
      * @param { 'windowSizeChange' } type - The value is fixed at 'windowSizeChange', indicating the window size change event.
      * @param { Callback<Size> } callback - Callback used to return the window size.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types; 
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
+     *                                                                  2. Incorrect parameter types;
      *                                                                  3. Parameter verification failed.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
@@ -7772,17 +7772,18 @@ declare namespace window {
      *
      * @param { 'windowSizeChange' } type - The value is fixed at 'windowSizeChange', indicating the window size change event.
      * @param { Callback<Size> } callback - Callback used to return the window size.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types; 
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
+     *                                                                  2. Incorrect parameter types;
      *                                                                  3. Parameter verification failed.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 11
      */
     /**
-     * Register the callback of windowSizeChange
+     * Register the callback of window size change
      *
-     * @param { 'windowSizeChange' } type - The value is fixed at 'windowSizeChange', indicating the window size change event.
+     * @param { 'windowSizeChange' } type - The value is fixed at 'windowSizeChange', indicating the window size change
+     *     event.
      * @param { Callback<Size> } callback - Callback used to return the window size.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
      *                                                                  2. Incorrect parameter types;
@@ -7805,31 +7806,33 @@ declare namespace window {
     onWindowSizeChange(callback: Callback<Size>): void;
 
     /**
-     * Unregister the callback of windowSizeChange
+     * Unregister the callback of window size change
      *
      * @param { 'windowSizeChange' } type - The value is fixed at 'windowSizeChange', indicating the window size change event.
      * @param { Callback<Size> } callback - Callback used to return the window size.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types; 
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types;
      *                                                                  2. Parameter verification failed.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
     /**
-     * Unregister the callback of windowSizeChange
+     * Unregister the callback of window size change
      *
      * @param { 'windowSizeChange' } type - The value is fixed at 'windowSizeChange', indicating the window size change event.
      * @param { Callback<Size> } callback - Callback used to return the window size.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types; 
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types;
      *                                                                  2. Parameter verification failed.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 11
      */
     /**
-     * Unregister the callback of windowSizeChange
+     * Unregister the callback of window size change
      *
-     * @param { 'windowSizeChange' } type - The value is fixed at 'windowSizeChange', indicating the window size change event.
-     * @param { Callback<Size> } callback - Callback used to return the window size.
+     * @param { 'windowSizeChange' } type - The value is fixed at 'windowSizeChange', indicating the window size change
+     *     event.
+     * @param { Callback<Size> } [callback] - Callback used to return the window size.
+     *     If not provided, all callbacks for the given event type will be removed.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types;
      *                                                                  2. Parameter verification failed.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -9087,20 +9090,20 @@ declare namespace window {
      *
      * @param { 'windowStatusChange' } type - The value is fixed at 'windowStatusChange', indicating the window status change event.
      * @param { Callback<WindowStatusType> } callback - Callback used to return the window status.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types; 
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
+     *                                                                  2. Incorrect parameter types;
      *                                                                  3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
     /**
-     * Register the callback of windowStatusChange
+     * Register the callback of window status change
      *
      * @param { 'windowStatusChange' } type - The value is fixed at 'windowStatusChange', indicating the window status change event.
      * @param { Callback<WindowStatusType> } callback - Callback used to return the window status.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types; 
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
+     *                                                                  2. Incorrect parameter types;
      *                                                                  3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @syscap SystemCapability.Window.SessionManager
@@ -9108,12 +9111,12 @@ declare namespace window {
      * @since 12
      */
     /**
-     * Register the callback of windowStatusChange
+     * Register the callback of window status change
      *
      * @param { 'windowStatusChange' } type - The value is fixed at 'windowStatusChange', indicating the window status change event.
      * @param { Callback<WindowStatusType> } callback - Callback used to return the window status.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types; 
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
+     *                                                                  2. Incorrect parameter types;
      *                                                                  3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @syscap SystemCapability.Window.SessionManager
@@ -9136,22 +9139,22 @@ declare namespace window {
     onWindowStatusChange(callback: Callback<WindowStatusType>): void;
 
     /**
-     * Unregister the callback of windowStatusChange
+     * Unregister the callback of window status change
      *
      * @param { 'windowStatusChange' } type - The value is fixed at 'windowStatusChange', indicating the window status change event.
      * @param { Callback<WindowStatusType> } callback - Callback used to return the window status.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types; 
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types;
      *                                                                  2. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
     /**
-     * Unregister the callback of windowStatusChange
+     * Unregister the callback of window status change
      *
      * @param { 'windowStatusChange' } type - The value is fixed at 'windowStatusChange', indicating the window status change event.
      * @param { Callback<WindowStatusType> } callback - Callback used to return the window status.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types; 
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types;
      *                                                                  2. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @syscap SystemCapability.Window.SessionManager
@@ -9159,11 +9162,12 @@ declare namespace window {
      * @since 12
      */
     /**
-     * Unregister the callback of windowStatusChange
+     * Unregister the callback of window status change
      *
      * @param { 'windowStatusChange' } type - The value is fixed at 'windowStatusChange', indicating the window status change event.
-     * @param { Callback<WindowStatusType> } callback - Callback used to return the window status.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types; 
+     * @param { Callback<WindowStatusType> } [callback] - Callback used to return the window status.
+     *     If not provided, all callbacks for the given event type will be removed.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types;
      *                                                                  2. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @syscap SystemCapability.Window.SessionManager
@@ -12439,12 +12443,12 @@ declare namespace window {
      setWindowMask(windowMask: Array<Array<long>>): Promise<void>;
 
     /**
-     * Register the callback of windowRectChange
+     * Register the callback of window rect change
      *
      * @param { 'windowRectChange' } type - The value is fixed at 'windowRectChange', indicating the window rect change event.
      * @param { Callback<RectChangeOptions> } callback - Callback used to return the RectChangeOptions.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types; 
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
+     *                                                                  2. Incorrect parameter types;
      *                                                                  3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
@@ -12469,11 +12473,12 @@ declare namespace window {
     onWindowRectChange(callback: Callback<RectChangeOptions>): void;
 
     /**
-     * Unregister the callback of windowRectChange
+     * Unregister the callback of window rect change
      *
      * @param { 'windowRectChange' } type - The value is fixed at 'windowRectChange', indicating the window rect change event.
-     * @param { Callback<RectChangeOptions> } callback - Callback used to return the RectChangeOptions.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types; 
+     * @param { Callback<RectChangeOptions> } [callback] - Callback used to return the RectChangeOptions.
+     *     If not provided, all callbacks for the given event type will be removed.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types;
      *                                                                  2. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
