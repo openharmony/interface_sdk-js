@@ -343,7 +343,7 @@ declare interface EntryOptions {
    * @atomicservice
    * @since 23 dynamic
    */
-  routeName? : string,
+  routeName? : string;
 
   /**
    * LocalStorage to be passed.
@@ -372,7 +372,7 @@ declare interface EntryOptions {
    * @atomicservice
    * @since 23 dynamic
    */
-  storage? : LocalStorage,
+  storage? : LocalStorage;
 
   /**
    * Determines whether to use the LocalStorage instance object returned by the LocalStorage.getShared() interface.
