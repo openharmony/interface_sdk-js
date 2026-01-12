@@ -16786,7 +16786,13 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 23 static
+     */
+    /**
+     * Human body detection type.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 23 dynamic&static
      */
     HUMAN_BODY = 1,
 
@@ -17138,14 +17144,14 @@ declare namespace camera {
     /**
      * Confidence for the detected type.
      *
-     * @type { int }
+     * @type { double }
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
      * @since 23 static
      */
-    readonly confidence: int;
+    readonly confidence: double;
   }
 
   /**
@@ -17198,14 +17204,14 @@ declare namespace camera {
     /**
      * Emotion confidence.
      *
-     * @type { int }
+     * @type { double }
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
      * @since 23 static
      */
-    readonly emotionConfidence: int;
+    readonly emotionConfidence: double;
 
     /**
      * Pitch angle for face.
@@ -17615,7 +17621,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 23 static
+     */
+    /**
+     * Add metadata object types.
+     *
+     * @param { Array<MetadataObjectType> } types - Object types to be added.
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 23 dynamic&static
      */
     addMetadataObjectTypes(types: Array<MetadataObjectType>): void;
 
@@ -17630,7 +17646,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 23 static
+     */
+    /**
+     * Remove metadata object types.
+     *
+     * @param { Array<MetadataObjectType> } types - Object types to be removed.
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 23 dynamic&static
      */
     removeMetadataObjectTypes(types: Array<MetadataObjectType>): void;
 
