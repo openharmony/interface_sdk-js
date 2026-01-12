@@ -19,7 +19,9 @@
  * @kit ArkUI
  */
 
-import { Dimension, FontStyle, FontWeight, Resource, ResourceColor, Component, State } from '@ohos.arkui.component';
+import { Dimension, FontStyle, FontWeight, Resource, ResourceColor, Component } from '@ohos.arkui.component';
+
+import { State } from '@ohos.arkui.stateManagement';
 
 /**
  * Enum for DownloadIconStyle
