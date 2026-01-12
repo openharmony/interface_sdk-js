@@ -1632,8 +1632,8 @@ export declare class CanvasRenderingContext2D extends CanvasRenderer {
   /**
    * Retrieves a 2D rendering context from the specified drawing context.
    *
-   * @Params { DrawingRenderingContext } drawingContext - A drawing rendering context.
-   * @Params { RenderingContextOptions } [options] - options of CanvasRenderingContext2D.
+   * @param { DrawingRenderingContext } drawingContext - A drawing rendering context.
+   * @param { RenderingContextOptions } [options] - options of the 2D rendering context.
    * @returns { CanvasRenderingContext2D } - Returns a 2D rendering context that is bound to
    *     the same canvas component as the input drawingContext.
    * @throws { BusinessError } 103702 - The drawingContext is not bound to a canvas component.
@@ -1844,9 +1844,9 @@ export declare interface CanvasAttribute extends CommonMethod {
   /**
    * Event notification after the canvas component is constructed. You can draw the canvas at this time.
    *
-   * @param { Callback<DrawingRenderingContext | undefined> | undefined } event.
-   *     Passing undefined means unbinding the callback.
-   *     Returns a { @link DrawingRenderingContext } object if the canvas is constructed by { @link CanvasParams },
+   * @param { Callback<DrawingRenderingContext | undefined> | undefined } event - Passing undefined
+   *     means unbinding the callback.Returns a { @link DrawingRenderingContext } object
+   *     if the canvas is constructed by { @link CanvasParams },
    *     otherwise returns undefined.
    * @returns { CanvasAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full

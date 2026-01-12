@@ -5608,8 +5608,8 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
   /**
    * Retrieves a 2D rendering context from the specified drawing context.
    *
-   * @param { DrawingRenderingContext } drawingContext - A drawing rendering context.
-   * @param { RenderingContextOptions } [options] - options of CanvasRenderingContext2D.
+   * @param { DrawingRenderingContext } drawingContext - A DrawingRenderingContext object.
+   * @param { RenderingContextOptions } [options] - options for the 2D rendering context.
    * @returns { CanvasRenderingContext2D } - Returns a 2D rendering context that is bound to
    *     the same canvas component as the input drawingContext.
    * @throws { BusinessError } 103702 - The drawingContext is not bound to a canvas component.
