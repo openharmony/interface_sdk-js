@@ -11173,14 +11173,17 @@ export declare interface CommonMethod {
     /**
      * Menu control
      *
-     * @param { boolean | undefined } isShow true means display menu, false means hide menu, default is false.
+     * @param { boolean | Bindable<boolean> | undefined } isShow - Menu display switch,
+     *     supports incoming two-way binding parameters.
+     *     true means display menu, false means hide menu, default is false.
      * @param { Array<MenuElement> | CustomBuilder | undefined } content - Indicates the content of menu.
      * @param { MenuOptions } [options] - Indicates the options of menu.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
-    default bindMenu(isShow: boolean | undefined, content: Array<MenuElement> | CustomBuilder | undefined, options?: MenuOptions): this;
+    default bindMenu(isShow: boolean | Bindable<boolean> | undefined, content: Array<MenuElement> | CustomBuilder | undefined, options?: MenuOptions): this;
     /**
      * Binds a context menu to this component, which is displayed when the user long-presses or right-clicks the
      * component. Only custom menu items are supported.
@@ -11208,9 +11211,11 @@ export declare interface CommonMethod {
      */
     default bindContextMenuWithResponse(content: CustomBuilderT<ResponseType> | undefined, options?: ContextMenuOptions): this;
     /**
-     * Binds a context menu to the component, whose visibility is subject to the isShown settings.
+     * Binds a context menu to the component, whose visibility is subject to the isShow settings.
      *
-     * @param { boolean | undefined } isShown - true means display content, false means hide content, default is false.
+     * @param { boolean | Bindable<boolean> | undefined } isShow - Menu display switch,
+     *     supports incoming twoway binding parameters.
+     *     true means display content, false means hide content, default is false.
      *     <p><strong>NOTE</strong>:
      *     <br>The menu can be displayed properly only when the related page has been constructed. If this parameter is set
      *     to true before the construction is complete, display issues, such as misplacement, distortion, or failure to pop
@@ -11220,9 +11225,10 @@ export declare interface CommonMethod {
      * @param { ContextMenuOptions } [options] - Indicates the options of context menu.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
-    default bindContextMenu(isShown: boolean | undefined, content: CustomBuilder | undefined, options?: ContextMenuOptions): this;
+    default bindContextMenu(isShow: boolean | Bindable<boolean> | undefined, content: CustomBuilder | undefined, options?: ContextMenuOptions): this;
     /**
      * Binds a modal page to the component, whose visibility is subject to the isShow settings.
      *
