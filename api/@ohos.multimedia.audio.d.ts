@@ -255,33 +255,7 @@ declare namespace audio {
    */
   function createAudioCapturer(options: AudioCapturerOptions): Promise<AudioCapturer>;
 
-  /**
-   * Obtains a special {@link AudioCapturer} instance. This method uses a promise to return the capturer instance.
-   * This capture can be used to record both Mic-In audio data and echo reference signal, for application to
-   * process algorithm.
-   * Mic-In audio data and echo reference signal will be put in one buffer or multiple buffers according to
-   * configuration set by application
-   * Capturer is also not allowed to be created when application is in background.
-   * @permission ohos.permission.MICROPHONE
-   * @param { AudioCapturerMicInOptions } options - Capturer configurations, see {@link #AudioCapturerMicInOptions}
-   *     for details.
-   * * @returns { Promise<AudioCapturer | null> } Promise used to return the audio capturer instance.
-   *     or null if any error occurs.
-   * @throws { BusinessError } 201 - Permission denied, including background recording.
-   * @throws { BusinessError } 202 - Not system App.
-   * @throws { BusinessError } 6800101 - Parameter verification failed.
-   * @throws { BusinessError } 6800104 - Capturer creation is not supported, may caused by following problems:
-   *     <br> 1.Source type is unsupported for this capturer, only {@link #SOURCE_TYPE_UNPROCESSED_VOICE_ASSISTANT} is
-   *     supported currently.
-   *     <br> 2.Echo referce signal's congig is unsupported, echo reference's sampling rate and format must be the
-   *     same as MicIn audio data currently.
-   * @syscap SystemCapability.Multimedia.Audio.Capturer
-   * @systemapi
-   * @stagemodelonly
-   * @since 23 dynamic&static
-   */
-  function createMicInAudioCapturer(options: AudioCapturerMicInOptions): Promise<AudioCapturer | null>;
-
+  zyyyy
   /**
    * Obtains an {@link AudioCapturer} instance. This method uses a promise to return the capturer instance.
    * Using {@link #AudioCapturer} to record audio will need permission according to different {@link #Sourcetype}
