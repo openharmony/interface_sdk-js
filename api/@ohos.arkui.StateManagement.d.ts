@@ -12,12 +12,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
+
 /**
  * @file State management API file
  * @kit ArkUI
  */
- 
+
 import contextConstant from '@ohos.app.ability.contextConstant';
 import collections from '@arkts.collections';
 
@@ -151,7 +151,7 @@ export declare class AppStorageV2 {
    */
   static keys(): Array<string>;
 }
- 
+
 /**
  * Function that returns reason type when error.
  *
@@ -191,7 +191,6 @@ export declare type CollectionType<S> = Array<S> | Map<string | number, S> |
  * @since 23 dynamic
  */
 export class ConnectOptionsCollections<T extends CollectionType<S>, S extends object> extends ConnectOptions<T> {
-  
   /**
    * Defines the function to create collection type
    * defaultCreator is already defined in the base class but with more loose type
@@ -241,7 +240,7 @@ export declare class PersistenceV2 extends AppStorageV2 {
   static globalConnect<T extends object>(
     type: ConnectOptions<T>
   ): T | undefined;
-  
+
   /**
    * Application-level storage path, sharing a storage path for all modules under the application.
    * If the value for the given key is already available, return the value.
@@ -283,7 +282,7 @@ export declare class PersistenceV2 extends AppStorageV2 {
    */
   static notifyOnError(callback: PersistenceErrorCallback | undefined): void;
 }
- 
+
 /**
  * Define TypeConstructor type.
  *
@@ -303,7 +302,7 @@ export interface TypeConstructor<T> {
    */
   new(): T;
 }
- 
+
 /**
  * Function that returns PropertyDecorator.
  *
@@ -316,7 +315,7 @@ export interface TypeConstructor<T> {
  * @since 12 dynamic
  */
 export declare type TypeDecorator = <T>(type: TypeConstructor<T>) => PropertyDecorator;
- 
+
 /**
  * Define Type PropertyDecorator, adds type information to an object.
  *
