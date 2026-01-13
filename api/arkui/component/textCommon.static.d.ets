@@ -1408,6 +1408,135 @@ export declare enum KeyboardFluidLightMode {
 }
 
 /**
+ * Defines the reason for text changes.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @stagemodelonly
+ * @since 23 static
+ */
+export declare enum TextChangeReason {
+    /**
+     * Default value.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static
+     */
+    UNKNOWN = 0,
+    /**
+     * Reason for input from input method.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static
+     */
+    INPUT = 1,
+    /**
+     * Reason for paste.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static
+     */
+    PASTE = 2,
+    /**
+     * Reason for cut.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static
+     */
+    CUT = 3,
+    /**
+     * Reason for drag.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static
+     */
+    DRAG = 4,
+    /**
+     * Reason for auto fill.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static
+     */
+    AUTO_FILL = 5,
+    /**
+     * Reason for ai write.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static
+     */
+    AI_WRITE = 6,
+    /**
+     * Reason for redo.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static
+     */
+    REDO = 7,
+    /**
+     * Reason for undo.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static
+     */
+    UNDO = 8,
+    /**
+     * Reason for controller methods.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static
+     */
+    CONTROLLER = 9,
+    /**
+     * Reason for accessibilty methods.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static
+     */
+    ACCESSIBILITY = 10,
+    /**
+     * Reason for collarboration input.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static
+     */
+    COLLABORATION = 11,
+    /**
+     * Reason for stylus input.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static
+     */
+    STYLUS = 12
+}
+
+/**
  * Vertical Alignment of text.
  *
  * @enum { number }

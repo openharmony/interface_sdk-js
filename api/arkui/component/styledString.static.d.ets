@@ -18,7 +18,7 @@
  * @kit ArkUI
  */
 
-import { Callback, ShadowOptions, ClickEvent, PixelMap, AttributeModifier, CommonMethod } from './common';
+import { Callback, ShadowOptions, ClickEvent, TouchEvent, PixelMap, AttributeModifier, CommonMethod } from './common';
 import { TextAlign, FontStyle, FontWeight, TextDecorationType, TextDecorationStyle, WordBreak, TextOverflow, ImageFit, ImageSpanAlignment } from './enums';
 import { ResourceStr, ResourceColor, LengthMetrics, SizeOptions, Margin, Padding, BorderRadiuses, ColorFilter } from './units';
 import { TextBackgroundStyle } from './span';
@@ -28,7 +28,7 @@ import { LeadingMarginPlaceholder } from './richEditor';
 import image from '../../@ohos.multimedia.image';
 import drawing from '../../@ohos.graphics.drawing';
 import { DrawContext } from '../../arkui/Graphics';
-import { TextDirection } from './textCommon';
+import { TextDirection, TextVerticalAlign } from './textCommon';
 
 /**
  * Defines the StyledStringMarshallingValue Type.
@@ -630,6 +630,15 @@ export declare interface GestureStyleInterface {
      * @since 23 static
      */
     onLongPress?: Callback<GestureEvent>;
+    /**
+     * Trigger a touch event when touched.
+     *
+     * @type { ?Callback<TouchEvent> }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    onTouch?: Callback<TouchEvent>;
 }
 /**
  * Defines ParagraphStyle.
@@ -655,6 +664,16 @@ export declare class ParagraphStyle {
      * @since 23 static
      */
     readonly textAlign?: TextAlign;
+    /**
+     * Get the text vertical alignment of the StyledString.
+     *
+     * @type { ?TextVerticalAlign } - the text vertical alignment of the StyledString or undefined
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    readonly textVerticalAlign?: TextVerticalAlign;
     /**
      * Get the first line indentation of the StyledString.
      * The unit is vp.
@@ -746,6 +765,15 @@ export declare interface ParagraphStyleInterface {
      * @since 23 static
      */
     textAlign?: TextAlign;
+    /**
+     * Vertical alignment of text.
+     *
+     * @type { ?TextVerticalAlign }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    textVerticalAlign?: TextVerticalAlign;
     /**
      * Set the first line indentation.
      *
