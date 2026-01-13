@@ -94,6 +94,7 @@ function start() {
     .version('0.0.1');
   program
     .option('--path <string>', 'path name')
+    .option('--type <string>', 'handle type')
     .option('--output <string>', 'output path')
     .option('--isPublic <string>', 'is Public')
     .option('--create-keep-file <string>', 'create keep file', 'false')
@@ -220,9 +221,18 @@ function isHandleFullPath(fullPath, apiRelativePath, type) {
  */
 function handleArktsDefinition(type, fileContent) {
   const REGX_DYNAMIC = /\/\*\*\* if arkts (1\.1|dynamic) \*\/\s*([\s\S]*?)\s*\/\*\*\* endif \*\//g;
+  const REGX_STATIC = /\/\*\*\* if arkts (1\.2|static) \*\/\s*([\s\S]*?)\s*\/\*\*\* endif \*\//g;
   const REGX_DYNAMIC_STATIC = /\/\*\*\* if arkts (1.1&1.2|dynamic&static) \*\/\s*([\s\S]*?)\s*\/\*\*\* endif \*\//g;
   fileContent = fileContent.replace(REGX_DYNAMIC, (substring, p1, p2) => {
     return type === DirType.dynamicApi ? p2 : '';
+  });
+  fileContent = fileContent.replace(REGX_STATIC, (substring, p1, p2) => {
+    // todo if arkts 特殊用法
+    if (type === DirType.staticApi) {
+      return p2.replace(/(\s*)(\*\s\@since\s*\S*)\s*(?=\r?\n)/g, '$1* @arkts 1.2$1$2 static');
+    } else {
+      return '';
+    }
   });
   fileContent = fileContent.replace(REGX_DYNAMIC_STATIC, (substring, p1, p2) => {
     // todo if arkts 特殊用法
