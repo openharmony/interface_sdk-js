@@ -1462,7 +1462,7 @@ declare namespace relationalStore {
      * @since 10 dynamic
      * @since 23 static
      */
-    SYNC_MODE_TIME_FIRST = 2,
+    SYNC_MODE_TIME_FIRST,
 
     /**
      * Indicates force push the native data to the cloud.
@@ -1471,7 +1471,7 @@ declare namespace relationalStore {
      * @since 10 dynamic
      * @since 23 static
      */
-    SYNC_MODE_NATIVE_FIRST = 3,
+    SYNC_MODE_NATIVE_FIRST,
 
     /**
      * Indicates the data is pulled from cloud to local device.
@@ -1480,7 +1480,7 @@ declare namespace relationalStore {
      * @since 10 dynamic
      * @since 23 static
      */
-    SYNC_MODE_CLOUD_FIRST = 4
+    SYNC_MODE_CLOUD_FIRST
   }
 
   /**
@@ -1540,7 +1540,7 @@ declare namespace relationalStore {
      * @since 12 dynamic
      * @since 23 static
      */
-    SUBSCRIBE_TYPE_LOCAL_DETAILS = 3
+    SUBSCRIBE_TYPE_LOCAL_DETAILS
   }
 
   /**
