@@ -17,8 +17,20 @@ const fs = require('fs');
 const path = require('path');
 const ts = require('typescript');
 const commander = require('commander');
+
+// 工具输出目录
+let output = '';
 // 处理的目录类型
 let dirType = '';
+// 是否需要打包静态SDK
+let sdkBuildArkts = false;
+/** @type {Array<string>}  只打包动态版本SDK需要过滤文件 */
+const deleteFilesOnlydynamicList = ['/api/@ohos.app.ability.InteropAbilityLifecycleCallback.d.ts'];
+/** @type {Map<string, Array<string>>} 只打包动态版本SDK需要接口  */
+const deleteApisOnlydynamicMap = new Map([
+  ['api/arkui/FrameNode.d.ts', ['isTransferred():boolean;']],
+  ['api/arkui/ComponentContent.d.ts', ['isTransferred():boolean;']]
+]);
 const deleteApiSet = new Set();
 const importNameSet = new Set();
 const ARKTS_FLAG = 'use static';
@@ -102,8 +114,11 @@ function start() {
     .option('--output <string>', 'output path')
     .option('--isPublic <string>', 'is Public')
     .option('--create-keep-file <string>', 'create keep file', 'false')
+    .option('--sdk-build-arkts <string>', 'sdk build arkts', 'false')
     .action((opts) => {
       dirType = opts.type;
+      sdkBuildArkts = opts.sdkBuildArkts.toLowerCase() === 'true';
+      output = opts.output;
       handleApiFiles(opts.path, opts.type, opts.output, opts.isPublic, opts.createKeepFile);
     });
   program.parse(process.argv);
@@ -167,6 +182,10 @@ function handleApiFiles(rootPath, type, output, isPublic, createKeepFile) {
  * @returns 
  */
 function handleApiFileByType(apiRelativePath, rootPath, type, output, isPublic) {
+  //只打包动态SDK过滤文件
+  if (!sdkBuildArkts && dirType === DirType.dynamicApi && deleteFilesOnlydynamicList.includes(apiRelativePath)) {
+    return;
+  }
   const fullPath = path.join(rootPath, apiRelativePath);
   const isEndWithEts = isEtsFile(apiRelativePath);
   const isEndWithTs = isTsFile(apiRelativePath);
@@ -358,7 +377,7 @@ function handleNoTagFileInFirstType(sourceFile, outputPath, fileContent) {
     writeFile(outputPath, fileContent);
     return;
   }
-  fileContent = deleteApi(sourceFile);
+  fileContent = deleteApi(sourceFile, outputPath);
 
   if (fileContent === '') {
     return;
@@ -566,7 +585,7 @@ function getFileJsdoc(firstNode) {
  */
 function handlehasTagFile(sourceFile, outputPath) {
   dirType = DirType.staticApi;
-  let newContent = getDeletionContent(sourceFile);
+  let newContent = getDeletionContent(sourceFile, outputPath);
   if (newContent === '') {
     return;
   }
@@ -598,7 +617,7 @@ function handleNoTagFileInSecondType(sourceFile, outputPath, fullPath) {
     }
     return;
   }
-  newContent = getDeletionContent(sourceFile);
+  newContent = getDeletionContent(sourceFile, outputPath);
   if (newContent === '') {
     return;
   }
@@ -725,8 +744,8 @@ function joinFileJsdoc(deletionContent, sourceFile) {
   return newContent;
 }
 
-function getDeletionContent(sourceFile) {
-  const deletionContent = deleteApi(sourceFile);
+function getDeletionContent(sourceFile, outputPath) {
+  const deletionContent = deleteApi(sourceFile, outputPath);
   if (deletionContent === '') {
     return '';
   }
@@ -789,8 +808,8 @@ function hasCopyright(fileText) {
 }
 
 // 创建 Transformer
-const transformer = (context) => {
-  return (rootNode) => {
+function transformer(outputPath) {
+  return (context) => {
     const visit = (node) => {
       //struct节点下面会自动生成constructor节点, 置为undefined
       if (node.kind === ts.SyntaxKind.Constructor && node.parent.kind === ts.SyntaxKind.StructDeclaration) {
@@ -798,7 +817,7 @@ const transformer = (context) => {
       }
 
       // 判断是否为要删除的变量声明
-      if ((apiNodeTypeArr.includes(node.kind) || validateExportDeclaration(node)) && judgeIsDeleteApi(node)) {
+      if ((apiNodeTypeArr.includes(node.kind) || validateExportDeclaration(node)) && judgeIsDeleteApi(node, outputPath)) {
         collectDeletionApiName(node);
         // 删除该节点
         return undefined;
@@ -807,7 +826,9 @@ const transformer = (context) => {
       // 非目标节点：继续遍历子节点
       return ts.visitEachChild(node, visit, context);
     };
-    return ts.visitNode(rootNode, visit);
+    return (rootNode) => {
+      return ts.visitNode(rootNode, visit);
+    };
   };
 };
 
@@ -817,11 +838,12 @@ function validateExportDeclaration(node) {
 
 /**
  * 删除API
- * @param {*} sourceFile 
+ * @param {ts.sourceFile} sourceFile 
+ * @param {string} outputPath 
  * @returns 
  */
-function deleteApi(sourceFile) {
-  let result = ts.transform(sourceFile, [transformer], { etsAnnotationsEnable: true });
+function deleteApi(sourceFile, outputPath) {
+  let result = ts.transform(sourceFile, [transformer(outputPath)], { etsAnnotationsEnable: true });
   const newSourceFile = result.transformed[0];
   if (isEmptyFile(newSourceFile)) {
     return '';
@@ -1021,10 +1043,19 @@ function processImportDeclaration(statement, needExportName) {
 /**
  * 判断node节点中是否有famodelonly/deprecated/arkts <=1.1标签
  * 
- * @param {*} node 
+ * @param {ts.node} node 
+ * @param {string} outputPath 
  * @returns 
  */
-function judgeIsDeleteApi(node) {
+function judgeIsDeleteApi(node, outputPath) {
+  let apiRelativePath = path.relative(output, outputPath).replace(/\\/g, '/');
+  const apiText = node.getText().replace(/ /g, '');
+  if (!sdkBuildArkts && dirType === DirType.dynamicApi && deleteApisOnlydynamicMap.has(apiRelativePath)) {
+    const deleteApisOnlydynamic = deleteApisOnlydynamicMap.get(apiRelativePath);
+    if (deleteApisOnlydynamic.includes(apiText)) {
+      return true;
+    }
+  }
   // 删除api适配arkts标签
   const notesContent = node.getFullText().replace(node.getText(), '');
   if (notesContent.replace(/\s/g, '') === '') {
