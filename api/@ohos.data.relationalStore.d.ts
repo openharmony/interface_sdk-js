@@ -7982,10 +7982,11 @@ declare namespace relationalStore {
      *
      * @throws { BusinessError } 401 - Parameter error.  Possible causes: The RdbStore verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -8001,10 +8002,8 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @FaAndStageModel
      * @crossplatform
      * @since 12 dynamic
-     * @since 23 static
      */
     beginTransaction(): void;
 
@@ -8060,10 +8059,11 @@ declare namespace relationalStore {
      *
      * @throws { BusinessError } 401 - Parameter error.  Possible causes: The RdbStore verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -8078,10 +8078,8 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @FaAndStageModel
      * @crossplatform
      * @since 12 dynamic
-     * @since 23 static
      */
     commit(): void;
 
@@ -8137,10 +8135,11 @@ declare namespace relationalStore {
      *
      * @throws { BusinessError } 401 - Parameter error.  Possible causes: The RdbStore verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -8155,10 +8154,8 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @FaAndStageModel
      * @crossplatform
      * @since 12 dynamic
-     * @since 23 static
      */
     rollBack(): void;
 
