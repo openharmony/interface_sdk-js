@@ -122,6 +122,7 @@ export declare interface UIExtensionOptions {
      * @type { ?Record<string, ComponentContentBase> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
+     * @stagemodelonly
      * @since 23 static
      */
     areaChangePlaceholder?: Record<string, ComponentContentBase>;
