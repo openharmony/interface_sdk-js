@@ -59,7 +59,7 @@ declare namespace relationalStore {
      * @since 10 dynamic
      * @since 23 static
      */
-    ASSET_NORMAL = 0,
+    ASSET_NORMAL,
 
     /**
      * ASSET_ABNORMAL: means the asset needs to be inserted.
@@ -69,7 +69,7 @@ declare namespace relationalStore {
      * @since 10 dynamic
      * @since 23 static
      */
-    ASSET_INSERT = 1,
+    ASSET_INSERT,
 
     /**
      * ASSET_ABNORMAL: means the asset needs to be updated.
@@ -79,7 +79,7 @@ declare namespace relationalStore {
      * @since 10 dynamic
      * @since 23 static
      */
-    ASSET_UPDATE = 2,
+    ASSET_UPDATE,
 
     /**
      * ASSET_ABNORMAL: means the asset needs to be deleted.
@@ -89,7 +89,7 @@ declare namespace relationalStore {
      * @since 10 dynamic
      * @since 23 static
      */
-    ASSET_DELETE = 3,
+    ASSET_DELETE,
 
     /**
      * ASSET_ABNORMAL: means the status of asset is abnormal.
@@ -99,7 +99,7 @@ declare namespace relationalStore {
      * @since 10 dynamic
      * @since 23 static
      */
-    ASSET_ABNORMAL = 4,
+    ASSET_ABNORMAL,
 
     /**
      * ASSET_DOWNLOADING: means the status of asset is downloading.
@@ -109,7 +109,7 @@ declare namespace relationalStore {
      * @since 10 dynamic
      * @since 23 static
      */
-    ASSET_DOWNLOADING = 5
+    ASSET_DOWNLOADING
   }
 
   /**
@@ -1462,7 +1462,7 @@ declare namespace relationalStore {
      * @since 10 dynamic
      * @since 23 static
      */
-    SYNC_MODE_TIME_FIRST = 2,
+    SYNC_MODE_TIME_FIRST,
 
     /**
      * Indicates force push the native data to the cloud.
@@ -1471,7 +1471,7 @@ declare namespace relationalStore {
      * @since 10 dynamic
      * @since 23 static
      */
-    SYNC_MODE_NATIVE_FIRST = 3,
+    SYNC_MODE_NATIVE_FIRST,
 
     /**
      * Indicates the data is pulled from cloud to local device.
@@ -1480,7 +1480,7 @@ declare namespace relationalStore {
      * @since 10 dynamic
      * @since 23 static
      */
-    SYNC_MODE_CLOUD_FIRST = 4
+    SYNC_MODE_CLOUD_FIRST
   }
 
   /**
@@ -1540,7 +1540,7 @@ declare namespace relationalStore {
      * @since 12 dynamic
      * @since 23 static
      */
-    SUBSCRIBE_TYPE_LOCAL_DETAILS = 3
+    SUBSCRIBE_TYPE_LOCAL_DETAILS
   }
 
   /**
