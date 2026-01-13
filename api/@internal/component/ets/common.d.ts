@@ -238,12 +238,14 @@ declare interface TextDecorationOptions {
  * Defining Component ClassDecorator
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
  * Defining Component ClassDecorator
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @form
  * @since 9
  */
@@ -251,6 +253,7 @@ declare interface TextDecorationOptions {
  * Defining Component ClassDecorator
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @since 10
@@ -259,7 +262,9 @@ declare interface TextDecorationOptions {
  * Defining Component ClassDecorator
  *
  * Component is a ClassDecorator and it supports ComponentOptions as parameters.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
@@ -271,6 +276,7 @@ declare const Component: ClassDecorator & ((options: ComponentOptions) => ClassD
  * Defining ComponentV2 ClassDecorator
  *
  * ComponentV2 is a ClassDecorator and it supports ComponentOptions as parameters.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
@@ -280,6 +286,7 @@ declare const Component: ClassDecorator & ((options: ComponentOptions) => ClassD
  * Defining ComponentV2 ClassDecorator
  *
  * ComponentV2 is a ClassDecorator and it supports ComponentOptions as parameters.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form
@@ -391,13 +398,16 @@ declare interface EntryOptions {
  * Defines Entry ClassDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
  * Defines Entry ClassDecorator.
  *
  * Entry is a ClassDecorator and it supports LocalStorage as parameters.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @form
  * @since 9
  */
@@ -405,7 +415,9 @@ declare interface EntryOptions {
  * Defines Entry ClassDecorator.
  *
  * Entry is a ClassDecorator and it supports LocalStorage or EntryOptions as parameters.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @since 10
@@ -414,7 +426,9 @@ declare interface EntryOptions {
  * Defines Entry ClassDecorator.
  *
  * Entry is a ClassDecorator and it supports LocalStorage or EntryOptions as parameters.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
@@ -426,12 +440,14 @@ declare const Entry: ClassDecorator & ((options?: LocalStorage | EntryOptions) =
  * Defining Observed ClassDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
  * Defining Observed ClassDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @form
  * @since 9
  */
@@ -447,6 +463,7 @@ declare const Entry: ClassDecorator & ((options?: LocalStorage | EntryOptions) =
  * Defining Observed ClassDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
@@ -458,6 +475,7 @@ declare const Observed: ClassDecorator;
  * Defining ObservedV2 ClassDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
@@ -469,12 +487,14 @@ declare const ObservedV2: ClassDecorator;
  * Defining Preview ClassDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
  * Defining Preview ClassDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @form
  * @since 9
  */
@@ -482,6 +502,7 @@ declare const ObservedV2: ClassDecorator;
  * Defining Preview ClassDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @since 10
@@ -490,6 +511,7 @@ declare const ObservedV2: ClassDecorator;
  * Defining Preview ClassDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
@@ -512,12 +534,14 @@ declare const Require: PropertyDecorator;
  * Defining BuilderParam PropertyDecorator
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
  * Defining BuilderParam PropertyDecorator
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @form
  * @since 9
  */
@@ -525,6 +549,7 @@ declare const Require: PropertyDecorator;
  * Defining BuilderParam PropertyDecorator
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @since 10
@@ -533,6 +558,7 @@ declare const Require: PropertyDecorator;
  * Defining BuilderParam PropertyDecorator
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
@@ -620,12 +646,14 @@ declare const Event: PropertyDecorator;
  * Defining State PropertyDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
  * Defining State PropertyDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @form
  * @since 9
  */
@@ -633,6 +661,7 @@ declare const Event: PropertyDecorator;
  * Defining State PropertyDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @since 10
@@ -641,6 +670,7 @@ declare const Event: PropertyDecorator;
  * Defining State PropertyDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
@@ -682,12 +712,14 @@ declare const Trace: PropertyDecorator;
  * Defining Prop PropertyDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
  * Defining Prop PropertyDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @form
  * @since 9
  */
@@ -695,6 +727,7 @@ declare const Trace: PropertyDecorator;
  * Defining Prop PropertyDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @since 10
@@ -703,6 +736,7 @@ declare const Trace: PropertyDecorator;
  * Defining Prop PropertyDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
@@ -714,12 +748,14 @@ declare const Prop: PropertyDecorator;
  * Defining Link PropertyDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
  * Defining Link PropertyDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @form
  * @since 9
  */
@@ -727,6 +763,7 @@ declare const Prop: PropertyDecorator;
  * Defining Link PropertyDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @since 10
@@ -735,6 +772,7 @@ declare const Prop: PropertyDecorator;
  * Defining Link PropertyDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
@@ -746,12 +784,14 @@ declare const Link: PropertyDecorator;
  * Defining ObjectLink PropertyDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
  * Defining ObjectLink PropertyDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @form
  * @since 9
  */
@@ -759,6 +799,7 @@ declare const Link: PropertyDecorator;
  * Defining ObjectLink PropertyDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @since 10
@@ -767,6 +808,7 @@ declare const Link: PropertyDecorator;
  * Defining ObjectLink PropertyDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
@@ -803,12 +845,14 @@ declare interface ProvideOptions {
  * Defining Provide PropertyDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
  * Defining Provide PropertyDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @form
  * @since 9
  */
@@ -816,6 +860,7 @@ declare interface ProvideOptions {
  * Defining Provide PropertyDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @since 10
@@ -824,6 +869,7 @@ declare interface ProvideOptions {
  * Defining Provide PropertyDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
@@ -832,8 +878,9 @@ declare interface ProvideOptions {
 declare const Provide: PropertyDecorator & ((value: string | ProvideOptions) => PropertyDecorator);
 
 /**
- * Defining Provider PropertyDecorator, aliasName is the only matching key and if 
+ * Defining Provider PropertyDecorator, aliasName is the only matching key and if
  * aliasName is the default, the default attribute name is regarded as aliasName.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
@@ -925,15 +972,18 @@ declare enum SystemProperties {
 };
 
 /**
- * Defining Consume PropertyDecorator.
+ * Defines the Consumption attribute decorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
+
  * @since 7
  */
 /**
  * Defining Consume PropertyDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @form
  * @since 9
  */
@@ -941,14 +991,16 @@ declare enum SystemProperties {
  * Defining Consume PropertyDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @since 10
  */
 /**
- * Defining Consume PropertyDecorator.
+ * Defining Consumption attribute decorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
@@ -957,9 +1009,10 @@ declare enum SystemProperties {
 declare const Consume: PropertyDecorator & ((value: string) => PropertyDecorator);
 
 /**
- * Defining Consumer PropertyDecorator, aliasName is the only matching key and 
+ * Defining Consumer PropertyDecorator, aliasName is the only matching key and
  * if aliasName is the default, the default attribute name is regarded as aliasName.
  * And @Consumer will find the nearest @Provider.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
@@ -1001,12 +1054,14 @@ declare const Computed: MethodDecorator;
  * Defining StorageProp PropertyDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
  * Defining StorageProp PropertyDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @since 10
  */
@@ -1014,6 +1069,7 @@ declare const Computed: MethodDecorator;
  * Defining StorageProp PropertyDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -1024,12 +1080,14 @@ declare const StorageProp: (value: string) => PropertyDecorator;
  * Defining StorageLink PropertyDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
  * Defining StorageLink PropertyDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @since 10
  */
@@ -1037,6 +1095,7 @@ declare const StorageProp: (value: string) => PropertyDecorator;
  * Defining StorageLink PropertyDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -1047,12 +1106,14 @@ declare const StorageLink: (value: string) => PropertyDecorator;
  * Defining Watch PropertyDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
  * Defining Watch PropertyDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @form
  * @since 9
  */
@@ -1060,6 +1121,7 @@ declare const StorageLink: (value: string) => PropertyDecorator;
  * Defining Watch PropertyDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @since 10
@@ -1068,6 +1130,7 @@ declare const StorageLink: (value: string) => PropertyDecorator;
  * Defining Watch PropertyDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
@@ -1079,12 +1142,14 @@ declare const Watch: (value: string) => PropertyDecorator;
  * Defining Builder MethodDecorator
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
  * Defining Builder MethodDecorator
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @form
  * @since 9
  */
@@ -1092,6 +1157,7 @@ declare const Watch: (value: string) => PropertyDecorator;
  * Defining Builder MethodDecorator
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @since 10
@@ -1100,6 +1166,7 @@ declare const Watch: (value: string) => PropertyDecorator;
  * Defining Builder MethodDecorator
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
@@ -1122,12 +1189,14 @@ declare const LocalBuilder: MethodDecorator;
  * Defining Styles MethodDecorator
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 8
  */
 /**
  * Defining Styles MethodDecorator
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @form
  * @since 9
  */
@@ -1135,6 +1204,7 @@ declare const LocalBuilder: MethodDecorator;
  * Defining Styles MethodDecorator
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @since 10
@@ -1143,6 +1213,7 @@ declare const LocalBuilder: MethodDecorator;
  * Defining Styles MethodDecorator
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
@@ -1154,12 +1225,14 @@ declare const Styles: MethodDecorator;
  * Defining Extend MethodDecorator
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
  * Defining Extend MethodDecorator
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @form
  * @since 9
  */
@@ -1167,6 +1240,7 @@ declare const Styles: MethodDecorator;
  * Defining Extend MethodDecorator
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @since 10
@@ -1175,6 +1249,7 @@ declare const Styles: MethodDecorator;
  * Defining Extend MethodDecorator
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
@@ -1596,12 +1671,14 @@ declare const CustomDialog: ClassDecorator;
  * Defining LocalStorageLink PropertyDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 9
  */
 /**
  * Defining LocalStorageLink PropertyDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @since 10
  */
@@ -1609,6 +1686,7 @@ declare const CustomDialog: ClassDecorator;
  * Defining LocalStorageLink PropertyDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -1619,6 +1697,7 @@ declare const LocalStorageLink: (value: string) => PropertyDecorator;
  * Defining LocalStorageProp PropertyDecorator
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @form
  * @since 9
  */
@@ -1626,6 +1705,7 @@ declare const LocalStorageLink: (value: string) => PropertyDecorator;
  * Defining LocalStorageProp PropertyDecorator
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @since 10
@@ -1634,6 +1714,7 @@ declare const LocalStorageLink: (value: string) => PropertyDecorator;
  * Defining LocalStorageProp PropertyDecorator
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
@@ -7791,6 +7872,7 @@ declare class TransitionEffect<
  *
  * @interface PreviewParams
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @form
  * @since 9
  */
@@ -7799,6 +7881,7 @@ declare class TransitionEffect<
  *
  * @interface PreviewParams
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
@@ -7910,6 +7993,7 @@ interface PreviewParams {
    *
    * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -7918,6 +8002,7 @@ interface PreviewParams {
    *
    * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -7930,6 +8015,7 @@ interface PreviewParams {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -7938,6 +8024,7 @@ interface PreviewParams {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -29378,12 +29465,14 @@ interface CommonInterface {
  * CommonInstance for ide.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
  * CommonInstance for ide.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @form
  * @since 9
  */
@@ -29391,6 +29480,7 @@ interface CommonInterface {
  * CommonInstance for ide.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @since 10
@@ -29399,6 +29489,7 @@ interface CommonInterface {
  * CommonInstance for ide.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
@@ -29410,12 +29501,14 @@ declare const CommonInstance: CommonAttribute;
  * Common for ide.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
  * Common for ide.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @form
  * @since 9
  */
@@ -29423,6 +29516,7 @@ declare const CommonInstance: CommonAttribute;
  * Common for ide.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @since 10
@@ -29431,6 +29525,7 @@ declare const CommonInstance: CommonAttribute;
  * Common for ide.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
@@ -31219,6 +31314,7 @@ declare type PromptActionDialogController = import('../api/@ohos.promptAction').
  *
  * @extends CommonAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
@@ -31226,6 +31322,7 @@ declare type PromptActionDialogController = import('../api/@ohos.promptAction').
  *
  * @extends CommonAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @form
  * @since 9
  */
@@ -31234,6 +31331,7 @@ declare type PromptActionDialogController = import('../api/@ohos.promptAction').
  *
  * @extends CommonAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @since 10
@@ -31243,6 +31341,7 @@ declare type PromptActionDialogController = import('../api/@ohos.promptAction').
  *
  * @extends CommonAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
@@ -31253,6 +31352,7 @@ declare type PromptActionDialogController = import('../api/@ohos.promptAction').
  *
  * @extends BaseCustomComponent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
@@ -31355,12 +31455,14 @@ declare class BaseCustomComponent extends CommonAttribute {
    * Customize the pop-up content constructor .
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
    * Customize the pop-up content constructor.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -31368,6 +31470,7 @@ declare class BaseCustomComponent extends CommonAttribute {
    * Customize the pop-up content constructor.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -31376,6 +31479,7 @@ declare class BaseCustomComponent extends CommonAttribute {
    * Customize the pop-up content constructor.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -31385,6 +31489,7 @@ declare class BaseCustomComponent extends CommonAttribute {
    * Customize the pop-up content constructor and it is migrated from class CustomComponent.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -31399,6 +31504,7 @@ declare class BaseCustomComponent extends CommonAttribute {
    * The aboutToAppear lifecycle callback of a custom component with a custom layout
    * is invoked during the layout process.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -31408,6 +31514,7 @@ declare class BaseCustomComponent extends CommonAttribute {
    * The aboutToAppear lifecycle callback of a custom component with a custom layout
    * is invoked during the layout process.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -31418,6 +31525,7 @@ declare class BaseCustomComponent extends CommonAttribute {
    * The aboutToAppear lifecycle callback of a custom component with a custom layout
    * is invoked during the layout process.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -31429,6 +31537,7 @@ declare class BaseCustomComponent extends CommonAttribute {
    * The aboutToAppear lifecycle callback of a custom component with a custom layout
    * is invoked during the layout process.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -31441,6 +31550,7 @@ declare class BaseCustomComponent extends CommonAttribute {
    * The aboutToAppear lifecycle callback of a custom component with a custom layout
    * is invoked during the layout process.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -31453,6 +31563,7 @@ declare class BaseCustomComponent extends CommonAttribute {
    * Do not change state variables in the aboutToDisappear function as doing this can cause unexpected errors.
    * For example, the modification of the @Link decorated variable may cause unstable application running.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -31460,6 +31571,7 @@ declare class BaseCustomComponent extends CommonAttribute {
    * Do not change state variables in the aboutToDisappear function as doing this can cause unexpected errors.
    * For example, the modification of the @Link decorated variable may cause unstable application running.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -31468,6 +31580,7 @@ declare class BaseCustomComponent extends CommonAttribute {
    * Do not change state variables in the aboutToDisappear function as doing this can cause unexpected errors.
    * For example, the modification of the @Link decorated variable may cause unstable application running.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -31477,6 +31590,7 @@ declare class BaseCustomComponent extends CommonAttribute {
    * Do not change state variables in the aboutToDisappear function as doing this can cause unexpected errors.
    * For example, the modification of the @Link decorated variable may cause unstable application running.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -31487,6 +31601,7 @@ declare class BaseCustomComponent extends CommonAttribute {
    * Do not change state variables in the aboutToDisappear function as doing this can cause unexpected errors.
    * For example, the modification of the @Link decorated variable may cause unstable application running.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -32039,6 +32154,7 @@ declare class BaseCustomComponent extends CommonAttribute {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @FaAndStageModel
  * @form
  * @since 9 dynamic
  */
@@ -32050,6 +32166,7 @@ declare class View {
    * @returns { any }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -32059,6 +32176,7 @@ declare class View {
    * @returns { any }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 9 dynamic
    */
