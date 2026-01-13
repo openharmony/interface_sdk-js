@@ -774,7 +774,7 @@ declare namespace inputMethod {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead inputMethod.InputMethodSetting#showOptionalInputMethods
+     * @useinstead ohos.inputMethodList/InputMethodListDialog
      */
     displayOptionalInputMethod(callback: AsyncCallback<void>): void;
 
@@ -783,7 +783,7 @@ declare namespace inputMethod {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead inputMethod.InputMethodSetting#showOptionalInputMethods
+     * @useinstead ohos.inputMethodList/InputMethodListDialog
      */
     displayOptionalInputMethod(): Promise<void>;
 
