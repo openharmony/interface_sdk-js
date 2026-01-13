@@ -2883,6 +2883,45 @@ export declare class ResolvedUIContext extends UIContext {
 export declare class UIContext {
 
   /**
+   * Gets the UIContext associated with the current calling scope.
+   * @returns { UIContext | undefined } - The UIContext for the current calling scope,
+   *     or undefined if no context can be determined from the call stack.
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  static getCallingScopeUIContext(): UIContext | undefined;
+
+  /**
+   * Gets the UIContext of the last focused UI instance if one exists.
+   * @returns { UIContext | undefined } - The UIContext of the last focused UI instance or undefined if no one exists.
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  static getLastFocusedUIContext(): UIContext | undefined;
+
+  /**
+   * Gets the UIContext of the last foregrounded UI instance if one exists.
+   * @returns { UIContext | undefined } - The UIContext of the last foregrounded UI instance or undefined if no one
+   *     exists
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  static getLastForegroundUIContext(): UIContext | undefined;
+
+  /**
+   * Gets all currently active UIContext instances.
+   * @returns { UIContext[] } - An array containing all valid UIContext instances,
+   *     returns an empty array if no contexts are available.
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  static getAllUIContexts(): UIContext[];
+
+  /**
    * Resolves a UIContext using priority strategy.
    *
    * Resolves and returns a UIContext instance following a predefined priority sequence.
