@@ -8122,7 +8122,12 @@ declare namespace avSession {
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi
    * @since 9 dynamic
-   * @since 23 static
+   */
+  /**
+   * The description of the session
+   * @interface AVSessionDescriptor
+   * @syscap SystemCapability.Multimedia.AVSession.Manager
+   * @since 23 dynamic&static
    */
   interface AVSessionDescriptor {
     /**
@@ -8131,7 +8136,12 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.Manager
      * @systemapi
      * @since 9 dynamic
-     * @since 23 static
+     */
+    /**
+     * Unique ID of the session
+     * @type { string }
+     * @syscap SystemCapability.Multimedia.AVSession.Manager
+     * @since 23 dynamic&static
      */
     sessionId: string;
 
@@ -8141,7 +8151,12 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.Manager
      * @systemapi
      * @since 9 dynamic
-     * @since 23 static
+     */
+    /**
+     * Session type, currently supports audio or video
+     * @type { AVSessionType }
+     * @syscap SystemCapability.Multimedia.AVSession.Manager
+     * @since 23 dynamic&static
      */
     type: AVSessionType;
 
@@ -8151,7 +8166,12 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.Manager
      * @systemapi
      * @since 9 dynamic
-     * @since 23 static
+     */
+    /**
+     * The session tag set by the application
+     * @type { string }
+     * @syscap SystemCapability.Multimedia.AVSession.Manager
+     * @since 23 dynamic&static
      */
     sessionTag: string;
 
@@ -8161,7 +8181,12 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.Manager
      * @systemapi
      * @since 9 dynamic
-     * @since 23 static
+     */
+    /**
+     * The elementName of the ability that created this session. See {@link ElementName} in bundle/elementName.d.ts
+     * @type { ElementName }
+     * @syscap SystemCapability.Multimedia.AVSession.Manager
+     * @since 23 dynamic&static
      */
     elementName: ElementName;
 
@@ -8171,7 +8196,12 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.Manager
      * @systemapi
      * @since 9 dynamic
-     * @since 23 static
+     */
+    /**
+     * Session active state
+     * @type { boolean }
+     * @syscap SystemCapability.Multimedia.AVSession.Manager
+     * @since 23 dynamic&static
      */
     isActive: boolean;
 
@@ -8181,7 +8211,12 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.Manager
      * @systemapi
      * @since 9 dynamic
-     * @since 23 static
+     */
+    /**
+     * Is it the top priority session
+     * @type { boolean }
+     * @syscap SystemCapability.Multimedia.AVSession.Manager
+     * @since 23 dynamic&static
      */
     isTopSession: boolean;
 
