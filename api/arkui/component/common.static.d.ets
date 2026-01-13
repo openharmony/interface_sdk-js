@@ -4476,11 +4476,11 @@ export declare interface MouseEvent extends BaseEvent {
     /**
      * Stops the event from bubbling upwards or downwards.
      *
-     * @type { function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
-    stopPropagation: () => void;
+    stopPropagation(): void;
     /**
      * X axis offset relative to the previous reported mouse pointer position. When the mouse pointer is at
      * the edge of the screen, the value may be less than the difference of the X coordinate reported twice.
@@ -5745,9 +5745,10 @@ export declare interface KeyEvent {
      * Block event bubbling.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
-    stopPropagation: () => void;
+    stopPropagation(): void;
     /**
      * Intention code of a key or modifier keys.
      *
