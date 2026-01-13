@@ -4552,6 +4552,30 @@ declare namespace bundleManager {
   function getBundleInstallStatus(bundleName: string): BundleInstallStatus;
 
   /**
+   * Check whether a specified application is forbidden to be disabled.
+   * If you need to check whether an application is forbidden to be disabled under the current user,
+   * ohos.permission.GET_BUNDLE_INFO_PRIVILEGED needs to be applied for.
+   * If you need to check whether an application is forbidden to be disabled under other users,
+   * ohos.permission.GET_BUNDLE_INFO_PRIVILEGED and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS need to be applied for.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or (ohos.permission.GET_BUNDLE_INFO_PRIVILEGED and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS)
+   * @param { string } bundleName - Indicates the bundle name.
+   * @param { int } userId - Indicates the user ID.
+   * @param { int } appIndex - Indicates the index of clone app.
+   * @returns { boolean } Returns true if the application is forbidden to be disabled; returns false otherwise.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied. Non-system APP calling system API.
+   * @throws { BusinessError } 17700001 - The specified bundle is not found.
+   * @throws { BusinessError } 17700004 - The specified user ID is not found.
+   * @throws { BusinessError } 17700061 - The specified app index is invalid.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  function isApplicationDisableForbidden(bundleName: string, userId: int, appIndex: int): boolean;
+
+  /**
    * Obtains configuration information about an application.
    *
    * @typedef { _ApplicationInfo }
