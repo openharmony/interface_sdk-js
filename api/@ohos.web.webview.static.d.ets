@@ -6753,18 +6753,6 @@ declare namespace webview {
      * @since 23 static
      */
     type OneParamFn<T,V=void> = (param: T) => V;
-
-    /**
-     * The function with two parameter.
-     *
-     * @typedef { function } twoParamFn
-     * @param { T } paramA - the first param.
-     * @param { C } paramB - the second param.
-     * @returns { V } The return value.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 23 static
-     */
-    type TwoParamFn<T,C,V=void> = (paramA: T,paramB: C) => V;
 }
 
 export default webview;
