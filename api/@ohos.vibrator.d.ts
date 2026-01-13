@@ -501,7 +501,6 @@ declare namespace vibrator {
      * @type { boolean }
      * @syscap SystemCapability.Sensors.MiscDevice
      * @since 19 dynamic
-     * @since 23 static
      */
     /**
      * Indicates whether the effect is supported, true means supported, false means not supported.
