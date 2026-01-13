@@ -4570,7 +4570,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 12 dynamic
+     * @since 12 dynamiconly
      */
     getSendableRow(): sendableRelationalStore.ValuesBucket;
 
@@ -5491,7 +5491,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 12 dynamic
+     * @since 12 dynamiconly
      */
     insertSync(table: string, values: sendableRelationalStore.ValuesBucket, conflict?: ConflictResolution): number;
 
@@ -8001,8 +8001,10 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @FaAndStageModel
      * @crossplatform
      * @since 12 dynamic
+     * @since 23 static
      */
     beginTransaction(): void;
 
@@ -8076,8 +8078,10 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @FaAndStageModel
      * @crossplatform
      * @since 12 dynamic
+     * @since 23 static
      */
     commit(): void;
 
@@ -8151,8 +8155,10 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @FaAndStageModel
      * @crossplatform
      * @since 12 dynamic
+     * @since 23 static
      */
     rollBack(): void;
 
@@ -10092,7 +10098,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 14 dynamic
+     * @since 14 dynamiconly
      */
     insertSync(table: string, values: ValuesBucket | sendableRelationalStore.ValuesBucket, conflict?: ConflictResolution): number;
 
