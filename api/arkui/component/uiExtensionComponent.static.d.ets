@@ -111,6 +111,7 @@ export declare interface UIExtensionOptions {
      * @type { ?ComponentContentBase }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
+     * @stagemodelonly
      * @since 23 static
      */
     placeholder?: ComponentContentBase;
