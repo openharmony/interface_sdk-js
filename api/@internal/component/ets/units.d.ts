@@ -3793,6 +3793,38 @@ declare interface ScrollBarMargin {
 }
 
 /**
+ * Define cache count information.
+ *
+ * @interface CacheCountInfo
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 22 dynamic
+ */
+declare interface CacheCountInfo {
+  /**
+   * min cache count.
+   * 
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  minCount: number;
+  /**
+   * max cache count.
+   * 
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  maxCount: number;
+}
+
+/**
  * Define a responsive item filling pattern that can be used in WaterFlow,Grid,List, and Swiper components.
  *
  * @typedef { PresetFillType } ResponsiveFillType
@@ -3824,34 +3856,4 @@ declare interface ItemFillPolicy {
     * @since 22 dynamic
     */
   fillType?: ResponsiveFillType;
-}
-/**
- * Define cache count information.
- * @interface CacheCountInfo
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 22 dynamic
- */
-declare interface CacheCountInfo {
-/**
- * min cache count.
- * 
- * @type { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 22 dynamic
- */
-minCount: number;
-/**
- * max cache count.
- * 
- * @type { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 22 dynamic
- */
-maxCount: number;
 }
