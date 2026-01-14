@@ -54,7 +54,6 @@ declare namespace formObserver {
    * <p>You can use this method to listen to the event of add form.</p>
    *
    * @permission ohos.permission.OBSERVE_FORM_RUNNING
-   * @param { 'formAdd' } type - Indicates event type.
    * @param { Callback<formInfo.RunningFormInfo> } [observerCallback] - The callback is used to return the running  form info.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - The application is not a system application.
