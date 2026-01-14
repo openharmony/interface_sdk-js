@@ -20,7 +20,7 @@
 import { CommonMethod, Bindable } from './common';
 import { CustomBuilder } from './builder';
 import { Length } from './units';
-import { ComponentContent } from '../ComponentContent';
+import { ComponentContent, ComponentContentBase } from '../ComponentContent';
 import { ComponentBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from "./common";
 import { FrameNode } from '../FrameNode';
@@ -164,11 +164,11 @@ export declare interface SwipeActionItem {
       * An action item that appears when a list item slides right (when list direction is Vertical) or
       * slides down (when list direction Horizontal).
       *
-      * @type { ?ComponentContent }
+      * @type { ?ComponentContentBase }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
       * @since 23 static
       */
-    builderComponent?: ComponentContent;
+    builderComponent?: ComponentContentBase;
     /**
      * Defines distance for the delete area.
      *
