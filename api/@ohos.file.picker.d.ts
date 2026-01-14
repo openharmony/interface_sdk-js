@@ -442,11 +442,12 @@ declare namespace picker {
    * Enumerates the types of documents selected.
    * Only 2-in-1 devices are supported.
    *
-   * @enum { number } DocumentSelectMode
+   * @enum { int } DocumentSelectMode
    * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
+   * @since 23 static
    */
   export enum DocumentSelectMode {
     /**
@@ -464,6 +465,7 @@ declare namespace picker {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
+     * @since 23 static
      */
     FILE = 0,
 
@@ -482,6 +484,7 @@ declare namespace picker {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
+     * @since 23 static
      */
     FOLDER = 1,
 
@@ -499,6 +502,7 @@ declare namespace picker {
      * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection
      * @atomicservice
      * @since 12 dynamic
+     * @since 23 static
      */
     MIXED = 2,
   }
@@ -506,10 +510,11 @@ declare namespace picker {
   /**
    * Enumerates the modes for saving documents.
    *
-   * @enum { number } DocumentPickerMode
+   * @enum { int } DocumentPickerMode
    * @syscap SystemCapability.FileManagement.UserFileService
    * @atomicservice
    * @since 12 dynamic
+   * @since 23 static
    */
     export enum DocumentPickerMode {
       /**
@@ -518,6 +523,7 @@ declare namespace picker {
        * @syscap SystemCapability.FileManagement.UserFileService
        * @atomicservice
        * @since 12 dynamic
+       * @since 23 static
        */
       DEFAULT = 0,
   
@@ -527,6 +533,7 @@ declare namespace picker {
        * @syscap SystemCapability.FileManagement.UserFileService
        * @atomicservice
        * @since 12 dynamic
+       * @since 23 static
        */
       DOWNLOAD = 1,
     }
@@ -534,10 +541,11 @@ declare namespace picker {
   /**
    * Enumerates file aggregation types. Only mobile phones are supported.
    *
-   * @enum { number } DocumentPickerMode
+   * @enum { int } DocumentPickerMode
    * @syscap SystemCapability.FileManagement.UserFileService
    * @atomicservice
    * @since 15 dynamic
+   * @since 23 static
    */
   export enum MergeTypeMode {
     /**
@@ -546,6 +554,7 @@ declare namespace picker {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice
      * @since 15 dynamic
+     * @since 23 static
      */
     DEFAULT = 0,
 
@@ -556,6 +565,7 @@ declare namespace picker {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice
      * @since 15 dynamic
+     * @since 23 static
      */
     AUDIO = 1,
 
@@ -566,6 +576,7 @@ declare namespace picker {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice
      * @since 15 dynamic
+     * @since 23 static
      */
     VIDEO = 2,
 
@@ -576,6 +587,7 @@ declare namespace picker {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice
      * @since 15 dynamic
+     * @since 23 static
      */
     DOCUMENT = 3,
 
@@ -586,6 +598,7 @@ declare namespace picker {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice
      * @since 15 dynamic
+     * @since 23 static
      */
     PICTURE = 4,
   }
@@ -881,7 +894,205 @@ declare namespace picker {
      * @default true
      * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection
      * @stagemodelonly
-     * @since 23 dynamic&static
+     * @since 23 dynamic
+     */
+    autoCreateEmptyFile?: boolean;
+  }
+
+  /**
+   * Defines the options for selecting documents.
+   *
+   * @typedef DocumentSelectOptions
+   * @syscap SystemCapability.FileManagement.UserFileService
+   * @since 23 static
+   */
+  interface DocumentSelectOptions {
+    /**
+     * Path of the document or directory to select.
+     * It is empty by default (the recently opened page is displayed).
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @since 23 static
+     */
+    defaultFilePathUri?: string;
+
+    /**
+     * Document suffix of the document to select. The value is a string array. 
+     * Each element specifies an option, which includes at most two parts with a vertical bar (|) in between.
+     * The first part is the description, and the second part is the document suffix.
+     * If there is no "|", the option does not have the description.
+     * Multiple document suffixes separated by a comma (,) are allowed in an option.
+     * The number of elements in a string array cannot exceed 100.
+     * This parameter is available only to the devices that have the required system capability.
+     * By default, no filtering is performed, that is, all documents are selected.
+     *
+     * @type { ?Array<string> }
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @since 23 static
+     */
+    fileSuffixFilters?: Array<string>;
+
+    /**
+     * Maximum number of documents that can be selected.
+     * Value range: 1 to 500.
+     * Only the devices with the required system capability can select directories,
+     * and only one directory can be selected at a time.
+     * Default value: 1.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @since 23 static
+     */
+    maxSelectNumber?: int;
+
+    /**
+     * Selection mode. Only 2-in-1 devices are supported. The default value is FILE.
+     *
+     * @type { ?DocumentSelectMode }
+     * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection
+     * @since 23 static
+     */
+    selectMode?: DocumentSelectMode;
+
+    /**
+     * Whether to start Picker.
+     * Default value: false.
+     * If authMode is true, defaultFilePathUri is mandatory, which specifies the URI of the file allowed to access.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection
+     * @since 23 static
+     */
+    authMode?: boolean;
+
+    /**
+     * Whether to enable the batch authorization mode.
+     * The value false (default) means to disable the batch authorization mode;
+     * the value true means to enable the batch authorization mode.
+     * The multiUriArray parameter only takes effect when multAuthMode is set to true.
+     * Only mobile phones are supported.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @since 23 static
+     */
+    multiAuthMode?: boolean;
+
+    /**
+     * 	Whether to pass the URIs for batch authorization (only files are supported).
+     *  This parameter is used with multAuthMode, and does not take effect when multAuthMode is set to false.
+     *  By default, this parameter is left empty.(The files displayed on the batch authorization page are empty.)
+     *  Only mobile phones are supported.
+     *
+     * @type { ?Array<string> }
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @since 23 static
+     */
+    multiUriArray?: Array<string>;  
+
+    /**
+     * Whether to enable the aggregation view mode for a file management application.
+     * The default value is DEFAULT, indicating that this parameter does not take effect and the aggregation view is disabled.
+     * If this parameter is set to a value other than DEFAULT, other parameters do not take effect.
+     * Only mobile phones are supported.
+     *
+     * @type { ?MergeTypeMode }
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @since 23 static
+     */
+    mergeMode?: MergeTypeMode;
+
+    /**
+     * Whether to support encryption (only files are supported). 
+     * The default value is false.
+     * If this parameter is set to true, the picker will display a button that allows the user, 
+     * files can be encrypted on the Picker page.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @since 23 static
+     */
+    isEncryptionSupported?: boolean;
+    
+    /**
+     * Theme color
+     *
+     * @type { ?CustomColors }
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @systemapi
+     * @since 23 static
+     */
+    themeColor?: CustomColors;
+  }
+
+  /**
+   * Defines the options for saving documents.
+   *
+   * @typedef DocumentSaveOptions
+   * @syscap SystemCapability.FileManagement.UserFileService
+   * @since 23 static
+   */
+  interface DocumentSaveOptions {
+    /**
+     * Name of the document to save.
+     * If this parameter is not specified, the user needs to enter the the document name.
+     *
+     * @type { ?Array<string> }
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @since 23 static
+     */
+    newFileNames?: Array<string>;
+
+    /**
+     * Path of the document or directory to save.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @since 23 static
+     */
+    defaultFilePathUri?: string;
+
+    /**
+     * Document suffix of the document to save. The value is a string array.
+     * Each element specifies an option, which includes at most two parts with a vertical bar (|) in between.
+     * The first part is the description, and the second part is the document suffix.
+     * If there is no "|", the option does not have the description. By default, all documents are saved.
+     *
+     * @type { ?Array<string> }
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @since 23 static
+     */
+    fileSuffixChoices?: Array<string>;
+    /**
+     * Mode for starting Picker. Default value: DEFAULT.
+     * If pickerMode is DOWNLOAD,
+     * the settings of newFileNames, defaultFilePathUri, and fileSuffixChoices do not take effect.
+     *
+     * @type { ?DocumentPickerMode }
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @since 23 static
+     */
+    pickerMode?: DocumentPickerMode;
+
+    /**
+     * Theme color
+     *
+     * @type { ?CustomColors }
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @systemapi
+     * @since 23 static
+     */
+    themeColor?: CustomColors;
+
+    /**
+     * Whether to create empty files, The default value is true, indicating that empty files will be created.
+     *
+     * @type { ?boolean }
+     * @default true
+     * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection
+     * @stagemodelonly
+     * @since 23 static
      */
     autoCreateEmptyFile?: boolean;
   }
@@ -901,6 +1112,7 @@ declare namespace picker {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
+   * @since 23 static
    */
   class DocumentViewPicker {
     /**
@@ -910,6 +1122,7 @@ declare namespace picker {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice
      * @since 12 dynamic
+     * @since 23 static
      */
     constructor();
 
@@ -922,6 +1135,7 @@ declare namespace picker {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice
      * @since 12 dynamic
+     * @since 23 static
      */
     constructor(context: Context);
 
@@ -934,6 +1148,7 @@ declare namespace picker {
      * @param { window.Window } window - Window instance created by the application.
      * @syscap SystemCapability.FileManagement.UserFileService
      * @since 13 dynamic
+     * @since 23 static
      */
     constructor(context: Context, window: window.Window);
 
@@ -960,6 +1175,7 @@ declare namespace picker {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
+     * @since 23 static
      */
     select(option?: DocumentSelectOptions): Promise<Array<string>>;
 
@@ -984,6 +1200,7 @@ declare namespace picker {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
+     * @since 23 static
      */
     select(option: DocumentSelectOptions, callback: AsyncCallback<Array<string>>): void;
 
@@ -1004,6 +1221,7 @@ declare namespace picker {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
+     * @since 23 static
      */
     select(callback: AsyncCallback<Array<string>>): void;
 
@@ -1030,6 +1248,7 @@ declare namespace picker {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
+     * @since 23 static
      */
     save(option?: DocumentSaveOptions): Promise<Array<string>>;
 
@@ -1054,6 +1273,7 @@ declare namespace picker {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
+     * @since 23 static
      */
     save(option: DocumentSaveOptions, callback: AsyncCallback<Array<string>>): void;
 
@@ -1074,6 +1294,7 @@ declare namespace picker {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
+     * @since 23 static
      */
     save(callback: AsyncCallback<Array<string>>): void;
 
@@ -1087,13 +1308,14 @@ declare namespace picker {
      * the file suffix specified in DocumentSaveOptions.fileSuffixChoices.
      * If no file suffix is specified, getSelectedIndex() returns -1.
      *
-     * @returns { number } Returns the index of the suffix array fileSuffixChoices configured by the user in DocumentSaveOptions.
+     * @returns { int } Returns the index of the suffix array fileSuffixChoices configured by the user in DocumentSaveOptions.
      * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection
      * @crossplatform
      * @atomicservice
      * @since 14 dynamic
+     * @since 23 static
      */
-    getSelectedIndex(): number;
+    getSelectedIndex(): int;
   }
 
   /**
@@ -1123,6 +1345,24 @@ declare namespace picker {
        */
       maxSelectNumber?: number;
     }
+
+  /**
+   * Defines the options for selecting audio clips.
+   *
+   * @syscap SystemCapability.FileManagement.UserFileService
+   * @since 23 static
+   */
+  interface AudioSelectOptions {
+    /**
+     * Maximum number of audio clips that can be selected.
+     * Default value: 1. Value range: 1 to 500
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @since 23 static
+     */
+    maxSelectNumber?: int;
+  }
 
   /**
    * Defines the options for saving audio clips.
@@ -1159,6 +1399,24 @@ declare namespace picker {
      */
     newFileNames?: Array<string>;
   }
+  /**
+   * Defines the options for saving audio clips.
+   *
+   * @typedef AudioSaveOptions
+   * @syscap SystemCapability.FileManagement.UserFileService
+   * @since 23 static
+   */
+  interface AudioSaveOptions {
+    /**
+     * File names of the audio clips to save.
+     * If this parameter is not specified, the user needs to enter the file names.
+     *
+     * @type { ?Array<string> }
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @since 23 static
+     */
+    newFileNames?: Array<string>;
+  }
 
   /**
    * Provides APIs for selecting and saving audio clips.
@@ -1175,6 +1433,7 @@ declare namespace picker {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
+   * @since 23 static
    */
   class AudioViewPicker {
     /**
@@ -1184,6 +1443,7 @@ declare namespace picker {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice
      * @since 12 dynamic
+     * @since 23 static
      */
     constructor();
 
@@ -1196,6 +1456,7 @@ declare namespace picker {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice
      * @since 12 dynamic
+     * @since 23 static
      */
     constructor(context: Context);
 
@@ -1222,6 +1483,7 @@ declare namespace picker {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
+     * @since 23 static
      */
     select(option?: AudioSelectOptions): Promise<Array<string>>;
 
@@ -1245,6 +1507,7 @@ declare namespace picker {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @crossplatform
      * @since 12 dynamic
+     * @since 23 static
      */
     select(option: AudioSelectOptions, callback: AsyncCallback<Array<string>>): void;
 
@@ -1264,6 +1527,7 @@ declare namespace picker {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @crossplatform
      * @since 12 dynamic
+     * @since 23 static
      */
     select(callback: AsyncCallback<Array<string>>): void;
 
@@ -1292,6 +1556,7 @@ declare namespace picker {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
+     * @since 23 static
      */
     save(option?: AudioSaveOptions): Promise<Array<string>>;
 
@@ -1317,6 +1582,7 @@ declare namespace picker {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @crossplatform
      * @since 12 dynamic
+     * @since 23 static
      */
     save(option: AudioSaveOptions, callback: AsyncCallback<Array<string>>): void;
 
@@ -1338,6 +1604,7 @@ declare namespace picker {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @crossplatform
      * @since 12 dynamic
+     * @since 23 static
      */
     save(callback: AsyncCallback<Array<string>>): void;
   }
