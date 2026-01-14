@@ -2264,20 +2264,6 @@ declare namespace audio {
      * @since 23 static
      */
     STREAM_USAGE_VOICE_CALL_ASSISTANT = 21,
-    /**
-     * Announcement usage.
-     * @syscap SystemCapability.Multimedia.Audio.Core
-     * @systemapi
-     * @since 23 dynamic&static
-     */
-    STREAM_USAGE_ANNOUNCEMENT = 22,
-    /**
-     * Emergency usage.
-     * @syscap SystemCapability.Multimedia.Audio.Core
-     * @systemapi
-     * @since 23 dynamic&static
-     */
-    STREAM_USAGE_EMERGENCY = 23,
   }
 
   /**
