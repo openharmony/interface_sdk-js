@@ -5206,6 +5206,14 @@ declare namespace wifiManager {
      * @since 23 static
      */
     goBand: GroupOwnerBand;
+
+    /**
+     * Group owner frequency
+     * @type { ?int }
+     * @syscap SystemCapability.Communication.WiFi.P2P
+     * @since 23 dynamic&static
+     */
+    goFreq?: int;
   }
 
   /**
