@@ -67,8 +67,7 @@ import {
 import { MarginType, PromptOptions, ExceptionPrompt } from '@ohos.arkui.advanced.ExceptionPrompt';
 import { Filter, FilterParams, FilterResult, FilterType } from '@ohos.arkui.advanced.Filter';
 import { AddFormMenuItem, FormMenuItemStyle, AddFormOptions } from '@ohos.arkui.advanced.FormMenu';
-import {
-  GridObjectSortComponentType, GridObjectSortComponentItem, GridObjectSortComponentOptions,
+import { GridObjectSortComponentType, GridObjectSortComponentItem, GridObjectSortComponentOptions,
   GridObjectSortComponent
 } from '@ohos.arkui.advanced.GridObjectSortComponent';
 import {
@@ -102,8 +101,7 @@ import { InterstitialDialogAction, IconStyle, TitlePosition, BottomOffset } from
 import componentSnapshot from '@ohos.arkui.componentSnapshot';
 import componentUtils from '@ohos.arkui.componentUtils';
 import dragController from '@ohos.arkui.dragController';
-import {
-  DrawableDescriptor, LayeredDrawableDescriptor, PixelMapDrawableDescriptor, AnimationOptions,
+import { DrawableDescriptor, LayeredDrawableDescriptor, PixelMapDrawableDescriptor, AnimationOptions,
   AnimatedDrawableDescriptor, AnimationController, DrawableDescriptorLoadedResult
 } from '@ohos.arkui.drawableDescriptor';
 import inspector from '@ohos.arkui.inspector';
@@ -121,8 +119,8 @@ ComponentRecycle, ComponentDisappear, CollectionType, ConnectOptionsCollections 
 import { RectShape, CircleShape, EllipseShape, PathShape } from '@ohos.arkui.shape';
 import {
   AtomicServiceBar, ComponentUtils, ContextMenuController, CursorController, DragController, Font, KeyboardAvoidMode, MediaQuery, OverlayManager,
-  PromptAction, Router, UIContext, UIInspector, UIObserver, PageInfo, SwiperDynamicSyncScene, SwiperDynamicSyncSceneType, MeasureUtils, FrameCallback,
-  OverlayManagerOptions, TargetInfo, MarqueeDynamicSyncScene, MarqueeDynamicSyncSceneType, TextMenuController,
+  PromptAction, Router, UIContext, UIInspector, UIObserver, PageInfo, SwiperDynamicSyncScene, SwiperDynamicSyncSceneType, MarqueeDynamicSyncScene,
+  MarqueeDynamicSyncSceneType, MeasureUtils, FrameCallback, OverlayManagerOptions, TargetInfo, TextMenuController,
   NodeIdentity, NodeRenderState, NodeRenderStateChangeCallback, Magnifier, ResolvedUIContext
 } from '@ohos.arkui.UIContext';
 import curves from '@ohos.curves';
@@ -188,7 +186,7 @@ import {
   MarqueeModifier, ProgressModifier, QRCodeModifier, TextClockModifier, TextTimerModifier, LineModifier, PathModifier,
   PolygonModifier, PolylineModifier, RectModifier, ShapeModifier, AlphabetIndexerModifier,
   HyperlinkModifier, MenuModifier, MenuItemModifier, PanelModifier, SymbolGlyphModifier, AttributeUpdater,
-  ContainerSpanModifier, SymbolSpanModifier, ParticleModifier, StepperModifier, PickerModifier
+  ContainerSpanModifier, SymbolSpanModifier, ParticleModifier, StepperModifier, UIPickerComponentModifier
 } from '@ohos.arkui.modifier';
 import { IDataSourcePrefetching, IPrefetcher, BasicPrefetcher } from '@ohos.arkui.Prefetcher';
 import {
@@ -243,6 +241,7 @@ import { HalfScreenLaunchComponent } from '@ohos.atomicservice.HalfScreenLaunchC
 import { GestureListenerType, GestureActionPhase, GestureTriggerInfo, GestureObserverConfigs, GestureListenerCallback } from '@ohos.arkui.UIContext';
 import { SwiperContentInfo, SwiperItemInfo } from '@ohos.arkui.UIContext';
 import imageGeneration from '@ohos.arkui.intelligence.imageGeneration';
+import uiMaterial from '@ohos.arkui.uiMaterial';
 export {
   AtomicServiceSearch, InputFilterParams, SearchButtonParams, MenuAlignParams, SearchParams, SelectParams, OperationParams,
   AddFormMenuItem, AddFormOptions, AlertDialog, Animator, AnimatorOptions, AnimatorResult, SimpleAnimatorOptions, App, AppResponse, AtomicServiceBar,
@@ -262,7 +261,7 @@ export {
   InterstitialDialogAction, IconStyle, TitlePosition, BottomOffset,
   LabelOptions, LayeredDrawableDescriptor, LoadingDialog, LocaleResponse, MarginType, Matrix4, MeasureOptions, MeasureText,
   MediaQuery, MediaQueryEvent, MediaQueryList, NodeController, NodeParam, NodeRenderType, Offset, OperateButton, OperateCheck, OperateIcon,
-  OperateItem, OperationOption, OperationType, OverlayManager, PathShape, PiPWindow, floatingBall, Pivot, Popup, PopupButtonOptions, PopupIconOptions, PopupOptions,
+  OperateItem, OperationOption, OperationType, OverlayManager, PathShape, PiPWindow, Pivot, Popup, PopupButtonOptions, PopupIconOptions, PopupOptions,
   PopupTextOptions, Position, PrefixIconOptions, ProgressButton, ProgressButtonV2, ProgressButtonV2Color, ProgressButtonV2ColorOptions, Prompt, PromptAction, PromptOptions, RectShape, RenderNode, RenderOptions, BuildOptions,
   RequestFullWindowOptions, Rotation, Router, RouterOptions, RouterState, Scale, ScreenOnVisibleOptions, SegmentButton, SegmentButtonItemOptionsArray,
   SegmentButtonOptions, SelectDialog, SelectOptions, SelectTitleBar, SelectTitleBarMenuItem, SelectionMenu,
@@ -276,7 +275,7 @@ export {
   ToolBarV2ItemImage, ToolBarV2ItemImageOptions, ToolBarV2, ToolBarV2Item, ToolBarV2ItemOptions, ToolBarV2Modifier, ToolBarV2ItemAction,
   TreeListenerManager, TreeView, UIContext, UIInspector, UIObserver, PageInfo, WindowExtensionAbility, WindowExtensionContext, XComponentNode,
   LengthMetrics, LengthUnit, ColorMetrics, LengthMetricsUnit, LayoutConstraint, ComponentContent, ReactiveComponentContent, NodeContent, Content,
-  componentSnapshot, componentUtils, curves, display, dragController, dragInteraction,
+  componentSnapshot, componentUtils, curves, display, dragController, dragInteraction, floatingBall,
   font, inspector, matrix4, mediaquery, performanceMonitor, pluginComponentManager, PluginComponentTemplate, prompt, promptAction, router,
   LevelMode, ImmersiveMode, LevelOrder, AtomicServiceWeb, OnMessageEvent, OnErrorReceiveEvent, OnHttpErrorReceiveEvent, OnPageBeginEvent, OnPageEndEvent,
   AtomicServiceWebController, OnLoadInterceptEvent, OnProgressChangeEvent, OnLoadInterceptCallback, WebHeader,
@@ -285,8 +284,8 @@ export {
   IconOptions, ChipItemLabelOptions, ChipGroupItemOptions, ChipItemStyle, ChipGroupSpaceOptions, IconItemOptions, IconGroupSuffix, ChipGroup,
   Colors, CustomColors, Theme, ThemeControl, CustomTheme, CustomDarkColors, ChipSymbolGlyphOptions,
   ExtraRegionPosition, ExpandedRegionLayoutOptions, HoverModeRegionLayoutOptions, FoldedRegionLayoutOptions, PresetSplitRatio, FoldSplitContainer,
-  HoverModeStatus, OnHoverStatusChangeHandler, SwiperDynamicSyncScene, SwiperDynamicSyncSceneType, uiExtension, FullScreenLaunchComponent, MeasureUtils,
-  typeNode,
+  HoverModeStatus, OnHoverStatusChangeHandler, SwiperDynamicSyncScene, SwiperDynamicSyncSceneType, MarqueeDynamicSyncScene, MarqueeDynamicSyncSceneType,
+  uiExtension, FullScreenLaunchComponent, MeasureUtils, typeNode,
   CommonModifier, ColumnModifier, ColumnSplitModifier, RowModifier, RowSplitModifier, SideBarContainerModifier,
   BlankModifier, DividerModifier, GridColModifier, GridRowModifier, NavDestinationModifier, NavigatorModifier,
   StackModifier, NavigationModifier, NavRouterModifier, StepperItemModifier, TabsModifier, GridModifier,
@@ -300,7 +299,7 @@ export {
   PolygonModifier, PolylineModifier, RectModifier, ShapeModifier, AlphabetIndexerModifier,
   HyperlinkModifier, MenuModifier, MenuItemModifier, PanelModifier, SymbolGlyphModifier, AttributeUpdater, SymbolSpanModifier,
   ContainerSpanModifier, PixelMapDrawableDescriptor, AnimationOptions, AnimatedDrawableDescriptor, AnimationController, DrawableDescriptorLoadedResult,
-  IDataSourcePrefetching, IPrefetcher, BasicPrefetcher, MarqueeDynamicSyncScene, MarqueeDynamicSyncSceneType,
+  IDataSourcePrefetching, IPrefetcher, BasicPrefetcher,
   SegmentButtonTextItem, SegmentButtonIconItem, SegmentButtonIconTextItem, DimensionNoPercentage,
   CommonSegmentButtonOptions, ItemRestriction, SegmentButtonItemTuple, SegmentButtonItemArray,
   SegmentButtonItemOptionsConstructorOptions, SegmentButtonItemOptions, BorderRadiusMode, DownloadFileButton,
@@ -319,7 +318,9 @@ export {
   ConfirmDialogV2, LoadingDialogV2, SelectDialogV2, TipsDialogV2, CustomContentDialogV2, PopoverDialogV2, PopoverDialogV2OnVisibleChange, PopoverDialogV2Options,
   ExpandMode, Magnifier,
   HalfScreenLaunchComponent, ArcSliderPosition, ArcSwiper, ArcSwiperAttribute, ArcDotIndicator, ArcDirection, ArcSwiperController, TargetInfo, UIState,
-  StepperModifier, TextMenuController, InputEventType, GestureListenerType, GestureActionPhase, GestureTriggerInfo, GestureObserverConfigs, GestureListenerCallback, NodeIdentity, NodeRenderState, NodeRenderStateChangeCallback,
-  SwiperContentInfo, SwiperItemInfo, PickerModifier, imageGeneration, ResolvedUIContext, CustomComponentLifecycle, CustomComponentLifecycleObserver, CustomComponentLifecycleState, ComponentInit, ComponentAppear,
-  ComponentBuilt, ComponentAttach, ComponentDetach, ComponentReuse, ComponentRecycle, ComponentDisappear, CollectionType, ConnectOptionsCollections
+  StepperModifier, TextMenuController, InputEventType, GestureListenerType, GestureActionPhase, GestureTriggerInfo, GestureObserverConfigs, 
+  GestureListenerCallback, NodeIdentity, NodeRenderState, NodeRenderStateChangeCallback, UIPickerComponentModifier, SwiperContentInfo, SwiperItemInfo, 
+  ResolvedUIContext, imageGeneration, CustomComponentLifecycle, CustomComponentLifecycleObserver, CustomComponentLifecycleState, 
+  ComponentInit, ComponentAppear, ComponentBuilt, ComponentAttach, ComponentDetach, ComponentReuse, ComponentRecycle, ComponentDisappear,
+  CollectionType, ConnectOptionsCollections, uiMaterial
 };

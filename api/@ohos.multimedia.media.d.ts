@@ -1188,18 +1188,18 @@ declare namespace media {
     /**
      * It will decode the given video resource, then fetch pictures at each time member of @timesUs array
      * according the given @options and @param. When one fetch is done, a callback is called with fetch result.
-     * Please note that, the callback order is not same as the time order in @timesUs aray.
+     * Please note that, the callback order is not same as the time order in @timesUs array.
      * @param { long[] } timesUs - The times array expected to fetch picture from the video resource.
-     *    The unit of time is microsecond(us). The max size of array is 4096.
+     *     The unit of time is microsecond(us). The max size of array is 4096.
      * @param { AVImageQueryOptions } queryOption - The time options about the relationship
-     *    between the given timeUs and a key frame, see @AVImageQueryOptions.
+     *     between the given timeUs and a key frame, see @AVImageQueryOptions.
      * @param { PixelMapParams } param - The output pixel map format params, see @PixelMapParams.
-     * @param { OnFrameFetched } callback - The callback function when a fetch is done\failed\cancelled.
-     * @throws { BusinessError } 5400102 - Operation not allowed. Returned by promise.
-     * @throws { BusinessError } 5400104 - Time out.
+     * @param { OnFrameFetched } callback - the callback function when a fetch is done\failed\cancelled.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Returned by callback.
+     * @throws { BusinessError } 5400104 - Fetch timeout, Returned by callback.
+     * @throws { BusinessError } 5400106 - Unsupported format. Returned by callback.
      * @throws { BusinessError } 5400105 - Service died.
-     * @throws { BusinessError } 5400106 - Unsupported format. Returned by promise.
-     * @throws { BusinessError } 5400108 - Parameter check failed. Returned by promise.
+     * @throws { BusinessError } 5400108 - Parameter check failed. e.g. The size of timesUs is larger than 4096.
      * @throws { BusinessError } 5411012 - Http cleartext not permitted.
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @stagemodelonly
@@ -2510,10 +2510,10 @@ declare namespace media {
    */
   interface AVMetricsEvent {
     /**
-     * Absolute timestamp when the event occurred.
+     * Type of the metrics event.
      * @type { AVMetricsEventType }
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 23 dynamic&static
      */
     event: AVMetricsEventType;
@@ -2535,10 +2535,10 @@ declare namespace media {
     playbackPosition: int;
 
     /**
-     * The detail informations of the event.
+     * The detailed information of the event.
      * @type {Record<string, Object>}
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 23 dynamic&static
      */
     details: Record<string, Object>;
@@ -5412,11 +5412,13 @@ declare namespace media {
     TOTAL_PLAYING_TIME = 'total_playback_time',
 
     /**
-     * Cumulative times of Media resource loading.
+     * Cumulative times of media resource loading.
+     *
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
      * @since 23 dynamic&static
      */
-    DOWNLOAD_REQUESTS_COUNT = 'loading_count',
+    DOWNLOAD_REQUESTS_COUNT = 'loading_requests_count',
 
     /**
      * The total time spent loading the media resource.
@@ -5427,10 +5429,12 @@ declare namespace media {
 
     /**
      * Size of loaded media resources.
+     *
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
      * @since 23 dynamic&static
      */
-    TOTAL_DOWNLOAD_SIZE = 'total_loading_Bytes',
+    TOTAL_DOWNLOAD_SIZE = 'total_loading_bytes',
 
     /**
      * Cumulative stalling count.
@@ -5448,7 +5452,7 @@ declare namespace media {
   }
 
   /**
-   * Provides the container definition for media description key-value pairs.
+   * Provides the container definition for playback metrics key-value pairs.
    *
    * @typedef { Record<PlaybackMetricsKey, Object> }
    * @syscap SystemCapability.Multimedia.Media.Core
@@ -6024,6 +6028,15 @@ declare namespace media {
    * @since 23 static
    */
   interface MediaSource {
+    /**
+     * set whether to enable offline cache during video playback,
+     * @param { boolean } enable - The default value is false,  
+     *     If set to true, the downloaded video will be automatically cached to the user's cache space during streaming,
+     *     and the cached data in the cache space will be used first during playback. 
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 23 dynamic&static
+     */
+    enableOfflineCache(enable: boolean): void;
     /**
      * Set Media Mime Type to help player handle extended Media source.
      * @param { AVMimeTypes } mimeType - for MediaSource define. see @ AVMimeTypes.

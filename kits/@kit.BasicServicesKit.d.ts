@@ -101,9 +101,12 @@ import systemDateTime from '@ohos.systemDateTime';
 import systemTimer from '@ohos.systemTimer';
 import systemLoad from '@ohos.resourceschedule.systemload';
 import request from '@ohos.request';
+import appAccount from '@ohos.account.appAccount';
+import distributedAccount from '@ohos.account.distributedAccount';
+import osAccount from '@ohos.account.osAccount';
 
 export {
   zlib, configPolicy, AsyncCallback, BusinessError, Callback, ErrorCallback, RecordData, customConfig, systemDateTime,
-  systemTimer, systemLoad, request, commonEventManager, emitter
+  systemTimer, systemLoad, request, commonEventManager, emitter, appAccount, distributedAccount, osAccount
 };
 /*** endif */

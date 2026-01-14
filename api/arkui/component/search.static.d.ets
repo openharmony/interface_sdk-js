@@ -19,14 +19,15 @@
  */
 import { TextContentControllerBase, SelectionOptions, Callback, CommonMethod, TextDecorationOptions, Bindable, AttributeModifier } from "./common";
 import { CustomBuilder } from './builder';
-import { ResourceStr, Length, ResourceColor, Dimension, Font, ColorMetrics } from "./units";
-import { CaretStyle, EditableTextOnChangeCallback, InsertValue, DeleteValue, EditMenuOptions, KeyboardAppearance, EditableTextChangeValue, AutoCapitalizationMode, SelectedDragPreviewStyle, TextDirection } from "./textCommon";
+import { ResourceStr, Length, ResourceColor, Dimension, Font, ColorMetrics, LengthMetrics } from "./units";
+import { CaretStyle, EditableTextOnChangeCallback, InsertValue, DeleteValue, EditMenuOptions, KeyboardAppearance, EditableTextChangeValue, AutoCapitalizationMode, SelectedDragPreviewStyle, TextDirection, IMEClient } from "./textCommon";
 import { EnterKeyType, OnTextSelectionChangeCallback, OnContentScrollCallback, OnPasteCallback, SubmitEvent } from "./textInput";
 import { CopyOptions, TextAlign } from "./enums";
 import { KeyboardOptions } from "./richEditor";
 import { Resource } from '../../global/resource';
 import { SymbolGlyphModifier } from '../SymbolGlyphModifier';
 import { ComponentBuilder } from './builder';
+import { ComponentContentBase } from '../ComponentContent';
 
 /**
  * Provides the method of switching the cursor position.
@@ -165,7 +166,15 @@ export declare enum SearchType {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
      */
-    URL = 13
+    URL = 13,
+    /**
+     * One time code mode.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    ONE_TIME_CODE = 14
 }
 /**
  * Options used to construct the search.
@@ -793,13 +802,15 @@ export declare interface SearchAttribute extends CommonMethod {
      * <br>When setting a custom keyboard, you can bind the onKeyPrelme event to prevent input from the physical keyboard.
      * </p>
      *
-     * @param { CustomBuilder | undefined } value - Set up a custom keyboard of Search
-     * @param { KeyboardOptions | undefined } [options] - Indicates the custom keyboard options of Search
+     * @param { CustomBuilder | ComponentContentBase | undefined } value - Set up a custom keyboard of Search
+     * @param { KeyboardOptions } [options] - Indicates the custom keyboard options of Search
      * @returns { SearchAttribute } returns the instance of the SearchAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
-    default customKeyboard(value: CustomBuilder | undefined, options?: KeyboardOptions | undefined): this;
+    default customKeyboard(value: CustomBuilder | ComponentContentBase | undefined,
+                           options?: KeyboardOptions): this;
     /**
      * Called when the text decoration of the text is set.
      *
@@ -1014,6 +1025,57 @@ export declare interface SearchAttribute extends CommonMethod {
      */
     default keyboardAppearance(appearance: KeyboardAppearance | undefined): this;
     /**
+     * Set the stroke width.
+     *
+     * @param { LengthMetrics | undefined } width - indicates the stroke width. The default value is 0.
+     *     Passing `undefined` resets it to the default value.
+     * @returns { SearchAttribute } returns the instance of the SearchAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    default strokeWidth(width: LengthMetrics | undefined): this;
+    /**
+     * Called before the search component attach the InputMethod.
+     *
+     * @param { Callback<IMEClient> | undefined } callback - The triggered function before attach the InputMethod.
+     *     If `undefined` is passed, the existing registered event will be removed.
+     * @returns { SearchAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    default onWillAttachIME(callback: Callback<IMEClient> | undefined): this;
+    /**
+     * Set the stroke color.
+     *
+     * @param { ResourceColor | undefined } color - indicates the stroke color.
+     *     Passing `undefined` resets it to the default value.
+     * @returns { SearchAttribute } returns the instance of the SearchAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    default strokeColor(color: ResourceColor | undefined): this;
+    /**
+     * Whether to enable automatic spacing between Chinese and Latin characters.
+     *
+     * @param { boolean | undefined } enabled - The default value is false,
+     *     indicates the flag whether to enable automatic spacing.
+     *     Passing `undefined` resets it to the default value.
+     * @returns { SearchAttribute } returns the instance of the SearchAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    default enableAutoSpacing(enabled: boolean | undefined): this;
+    /**
+     * Enable selected data detector.
+     * 
+     * @param { boolean | undefined } enable - whether to enable the selected data detector.
+     * @returns { SearchAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    default enableSelectedDataDetector(enable: boolean | undefined): this;
+
+    /**
      * Whether to compress punctuation at the beginning of line.
      *
      * @param { boolean | undefined } enabled - Whether to enable the feature, the default value is false.
@@ -1090,13 +1152,12 @@ export declare interface SearchAttribute extends CommonMethod {
  * Defines Search Component.
  *
  * @param { SearchOptions } [options]
- * @param { CustomBuilder } [content_]
  * @returns { SearchAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 @ComponentBuilder
 export declare function Search(
-    options?: SearchOptions, 
-    content_?: CustomBuilder,
+    options?: SearchOptions
 ): SearchAttribute

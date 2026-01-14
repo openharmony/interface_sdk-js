@@ -31,7 +31,8 @@
  * Declare SplitLayout.The SplitLayout is used for upper and lower graphic layouts.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
+ * @noninterop
  */
 /**
  * Declare SplitLayout.The SplitLayout is used for upper and lower graphic layouts.
@@ -39,6 +40,7 @@
  * @crossplatform
  * @atomicservice
  * @since 22 dynamic
+ * @noninterop
  */
 @Component
 export declare struct SplitLayout {
@@ -53,7 +55,7 @@ export declare struct SplitLayout {
    * @type { container: () => void }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   /**
    * Container in the user-defined splitlayout display area.
@@ -76,7 +78,7 @@ export declare struct SplitLayout {
    * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   /**
    * Image in the layout.
@@ -99,7 +101,7 @@ export declare struct SplitLayout {
    * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   /**
    * Title text in the layout.
@@ -122,7 +124,7 @@ export declare struct SplitLayout {
    * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   /**
    * Description text in the layout.
@@ -145,7 +147,7 @@ export declare struct SplitLayout {
    * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   /**
    * Auxiliary text in the layout.

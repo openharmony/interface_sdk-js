@@ -176,7 +176,18 @@ declare namespace audio {
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @crossplatform
    * @since 12 dynamic
-   * @since 23 static
+   */
+  /**
+   * Obtains an {@link AudioManager} instance.
+   * <p><strong>NOTE</strong>:
+   * The {@link AudioManager} instance is not a singleton.
+   * </p>
+   *
+   * @returns { AudioManager } this {@link AudioManager} object.
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic&static
    */
   function getAudioManager(): AudioManager;
 
@@ -3166,7 +3177,14 @@ declare namespace audio {
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @crossplatform
    * @since 12 dynamic
-   * @since 23 static
+   */
+  /**
+   * Implements audio stream, volume, device, effect and many other management functions.
+   * @typedef AudioManager
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic&static
    */
   interface AudioManager {
     /**
@@ -3738,7 +3756,14 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
      * @since 12 dynamic
-     * @since 23 static
+     */
+    /**
+     * Obtains an {@link AudioVolumeManager} instance.
+     * @returns { AudioVolumeManager } AudioVolumeManager instance.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @crossplatform
+     * @atomicservice
+     * @since 23 dynamic&static
      */
     getVolumeManager(): AudioVolumeManager;
 
@@ -6043,10 +6068,11 @@ declare namespace audio {
      * This function only supports audio session with {@link #AudioSessionScene} set and activated with
      * {@link #CONCURRENCY_MIX_WITH_OTHERS} mode. And it takes effect only once during activation, so application
      * need to enable it every time before activation.
-     * @param { boolean } enable - {@code true} to enable mute suggestion while registering session state
+     * 
+     * @param { boolean } enable - Sets true to enable mute suggestion while registering session state
      *     change event callback.
      * @throws { BusinessError } 6800103 - Function is called without setting {@link #AudioSessionScene} or
-     *     called before audio session activation.
+     *     called after audio session activation.
      * @throws { BusinessError } 6800301 - Audio client call audio service error, system internal error.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @stagemodelonly
@@ -6055,9 +6081,8 @@ declare namespace audio {
     enableMuteSuggestionWhenMixWithOthers(enable: boolean): void;
 
     /**
-     * Returns if there is any other application playing audio in media usage.
-     * The short sound effect will not be considered in.
-     * @returns { boolean } {@code true} if there is other application playing audio in media usage.
+     * Returns if there is any other application playing audio in media usage, including media session activated.
+     * @returns { boolean } True if there is other application playing audio in media usage.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -6087,7 +6112,14 @@ declare namespace audio {
    * @syscap SystemCapability.Multimedia.Audio.Volume
    * @crossplatform
    * @since 12 dynamic
-   * @since 23 static
+   */
+  /**
+   * Implements audio volume management.
+   * @typedef AudioVolumeManager
+   * @syscap SystemCapability.Multimedia.Audio.Volume
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic&static
    */
   interface AudioVolumeManager {
     /**
@@ -6172,16 +6204,28 @@ declare namespace audio {
      */
     /**
      * Obtains an AudioVolumeGroupManager instance.
-     * @param { int } groupId - volume group id, use {@link DEFAULT_VOLUME_GROUP_ID} in default
+     * @param { int } groupId - volume group id, use {@link DEFAULT_VOLUME_GROUP_ID} in default.
      * @returns { AudioVolumeGroupManager } The audio volume group manager instance.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *                                 1.Mandatory parameters are left unspecified;
+     *                                 1.Mandatory parameters are left unspecified.
      *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
      * @since 12 dynamic
-     * @since 23 static
+     */
+    /**
+     * Obtains an AudioVolumeGroupManager instance.
+     * @param { int } groupId - volume group id, use {@link DEFAULT_VOLUME_GROUP_ID} in default.
+     * @returns { AudioVolumeGroupManager } The audio volume group manager instance.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified.
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @crossplatform
+     * @atomicservice
+     * @since 23 dynamic&static
      */
     getVolumeGroupManagerSync(groupId: int): AudioVolumeGroupManager;
 
@@ -6304,7 +6348,13 @@ declare namespace audio {
      * @returns { Promise<int> } The application's volume percentage. The value range is from 0 to 100.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 19 dynamic
-     * @since 23 static
+     */
+    /**
+     * Get the volume for your app with range from 0 to 100. Applications with the same uid share the same volume.
+     * @returns { Promise<int> } The application's volume percentage. The value range is from 0 to 100.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @atomicservice
+     * @since 23 dynamic&static
      */
     getAppVolumePercentage(): Promise<int>;
 
@@ -6312,7 +6362,7 @@ declare namespace audio {
      * Sets the volume for your app with range from 0 to 100. Applications with the same uid share the same volume.
      * Only AudioRenderers with {@link AudioRendererInfo.volumeMode} set to {@link AudioVolumeMode.APP_INDIVIDUAL}
      * will be affected by this volume.
-     * When you change your app's volume, your will receive 'appVolumeChange' callback event.
+     * When you change your app's volume, you will receive 'appVolumeChange' callback event.
      * Your app volume can be also changed by other system settings, and you can monitor the changes through
      * 'appVolumeChange' callback.
      * @param { int } volume - Volume to set. The value range is from 0 to 100.
@@ -6321,7 +6371,21 @@ declare namespace audio {
      * @throws { BusinessError } 6800301 - Crash or blocking occurs in system process.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 19 dynamic
-     * @since 23 static
+     */
+    /**
+     * Sets the volume for your app with range from 0 to 100. Applications with the same uid share the same volume.
+     * Only AudioRenderers with {@link AudioRendererInfo.volumeMode} set to {@link AudioVolumeMode.APP_INDIVIDUAL}
+     * will be affected by this volume.
+     * When you change your app's volume, you will receive 'appVolumeChange' callback event.
+     * Your app volume can be also changed by other system settings, and you can monitor the changes through
+     * 'appVolumeChange' callback.
+     * @param { int } volume - Volume to set. The value range is from 0 to 100.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800301 - Crash or blocking occurs in system process.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @atomicservice
+     * @since 23 dynamic&static
      */
     setAppVolumePercentage(volume: int): Promise<void>;
 
@@ -6694,7 +6758,15 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 20 dynamic
-     * @since 23 static
+     */
+    /**
+     * Obtains the volume of a stream.
+     * @param { StreamUsage } streamUsage - Audio stream type.
+     * @returns { int } Current system volume level.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @atomicservice
+     * @since 23 dynamic&static
      */
     getVolumeByStream(streamUsage: StreamUsage): int;
 
@@ -6705,7 +6777,15 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 20 dynamic
-     * @since 23 static
+     */
+    /**
+     * Obtains the minimum volume allowed for a stream.
+     * @param { StreamUsage } streamUsage - Audio stream type.
+     * @returns { int } Min volume level.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @atomicservice
+     * @since 23 dynamic&static
      */
     getMinVolumeByStream(streamUsage: StreamUsage): int;
 
@@ -6716,7 +6796,15 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 20 dynamic
-     * @since 23 static
+     */
+    /**
+     * Obtains the maximum volume allowed for a stream.
+     * @param { StreamUsage } streamUsage - Audio stream type.
+     * @returns { int } Max volume level.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @atomicservice
+     * @since 23 dynamic&static
      */
     getMaxVolumeByStream(streamUsage: StreamUsage): int;
 

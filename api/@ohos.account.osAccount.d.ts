@@ -1896,7 +1896,7 @@ declare namespace osAccount {
      * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid serialNumber.
-     * @throws { BusinessError } 12300003 - The account indicated by serialNumber dose not exist.
+     * @throws { BusinessError } 12300003 - The account indicated by serialNumber does not exist.
      * @syscap SystemCapability.Account.OsAccount
      * @since 9 dynamic
      * @since 23 static
@@ -1912,7 +1912,7 @@ declare namespace osAccount {
      * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid serialNumber.
-     * @throws { BusinessError } 12300003 - The account indicated by serialNumber dose not exist.
+     * @throws { BusinessError } 12300003 - The account indicated by serialNumber does not exist.
      * @syscap SystemCapability.Account.OsAccount
      * @since 9 dynamic
      * @since 23 static
@@ -2315,6 +2315,33 @@ declare namespace osAccount {
     offSwitched(callback?: Callback<OsAccountSwitchEventData>): void;
 
     /**
+     * Subscribes to one or more constraint change events of the OS account to which the caller belongs.
+     *
+     * @param { string[] } constraints - Indicates the target constraints.
+     * @param { Callback<ConstraintChangeInfo> } callback - Callback for receiving constraint change information.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300002 - One or more constraints are invalid.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    onConstraintChanged(constraints: string[], callback: Callback<ConstraintChangeInfo>): void;
+
+    /**
+     * Cancel the constraint change subscription records associated with the specified callback.
+     * If no callback is specified, cancel all subscription records.
+     *
+     * @param { Callback<ConstraintChangeInfo> } [callback] - Callback for receiving constraint change information.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    offConstraintChanged(callback?: Callback<ConstraintChangeInfo>): void;
+
+    /**
      * Check whether current process belongs to the main account.
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
@@ -2644,6 +2671,36 @@ declare namespace osAccount {
   }
 
   /**
+   * Defines the constraint change information.
+   *
+   * @interface ConstraintChangeInfo
+   * @syscap SystemCapability.Account.OsAccount
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  interface ConstraintChangeInfo {
+    /**
+     * Indicates the constraint value.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    constraint: string;
+
+    /**
+     * Indicates whether the constraint is enabled.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    isEnabled: boolean;
+  }
+
+  /**
    * Options for creating an OS account.
    *
    * @interface CreateOsAccountOptions
@@ -2903,7 +2960,22 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 23 static
+     */
+    /**
+     * Gets the property based on the specified request information.
+     *
+     * @permission ohos.permission.ACCESS_USER_AUTH_INTERNAL
+     * @param { GetPropertyRequest } request - Indicates the request information, including authentication type, and property type list.
+     * @param { AsyncCallback<ExecutorProperty> } callback - Returns an executor property.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300002 - Invalid request.
+     * @throws { BusinessError } 12300003 - Account not found.
+     * @throws { BusinessError } 12300020 - Device hardware abnormal.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 23 dynamic&static
      */
     getProperty(request: GetPropertyRequest, callback: AsyncCallback<ExecutorProperty>): void;
 
@@ -2939,7 +3011,22 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 23 static
+     */
+    /**
+     * Gets the property based on the specified request information.
+     *
+     * @permission ohos.permission.ACCESS_USER_AUTH_INTERNAL
+     * @param { GetPropertyRequest } request - Indicates the request information, including authentication type, and property type list.
+     * @returns { Promise<ExecutorProperty> } Returns an executor property.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300002 - Invalid request.
+     * @throws { BusinessError } 12300003 - Account not found.
+     * @throws { BusinessError } 12300020 - Device hardware abnormal.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 23 dynamic&static
      */
     getProperty(request: GetPropertyRequest): Promise<ExecutorProperty>;
 
@@ -2976,8 +3063,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300102 - The credential does not exist.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 22 dynamic
-     * @since 23 static
+     * @since 23 dynamic&static
      */
     getPropertyByCredentialId(credentialId: Uint8Array, keys: Array<GetPropertyType>): Promise<ExecutorProperty>;
 
@@ -3146,7 +3232,41 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
      * @since 20 dynamic
-     * @since 23 static
+     */
+    /**
+     * Executes authentication.
+     *
+     * @permission ohos.permission.ACCESS_USER_AUTH_INTERNAL
+     * @param { Uint8Array } challenge - Indicates the challenge value.
+     * @param { AuthType } authType - Indicates the authentication type.
+     * @param { AuthTrustLevel } authTrustLevel - Indicates the trust level of authentication result.
+     * @param { IUserAuthCallback } callback - Indicates the callback to get result and acquireInfo.
+     * @returns { Uint8Array } Returns a context ID for cancellation.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300002 - Invalid challenge, authType or authTrustLevel.
+     * @throws { BusinessError } 12300013 - Network exception.
+     * @throws { BusinessError } 12300020 - Device hardware abnormal.
+     * @throws { BusinessError } 12300090 - Cross-device capability not supported.
+     * @throws { BusinessError } 12300091 - Cross-device communication failed.
+     * @throws { BusinessError } 12300101 - The credential is incorrect.
+     * @throws { BusinessError } 12300102 - The credential does not exist.
+     * @throws { BusinessError } 12300105 - The trust level is not supported.
+     * @throws { BusinessError } 12300106 - The authentication type is not supported.
+     * @throws { BusinessError } 12300109 - The authentication, enrollment, or update operation is canceled.
+     * @throws { BusinessError } 12300110 - The authentication is locked.
+     * @throws { BusinessError } 12300111 - The authentication timeout.
+     * @throws { BusinessError } 12300112 - The authentication service is busy.
+     * @throws { BusinessError } 12300113 - The authentication service does not exist.
+     * @throws { BusinessError } 12300114 - The authentication service works abnormally.
+     * @throws { BusinessError } 12300117 - PIN is expired.
+     * @throws { BusinessError } 12300119 - Multi-factor authentication failed.
+     * @throws { BusinessError } 12300120 - The credentials are no longer valid.
+     * @throws { BusinessError } 12300211 - Server unreachable.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 23 dynamic&static
      */
     auth(
       challenge: Uint8Array,
@@ -3224,7 +3344,43 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
      * @since 20 dynamic
-     * @since 23 static
+     */
+    /**
+     * Executes authentication.
+     *
+     * @permission ohos.permission.ACCESS_USER_AUTH_INTERNAL
+     * @param { Uint8Array } challenge - Indicates the challenge value.
+     * @param { AuthType } authType - Indicates the authentication type.
+     * @param { AuthTrustLevel } authTrustLevel - Indicates the trust level of authentication result.
+     * @param { AuthOptions } options - Indicates authentication options.
+     * @param { IUserAuthCallback } callback - Indicates the callback to get result and acquireInfo.
+     * @returns { Uint8Array } Returns a context ID for cancellation.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300002 - Invalid challenge, authType, authTrustLevel or options.
+     * @throws { BusinessError } 12300003 - Account not found.
+     * @throws { BusinessError } 12300013 - Network exception.
+     * @throws { BusinessError } 12300020 - Device hardware abnormal.
+     * @throws { BusinessError } 12300090 - Cross-device capability not supported.
+     * @throws { BusinessError } 12300091 - Cross-device communication failed.
+     * @throws { BusinessError } 12300101 - The credential is incorrect.
+     * @throws { BusinessError } 12300102 - The credential does not exist.
+     * @throws { BusinessError } 12300105 - The trust level is not supported.
+     * @throws { BusinessError } 12300106 - The authentication type is not supported.
+     * @throws { BusinessError } 12300109 - The authentication, enrollment, or update operation is canceled.
+     * @throws { BusinessError } 12300110 - The authentication is locked.
+     * @throws { BusinessError } 12300111 - The authentication timeout.
+     * @throws { BusinessError } 12300112 - The authentication service is busy.
+     * @throws { BusinessError } 12300113 - The authentication service does not exist.
+     * @throws { BusinessError } 12300114 - The authentication service works abnormally.
+     * @throws { BusinessError } 12300117 - PIN is expired.
+     * @throws { BusinessError } 12300119 - Multi-factor authentication failed.
+     * @throws { BusinessError } 12300120 - The credentials are no longer valid.
+     * @throws { BusinessError } 12300211 - Server unreachable.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 23 dynamic&static
      */
     auth(
       challenge: Uint8Array,
@@ -3331,7 +3487,43 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
      * @since 20 dynamic
-     * @since 23 static
+     */
+    /**
+     * Executes user authentication.
+     *
+     * @permission ohos.permission.ACCESS_USER_AUTH_INTERNAL
+     * @param { int } userId - Indicates the user identification.
+     * @param { Uint8Array } challenge - Indicates the challenge value.
+     * @param { AuthType } authType - Indicates the authentication type.
+     * @param { AuthTrustLevel } authTrustLevel - Indicates the trust level of authentication result.
+     * @param { IUserAuthCallback } callback - Indicates the callback to get result and acquireInfo.
+     * @returns { Uint8Array } Returns a context ID for cancellation.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300002 - Invalid challenge, authType or authTrustLevel.
+     * @throws { BusinessError } 12300003 - Account not found.
+     * @throws { BusinessError } 12300013 - Network exception.
+     * @throws { BusinessError } 12300020 - Device hardware abnormal.
+     * @throws { BusinessError } 12300090 - Cross-device capability not supported.
+     * @throws { BusinessError } 12300091 - Cross-device communication failed.
+     * @throws { BusinessError } 12300101 - The credential is incorrect.
+     * @throws { BusinessError } 12300102 - The credential does not exist.
+     * @throws { BusinessError } 12300105 - The trust level is not supported.
+     * @throws { BusinessError } 12300106 - The authentication type is not supported.
+     * @throws { BusinessError } 12300109 - The authentication, enrollment, or update operation is canceled.
+     * @throws { BusinessError } 12300110 - The authentication is locked.
+     * @throws { BusinessError } 12300111 - The authentication timeout.
+     * @throws { BusinessError } 12300112 - The authentication service is busy.
+     * @throws { BusinessError } 12300113 - The authentication service does not exist.
+     * @throws { BusinessError } 12300114 - The authentication service works abnormally.
+     * @throws { BusinessError } 12300117 - PIN is expired.
+     * @throws { BusinessError } 12300119 - Multi-factor authentication failed.
+     * @throws { BusinessError } 12300120 - The credentials are no longer valid.
+     * @throws { BusinessError } 12300211 - Server unreachable.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 23 dynamic&static
      */
     authUser(
       userId: int,
@@ -4804,7 +4996,35 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 23 static
+     */
+    /**
+     * Adds a credential.
+     * <p>
+     * Add user credential information, pass in credential addition method and credential information
+     * (credential type, subclass, if adding user's non password credentials, pass in password authentication token),
+     * and get the result / acquireInfo callback.
+     *
+     * @permission ohos.permission.MANAGE_USER_IDM
+     * @param { CredentialInfo } credentialInfo - Indicates the credential information.
+     * @param { IIdmCallback } callback - Indicates the callback to get results and acquireInfo.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300002 - Invalid credentialInfo, i.e. authType or authSubType.
+     * @throws { BusinessError } 12300003 - Account not found.
+     * @throws { BusinessError } 12300008 - Restricted account.
+     * @throws { BusinessError } 12300020 - Device hardware abnormal.
+     * @throws { BusinessError } 12300090 - Cross-device capability not supported.
+     * @throws { BusinessError } 12300091 - Cross-device communication failed.
+     * @throws { BusinessError } 12300101 - The token is invalid.
+     * @throws { BusinessError } 12300106 - The authentication type is not supported.
+     * @throws { BusinessError } 12300109 - The authentication, enrollment, or update operation is canceled.
+     * @throws { BusinessError } 12300111 - The operation timeout.
+     * @throws { BusinessError } 12300115 - The number of credentials reaches the upper limit.
+     * @throws { BusinessError } 12300116 - Credential complexity verification failed.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 23 dynamic&static
      */
     addCredential(credentialInfo: CredentialInfo, callback: IIdmCallback): void;
 
@@ -4973,8 +5193,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300020 - Device hardware abnormal.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 22 dynamic
-     * @since 23 static
+     * @since 23 dynamic&static
      */
     getAuthInfo(callback: AsyncCallback<Array<EnrolledCredInfo>>): void;
 
@@ -5009,8 +5228,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300020 - Device hardware abnormal.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 22 dynamic
-     * @since 23 static
+     * @since 23 dynamic&static
      */
     getAuthInfo(authType: AuthType, callback: AsyncCallback<Array<EnrolledCredInfo>>): void;
 
@@ -5044,8 +5262,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300020 - Device hardware abnormal.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 22 dynamic
-     * @since 23 static
+     * @since 23 dynamic&static
      */
     getAuthInfo(authType: AuthType): Promise<Array<EnrolledCredInfo>>;
 
@@ -5081,8 +5298,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300020 - Device hardware abnormal.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 22 dynamic
-     * @since 23 static
+     * @since 23 dynamic&static
      */
     getAuthInfo(options?: GetAuthInfoOptions): Promise<Array<EnrolledCredInfo>>;
 
@@ -5123,8 +5339,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300106 - The authentication type is not supported.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 22 dynamic
-     * @since 23 static
+     * @since 23 dynamic&static
      */
     getEnrolledId(authType: AuthType, accountId?: int): Promise<Uint8Array>;
 
@@ -6194,6 +6409,15 @@ declare namespace osAccount {
      * @since 23 static
      */
     PRIVATE_PIN = 16,
+
+    /**
+     * Indicates the COMPANION_DEVICE authentication type.
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 23 dynamic&static
+     */
+    COMPANION_DEVICE = 64,
 
     /**
      * Indicates the DOMAIN authentication type.

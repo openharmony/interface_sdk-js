@@ -196,6 +196,7 @@ declare namespace networkSecurity {
    * @throws { BusinessError } 201 - Permission denied.
    * @syscap SystemCapability.Communication.NetStack
    * @since 18 dynamic
+   * @since 23 static
    */
   export function isCleartextPermitted(): boolean;
  
@@ -208,6 +209,7 @@ declare namespace networkSecurity {
    * @throws { BusinessError } 201 - Permission denied.
    * @syscap SystemCapability.Communication.NetStack
    * @since 18 dynamic
+   * @since 23 static
    */
   export function isCleartextPermittedByHostName(hostName: string): boolean;
 }

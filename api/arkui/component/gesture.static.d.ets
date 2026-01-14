@@ -486,6 +486,23 @@ export interface FingerInfo {
      */
     id: int;
     /**
+     * X position of the click point relative to the global display coordinate.
+     *
+     * @type { ?double }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    globalDisplayX?: double;
+
+    /**
+     * Y position of the click point relative to the global display coordinate.
+     *
+     * @type { ?double }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    globalDisplayY?: double;
+    /**
      * X coordinate of the touch point relative to the left edge of the device screen.
      *
      * @type { double }
@@ -494,7 +511,7 @@ export interface FingerInfo {
      */
     globalX: double;
     /**
-     * The Y coordinate of the touch point relative to the upper edge of the device screen.
+     * The Y coordinate of the touch point relative to the upper edge of the current window.
      *
      * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -502,7 +519,7 @@ export interface FingerInfo {
      */
     globalY: double;
     /**
-     * X coordinate of the touch point relative to the left edge of the touched element.
+     * X coordinate of the touch point relative to the left edge of the current window.
      *
      * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2064,6 +2081,19 @@ export declare class GestureRecognizer {
      * @since 23 static
      */
     isFingerCountLimit(): boolean;
+    /**
+     * Prevent the gesture recognizer from participating in this gesture recognition until all fingers are lifted.
+     * If the system has already made out the result of this gesture recognizer (success and failure), calling this
+     * function will have no any effect.
+     *
+     * [Note]: This method is different from GestureRecognizer.setEnabled(isEnabled: boolean), setEnabled does not
+     * prevent a gesture recognizer object from participating in the gesture recognition process, but only affects
+     * whether the gesture's corresponding callback function is executed.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    preventBegin(): void;
 }
 /**
  * Defines the tap gesture recognizer.

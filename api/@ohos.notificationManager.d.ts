@@ -332,6 +332,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600016 - The notification version for this update is too low.
    * @throws { BusinessError } 1600020 - The application is not allowed to send notifications due to permission settings.
    * @throws { BusinessError } 1600025 - Geofencing disabled.
+   * @throws { BusinessError } 1600026 - The location switch is off.
+   * @throws { BusinessError } 1600027 - The "Awareness & suggestions" switch of the location-based service is off.
    * @throws { BusinessError } 2300007 - Network unreachable.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -445,6 +447,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600016 - The notification version for this update is too low.
    * @throws { BusinessError } 1600020 - The application is not allowed to send notifications due to permission settings.
    * @throws { BusinessError } 1600025 - Geofencing disabled.
+   * @throws { BusinessError } 1600026 - The location switch is off.
+   * @throws { BusinessError } 1600027 - The "Awareness & suggestions" switch of the location-based service is off.
    * @throws { BusinessError } 2300007 - Network unreachable.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -507,6 +511,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600016 - The notification version for this update is too low.
    * @throws { BusinessError } 1600020 - The application is not allowed to send notifications due to permission settings.
    * @throws { BusinessError } 1600025 - Geofencing disabled.
+   * @throws { BusinessError } 1600026 - The location switch is off.
+   * @throws { BusinessError } 1600027 - The "Awareness & suggestions" switch of the location-based service is off.
    * @throws { BusinessError } 2300007 - Network unreachable.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -574,6 +580,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600016 - The notification version for this update is too low.
    * @throws { BusinessError } 1600020 - The application is not allowed to send notifications due to permission settings.
    * @throws { BusinessError } 1600025 - Geofencing disabled.
+   * @throws { BusinessError } 1600026 - The location switch is off.
+   * @throws { BusinessError } 1600027 - The "Awareness & suggestions" switch of the location-based service is off.
    * @throws { BusinessError } 2300007 - Network unreachable.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -613,9 +621,8 @@ declare namespace notificationManager {
    * Publishes a representative notification.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
+   * @param { BundleOption } representativeBundle - bundle option of the representative.
    * @param { NotificationRequest } request - a notification.
-   * @param { string } representativeBundle - bundle name of the representative
-   * @param { int } userId - userid of the representative
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
@@ -635,6 +642,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600016 - The notification version for this update is too low.
    * @throws { BusinessError } 1600020 - The application is not allowed to send notifications due to permission settings.
    * @throws { BusinessError } 1600025 - Geofencing disabled.
+   * @throws { BusinessError } 1600026 - The location switch is off.
+   * @throws { BusinessError } 1600027 - The "Awareness & suggestions" switch of the location-based service is off.
    * @throws { BusinessError } 2300007 - Network unreachable.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -931,7 +940,7 @@ declare namespace notificationManager {
 
   /**
    * Adds a notification slot of a specified type. This API uses a promise to return the result.
-   * 
+   *
    * @param { SlotType } type - Type of the notification slot to add.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -3843,7 +3852,7 @@ declare namespace notificationManager {
    * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
    * @param { 'checkNotification' } type - Type of the callback to listen for.
    * @param { function } callback - callback - The callback of check notifications.
-   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -3857,7 +3866,7 @@ declare namespace notificationManager {
    * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
    * @param { 'checkNotification' } type - Type of the callback to listen for.
    * @param { function } callback - callback - The callback of check notifications.
-   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -3872,7 +3881,7 @@ declare namespace notificationManager {
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
    * @param { function } callback - callback - The callback of check notifications.
-   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -3890,7 +3899,7 @@ declare namespace notificationManager {
    * @param { NotificationCheckRequest } checkRequest - Check Request for filter notification request.
    * @param { function } callback - callback - The callback of check notifications.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -3908,7 +3917,7 @@ declare namespace notificationManager {
    * @param { NotificationCheckRequest } checkRequest - Check Request for filter notification request.
    * @param { function } callback - callback - The callback of check notifications.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -3928,7 +3937,7 @@ declare namespace notificationManager {
    * @param { NotificationCheckRequest } checkRequest - Check Request for filter notification request.
    * @param { function } callback - callback - The callback of check notifications.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -3947,7 +3956,7 @@ declare namespace notificationManager {
    * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
    * @param { 'checkNotification' } type - Type of the callback to listen for.
    * @param { function } [callback] - callback - The callback of check notifications.
-   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -3961,7 +3970,7 @@ declare namespace notificationManager {
    * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
    * @param { 'checkNotification' } type - Type of the callback to listen for.
    * @param { function } [callback] - callback - The callback of check notifications.
-   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -3979,7 +3988,7 @@ declare namespace notificationManager {
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
    * @param { function } [callback] - callback - The callback of check notifications.
-   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -4561,7 +4570,7 @@ declare namespace notificationManager {
 
   /**
    * Obtains whether the device supports distributed notification.
-   * 
+   *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { string } deviceType - The device type.
    * @returns { Promise<boolean> } The promise returned by the function.
@@ -4573,10 +4582,10 @@ declare namespace notificationManager {
    * @since 23 static
    */
   function isDistributedEnabled(deviceType: string): Promise<boolean>;
- 
+
   /**
    * Sets whether the device supports distributed notification.
-   * 
+   *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { boolean } enable - Set enable or not.
    * @param { string } deviceType - The device type.
@@ -4589,10 +4598,10 @@ declare namespace notificationManager {
    * @since 23 static
    */
   function setDistributedEnabled(enable: boolean, deviceType: string): Promise<void>;
- 
+
   /**
    * Get distributed device list.
-   * 
+   *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @returns { Promise<Array<string>> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
@@ -4645,7 +4654,7 @@ declare namespace notificationManager {
 
   /**
    * Checks whether the priority notification is enabled.
-   * 
+   *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @returns { Promise<boolean> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
@@ -4660,7 +4669,7 @@ declare namespace notificationManager {
 
   /**
    * Sets the enabling status of the priority notification.
-   * 
+   *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { boolean } enable - Set enable or not.
    * @returns { Promise<void> } The promise returned by the function.
@@ -4696,7 +4705,7 @@ declare namespace notificationManager {
    * @since 23 static
    */
   function setSilentReminderEnabled(bundle: BundleOption, enabled: boolean): Promise<void>;
- 
+
   /**
    * Obtains whether an application silent reminder is enable.
    *
@@ -4716,7 +4725,7 @@ declare namespace notificationManager {
    * @since 23 static
    */
   function isSilentReminderEnabled(bundle: BundleOption): Promise<SwitchState>;
- 
+
   /**
    * Set the custom ringtone information of application.
    *
@@ -4868,7 +4877,7 @@ declare namespace notificationManager {
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { function } callback - The callback for getting the badge number.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -4884,7 +4893,7 @@ declare namespace notificationManager {
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -4929,7 +4938,7 @@ declare namespace notificationManager {
      * @since 23 static
      */
     USER_MODIFIED_OFF = 0,
- 
+
     /**
      * User-modified ON state,
      * Represents an on state that was explicitly set by the user.
@@ -4940,7 +4949,7 @@ declare namespace notificationManager {
      * @since 23 static
      */
     USER_MODIFIED_ON = 1,
- 
+
     /**
      * System default OFF state,
      * Represents the initial off state before any user modification.
@@ -4951,7 +4960,7 @@ declare namespace notificationManager {
      * @since 23 static
      */
     SYSTEM_DEFAULT_OFF = 2,
- 
+
     /**
      * System default ON state,
      * Represents the initial on state before any user modification.
@@ -5610,7 +5619,7 @@ declare namespace notificationManager {
      */
     end: Date;
   }
-  
+
   /**
    * Describes a DistributedBundleEnableInfo instance.
    *
@@ -6487,8 +6496,8 @@ declare namespace notificationManager {
    *
    * @typedef { _NotificationIconButton } NotificationIconButton
    * @syscap SystemCapability.Notification.Notification
-   * @since 22 dynamic
-   * @since 23 static
+   * @systemapi
+   * @since 23 dynamic&static
    */
   export type NotificationIconButton = _NotificationIconButton;
 
@@ -6497,6 +6506,7 @@ declare namespace notificationManager {
    *
    * @typedef { _TriggerType } TriggerType
    * @syscap SystemCapability.Notification.Notification
+   * @systemapi
    * @stagemodelonly
    * @since 23 dynamic&static
    */
@@ -6507,6 +6517,7 @@ declare namespace notificationManager {
    *
    * @typedef { _Trigger } Trigger
    * @syscap SystemCapability.Notification.Notification
+   * @systemapi
    * @stagemodelonly
    * @since 23 dynamic&static
    */
@@ -6517,6 +6528,7 @@ declare namespace notificationManager {
    *
    * @typedef { _Geofence } Geofence
    * @syscap SystemCapability.Notification.Notification
+   * @systemapi
    * @stagemodelonly
    * @since 23 dynamic&static
    */
@@ -6527,6 +6539,7 @@ declare namespace notificationManager {
    *
    * @typedef { _CoordinateSystemType } CoordinateSystemType
    * @syscap SystemCapability.Notification.Notification
+   * @systemapi
    * @stagemodelonly
    * @since 23 dynamic&static
    */
@@ -6537,6 +6550,7 @@ declare namespace notificationManager {
    *
    * @typedef { _MonitorEvent } MonitorEvent
    * @syscap SystemCapability.Notification.Notification
+   * @systemapi
    * @stagemodelonly
    * @since 23 dynamic&static
    */

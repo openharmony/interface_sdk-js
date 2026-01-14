@@ -227,7 +227,7 @@ declare namespace display {
    * @param { 'add' | 'remove' | 'change' } type the event of display change
    * @param { Callback<long> } callback the display id of changed
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types.
+   *     2. Incorrect parameter types.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @since 7
    */
@@ -237,7 +237,7 @@ declare namespace display {
    * @param { 'add' | 'remove' | 'change' } type the event of display change
    * @param { Callback<long> } callback the display id of changed
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types.
+   *     2. Incorrect parameter types.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
    * @since 12
@@ -248,12 +248,11 @@ declare namespace display {
    * @param { 'add' | 'remove' | 'change' } type the event of display change
    * @param { Callback<long> } callback the display id of changed
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types.
+   *     2. Incorrect parameter types.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
-   * @since 23 static
    */
   function on(type: 'add' | 'remove' | 'change', callback: Callback<long>): void;
 
@@ -290,10 +289,14 @@ declare namespace display {
   /**
    * Register the callback for changes of display specified attributes.
    *
-   * @param { Array<string> } displayAttributeOption - the display attribute requring callback
-   *     <br>display attribute
-   * @param { Callback<long> } callback - the display id of changed
-   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @param { Array<string> } displayAttributeOption - The display attributes requiring callback
+   * @param { Callback<long> } callback - Callback used to return the display id of changed
+   * @throws { BusinessError } 801 - Capability not supported. Function onChangeWithAttribute can not work correctly
+   *     due to limited device capabilities.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   *     Possible causes: Internal IPC error.
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
    * @since 23 dynamic&static
    */
   function onChangeWithAttribute(displayAttributeOption: Array<string>, callback: Callback<long>): void;
@@ -304,7 +307,7 @@ declare namespace display {
    * @param { 'add' | 'remove' | 'change' } type the event of display change event
    * @param { Callback<long> } callback the display id of changed
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types.
+   *     2. Incorrect parameter types.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @since 7
    */
@@ -314,7 +317,7 @@ declare namespace display {
    * @param { 'add' | 'remove' | 'change' } type the event of display change event
    * @param { Callback<long> } callback the display id of changed
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types.
+   *     2. Incorrect parameter types.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
    * @since 12
@@ -325,12 +328,11 @@ declare namespace display {
    * @param { 'add' | 'remove' | 'change' } type the event of display change event
    * @param { Callback<long> } [callback] the display id of changed
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types.
+   *     2. Incorrect parameter types.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
-   * @since 23 static
    */
   function off(type: 'add' | 'remove' | 'change', callback?: Callback<long>): void;
 
@@ -374,11 +376,10 @@ declare namespace display {
    * @param { Callback<boolean> } callback Callback used to return the result whether display is on private mode or not
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types.
+   *     2. Incorrect parameter types.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
-   * @since 23 static
    */
   function on(type: 'privateModeChange', callback: Callback<boolean>): void;
 
@@ -400,11 +401,10 @@ declare namespace display {
    * @param { Callback<boolean> } callback Callback used to return the result whether display is on private mode or not
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types.
+   *     2. Incorrect parameter types.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
-   * @since 23 static
    */
   function off(type: 'privateModeChange', callback?: Callback<boolean>): void;
 
@@ -515,7 +515,6 @@ declare namespace display {
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
-   * @since 23 static
    */
   function on(type: 'foldStatusChange', callback: Callback<FoldStatus>): void;
 
@@ -565,7 +564,6 @@ declare namespace display {
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
-   * @since 23 static
    */
   function off(type: 'foldStatusChange', callback?: Callback<FoldStatus>): void;
 
@@ -605,7 +603,6 @@ declare namespace display {
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
-   * @since 23 static
    */
   function on(type: 'foldAngleChange', callback: Callback<Array<double>>): void;
 
@@ -644,7 +641,6 @@ declare namespace display {
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
-   * @since 23 static
    */
   function off(type: 'foldAngleChange', callback?: Callback<Array<double>>): void;
 
@@ -661,17 +657,16 @@ declare namespace display {
   function offFoldAngleChange(callback?: Callback<Array<double>>): void;
 
   /**
-   * Register the callback for device capture, casting, or recording status changes.
+   * Register the callback for device capture status changes.
    *
-   * @param { 'captureStatusChange' } type the event of capture, casting, or recording status changes.
-   * @param { Callback<boolean> } callback Callback used to return the device capture, casting, or recording status.
+   * @param { 'captureStatusChange' } type the event of capture status changes.
+   * @param { Callback<boolean> } callback Callback used to return the device capture status.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 12 dynamic
-   * @since 23 static
    */
   function on(type: 'captureStatusChange', callback: Callback<boolean>): void;
 
@@ -686,17 +681,16 @@ declare namespace display {
   function onCaptureStatusChange(callback: Callback<boolean>): void;
 
   /**
-   * Unregister the callback for device capture, casting, or recording status changes.
+   * Unregister the callback for device capture status changes.
    *
-   * @param { 'captureStatusChange' } type the event of capture, casting, or recording status changes.
-   * @param { Callback<boolean> } callback Callback used to return the device capture, casting, or recording status .
+   * @param { 'captureStatusChange' } type the event of capture status changes.
+   * @param { Callback<boolean> } callback Callback used to return the device capture status.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 12 dynamic
-   * @since 23 static
    */
   function off(type: 'captureStatusChange', callback?: Callback<boolean>): void;
 
@@ -788,7 +782,7 @@ declare namespace display {
    * @param { 'foldDisplayModeChange' } type the event of fold display mode changes
    * @param { Callback<FoldDisplayMode> } callback Callback used to return the current fold display mode
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameter types.
+   * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @since 10
@@ -799,7 +793,7 @@ declare namespace display {
    * @param { 'foldDisplayModeChange' } type the event of fold display mode changes
    * @param { Callback<FoldDisplayMode> } callback Callback used to return the current fold display mode
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameter types.
+   * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
@@ -811,13 +805,12 @@ declare namespace display {
    * @param { 'foldDisplayModeChange' } type the event of fold display mode changes
    * @param { Callback<FoldDisplayMode> } callback Callback used to return the current fold display mode
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameter types.
+   * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
-   * @since 23 static
    */
   function on(type: 'foldDisplayModeChange', callback: Callback<FoldDisplayMode>): void;
 
@@ -838,7 +831,7 @@ declare namespace display {
    * @param { 'foldDisplayModeChange' } type the event of fold display mode changes
    * @param { Callback<FoldDisplayMode> } callback Callback used to return the current fold display mode
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameter types.
+   * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @since 10
@@ -849,7 +842,7 @@ declare namespace display {
    * @param { 'foldDisplayModeChange' } type the event of fold display mode changes
    * @param { Callback<FoldDisplayMode> } callback Callback used to return the current fold display mode
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameter types.
+   * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
@@ -861,13 +854,12 @@ declare namespace display {
    * @param { 'foldDisplayModeChange' } type the event of fold display mode changes
    * @param { Callback<FoldDisplayMode> } [callback] Callback used to return the current fold display mode
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameter types.
+   * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
-   * @since 23 static
    */
   function off(type: 'foldDisplayModeChange', callback?: Callback<FoldDisplayMode>): void;
 
@@ -1767,6 +1759,7 @@ declare namespace display {
    *
    * @enum { int }
    * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
    * @since 23 dynamic&static
    */
   enum CornerType {
@@ -1774,6 +1767,7 @@ declare namespace display {
      * The round corner in the top left.
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
      * @since 23 dynamic&static
      */
     TOP_LEFT = 0,
@@ -1782,6 +1776,7 @@ declare namespace display {
      * The round corner in the top right.
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
      * @since 23 dynamic&static
      */
     TOP_RIGHT = 1,
@@ -1790,6 +1785,7 @@ declare namespace display {
      * The round corner in the bottom right.
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
      * @since 23 dynamic&static
      */
     BOTTOM_RIGHT = 2,
@@ -1798,6 +1794,7 @@ declare namespace display {
      * The round corner in the bottom left.
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
      * @since 23 dynamic&static
      */
     BOTTOM_LEFT = 3
@@ -1808,6 +1805,7 @@ declare namespace display {
    *
    * @interface RoundedCorner
    * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
    * @since 23 dynamic&static
    */
   interface RoundedCorner {
@@ -1815,28 +1813,37 @@ declare namespace display {
      * The type of round corner.
      *
      * @type { CornerType }
+     * @readonly
      * @syscap  SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @atomicservice
      * @since 23 dynamic&static
      */
-    type: CornerType;
+    readonly type: CornerType;
 
     /**
      * The cneter coordinates of round corner.
      *
      * @type { Position }
+     * @readonly
      * @syscap  SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @atomicservice
      * @since 23 dynamic&static
      */
-    position: Position;
+    readonly position: Position;
 
     /**
      * The radius of round corner.
      *
      * @type { int }
+     * @readonly
      * @syscap  SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @atomicservice
      * @since 23 dynamic&static
      */
-    radius: int;
+    readonly radius: int;
   }
 
   /**
@@ -2696,7 +2703,7 @@ declare namespace display {
     sourceMode?: DisplaySourceMode;
  
     /**
-     * Coordinates of the top-left corner of the display relative to the main display.
+     * The X-axis coordinate of the top-left corner of the display relative to the main display.
      *
      * @type { ?long }
      * @syscap SystemCapability.Window.SessionManager
@@ -2707,7 +2714,7 @@ declare namespace display {
     x?: long;
   
     /**
-     * Coordinates of the top-left corner of the display relative to the main display.
+     * The Y-axis coordinate of the top-left corner of the display relative to the main display.
      *
      * @type { ?long }
      * @syscap SystemCapability.Window.SessionManager
@@ -2736,6 +2743,7 @@ declare namespace display {
      * @throws { BusinessError } 1400001 - Invalid display or screen.
      * @throws { BusinessError } 1400003 - This display manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
      * @since 23 dynamic&static
      */
     getRoundedCorner(): Array<RoundedCorner>;
@@ -2851,7 +2859,6 @@ declare namespace display {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 23 static
      */
     on(type: 'availableAreaChange', callback: Callback<Rect>): void;
 
@@ -2878,7 +2885,6 @@ declare namespace display {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 23 static
      */
     off(type: 'availableAreaChange', callback?: Callback<Rect>): void;
 

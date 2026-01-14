@@ -160,13 +160,13 @@ export declare interface RectAttribute extends CommonShapeMethod {
  * Rect is returned when the parameter is transferred.
  *
  * @param { RectOptions | RoundedRectOptions } [options] - The options to create a Rect
- * @param { CustomBuilder } [content_]
  * @returns { RectAttribute } The attribute of the Rect
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
+ * @noninterop
  */
 @ComponentBuilder
 export declare function Rect(
-    options?: RectOptions | RoundedRectOptions, 
-    content_?: CustomBuilder,
-): RectAttribute
+    options?: RectOptions | RoundedRectOptions
+): RectAttribute;

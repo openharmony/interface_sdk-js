@@ -21,23 +21,25 @@
 /**
  * Defines Picker Modifier
  *
- * @extends PickerAttribute
- * @implements AttributeModifier<PickerAttribute>
+ * @extends UIPickerComponentAttribute
+ * @implements { AttributeModifier<UIPickerComponentAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 22 dynamic
 */
-export declare class PickerModifier extends PickerAttribute implements AttributeModifier<PickerAttribute> {
+export declare class UIPickerComponentModifier extends UIPickerComponentAttribute implements AttributeModifier<UIPickerComponentAttribute> {
 
   /**
    * Defines the normal update attribute function.
    * 
-   * @param { PickerAttribute } instance
+   * @param { UIPickerComponentAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
    */
-  applyNormalAttribute?(instance: PickerAttribute): void;
+  applyNormalAttribute?(instance: UIPickerComponentAttribute): void;
 }

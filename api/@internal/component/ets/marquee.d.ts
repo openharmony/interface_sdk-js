@@ -285,6 +285,21 @@ interface MarqueeOptions {
    * @since 18 dynamic
    */
   src: string;
+
+  /**
+   * The spacing between two rounds of marquee.
+   *
+   * Default value is marquee width.
+   *
+   * @type { ?LengthMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  spacing?: LengthMetrics;
 }
 
 /**
@@ -774,22 +789,6 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
    * @since 11 dynamic
    */
   onFinish(event: () => void): MarqueeAttribute;
-  /**
-   * Called when scrolling is stoped.
-   *
-   * <p><strong>NOTE</strong>:
-   * <br>If event is set to undefined, the current event will be unbound.
-   * </p>
-   * 
-   * @param { Callback<void> | undefined } event
-   * @returns { MarqueeAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 23 dynamic
-   */
-  onStop(event: Callback<void> | undefined): MarqueeAttribute;
 }
 
 /**

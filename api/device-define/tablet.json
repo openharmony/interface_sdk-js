@@ -161,7 +161,6 @@
     "SystemCapability.Ability.AbilityRuntime.FAModel",
     "SystemCapability.Ability.AbilityRuntime.AbilityCore",
     "SystemCapability.Ability.AbilityRuntime.Mission",
-    "SystemCapability.Ability.AbilityTools.AbilityAssistant",
     "SystemCapability.Ability.Form",
     "SystemCapability.Ability.DistributedAbilityManager",
     "SystemCapability.Applications.CalendarData",
@@ -218,6 +217,7 @@
     "SystemCapability.Resourceschedule.BackgroundProcessManager",
     "SystemCapability.Test.PerfTest",
     "SystemCapability.DistributedHardware.DistributedHardwareFWK",
-    "SystemCapability.ResourceSchedule.SystemLoad"
+    "SystemCapability.ResourceSchedule.SystemLoad",
+    "SystemCapability.Communication.FusionConnectivity.Core"
   ]
 }

@@ -20,6 +20,7 @@
 
 import { AsyncCallback } from './@ohos.base';
 import type Context from './application/BaseContext';
+import { ValueType } from './@ohos.data.ValuesBucket';
 import type image from './@ohos.multimedia.image';
 
 /**
@@ -1435,7 +1436,7 @@ declare namespace contact {
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
-   * @useinstead contact.deleteContact#deleteContact
+   * @useinstead contact.isMyCard#isMyCard
    */
   function isMyCard(id: number, callback: AsyncCallback<boolean>): void;
 

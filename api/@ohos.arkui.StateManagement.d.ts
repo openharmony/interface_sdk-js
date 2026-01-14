@@ -35,6 +35,7 @@ export declare type StorageDefaultCreator<T> = () => T;
 
 /**
  * Define class constructor with arbitrary parameters.
+ *
  * @interface TypeConstructorWithArgs<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -196,23 +197,23 @@ export class ConnectOptionsCollections<T extends CollectionType<S>, S extends ob
    * defaultCreator is already defined in the base class but with more loose type
    * StorageDefaultCreator<T> | undefined. Furthermore T is more strictly defined here.
    *
-   * @type { StorageDefaultCreator<T> }
+   * @type { ?StorageDefaultCreator<T> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
    * @since 23 dynamic
    */
-  defaultCreator: StorageDefaultCreator<T>;
+  defaultCreator?: StorageDefaultCreator<T>;
   /**
    * Defines the function to create collection item type
    *
-   * @type { StorageDefaultCreator<S> }
+   * @type { ?StorageDefaultCreator<S> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
    * @since 23 dynamic
    */
-  defaultSubCreator: StorageDefaultCreator<S>;
+  defaultSubCreator?: StorageDefaultCreator<S>;
 }
 
 /**
@@ -365,26 +366,26 @@ export declare class UIUtils {
    * Make non-observed data into V1 observed data.
    * Support JS object, interface, class (non-@Observed, non-ObservedV2).
    *
-   * @param { T } source input source object data.
+   * @param { T } source - input source object data.
    * @returns { T } V1 proxy object from the source object data.
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 19 dynamic
+   * @since 19 dynamiconly
    */
    static makeV1Observed<T extends object>(source: T): T;
 
   /**
    * Enables V2 compatibility on given viewmodel object or nested viewmodels, which are V1 observed object already.
    *
-   * @param {T} source - The object to be made V2-compatible.
-   * @returns {T} The processed object with V2 compatibility enabled.
+   * @param { T } source - The object to be made V2-compatible.
+   * @returns { T } The processed object with V2 compatibility enabled.
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 19 dynamic
+   * @since 19 dynamiconly
    */
    static enableV2Compatibility<T extends object>(source: T): T;
 
@@ -1194,14 +1195,9 @@ export declare const ComponentReuse: MethodDecorator;
 export declare const ComponentRecycle: MethodDecorator;
 
 /**
- * Define ComponentDisappear PropertyDecorator.
- * The function decorated by the decorator is invoked from the native side function 'CustomNodeBase::SetRecycleFunction'
- * when the component is about to be recycled.
- * It first calls the function in the application, and performs the necessary actions
- * defined in the application before recycling.
- * Then, it freezes the component to avoid performing UI updates when its in recycle pool
- * Finally recursively traverses all subcomponents, calling the function on each subcomponent
- * that is about to be recycled, preparing them for recycling as well.
+ * The function decorated by the decorator is invoked before a custom component is destroyed. It is not
+ * allowed to change state variables within the function, especially since modifying @Link variables may lead to
+ * unstable application behavior.
  *
  * @type { MethodDecorator }
  * @syscap SystemCapability.ArkUI.ArkUI.Full

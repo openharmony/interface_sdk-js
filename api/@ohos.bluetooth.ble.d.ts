@@ -408,7 +408,34 @@ declare namespace ble {
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
-   * @since 23 static
+   */
+  /**
+   * Starts BLE advertising.
+   * - If only {@link AdvertiseData#includeDeviceName} is set to true,
+   *   the local name will be carried in the broadcast packet.
+   * - If only {@link AdvertiseData#advertiseName} is set,
+   *   its value will be used as a custom name and carried in the broadcast packet.
+   * - If {@link AdvertiseData#includeDeviceName} is set to true and {@link AdvertiseData#advertiseName} is specified,
+   *   the {@link AdvertiseData#advertiseName} property will take effect.
+   * - To set {@link AdvertiseData#advertiseName},
+   *   ensure that ohos.permission.MANAGE_BLUETOOTH_ADVERTISER_NAME has been added.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH or (ohos.permission.ACCESS_BLUETOOTH and
+   *     ohos.permission.MANAGE_BLUETOOTH_ADVERTISER_NAME)
+   * @param { AdvertiseSetting } setting - Indicates the settings for BLE advertising.
+   * @param { AdvertiseData } advData - Indicates the advertising data.
+   * @param { AdvertiseData } advResponse - Indicates the scan response associated with the advertising data.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900001 - Service stopped.
+   * @throws { BusinessError } 2900003 - Bluetooth disabled.
+   * @throws { BusinessError } 2900010 - The number of advertising resources reaches the upper limit.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @throws { BusinessError } 2902054 - The length of the advertising data exceeds the upper limit.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 23 dynamic&static
    */
   function startAdvertising(setting: AdvertiseSetting, advData: AdvertiseData, advResponse?: AdvertiseData): void;
 
@@ -1397,6 +1424,43 @@ declare namespace ble {
     getConnectedState(deviceId: string): ProfileConnectionState;
 
     /**
+     * Read the phy associated with the connection.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { string } deviceId - Indicates device ID. For example, "11:22:33:AA:BB:FF".
+     * @returns { Promise<PhyValue> } Promise used to return the phy value read.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900003 - Bluetooth disabled.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @throws { BusinessError } 2901003 - The connection is not established.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    readPhy(deviceId: string): Promise<PhyValue>;
+
+    /**
+     * Set the preferred phy associated with the connection.
+     * Whether the phy value will be changed depends on the strategy of the Bluetooth chip.
+     * A successful call to this interface does not guarantee that the chip's phy value has been successfully set.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { string } deviceId - Indicates device ID. For example, "11:22:33:AA:BB:FF".
+     * @param { PhyValue } phyValue - Indicates the phy to set.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900003 - Bluetooth disabled.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @throws { BusinessError } 2901003 - The connection is not established.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    setPhy(deviceId: string, phyValue: PhyValue): Promise<void>;
+
+    /**
      * Subscribe characteristic read event.
      *
      * @permission ohos.permission.ACCESS_BLUETOOTH
@@ -1893,6 +1957,32 @@ declare namespace ble {
      * @since 13 dynamic
      */
     off(type: 'BLEMtuChange', callback?: Callback<number>): void;
+
+    /**
+     * Subscribe phy updated event.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { Callback<PhyValue> } callback - Callback used to listen for the phy updated event.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    onBlePhyUpdate(callback: Callback<PhyValue>): void;
+
+    /**
+     * Unsubscribe phy updated event.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { Callback<PhyValue> } [callback] - Callback used to listen for the phy updated event.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    offBlePhyUpdate(callback?: Callback<PhyValue>): void;
   }
 
   /**
@@ -3342,6 +3432,41 @@ declare namespace ble {
     updateConnectionParam(param: ConnectionParam): Promise<void>;
 
     /**
+     * Read the phy associated with the connection.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @returns { Promise<PhyValue> } Promise used to return the phy value read.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900003 - Bluetooth disabled.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @throws { BusinessError } 2901003 - The connection is not established.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    readPhy(): Promise<PhyValue>;
+
+    /**
+     * Set the preferred phy associated with the connection.
+     * Whether the phy value will be changed depends on the strategy of the Bluetooth chip.
+     * A successful call to this interface does not guarantee that the chip's phy value has been successfully set.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { PhyValue } phyValue - Indicates the phy to set.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900003 - Bluetooth disabled.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @throws { BusinessError } 2901003 - The connection is not established.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    setPhy(phyValue: PhyValue): Promise<void>;
+
+    /**
      * Subscribe characteristic value changed event.
      *
      * @permission ohos.permission.ACCESS_BLUETOOTH
@@ -3603,6 +3728,32 @@ declare namespace ble {
      * @since 22 dynamic
      */
     off(type: 'serviceChange', callback?: Callback<void>): void;
+
+    /**
+     * Subscribe phy updated event.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { Callback<PhyValue> } callback - Callback used to listen for the phy updated event.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    onBlePhyUpdate(callback: Callback<PhyValue>): void;
+
+    /**
+     * Unsubscribe phy updated event.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { Callback<PhyValue> } [callback] - Callback used to listen for the phy updated event.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    offBlePhyUpdate(callback?: Callback<PhyValue>): void;
   }
 
   /**
@@ -7406,6 +7557,67 @@ declare namespace ble {
   }
 
   /**
+   * Phy type associated with the connection.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  enum BlePhy {
+    /**
+     * Use 1M phy associated with the connection.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    BLE_PHY_1M = 1,
+    /**
+     * Use 2M phy associated with the connection.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    BLE_PHY_2M = 2,
+    /**
+     * Use coded phy associated with the connection.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    BLE_PHY_CODED = 3
+  }
+  /**
+   * Coded phy mode associated with the connection.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  enum CodedPhyMode {
+    /**
+     * Use coded S2 phy associated with the connection.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    BLE_PHY_CODED_S2 = 1,
+    /**
+     * Use coded S8 phy associated with the connection.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    BLE_PHY_CODED_S8 = 2
+  }
+
+  /**
    * Describes the permission of a att attribute item.
    *
    * @typedef GattPermissions
@@ -7524,6 +7736,44 @@ declare namespace ble {
      * @since 23 dynamic&static
      */
     timestamp: long;
+  }
+
+  /**
+   * Describes the parameters of the Ble phy.
+   *
+   * @typedef PhyValue
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  interface PhyValue {
+    /**
+     * Transmitter phy.
+     *
+     * @type { BlePhy }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    txPhy: BlePhy;
+    /**
+     * Receiver phy.
+     *
+     * @type { BlePhy }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    rxPhy: BlePhy;
+    /**
+     * Preferred coded phy mode.
+     *
+     * @type { ?CodedPhyMode }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    phyMode?: CodedPhyMode;
   }
 }
 

@@ -291,7 +291,7 @@ declare class TreeMap<K, V> {
    * Or returns undefined if tree map is empty
    *
    * @returns { K } value or undefined
-   * @throws { BusinessError } 10200010 - Container is empty.
+   * @throws { BusinessError } 10200010 - Container is empty.[staticonly]
    * @throws { BusinessError } 10200011 - The getFirstKey method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
@@ -324,7 +324,7 @@ declare class TreeMap<K, V> {
    * Or returns undefined if tree map is empty
    *
    * @returns { K } value or undefined
-   * @throws { BusinessError } 10200010 - Container is empty.
+   * @throws { BusinessError } 10200010 - Container is empty.[staticonly]
    * @throws { BusinessError } 10200011 - The getLastKey method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform

@@ -219,7 +219,7 @@ declare namespace pasteboard {
    */
   /**
    * Creates a PasteData object of the specified type.
-   * @param { string } mimeType - indicates MIME type of value, its size cannot be greater than 1024 bytes.
+   * @param { string } mimeType - indicates type of the value, its size cannot exceed 1024 bytes.
    * @param { ValueType } value - indicates the content that is set to PasteData.
    * @returns { PasteData } a new PasteData object which contains mimeType and value.
    * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified; 
@@ -302,7 +302,7 @@ declare namespace pasteboard {
    */
   /**
    * Creates a PasteDataRecord object of the specified type.
-   * @param { string } mimeType - indicates MIME type of value, its size cannot be greater than 1024 bytes.
+   * @param { string } mimeType - indicates type of the value, its size cannot exceed 1024 bytes.
    * @param { ValueType } value - Data content of the specified type. 
    * @returns { PasteDataRecord } A new paste data record of a specified type.
    * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
@@ -564,6 +564,8 @@ declare namespace pasteboard {
      */
     /**
      * HTML text in a record.
+     * This parameter is read-only and does not support assignment operations. 
+     * To assign a value, please use ohos.pasteboard.pasteboard#createData or ohos.pasteboard.pasteboard#addEntry.
      * @type { string }
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
@@ -578,7 +580,9 @@ declare namespace pasteboard {
      * @since 7
      */
     /**
-     * an want in a record.
+     * Want in a record.
+     * This parameter is read-only and does not support assignment operations. 
+     * To assign a value, please use ohos.pasteboard.pasteboard#createData or ohos.pasteboard.pasteboard#addEntry.
      * @type { Want }
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
@@ -593,7 +597,9 @@ declare namespace pasteboard {
      * @since 7
      */
     /**
-     * MIME types of a record.
+     * Default MIME type of a record.
+     * This parameter is read-only and does not support assignment operations. 
+     * To assign a value, please use ohos.pasteboard.pasteboard#createData or ohos.pasteboard.pasteboard#addEntry.
      * @type { string }
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
@@ -608,7 +614,9 @@ declare namespace pasteboard {
      * @since 7
      */
     /**
-     * plain text in a record.
+     * Plain text in a record.
+     * This parameter is read-only and does not support assignment operations. 
+     * To assign a value, please use ohos.pasteboard.pasteboard#createData or ohos.pasteboard.pasteboard#addEntry.
      * @type { string }
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
@@ -623,7 +631,9 @@ declare namespace pasteboard {
      * @since 7
      */
     /**
-     * an URI in a record.
+     * URI in a record.
+     * This parameter is read-only and does not support assignment operations. 
+     * To assign a value, please use ohos.pasteboard.pasteboard#createData or ohos.pasteboard.pasteboard#addEntry.
      * @type { string }
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
@@ -639,6 +649,8 @@ declare namespace pasteboard {
      */
     /**
      * PixelMap in a record.
+     * This parameter is read-only and does not support assignment operations. 
+     * To assign a value, please use ohos.pasteboard.pasteboard#createData or ohos.pasteboard.pasteboard#addEntry.
      * @type { image.PixelMap }
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
@@ -661,11 +673,12 @@ declare namespace pasteboard {
      */
     /**
      * Custom data in a record, string indicates the MIME type of custom data, ArrayBuffer indicates the value of custom data.
+     * This parameter is read-only and does not support assignment operations.  
+     * To assign a value, please use ohos.pasteboard.pasteboard#createData or ohos.pasteboard.pasteboard#addEntry.
      * @type { Record<string, ArrayBuffer> }
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since 20 dynamic
-     * @since 23 static
+     * @since 23 dynamic&static
      */
     data: Record<string, ArrayBuffer>;
 
@@ -708,7 +721,7 @@ declare namespace pasteboard {
 
     /**
      * Adds data to the PasteDataRecord object.
-     * @param { string } type - indicates MIME type of the value to add. It cannot exceed 1024 bytes.
+     * @param { string } type - indicates type of the value, its size cannot exceed 1024 bytes.
      * @param { ValueType } value - indicates the value of the data to add.
      * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
      *    2. Incorrect parameters types;
@@ -734,7 +747,7 @@ declare namespace pasteboard {
 
     /**
      * Obtains data of the specified type.
-     * @param { string } type - indicates the type of the data to obtain.
+     * @param { string } type - indicates type of the data to obtain, its size cannot exceed 1024 bytes.
      * @returns { Promise<ValueType> } Promise used to return the data obtained.
      * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
      *    2. Incorrect parameters types;

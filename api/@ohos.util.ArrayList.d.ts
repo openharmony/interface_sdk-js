@@ -550,14 +550,15 @@ declare class ArrayList<T> {
    * it will default to ASCII sorting
    *
    * @param { function } [comparator] - comparator
-   * comparator (Optional) A function that accepts up to two arguments.Specifies the sort order.
-   * Must be a function,return number type,If it returns firstValue minus secondValue, it returns an arraylist
-   * sorted in ascending order;If it returns secondValue minus firstValue, it returns an arraylist sorted in descending order;
-   * If this parameter is empty, it will default to ASCII sorting
+   *     comparator (Optional) A function that accepts up to two arguments.Specifies the sort order.
+   *     Must be a function,return number type,If it returns firstValue minus secondValue, it returns an arraylist
+   *     sorted in ascending order;If it returns secondValue minus firstValue,
+   *     it returns an arraylist sorted in descending order;
+   *     If this parameter is empty, it will default to ASCII sorting
    * @throws { BusinessError } 10200011 - The sort method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Incorrect parameter types;
-   * 2.Parameter verification failed.
+   *     1.Incorrect parameter types;
+   *     2.Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
    * @since 8
    */
@@ -566,27 +567,33 @@ declare class ArrayList<T> {
    * it will default to ASCII sorting
    *
    * @param { function } [comparator] - comparator
-   * comparator (Optional) A function that accepts up to two arguments.Specifies the sort order.
-   * Must be a function,return number type,If it returns firstValue minus secondValue, it returns an arraylist
-   * sorted in ascending order;If it returns secondValue minus firstValue, it returns an arraylist sorted in descending order;
-   * If this parameter is empty, it will default to ASCII sorting
+   *     comparator (Optional) A function that accepts up to two arguments.Specifies the sort order.
+   *     Must be a function,return number type,If it returns firstValue minus secondValue, it returns an arraylist
+   *     sorted in ascending order;If it returns secondValue minus firstValue,
+   *     it returns an arraylist sorted in descending order;
+   *     If this parameter is empty, it will default to ASCII sorting
    * @throws { BusinessError } 10200011 - The sort method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Incorrect parameter types;
-   * 2.Parameter verification failed.
+   *     1.Incorrect parameter types;
+   *     2.Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
    */
   /**
-   * Sorts elements in this container.
+   * Sorts this arraylist according to the order induced by the specified comparator,without comparator this parameter,
+   * it will default to ASCII sorting
    *
-   * @param { function } [comparator] - Callback invoked for sorting. The default value is the callback function for
-   * sorting elements in ascending order.
+   * @param { function } [comparator] - comparator
+   *     comparator (Optional) A function that accepts up to two arguments.Specifies the sort order.
+   *     Must be a function,return number type,If it returns firstValue minus secondValue, it returns an arraylist
+   *     sorted in ascending order;If it returns secondValue minus firstValue,
+   *     it returns an arraylist sorted in descending order;
+   *     If this parameter is empty, it will default to ASCII sorting
    * @throws { BusinessError } 10200011 - The sort method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Incorrect parameter types;
-   * 2.Parameter verification failed.
+   *     1.Incorrect parameter types;
+   *     2.Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -598,19 +605,19 @@ declare class ArrayList<T> {
    *
    * Anonymous Object Rectification
    * @param { ArrayListComparatorFn<T> } [comparator] - comparator
-   * comparator (Optional) A function that accepts up to two arguments.Specifies the sort order.
-   * Must be a function,return number type,If it returns firstValue minus secondValue, it returns an arraylist
-   * sorted in ascending order;If it returns secondValue minus firstValue, it returns an arraylist sorted in descending order;
-   * If this parameter is empty, it will default to ASCII sorting
+   *     comparator (Optional) A function that accepts up to two arguments.Specifies the sort order.
+   *     Must be a function,return number type,If it returns firstValue minus secondValue, it returns an arraylist
+   *     sorted in ascending order;If it returns secondValue minus firstValue,
+   *     it returns an arraylist sorted in descending order;
+   *     If this parameter is empty, it will default to ASCII sorting
    * @throws { BusinessError } 10200011 - The sort method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Incorrect parameter types;
-   * 2.Parameter verification failed.
+   *     1.Incorrect parameter types;
+   *     2.Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
-   * @since 23 static
+   * @since 23 dynamic&static
    */
   sort(comparator?: ArrayListComparatorFn<T>): void;
   /**
@@ -940,8 +947,7 @@ declare class ArrayList<T> {
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
- * @since 22 dynamic
- * @since 23 static
+ * @since 23 dynamic&static
  */
 export type ArrayListComparatorFn<T> = (firstValue: T, secondValue: T) => double;
 

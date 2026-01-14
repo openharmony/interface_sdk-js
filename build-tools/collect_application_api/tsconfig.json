@@ -63,7 +63,6 @@
         "Particle",        
         "Path",
         "PatternLock",
-        "Picker",
         "Piece",
         "PluginComponent",
         "Polygon",
@@ -109,7 +108,8 @@
         "GridRow",
         "GridCol",
         "ArcAlphabetIndexer",
-        "ArcSwiper"
+        "ArcSwiper",
+        "UIPickerComponent"
       ],
       "extend": {
         "decorator": "Extend",
@@ -395,9 +395,9 @@
             "instance": "PatternLockInstance"
           },
           {
-            "name": "Picker",
-            "type": "PickerAttribute",
-            "instance": "PickerInterface"
+            "name": "UIPickerComponent",
+            "type": "UIPickerComponentAttribute",
+            "instance": "UIPickerComponentInstance"
           },
           {
             "name": "Piece",

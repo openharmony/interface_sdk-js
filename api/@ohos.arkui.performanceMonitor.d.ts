@@ -47,7 +47,7 @@ declare namespace performanceMonitor {
    * @enum { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-     * @since 10 dynamic
+   * @since 10 dynamic
    */
   export enum ActionType {
     /**
@@ -125,27 +125,27 @@ declare namespace performanceMonitor {
     PERF_KEY_EVENT = 4
   }
 
-  /**
-   * Begin monitoring an application scene.
-   *
-   * @param { string } scene Indicates the scene name.
-   * @param { ActionType } startInputType Indicates the scene input event type.
-   * @param { string } note Indicates the app expected info delivered.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 10 dynamic
-   */
-  function begin(scene: string, startInputType: ActionType, note?: string): void;   
-
-  /**
-   * End monitoring an application scene.
-   *
-   * @param { string } scene Indicates the scene name. It must be the same with the {@code scene} of start.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 10 dynamic
-   */
-  function end(scene: string): void;
+    /**
+     * Begin monitoring an application scene.
+     *
+     * @param { string } scene - Indicates the scene name.
+     * @param { ActionType } startInputType - Indicates the scene input event type.
+     * @param { string } note - Indicates the app expected info delivered.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @since 10 dynamic
+     */
+    function begin(scene: string, startInputType: ActionType, note?: string): void;
+  
+    /**
+     * End monitoring an application scene.
+     *
+     * @param { string } scene - Indicates the scene name. It must be the same with the {@code scene} of start.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @since 10 dynamic
+     */
+    function end(scene: string): void;
   
   /**
    * recordInputEventTime monitoring an application scene.

@@ -188,6 +188,17 @@ export interface NotificationSubscriber {
    * @since 23 static
    */
   onBatchCancel?: (data: Array<SubscribeCallbackData>) => void;
+
+  /**
+   * Callback when the system properties of notification changed.
+   *
+   * @type { ?SystemUpdateCallback }
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  onSystemUpdate?: SystemUpdateCallback;
 }
 
 /**
@@ -470,3 +481,14 @@ export interface BadgeEnabledChangedCallback {
  * @since 23 static
  */
 export type BadgeEnabledChangedCallback = (data: EnabledNotificationCallbackData) => void;
+
+/**
+ * Defines the SystemUpdateCallback callback.
+ *
+ * @param { SubscribeCallbackData } data
+ * @syscap SystemCapability.Notification.Notification
+ * @systemapi
+ * @stagemodelonly
+ * @since 23 dynamic&static
+ */
+export type SystemUpdateCallback = (data: SubscribeCallbackData) => void;

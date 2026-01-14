@@ -420,20 +420,6 @@ export declare interface ImageAttribute extends CommonMethod {
      */
     default alt(value: string | Resource | PixelMap | ImageAlt | undefined): this;
     /**
-     * Sets the placeholder image displayed during loading.
-     *
-     * <p><strong>NOTE</strong>:
-     * <br>This attribute does not take effect when the parameter type of the component is AnimatedDrawableDescriptor.
-     * </p>
-     *
-     * @param { string | Resource | PixelMap | undefined } value - Placeholder image displayed 
-     *     during loading, Default value is null.
-     * @returns { ImageAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
-     */
-    default alt(value: string | Resource | PixelMap | undefined): this;
-    /**
      * Specifies whether to display the image in the system language direction.
      *
      * <p><strong>NOTE</strong>:
