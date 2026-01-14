@@ -26690,6 +26690,24 @@ declare class CommonMethod<T> {
   clickEffect(effect: Optional<ClickEffect | null>): T;
 
   /**
+   * Set whether this component should have sound effects enabled for clicking.
+   *
+   * Prerequisite: Sound effects playback is affected by the audio-related settings
+   * in the device system settings. When the user sets the device to silent mode, sound effects cannot be played.
+   *
+   * @param { boolean | undefined } enabled - indicates whether this component should have sound effects
+   *     enabled for clicking.
+   *     <br>Pass in undefined to reset the default value, default value is true, but
+   *     even it's true, the sound effect is only supported in some specific devices.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 24 dynamic
+   */
+  enableClickSoundEffect(enabled: boolean | undefined): T
+
+  /**
    * After a listener is bound, the component can be dragged. After the drag occurs, a callback is triggered.
    * (To be triggered, press and hold for 500 milliseconds (ms) and then finger move a distance greater than 10 vp)
    *
