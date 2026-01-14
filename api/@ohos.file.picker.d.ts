@@ -904,46 +904,50 @@ declare namespace picker {
    *
    * @typedef DocumentSelectOptions
    * @syscap SystemCapability.FileManagement.UserFileService
+   * @stagemodelonly
    * @since 23 static
    */
   interface DocumentSelectOptions {
     /**
-     * Path of the document or directory to select.
-     * It is empty by default (the recently opened page is displayed).
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.FileManagement.UserFileService
-     * @since 23 static
-     */
+      * Path of the document or directory to select.
+      * It is empty by default (the recently opened page is displayed).
+      *
+      * @type { ?string }
+      * @syscap SystemCapability.FileManagement.UserFileService
+      * @stagemodelonly
+      * @since 23 static
+      */
     defaultFilePathUri?: string;
 
     /**
-     * Document suffix of the document to select. The value is a string array. 
-     * Each element specifies an option, which includes at most two parts with a vertical bar (|) in between.
-     * The first part is the description, and the second part is the document suffix.
-     * If there is no "|", the option does not have the description.
-     * Multiple document suffixes separated by a comma (,) are allowed in an option.
-     * The number of elements in a string array cannot exceed 100.
-     * This parameter is available only to the devices that have the required system capability.
-     * By default, no filtering is performed, that is, all documents are selected.
-     *
-     * @type { ?Array<string> }
-     * @syscap SystemCapability.FileManagement.UserFileService
-     * @since 23 static
-     */
+      * Document suffix of the document to select. The value is a string array. 
+      * Each element specifies an option, which includes at most two parts with a vertical bar (|) in between.
+      * The first part is the description, and the second part is the document suffix.
+      * If there is no "|", the option does not have the description.
+      * Multiple document suffixes separated by a comma (,) are allowed in an option.
+      * The number of elements in a string array cannot exceed 100.
+      * This parameter is available only to the devices that have the required system capability.
+      * By default, no filtering is performed, that is, all documents are selected.
+      *
+      * @type { ?Array<string> }
+      * @syscap SystemCapability.FileManagement.UserFileService
+      * @stagemodelonly
+      * @since 23 static
+      */
     fileSuffixFilters?: Array<string>;
 
     /**
-     * Maximum number of documents that can be selected.
-     * Value range: 1 to 500.
-     * Only the devices with the required system capability can select directories,
-     * and only one directory can be selected at a time.
-     * Default value: 1.
-     *
-     * @type { ?int }
-     * @syscap SystemCapability.FileManagement.UserFileService
-     * @since 23 static
-     */
+      * Maximum number of documents that can be selected.
+      * Value range: 1 to 500.
+      * Only the devices with the required system capability can select directories,
+      * and only one directory can be selected at a time.
+      * Default value: 1.
+      *
+      * @type { ?int }
+      * @syscap SystemCapability.FileManagement.UserFileService
+      * @stagemodelonly
+      * @since 23 static
+      */
     maxSelectNumber?: int;
 
     /**
@@ -951,6 +955,7 @@ declare namespace picker {
      *
      * @type { ?DocumentSelectMode }
      * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection
+     * @stagemodelonly
      * @since 23 static
      */
     selectMode?: DocumentSelectMode;
@@ -962,6 +967,7 @@ declare namespace picker {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection
+     * @stagemodelonly
      * @since 23 static
      */
     authMode?: boolean;
@@ -975,6 +981,7 @@ declare namespace picker {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.FileManagement.UserFileService
+     * @stagemodelonly
      * @since 23 static
      */
     multiAuthMode?: boolean;
@@ -987,32 +994,36 @@ declare namespace picker {
      *
      * @type { ?Array<string> }
      * @syscap SystemCapability.FileManagement.UserFileService
+     * @stagemodelonly
      * @since 23 static
      */
-    multiUriArray?: Array<string>;  
+    multiUriArray?: Array<string>;
 
     /**
      * Whether to enable the aggregation view mode for a file management application.
-     * The default value is DEFAULT, indicating that this parameter does not take effect and the aggregation view is disabled.
+     * The default value is DEFAULT,
+     * indicating that this parameter does not take effect and the aggregation view is disabled.
      * If this parameter is set to a value other than DEFAULT, other parameters do not take effect.
      * Only mobile phones are supported.
      *
      * @type { ?MergeTypeMode }
      * @syscap SystemCapability.FileManagement.UserFileService
+     * @stagemodelonly
      * @since 23 static
      */
     mergeMode?: MergeTypeMode;
 
     /**
-     * Whether to support encryption (only files are supported). 
-     * The default value is false.
-     * If this parameter is set to true, the picker will display a button that allows the user, 
-     * files can be encrypted on the Picker page.
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.FileManagement.UserFileService
-     * @since 23 static
-     */
+      * Whether to support encryption (only files are supported). 
+      * The default value is false.
+      * If this parameter is set to true, the picker will display a button that allows the user, 
+      * files can be encrypted on the Picker page.
+      *
+      * @type { ?boolean }
+      * @syscap SystemCapability.FileManagement.UserFileService
+      * @stagemodelonly
+      * @since 23 static
+      */
     isEncryptionSupported?: boolean;
     
     /**
@@ -1021,6 +1032,7 @@ declare namespace picker {
      * @type { ?CustomColors }
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
+     * @stagemodelonly
      * @since 23 static
      */
     themeColor?: CustomColors;
@@ -1031,15 +1043,17 @@ declare namespace picker {
    *
    * @typedef DocumentSaveOptions
    * @syscap SystemCapability.FileManagement.UserFileService
+   * @stagemodelonly
    * @since 23 static
    */
-  interface DocumentSaveOptions {
+  interface DocumentSaveOptions {  
     /**
      * Name of the document to save.
      * If this parameter is not specified, the user needs to enter the the document name.
      *
      * @type { ?Array<string> }
      * @syscap SystemCapability.FileManagement.UserFileService
+     * @stagemodelonly
      * @since 23 static
      */
     newFileNames?: Array<string>;
@@ -1049,6 +1063,7 @@ declare namespace picker {
      *
      * @type { ?string }
      * @syscap SystemCapability.FileManagement.UserFileService
+     * @stagemodelonly
      * @since 23 static
      */
     defaultFilePathUri?: string;
@@ -1061,6 +1076,7 @@ declare namespace picker {
      *
      * @type { ?Array<string> }
      * @syscap SystemCapability.FileManagement.UserFileService
+     * @stagemodelonly
      * @since 23 static
      */
     fileSuffixChoices?: Array<string>;
@@ -1071,6 +1087,7 @@ declare namespace picker {
      *
      * @type { ?DocumentPickerMode }
      * @syscap SystemCapability.FileManagement.UserFileService
+     * @stagemodelonly
      * @since 23 static
      */
     pickerMode?: DocumentPickerMode;
@@ -1081,19 +1098,20 @@ declare namespace picker {
      * @type { ?CustomColors }
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
+     * @stagemodelonly
      * @since 23 static
      */
     themeColor?: CustomColors;
 
     /**
-     * Whether to create empty files, The default value is true, indicating that empty files will be created.
-     *
-     * @type { ?boolean }
-     * @default true
-     * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection
-     * @stagemodelonly
-     * @since 23 static
-     */
+      * Whether to create empty files, The default value is true, indicating that empty files will be created.
+      *
+      * @type { ?boolean }
+      * @default true
+      * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection
+      * @stagemodelonly
+      * @since 23 static
+      */
     autoCreateEmptyFile?: boolean;
   }
 
@@ -1350,6 +1368,7 @@ declare namespace picker {
    * Defines the options for selecting audio clips.
    *
    * @syscap SystemCapability.FileManagement.UserFileService
+   * @stagemodelonly
    * @since 23 static
    */
   interface AudioSelectOptions {
@@ -1359,6 +1378,7 @@ declare namespace picker {
      *
      * @type { ?int }
      * @syscap SystemCapability.FileManagement.UserFileService
+     * @stagemodelonly
      * @since 23 static
      */
     maxSelectNumber?: int;
@@ -1404,6 +1424,7 @@ declare namespace picker {
    *
    * @typedef AudioSaveOptions
    * @syscap SystemCapability.FileManagement.UserFileService
+   * @stagemodelonly
    * @since 23 static
    */
   interface AudioSaveOptions {
@@ -1413,6 +1434,7 @@ declare namespace picker {
      *
      * @type { ?Array<string> }
      * @syscap SystemCapability.FileManagement.UserFileService
+     * @stagemodelonly
      * @since 23 static
      */
     newFileNames?: Array<string>;
