@@ -766,6 +766,7 @@ export declare struct TabSegmentButtonV2 {
      * @since 23 static
      * @noninterop
      */
+    @Builder
     build(): void;
 }
 
@@ -1189,6 +1190,7 @@ export declare struct CapsuleSegmentButtonV2 {
      * @since 23 static
      * @noninterop
      */
+    @Builder
     build(): void;
 }
 
@@ -1547,5 +1549,6 @@ export declare struct MultiCapsuleSegmentButtonV2 {
      * @since 23 static
      * @noninterop
      */
+    @Builder
     build(): void;
 }

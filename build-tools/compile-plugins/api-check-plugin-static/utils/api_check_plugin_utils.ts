@@ -536,8 +536,17 @@ export function createOrCleanProjectConfig(): ProjectConfig {
     initApiCheckTag: true,
     dependentModuleList: [],
     entryFiles: [],
-    getHvigorConsoleLogger: () => {}
+    compileFiles: [],
+    getHvigorConsoleLogger: defaultLogger
   };
+}
+
+function defaultLogger(): Logger {
+  return {
+    printInfo: (message: string): void => {},
+    printWarn: (message: string): void => {},
+    printDebug: (message: string): void => {}
+  }
 }
 
 /**

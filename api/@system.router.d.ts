@@ -233,7 +233,7 @@ export interface DisableAlertBeforeBackPageOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 6 dynamic
+   * @since 6 dynamiconly
    * @deprecated since 8
    * @useinstead ohos.router#RouterOptions
    */

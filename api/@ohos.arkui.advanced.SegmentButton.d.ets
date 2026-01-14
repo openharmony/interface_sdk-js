@@ -1903,20 +1903,6 @@ declare struct SegmentButton {
    * @since 13 dynamic
    */
   onItemClicked?: Callback<number>;
-
-  /**
-   * Enable animation when selectedIndexes change.
-   *
-   * @type { boolean }
-   * @default false
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
-   */
-  @Prop
-  enableStateAnimation: boolean;
 }
 
 export {

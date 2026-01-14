@@ -39,7 +39,7 @@ import { ComponentContent } from '../../arkui/ComponentContent';
 import { ResizableOptions } from "./image";
 import intl from '../../@ohos.intl';
 import { ButtonType, ButtonStyleMode, ButtonRole } from "./button";
-import { Area, ResourceColor, Dimension, ResourceStr, Font, Length, EdgeColors, LocalizedEdgeColors, BorderRadiuses, EdgeWidths, LocalizedEdgeWidths, SizeOptions, Bias, EdgeStyles, Position, LocalizedBorderRadiuses, Margin, ChainWeightOptions, Padding, LocalizedPadding, LocalizedMargin, BorderOptions, OutlineOptions, EdgeOutlineStyles, EdgeOutlineWidths, OutlineRadiuses, Edges, LocalizedEdges, LocalizedPosition, AccessibilityOptions, ConstraintSizeOptions, EdgeWidth, DirectionalEdgesT, VoidCallback, ColorMetrics, AccessibilityActionOptions } from "./units";
+import { Area, ResourceColor, Dimension, ResourceStr, Font, Length, EdgeColors, LocalizedEdgeColors, BorderRadiuses, EdgeWidths, LocalizedEdgeWidths, SizeOptions, Bias, EdgeStyles, Position, LocalizedBorderRadiuses, Margin, ChainWeightOptions, Padding, LocalizedPadding, LocalizedMargin, BorderOptions, OutlineOptions, EdgeOutlineStyles, EdgeOutlineWidths, OutlineRadiuses, Edges, LocalizedEdges, LocalizedPosition, AccessibilityOptions, ConstraintSizeOptions, EdgeWidth, DirectionalEdgesT, VoidCallback, ColorMetrics, AccessibilityActionOptions, ScrollBarMargin } from "./units";
 import { BaseGestureEvent, GestureRecognizer, GestureJudgeResult, GestureType, GestureMask, GestureHandler, GesturePriority, GestureInfo } from "./gesture";
 import { ScrollState } from "./list";
 import { AccessibilityHoverType, Curve, PlayMode, SharedTransitionEffectType, KeySource, BorderStyle, HorizontalAlign, LocalizedAlignment, RenderStrategy, VerticalAlign, MouseButton, MouseAction, FontWeight, TouchType, FontStyle, Color, ColoringStrategy, Placement, ArrowPointPosition, ClickEffectLevel, NestedScrollMode, HitTestMode, Alignment, ImageRepeat, ImageSize, HoverEffect, Visibility, ItemAlign, Direction, Axis, GradientDirection, FunctionKey, ModifierKey, ObscuredReasons, RenderFit, LineCapStyle, LineJoinStyle, PixelRoundCalcPolicy, TextDecorationType, TextDecorationStyle, KeyType, ResponseType, BarState, EdgeEffect, ScrollSource, InteractionHand, AxisAction, AxisType, AxisModel, CrownAction, FocusDrawLevel, CrownSensitivity, IlluminatedType, ResponseRegionSupportedTool, TipsAnchorType } from "./enums";
@@ -50,6 +50,7 @@ import curves from '../../@ohos.curves';
 import matrix4 from '../../@ohos.matrix4';
 import { AvoidanceMode } from './select';
 import uiMaterial from '../../@ohos.arkui.uiMaterial';
+import { OnScrollFrameBeginCallback } from "./scroll";
 /**
  * Define the ratio of characters entered by the the percentage of InputCounterOptions.
  *
@@ -100,6 +101,23 @@ export declare interface InputCounterOptions {
      * @since 23 static
      */
     highlightBorder?: boolean;
+    /**
+     * It is the color of counter when textField hasn't wanted to exceed the maximum character count.
+     * 
+     * @type { ?ColorMetrics }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    counterTextColor?: ColorMetrics
+
+    /**
+     * It is the color of counter when textField wants to exceed the maximum character count.
+     * 
+     * @type { ?ColorMetrics }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    counterTextOverflowColor?: ColorMetrics
 }
 /**
  * Defines the options of decoration.
@@ -302,7 +320,7 @@ export declare interface Configuration {
     readonly fontScale: double;
 }
 /**
- * Defines the data type of the interface restriction.
+ * The data type used to describe a rectangular area.
  *
  * @interface Rectangle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2429,6 +2447,7 @@ export declare interface AsymmetricTransitionOption {
  * Each DrawModifier instance can be set for only one component. Repeated setting is not allowed.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare class DrawModifier {
@@ -2440,6 +2459,7 @@ export declare class DrawModifier {
      * @since 23 static
      */
     drawBehind(drawContext: DrawContext): void;
+
     /**
      * drawContent Method. Executed when associated Node is drawing, the default drawContent method will be replaced
      * if this method is set.
@@ -2449,6 +2469,7 @@ export declare class DrawModifier {
      * @since 23 static
      */
     drawContent(drawContext: DrawContext): void;
+
     /**
      * drawFront Method. Executed after drawing associated Node and its children.
      * @param { DrawContext } drawContext - The drawContext used to draw.
@@ -2456,6 +2477,7 @@ export declare class DrawModifier {
      * @since 23 static
      */
      drawFront(drawContext: DrawContext): void;
+
     /**
      * Draws content in the overlay layer after the associated Node and all its children have been drawn.
      *
@@ -4454,11 +4476,11 @@ export declare interface MouseEvent extends BaseEvent {
     /**
      * Stops the event from bubbling upwards or downwards.
      *
-     * @type { function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
-    stopPropagation: () => void;
+    stopPropagation(): void;
     /**
      * X axis offset relative to the previous reported mouse pointer position. When the mouse pointer is at
      * the edge of the screen, the value may be less than the difference of the X coordinate reported twice.
@@ -5723,9 +5745,10 @@ export declare interface KeyEvent {
      * Block event bubbling.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
-    stopPropagation: () => void;
+    stopPropagation(): void;
     /**
      * Intention code of a key or modifier keys.
      *
@@ -5845,35 +5868,39 @@ export declare interface BindOptions {
     /**
      * Callback for when the sheet is displayed (after the animation ends).
      *
-     * @type { ?function }
+     * @type { ?VoidCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
-    onAppear?: () => void;
+    onAppear?: VoidCallback;
     /**
      * Callback for when the sheet disappears (after the animation ends).
      *
-     * @type { ?function }
+     * @type { ?VoidCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
-    onDisappear?: () => void;
+    onDisappear?: VoidCallback;
     /**
      * Callback for when the sheet is about to be displayed (before the animation starts).
      *
-     * @type { ?function }
+     * @type { ?VoidCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
-    onWillAppear?: () => void;
+    onWillAppear?: VoidCallback;
     /**
      * Callback function before overlay popAnimation starts.
      *
-     * @type { ?function }
+     * @type { ?VoidCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
-    onWillDisappear?: () => void;
+    onWillDisappear?: VoidCallback;
 }
 /**
  * Component content cover dismiss
@@ -6451,11 +6478,11 @@ export declare interface SheetOptions extends BindOptions {
      * <br>The return value is in px.
      * <p>
      *
-     * @type { ?Callback<number> }
+     * @type { ?Callback<int> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
      */
-    onHeightDidChange?: Callback<number>;
+    onHeightDidChange?: Callback<int>;
     /**
      * Determine the level sheet shows, whether sheet should be displayed within the page.
      *
@@ -10461,6 +10488,22 @@ export declare interface CommonMethod {
      */
     default renderGroup(value: boolean | undefined): this;
     /**
+     * Set the component and its child components not to render off the screen following the parent component.
+     * Must be used in conjunction with renderGroup.
+     *
+     * @param { boolean | undefined } exclude - Whether the component and its child components are not
+     *     rendered off the screen following the parent component.
+     *     True means to not follow the parent component.
+     *     Default value: false.
+     *     Undefined means to default value.
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static
+     */
+    default excludeFromRenderGroup(exclude: boolean | undefined): this;
+    /**
      * Sets whether to freeze the component. When frozen, the component and its children are cached for
      * repeated drawing after offscreen rendering, without updating internal attributes.
      *
@@ -11131,14 +11174,17 @@ export declare interface CommonMethod {
     /**
      * Menu control
      *
-     * @param { boolean | undefined } isShow true means display menu, false means hide menu, default is false.
+     * @param { boolean | Bindable<boolean> | undefined } isShow - Menu display switch,
+     *     supports incoming two-way binding parameters.
+     *     true means display menu, false means hide menu, default is false.
      * @param { Array<MenuElement> | CustomBuilder | undefined } content - Indicates the content of menu.
      * @param { MenuOptions } [options] - Indicates the options of menu.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
-    default bindMenu(isShow: boolean | undefined, content: Array<MenuElement> | CustomBuilder | undefined, options?: MenuOptions): this;
+    default bindMenu(isShow: boolean | Bindable<boolean> | undefined, content: Array<MenuElement> | CustomBuilder | undefined, options?: MenuOptions): this;
     /**
      * Binds a context menu to this component, which is displayed when the user long-presses or right-clicks the
      * component. Only custom menu items are supported.
@@ -11161,13 +11207,16 @@ export declare interface CommonMethod {
      * @param { ContextMenuOptions } [options] - Indicates the options of context menu.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
-    default bindContextMenu(content: CustomBuilderT<ResponseType> | undefined, options?: ContextMenuOptions): this;
+    default bindContextMenuWithResponse(content: CustomBuilderT<ResponseType> | undefined, options?: ContextMenuOptions): this;
     /**
-     * Binds a context menu to the component, whose visibility is subject to the isShown settings.
+     * Binds a context menu to the component, whose visibility is subject to the isShow settings.
      *
-     * @param { boolean | undefined } isShown - true means display content, false means hide content, default is false.
+     * @param { boolean | Bindable<boolean> | undefined } isShow - Menu display switch,
+     *     supports incoming twoway binding parameters.
+     *     true means display content, false means hide content, default is false.
      *     <p><strong>NOTE</strong>:
      *     <br>The menu can be displayed properly only when the related page has been constructed. If this parameter is set
      *     to true before the construction is complete, display issues, such as misplacement, distortion, or failure to pop
@@ -11177,9 +11226,10 @@ export declare interface CommonMethod {
      * @param { ContextMenuOptions } [options] - Indicates the options of context menu.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
-    default bindContextMenu(isShown: boolean | undefined, content: CustomBuilder | undefined, options?: ContextMenuOptions): this;
+    default bindContextMenu(isShow: boolean | Bindable<boolean> | undefined, content: CustomBuilder | undefined, options?: ContextMenuOptions): this;
     /**
      * Binds a modal page to the component, whose visibility is subject to the isShow settings.
      *
@@ -12508,6 +12558,15 @@ export declare abstract class TextContentControllerBase {
      * @since 23 static
      */
     scrollToVisible(range?: TextRange): void
+    /**
+     * Set the styled placeholder
+     *
+     * @param { StyledString } styledString - The styledString for placeholder.
+     *     If the parameter is invalid, this method will have no effect.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    setStyledPlaceholder(styledString: StyledString): void;
 }
 /**
  * Enum of scrollable containers' content clip mode.
@@ -12565,16 +12624,15 @@ export declare interface ScrollableCommonMethod extends CommonMethod {
     /**
      * Sets the scrollbar color.
      *
-     * @param { Color | int | string | undefined } color - Scrollbar color.<br>Default value:
-     *     <em>'\#182431'</em> (40% opacity). A number value indicates a HEX color in RGB or ARGB
-     *     format, for example, <em>0xffffff</em>. A string value indicates a color in RGB or ARGB
-     *     format, for example, <em>'#ffffff'</em>.
+     * @param { Color | int | string | Resource | undefined } color - Scrollbar color.
+     *     <br>Default value: <em>'\#182431'</em> (40% opacity)
+     *     <br>A number value indicates a HEX color in RGB or ARGB format, for example, <em>0xffffff</em>.
+     *     A string value indicates a color in RGB or ARGB format, for example, <em>'#ffffff'</em>.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
      * @since 23 static
      */
-    default scrollBarColor(color: Color | int | string | undefined): this;
+    default scrollBarColor(color: Color | int | string | Resource | undefined): this;
     /**
      * Sets the scrollbar width.
      *
@@ -12588,6 +12646,18 @@ export declare interface ScrollableCommonMethod extends CommonMethod {
      * @since 23 static
      */
     default scrollBarWidth(value: double | string | undefined): this;
+    /**
+     * Margin of the scrollbar.
+     *
+     * @param { ScrollBarMargin | undefined } margin - Margin of the scrollbar.
+     *     <br>Default value: {start: LengthMetrics.vp(0), end: LengthMetrics.vp(0)}.
+     *     Passing undefined will restore the default value.
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    default scrollBarMargin(margin: ScrollBarMargin | undefined): this;
     /**
      * Sets the effect used when the scroll boundary is reached.
      *
@@ -12649,6 +12719,80 @@ export declare interface ScrollableCommonMethod extends CommonMethod {
      * @since 23 static
      */
     default friction(value: double | Resource | undefined): this;
+    /**
+     * Sets the offset from the start of the content to the boundary of the scrollable display area.
+     *
+     * @param { double | Resource | undefined } offset - Offset from the start of the content to the boundary of
+     *     the scrollable display area.
+     *     <br>Unit: vp
+     *     <br>Unit:Default value: <em>0</em>. Passing undefined will restore the default value.
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    default contentStartOffset(offset: double | Resource | undefined): this;
+    /**
+     * Sets the offset from the end of the content to the boundary of the scrollable display area.
+     *
+     * @param { double | Resource | undefined } offset - Offset from the end of the content to the boundary of
+     *     the scrollable display area.
+     *     <br>Unit: vp
+     *     <br>Default value: <em>0</em>. Passing undefined will restore the default value.
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    default contentEndOffset(offset: double | Resource | undefined): this;
+    /**
+     * Called when the scrollable will start dragging.
+     *
+     * @param { VoidCallback | undefined } handler - callback of start dragging.
+     *     <br>Passing undefined will unregister the callback.
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    default onWillStartDragging(handler: VoidCallback | undefined): this;
+    /**
+     * Called when the scrollable will end dragging.
+     *
+     * @param { OnWillStopDraggingCallback | undefined } handler - callback of end dragging.
+     *     <br>Passing undefined will unregister the callback.
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    default onWillStopDragging(handler: OnWillStopDraggingCallback | undefined): this;
+    /**
+     * Called when the scrollable did end dragging.
+     *
+     * @param { OnDidStopDraggingCallback | undefined } handler - callback of end dragging.
+     *     <br>Passing undefined will unregister the callback.
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    default onDidStopDragging(handler: OnDidStopDraggingCallback | undefined): this;
+    /**
+     * Called when the scrollable will start fling.
+     *
+     * @param { VoidCallback | undefined } handler - callback of start fling.
+     *     <br>Passing undefined will unregister the callback.
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    default onWillStartFling(handler: VoidCallback | undefined): this;
+    /**
+     * Called when the scrollable did stop fling.
+     *
+     * @param { VoidCallback | undefined } handler - callback of stop fling.
+     *     <br>Passing undefined will unregister the callback.
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    default onDidStopFling(handler: VoidCallback | undefined): this;
     /**
      * Triggered when the scrollable component reaches the start position.
      *
@@ -12782,6 +12926,25 @@ export type OnWillScrollCallback = (scrollOffset: double, scrollState: ScrollSta
   */
 export type OnScrollCallback = (scrollOffset: double, scrollState: ScrollState) => void;
 /**
+ * On scroll callback using in scrollable onWillStopDragging.
+ *
+ * @typedef { function } OnWillStopDraggingCallback
+ * @param { double } velocity - The veolicity of the scroll view at the moment the touch was released.
+ *     <br>Unit: vp/s.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 23 static
+ */
+export type OnWillStopDraggingCallback = (velocity: double) => void;
+/**
+ * On scroll callback using in scrollable onDidStopDragging.
+ *
+ * @typedef { function } OnDidStopDraggingCallback
+ * @param { boolean } willFling - whether start fling animation.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 23 static
+ */
+export type OnDidStopDraggingCallback = (willFling: boolean) => void;
+/**
   * Defines the callback type used in onItemDragStart.
   *
   * @typedef { function } OnItemDragStartCallback
@@ -12792,6 +12955,16 @@ export type OnScrollCallback = (scrollOffset: double, scrollState: ScrollState) 
   * @since 23 static
   */
 export type OnItemDragStartCallback = (event: ItemDragInfo, itemIndex: int) => CustomBuilder | undefined;
+/**
+  * Defines the callback type used in onGetPreviewBadge of EditModeOptions.
+  *
+  * @typedef { function } OnGetPreviewBadgeCallback
+  * @returns { boolean | int }
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @stagemodelonly
+  * @since 23 static
+  */
+export type OnGetPreviewBadgeCallback = () => boolean | int;
 /**
  * Defines the onMove callback.
  *
@@ -13001,17 +13174,34 @@ export declare class ChildrenMainSize {
  *
  * @interface EditModeOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare interface EditModeOptions {
     /**
-     * Define whether to gather selected items in grid or list when item is long pressed for context menu or drag.
+     * Define whether to gather selected items in grid or list when item is long pressed for context menu.
      *
-     * @type { ?boolean } - The default value is true.
+     * @type { ?boolean }
+     * @default false
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     enableGatherSelectedItemsAnimation?: boolean;
+
+    /**
+     * Called to return whether to display the number badge or the number displayed on the badge
+     * for the context menu preview. If not set, the number of selected items within the display range will be used.
+     * Returning false means not displaying the badge.
+     * Returning true means using the number of selected items within the display range.
+     * Returning a number to include selected items outside the display range.
+     *
+     * @type { ?OnGetPreviewBadgeCallback } onGetPreviewBadge
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    onGetPreviewBadge?: OnGetPreviewBadgeCallback;
 }
 
 /**
@@ -13395,6 +13585,68 @@ export declare interface UICommonEvent {
      * @since 23 static
      */
     setOnVisibleAreaApproximateChange(options: VisibleAreaEventOptions, event: VisibleAreaChangeCallback | undefined): void;
+}
+/**
+ * Defines a UIScrollableCommonEvent which is used to set event to target component.
+ *
+ * @extends UICommonEvent
+ * @interface UIScrollableCommonEvent
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 23 static
+ */
+export declare interface UIScrollableCommonEvent extends UICommonEvent {
+  /**
+   * Set or reset the callback which is triggered when the scrolling reaches the start position.
+   *
+   * @param { VoidCallback | undefined } callback - callback function, triggered when the scrolling reaches
+   *     the start position.
+   *     <br>Passing undefined will unregister the callback.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  setOnReachStart(callback: VoidCallback | undefined): void;
+  /**
+   * Set or reset the callback which is triggered when the scrolling reaches the end position.
+   *
+   * @param { VoidCallback | undefined } callback - callback function, triggered when the
+   *     scrolling reaches the end position.
+   *     <br>Passing undefined will unregister the callback.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  setOnReachEnd(callback: VoidCallback | undefined): void;
+  /**
+   * Set or reset the callback which is triggered when the scrolling started.
+   *
+   * @param { VoidCallback | undefined } callback - callback function, triggered when the scrolling started.
+   *     <br>Passing undefined will unregister the callback.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  setOnScrollStart(callback: VoidCallback | undefined): void;
+  /**
+   * Set or reset the callback which is triggered when the scrolling stopped.
+   *
+   * @param { VoidCallback | undefined } callback - callback function, triggered when the scrolling stopped.
+   *     <br>Passing undefined will unregister the callback.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  setOnScrollStop(callback: VoidCallback | undefined): void;
+  /**
+   * Set or reset the callback which is triggered when scrolling begin each frame.
+   *
+   * @param { OnScrollFrameBeginCallback | undefined } callback - callback function, triggered when the
+   *     scrolling begin each frame.
+   *     <br>Passing undefined will unregister the callback.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  setOnScrollFrameBegin(callback: OnScrollFrameBeginCallback | undefined): void;
 }
 /**
  * Defines a UIGestureEvent which is used to set different gestures to target component.

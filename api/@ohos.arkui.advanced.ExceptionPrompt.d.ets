@@ -103,7 +103,7 @@ export interface PromptOptions {
    * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   /**
    * SymbolGlyphModifier of PromptOptions.

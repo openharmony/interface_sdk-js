@@ -240,14 +240,13 @@ export declare interface DataPanelAttribute extends CommonMethod {
  * Defines the DataPanel component.
  *
  * @param { DataPanelOptions } options - data panel options.
- * @param { CustomBuilder } [content_]
  * @returns { DataPanelAttribute } The attribute of the DataPanel.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
 @ComponentBuilder
 export declare function DataPanel(
-    options: DataPanelOptions, 
-    content_?: CustomBuilder
+    options: DataPanelOptions
 ): DataPanelAttribute;

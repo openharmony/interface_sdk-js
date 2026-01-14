@@ -31,7 +31,7 @@
  * Declaration of the menu item on the right side.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 /**
  * Declaration of the menu item on the right side.
@@ -52,7 +52,7 @@ export declare class EditableTitleBarMenuItem {
    * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   /**
    * Icon resource for this menu item.
@@ -132,7 +132,7 @@ export declare class EditableTitleBarMenuItem {
    * @type { ?() => void }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   /**
    * Callback function when click on this menu item.
@@ -237,7 +237,7 @@ export type EditableTitleBarItem = EditableTitleBarMenuItem;
  * @enum { EditableLeftIconType }.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 /**
  * Declaration of the left icon type.
@@ -257,7 +257,7 @@ export declare enum EditableLeftIconType {
    * The back type.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   /**
    * The back type.
@@ -277,7 +277,7 @@ export declare enum EditableLeftIconType {
    * The cancel type.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   /**
    * The cancel type.
@@ -353,7 +353,7 @@ export declare interface EditableTitleBarOptions {
  * Declaration of the editable title bar.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 /**
  * Declaration of the editable title bar.
@@ -375,7 +375,7 @@ export declare struct EditableTitleBar {
    * @type { EditableLeftIconType }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   /**
    * Style of the left icon.
@@ -408,7 +408,7 @@ export declare struct EditableTitleBar {
    * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   /**
    * Title of this title bar.
@@ -452,7 +452,7 @@ export declare struct EditableTitleBar {
    * @type { ?Array<EditableTitleBarMenuItem> }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   /**
    * Menu items on the right side.
@@ -475,7 +475,7 @@ export declare struct EditableTitleBar {
    * @type { ?() => void }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   /**
    * Callback function when click on the save icon at the right side.
@@ -498,7 +498,7 @@ export declare struct EditableTitleBar {
    * @type { ?() => void }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   /**
    * Callback function when click on the cancel icon at the left side.

@@ -278,7 +278,7 @@ export declare interface CommonArcButtonOptions {
    * Describes the arc button text color.
    *
    * @type { ?ColorMetrics }
-   * @default Color.white
+   * @default Color.White
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @since 23 static
    */
@@ -287,7 +287,7 @@ export declare interface CommonArcButtonOptions {
    * Describes the arc button pressed text color.
    *
    * @type { ?ColorMetrics }
-   * @default Color.white
+   * @default Color.White
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @since 23 static
    */

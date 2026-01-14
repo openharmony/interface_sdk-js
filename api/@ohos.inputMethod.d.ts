@@ -404,6 +404,7 @@ declare namespace inputMethod {
    *     triggered by the registrant's process fails.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 22 dynamic
+   * @since 23 static
    */
   function onAttachmentDidFail(callback: Callback<AttachFailureReason>): void;
 
@@ -415,6 +416,7 @@ declare namespace inputMethod {
    *     can be left blank.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 22 dynamic
+   * @since 23 static
    */
   function offAttachmentDidFail(callback?: Callback<AttachFailureReason>): void;
 
@@ -565,7 +567,7 @@ declare namespace inputMethod {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
      * @stagemodelonly
-     * @since 23 dynamic
+     * @since 23 dynamic&static
      */
     isPanelShown(panelInfo: PanelInfo, displayId: long): boolean;
 
@@ -772,7 +774,7 @@ declare namespace inputMethod {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead inputMethod.InputMethodSetting#showOptionalInputMethods
+     * @useinstead ohos.inputMethodList/InputMethodListDialog
      */
     displayOptionalInputMethod(callback: AsyncCallback<void>): void;
 
@@ -781,7 +783,7 @@ declare namespace inputMethod {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead inputMethod.InputMethodSetting#showOptionalInputMethods
+     * @useinstead ohos.inputMethodList/InputMethodListDialog
      */
     displayOptionalInputMethod(): Promise<void>;
 
@@ -811,11 +813,12 @@ declare namespace inputMethod {
      * @throws { BusinessError } 202 - not system application.
      * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
      *     a system error, such as null pointer, IPC exception.
-     * @throws { BusinessError } 12800018 - the input method is not found.
+     * @throws { BusinessError } 12800018 - input method is not found.
      * @throws { BusinessError } 12800019 - current operation cannot be applied to the preconfigured default input method.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
      * @since 20 dynamic
+     * @since 23 static
      */
     enableInputMethod(bundleName: string, extensionName: string, enabledState: EnabledState): Promise<void>;
 
@@ -959,7 +962,7 @@ declare namespace inputMethod {
      *     a system error, such as null pointer, IPC exception.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @stagemodelonly
-     * @since 23 dynamic
+     * @since 23 dynamic&static
      */
     attachWithUIContext(uiContext: UIContext, textConfig: TextConfig, attachOptions?: AttachOptions): Promise<void>;
 
@@ -1347,7 +1350,7 @@ declare namespace inputMethod {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
      * @stagemodelonly
-     * @since 23 dynamic
+     * @since 23 dynamic&static
      */
     showSoftKeyboard(displayId: long): Promise<void>;
 
@@ -1403,7 +1406,7 @@ declare namespace inputMethod {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
      * @stagemodelonly
-     * @since 23 dynamic
+     * @since 23 dynamic&static
      */
     hideSoftKeyboard(displayId: long): Promise<void>;
 
@@ -2870,7 +2873,7 @@ declare namespace inputMethod {
      * @type { ?long }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @stagemodelonly
-     * @since 23 dynamic
+     * @since 23 dynamic&static
      */
     displayId?: long;
   }
@@ -3073,6 +3076,7 @@ declare namespace inputMethod {
    * @enum { int }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 22 dynamic
+   * @since 23 static
    */
   export enum AttachFailureReason {
     /**
@@ -3080,6 +3084,7 @@ declare namespace inputMethod {
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 22 dynamic
+     * @since 23 static
      */
     CALLER_NOT_FOCUSED = 0,
 
@@ -3088,6 +3093,7 @@ declare namespace inputMethod {
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 22 dynamic
+     * @since 23 static
      */
     IME_ABNORMAL,
 
@@ -3096,6 +3102,7 @@ declare namespace inputMethod {
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 22 dynamic
+     * @since 23 static
      */
     SERVICE_ABNORMAL
   }
@@ -3105,7 +3112,7 @@ declare namespace inputMethod {
    * @interface AttachOptions
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @stagemodelonly
-   * @since 23 dynamic
+   * @since 23 dynamic&static
    */
   export interface AttachOptions {
     /**
@@ -3115,7 +3122,7 @@ declare namespace inputMethod {
      * @default true
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @stagemodelonly
-     * @since 23 dynamic
+     * @since 23 dynamic&static
      */
     showKeyboard?: boolean;
     /**
@@ -3125,7 +3132,7 @@ declare namespace inputMethod {
      * @default RequestKeyboardReason.NONE
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @stagemodelonly
-     * @since 23 dynamic
+     * @since 23 dynamic&static
      */
     requestKeyboardReason?: RequestKeyboardReason;
   }

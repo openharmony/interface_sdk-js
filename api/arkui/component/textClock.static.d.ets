@@ -254,13 +254,12 @@ export declare interface TextClockAttribute extends CommonMethod {
  * Defines the TextClock component.
  *
  * @param { TextClockOptions } [options] - text clock options.
- * @param { CustomBuilder } [content_]
  * @returns { TextClockAttribute } The attribute of the TextClock.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 @ComponentBuilder
 export declare function TextClock(
-    options?: TextClockOptions, 
-    content_?: CustomBuilder
+    options?: TextClockOptions
 ): TextClockAttribute;

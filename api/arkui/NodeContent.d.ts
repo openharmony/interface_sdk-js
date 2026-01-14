@@ -26,7 +26,6 @@ import { FrameNode } from './FrameNode';
  *
  * @extends Content
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -36,7 +35,6 @@ export class NodeContent extends Content {
    * constructor
    * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -59,7 +57,6 @@ export class NodeContent extends Content {
    * @throws { BusinessError } 100025 - The parameter is invalid. Details about the invalid parameter and the reason
    *     are included in the error message. For example: "The parameter 'node' is invalid: it cannot be adopted."
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
@@ -71,7 +68,6 @@ export class NodeContent extends Content {
    * 
    * @param { FrameNode } node - FrameNode deleted.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic

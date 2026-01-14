@@ -3702,7 +3702,7 @@ declare namespace webview {
     ERR_SIGNIFICANT_CHANGE = -5,
 
     /**
-     * The value of BlanklessLoadingParam.duration is out of the range of 0 ∪ [200, 2000].
+     * The value of BlanklessLoadingParam.duration is out of the valid range.
      *
      * Device behavior differences: Only the mobile phone is supported. For other devices, 801 is returned.
      *
@@ -3713,7 +3713,7 @@ declare namespace webview {
     ERR_DURATION_OUT_OF_RANGE = -6,
 
     /**
-     * The value of BlanklessLoadingParam.expirationTime is out of the range (0, 30 days].
+     * The value of BlanklessLoadingParam.expirationTime is out of the valid range.
      *
      * Device behavior differences: Only the mobile phone is supported. For other devices, 801 is returned.
      *
@@ -3917,7 +3917,8 @@ declare namespace webview {
     enable: boolean;
 
     /**
-     * Duration of the frame interpolation, in milliseconds.
+     * Duration of the frame interpolation, in ms.
+     * The valid range is the union of {0} and [200, 2000].
      *
      * Device behavior differences: Only the mobile phone is supported. For other devices, 801 is returned.
      *
@@ -3929,7 +3930,9 @@ declare namespace webview {
     duration?: number;
 
     /**
-     * Expiration time of the generated historical frame, in milliseconds.
+     * Expiration time of the historical frame, in ms (UTC time). T indicates the current UTC time. If the
+     * expiration time is 30 days, the value is 2592000000 ms. The value range is the union of (T, T + 2592000000] and
+     * {0}. 0 indicates that the expiration time is not specified and the default expiration time (7 days) is used.
      *
      * Device behavior differences: Only the mobile phone is supported. For other devices, 801 is returned.
      *

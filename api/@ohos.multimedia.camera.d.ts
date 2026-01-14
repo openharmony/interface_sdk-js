@@ -1971,6 +1971,32 @@ declare namespace camera {
     setTorchMode(mode: TorchMode): void;
 
     /**
+     * Checks whether torch level control is supported.
+     *
+     * @returns { boolean } Is torch level control supported.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    isTorchLevelControlSupported(): boolean;
+
+    /**
+     * Sets the torch mode to {@link TorchMode.ON} with the specified torch level.
+     *
+     * @param { double } torchLevel - the specified torch level.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400102 - Operation not allowed.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    setTorchModeOnWithLevel(torchLevel: double): void;
+
+    /**
      * Subscribes torch status change event callback.
      *
      * @param { 'torchStatusChange' } type - Event type
@@ -2364,8 +2390,10 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since 12 dynamic
+     * @since 12 dynamiconly
      * @deprecated since 12
+     * @useinstead ohos.multimedia.camera.CameraPosition#CAMERA_POSITION_BACK
+     * @useinstead ohos.multimedia.camera.CameraPosition#CAMERA_POSITION_FRONT
      */
     CAMERA_POSITION_FOLD_INNER = 3
   }
@@ -14343,29 +14371,32 @@ declare namespace camera {
   type ImageType = image.Image | image.Picture;
 
   /**
-   * PhotoEx object, which supports capturing uncompressed photo, compared to Photo.
+   * CapturePhoto object, which supports capturing uncompressed photo, compared to Photo.
    *
-   * @typedef PhotoEx
+   * @typedef CapturePhoto
    * @syscap SystemCapability.Multimedia.Camera.Core
+   * @stagemodelonly
    * @atomicservice
    * @since 23 dynamic&static
    */
-  interface PhotoEx {
+  interface CapturePhoto {
     /**
      * Main image.
      *
      * @type { ImageType }
      * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
      * @atomicservice
      * @since 23 dynamic&static
      */
     main: ImageType;
 
     /**
-     * Release PhotoEx object.
+     * Release CapturePhoto object.
      *
      * @returns { Promise<void> } Promise used to return the result.
      * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
      * @atomicservice
      * @since 23 dynamic&static
      */
@@ -14849,20 +14880,24 @@ declare namespace camera {
     /**
      * Subscribes photo available event callback, which supports delivery of uncompressed photo.
      *
-     * @param { Callback<PhotoEx> } callback - Callback used to get the PhotoEx.
+     * @param { Callback<CapturePhoto> } callback - Callback used to get the CapturePhoto.
      * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
      * @since 23 dynamic&static
      */
-    onPhotoAvailable(callback: Callback<PhotoEx>): void;
+    onCapturePhotoAvailable(callback: Callback<CapturePhoto>): void;
 
     /**
      * Unsubscribes photo available event callback, which supports delivery of uncompressed photo.
      *
-     * @param { Callback<PhotoEx> } [callback] - Callback used to get the PhotoEx.
+     * @param { Callback<CapturePhoto> } [callback] - Callback used to get the CapturePhoto.
      * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
      * @since 23 dynamic&static
      */
-    offPhotoAvailable(callback?: Callback<PhotoEx>): void;
+    offCapturePhotoAvailable(callback?: Callback<CapturePhoto>): void;
 
     /**
      * Subscribes deferred photo proxy available event callback.
@@ -16751,7 +16786,13 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 23 static
+     */
+    /**
+     * Human body detection type.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 23 dynamic&static
      */
     HUMAN_BODY = 1,
 
@@ -17103,14 +17144,14 @@ declare namespace camera {
     /**
      * Confidence for the detected type.
      *
-     * @type { int }
+     * @type { double }
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
      * @since 23 static
      */
-    readonly confidence: int;
+    readonly confidence: double;
   }
 
   /**
@@ -17163,14 +17204,14 @@ declare namespace camera {
     /**
      * Emotion confidence.
      *
-     * @type { int }
+     * @type { double }
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
      * @since 23 static
      */
-    readonly emotionConfidence: int;
+    readonly emotionConfidence: double;
 
     /**
      * Pitch angle for face.
@@ -17580,7 +17621,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 23 static
+     */
+    /**
+     * Add metadata object types.
+     *
+     * @param { Array<MetadataObjectType> } types - Object types to be added.
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 23 dynamic&static
      */
     addMetadataObjectTypes(types: Array<MetadataObjectType>): void;
 
@@ -17595,7 +17646,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 23 static
+     */
+    /**
+     * Remove metadata object types.
+     *
+     * @param { Array<MetadataObjectType> } types - Object types to be removed.
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 23 dynamic&static
      */
     removeMetadataObjectTypes(types: Array<MetadataObjectType>): void;
 

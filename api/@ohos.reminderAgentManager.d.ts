@@ -288,10 +288,8 @@ declare namespace reminderAgentManager {
   /**
    * UnSubscribe Reminder State. If the parameter is not set, cancel all callbacks.
    * 
-   * @permission ohos.permission.PUBLISH_AGENT_REMINDER
    * @param { Callback<Array<ReminderState>> } [callback] - Indicates the callback.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 1700007 - If the input parameter is not valid parameter.
    * @syscap SystemCapability.Notification.ReminderAgent
    * @stagemodelonly

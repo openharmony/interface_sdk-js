@@ -111,13 +111,12 @@ export declare interface SymbolSpanAttribute {
  * Defines SymbolSpan Component.
  *
  * @param { Resource } value
- * @param { CustomBuilder } [content_]
  * @returns { SymbolSpanAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 @ComponentBuilder
 export declare function SymbolSpan(
-    value: Resource, 
-    content_?: CustomBuilder,
+    value: Resource
 ): SymbolSpanAttribute

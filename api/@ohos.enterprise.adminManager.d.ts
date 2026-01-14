@@ -945,6 +945,18 @@ declare namespace adminManager {
    * @since 20
    */
   function setDelegatedPolicies(bundleName: string, accountId: number, policies: Array<string>): void;
+
+  /**
+   * Gets enterprise message tips.
+   *
+   * @returns { Promise<string> } returns the enterprise message tips.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function getEnterpriseManagedTips(): Promise<string>;
 }
 
 export default adminManager;

@@ -222,6 +222,7 @@
 	"SystemCapability.Driver.HID.Extension",
 	"SystemCapability.Driver.SCSI.Extension",
 	"SystemCapability.Driver.USB.Extension",
-	"SystemCapability.Driver.UsbSerial.Extension"
+	"SystemCapability.Driver.UsbSerial.Extension",
+    "SystemCapability.Communication.FusionConnectivity.Core"
   ]
 }
