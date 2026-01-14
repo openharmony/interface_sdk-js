@@ -12708,7 +12708,7 @@ declare namespace window {
      *                     3. The subWindow has been created and can not be created again.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
-     *     Possible cause: Invalid window type. Only main windows, subwindows, and float windows are supported.
+     *     Possible cause: Invalid window type. Only main windows, subwindows, and floating windows are supported.
      * @syscap SystemCapability.Window.SessionManager
      * @StageModelOnly
      * @atomicservice
