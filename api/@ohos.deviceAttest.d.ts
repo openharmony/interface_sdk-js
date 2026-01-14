@@ -25,7 +25,7 @@ import { AsyncCallback, Callback } from './@ohos.base';
  *
  * @namespace deviceAttest
  * @syscap SystemCapability.XTS.DeviceAttest
- * @since 9 dynamic
+ * @since 9 dynamiconly
  */
 declare namespace deviceAttest {
   /**
@@ -38,7 +38,7 @@ declare namespace deviceAttest {
    * @throws { BusinessError } 20000001 - System service exception, please try again or reboot your device.
    * @syscap SystemCapability.XTS.DeviceAttest
    * @systemapi Hide this for inner system use.
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    */
   function getAttestStatus(callback: AsyncCallback<AttestResultInfo>): void;
 
@@ -52,7 +52,7 @@ declare namespace deviceAttest {
    * @throws { BusinessError } 20000001 - System service exception, please try again or reboot your device.
    * @syscap SystemCapability.XTS.DeviceAttest
    * @systemapi Hide this for inner system use.
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    */
   function getAttestStatus(): Promise<AttestResultInfo>;
 
@@ -66,7 +66,7 @@ declare namespace deviceAttest {
    * @throws { BusinessError } 20000001 - System service exception, please try again or reboot your device.
    * @syscap SystemCapability.XTS.DeviceAttest
    * @systemapi Hide this for inner system use.
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    */
   function getAttestStatusSync(): AttestResultInfo;
 
@@ -76,7 +76,7 @@ declare namespace deviceAttest {
    * @interface AttestResultInfo
    * @syscap SystemCapability.XTS.DeviceAttest
    * @systemapi Hide this for inner system use.
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    */
   export interface AttestResultInfo {
 
@@ -86,7 +86,7 @@ declare namespace deviceAttest {
      * @type { number }
      * @syscap SystemCapability.XTS.DeviceAttest
      * @systemapi Hide this for inner system use.
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     authResult: number;
 
@@ -96,7 +96,7 @@ declare namespace deviceAttest {
      * @type { number }
      * @syscap SystemCapability.XTS.DeviceAttest
      * @systemapi Hide this for inner system use.
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     softwareResult: number;
 
@@ -107,7 +107,7 @@ declare namespace deviceAttest {
      * @type { Array<number> }
      * @syscap SystemCapability.XTS.DeviceAttest
      * @systemapi Hide this for inner system use.
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     softwareResultDetail: Array<number>;
 
@@ -117,7 +117,7 @@ declare namespace deviceAttest {
      * @type { string }
      * @syscap SystemCapability.XTS.DeviceAttest
      * @systemapi Hide this for inner system use.
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     ticket: string;
   }
