@@ -60,6 +60,7 @@ import type { CustomColors } from './@ohos.arkui.theme';
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
+ * @since 23 static
  */
 declare namespace picker {
   /**
