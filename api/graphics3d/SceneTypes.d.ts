@@ -414,7 +414,7 @@ export declare abstract class GeometryDefinition {
   /**
    * Which geometry shape to interpret from this definition.
    *
-   * @return { GeometryType }
+   * @returns { GeometryType }
    * @readonly
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18 dynamic
