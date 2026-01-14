@@ -731,6 +731,7 @@ declare namespace cooperate {
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 20 dynamic
+   * @since 23 static
    */
   function activateCooperateWithOptions(targetNetworkId: string, inputDeviceId: number,
     cooperateOptions?: CooperateOptions
