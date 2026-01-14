@@ -121,8 +121,6 @@
     "SystemCapability.ArkUI.ArkUI.Libuv",
     "SystemCapability.FileManagement.PhotoAccessHelper.Core",
     "SystemCapability.FileManagement.UserFileManager.Core",
-    "SystemCapability.Multimedia.MediaLibrary.Core",
-    "SystemCapability.Multimedia.MediaLibrary.DistributedCore",
     "SystemCapability.Sensors.MiscDevice",
     "SystemCapability.ArkUI.ArkUI.Napi",
     "SystemCapability.Communication.NetStack",
