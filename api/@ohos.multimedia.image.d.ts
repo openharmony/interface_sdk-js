@@ -5438,7 +5438,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    *     Otherwise, an exception will be thrown.
    * @throws { BusinessError } 7600104 - Failed to get the data from Surface.
    * @throws { BusinessError } 7600201 - Unsupported operation, e.g. on cross-platform.
-   * @throws { BusinessError } 7600206 - Invalid parameter
+   * @throws { BusinessError } 7600206 - Invalid parameter.
    * @throws { BusinessError } 7600305 - Failed to create the PixelMap.
    * @syscap SystemCapability.Multimedia.Image.Core
    * @stagemodelonly
@@ -7604,7 +7604,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 11
      */
     /**
-     * Releases this PixelMap object. After release, any method call that accesses the object's internal data will fail. This method uses a callback to return the result.
+     * Releases this PixelMap object. After release, any method call that accesses the object's internal data will fail.
+     * This method uses a callback to return the result.
      *
      * @param { AsyncCallback<void> } callback Callback invoked for instance release. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -7641,7 +7642,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 11
      */
     /**
-     * Releases this PixelMap object. After release, any method call that accesses the object's internal data will fail. This method uses a promise to return the result.
+     * Releases this PixelMap object. After release, any method call that accesses the object's internal data will fail.
+     * This method uses a promise to return the result.
      *
      * @returns { Promise<void> } A Promise instance used to return the instance release result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -7703,13 +7705,14 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 501 - Resource unavailable.
      * @throws { BusinessError } 62980102 - Image malloc abnormal. This status code is thrown when an error occurs during the process of copying data.
      * @throws { BusinessError } 62980103 - Image YUV And ASTC types are not supported.
-     * @throws { BusinessError } 62980104 - Image initialization abnormal. This status code is thrown when an error occurs during the process of creating empty pixelmap.
+     * @throws { BusinessError } 62980104 - Image initialization abnormal.
+     *     This status code is thrown when an error occurs during the process of creating empty pixelmap.
      * @throws { BusinessError } 62980106 - The image data is too large. This status code is thrown when an error occurs during the process of checking size.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 18 dynamic
      * @since 23 static
      */
-    cloneSync(): PixelMap;    
+    cloneSync(): PixelMap;
 
     /**
      * Clone pixelmap from current pixelmap.
@@ -7718,7 +7721,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 501 - Resource unavailable.
      * @throws { BusinessError } 62980102 - Image malloc abnormal. This status code is thrown when an error occurs during the process of copying data.
      * @throws { BusinessError } 62980103 - Image YUV And ASTC types are not supported.
-     * @throws { BusinessError } 62980104 - Image initialization abnormal. This status code is thrown when an error occurs during the process of creating empty pixelmap.
+     * @throws { BusinessError } 62980104 - Image initialization abnormal.
+     *     This status code is thrown when an error occurs during the process of creating empty pixelmap.
      * @throws { BusinessError } 62980106 - The image data is too large. This status code is thrown when an error occurs during the process of checking size.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 18 dynamic
