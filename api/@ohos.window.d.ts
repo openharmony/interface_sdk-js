@@ -6011,27 +6011,8 @@ declare namespace window {
     /**
      * Move window to the position.
      *
-     * @param { number } x - Indicate the X-coordinate of the window.
-     * @param { number } y - Indicate the Y-coordinate of the window.
-     * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause:
-     *     1. Mandatory parameters are left unspecified;
-     *     2. Incorrect parameter types;
-     *     3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
-     *     Failed to call the API due to limited device capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
-     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
-     * @throws { BusinessError } 1300010 - The operation in the current window status is invalid.
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    /**
-     * Move window to the position.
-     *
-     * @param { int } x - Indicate the X-coordinate of the window.
-     * @param { int } y - Indicate the Y-coordinate of the window.
+     * @param { int } x - Indicates the X-coordinate of the window.
+     * @param { int } y - Indicates the Y-coordinate of the window.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 801 - Capability not supported.
      *     Failed to call the API due to limited device capabilities.
@@ -6043,7 +6024,7 @@ declare namespace window {
      *     Possible cause: The window status is not FLOATING.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 22 dynamic
+     * @since 12 dynamic
      * @since 23 static
      */
     moveWindowToAsync(x: int, y: int): Promise<void>;
@@ -6051,29 +6032,8 @@ declare namespace window {
     /**
      * Move window to the position.
      *
-     * @param { number } x - Indicate the X-coordinate of the window.
-     * @param { number } y - Indicate the Y-coordinate of the window.
-     * @param { MoveConfiguration } [moveConfiguration] - Indicate the window move configuration.
-     *     If not provided, the window stays on the current display.
-     * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause:
-     *     1. Mandatory parameters are left unspecified;
-     *     2. Incorrect parameter types.
-     *     3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
-     *     Failed to call the API due to limited device capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
-     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
-     * @throws { BusinessError } 1300010 - The operation in the current window status is invalid.
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
-     * @since 15 dynamic
-     */
-    /**
-     * Move window to the position.
-     *
-     * @param { int } x - Indicate the X-coordinate of the window.
-     * @param { int } y - Indicate the Y-coordinate of the window.
+     * @param { int } x - Indicates the X-coordinate of the window.
+     * @param { int } y - Indicates the Y-coordinate of the window.
      * @param { MoveConfiguration } [moveConfiguration] - Indicate the window move configuration.
      *     If not provided, the window stays on the current display.
      * @returns { Promise<void> } Promise that returns no value.
@@ -6087,7 +6047,7 @@ declare namespace window {
      *     Possible cause: The window status is not FLOATING.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 22 dynamic
+     * @since 15 dynamic
      * @since 23 static
      */
     moveWindowToAsync(x: int, y: int, moveConfiguration?: MoveConfiguration): Promise<void>;
@@ -6095,27 +6055,8 @@ declare namespace window {
     /**
      * Move window to the position relative to current screen.
      *
-     * @param { number } x - Indicate the X-coordinate of the window relative to current screen.
-     * @param { number } y - Indicate the Y-coordinate of the window relative to current screen.
-     * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause:
-     *     1. Mandatory parameters are left unspecified;
-     *     2. Incorrect parameter types;
-     *     3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
-     *     Failed to call the API due to limited device capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
-     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
-     * @throws { BusinessError } 1300010 - The operation in the current window status is invalid.
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
-     * @since 13 dynamic
-     */
-    /**
-     * Move window to the position relative to current screen.
-     *
-     * @param { int } x - Indicate the X-coordinate of the window relative to current screen.
-     * @param { int } y - Indicate the Y-coordinate of the window relative to current screen.
+     * @param { int } x - Indicates the X-coordinate of the window relative to current screen.
+     * @param { int } y - Indicates the Y-coordinate of the window relative to current screen.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 801 - Capability not supported.
      *     Failed to call the API due to limited device capabilities.
@@ -6127,7 +6068,7 @@ declare namespace window {
      *     Possible cause: The window status is not FLOATING.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 22 dynamic
+     * @since 13 dynamic
      * @since 23 static
      */
     moveWindowToGlobal(x: int, y: int): Promise<void>;
@@ -6135,29 +6076,8 @@ declare namespace window {
     /**
      * Move window to the position relative to current screen.
      *
-     * @param { number } x - Indicate the X-coordinate of the window relative to current screen.
-     * @param { number } y - Indicate the Y-coordinate of the window relative to current screen.
-     * @param { MoveConfiguration } [moveConfiguration] - Indicate the window move configuration.
-     *     If not provided, the window stays on the current display.
-     * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause:
-     *     1. Mandatory parameters are left unspecified;
-     *     2. Incorrect parameter types.
-     *     3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
-     *     Failed to call the API due to limited device capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
-     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
-     * @throws { BusinessError } 1300010 - The operation in the current window status is invalid.
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
-     * @since 15 dynamic
-     */
-    /**
-     * Move window to the position relative to current screen.
-     *
-     * @param { int } x - Indicate the X-coordinate of the window relative to current screen.
-     * @param { int } y - Indicate the Y-coordinate of the window relative to current screen.
+     * @param { int } x - Indicates the X-coordinate of the window relative to current screen.
+     * @param { int } y - Indicates the Y-coordinate of the window relative to current screen.
      * @param { MoveConfiguration } [moveConfiguration] - Indicate the window move configuration.
      *     If not provided, the window stays on the current display.
      * @returns { Promise<void> } Promise that returns no value.
@@ -6171,7 +6091,7 @@ declare namespace window {
      *     Possible cause: The window status is not FLOATING.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 22 dynamic
+     * @since 15 dynamic
      * @since 23 static
      */
     moveWindowToGlobal(x: int, y: int, moveConfiguration?: MoveConfiguration): Promise<void>;
@@ -6179,25 +6099,9 @@ declare namespace window {
     /**
      * Move window to the position relative to the primary display.
      *
-     * @param { number } x - Indicates the X-coordinate of the window relative to the primary display, measured in px.
+     * @param { int } x - Indicates the X-coordinate of the window relative to the primary display, measured in px.
      *     This parameter only accepts integer values; any floating-point input will be rounded down.
-     * @param { number } y - Indicates the Y-coordinate of the window relative to the primary display, measured in px.
-     *     This parameter only accepts integer values; any floating-point input will be rounded down.
-     * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
-     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
-     * @throws { BusinessError } 1300010 - The operation in the current window status is invalid.
-     * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1. Invalid parameter range.
-     * @syscap SystemCapability.Window.SessionManager
-     * @since 20 dynamic
-     */
-    /**
-     * Move window to the position relative to the primary display.
-     *
-     * @param { int } x - Indicates the X-coordinate of the window relative to the main screen, measured in px.
-     *     This parameter only accepts integer values; any floating-point input will be rounded down.
-     * @param { int } y - Indicates the Y-coordinate of the window relative to the main screen, measured in px.
+     * @param { int } y - Indicates the Y-coordinate of the window relative to the primary display, measured in px.
      *     This parameter only accepts integer values; any floating-point input will be rounded down.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
@@ -6209,7 +6113,7 @@ declare namespace window {
      *     Possible cause: The window status is not FLOATING.
      * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1. Invalid parameter range.
      * @syscap SystemCapability.Window.SessionManager
-     * @since 22 dynamic
+     * @since 20 dynamic
      * @since 23 static
      */
     moveWindowToGlobalDisplay(x: int, y: int): Promise<void>;
@@ -6339,25 +6243,6 @@ declare namespace window {
     /**
      * Set the size of a window.
      *
-     * @param { number } width - Indicates the width of the window. The width should be greater than 0.
-     * @param { number } height - Indicates the height of the window. The height should be greater than 0.
-     * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause:
-     *     1. Mandatory parameters are left unspecified;
-     *     2. Incorrect parameter types;
-     *     3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
-     *     Failed to call the API due to limited device capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
-     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
-     * @throws { BusinessError } 1300010 - The operation in the current window status is invalid.
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    /**
-     * Set the size of a window.
-     *
      * @param { int } width - Indicates the width of the window. The width should be greater than 0.
      * @param { int } height - Indicates the height of the window. The height should be greater than 0.
      * @returns { Promise<void> } Promise that returns no value.
@@ -6372,7 +6257,7 @@ declare namespace window {
      *     Possible cause: The window status is not FLOATING.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 22 dynamic
+     * @since 12 dynamic
      * @since 23 static
      */
     resizeAsync(width: int, height: int): Promise<void>;
@@ -12559,21 +12444,6 @@ declare namespace window {
     /**
      * Convert the window coordinates to the global coordinates.
      *
-     * @param { number } winX - Indicates the X-coordinate of the component relative to the current window.
-     * @param { number } winY - Indicates the Y-coordinate of the component relative to the current window.
-     * @returns { Position } The pair {x, y} represents respectively the X-coordinate
-     *     and Y-coordinate of the window relative to the primary display, measured in px.
-     *     This parameter only accepts integer values; any floating-point input will be rounded down.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
-     * @throws { BusinessError } 1300010 - The operation in the current window status is invalid.
-     * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1. Invalid parameter range.
-     * @syscap SystemCapability.Window.SessionManager
-     * @since 20 dynamic
-     */
-    /**
-     * Convert the window coordinates to the global coordinates.
-     *
      * @param { int } winX - Indicates the X-coordinate of the component relative to the current window.
      * @param { int } winY - Indicates the Y-coordinate of the component relative to the current window.
      * @returns { Position } Position - The pair {x, y} represents respectively the X-coordinate
@@ -12584,26 +12454,11 @@ declare namespace window {
      * @throws { BusinessError } 1300010 - The operation in the current window status is invalid.
      * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1. Invalid parameter range.
      * @syscap SystemCapability.Window.SessionManager
-     * @since 22 dynamic
+     * @since 20 dynamic
      * @since 23 static
      */
     clientToGlobalDisplay(winX: int, winY: int): Position;
 
-    /**
-     * Convert the global coordinates to the window coordinates.
-     *
-     * @param { number } globalDisplayX - Indicates the X-coordinate of the component relative to the primary display.
-     * @param { number } globalDisplayY - Indicates the Y-coordinate of the component relative to the primary display.
-     * @returns { Position } The pair {x, y} represents respectively the X-coordinate
-     *     and Y-coordinate of the window relative to the current screen, measured in px.
-     *     This parameter only accepts integer values; any floating-point input will be rounded down.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
-     * @throws { BusinessError } 1300010 - The operation in the current window status is invalid.
-     * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1. Invalid parameter range.
-     * @syscap SystemCapability.Window.SessionManager
-     * @since 20 dynamic
-     */
     /**
      * Convert the global coordinates to the window coordinates.
      *
@@ -12617,7 +12472,7 @@ declare namespace window {
      * @throws { BusinessError } 1300010 - The operation in the current window status is invalid.
      * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1. Invalid parameter range.
      * @syscap SystemCapability.Window.SessionManager
-     * @since 22 dynamic
+     * @since 20 dynamic
      * @since 23 static
      */
     globalDisplayToClient(globalDisplayX: int, globalDisplayY: int): Position;
