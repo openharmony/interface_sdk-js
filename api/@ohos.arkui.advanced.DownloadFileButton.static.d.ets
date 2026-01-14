@@ -21,8 +21,6 @@
 
 import { Dimension, FontStyle, FontWeight, Resource, ResourceColor, Component, Builder } from '@ohos.arkui.component';
 
-import { State } from '@ohos.arkui.stateManagement';
-
 /**
  * Enum for DownloadIconStyle
  *
@@ -311,7 +309,7 @@ export declare struct DownloadFileButton {
    * @stagemodelonly
    * @since 23 static
    */
-  @State contentOptions: DownloadContentOptions;
+  contentOptions: DownloadContentOptions;
   /**
    * Set DownloadFileButton Style.
    *
@@ -320,7 +318,7 @@ export declare struct DownloadFileButton {
    * @stagemodelonly
    * @since 23 static
    */
-  @State styleOptions: DownloadStyleOptions;
+  styleOptions: DownloadStyleOptions;
   /**
    * The method to build component.
    *
