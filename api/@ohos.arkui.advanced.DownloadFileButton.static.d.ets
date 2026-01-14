@@ -321,4 +321,13 @@ export declare struct DownloadFileButton {
    * @since 23 static
    */
   @State styleOptions: DownloadStyleOptions;
+  /**
+   * The method to build component.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 staticonly
+   */
+  @Builder
+  build(): void;
 }
