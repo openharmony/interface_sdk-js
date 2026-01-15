@@ -11831,12 +11831,13 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal. Possible casue:
      *     1. The window is not created or destroyed.
      *     2. Internal task error.
+     *     3. The window is not shaped window.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation. Possible casue:
      *     1. The window is not subwindow and floating window.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 23 dynamic&static
+     * @since 24 dynamic&static
      */
     clearWindowMask(): Promise<void>;
 
