@@ -41,7 +41,7 @@ import { RecordData } from '../@ohos.base';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @atomicservice
  * @since 12 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface WantAgentInfo {
   /**
@@ -58,7 +58,7 @@ export interface WantAgentInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   wants: Array<Want>;
 
@@ -97,7 +97,7 @@ export interface WantAgentInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   actionType?: abilityWantAgent.OperationType;
 
@@ -115,7 +115,7 @@ export interface WantAgentInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   requestCode: int;
 
@@ -154,7 +154,7 @@ export interface WantAgentInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   actionFlags?: Array<abilityWantAgent.WantAgentFlags>;
 
@@ -183,7 +183,7 @@ export interface WantAgentInfo {
    *
    * @type { ?Record<string, RecordData> }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 22 static
+   * @since 23 static
    */
   extraInfo?: Record<string, RecordData>;
 
@@ -215,7 +215,7 @@ export interface WantAgentInfo {
    *
    * @type { ?Record<string, RecordData> }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 22 static
+   * @since 23 static
    */
   extraInfos?: Record<string, RecordData>;
 
@@ -226,7 +226,7 @@ export interface WantAgentInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 22 dynamic&static
+   * @since 23 dynamic&static
    */
   userId?: int;
 }
@@ -239,7 +239,7 @@ export interface WantAgentInfo {
  * @systemapi
  * @stagemodelonly
  * @since 20 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface LocalWantAgentInfo {
   /**
@@ -250,7 +250,7 @@ export interface LocalWantAgentInfo {
    * @systemapi
    * @stagemodelonly
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   wants: Array<Want>;
 
@@ -262,7 +262,7 @@ export interface LocalWantAgentInfo {
    * @systemapi
    * @stagemodelonly
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   operationType?: abilityWantAgent.OperationType;
 
@@ -274,7 +274,7 @@ export interface LocalWantAgentInfo {
    * @systemapi
    * @stagemodelonly
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   requestCode: int;
 }

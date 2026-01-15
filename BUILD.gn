@@ -319,12 +319,6 @@ ohos_prebuilt_etc("ets_component_etc") {
   subsystem_name = "sdk"
 }
 
-# static/arkui/component执行脚本
-ohos_copy_internal("ets_component_static") {
-  iv_input = interface_sdk_path + "/arkui_transformer_api"
-  input_project_dir = interface_sdk_path
-}
-
 # ets/kits执行脚本
 ohos_copy_internal("bundle_kits") {
   iv_input = interface_sdk_path_ets1 + "/kits"
@@ -475,6 +469,7 @@ group("build_ohos_ets") {
   external_deps = [
     ohos_ets_build_system_deps,
     ohos_ets_dependency_analyzer_deps,
+    ohos_ets_etsstdlib_deps,
     ohos_ets_koala_wrapper_deps,
     ohos_ets_stdlib_deps,
   ]
@@ -570,31 +565,6 @@ ohos_copy("ohos_ets_static_arkts") {
   outputs = [ ohos_ets_static_arkts_path ]
 }
 
-action("ohos_ets_static_component") {
-  deps = [
-    ":ets_component_static",
-    ":ohos_ets_static_api_declaration",
-  ]
-  script = "//interface/sdk-js/process_internal.py"
-  args = [
-    "--input",
-    rebase_path(interface_sdk_path + "/arkui_transformer_api", root_build_dir),
-    "--project-dir",
-    rebase_path(interface_sdk_path, root_build_dir),
-    "--base-dir",
-    rebase_path("//interface/sdk-js", root_build_dir),
-    "--remove",
-    rebase_path("//interface/sdk-js/remove_list.json", root_build_dir),
-    "--ispublic",
-    "${sdk_build_public}",
-    "--name",
-    "${target_name}",
-    "--output",
-    rebase_path(ohos_ets_static_api_path + "/arkui/component", root_build_dir),
-  ]
-  outputs = [ ohos_ets_static_api_path + "/arkui/component" ]
-}
-
 ohos_copy("ohos_ets_static_kits") {
   deps = [ ":bundle_kits_static" ]
   sources = [ target_out_dir + "/bundle_kits_static" ]
@@ -605,7 +575,6 @@ ohos_copy("ohos_ets_api") {
   deps = [
     ":ohos_ets_static_api_declaration",
     ":ohos_ets_static_api_internal",
-    ":ohos_ets_static_component",
   ]
   sources = [ ohos_ets_static_api_path ]
   outputs = [ ohos_ets_api_path ]
@@ -727,18 +696,18 @@ action("gen_api_check_plugin") {
         get_path_info("./build-tools/compile-plugins/api-check-plugin-static",
                       "abspath")),
     "--output_path",
-    rebase_path("${target_gen_dir}"),
+    rebase_path("${target_gen_dir}/${target_name}"),
     "--npm",
     rebase_path(npm_path),
   ]
-  outputs = [ "${target_gen_dir}" ]
+  outputs = [ "${target_gen_dir}/${target_name}" ]
 }
 
 ohos_copy("api_check_plugin") {
   deps = [ ":gen_api_check_plugin" ]
-  sources = [ rebase_path("${target_gen_dir}") ]
-  outputs = [ target_out_dir + "/${target_name}" ]
-  module_source_dir = target_out_dir + "/${target_name}"
+  sources = [ rebase_path("${target_gen_dir}/gen_api_check_plugin") ]
+  outputs = [ target_out_dir + "/api-check-plugin" ]
+  module_source_dir = target_out_dir + "/api-check-plugin"
   module_install_name = ""
 }
 
@@ -748,7 +717,6 @@ group("ohos_ets_static") {
     ":ohos_ets_static_api_declaration",
     ":ohos_ets_static_api_internal",
     ":ohos_ets_static_arkts",
-    ":ohos_ets_static_component",
     ":ohos_ets_static_kits",
   ]
 }

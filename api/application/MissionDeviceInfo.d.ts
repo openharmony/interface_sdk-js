@@ -24,7 +24,9 @@
  * @typedef MissionDeviceInfo
  * @syscap SystemCapability.Ability.AbilityRuntime.Mission
  * @systemapi
+ * @stagemodelonly
  * @since 9 dynamic
+ * @since 23 static
  */
 export interface MissionDeviceInfo {
   /**
@@ -34,7 +36,9 @@ export interface MissionDeviceInfo {
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
+   * @stagemodelonly
    * @since 9 dynamic
+   * @since 23 static
    */
   deviceId: string;
 }

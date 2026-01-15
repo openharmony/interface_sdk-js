@@ -24,7 +24,7 @@ import type WebNativeMessagingExtensionContext from './@ohos.web.WebNativeMessag
  *
  * @typedef ConnectionInfo
  * @syscap SystemCapability.Web.Webview.Core
- * @since 22 static
+ * @since 23 static
  */
 export interface ConnectionInfo {
     /**
@@ -32,7 +32,7 @@ export interface ConnectionInfo {
      *
      * @type { int }
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     connectionId: int;
     /**
@@ -40,7 +40,7 @@ export interface ConnectionInfo {
      *
      * @type { string }
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     bundleName: string;
     /**
@@ -48,7 +48,7 @@ export interface ConnectionInfo {
      *
      * @type { string }
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     extensionOrigin: string;
     /**
@@ -56,7 +56,7 @@ export interface ConnectionInfo {
      *
      * @type { int }
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     fdRead: int;
     /**
@@ -64,7 +64,7 @@ export interface ConnectionInfo {
      *
      * @type { int }
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     fdWrite: int;
 }
@@ -75,7 +75,7 @@ export interface ConnectionInfo {
  * @extends ExtensionAbility
  * @syscap SystemCapability.Web.Webview.Core
  * @stagemodelonly
- * @since 22 static
+ * @since 23 static
  */
 declare class WebNativeMessagingExtensionAbility extends ExtensionAbility {
     /**
@@ -84,7 +84,7 @@ declare class WebNativeMessagingExtensionAbility extends ExtensionAbility {
      * @type { WebNativeMessagingExtensionContext }
      * @syscap SystemCapability.Web.Webview.Core
      * @stagemodelonly
-     * @since 22 static
+     * @since 23 static
      */
     context: WebNativeMessagingExtensionContext;
     /**
@@ -93,7 +93,7 @@ declare class WebNativeMessagingExtensionAbility extends ExtensionAbility {
      * @param { ConnectionInfo } info - Indicates connection information about new native connection.
      * @syscap SystemCapability.Web.Webview.Core
      * @stagemodelonly
-     * @since 22 static
+     * @since 23 static
      */
     onConnectNative(info: ConnectionInfo): void;
     /**
@@ -102,7 +102,7 @@ declare class WebNativeMessagingExtensionAbility extends ExtensionAbility {
      * @param { ConnectionInfo } info - Indicates connection information about new native connection.
      * @syscap SystemCapability.Web.Webview.Core
      * @stagemodelonly
-     * @since 22 static
+     * @since 23 static
      */
     onDisconnectNative(info: ConnectionInfo): void;
     /**
@@ -110,7 +110,7 @@ declare class WebNativeMessagingExtensionAbility extends ExtensionAbility {
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @stagemodelonly
-     * @since 22 static
+     * @since 23 static
      */
     onDestroy(): void;
 }

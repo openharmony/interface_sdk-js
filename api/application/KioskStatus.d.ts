@@ -25,7 +25,7 @@
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @since 20 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface KioskStatus {
   /**
@@ -35,7 +35,7 @@ export interface KioskStatus {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   isKioskMode: boolean;
 
@@ -46,7 +46,7 @@ export interface KioskStatus {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   kioskBundleName: string;
 
@@ -57,7 +57,7 @@ export interface KioskStatus {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   kioskBundleUid: int;
 }

@@ -45,6 +45,12 @@ const COMPILER_OPTIONS = {
 };
 
 const NOT_COPY_DIR = ['build-tools', '.git', '.gitee'];
+/**
+ * 默认不带标签的since为dynamic，在特殊场景需要将不带标签的处理为static，例如
+ * 1、文件名称使用.static.d.ets，接口未添加@since xx static
+ * 2、文件名称重复，同时存在.d.ets和.d.ts，.d.ets中接口未添加@since xx static
+ */
+let defaultIsDynamic = true;
 
 function isEtsFile(path) {
   return path.endsWith('d.ets');
@@ -167,8 +173,9 @@ function handleApiFileByType(apiRelativePath, rootPath, type, output, isPublic) 
   const isEndWithStatic = isStaticFile(apiRelativePath);
   const outputPath = output ? path.join(output, apiRelativePath) : fullPath;
   const fileContent = fs.readFileSync(fullPath, 'utf-8');
-
+  defaultIsDynamic = true;
   if (isEndWithStatic) {
+    defaultIsDynamic = false;
     if (type === DirType.staticApi) {
       let staticFileCotent = deleteArktsTag(fileContent);
       if (isPublic === 'true') {
@@ -248,7 +255,7 @@ function handleArktsDefinition(type, fileContent) {
   fileContent = fileContent.replace(REGX_STATIC, (substring, p1, p2) => {
     // todo if arkts 特殊用法
     if (type === DirType.staticApi) {
-      return p2.replace(/(\s*)(\*\s\@since)/g, '$1* @arkts 1.2$1$2');
+      return p2.replace(/(\s*)(\*\s\@since\s*\S*)\s*(?=\r?\n)/g, '$1* @arkts 1.2$1$2 static');
     } else {
       return '';
     }
@@ -258,27 +265,31 @@ function handleArktsDefinition(type, fileContent) {
     if (type === DirType.dynamicApi) {
       return p2;
     } else {
-      return p2.replace(/(\s*)(\*\s\@since)/g, '$1* @arkts 1.2$1$2');
+      return p2.replace(/(\s*)(\*\s\@since\s*\S*)\s*(?=\r?\n)/g, '$1* @arkts 1.2$1$2 dynamic&static');
     }
   });
   return fileContent;
 }
 
 /**
- * 保留每个api最新一段jsdoc
+ * 保留static接口中static相关的jsdoc
  * 
  * @param {*} fileContent 
  * @returns 
  */
-function saveLatestJsDoc(fileContent) {
+function saveStaticJsDoc(fileContent) {
   // 获取包含@since的多段连续注释
-  return fileContent.replace(/(\s*\/\*\*(?:(?!\/\*\*)[\s\S])*?@since[\s\S]*?\*\/\s*?)+/g, (substring, p1) => {
-    if (substring === p1) {// 只有一段
-      return substring;
+  return fileContent.replace(/\s*\/\*\*(?:(?!\/\*\*)[\s\S])*?@since[\s\S]*?\*\/\s*(?=\r?\n)/g, (substring) => {
+    let arktsSinceTagRegx = /\s*\*\s*@since\s\S*\s(dynamic&static|staticonly|static)\s*(?=\r?\n)/g;
+    let arktsTagRegx = /\s*\*\s*@arkts\s*((1\.1&)?1\.2|dynamic&static|staticonly|static)\s*(?=\r?\n)/g;
+    if (!defaultIsDynamic) {
+      arktsSinceTagRegx = /\s*\*\s*@since\s\S*(\s(dynamic&static|staticonly|static))?\s*(?=\r?\n)/g;
     }
-    // 多段时需要保留开头空行
-    const blankSpace = substring.match(/^\s*/)[0];
-    return blankSpace + p1;
+    if (arktsSinceTagRegx.test(substring) || arktsTagRegx.test(substring)) {
+      return substring;
+    } else {
+      return '';
+    }
   });
 }
 
@@ -305,7 +316,8 @@ function handleFileInDynamicApi(apiRelativePath, fullPath, type, output) {
     }
     // 标有@arkts 1.1&1.2的声明文件，处理since版本号，删除@arkts 1.1&1.2标签
     if (thirdRegx.test(sourceFile.getFullText())) {
-      fileContent = handleSinceInFirstType(deleteArktsTag(fileContent));
+      fileContent = handleSinceInFirstType(fileContent);
+      fileContent = deleteArktsTag(fileContent);
       writeFile(outputPath, fileContent);
       return;
     }
@@ -325,7 +337,8 @@ function handleFileInDynamicApi(apiRelativePath, fullPath, type, output) {
     }
     // 标有@arkts 1.1&1.2的声明文件，处理since版本号，删除@arkts 1.1&1.2标签
     if (thirdRegx.test(firstJsdocText)) {
-      fileContent = handleSinceInFirstType(deleteArktsTag(fileContent));
+      fileContent = handleSinceInFirstType(fileContent);
+      fileContent = deleteArktsTag(fileContent);
       writeFile(outputPath, fileContent);
       return;
     }
@@ -350,10 +363,9 @@ function handleNoTagFileInFirstType(sourceFile, outputPath, fileContent) {
   if (fileContent === '') {
     return;
   }
+  fileContent = handleSinceInFirstType(fileContent);
   fileContent = deleteArktsTag(fileContent);
   fileContent = joinFileJsdoc(fileContent, sourceFile);
-
-  fileContent = handleSinceInFirstType(fileContent);
   writeFile(outputPath, fileContent);
 }
 
@@ -380,12 +392,20 @@ function deleteArktsTag(fileContent) {
  * @returns 
  */
 function replaceSinceDynamicStatic(fileContent) {
-  const arktsSinceTagRegx = /\s*\*\s*@since\s\S*\s(dynamic&static|dynamiconly|dynamic|staticonly|static)\s*(?=\r|\n)/g;
+  const arktsSinceTagRegx = /\s*\*\s*@since\s\S*(\s(dynamic&static|dynamiconly|dynamic|staticonly|static))?\s*(?=\r?\n)/g;
   // 处理@since xx dynamic&static格式标签文本
-  return fileContent.replace(arktsSinceTagRegx, (substring, p1) => {
-    if (dirType === DirType.dynamicApi && substring.indexOf('dynamic') !== -1) {
+  return fileContent.replace(arktsSinceTagRegx, (substring, tag) => {
+    if (!tag && defaultIsDynamic && dirType === DirType.dynamicApi) {
+      return substring;
+    }
+    if (!tag && !defaultIsDynamic && (dirType === DirType.staticApi || dirType === DirType.staticFile)) {
+      return substring;
+    }
+    const hasDynamic = substring.includes('dynamic');
+    const hasStatic = substring.includes('static');
+    if (dirType === DirType.dynamicApi && hasDynamic) {
       substring = substring.replace(/\s(dynamiconly|dynamic(&static)?)/g, '');
-    } else if ((dirType === DirType.staticApi || dirType === DirType.staticFile) && substring.indexOf('static') !== -1) {
+    } else if ((dirType === DirType.staticApi || dirType === DirType.staticFile) && hasStatic) {
       substring = substring.replace(/\s(staticonly|(dynamic&)?static)/g, '');
     } else {
       substring = '';
@@ -400,15 +420,23 @@ function replaceSinceDynamicStatic(fileContent) {
  * @returns 
  */
 function replaceJsDocDynamicStatic(fileContent) {
-  const jsdocTagRegx = /\s*\*\s*@\S*(?:(?!\s*\*\s*@\S*)[\s\S])*?\s\[(dynamiconly|staticonly)\]\s*(?=\r|\n)/g;
+  const getJsDocWithDynamicStaticRegx = /\s*\/\*\*(?:(?!\*\/)[\s\S])*?\[(dynamiconly|staticonly)\][\s\S]*?\*\/\s*?/g;
+
+  return fileContent.replace(getJsDocWithDynamicStaticRegx, (jsDoc) => {
+    return replaceJsDocTagDynamicStatic(jsDoc);
+  });
+}
+
+function replaceJsDocTagDynamicStatic(jsDoc) {
+  const jsdocTagRegx = /\s*\*\s*@\S*(?:(?!\s*\*\s*@\S*)[\s\S])*\s*\[(dynamiconly|staticonly)\]\s*(?=\r|\n)/g;
   // 处理jsDoc中使用[dynamiconly]/[staticonly]格式标签文本
-  return fileContent.replace(jsdocTagRegx, (substring, p1) => {
+  return jsDoc.replace(jsdocTagRegx, (substring, p1) => {
     if (dirType === DirType.dynamicApi && p1 === 'staticonly') {
       substring = '';
     } else if ((dirType === DirType.staticApi || dirType === DirType.staticFile) && p1 === 'dynamiconly') {
       substring = '';
     } else {
-      substring = substring.replace(/\s\[(dynamiconly|staticonly)\]\s*/g, '');
+      substring = substring.replace(/\s*\[(dynamiconly|staticonly)\]\s*$/g, '');
       substring = substring.replace(/\s*\*\s*$/g, '');
     }
     return substring;
@@ -440,8 +468,8 @@ function handleSinceInFirstType(fileContent) {
   const regx = /@since\s+arkts\s*(\{.*\})/g;
   fileContent = fileContent.replace(regx, (substring, p1) => {
     const versionObj = JSON.parse(p1.replace(/'/g, '"'));
-    const dynamicVersion = versionObj['1.1'] || versionObj['dynamic'];
-    return '@since ' + dynamicVersion;
+    const dynamicVersion = versionObj['1.1'] || versionObj.dynamic;
+    return '@since ' + dynamicVersion + ' dynamic';
   });
   return fileContent;
 }
@@ -543,7 +571,7 @@ function handlehasTagFile(sourceFile, outputPath) {
     return;
   }
   // 保留最后一段注释
-  newContent = saveLatestJsDoc(newContent);
+  newContent = saveStaticJsDoc(newContent);
   newContent = getFileContent(newContent, outputPath);
   newContent = deleteUnsportedTag(newContent);
   writeFile(outputPath, deleteArktsTag(newContent));
@@ -563,7 +591,8 @@ function handleNoTagFileInSecondType(sourceFile, outputPath, fullPath) {
   // API未标@arkts 1.2或@arkts 1.1&1.2标签，删除文件
   if (!arktsTagRegx.test(fileContent)) {
     if (fullPath.endsWith('.d.ts') && hasEtsFile(fullPath) || fullPath.endsWith('.d.ets') && hasTsFile(fullPath)) {
-      newContent = saveLatestJsDoc(fileContent);
+      defaultIsDynamic = fullPath.endsWith('.d.ts');
+      newContent = saveStaticJsDoc(fileContent);
       newContent = deleteArktsTag(newContent);
       writeFile(outputPath, newContent);
     }
@@ -574,7 +603,7 @@ function handleNoTagFileInSecondType(sourceFile, outputPath, fullPath) {
     return;
   }
   // 保留最后一段注释
-  newContent = saveLatestJsDoc(newContent);
+  newContent = saveStaticJsDoc(newContent);
   newContent = getFileContent(newContent, outputPath);
   newContent = deleteArktsTag(newContent);
   newContent = deleteUnsportedTag(newContent);
@@ -658,7 +687,7 @@ function saveApiByArktsDefinition(sourceFile, fileContent, outputPath) {
   let newContent = copyrightMessage + fileJsdoc + Array.from(fileContent.matchAll(regx), match => match[4]).join('\n');
   newContent = addStaticString(newContent);
 
-  writeFile(outputPath, saveLatestJsDoc(newContent));
+  writeFile(outputPath, saveStaticJsDoc(newContent));
 }
 
 /**
@@ -1005,10 +1034,14 @@ function judgeIsDeleteApi(node) {
   const notesStr = notesArr[notesArr.length - 1];
   const sinceArr = notesStr.match(/@since\s*\d+/);
   let sinceVersion = 20;
+  const hasDynamicTag = /@arkts\s*1\.1(&1\.2)?/g.test(notesStr);
+  const hasStaticTag = /@arkts\s*(1\.1&)?1\.2/g.test(notesStr);
+  const hasDynamicSince = /@since\s\S*(\s(dynamiconly|dynamic(&static)?))?\s*(?=\r?\n)/g.test(notesStr);
+  const hasStaticSince = /@since\s\S*\s(staticonly|(dynamic&)?static)/g.test(notesStr);
+  const hasDeprecatedTag = /@deprecated/g.test(notesStr);
 
   if (dirType === DirType.dynamicApi) {
-    return /@arkts\s*1\.2/g.test(notesStr) ||
-      (/@since\s\S*\s(staticonly|static)/g.test(notesStr) && !/@since\s\S*\sdynamic/g.test(notesStr));
+    return (!hasDynamicTag && hasStaticTag) || (hasStaticSince && !hasDynamicSince);
   }
 
   if (sinceArr) {
@@ -1016,13 +1049,13 @@ function judgeIsDeleteApi(node) {
   }
 
   if (dirType === DirType.staticApi) {
-    return (/@deprecated/g.test(notesStr) && sinceVersion < 20) ||
-      /@arkts\s*1\.1(?!&1\.2)/g.test(notesStr) ||
-      (/@since\s\S*\s(dynamiconly|dynamic)/g.test(notesStr) && !/@since\s\S*\s(dynamic&)?static/g.test(notesStr));
+    return (hasDeprecatedTag && sinceVersion < 20) ||
+      (hasDynamicTag && !hasStaticTag) ||
+      (hasDynamicSince && !hasStaticSince);
   }
 
   if (dirType === DirType.staticFile) {
-    return !/@arkts\s*(1\.1&)?1\.2\s/g.test(notesStr) && !/@since\s\S*\s(staticonly|(dynamic&)?static)/g.test(notesStr);
+    return !hasStaticTag && !hasStaticSince;
   }
 
   return false;
@@ -1038,8 +1071,8 @@ function handleSinceInSecondType(fileContent) {
   const regx = /@since\s+arkts\s*(\{.*\})/g;
   fileContent = fileContent.replace(regx, (substring, p1) => {
     const versionObj = JSON.parse(p1.replace(/'/g, '"'));
-    const staticVersion = versionObj['1.2'] || versionObj['static'];
-    return '@since ' + staticVersion;
+    const staticVersion = versionObj['1.2'] || versionObj.static;
+    return '@since ' + staticVersion + ' static';
   });
   return fileContent;
 }

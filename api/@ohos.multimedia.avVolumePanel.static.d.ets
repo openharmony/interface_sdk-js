@@ -28,7 +28,7 @@ import { Builder } from './arkui/component/builder';
  * Declare custom parameters used for volume panel.
  *
  * @syscap SystemCapability.Multimedia.Audio.Volume
- * @since 22
+ * @since 23 static
  */
 export declare class AVVolumePanelParameter {
   /**
@@ -36,7 +36,7 @@ export declare class AVVolumePanelParameter {
    *
    * @type { ?Position }
    * @syscap SystemCapability.Multimedia.Audio.Volume
-   * @since 22
+   * @since 23 static
    */
   position?: Position;
 }
@@ -46,7 +46,7 @@ export declare class AVVolumePanelParameter {
  *
  * @struct { AVVolumePanel }
  * @syscap SystemCapability.Multimedia.Audio.Volume
- * @since 22
+ * @since 23 static
  */
 @Component
 export declare struct AVVolumePanel {
@@ -56,7 +56,7 @@ export declare struct AVVolumePanel {
    *
    * @type { ?int }
    * @syscap SystemCapability.Multimedia.Audio.Volume
-   * @since 22
+   * @since 23 static
    */
   @PropRef
   volumeLevel?: int;
@@ -66,7 +66,7 @@ export declare struct AVVolumePanel {
    *
    * @type { ?AVVolumePanelParameter }
    * @syscap SystemCapability.Multimedia.Audio.Volume
-   * @since 22
+   * @since 23 static
    */
   @PropRef
   volumeParameter?: AVVolumePanelParameter;
@@ -74,7 +74,7 @@ export declare struct AVVolumePanel {
   /**
    * The method to build component.
    * @syscap SystemCapability.Multimedia.Audio.Volume
-   * @since 22
+   * @since 23 static
    */
   @Builder
   build(): void;

@@ -148,6 +148,56 @@ export declare enum ArcButtonStatus {
 }
 
 /**
+ * The class used for configuring ArcButton to support progress bar display.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Circle
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 23 dynamic
+ */
+export declare class ArcButtonProgressConfig {
+  /**
+   * Sets the value of Progress.
+   *
+   * Range value: [0, total].
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Circle
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  value: number;
+  /**
+   * Sets the total of Progress.
+   *
+   * Range value: [0, 2147483647].
+   *
+   * @type { ?number }
+   * @default 100
+   * @syscap SystemCapability.ArkUI.ArkUI.Circle
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  total?: number;
+  /**
+   * Sets the foreground color of Progress.
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Circle
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  color?: ResourceColor;
+}
+
+/**
  * Defines the arc button options.
  *
  * @interface CommonArcButtonOptions
@@ -297,6 +347,20 @@ interface CommonArcButtonOptions {
      * @since 18 dynamic
      */
     fontMargin?: LocalizedMargin;
+    
+    /**
+     * Sets the ArcButton progress bar parameters.
+     * When not set, the button style is used.
+     * When set, the progress style is used.
+     *
+     * @type { ?ArcButtonProgressConfig }
+     * @syscap SystemCapability.ArkUI.ArkUI.Circle
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 23 dynamic
+     */
+    progressConfig?: ArcButtonProgressConfig;
     
     /**
      * Describes the arc button touch event.
@@ -469,6 +533,20 @@ export declare class ArcButtonOptions {
      * @since 18 dynamic
      */
     fontMargin: LocalizedMargin;
+
+    /**
+     * Set the ArcButton progress bar parameters.
+     * When not set, the button style is used.
+     * When set, the progress style is used.
+     *
+     * @type { ?ArcButtonProgressConfig }
+     * @syscap SystemCapability.ArkUI.ArkUI.Circle
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 23 dynamic
+     */
+    progressConfig?: ArcButtonProgressConfig;
     
     /**
      * Describes the arc button touch event.

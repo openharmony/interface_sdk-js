@@ -41,7 +41,7 @@
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface AbilityDelegatorArgs {
   /**
@@ -67,7 +67,7 @@ export interface AbilityDelegatorArgs {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   bundleName: string;
 
@@ -94,7 +94,7 @@ export interface AbilityDelegatorArgs {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   parameters: Record<string, string>;
 
@@ -121,7 +121,7 @@ export interface AbilityDelegatorArgs {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   testCaseNames: string;
 
@@ -148,7 +148,7 @@ export interface AbilityDelegatorArgs {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   testRunnerClassName: string;
 }

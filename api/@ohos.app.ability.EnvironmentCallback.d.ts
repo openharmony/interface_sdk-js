@@ -52,7 +52,7 @@ export default class EnvironmentCallback {
  * @typedef EnvironmentCallback
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @atomicservice
- * @since 22 static
+ * @since 23 static
  */
 declare interface EnvironmentCallback {
 /*** endif */
@@ -72,7 +72,7 @@ declare interface EnvironmentCallback {
    * @StageModelOnly
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onConfigurationUpdated(config: Configuration): void;
 
@@ -94,7 +94,7 @@ declare interface EnvironmentCallback {
    * @StageModelOnly
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onMemoryLevel(level: AbilityConstant.MemoryLevel): void;
 }

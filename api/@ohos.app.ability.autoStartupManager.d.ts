@@ -42,7 +42,7 @@ import type { AsyncCallback } from './@ohos.base';
  * @namespace autoStartupManager
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @since 21 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace autoStartupManager {
   /**
@@ -76,7 +76,7 @@ declare namespace autoStartupManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 22 static
+   * @since 23 static
    */
   function onSystemAutoStartup(callback: AutoStartupCallback): void;
 
@@ -111,7 +111,7 @@ declare namespace autoStartupManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 22 static
+   * @since 23 static
    */
   function offSystemAutoStartup(callback?: AutoStartupCallback): void;
 
@@ -133,7 +133,7 @@ declare namespace autoStartupManager {
    * @systemapi
    * @StageModelOnly
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setApplicationAutoStartup(info: AutoStartupInfo, callback: AsyncCallback<void>): void;
 
@@ -155,7 +155,7 @@ declare namespace autoStartupManager {
    * @systemapi
    * @StageModelOnly
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setApplicationAutoStartup(info: AutoStartupInfo): Promise<void>;
 
@@ -177,7 +177,7 @@ declare namespace autoStartupManager {
    * @systemapi
    * @StageModelOnly
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function cancelApplicationAutoStartup(info: AutoStartupInfo, callback: AsyncCallback<void>): void;
 
@@ -199,7 +199,7 @@ declare namespace autoStartupManager {
    * @systemapi
    * @StageModelOnly
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function cancelApplicationAutoStartup(info: AutoStartupInfo): Promise<void>;
 
@@ -219,7 +219,7 @@ declare namespace autoStartupManager {
    * @systemapi
    * @StageModelOnly
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function queryAllAutoStartupApplications(callback: AsyncCallback<Array<AutoStartupInfo>>): void;
 
@@ -238,7 +238,7 @@ declare namespace autoStartupManager {
    * @systemapi
    * @StageModelOnly
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function queryAllAutoStartupApplications(): Promise<Array<AutoStartupInfo>>;
 
@@ -253,7 +253,7 @@ declare namespace autoStartupManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 21 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getAutoStartupStatusForSelf(): Promise<boolean>;
 }

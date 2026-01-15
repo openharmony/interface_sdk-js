@@ -42,7 +42,7 @@ import type notificationManager from './@ohos.notificationManager';
  * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.Core
  * @atomicservice
  * @since 12 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace backgroundTaskManager {
   /**
@@ -110,28 +110,37 @@ declare namespace backgroundTaskManager {
     isModeSupported(): boolean;
 
     /**
-     * Result of user authorization for 'MODE_SPECIAL_SCENARIO_PROCESSING'.
+     * Requesting MODE_SPECIAL_SCENARIO_PROCESSING authorization from users,
+     *     a dialog box will be displayed.
      *
      * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
+     * @param { Context } context - App running context.
      * @param { Callback<UserAuthResult> } callback - The callback of the function.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 9800004 - System service operation failed.
      * @throws { BusinessError } 9800005 - Continuous task verification failed.
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @stagemodelonly
      * @since 22 dynamic
+     * @since 23 static
      */
-    requestAuthFromUser(callback: Callback<UserAuthResult>): void;
+    requestAuthFromUser(context: Context, callback: Callback<UserAuthResult>): void;
 
     /**
-     * The result of checkSpecialScenarioAuth.
+     * Check whether the application can request MODE_SPECIAL_SCENARIO_PROCESSING.
      *
      * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
+     * @param { Context } context - App running context.
      * @returns { Promise<UserAuthResult> } The promise returns the result of user authorization.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 9800004 - System service operation failed.
      * @throws { BusinessError } 9800005 - Continuous task verification failed.
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @stagemodelonly
      * @since 22 dynamic
+     * @since 23 static
      */
-    checkSpecialScenarioAuth(): Promise<UserAuthResult>;
+    checkSpecialScenarioAuth(context: Context): Promise<UserAuthResult>;
   }
 
   /**
@@ -140,7 +149,7 @@ declare namespace backgroundTaskManager {
    * @interface DelaySuspendInfo
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface DelaySuspendInfo {
     /**
@@ -149,7 +158,7 @@ declare namespace backgroundTaskManager {
      * @type { int }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     requestId: int;
     /**
@@ -158,7 +167,7 @@ declare namespace backgroundTaskManager {
      * @type { int }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     actualDelayTime: int;
   }
@@ -169,7 +178,7 @@ declare namespace backgroundTaskManager {
    * @interface TransientTaskInfo
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface TransientTaskInfo {
     /**
@@ -178,7 +187,7 @@ declare namespace backgroundTaskManager {
      * @type { int }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     remainingQuota: int;
     /**
@@ -187,7 +196,7 @@ declare namespace backgroundTaskManager {
      * @type { DelaySuspendInfo[] }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     transientTasks: DelaySuspendInfo[];
   }
@@ -199,7 +208,7 @@ declare namespace backgroundTaskManager {
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface ContinuousTaskNotification {
     /**
@@ -209,7 +218,7 @@ declare namespace backgroundTaskManager {
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     slotType: notificationManager.SlotType;
     /**
@@ -219,7 +228,7 @@ declare namespace backgroundTaskManager {
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     contentType: notificationManager.ContentType;
     /**
@@ -229,7 +238,7 @@ declare namespace backgroundTaskManager {
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     notificationId: int;
     /**
@@ -237,7 +246,7 @@ declare namespace backgroundTaskManager {
      * @type { ?int }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     continuousTaskId?: int;
   }
@@ -248,7 +257,7 @@ declare namespace backgroundTaskManager {
    * @interface ContinuousTaskCancelInfo
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @since 15 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface ContinuousTaskCancelInfo {
     /**
@@ -257,7 +266,7 @@ declare namespace backgroundTaskManager {
      * @type { ContinuousTaskCancelReason }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     reason: ContinuousTaskCancelReason;
 
@@ -267,7 +276,7 @@ declare namespace backgroundTaskManager {
      * @type { int }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     id: int;
   }
@@ -278,7 +287,7 @@ declare namespace backgroundTaskManager {
    * @interface ContinuousTaskActiveInfo
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface ContinuousTaskActiveInfo {
     /**
@@ -287,7 +296,7 @@ declare namespace backgroundTaskManager {
      * @type { int }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     id: int;
   }
@@ -298,7 +307,7 @@ declare namespace backgroundTaskManager {
    * @interface ContinuousTaskInfo
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface ContinuousTaskInfo {
     /**
@@ -307,7 +316,7 @@ declare namespace backgroundTaskManager {
      * @type { string }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     abilityName: string;
    /**
@@ -316,7 +325,7 @@ declare namespace backgroundTaskManager {
      * @type { int}
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     uid: int;
    /**
@@ -325,7 +334,7 @@ declare namespace backgroundTaskManager {
      * @type { int}
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     pid: int;
     /**
@@ -334,7 +343,7 @@ declare namespace backgroundTaskManager {
      * @type { boolean }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isFromWebView: boolean;
     /**
@@ -343,7 +352,7 @@ declare namespace backgroundTaskManager {
      * @type { string[] }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     backgroundModes: string[];
     /**
@@ -352,7 +361,7 @@ declare namespace backgroundTaskManager {
      * @type { string[] }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     backgroundSubModes: string[];
     /**
@@ -361,7 +370,7 @@ declare namespace backgroundTaskManager {
      * @type { int }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     notificationId: int;
     /**
@@ -369,7 +378,7 @@ declare namespace backgroundTaskManager {
      * @type { int }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     continuousTaskId: int;
    /**
@@ -377,7 +386,7 @@ declare namespace backgroundTaskManager {
      * @type { int }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     abilityId: int;
     /**
@@ -385,7 +394,7 @@ declare namespace backgroundTaskManager {
      * @type { string }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     wantAgentBundleName: string;
     /**
@@ -393,7 +402,7 @@ declare namespace backgroundTaskManager {
      * @type { string }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     wantAgentAbilityName: string;
     /**
@@ -401,9 +410,77 @@ declare namespace backgroundTaskManager {
      * @type { boolean }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     suspendState: boolean;
+    /**
+     * The bundleName of apply continuous task.
+     * @type { ?string }
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 23 dynamic&static
+     */
+    bundleName?: string;
+    /**
+     * The appIndex of apply continuous task.
+     * @type { ?int }
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 23 dynamic&static
+     */
+    appIndex?: int;
+  }
+
+  /**
+   * The background task state info of user authorization status.
+   *
+   * @interface BackgroundTaskStateInfo
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+   * @systemapi Hide this for inner system use.
+   * @stagemodelonly
+   * @since 22 dynamic
+   * @since 23 static
+   */
+  interface BackgroundTaskStateInfo {
+    /**
+     * UserId of the application applying for special continuous task.
+     *
+     * @type { int }
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 22 dynamic
+     * @since 23 static
+     */
+    userId: int;
+    /**
+     * BundleName of the application applying for special continuous task.
+     * @type { string }
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 22 dynamic
+     * @since 23 static
+     */
+    bundleName: string;
+    /**
+     * AppIndex of the application applying for special continuous task.
+     * @type { int }
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 22 dynamic
+     * @since 23 static
+     */
+    appIndex: int;
+    /**
+     * Type of user authorization status.
+     * @type { ?UserAuthResult }
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 22 dynamic
+     * @since 23 static
+     */
+    authResult?: UserAuthResult;
   }
 
   /**
@@ -412,7 +489,7 @@ declare namespace backgroundTaskManager {
    * @interface ContinuousTaskSuspendInfo
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface ContinuousTaskSuspendInfo {
     /**
@@ -421,7 +498,7 @@ declare namespace backgroundTaskManager {
      * @type { int }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     continuousTaskId: int;
 
@@ -431,7 +508,7 @@ declare namespace backgroundTaskManager {
      * @type { boolean }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     suspendState: boolean;
 
@@ -441,9 +518,53 @@ declare namespace backgroundTaskManager {
      * @type { ContinuousTaskSuspendReason }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     suspendReason: ContinuousTaskSuspendReason;
+  }
+
+  /**
+   * The continuous task state change subscriber.
+   *
+   * @typedef BackgroundTaskSubscriber
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  export interface BackgroundTaskSubscriber {  
+    /**
+     * Callback of continuous task start.
+     *
+     * @param { ContinuousTaskInfo } info - The continuous task info.
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    onContinuousTaskStart(info: ContinuousTaskInfo): void;
+
+    /**
+     * Callback of continuous task update.
+     *
+     * @param { ContinuousTaskInfo } info - The continuous task info.
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    onContinuousTaskUpdate(info: ContinuousTaskInfo): void;
+
+    /**
+     * Callback of continuous task stop.
+     *
+     * @param { ContinuousTaskInfo } info - The continuous task info.
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    onContinuousTaskStop(info: ContinuousTaskInfo): void;
   }
 
   /**
@@ -453,7 +574,7 @@ declare namespace backgroundTaskManager {
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
    * @systemapi Hide this for inner system use.
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface EfficiencyResourcesInfo {
     /**
@@ -463,7 +584,7 @@ declare namespace backgroundTaskManager {
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     resourceTypes: int;
     /**
@@ -473,7 +594,7 @@ declare namespace backgroundTaskManager {
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     timeout: int;
     /**
@@ -483,7 +604,7 @@ declare namespace backgroundTaskManager {
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isPersistent: boolean;
     /**
@@ -493,7 +614,7 @@ declare namespace backgroundTaskManager {
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isForProcess: boolean;
     /**
@@ -503,7 +624,7 @@ declare namespace backgroundTaskManager {
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     reason: string;
    /**
@@ -513,7 +634,7 @@ declare namespace backgroundTaskManager {
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     uid: int;
    /**
@@ -523,9 +644,20 @@ declare namespace backgroundTaskManager {
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     pid: int;
+   /**
+     * Specify CPU resources. The system will allocate the specified CPU resources
+     *     to the application during idle load times.
+     *
+     * @type { ?EfficiencyResourcesCpuLevel }
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    cpuLevel?: EfficiencyResourcesCpuLevel;
   }
 
   /**
@@ -543,7 +675,7 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 9900002 - Transient task verification failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function cancelSuspendDelay(requestId: int): void;
 
@@ -563,7 +695,7 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 9900002 - Transient task verification failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getRemainingDelayTime(requestId: int, callback: AsyncCallback<int>): void;
 
@@ -583,7 +715,7 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 9900002 - Transient task verification failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getRemainingDelayTime(requestId: int): Promise<int>;
 
@@ -604,7 +736,7 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 9900002 - Transient task verification failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function requestSuspendDelay(reason: string, callback: Callback<void>): DelaySuspendInfo;
 
@@ -618,7 +750,7 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 9900004 - System service operation failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getTransientTaskInfo(): Promise<TransientTaskInfo>;
 
@@ -669,7 +801,7 @@ declare namespace backgroundTaskManager {
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function startBackgroundRunning(context: Context, bgMode: BackgroundMode, wantAgent: WantAgent, callback: AsyncCallback<void>): void;
 
@@ -720,7 +852,7 @@ declare namespace backgroundTaskManager {
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function startBackgroundRunning(context: Context, bgMode: BackgroundMode, wantAgent: WantAgent): Promise<void>;
 
@@ -747,7 +879,7 @@ declare namespace backgroundTaskManager {
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function startBackgroundRunning(context: Context, bgModes: string[], wantAgent: WantAgent): Promise<ContinuousTaskNotification>;
 
@@ -792,7 +924,7 @@ declare namespace backgroundTaskManager {
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function updateBackgroundRunning(context: Context, bgModes: string[]): Promise<ContinuousTaskNotification>;
 
@@ -866,7 +998,7 @@ declare namespace backgroundTaskManager {
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function stopBackgroundRunning(context: Context, callback: AsyncCallback<void>): void;
 
@@ -922,7 +1054,7 @@ declare namespace backgroundTaskManager {
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function stopBackgroundRunning(context: Context): Promise<void>;
 
@@ -956,7 +1088,7 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 9800005 - Continuous task verification failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getAllContinuousTasks(context: Context): Promise<ContinuousTaskInfo[]>;
 
@@ -974,9 +1106,91 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 9800005 - Continuous task verification failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getAllContinuousTasks(context: Context, includeSuspended: boolean): Promise<ContinuousTaskInfo[]>;
+
+  /**
+   * Set the user authorization status of special continuous tasks.
+   *
+   * @permission ohos.permission.SET_BACKGROUND_TASK_STATE
+   * @param { BackgroundTaskStateInfo } stateInfo - Background task state info.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not System App.
+   * @throws { BusinessError } 9800004 - System service operation failed.
+   * @throws { BusinessError } 9800005 - Continuous task verification failed.
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+   * @systemapi
+   * @stagemodelonly
+   * @since 22 dynamic
+   * @since 23 static
+   */
+  function setBackgroundTaskState(stateInfo: BackgroundTaskStateInfo): void;
+
+  /**
+   * Get the user authorization status of special continuous tasks.
+   *
+   * @permission ohos.permission.SET_BACKGROUND_TASK_STATE
+   * @param { BackgroundTaskStateInfo } stateInfo - Background task state info.
+   * @returns { UserAuthResult } Type of user authorization status.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not System App.
+   * @throws { BusinessError } 9800004 - System service operation failed.
+   * @throws { BusinessError } 9800005 - Continuous task verification failed.
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+   * @systemapi
+   * @stagemodelonly
+   * @since 22 dynamic
+   * @since 23 static
+   */
+  function getBackgroundTaskState(stateInfo: BackgroundTaskStateInfo): UserAuthResult;
+
+  /**
+   * Obtains information about all continuous tasks in the system.
+   *
+   * @permission ohos.permission.GET_BACKGROUND_TASK_INFO
+   * @returns { Promise<ContinuousTaskInfo[]> } The promise returns the continuous task info.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not System App.
+   * @throws { BusinessError } 9800004 - System service operation failed.
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function obtainAllContinuousTasks(): Promise<ContinuousTaskInfo[]>;
+
+  /**
+   * Subscribe to continuous task state change.
+   *
+   * @permission ohos.permission.GET_BACKGROUND_TASK_INFO
+   * @param { BackgroundTaskSubscriber } subscriber - The continuous task state change subscriber.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not System App.
+   * @throws { BusinessError } 9800004 - System service operation failed.
+   * @throws { BusinessError } 9800005 - Continuous task verification failed.
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function subscribeContinuousTaskState(subscriber: BackgroundTaskSubscriber): void;
+
+  /**
+   * Unsubscribe to continuous task state change.
+   *
+   * @permission ohos.permission.GET_BACKGROUND_TASK_INFO
+   * @param { BackgroundTaskSubscriber } subscriber - The continuous task state change subscriber.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not System App.
+   * @throws { BusinessError } 9800004 - System service operation failed.
+   * @throws { BusinessError } 9800005 - Continuous task verification failed.
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function unsubscribeContinuousTaskState(subscriber: BackgroundTaskSubscriber): void;
 
   /**
    * Apply or unapply efficiency resources.
@@ -995,7 +1209,7 @@ declare namespace backgroundTaskManager {
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function applyEfficiencyResources(request: EfficiencyResourcesRequest): void;
 
@@ -1014,7 +1228,7 @@ declare namespace backgroundTaskManager {
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function resetAllEfficiencyResources(): void;
 
@@ -1030,7 +1244,7 @@ declare namespace backgroundTaskManager {
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
    * @systemapi
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getAllEfficiencyResources(): Promise<EfficiencyResourcesInfo[]>;
 
@@ -1057,7 +1271,7 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Callback parameter error;
    * <br> 2. Register a exist callback type; 3. Parameter verification failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @since 22 static
+   * @since 23 static
    */
   function onContinuousTaskCancel(callback: Callback<ContinuousTaskCancelInfo>): void;
 
@@ -1084,7 +1298,7 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Callback parameter error;
    * <br> 2. Unregister type has not register; 3. Parameter verification failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @since 22 static
+   * @since 23 static
    */
   function offContinuousTaskCancel(callback?: Callback<ContinuousTaskCancelInfo>): void;
 
@@ -1109,7 +1323,7 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 9800005 - Continuous task verification failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @since 22 static
+   * @since 23 static
    */
   function onContinuousTaskSuspend(callback: Callback<ContinuousTaskSuspendInfo>): void;
 
@@ -1134,7 +1348,7 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 9800005 - Continuous task verification failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @since 22 static
+   * @since 23 static
    */
   function offContinuousTaskSuspend(callback?: Callback<ContinuousTaskSuspendInfo>): void;
 
@@ -1159,7 +1373,7 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 9800005 - Continuous task verification failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @since 22 static
+   * @since 23 static
    */
   function onContinuousTaskActive(callback: Callback<ContinuousTaskActiveInfo>): void;
 
@@ -1184,7 +1398,7 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 9800005 - Continuous task verification failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @since 22 static
+   * @since 23 static
    */
   function offContinuousTaskActive(callback?: Callback<ContinuousTaskActiveInfo>): void;
 
@@ -1202,7 +1416,7 @@ declare namespace backgroundTaskManager {
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum BackgroundMode {
     /**
@@ -1210,7 +1424,7 @@ declare namespace backgroundTaskManager {
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DATA_TRANSFER = 1,
 
@@ -1226,7 +1440,7 @@ declare namespace backgroundTaskManager {
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     AUDIO_PLAYBACK = 2,
 
@@ -1235,7 +1449,7 @@ declare namespace backgroundTaskManager {
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     AUDIO_RECORDING = 3,
 
@@ -1244,7 +1458,7 @@ declare namespace backgroundTaskManager {
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     LOCATION = 4,
 
@@ -1253,7 +1467,7 @@ declare namespace backgroundTaskManager {
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BLUETOOTH_INTERACTION = 5,
 
@@ -1269,7 +1483,7 @@ declare namespace backgroundTaskManager {
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MULTI_DEVICE_CONNECTION = 6,
 
@@ -1279,7 +1493,7 @@ declare namespace backgroundTaskManager {
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     WIFI_INTERACTION = 7,
 
@@ -1288,7 +1502,7 @@ declare namespace backgroundTaskManager {
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     VOIP = 8,
 
@@ -1298,7 +1512,7 @@ declare namespace backgroundTaskManager {
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     TASK_KEEPING = 9,
   }
@@ -1489,6 +1703,15 @@ declare namespace backgroundTaskManager {
      * @since 22 dynamic
      */
     SUBMODE_VIDEO_BROADCAST_NORMAL_NOTIFICATION = 10,
+
+    /**
+     * submode of 'MODE_SPECIAL_SCENARIO_PROCESSING', used for workout scenarios.
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    SUBMODE_WORK_OUT_NORMAL_NOTIFICATION = 11
   }
 
   /**
@@ -1498,7 +1721,7 @@ declare namespace backgroundTaskManager {
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum ResourceType {
     /**
@@ -1507,7 +1730,7 @@ declare namespace backgroundTaskManager {
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CPU = 1,
 
@@ -1517,7 +1740,7 @@ declare namespace backgroundTaskManager {
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT = 1 << 1,
 
@@ -1527,7 +1750,7 @@ declare namespace backgroundTaskManager {
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     TIMER = 1 << 2,
 
@@ -1537,7 +1760,7 @@ declare namespace backgroundTaskManager {
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     WORK_SCHEDULER = 1 << 3,
 
@@ -1547,7 +1770,7 @@ declare namespace backgroundTaskManager {
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BLUETOOTH = 1 << 4,
 
@@ -1557,7 +1780,7 @@ declare namespace backgroundTaskManager {
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     GPS = 1 << 5,
 
@@ -1567,7 +1790,7 @@ declare namespace backgroundTaskManager {
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     AUDIO = 1 << 6,
 
@@ -1577,7 +1800,7 @@ declare namespace backgroundTaskManager {
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     RUNNING_LOCK = 1 << 7,
 
@@ -1587,9 +1810,50 @@ declare namespace backgroundTaskManager {
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SENSOR = 1 << 8
+  }
+
+  /**
+   * The type of CPU level.
+   *
+   * @enum { int } The type of resource.
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
+   * @systemapi Hide this for inner system use.
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  export enum EfficiencyResourcesCpuLevel {
+    /**
+     * Runs up to small cores.
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    SMALL_CPU = 0,
+
+    /**
+     * Runs up to medium cores.
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    MEDIUM_CPU = 1,
+
+    /**
+     * Runs up to large cores.
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    LARGE_CPU = 2
   }
 
   /**
@@ -1599,7 +1863,7 @@ declare namespace backgroundTaskManager {
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface EfficiencyResourcesRequest {
     /**
@@ -1609,7 +1873,7 @@ declare namespace backgroundTaskManager {
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     resourceTypes: int;
 
@@ -1620,7 +1884,7 @@ declare namespace backgroundTaskManager {
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isApply: boolean;
 
@@ -1631,7 +1895,7 @@ declare namespace backgroundTaskManager {
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     timeOut: int;
 
@@ -1642,7 +1906,7 @@ declare namespace backgroundTaskManager {
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isPersist?: boolean;
 
@@ -1653,7 +1917,7 @@ declare namespace backgroundTaskManager {
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isProcess?: boolean;
 
@@ -1664,9 +1928,21 @@ declare namespace backgroundTaskManager {
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     reason: string;
+
+   /**
+     * Specify CPU resources. The system will allocate the specified CPU resources
+     *     to the application during idle load times.
+     *
+     * @type { ?EfficiencyResourcesCpuLevel }
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    cpuLevel?: EfficiencyResourcesCpuLevel;
   }
 
   /**
@@ -1675,7 +1951,7 @@ declare namespace backgroundTaskManager {
    * @enum { int }
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @since 15 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum ContinuousTaskCancelReason {
     /**
@@ -1683,7 +1959,7 @@ declare namespace backgroundTaskManager {
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     USER_CANCEL = 1,
     /**
@@ -1691,7 +1967,7 @@ declare namespace backgroundTaskManager {
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SYSTEM_CANCEL = 2,
     /**
@@ -1699,7 +1975,7 @@ declare namespace backgroundTaskManager {
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     USER_CANCEL_REMOVE_NOTIFICATION = 3,
 
@@ -1708,7 +1984,7 @@ declare namespace backgroundTaskManager {
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SYSTEM_CANCEL_DATA_TRANSFER_LOW_SPEED = 4,
 
@@ -1717,7 +1993,7 @@ declare namespace backgroundTaskManager {
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SYSTEM_CANCEL_AUDIO_PLAYBACK_NOT_USE_AVSESSION = 5,
 
@@ -1726,7 +2002,7 @@ declare namespace backgroundTaskManager {
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SYSTEM_CANCEL_AUDIO_PLAYBACK_NOT_RUNNING = 6,
 
@@ -1735,7 +2011,7 @@ declare namespace backgroundTaskManager {
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SYSTEM_CANCEL_AUDIO_RECORDING_NOT_RUNNING = 7,
 
@@ -1744,7 +2020,7 @@ declare namespace backgroundTaskManager {
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SYSTEM_CANCEL_NOT_USE_LOCATION = 8,
 
@@ -1753,7 +2029,7 @@ declare namespace backgroundTaskManager {
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SYSTEM_CANCEL_NOT_USE_BLUETOOTH = 9,
 
@@ -1762,7 +2038,7 @@ declare namespace backgroundTaskManager {
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SYSTEM_CANCEL_NOT_USE_MULTI_DEVICE = 10,
 
@@ -1771,7 +2047,7 @@ declare namespace backgroundTaskManager {
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SYSTEM_CANCEL_USE_ILLEGALLY = 11,
   }
@@ -1782,7 +2058,7 @@ declare namespace backgroundTaskManager {
    * @enum { int }
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @since 16 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum BackgroundSubMode {
     /**
@@ -1790,7 +2066,7 @@ declare namespace backgroundTaskManager {
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 16 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CAR_KEY = 1
   }
@@ -1801,7 +2077,7 @@ declare namespace backgroundTaskManager {
    * @enum { string }
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @since 16 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum BackgroundModeType {
     /**
@@ -1809,7 +2085,7 @@ declare namespace backgroundTaskManager {
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 16 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SUB_MODE = 'subMode'
   }
@@ -1820,7 +2096,7 @@ declare namespace backgroundTaskManager {
    * @enum { int }
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum ContinuousTaskSuspendReason {
     /**
@@ -1828,7 +2104,7 @@ declare namespace backgroundTaskManager {
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SYSTEM_SUSPEND_DATA_TRANSFER_LOW_SPEED = 4,
   
@@ -1837,7 +2113,7 @@ declare namespace backgroundTaskManager {
      * 
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SYSTEM_SUSPEND_AUDIO_PLAYBACK_NOT_USE_AVSESSION = 5,
   
@@ -1846,7 +2122,7 @@ declare namespace backgroundTaskManager {
      * 
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SYSTEM_SUSPEND_AUDIO_PLAYBACK_NOT_RUNNING = 6,
   
@@ -1855,7 +2131,7 @@ declare namespace backgroundTaskManager {
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SYSTEM_SUSPEND_AUDIO_RECORDING_NOT_RUNNING = 7,
   
@@ -1864,7 +2140,7 @@ declare namespace backgroundTaskManager {
      * 
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SYSTEM_SUSPEND_LOCATION_NOT_USED = 8,
   
@@ -1873,7 +2149,7 @@ declare namespace backgroundTaskManager {
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SYSTEM_SUSPEND_BLUETOOTH_NOT_USED = 9,
   
@@ -1882,7 +2158,7 @@ declare namespace backgroundTaskManager {
      * 
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SYSTEM_SUSPEND_MULTI_DEVICE_NOT_USED = 10,
   
@@ -1891,7 +2167,7 @@ declare namespace backgroundTaskManager {
      * 
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SYSTEM_SUSPEND_USED_ILLEGALLY = 11,
 
@@ -1900,7 +2176,7 @@ declare namespace backgroundTaskManager {
      * 
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SYSTEM_SUSPEND_SYSTEM_LOAD_WARNING = 12,
   }
@@ -1911,6 +2187,7 @@ declare namespace backgroundTaskManager {
    * @enum { number }
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @since 22 dynamic
+   * @since 23 static
    */
   export enum UserAuthResult {
     /**
@@ -1918,6 +2195,7 @@ declare namespace backgroundTaskManager {
      * 
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 22 dynamic
+     * @since 23 static
      */
     NOT_SUPPORTED = 0,
 
@@ -1926,6 +2204,7 @@ declare namespace backgroundTaskManager {
      * 
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 22 dynamic
+     * @since 23 static
      */
     NOT_DETERMINED = 1,
 
@@ -1934,6 +2213,7 @@ declare namespace backgroundTaskManager {
      * 
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 22 dynamic
+     * @since 23 static
      */
     DENIED = 2,
 
@@ -1942,6 +2222,7 @@ declare namespace backgroundTaskManager {
      * 
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 22 dynamic
+     * @since 23 static
      */
     GRANTED_ONCE = 3,
 
@@ -1950,6 +2231,7 @@ declare namespace backgroundTaskManager {
      * 
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 22 dynamic
+     * @since 23 static
      */
     GRANTED_ALWAYS = 4
   }

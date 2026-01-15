@@ -25,7 +25,7 @@ import { AttributeModifier, CommonMethod } from './common';
  *
  * @interface GuideLinePosition
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare interface GuideLinePosition {
     /**
@@ -33,7 +33,7 @@ export declare interface GuideLinePosition {
      *
      * @type { ?Dimension }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     start?: Dimension;
     /**
@@ -41,7 +41,7 @@ export declare interface GuideLinePosition {
      *
      * @type { ?Dimension }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     end?: Dimension;
 }
@@ -50,7 +50,7 @@ export declare interface GuideLinePosition {
  *
  * @interface GuideLineStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare interface GuideLineStyle {
     /**
@@ -58,7 +58,7 @@ export declare interface GuideLineStyle {
      *
      * @type {string}
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     id: string;
     /**
@@ -66,7 +66,7 @@ export declare interface GuideLineStyle {
      *
      * @type {Axis}
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     direction: Axis;
     /**
@@ -74,7 +74,7 @@ export declare interface GuideLineStyle {
      *
      * @type {GuideLinePosition}
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     position: GuideLinePosition;
 }
@@ -83,35 +83,35 @@ export declare interface GuideLineStyle {
  *
  * @enum {number}
  * @syscap SystemCapability.Test.UiTest
- * @since 22 static
+ * @since 23 static
  */
 export declare enum BarrierDirection {
     /**
      * Barrier will be positioned to the far left of all referenced components.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     LEFT,
     /**
      * Barrier will be positioned to the far right of all referenced components.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     RIGHT,
     /**
      * Barrier will be positioned to the top of all referenced components.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     TOP,
     /**
      * Barrier will be positioned to the bottom of all referenced components.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     BOTTOM
 }
@@ -120,35 +120,35 @@ export declare enum BarrierDirection {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum LocalizedBarrierDirection {
     /**
      * Localized barrier will be positioned to the far start of all referenced components.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     START = 0,
     /**
      * Localized barrier will be positioned to the far end of all referenced components.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     END = 1,
     /**
      * Localized barrier will be positioned to the top of all referenced components.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     TOP = 2,
     /**
      * Localized barrier will be positioned to the bottom of all referenced components.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     BOTTOM = 3
 }
@@ -157,7 +157,7 @@ export declare enum LocalizedBarrierDirection {
  *
  * @interface BarrierStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare interface BarrierStyle {
     /**
@@ -165,7 +165,7 @@ export declare interface BarrierStyle {
      *
      * @type {string}
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     id: string;
     /**
@@ -173,7 +173,7 @@ export declare interface BarrierStyle {
      *
      * @type {BarrierDirection}
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     direction: BarrierDirection;
     /**
@@ -181,7 +181,7 @@ export declare interface BarrierStyle {
      *
      * @type {Array<string>}
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     referencedId: Array<string>;
 }
@@ -190,7 +190,7 @@ export declare interface BarrierStyle {
  *
  * @interface LocalizedBarrierStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare interface LocalizedBarrierStyle {
     /**
@@ -198,7 +198,7 @@ export declare interface LocalizedBarrierStyle {
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     id: string;
     /**
@@ -206,7 +206,7 @@ export declare interface LocalizedBarrierStyle {
      *
      * @type { LocalizedBarrierDirection }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     localizedDirection: LocalizedBarrierDirection;
     /**
@@ -214,7 +214,7 @@ export declare interface LocalizedBarrierStyle {
      *
      * @type { Array<string> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     referencedId: Array<string>;
 }
@@ -225,7 +225,7 @@ export declare interface LocalizedBarrierStyle {
  * @extends CommonMethod
  * @interface RelativeContainerAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 export declare interface RelativeContainerAttribute extends CommonMethod {
@@ -235,7 +235,7 @@ export declare interface RelativeContainerAttribute extends CommonMethod {
      * @param { Array<GuideLineStyle> } value
      * @returns { RelativeContainerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default guideLine(value: Array<GuideLineStyle> | undefined): this;
     /**
@@ -244,7 +244,7 @@ export declare interface RelativeContainerAttribute extends CommonMethod {
     * @param { Array<BarrierStyle> | Array<LocalizedBarrierStyle> | undefined } barrierStyle
     * @returns { RelativeContainerAttribute }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 22 static
+    * @since 23 static
     */
     default barrier(barrierStyle: Array<BarrierStyle> | Array<LocalizedBarrierStyle> | undefined): this;
     /**
@@ -253,7 +253,7 @@ export declare interface RelativeContainerAttribute extends CommonMethod {
      * @param { AttributeModifier<RelativeContainerAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { RelativeContainerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<RelativeContainerAttribute> | AttributeModifier<CommonMethod>
         | undefined): this;
@@ -265,7 +265,7 @@ export declare interface RelativeContainerAttribute extends CommonMethod {
  * @param { CustomBuilder } [content_] - container
  * @returns { RelativeContainerAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 @ComponentBuilder

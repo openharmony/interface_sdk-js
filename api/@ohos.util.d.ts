@@ -492,7 +492,7 @@ declare namespace util {
   }
 
   /**
-   * Defines the decode with stream related options parameters.
+   * Defines options for streaming decoding to string output.
    *
    * @interface DecodeToStringOptions
    * @syscap SystemCapability.Utils.Lang
@@ -694,7 +694,7 @@ declare namespace util {
      * @syscap SystemCapability.Utils.Lang
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.util.decodeWithStream
+     * @useinstead ohos.util.decodeToString
      */
     decode(input: Uint8Array, options?: { stream?: false }): string;
 
@@ -1633,7 +1633,7 @@ declare namespace util {
     /**
      * Obtains a list of all values in the current buffer.
      *
-     * @returns { V[] } Returns the list of all values in the current buffer in ascending order, from the most recently accessed to least recently accessed.
+     * @returns { V[] } Returns the list of all values in the current buffer in ascending order, from the least recently accessed to most recently accessed.
      * @syscap SystemCapability.Utils.Lang
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -1644,7 +1644,7 @@ declare namespace util {
     /**
      * Obtains a list of keys for the values in the current buffer.
      *
-     * @returns { K[] } Returns a list of keys sorted from most recently accessed to least recently accessed.
+     * @returns { K[] } Returns the list of all keys in the current buffer in ascending order, from the least recently accessed to most recently accessed.
      * @syscap SystemCapability.Utils.Lang
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -3086,8 +3086,7 @@ declare namespace util {
   }
 
   /**
-   * Decodes a Base64 encoded String or input u8 array into a newly-allocated
-   * u8 array using the Base64 encoding scheme.
+   * Decodes a string or Uint8Array containing Base64 data into a newly allocated Uint8Array.
    *
    * @syscap SystemCapability.Utils.Lang
    * @since 8 dynamiconly
@@ -3130,7 +3129,7 @@ declare namespace util {
     encodeToStringSync(src: Uint8Array): string;
 
     /**
-     * Decodes a Base64 encoded String or input u8 array into a newly-allocated u8 array using the Base64 encoding scheme.
+     * Decodes a Base64-encoded string or Uint8Array into a newly allocated Uint8Array.
      *
      * @param { Uint8Array | string } src - A Uint8Array value or value A string value
      * @returns { Uint8Array } Return the decoded Uint8Array.
@@ -4988,6 +4987,29 @@ declare namespace util {
      * @since 22 dynamic
      */
     static register<T>(obj: AutoFinalizer<T>, heldValue: T): void;
+  }
+  /**
+   * To provide developers with maintenance and testing capabilities for the ArkTS virtual machine.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @stagemodelonly
+   * @crossplatform
+   * @since 23 dynamiconly
+   */
+  class ArkTSVM {
+    /**
+    * To turn on or off the multi-thread detection switch. If enabled is true, turn on the switch,
+    * If enable is false, turn off the switch.
+    * 
+    * @param { boolean } enabled - The boolean flag to indicate whether to turn on or off
+    *                              multi-thread detection switch.
+    * @static
+    * @syscap SystemCapability.Utils.Lang
+    * @stagemodelonly
+    * @crossplatform
+    * @since 23 dynamiconly
+    */
+    static setMultithreadingDetectionEnabled(enabled: boolean):void;
   }
 }
 export default util;

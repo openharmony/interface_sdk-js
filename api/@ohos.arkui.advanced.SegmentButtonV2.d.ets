@@ -21,6 +21,7 @@
 import { ColorMetrics, LengthMetrics } from '@ohos.arkui.node';
 import { ImageModifier, SymbolGlyphModifier, TextModifier } from '@ohos.arkui.modifier';
 import { SizeT } from '@ohos.arkui.node';
+import uiMaterial from './@ohos.arkui.uiMaterial';
 
 /**
  * Defines the options of the segmented button item.
@@ -777,6 +778,23 @@ export declare struct TabSegmentButtonV2 {
     readonly languageDirection?: Direction;
 
     /**
+     * Set system-styled materials for the component. Different materials have different effects, which can influence
+     * the backgroundColor, border, shadow, and other visual attributes of the component.
+     *
+     * Device Behavior Differences:The effect of the same material may vary across different devices depending on
+     * their computing power.
+     *
+     * @type { ?uiMaterial.Material } material - System-styled material.
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic
+     */
+    @Param
+    readonly backgroundSystemMaterial?: uiMaterial.Material;
+
+    /**
      * Sets the build function of the segmented button.
      * 
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1215,6 +1233,23 @@ export declare struct CapsuleSegmentButtonV2 {
      */
     @Param
     readonly languageDirection?: Direction;
+
+    /**
+     * Set system-styled materials for the component. Different materials have different effects, which can influence
+     * the backgroundColor, border, shadow, and other visual attributes of the component.
+     *
+     * Device Behavior Differences:The effect of the same material may vary across different devices depending on
+     * their computing power.
+     *
+     * @type { ?uiMaterial.Material } material - System-styled material.
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic
+     */
+    @Param
+    readonly backgroundSystemMaterial?: uiMaterial.Material;
 
     /**
      * Sets the build function of the segmented button.

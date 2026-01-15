@@ -26,7 +26,7 @@ import { Touch } from './@ohos.multimodalInput.touchEvent';
  * @interface Pinch
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 10 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export declare interface Pinch {
   /**
@@ -34,7 +34,7 @@ export declare interface Pinch {
    * @type { ActionType }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   type: ActionType;
 
@@ -43,7 +43,7 @@ export declare interface Pinch {
    * @type { double }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   scale: double;
 }
@@ -54,7 +54,7 @@ export declare interface Pinch {
  * @interface Rotate
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 11 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export declare interface Rotate {
   /**
@@ -63,7 +63,7 @@ export declare interface Rotate {
    * @type { ActionType }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   type: ActionType;
 
@@ -73,7 +73,7 @@ export declare interface Rotate {
    * @type { double }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   angle: double;
 }
@@ -84,7 +84,7 @@ export declare interface Rotate {
  * @interface ThreeFingersSwipe
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 10 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export declare interface ThreeFingersSwipe {
   /**
@@ -92,7 +92,7 @@ export declare interface ThreeFingersSwipe {
    * @type { ActionType }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   type: ActionType;
 
@@ -101,7 +101,7 @@ export declare interface ThreeFingersSwipe {
    * @type { int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   x: int;
 
@@ -110,7 +110,7 @@ export declare interface ThreeFingersSwipe {
    * @type { int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   y: int;
 }
@@ -121,7 +121,7 @@ export declare interface ThreeFingersSwipe {
  * @interface FourFingersSwipe
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 10 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export declare interface FourFingersSwipe {
   /**
@@ -129,7 +129,7 @@ export declare interface FourFingersSwipe {
    * @type { ActionType }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   type: ActionType;
 
@@ -138,7 +138,7 @@ export declare interface FourFingersSwipe {
    * @type { int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   x: int;
 
@@ -147,7 +147,7 @@ export declare interface FourFingersSwipe {
    * @type { int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   y: int;
 }
@@ -159,7 +159,7 @@ export declare interface FourFingersSwipe {
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @systemapi hide for inner use
  * @since 12 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export declare interface SwipeInward {
   /**
@@ -168,7 +168,7 @@ export declare interface SwipeInward {
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi hide for inner use
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   type: ActionType;
 
@@ -178,7 +178,7 @@ export declare interface SwipeInward {
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi hide for inner use
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   x: int;
 
@@ -188,7 +188,7 @@ export declare interface SwipeInward {
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi hide for inner use
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   y: int;
 }
@@ -199,7 +199,7 @@ export declare interface SwipeInward {
  * @interface ThreeFingersTap
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 11 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export declare interface ThreeFingersTap {
   /**
@@ -208,7 +208,7 @@ export declare interface ThreeFingersTap {
    * @type { ActionType }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   type: ActionType;
 }
@@ -220,7 +220,7 @@ export declare interface ThreeFingersTap {
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @systemapi hide for inner use
  * @since 18 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export declare interface TouchGestureEvent {
   /**
@@ -230,7 +230,7 @@ export declare interface TouchGestureEvent {
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi hide for inner use
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   action: TouchGestureAction;
   /**
@@ -240,7 +240,7 @@ export declare interface TouchGestureEvent {
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi hide for inner use
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   touches: Touch[];
 }
@@ -252,7 +252,7 @@ export declare interface TouchGestureEvent {
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @systemapi hide for inner use
  * @since 18 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export declare enum TouchGestureAction {
   /**
@@ -261,7 +261,7 @@ export declare enum TouchGestureAction {
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi hide for inner use
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   SWIPE_DOWN = 0,
   /**
@@ -270,7 +270,7 @@ export declare enum TouchGestureAction {
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi hide for inner use
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   SWIPE_UP,
   /**
@@ -279,7 +279,7 @@ export declare enum TouchGestureAction {
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi hide for inner use
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   SWIPE_LEFT,
   /**
@@ -288,7 +288,7 @@ export declare enum TouchGestureAction {
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi hide for inner use
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   SWIPE_RIGHT,
   /**
@@ -297,7 +297,7 @@ export declare enum TouchGestureAction {
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi hide for inner use
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   PINCH_CLOSED,
   /**
@@ -306,7 +306,7 @@ export declare enum TouchGestureAction {
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi hide for inner use
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   PINCH_OPENED,
   /**
@@ -315,7 +315,7 @@ export declare enum TouchGestureAction {
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi hide for inner use
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   GESTURE_END
 }
@@ -326,7 +326,7 @@ export declare enum TouchGestureAction {
  * @enum { number }
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 10 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export declare enum ActionType {
   /**
@@ -334,7 +334,7 @@ export declare enum ActionType {
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   CANCEL = 0,
 
@@ -343,7 +343,7 @@ export declare enum ActionType {
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   BEGIN = 1,
 
@@ -352,7 +352,7 @@ export declare enum ActionType {
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   UPDATE = 2,
 
@@ -361,7 +361,7 @@ export declare enum ActionType {
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   END = 3
 }

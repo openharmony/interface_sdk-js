@@ -28,7 +28,7 @@ import bundle from '../@ohos.bundle.bundleManager';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
  * @since 9 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface ExtensionRunningInfo {
   /**
@@ -37,7 +37,7 @@ export interface ExtensionRunningInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   extension: ElementName;
 
@@ -47,7 +47,7 @@ export interface ExtensionRunningInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   pid: int;
 
@@ -57,7 +57,7 @@ export interface ExtensionRunningInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   uid: int;
 
@@ -67,7 +67,7 @@ export interface ExtensionRunningInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   processName: string;
 
@@ -77,7 +77,7 @@ export interface ExtensionRunningInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startTime: long;
 
@@ -87,7 +87,7 @@ export interface ExtensionRunningInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   clientPackage: Array<String>;
 
@@ -97,7 +97,7 @@ export interface ExtensionRunningInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   type: bundle.ExtensionAbilityType;
 }

@@ -16,52 +16,55 @@
  * @file
  * @kit ArkUI
  */
-import { ResourceColor, ResourceStr, Length } from './units';
+import { ResourceColor, ResourceStr, Length, LengthMetrics } from './units';
 import { DecorationStyleInterface, MutableStyledString, StyledString } from './styledString';
 import { SelectionOptions, Callback } from './common';
 import { TextDecorationType, TextDecorationStyle } from './enums';
-import { AttributeModifier, CommonMethod } from './common';
+import { AttributeModifier, CommonMethod, LinearGradientOptions, RadialGradientOptions } from './common';
+import text from '../../@ohos.graphics.text';
+import { InputMethodExtraConfig } from '@ohos.inputMethod.ExtraConfig'
+
 /**
  * Defines the text data detector type.
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum TextDataDetectorType {
     /**
      * Detector type phone number.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     PHONE_NUMBER = 0,
     /**
      * Detector type URL.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     URL = 1,
     /**
      * Detector type email.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     EMAIL = 2,
     /**
      * Detector type address.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     ADDRESS = 3,
     /**
      * Detector type datetime.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     DATE_TIME = 4
 }
@@ -70,7 +73,7 @@ export declare enum TextDataDetectorType {
  *
  * @interface TextDataDetectorConfig
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare interface TextDataDetectorConfig {
     /**
@@ -79,7 +82,7 @@ export declare interface TextDataDetectorConfig {
      *
      * @type { TextDataDetectorType[] | undefined | null }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     types: TextDataDetectorType[] | undefined | null;
     /**
@@ -87,7 +90,7 @@ export declare interface TextDataDetectorConfig {
      *
      * @type { ?Callback<string> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     onDetectResultUpdate?: Callback<string>;
     /**
@@ -95,7 +98,7 @@ export declare interface TextDataDetectorConfig {
      *
      * @type { ?ResourceColor }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     color?: ResourceColor;
     /**
@@ -103,16 +106,24 @@ export declare interface TextDataDetectorConfig {
      *
      * @type { ?DecorationStyleInterface }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     decoration?: DecorationStyleInterface;
+    /**
+     * Used to set whether the preview window will be displayed when long-presses and selects a word.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    enablePreviewMenu?: boolean;
 }
 /**
  * Defines range of text type component.
  *
  * @interface TextRange
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare interface TextRange {
     /**
@@ -121,7 +132,7 @@ export declare interface TextRange {
      * @type { ?int }
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     start?: int;
     /**
@@ -130,7 +141,7 @@ export declare interface TextRange {
      * @type { ?int }
      * @default text length
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     end?: int;
 }
@@ -139,7 +150,7 @@ export declare interface TextRange {
  *
  * @interface InsertValue
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare interface InsertValue {
     /**
@@ -147,7 +158,7 @@ export declare interface InsertValue {
      *
      * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     insertOffset: int;
     /**
@@ -155,7 +166,7 @@ export declare interface InsertValue {
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     insertValue: string;
 }
@@ -164,21 +175,21 @@ export declare interface InsertValue {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum TextDeleteDirection {
     /**
      * Delete backward.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     BACKWARD = 0,
     /**
      * Delete forward.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     FORWARD = 1
 }
@@ -187,21 +198,21 @@ export declare enum TextDeleteDirection {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum MenuType {
     /**
      * Selection menu.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     SELECTION_MENU = 0,
     /**
      * Preview menu, only for image.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     PREVIEW_MENU = 1
 }
@@ -210,35 +221,35 @@ export declare enum MenuType {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum AutoCapitalizationMode {
     /**
      * The default status is invalid.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     NONE = 0,
     /**
      * Automatic case by words.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     WORDS = 1,
     /**
      * Automatic case by sentences.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     SENTENCES = 2,
     /**
      * Automatic case by full characters.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     ALL_CHARACTERS = 3
 }
@@ -247,7 +258,7 @@ export declare enum AutoCapitalizationMode {
  *
  * @interface DeleteValue
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare interface DeleteValue {
     /**
@@ -255,7 +266,7 @@ export declare interface DeleteValue {
      *
      * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     deleteOffset: int;
     /**
@@ -263,7 +274,7 @@ export declare interface DeleteValue {
      *
      * @type { TextDeleteDirection }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     direction: TextDeleteDirection;
     /**
@@ -271,7 +282,7 @@ export declare interface DeleteValue {
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     deleteValue: string;
 }
@@ -282,7 +293,7 @@ export declare interface DeleteValue {
  * @param { TextRange } rangeBefore - Range of content that had been replaced.
  * @param { TextRange } rangeAfter - Range of content that newly added.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export type OnDidChangeCallback = (rangeBefore: TextRange, rangeAfter: TextRange) => void;
 /**
@@ -294,7 +305,7 @@ export type OnDidChangeCallback = (rangeBefore: TextRange, rangeAfter: TextRange
  * @param { TextChangeOptions } [options] - contains the selection range before and after the change, as well as
  *    the old content.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export type EditableTextOnChangeCallback =
                                       (value: string, previewText?: PreviewText, options?: TextChangeOptions) => void;
@@ -303,7 +314,7 @@ export type EditableTextOnChangeCallback =
  *
  * @interface TextBaseController
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare interface TextBaseController {
     /**
@@ -313,24 +324,24 @@ export declare interface TextBaseController {
      * @param { int } selectionEnd - The end position of the selected text.
      * @param { SelectionOptions } [options] - Indicates the options of selection.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     setSelection(selectionStart: int, selectionEnd: int, options?: SelectionOptions): void;
     /**
      * Close the select menu when menu is on.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     closeSelectionMenu(): void;
     /**
      * Get LayoutManager.
      *
-     * @returns { LayoutManager } - Return the LayoutManager.
+     * @returns { LayoutManager | undefined } - Return the LayoutManager.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
-    getLayoutManager(): LayoutManager;
+    getLayoutManager(): LayoutManager | undefined;
 }
 /**
  * Define the text extended editing controller.
@@ -338,55 +349,55 @@ export declare interface TextBaseController {
  * @extends TextBaseController
  * @interface TextEditControllerEx
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare interface TextEditControllerEx extends TextBaseController {
     /**
      * Judge whether is in editing state
      *
-     * @returns { boolean } - true means that the component is in editing state, false means is non in editing status
+     * @returns { boolean | undefined } - true means that the component is in editing state, false means is non in editing status
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
-    isEditing(): boolean;
+    isEditing(): boolean | undefined;
     /**
      * Stop editing state.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     stopEditing(): void;
     /**
      * Set caret offset.
      *
      * @param { int } offset - caret offset.
-     * @returns { boolean } - Return true if the caret offset was successfully set, false otherwise.
+     * @returns { boolean | undefined } - Return true if the caret offset was successfully set, false otherwise.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
-    setCaretOffset(offset: int): boolean;
+    setCaretOffset(offset: int): boolean | undefined;
     /**
      * Get caret offset from controller.
      *
-     * @returns { int }
+     * @returns { int | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
-    getCaretOffset(): int;
+    getCaretOffset(): int | undefined;
     /**
      * Get PreviewText.
      *
-     * @returns { PreviewText } - Return the PreviewText.
+     * @returns { PreviewText | undefined } - Return the PreviewText.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
-    getPreviewText(): PreviewText;
+    getPreviewText(): PreviewText | undefined;
 }
 /**
  * The previewText.
  * @interface PreviewText
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare interface PreviewText {
     /**
@@ -394,7 +405,7 @@ export declare interface PreviewText {
      *
      * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     offset: int;
     /**
@@ -402,7 +413,7 @@ export declare interface PreviewText {
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     value: string;
 }
@@ -411,7 +422,7 @@ export declare interface PreviewText {
  *
  * @interface StyledStringController
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare interface StyledStringController {
     /**
@@ -419,24 +430,24 @@ export declare interface StyledStringController {
      *
      * @param { StyledString } styledString - StyledString.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     setStyledString(styledString: StyledString): void;
     /**
      * Get the StyledString of the component.
      *
-     * @returns { MutableStyledString }
+     * @returns { MutableStyledString | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
-    getStyledString(): MutableStyledString;
+    getStyledString(): MutableStyledString | undefined;
 }
 /**
  * Define the StyledString changed listener.
  *
  * @interface StyledStringChangedListener
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare interface StyledStringChangedListener {
     /**
@@ -444,7 +455,7 @@ export declare interface StyledStringChangedListener {
      *
      * @type { ?Callback<StyledStringChangeValue, boolean> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     onWillChange?: Callback<StyledStringChangeValue, boolean>;
     /**
@@ -452,7 +463,7 @@ export declare interface StyledStringChangedListener {
      *
      * @type { ?OnDidChangeCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     onDidChange?: OnDidChangeCallback;
 }
@@ -461,7 +472,7 @@ export declare interface StyledStringChangedListener {
  *
  * @interface StyledStringChangeValue
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export interface StyledStringChangeValue {
     /**
@@ -469,7 +480,7 @@ export interface StyledStringChangeValue {
      *
      * @type { TextRange }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     range: TextRange;
     /**
@@ -477,7 +488,7 @@ export interface StyledStringChangeValue {
      *
      * @type { StyledString }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     replacementString: StyledString;
     /**
@@ -485,7 +496,7 @@ export interface StyledStringChangeValue {
      *
      * @type { ?StyledString }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     previewText?: StyledString;
 }
@@ -494,34 +505,55 @@ export interface StyledStringChangeValue {
  *
  * @interface LayoutManager
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare interface LayoutManager {
     /**
      * Get the line count.
      *
-     * @returns { int } The line count value returned to the caller.
+     * @returns { int | undefined } The line count value returned to the caller.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
-    getLineCount(): int;
+    getLineCount(): int | undefined;
     /**
      * Get the glyph position at coordinate.
      *
      * @param { double } x - the positionX of typography.
      * @param { double } y - the positionY of typography.
-     * @returns { PositionWithAffinity } TextBlob object.
+     * @returns { PositionWithAffinity | undefined } TextBlob object.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
-    getGlyphPositionAtCoordinate(x: double, y: double): PositionWithAffinity;
+    getGlyphPositionAtCoordinate(x: double, y: double): PositionWithAffinity | undefined;
+
+    /**
+     * Get LineMetrics.
+     * 
+     * @param { int } lineNumber - the number of line.
+     * @returns { LineMetrics | undefined } The line Metrics.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    getLineMetrics(lineNumber: int): LineMetrics | undefined;
+
+    /**
+     * Get the rects for range.
+     * @param { TextRange } range - The range to set.
+     * @param { RectWidthStyle } widthStyle - Width style to set.
+     * @param { RectHeightStyle } heightStyle - Height style to set.
+     * @returns { Array<TextBox> | undefined } The rects for range.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    getRectsForRange(range: TextRange, widthStyle: RectWidthStyle, heightStyle: RectHeightStyle): Array<TextBox> | undefined;
 }
 /**
  * Position and affinity.
  *
  * @typedef PositionWithAffinity
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export interface PositionWithAffinity {
     /**
@@ -529,16 +561,80 @@ export interface PositionWithAffinity {
      *
      * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     position: int;
+
+    /**
+     * Affinity of the position.
+     * @type { Affinity }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 23 static
+     */
+    affinity: Affinity;
 }
+/**
+ * Define the Affinity type.
+ *
+ * @typedef { text.Affinity } Affinity
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 23 static
+ */
+declare type Affinity = text.Affinity;
+
+/**
+ * Define the LineMetrics type.
+ *
+ * @typedef { text.LineMetrics } LineMetrics
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 23 static
+ */
+declare type LineMetrics = text.LineMetrics;
+
+/**
+ * Define the RectWidthStyle type.
+ *
+ * @typedef { text.RectWidthStyle } RectWidthStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 23 static
+ */
+declare type RectWidthStyle = text.RectWidthStyle;
+
+/**
+ * Define the RectHeightStyle type.
+ *
+ * @typedef { text.RectHeightStyle } RectHeightStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 23 static
+ */
+declare type RectHeightStyle = text.RectHeightStyle;
+
+/**
+ * Define the TextBox type.
+ *
+ * @typedef { text.TextBox } TextBox
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 23 static
+ */
+declare type TextBox = text.TextBox;
+
+/**
+ * The Paragraph type provides detailed information about a paragraph,
+ * including properties such as line count, line height, and other relevant metrics.
+ *
+ * @typedef { text.Paragraph } Paragraph
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 23 static
+ */
+export declare type Paragraph = text.Paragraph;
+
 /**
  * Defines the cursor style
  *
  * @interface CaretStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export interface CaretStyle {
     /**
@@ -546,7 +642,7 @@ export interface CaretStyle {
      *
      * @type { ?Length }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     width?: Length;
     /**
@@ -554,7 +650,7 @@ export interface CaretStyle {
      *
      * @type { ?ResourceColor }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     color?: ResourceColor;
 }
@@ -562,7 +658,7 @@ export interface CaretStyle {
  * Defines the TextMenuItemId.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare class TextMenuItemId {
     /**
@@ -572,7 +668,7 @@ export declare class TextMenuItemId {
      * @returns { TextMenuItemId } - Returns the TextMenuItemId object.
      * @static
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     static of(id: ResourceStr): TextMenuItemId;
     /**
@@ -581,7 +677,7 @@ export declare class TextMenuItemId {
      * @param { TextMenuItemId } id - id TextMenuItemId.
      * @returns { boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     equals(id: TextMenuItemId): boolean;
     /**
@@ -591,7 +687,7 @@ export declare class TextMenuItemId {
      * @readonly
      * @static
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     static readonly CUT: TextMenuItemId;
     /**
@@ -601,7 +697,7 @@ export declare class TextMenuItemId {
      * @readonly
      * @static
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     static readonly COPY: TextMenuItemId;
     /**
@@ -611,7 +707,7 @@ export declare class TextMenuItemId {
      * @readonly
      * @static
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     static readonly PASTE: TextMenuItemId;
     /**
@@ -621,7 +717,7 @@ export declare class TextMenuItemId {
      * @readonly
      * @static
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     static readonly SELECT_ALL: TextMenuItemId;
     /**
@@ -631,7 +727,7 @@ export declare class TextMenuItemId {
      * @readonly
      * @static
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     static readonly COLLABORATION_SERVICE: TextMenuItemId;
     /**
@@ -641,7 +737,7 @@ export declare class TextMenuItemId {
      * @readonly
      * @static
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     static readonly CAMERA_INPUT: TextMenuItemId;
     /**
@@ -651,7 +747,7 @@ export declare class TextMenuItemId {
      * @readonly
      * @static
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     static readonly AI_WRITER: TextMenuItemId;
     /**
@@ -661,7 +757,7 @@ export declare class TextMenuItemId {
      * @readonly
      * @static
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     static readonly TRANSLATE: TextMenuItemId;
     /**
@@ -671,7 +767,7 @@ export declare class TextMenuItemId {
      * @readonly
      * @static
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     static readonly SEARCH: TextMenuItemId;
     /**
@@ -681,16 +777,39 @@ export declare class TextMenuItemId {
      * @readonly
      * @static
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     static readonly SHARE: TextMenuItemId;
+
+    /**
+     * Indicates the TextMenuItemId for auto fill.
+     *
+     * @type { TextMenuItemId }
+     * @readonly
+     * @static
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    static readonly autoFill: TextMenuItemId;
+
+    /**
+     * Indicates the TextMenuItemId for password vault.
+     *
+     * @type { TextMenuItemId }
+     * @readonly
+     * @static
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    static readonly passwordVault: TextMenuItemId;
 }
 /**
  * TextMenuItem
  *
  * @interface TextMenuItem
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare interface TextMenuItem {
     /**
@@ -698,7 +817,7 @@ export declare interface TextMenuItem {
      *
      * @type { ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     content: ResourceStr;
     /**
@@ -706,7 +825,7 @@ export declare interface TextMenuItem {
      *
      * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     icon?: ResourceStr;
     /**
@@ -714,7 +833,7 @@ export declare interface TextMenuItem {
      *
      * @type { TextMenuItemId }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     id: TextMenuItemId;
     /**
@@ -722,7 +841,7 @@ export declare interface TextMenuItem {
      *
      * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     labelInfo?: ResourceStr;
 }
@@ -733,7 +852,7 @@ export declare interface TextMenuItem {
  * @param { Array<TextMenuItem> } menuItems - currently displayed menu items.
  * @returns { Array<TextMenuItem> } Return the menu items will displayed after operations.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export type OnCreateMenuCallback = (menuItems: Array<TextMenuItem>) => Array<TextMenuItem>;
 /**
@@ -744,15 +863,25 @@ export type OnCreateMenuCallback = (menuItems: Array<TextMenuItem>) => Array<Tex
  * @param { TextRange } range - current selected range.
  * @returns { boolean } - Return True, the event is consumed, false otherwise.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export type OnMenuItemClickCallback = (menuItem: TextMenuItem, range: TextRange) => boolean;
+/**
+ * Callback before displaying the menu when the selection range changes.
+ *
+ * @typedef { function } OnPrepareMenuCallback
+ * @param { Array<TextMenuItem> } menuItems - currently displayed menu items.
+ * @returns { Array<TextMenuItem> } Return the menu items will displayed after operations.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 23 static
+ */
+export type OnPrepareMenuCallback = (menuItems: Array<TextMenuItem>) => Array<TextMenuItem>;
 /**
  * EditMenuOptions
  *
  * @interface EditMenuOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare interface EditMenuOptions {
     /**
@@ -761,7 +890,7 @@ export declare interface EditMenuOptions {
      *
      * @type { OnCreateMenuCallback | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     onCreateMenu: OnCreateMenuCallback | undefined;
     /**
@@ -770,16 +899,24 @@ export declare interface EditMenuOptions {
      *
      * @type { OnMenuItemClickCallback | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     onMenuItemClick: OnMenuItemClickCallback | undefined;
+    /**
+     * Callback before displaying the menu when the selection range changes.
+     *
+     * @type { ?OnPrepareMenuCallback }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    onPrepareMenu?: OnPrepareMenuCallback;
 }
 /**
  * Defines the font decoration result.
  *
  * @interface DecorationStyleResult
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export interface DecorationStyleResult {
     /**
@@ -787,7 +924,7 @@ export interface DecorationStyleResult {
      *
      * @type { TextDecorationType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     type: TextDecorationType;
     /**
@@ -795,7 +932,7 @@ export interface DecorationStyleResult {
      *
      * @type { ResourceColor }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     color: ResourceColor;
     /**
@@ -803,16 +940,25 @@ export interface DecorationStyleResult {
      *
      * @type { ?TextDecorationStyle }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     style?: TextDecorationStyle;
+    /**
+     * The thicknessScale value of the decoration property object.
+     *
+     * @type { ?double }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    thicknessScale?: double;
 }
 /**
  * Defines the options of font.
  *
  * @interface FontSettingOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare interface FontSettingOptions {
     /**
@@ -820,7 +966,7 @@ export declare interface FontSettingOptions {
       *
       * @type { ?boolean }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
-      * @since 22 static
+      * @since 23 static
       */
     enableVariableFontWeight?: boolean;
 }
@@ -828,7 +974,7 @@ export declare interface FontSettingOptions {
 * The TextChangeOptions.
 * @interface TextChangeOptions
 * @syscap SystemCapability.ArkUI.ArkUI.Full
-* @since 22 static
+* @since 23 static
 */
 export declare interface TextChangeOptions {
     /**
@@ -836,7 +982,7 @@ export declare interface TextChangeOptions {
      *
      * @type { TextRange }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     rangeBefore: TextRange;
     /**
@@ -844,7 +990,7 @@ export declare interface TextChangeOptions {
      *
      * @type { TextRange }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     rangeAfter: TextRange;
     /**
@@ -852,7 +998,7 @@ export declare interface TextChangeOptions {
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     oldContent: string;
     /**
@@ -860,7 +1006,7 @@ export declare interface TextChangeOptions {
      *
      * @type { PreviewText }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     oldPreviewText: PreviewText;
 }
@@ -869,7 +1015,7 @@ export declare interface TextChangeOptions {
  *
  * @interface EditableTextChangeValue
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export interface EditableTextChangeValue {
     /**
@@ -877,7 +1023,7 @@ export interface EditableTextChangeValue {
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     content: string;
     /**
@@ -885,7 +1031,7 @@ export interface EditableTextChangeValue {
      *
      * @type { ?PreviewText }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     previewText?: PreviewText;
     /**
@@ -893,7 +1039,7 @@ export interface EditableTextChangeValue {
      *
      * @type { ?TextChangeOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     options?: TextChangeOptions;
 }
@@ -902,14 +1048,14 @@ export interface EditableTextChangeValue {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum TextMenuShowMode {
     /**
      * Display the text selection menu in the current window.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     DEFAULT = 0,
     /**
@@ -917,7 +1063,7 @@ export declare enum TextMenuShowMode {
      * and continue to display it within the current window if a separate window is not supported
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     PREFER_WINDOW = 1
 }
@@ -926,7 +1072,7 @@ export declare enum TextMenuShowMode {
  *
  * @interface TextMenuOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare interface TextMenuOptions {
     /**
@@ -934,7 +1080,7 @@ export declare interface TextMenuOptions {
      *
      * @type { ?TextMenuShowMode }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     showMode?: TextMenuShowMode;
 }
@@ -943,35 +1089,785 @@ export declare interface TextMenuOptions {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum KeyboardAppearance {
     /**
      * Default appearance mode, don't adopt immersive styles
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     NONE_IMMERSIVE = 0,
     /**
      * Immersive mode
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     IMMERSIVE = 1,
     /**
      * Light immersive style
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     LIGHT_IMMERSIVE = 2,
     /**
      * Dark immersive style
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     DARK_IMMERSIVE = 3
+}
+
+/**
+ * Configuration for Accessibility .
+ *
+ * @interface AccessibilitySpanOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 23 static
+ */
+export declare interface AccessibilitySpanOptions {
+    /**
+     * Indicates the accessibility text of component.
+     *
+     * @type { ?ResourceStr } - accessibility text, Default value is "".
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+  accessibilityText?: ResourceStr;
+    /**
+     * Indicates more detailed description text of component,
+     *     which is used to further describe the component.
+     *
+     * @type { ?ResourceStr } - accessibility description, Default value is "".
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+  accessibilityDescription?: ResourceStr;
+    /**
+     * Set accessibility level.
+     *
+     * @type { ?string } - The accessibility level for component. The options are as follows:<br/>
+     *     "auto":The value is converted to "yes" or "no" based on the component.
+     *     "yes": the current component is selectable for the accessibility service.
+     *     "no": The current component is not selectable for the accessibility service.
+     * @default "auto".
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+  accessibilityLevel?:string;
+}
+
+/**
+ * Selected drag preview style configuration.
+ *
+ * @interface SelectedDragPreviewStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 23 static
+ */
+export declare interface SelectedDragPreviewStyle {
+    /**
+     * The color of background.
+     *
+     * @type { ?ResourceColor } - Default value is '#ffffff' (100% opacity).
+     *                            Default value in dark mode is '#202224' (95% opacity).
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+  color?: ResourceColor;
+}
+
+/**
+ * Defines text direction.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 23 static
+ */
+export declare enum TextDirection {
+    /**
+     * Left to right.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    LTR = 0,
+    /**
+     * Right to left.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    RTL = 1,
+    /**
+     * The text direction follows the component layout.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    DEFAULT = 2,
+    /**
+     * The text direction follows the actual text.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    AUTO = 3
+}
+
+/**
+ * Alignment of text content.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 23 static
+ */
+export declare enum TextContentAlign {
+    /**
+     * Top the text.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    TOP = 0,
+    /**
+     * Center alignment.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    CENTER = 1,
+    /**
+     * Bottom alignment.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    BOTTOM = 2
+}
+
+/**
+ * Keyboard Gradient mode.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @stagemodelonly
+ * @since 23 static
+ */
+export declare enum KeyboardGradientMode {
+  /**
+   * Disable gradient mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 static
+   */
+  NONE = 0,
+
+  /**
+   * Linear gradient mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 static
+   */
+  LINEAR_GRADIENT = 1
+}
+
+/**
+ * Defines the flip direction of numeric text transition.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 23 static
+ */
+export declare enum FlipDirection {
+  /**
+   * The flip direction is down.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  DOWN = 0,
+
+  /**
+   * The flip direction is up.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  UP = 1
+}
+
+/**
+ * Defines the superscript style.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 23 static
+ */
+export declare enum SuperscriptStyle {
+    /**
+     * normal font style.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    NORMAL = 0,
+    /**
+     * Superscript font style.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    SUPERSCRIPT = 1,
+    /**
+     * Subscript font style.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    SUBSCRIPT = 2
+}
+
+/**
+ * Defines maxlines mode.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 23 static
+ */
+export declare enum MaxLinesMode {
+  /**
+   * Clip mode of max lines
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  CLIP = 0,
+
+  /**
+   * Scroll mode of max lines
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  SCROLL = 1
+}
+
+/**
+ * Keyboard fluid light mode.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @stagemodelonly
+ * @since 23 static
+ */
+export declare enum KeyboardFluidLightMode {
+  /**
+   * Disable fluid light mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 static
+   */
+  NONE = 0,
+
+  /**
+   * Background fluid light mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 static
+   */
+  BACKGROUND_FLUID_LIGHT = 1
+}
+
+/**
+ * Defines the reason for text changes.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @stagemodelonly
+ * @since 23 static
+ */
+export declare enum TextChangeReason {
+    /**
+     * Default value.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static
+     */
+    UNKNOWN = 0,
+    /**
+     * Reason for input from input method.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static
+     */
+    INPUT = 1,
+    /**
+     * Reason for paste.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static
+     */
+    PASTE = 2,
+    /**
+     * Reason for cut.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static
+     */
+    CUT = 3,
+    /**
+     * Reason for drag.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static
+     */
+    DRAG = 4,
+    /**
+     * Reason for auto fill.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static
+     */
+    AUTO_FILL = 5,
+    /**
+     * Reason for ai write.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static
+     */
+    AI_WRITE = 6,
+    /**
+     * Reason for redo.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static
+     */
+    REDO = 7,
+    /**
+     * Reason for undo.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static
+     */
+    UNDO = 8,
+    /**
+     * Reason for controller methods.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static
+     */
+    CONTROLLER = 9,
+    /**
+     * Reason for accessibilty methods.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static
+     */
+    ACCESSIBILITY = 10,
+    /**
+     * Reason for collarboration input.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static
+     */
+    COLLABORATION = 11,
+    /**
+     * Reason for stylus input.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static
+     */
+    STYLUS = 12
+}
+
+/**
+ * Vertical Alignment of text.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 23 static
+ */
+export declare enum TextVerticalAlign {
+  /**
+   * Baseline alignment, the default value.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  BASELINE = 0,
+
+  /**
+   * Bottom alignment.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  BOTTOM = 1,
+
+  /**
+   * Center alignment.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  CENTER = 2,
+
+  /**
+   * Top alignment.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  TOP = 3
+}
+
+/**
+ * Defines shader style class.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 23 static
+ */
+export declare class ShaderStyle {}
+
+/**
+ * Defines the text content transition class.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 23 static
+ */
+export declare class ContentTransition {}
+
+/**
+ * Defines linear gradient class.
+ *
+ * @extends ShaderStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 23 static
+ */
+export declare class LinearGradientStyle extends ShaderStyle {
+    /**
+     * The constructor.
+     *
+     * @param { LinearGradientOptions } options - The options of the gradient.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    constructor(options: LinearGradientOptions);
+    /**
+     * The options of the gradient.
+     * angle: Angle of linear gradient.
+     * direction: Direction of linear gradient.
+     * colors: Color description for gradients
+     * repeating: if the gradient colors with repeated coloring.
+     *
+     * @type { LinearGradientOptions }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    options: LinearGradientOptions;
+}
+
+/**
+ * Defines the numeric text content transition class.
+ *
+ * @extends ContentTransition
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 23 static
+ */
+export declare class NumericTextTransition extends ContentTransition {
+  /**
+   * constructor.
+   *
+   * @param { NumericTextTransitionOptions } [options] - The options of numeric text transition.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  constructor(options?: NumericTextTransitionOptions);
+
+  /**
+   * The flip direction of numeric text transition.
+   *
+   * @type { ?FlipDirection }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  flipDirection?: FlipDirection;
+
+  /**
+   * Define whether enable blur effect.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  enableBlur?: boolean;
+}
+
+/**
+ * Defines radial gradient class.
+ *
+ * @extends ShaderStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 23 static
+ */
+export declare class RadialGradientStyle extends ShaderStyle {
+    /**
+     * The constructor.
+     *
+     * @param { RadialGradientOptions } options - The options of the gradient.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    constructor(options: RadialGradientOptions);
+    /**
+     * The options of the gradient.
+     * center:Center point of radial gradient
+     * radius:Radius of Radial Gradient. value range [0, +∞)
+     * colors:Color description for gradients
+     * repeating: Refill. The default value is false
+     *
+     * @type { RadialGradientOptions }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    options: RadialGradientOptions;
+}
+
+/**
+ * Defines the options of max lines.
+ *
+ * @interface MaxLinesOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 23 static
+ */
+export declare interface MaxLinesOptions {
+  /**
+   * The mode of max lines.
+   *
+   * @type { ?MaxLinesMode }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  overflowMode?: MaxLinesMode;
+}
+
+/**
+ * Defines the input method client.
+ *
+ * @interface IMEClient
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 23 static
+ */
+export declare interface IMEClient {
+  /**
+   * The unique ID of this input component node.
+   *
+   * @type { long }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  nodeId: long;
+
+  /**
+   * Used to set extra config to the input component.
+   *
+   * @param { InputMethodExtraConfig } config - The extra config object.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  setExtraConfig(config: InputMethodExtraConfig): void;
+}
+
+/**
+ * Defines the line spacing options.
+ *
+ * @interface LineSpacingOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 23 static
+ */
+export declare interface LineSpacingOptions {
+    /**
+     * Used to set whether it will only take effect between lines.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    onlyBetweenLines?: boolean;
+}
+
+/**
+ * The options of numeric text transition.
+ *
+ * @interface NumericTextTransitionOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 23 static
+ */
+export declare interface NumericTextTransitionOptions {
+  /**
+   * Define the flip direction of numeric text transition.
+   *
+   * @type { ?FlipDirection }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  flipDirection?: FlipDirection;
+
+  /**
+   * Define whether enable blur effect.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  enableBlur?: boolean;
+}
+
+/**
+ * Defines text layout options. Use this to set constraints for measure text.
+ *
+ * @interface TextLayoutOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 23 static
+ */
+export declare interface TextLayoutOptions {
+  /**
+   * Text display area of width.
+   *
+   * @type { ?LengthMetrics } constraintWidth
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  constraintWidth?: LengthMetrics;
+}
+
+/**
+ * Defines the keyboard appearance config.
+ *
+ * @interface KeyboardAppearanceConfig
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @stagemodelonly
+ * @since 23 static
+ */
+export declare interface KeyboardAppearanceConfig {
+  /**
+   * Used to set keyboard gradient mode.
+   *
+   * @type { ?KeyboardGradientMode }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 static
+   */
+  gradientMode?: KeyboardGradientMode;
+
+  /**
+   * Used to set keyboard fluid light mode.
+   *
+   * @type { ?KeyboardFluidLightMode }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 static
+   */
+  fluidLightMode?: KeyboardFluidLightMode;
+}
+/**
+ * Defines a shader with single color.
+ *
+ * @extends ShaderStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 23 static
+ */
+export declare class ColorShaderStyle extends ShaderStyle {
+    /**
+     * The constructor.
+     *
+     * @param { ResourceColor } color - The color used by shader.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    constructor(color: ResourceColor);
+    /**
+     * The color of the shader.
+     *
+     * @type { ResourceColor }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    color: ResourceColor;
 }

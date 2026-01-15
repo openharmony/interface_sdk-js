@@ -28,7 +28,7 @@ import { RefreshAttribute } from '@ohos.arkui.component';
  *
  * @implements { RefreshAttribute, AttributeModifier<RefreshAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
 */
 export declare class RefreshModifier implements RefreshAttribute, AttributeModifier<RefreshAttribute> {}
   

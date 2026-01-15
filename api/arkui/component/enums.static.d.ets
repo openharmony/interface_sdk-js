@@ -27,14 +27,14 @@ import { AttributeModifier, CommonMethod } from './common';
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum CheckBoxShape {
   /**
    * Circle.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   CIRCLE = 0,
 
@@ -42,7 +42,7 @@ export declare enum CheckBoxShape {
    * Rounded Square.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   ROUNDED_SQUARE = 1
 }
@@ -52,14 +52,14 @@ export declare enum CheckBoxShape {
  *
  * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum Color {
   /**
    * White.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   White = '#FFFFFFFF',
 
@@ -67,7 +67,7 @@ export declare enum Color {
    * Black.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Black = '#FF000000',
 
@@ -75,7 +75,7 @@ export declare enum Color {
    * Blue.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Blue = '#FF0000FF',
 
@@ -83,7 +83,7 @@ export declare enum Color {
    * Brown.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Brown = '#FFA52A2A',
 
@@ -91,7 +91,7 @@ export declare enum Color {
    * Gray.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Gray = '#FF808080',
 
@@ -99,7 +99,7 @@ export declare enum Color {
    * Green.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Green = '#FF008000',
 
@@ -107,7 +107,7 @@ export declare enum Color {
    * Grey.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Grey = '#FF808080',
 
@@ -115,7 +115,7 @@ export declare enum Color {
    * Orange.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Orange = '#FFFFA500',
 
@@ -123,7 +123,7 @@ export declare enum Color {
    * color.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Pink = '#FFFFC0CB',
 
@@ -131,7 +131,7 @@ export declare enum Color {
    * Red.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Red = '#FFFF0000',
 
@@ -139,7 +139,7 @@ export declare enum Color {
    * Yellow.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Yellow = '#FFFFFF00',
 
@@ -147,7 +147,7 @@ export declare enum Color {
    * Transparent.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Transparent = '#00000000',
 }
@@ -157,14 +157,14 @@ export declare enum Color {
  *
  * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum ColoringStrategy {
   /**
    * Use the inverse color strategy. Gets the inverse of the background color. Only applies to foregroundColor.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   INVERT = 'invert',
 
@@ -172,7 +172,7 @@ export declare enum ColoringStrategy {
    * Use the average color strategy. Get the average color of the background. Only applies to shadow.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   AVERAGE = 'average',
 
@@ -180,7 +180,7 @@ export declare enum ColoringStrategy {
    * Use the primary color strategy. Get the color that dominate the background color. Only applies to shadow.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   PRIMARY = 'primary'
 }
@@ -190,63 +190,63 @@ export declare enum ColoringStrategy {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum ImageFit {
+  /**
+   * Zoom in or out without maintaining the aspect ratio so that the image fills the display boundary.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  Fill = 0,
+
   /**
    * Keep the aspect ratio to zoom out or zoom in so that the image is completely displayed within the display boundary.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
-  Contain = 0,
+  Contain = 1,
 
   /**
    * Keep the aspect ratio to zoom out or zoom in so that both sides of the image are greater than or equal to the
    * display boundary.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
-  Cover = 1,
+  Cover = 2,
 
   /**
    * Adaptive display
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
-  Auto = 2,
-
-  /**
-   * Zoom in or out without maintaining the aspect ratio so that the image fills the display boundary.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
-   */
-  Fill = 3,
-
-  /**
-   * Keep the aspect ratio displayed, and the image zooms out or remains unchanged.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
-   */
-  ScaleDown = 4,
+  Auto = 3,
 
   /**
    * Keep the original size and display it in the center.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   None = 5,
+
+  /**
+   * Keep the aspect ratio displayed, and the image zooms out or remains unchanged.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  ScaleDown = 6,
 
   /**
    * Top Start.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   TOP_START = 7,
 
@@ -254,7 +254,7 @@ export declare enum ImageFit {
    * The top is centered horizontally.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   TOP = 8,
 
@@ -262,7 +262,7 @@ export declare enum ImageFit {
    * Top tail end.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   TOP_END = 9,
 
@@ -270,7 +270,7 @@ export declare enum ImageFit {
    * The starting end is centered longitudinally.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   START = 10,
 
@@ -278,7 +278,7 @@ export declare enum ImageFit {
    * Center horizontal and vertical.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   CENTER = 11,
 
@@ -286,7 +286,7 @@ export declare enum ImageFit {
    * The tail end is centered longitudinally.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   END = 12,
 
@@ -294,7 +294,7 @@ export declare enum ImageFit {
    * Bottom starting end.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   BOTTOM_START = 13,
 
@@ -302,7 +302,7 @@ export declare enum ImageFit {
    * The bottom is centered horizontally.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   BOTTOM = 14,
 
@@ -310,7 +310,7 @@ export declare enum ImageFit {
    * Bottom end.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   BOTTOM_END = 15,
 
@@ -318,7 +318,7 @@ export declare enum ImageFit {
    * Matrix of Image.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   MATRIX = 16
 }
@@ -328,14 +328,14 @@ export declare enum ImageFit {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum BorderStyle {
   /**
    * Displays as a series of dots with a radius of half the borderWidth.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Dotted = 2,
 
@@ -343,7 +343,7 @@ export declare enum BorderStyle {
    * Shows as a series of short square dashed lines.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Dashed = 1,
 
@@ -351,9 +351,36 @@ export declare enum BorderStyle {
    * Shows as a solid line.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Solid = 0
+}
+
+/**
+ * Enum for RenderStrategy.
+ * Define Graphics Rendering Strategy.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 23 static
+ */
+export declare enum RenderStrategy {
+  /**
+   * The current component and its child components will be drawn directly onto the screen canvas.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  FAST = 0,
+
+  /**
+   * The current component and its child components will first be drawn onto an off-screen canvas,
+   *     then undergo some graphic rendering operations, and finally be drawn onto the main canvas.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  OFFSCREEN = 1
 }
 
 /**
@@ -361,14 +388,14 @@ export declare enum BorderStyle {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum LineJoinStyle {
   /**
    * Connect path segments using bevels.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Miter = 0,
 
@@ -376,7 +403,7 @@ export declare enum LineJoinStyle {
    * Connect path segments using sharp corners.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Round = 1,
 
@@ -384,7 +411,7 @@ export declare enum LineJoinStyle {
    * Connect path segments using fillets.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Bevel = 2
 }
@@ -394,14 +421,14 @@ export declare enum LineJoinStyle {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum TouchType {
   /**
    * Triggered when the finger is pressed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Down = 0,
 
@@ -409,7 +436,7 @@ export declare enum TouchType {
    * Triggered when the finger is raised.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Up = 1,
 
@@ -417,7 +444,7 @@ export declare enum TouchType {
    * Triggered when the finger presses on the screen.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Move = 2,
 
@@ -425,7 +452,7 @@ export declare enum TouchType {
    * Triggers when the touch event cancels.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Cancel = 3,
 
@@ -433,7 +460,7 @@ export declare enum TouchType {
    * Triggers when the touch event turns to hover enter in accessibility processing.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   HOVER_ENTER = 9,
 
@@ -441,7 +468,7 @@ export declare enum TouchType {
    * Triggers when the touch event turns to hover move in accessibility processing.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   HOVER_MOVE = 10,
 
@@ -449,7 +476,7 @@ export declare enum TouchType {
    * Triggers when the touch event turns to hover exit in accessibility processing.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   HOVER_EXIT = 11,
 
@@ -457,7 +484,7 @@ export declare enum TouchType {
    * Triggers when the touch event turns to hover cancel in accessibility processing.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   HOVER_CANCEL = 12,
 }
@@ -467,14 +494,14 @@ export declare enum TouchType {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum InteractionHand {
   /**
    * Unknown hand.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   NONE = 0,
 
@@ -482,7 +509,7 @@ export declare enum InteractionHand {
    * Left hand.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   LEFT = 1,
 
@@ -490,24 +517,24 @@ export declare enum InteractionHand {
    * Right hand.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   RIGHT = 2
 }
 
 /**
- * Function Called by Mouse
+ * Define the button types of the mouse device.
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum MouseButton {
   /**
    * Mouse Left Button.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Left = 1,
 
@@ -515,7 +542,7 @@ export declare enum MouseButton {
    * Mouse Right Button.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Right = 2,
 
@@ -523,7 +550,7 @@ export declare enum MouseButton {
    * Mouse Middle Button.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Middle = 4,
 
@@ -531,7 +558,7 @@ export declare enum MouseButton {
    * Mouse Back Button.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Back = 8,
 
@@ -539,7 +566,7 @@ export declare enum MouseButton {
    * Mouse Forward Button.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Forward = 16,
 
@@ -547,7 +574,7 @@ export declare enum MouseButton {
    * Mouse None Button.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   None = 0
 }
@@ -557,14 +584,14 @@ export declare enum MouseButton {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum MouseAction {
   /**
    * Triggered when the mouse is pressed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Press = 1,
 
@@ -572,7 +599,7 @@ export declare enum MouseAction {
    * Triggered when the mouse is released.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Release = 2,
 
@@ -580,7 +607,7 @@ export declare enum MouseAction {
    * Triggered when the mouse is Moved.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Move = 3,
 
@@ -588,7 +615,7 @@ export declare enum MouseAction {
    * Triggered when the mouse is Hovered.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Hover = 4,
 
@@ -596,7 +623,7 @@ export declare enum MouseAction {
    * Triggered when mouse enters the window.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   ENTER_WINDOW = 4,
 
@@ -604,7 +631,7 @@ export declare enum MouseAction {
    * Triggered when mouse leaves the window.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   LEAVE_WINDOW = 5,
 
@@ -612,7 +639,7 @@ export declare enum MouseAction {
    * Triggered when the mouse event is canceled.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   CANCEL = 13
 }
@@ -622,14 +649,14 @@ export declare enum MouseAction {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum AnimationStatus {
   /**
    * Initial state of the animation.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Initial = 0,
 
@@ -637,7 +664,7 @@ export declare enum AnimationStatus {
    * The animation is playing.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Running = 1,
 
@@ -645,7 +672,7 @@ export declare enum AnimationStatus {
    * The animation is paused.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Paused = 2,
 
@@ -653,7 +680,7 @@ export declare enum AnimationStatus {
    * The animation is stopped.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Stopped = 3
 }
@@ -663,7 +690,7 @@ export declare enum AnimationStatus {
  *
  * @typedef { curves.Curve } Curve
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export type Curve = curves.Curve;
 
@@ -672,14 +699,14 @@ export type Curve = curves.Curve;
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum FillMode {
   /**
    * Restores to the initial state after the playback is complete.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   None = 0,
 
@@ -687,7 +714,7 @@ export declare enum FillMode {
    * Retains the state at the end of the animation when the playback is complete.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Forwards = 1,
 
@@ -695,7 +722,7 @@ export declare enum FillMode {
    * Applies the start attribute value for the period specified by animation-delay before the animation is displayed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Backwards = 2,
 
@@ -703,7 +730,7 @@ export declare enum FillMode {
    * Both forward and backward fill modes are applied.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Both = 3
 }
@@ -713,14 +740,14 @@ export declare enum FillMode {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum PlayMode {
   /**
    * The animation plays normally.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Normal = 0,
 
@@ -728,7 +755,7 @@ export declare enum PlayMode {
    * The animation plays backwards.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Reverse = 1,
 
@@ -736,7 +763,7 @@ export declare enum PlayMode {
    * The animation plays forward on odd numbers (1, 3, 7...) and backward on even numbers (2, 4, 6...).
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Alternate = 2,
 
@@ -744,7 +771,7 @@ export declare enum PlayMode {
    * The animation plays backwards on odd numbers (1, 3, 7...) and forwards on even numbers (2, 4, 6...)..
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   AlternateReverse = 3
 }
@@ -754,14 +781,14 @@ export declare enum PlayMode {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum KeyType {
   /**
    * Press the key.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Down = 0,
 
@@ -769,7 +796,7 @@ export declare enum KeyType {
    * The key is released.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Up = 1
 }
@@ -779,14 +806,14 @@ export declare enum KeyType {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum KeySource {
   /**
    * The input device type is unknown.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Unknown = 0,
 
@@ -794,7 +821,7 @@ export declare enum KeySource {
    * Set Device Type to Keyboard.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Keyboard = 4,
 
@@ -802,7 +829,7 @@ export declare enum KeySource {
    * Set Device Type to Joystic.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   JOYSTICK = 5
 }
@@ -812,14 +839,14 @@ export declare enum KeySource {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum Edge {
   /**
    * The top is centered horizontally.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Top = 0,
 
@@ -827,7 +854,7 @@ export declare enum Edge {
    * The bottom is centered horizontally.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Bottom = 2,
 
@@ -835,7 +862,7 @@ export declare enum Edge {
    * Align the head of the cross axis direction.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Start = 4,
 
@@ -843,7 +870,7 @@ export declare enum Edge {
    * Align the head of the cross axis direction.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   End = 6
 }
@@ -853,14 +880,14 @@ export declare enum Edge {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum Week {
   /**
    * Monday.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Mon = 0,
 
@@ -868,7 +895,7 @@ export declare enum Week {
    * Tuesday.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Tue = 1,
 
@@ -876,7 +903,7 @@ export declare enum Week {
    * Wednesday.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Wed = 2,
 
@@ -884,7 +911,7 @@ export declare enum Week {
    * Thursday.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Thur = 3,
 
@@ -892,7 +919,7 @@ export declare enum Week {
    * Friday.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Fri = 4,
 
@@ -900,7 +927,7 @@ export declare enum Week {
    * Saturday.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Sat = 5,
 
@@ -908,7 +935,7 @@ export declare enum Week {
    * Sunday.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Sun = 6
 }
@@ -918,14 +945,14 @@ export declare enum Week {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum Direction {
   /**
    * Elements are laid out from left to right.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Ltr = 0,
 
@@ -933,7 +960,7 @@ export declare enum Direction {
    * Elements are laid out from right to left.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Rtl = 1,
 
@@ -941,7 +968,7 @@ export declare enum Direction {
    * Use the default layout direction.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Auto = 2
 }
@@ -951,14 +978,14 @@ export declare enum Direction {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum BarState {
   /**
    * Not displayed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Off = 0,
 
@@ -966,7 +993,7 @@ export declare enum BarState {
    * On-demand display (displayed when you touch it and disappears after 2 seconds).
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Auto = 1,
 
@@ -974,7 +1001,7 @@ export declare enum BarState {
    * Resident display.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   On = 2
 }
@@ -984,7 +1011,7 @@ export declare enum BarState {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum EdgeEffect {
   /**
@@ -992,7 +1019,7 @@ export declare enum EdgeEffect {
    * touch event, and spring back when released.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Spring = 0,
 
@@ -1000,7 +1027,7 @@ export declare enum EdgeEffect {
    * Fade.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Fade = 1,
 
@@ -1008,7 +1035,7 @@ export declare enum EdgeEffect {
    * Sliding to the edge has no effect.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   None = 2
 }
@@ -1018,14 +1045,14 @@ export declare enum EdgeEffect {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum Alignment {
   /**
    * Top Start.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   TopStart = 0,
 
@@ -1033,7 +1060,7 @@ export declare enum Alignment {
    * The top is centered horizontally.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Top = 1,
 
@@ -1041,7 +1068,7 @@ export declare enum Alignment {
    * Top tail end.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   TopEnd = 2,
 
@@ -1049,7 +1076,7 @@ export declare enum Alignment {
    * The starting end is centered longitudinally.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Start = 3,
 
@@ -1057,7 +1084,7 @@ export declare enum Alignment {
    * Center horizontal and vertical.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Center = 4,
 
@@ -1065,7 +1092,7 @@ export declare enum Alignment {
    * The tail end is centered longitudinally.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   End = 5,
 
@@ -1073,7 +1100,7 @@ export declare enum Alignment {
    * Bottom starting end.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   BottomStart = 6,
 
@@ -1081,7 +1108,7 @@ export declare enum Alignment {
    * The bottom is centered horizontally.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Bottom = 7,
 
@@ -1089,7 +1116,7 @@ export declare enum Alignment {
    * Bottom end.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   BottomEnd = 8
 }
@@ -1099,70 +1126,70 @@ export declare enum Alignment {
  *
  * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
-declare enum LocalizedAlignment {
+export declare enum LocalizedAlignment {
   /**
    * Top Start.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   TOP_START = 'top_start',
   /**
    * The top is centered horizontally.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   TOP = 'top',
   /**
    * Top tail end.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   TOP_END = 'top_end',
   /**
    * The starting end is centered longitudinally.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   START = 'start',
   /**
    * Center horizontal and vertical.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   CENTER = 'center',
   /**
    * The tail end is centered longitudinally.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   END = 'end',
   /**
    * Bottom starting end.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   BOTTOM_START = 'bottom_start',
   /**
    * The bottom is centered horizontally.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   BOTTOM = 'bottom',
   /**
    * Bottom end.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   BOTTOM_END = 'bottom_end'
 }
@@ -1172,14 +1199,14 @@ declare enum LocalizedAlignment {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum TransitionType {
   /**
    * Specifies that the current transition action takes effect in all change scenarios of the component.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   All = 0,
 
@@ -1187,7 +1214,7 @@ export declare enum TransitionType {
    * Specifies the insertion scenario in which the current transition action takes effect.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Insert = 1,
 
@@ -1195,7 +1222,7 @@ export declare enum TransitionType {
    * Specifies the deletion scenario in which the current transition action takes effect.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Delete = 2
 }
@@ -1205,14 +1232,14 @@ export declare enum TransitionType {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum RelateType {
   /**
    * Scales the current component to fill the parent component.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   FILL = 0,
 
@@ -1220,7 +1247,7 @@ export declare enum RelateType {
    * Scales the current component to fit the parent component.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   FIT = 1
 }
@@ -1230,14 +1257,14 @@ export declare enum RelateType {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum Visibility {
   /**
    * Show
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Visible = 0,
 
@@ -1245,7 +1272,7 @@ export declare enum Visibility {
    * Hide, but participate in layout for placeholder.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Hidden = 1,
 
@@ -1253,7 +1280,7 @@ export declare enum Visibility {
    * Hides but does not participate in layout and does not take place.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   None = 2
 }
@@ -1263,14 +1290,14 @@ export declare enum Visibility {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum LineCapStyle {
   /**
    * The two ends of the dividing line are parallel lines.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Butt = 0,
 
@@ -1278,7 +1305,7 @@ export declare enum LineCapStyle {
    * The two ends of the dividing line are semicircles.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Round = 1,
 
@@ -1287,7 +1314,7 @@ export declare enum LineCapStyle {
    * line width.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Square = 2
 }
@@ -1297,14 +1324,14 @@ export declare enum LineCapStyle {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum Axis {
   /**
    * Longitudinal arrangement
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Vertical = 0,
 
@@ -1312,7 +1339,7 @@ export declare enum Axis {
    * Horizontal arrangement.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Horizontal = 1
 }
@@ -1324,14 +1351,14 @@ export declare enum Axis {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum HorizontalAlign {
   /**
    * Aligns the start end in the language direction.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Start = 0,
 
@@ -1339,7 +1366,7 @@ export declare enum HorizontalAlign {
    * Center alignment. The default alignment mode is used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Center = 1,
 
@@ -1347,7 +1374,7 @@ export declare enum HorizontalAlign {
    * Aligns the ends in the language direction.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   End = 2
 }
@@ -1357,7 +1384,7 @@ export declare enum HorizontalAlign {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum FlexAlign {
   /**
@@ -1365,7 +1392,7 @@ export declare enum FlexAlign {
    * the first element is aligned with the head of the row, and subsequent elements are aligned with the previous one.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Start = 0,
 
@@ -1375,7 +1402,7 @@ export declare enum FlexAlign {
    * the row.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Center = 1,
 
@@ -1384,7 +1411,7 @@ export declare enum FlexAlign {
    * the last element is aligned at the end of the row, and the other elements are aligned with the next.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   End = 2,
 
@@ -1394,7 +1421,7 @@ export declare enum FlexAlign {
    * The first element aligns with the beginning of the line, and the last element aligns with the end of the line.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   SpaceBetween = 3,
 
@@ -1405,7 +1432,7 @@ export declare enum FlexAlign {
    * the first element and the distance between the last element and the end of the row.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   SpaceAround = 4,
 
@@ -1415,7 +1442,7 @@ export declare enum FlexAlign {
    * and the spacing between the last element and the end of the row are the same.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   SpaceEvenly = 5
 }
@@ -1425,14 +1452,14 @@ export declare enum FlexAlign {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum ItemAlign {
   /**
    * Use the default configuration in the Flex container.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Auto = 0,
 
@@ -1440,7 +1467,7 @@ export declare enum ItemAlign {
    * The element is in the Flex container with the cross-axis direction head aligned.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Start = 1,
 
@@ -1448,7 +1475,7 @@ export declare enum ItemAlign {
    * The element is centered in the Flex container with the cross axis direction aligned.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Center = 2,
 
@@ -1456,7 +1483,7 @@ export declare enum ItemAlign {
    * The element is bottom aligned in the Flex container with the cross axis direction.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   End = 3,
 
@@ -1464,7 +1491,7 @@ export declare enum ItemAlign {
    * Element In the Flex container, the cross-axis direction text baseline is aligned.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Baseline = 4,
 
@@ -1473,7 +1500,7 @@ export declare enum ItemAlign {
    * size.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Stretch = 5
 }
@@ -1483,14 +1510,14 @@ export declare enum ItemAlign {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum FlexDirection {
   /**
    * The main axis is consistent with the row direction as the layout mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Row = 0,
 
@@ -1498,7 +1525,7 @@ export declare enum FlexDirection {
    * The main axis is consistent with the column direction as the layout mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Column = 1,
 
@@ -1506,7 +1533,7 @@ export declare enum FlexDirection {
    * The layout is in the opposite direction to the Row direction.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   RowReverse = 2,
 
@@ -1514,7 +1541,7 @@ export declare enum FlexDirection {
    * Layout in the opposite direction to the column.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   ColumnReverse = 3
 }
@@ -1524,28 +1551,28 @@ export declare enum FlexDirection {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum PixelRoundCalcPolicy {
   /**
    * No Force round the component boundary coordinates to integer pixel.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   NO_FORCE_ROUND = 0,
   /**
    * Force ceil the component boundary coordinates to integer pixel.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   FORCE_CEIL = 1,
   /**
    * Force floor the component boundary coordinates to integer pixel.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   FORCE_FLOOR = 2
 }
@@ -1555,21 +1582,21 @@ export declare enum PixelRoundCalcPolicy {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum PixelRoundMode {
   /**
    * Do pixel round on layout finish.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   PIXEL_ROUND_ON_LAYOUT_FINISH = 0,
   /**
    * Do pixel round after measure.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   PIXEL_ROUND_AFTER_MEASURE = 1
 }
@@ -1579,14 +1606,14 @@ export declare enum PixelRoundMode {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum FlexWrap {
   /**
    * The Flex container has a single row/column layout of elements, and children are allowed to go beyond the container.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   NoWrap = 0,
 
@@ -1595,7 +1622,7 @@ export declare enum FlexWrap {
    * exceed the container.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Wrap = 1,
 
@@ -1604,7 +1631,7 @@ export declare enum FlexWrap {
    * exceed the container.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   WrapReverse = 2
 }
@@ -1614,14 +1641,14 @@ export declare enum FlexWrap {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum VerticalAlign {
   /**
    * Top alignment.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Top = 0,
 
@@ -1629,7 +1656,7 @@ export declare enum VerticalAlign {
    * Center alignment. The default alignment mode is used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Center = 1,
 
@@ -1637,7 +1664,7 @@ export declare enum VerticalAlign {
    * Bottom alignment.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Bottom = 2
 }
@@ -1647,14 +1674,14 @@ export declare enum VerticalAlign {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum ImageRepeat {
   /**
    * Do not draw the picture again.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   NoRepeat = 0,
 
@@ -1662,7 +1689,7 @@ export declare enum ImageRepeat {
    * Repeat the drawing only on the horizontal axis.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   X = 1,
 
@@ -1670,7 +1697,7 @@ export declare enum ImageRepeat {
    * Repeat the drawing only on the vertical axis.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Y = 2,
 
@@ -1678,7 +1705,7 @@ export declare enum ImageRepeat {
    * Draw the picture repeatedly on both axes.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   XY = 3
 }
@@ -1688,14 +1715,14 @@ export declare enum ImageRepeat {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum ImageSize {
   /**
    * Keep the scale of the original image unchanged.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Auto = 2,
 
@@ -1704,7 +1731,7 @@ export declare enum ImageSize {
    * display boundary.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Cover = 1,
 
@@ -1712,7 +1739,7 @@ export declare enum ImageSize {
    * Keep the aspect ratio to zoom out or zoom in so that the image is completely displayed within the display boundary.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Contain = 0,
 
@@ -1720,7 +1747,7 @@ export declare enum ImageSize {
    * Zoom in or out without maintaining the aspect ratio so that the image fills the display boundary.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   FILL = 3
 }
@@ -1730,14 +1757,14 @@ export declare enum ImageSize {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum GradientDirection {
   /**
    * Right to left.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Left = 0,
 
@@ -1745,7 +1772,7 @@ export declare enum GradientDirection {
    * From the bottom up.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Top = 1,
 
@@ -1753,7 +1780,7 @@ export declare enum GradientDirection {
    * From left to right.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Right = 2,
 
@@ -1761,7 +1788,7 @@ export declare enum GradientDirection {
    * From the top down.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Bottom = 3,
 
@@ -1769,7 +1796,7 @@ export declare enum GradientDirection {
    * Top Left
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   LeftTop = 4,
 
@@ -1777,7 +1804,7 @@ export declare enum GradientDirection {
    * Left Bottom
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   LeftBottom = 5,
 
@@ -1785,7 +1812,7 @@ export declare enum GradientDirection {
    * Right Top
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   RightTop = 6,
 
@@ -1793,7 +1820,7 @@ export declare enum GradientDirection {
    * Right Bottom
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   RightBottom = 7,
 
@@ -1801,7 +1828,7 @@ export declare enum GradientDirection {
    * None
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   None = 8
 }
@@ -1811,7 +1838,7 @@ export declare enum GradientDirection {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum SharedTransitionEffectType {
   /**
@@ -1820,7 +1847,7 @@ export declare enum SharedTransitionEffectType {
    * only the static effect configured for redirecting to the target page takes effect.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Static = 0,
 
@@ -1828,7 +1855,7 @@ export declare enum SharedTransitionEffectType {
    * Move the source page element to the destination page element location and scale it appropriately.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Exchange = 1
 }
@@ -1838,14 +1865,14 @@ export declare enum SharedTransitionEffectType {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum FontStyle {
   /**
    * Default style.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Normal = 0,
 
@@ -1853,7 +1880,7 @@ export declare enum FontStyle {
    * Italic style.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Italic = 1
 }
@@ -1863,14 +1890,14 @@ export declare enum FontStyle {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum FontWeight {
   /**
    * Defines a lighter value than [Inherited Value]..
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Lighter = 0,
 
@@ -1878,7 +1905,7 @@ export declare enum FontWeight {
    * Normal font. Equivalent to a digital value of 400.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Normal = 1,
 
@@ -1886,7 +1913,7 @@ export declare enum FontWeight {
    * Defines a more general value than [Inherited Value].
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Regular = 2,
 
@@ -1894,7 +1921,7 @@ export declare enum FontWeight {
    * Defines a value that is more centered than [Inherited Value].
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Medium = 3,
 
@@ -1902,7 +1929,7 @@ export declare enum FontWeight {
    * Bold. Equivalent to a numeric value of 700.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Bold = 4,
 
@@ -1910,7 +1937,7 @@ export declare enum FontWeight {
    * Defines a value that is heavier than [Inherited Value].
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Bolder = 5
 }
@@ -1920,14 +1947,14 @@ export declare enum FontWeight {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum TextAlign {
   /**
    * Center the text.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Center = 1,
 
@@ -1935,7 +1962,7 @@ export declare enum TextAlign {
    * The text is aligned in the same direction as the writing
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Start = 0,
 
@@ -1943,7 +1970,7 @@ export declare enum TextAlign {
    * The text is aligned in the opposite direction of writing
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   End = 2,
 
@@ -1951,9 +1978,25 @@ export declare enum TextAlign {
    * Justify the text.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
-  JUSTIFY = 3
+  JUSTIFY = 3,
+
+  /**
+   * The text is aligned in the left direction.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  LEFT = 4,
+
+  /**
+   * The text is aligned in the right direction.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  RIGHT = 5
 }
 
 /**
@@ -1961,14 +2004,14 @@ export declare enum TextAlign {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum TextOverflow {
   /**
    * When the text overflows its dimensions, the text will not be cropped.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   None = 0,
 
@@ -1976,7 +2019,7 @@ export declare enum TextOverflow {
    * When the text overflows its dimensions, the text will be cropped and displayed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Clip = 1,
 
@@ -1984,7 +2027,7 @@ export declare enum TextOverflow {
    * If the text overflows its dimensions, the text that cannot be displayed shall be replaced by ellipsis.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Ellipsis = 2,
 
@@ -1992,7 +2035,7 @@ export declare enum TextOverflow {
    * When the text overflows its dimensions, the text will scroll for displaying.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   MARQUEE = 3
 }
@@ -2002,14 +2045,14 @@ export declare enum TextOverflow {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum TextDecorationType {
   /**
    * Do not use text decorative lines.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   None = 0,
 
@@ -2017,7 +2060,7 @@ export declare enum TextDecorationType {
    * Underline the words.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Underline = 1,
 
@@ -2025,7 +2068,7 @@ export declare enum TextDecorationType {
    * Text is in all uppercase.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Overline = 2,
 
@@ -2033,7 +2076,7 @@ export declare enum TextDecorationType {
    * A modifier line that passes through the text.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   LineThrough = 3
 }
@@ -2043,14 +2086,14 @@ export declare enum TextDecorationType {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum TextCase {
   /**
    * The default is normal.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Normal = 0,
 
@@ -2058,7 +2101,7 @@ export declare enum TextCase {
    * The text is all lowercase.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   LowerCase = 1,
 
@@ -2066,7 +2109,7 @@ export declare enum TextCase {
    * The text is all uppercase.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   UpperCase = 2
 }
@@ -2076,7 +2119,7 @@ export declare enum TextCase {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum TextHeightAdaptivePolicy {
   /**
@@ -2085,7 +2128,7 @@ export declare enum TextHeightAdaptivePolicy {
    * display more text.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   MAX_LINES_FIRST = 0,
 
@@ -2095,7 +2138,7 @@ export declare enum TextHeightAdaptivePolicy {
    * the maximum possible font size.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   MIN_FONT_SIZE_FIRST = 1,
 
@@ -2106,7 +2149,7 @@ export declare enum TextHeightAdaptivePolicy {
    * constraint.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   LAYOUT_CONSTRAINT_FIRST = 2
 }
@@ -2116,14 +2159,14 @@ export declare enum TextHeightAdaptivePolicy {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum ResponseType {
   /**
    * Right click.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   RightClick = 0,
 
@@ -2131,7 +2174,7 @@ export declare enum ResponseType {
    * Long press.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   LongPress = 1
 }
@@ -2141,40 +2184,45 @@ export declare enum ResponseType {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare enum HoverEffect {
   /**
-   * Default effect
+   * None effect
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
-  Auto = 0,
+  None = 0,
 
   /**
    * Zoom in and out effect
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
-  Scale = 1,
+  Scale = 2,
 
   /**
    * Highlight effect
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
-  Highlight = 2,
+  Highlight = 3,
 
   /**
-   * None effect
+   * Default effect
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
-  None = 3
+  Auto = 4
 }
 
 /**
@@ -2182,14 +2230,14 @@ export declare enum HoverEffect {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum Placement {
   /**
    * Left placement
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Left = 0,
 
@@ -2197,7 +2245,7 @@ export declare enum Placement {
    * Right placement
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Right = 1,
 
@@ -2205,7 +2253,7 @@ export declare enum Placement {
    * Top placement
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Top = 2,
 
@@ -2213,7 +2261,7 @@ export declare enum Placement {
    * Bottom placement
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Bottom = 3,
 
@@ -2221,7 +2269,7 @@ export declare enum Placement {
    * TopLeft placement
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   TopLeft = 4,
 
@@ -2229,7 +2277,7 @@ export declare enum Placement {
    * TopRight placement
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   TopRight = 5,
 
@@ -2237,7 +2285,7 @@ export declare enum Placement {
    * BottomLeft placement
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   BottomLeft = 6,
 
@@ -2245,7 +2293,7 @@ export declare enum Placement {
    * BottomRight placement
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   BottomRight = 7,
 
@@ -2253,7 +2301,7 @@ export declare enum Placement {
    * LeftTop placement
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   LeftTop = 8,
 
@@ -2261,7 +2309,7 @@ export declare enum Placement {
    * LeftBottom placement
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   LeftBottom = 9,
 
@@ -2269,7 +2317,7 @@ export declare enum Placement {
    * RightTop placement
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   RightTop = 10,
 
@@ -2277,7 +2325,7 @@ export declare enum Placement {
    * RightBottom placement
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   RightBottom = 11
 }
@@ -2287,14 +2335,14 @@ export declare enum Placement {
  *
  * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum ArrowPointPosition {
   /**
    * Target start position
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   START = 'Start',
 
@@ -2302,7 +2350,7 @@ export declare enum ArrowPointPosition {
    * Target center position
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   CENTER = 'Center',
 
@@ -2310,7 +2358,7 @@ export declare enum ArrowPointPosition {
    * Target end position
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   END = 'End'
 }
@@ -2320,14 +2368,14 @@ export declare enum ArrowPointPosition {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum CopyOptions {
   /**
    * Not allow share.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   None = 0,
 
@@ -2335,7 +2383,7 @@ export declare enum CopyOptions {
    * Share in app.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   InApp = 1,
 
@@ -2343,7 +2391,7 @@ export declare enum CopyOptions {
    * Share in local device.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   LocalDevice = 2,
 }
@@ -2394,7 +2442,7 @@ export declare enum ResponseRegionSupportedTool {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum HitTestMode {
   /**
@@ -2402,7 +2450,7 @@ export declare enum HitTestMode {
    * but block hit test of the other nodes which is masked by this node.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Default = 0,
 
@@ -2411,7 +2459,7 @@ export declare enum HitTestMode {
    * but block hit test of children and other nodes which is masked by this node.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Block = 1,
 
@@ -2420,7 +2468,7 @@ export declare enum HitTestMode {
    * and allow hit test of other nodes which is masked by this node.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Transparent = 2,
 
@@ -2429,14 +2477,14 @@ export declare enum HitTestMode {
    * but children respond to the hit test for touch events.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   None = 3,
   /**
    * Blocks all lower-priority siblings and parent nodes from receiving the event.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   BLOCK_HIERARCHY = 4,
   /**
@@ -2444,7 +2492,7 @@ export declare enum HitTestMode {
    * and all descendants (children, grandchildren, etc.) not respond to the hit test for touch events too.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   BLOCK_DESCENDANTS = 5
 }
@@ -2454,14 +2502,14 @@ export declare enum HitTestMode {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum TitleHeight {
   /**
    * Title height when only main title is available.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   MainOnly = 0,
 
@@ -2469,7 +2517,7 @@ export declare enum TitleHeight {
    * Title height when main title and subtitle are both available.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   MainWithSub = 1
 }
@@ -2479,14 +2527,14 @@ export declare enum TitleHeight {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum ModifierKey {
   /**
    * ctrl.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   CTRL = 0,
 
@@ -2494,7 +2542,7 @@ export declare enum ModifierKey {
    * shift.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   SHIFT = 1,
 
@@ -2502,7 +2550,7 @@ export declare enum ModifierKey {
    * alt.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   ALT = 2
 }
@@ -2512,14 +2560,14 @@ export declare enum ModifierKey {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum FunctionKey {
   /**
    * Escape key.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   ESC = 0,
 
@@ -2527,7 +2575,7 @@ export declare enum FunctionKey {
    * F1 key.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   F1 = 1,
 
@@ -2535,7 +2583,7 @@ export declare enum FunctionKey {
    * F2 key.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   F2 = 2,
 
@@ -2543,7 +2591,7 @@ export declare enum FunctionKey {
    * F3 key.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   F3 = 3,
 
@@ -2551,7 +2599,7 @@ export declare enum FunctionKey {
    * F4 key.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   F4 = 4,
 
@@ -2559,7 +2607,7 @@ export declare enum FunctionKey {
    * F5 key.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   F5 = 5,
 
@@ -2567,7 +2615,7 @@ export declare enum FunctionKey {
    * F6 key.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   F6 = 6,
 
@@ -2575,7 +2623,7 @@ export declare enum FunctionKey {
    * F7 key.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   F7 = 7,
 
@@ -2583,7 +2631,7 @@ export declare enum FunctionKey {
    * F8 key.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   F8 = 8,
 
@@ -2591,7 +2639,7 @@ export declare enum FunctionKey {
    * F9 key.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   F9 = 9,
 
@@ -2599,7 +2647,7 @@ export declare enum FunctionKey {
    * F10 key.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   F10 = 10,
 
@@ -2607,7 +2655,7 @@ export declare enum FunctionKey {
    * F11 key.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   F11 = 11,
 
@@ -2615,7 +2663,7 @@ export declare enum FunctionKey {
    * F12 key.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   F12 = 12,
 
@@ -2623,7 +2671,7 @@ export declare enum FunctionKey {
    * Tab key.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   TAB = 13,
 
@@ -2631,7 +2679,7 @@ export declare enum FunctionKey {
    * Up arrow key.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   DPAD_UP = 14,
 
@@ -2639,7 +2687,7 @@ export declare enum FunctionKey {
    * Down arrow key.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   DPAD_DOWN = 15,
 
@@ -2647,7 +2695,7 @@ export declare enum FunctionKey {
    * Left arrow key.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   DPAD_LEFT = 16,
 
@@ -2655,7 +2703,7 @@ export declare enum FunctionKey {
    * Right arrow key.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   DPAD_RIGHT = 17
 }
@@ -2665,14 +2713,14 @@ export declare enum FunctionKey {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum ImageSpanAlignment {
   /**
    * Indicating that the bottom of the ImageSpan should be aligned with the baseline of the surrounding text.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   BASELINE = 4,
 
@@ -2680,7 +2728,7 @@ export declare enum ImageSpanAlignment {
    * Indicating that the bottom of the ImageSpan should be aligned with the bottom of the surrounding text.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   BOTTOM = 3,
 
@@ -2688,7 +2736,7 @@ export declare enum ImageSpanAlignment {
    * Indicating that the center of the ImageSpan should be aligned with the center of the surrounding text.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   CENTER = 2,
 
@@ -2696,7 +2744,7 @@ export declare enum ImageSpanAlignment {
    * Indicating that the top of the ImageSpan should be aligned with the top of the surrounding text.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   TOP = 1,
 
@@ -2704,7 +2752,7 @@ export declare enum ImageSpanAlignment {
    * Indicating that the ImageSpan should be aligned by the paragraph's textVerticalAlign.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   FOLLOW_PARAGRAPH = 5
 }
@@ -2714,14 +2762,14 @@ export declare enum ImageSpanAlignment {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum ObscuredReasons {
   /**
    * Displayed data should appear as generic placeholders.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   PLACEHOLDER = 0
 }
@@ -2731,14 +2779,14 @@ export declare enum ObscuredReasons {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum TextContentStyle {
   /**
    * Text content default style.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   DEFAULT = 0,
 
@@ -2746,7 +2794,7 @@ export declare enum TextContentStyle {
    * Text content inline style.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   INLINE = 1
 }
@@ -2756,7 +2804,7 @@ export declare enum TextContentStyle {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum ClickEffectLevel {
   /**
@@ -2765,7 +2813,7 @@ export declare enum ClickEffectLevel {
    * The animation type is interpolatingSpring, velocity:10, mass:1, stiffness:410, damping:38.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   LIGHT = 0,
 
@@ -2775,7 +2823,7 @@ export declare enum ClickEffectLevel {
    * The animation type is interpolatingSpring, velocity:10, mass:1, stiffness:350, damping:35.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   MIDDLE = 1,
 
@@ -2785,7 +2833,7 @@ export declare enum ClickEffectLevel {
    * The animation type is interpolatingSpring, velocity:0, mass:1, stiffness:240, damping:28.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   HEAVY = 2
 }
@@ -2795,14 +2843,14 @@ export declare enum ClickEffectLevel {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum XComponentType {
   /**
    * Surface type. The default type is used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   SURFACE = 0,
 
@@ -2810,7 +2858,7 @@ export declare enum XComponentType {
    * Texture type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   TEXTURE = 2,
 }
@@ -2820,14 +2868,14 @@ export declare enum XComponentType {
 
  * @enum { number } NestedScrollMode
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum NestedScrollMode {
   /**
    * Only Self response scrolling.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   SELF_ONLY = 0,
 
@@ -2835,7 +2883,7 @@ export declare enum NestedScrollMode {
    * Self priority response scrolling.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   SELF_FIRST = 1,
 
@@ -2843,7 +2891,7 @@ export declare enum NestedScrollMode {
    * Parent scrollable component priority response scrolling.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   PARENT_FIRST = 2,
 
@@ -2851,7 +2899,7 @@ export declare enum NestedScrollMode {
    * Both self and parent scrollable component response scrolling.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   PARALLEL = 3
 }
@@ -2860,62 +2908,62 @@ export declare enum NestedScrollMode {
  * The possible source of scroll event
  * @enum { number } ScrollSource
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum ScrollSource {
   /**
    * Drag events.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   DRAG = 0,
 
   /**
    * Fling after the drag has ended with velocity.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   FLING = 1,
 
   /**
    * Over scroll with EdgeEffect.Spring.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   EDGE_EFFECT = 2,
 
   /**
    * Other user input except drag, such as mouse wheel, key event.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   OTHER_USER_INPUT = 3,
 
   /**
    * Drag events of scroll bar.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   SCROLL_BAR = 4,
 
   /**
    * Fling after the drag on scroll bar has ended with velocity.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   SCROLL_BAR_FLING = 5,
 
   /**
    * Member methods of Scroller without animation.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   SCROLLER = 6,
 
   /**
    * Member methods of Scroller with animation.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   SCROLLER_ANIMATION = 7
 }
@@ -2925,77 +2973,77 @@ export declare enum ScrollSource {
  *
  * @enum { number } RenderFit
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum RenderFit {
   /**
    * Without scaling the content area, the content area is drawn in the center of the node.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   CENTER = 0,
   /**
    * Without scaling the content area, the content area is drawn in the top center of the node.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   TOP = 1,
   /**
    * Without scaling the content area, the content area is drawn in the bottom center of the node.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   BOTTOM = 2,
   /**
    * Without scaling the content area, the content area is drawn in the left center of the node.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   LEFT = 3,
   /**
    * Without scaling the content area, the content area is drawn in the right center of the node.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   RIGHT = 4,
   /**
    * Without scaling the content area, the content area is drawn in the top left of the node.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   TOP_LEFT = 5,
   /**
    * Without scaling the content area, the content area is drawn in the top right of the node.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   TOP_RIGHT = 6,
   /**
    * Without scaling the content area, the content area is drawn in the bottom left of the node.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   BOTTOM_LEFT = 7,
   /**
    * Without scaling the content area, the content area is drawn in the bottom right of the node.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   BOTTOM_RIGHT = 8,
   /**
    * Scale the length and width of the content area to the node size to fill the node.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   RESIZE_FILL = 9,
   /**
@@ -3004,7 +3052,7 @@ export declare enum RenderFit {
    * is centered.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   RESIZE_CONTAIN = 10,
   /**
@@ -3015,7 +3063,7 @@ export declare enum RenderFit {
    * displayed at the left.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   RESIZE_CONTAIN_TOP_LEFT = 11,
   /**
@@ -3026,7 +3074,7 @@ export declare enum RenderFit {
    * displayed at the right.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   RESIZE_CONTAIN_BOTTOM_RIGHT = 12,
   /**
@@ -3035,7 +3083,7 @@ export declare enum RenderFit {
    * displays the center area.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   RESIZE_COVER = 13,
   /**
@@ -3046,7 +3094,7 @@ export declare enum RenderFit {
    * displays the left area.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   RESIZE_COVER_TOP_LEFT = 14,
   /**
@@ -3057,7 +3105,7 @@ export declare enum RenderFit {
    * displays the right area.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   RESIZE_COVER_BOTTOM_RIGHT = 15
 }
@@ -3066,20 +3114,20 @@ export declare enum RenderFit {
  * The Button Style of dialog,
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum DialogButtonStyle {
   /**
    * Default Style.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   DEFAULT = 0,
 
   /**
    * Highlight Style.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   HIGHLIGHT = 1
 }
@@ -3089,14 +3137,14 @@ export declare enum DialogButtonStyle {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum WordBreak {
   /**
    * By default, CJK text can be wrapped between any 2 characters, and non-CJK text can only be wrapped in spaces.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   NORMAL = 0,
 
@@ -3104,7 +3152,7 @@ export declare enum WordBreak {
    * Non-CJK text be wrapped at any character
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   BREAK_ALL = 1,
 
@@ -3113,7 +3161,7 @@ export declare enum WordBreak {
    * and if a complete word can be preserved in space breaks, the word must be kept on the line.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   BREAK_WORD = 2,
 
@@ -3121,7 +3169,7 @@ export declare enum WordBreak {
    * For supported languages, line breaks can be performed by syllables.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   HYPHENATION = 3
 }
@@ -3131,7 +3179,7 @@ export declare enum WordBreak {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum LineBreakStrategy {
   /**
@@ -3139,7 +3187,7 @@ export declare enum LineBreakStrategy {
    * can be displayed on that line, and do not automatically add hyphens under this strategy
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   GREEDY = 0,
 
@@ -3148,7 +3196,7 @@ export declare enum LineBreakStrategy {
    * add hyphens if necessary.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   HIGH_QUALITY = 1,
 
@@ -3157,7 +3205,7 @@ export declare enum LineBreakStrategy {
    * is the same, and if necessary, we will add conjunction
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   BALANCED = 2
 }
@@ -3168,7 +3216,7 @@ export declare enum LineBreakStrategy {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 22 static
+ * @since 23 static
  */
 export declare enum IlluminatedType {
   /**
@@ -3176,7 +3224,7 @@ export declare enum IlluminatedType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    */
   NONE = 0,
   /**
@@ -3184,7 +3232,7 @@ export declare enum IlluminatedType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    */
   BORDER = 1,
   /**
@@ -3192,7 +3240,7 @@ export declare enum IlluminatedType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    */
   CONTENT = 2,
   /**
@@ -3200,7 +3248,7 @@ export declare enum IlluminatedType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    */
   BORDER_CONTENT = 3,
   /**
@@ -3208,7 +3256,7 @@ export declare enum IlluminatedType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    */
   BLOOM_BORDER = 4,
   /**
@@ -3216,7 +3264,7 @@ export declare enum IlluminatedType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    */
   BLOOM_BORDER_CONTENT = 5,
 }
@@ -3226,14 +3274,14 @@ export declare enum IlluminatedType {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum EllipsisMode {
   /**
    * The ellipsis is in the head.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   START = 0,
 
@@ -3241,7 +3289,7 @@ export declare enum EllipsisMode {
    * The ellipsis is in the middle.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   CENTER = 1,
 
@@ -3249,7 +3297,7 @@ export declare enum EllipsisMode {
    * The ellipsis is at the end.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   END = 2
 }
@@ -3259,7 +3307,7 @@ export declare enum EllipsisMode {
  *
  * @typedef { T | undefined } Nullable<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export type Nullable<T> = T | undefined;
 
@@ -3268,14 +3316,14 @@ export type Nullable<T> = T | undefined;
  *
  * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum OptionWidthMode {
   /**
    * The menu width fit the content.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   FIT_CONTENT = 'fit_content',
 
@@ -3283,7 +3331,7 @@ export declare enum OptionWidthMode {
    * The menu width fit the trigger.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   FIT_TRIGGER = 'fit_trigger'
 }
@@ -3293,35 +3341,35 @@ export declare enum OptionWidthMode {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum FoldStatus {
   /**
    * Fold Status Unknown.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   FOLD_STATUS_UNKNOWN = 0,
   /**
    * Fold Status Expanded.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   FOLD_STATUS_EXPANDED = 1,
   /**
    * Fold Status Folded.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   FOLD_STATUS_FOLDED = 2,
   /**
    * Fold Status Half Folded.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   FOLD_STATUS_HALF_FOLDED = 3
 }
@@ -3331,7 +3379,7 @@ export declare enum FoldStatus {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum AppRotation {
 
@@ -3339,7 +3387,7 @@ export declare enum AppRotation {
    * App does not rotate to display vertically.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   ROTATION_0 = 0,
 
@@ -3347,7 +3395,7 @@ export declare enum AppRotation {
    * App rotates 90 degrees clockwise to display horizontally.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   ROTATION_90 = 1,
 
@@ -3355,7 +3403,7 @@ export declare enum AppRotation {
    * App rotates 180 degrees clockwise to display vertically in reverse.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   ROTATION_180 = 2,
 
@@ -3363,7 +3411,7 @@ export declare enum AppRotation {
    * App rotates 270 degrees clockwise to display horizontally in reverse.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   ROTATION_270 = 3
 }
@@ -3373,14 +3421,14 @@ export declare enum AppRotation {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum EmbeddedType {
   /**
    * The EmbeddedComponent show the UI in EmbeddedUIExtensionAbility.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   EMBEDDED_UI_EXTENSION = 0
 }
@@ -3390,14 +3438,14 @@ export declare enum EmbeddedType {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum MarqueeUpdateStrategy {
   /**
    * Reset scroll position and restart scroll.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   DEFAULT = 0,
 
@@ -3405,7 +3453,7 @@ export declare enum MarqueeUpdateStrategy {
    * Preserve scroll position, just change to new text
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   PRESERVE_POSITION = 1
 }
@@ -3415,14 +3463,14 @@ export declare enum MarqueeUpdateStrategy {
  *
  * @enum {number}
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum TextDecorationStyle {
   /**
    * Solid line.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   SOLID = 0,
 
@@ -3430,7 +3478,7 @@ export declare enum TextDecorationStyle {
    * Double lines.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   DOUBLE = 1,
 
@@ -3438,7 +3486,7 @@ export declare enum TextDecorationStyle {
    * Dotted line.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   DOTTED = 2,
 
@@ -3446,7 +3494,7 @@ export declare enum TextDecorationStyle {
    * Dashed line.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   DASHED = 3,
 
@@ -3454,7 +3502,7 @@ export declare enum TextDecorationStyle {
    * Wavy line.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   WAVY = 4
 }
@@ -3464,14 +3512,14 @@ export declare enum TextDecorationStyle {
  *
  * @enum {number}
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum TextSelectableMode {
   /**
    * set text selectable and unfocusable.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   SELECTABLE_UNFOCUSABLE = 0,
 
@@ -3479,7 +3527,7 @@ export declare enum TextSelectableMode {
    * set text selectable and focusable.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   SELECTABLE_FOCUSABLE = 1,
 
@@ -3487,7 +3535,7 @@ export declare enum TextSelectableMode {
    * set text unselectable and unfocusable.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   UNSELECTABLE = 2
 }
@@ -3497,14 +3545,14 @@ export declare enum TextSelectableMode {
  *
  * @enum {number}
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum AccessibilityHoverType {
   /**
    * Hover enter type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   HOVER_ENTER = 0,
 
@@ -3512,7 +3560,7 @@ export declare enum AccessibilityHoverType {
    * Hover move type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   HOVER_MOVE = 1,
 
@@ -3520,7 +3568,7 @@ export declare enum AccessibilityHoverType {
    * Hover exit type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   HOVER_EXIT = 2,
 
@@ -3528,7 +3576,7 @@ export declare enum AccessibilityHoverType {
    * Hover cancel type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   HOVER_CANCEL = 3
 }
@@ -3538,14 +3586,14 @@ export declare enum AccessibilityHoverType {
  *
  * @enum {number}
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum WidthBreakpoint {
   /**
    * Window width < 320vp type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   WIDTH_XS = 0,
 
@@ -3553,7 +3601,7 @@ export declare enum WidthBreakpoint {
    * Window width >= 320vp and < 600vp type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   WIDTH_SM = 1,
 
@@ -3561,7 +3609,7 @@ export declare enum WidthBreakpoint {
    * Window width >= 600vp and < 840vp type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   WIDTH_MD = 2,
 
@@ -3569,7 +3617,7 @@ export declare enum WidthBreakpoint {
    * Window width >= 840vp and < 1440vp type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   WIDTH_LG = 3,
 
@@ -3577,7 +3625,7 @@ export declare enum WidthBreakpoint {
    * Window width >= 1440vp type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   WIDTH_XL = 4
 }
@@ -3587,14 +3635,14 @@ export declare enum WidthBreakpoint {
  *
  * @enum {number}
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum HeightBreakpoint {
   /**
    * Window aspectRatio < 0.8 type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   HEIGHT_SM = 0,
 
@@ -3602,7 +3650,7 @@ export declare enum HeightBreakpoint {
    * Window aspectRatio >= 0.8 and < 1.2 type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   HEIGHT_MD = 1,
 
@@ -3610,7 +3658,7 @@ export declare enum HeightBreakpoint {
    * Window aspectRatio >= 1.2 type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   HEIGHT_LG = 2
 }
@@ -3620,14 +3668,14 @@ export declare enum HeightBreakpoint {
  *
  * @enum {number}
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum AxisModel {
   /**
    * ABS_X axis type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   ABS_X = 0,
 
@@ -3635,7 +3683,7 @@ export declare enum AxisModel {
    * ABS_Y axis type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   ABS_Y = 1,
 
@@ -3643,7 +3691,7 @@ export declare enum AxisModel {
    * ABS_Z axis type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   ABS_Z = 2,
 
@@ -3651,7 +3699,7 @@ export declare enum AxisModel {
    * ABS_RZ axis type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   ABS_RZ = 3,
 
@@ -3659,7 +3707,7 @@ export declare enum AxisModel {
    * ABS_GAS axis type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   ABS_GAS = 4,
 
@@ -3667,7 +3715,7 @@ export declare enum AxisModel {
    * ABS_BRAKE axis type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   ABS_BRAKE = 5,
 
@@ -3675,7 +3723,7 @@ export declare enum AxisModel {
    * ABS_HAT0X axis type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   ABS_HAT0X = 6,
 
@@ -3683,9 +3731,97 @@ export declare enum AxisModel {
    * ABS_HAT0Y axis type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
-  ABS_HAT0Y = 7
+  ABS_HAT0Y = 7,
+
+  /**
+   * ABS_RX axis type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  ABS_RX = 8,
+
+  /**
+   * ABS_RY axis type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  ABS_RY = 9,
+
+  /**
+   * ABS_THROTTLE axis type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  ABS_THROTTLE = 10,
+
+  /**
+   * ABS_RUDDER axis type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  ABS_RUDDER = 11,
+
+  /**
+   * ABS_WHEEL axis type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  ABS_WHEEL = 12,
+
+  /**
+   * ABS_HAT1X axis type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  ABS_HAT1X = 13,
+
+  /**
+   * ABS_HAT1Y axis type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  ABS_HAT1Y = 14,
+
+  /**
+   * ABS_HAT2X axis type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  ABS_HAT2X = 15,
+
+  /**
+   * ABS_HAT2Y axis type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  ABS_HAT2Y = 16,
+
+  /**
+   * ABS_HAT3X axis type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  ABS_HAT3X = 17,
+
+  /**
+   * ABS_HAT3Y axis type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  ABS_HAT3Y = 18
 }
 
 /**
@@ -3693,14 +3829,14 @@ export declare enum AxisModel {
 
  * @enum { number } PageFlipMode
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum PageFlipMode {
   /**
    * Turn pages continuously according to the number of mouse wheel events.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   CONTINUOUS = 0,
 
@@ -3708,7 +3844,7 @@ export declare enum PageFlipMode {
    * The page-turning animation remains unresponsive to other mouse wheel events until it completes.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   SINGLE = 1
 }
@@ -3718,14 +3854,14 @@ export declare enum PageFlipMode {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum CrownAction {
   /**
    * Rotation crown behavior begins.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   BEGIN = 0,
 
@@ -3733,7 +3869,7 @@ export declare enum CrownAction {
    * Rotation crown behavior update.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   UPDATE = 1,
 
@@ -3741,7 +3877,7 @@ export declare enum CrownAction {
    * The rotation crown behavior ends.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   END = 2
 }
@@ -3751,14 +3887,14 @@ export declare enum CrownAction {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum CrownSensitivity {
   /**
    * Low sensitivity.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   LOW = 0,
 
@@ -3766,7 +3902,7 @@ export declare enum CrownSensitivity {
    * Medium sensitivity.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   MEDIUM = 1,
 
@@ -3774,7 +3910,7 @@ export declare enum CrownSensitivity {
    * High sensitivity.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   HIGH = 2
 }
@@ -3784,14 +3920,14 @@ export declare enum CrownSensitivity {
  *
  * @enum {number}
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum AxisAction {
   /**
    * None action.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   NONE = 0,
 
@@ -3799,7 +3935,7 @@ export declare enum AxisAction {
    * Triggered when an axis event starts.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   BEGIN = 1,
 
@@ -3807,7 +3943,7 @@ export declare enum AxisAction {
    * Triggered when the axis event is updated.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   UPDATE = 2,
 
@@ -3815,7 +3951,7 @@ export declare enum AxisAction {
    * Triggered when the axis event ends.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   END = 3,
 
@@ -3823,7 +3959,7 @@ export declare enum AxisAction {
    * Triggered when the axis event is cancelled.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   CANCEL = 4
 }
@@ -3833,14 +3969,14 @@ export declare enum AxisAction {
  *
  * @enum {number}
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum FocusDrawLevel {
   /**
    * Draw focus on node self level.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   SELF = 0,
 
@@ -3848,7 +3984,7 @@ export declare enum FocusDrawLevel {
    * Draw focus on top level.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   TOP = 1
 }
@@ -3858,14 +3994,14 @@ export declare enum FocusDrawLevel {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum DividerMode {
   /**
    * Menu divider mode floating above menu.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   FLOATING_ABOVE_MENU = 0,
 
@@ -3873,7 +4009,7 @@ export declare enum DividerMode {
    * Menu divider mode embedded in menu.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   EMBEDDED_IN_MENU = 1
 }
@@ -3883,14 +4019,14 @@ export declare enum DividerMode {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 declare enum EventQueryType {
   /**
    * Type of onClick event.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   ON_CLICK = 0
 }
@@ -3900,14 +4036,16 @@ declare enum EventQueryType {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
-declare enum TipsAnchorType {
+export declare enum TipsAnchorType {
   /**
    * Tips display position based on bound component.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   TARGET = 0,
 
@@ -3915,9 +4053,10 @@ declare enum TipsAnchorType {
    * Tips display position based on cursor position.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
-  CURSOR = 1,
+  CURSOR = 1
 }
 
 /**
@@ -3925,14 +4064,14 @@ declare enum TipsAnchorType {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 declare enum DialogDisplayMode {
   /**
    * dialog display in center of app window.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   CENTER_IN_WINDOW = 1,
 
@@ -3940,24 +4079,25 @@ declare enum DialogDisplayMode {
    * dialog display in center of screen.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   CENTER_IN_SCREEN = 0
 }
 
 /**
  * Focus wrap mode of a list or grid when moving focus using the arrow keys.
-
+ *
  * @enum { number } FocusWrapMode
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
-declare enum FocusWrapMode {
+export declare enum FocusWrapMode {
   /**
    * No wrap when moving focus using the arrow keys.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   DEFAULT = 0,
 
@@ -3965,7 +4105,7 @@ declare enum FocusWrapMode {
    * Auto wrap when moving focus using the arrow keys.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   WRAP_WITH_ARROW = 1
 }
@@ -3975,14 +4115,14 @@ declare enum FocusWrapMode {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum AnimationPropertyType {
   /**
    * Rotation angle in the x, y, z direction.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   ROTATION = 0,
 
@@ -3990,7 +4130,7 @@ export declare enum AnimationPropertyType {
    * Tranlation in the x and y direction.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   TRANSLATION = 1,
 
@@ -3998,7 +4138,7 @@ export declare enum AnimationPropertyType {
    * Scale in the x and y direction.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   SCALE = 2,
 
@@ -4006,7 +4146,7 @@ export declare enum AnimationPropertyType {
    * Opacity.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   OPACITY = 3
 }
@@ -4016,21 +4156,21 @@ export declare enum AnimationPropertyType {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum ColorSpace {
   /**
    * SRGB ColorSpace.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   SRGB = 0,
   /**
    * Display-P3 ColorSpace.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   DISPLAY_P3 = 1,
 }
@@ -4040,7 +4180,7 @@ export declare enum ColorSpace {
  *
  * @enum {number}
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum AxisType {
   /**
@@ -4048,7 +4188,7 @@ export declare enum AxisType {
    * the status of the vertical scoll axis changes.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   VERTICAL_AXIS = 0,
 
@@ -4057,7 +4197,7 @@ export declare enum AxisType {
    * the status of the horizontal scroll axis changes.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   HORIZONTAL_AXIS = 1,
 
@@ -4065,7 +4205,105 @@ export declare enum AxisType {
    * Indicates the pinch axis, which is used to describe a pinch gesture on the touchpad.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   PINCH_AXIS = 2,
+}
+
+/**
+ * Defines the state types that can be monitored by AttributeModifiers.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
+ * @since 23 staticonly
+ */
+export enum AttributeModifierState {
+
+  /**
+   * Normal state.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
+   * @since 23 staticonly
+   */
+  NORMAL = 0,
+
+  /**
+   * Pressed state.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
+   * @since 23 staticonly
+   */
+  PRESSED = 1,
+
+  /**
+   * Focused state.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
+   * @since 23 staticonly
+   */
+  FOCUSED = 1 << 1,
+
+  /**
+   * Disabled state.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
+   * @since 23 staticonly
+   */
+  DISABLED = 1 << 2,
+
+  /**
+   * Selected state.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
+   * @since 23 staticonly
+   */
+  SELECTED = 1 << 3,
+
+  /**
+   * All states.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
+   * @since 23 staticonly
+   */
+  ALL = (1 << 4) - 1
+}
+
+/**
+ * Specify the number of columns for different responsive breakpoints.
+ *
+ * @enum { int }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 23 static
+ */
+export declare enum PresetFillType {
+    /**
+     * For Lists and Swipers: One column is displayed on SM (and smaller), two on MD, and three on LG (and larger)
+     * devices. For Grid and WaterFlow: two column is displayed on SM (and smaller), three on MD, and five on LG
+     * (and larger) devices.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    BREAKPOINT_DEFAULT = 0,
+    /**
+     * For SM (and smaller), MD, and LG (and larger) devices, one, two, and three columns are displayed respectively.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    BREAKPOINT_SM1MD2LG3 = 1,
+    /**
+     * For SM (and smaller), MD, and LG (and larger) devices, two, three, and five columns are displayed respectively.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    BREAKPOINT_SM2MD3LG5 = 2
 }

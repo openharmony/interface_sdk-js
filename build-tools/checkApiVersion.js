@@ -135,8 +135,8 @@ function recursionAstCallback(apiVersion, url) {
 
 /**
  * 遍历处理tsnode节点
- * @param {context} 解下过后的内容
- * @param {node} 解下过后的节点
+ * @param {context} 解析过后的内容
+ * @param {node} 解析过后的节点
  * @returns ts.node
  */
 function apiLevelCheck(context, node, apiVersion, url) {
@@ -149,7 +149,7 @@ function apiLevelCheck(context, node, apiVersion, url) {
   };
   function processAllNodesJSDoc(jsDocNode) {
     if (jsDocNode.length === 0) {
-        return;
+      return;
     }
     const latesJsDoc = jsDocNode[jsDocNode.length - 1];
     if (!latesJsDoc.tags) {
@@ -161,27 +161,92 @@ function apiLevelCheck(context, node, apiVersion, url) {
   }
   function checkVersion(tag) {
     if (tag.tagName.getText() === 'since') {
-      const versionNumber = tag.getFullText().replace('@' + tag.tagName.getText(), '');
-      if (versionNumber > Number(apiVersion)) {
-        const errVersionStr = recursionParentNode(tag);
+      let versionNumber = tag.comment ? tag.comment : tag.getFullText().replace('@' + tag.tagName.getText(), '');
+      versionNumber = versionNumber.match(/\d+(\.\d+)?/g);
+      if (versionNumber && versionNumber[0] && parseFloat(versionNumber[0]) > Number(apiVersion)) {
+        const errVersionStr = recursionParentNode(tag, url, node);
         errVersionArr.push(errVersionStr);
       }
     }
   }
-  function recursionParentNode(tag) {
-    let errVersionStr = '';
-    let parent = tag.parent;
-    while (parent) {
-      if (parent.name) {
-        errVersionStr = errVersionStr + '#' + parent.name.getText();
-      } else if (parent.expression) {
-        errVersionStr = errVersionStr + '#' + parent.expression.getText();
+}
+
+/**
+ * 处理告警信息
+ * @param {ts.Node} tag TypeScript节点
+ * @param {node} 解析后的节点
+ * @returns {string} 不符合版本要求的API信息
+ */
+function recursionParentNode(tag, url, node) {
+  let errVersionStr = '';
+  let parent = tag.parent;
+  while (parent) {
+    if (getApiNodeName(parent)) {
+      if (errVersionStr === '') {
+        errVersionStr = getApiNodeName(parent);
+      } else {
+        errVersionStr = getApiNodeName(parent) + '#' + errVersionStr;
       }
-      parent = parent.parent;
+    } else if (parent.expression) {
+      errVersionStr = parent.expression.getText() + '#' + errVersionStr;
     }
-    errVersionStr = url + errVersionStr;
-    return errVersionStr;
+    parent = parent.parent;
   }
+  errVersionStr = url + '#' + errVersionStr;
+  // 获取到注释的位置，向下遍历找对应的定义，并将找到的行数追加到打印信息中
+  const strArr = errVersionStr.split('#')
+  const start = tag.getStart();
+  const lineAndChar = node.getLineAndCharacterOfPosition(start);
+  const sinceLine = lineAndChar.line;
+
+  const sourceText = node.getFullText();
+  const lines = sourceText.split('\n');
+
+  for (let i = 1; i <= lines.length; i++) {
+    const targetLineIndex = sinceLine + i;
+    if (targetLineIndex >= lines.length) {
+      break;
+    }
+    const lineText = lines[targetLineIndex].trim();
+    const firstChar = lineText.charAt(0);
+    if (lineText.includes(strArr[strArr.length - 1]) && firstChar !== '*') {
+      return errVersionStr = errVersionStr + '(行号：' + (targetLineIndex + 1) + ')';
+    }
+  }
+  return errVersionStr;
+}
+
+/**
+ * 获取api节点名称，VariableStatement需要特殊处理
+ * @param {ts.Node} node TypeScript节点
+ * @returns {string} API名称或null
+ */
+function getApiNodeName(node) {
+  let apiName = '';
+  if (ts.isVariableStatement(node)) {
+    apiName = variableStatementGetEscapedText(node);
+  } else if (ts.isConstructorDeclaration(node)) {
+    apiName = 'constructor';
+  } else {
+    apiName = node.name?.getText();
+  }
+  return apiName || null;
+}
+
+/**
+ * 获取 variableStatement节点名称
+ * @param {ts.Node} statement 
+ * @returns {string}
+ */
+function variableStatementGetEscapedText(statement) {
+  let name = '';
+  if (statement && statement?.declarationList?.declarations?.length > 0) {
+    const declaration = statement.declarationList.declarations[0];
+    if (declaration?.name?.escapedText !== undefined) {
+      name = declaration.name.escapedText.toString();
+    }
+  }
+  return name;
 }
 
 main();

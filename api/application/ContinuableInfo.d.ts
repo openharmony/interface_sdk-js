@@ -24,16 +24,20 @@
  * @typedef ContinuableInfo
  * @syscap SystemCapability.Ability.AbilityRuntime.Mission
  * @systemapi Hide this for inner system use.
+ * @stagemodelonly
  * @since 10 dynamic
+ * @since 23 static
  */
 export interface ContinuableInfo {
   /**
    * Indicates the original deviceId to continue mission.
    *
-   * @type { string }
+   * @type {string}
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi Hide this for inner system user.
+   * @stagemodelonly
    * @since 10 dynamic
+   * @since 23 static
    */
   srcDeviceId: string;
   /**
@@ -42,7 +46,9 @@ export interface ContinuableInfo {
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi Hide this for inner system user.
+   * @stagemodelonly
    * @since 10 dynamic
+   * @since 23 static
    */
   bundleName: string;
   /**
@@ -51,7 +57,9 @@ export interface ContinuableInfo {
    * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi Hide this for inner system user.
+   * @stagemodelonly
    * @since 12 dynamic
+   * @since 23 static
    */
   srcBundleName?: string;
   /**
@@ -60,7 +68,9 @@ export interface ContinuableInfo {
    * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi Hide this for inner system user.
+   * @stagemodelonly
    * @since 12 dynamic
+   * @since 23 static
    */
   continueType?: string;
 }

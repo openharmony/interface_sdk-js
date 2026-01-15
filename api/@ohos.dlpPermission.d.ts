@@ -1175,6 +1175,23 @@ declare namespace dlpPermission {
      * @since 21
      */
     allowedOpenCount?: number;
+
+    /**
+     * Defines whether watermarking is required.
+     * @type { ?boolean }
+     * @syscap SystemCapability.Security.DataLossPrevention
+     * @since 23
+     */
+    waterMarkConfig?: boolean;
+
+    /**
+     * Defines the countdown for the DLP file can be opened.
+     * @type { ?number }
+     * @syscap SystemCapability.Security.DataLossPrevention
+     * @stagemodelonly
+     * @since 23
+     */
+    countdown?: number;
   }
 
   /**

@@ -531,6 +531,29 @@ declare interface RichEditorTextStyle {
    * @since 18 dynamic
    */
   textBackgroundStyle?: TextBackgroundStyle;
+
+  /**
+   * The stroke width of the text.
+   *
+   * @type { ?(LengthMetrics | number) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  strokeWidth?: LengthMetrics | number;
+
+  /**
+   * The stroke color of the text.
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  strokeColor?: ResourceColor;
 }
 
 
@@ -690,6 +713,17 @@ declare interface RichEditorParagraphStyle {
    * @since 19 dynamic
    */
   paragraphSpacing?: number;
+
+  /**
+   * Text direction, the default value is TextDirection.DEFAULT.
+   *
+   * @type { ?TextDirection } - the text direction of the paragraph.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  textDirection?: TextDirection;
 }
 
 /**
@@ -1261,6 +1295,28 @@ declare interface RichEditorTextStyleResult {
    * @since 18 dynamic
    */
   textBackgroundStyle?: TextBackgroundStyle;
+
+  /**
+   * Get the stroke width of the text with the unit 'vp'.
+   *
+   * @type { ?number } - the stroke width of the text or undefined
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  strokeWidth?: number;
+
+  /**
+   * Get the stroke color of the text.
+   *
+   * @type { ?ResourceColor } - the stroke color of the text or undefined
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  strokeColor?: ResourceColor;
 }
 
 /**
@@ -1686,7 +1742,7 @@ declare interface RichEditorImageSpanStyleResult {
  * @since 10
  */
 /**
- * Defines the image span.
+ * Defines the image span result.
  *
  * @interface RichEditorImageSpanResult
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1942,7 +1998,7 @@ declare interface RichEditorGesture {
    * @crossplatform
    * @since 11
    */
-   /**
+  /**
    * Trigger a click event when a click is clicked.
    *
    * @type { ?Callback<ClickEvent> }
@@ -2085,7 +2141,6 @@ declare interface RichEditorTextSpanOptions {
    */
   urlStyle?: RichEditorUrlStyle;
 }
-
 /**
  * Defines the custom keyboard options of RichEditor.
  *
@@ -2248,6 +2303,18 @@ declare interface RichEditorBuilderSpanOptions {
    * @since 18 dynamic
    */
   isDragShadowNeeded?: boolean;
+
+  /**
+   * Set accessibility options for builder span.
+   *
+   * @type { ?AccessibilitySpanOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  accessibilitySpanOptions?: AccessibilitySpanOptions;
 }
 
 /**
@@ -2924,7 +2991,7 @@ declare interface SelectionMenuOptions {
    */
   /**
    * Callback function when the selection menu disappears.
-   * 
+   *
    * @type { ?Callback<void> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -3187,7 +3254,8 @@ declare class RichEditorBaseController implements TextEditControllerEx {
   getCaretRect(): RectResult | undefined;
 
   /**
-   * Delete the last character of the input field component.
+   * Delete the character before the caret of the input field component in editing state.
+   * Otherwise, delete the last character of the input field component.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -3840,7 +3908,18 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @atomicservice
    * @since 12 dynamic
    */
-  customKeyboard(value: CustomBuilder, options?: KeyboardOptions): RichEditorAttribute;
+  /**
+   * Define custom keyboard of the rich editor.
+   *
+   * @param { CustomBuilder | ComponentContent } value - The custom keyboard of RichEditor
+   * @param { KeyboardOptions } [options] - Indicates the custom keyboard options of RichEditor
+   * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  customKeyboard(value: CustomBuilder | ComponentContent | undefined, options?: KeyboardOptions | undefined): RichEditorAttribute;
 
   /**
     * Defines onPaste callback.
@@ -4213,8 +4292,57 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @since 23 dynamic
    */
   singleLine(isEnable: boolean | undefined): RichEditorAttribute;
-}
 
+  /**
+   * Used to set the selected drag preview style.
+   *
+   * @param { SelectedDragPreviewStyle | undefined } value - Selected drag preview style.
+   *     If set undefined will reset the style.
+   * @returns { RichEditorAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  selectedDragPreviewStyle(value: SelectedDragPreviewStyle | undefined): RichEditorAttribute;
+
+  /**
+   * Determines whether the layout adds extra padding at the top and bottom to make space for characters.
+   *
+   * @param { Optional<boolean> } include - Whether enable the feature, the default value is false.
+   * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  includeFontPadding(include: Optional<boolean>): RichEditorAttribute;
+
+  /**
+   * Whether to include ascent/descent from fallback fonts to prevent overlapping lines.
+   *
+   * @param { Optional<boolean> } enabled - Whether enable the feature, the default value is false.
+   * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  fallbackLineSpacing(enabled: Optional<boolean>): RichEditorAttribute;
+
+  /**
+   * Whether to compress punctuation at the beginning of line.
+   *
+   * @param { Optional<boolean> } enabled - Whether to enable the feature, the default value is false.
+   * @returns { RichEditorAttribute } - returns the instance of the RichEditorAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  compressLeadingPunctuation(enabled: Optional<boolean>): RichEditorAttribute;
+}
+ 
 /**
  * the callback of cut event.
  * @interface CutEvent
@@ -4235,7 +4363,7 @@ declare interface CutEvent {
    */
   preventDefault?: Callback<void>;
 }
-
+ 
 /**
  * the callback of copy event.
  * @interface CopyEvent

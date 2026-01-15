@@ -46,7 +46,7 @@ import UIAbility from '../@ohos.app.ability.UIAbility';
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface AbilityMonitor {
   /**
@@ -72,7 +72,7 @@ export interface AbilityMonitor {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   abilityName: string;
 
@@ -99,7 +99,7 @@ export interface AbilityMonitor {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   moduleName?: string;
 
@@ -124,7 +124,7 @@ export interface AbilityMonitor {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onAbilityCreate?: (ability: UIAbility) => void;
 
@@ -149,7 +149,7 @@ export interface AbilityMonitor {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onAbilityForeground?: (ability: UIAbility) => void;
 
@@ -174,7 +174,7 @@ export interface AbilityMonitor {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onAbilityBackground?: (ability: UIAbility) => void;
 
@@ -199,7 +199,7 @@ export interface AbilityMonitor {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onAbilityDestroy?: (ability: UIAbility) => void;
 
@@ -224,7 +224,7 @@ export interface AbilityMonitor {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onWindowStageCreate?: (ability: UIAbility) => void;
 
@@ -241,7 +241,7 @@ export interface AbilityMonitor {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onWindowStageRestore?: (ability: UIAbility) => void;
 
@@ -266,7 +266,7 @@ export interface AbilityMonitor {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onWindowStageDestroy?: (ability: UIAbility) => void;
 }

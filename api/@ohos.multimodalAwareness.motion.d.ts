@@ -24,7 +24,7 @@ import type { Callback } from "./@ohos.base";
  * @namespace motion
  * @syscap SystemCapability.MultimodalAwareness.Motion
  * @since 15 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace motion {
   /**
@@ -33,7 +33,7 @@ declare namespace motion {
    * @enum { int } OperatingHandStatus
    * @syscap SystemCapability.MultimodalAwareness.Motion
    * @since 15 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum OperatingHandStatus {
     /**
@@ -41,7 +41,7 @@ declare namespace motion {
      *
      * @syscap SystemCapability.MultimodalAwareness.Motion
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     UNKNOWN_STATUS = 0,
     /**
@@ -49,7 +49,7 @@ declare namespace motion {
      *
      * @syscap SystemCapability.MultimodalAwareness.Motion
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     LEFT_HAND_OPERATED = 1,
     /**
@@ -57,7 +57,7 @@ declare namespace motion {
      *
      * @syscap SystemCapability.MultimodalAwareness.Motion
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     RIGHT_HAND_OPERATED = 2
   }
@@ -67,7 +67,7 @@ declare namespace motion {
    * @enum { int } HoldingHandStatus
    * @syscap SystemCapability.MultimodalAwareness.Motion
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum HoldingHandStatus {
     /**
@@ -75,7 +75,7 @@ declare namespace motion {
      *
      * @syscap SystemCapability.MultimodalAwareness.Motion
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NOT_HELD = 0,
     /**
@@ -83,7 +83,7 @@ declare namespace motion {
      *
      * @syscap SystemCapability.MultimodalAwareness.Motion
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     LEFT_HAND_HELD = 1,
     /**
@@ -91,7 +91,7 @@ declare namespace motion {
      *
      * @syscap SystemCapability.MultimodalAwareness.Motion
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     RIGHT_HAND_HELD = 2,
     /**
@@ -99,7 +99,7 @@ declare namespace motion {
      *
      * @syscap SystemCapability.MultimodalAwareness.Motion
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BOTH_HANDS_HELD = 3,
     /**
@@ -107,7 +107,7 @@ declare namespace motion {
      *
      * @syscap SystemCapability.MultimodalAwareness.Motion
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     UNKNOWN_STATUS = 16
   }
@@ -121,8 +121,10 @@ declare namespace motion {
    * @throws { BusinessError } 401 - Parameter error. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
    * <br> device capabilities.
-   * @throws { BusinessError } 31500001 - Service exception.
-   * @throws { BusinessError } 31500002 - Subscribe Failed.
+   * @throws { BusinessError } 31500001 - Service exception. Possible causes: 1. A system error, such as null pointer, container-related exception;
+   * <br> 2. N-API invocation exception, invalid N-API status.
+   * @throws { BusinessError } 31500002 - Subscription failed. Possible causes: 1. Callback registration failure;
+   * <br> 2. Failed to bind native object to js wrapper; 3. N-API invocation exception, invalid N-API status; 4. IPC request exception.
    * @syscap SystemCapability.MultimodalAwareness.Motion
    * @since 15 dynamic
    */
@@ -137,8 +139,10 @@ declare namespace motion {
    * @throws { BusinessError } 401 - Parameter error. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
    * <br> device capabilities.
-   * @throws { BusinessError } 31500001 - Service exception.
-   * @throws { BusinessError } 31500003 - Unsubscribe Failed.
+   * @throws { BusinessError } 31500001 - Service exception. Possible causes: 1. A system error, such as null pointer, container-related exception;
+   * <br> 2. N-API invocation exception, invalid N-API status.
+   * @throws { BusinessError } 31500003 - Unsubscription failed. Possible causes: 1. Callback failure;
+   * <br> 2. N-API invocation exception, invalid N-API status; 3. IPC request exception.
    * @syscap SystemCapability.MultimodalAwareness.Motion
    * @since 15 dynamic
    */
@@ -151,10 +155,11 @@ declare namespace motion {
    * <br> status forbidden by permission: ohos.permission.ACTIVITY_MOTION or ohos.permission.DETECT_GESTURE.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
    * <br> device capabilities.
-   * @throws { BusinessError } 31500001 - Service exception.
+   * @throws { BusinessError } 31500001 - Service exception. Possible causes: 1. A system error, such as null pointer, container-related exception;
+   * <br> 2. N-API invocation exception, invalid N-API status.
    * @syscap SystemCapability.MultimodalAwareness.Motion
    * @since 15 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getRecentOperatingHandStatus(): OperatingHandStatus;
   /**
@@ -166,8 +171,10 @@ declare namespace motion {
    * <br> event forbidden by permission: ohos.permission.DETECT_GESTURE.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
    * <br> device capabilities.
-   * @throws { BusinessError } 31500001 - Service exception.
-   * @throws { BusinessError } 31500002 - Subscribe Failed.
+   * @throws { BusinessError } 31500001 - Service exception. Possible causes: 1. A system error, such as null pointer, container-related exception;
+   * <br> 2. N-API invocation exception, invalid N-API status.
+   * @throws { BusinessError } 31500002 - Subscription failed. Possible causes: 1. Callback registration failure;
+   * <br> 2. Failed to bind native object to js wrapper; 3. N-API invocation exception, invalid N-API status; 4. IPC request exception.
    * @syscap SystemCapability.MultimodalAwareness.Motion
    * @since 20 dynamic
    */
@@ -181,15 +188,14 @@ declare namespace motion {
    * <br> event forbidden by permission: ohos.permission.DETECT_GESTURE.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
    * <br> device capabilities.
-   * @throws { BusinessError } 31500001 - Service exception.
-   * @throws { BusinessError } 31500003 - Unsubscribe Failed.
+   * @throws { BusinessError } 31500001 - Service exception. Possible causes: 1. A system error, such as null pointer, container-related exception;
+   * <br> 2. N-API invocation exception, invalid N-API status.
+   * @throws { BusinessError } 31500003 - Unsubscription failed. Possible causes: 1. Callback failure;
+   * <br> 2. N-API invocation exception, invalid N-API status; 3. IPC request exception.
    * @syscap SystemCapability.MultimodalAwareness.Motion
    * @since 20 dynamic
    */
   function off(type: 'holdingHandChanged', callback?: Callback<HoldingHandStatus>): void;
-
-
-
   /**
    * Subscribe to detect the operating hand changed event.
    * @permission ohos.permission.ACTIVITY_MOTION or ohos.permission.DETECT_GESTURE
@@ -198,10 +204,12 @@ declare namespace motion {
    *     <br> event forbidden by permission: ohos.permission.ACTIVITY_MOTION or ohos.permission.DETECT_GESTURE.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
    * <br> device capabilities.
-   * @throws { BusinessError } 31500001 - Service exception.
-   * @throws { BusinessError } 31500002 - Subscribe Failed.
+   * @throws { BusinessError } 31500001 - Service exception. Possible causes: 1. A system error, such as null pointer, container-related exception;
+   * <br> 2. N-API invocation exception, invalid N-API status.
+   * @throws { BusinessError } 31500002 - Subscription failed. Possible causes: 1. Callback registration failure;
+   * <br> 2. Failed to bind native object to js wrapper; 3. N-API invocation exception, invalid N-API status; 4. IPC request exception.
    * @syscap SystemCapability.MultimodalAwareness.Motion
-   * @since 22 static
+   * @since 23 static
    */
   function onOperatingHandChanged(callback: Callback<OperatingHandStatus>): void;
   /**
@@ -212,10 +220,12 @@ declare namespace motion {
    *     <br> event forbidden by permission: ohos.permission.ACTIVITY_MOTION or ohos.permission.DETECT_GESTURE.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
    * <br> device capabilities.
-   * @throws { BusinessError } 31500001 - Service exception.
-   * @throws { BusinessError } 31500003 - Unsubscribe Failed.
+   * @throws { BusinessError } 31500001 - Service exception. Possible causes: 1. A system error, such as null pointer, container-related exception;
+   * <br> 2. N-API invocation exception, invalid N-API status.
+   * @throws { BusinessError } 31500003 - Unsubscription failed. Possible causes: 1. Callback failure;
+   * <br> 2. N-API invocation exception, invalid N-API status; 3. IPC request exception.
    * @syscap SystemCapability.MultimodalAwareness.Motion
-   * @since 22 static
+   * @since 23 static
    */
   function offOperatingHandChanged(callback?: Callback<OperatingHandStatus>): void;
 }

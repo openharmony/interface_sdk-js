@@ -18,6 +18,10 @@
  * @kit AbilityKit
  */
 
+/*** if arkts static */
+import { RecordData } from '../@ohos.base';
+/*** endif */
+
 /**
  * UI service host proxy.
  *
@@ -26,7 +30,7 @@
  * @systemapi
  * @stagemodelonly
  * @since 14 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export default interface UIServiceHostProxy {
   /**
@@ -41,7 +45,20 @@ export default interface UIServiceHostProxy {
    * @systemapi
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 22 static
    */
   sendData(data: Record<string, Object>): void;
+
+  /**
+   * Send data to a ui service host.
+   *
+   * @param { Record<string, RecordData> } data - Indicates the data to send.
+   * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
+   * @throws { BusinessError } 16000050 - Internal error. Possible causes: 1. Connect to system service failed;
+   *     2.Send restart message to system service failed; 3.System service failed to communicate with dependency module.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 static
+   */
+  sendData(data: Record<string, RecordData>): void;
 }

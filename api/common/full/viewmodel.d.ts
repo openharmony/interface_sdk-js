@@ -27,6 +27,7 @@ import { CanvasPattern } from './canvaspattern';
  *
  * @interface FocusParamObj
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @famodelonly
  * @since 3 dynamiconly
  */
 export interface FocusParamObj {
@@ -35,6 +36,7 @@ export interface FocusParamObj {
    *
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 3 dynamiconly
    */
   focus: boolean;
@@ -45,30 +47,35 @@ export interface FocusParamObj {
  *
  * @interface RectObj
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @famodelonly
  * @since 6 dynamiconly
  */
 export interface RectObj {
   /**
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 6 dynamiconly
    */
   width: number;
   /**
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 6 dynamiconly
    */
   height: number;
   /**
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 6 dynamiconly
    */
   left: number;
   /**
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 6 dynamiconly
    */
   top: number;
@@ -79,12 +86,14 @@ export interface RectObj {
  *
  * @interface ContextAttrOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @famodelonly
  * @since 6 dynamiconly
  */
 export interface ContextAttrOptions {
   /**
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 6 dynamiconly
    */
   antialias: boolean;
@@ -95,6 +104,7 @@ export interface ContextAttrOptions {
  *
  * @interface AnimateStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @famodelonly
  * @since 4 dynamiconly
  */
 export interface AnimateStyle {
@@ -103,6 +113,7 @@ export interface AnimateStyle {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   width: number;
@@ -111,6 +122,7 @@ export interface AnimateStyle {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   height: number;
@@ -119,6 +131,7 @@ export interface AnimateStyle {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   left: number;
@@ -127,6 +140,7 @@ export interface AnimateStyle {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   top: number;
@@ -135,6 +149,7 @@ export interface AnimateStyle {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   right: number;
@@ -143,6 +158,7 @@ export interface AnimateStyle {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   bottom: number;
@@ -152,6 +168,7 @@ export interface AnimateStyle {
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   backgroundColor: string;
@@ -161,6 +178,7 @@ export interface AnimateStyle {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   opacity: number;
@@ -171,6 +189,7 @@ export interface AnimateStyle {
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   backgroundPosition: string;
@@ -181,6 +200,7 @@ export interface AnimateStyle {
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   transformOrigin: string;
@@ -189,6 +209,7 @@ export interface AnimateStyle {
    *
    * @type { "none" | TransformObject }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   transform: "none" | TransformObject;
@@ -199,6 +220,7 @@ export interface AnimateStyle {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   offset?: number;
@@ -209,6 +231,7 @@ export interface AnimateStyle {
  *
  * @interface TransformObject
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @famodelonly
  * @since 4 dynamiconly
  */
 export interface TransformObject {
@@ -222,6 +245,7 @@ export interface TransformObject {
    * @param { number } translateX - the translate value for x-axis
    * @param { number } translateY - the translate value for y-axis
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 6 dynamiconly
    */
   matrix(scaleX: number, skewX: number, skewY: number, scaleY: number, translateX: number, translateY: number): void;
@@ -245,6 +269,7 @@ export interface TransformObject {
    * @param { number } n32 - the value of the 3 row and 2 column of the 4x4 matrix
    * @param { number } n33 - the value of the 3 row and 3 column of the 4x4 matrix
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 6 dynamiconly
    */
   matrix3d(
@@ -271,6 +296,7 @@ export interface TransformObject {
    * @param { number } x - the translate value for x-axis
    * @param { number } y - the translate value for y-axis
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   translate(x: number, y: number): void;
@@ -281,6 +307,7 @@ export interface TransformObject {
    * @param { number } y - the translate value for y-axis
    * @param { number } z - the translate value for z-axis
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 6 dynamiconly
    */
   translate3d(x: number, y: number, z: number): void;
@@ -289,6 +316,7 @@ export interface TransformObject {
    *
    * @param { number } x - the translate value for x-axis
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   translateX(x: number): void;
@@ -297,6 +325,7 @@ export interface TransformObject {
    *
    * @param { number } y - the translate value for y-axis
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   translateY(y: number): void;
@@ -305,6 +334,7 @@ export interface TransformObject {
    *
    * @param { number } z the translate value for z-axis
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 6 dynamiconly
    */
   translateZ(z: number): void;
@@ -314,6 +344,7 @@ export interface TransformObject {
    * @param { number } x - the scale value for x-axis
    * @param { number } y - the scale value for y-axis
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   scale(x: number, y: number): void;
@@ -324,6 +355,7 @@ export interface TransformObject {
    * @param { number } y - the scale value for y-axis
    * @param { number } z - the scale value for z-axis
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 6 dynamiconly
    */
   scale3d(x: number, y: number, z: number): void;
@@ -332,6 +364,7 @@ export interface TransformObject {
    *
    * @param { number } x - the scale value for x-axis
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   scaleX(x: number): void;
@@ -340,6 +373,7 @@ export interface TransformObject {
    *
    * @param { number } y - the scale value for y-axis
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   scaleY(y: number): void;
@@ -348,6 +382,7 @@ export interface TransformObject {
    *
    * @param { number } z - the scale value for z-axis
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 6 dynamiconly
    */
   scaleZ(z: number): void;
@@ -356,6 +391,7 @@ export interface TransformObject {
    *
    * @param { number } angle - the rotate value for z-axis
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   rotate(angle: number): void;
@@ -367,6 +403,7 @@ export interface TransformObject {
    * @param { number } z - the vector value of the z-axis
    * @param { number } angle - the rotate value for x&y&z vector.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 6 dynamiconly
    */
   rotate3d(x: number, y: number, z: number, angle: number): void;
@@ -375,6 +412,7 @@ export interface TransformObject {
    *
    * @param { number } angle - the scale value for x-axis
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   rotateX(angle: number): void;
@@ -383,6 +421,7 @@ export interface TransformObject {
    *
    * @param { number } angle - the scale value for y-axis
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   rotateY(angle: number): void;
@@ -391,6 +430,7 @@ export interface TransformObject {
    *
    * @param { number } angle - the scale value for z-axis
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 6 dynamiconly
    */
   rotateZ(angle: number): void;
@@ -400,6 +440,7 @@ export interface TransformObject {
    * @param { number } xAngle - the angle of inclination along the x axis.
    * @param { number } yAngle - the angle of inclination along the y axis.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 6 dynamiconly
    */
   skew(xAngle: number, yAngle: number): void;
@@ -408,6 +449,7 @@ export interface TransformObject {
    *
    * @param { number } angle - the angle of inclination along the x axis.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 6 dynamiconly
    */
   skewX(angle: number): void;
@@ -416,6 +458,7 @@ export interface TransformObject {
    *
    * @param { number } angle - the angle of inclination along the y axis.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 6 dynamiconly
    */
   skewY(angle: number): void;
@@ -424,6 +467,7 @@ export interface TransformObject {
    *
    * @param { number } verticalDistance - the vertical distance from the observation point to the component plane.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 6 dynamiconly
    */
   perspective(verticalDistance: number): void;
@@ -434,6 +478,7 @@ export interface TransformObject {
  *
  * @interface AnimateOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @famodelonly
  * @since 4 dynamiconly
  */
 export interface AnimateOptions {
@@ -443,6 +488,7 @@ export interface AnimateOptions {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   duration: number;
@@ -469,6 +515,7 @@ export interface AnimateOptions {
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   easing: string;
@@ -479,6 +526,7 @@ export interface AnimateOptions {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   delay: number;
@@ -490,6 +538,7 @@ export interface AnimateOptions {
    *
    * @type { number | string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   iterations: number | string;
@@ -500,6 +549,7 @@ export interface AnimateOptions {
    *
    * @type { "normal" | "reverse" | "alternate" | "alternate-reverse" }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 6 dynamiconly
    */
   direction: "normal" | "reverse" | "alternate" | "alternate-reverse";
@@ -511,6 +561,7 @@ export interface AnimateOptions {
    *
    * @type { "none" | "forwards" | "backwards" | "both" }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   fill: "none" | "forwards" | "backwards" | "both";
@@ -521,6 +572,7 @@ export interface AnimateOptions {
  *
  * @interface AnimationResult
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @famodelonly
  * @since 4 dynamiconly
  */
 export interface AnimationResult {
@@ -529,6 +581,7 @@ export interface AnimationResult {
    *
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   finished: boolean;
@@ -538,6 +591,7 @@ export interface AnimationResult {
    *
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   pending: boolean;
@@ -550,6 +604,7 @@ export interface AnimationResult {
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   playstate: string;
@@ -558,6 +613,7 @@ export interface AnimationResult {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   startTime: number;
@@ -565,6 +621,7 @@ export interface AnimationResult {
    * Starts the animation.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   play(): void;
@@ -572,6 +629,7 @@ export interface AnimationResult {
    * Ends the animation.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   finish(): void;
@@ -579,6 +637,7 @@ export interface AnimationResult {
    * Pauses the animation.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   pause(): void;
@@ -586,6 +645,7 @@ export interface AnimationResult {
    * Cancels the animation.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   cancel(): void;
@@ -593,6 +653,7 @@ export interface AnimationResult {
    * Plays the animation in reverse direction.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   reverse(): void;
@@ -601,6 +662,7 @@ export interface AnimationResult {
    *
    * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   onstart: () => void;
@@ -609,6 +671,7 @@ export interface AnimationResult {
    *
    * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   onfinish: () => void;
@@ -617,6 +680,7 @@ export interface AnimationResult {
    *
    * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   oncancel: () => void;
@@ -625,6 +689,7 @@ export interface AnimationResult {
    *
    * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   onrepeat: () => void;
@@ -635,6 +700,7 @@ export interface AnimationResult {
  *
  * @interface Element
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @famodelonly
  * @since 4 dynamiconly
  */
 export interface Element {
@@ -646,6 +712,7 @@ export interface Element {
    *
    * @param { FocusParamObj } [obj] - { focus: true | false }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   focus(obj?: FocusParamObj): void;
@@ -658,6 +725,7 @@ export interface Element {
    *
    * @param { FocusParamObj } [obj] - { focus: true | false }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   rotation(obj?: FocusParamObj): void;
@@ -669,6 +737,7 @@ export interface Element {
    * @param { AnimateOptions } options - Options. is used to describe animation parameters.
    * @returns { AnimationResult } This method returns the animation object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   animate(keyframes: Array<AnimateStyle>, options: AnimateOptions): AnimationResult;
@@ -678,6 +747,7 @@ export interface Element {
    *
    * @returns { RectObj } RectObj the size position of the element.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 6 dynamiconly
    */
   getBoundingClientRect(): RectObj;
@@ -688,6 +758,7 @@ export interface Element {
    * @returns { string } attributes of the element in json string.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @famodelonly
    * @since 8 dynamiconly
    */
   getInspector(): string;
@@ -698,6 +769,7 @@ export interface Element {
    * @param { object } param - Scope of Monitoring components.
    * @returns { observer }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 6 dynamiconly
    */
   createIntersectionObserver(param: { ratios: Array<number> }): observer;
@@ -707,6 +779,7 @@ export interface Element {
    *
    * @param { Element } child - Subnode object to be added
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 8 dynamiconly
    */
   addChild(child: Element): void;
@@ -717,6 +790,7 @@ export interface Element {
    * @param { string } name - attribute name
    * @param { string } value - attribute value¡¢
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 8 dynamiconly
    */
   setAttribute(name: string, value: string): void;
@@ -728,6 +802,7 @@ export interface Element {
    * @param { string } value - style value
    * @returns { boolean } If the setting is successful, true is returned. If the setting fails, false is returned.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 8 dynamiconly
    */
   setStyle(name: string, value: string): boolean;
@@ -738,6 +813,7 @@ export interface Element {
  *
  * @interface observer
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @famodelonly
  * @since 6 dynamiconly
  */
 export interface observer {
@@ -746,6 +822,7 @@ export interface observer {
    *
    * @param { string } callback
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 6 dynamiconly
    */
   observe(callback: string): void;
@@ -754,6 +831,7 @@ export interface observer {
    * Turn off the listener.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 6 dynamiconly
    */
   unobserve(): void;
@@ -765,6 +843,7 @@ export interface observer {
  * @extends Element
  * @interface AnimationElement
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @famodelonly
  * @since 4 dynamiconly
  */
 export interface AnimationElement extends Element {
@@ -772,6 +851,7 @@ export interface AnimationElement extends Element {
    * Starts the animation.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   play(): void;
@@ -779,6 +859,7 @@ export interface AnimationElement extends Element {
    * Ends the animation.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   finish(): void;
@@ -786,6 +867,7 @@ export interface AnimationElement extends Element {
    * Pauses the animation.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   pause(): void;
@@ -793,6 +875,7 @@ export interface AnimationElement extends Element {
    * Cancels the animation.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   cancel(): void;
@@ -800,6 +883,7 @@ export interface AnimationElement extends Element {
    * Plays the animation in reverse direction.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   reverse(): void;
@@ -810,6 +894,7 @@ export interface AnimationElement extends Element {
  *
  * @interface ScrollParam
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @famodelonly
  * @since 4 dynamiconly
  */
 export interface ScrollParam {
@@ -818,6 +903,7 @@ export interface ScrollParam {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   dx?: number;
@@ -827,6 +913,7 @@ export interface ScrollParam {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   dy?: number;
@@ -836,6 +923,7 @@ export interface ScrollParam {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   smooth?: boolean;
@@ -846,6 +934,7 @@ export interface ScrollParam {
  *
  * @interface CurrentOffsetResultValue
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @famodelonly
  * @since 4 dynamiconly
  */
 export interface CurrentOffsetResultValue {
@@ -854,6 +943,7 @@ export interface CurrentOffsetResultValue {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   x: number;
@@ -863,6 +953,7 @@ export interface CurrentOffsetResultValue {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   y: number;
@@ -873,6 +964,7 @@ export interface CurrentOffsetResultValue {
  *
  * @interface ListScrollToOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @famodelonly
  * @since 4 dynamiconly
  */
 export interface ListScrollToOptions {
@@ -881,6 +973,7 @@ export interface ListScrollToOptions {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
+   * @famodelonly
    * @since 4 dynamiconly
    */
   index: number;
@@ -892,6 +985,7 @@ export interface ListScrollToOptions {
  * @extends Element
  * @interface ListElement
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @famodelonly
  * @since 4 dynamiconly
  */
 export interface ListElement extends Element {
@@ -900,6 +994,7 @@ export interface ListElement extends Element {
    *
    * @param { ListScrollToOptions } position
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
+   * @famodelonly
    * @since 4 dynamiconly
    */
   scrollTo(position: ListScrollToOptions): void;
@@ -910,6 +1005,7 @@ export interface ListElement extends Element {
    *
    * @param { ScrollParam } data
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   scrollBy(data: ScrollParam): void;
@@ -920,6 +1016,7 @@ export interface ListElement extends Element {
    *
    * @param { object } param
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   scrollTop(param: { smooth: boolean }): void;
@@ -930,6 +1027,7 @@ export interface ListElement extends Element {
    *
    * @param { object } param
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   scrollBottom(param: { smooth: boolean }): void;
@@ -942,6 +1040,7 @@ export interface ListElement extends Element {
    *
    * @param { object } params
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   scrollPage(params: { reverse: boolean; smooth: boolean }): void;
@@ -954,6 +1053,7 @@ export interface ListElement extends Element {
    *
    * @param { object } params
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   scrollArrow(params: { reverse: boolean; smooth: boolean }): void;
@@ -963,6 +1063,7 @@ export interface ListElement extends Element {
    *
    * @param { object } param
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   collapseGroup(param: {
@@ -972,6 +1073,7 @@ export interface ListElement extends Element {
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @famodelonly
      * @since 4 dynamiconly
      */
     groupid: string;
@@ -982,6 +1084,7 @@ export interface ListElement extends Element {
    *
    * @param { object } param
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   expandGroup(param: {
@@ -991,6 +1094,7 @@ export interface ListElement extends Element {
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @famodelonly
      * @since 4 dynamiconly
      */
     groupid: string;
@@ -1001,6 +1105,7 @@ export interface ListElement extends Element {
    *
    * @returns { CurrentOffsetResultValue }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   currentOffset(): CurrentOffsetResultValue;
@@ -1012,6 +1117,7 @@ export interface ListElement extends Element {
  * @extends Element
  * @interface SwiperElement
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @famodelonly
  * @since 4 dynamiconly
  */
 export interface SwiperElement extends Element {
@@ -1020,6 +1126,7 @@ export interface SwiperElement extends Element {
    *
    * @param { object } position
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   swipeTo(position: {
@@ -1028,6 +1135,7 @@ export interface SwiperElement extends Element {
      *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @famodelonly
      * @since 4 dynamiconly
      */
     index: number;
@@ -1037,6 +1145,7 @@ export interface SwiperElement extends Element {
    * Shows the next child component.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   showNext(): void;
@@ -1045,6 +1154,7 @@ export interface SwiperElement extends Element {
    * Shows the previous child component.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   showPrevious(): void;
@@ -1055,6 +1165,7 @@ export interface SwiperElement extends Element {
  *
  * @interface CameraTakePhotoOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @famodelonly
  * @since 6 dynamiconly
  */
 export interface CameraTakePhotoOptions {
@@ -1063,6 +1174,7 @@ export interface CameraTakePhotoOptions {
    *
    * @type { "high" | "normal" | "low" }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 6 dynamiconly
    */
   quality: "high" | "normal" | "low";
@@ -1072,6 +1184,7 @@ export interface CameraTakePhotoOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 6 dynamiconly
    */
   success?: (result: Object) => void;
@@ -1081,6 +1194,7 @@ export interface CameraTakePhotoOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 6 dynamiconly
    */
   fail?: (result: Object) => void;
@@ -1090,6 +1204,7 @@ export interface CameraTakePhotoOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 6 dynamiconly
    */
   complete?: (result: Object) => void;
@@ -1101,6 +1216,7 @@ export interface CameraTakePhotoOptions {
  * @extends Element
  * @interface CameraElement
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @famodelonly
  * @since 6 dynamiconly
  */
 export interface CameraElement extends Element {
@@ -1109,6 +1225,7 @@ export interface CameraElement extends Element {
    *
    * @param { CameraTakePhotoOptions } options - the parameters of camera.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 6 dynamiconly
    */
   takePhoto(options: CameraTakePhotoOptions): void;
@@ -1120,6 +1237,7 @@ export interface CameraElement extends Element {
  * @extends Element
  * @interface WebElement
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @famodelonly
  * @since 6 dynamiconly
  */
 export interface WebElement extends Element {
@@ -1127,6 +1245,7 @@ export interface WebElement extends Element {
    * Reload the web page content
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 6 dynamiconly
    */
   reload(): void;
@@ -1138,6 +1257,7 @@ export interface WebElement extends Element {
  * @extends Element
  * @interface DialogElement
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @famodelonly
  * @since 4 dynamiconly
  */
 export interface DialogElement extends Element {
@@ -1145,6 +1265,7 @@ export interface DialogElement extends Element {
    * Shows a dialog box.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   show(): void;
@@ -1152,6 +1273,7 @@ export interface DialogElement extends Element {
    * Closes a dialog box.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   close(): void;
@@ -1163,6 +1285,7 @@ export interface DialogElement extends Element {
  * @extends Element
  * @interface ImageAnimatorElement
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
+ * @famodelonly
  * @since 4 dynamiconly
  */
 export interface ImageAnimatorElement extends Element {
@@ -1170,6 +1293,7 @@ export interface ImageAnimatorElement extends Element {
    * Starts to play the frame animation of an image. If this method is called again, the playback starts from the first frame.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   start(): void;
@@ -1177,6 +1301,7 @@ export interface ImageAnimatorElement extends Element {
    * Pauses the frame animation playback of an image.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   pause(): void;
@@ -1184,6 +1309,7 @@ export interface ImageAnimatorElement extends Element {
    * Stops the frame animation playback of an image.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   stop(): void;
@@ -1191,6 +1317,7 @@ export interface ImageAnimatorElement extends Element {
    * Resumes the frame animation playback of an image.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   resume(): void;
@@ -1202,6 +1329,7 @@ export interface ImageAnimatorElement extends Element {
    *
    * @returns { "Playing" | "Paused" | "Stopped" }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   getState(): "Playing" | "Paused" | "Stopped";
@@ -1214,6 +1342,7 @@ export interface ImageAnimatorElement extends Element {
  * @extends Element
  * @interface MarqueeElement
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @famodelonly
  * @since 4 dynamiconly
  */
 export interface MarqueeElement extends Element {
@@ -1221,6 +1350,7 @@ export interface MarqueeElement extends Element {
    * Starts scrolling.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   start(): void;
@@ -1229,6 +1359,7 @@ export interface MarqueeElement extends Element {
    * Stops scrolling.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   stop(): void;
@@ -1240,6 +1371,7 @@ export interface MarqueeElement extends Element {
  * @extends Element
  * @interface MenuElement
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @famodelonly
  * @since 4 dynamiconly
  */
 export interface MenuElement extends Element {
@@ -1254,6 +1386,7 @@ export interface MenuElement extends Element {
    *
    * @param { object } position
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   show(position: { x: number; y: number }): void;
@@ -1265,17 +1398,19 @@ export interface MenuElement extends Element {
  * @extends Element
  * @interface ChartElement
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @famodelonly
  * @since 4 dynamiconly
  */
 export interface ChartElement extends Element {
   /**
-   * Data is dynamically added to an existing data sequence.
+   * Data is dynamiconlyally added to an existing data sequence.
    * The target sequence is specified based on serial, which is the subscript of the datasets array and starts from 0.
    * datasets[index].data is not updated. Only line charts support this attribute.
    * The value is incremented by 1 based on the horizontal coordinate and is related to the xAxis min/max setting.
    *
    * @param { object } params
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   append(params: {
@@ -1284,6 +1419,7 @@ export interface ChartElement extends Element {
      *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @famodelonly
      * @since 4 dynamiconly
      */
     serial: number;
@@ -1292,6 +1428,7 @@ export interface ChartElement extends Element {
      *
      * @type { Array<number> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @famodelonly
      * @since 4 dynamiconly
      */
     data: Array<number>;
@@ -1304,6 +1441,7 @@ export interface ChartElement extends Element {
  * @extends Element
  * @interface InputElement
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @famodelonly
  * @since 4 dynamiconly
  */
 export interface InputElement extends Element {
@@ -1313,6 +1451,7 @@ export interface InputElement extends Element {
    *
    * @param { object } param - If focus is not passed, the default value true is used.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   focus(param: { focus: boolean }): void;
@@ -1323,6 +1462,7 @@ export interface InputElement extends Element {
    *
    * @param { object } param
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   showError(param: { error: string }): void;
@@ -1331,6 +1471,7 @@ export interface InputElement extends Element {
    * Deletes the previous character at the cursor position.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 6 dynamiconly
    */
   delete(): void;
@@ -1342,6 +1483,7 @@ export interface InputElement extends Element {
  * @extends Element
  * @interface ButtonElement
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @famodelonly
  * @since 4 dynamiconly
  */
 export interface ButtonElement extends Element {
@@ -1354,6 +1496,7 @@ export interface ButtonElement extends Element {
    *
    * @param { object } param
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   setProgress(param: { progress: number }): void;
@@ -1365,6 +1508,7 @@ export interface ButtonElement extends Element {
  * @extends Element
  * @interface TextAreaElement
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @famodelonly
  * @since 4 dynamiconly
  */
 export interface TextAreaElement extends Element {
@@ -1373,6 +1517,7 @@ export interface TextAreaElement extends Element {
    *
    * @param { object } param - If focus is not passed, the default value true is used.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   focus(param: { focus: boolean }): void;
@@ -1384,6 +1529,7 @@ export interface TextAreaElement extends Element {
  * @extends Element
  * @interface PickerElement
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @famodelonly
  * @since 4 dynamiconly
  */
 export interface PickerElement extends Element {
@@ -1391,6 +1537,7 @@ export interface PickerElement extends Element {
    * Displays the picker.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   show(): void;
@@ -1402,6 +1549,7 @@ export interface PickerElement extends Element {
  * @extends Element
  * @interface VideoElement
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @famodelonly
  * @since 4 dynamiconly
  */
 export interface VideoElement extends Element {
@@ -1409,6 +1557,7 @@ export interface VideoElement extends Element {
    * Requests to start playing a video.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   start(): void;
@@ -1417,6 +1566,7 @@ export interface VideoElement extends Element {
    * Requests to pause a video.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   pause(): void;
@@ -1426,6 +1576,7 @@ export interface VideoElement extends Element {
    *
    * @param { object } param
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   setCurrentTime(param: { currenttime: number }): void;
@@ -1435,6 +1586,7 @@ export interface VideoElement extends Element {
    *
    * @param { object } param
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   requestFullscreen(param: { screenOrientation: "default" }): void;
@@ -1443,6 +1595,7 @@ export interface VideoElement extends Element {
    * Requests to exit the full screen mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   exitFullscreen(): void;
@@ -1451,6 +1604,7 @@ export interface VideoElement extends Element {
    * Requests to stop playing a video.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 6 dynamiconly
    */
   stop(): void;
@@ -1461,18 +1615,21 @@ export interface VideoElement extends Element {
  *
  * @interface TextMetrics
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @famodelonly
  * @since 4 dynamiconly
  */
 export interface TextMetrics {
   /**
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   width: number;
   /**
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 8 dynamiconly
    */
   height: number;
@@ -1484,6 +1641,7 @@ export interface TextMetrics {
  *
  * @interface OffscreenCanvasRenderingContext2D
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @famodelonly
  * @since 7 dynamiconly
  */
 export interface OffscreenCanvasRenderingContext2D {
@@ -1493,6 +1651,7 @@ export interface OffscreenCanvasRenderingContext2D {
    *
    * @type { Array<number> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 7 dynamiconly
    */
   getLineDash: Array<number>;
@@ -1505,6 +1664,7 @@ export interface OffscreenCanvasRenderingContext2D {
    *
    * @type { ?(string | CanvasGradient | CanvasPattern) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 7 dynamiconly
    */
   fillStyle?: string | CanvasGradient | CanvasPattern;
@@ -1517,6 +1677,7 @@ export interface OffscreenCanvasRenderingContext2D {
    *
    * @type { ?(string | CanvasGradient | CanvasPattern) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 7 dynamiconly
    */
   strokeStyle?: string | CanvasGradient | CanvasPattern;
@@ -1526,6 +1687,7 @@ export interface OffscreenCanvasRenderingContext2D {
    *
    * @param { Array<number> } segments - A set of numbers describing the length of alternating drawn line segments and spacing (coordinate space units).
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 7 dynamiconly
    */
   setLineDash(segments: Array<number>): void;
@@ -1539,6 +1701,7 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param { number } dw - Image The width drawn on the target canvas.
    * @param { number } dh - Image The height drawn on the target canvas.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 7 dynamiconly
    */
   drawImage(image: Image, dx: number, dy: number, dw: number, dh: number): void;
@@ -1556,6 +1719,7 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param { number } dw - Image The width drawn on the target canvas.
    * @param { number } dh - Image The height drawn on the target canvas.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 7 dynamiconly
    */
   drawImage(
@@ -1579,6 +1743,7 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param { number } dw - Image The width drawn on the target canvas.
    * @param { number } dh - Image The height drawn on the target canvas.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 9 dynamiconly
    */
   drawImage(image: image.PixelMap, dx: number, dy: number, dw: number, dh: number): void;
@@ -1596,6 +1761,7 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param { number } dw - Image The width drawn on the target canvas.
    * @param { number } dh - Image The height drawn on the target canvas.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 9 dynamiconly
    */
   drawImage(
@@ -1614,6 +1780,7 @@ export interface OffscreenCanvasRenderingContext2D {
    * Creates a drawing path.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 7 dynamiconly
    */
   beginPath(): void;
@@ -1622,6 +1789,7 @@ export interface OffscreenCanvasRenderingContext2D {
    * Crop the current canvas.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 7 dynamiconly
    */
   clip(): void;
@@ -1630,6 +1798,7 @@ export interface OffscreenCanvasRenderingContext2D {
    * Fills the current canvas with color.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 7 dynamiconly
    */
   fill(): void;
@@ -1641,6 +1810,7 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param { number } y - The Y coordinate of the detection point.
    * @returns { boolean } boolean Return true if the detection point is contained within the current or specified path Otherwise return false.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 7 dynamiconly
    */
   isPointInPath(x: number, y: number): boolean;
@@ -1653,6 +1823,7 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param { number } y - The Y coordinate of the detection point.
    * @returns { boolean } boolean Return true if the detection point is contained within the current or specified path Otherwise return false.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 7 dynamiconly
    */
   isPointInPath(path: Path2D, x: number, y: number): boolean;
@@ -1664,6 +1835,7 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param { number } y - The Y coordinate of the detection point.
    * @returns { boolean } boolean A Boolean value that returns true when the point is on the line of the path, false otherwise.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 7 dynamiconly
    */
   isPointInStroke(x: number, y: number): boolean;
@@ -1676,6 +1848,7 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param { number } y - The Y coordinate of the detection point.
    * @returns { boolean } boolean A Boolean value that returns true when the point is on the line of the path, false otherwise.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 7 dynamiconly
    */
   isPointInStroke(path: Path2D, x: number, y: number): boolean;
@@ -1684,6 +1857,7 @@ export interface OffscreenCanvasRenderingContext2D {
    * Stroke draws the current path.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 7 dynamiconly
    */
   stroke(): void;
@@ -1693,6 +1867,7 @@ export interface OffscreenCanvasRenderingContext2D {
    *
    * @param { Path2D } path - The object of Path2D.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 7 dynamiconly
    */
   stroke(path: Path2D): void;
@@ -1708,6 +1883,7 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param { number } r1 - The radius of End Circle.
    * @returns { CanvasGradient } RadialGradient object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 7 dynamiconly
    */
   createRadialGradient(x0: number, y0: number, r0: number, x1: number, y1: number, r1: number): CanvasGradient;
@@ -1719,6 +1895,7 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param { string } repetition - Specify how to repeat images.
    * @returns { CanvasPattern } CanvasPattern An opaque object that describes a schema.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 7 dynamiconly
    */
   createPattern(image: Image, repetition: string): CanvasPattern;
@@ -1732,6 +1909,7 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param { number } y1 - Y-coordinate of the end point.
    * @returns { CanvasGradient } LinearGradient object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 7 dynamiconly
    */
   createLinearGradient(x0: number, y0: number, x1: number, y1: number): CanvasGradient;
@@ -1743,6 +1921,7 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param { number } sh - The height of the new object.
    * @returns { ImageData } ImageData New ImageData object with width and height specified.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 7 dynamiconly
    */
   createImageData(sw: number, sh: number): ImageData;
@@ -1754,6 +1933,7 @@ export interface OffscreenCanvasRenderingContext2D {
    * The image itself is not allowed to be copied.
    * @returns { ImageData } ImageData New ImageData object with width and height specified.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 7 dynamiconly
    */
   createImageData(imageData: ImageData): ImageData;
@@ -1764,6 +1944,7 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param { Path2D } [path] - another created Path2D object.
    * @returns { Path2D } the object of Path2D.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 7 dynamiconly
    */
   createPath2D(path?: Path2D): Path2D;
@@ -1774,6 +1955,7 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param { string } [cmds] - a string defined using the SVG path command.
    * @returns { Path2D } the object of Path2D.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 7 dynamiconly
    */
   createPath2D(cmds?: string): Path2D;
@@ -1787,6 +1969,7 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param { number } sh - The height of the rectangular area of the image data to be extracted.
    * @returns { ImageData } ImageData An ImageData object that contains the rectangular ImageData given by the canvas.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 7 dynamiconly
    */
   getImageData(sx: number, sy: number, sw: number, sh: number): ImageData;
@@ -1800,6 +1983,7 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param { number } sh - The height of the rectangular area of the image data to be extracted.
    * @returns { image.PixelMap } PixelMap A PixelMap object that contains the rectangular ImageData given by the canvas.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 9 dynamiconly
    */
   getPixelMap(sx: number, sy: number, sw: number, sh: number): image.PixelMap
@@ -1811,6 +1995,7 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param { number } dx - The offset of the position of the source image data in the target canvas (the offset in the X-axis direction).
    * @param { number } dy - The offset of the position of the source image data in the target canvas (the Y-axis offset).
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 7 dynamiconly
    */
   putImageData(imageData: ImageData, dx: number, dy: number): void;
@@ -1828,6 +2013,7 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param { number } dirtyWidth - In the source image data, the width of a rectangular region. Default is the width of the image data.
    * @param { number } dirtyHeight - In the source image data, the height of a rectangular region. Default is the height of the image data.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 7 dynamiconly
    */
   putImageData(
@@ -1848,11 +2034,12 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param { number } y - The Y-axis coordinates of the center of an arc (center of a circle).
    * @param { number } startAngle - The starting point of the arc, in the X-axis direction, is calculated in radians.
    * @param { number } endAngle - The end point of an arc, expressed in radians.
-   * @param { boolean } [anticlockwise] - An optional Boolean value. If true, the arc is drawn counterclockwise, and otherwise clockwise.
+   * @param { boolean } [counterclockwise] - An optional Boolean value. If true, the arc is drawn counterclockwise, and otherwise clockwise.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 7 dynamiconly
    */
-  arc(radius: number, x: number, y: number, startAngle: number, endAngle: number, anticlockwise?: boolean): void;
+  arc(radius: number, x: number, y: number, startAngle: number, endAngle: number, counterclockwise?: boolean): void;
 
   /**
    * Draws an arc from the beginning to the end.
@@ -1863,6 +2050,7 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param { number } y2 - The Y-axis coordinates of the second control point.
    * @param { number } radius - Radius of an arc.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 7 dynamiconly
    */
   arcTo(x1: number, x2: number, y1: number, y2: number, radius: number): void;
@@ -1877,6 +2065,7 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param { number } x - The x-coordinate of the end point.
    * @param { number } y - The y-coordinate of the end point
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 7 dynamiconly
    */
   bezierCurveTo(cp1x: number, cp1y: number, cp2x: number, cp2y: number, x: number, y: number): void;
@@ -1885,6 +2074,7 @@ export interface OffscreenCanvasRenderingContext2D {
    * Closing the current path.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 7 dynamiconly
    */
   closePath(): void;
@@ -1895,6 +2085,7 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param { number } x - The X-axis coordinates at the end of the line.
    * @param { number } y - The Y-axis coordinates at the end of the line.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 7 dynamiconly
    */
   lineTo(x: number, y: number): void;
@@ -1909,8 +2100,9 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param { number } rotation - The Angle of rotation of an ellipse, expressed in radians.
    * @param { number } startAngle - The starting point Angle to be plotted, measured from the X-axis, is expressed in radians.
    * @param { number } endAngle - The Angle, expressed in radians, at which the ellipse will be drawn.
-   * @param { boolean } [anticlockwise] - If true, the ellipse is drawn counterclockwise (counterclockwise) and clockwise otherwise.
+   * @param { boolean } [counterclockwise] - If true, the ellipse is drawn counterclockwise (counterclockwise) and clockwise otherwise.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 7 dynamiconly
    */
   ellipse(
@@ -1921,7 +2113,7 @@ export interface OffscreenCanvasRenderingContext2D {
     rotation: number,
     startAngle: number,
     endAngle: number,
-    anticlockwise?: boolean,
+    counterclockwise?: boolean,
   ): void;
 
   /**
@@ -1930,6 +2122,7 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param { number } x - The x axis.
    * @param { number } y - The y axis.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 7 dynamiconly
    */
   moveTo(x: number, y: number): void;
@@ -1942,6 +2135,7 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param { number } x - The X-axis of the end point.
    * @param { number } y - The Y-axis of the end point.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 7 dynamiconly
    */
   quadraticCurveTo(cpx: number, cpy: number, x: number, y: number): void;
@@ -1954,6 +2148,7 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param { number } w - The width of a rectangle.
    * @param { number } h - The height of a rectangle.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 7 dynamiconly
    */
   rect(x: number, y: number, w: number, h: number): void;
@@ -1966,6 +2161,7 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param { number } w - The width of a rectangle.
    * @param { number } h - The height of a rectangle.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 7 dynamiconly
    */
   clearRect(x: number, y: number, w: number, h: number): void;
@@ -1978,6 +2174,7 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param { number } w - The width of a rectangle.
    * @param { number } h - The height of a rectangle.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 7 dynamiconly
    */
   fillRect(x: number, y: number, w: number, h: number): void;
@@ -1990,6 +2187,7 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param { number } w - The width of the rectangle. Positive values on the right, negative values on the left.
    * @param { number } h - The height of the rectangle. Positive values are down, negative values are up.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 7 dynamiconly
    */
   strokeRect(x: number, y: number, w: number, h: number): void;
@@ -2001,6 +2199,7 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param { number } y - The Y-axis coordinates of the starting point of the text.
    * @param { number } x - The X-axis coordinates of the starting point of the text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 7 dynamiconly
    */
   fillText(text: string, y: number, x: number /*, maxWidth?: number*/): void;
@@ -2011,6 +2210,7 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param { string } text - Text to be measured.
    * @returns { TextMetrics } Object that contains the text width. You can obtain the width by TextMetrics.width.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 7 dynamiconly
    */
   measureText(text: string): TextMetrics;
@@ -2022,6 +2222,7 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param { number } x - X-coordinate of the lower left corner of the text stroke.
    * @param { number } y - Y-coordinate of the lower left corner of the text stroke.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 7 dynamiconly
    */
   strokeText(text: string, x: number, y: number /*, maxWidth?: number*/): void;
@@ -2030,6 +2231,7 @@ export interface OffscreenCanvasRenderingContext2D {
    * Resets the current matrix transformation effect.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 7 dynamiconly
    */
   resetTransform(): void;
@@ -2039,6 +2241,7 @@ export interface OffscreenCanvasRenderingContext2D {
    *
    * @param { number } angle - The radian of clockwise rotation.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 7 dynamiconly
    */
   rotate(angle: number): void;
@@ -2049,6 +2252,7 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param { number } x - The horizontal scaling factor.
    * @param { number } y - The scaling factor in the vertical direction.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 7 dynamiconly
    */
   scale(x: number, y: number): void;
@@ -2063,6 +2267,7 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param { number } e - The level of mobile.
    * @param { number } f - Vertical movement.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 7 dynamiconly
    */
   setTransform(a: number, b: number, c: number, d: number, e: number, f: number): void;
@@ -2077,6 +2282,7 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param { number } e - The level of mobile.
    * @param { number } f - Vertical movement.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 7 dynamiconly
    */
   transform(a: number, b: number, c: number, d: number, e: number, f: number): void;
@@ -2087,6 +2293,7 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param { number } x - Horizontal movement distance.
    * @param { number } y - Vertical movement.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 7 dynamiconly
    */
   translate(x: number, y: number): void;
@@ -2095,6 +2302,7 @@ export interface OffscreenCanvasRenderingContext2D {
    * Restores the configuration information of the last saved canvas context.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 7 dynamiconly
    */
   restore(): void;
@@ -2103,6 +2311,7 @@ export interface OffscreenCanvasRenderingContext2D {
    * Saves configuration information for the current canvas context.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 7 dynamiconly
    */
   save(): void;
@@ -2114,6 +2323,7 @@ export interface OffscreenCanvasRenderingContext2D {
  *
  * @interface CanvasRenderingContext2D
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @famodelonly
  * @since 4 dynamiconly
  */
 export interface CanvasRenderingContext2D {
@@ -2125,6 +2335,7 @@ export interface CanvasRenderingContext2D {
    * @param { number } width - Width of the rectangle.
    * @param { number } height - Height of the rectangle.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   fillRect(x: number, y: number, width: number, height: number): void;
@@ -2137,6 +2348,7 @@ export interface CanvasRenderingContext2D {
    *
    * @type { ?(string | CanvasGradient | CanvasPattern) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   fillStyle?: string | CanvasGradient | CanvasPattern;
@@ -2149,6 +2361,7 @@ export interface CanvasRenderingContext2D {
    * @param { number } width - Width of the rectangle.
    * @param { number } height - Height of the rectangle.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   clearRect(x: number, y: number, width: number, height: number): void;
@@ -2161,6 +2374,7 @@ export interface CanvasRenderingContext2D {
    * @param { number } width - Width of the rectangle stroke.
    * @param { number } height - Height of the rectangle stroke.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   strokeRect(x: number, y: number, width: number, height: number): void;
@@ -2172,6 +2386,7 @@ export interface CanvasRenderingContext2D {
    * @param { number } x - X-coordinate of the lower left corner of the text.
    * @param { number } y - Y-coordinate of the lower left corner of the text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   fillText(text: string, x: number, y: number): void;
@@ -2183,6 +2398,7 @@ export interface CanvasRenderingContext2D {
    * @param { number } x - X-coordinate of the lower left corner of the text stroke.
    * @param { number } y - Y-coordinate of the lower left corner of the text stroke.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   strokeText(text: string, x: number, y: number): void;
@@ -2193,6 +2409,7 @@ export interface CanvasRenderingContext2D {
    * @param { string } text - Text to be measured.
    * @returns { TextMetrics } Object that contains the text width. You can obtain the width by TextMetrics.width.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   measureText(text: string): TextMetrics;
@@ -2202,6 +2419,7 @@ export interface CanvasRenderingContext2D {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   lineWidth?: number;
@@ -2214,6 +2432,7 @@ export interface CanvasRenderingContext2D {
    *
    * @type { ?(string | CanvasGradient | CanvasPattern) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   strokeStyle?: string | CanvasGradient | CanvasPattern;
@@ -2222,6 +2441,7 @@ export interface CanvasRenderingContext2D {
    * Draws a border stroke.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   stroke(): void;
@@ -2231,6 +2451,7 @@ export interface CanvasRenderingContext2D {
    *
    * @param { Path2D } path - The object of Path2D.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   stroke(path: Path2D): void;
@@ -2239,6 +2460,7 @@ export interface CanvasRenderingContext2D {
    * Creates a drawing path.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   beginPath(): void;
@@ -2249,6 +2471,7 @@ export interface CanvasRenderingContext2D {
    * @param { number } x - X-coordinate of the target position.
    * @param { number } y - Y-coordinate of the target position.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   moveTo(x: number, y: number): void;
@@ -2259,6 +2482,7 @@ export interface CanvasRenderingContext2D {
    * @param { number } x - X-coordinate of the target position.
    * @param { number } y - Y-coordinate of the target position.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   lineTo(x: number, y: number): void;
@@ -2267,6 +2491,7 @@ export interface CanvasRenderingContext2D {
    * Draws a closed path.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   closePath(): void;
@@ -2281,6 +2506,7 @@ export interface CanvasRenderingContext2D {
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   lineCap: string;
@@ -2295,6 +2521,7 @@ export interface CanvasRenderingContext2D {
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   lineJoin: string;
@@ -2305,6 +2532,7 @@ export interface CanvasRenderingContext2D {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   miterLimit: number;
@@ -2317,6 +2545,7 @@ export interface CanvasRenderingContext2D {
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   font: string;
@@ -2334,6 +2563,7 @@ export interface CanvasRenderingContext2D {
    *
    * @type { "left" | "right" | "center" | "start" | "end" }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   textAlign: "left" | "right" | "center" | "start" | "end";
@@ -2344,6 +2574,7 @@ export interface CanvasRenderingContext2D {
    *
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   imageSmoothingEnabled: boolean;
@@ -2362,6 +2593,7 @@ export interface CanvasRenderingContext2D {
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   textBaseline: string;
@@ -2375,6 +2607,7 @@ export interface CanvasRenderingContext2D {
    * @param { number } y1 - Y-coordinate of the end point.
    * @returns { CanvasGradient } LinearGradient object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 6 dynamiconly
    */
   createLinearGradient(x0: number, y0: number, x1: number, y1: number): CanvasGradient;
@@ -2390,6 +2623,7 @@ export interface CanvasRenderingContext2D {
    * @param { number } r1 - The radius of End Circle.
    * @returns { CanvasGradient } RadialGradient object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 6 dynamiconly
    */
   createRadialGradient(x0: number, y0: number, r0: number, x1: number, y1: number, r1: number): CanvasGradient;
@@ -2401,6 +2635,7 @@ export interface CanvasRenderingContext2D {
    * @param { string } repetition - Repetition mode. The value can be "repeat", "repeat-x", "repeat-y", or "no-repeat".
    * @returns { object } Pattern of image filling.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   createPattern(image: Image, repetition: string): object;
@@ -2411,6 +2646,7 @@ export interface CanvasRenderingContext2D {
    * @param { Path2D } [path] - another created Path2D object.
    * @returns { Path2D } the object of Path2D.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   createPath2D(path?: Path2D): Path2D;
@@ -2421,6 +2657,7 @@ export interface CanvasRenderingContext2D {
    * @param { string } [cmds] - a string defined using the SVG path command.
    * @returns { Path2D } the object of Path2D.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   createPath2D(cmds?: string): Path2D;
@@ -2435,6 +2672,7 @@ export interface CanvasRenderingContext2D {
    * @param { number } x - End point x-coordinate of the bezier curve.
    * @param { number } y - End point y-coordinate of the bezier curve.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   bezierCurveTo(cp1x: number, cp1y: number, cp2x: number, cp2y: number, x: number, y: number): void;
@@ -2447,6 +2685,7 @@ export interface CanvasRenderingContext2D {
    * @param { number } x - End point x-coordinate of the bezier curve.
    * @param { number } y - End point y-coordinate of the bezier curve.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   quadraticCurveTo(cpx: number, cpy: number, x: number, y: number): void;
@@ -2458,12 +2697,13 @@ export interface CanvasRenderingContext2D {
    * @param { number } y - Y-coordinate of the center point of the arc.
    * @param { number } radius - Radius of the arc.
    * @param { number } startAngle - Start radian of the arc.
-   * @param { number } endAngel - End radian of the arc.
-   * @param { boolean } [anticlockwise] - Whether to draw the arc counterclockwise.
+   * @param { number } endAngle - End radian of the arc.
+   * @param { boolean } [counterclockwise] - Whether to draw the arc counterclockwise.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
-  arc(x: number, y: number, radius: number, startAngle: number, endAngel: number, anticlockwise?: boolean): void;
+  arc(x: number, y: number, radius: number, startAngle: number, endAngle: number, counterclockwise?: boolean): void;
 
   /**
    * Draws an arc based on the radius and points on the arc.
@@ -2474,6 +2714,7 @@ export interface CanvasRenderingContext2D {
    * @param { number } y2 - Y-coordinate of the second point on the arc.
    * @param { number } radius - Radius of the arc.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   arcTo(x1: number, y1: number, x2: number, y2: number, radius: number): void;
@@ -2488,9 +2729,10 @@ export interface CanvasRenderingContext2D {
    * @param { number } rotation - The rotation angle of the ellipse, in radians.
    * @param { number } startAngle - Angle of the start point for ellipse drawing.
    * @param { number } endAngle - End Point Angle for Ellipse Drawing.
-   * @param { number } anticlockwise - Indicates whether to draw an ellipse counterclockwise.
+   * @param { number } [counterclockwise] - Indicates whether to draw an ellipse counterclockwise.
    * 0: clockwise; 1: counterclockwise. The default value is 0.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   ellipse(
@@ -2501,7 +2743,7 @@ export interface CanvasRenderingContext2D {
     rotation: number,
     startAngle: number,
     endAngle: number,
-    anticlockwise?: number,
+    counterclockwise?: number,
   ): void;
 
   /**
@@ -2512,6 +2754,7 @@ export interface CanvasRenderingContext2D {
    * @param { number } width - Width of the rectangle.
    * @param { number } height - Height of the rectangle.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   rect(x: number, y: number, width: number, height: number): void;
@@ -2520,6 +2763,7 @@ export interface CanvasRenderingContext2D {
    * Fills the area inside a closed path.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   fill(): void;
@@ -2528,6 +2772,7 @@ export interface CanvasRenderingContext2D {
    * Sets a path as the clipping path.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   clip(): void;
@@ -2537,6 +2782,7 @@ export interface CanvasRenderingContext2D {
    *
    * @param { number } rotate - Clockwise rotation angle. You can use Math.PI / 180 to convert the angle to radian.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   rotate(rotate: number): void;
@@ -2547,6 +2793,7 @@ export interface CanvasRenderingContext2D {
    * @param { number } x - Horizontal scale factor.
    * @param { number } y - Vertical scale factor.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   scale(x: number, y: number): void;
@@ -2564,6 +2811,7 @@ export interface CanvasRenderingContext2D {
    * @param { number } translateX - X-axis translation.
    * @param { number } translateY - Y-axis translation.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   transform(scaleX: number, skewX: number, skewY: number, scaleY: number, translateX: number, translateY: number): void;
@@ -2578,6 +2826,7 @@ export interface CanvasRenderingContext2D {
    * @param { number } translateX - X-axis translation.
    * @param { number } translateY - Y-axis translation.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   setTransform(
@@ -2595,6 +2844,7 @@ export interface CanvasRenderingContext2D {
    * @param { number } x - X-axis translation.
    * @param { number } y - Y-axis translation.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   translate(x: number, y: number): void;
@@ -2606,6 +2856,7 @@ export interface CanvasRenderingContext2D {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   globalAlpha: number;
@@ -2619,6 +2870,7 @@ export interface CanvasRenderingContext2D {
    * @param { number } dWidth - Width of the drawing area.
    * @param { number } dHeight - Height of the drawing area.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   drawImage(image: Image, dx: number, dy: number, dWidth: number, dHeight: number): void;
@@ -2636,6 +2888,7 @@ export interface CanvasRenderingContext2D {
    * @param { number } dWidth - Width of the drawing area.
    * @param { number } dHeight - Height of the drawing area.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   drawImage(
@@ -2659,6 +2912,7 @@ export interface CanvasRenderingContext2D {
    * @param { number } dWidth - Width of the drawing area.
    * @param { number } dHeight - Height of the drawing area.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 9 dynamiconly
    */
   drawImage(image: image.PixelMap, dx: number, dy: number, dWidth: number, dHeight: number): void;
@@ -2676,6 +2930,7 @@ export interface CanvasRenderingContext2D {
    * @param { number } dWidth - Width of the drawing area.
    * @param { number } dHeight - Height of the drawing area.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 9 dynamiconly
    */
   drawImage(
@@ -2695,6 +2950,7 @@ export interface CanvasRenderingContext2D {
    *
    * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   restore: () => void;
@@ -2704,6 +2960,7 @@ export interface CanvasRenderingContext2D {
    *
    * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   save: () => void;
@@ -2715,6 +2972,7 @@ export interface CanvasRenderingContext2D {
    * @param { number } height - Height of the ImageData object.
    * @returns { ImageData } Returns the newly created FunctionCallable object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   createImageData(width: number, height: number): ImageData;
@@ -2724,6 +2982,7 @@ export interface CanvasRenderingContext2D {
    * @param { ImageData } imageData - ImageData object with the same width and height copied from the original ImageData object.
    * @returns { ImageData } Returns the newly created FunctionCallable object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   createImageData(imageData: ImageData): ImageData;
@@ -2737,6 +2996,7 @@ export interface CanvasRenderingContext2D {
    * @param { number } sh - Height of the output area.
    * @returns { ImageData } ImageData object that contains pixels in the specified area on the canvas.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   getImageData(sx: number, sy: number, sw: number, sh: number): ImageData;
@@ -2750,6 +3010,7 @@ export interface CanvasRenderingContext2D {
    * @param { number } sh - The height of the rectangular area of the image data to be extracted.
    * @returns { image.PixelMap } PixelMap A PixelMap object that contains the rectangular ImageData given by the canvas.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 9 dynamiconly
    */
   getPixelMap(sx: number, sy: number, sw: number, sh: number): image.PixelMap
@@ -2761,6 +3022,7 @@ export interface CanvasRenderingContext2D {
    * @param { number } dx - X-axis offset of the rectangle area on the canvas.
    * @param { number } dy - Y-axis offset of the rectangle area on the canvas.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   putImageData(imageData: ImageData, dx: number, dy: number): void;
@@ -2776,6 +3038,7 @@ export interface CanvasRenderingContext2D {
    * @param { number } dirtyWidth - Width of the rectangle area to cop the source image.
    * @param { number } dirtyHeight - Height of the rectangle area to cop the source image.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   putImageData(
@@ -2793,6 +3056,7 @@ export interface CanvasRenderingContext2D {
    *
    * @param { Array<number> } segments - Interval of alternate line segments and the length of spacing.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   setLineDash(segments: Array<number>): void;
@@ -2802,6 +3066,7 @@ export interface CanvasRenderingContext2D {
    *
    * @returns { Array<number> } Interval of alternate line segments and the length of spacing.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   getLineDash(): Array<number>;
@@ -2812,6 +3077,7 @@ export interface CanvasRenderingContext2D {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   lineDashOffset: number;
@@ -2832,6 +3098,7 @@ export interface CanvasRenderingContext2D {
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   globalCompositeOperation: string;
@@ -2842,6 +3109,7 @@ export interface CanvasRenderingContext2D {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   shadowBlur: number;
@@ -2851,6 +3119,7 @@ export interface CanvasRenderingContext2D {
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   shadowColor: string;
@@ -2861,6 +3130,7 @@ export interface CanvasRenderingContext2D {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   shadowOffsetX: number;
@@ -2871,6 +3141,7 @@ export interface CanvasRenderingContext2D {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   shadowOffsetY: number;
@@ -2880,6 +3151,7 @@ export interface CanvasRenderingContext2D {
    *
    * @param { ImageBitmap } bitmap
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 7 dynamiconly
    */
   transferFromImageBitmap(bitmap: ImageBitmap): void;
@@ -2890,6 +3162,7 @@ export interface CanvasRenderingContext2D {
  *
  * @interface CanvasGradient
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @famodelonly
  * @since 4 dynamiconly
  */
 export interface CanvasGradient {
@@ -2900,6 +3173,7 @@ export interface CanvasGradient {
    * The value ranges from 0 to 1.
    * @param { string } color - Sets the gradient color.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   addColorStop(offset: number, color: string): void;
@@ -2910,6 +3184,7 @@ export interface CanvasGradient {
  *
  * @interface Path2D
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @famodelonly
  * @since 4 dynamiconly
  */
 export interface Path2D {
@@ -2918,6 +3193,7 @@ export interface Path2D {
    *
    * @param { Path2D } path - another created Path2D object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   addPath(path: Path2D): void;
@@ -2932,6 +3208,7 @@ export interface Path2D {
    * @param { number } translateX - X-axis translation.
    * @param { number } translateY - Y-axis translation.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   setTransform(
@@ -2947,6 +3224,7 @@ export interface Path2D {
    * Draws a closed path.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   closePath(): void;
@@ -2957,6 +3235,7 @@ export interface Path2D {
    * @param { number } x - X-coordinate of the target position.
    * @param { number } y - Y-coordinate of the target position.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   moveTo(x: number, y: number): void;
@@ -2967,6 +3246,7 @@ export interface Path2D {
    * @param { number } x - X-coordinate of the target position.
    * @param { number } y - Y-coordinate of the target position.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   lineTo(x: number, y: number): void;
@@ -2981,6 +3261,7 @@ export interface Path2D {
    * @param { number } x - End point x-coordinate of the bezier curve.
    * @param { number } y - End point y-coordinate of the bezier curve.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   bezierCurveTo(cp1x: number, cp1y: number, cp2x: number, cp2y: number, x: number, y: number): void;
@@ -2993,6 +3274,7 @@ export interface Path2D {
    * @param { number } x - End point x-coordinate of the bezier curve.
    * @param { number } y - End point y-coordinate of the bezier curve.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   quadraticCurveTo(cpx: number, cpy: number, x: number, y: number): void;
@@ -3004,12 +3286,13 @@ export interface Path2D {
    * @param { number } y - Y-coordinate of the center point of the arc.
    * @param { number } radius - Radius of the arc.
    * @param { number } startAngle - Start radian of the arc.
-   * @param { number } endAngel - End radian of the arc.
-   * @param { boolean } [anticlockwise] - Whether to draw the arc counterclockwise.
+   * @param { number } endAngle - End radian of the arc.
+   * @param { boolean } [counterclockwise] - Whether to draw the arc counterclockwise.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
-  arc(x: number, y: number, radius: number, startAngle: number, endAngel: number, anticlockwise?: boolean): void;
+  arc(x: number, y: number, radius: number, startAngle: number, endAngle: number, counterclockwise?: boolean): void;
 
   /**
    * Draws an arc based on the radius and points on the arc.
@@ -3020,6 +3303,7 @@ export interface Path2D {
    * @param { number } y2 - Y-coordinate of the second point on the arc.
    * @param { number } radius - Radius of the arc.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   arcTo(x1: number, y1: number, x2: number, y2: number, radius: number): void;
@@ -3034,9 +3318,10 @@ export interface Path2D {
    * @param { number } rotation - The rotation angle of the ellipse, in radians.
    * @param { number } startAngle - Angle of the start point for ellipse drawing.
    * @param { number } endAngle - End Point Angle for Ellipse Drawing.
-   * @param { number } anticlockwise - Indicates whether to draw an ellipse counterclockwise.
+   * @param { number } [counterclockwise] - Indicates whether to draw an ellipse counterclockwise.
    * 0: clockwise; 1: counterclockwise. The default value is 0.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   ellipse(
@@ -3047,7 +3332,7 @@ export interface Path2D {
     rotation: number,
     startAngle: number,
     endAngle: number,
-    anticlockwise?: number,
+    counterclockwise?: number,
   ): void;
 
   /**
@@ -3058,6 +3343,7 @@ export interface Path2D {
    * @param { number } width - Width of the rectangle.
    * @param { number } height - Height of the rectangle.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   rect(x: number, y: number, width: number, height: number): void;
@@ -3071,6 +3357,7 @@ export interface Path2D {
  * @extends Element
  * @interface CanvasElement
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @famodelonly
  * @since 4 dynamiconly
  */
 export interface CanvasElement extends Element {
@@ -3083,6 +3370,7 @@ export interface CanvasElement extends Element {
    * @param { ContextAttrOptions } [options] - use this context attributes to creating rendering context.
    * @returns { CanvasRenderingContext2D }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   getContext(type: "2d", options?: ContextAttrOptions): CanvasRenderingContext2D;
@@ -3096,6 +3384,7 @@ export interface CanvasElement extends Element {
    * @param { WebGLContextAttributes } [options] - use this context attributes to creating rendering context.
    * @returns { WebGLRenderingContext }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 6 dynamiconly
    */
   getContext(type: "webgl", options?: WebGLContextAttributes): WebGLRenderingContext;
@@ -3109,6 +3398,7 @@ export interface CanvasElement extends Element {
    * @param { WebGLContextAttributes } [options] - use this context attributes to creating rendering context.
    * @returns { WebGL2RenderingContext }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   getContext(type: "webgl2", options?: WebGLContextAttributes): WebGL2RenderingContext;
@@ -3122,6 +3412,7 @@ export interface CanvasElement extends Element {
    * the default value for image quality is used. Other arguments are ignored.
    * @returns { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   toDataURL(type?: string, quality?: number): string;
@@ -3132,6 +3423,7 @@ export interface CanvasElement extends Element {
  *
  * @interface ScrollOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @famodelonly
  * @since 6 dynamiconly
  */
 export interface ScrollOptions {
@@ -3140,6 +3432,7 @@ export interface ScrollOptions {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 6 dynamiconly
    */
   position: number;
@@ -3149,6 +3442,7 @@ export interface ScrollOptions {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 6 dynamiconly
    */
   duration: number;
@@ -3158,6 +3452,7 @@ export interface ScrollOptions {
    *
    * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 6 dynamiconly
    */
   id?: string;
@@ -3167,6 +3462,7 @@ export interface ScrollOptions {
    *
    * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 6 dynamiconly
    */
   timingFunction?: string;
@@ -3176,6 +3472,7 @@ export interface ScrollOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 6 dynamiconly
    */
   success?: (result: Object) => void;
@@ -3185,6 +3482,7 @@ export interface ScrollOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 6 dynamiconly
    */
   fail?: (result: Object) => void;
@@ -3194,6 +3492,7 @@ export interface ScrollOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 6 dynamiconly
    */
   complete?: (result: Object) => void;
@@ -3204,6 +3503,7 @@ export interface ScrollOptions {
  *
  * @interface ScrollOffset
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @famodelonly
  * @since 6 dynamiconly
  */
 export interface ScrollOffset {
@@ -3212,6 +3512,7 @@ export interface ScrollOffset {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 6 dynamiconly
    */
   x: number;
@@ -3221,6 +3522,7 @@ export interface ScrollOffset {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 6 dynamiconly
    */
   y: number;
@@ -3232,6 +3534,7 @@ export interface ScrollOffset {
  * @extends Element
  * @interface DivElement
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @famodelonly
  * @since 6 dynamiconly
  */
 export interface DivElement extends Element {
@@ -3240,6 +3543,7 @@ export interface DivElement extends Element {
    *
    * @param { ScrollParam } data
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 6 dynamiconly
    */
   scrollBy(data: ScrollParam): void;
@@ -3249,6 +3553,7 @@ export interface DivElement extends Element {
    *
    * @returns { ScrollOffset }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 6 dynamiconly
    */
   getScrollOffset(): ScrollOffset;
@@ -3259,6 +3564,7 @@ export interface DivElement extends Element {
  *
  * @interface Application
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @famodelonly
  * @since 4 dynamiconly
  */
 export interface Application {
@@ -3267,6 +3573,7 @@ export interface Application {
    *
    * @type { any }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   $def: any;
@@ -3277,6 +3584,7 @@ export interface Application {
  *
  * @interface ViewModel
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @famodelonly
  * @since 4 dynamiconly
  */
 export interface ViewModel {
@@ -3285,6 +3593,7 @@ export interface ViewModel {
    *
    * @type  { Application }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   $app: Application;
@@ -3299,6 +3608,7 @@ export interface ViewModel {
    * The actual content must be of the object type, for example, $t('strings.object', { name: 'Hello world' }).
    * Digit placeholder, for example, {0}. The actual content must be of the array type, for example, $t('strings.array', ['Hello world'].
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
+   * @famodelonly
    * @since 4 dynamiconly
    */
   $t(path: string, params?: object | Array<any>): string;
@@ -3312,6 +3622,7 @@ export interface ViewModel {
    * @param { number } count - Value.
    * @returns { string } Content.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   $tc(path: string, count: number): string;
@@ -3322,6 +3633,7 @@ export interface ViewModel {
    * @param { string } path - Resource file path.
    * @returns { string } Content.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   $r(path: string): string;
@@ -3333,6 +3645,7 @@ export interface ViewModel {
    * @param { string } key
    * @param { any } value
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   $set(key: string, value: any): void;
@@ -3343,6 +3656,7 @@ export interface ViewModel {
    *
    * @param { string } key
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   $delete(key: string): void;
@@ -3361,6 +3675,7 @@ export interface ViewModel {
    * MarqueeElement &MenuElement &ChartElement &InputElement &
    * ButtonElement &TextAreaElement &PickerElement &VideoElement &DivElement}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   $element(
@@ -3389,6 +3704,7 @@ export interface ViewModel {
    *
    * @returns { ViewModel & object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   $root(): ViewModel & object;
@@ -3398,6 +3714,7 @@ export interface ViewModel {
    *
    * @returns { ViewModel & object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   $parent(): ViewModel & object;
@@ -3409,6 +3726,7 @@ export interface ViewModel {
    * @param { string } id - Component ID.
    * @returns { ViewModel & object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   $child(id: string): ViewModel & object;
@@ -3419,6 +3737,7 @@ export interface ViewModel {
    * @param { string } data - Attribute.
    * @param { string } callback - Function name.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   $watch(data: string, callback: string): void;
@@ -3428,6 +3747,7 @@ export interface ViewModel {
    *
    * @type { ElementReferences }
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
+   * @famodelonly
    * @since 4 dynamiconly
    */
   $refs: ElementReferences;
@@ -3438,6 +3758,7 @@ export interface ViewModel {
    * @param { string } event - The name of event.
    * @param { object } [params] - The params of event.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   $emit(event: string, params?: object): void;
@@ -3447,6 +3768,7 @@ export interface ViewModel {
    *
    * @param { ScrollOptions } options - The properties of event.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 6 dynamiconly
    */
   scrollTo(options: ScrollOptions): void;
@@ -3457,6 +3779,7 @@ export interface ViewModel {
  *
  * @interface ElementReferences
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @famodelonly
  * @since 4 dynamiconly
  */
 export interface ElementReferences {
@@ -3482,6 +3805,7 @@ export interface ElementReferences {
 
 /**
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @famodelonly
  * @since 4 dynamiconly
  */
 export declare class Locate {
@@ -3490,6 +3814,7 @@ export declare class Locate {
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   language: string;
@@ -3499,6 +3824,7 @@ export declare class Locate {
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   countryOrRegion: string;
@@ -3508,6 +3834,7 @@ export declare class Locate {
    *
    * @type { "ltr" | "rtl" }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   dir: "ltr" | "rtl";
@@ -3518,6 +3845,7 @@ export declare class Locate {
    *
    * @type { object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 5 dynamiconly
    */
   unicodeSetting: object;
@@ -3525,6 +3853,7 @@ export declare class Locate {
 
 /**
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @famodelonly
  * @since 6 dynamiconly
  */
 export declare class Configuration {
@@ -3533,6 +3862,7 @@ export declare class Configuration {
    *
    * @type { Locate }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 6 dynamiconly
    */
   locate: Locate;
@@ -3542,6 +3872,7 @@ export declare class Configuration {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 6 dynamiconly
    */
   fontScale: number;
@@ -3552,6 +3883,7 @@ export declare class Configuration {
  *
  * @interface Options
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @famodelonly
  * @since 4 dynamiconly
  */
 export interface Options<T extends ViewModel, Data = DefaultData<T>> {
@@ -3563,6 +3895,7 @@ export interface Options<T extends ViewModel, Data = DefaultData<T>> {
    *
    * @type { ?Data }
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
+   * @famodelonly
    * @since 4 dynamiconly
    */
   data?: Data;
@@ -3572,6 +3905,7 @@ export interface Options<T extends ViewModel, Data = DefaultData<T>> {
    * Called when page initialization is complete. This function is called only once in a lifecycle.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   onInit?(): void;
@@ -3581,6 +3915,7 @@ export interface Options<T extends ViewModel, Data = DefaultData<T>> {
    * Called when a page is created. This function is called only once in a lifecycle.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   onReady?(): void;
@@ -3590,6 +3925,7 @@ export interface Options<T extends ViewModel, Data = DefaultData<T>> {
    * Called when the page is displayed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   onShow?(): void;
@@ -3599,6 +3935,7 @@ export interface Options<T extends ViewModel, Data = DefaultData<T>> {
    * Called when the page disappears.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   onHide?(): void;
@@ -3608,6 +3945,7 @@ export interface Options<T extends ViewModel, Data = DefaultData<T>> {
    * Called when the page is destroyed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   onDestroy?(): void;
@@ -3620,6 +3958,7 @@ export interface Options<T extends ViewModel, Data = DefaultData<T>> {
    * false means that the default return logic is used.
    * If no value is returned, the default return logic is used.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   onBackPress?(): boolean;
@@ -3629,6 +3968,7 @@ export interface Options<T extends ViewModel, Data = DefaultData<T>> {
    * Called when the page is active.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 5 dynamiconly
    */
   onActive?(): void;
@@ -3638,6 +3978,7 @@ export interface Options<T extends ViewModel, Data = DefaultData<T>> {
    * Called when the page is paused.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 5 dynamiconly
    */
   onInactive?(): void;
@@ -3646,6 +3987,7 @@ export interface Options<T extends ViewModel, Data = DefaultData<T>> {
    * This callback is triggered when a new request is received when the FA has started.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 5 dynamiconly
    */
   onNewRequest?(): void;
@@ -3656,6 +3998,7 @@ export interface Options<T extends ViewModel, Data = DefaultData<T>> {
    *
    * @returns { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 5 dynamiconly
    */
   onStartContinuation?(): boolean;
@@ -3666,6 +4009,7 @@ export interface Options<T extends ViewModel, Data = DefaultData<T>> {
    *
    * @param { object } value
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 5 dynamiconly
    */
   onSaveData?(value: object): void;
@@ -3675,6 +4019,7 @@ export interface Options<T extends ViewModel, Data = DefaultData<T>> {
    *
    * @param { object } value
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 5 dynamiconly
    */
   onRestoreData?(value: object): void;
@@ -3685,6 +4030,7 @@ export interface Options<T extends ViewModel, Data = DefaultData<T>> {
    *
    * @param { number } code
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 5 dynamiconly
    */
   onCompleteContinuation?(code: number): void;
@@ -3695,6 +4041,7 @@ export interface Options<T extends ViewModel, Data = DefaultData<T>> {
    *
    * @param { Configuration } configuration
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 6 dynamiconly
    */
   onConfigurationUpdated?(configuration: Configuration): void;
@@ -3704,6 +4051,7 @@ export interface Options<T extends ViewModel, Data = DefaultData<T>> {
    * Called when the application is created.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4 dynamiconly
    */
   onCreate?(): void;
@@ -3715,6 +4063,7 @@ export interface Options<T extends ViewModel, Data = DefaultData<T>> {
  * @typedef { object } DefaultData<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
  * @systemapi
+ * @famodelonly
  * @since 4 dynamiconly
  */
 type DefaultData<T> = object;
@@ -3724,6 +4073,7 @@ type DefaultData<T> = object;
  * @typedef { object & Options<T, Data> & ThisType<T & ViewModel & Data> } CombinedOptions<T extends ViewModel, Data>
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
  * @systemapi
+ * @famodelonly
  * @since 4 dynamiconly
  */
 type CombinedOptions<T extends ViewModel, Data> = object & Options<T, Data> & ThisType<T & ViewModel & Data>;
@@ -3732,6 +4082,7 @@ type CombinedOptions<T extends ViewModel, Data> = object & Options<T, Data> & Th
  * @returns { ViewModel & Data }
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
  * @systemapi
+ * @famodelonly
  * @since 4 dynamiconly
  */
 export declare function extendViewModel<T extends ViewModel, Data>(options: CombinedOptions<T, Data>): ViewModel & Data;

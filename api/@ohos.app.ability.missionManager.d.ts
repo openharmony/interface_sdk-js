@@ -31,7 +31,7 @@ import StartOptions from './@ohos.app.ability.StartOptions';
  * @syscap SystemCapability.Ability.AbilityRuntime.Mission
  * @systemapi
  * @since 9 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace missionManager {
   /**
@@ -61,7 +61,7 @@ declare namespace missionManager {
    * @throws { BusinessError } 202 - Not system application.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    */
   function onMission(listener: MissionListener): long;
 
@@ -94,7 +94,7 @@ declare namespace missionManager {
    * @throws { BusinessError } 16300002 - The specified mission listener does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    */
   function offMission(listenerId: long, callback: AsyncCallback<void>): void;
 
@@ -127,7 +127,7 @@ declare namespace missionManager {
    * @throws { BusinessError } 16300002 - The specified mission listener does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    */
   function offMission(listenerId: long): Promise<void>;
 
@@ -145,7 +145,7 @@ declare namespace missionManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getMissionInfo(deviceId: string, missionId: int, callback: AsyncCallback<MissionInfo>): void;
 
@@ -163,7 +163,7 @@ declare namespace missionManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getMissionInfo(deviceId: string, missionId: int): Promise<MissionInfo>;
 
@@ -181,7 +181,7 @@ declare namespace missionManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getMissionInfos(deviceId: string, numMax: int, callback: AsyncCallback<Array<MissionInfo>>): void;
 
@@ -199,7 +199,7 @@ declare namespace missionManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getMissionInfos(deviceId: string, numMax: int): Promise<Array<MissionInfo>>;
 
@@ -218,7 +218,7 @@ declare namespace missionManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getMissionSnapShot(deviceId: string, missionId: int, callback: AsyncCallback<MissionSnapshot>): void;
 
@@ -236,7 +236,7 @@ declare namespace missionManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getMissionSnapShot(deviceId: string, missionId: int): Promise<MissionSnapshot>;
 
@@ -255,7 +255,7 @@ declare namespace missionManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getLowResolutionMissionSnapShot(
     deviceId: string,
@@ -277,7 +277,7 @@ declare namespace missionManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getLowResolutionMissionSnapShot(deviceId: string, missionId: int): Promise<MissionSnapshot>;
 
@@ -295,7 +295,7 @@ declare namespace missionManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function lockMission(missionId: int, callback: AsyncCallback<void>): void;
 
@@ -313,7 +313,7 @@ declare namespace missionManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function lockMission(missionId: int): Promise<void>;
 
@@ -331,7 +331,7 @@ declare namespace missionManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function unlockMission(missionId: int, callback: AsyncCallback<void>): void;
 
@@ -349,7 +349,7 @@ declare namespace missionManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function unlockMission(missionId: int): Promise<void>;
 
@@ -366,7 +366,7 @@ declare namespace missionManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function clearMission(missionId: int, callback: AsyncCallback<void>): void;
 
@@ -383,7 +383,7 @@ declare namespace missionManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function clearMission(missionId: int): Promise<void>;
 
@@ -399,7 +399,7 @@ declare namespace missionManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function clearAllMissions(callback: AsyncCallback<void>): void;
 
@@ -413,7 +413,7 @@ declare namespace missionManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function clearAllMissions(): Promise<void>;
 
@@ -431,7 +431,7 @@ declare namespace missionManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function moveMissionToFront(missionId: int, callback: AsyncCallback<void>): void;
 
@@ -450,7 +450,7 @@ declare namespace missionManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function moveMissionToFront(missionId: int, options: StartOptions, callback: AsyncCallback<void>): void;
 
@@ -469,7 +469,7 @@ declare namespace missionManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function moveMissionToFront(missionId: int, options?: StartOptions): Promise<void>;
 
@@ -487,7 +487,7 @@ declare namespace missionManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function moveMissionsToForeground(missionIds: Array<int>, callback: AsyncCallback<void>): void;
 
@@ -506,7 +506,7 @@ declare namespace missionManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function moveMissionsToForeground(missionIds: Array<int>, topMission: int, callback: AsyncCallback<void>): void;
 
@@ -525,7 +525,7 @@ declare namespace missionManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function moveMissionsToForeground(missionIds: Array<int>, topMission?: int): Promise<void>;
 
@@ -543,7 +543,7 @@ declare namespace missionManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function moveMissionsToBackground(missionIds: Array<int>, callback: AsyncCallback<Array<int>>): void;
 
@@ -561,7 +561,7 @@ declare namespace missionManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function moveMissionsToBackground(missionIds: Array<int>): Promise<Array<int>>;
 
@@ -572,7 +572,7 @@ declare namespace missionManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export type MissionInfo = _MissionInfo;
 
@@ -583,7 +583,7 @@ declare namespace missionManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export type MissionListener = _MissionListener;
 
@@ -594,7 +594,7 @@ declare namespace missionManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export type MissionSnapshot = _MissionSnapshot;
 }

@@ -34,7 +34,7 @@ import CustomData from './CustomData';
  * @systemapi
  * @stagemodelonly
  * @since 11 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare class AutoFillExtensionContext extends ExtensionContext {
   /**
@@ -51,7 +51,7 @@ declare class AutoFillExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   reloadInModal(customData: CustomData): Promise<void>;
 }

@@ -32,7 +32,7 @@
  * @syscap SystemCapability.Ability.AbilityBase
  * @atomicservice
  * @since 11 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace wantConstant {
   /**
@@ -49,7 +49,7 @@ declare namespace wantConstant {
    * @syscap SystemCapability.Ability.AbilityBase
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum Params {
     /**
@@ -58,7 +58,7 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DLP_PARAMS_SANDBOX = 'ohos.dlp.params.sandbox',
 
@@ -68,7 +68,7 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DLP_PARAMS_BUNDLE_NAME = 'ohos.dlp.params.bundleName',
 
@@ -78,7 +78,7 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DLP_PARAMS_MODULE_NAME = 'ohos.dlp.params.moduleName',
 
@@ -88,7 +88,7 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DLP_PARAMS_ABILITY_NAME = 'ohos.dlp.params.abilityName',
 
@@ -98,7 +98,7 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DLP_PARAMS_INDEX = 'ohos.dlp.params.index',
 
@@ -108,7 +108,7 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @systemapi
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     HIDE_SENSITIVE_TYPE = 'ohos.media.params.hideSensitiveType',
 
@@ -126,7 +126,7 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ABILITY_BACK_TO_OTHER_MISSION_STACK = 'ability.params.backToOtherMissionStack',
 
@@ -142,7 +142,7 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ABILITY_RECOVERY_RESTART = 'ohos.ability.params.abilityRecoveryRestart',
 
@@ -158,7 +158,7 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CONTENT_TITLE_KEY = 'ohos.extra.param.key.contentTitle',
 
@@ -174,7 +174,7 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SHARE_ABSTRACT_KEY = 'ohos.extra.param.key.shareAbstract',
 
@@ -190,7 +190,7 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SHARE_URL_KEY = 'ohos.extra.param.key.shareUrl',
 
@@ -210,7 +210,7 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SUPPORT_CONTINUE_PAGE_STACK_KEY = 'ohos.extra.param.key.supportContinuePageStack',
 
@@ -230,7 +230,7 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SUPPORT_CONTINUE_SOURCE_EXIT_KEY = 'ohos.extra.param.key.supportContinueSourceExit',
 
@@ -241,7 +241,7 @@ declare namespace wantConstant {
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ASSERT_FAULT_SESSION_ID = 'ohos.ability.params.asssertFaultSessionId',
 
@@ -251,7 +251,7 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SHOW_MODE_KEY = 'ohos.extra.param.key.showMode',
 
@@ -261,7 +261,7 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     PARAMS_STREAM = 'ability.params.stream',
 
@@ -271,7 +271,7 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     APP_CLONE_INDEX_KEY = 'ohos.extra.param.key.appCloneIndex',
   
@@ -281,7 +281,7 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CALLER_REQUEST_CODE = 'ohos.extra.param.key.callerRequestCode',
 
@@ -291,7 +291,7 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     PAGE_PATH = 'ohos.param.atomicservice.pagePath',
 
@@ -301,7 +301,7 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ROUTER_NAME = 'ohos.param.atomicservice.routerName',
 
@@ -311,7 +311,7 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     PAGE_SOURCE_FILE = 'ohos.param.atomicservice.pageSourceFile',
 
@@ -321,7 +321,7 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BUILD_FUNCTION = 'ohos.param.atomicservice.buildFunction',
   
@@ -331,7 +331,7 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SUB_PACKAGE_NAME = 'ohos.param.atomicservice.subpackageName',
 
@@ -340,7 +340,7 @@ declare namespace wantConstant {
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     APP_INSTANCE_KEY = 'ohos.extra.param.key.appInstance',
 
@@ -349,7 +349,7 @@ declare namespace wantConstant {
     *
     * @syscap SystemCapability.Ability.AbilityBase
     * @since 14 dynamic
-    * @since 22 static
+    * @since 23 static
     */
      CREATE_APP_INSTANCE_KEY = 'ohos.extra.param.key.createAppInstance',
 
@@ -358,7 +358,7 @@ declare namespace wantConstant {
     *
     * @syscap SystemCapability.Ability.AbilityBase
     * @since 14 dynamic
-    * @since 22 static
+    * @since 23 static
     */
     CALLER_APP_CLONE_INDEX = 'ohos.param.callerAppCloneIndex',
 
@@ -370,7 +370,7 @@ declare namespace wantConstant {
     * @syscap SystemCapability.Ability.AbilityBase
     * @atomicservice
     * @since 18 dynamic
-    * @since 22 static
+    * @since 23 static
     */
     LAUNCH_REASON_MESSAGE = 'ohos.params.launchReasonMessage',
 
@@ -379,7 +379,7 @@ declare namespace wantConstant {
     *
     * @syscap SystemCapability.Ability.AbilityBase
     * @since 19 dynamic
-    * @since 22 static
+    * @since 23 static
     */
     DESTINATION_PLUGIN_ABILITY = 'ohos.params.pluginAbility',
 
@@ -389,7 +389,7 @@ declare namespace wantConstant {
     * @syscap SystemCapability.Ability.AbilityBase
     * @atomicservice
     * @since 17 dynamic
-    * @since 22 static
+    * @since 23 static
     */
     APP_LAUNCH_TRUSTLIST = 'ohos.params.appLaunchTrustList',
 
@@ -399,7 +399,7 @@ declare namespace wantConstant {
     * @syscap SystemCapability.Ability.AbilityBase
     * @atomicservice
     * @since 20 dynamic
-    * @since 22 static
+    * @since 23 static
     */
     ABILITY_UNIFIED_DATA_KEY = 'ohos.param.ability.udKey',
 
@@ -409,7 +409,7 @@ declare namespace wantConstant {
     * @syscap SystemCapability.Ability.AbilityBase
     * @atomicservice
     * @since 20 dynamic
-    * @since 22 static
+    * @since 23 static
     */
     ATOMIC_SERVICE_SHARE_ROUTER = 'ohos.params.atomicservice.shareRouter'
   }
@@ -428,7 +428,7 @@ declare namespace wantConstant {
    * @syscap SystemCapability.Ability.AbilityBase
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum Flags {
     /**
@@ -443,7 +443,7 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     FLAG_AUTH_READ_URI_PERMISSION = 0x00000001,
 
@@ -459,7 +459,7 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     FLAG_AUTH_WRITE_URI_PERMISSION = 0x00000002,
 
@@ -467,7 +467,7 @@ declare namespace wantConstant {
      * Indicates that the URI can be persisted by the callee.
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     FLAG_AUTH_PERSISTABLE_URI_PERMISSION = 0x00000040,
 
@@ -483,7 +483,7 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     FLAG_INSTALL_ON_DEMAND = 0x00000800,
 
@@ -492,7 +492,7 @@ declare namespace wantConstant {
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     FLAG_ABILITY_ON_COLLABORATE = 0x00002000,
 
@@ -501,7 +501,7 @@ declare namespace wantConstant {
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     FLAG_START_WITHOUT_TIPS = 0x40000000
   }
@@ -513,7 +513,7 @@ declare namespace wantConstant {
    * @syscap SystemCapability.Ability.AbilityBase
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum ShowMode {
     /**
@@ -522,7 +522,7 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     WINDOW = 0,
 
@@ -532,9 +532,19 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
-    EMBEDDED_FULL = 1
+    EMBEDDED_FULL = 1 ,
+
+    /**
+    * Indicates the embedded half show mode.
+    *
+    * @syscap SystemCapability.Ability.AbilityBase
+    * @stagemodelonly
+    * @atomicservice
+    * @since 23 dynamic&static
+    */
+    EMBEDDED_HALF = 2
   }
 }
 

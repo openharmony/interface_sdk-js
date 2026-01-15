@@ -23,7 +23,7 @@
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @since 14 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare class AbilityStateData {
   /**
@@ -32,7 +32,7 @@ declare class AbilityStateData {
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   moduleName: string;
 
@@ -42,7 +42,7 @@ declare class AbilityStateData {
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   bundleName: string;
 
@@ -52,7 +52,7 @@ declare class AbilityStateData {
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   abilityName: string;
 
@@ -62,7 +62,7 @@ declare class AbilityStateData {
    * @type { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   pid: int;
 
@@ -72,7 +72,7 @@ declare class AbilityStateData {
    * @type { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   uid: int;
 
@@ -82,7 +82,7 @@ declare class AbilityStateData {
    * @type { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   state: int;
 
@@ -92,7 +92,7 @@ declare class AbilityStateData {
    * @type { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   abilityType: int;
 
@@ -102,7 +102,7 @@ declare class AbilityStateData {
    * @type { boolean }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   isAtomicService: boolean;
 
@@ -111,9 +111,18 @@ declare class AbilityStateData {
    * @type { ?int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   appCloneIndex?: int;
+
+  /**
+   * The caller bundle name.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 23 dynamic&static
+   */
+  callerBundleName?: string;
 }
 
 export default AbilityStateData;

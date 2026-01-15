@@ -28,7 +28,7 @@ import common from '@ohos.app.ability.common';
  * @namespace adminManager
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
  * @since 9 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace adminManager {
   /**
@@ -38,7 +38,7 @@ declare namespace adminManager {
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface EnterpriseInfo {
     /**
@@ -48,7 +48,7 @@ declare namespace adminManager {
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     name: string;
 
@@ -59,7 +59,7 @@ declare namespace adminManager {
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     description: string;
   }
@@ -399,7 +399,7 @@ declare namespace adminManager {
    */
    /**
    * Disables a current administrator ability.
-   * Only apps with the ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN permission，
+   * Only apps with the ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN permission,
    *     ohos.permission.START_PROVISIONING_MESSAGE or the shell uid can call this method.
    *
    * @permission ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN or ohos.permission.START_PROVISIONING_MESSAGE
@@ -413,6 +413,26 @@ declare namespace adminManager {
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 20
+   */
+  /**
+   * Disables a current administrator ability.
+   * Only apps with the ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN permission,
+   *     ohos.permission.START_PROVISIONING_MESSAGE, ohos.permission.ENTERPRISE_DEACTIVATE_DEVICE_ADMIN
+   *     or the shell uid can call this method.
+   *
+   * @permission ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN or ohos.permission.START_PROVISIONING_MESSAGE
+   *     or ohos.permission.ENTERPRISE_DEACTIVATE_DEVICE_ADMIN
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *     The admin must have the corresponding permission.
+   * @param { number } [userId] - userId indicates the user ID or do not pass user ID,
+   *     default value is the current user ID.
+   * @returns { Promise<void> } the promise returned by the disableAdmin.
+   * @throws { BusinessError } 9200005 - Failed to deactivate the administrator application of the device.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 23
    */
   function disableAdmin(admin: Want, userId?: number): Promise<void>;
 
@@ -514,7 +534,7 @@ declare namespace adminManager {
    * @systemapi
    * @stagemodelonly
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getEnterpriseInfo(admin: Want, callback: AsyncCallback<EnterpriseInfo>): void;
 
@@ -531,7 +551,7 @@ declare namespace adminManager {
    * @systemapi
    * @stagemodelonly
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getEnterpriseInfo(admin: Want): Promise<EnterpriseInfo>;
 
@@ -753,7 +773,7 @@ declare namespace adminManager {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getSuperAdmin(): Promise<Want>;
 
@@ -925,6 +945,18 @@ declare namespace adminManager {
    * @since 20
    */
   function setDelegatedPolicies(bundleName: string, accountId: number, policies: Array<string>): void;
+
+  /**
+   * Gets enterprise message tips.
+   *
+   * @returns { Promise<string> } returns the enterprise message tips.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function getEnterpriseManagedTips(): Promise<string>;
 }
 
 export default adminManager;

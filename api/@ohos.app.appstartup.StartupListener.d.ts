@@ -26,7 +26,7 @@ import { BusinessError } from './@ohos.base';
  * @typedef {function} OnCompletedFn
  * @param { BusinessError<void> } error - Indicates the error during execution.
  * @syscap SystemCapability.Ability.AppStartup
- * @since 22 staticonly
+ * @since 23 staticonly
  */
 type OnCompletedFn = (error: BusinessError<void>) => void;
 
@@ -36,7 +36,7 @@ type OnCompletedFn = (error: BusinessError<void>) => void;
  * @syscap SystemCapability.Ability.AppStartup
  * @stagemodelonly
  * @since 12 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare class StartupListener {
   /**
@@ -55,7 +55,7 @@ declare class StartupListener {
    * @type { ?OnCompletedFn }
    * @syscap SystemCapability.Ability.AppStartup
    * @stagemodelonly
-   * @since 22 static
+   * @since 23 static
    */
   onCompleted?: OnCompletedFn;
 }

@@ -12,32 +12,30 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
  * @file
- * @kit ArkUI
+ * @kit AbilityKit
  */
-
 /**
- * Defines Picker Modifier
+ * Defines error codes used when starting an ability, for example, featureAbility.ErrorCode.NO_ERROR.
  *
- * @extends PickerAttribute
- * @implements AttributeModifier<PickerAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 22 dynamic
-*/
-export declare class PickerModifier extends PickerAttribute implements AttributeModifier<PickerAttribute> {
-
-  /**
-   * Defines the normal update attribute function.
-   * 
-   * @param { PickerAttribute } instance
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
-   */
-  applyNormalAttribute?(instance: PickerAttribute): void;
+ * @enum { number }
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @since 20
+ */
+export enum ErrorCode {
+    /**
+     * Permission denied.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @since 20
+     */
+    PERMISSION_DENY = -3,
+    /**
+     * Ability not found.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @since 20
+     */
+    ABILITY_NOT_FOUND = -2
 }

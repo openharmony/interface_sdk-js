@@ -1238,6 +1238,34 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @since 20 dynamic
    */
   showDefaultSelectedIcon(show: boolean): SelectAttribute;
+
+  /**
+   * Determine the mode of select menu how to avoid keyboard.
+   * 
+   * No avoiding by default.
+   *
+   * @param { Optional<MenuKeyboardAvoidMode> } mode - How to avoid keyboard.
+   * @returns { SelectAttribute } - the attribute of the select.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  keyboardAvoidMode(mode: Optional<MenuKeyboardAvoidMode>): SelectAttribute;
+
+  /**
+   * Defines the minimum distance between select menu and keyboard.
+   *
+   * @param { Optional<LengthMetrics> } distance - The minimum avoiding distance.
+   * @returns { SelectAttribute } - the attribute of the select.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  minKeyboardAvoidDistance(distance: Optional<LengthMetrics>): SelectAttribute;
 }
 
 /**

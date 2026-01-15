@@ -27,7 +27,7 @@ import type { ChildProcessArgs } from './@ohos.app.ability.ChildProcessArgs';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @since 11 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare class ChildProcess {
 
@@ -45,7 +45,7 @@ declare class ChildProcess {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
   */
   onStart(args?: ChildProcessArgs): void;
 }

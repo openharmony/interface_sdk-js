@@ -23,7 +23,7 @@
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @since 14 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare class AppStateData {
   /**
@@ -32,7 +32,7 @@ declare class AppStateData {
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   bundleName: string;
 
@@ -42,7 +42,7 @@ declare class AppStateData {
    * @type { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   uid: int;
 
@@ -52,7 +52,7 @@ declare class AppStateData {
    * @type { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   state: int;
 
@@ -62,7 +62,7 @@ declare class AppStateData {
    * @type { boolean }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   isSplitScreenMode: boolean;
 
@@ -72,7 +72,7 @@ declare class AppStateData {
    * @type { boolean }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   isFloatingWindowMode: boolean;
 }

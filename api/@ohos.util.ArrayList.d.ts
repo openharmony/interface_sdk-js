@@ -41,7 +41,7 @@
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare class ArrayList<T> {
   /**
@@ -67,7 +67,7 @@ declare class ArrayList<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   constructor();
   /**
@@ -102,7 +102,7 @@ declare class ArrayList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   get length(): int;
   /**
@@ -134,7 +134,7 @@ declare class ArrayList<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   add(element: T): boolean;
   /**
@@ -185,7 +185,7 @@ declare class ArrayList<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   insert(element: T, index: int): void;
   /**
@@ -217,7 +217,7 @@ declare class ArrayList<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   has(element: T): boolean;
   /**
@@ -251,7 +251,7 @@ declare class ArrayList<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   getIndexOf(element: T): int;
   /**
@@ -300,7 +300,7 @@ declare class ArrayList<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   removeByIndex(index: int): T;
   /**
@@ -336,7 +336,7 @@ declare class ArrayList<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   remove(element: T): boolean;
   /**
@@ -370,7 +370,7 @@ declare class ArrayList<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   getLastIndexOf(element: T): int;
   /**
@@ -418,7 +418,7 @@ declare class ArrayList<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   removeByRange(fromIndex: int, toIndex: int): void;
   /**
@@ -477,7 +477,7 @@ declare class ArrayList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   replaceAllElements(callbackFn: ArrayListReplaceCb<T>): void;
 
@@ -541,7 +541,7 @@ declare class ArrayList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   forEach(callbackFn: ArrayListForEachCb<T>): void;
 
@@ -550,14 +550,15 @@ declare class ArrayList<T> {
    * it will default to ASCII sorting
    *
    * @param { function } [comparator] - comparator
-   * comparator (Optional) A function that accepts up to two arguments.Specifies the sort order.
-   * Must be a function,return number type,If it returns firstValue minus secondValue, it returns an arraylist
-   * sorted in ascending order;If it returns secondValue minus firstValue, it returns an arraylist sorted in descending order;
-   * If this parameter is empty, it will default to ASCII sorting
+   *     comparator (Optional) A function that accepts up to two arguments.Specifies the sort order.
+   *     Must be a function,return number type,If it returns firstValue minus secondValue, it returns an arraylist
+   *     sorted in ascending order;If it returns secondValue minus firstValue,
+   *     it returns an arraylist sorted in descending order;
+   *     If this parameter is empty, it will default to ASCII sorting
    * @throws { BusinessError } 10200011 - The sort method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Incorrect parameter types;
-   * 2.Parameter verification failed.
+   *     1.Incorrect parameter types;
+   *     2.Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
    * @since 8
    */
@@ -566,27 +567,33 @@ declare class ArrayList<T> {
    * it will default to ASCII sorting
    *
    * @param { function } [comparator] - comparator
-   * comparator (Optional) A function that accepts up to two arguments.Specifies the sort order.
-   * Must be a function,return number type,If it returns firstValue minus secondValue, it returns an arraylist
-   * sorted in ascending order;If it returns secondValue minus firstValue, it returns an arraylist sorted in descending order;
-   * If this parameter is empty, it will default to ASCII sorting
+   *     comparator (Optional) A function that accepts up to two arguments.Specifies the sort order.
+   *     Must be a function,return number type,If it returns firstValue minus secondValue, it returns an arraylist
+   *     sorted in ascending order;If it returns secondValue minus firstValue,
+   *     it returns an arraylist sorted in descending order;
+   *     If this parameter is empty, it will default to ASCII sorting
    * @throws { BusinessError } 10200011 - The sort method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Incorrect parameter types;
-   * 2.Parameter verification failed.
+   *     1.Incorrect parameter types;
+   *     2.Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
    */
   /**
-   * Sorts elements in this container.
+   * Sorts this arraylist according to the order induced by the specified comparator,without comparator this parameter,
+   * it will default to ASCII sorting
    *
-   * @param { function } [comparator] - Callback invoked for sorting. The default value is the callback function for
-   * sorting elements in ascending order.
+   * @param { function } [comparator] - comparator
+   *     comparator (Optional) A function that accepts up to two arguments.Specifies the sort order.
+   *     Must be a function,return number type,If it returns firstValue minus secondValue, it returns an arraylist
+   *     sorted in ascending order;If it returns secondValue minus firstValue,
+   *     it returns an arraylist sorted in descending order;
+   *     If this parameter is empty, it will default to ASCII sorting
    * @throws { BusinessError } 10200011 - The sort method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Incorrect parameter types;
-   * 2.Parameter verification failed.
+   *     1.Incorrect parameter types;
+   *     2.Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -598,19 +605,19 @@ declare class ArrayList<T> {
    *
    * Anonymous Object Rectification
    * @param { ArrayListComparatorFn<T> } [comparator] - comparator
-   * comparator (Optional) A function that accepts up to two arguments.Specifies the sort order.
-   * Must be a function,return number type,If it returns firstValue minus secondValue, it returns an arraylist
-   * sorted in ascending order;If it returns secondValue minus firstValue, it returns an arraylist sorted in descending order;
-   * If this parameter is empty, it will default to ASCII sorting
+   *     comparator (Optional) A function that accepts up to two arguments.Specifies the sort order.
+   *     Must be a function,return number type,If it returns firstValue minus secondValue, it returns an arraylist
+   *     sorted in ascending order;If it returns secondValue minus firstValue,
+   *     it returns an arraylist sorted in descending order;
+   *     If this parameter is empty, it will default to ASCII sorting
    * @throws { BusinessError } 10200011 - The sort method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Incorrect parameter types;
-   * 2.Parameter verification failed.
+   *     1.Incorrect parameter types;
+   *     2.Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20 dynamic
-   * @since 22 static
+   * @since 23 dynamic&static
    */
   sort(comparator?: ArrayListComparatorFn<T>): void;
   /**
@@ -661,7 +668,7 @@ declare class ArrayList<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   subArrayList(fromIndex: int, toIndex: int): ArrayList<T>;
   /**
@@ -689,7 +696,7 @@ declare class ArrayList<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   clear(): void;
   /**
@@ -718,7 +725,7 @@ declare class ArrayList<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   clone(): ArrayList<T>;
   /**
@@ -747,7 +754,7 @@ declare class ArrayList<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   getCapacity(): int;
   /**
@@ -776,7 +783,7 @@ declare class ArrayList<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   convertToArray(): Array<T>;
   /**
@@ -805,7 +812,7 @@ declare class ArrayList<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   isEmpty(): boolean;
   /**
@@ -816,10 +823,9 @@ declare class ArrayList<T> {
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 10200001 - The value of index is out of range.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   [index: int]: T;
 
@@ -860,7 +866,7 @@ declare class ArrayList<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   increaseCapacityTo(newCapacity: int): void;
   /**
@@ -887,7 +893,7 @@ declare class ArrayList<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   trimToCurrentLength(): void;
   /**
@@ -926,7 +932,7 @@ declare class ArrayList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   $_iterator(): IterableIterator<T>;
 }
@@ -941,7 +947,7 @@ declare class ArrayList<T> {
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
- * @since 22 dynamic&static
+ * @since 23 dynamic&static
  */
 export type ArrayListComparatorFn<T> = (firstValue: T, secondValue: T) => double;
 
@@ -955,7 +961,7 @@ export type ArrayListComparatorFn<T> = (firstValue: T, secondValue: T) => double
  * @returns { void } This callback does not return a value
  * @syscap SystemCapability.Utils.Lang
  * @atomicservice
- * @since 22 static
+ * @since 23 static
  */
 export type ArrayListForEachCb<T> =  (value: T, index: int, arrlist: ArrayList<T>) => void;
 
@@ -969,7 +975,7 @@ export type ArrayListForEachCb<T> =  (value: T, index: int, arrlist: ArrayList<T
  * @returns { T } This callback does not return a value
  * @syscap SystemCapability.Utils.Lang
  * @atomicservice
- * @since 22 static
+ * @since 23 static
  */
 export type ArrayListReplaceCb<T> =  (value: T, index: int, arrlist: ArrayList<T>) => T;
 

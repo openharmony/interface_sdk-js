@@ -26,6 +26,7 @@ import image from './@ohos.multimedia.image';
  * @namespace uniformDataStruct
  * @syscap SystemCapability.DistributedDataManager.UDMF.Core
  * @since 12 dynamic
+ * @since 23 static
  */
 declare namespace uniformDataStruct {
   /**
@@ -34,6 +35,7 @@ declare namespace uniformDataStruct {
    * @interface PlainText
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 12 dynamic
+   * @since 23 static
    */
   interface PlainText {
     /**
@@ -43,6 +45,7 @@ declare namespace uniformDataStruct {
      * @readonly
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
+     * @since 23 static
      */
     readonly uniformDataType: 'general.plain-text';
     /**
@@ -51,6 +54,7 @@ declare namespace uniformDataStruct {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
+     * @since 23 static
      */
     textContent: string;
 
@@ -61,6 +65,15 @@ declare namespace uniformDataStruct {
      * @since 12 dynamic
      */
     abstract?: string;
+
+    /**
+     * Indicates the abstract of the PlainText.
+     * @type { ?string }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 23 static
+     */
+    textAbstract?: string;
+
     /**
      * Object of the dictionary type used to describe the attributes of the text content. Both the key and value of the
      * object are of the string type. For example, the following is a details object used to describe the properties of
@@ -74,8 +87,9 @@ declare namespace uniformDataStruct {
      * @type { ?Record<string, string> }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
+     * @since 23 static
      */
-     details?: Record<string, string>;
+    details?: Record<string, string>;
   }
 
   /**
@@ -84,6 +98,7 @@ declare namespace uniformDataStruct {
    * @interface Hyperlink
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 12 dynamic
+   * @since 23 static
    */
   interface Hyperlink {
     /**
@@ -93,6 +108,7 @@ declare namespace uniformDataStruct {
      * @readonly
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
+     * @since 23 static
      */
     readonly uniformDataType: 'general.hyperlink';
     /**
@@ -101,6 +117,7 @@ declare namespace uniformDataStruct {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
+     * @since 23 static
      */
     url: string;
     /**
@@ -108,6 +125,7 @@ declare namespace uniformDataStruct {
      * @type { ?string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
+     * @since 23 static
      */
     description?: string;
     /**
@@ -123,8 +141,9 @@ declare namespace uniformDataStruct {
      * @type { ?Record<string, string> }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
+     * @since 23 static
      */
-     details?: Record<string, string>;
+    details?: Record<string, string>;
   }
 
   /**
@@ -133,6 +152,7 @@ declare namespace uniformDataStruct {
    * @interface HTML
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 12 dynamic
+   * @since 23 static
    */
   interface HTML {
     /**
@@ -142,6 +162,7 @@ declare namespace uniformDataStruct {
      * @readonly
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
+     * @since 23 static
      */
     readonly uniformDataType: 'general.html';
 
@@ -151,6 +172,7 @@ declare namespace uniformDataStruct {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
+     * @since 23 static
      */
     htmlContent: string;
     /**
@@ -159,6 +181,7 @@ declare namespace uniformDataStruct {
      * @type { ?string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
+     * @since 23 static
      */
     plainContent?: string;
     /**
@@ -174,8 +197,9 @@ declare namespace uniformDataStruct {
      * @type { ?Record<string, string> }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
+     * @since 23 static
      */
-     details?: Record<string, string>;
+    details?: Record<string, string>;
   }
 
   /**
@@ -184,6 +208,7 @@ declare namespace uniformDataStruct {
    * @interface OpenHarmonyAppItem
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 12 dynamic
+   * @since 23 static
    */
   interface OpenHarmonyAppItem {
     /**
@@ -193,6 +218,7 @@ declare namespace uniformDataStruct {
      * @readonly
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
+     * @since 23 static
      */
     readonly uniformDataType: 'openharmony.app-item';
     /**
@@ -201,6 +227,7 @@ declare namespace uniformDataStruct {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
+     * @since 23 static
      */
     appId: string;
     /**
@@ -209,6 +236,7 @@ declare namespace uniformDataStruct {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
+     * @since 23 static
      */
     appName: string;
     /**
@@ -217,6 +245,7 @@ declare namespace uniformDataStruct {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
+     * @since 23 static
      */
     appIconId: string;
     /**
@@ -225,6 +254,7 @@ declare namespace uniformDataStruct {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
+     * @since 23 static
      */
     appLabelId: string;
     /**
@@ -233,6 +263,7 @@ declare namespace uniformDataStruct {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
+     * @since 23 static
      */
     bundleName: string;
     /**
@@ -241,6 +272,7 @@ declare namespace uniformDataStruct {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
+     * @since 23 static
      */
     abilityName: string;
     /**
@@ -250,6 +282,7 @@ declare namespace uniformDataStruct {
      * @type { ?Record<string, int | long | double | string | Uint8Array> }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
+     * @since 23 static
      */
     details?: Record<string, int | long | double | string | Uint8Array>;
   }
@@ -260,6 +293,7 @@ declare namespace uniformDataStruct {
    * @interface ContentForm
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 14 dynamic
+   * @since 23 static
    */
   interface ContentForm {
     /**
@@ -269,6 +303,7 @@ declare namespace uniformDataStruct {
      * @readonly
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 14 dynamic
+     * @since 23 static
      */
     readonly uniformDataType: 'general.content-form';
 
@@ -278,6 +313,7 @@ declare namespace uniformDataStruct {
      * @type { Uint8Array }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 14 dynamic
+     * @since 23 static
      */
     thumbData?: Uint8Array;
 
@@ -287,6 +323,7 @@ declare namespace uniformDataStruct {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 14 dynamic
+     * @since 23 static
      */
     description?: string;
 
@@ -296,6 +333,7 @@ declare namespace uniformDataStruct {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 14 dynamic
+     * @since 23 static
      */
     title: string;
 
@@ -305,6 +343,7 @@ declare namespace uniformDataStruct {
      * @type { Uint8Array }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 14 dynamic
+     * @since 23 static
      */
     appIcon?: Uint8Array;
 
@@ -314,6 +353,7 @@ declare namespace uniformDataStruct {
      * @type { appName }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 14 dynamic
+     * @since 23 static
      */
     appName?: string;
 
@@ -323,6 +363,7 @@ declare namespace uniformDataStruct {
      * @type { linkUri }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 14 dynamic
+     * @since 23 static
      */
     linkUri?: string;
   }
@@ -333,6 +374,7 @@ declare namespace uniformDataStruct {
    * @interface Form
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 15 dynamic
+   * @since 23 static
    */
   interface Form {
     /**
@@ -342,6 +384,7 @@ declare namespace uniformDataStruct {
      * @readonly
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 15 dynamic
+     * @since 23 static
      */
     readonly uniformDataType: 'openharmony.form';
 
@@ -351,6 +394,7 @@ declare namespace uniformDataStruct {
      * @type { int }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 15 dynamic
+     * @since 23 static
      */
     formId: int;
 
@@ -360,6 +404,7 @@ declare namespace uniformDataStruct {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 15 dynamic
+     * @since 23 static
      */
     formName: string;
 
@@ -369,6 +414,7 @@ declare namespace uniformDataStruct {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 15 dynamic
+     * @since 23 static
      */
     bundleName: string;
 
@@ -378,6 +424,7 @@ declare namespace uniformDataStruct {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 15 dynamic
+     * @since 23 static
      */
     abilityName: string;
 
@@ -387,6 +434,7 @@ declare namespace uniformDataStruct {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 15 dynamic
+     * @since 23 static
      */
     module: string;
 
@@ -396,6 +444,7 @@ declare namespace uniformDataStruct {
      * @type { ?Record<string, int | long | double | string | Uint8Array> }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 15 dynamic
+     * @since 23 static
      */
     details?: Record<string, int | long | double | string | Uint8Array>;
   }
@@ -406,6 +455,7 @@ declare namespace uniformDataStruct {
    * @interface FileUri
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 15 dynamic
+   * @since 23 static
    */
   interface FileUri {
     /**
@@ -415,6 +465,7 @@ declare namespace uniformDataStruct {
      * @readonly
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 15 dynamic
+     * @since 23 static
      */
     readonly uniformDataType: 'general.file-uri';
 
@@ -424,6 +475,7 @@ declare namespace uniformDataStruct {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 15 dynamic
+     * @since 23 static
      */
     oriUri: string;
 
@@ -433,6 +485,7 @@ declare namespace uniformDataStruct {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 15 dynamic
+     * @since 23 static
      */
     fileType: string;
 
@@ -442,6 +495,7 @@ declare namespace uniformDataStruct {
      * @type { ?Record<string, int | long | double | string | Uint8Array> }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 15 dynamic
+     * @since 23 static
      */
     details?: Record<string, int | long | double | string | Uint8Array>;
   }
@@ -452,6 +506,7 @@ declare namespace uniformDataStruct {
    * @interface PixelMap
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 15 dynamic
+   * @since 23 static
    */
   interface PixelMap {
     /**
@@ -461,6 +516,7 @@ declare namespace uniformDataStruct {
      * @readonly
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 15 dynamic
+     * @since 23 static
      */
     readonly uniformDataType: 'openharmony.pixel-map';
 
@@ -470,6 +526,7 @@ declare namespace uniformDataStruct {
      * @type { image.PixelMap }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 15 dynamic
+     * @since 23 static
      */
     pixelMap: image.PixelMap;
 
@@ -479,6 +536,7 @@ declare namespace uniformDataStruct {
      * @type { ?Record<string, int | long | double | string | Uint8Array> }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 15 dynamic
+     * @since 23 static
      */
     details?: Record<string, int | long | double | string | Uint8Array>;
   }

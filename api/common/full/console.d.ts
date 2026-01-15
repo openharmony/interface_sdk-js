@@ -20,10 +20,12 @@
 
 /**
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @famodelonly
  * @since 3
  */
 /**
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @famodelonly
  * @atomicservice
  * @since 11 dynamiconly
  */
@@ -34,6 +36,7 @@ export declare class console {
    * @param { string } message - Text to print.
    * @param { any[] } arguments
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 3
    */
   /**
@@ -42,6 +45,7 @@ export declare class console {
    * @param { string } message - Text to print.
    * @param { any[] } arguments
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @atomicservice
    * @since 11 dynamiconly
    */
@@ -53,6 +57,7 @@ export declare class console {
    * @param { string } message - Text to print.
    * @param { any[] } arguments
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 3
    */
   /**
@@ -61,6 +66,7 @@ export declare class console {
    * @param { string } message - Text to print.
    * @param { any[] } arguments
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @atomicservice
    * @since 11 dynamiconly
    */
@@ -72,6 +78,7 @@ export declare class console {
    * @param { string } message - Text to print.
    * @param { any[] } arguments
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 3
    */
   /**
@@ -80,6 +87,7 @@ export declare class console {
    * @param { string } message - Text to print.
    * @param { any[] } arguments
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @atomicservice
    * @since 11 dynamiconly
    */
@@ -91,6 +99,7 @@ export declare class console {
    * @param { string } message - Text to print.
    * @param { any[] } arguments
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 3
    */
   /**
@@ -99,6 +108,7 @@ export declare class console {
    * @param { string } message - Text to print.
    * @param { any[] } arguments
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @atomicservice
    * @since 11 dynamiconly
    */
@@ -110,6 +120,7 @@ export declare class console {
    * @param { string } message - Text to print.
    * @param { any[] } arguments
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 3
    */
   /**
@@ -118,6 +129,7 @@ export declare class console {
    * @param { string } message - Text to print.
    * @param { any[] } arguments
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @atomicservice
    * @since 11 dynamiconly
    */

@@ -21,6 +21,9 @@
 import type { AsyncCallback } from './@ohos.base';
 import type Want from './@ohos.app.ability.Want';
 import type { MultiAppMode } from './bundleManager/ApplicationInfo';
+/*** if arkts static */
+import { RecordData } from './@ohos.base';
+/*** endif */
 
 /**
  * This module provides the capability to manage dialog session.
@@ -30,7 +33,7 @@ import type { MultiAppMode } from './bundleManager/ApplicationInfo';
  * @systemapi
  * @stagemodelonly
  * @since 11 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace dialogSession {
 
@@ -42,7 +45,7 @@ declare namespace dialogSession {
    * @systemapi
    * @stagemodelonly
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface DialogAbilityInfo {
 
@@ -54,7 +57,7 @@ declare namespace dialogSession {
      * @systemapi
      * @stagemodelonly
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     bundleName: string;
 
@@ -66,7 +69,7 @@ declare namespace dialogSession {
      * @systemapi
      * @stagemodelonly
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     moduleName: string;
 
@@ -78,7 +81,7 @@ declare namespace dialogSession {
      * @systemapi
      * @stagemodelonly
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     abilityName: string;
 
@@ -90,7 +93,7 @@ declare namespace dialogSession {
      * @systemapi
      * @stagemodelonly
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     abilityIconId: int;
 
@@ -102,7 +105,7 @@ declare namespace dialogSession {
      * @systemapi
      * @stagemodelonly
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     abilityLabelId: int;
 
@@ -114,7 +117,7 @@ declare namespace dialogSession {
      * @systemapi
      * @stagemodelonly
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     bundleIconId: int;
 
@@ -126,7 +129,7 @@ declare namespace dialogSession {
      * @systemapi
      * @stagemodelonly
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     bundleLabelId: int;
 
@@ -138,7 +141,7 @@ declare namespace dialogSession {
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     visible: boolean;
 
@@ -150,7 +153,7 @@ declare namespace dialogSession {
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     appIndex: int;
 
@@ -162,9 +165,31 @@ declare namespace dialogSession {
       * @systemapi
       * @stagemodelonly
       * @since 12 dynamic
-      * @since 22 static
+      * @since 23 static
       */
     multiAppMode: MultiAppMode;
+
+    /**
+     * Indicates the application source code path.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    codePath?: string;
+
+    /**
+     * Indicates sources to install the app.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    installSource?: string;
   }
 
   /**
@@ -175,7 +200,7 @@ declare namespace dialogSession {
    * @systemapi
    * @stagemodelonly
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface DialogSessionInfo {
 
@@ -187,7 +212,7 @@ declare namespace dialogSession {
      * @systemapi
      * @stagemodelonly
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     callerAbilityInfo: DialogAbilityInfo;
 
@@ -199,7 +224,7 @@ declare namespace dialogSession {
      * @systemapi
      * @stagemodelonly
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     targetAbilityInfos: Array<DialogAbilityInfo>;
 
@@ -211,9 +236,19 @@ declare namespace dialogSession {
      * @systemapi
      * @stagemodelonly
      * @since 11 dynamic
-     * @since 22 static
      */
     parameters?: Record<string, Object>;
+
+    /**
+     * The description of the params object in dialog session info
+     *
+     * @type { ?Record<string, RecordData> }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static
+     */
+    parameters?: Record<string, RecordData>;
   }
 
   /**
@@ -247,7 +282,7 @@ declare namespace dialogSession {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 22 static
+   * @since 23 static
    */
   function getDialogSessionInfo(dialogSessionId: string): DialogSessionInfo | null;
 
@@ -268,7 +303,7 @@ declare namespace dialogSession {
    * @systemapi
    * @stagemodelonly
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function sendDialogResult(dialogSessionId: string, targetWant: Want, isAllowed: boolean): Promise<void>;
 
@@ -289,7 +324,7 @@ declare namespace dialogSession {
    * @systemapi
    * @stagemodelonly
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function sendDialogResult(dialogSessionId: string, targetWant: Want, isAllowed: boolean, callback: AsyncCallback<void>): void;
 }

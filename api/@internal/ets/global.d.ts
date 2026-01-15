@@ -659,6 +659,7 @@ export declare function setInterval(handler: Function | string, delay: number, .
  * NOTE
  * 1. In either case, the actual delay may be longer than expected.
  * 2. If a value less than 1 is passed, the default value 0 is used.
+ * 3. The value of delay is subject to system limitations. If it exceeds 2^31 - 1, an overflow will occur and the delay value will be set to 0.
  * @param { any[] } [arguments] - Additional parameters to pass to the handler after the timer goes off.
  * @returns { number } ID of the timer. The timer ID is shared by processes and is an integer starting from 0 in ascending order.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -748,6 +749,7 @@ export declare function clearTimeout(timeoutID?: number): void;
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
+ * @since 23 static
  */
 export declare function canIUse(syscap: string): boolean;
 
@@ -954,7 +956,7 @@ export declare function sendMouseEvent(event: MouseEvent): boolean;
   * @syscap SystemCapability.Utils.Lang
   * @systemapi
   * @stagemodelonly
-  * @since 10 dynamic
+  * @since 10 dynamiconly
   */
 export declare function markModuleCollectable(namespace: Object): void;
 
@@ -968,6 +970,6 @@ export declare function markModuleCollectable(namespace: Object): void;
  * @syscap SystemCapability.Utils.Lang
  * @stagemodelonly
  * @atomicservice
- * @since 12 dynamic
+ * @since 12 dynamiconly
  */
 export declare function loadNativeModule(moduleName: string): Object;

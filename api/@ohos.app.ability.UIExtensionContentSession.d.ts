@@ -34,12 +34,37 @@ import { RecordData } from './@ohos.base';
 /*** endif */
 
 /**
+ * Sets the callback for the ui extension to receive data from an ui extension component.
+ *
+ * @typedef { function } OnReceiveDataCallback
+ * @param { Record<string, RecordData> } data - Indicates the receive data callback to set.
+ * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+ * @systemapi
+ * @stagemodelonly
+ * @since 23 staticonly
+ */
+export type OnReceiveDataCallback = (data: Record<string, RecordData>) => void;
+
+/**
+ * Sets the callback with return value for the ui extension to receive data from an ui extension component.
+ *
+ * @typedef { function } OnReceiveDataForResultCallback
+ * @param { Record<string, RecordData> } data - Indicates the receive data callback to set.
+ * @returns { Record<string, RecordData> } Returns the custom data.
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @systemapi
+ * @stagemodelonly
+ * @since 23 staticonly
+ */
+export type OnReceiveDataForResultCallback = (data: Record<string, RecordData>) => Record<string, RecordData>;
+
+/**
  * class of ui extension content session.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @since 10 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare class UIExtensionContentSession {
   /**
@@ -79,7 +104,7 @@ declare class UIExtensionContentSession {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 22 static
+   * @since 23 static
    */
   sendData(data: Record<string, RecordData>): void;
 
@@ -95,9 +120,21 @@ declare class UIExtensionContentSession {
    * @systemapi
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 22 static
    */
   setReceiveDataCallback(callback: (data: Record<string, Object>) => void): void;
+
+  /**
+   * Sets the callback for the ui extension to receive data from an ui extension component.
+   *
+   * @param { OnReceiveDataCallback } callback - Indicates the receive data callback to set.
+   * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
+   * @throws { BusinessError } 16000050 - Internal error. Possible causes: Failed to communicate with dependency module.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 static
+   */
+  setReceiveDataCallback(callback: OnReceiveDataCallback): void;
 
   /**
    * Sets the callback with return value for the ui extension to receive data from an ui extension component.
@@ -111,9 +148,21 @@ declare class UIExtensionContentSession {
    * @systemapi
    * @stagemodelonly
    * @since 11 dynamic
-   * @since 22 static
    */
   setReceiveDataForResultCallback(callback: (data: Record<string, Object>) => Record<string, Object>): void;
+
+  /**
+   * Sets the callback with return value for the ui extension to receive data from an ui extension component.
+   *
+   * @param { OnReceiveDataForResultCallback } callback - Indicates the receive data callback to set.
+   * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
+   * @throws { BusinessError } 16000050 - Internal error. Possible causes: Failed to communicate with dependency module.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 static
+   */
+  setReceiveDataForResultCallback(callback: OnReceiveDataForResultCallback): void;
 
   /**
    * Loads an UI extension content.
@@ -126,7 +175,7 @@ declare class UIExtensionContentSession {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   loadContent(path: string, storage?: LocalStorage): void;
 
@@ -139,7 +188,7 @@ declare class UIExtensionContentSession {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   loadContentByName(name: string, storage?: LocalStorage): void;
 
@@ -176,7 +225,7 @@ declare class UIExtensionContentSession {
    * @systemapi
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startAbility(want: Want, callback: AsyncCallback<void>): void;
 
@@ -212,7 +261,7 @@ declare class UIExtensionContentSession {
    * @systemapi
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startAbility(want: Want, options: StartOptions, callback: AsyncCallback<void>): void;
 
@@ -250,7 +299,7 @@ declare class UIExtensionContentSession {
    * @systemapi
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startAbility(want: Want, options?: StartOptions): Promise<void>;
 
@@ -287,7 +336,7 @@ declare class UIExtensionContentSession {
    * @systemapi
    * @stagemodelonly
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startAbilityAsCaller(want: Want, callback: AsyncCallback<void>): void;
 
@@ -323,7 +372,7 @@ declare class UIExtensionContentSession {
    * @systemapi
    * @stagemodelonly
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startAbilityAsCaller(want: Want, options: StartOptions, callback: AsyncCallback<void>): void;
 
@@ -361,7 +410,7 @@ declare class UIExtensionContentSession {
    * @systemapi
    * @stagemodelonly
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startAbilityAsCaller(want: Want, options?: StartOptions): Promise<void>;
 
@@ -398,7 +447,7 @@ declare class UIExtensionContentSession {
    * @systemapi
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startAbilityForResult(want: Want, callback: AsyncCallback<AbilityResult>): void;
 
@@ -434,7 +483,7 @@ declare class UIExtensionContentSession {
    * @systemapi
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startAbilityForResult(want: Want, options: StartOptions, callback: AsyncCallback<AbilityResult>): void;
 
@@ -472,7 +521,7 @@ declare class UIExtensionContentSession {
    * @systemapi
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startAbilityForResult(want: Want, options?: StartOptions): Promise<AbilityResult>;
 
@@ -485,7 +534,7 @@ declare class UIExtensionContentSession {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   terminateSelf(callback: AsyncCallback<void>): void;
 
@@ -496,7 +545,7 @@ declare class UIExtensionContentSession {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   terminateSelf(): Promise<void>;
 
@@ -510,7 +559,7 @@ declare class UIExtensionContentSession {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   terminateSelfWithResult(parameter: AbilityResult, callback: AsyncCallback<void>): void;
 
@@ -524,7 +573,7 @@ declare class UIExtensionContentSession {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   terminateSelfWithResult(parameter: AbilityResult): Promise<void>;
 
@@ -540,7 +589,7 @@ declare class UIExtensionContentSession {
    * @systemapi
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   setWindowBackgroundColor(color: string): void;
 
@@ -557,7 +606,7 @@ declare class UIExtensionContentSession {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   setWindowPrivacyMode(isPrivacyMode: boolean): Promise<void>;
 
@@ -574,7 +623,7 @@ declare class UIExtensionContentSession {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   setWindowPrivacyMode(isPrivacyMode: boolean, callback: AsyncCallback<void>): void;
 
@@ -628,7 +677,7 @@ declare class UIExtensionContentSession {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 22 static
+   * @since 23 static
    */
   startAbilityByType(type: string, wantParam: Record<string, RecordData>,
     abilityStartCallback: AbilityStartCallback, callback: AsyncCallback<void>): void;
@@ -683,7 +732,7 @@ declare class UIExtensionContentSession {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 22 static
+   * @since 23 static
    */
   startAbilityByType(type: string, wantParam: Record<string, RecordData>,
     abilityStartCallback: AbilityStartCallback): Promise<void>;
@@ -698,7 +747,7 @@ declare class UIExtensionContentSession {
    * @systemapi
    * @stagemodelonly
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   getUIExtensionHostWindowProxy(): uiExtensionHost.UIExtensionHostWindowProxy;
 
@@ -710,7 +759,7 @@ declare class UIExtensionContentSession {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   getUIExtensionWindowProxy(): uiExtension.WindowProxy;
 }

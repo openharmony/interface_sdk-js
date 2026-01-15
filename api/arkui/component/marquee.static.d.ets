@@ -17,8 +17,8 @@
  * @file
  * @kit ArkUI
  */
-import { ResourceColor, Length } from "./units";
-import { CommonMethod, AttributeModifier, Callback } from "./common";
+import { ResourceColor, Length, LengthMetrics } from "./units";
+import { CommonMethod, AttributeModifier } from "./common";
 import { FontWeight, MarqueeUpdateStrategy } from "./enums";
 import { Resource } from './../../../api/global/resource';
 import { ComponentBuilder, CustomBuilder } from './builder';
@@ -29,7 +29,7 @@ import { ComponentBuilder, CustomBuilder } from './builder';
  * Anonymous Object Rectification.
  * @interface MarqueeOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export interface MarqueeOptions {
     /**
@@ -46,7 +46,7 @@ export interface MarqueeOptions {
      *
      * @type { boolean | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     start: boolean | undefined;
     /**
@@ -61,7 +61,7 @@ export interface MarqueeOptions {
      * @type { ?double } - The unit is vp.
      * @default 6
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     step?: double;
     /**
@@ -77,7 +77,7 @@ export interface MarqueeOptions {
      * @type { ?int }
      * @default -1
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     loop?: int;
     /**
@@ -87,7 +87,7 @@ export interface MarqueeOptions {
      * @type { ?boolean }
      * @default true
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     fromStart?: boolean;
     /**
@@ -97,9 +97,21 @@ export interface MarqueeOptions {
      * Anonymous Object Rectification.
      * @type { string | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     src: string | undefined;
+
+    /**
+     * The spacing between two rounds of marquee.
+     * 
+     * Default value is marquee width.
+     *
+     * @type { ?LengthMetrics }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    spacing?: LengthMetrics;
 }
 
 /**
@@ -107,7 +119,7 @@ export interface MarqueeOptions {
  *
  * @extends CommonMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 export declare interface MarqueeAttribute extends CommonMethod {
@@ -117,7 +129,7 @@ export declare interface MarqueeAttribute extends CommonMethod {
      * @param { ResourceColor | undefined } value
      * @returns { MarqueeAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default fontColor(value: ResourceColor | undefined): this;
     /**
@@ -131,7 +143,7 @@ export declare interface MarqueeAttribute extends CommonMethod {
      * @param { Length | undefined } value
      * @returns { MarqueeAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default fontSize(value: Length | undefined): this;
     /**
@@ -144,7 +156,7 @@ export declare interface MarqueeAttribute extends CommonMethod {
      * @param { boolean | undefined } value - Default value is false.
      * @returns { MarqueeAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default allowScale(value: boolean | undefined): this;
     /**
@@ -162,7 +174,7 @@ export declare interface MarqueeAttribute extends CommonMethod {
      * @param { int | FontWeight | string | undefined } value - Default value is FontWeight.Normal.
      * @returns { MarqueeAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default fontWeight(value: int | FontWeight | string | undefined): this;
     /**
@@ -177,7 +189,7 @@ export declare interface MarqueeAttribute extends CommonMethod {
      * @param { string | Resource | undefined } value
      * @returns { MarqueeAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default fontFamily(value: string | Resource | undefined): this;
     /**
@@ -191,7 +203,7 @@ export declare interface MarqueeAttribute extends CommonMethod {
      * @param { MarqueeUpdateStrategy | undefined } value - The scrolling strategy after text update.Default value is MarqueeUpdateStrategy.DEFAULT.
      * @returns { MarqueeAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default marqueeUpdateStrategy(value: MarqueeUpdateStrategy | undefined): this;
     /**
@@ -200,7 +212,7 @@ export declare interface MarqueeAttribute extends CommonMethod {
      * @param { function | undefined } event
      * @returns { MarqueeAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default onStart(event: (() => void) | undefined): this;
     /**
@@ -213,7 +225,7 @@ export declare interface MarqueeAttribute extends CommonMethod {
      * @param { function | undefined } event
      * @returns { MarqueeAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default onBounce(event: (() => void) | undefined): this;
     /**
@@ -222,29 +234,16 @@ export declare interface MarqueeAttribute extends CommonMethod {
      * @param { function | undefined } event
      * @returns { MarqueeAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
-     */
-    default onFinish(event: (() => void) | undefined): this;
-    /**
-     * Called when scrolling is stoped.
-     *
-     * <p><strong>NOTE</strong>:
-     * <br>If event is set to undefined, the current event will be unbound.
-     * </p>
-     * 
-     * @param { Callback<void> | undefined } event
-     * @returns { MarqueeAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
      */
-    default onStop(event: Callback<void> | undefined): this;
+    default onFinish(event: (() => void) | undefined): this;
     /**
      * Sets the attribute modifier.
      *
      * @param { AttributeModifier<MarqueeAttribute> | AttributeModifier<CommonMethod> | undefined } modifier.
      * @returns { MarqueeAttribute } the attribute of the MarqueeAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<MarqueeAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
@@ -253,14 +252,13 @@ export declare interface MarqueeAttribute extends CommonMethod {
  * Defines Marquee Component.
  *
  * @param { MarqueeOptions } options
- * @param { CustomBuilder } [content_]
  * @returns { MarqueeAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  * @noninterop
  */
 @ComponentBuilder
 export declare function Marquee(
-    options: MarqueeOptions, 
-    content_?: CustomBuilder,
+    options: MarqueeOptions
 ): MarqueeAttribute

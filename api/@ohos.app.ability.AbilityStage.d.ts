@@ -48,7 +48,7 @@ import { Configuration } from './@ohos.app.ability.Configuration';
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare class AbilityStage {
   /**
@@ -78,7 +78,7 @@ declare class AbilityStage {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   context: AbilityStageContext;
 
@@ -109,7 +109,7 @@ declare class AbilityStage {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onCreate(): void;
 
@@ -132,13 +132,13 @@ declare class AbilityStage {
    * </p>
    *
    * @param { Want } want - Want information about the target ability, such as the ability name and bundle name.
-   * @returns { string } Ability ID. If the ability with this ID has been started, no new instance is created and the
+   * @returns { string } Specified ID. If the ability with this ID has been started, no new instance is created and the
    * ability is placed at the top of the stack. Otherwise, a new instance is created and started.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onAcceptWant(want: Want): string;
 
@@ -153,7 +153,7 @@ declare class AbilityStage {
   * @stagemodelonly
   * @atomicservice
   * @since 20 dynamic
-  * @since 22 static
+  * @since 23 static
   */
   onAcceptWantAsync(want: Want): Promise<string>;
 
@@ -184,7 +184,7 @@ declare class AbilityStage {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onNewProcessRequest(want: Want): string;
 
@@ -198,7 +198,7 @@ declare class AbilityStage {
   * @stagemodelonly
   * @atomicservice
   * @since 20 dynamic
-  * @since 22 static
+  * @since 23 static
   */
   onNewProcessRequestAsync(want: Want): Promise<string>;
 
@@ -234,7 +234,7 @@ declare class AbilityStage {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onConfigurationUpdate(newConfig: Configuration): void;
 
@@ -264,7 +264,7 @@ declare class AbilityStage {
    * @stagemodelonly
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onMemoryLevel(level: AbilityConstant.MemoryLevel): void;
 
@@ -280,7 +280,7 @@ declare class AbilityStage {
    * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onDestroy(): void;
 
@@ -302,7 +302,7 @@ declare class AbilityStage {
    * @stagemodelonly
    * @atomicservice
    * @since 15 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onPrepareTermination(): AbilityConstant.PrepareTermination;
 
@@ -325,7 +325,7 @@ declare class AbilityStage {
    * @stagemodelonly
    * @atomicservice
    * @since 15 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onPrepareTerminationAsync(): Promise<AbilityConstant.PrepareTermination>;
 }

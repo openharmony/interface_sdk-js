@@ -24,6 +24,7 @@
  * @syscap SystemCapability.SelectionInput.Selection
  * @systemapi
  * @since 20 dynamic
+ * @since 23 static
  */
 
 export interface PanelInfo {
@@ -34,52 +35,58 @@ export interface PanelInfo {
    * @syscap SystemCapability.SelectionInput.Selection
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   panelType: PanelType;
 
   /**
    * X-coordinate of the upper left corner of the word selection panel on the screen.
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.SelectionInput.Selection
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
-  x: number;
+  x: int;
 
   /**
    * Y-coordinate of the upper left corner of the word selection panel on the screen.
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.SelectionInput.Selection
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
-  y: number;
+  y: int;
 
   /**
    * Width of the word selection panel.
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.SelectionInput.Selection
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
-  width: number;
+  width: int;
 
   /**
    * Height of the word selection panel.
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.SelectionInput.Selection
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
-  height: number;
+  height: int;
 }
 
 /**
  * Enumerates the types of the word selection panel.
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.SelectionInput.Selection
  * @systemapi
  * @since 20 dynamic
+ * @since 23 static
  */
 
 export enum PanelType {
@@ -88,6 +95,7 @@ export enum PanelType {
    * @syscap SystemCapability.SelectionInput.Selection
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   MENU_PANEL = 1,
 
@@ -96,6 +104,7 @@ export enum PanelType {
    * @syscap SystemCapability.SelectionInput.Selection
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   MAIN_PANEL = 2
 }

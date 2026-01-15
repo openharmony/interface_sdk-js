@@ -23,6 +23,7 @@
  *
  * @interface TimePickerResult
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 8
  */
 /**
@@ -30,6 +31,7 @@
  *
  * @interface TimePickerResult
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @since 10
  */
@@ -38,6 +40,7 @@
  *
  * @interface TimePickerResult
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -48,6 +51,7 @@ declare interface TimePickerResult {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8
    */
   /**
@@ -55,6 +59,7 @@ declare interface TimePickerResult {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -63,6 +68,7 @@ declare interface TimePickerResult {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -74,6 +80,7 @@ declare interface TimePickerResult {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8
    */
   /**
@@ -81,6 +88,7 @@ declare interface TimePickerResult {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -89,6 +97,7 @@ declare interface TimePickerResult {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -159,6 +168,7 @@ declare enum TimePickerFormat {
  *
  * @interface TimePickerOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 8
  */
 /**
@@ -166,6 +176,7 @@ declare enum TimePickerFormat {
  *
  * @interface TimePickerOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @since 10
  */
@@ -174,6 +185,7 @@ declare enum TimePickerFormat {
  *
  * @interface TimePickerOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -184,6 +196,7 @@ declare interface TimePickerOptions {
    *
    * @type { ?Date }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8
    */
   /**
@@ -191,6 +204,7 @@ declare interface TimePickerOptions {
    *
    * @type { ?Date }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -199,6 +213,7 @@ declare interface TimePickerOptions {
    *
    * @type { ?Date }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -254,6 +269,7 @@ declare interface TimePickerOptions {
  *
  * @interface TimePickerInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 8
  */
 /**
@@ -261,6 +277,7 @@ declare interface TimePickerOptions {
  *
  * @interface TimePickerInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @since 10
  */
@@ -269,6 +286,7 @@ declare interface TimePickerOptions {
  *
  * @interface TimePickerInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -280,6 +298,7 @@ interface TimePickerInterface {
    * @param { TimePickerOptions } options
    * @returns { TimePickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8
    */
   /**
@@ -288,6 +307,7 @@ interface TimePickerInterface {
    * @param { TimePickerOptions } options
    * @returns { TimePickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -297,6 +317,7 @@ interface TimePickerInterface {
    * @param { TimePickerOptions } options
    * @returns { TimePickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -330,6 +351,7 @@ declare type OnTimePickerChangeCallback = (result: TimePickerResult) => void;
  *
  * @extends CommonMethod<TimePickerAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 8
  */
 /**
@@ -337,6 +359,7 @@ declare type OnTimePickerChangeCallback = (result: TimePickerResult) => void;
  *
  * @extends CommonMethod<TimePickerAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @since 10
  */
@@ -345,6 +368,7 @@ declare type OnTimePickerChangeCallback = (result: TimePickerResult) => void;
  *
  * @extends CommonMethod<TimePickerAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -356,6 +380,7 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * @param { boolean } value
    * @returns { TimePickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8
    */
   /**
@@ -364,6 +389,7 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * @param { boolean } value
    * @returns { TimePickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -373,6 +399,7 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * @param { boolean } value
    * @returns { TimePickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -550,6 +577,7 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * @param { function } callback
    * @returns { TimePickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8
    */
   /**
@@ -558,6 +586,7 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * @param { function } callback
    * @returns { TimePickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -567,6 +596,7 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * @param { function } callback
    * @returns { TimePickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -650,6 +680,7 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
  * @extends TimePickerOptions
  * @interface TimePickerDialogOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 8
  */
 /**
@@ -658,6 +689,7 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
  * @extends TimePickerOptions
  * @interface TimePickerDialogOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @since 10
  */
@@ -667,6 +699,7 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
  * @extends TimePickerOptions
  * @interface TimePickerDialogOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -677,6 +710,7 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8
    */
   /**
@@ -684,6 +718,7 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -692,6 +727,7 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -839,6 +875,7 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8
    */
   /**
@@ -846,6 +883,7 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -854,6 +892,7 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -865,6 +904,7 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8
    */
   /**
@@ -872,6 +912,7 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -880,6 +921,7 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -891,6 +933,7 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8
    */
   /**
@@ -898,6 +941,7 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -906,6 +950,7 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1105,12 +1150,14 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
  * Defines TimePickerDialog which uses show method to show TimePicker dialog.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 8
  */
 /**
  * Defines TimePickerDialog which uses show method to show TimePicker dialog.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @since 10
  */
@@ -1118,6 +1165,7 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
  * Defines TimePickerDialog which uses show method to show TimePicker dialog.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -1128,6 +1176,7 @@ declare class TimePickerDialog {
    *
    * @param { TimePickerDialogOptions } options
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8
    */
   /**
@@ -1135,6 +1184,7 @@ declare class TimePickerDialog {
    *
    * @param { TimePickerDialogOptions } options
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -1143,6 +1193,7 @@ declare class TimePickerDialog {
    *
    * @param { TimePickerDialogOptions } options
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamiconly
@@ -1156,12 +1207,14 @@ declare class TimePickerDialog {
  * Defines TimePicker Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 8
  */
 /**
  * Defines TimePicker Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @since 10
  */
@@ -1169,6 +1222,7 @@ declare class TimePickerDialog {
  * Defines TimePicker Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -1179,12 +1233,14 @@ declare const TimePicker: TimePickerInterface;
  * Defines TimePicker Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 8
  */
 /**
  * Defines TimePicker Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @since 10
  */
@@ -1192,6 +1248,7 @@ declare const TimePicker: TimePickerInterface;
  * Defines TimePicker Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic

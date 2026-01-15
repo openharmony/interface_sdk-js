@@ -28,7 +28,7 @@ import { Callback } from './@ohos.base';
  * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
  * @systemapi Hide this for inner system use.
  * @since 10 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace cooperate {
   /**
@@ -138,7 +138,7 @@ declare namespace cooperate {
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum CooperateState {
     /**
@@ -147,7 +147,7 @@ declare namespace cooperate {
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COOPERATE_PREPARE = 0,
 
@@ -157,7 +157,7 @@ declare namespace cooperate {
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COOPERATE_UNPREPARE = 1,
 
@@ -167,7 +167,7 @@ declare namespace cooperate {
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COOPERATE_ACTIVATE = 2,
 
@@ -177,7 +177,7 @@ declare namespace cooperate {
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COOPERATE_ACTIVATE_SUCCESS = 3,
 
@@ -187,7 +187,7 @@ declare namespace cooperate {
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COOPERATE_ACTIVATE_FAILURE = 4,
 
@@ -197,7 +197,7 @@ declare namespace cooperate {
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COOPERATE_DEACTIVATE_SUCCESS = 5,
 
@@ -207,7 +207,7 @@ declare namespace cooperate {
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COOPERATE_DEACTIVATE_FAILURE = 6,
 
@@ -217,7 +217,7 @@ declare namespace cooperate {
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COOPERATE_SESSION_DISCONNECTED = 7,
   }
@@ -229,7 +229,7 @@ declare namespace cooperate {
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface CooperateMessage {
     /**
@@ -239,7 +239,7 @@ declare namespace cooperate {
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     networkId: string;
 
@@ -250,7 +250,7 @@ declare namespace cooperate {
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     state: CooperateState;
   }
@@ -262,7 +262,7 @@ declare namespace cooperate {
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface MouseLocation {
     /**
@@ -272,7 +272,7 @@ declare namespace cooperate {
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     displayX: int;
 
@@ -283,7 +283,7 @@ declare namespace cooperate {
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     displayY: int;
 
@@ -294,7 +294,7 @@ declare namespace cooperate {
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     displayWidth: int;
 
@@ -305,7 +305,7 @@ declare namespace cooperate {
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     displayHeight: int;
   }
@@ -352,7 +352,7 @@ declare namespace cooperate {
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function prepareCooperate(callback: AsyncCallback<void>): void;
 
@@ -368,7 +368,7 @@ declare namespace cooperate {
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function prepareCooperate(): Promise<void>;
 
@@ -414,7 +414,7 @@ declare namespace cooperate {
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function unprepareCooperate(callback: AsyncCallback<void>): void;
 
@@ -428,7 +428,7 @@ declare namespace cooperate {
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function unprepareCooperate(): Promise<void>;
 
@@ -485,7 +485,7 @@ declare namespace cooperate {
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function activateCooperate(targetNetworkId: string, inputDeviceId: int, callback: AsyncCallback<void>): void;
 
@@ -504,7 +504,7 @@ declare namespace cooperate {
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function activateCooperate(targetNetworkId: string, inputDeviceId: int): Promise<void>;
 
@@ -551,7 +551,7 @@ declare namespace cooperate {
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function deactivateCooperate(isUnchained: boolean, callback: AsyncCallback<void>): void;
 
@@ -566,7 +566,7 @@ declare namespace cooperate {
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function deactivateCooperate(isUnchained: boolean): Promise<void>;
 
@@ -617,7 +617,7 @@ declare namespace cooperate {
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getCooperateSwitchState(networkId: string, callback: AsyncCallback<boolean>): void;
 
@@ -635,7 +635,7 @@ declare namespace cooperate {
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getCooperateSwitchState(networkId: string): Promise<boolean>;
 
@@ -669,7 +669,7 @@ declare namespace cooperate {
    * @systemapi Hide this for inner system use.
    * @since 10 dynamiconly
    * @deprecated since 11
-   * @useinstead cooperate#on
+   * @useinstead cooperate#off
    */
   function off(type: 'cooperate', callback?: Callback<void>): void;
 
@@ -754,7 +754,7 @@ declare namespace cooperate {
    * <br>2.Incorrect parameter types.3.Parameter verification failed.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
-   * @since 22 static
+   * @since 23 static
    */
   function onCooperateMessage(callback: Callback<CooperateMessage>): void;
 
@@ -769,7 +769,7 @@ declare namespace cooperate {
    *     <br> verification failed.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
-   * @since 22 static
+   * @since 23 static
    */
   function offCooperateMessage(callback?: Callback<CooperateMessage>): void;
 
@@ -785,7 +785,7 @@ declare namespace cooperate {
    *     <br> 2.Incorrect parameter types.3.Parameter verification failed.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
-   * @since 22 static
+   * @since 23 static
    */
   function onCooperateMouseEvent(networkId: string, callback: Callback<MouseLocation>): void;
 
@@ -803,7 +803,7 @@ declare namespace cooperate {
    *     <br> 2.Incorrect parameter types.3.Parameter verification failed.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
-   * @since 22 static
+   * @since 23 static
    */
   function offCooperateMouseEvent(networkId: string, callback?: Callback<MouseLocation>): void;
 
@@ -817,11 +817,12 @@ declare namespace cooperate {
    * @returns { Promise<void> } the promise returned by the function.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws {BusinessError} 20900001 - Operation failed.
+   * @throws {BusinessError} 20900001 - Service exception. Possible causes: 1. A system error, such as null pointer,
+   * <br>container-related exception, or IPC exception. 2. N-API invocation exception or invalid N-API status.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function activateCooperateWithOptions(targetNetworkId: string, inputDeviceId: int,
     cooperateOptions?: CooperateOptions
@@ -833,7 +834,7 @@ declare namespace cooperate {
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface CooperateOptions {
 
@@ -844,7 +845,7 @@ declare namespace cooperate {
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      * @systemapi Hide this for inner system use.
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     displayX: int;
 
@@ -855,7 +856,7 @@ declare namespace cooperate {
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      * @systemapi Hide this for inner system use.
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     displayId: long;
 
@@ -866,7 +867,7 @@ declare namespace cooperate {
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      * @systemapi Hide this for inner system use.
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     displayY: int;
   }

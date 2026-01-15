@@ -38,7 +38,7 @@
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare class HashSet<T> {
   /**
@@ -64,7 +64,7 @@ declare class HashSet<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   constructor();
   /**
@@ -99,7 +99,7 @@ declare class HashSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   get length(): int;
   /**
@@ -128,11 +128,11 @@ declare class HashSet<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   isEmpty(): boolean;
   /**
-   * Returns whether the Set object contain s the elements
+   * Returns whether the Set object contains the elements
    *
    * @param { T } value - value value need to determine whether to include the element
    * @returns { boolean } the boolean type
@@ -145,7 +145,7 @@ declare class HashSet<T> {
    * @since 8
    */
   /**
-   * Returns whether the Set object contain s the elements
+   * Returns whether the Set object contains the elements
    *
    * @param { T } value - value value need to determine whether to include the element
    * @returns { boolean } the boolean type
@@ -159,7 +159,7 @@ declare class HashSet<T> {
    * @since 10
    */
   /**
-   * Returns whether the Set object contain s the elements
+   * Returns whether the Set object contains the elements
    *
    * @param { T } value - value value need to determine whether to include the element
    * @returns { boolean } the boolean type
@@ -172,7 +172,7 @@ declare class HashSet<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   has(value: T): boolean;
   /**
@@ -216,7 +216,7 @@ declare class HashSet<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   add(value: T): boolean;
   /**
@@ -260,7 +260,7 @@ declare class HashSet<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   remove(value: T): boolean;
   /**
@@ -286,7 +286,7 @@ declare class HashSet<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   clear(): void;
   /**
@@ -349,7 +349,7 @@ declare class HashSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   forEach(callbackFn: HashSetCbFn<T>): void;
 
@@ -379,7 +379,7 @@ declare class HashSet<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   values(): IterableIterator<T>;
   /**
@@ -408,7 +408,7 @@ declare class HashSet<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   entries(): IterableIterator<[T, T]>;
   /**
@@ -447,7 +447,7 @@ declare class HashSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   $_iterator(): IterableIterator<T>;
 }
@@ -462,7 +462,7 @@ declare class HashSet<T> {
  * @returns { void } This callback does not return a value
  * @syscap SystemCapability.Utils.Lang
  * @atomicservice
- * @since 22 static
+ * @since 23 static
  */
 export type HashSetCbFn<T> = (value: T, key: T, set: HashSet<T>) => void;
 

@@ -32,7 +32,7 @@ import { RecordData } from './@ohos.base';
  * @StageModelOnly
  * @atomicservice
  * @since 11 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace insightIntent {
   /**
@@ -43,7 +43,7 @@ declare namespace insightIntent {
    * @StageModelOnly
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum ExecuteMode {
     /**
@@ -53,7 +53,7 @@ declare namespace insightIntent {
      * @StageModelOnly
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     UI_ABILITY_FOREGROUND = 0,
 
@@ -64,7 +64,7 @@ declare namespace insightIntent {
      * @StageModelOnly
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     UI_ABILITY_BACKGROUND = 1,
 
@@ -74,7 +74,7 @@ declare namespace insightIntent {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     UI_EXTENSION_ABILITY = 2,
 
@@ -85,7 +85,7 @@ declare namespace insightIntent {
      * @systemapi
      * @StageModelOnly
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SERVICE_EXTENSION_ABILITY = 3,
   }
@@ -98,7 +98,7 @@ declare namespace insightIntent {
    * @StageModelOnly
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface ExecuteResult {
     /**
@@ -109,7 +109,7 @@ declare namespace insightIntent {
      * @StageModelOnly
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     code: int;
 
@@ -130,7 +130,7 @@ declare namespace insightIntent {
      * @type { ?Record<string, RecordData> }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
-     * @since 22 static
+     * @since 23 static
      */
     result?: Record<string, RecordData>;
 
@@ -142,7 +142,7 @@ declare namespace insightIntent {
      * @stagemodelonly
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     uris?: Array<string>;
 
@@ -158,7 +158,7 @@ declare namespace insightIntent {
      * @stagemodelonly
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     flags?: int;
   }
@@ -170,7 +170,7 @@ declare namespace insightIntent {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 20 dynamic
+   * @since 20 dynamiconly
    */
   interface IntentEntity {
     /**
@@ -180,7 +180,7 @@ declare namespace insightIntent {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
-     * @since 20 dynamic
+     * @since 20 dynamiconly
      */
     entityId: string;
   }
@@ -192,7 +192,7 @@ declare namespace insightIntent {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 20 dynamic
+   * @since 20 dynamiconly
    */
   interface IntentResult<T> {
     /**
@@ -202,7 +202,7 @@ declare namespace insightIntent {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
-     * @since 20 dynamic
+     * @since 20 dynamiconly
      */
     code: number;
 
@@ -213,7 +213,7 @@ declare namespace insightIntent {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
-     * @since 20 dynamic
+     * @since 20 dynamiconly
      */
     result?: T;
   }

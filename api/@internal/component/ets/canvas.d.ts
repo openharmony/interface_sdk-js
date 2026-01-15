@@ -2112,7 +2112,7 @@ declare class ImageBitmap {
    * @since 12 dynamic
    */
   constructor(src: string, unit: LengthMetricsUnit);
-  
+
   /**
    * Transfer a PixelMap object to construct an ImageBitmap object.
    *
@@ -2465,6 +2465,31 @@ declare class RenderingContextSettings {
    * @since 11 dynamic
    */
   constructor(antialias?: boolean);
+}
+
+/**
+ * Defines the options for rendering context.
+ *
+ * @interface RenderingContextOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 23 dynamic
+ */
+declare interface RenderingContextOptions {
+  /**
+   * Indicates whether anti-aliasing is enabled for rendering context.
+   * Default value is false, undefined means setting to default value.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  antialias?: boolean;
 }
 
 /**
@@ -5579,6 +5604,23 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
    * @since 13 dynamic
    */
   off(type: 'onDetach', callback?: Callback<void>): void;
+
+  /**
+   * Retrieves a 2D rendering context from the specified drawing context.
+   *
+   * @param { DrawingRenderingContext } drawingContext - A DrawingRenderingContext object.
+   * @param { RenderingContextOptions } [options] - options for the 2D rendering context.
+   * @returns { CanvasRenderingContext2D } - Returns a 2D rendering context that is bound to
+   *     the same canvas component as the input drawingContext.
+   * @throws { BusinessError } 103702 - The drawingContext is not bound to a canvas component.
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  static getContext2DFromDrawingContext(drawingContext: DrawingRenderingContext, options?: RenderingContextOptions): CanvasRenderingContext2D;
 }
 
 /**
@@ -6070,6 +6112,43 @@ declare class DrawingRenderingContext {
 }
 
 /**
+ * Defines the parameters for creating Canvas.
+ *
+ * @interface CanvasParams
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 23 dynamic
+ */
+declare interface CanvasParams {
+  /**
+   * Indicates the unit mode employed by Canvas during drawing.
+   * Default value is LengthMetricsUnit.DEFAULT, undefined means setting to default value.
+   *
+   * @type { ?LengthMetricsUnit }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  unit?: LengthMetricsUnit;
+
+  /**
+   * AI image analysis options.
+   * You can configure the analysis type or bind an analyzer controller through this parameter.
+   *
+   * @type { ?ImageAIOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  imageAIOptions?: ImageAIOptions;
+}
+
+/**
  *TextTimer component, which provides the text timer capability.
  *
  * @interface CanvasInterface
@@ -6166,6 +6245,21 @@ interface CanvasInterface {
    * @since 12 dynamic
    */
   (context: CanvasRenderingContext2D | DrawingRenderingContext, imageAIOptions: ImageAIOptions): CanvasAttribute;
+
+  /**
+   * Create a canvas component using { @link CanvasParams }.
+   * This canvas component will not respond to drawing commands when invisible for memory optimization.
+   * You can get a rendering context in { @link onReady }.
+   *
+   * @param { CanvasParams } params - Parameters for creating Canvas.
+   * @returns { CanvasAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  (params: CanvasParams): CanvasAttribute;
 }
 
 /**
@@ -6253,6 +6347,22 @@ declare class CanvasAttribute extends CommonMethod<CanvasAttribute> {
    * @since 18 dynamic
    */
   onReady(event: VoidCallback): CanvasAttribute;
+
+  /**
+   * Event notification after the canvas component is constructed. You can draw the canvas at this time.
+   *
+   * @param { Callback<DrawingRenderingContext | undefined> | undefined } event - Returns a { @link DrawingRenderingContext } object
+   *     if the canvas is constructed by { @link CanvasParams },
+   *     otherwise returns undefined.
+   * @returns { CanvasAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  onReady(event: Callback<DrawingRenderingContext | undefined> | undefined): CanvasAttribute;
 
   /**
    * Enable image analyzer for Canvas.

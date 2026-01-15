@@ -19,6 +19,7 @@
  */
 
 import image from './@ohos.multimedia.image';
+import drawing from './@ohos.graphics.drawing';
 
 /**
  * The result of loading image.
@@ -289,6 +290,17 @@ export class LayeredDrawableDescriptor extends DrawableDescriptor {
    * @since 12 dynamic
    */
   static getMaskClipPath(): string;
+
+  /**
+   * Set the composition mode.
+   *
+   * @param { drawing.BlendMode } mode - Indicates the composition mode to set.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  setBlendMode(mode: drawing.BlendMode): void;
 }
 
 /**

@@ -420,14 +420,14 @@ declare enum ControlSize {
  */
 declare interface ButtonOptions {
     /**
-     * Describes the button style.
+     * Defines the button type.
      *
      * @type { ?ButtonType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 7
      */
     /**
-     * Describes the button style.
+     * Defines the button type.
      *
      * @type { ?ButtonType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -435,7 +435,7 @@ declare interface ButtonOptions {
      * @since 9
      */
     /**
-     * Describes the button style.
+     * Defines the button type.
      *
      * @type { ?ButtonType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -444,10 +444,11 @@ declare interface ButtonOptions {
      * @since 10
      */
     /**
-     * Describes the button style.
+     * Defines the button type.
      *
      * @type { ?ButtonType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @FaAndStageModel
      * @crossplatform
      * @form
      * @atomicservice
@@ -827,6 +828,19 @@ declare interface LabelStyle {
      * @since 11 dynamic
      */
     font?: Font;
+    /**
+     * Set the horizontal center mode of the content.
+     *
+     * Device Behavior Differences:Default value is TextAlign.Start.
+     * The default value on wearable devices is TextAlign.Center.
+     *
+     * @type { ?TextAlign }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 23 dynamic
+     */
+    textAlign?: TextAlign;
 }
 /**
  * Defines the button attribute functions.

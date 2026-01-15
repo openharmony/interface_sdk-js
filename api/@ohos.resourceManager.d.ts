@@ -48,7 +48,7 @@ import { DrawableDescriptor } from './@ohos.arkui.drawableDescriptor';
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace resourceManager {
   /**
@@ -74,7 +74,7 @@ declare namespace resourceManager {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum Direction {
     /**
@@ -97,7 +97,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DIRECTION_VERTICAL = 0,
 
@@ -121,7 +121,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DIRECTION_HORIZONTAL = 1
   }
@@ -149,7 +149,7 @@ declare namespace resourceManager {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum DeviceType {
     /**
@@ -172,7 +172,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DEVICE_TYPE_PHONE = 0x00,
 
@@ -195,7 +195,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DEVICE_TYPE_TABLET = 0x01,
 
@@ -218,7 +218,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DEVICE_TYPE_CAR = 0x02,
 
@@ -241,7 +241,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DEVICE_TYPE_PC = 0x03,
 
@@ -264,7 +264,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DEVICE_TYPE_TV = 0x04,
 
@@ -287,7 +287,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DEVICE_TYPE_WEARABLE = 0x06,
 
@@ -298,7 +298,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DEVICE_TYPE_2IN1 = 0x07
   }
@@ -326,7 +326,7 @@ declare namespace resourceManager {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum ScreenDensity {
     /**
@@ -349,7 +349,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SCREEN_SDPI = 120,
 
@@ -373,7 +373,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SCREEN_MDPI = 160,
 
@@ -397,7 +397,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SCREEN_LDPI = 240,
 
@@ -421,7 +421,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SCREEN_XLDPI = 320,
 
@@ -445,7 +445,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SCREEN_XXLDPI = 480,
 
@@ -469,7 +469,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SCREEN_XXXLDPI = 640
   }
@@ -482,7 +482,7 @@ declare namespace resourceManager {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum ColorMode {
 
@@ -493,7 +493,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DARK = 0,
 
@@ -504,7 +504,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     LIGHT = 1
   }
@@ -529,7 +529,7 @@ declare namespace resourceManager {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export class Configuration {
     /**
@@ -561,7 +561,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     direction: Direction;
 
@@ -594,7 +594,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     locale: string;
 
@@ -606,7 +606,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     deviceType: DeviceType;
 
@@ -618,7 +618,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     screenDensity: ScreenDensity;
 
@@ -630,7 +630,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     colorMode: ColorMode;
 
@@ -642,7 +642,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     mcc: int;
 
@@ -654,7 +654,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     mnc: int;
   }
@@ -679,7 +679,7 @@ declare namespace resourceManager {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export class DeviceCapability {
     /**
@@ -711,7 +711,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     screenDensity: ScreenDensity;
 
@@ -744,7 +744,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     deviceType: DeviceType;
   }
@@ -754,8 +754,9 @@ declare namespace resourceManager {
    *
    * @interface AsyncCallback
    * @syscap SystemCapability.Global.ResourceManager
-   * @since 6 dynamic
+   * @since 6 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.base/AsyncCallback
    */
   export interface AsyncCallback<T> {
     /**
@@ -764,8 +765,9 @@ declare namespace resourceManager {
      * @param { Error } err - Indicates the error info.
      * @param { T } data - Indicates the return data.
      * @syscap SystemCapability.Global.ResourceManager
-     * @since 6 dynamic
+     * @since 6 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.base/AsyncCallback
     */
     (err: Error, data: T): void;
   }
@@ -883,7 +885,7 @@ declare namespace resourceManager {
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export function getSysResourceManager(): ResourceManager;
 
@@ -910,7 +912,7 @@ declare namespace resourceManager {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface ResourceManager {
     /**
@@ -1534,7 +1536,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getDeviceCapability(callback: _AsyncCallback<DeviceCapability>): void;
 
@@ -1561,7 +1563,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getDeviceCapability(): Promise<DeviceCapability>;
 
@@ -1591,7 +1593,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getConfiguration(callback: _AsyncCallback<Configuration>): void;
 
@@ -1618,7 +1620,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getConfiguration(): Promise<Configuration>;
 
@@ -1872,7 +1874,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getStringByName(resName: string, callback: _AsyncCallback<string>): void;
 
@@ -1914,7 +1916,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getStringByName(resName: string): Promise<string>;
 
@@ -1956,7 +1958,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getStringArrayByName(resName: string, callback: _AsyncCallback<Array<string>>): void;
 
@@ -1998,7 +2000,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getStringArrayByName(resName: string): Promise<Array<string>>;
 
@@ -2037,7 +2039,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getMediaByName(resName: string, callback: _AsyncCallback<Uint8Array>): void;
 
@@ -2070,7 +2072,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getMediaByName(resName: string, density: int, callback: _AsyncCallback<Uint8Array>): void;
 
@@ -2109,7 +2111,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getMediaByName(resName: string): Promise<Uint8Array>;
 
@@ -2142,7 +2144,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getMediaByName(resName: string, density: int): Promise<Uint8Array>;
 
@@ -2184,7 +2186,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getMediaBase64ByName(resName: string, callback: _AsyncCallback<string>): void;
 
@@ -2217,7 +2219,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getMediaBase64ByName(resName: string, density: int, callback: _AsyncCallback<string>): void;
 
@@ -2256,7 +2258,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getMediaBase64ByName(resName: string): Promise<string>;
 
@@ -2287,7 +2289,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getMediaBase64ByName(resName: string, density: int): Promise<string>;
 
@@ -2482,7 +2484,7 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since 22 static
+     * @since 23 static
      */
     getStringSync(resId: long, ...args: (string | double)[]): string;
 
@@ -2656,7 +2658,7 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since 22 static
+     * @since 23 static
      */
     getStringByNameSync(resName: string, ...args: (string | double)[]): string;
 
@@ -2698,7 +2700,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getBoolean(resId: long): boolean;
 
@@ -2786,7 +2788,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getBooleanByName(resName: string): boolean;
 
@@ -2842,7 +2844,7 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since 22 static
+     * @since 23 static
      */
     getInt(resId: long): int;
 
@@ -2857,7 +2859,7 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since 22 static
+     * @since 23 static
      */
     getDouble(resId: long): double;
 
@@ -2959,7 +2961,7 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since 22 static
+     * @since 23 static
      */
     getIntByName(resName: string): int;
 
@@ -2975,7 +2977,7 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since 22 static
+     * @since 23 static
      */
     getDoubleByName(resName: string): double;
 
@@ -3041,7 +3043,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getStringValue(resId: long, callback: _AsyncCallback<string>): void;
 
@@ -3083,7 +3085,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getStringValue(resId: long): Promise<string>;
 
@@ -3125,7 +3127,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getStringArrayValue(resId: long, callback: _AsyncCallback<Array<string>>): void;
 
@@ -3167,7 +3169,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getStringArrayValue(resId: long): Promise<Array<string>>;
 
@@ -3311,7 +3313,7 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since 22 static
+     * @since 23 static
      */
     getIntPluralStringValueSync(resId: long, num: int, ...args: (string | double)[]): string;
 
@@ -3374,7 +3376,7 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since 22 static
+     * @since 23 static
      */
     getIntPluralStringByNameSync(resName: string, num: int, ...args: (string | double)[]): string;
 
@@ -3414,7 +3416,7 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since 22 static
+     * @since 23 static
      */
     getDoublePluralStringValueSync(resId: long, num: double, ...args: (string | double)[]): string;
 
@@ -3477,7 +3479,7 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since 22 static
+     * @since 23 static
      */
     getDoublePluralStringByNameSync(resName: string, num: double, ...args: (string | double)[]): string;
 
@@ -3516,7 +3518,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getMediaContent(resId: long, callback: _AsyncCallback<Uint8Array>): void;
 
@@ -3549,7 +3551,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getMediaContent(resId: long, density: int, callback: _AsyncCallback<Uint8Array>): void;
 
@@ -3588,7 +3590,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getMediaContent(resId: long): Promise<Uint8Array>;
 
@@ -3619,7 +3621,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getMediaContent(resId: long, density: int): Promise<Uint8Array>;
 
@@ -3661,7 +3663,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getMediaContentBase64(resId: long, callback: _AsyncCallback<string>): void;
 
@@ -3694,7 +3696,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getMediaContentBase64(resId: long, density: int, callback: _AsyncCallback<string>): void;
 
@@ -3733,7 +3735,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getMediaContentBase64(resId: long): Promise<string>;
 
@@ -3764,7 +3766,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getMediaContentBase64(resId: long, density: int): Promise<string>;
 
@@ -3800,7 +3802,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getRawFileContent(path: string, callback: _AsyncCallback<Uint8Array>): void;
 
@@ -3836,7 +3838,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getRawFileContent(path: string): Promise<Uint8Array>;
 
@@ -3872,7 +3874,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getRawFd(path: string, callback: _AsyncCallback<RawFileDescriptor>): void;
 
@@ -3908,7 +3910,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getRawFd(path: string): Promise<RawFileDescriptor>;
 
@@ -3944,7 +3946,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     closeRawFd(path: string, callback: _AsyncCallback<void>): void;
 
@@ -3980,7 +3982,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     closeRawFd(path: string): Promise<void>;
 
@@ -4029,7 +4031,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getDrawableDescriptor(resId: long, density?: int, type?: int): DrawableDescriptor;
 
@@ -4078,7 +4080,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getDrawableDescriptorByName(resName: string, density?: int, type?: int): DrawableDescriptor;
 
@@ -4156,7 +4158,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getRawFileList(path: string, callback: _AsyncCallback<Array<string>>): void;
 
@@ -4181,7 +4183,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getRawFileList(path: string): Promise<Array<string>>;
 
@@ -4212,7 +4214,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getColor(resId: long, callback: _AsyncCallback<long>): void;
 
@@ -4241,7 +4243,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getColor(resId: long): Promise<long>;
 
@@ -4338,7 +4340,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getColorByName(resName: string, callback: _AsyncCallback<long>): void;
 
@@ -4367,7 +4369,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getColorByName(resName: string): Promise<long>;
 
@@ -4396,7 +4398,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getColorSync(resId: long) : long;
 
@@ -4457,7 +4459,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getColorByNameSync(resName: string) : long;
 
@@ -4480,7 +4482,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     addResource(path: string) : void;
 
@@ -4503,7 +4505,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     removeResource(path: string) : void;
 
@@ -4528,7 +4530,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getRawFdSync(path: string): RawFileDescriptor;
 
@@ -4551,7 +4553,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     closeRawFdSync(path: string): void;
 
@@ -4576,7 +4578,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getRawFileListSync(path: string): Array<string>;
 
@@ -4601,7 +4603,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getRawFileContentSync(path: string): Uint8Array;
 
@@ -4632,7 +4634,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getMediaContentSync(resId: long, density?: int): Uint8Array;
 
@@ -4697,7 +4699,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getMediaContentBase64Sync(resId: long, density?: int): string;
 
@@ -4834,7 +4836,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getStringArrayValueSync(resId: long): Array<string>;
 
@@ -4933,7 +4935,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getMediaByNameSync(resName: string, density?: int): Uint8Array;
 
@@ -4964,7 +4966,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getMediaBase64ByNameSync(resName: string, density?: int): string;
 
@@ -4993,7 +4995,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getStringArrayByNameSync(resName: string): Array<string>;
 
@@ -5012,7 +5014,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getConfigurationSync(): Configuration;
 
@@ -5031,7 +5033,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getDeviceCapabilitySync(): DeviceCapability;
 
@@ -5046,7 +5048,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getLocales(includeSystem?: boolean): Array<string>;
 
@@ -5063,7 +5065,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getSymbol(resId: long) : long;
 
@@ -5099,7 +5101,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getSymbolByName(resName: string) : long;
 
@@ -5114,7 +5116,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isRawDir(path: string): boolean;
 
@@ -5128,7 +5130,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getOverrideResourceManager(configuration?: Configuration): ResourceManager;
 
@@ -5140,7 +5142,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
      getOverrideConfiguration(): Configuration;
 
@@ -5153,7 +5155,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
      updateOverrideConfiguration(configuration: Configuration): void;
   }
@@ -5179,7 +5181,7 @@ declare namespace resourceManager {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export type RawFileDescriptor = _RawFileDescriptor;
 
@@ -5204,7 +5206,7 @@ declare namespace resourceManager {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export type Resource = _Resource;
 }

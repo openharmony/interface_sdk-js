@@ -30,6 +30,7 @@ import { OffscreenCanvasRenderingContext2D } from './viewmodel'
  * @param { any[] } arguments - Indicates additional arguments to pass to "handler" when the timer goes off.
  * @returns { number } Returns the timer ID.
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
+ * @famodelonly
  * @since 3 dynamiconly
  */
 export declare function setInterval(handler: Function | string, delay: number, ...arguments: any[]): number;
@@ -45,6 +46,7 @@ export declare function setInterval(handler: Function | string, delay: number, .
  * @param { any[] } arguments - Indicates additional arguments to pass to "handler" when the timer goes off.
  * @returns { number } Returns the timer ID.
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
+ * @famodelonly
  * @since 3 dynamiconly
  */
 export declare function setTimeout(handler: Function | string, delay?: number, ...arguments: any[]): number;
@@ -55,6 +57,7 @@ export declare function setTimeout(handler: Function | string, delay?: number, .
  * @param { Function } handler - Indicates the function to be called when the vsync trigger.
  * @returns { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @famodelonly
  * @since 3
  */
 /**
@@ -63,6 +66,7 @@ export declare function setTimeout(handler: Function | string, delay?: number, .
  * @param { Function } handler - Indicates the function to be called when the vsync trigger.
  * @returns { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @famodelonly
  * @atomicservice
  * @since 11 dynamiconly
  */
@@ -73,6 +77,7 @@ export declare function requestAnimationFrame(handler: Function): number;
  *
  * @param { number } requestId - Indicates the vsync callback ID returned by "requestAnimationFrame()".
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @famodelonly
  * @since 3
  */
 /**
@@ -80,6 +85,7 @@ export declare function requestAnimationFrame(handler: Function): number;
  *
  * @param { number } requestId - Indicates the vsync callback ID returned by "requestAnimationFrame()".
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @famodelonly
  * @atomicservice
  * @since 11 dynamiconly
  */
@@ -90,6 +96,7 @@ export declare function cancelAnimationFrame(requestId: number): void;
  *
  * @param { number } [intervalID] - Indicates the timer ID returned by "setInterval()".
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
+ * @famodelonly
  * @since 3 dynamiconly
  */
 export declare function clearInterval(intervalID?: number): void;
@@ -99,6 +106,7 @@ export declare function clearInterval(intervalID?: number): void;
  *
  * @param { number } [timeoutID] - Indicates the timer ID returned by "setTimeout()".
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
+ * @famodelonly
  * @since 3 dynamiconly
  */
 export declare function clearTimeout(timeoutID?: number): void;
@@ -111,6 +119,7 @@ export declare function clearTimeout(timeoutID?: number): void;
  * @returns { any } A promise object is returned. The resolve callback is the object of PA.
  * The reject callback returns the object containing code and error data.
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
+ * @famodelonly
  * @since 5 dynamiconly
  * @deprecated since 8
  */
@@ -122,6 +131,7 @@ export declare function createLocalParticleAbility(name?: string): any;
  * @param { string } syscap
  * @returns { boolean }
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
+ * @famodelonly
  * @since 8 dynamiconly
  */
 export declare function canIUse(syscap: string): boolean;
@@ -131,6 +141,7 @@ export declare function canIUse(syscap: string): boolean;
  *
  * @returns { object }
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
+ * @famodelonly
  * @since 6 dynamiconly
  */
 export declare function getApp(): object;
@@ -139,12 +150,14 @@ export declare function getApp(): object;
  * You can create an Image object by calling new Image().
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @famodelonly
  * @since 4
  */
 /**
  * You can create an Image object by calling new Image().
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @famodelonly
  * @atomicservice
  * @since 11 dynamiconly
  */
@@ -154,6 +167,7 @@ export declare class Image {
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4
    */
   /**
@@ -161,6 +175,7 @@ export declare class Image {
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @atomicservice
    * @since 11 dynamiconly
    */
@@ -170,6 +185,7 @@ export declare class Image {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4
    */
   /**
@@ -177,6 +193,7 @@ export declare class Image {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @atomicservice
    * @since 11 dynamiconly
    */
@@ -186,6 +203,7 @@ export declare class Image {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4
    */
   /**
@@ -193,6 +211,7 @@ export declare class Image {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @atomicservice
    * @since 11 dynamiconly
    */
@@ -202,6 +221,7 @@ export declare class Image {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4
    */
   /**
@@ -209,6 +229,7 @@ export declare class Image {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @atomicservice
    * @since 11 dynamiconly
    */
@@ -218,6 +239,7 @@ export declare class Image {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4
    */
   /**
@@ -225,6 +247,7 @@ export declare class Image {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @atomicservice
    * @since 11 dynamiconly
    */
@@ -235,12 +258,14 @@ export declare class Image {
  * An ImageData object is a common object that stores the actual pixel data of a Canvas object.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @famodelonly
  * @since 4
  */
 /**
  * An ImageData object is a common object that stores the actual pixel data of a Canvas object.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @famodelonly
  * @atomicservice
  * @since 11 dynamiconly
  */
@@ -250,6 +275,7 @@ export declare class ImageData {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4
    */
   /**
@@ -257,6 +283,7 @@ export declare class ImageData {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @atomicservice
    * @since 11 dynamiconly
    */
@@ -266,6 +293,7 @@ export declare class ImageData {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4
    */
   /**
@@ -273,6 +301,7 @@ export declare class ImageData {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @atomicservice
    * @since 11 dynamiconly
    */
@@ -282,6 +311,7 @@ export declare class ImageData {
    *
    * @type { Uint8ClampedArray }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 4
    */
   /**
@@ -289,6 +319,7 @@ export declare class ImageData {
    *
    * @type { Uint8ClampedArray }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @atomicservice
    * @since 11 dynamiconly
    */
@@ -300,6 +331,7 @@ export declare class ImageData {
  * It works in both window and Web worker environments.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @famodelonly
  * @since 7
  */
 /**
@@ -307,6 +339,7 @@ export declare class ImageData {
  * It works in both window and Web worker environments.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @famodelonly
  * @atomicservice
  * @since 11 dynamiconly
  */
@@ -318,6 +351,7 @@ export declare class OffscreenCanvas {
    * @param { number } width
    * @param { number } height
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 7
    */
   /**
@@ -327,6 +361,7 @@ export declare class OffscreenCanvas {
    * @param { number } width
    * @param { number } height
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @atomicservice
    * @since 11 dynamiconly
    */
@@ -337,6 +372,7 @@ export declare class OffscreenCanvas {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 7
    */
   /**
@@ -344,6 +380,7 @@ export declare class OffscreenCanvas {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @atomicservice
    * @since 11 dynamiconly
    */
@@ -354,6 +391,7 @@ export declare class OffscreenCanvas {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 7
    */
   /**
@@ -361,6 +399,7 @@ export declare class OffscreenCanvas {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @atomicservice
    * @since 11 dynamiconly
    */
@@ -373,6 +412,7 @@ export declare class OffscreenCanvas {
    * @param { CanvasRenderingContext2DSettings } [options] - object representing a three-dimensional rendering context.
    * @returns { OffscreenCanvasRenderingContext2D } a render canvas for the offScreen Canvas object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 7
    */
   /**
@@ -382,6 +422,7 @@ export declare class OffscreenCanvas {
    * @param { CanvasRenderingContext2DSettings } [options] - object representing a three-dimensional rendering context.
    * @returns { OffscreenCanvasRenderingContext2D } a render canvas for the offScreen Canvas object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @atomicservice
    * @since 11 dynamiconly
    */
@@ -394,6 +435,7 @@ export declare class OffscreenCanvas {
    * @param { number } [quality] - between 0 and 1 indicating image quality if the type option is image/jpeg or image/webp.
    * @returns { string } A Promise returning a Blob object representing the image contained in the canvas.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 7
    */
   /**
@@ -403,6 +445,7 @@ export declare class OffscreenCanvas {
    * @param { number } [quality] - between 0 and 1 indicating image quality if the type option is image/jpeg or image/webp.
    * @returns { string } A Promise returning a Blob object representing the image contained in the canvas.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @atomicservice
    * @since 11 dynamiconly
    */
@@ -413,6 +456,7 @@ export declare class OffscreenCanvas {
    *
    * @returns { ImageBitmap } Returns An ImageBitmap object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 7
    */
   /**
@@ -420,6 +464,7 @@ export declare class OffscreenCanvas {
    *
    * @returns { ImageBitmap } Returns An ImageBitmap object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @atomicservice
    * @since 11 dynamiconly
    */
@@ -430,12 +475,14 @@ export declare class OffscreenCanvas {
  * Defines the ImageBitmap.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @famodelonly
  * @since 7
  */
 /**
  * Defines the ImageBitmap.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @famodelonly
  * @atomicservice
  * @since 11 dynamiconly
  */
@@ -446,6 +493,7 @@ export declare class ImageBitmap {
    * @type { number }
    * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 7
    */
   /**
@@ -454,6 +502,7 @@ export declare class ImageBitmap {
    * @type { number }
    * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @atomicservice
    * @since 11 dynamiconly
    */
@@ -465,6 +514,7 @@ export declare class ImageBitmap {
    * @type { number }
    * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 7
    */
   /**
@@ -473,6 +523,7 @@ export declare class ImageBitmap {
    * @type { number }
    * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @atomicservice
    * @since 11 dynamiconly
    */
@@ -484,6 +535,7 @@ export declare class ImageBitmap {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
  * @systemapi
+ * @famodelonly
  * @since 4 dynamiconly
  */
 export declare const STANDARD: string;
@@ -493,6 +545,7 @@ export declare const STANDARD: string;
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
  * @systemapi
+ * @famodelonly
  * @since 4 dynamiconly
  */
 export declare const LITE: string;

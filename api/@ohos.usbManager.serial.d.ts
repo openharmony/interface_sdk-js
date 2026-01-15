@@ -23,7 +23,7 @@
  * @namespace serialManager
  * @syscap SystemCapability.USB.USBManager.Serial
  * @since 19 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace serialManager {
 
@@ -32,7 +32,7 @@ declare namespace serialManager {
    * @returns { Readonly<SerialPort>[]} Returns the list of serial port devices obtained.
    * @syscap SystemCapability.USB.USBManager.Serial
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getPortList(): Readonly<SerialPort>[];
 
@@ -47,7 +47,7 @@ declare namespace serialManager {
    * @throws { BusinessError } 31400003 PortId does not exist.
    * @syscap SystemCapability.USB.USBManager.Serial
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function hasSerialRight(portId: int): boolean;
 
@@ -64,7 +64,7 @@ declare namespace serialManager {
    * @throws { BusinessError } 31400003 PortId does not exist.
    * @syscap SystemCapability.USB.USBManager.Serial
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function requestSerialRight(portId: int): Promise<boolean>;
 
@@ -83,7 +83,7 @@ declare namespace serialManager {
    * @syscap SystemCapability.USB.USBManager.Serial
    * @systemapi
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function addSerialRight(tokenId: int, portId: int): void;
 
@@ -98,7 +98,7 @@ declare namespace serialManager {
    * @throws { BusinessError } 31400003 PortId does not exist.
    * @syscap SystemCapability.USB.USBManager.Serial
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function cancelSerialRight(portId: int): void;
 
@@ -113,7 +113,7 @@ declare namespace serialManager {
    * @throws { BusinessError } 31400004 The serial port device is occupied.
    * @syscap SystemCapability.USB.USBManager.Serial
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function open(portId: int): void;
 
@@ -127,7 +127,7 @@ declare namespace serialManager {
    * @throws { BusinessError } 31400005 The serial port device is not opened. Call the open API first.
    * @syscap SystemCapability.USB.USBManager.Serial
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function close(portId: int): void;
 
@@ -142,7 +142,7 @@ declare namespace serialManager {
    * @throws { BusinessError } 31400005 The serial port device is not opened. Call the open API first.
    * @syscap SystemCapability.USB.USBManager.Serial
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getAttribute(portId: int): Readonly<SerialAttribute>;
 
@@ -157,7 +157,7 @@ declare namespace serialManager {
    * @throws { BusinessError } 31400005 The serial port device is not opened. Call the open API first.
    * @syscap SystemCapability.USB.USBManager.Serial
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setAttribute(portId: int, attribute: SerialAttribute): void;
 
@@ -179,7 +179,7 @@ declare namespace serialManager {
    * <br>2. The device offered more data than allowed.
    * @syscap SystemCapability.USB.USBManager.Serial
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function read(portId: int, buffer: Uint8Array, timeout?: int): Promise<int>;
 
@@ -201,7 +201,7 @@ declare namespace serialManager {
    * <br>2. The device offered more data than allowed.
    * @syscap SystemCapability.USB.USBManager.Serial
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function readSync(portId: int, buffer: Uint8Array, timeout?: int): int;
 
@@ -223,7 +223,7 @@ declare namespace serialManager {
    * <br>2. The device offered more data than allowed.
    * @syscap SystemCapability.USB.USBManager.Serial
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function write(portId: int, buffer: Uint8Array, timeout?: int): Promise<int>;
 
@@ -245,7 +245,7 @@ declare namespace serialManager {
    * <br>2. The device offered more data than allowed.
    * @syscap SystemCapability.USB.USBManager.Serial
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function writeSync(portId: int, buffer: Uint8Array, timeout?: int): int;
 
@@ -254,7 +254,7 @@ declare namespace serialManager {
    * @typedef SerialPort
    * @syscap SystemCapability.USB.USBManager.Serial
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface SerialPort {
 
@@ -263,7 +263,7 @@ declare namespace serialManager {
      * @type { int }
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     portId: int;
 
@@ -272,7 +272,7 @@ declare namespace serialManager {
      * @type { string }
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     deviceName: string;
  }
@@ -281,7 +281,7 @@ declare namespace serialManager {
    * @typedef SerialAttribute
    * @syscap SystemCapability.USB.USBManager.Serial
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface SerialAttribute {
 
@@ -290,7 +290,7 @@ declare namespace serialManager {
      * @type { BaudRates }
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     baudRate: BaudRates;
 
@@ -300,7 +300,7 @@ declare namespace serialManager {
      * @default DATABIT_8
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     dataBits?: DataBits;
 
@@ -310,7 +310,7 @@ declare namespace serialManager {
      * @default NONE
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     parity?: Parity;
 
@@ -320,7 +320,7 @@ declare namespace serialManager {
      * @default STOPBIT_1
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     stopBits?: StopBits;
  }
@@ -329,7 +329,7 @@ declare namespace serialManager {
    * @enum { int }
    * @syscap SystemCapability.USB.USBManager.Serial
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum BaudRates {
 
@@ -337,7 +337,7 @@ declare namespace serialManager {
      * The baud rate is 50 bit/s.
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BAUDRATE_50 = 50,
 
@@ -345,7 +345,7 @@ declare namespace serialManager {
      * The baud rate is 75 bit/s.
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BAUDRATE_75 = 75,
 
@@ -353,7 +353,7 @@ declare namespace serialManager {
      * The baud rate is 110 bit/s.
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BAUDRATE_110 = 110,
 
@@ -361,7 +361,7 @@ declare namespace serialManager {
      * The baud rate is 134 bit/s.
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BAUDRATE_134 = 134,
 
@@ -370,7 +370,7 @@ declare namespace serialManager {
      *
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BAUDRATE_150 = 150,
 
@@ -378,7 +378,7 @@ declare namespace serialManager {
      * The baud rate is 200 bit/s.
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BAUDRATE_200 = 200,
 
@@ -386,7 +386,7 @@ declare namespace serialManager {
      * The baud rate is 300 bit/s.
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BAUDRATE_300 = 300,
 
@@ -394,7 +394,7 @@ declare namespace serialManager {
      * The baud rate is 600 bit/s.
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BAUDRATE_600 = 600,
 
@@ -402,7 +402,7 @@ declare namespace serialManager {
      * The baud rate is 1200 bit/s.
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BAUDRATE_1200 = 1200,
 
@@ -410,7 +410,7 @@ declare namespace serialManager {
      * The baud rate is 1800 bit/s.
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BAUDRATE_1800 = 1800,
 
@@ -418,7 +418,7 @@ declare namespace serialManager {
      * The baud rate is 2400 bit/s.
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BAUDRATE_2400 = 2400,
 
@@ -426,7 +426,7 @@ declare namespace serialManager {
      * The baud rate is 4800 bit/s.
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BAUDRATE_4800 = 4800,
 
@@ -434,7 +434,7 @@ declare namespace serialManager {
      * The baud rate is 9600 bit/s.
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BAUDRATE_9600 = 9600,
 
@@ -442,7 +442,7 @@ declare namespace serialManager {
      * The baud rate is 19200 bit/s.
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BAUDRATE_19200 = 19200,
 
@@ -450,7 +450,7 @@ declare namespace serialManager {
      * The baud rate is 38400 bit/s.
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BAUDRATE_38400 = 38400,
 
@@ -458,7 +458,7 @@ declare namespace serialManager {
      * The baud rate is 57600 bit/s.
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BAUDRATE_57600 = 57600,
 
@@ -466,7 +466,7 @@ declare namespace serialManager {
      * The baud rate is 115200 bit/s.
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BAUDRATE_115200 = 115200,
 
@@ -474,7 +474,7 @@ declare namespace serialManager {
      * The baud rate is 230400 bit/s.
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BAUDRATE_230400 = 230400,
 
@@ -482,7 +482,7 @@ declare namespace serialManager {
      * The baud rate is 460800 bit/s.
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BAUDRATE_460800 = 460800,
 
@@ -490,7 +490,7 @@ declare namespace serialManager {
      * The baud rate is 500000 bit/s.
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BAUDRATE_500000 = 500000,
 
@@ -498,7 +498,7 @@ declare namespace serialManager {
      * The baud rate is 576000 bit/s.
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BAUDRATE_576000 = 576000,
 
@@ -506,7 +506,7 @@ declare namespace serialManager {
      * The baud rate is 921600 bit/s.
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BAUDRATE_921600 = 921600,
 
@@ -514,7 +514,7 @@ declare namespace serialManager {
      * The baud rate is 1000000 bit/s.
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BAUDRATE_1000000 = 1000000,
 
@@ -522,7 +522,7 @@ declare namespace serialManager {
      * The baud rate is 1152000 bit/s.
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BAUDRATE_1152000 = 1152000,
 
@@ -530,7 +530,7 @@ declare namespace serialManager {
      * The baud rate is 1500000 bit/s.
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BAUDRATE_1500000 = 1500000,
 
@@ -538,7 +538,7 @@ declare namespace serialManager {
      * The baud rate is 2000000 bit/s.
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BAUDRATE_2000000 = 2000000,
 
@@ -546,7 +546,7 @@ declare namespace serialManager {
      * The baud rate is 2500000 bit/s.
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BAUDRATE_2500000 = 2500000,
 
@@ -554,7 +554,7 @@ declare namespace serialManager {
      * The baud rate is 3000000 bit/s.
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BAUDRATE_3000000 = 3000000,
 
@@ -562,7 +562,7 @@ declare namespace serialManager {
      * The baud rate is 3500000 bit/s.
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BAUDRATE_3500000 = 3500000,
 
@@ -570,7 +570,7 @@ declare namespace serialManager {
      * The baud rate is 4000000 bit/s.
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BAUDRATE_4000000 = 4000000
  }
@@ -579,7 +579,7 @@ declare namespace serialManager {
    * @enum { int }
    * @syscap SystemCapability.USB.USBManager.Serial
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum DataBits {
 
@@ -587,7 +587,7 @@ declare namespace serialManager {
      * The number of data bits is 8.
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DATABIT_8 = 8,
 
@@ -595,7 +595,7 @@ declare namespace serialManager {
      * The number of data bits is 7.
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DATABIT_7 = 7,
 
@@ -603,7 +603,7 @@ declare namespace serialManager {
      * The number of data bits is 6.
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DATABIT_6 = 6,
 
@@ -611,7 +611,7 @@ declare namespace serialManager {
      * The number of data bits is 5.
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DATABIT_5 = 5
  }
@@ -620,7 +620,7 @@ declare namespace serialManager {
    * @enum { int }
    * @syscap SystemCapability.USB.USBManager.Serial
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum Parity {
 
@@ -628,7 +628,7 @@ declare namespace serialManager {
      * No parity.
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     PARITY_NONE = 0,
 
@@ -636,7 +636,7 @@ declare namespace serialManager {
      * Odd parity.
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     PARITY_ODD = 1,
 
@@ -644,7 +644,7 @@ declare namespace serialManager {
      * Even parity.
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     PARITY_EVEN = 2,
 
@@ -652,7 +652,7 @@ declare namespace serialManager {
      * Mark parity, whose parity bit is always <b class="+ topic/ph hi-d/b " id="b1627884485115">1</b>.
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     PARITY_MARK = 3,
 
@@ -660,7 +660,7 @@ declare namespace serialManager {
      * Space parity, whose parity bit is always <b class="+ topic/ph hi-d/b " id="b1551818484291">0</b>.
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     PARITY_SPACE = 4
  }
@@ -669,7 +669,7 @@ declare namespace serialManager {
    * @enum { int }
    * @syscap SystemCapability.USB.USBManager.Serial
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum StopBits {
 
@@ -677,7 +677,7 @@ declare namespace serialManager {
      * The number of stop bits is 1.
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     STOPBIT_1 = 0,
 
@@ -685,7 +685,7 @@ declare namespace serialManager {
      * The number of stop bits is 2.
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     STOPBIT_2 = 1
  }

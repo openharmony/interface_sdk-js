@@ -18,7 +18,6 @@
  * @kit ArkGraphics3D
  */
 
-/*** if arkts dynamic */
 import { ToneMappingType, ToneMappingSettings, PostProcessSettings, BloomSettings,
   Vec2, Vec3, Vec4, Color, Rect, Quaternion, Aabb, Position3, Rotation3, Scale3,
   GeometryType, GeometryDefinition, PrimitiveTopology, CustomGeometry, CubeGeometry, PlaneGeometry, SphereGeometry,
@@ -28,7 +27,8 @@ import { ToneMappingType, ToneMappingSettings, PostProcessSettings, BloomSetting
   SceneResourceParameters, SceneNodeParameters, SceneResourceFactory, Scene, RenderParameters,
   RaycastResult, RaycastParameters, CullMode, PolygonMode, Blend, RenderSort, MaterialProperty, MetallicRoughnessMaterial,
   UnlitMaterial, Morpher, Sampler, SamplerFilter, SamplerAddressMode, RenderResourceFactory, SceneComponent, RenderContext,
-  RenderingPipelineType, CameraParameters, EffectParameters, Effect, VignetteSettings, ColorFringeSettings } from '@ohos.graphics.scene';
+  RenderingPipelineType, CameraParameters, EffectParameters, Effect, VignetteSettings, ColorFringeSettings,
+  RenderConfiguration, UnlitShadowAlphaMaterial, OcclusionMaterial, Mat4x4 } from '@ohos.graphics.scene';
 
 export { ToneMappingType, ToneMappingSettings, PostProcessSettings, BloomSettings,
   Vec2, Vec3, Vec4, Color, Rect, Quaternion, Aabb, Position3, Rotation3, Scale3,
@@ -39,29 +39,5 @@ export { ToneMappingType, ToneMappingSettings, PostProcessSettings, BloomSetting
   SceneResourceParameters, SceneNodeParameters, SceneResourceFactory, Scene, RenderParameters,
   RaycastResult, RaycastParameters, CullMode, PolygonMode, Blend, RenderSort, MaterialProperty, MetallicRoughnessMaterial,
   UnlitMaterial, Morpher, Sampler, SamplerFilter, SamplerAddressMode, RenderResourceFactory, SceneComponent, RenderContext,
-  RenderingPipelineType, CameraParameters, EffectParameters, Effect, VignetteSettings, ColorFringeSettings };
-/*** endif */
-
-/*** if arkts static */
-import { ToneMappingType, ToneMappingSettings, PostProcessSettings, BloomSettings,
-  Vec2, Vec3, Vec4, Color, Rect, Quaternion, Aabb, Position3, Rotation3, Scale3,
-  GeometryType, GeometryDefinition, PrimitiveTopology, CustomGeometry, CubeGeometry, PlaneGeometry, SphereGeometry,
-  CylinderGeometry, SceneResourceType, SceneResource, Shader, MaterialType, Material, ShaderMaterial,
-  SubMesh, Mesh, Animation, EnvironmentBackgroundType, Environment, Image, MeshResource,
-  LayerMask, NodeType, Container, Node, Geometry, LightType, Light, SpotLight, DirectionalLight, Camera,
-  SceneResourceParameters, SceneNodeParameters, SceneResourceFactory, Scene, RenderParameters,
-  RaycastResult, RaycastParameters, CullMode, PolygonMode, Blend, RenderSort, MaterialProperty, MetallicRoughnessMaterial,
-  UnlitMaterial, Morpher, Sampler, SamplerFilter, SamplerAddressMode, RenderResourceFactory, SceneComponent, RenderContext,
-  RenderingPipelineType, CameraParameters, VignetteSettings, ColorFringeSettings } from '@ohos.graphics.scene';
-
-export { ToneMappingType, ToneMappingSettings, PostProcessSettings, BloomSettings,
-  Vec2, Vec3, Vec4, Color, Rect, Quaternion, Aabb, Position3, Rotation3, Scale3,
-  GeometryType, GeometryDefinition, PrimitiveTopology, CustomGeometry, CubeGeometry, PlaneGeometry, SphereGeometry,
-  CylinderGeometry, SceneResourceType, SceneResource, Shader, MaterialType, Material, ShaderMaterial,
-  SubMesh, Mesh, Animation, EnvironmentBackgroundType, Environment, Image, MeshResource,
-  LayerMask, NodeType, Container, Node, Geometry, LightType, Light, SpotLight, DirectionalLight, Camera,
-  SceneResourceParameters, SceneNodeParameters, SceneResourceFactory, Scene, RenderParameters,
-  RaycastResult, RaycastParameters, CullMode, PolygonMode, Blend, RenderSort, MaterialProperty, MetallicRoughnessMaterial,
-  UnlitMaterial, Morpher, Sampler, SamplerFilter, SamplerAddressMode, RenderResourceFactory, SceneComponent, RenderContext,
-  RenderingPipelineType, CameraParameters, VignetteSettings, ColorFringeSettings };
-/*** endif */
+  RenderingPipelineType, CameraParameters, EffectParameters, Effect, VignetteSettings, ColorFringeSettings,
+  RenderConfiguration, UnlitShadowAlphaMaterial, OcclusionMaterial, Mat4x4 };

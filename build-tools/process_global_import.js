@@ -1461,7 +1461,7 @@ const whiteList = new Set([
   'TextResponseType', 'TextSelectableMode', 'TextShadowStyle', 'TextSpanType',
   'TextStyle', 'TextTimerConfiguration', 'TextTimerController', 'TextTimerOptions',
   'Theme', 'ThemeColorMode', 'ThreatType', 'TimePickerDialog', 'TimePickerDialogOptions',
-  'TimePickerFormat', 'TimePickerOptions', 'TimePickerResult', 'TipsOptions',
+  'TimePickerFormat', 'TimePickerOptions', 'TimePickerResult', 'TipsAnchorType', 'TipsOptions',
   'TitleHeight', 'TodayStyle', 'ToggleConfiguration', 'ToggleOptions', 'ToggleType',
   'ToolBarItemInterface', 'ToolBarItemOptions', 'ToolBarItemPlacement', 'ToolbarItem',
   'ToolbarItemStatus', 'TouchEvent', 'TouchObject', 'TouchPoint', 'TouchResult',

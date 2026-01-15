@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2022-2023 Huawei Device Co., Ltd.
+ * Copyright (C) 2022-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -27,6 +27,7 @@ import { AsyncCallback, Callback } from './@ohos.base';
  * @syscap SystemCapability.FileManagement.StorageService.Volume
  * @systemapi
  * @since 9 dynamic
+ * @since 23 static
  */
 declare namespace volumeManager {
   /**
@@ -36,6 +37,7 @@ declare namespace volumeManager {
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
    * @since 9 dynamic
+   * @since 23 static
    */
   export interface Volume {
     /**
@@ -45,6 +47,7 @@ declare namespace volumeManager {
      * @syscap SystemCapability.FileManagement.StorageService.Volume
      * @systemapi
      * @since 9 dynamic
+     * @since 23 static
      */
     id: string;
 
@@ -55,6 +58,7 @@ declare namespace volumeManager {
      * @syscap SystemCapability.FileManagement.StorageService.Volume
      * @systemapi
      * @since 9 dynamic
+     * @since 23 static
      */
     uuid: string;
 
@@ -65,6 +69,7 @@ declare namespace volumeManager {
      * @syscap SystemCapability.FileManagement.StorageService.Volume
      * @systemapi
      * @since 9 dynamic
+     * @since 23 static
      */
     diskId: string;
 
@@ -75,6 +80,7 @@ declare namespace volumeManager {
      * @syscap SystemCapability.FileManagement.StorageService.Volume
      * @systemapi
      * @since 9 dynamic
+     * @since 23 static
      */
     description: string;
 
@@ -85,18 +91,20 @@ declare namespace volumeManager {
      * @syscap SystemCapability.FileManagement.StorageService.Volume
      * @systemapi
      * @since 9 dynamic
+     * @since 23 static
      */
     removable: boolean;
 
     /**
      * The mount state of the volume.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.FileManagement.StorageService.Volume
      * @systemapi
      * @since 9 dynamic
+     * @since 23 static
      */
-    state: number;
+    state: int;
 
     /**
      * The mount path of the volume.
@@ -105,6 +113,7 @@ declare namespace volumeManager {
      * @syscap SystemCapability.FileManagement.StorageService.Volume
      * @systemapi
      * @since 9 dynamic
+     * @since 23 static
      */
     path: string;
 
@@ -115,6 +124,7 @@ declare namespace volumeManager {
      * @syscap SystemCapability.FileManagement.StorageService.Volume
      * @systemapi
      * @since 12 dynamic
+     * @since 23 static
      */
     fsType: string;
   }
@@ -132,6 +142,7 @@ parameters are left unspecified;
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
    * @since 9 dynamic
+   * @since 23 static
    */
   function getAllVolumes(callback: AsyncCallback<Array<Volume>>): void;
 
@@ -149,6 +160,7 @@ parameters are left unspecified;
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
    * @since 9 dynamic
+   * @since 23 static
    */
   function getAllVolumes(): Promise<Array<Volume>>;
 
@@ -172,6 +184,7 @@ parameters are left unspecified;
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
    * @since 9 dynamic
+   * @since 23 static
    */
   function mount(volumeId: string, callback: AsyncCallback<void>): void;
 
@@ -195,6 +208,7 @@ parameters are left unspecified;
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
    * @since 9 dynamic
+   * @since 23 static
    */
   function mount(volumeId: string): Promise<void>;
 
@@ -218,6 +232,7 @@ parameters are left unspecified;
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
    * @since 9 dynamic
+   * @since 23 static
    */
   function unmount(volumeId: string, callback: AsyncCallback<void>): void;
 
@@ -241,6 +256,7 @@ parameters are left unspecified;
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
    * @since 9 dynamic
+   * @since 23 static
    */
   function unmount(volumeId: string): Promise<void>;
 
@@ -261,6 +277,7 @@ parameters are left unspecified;
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
    * @since 9 dynamic
+   * @since 23 static
    */
   function getVolumeByUuid(uuid: string, callback: AsyncCallback<Volume>): void;
 
@@ -281,6 +298,7 @@ parameters are left unspecified;
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
    * @since 9 dynamic
+   * @since 23 static
    */
   function getVolumeByUuid(uuid: string): Promise<Volume>;
 
@@ -301,6 +319,7 @@ parameters are left unspecified;
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
    * @since 9 dynamic
+   * @since 23 static
    */
   function getVolumeById(volumeId: string, callback: AsyncCallback<Volume>): void;
 
@@ -321,6 +340,7 @@ parameters are left unspecified;
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
    * @since 9 dynamic
+   * @since 23 static
    */
   function getVolumeById(volumeId: string): Promise<Volume>;
 
@@ -344,6 +364,7 @@ parameters are left unspecified;
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
    * @since 9 dynamic
+   * @since 23 static
    */
   function setVolumeDescription(uuid: string, description: string, callback: AsyncCallback<void>): void;
 
@@ -367,6 +388,7 @@ parameters are left unspecified;
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
    * @since 9 dynamic
+   * @since 23 static
    */
   function setVolumeDescription(uuid: string, description: string): Promise<void>;
 
@@ -390,6 +412,7 @@ parameters are left unspecified;
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
    * @since 9 dynamic
+   * @since 23 static
    */
   function format(volumeId: string, fsType: string, callback: AsyncCallback<void>): void;
 
@@ -413,6 +436,7 @@ parameters are left unspecified;
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
    * @since 9 dynamic
+   * @since 23 static
    */
   function format(volumeId: string, fsType: string): Promise<void>;
 
@@ -421,7 +445,7 @@ parameters are left unspecified;
    *
    * @permission ohos.permission.MOUNT_FORMAT_MANAGER
    * @param { string } diskId - The id of the disk
-   * @param { number } type - Type of partition such as private partition or public partition
+   * @param { int } type - Type of partition such as private partition or public partition
    * @param { AsyncCallback<void> } callback - callback
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
@@ -434,15 +458,16 @@ parameters are left unspecified;
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
    * @since 9 dynamic
+   * @since 23 static
    */
-  function partition(diskId: string, type: number, callback: AsyncCallback<void>): void;
+  function partition(diskId: string, type: int, callback: AsyncCallback<void>): void;
 
   /**
    * Partition.
    *
    * @permission ohos.permission.MOUNT_FORMAT_MANAGER
    * @param { string } diskId - The id of the disk
-   * @param { number } type - Type of partition such as private partition or public partition
+   * @param { int } type - Type of partition such as private partition or public partition
    * @returns { Promise<void> } return Promise
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
@@ -455,8 +480,9 @@ parameters are left unspecified;
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
    * @since 9 dynamic
+   * @since 23 static
    */
-  function partition(diskId: string, type: number): Promise<void>;
+  function partition(diskId: string, type: int): Promise<void>;
 }
 
 export default volumeManager;

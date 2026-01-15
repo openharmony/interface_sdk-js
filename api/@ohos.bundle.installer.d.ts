@@ -27,7 +27,7 @@ import { AsyncCallback } from './@ohos.base';
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @systemapi
  * @since 9 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace installer {
   /**
@@ -39,7 +39,7 @@ declare namespace installer {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getBundleInstaller(callback: AsyncCallback<BundleInstaller>): void;
 
@@ -51,7 +51,7 @@ declare namespace installer {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getBundleInstaller(): Promise<BundleInstaller>;
 
@@ -63,7 +63,7 @@ declare namespace installer {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getBundleInstallerSync(): BundleInstaller;
 
@@ -74,7 +74,7 @@ declare namespace installer {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface BundleInstaller {
     /**
@@ -241,11 +241,13 @@ declare namespace installer {
      * To install an internal beta application, you must have the permission ohos.permission.INSTALL_INTERNALTESTING_BUNDLE.
      *
      * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE
+     *     or ohos.permission.INSTALL_INTERNALTESTING_BUNDLE
      * @param { Array<string> } hapFilePaths - Indicates the path where the HAP of the application is stored.
      * @param { InstallParam } installParam - Indicates other parameters required for the installation.
      * @param { AsyncCallback<void> } callback - The callback of installing HAPs result.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_BUNDLE' or
-     * 'ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE'.
+     *     'ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE'
+     *     or 'ohos.permission.INSTALL_INTERNALTESTING_BUNDLE'.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter hapFiles is needed for code signature; 4. The size of specifiedDistributionType is greater than 128; 5. The size of additionalInfo is greater than 3000.
      * @throws { BusinessError } 17700004 - The specified user ID is not found.
@@ -286,11 +288,13 @@ declare namespace installer {
      * To install an internal beta application, you must have the permission ohos.permission.INSTALL_INTERNALTESTING_BUNDLE.
      *
      * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE
+     *     or ohos.permission.INSTALL_INTERNALTESTING_BUNDLE
      * @param { Array<string> } hapFilePaths - Indicates the path where the HAP of the application is stored.
      * @param { InstallParam } installParam - Indicates other parameters required for the installation.
      * @param { AsyncCallback<void> } callback - The callback of installing HAPs result.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_BUNDLE' or
-     * 'ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE'.
+     *     'ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE'
+     *     or 'ohos.permission.INSTALL_INTERNALTESTING_BUNDLE'.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter hapFiles is needed for code signature; 4. The size of specifiedDistributionType is greater than 128; 5. The size of additionalInfo is greater than 3000.
      * @throws { BusinessError } 17700004 - The specified user ID is not found.
@@ -332,11 +336,13 @@ declare namespace installer {
      * To install an internal beta application, you must have the permission ohos.permission.INSTALL_INTERNALTESTING_BUNDLE.
      *
      * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE
+     *     or ohos.permission.INSTALL_INTERNALTESTING_BUNDLE
      * @param { Array<string> } hapFilePaths - Indicates the path where the HAP of the application is stored.
      * @param { InstallParam } installParam - Indicates other parameters required for the installation.
      * @param { AsyncCallback<void> } callback - The callback of installing HAPs result.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_BUNDLE' or
-     * 'ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE'.
+     *     'ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE'
+     *     or 'ohos.permission.INSTALL_INTERNALTESTING_BUNDLE'.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter hapFiles is needed for code signature; 4. The size of specifiedDistributionType is greater than 128; 5. The size of additionalInfo is greater than 3000.
      * @throws { BusinessError } 17700004 - The specified user ID is not found.
@@ -369,7 +375,58 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 18 dynamic
-     * @since 22 static
+     */
+    /**
+     * Install HAPs for an application.
+     * To install a non-enterprise application, you must have the permission ohos.permission.INSTALL_BUNDLE.
+     * To install an enterprise application, you must have the permission ohos.permission.INSTALL_ENTERPRISE_BUNDLE.
+     * To install an enterprise administrator application, you must have the permission ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE.
+     * To install an enterprise normal application, you must have the permission ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE.
+     * To install an internal beta application, you must have the permission ohos.permission.INSTALL_INTERNALTESTING_BUNDLE.
+     * To install a lower version application, you must have the permission ohos.permission.INSTALL_BUNDLE and ohos.permission.INSTALL_ALLOW_DOWNGRADE.
+     *
+     * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE
+     *     or ohos.permission.INSTALL_INTERNALTESTING_BUNDLE
+     *     or (ohos.permission.INSTALL_BUNDLE and ohos.permission.INSTALL_ALLOW_DOWNGRADE)
+     * @param { Array<string> } hapFilePaths - Indicates the path where the HAP of the application is stored.
+     * @param { InstallParam } installParam - Indicates other parameters required for the installation.
+     * @param { AsyncCallback<void> } callback - The callback of installing HAPs result.
+     * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_BUNDLE' or
+     *     'ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE'
+     *     or 'ohos.permission.INSTALL_INTERNALTESTING_BUNDLE'
+     *     or ('ohos.permission.INSTALL_BUNDLE' and 'ohos.permission.INSTALL_ALLOW_DOWNGRADE').
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter hapFiles is needed for code signature; 4. The size of specifiedDistributionType is greater than 128; 5. The size of additionalInfo is greater than 3000.
+     * @throws { BusinessError } 17700004 - The specified user ID is not found.
+     * @throws { BusinessError } 17700010 - Failed to install the HAP because the HAP fails to be parsed.
+     * @throws { BusinessError } 17700011 - Failed to install the HAP because the HAP signature fails to be verified.
+     * @throws { BusinessError } 17700012 - Failed to install the HAP because the HAP path is invalid or the HAP is too large.
+     * @throws { BusinessError } 17700015 - Failed to install the HAPs because they have different configuration information.
+     * @throws { BusinessError } 17700016 - Failed to install the HAP because of insufficient system disk space.
+     * @throws { BusinessError } 17700017 - Failed to install the HAP since the version of the HAP to install is too early.
+     * @throws { BusinessError } 17700018 - Failed to install because the dependent module does not exist.
+     * @throws { BusinessError } 17700031 - Failed to install the HAP because the overlay check of the HAP is failed.
+     * @throws { BusinessError } 17700036 - Failed to install the HSP because lacks appropriate permissions.
+     * @throws { BusinessError } 17700039 - Failed to install because disallow install a shared bundle by hapFilePaths.
+     * @throws { BusinessError } 17700041 - Failed to install because enterprise device management disallow install.
+     * @throws { BusinessError } 17700042 - Failed to install the HAP because of incorrect URI in the data proxy.
+     * @throws { BusinessError } 17700043 - Failed to install the HAP because of low APL in the non-system data proxy
+     *  (required APL: system_basic or system_core).
+     * @throws { BusinessError } 17700044 - Failed to install the HAP because the isolationMode configured is not supported.
+     * @throws { BusinessError } 17700047 - Failed to install the HAP because the VersionCode to be updated is not greater than the current VersionCode.
+     * @throws { BusinessError } 17700048 - Failed to install the HAP because the code signature verification is failed.
+     * @throws { BusinessError } 17700050 - Failed to install the HAP because enterprise normal/MDM bundle cannot be installed on non-enterprise device.
+     * @throws { BusinessError } 17700052 - Failed to install the HAP because debug bundle cannot be installed under non-developer mode.
+     * @throws { BusinessError } 17700054 - Failed to install the HAP because the HAP requests wrong permissions.
+     * @throws { BusinessError } 17700058 - Failed to install the HAP because the device has been controlled.
+     * @throws { BusinessError } 17700066 - Failed to install the HAP because installing the native package failed.
+     * @throws { BusinessError } 17700073 - Failed to install the HAP because an application with the same
+     * <br>bundle name but different signature information exists on the device.
+     * @throws { BusinessError } 17700076 - Failed to install the HAP or HSP because the app distribution type is not allowed.
+     * @throws { BusinessError } 17700077 - Failed to install the HAP and restore to preinstalled bundle.
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 23 dynamic&static
      */
     install(hapFilePaths: Array<string>, installParam: InstallParam, callback: AsyncCallback<void>): void;
 
@@ -525,10 +582,12 @@ declare namespace installer {
      * To install an internal beta application, you must have the permission ohos.permission.INSTALL_INTERNALTESTING_BUNDLE.
      *
      * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE
+     *     or ohos.permission.INSTALL_INTERNALTESTING_BUNDLE
      * @param { Array<string> } hapFilePaths - Indicates the path where the HAP of the application is stored.
      * @param { AsyncCallback<void> } callback - The callback of installing HAPs result.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_BUNDLE' or
-     * 'ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE'.
+     *     'ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE'
+     *     or 'ohos.permission.INSTALL_INTERNALTESTING_BUNDLE'.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
      * @throws { BusinessError } 17700010 - Failed to install the HAP because the HAP fails to be parsed.
@@ -568,10 +627,12 @@ declare namespace installer {
      * To install an internal beta application, you must have the permission ohos.permission.INSTALL_INTERNALTESTING_BUNDLE.
      *
      * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE
+     *     or ohos.permission.INSTALL_INTERNALTESTING_BUNDLE
      * @param { Array<string> } hapFilePaths - Indicates the path where the HAP of the application is stored.
      * @param { AsyncCallback<void> } callback - The callback of installing HAPs result.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_BUNDLE' or
-     * 'ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE'.
+     *     'ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE'
+     *     or 'ohos.permission.INSTALL_INTERNALTESTING_BUNDLE'.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
      * @throws { BusinessError } 17700010 - Failed to install the HAP because the HAP fails to be parsed.
@@ -612,10 +673,12 @@ declare namespace installer {
      * To install an internal beta application, you must have the permission ohos.permission.INSTALL_INTERNALTESTING_BUNDLE.
      *
      * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE
+     *     or ohos.permission.INSTALL_INTERNALTESTING_BUNDLE
      * @param { Array<string> } hapFilePaths - Indicates the path where the HAP of the application is stored.
      * @param { AsyncCallback<void> } callback - The callback of installing HAPs result.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_BUNDLE' or
-     * 'ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE'.
+     *     'ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE'
+     *     or 'ohos.permission.INSTALL_INTERNALTESTING_BUNDLE'.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
      * @throws { BusinessError } 17700010 - Failed to install the HAP because the HAP fails to be parsed.
@@ -647,7 +710,56 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 18 dynamic
-     * @since 22 static
+     */
+    /**
+     * Install HAPs for an application.
+     * To install a non-enterprise application, you must have the permission ohos.permission.INSTALL_BUNDLE.
+     * To install an enterprise application, you must have the permission ohos.permission.INSTALL_ENTERPRISE_BUNDLE.
+     * To install an enterprise administrator application, you must have the permission ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE.
+     * To install an enterprise normal application, you must have the permission ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE.
+     * To install an internal beta application, you must have the permission ohos.permission.INSTALL_INTERNALTESTING_BUNDLE.
+     * To install a lower version application, you must have the permission ohos.permission.INSTALL_BUNDLE and ohos.permission.INSTALL_ALLOW_DOWNGRADE.
+     *
+     * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE
+     *     or ohos.permission.INSTALL_INTERNALTESTING_BUNDLE
+     *     or (ohos.permission.INSTALL_BUNDLE and ohos.permission.INSTALL_ALLOW_DOWNGRADE)
+     * @param { Array<string> } hapFilePaths - Indicates the path where the HAP of the application is stored.
+     * @param { AsyncCallback<void> } callback - The callback of installing HAPs result.
+     * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_BUNDLE' or
+     *     'ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE'
+     *     or 'ohos.permission.INSTALL_INTERNALTESTING_BUNDLE'
+     *     or ('ohos.permission.INSTALL_BUNDLE' and 'ohos.permission.INSTALL_ALLOW_DOWNGRADE').
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+     * @throws { BusinessError } 17700010 - Failed to install the HAP because the HAP fails to be parsed.
+     * @throws { BusinessError } 17700011 - Failed to install the HAP because the HAP signature fails to be verified.
+     * @throws { BusinessError } 17700012 - Failed to install the HAP because the HAP path is invalid or the HAP is too large.
+     * @throws { BusinessError } 17700015 - Failed to install the HAPs because they have different configuration information.
+     * @throws { BusinessError } 17700016 - Failed to install the HAP because of insufficient system disk space.
+     * @throws { BusinessError } 17700017 - Failed to install the HAP since the version of the HAP to install is too early.
+     * @throws { BusinessError } 17700018 - Failed to install because the dependent module does not exist.
+     * @throws { BusinessError } 17700031 - Failed to install the HAP because the overlay check of the HAP is failed.
+     * @throws { BusinessError } 17700036 - Failed to install the HSP because lacks appropriate permissions.
+     * @throws { BusinessError } 17700039 - Failed to install because disallow install a shared bundle by hapFilePaths.
+     * @throws { BusinessError } 17700041 - Failed to install because enterprise device management disallow install.
+     * @throws { BusinessError } 17700042 - Failed to install the HAP because of incorrect URI in the data proxy.
+     * @throws { BusinessError } 17700043 - Failed to install the HAP because of low APL in the non-system data proxy
+     *  (required APL: system_basic or system_core).
+     * @throws { BusinessError } 17700044 - Failed to install the HAP because the isolationMode configured is not supported.
+     * @throws { BusinessError } 17700047 - Failed to install the HAP because the VersionCode to be updated is not greater than the current VersionCode.
+     * @throws { BusinessError } 17700048 - Failed to install the HAP because the code signature verification is failed.
+     * @throws { BusinessError } 17700050 - Failed to install the HAP because enterprise normal/MDM bundle cannot be installed on non-enterprise device.
+     * @throws { BusinessError } 17700052 - Failed to install the HAP because debug bundle cannot be installed under non-developer mode.
+     * @throws { BusinessError } 17700054 - Failed to install the HAP because the HAP requests wrong permissions.
+     * @throws { BusinessError } 17700058 - Failed to install the HAP because the device has been controlled.
+     * @throws { BusinessError } 17700066 - Failed to install the HAP because installing the native package failed.
+     * @throws { BusinessError } 17700073 - Failed to install the HAP because an application with the same
+     * <br>bundle name but different signature information exists on the device.
+     * @throws { BusinessError } 17700076 - Failed to install the HAP or HSP because the app distribution type is not allowed.
+     * @throws { BusinessError } 17700077 - Failed to install the HAP and restore to preinstalled bundle.
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 23 dynamic&static
      */
     install(hapFilePaths: Array<string>, callback: AsyncCallback<void>): void;
 
@@ -815,11 +927,13 @@ declare namespace installer {
      * To install an internal beta application, you must have the permission ohos.permission.INSTALL_INTERNALTESTING_BUNDLE.
      *
      * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE
+     *     or ohos.permission.INSTALL_INTERNALTESTING_BUNDLE
      * @param { Array<string> } hapFilePaths - Indicates the path where the HAP of the application is stored.
      * @param { InstallParam } [installParam] - Indicates other parameters required for the installation.
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_BUNDLE' or
-     * 'ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE'.
+     *     'ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE'
+     *     or 'ohos.permission.INSTALL_INTERNALTESTING_BUNDLE'.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter hapFiles is needed for code signature; 4. The size of specifiedDistributionType is greater than 128; 5. The size of additionalInfo is greater than 3000.
      * @throws { BusinessError } 17700004 - The specified user ID is not found.
@@ -860,11 +974,13 @@ declare namespace installer {
      * To install an internal beta application, you must have the permission ohos.permission.INSTALL_INTERNALTESTING_BUNDLE.
      *
      * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE
+     *     or ohos.permission.INSTALL_INTERNALTESTING_BUNDLE
      * @param { Array<string> } hapFilePaths - Indicates the path where the HAP of the application is stored.
      * @param { InstallParam } [installParam] - Indicates other parameters required for the installation.
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_BUNDLE' or
-     * 'ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE'.
+     *     'ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE'
+     *     or 'ohos.permission.INSTALL_INTERNALTESTING_BUNDLE'.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter hapFiles is needed for code signature; 4. The size of specifiedDistributionType is greater than 128; 5. The size of additionalInfo is greater than 3000.
      * @throws { BusinessError } 17700004 - The specified user ID is not found.
@@ -906,11 +1022,13 @@ declare namespace installer {
      * To install an internal beta application, you must have the permission ohos.permission.INSTALL_INTERNALTESTING_BUNDLE.
      *
      * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE
+     *     or ohos.permission.INSTALL_INTERNALTESTING_BUNDLE
      * @param { Array<string> } hapFilePaths - Indicates the path where the HAP of the application is stored.
      * @param { InstallParam } [installParam] - Indicates other parameters required for the installation.
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_BUNDLE' or
-     * 'ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE'.
+     *     'ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE'
+     *     or 'ohos.permission.INSTALL_INTERNALTESTING_BUNDLE'.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter hapFiles is needed for code signature; 4. The size of specifiedDistributionType is greater than 128; 5. The size of additionalInfo is greater than 3000.
      * @throws { BusinessError } 17700004 - The specified user ID is not found.
@@ -943,7 +1061,58 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 18 dynamic
-     * @since 22 static
+     */
+    /**
+     * Install haps for an application.
+     * To install a non-enterprise application, you must have the permission ohos.permission.INSTALL_BUNDLE.
+     * To install an enterprise application, you must have the permission ohos.permission.INSTALL_ENTERPRISE_BUNDLE.
+     * To install an enterprise administrator application, you must have the permission ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE.
+     * To install an enterprise normal application, you must have the permission ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE.
+     * To install an internal beta application, you must have the permission ohos.permission.INSTALL_INTERNALTESTING_BUNDLE.
+     * To install a lower version application, you must have the permission ohos.permission.INSTALL_BUNDLE and ohos.permission.INSTALL_ALLOW_DOWNGRADE.
+     *
+     * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE
+     *     or ohos.permission.INSTALL_INTERNALTESTING_BUNDLE
+     *     or (ohos.permission.INSTALL_BUNDLE and ohos.permission.INSTALL_ALLOW_DOWNGRADE)
+     * @param { Array<string> } hapFilePaths - Indicates the path where the HAP of the application is stored.
+     * @param { InstallParam } [installParam] - Indicates other parameters required for the installation.
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_BUNDLE' or
+     *     'ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE'
+     *     or 'ohos.permission.INSTALL_INTERNALTESTING_BUNDLE'
+     *     or ('ohos.permission.INSTALL_BUNDLE' and 'ohos.permission.INSTALL_ALLOW_DOWNGRADE').
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter hapFiles is needed for code signature; 4. The size of specifiedDistributionType is greater than 128; 5. The size of additionalInfo is greater than 3000.
+     * @throws { BusinessError } 17700004 - The specified user ID is not found.
+     * @throws { BusinessError } 17700010 - Failed to install the HAP because the HAP fails to be parsed.
+     * @throws { BusinessError } 17700011 - Failed to install the HAP because the HAP signature fails to be verified.
+     * @throws { BusinessError } 17700012 - Failed to install the HAP because the HAP path is invalid or the HAP is too large.
+     * @throws { BusinessError } 17700015 - Failed to install the HAPs because they have different configuration information.
+     * @throws { BusinessError } 17700016 - Failed to install the HAP because of insufficient system disk space.
+     * @throws { BusinessError } 17700017 - Failed to install the HAP since the version of the HAP to install is too early.
+     * @throws { BusinessError } 17700018 - Failed to install because the dependent module does not exist.
+     * @throws { BusinessError } 17700031 - Failed to install the HAP because the overlay check of the HAP is failed.
+     * @throws { BusinessError } 17700036 - Failed to install the HSP because lacks appropriate permissions.
+     * @throws { BusinessError } 17700039 - Failed to install because disallow install a shared bundle by hapFilePaths.
+     * @throws { BusinessError } 17700041 - Failed to install because enterprise device management disallow install.
+     * @throws { BusinessError } 17700042 - Failed to install the HAP because of incorrect URI in the data proxy.
+     * @throws { BusinessError } 17700043 - Failed to install the HAP because of low APL in the non-system data proxy
+     *  (required APL: system_basic or system_core).
+     * @throws { BusinessError } 17700044 - Failed to install the HAP because the isolationMode configured is not supported.
+     * @throws { BusinessError } 17700047 - Failed to install the HAP because the VersionCode to be updated is not greater than the current VersionCode.
+     * @throws { BusinessError } 17700048 - Failed to install the HAP because the code signature verification is failed.
+     * @throws { BusinessError } 17700050 - Failed to install the HAP because enterprise normal/MDM bundle cannot be installed on non-enterprise device.
+     * @throws { BusinessError } 17700052 - Failed to install the HAP because debug bundle cannot be installed under non-developer mode.
+     * @throws { BusinessError } 17700054 - Failed to install the HAP because the HAP requests wrong permissions.
+     * @throws { BusinessError } 17700058 - Failed to install the HAP because the device has been controlled.
+     * @throws { BusinessError } 17700066 - Failed to install the HAP because installing the native package failed.
+     * @throws { BusinessError } 17700073 - Failed to install the HAP because an application with the same
+     * <br>bundle name but different signature information exists on the device.
+     * @throws { BusinessError } 17700076 - Failed to install the HAP or HSP because the app distribution type is not allowed.
+     * @throws { BusinessError } 17700077 - Failed to install the HAP and restore to preinstalled bundle.
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 23 dynamic&static
      */
     install(hapFilePaths: Array<string>, installParam?: InstallParam): Promise<void>;
 
@@ -1028,7 +1197,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     uninstall(bundleName: string, installParam: InstallParam, callback: AsyncCallback<void>): void;
 
@@ -1085,7 +1254,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     uninstall(bundleName: string, callback: AsyncCallback<void>): void;
 
@@ -1170,7 +1339,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     uninstall(bundleName: string, installParam?: InstallParam): Promise<void>;
 
@@ -1227,7 +1396,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     recover(bundleName: string, installParam: InstallParam, callback: AsyncCallback<void>): void;
 
@@ -1278,7 +1447,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     recover(bundleName: string, callback: AsyncCallback<void>): void;
 
@@ -1335,7 +1504,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     recover(bundleName: string, installParam?: InstallParam): Promise<void>;
 
@@ -1354,7 +1523,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     uninstall(uninstallParam: UninstallParam, callback: AsyncCallback<void>): void;
 
@@ -1373,7 +1542,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     uninstall(uninstallParam: UninstallParam): Promise<void>;
 
@@ -1446,7 +1615,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     updateBundleForSelf(hapFilePaths: Array<string>, installParam: InstallParam, callback: AsyncCallback<void>): void;
 
@@ -1511,7 +1680,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     updateBundleForSelf(hapFilePaths: Array<string>, callback: AsyncCallback<void>): void;
 
@@ -1584,7 +1753,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     updateBundleForSelf(hapFilePaths: Array<string>, installParam?: InstallParam): Promise<void>;
 
@@ -1625,7 +1794,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     uninstallUpdates(bundleName: string, installParam?: InstallParam): Promise<void>;
 
@@ -1644,7 +1813,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
     */
     addExtResource(bundleName: string, filePaths: Array<string>): Promise<void>;
 
@@ -1663,7 +1832,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     removeExtResource(bundleName: string, moduleNames: Array<string>): Promise<void>;
 
@@ -1684,7 +1853,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     createAppClone(bundleName: string, createAppCloneParam?: CreateAppCloneParam): Promise<int>;
 
@@ -1745,7 +1914,7 @@ declare namespace installer {
      * @throws { BusinessError } 17700062 - Failed to uninstall the app because the app is locked.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     destroyAppClone(bundleName: string, appIndex: int, options?: int | DestroyAppCloneParam): Promise<void>;
 
@@ -1784,7 +1953,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     installPreexistingApp(bundleName: string, userId?: int): Promise<void>;
 
@@ -1818,7 +1987,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     installPlugin(hostBundleName: string, pluginFilePaths: Array<string>, pluginParam?: PluginParam): Promise<void>;
 
@@ -1838,7 +2007,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     uninstallPlugin(hostBundleName: string, pluginBundleName: string, pluginParam?: PluginParam): Promise<void>;
   }
@@ -1850,7 +2019,7 @@ declare namespace installer {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface HashParam {
     /**
@@ -1860,7 +2029,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     moduleName: string;
 
@@ -1871,7 +2040,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     hashValue: string;
   }
@@ -1882,7 +2051,7 @@ declare namespace installer {
    * @typedef VerifyCodeParam
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 10 dynamic
+   * @since 10 dynamiconly
    * @deprecated since 11
    */
   export interface VerifyCodeParam {
@@ -1892,7 +2061,7 @@ declare namespace installer {
      * @type { string }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
      * @deprecated since 11
      */
     moduleName: string;
@@ -1903,7 +2072,7 @@ declare namespace installer {
      * @type { string }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
      * @deprecated since 11
      */
     signatureFilePath: string;
@@ -1916,7 +2085,7 @@ declare namespace installer {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface PGOParam {
     /**
@@ -1926,7 +2095,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     moduleName: string;
 
@@ -1937,7 +2106,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     pgoFilePath: string;
   }
@@ -1949,7 +2118,7 @@ declare namespace installer {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 15 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface Parameters {
     /**
@@ -1959,7 +2128,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     key: string;
 
@@ -1970,7 +2139,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     value: string;
   }
@@ -1982,7 +2151,7 @@ declare namespace installer {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface InstallParam {
     /**
@@ -1992,7 +2161,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     userId?: int;
 
@@ -2003,7 +2172,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     installFlag?: int;
 
@@ -2014,7 +2183,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isKeepData?: boolean;
 
@@ -2025,7 +2194,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     hashParams?: Array<HashParam>;
 
@@ -2036,7 +2205,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     crowdtestDeadline?: long;
 
@@ -2047,7 +2216,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     sharedBundleDirPaths?: Array<string>;
 
@@ -2058,7 +2227,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     specifiedDistributionType?: string;
 
@@ -2069,7 +2238,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     additionalInfo?: string;
 
@@ -2079,7 +2248,7 @@ declare namespace installer {
      * @type { ?Array<VerifyCodeParam> }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
      * @deprecated since 11
      */
     verifyCodeParams?: Array<VerifyCodeParam>;
@@ -2091,7 +2260,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     pgoParams?: Array<PGOParam>;
 
@@ -2102,7 +2271,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     parameters?: Array<Parameters>;
   }
@@ -2114,7 +2283,7 @@ declare namespace installer {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface UninstallParam {
     /**
@@ -2124,7 +2293,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     bundleName: string;
 
@@ -2135,7 +2304,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     versionCode?: int;
   }
@@ -2147,7 +2316,7 @@ declare namespace installer {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
    export interface CreateAppCloneParam {
     /**
@@ -2157,7 +2326,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     userId?: int;
     /**
@@ -2167,7 +2336,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     appIndex?: int;
   }
@@ -2179,7 +2348,7 @@ declare namespace installer {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 15 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface DestroyAppCloneParam {
     /**
@@ -2189,7 +2358,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     userId?: int;
     /**
@@ -2199,7 +2368,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     parameters?: Array<Parameters>;
   }
@@ -2211,7 +2380,7 @@ declare namespace installer {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface PluginParam {
     /**
@@ -2221,7 +2390,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     userId?: int;
 
@@ -2232,7 +2401,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     parameters?: Array<Parameters>;
   }

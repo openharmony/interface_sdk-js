@@ -821,12 +821,12 @@ declare namespace applicationManager {
    *              the list of application instance.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 9200012 - The parameter validation failed.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
    * @throws { BusinessError } 201 - Permission verification failed.
    *              The application does not have the permission required to call the API.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
-   * @since 22 dynamic&static
+   * @since 22
    */
    function addUserNonStopApps(admin: Want, applicationInstances: Array<common.ApplicationInstance>): void;
 
@@ -841,12 +841,12 @@ declare namespace applicationManager {
    *              the list of application instance.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 9200012 - The parameter validation failed.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
    * @throws { BusinessError } 201 - Permission verification failed.
    *              The application does not have the permission required to call the API.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
-   * @since 22 dynamic&static
+   * @since 22
    */
   function removeUserNonStopApps(admin: Want, applicationInstances: Array<common.ApplicationInstance>): void;
 
@@ -864,7 +864,7 @@ declare namespace applicationManager {
    *              The application does not have the permission required to call the API.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
-   * @since 22 dynamic&static
+   * @since 22
    */
   function getUserNonStopApps(admin: Want): Array<common.ApplicationInstance>;
 
@@ -879,12 +879,12 @@ declare namespace applicationManager {
    *              the list of application instance.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 9200012 - The parameter validation failed.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
    * @throws { BusinessError } 201 - Permission verification failed.The application does not have the permission
    *              required to call the API
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
-   * @since 22 dynamic&static
+   * @since 22
    */
    function addFreezeExemptedApps(admin: Want, applicationInstances: Array<common.ApplicationInstance>): void;
 
@@ -899,12 +899,12 @@ declare namespace applicationManager {
    *              the list of application instance.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 9200012 - The parameter validation failed.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
    * @throws { BusinessError } 201 - Permission verification failed.
    *              The application does not have the permission required to call the API.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
-   * @since 22 dynamic&static
+   * @since 22
    */
   function removeFreezeExemptedApps(admin: Want, applicationInstances: Array<common.ApplicationInstance>): void;
 
@@ -922,7 +922,7 @@ declare namespace applicationManager {
    *              The application does not have the permission required to call the API.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
-   * @since 22 dynamic&static
+   * @since 22
    */
   function getFreezeExemptedApps(admin: Want): Array<common.ApplicationInstance>;
 
@@ -1089,6 +1089,48 @@ declare namespace applicationManager {
    * @since 21
    */
   function getAllowedRunningBundles(admin: Want, accountId: number): Array<string>;
+
+  /**
+   * Sets whether to disable a specified ability.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *     The admin must have the corresponding permission.
+   * @param { string } bundleName - bundleName indicates the name of bundle.
+   * @param { number } accountId - accountId indicates the ID of OS account.
+   * @param { string } abilityName - abilityName indicates the simplified class name of ability.
+   * @param { boolean } isDisabled - The value true means to disable it, and the value false means to enable it.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 23
+   */
+  function setAbilityDisabled(admin: Want, bundleName: string, accountId: number, abilityName: string, isDisabled: boolean): void;
+
+  /**
+   * Checks whether a specified ability is disabled.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *     The admin must have the corresponding permission.
+   * @param { string } bundleName - bundleName indicates the name of bundle.
+   * @param { number } accountId - accountId indicates the ID of OS account.
+   * @param { string } abilityName - abilityName indicates the simplified class name of ability.
+   * @returns { boolean } returns true if the ability is disabled; returns false otherwise.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 23
+   */
+  function isAbilityDisabled(admin: Want, bundleName: string, accountId: number, abilityName: string): boolean;
 }
 
 export default applicationManager;

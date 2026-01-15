@@ -33,7 +33,7 @@ import { BusinessAbilityInfo as _BusinessAbilityInfo } from './application/Busin
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
  * @since 10 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace businessAbilityRouter {
   /**
@@ -43,7 +43,7 @@ declare namespace businessAbilityRouter {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum BusinessType {
     /**
@@ -52,7 +52,7 @@ declare namespace businessAbilityRouter {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SHARE = 0,
 
@@ -62,7 +62,7 @@ declare namespace businessAbilityRouter {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     UNSPECIFIED = 255
   }
@@ -74,7 +74,7 @@ declare namespace businessAbilityRouter {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface BusinessAbilityFilter {
     /**
@@ -84,7 +84,7 @@ declare namespace businessAbilityRouter {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     businessType: BusinessType;
 
@@ -95,7 +95,7 @@ declare namespace businessAbilityRouter {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     mimeType?: string;
 
@@ -106,7 +106,7 @@ declare namespace businessAbilityRouter {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     uri?: string;
   }
@@ -126,7 +126,7 @@ declare namespace businessAbilityRouter {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function queryBusinessAbilityInfo(
     filter: BusinessAbilityFilter,
@@ -147,7 +147,7 @@ declare namespace businessAbilityRouter {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function queryBusinessAbilityInfo(filter: BusinessAbilityFilter): Promise<Array<BusinessAbilityInfo>>;
 
@@ -167,7 +167,7 @@ declare namespace businessAbilityRouter {
    * @typedef { _BusinessAbilityInfo }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    */
   export type BusinessAbilityInfo = _BusinessAbilityInfo;
 }

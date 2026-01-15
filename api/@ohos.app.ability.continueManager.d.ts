@@ -17,86 +17,128 @@
  * @file
  * @kit AbilityKit
  */
- 
+
 import { AsyncCallback } from './@ohos.base';
+import Context from './application/Context';
 
 /**
  * Providers methods for interacting with continue feature.
- * 
+ *
  * @namespace continueManager
  * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+ * @stagemodelonly
  * @since 18 dynamic
+ * @since 23 static
  */
 declare namespace continueManager {
-    /**
-     * Register prepareContinue event, when the ability is configured with 'ContinueQuickStart' in the continueType, then can get the
-     * result of LaunchReason.PREPARE_CONTINUATION.
-     * 
-     * @param { 'prepareContinue' } type - Registration Type, 'prepareContinue'.
-     * @param { Context } context - the ability context.
-     * @param { AsyncCallback<ContinueResultInfo> } callback - Used to handle ('prepareContinue') command.
-     * @throws { BusinessError } 16300501 - the system ability work abnormally.
-     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-     * @since 18 dynamic
-     */
-    function on(type: 'prepareContinue', context: Context, callback: AsyncCallback<ContinueResultInfo>): void;
+  /**
+   * Register prepareContinue event, when the ability is configured with 'ContinueQuickStart' in the continueType, then can get the
+   * result of LaunchReason.PREPARE_CONTINUATION.
+   *
+   * @param { 'prepareContinue' } type - Registration Type, 'prepareContinue'.
+   * @param { Context } context - the ability context.
+   * @param { AsyncCallback<ContinueResultInfo> } callback - Used to handle ('prepareContinue') command.
+   * @throws { BusinessError } 16300501 - the system ability work abnormally.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   * @stagemodelonly
+   * @since 18 dynamic
+   */
+  function on(type: 'prepareContinue', context: Context, callback: AsyncCallback<ContinueResultInfo>): void;
 
-    /**
-     * Unregister prepareContinue event.
-     * 
-     * @param { 'prepareContinue' } type - Registration Type, 'prepareContinue'.
-     * @param { Context } context - the ability context.
-     * @param { AsyncCallback<ContinueResultInfo> } callback - Used to handle ('prepareContinue') command.
-     * @throws { BusinessError } 16300501 - the system ability work abnormally.
-     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-     * @since 18 dynamic
-     */
-    function off(type: 'prepareContinue', context: Context, callback?: AsyncCallback<ContinueResultInfo>): void;
+  /**
+   * Unregister prepareContinue event.
+   *
+   * @param { 'prepareContinue' } type - Registration Type, 'prepareContinue'.
+   * @param { Context } context - the ability context.
+   * @param { AsyncCallback<ContinueResultInfo> } callback - Used to handle ('prepareContinue') command.
+   * @throws { BusinessError } 16300501 - the system ability work abnormally.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   * @stagemodelonly
+   * @since 18 dynamic
+   */
+  function off(type: 'prepareContinue', context: Context, callback?: AsyncCallback<ContinueResultInfo>): void;
 
-    /**
-     * Continue result info.
-     * @interface ContinueEventInfo
-     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-     * @since 18 dynamic
-     */
-    interface ContinueResultInfo {
-        /**
-         * Continue state code.
-         * @type { ContinueStateCode }
-         * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-         * @since 18 dynamic
-         */
-        resultState: ContinueStateCode;
+  /**
+   * Register prepareContinue event, when the ability is configured with 'ContinueQuickStart' in the continueType, then can get the
+   * result of LaunchReason.PREPARE_CONTINUATION.
+   *
+   * @param { Context } context - the ability context.
+   * @param { AsyncCallback<ContinueResultInfo> } callback - Used to handle ('prepareContinue') command.
+   * @throws { BusinessError } 16300501 - the system ability work abnormally.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   * @stagemodelonly
+   * @since 23 static
+   */
+  function onPrepareContinue(context: Context, callback: AsyncCallback<ContinueResultInfo>): void;
 
-        /**
-         * Result info.
-         * @type { ?string }
-         * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-         * @since 18 dynamic
-         */
-        resultInfo?: string;
-    }
+  /**
+   * Unregister prepareContinue event.
+   *
+   * @param { Context } context - the ability context.
+   * @param { AsyncCallback<ContinueResultInfo> } callback - Used to handle ('prepareContinue') command.
+   * @throws { BusinessError } 16300501 - the system ability work abnormally.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   * @stagemodelonly
+   * @since 23 static
+   */
+  function offPrepareContinue(context: Context, callback?: AsyncCallback<ContinueResultInfo>): void;
 
+  /**
+   * Continue result info.
+   * @interface ContinueEventInfo
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   * @stagemodelonly
+   * @since 18 dynamic
+   * @since 23 static
+   */
+  interface ContinueResultInfo {
     /**
      * Continue state code.
-     * @enum { number }
+     * @type { ContinueStateCode }
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+     * @stagemodelonly
      * @since 18 dynamic
+     * @since 23 static
      */
-    enum ContinueStateCode {
-        /**
-         * Continue success
-         * @syscap SystemCapability.Ability.AbilityRuntime.Mission 
-         * @since 18 dynamic
-         */
-        SUCCESS = 0,
+    resultState: ContinueStateCode;
 
-        /**
-         * System error
-         * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-         * @since 18 dynamic
-         */
-        SYSTEM_ERROR,
+    /**
+     * Result info.
+     * @type { ?string }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+     * @stagemodelonly
+     * @since 18 dynamic
+     * @since 23 static
+     */
+    resultInfo?: string;
+    }
+
+  /**
+   * Continue state code.
+   * @enum { int }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   * @stagemodelonly
+   * @since 18 dynamic
+   * @since 23 static
+   */
+  enum ContinueStateCode {
+    /**
+     * Continue success
+     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+     * @stagemodelonly
+     * @since 18 dynamic
+     * @since 23 static
+     */
+    SUCCESS = 0,
+
+    /**
+     * System error
+     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+     * @stagemodelonly
+     * @since 18 dynamic
+     * @since 23 static
+     */
+    SYSTEM_ERROR = 1
     }
 }
 export default continueManager;

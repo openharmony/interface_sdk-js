@@ -29,8 +29,9 @@ import ExtensionContext from './application/ExtensionContext';
  * @syscap SystemCapability.MiscServices.InputMethodFramework
  * @StageModelOnly
  * @since 9 dynamic
+ * @since 23 static
  */
-export default class InputMethodExtensionContext extends ExtensionContext {
+declare class InputMethodExtensionContext extends ExtensionContext {
   /**
    * Destroy the input method extension.
    *
@@ -38,6 +39,7 @@ export default class InputMethodExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @StageModelOnly
    * @since 9 dynamic
+   * @since 23 static
    */
   destroy(callback: AsyncCallback<void>): void;
 
@@ -48,6 +50,7 @@ export default class InputMethodExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @StageModelOnly
    * @since 9 dynamic
+   * @since 23 static
    */
   destroy(): Promise<void>;
 
@@ -80,6 +83,9 @@ export default class InputMethodExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @StageModelOnly
    * @since 12 dynamic
+   * @since 23 static
    */
   startAbility(want: Want): Promise<void>;
 }
+
+export default InputMethodExtensionContext;

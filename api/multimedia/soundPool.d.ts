@@ -28,14 +28,14 @@ import resourceManager from '../@ohos.resourceManager';
  * @enum { int }
  * @syscap SystemCapability.Multimedia.Media.SoundPool
  * @since 20 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export enum ErrorType {
   /**
    * Load error.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   LOAD_ERROR = 1,
 
@@ -43,7 +43,7 @@ export enum ErrorType {
    * Play error.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   PLAY_ERROR = 2
 }
@@ -53,7 +53,7 @@ export enum ErrorType {
  * @typedef { ErrorInfo<T extends Error = BusinessError> }
  * @syscap SystemCapability.Multimedia.Media.SoundPool
  * @since 20 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface ErrorInfo<T extends Error = BusinessError> {
   /**
@@ -61,7 +61,7 @@ export interface ErrorInfo<T extends Error = BusinessError> {
    * @type { T }
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   errorCode: T;
   /**
@@ -69,25 +69,25 @@ export interface ErrorInfo<T extends Error = BusinessError> {
    * @type { ?ErrorType }
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   errorType?: ErrorType;
   /**
    * Sound id, returned from SoundPool.load function.
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
-  soundId?: number;
+  soundId?: int;
   /**
    * Stream id, returned from SoundPool.play function.
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
-  streamId?: number;
+  streamId?: int;
 }
 
 /**
@@ -98,7 +98,7 @@ export interface ErrorInfo<T extends Error = BusinessError> {
  * @typedef PlayParameters
  * @syscap SystemCapability.Multimedia.Media.SoundPool
  * @since 10 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface PlayParameters {
   /**
@@ -114,7 +114,7 @@ export interface PlayParameters {
    * @type { ?int }
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   loop?: int;
   /**
@@ -123,7 +123,7 @@ export interface PlayParameters {
    * @type { ?int }
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   rate?: int;
   /**
@@ -132,7 +132,7 @@ export interface PlayParameters {
    * @type { ?double }
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   leftVolume?: double;
   /**
@@ -142,7 +142,7 @@ export interface PlayParameters {
    * @type { ?double }
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   rightVolume?: double;
   /**
@@ -152,7 +152,7 @@ export interface PlayParameters {
    * @type { ?int }
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   priority?: int;
   /**
@@ -166,7 +166,7 @@ export interface PlayParameters {
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   parallelPlayFlag?: boolean;
 }
@@ -189,7 +189,7 @@ export interface PlayParameters {
  * @typedef SoundPool
  * @syscap SystemCapability.Multimedia.Media.SoundPool
  * @since 10 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export declare interface SoundPool {
   /**
@@ -214,7 +214,7 @@ export declare interface SoundPool {
    * @throws { BusinessError } 5400105 - Service died. Return by callback.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   load(uri: string, callback: AsyncCallback<int>): void;
   /**
@@ -239,7 +239,7 @@ export declare interface SoundPool {
    * @throws { BusinessError } 5400105 - Service died. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   load(uri: string): Promise<int>;
   /**
@@ -266,7 +266,7 @@ export declare interface SoundPool {
    * @throws { BusinessError } 5400105 - Service died. Return by callback.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   load(fd: int, offset: long, length: long, callback: AsyncCallback<int>): void;
   /**
@@ -292,7 +292,7 @@ export declare interface SoundPool {
    * @throws { BusinessError } 5400105 - Service died. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   load(fd: int, offset: long, length: long): Promise<int>;
   /**
@@ -308,7 +308,7 @@ export declare interface SoundPool {
    * @throws { BusinessError } 5400105 - Service died. Return by callback.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   play(soundID: int, params: PlayParameters, callback: AsyncCallback<int>): void;
   /**
@@ -323,7 +323,7 @@ export declare interface SoundPool {
    * @throws { BusinessError } 5400105 - Service died. Return by callback.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   play(soundID: int, callback: AsyncCallback<int>): void;
   /**
@@ -338,7 +338,7 @@ export declare interface SoundPool {
    * @throws { BusinessError } 5400105 - Service died. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   play(soundID: int, params?: PlayParameters): Promise<int>;
   /**
@@ -352,7 +352,7 @@ export declare interface SoundPool {
    * @throws { BusinessError } 5400105 - Service died. Return by callback.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   stop(streamID: int, callback: AsyncCallback<void>): void;
   /**
@@ -366,7 +366,7 @@ export declare interface SoundPool {
    * @throws { BusinessError } 5400105 - Service died. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   stop(streamID: int): Promise<void>;
   /**
@@ -386,7 +386,7 @@ export declare interface SoundPool {
    * @throws { BusinessError } 5400105 - Service died. Return by callback.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   setLoop(streamID: int, loop: int, callback: AsyncCallback<void>): void;
   /**
@@ -406,7 +406,7 @@ export declare interface SoundPool {
    * @throws { BusinessError } 5400105 - Service died. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   setLoop(streamID: int, loop: int): Promise<void>;
   /**
@@ -422,7 +422,7 @@ export declare interface SoundPool {
    * @throws { BusinessError } 5400105 - Service died. Return by callback.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   setPriority(streamID: int, priority: int, callback: AsyncCallback<void>): void;
   /**
@@ -438,7 +438,7 @@ export declare interface SoundPool {
    * @throws { BusinessError } 5400105 - Service died. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   setPriority(streamID: int, priority: int): Promise<void>;
   /**
@@ -453,7 +453,7 @@ export declare interface SoundPool {
    * @throws { BusinessError } 5400105 - Service died. Return by callback.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   setRate(streamID: int, rate: audio.AudioRendererRate, callback: AsyncCallback<void>): void;
   /**
@@ -468,7 +468,7 @@ export declare interface SoundPool {
    * @throws { BusinessError } 5400105 - Service died. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   setRate(streamID: int, rate: audio.AudioRendererRate): Promise<void>;
   /**
@@ -485,7 +485,7 @@ export declare interface SoundPool {
    * @throws { BusinessError } 5400105 - Service died. Return by callback.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   setVolume(streamID: int, leftVolume: double, rightVolume: double, callback: AsyncCallback<void>): void;
   /**
@@ -502,9 +502,18 @@ export declare interface SoundPool {
    * @throws { BusinessError } 5400105 - Service died. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   setVolume(streamID: int, leftVolume: double, rightVolume: double): Promise<void>;
+  /**
+   * Sets the interrupt mode for sound parallel play. The default mode is SoundInterruptMode.SAME_SOUND_INTERRUPT.
+   *
+   * @param { media.SoundInterruptMode } interruptMode - the interrupt mode.
+   * @syscap SystemCapability.Multimedia.Media.SoundPool
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  setInterruptMode(interruptMode: media.SoundInterruptMode): void;
   /**
    * Unloads a sound. This API uses an asynchronous callback to return the result.
    *
@@ -515,7 +524,7 @@ export declare interface SoundPool {
    * @throws { BusinessError } 5400105 - Service died. Return by callback.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   unload(soundID: int, callback: AsyncCallback<void>): void;
   /**
@@ -528,7 +537,7 @@ export declare interface SoundPool {
    * @throws { BusinessError } 5400105 - Service died. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   unload(soundID: int): Promise<void>;
   /**
@@ -538,7 +547,7 @@ export declare interface SoundPool {
    * @throws { BusinessError } 5400105 - Service died. Return by callback.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   release(callback: AsyncCallback<void>): void;
   /**
@@ -548,7 +557,7 @@ export declare interface SoundPool {
    * @throws { BusinessError } 5400105 - Service died. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   release(): Promise<void>;
 
@@ -568,7 +577,7 @@ export declare interface SoundPool {
    *
    * @param {Callback<int>} callback - ID of the sound that has been loaded.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since 22 static
+   * @since 23 static
    */
   onLoadComplete(callback: Callback<int>): void;
   /**
@@ -583,7 +592,7 @@ export declare interface SoundPool {
    * Unsubscribes from events indicating that a sound finishes loading.
    *
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since 22 static
+   * @since 23 static
    */
   offLoadComplete(): void;
 
@@ -620,7 +629,7 @@ export declare interface SoundPool {
    * @param {Callback<int>} callback - Callback used to return the result. Stream ID of the audio that
    *     finishes playing.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since 22 static
+   * @since 23 static
    */
   onPlayFinishedWithStreamId(callback: Callback<int>): void;
    /**
@@ -635,7 +644,7 @@ export declare interface SoundPool {
     * Unsubscribes from events indicating that a sound finishes playing.
     *
     * @syscap SystemCapability.Multimedia.Media.SoundPool
-    * @since 22 static
+    * @since 23 static
     */
   offPlayFinishedWithStreamId(): void;
   /**
@@ -654,7 +663,7 @@ export declare interface SoundPool {
    *
    * @param {Callback<void>} callback - Callback used to return the result.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since 22 static
+   * @since 23 static
    */
   onPlayFinished(callback: Callback<void>): void;
   /**
@@ -669,7 +678,7 @@ export declare interface SoundPool {
    * Unsubscribes from events indicating that a sound finishes playing.
    *
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since 22 static
+   * @since 23 static
    */
   offPlayFinished(): void;
   /**
@@ -688,7 +697,7 @@ export declare interface SoundPool {
    * 
    * @param {ErrorCallback} callback - Callback used to return the error code ID and error message.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since 22 static
+   * @since 23 static
    */
   onError(callback: ErrorCallback): void;
   /**
@@ -703,7 +712,7 @@ export declare interface SoundPool {
    * Unsubscribes from error events of this **SoundPool** instance.
    *
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since 22 static
+   * @since 23 static
    */
   offError(): void;
 
@@ -721,7 +730,7 @@ export declare interface SoundPool {
    *
    * @param { Callback<ErrorInfo> } callback - Callback used to listen for soundpool errorOccurred events.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since 22 static
+   * @since 23 static
    */
 
   onErrorOccurred(callback: Callback<ErrorInfo>): void;
@@ -739,7 +748,7 @@ export declare interface SoundPool {
    *
    * @param { Callback<ErrorInfo> } [callback] - Callback used to listen for soundpool errorOccurred events.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since 22 static
+   * @since 23 static
    */
   offErrorOccurred(callback?: Callback<ErrorInfo>): void;
 }

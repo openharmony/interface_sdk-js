@@ -26,7 +26,7 @@ import AbilityStageContext from './application/AbilityStageContext';
  * @syscap SystemCapability.Ability.AppStartup
  * @stagemodelonly
  * @since 12 dynamic
- * @since 22 static
+ * @since 23 static
  */
 /*** if arkts dynamic */
 @Sendable
@@ -50,7 +50,7 @@ declare class StartupTask {
    * @param { Any } result - Indicates result of specific dependent startup task.
    * @syscap SystemCapability.Ability.AppStartup
    * @stagemodelonly
-   * @since 22 static
+   * @since 23 static
    */
   onDependencyCompleted(dependency: string, result: Any): void;
 
@@ -74,7 +74,7 @@ declare class StartupTask {
    * @returns { Promise<Any> | Promise<void> } The result of initialization.
    * @syscap SystemCapability.Ability.AppStartup
    * @stagemodelonly
-   * @since 22 static
+   * @since 23 static
    */
   init(context: AbilityStageContext): Promise<Any> | Promise<void>;
 }

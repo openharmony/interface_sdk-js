@@ -619,7 +619,7 @@ declare class AppStorage {
    * @param { string } propName
    * @returns { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 10
    */
   static IsMutable(propName: string): boolean;
@@ -814,7 +814,7 @@ declare abstract class SubscribedAbstractProperty<T> {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 7 dynamic
+     * @since 7
      *
      */
     subscribeMe?: IPropertySubscriber,
@@ -823,7 +823,7 @@ declare abstract class SubscribedAbstractProperty<T> {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 7 dynamic
+     * @since 7
      *
      */
     info?: string,

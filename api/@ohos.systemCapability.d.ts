@@ -26,7 +26,7 @@ import { AsyncCallback, Callback } from './@ohos.base';
 * @syscap SystemCapability.Developtools.Syscap
 * @systemapi
 * @since 9 dynamic
-* @since 22 static
+* @since 23 static
 */
 declare namespace systemCapability {
   /**
@@ -35,7 +35,7 @@ declare namespace systemCapability {
    * @syscap SystemCapability.Developtools.Syscap
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function querySystemCapabilities(callback: AsyncCallback<string>): void;
 
@@ -45,7 +45,7 @@ declare namespace systemCapability {
    * @syscap SystemCapability.Developtools.Syscap
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function querySystemCapabilities(): Promise<string>;
 }
