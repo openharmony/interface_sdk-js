@@ -8183,7 +8183,7 @@ declare namespace media {
     /**
      * Default audio encoding format, which is AMR-NB.
      * @syscap SystemCapability.Multimedia.Media.AudioRecorder
-     * @since 6 dynamic
+     * @since 6 dynamiconly
      * @deprecated since 8
      */
     DEFAULT = 0,
@@ -8238,7 +8238,7 @@ declare namespace media {
     /**
      * Default audio output format, which is Moving Pictures Expert Group 4 (MPEG-4).
      * @syscap SystemCapability.Multimedia.Media.AudioRecorder
-     * @since 6 dynamic
+     * @since 6 dynamiconly
      * @deprecated since 8
      */
     DEFAULT = 0,
@@ -12821,7 +12821,6 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
 	   * @systemapi
      * @since 18 dynamic
-     * @since 23 static
      * @example
      * // This event is reported when the state of the system screen recorder changes.
      * screenCaptureMonitor.on('systemScreenRecorder', (event: media.ScreenCaptureEvent) => {
