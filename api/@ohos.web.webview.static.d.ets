@@ -2535,8 +2535,7 @@ declare namespace webview {
          * <br>2. Incorrect parameter types. 3.Parameter verification failed.
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
-         * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid, or the URL
-         *                           length exceeds 2048.
+         * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid.
          * @throws { BusinessError } 17100003 - Invalid resource path or file type.
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
