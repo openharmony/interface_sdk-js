@@ -25,7 +25,8 @@ import type { Callback } from './@ohos.base';
  *
  * @namespace userStatus
  * @syscap SystemCapability.MultimodalAwareness.UserStatus
- * @since 20
+ * @since 20 dynamic
+ * @since 23 static
  */
 declare namespace userStatus {
   /**
@@ -34,7 +35,8 @@ declare namespace userStatus {
    *
    * @interface UserClassification
    * @syscap SystemCapability.MultimodalAwareness.UserStatus
-   * @since 20
+   * @since 20 dynamic
+   * @since 23 static
    */
   export interface UserClassification {
     /**
@@ -42,7 +44,8 @@ declare namespace userStatus {
      *
      * @type  { ?UserAgeGroup }
      * @syscap SystemCapability.MultimodalAwareness.UserStatus
-     * @since 20
+     * @since 20 dynamic
+     * @since 23 static
      */
     ageGroup?: UserAgeGroup;
 
@@ -51,7 +54,8 @@ declare namespace userStatus {
      *
      * @type  { ?float }
      * @syscap SystemCapability.MultimodalAwareness.UserStatus
-     * @since 20
+     * @since 20 dynamic
+     * @since 23 static
      */
     confidence?: float;
   }
@@ -61,14 +65,16 @@ declare namespace userStatus {
    *
    * @enum { number } UserAgeGroup
    * @syscap SystemCapability.MultimodalAwareness.UserStatus
-   * @since 20
+   * @since 20 dynamic
+   * @since 23 static
    */
   export enum UserAgeGroup {
     /**
      * Indicates that the operator is not a child.
      *
      * @syscap SystemCapability.MultimodalAwareness.UserStatus
-     * @since 20
+     * @since 20 dynamic
+     * @since 23 static
      */
     OTHERS = 0,
 
@@ -76,7 +82,8 @@ declare namespace userStatus {
      * Indicates that the operator is a child.
      *
      * @syscap SystemCapability.MultimodalAwareness.UserStatus
-     * @since 20
+     * @since 20 dynamic
+     * @since 23 static
      */
     CHILD = 1
   }
