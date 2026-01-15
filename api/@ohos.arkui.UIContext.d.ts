@@ -1618,6 +1618,7 @@ export interface PageInfo {
    *
    * @type { ?observer.RouterPageInfo }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
@@ -1629,6 +1630,7 @@ export interface PageInfo {
    * @type { ?observer.NavDestinationInfo }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
+   * @crossplatform
    * @since 12 dynamic
    */
   navDestinationInfo?: observer.NavDestinationInfo;
