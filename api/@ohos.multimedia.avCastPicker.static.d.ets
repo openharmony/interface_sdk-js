@@ -103,7 +103,7 @@ declare struct AVCastPicker {
   /**
    * The method to build component.
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
-   * @since 23 static
+   * @since 23 staticonly
    */
   @Builder
   build(): void;
