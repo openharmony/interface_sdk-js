@@ -1194,7 +1194,7 @@ declare namespace media {
      * @param { AVImageQueryOptions } queryOption - The time options about the relationship
      *     between the given timeUs and a key frame, see @AVImageQueryOptions.
      * @param { PixelMapParams } param - The output pixel map format params, see @PixelMapParams.
-     * @param { OnFrameFetched } callback - the callback function when a fetch is done\failed\cancelled.
+     * @param { OnFrameFetched } callback - the callback function when a fetch is succeeded\failed\cancelled.
      * @throws { BusinessError } 5400102 - Operation not allowed. Returned by callback.
      * @throws { BusinessError } 5400104 - Fetch timeout, Returned by callback.
      * @throws { BusinessError } 5400106 - Unsupported format. Returned by callback.
