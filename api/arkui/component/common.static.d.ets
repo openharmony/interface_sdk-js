@@ -5122,6 +5122,15 @@ export type UniformDataType = uniformTypeDescriptor.UniformDataType;
  */
 export type DataSyncOptions = unifiedDataChannel.GetDataParams;
 /**
+ * Import the DataLoadParams type object for ui component.
+ *
+ * @typedef { unifiedDataChannel.DataLoadParams } DataLoadParams
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 24 static
+ */
+export type DataLoadParams = unifiedDataChannel.DataLoadParams;
+/**
  * The type for SpringLoadingContext, see the detailed description in dragController.
  *
  * @typedef { dragController.SpringLoadingContext } SpringLoadingContext
@@ -5626,6 +5635,37 @@ export declare interface DragEvent {
      */
      getDisplayId(): int;
     /**
+     * Retrieve the bundle information of the drag source application.
+     *
+     * @returns { string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 24 static
+     */
+     getDragSource(): string;
+    /**
+     * Call this method to determine whether the current drag operation is a cross-device drag.
+     *
+     * @returns { boolean }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 24 static
+     */
+     isRemote(): boolean;
+    /**
+     * Use this method to provide a data representation to the system instead of directly providing a complete data
+     * object. When the user releases the drag over the target application, the system will use this data
+     * representation to request the actual data from drag source. This approach significantly improves the
+     * efficiency of initiating drag operations for large volumes of data and enhances the effectiveness of data
+     * reception. It is recommended to use this method instead of the setData method.
+     *
+     * @param { DataLoadParams } dataLoadParams - The data backend representation.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 24 static
+     */
+     setDataLoadParams(dataLoadParams: DataLoadParams): void;
+    /**
      * Enable the internal drop animation, which is only avaiable for system applications.
      *
      * The animations' configuration need to be provided through the input paramerter, and it is a string in json format.
@@ -5639,7 +5679,8 @@ export declare interface DragEvent {
      * @throws { BusinessError } 190003 - Operation not allowed for current phase.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 23 static
+     * @stagemodelonly
+     * @since 24 static
      */
     enableInternalDropAnimation(configuration: string): void;
     /**
