@@ -30,16 +30,19 @@ import { FractionStop } from './arkui/component/common';
 
 /**
  * @namespace effectKit
+ * @syscap SystemCapability.Multimedia.Image.Core
  * @since 9
  */
 /**
  * @namespace effectKit
+ * @syscap SystemCapability.Multimedia.Image.Core
  * @form
  * @atomicservice
  * @since 12
  */
 /**
  * @namespace effectKit
+ * @syscap SystemCapability.Multimedia.Image.Core
  * @crossplatform
  * @form
  * @atomicservice
