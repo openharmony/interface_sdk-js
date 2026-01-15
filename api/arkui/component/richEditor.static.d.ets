@@ -1796,7 +1796,7 @@ export declare class RichEditorController extends RichEditorBaseController {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
      */
-    getSpans(value?: RichEditorRange): Array<RichEditorImageSpanResult | RichEditorTextSpanResult> | undefined;;
+    getSpans(value?: RichEditorRange): Array<RichEditorImageSpanResult | RichEditorTextSpanResult> | undefined;
     /**
      * Get span content.
      *
