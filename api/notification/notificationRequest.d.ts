@@ -1152,10 +1152,10 @@ export interface UnifiedGroupInfo {
   /**
    * Other information is aggregated across applications.
    *
-   * @type { ?object }
+   * @type { ?Record<string, RecordData> }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 23 static
    */
-  extraInfo?: Record<string, Object>;
+  extraInfo?: Record<string, RecordData>;
 }
