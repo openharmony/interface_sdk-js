@@ -3897,7 +3897,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100001 - Initialization error.
          *     The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 23 static
+         * @since 24 static
          */
         setUrlTrustList(urlTrustList: string, allowOpaqueOrigin: boolean, supportWildcard: boolean): void
 
