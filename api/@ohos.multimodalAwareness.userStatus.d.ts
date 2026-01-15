@@ -140,7 +140,7 @@ declare namespace userStatus {
    * @syscap SystemCapability.MultimodalAwareness.Motion
    * @since 23 static
    */
-  function OnUserAgeGroupDetectedInner(callback: Callback<UserClassification>): void;
+  function OnUserAgeGroupDetected(callback: Callback<UserClassification>): void;
   /**
    * Unsubscribe from the holding hand changed event.
    * @permission  ohos.permission.DETECT_GESTURE
@@ -154,6 +154,6 @@ declare namespace userStatus {
    * @syscap SystemCapability.MultimodalAwareness.Motion
    * @since 23 static
    */
-  function OffUserAgeGroupDetectedInner(callback?: Callback<UserClassification>): void;
+  function OffUserAgeGroupDetected(callback?: Callback<UserClassification>): void;
 }
 export default userStatus;
