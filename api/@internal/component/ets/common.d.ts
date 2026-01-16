@@ -455,6 +455,7 @@ declare const Entry: ClassDecorator & ((options?: LocalStorage | EntryOptions) =
  * Defining Observed ClassDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @since 10
