@@ -3313,6 +3313,16 @@ declare namespace text {
    */
   class Paragraph {
     /**
+     * Performs layout and calculates the positions of all glyphs with constrained height and width.
+     * @param { TextRectSize } size - The constrainted height and width, in px.
+     * @returns { TextLayoutResult } The rectangle size needed and the character range that actually fits the paragraph.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    layoutWithConstraints(size: TextRectSize): TextLayoutResult;
+
+    /**
      * Performs layout and calculates the positions of all glyphs.
      * @param { double } width - Maximum width of a single line, in units of px. The value is a floating point number.
      * @syscap SystemCapability.Graphics.Drawing
@@ -5418,6 +5428,67 @@ declare namespace text {
      * @since 23 static
      */
     location: double;
+  }
+
+  /**
+   * The text's rectangle after layout. The value is a floating point number, in px.
+   *
+   * @typedef TextRectSize
+   * @syscap SystemCapability.Graphics.Drawing
+   * @atomicservice
+   * @since 24 dynamic&static
+   */
+  interface TextRectSize {
+   /**
+    * The width of the text's rectangle.
+    *
+    * @type { double }
+    * @syscap SystemCapability.Graphics.Drawing
+    * @atomicservice
+    * @since 24 dynamic&static
+    */
+    width: double;
+
+   /**
+    * The height of the text's rectangle.
+    *
+    * @type { double }
+    * @syscap SystemCapability.Graphics.Drawing
+    * @atomicservice
+    * @since 24 dynamic&static
+    */
+    height: double;
+  }
+
+  /**
+   * The text layout result.
+   *
+   * @typedef TextRectSize
+   * @syscap SystemCapability.Graphics.Drawing
+   * @atomicservice
+   * @since 24 dynamic&static
+   */
+  interface TextLayoutResult {
+   /**
+    * The character range of the string that fits in the paragraph's rectangle.
+    * If ellipsis is triggered, character range will equal to original string range.
+    *
+    * @type { Array<Range> }
+    * @syscap SystemCapability.Graphics.Drawing
+    * @atomicservice
+    * @since 24 dynamic&static
+    */
+    fitStrRange: Array<Range>;
+
+   /**
+    * The size of the paragraph's rectangle after layout.
+    *
+    * @type { TextRectSize }
+    * @syscap SystemCapability.Graphics.Drawing
+    * @atomicservice
+    * @since 24 dynamic&static
+    */
+    correctRect: TextRectSize;
   }
 
   /**
