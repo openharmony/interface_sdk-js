@@ -10551,14 +10551,14 @@ declare enum ShadowType {
  */
 declare interface ShadowOptions {
   /**
-   * Blur radius of the shadow.
+   * Blur radius of the shadow and the unit is px.
    *
    * @type { number | Resource }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
-   * Blur radius of the shadow.
+   * Blur radius of the shadow and the unit is px.
    *
    * @type { number | Resource }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10566,7 +10566,7 @@ declare interface ShadowOptions {
    * @since 9
    */
   /**
-   * Blur radius of the shadow.
+   * Blur radius of the shadow and the unit is px.
    *
    * @type { number | Resource }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10575,7 +10575,7 @@ declare interface ShadowOptions {
    * @since 10
    */
   /**
-   * Blur radius of the shadow.
+   * Blur radius of the shadow and the unit is px.
    *
    * @type { number | Resource }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
