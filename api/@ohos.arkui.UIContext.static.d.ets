@@ -3758,7 +3758,7 @@ export declare class UIContext {
   getId(): int;
 
   /**
-   * Set the switch for memory recycling of invisible image nodes.
+   * Set the switch for memory recycling of invisible image nodes
    * 
    * @param { boolean } enabled - The switch for memory recycling.
    *    <br>Default value: false, Passing `undefined` restores the default value.
