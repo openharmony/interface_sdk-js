@@ -1440,9 +1440,18 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 14 dynamic
-     * @since 23 static
      */
     on(type: 'keySystemRequired', callback: (eventInfo: EventInfo) => void): void;
+
+    /**
+     * Register keySystemRequired events.
+     * 
+     * @param { function } callback - Used to listen for the key system required event.
+     * @throws { BusinessError } 24700101 - All unknown errors.
+     * @syscap SystemCapability.Multimedia.Drm.Core
+     * @since 23 static
+     */
+    onKeySystemRequired(callback: (eventInfo: EventInfo) => void): void;
 
     /**
      * Unregister keySystemRequired events.
@@ -1464,9 +1473,18 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 14 dynamic
-     * @since 23 static
      */
     off(type: 'keySystemRequired', callback?: (eventInfo: EventInfo) => void): void;
+
+    /**
+     * Unregister keySystemRequired events.
+     * 
+     * @param { function } callback - Used to listen for the key system required event.
+     * @throws { BusinessError } 24700101 - All unknown errors.
+     * @syscap SystemCapability.Multimedia.Drm.Core
+     * @since 23 static
+     */
+    offKeySystemRequired(callback?: (eventInfo: EventInfo) => void): void;
 
     /**
      * Create a MediaKeySession instance with level.
@@ -1910,9 +1928,18 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 23 static
      */
     on(type: 'keyRequired', callback: (eventInfo: EventInfo) => void): void;
+
+    /**
+     * Register keyRequired event.
+     * 
+     * @param { function } callback used to listen for the key required event.
+     * @throws { BusinessError } 24700101 - All unknown errors.
+     * @syscap SystemCapability.Multimedia.Drm.Core
+     * @since 23 static
+     */
+    onKeyRequired(callback: (eventInfo: EventInfo) => void): void;
 
     /**
      * Unregister keyRequired event.
@@ -1941,6 +1968,16 @@ declare namespace drm {
     off(type: 'keyRequired', callback?: (eventInfo: EventInfo) => void): void;
 
     /**
+     * Unregister keyRequired event.
+     *
+     * @param { function } callback used to listen for the key required event.
+     * @throws { BusinessError } 24700101 - All unknown errors.
+     * @syscap SystemCapability.Multimedia.Drm.Core
+     * @since 23 static
+     */
+    offKeyRequired(callback?: (eventInfo: EventInfo) => void): void;
+
+    /**
      * Register keyExpired event.
      * @param { 'keyExpired' } type - Type of the drm event to listen for.
      * @param { function } callback - Used to listen for the key required event.
@@ -1962,9 +1999,18 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 23 static
      */
     on(type: 'keyExpired', callback: (eventInfo: EventInfo) => void): void;
+
+    /**
+     * Register keyExpired event.
+     * 
+     * @param { function } callback - Used to listen for the key required event.
+     * @throws { BusinessError } 24700101 - All unknown errors.
+     * @syscap SystemCapability.Multimedia.Drm.Core
+     * @since 23 static
+     */
+    onKeyExpired(callback: (eventInfo: EventInfo) => void): void;
 
     /**
      * Unregister keyExpired event.
@@ -1993,6 +2039,17 @@ declare namespace drm {
     off(type: 'keyExpired', callback?: (eventInfo: EventInfo) => void): void;
 
     /**
+     * Unregister keyExpired event.
+     * 
+     * @param { function } callback - Used to listen for the key required event.
+     * @throws { BusinessError } 24700101 - All unknown errors.
+     * @syscap SystemCapability.Multimedia.Drm.Core
+     * @since 23 static
+     */
+    offKeyExpired(callback?: (eventInfo: EventInfo) => void): void;
+
+
+    /**
      * Register vendorDefined event.
      * @param { 'vendorDefined' } type - Type of the drm event to listen for.
      * @param { function } callback - Used to listen for the vendor defined event.
@@ -2014,9 +2071,18 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 23 static
      */
     on(type: 'vendorDefined', callback: (eventInfo: EventInfo) => void): void;
+
+    /**
+     * Register vendorDefined event.
+     * 
+     * @param { function } callback - Used to listen for the vendor defined event.
+     * @throws { BusinessError } 24700101 - All unknown errors.
+     * @syscap SystemCapability.Multimedia.Drm.Core
+     * @since 23 static
+     */
+    onVendorDefined(callback: (eventInfo: EventInfo) => void): void;
 
     /**
      * Unregister vendorDefined event.
@@ -2045,6 +2111,16 @@ declare namespace drm {
     off(type: 'vendorDefined', callback?: (eventInfo: EventInfo) => void): void;
 
     /**
+     * Unregister vendorDefined event.
+     * 
+     * @param { function } callback - Used to listen for the vendor defined event.
+     * @throws { BusinessError } 24700101 - All unknown errors.
+     * @syscap SystemCapability.Multimedia.Drm.Core
+     * @since 23 static
+     */
+    offVendorDefined(callback?: (eventInfo: EventInfo) => void): void;
+
+    /**
      * Register expirationUpdate event.
      * @param { 'expirationUpdate' } type - Type of the drm event to listen for.
      * @param { function } callback - Used to listen for expiration update event.
@@ -2066,9 +2142,18 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 23 static
      */
     on(type: 'expirationUpdate', callback: (eventInfo: EventInfo) => void): void;
+
+    /**
+     * Register expirationUpdate event.
+     * 
+     * @param { function } callback - Used to listen for expiration update event.
+     * @throws { BusinessError } 24700101 - All unknown errors.
+     * @syscap SystemCapability.Multimedia.Drm.Core
+     * @since 23 static
+     */
+    onExpirationUpdate(callback: (eventInfo: EventInfo) => void): void;
 
     /**
      * Unregister expirationUpdate event.
@@ -2097,6 +2182,16 @@ declare namespace drm {
     off(type: 'expirationUpdate', callback?: (eventInfo: EventInfo) => void): void;
 
     /**
+     * Unregister expirationUpdate event.
+     *             
+     * @param { function } callback - Used to listen for expiration update event.
+     * @throws { BusinessError } 24700101 - All unknown errors.
+     * @syscap SystemCapability.Multimedia.Drm.Core
+     * @since 23 static
+     */
+    offExpirationUpdate(type: 'expirationUpdate', callback?: (eventInfo: EventInfo) => void): void;
+
+    /**
      * Register keysChange event.
      * @param { 'keysChange' } type - Type of the drm event to listen for.
      * @param { function } callback - Used to listen for keys change event.
@@ -2118,9 +2213,18 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 23 static
      */
     on(type: 'keysChange', callback: (keyInfo: KeysInfo[], newKeyAvailable: boolean) => void): void;
+
+    /**
+     * Register keysChange event.
+     * 
+     * @param { function } callback - Used to listen for keys change event.
+     * @throws { BusinessError } 24700101 - All unknown errors.
+     * @syscap SystemCapability.Multimedia.Drm.Core
+     * @since 23 static
+     */
+    onKeysChange(callback: (keyInfo: KeysInfo[], newKeyAvailable: boolean) => void): void;
 
     /**
      * Unregister keysChange event.
@@ -2147,6 +2251,16 @@ declare namespace drm {
      * @since 23 static
      */
     off(type: 'keysChange', callback?: (keyInfo: KeysInfo[], newKeyAvailable: boolean) => void): void;
+
+    /**
+     * Unregister keysChange event.
+     * 
+     * @param { function } callback - Used to listen for keys change event.
+     * @throws { BusinessError } 24700101 - All unknown errors.
+     * @syscap SystemCapability.Multimedia.Drm.Core
+     * @since 23 static
+     */
+    offKeysChange(callback?: (keyInfo: KeysInfo[], newKeyAvailable: boolean) => void): void;
 
     /**
      * Release the resource before the session gonna be unused.
