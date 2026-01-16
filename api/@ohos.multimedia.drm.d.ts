@@ -2189,7 +2189,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @since 23 static
      */
-    offExpirationUpdate(type: 'expirationUpdate', callback?: (eventInfo: EventInfo) => void): void;
+    offExpirationUpdate(callback?: (eventInfo: EventInfo) => void): void;
 
     /**
      * Register keysChange event.
