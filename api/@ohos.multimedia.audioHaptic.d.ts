@@ -188,7 +188,7 @@ declare namespace audioHaptic {
      * should have the permission of ohos.permission.VIBRATE.
      * @permission ohos.permission.VIBRATE
      * @param { int } id - Source id.
-     * @param { AudioHapticPlayerOptions } options - Options when creating audio haptic player.
+     * @param { AudioHapticPlayerOptions } [options] - Options when creating audio haptic player.
      * @returns { Promise<AudioHapticPlayer | null> } Promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 5400102 - Operation not allowed.
