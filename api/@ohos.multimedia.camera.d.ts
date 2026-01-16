@@ -4956,7 +4956,6 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 23 static
    */
   interface ManualFocus {
     /**
@@ -4968,7 +4967,6 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 23 static
      */
     getFocusDistance(): double;
 
@@ -4982,7 +4980,6 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 23 static
      */
     setFocusDistance(distance: double): void;
   }
@@ -8364,6 +8361,34 @@ declare namespace camera {
   }
 
   /**
+   * Enum for photo quality prioritization.
+   *
+   * @enum {number}
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @atomicservice
+   * @since 21 dynamic
+   */
+  enum PhotoQualityPrioritization {
+    /**
+     * High quality photos are the top preference, even at the expense of shot-to-shot time.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 21 dynamic
+     */
+    HIGH_QUALITY = 0,
+
+    /**
+     * Prefering speed over quality, even at the expense of quality.
+     * 
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 21 dynamic
+     */
+    SPEED = 1,
+  }
+
+  /**
    * Photo session object.
    *
    * @extends Session, Flash, AutoExposure, Focus, Zoom, ColorManagement
@@ -10917,6 +10942,8 @@ declare namespace camera {
   /**
    * Professional photo session object.
    *
+   * @Extends Session, AutoExposure, ManualExposure, Focus, ManualFocus, WhiteBalance, ManualIso,
+   *     Flash, Zoom, ColorEffect, Aperture
    * @interface ProfessionalPhotoSession
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
@@ -14489,34 +14516,6 @@ declare namespace camera {
   }
 
   /**
-   * Enum for photo quality prioritization.
-   *
-   * @enum {number}
-   * @syscap SystemCapability.Multimedia.Camera.Core
-   * @atomicservice
-   * @since 21 dynamic
-   */
-  enum PhotoQualityPrioritization {
-    /**
-     * High quality photos are the top preference, even at the expense of shot-to-shot time.
-     *
-     * @syscap SystemCapability.Multimedia.Camera.Core
-     * @atomicservice
-     * @since 21 dynamic
-     */
-    HIGH_QUALITY = 0,
-
-    /**
-     * Prefering speed over quality, even at the expense of quality.
-     * 
-     * @syscap SystemCapability.Multimedia.Camera.Core
-     * @atomicservice
-     * @since 21 dynamic
-     */
-    SPEED = 1,
-  }
-
-  /**
    * Photo output object.
    *
    * @extends CameraOutput
@@ -15727,6 +15726,32 @@ declare namespace camera {
     enableMovingPhoto(enabled: boolean): void;
 
     /**
+     * Query whether photo quality prioritization is supported.
+     *
+     * @param { PhotoQualityPrioritization } qualityPrioritization - Photo quality prioritization type.
+     * @returns { boolean } - Whether the choosed quality prioritization type is supported.
+     * @throws { BusinessError } 7400201 - Camera service fatal error,
+     * reconfiguring streams is needed to recover from failure.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 21 dynamic
+    */
+    isPhotoQualityPrioritizationSupported(qualityPrioritization: PhotoQualityPrioritization): boolean;
+
+    /**
+     * Set photo quality prioritization.
+     *
+     * @param { PhotoQualityPrioritization } qualityPrioritization - Photo quality prioritization.
+     * @throws { BusinessError } 7400201 - Camera service fatal error,
+     * reconfiguring streams is needed to recover from failure.
+     * @throws { BusinessError } 7400102 - Operation not allowed.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 21 dynamic
+    */
+    setPhotoQualityPrioritization(qualityPrioritization: PhotoQualityPrioritization): void;
+
+    /**
      * Gets the photo rotation angle.
      *
      * @param { int } deviceDegree - The current device rotation degree.
@@ -15837,32 +15862,6 @@ declare namespace camera {
      * @since 23 static
      */
     offOfflineDeliveryFinished(callback?: AsyncCallback<void>): void;
-
-    /**
-     * Query whether photo quality prioritization is supported.
-     *
-     * @param { PhotoQualityPrioritization } qualityPrioritization - Photo quality prioritization type.
-     * @returns { boolean } - Whether the choosed quality prioritization type is supported.
-     * @throws { BusinessError } 7400201 - Camera service fatal error,
-     * reconfiguring streams is needed to recover from failure.
-     * @syscap SystemCapability.Multimedia.Camera.Core
-     * @atomicservice
-     * @since 21 dynamic
-    */
-    isPhotoQualityPrioritizationSupported(qualityPrioritization: PhotoQualityPrioritization): boolean;
-
-    /**
-     * Set photo quality prioritization.
-     *
-     * @param { PhotoQualityPrioritization } qualityPrioritization - Photo quality prioritization.
-     * @throws { BusinessError } 7400201 - Camera service fatal error,
-     * reconfiguring streams is needed to recover from failure.
-     * @throws { BusinessError } 7400102 - Operation not allowed.
-     * @syscap SystemCapability.Multimedia.Camera.Core
-     * @atomicservice
-     * @since 21 dynamic
-    */
-    setPhotoQualityPrioritization(qualityPrioritization: PhotoQualityPrioritization): void;
   }
 
   /**
