@@ -279,17 +279,17 @@ declare namespace audio {
    * configuration set by application.
    * Capturer is also not allowed to be created when application is in background.
    * @permission ohos.permission.MICROPHONE
-   * @param { AudioCapturerMicInConfig } config - Capturer configurations, see {@link #AudioCapturerMicInConfig}
+   * @param { AudioCapturerMicInConfig } config - Capturer configuration, see {@link #AudioCapturerMicInConfig}
    *     for details.
-   * * @returns { Promise<AudioCapturer | null> } Promise used to return the audio capturer instance,
+   * @returns { Promise<AudioCapturer | null> } Promise used to return the audio capturer instance,
    *     or null if any error occurs.
    * @throws { BusinessError } 201 - Permission denied, including background recording.
    * @throws { BusinessError } 202 - Not system App.
    * @throws { BusinessError } 6800101 - Parameter verification failed.
    * @throws { BusinessError } 6800104 - Capturer creation is not supported, may caused by following problems:
-   *     <br> 1.Source type is unsupported for this capturer, only {@link #SOURCE_TYPE_UNPROCESSED_VOICE_ASSISTANT} is
+   *     <br> 1. Source type is unsupported for this capturer, only {@link #SOURCE_TYPE_UNPROCESSED_VOICE_ASSISTANT} is
    *     supported currently.
-   *     <br> 2.Echo reference signal's config is unsupported, echo reference's sampling rate and format must be the
+   *     <br> 2. Echo reference signal's config is unsupported, echo reference's sampling rate and format must be the
    *     same as MicIn audio data currently.
    * @throws { BusinessError } 6800301 - Audio system internal error, such as system process crash.
    * @syscap SystemCapability.Multimedia.Audio.Capturer
@@ -11542,7 +11542,7 @@ declare namespace audio {
 
     /**
      * Unprocessed voice assistant source type.
-     * 
+     *
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @systemapi
      * @stagemodelonly
@@ -11677,7 +11677,7 @@ declare namespace audio {
   /**
    * Describes audio capturer configuration that can capture
    * microphone input (mic-in) audio data before any processing.
-   * 
+   *
    * @typedef AudioCapturerMicInConfig
    * @syscap SystemCapability.Multimedia.Audio.Capturer
    * @systemapi
@@ -11686,8 +11686,7 @@ declare namespace audio {
    */
   interface AudioCapturerMicInConfig {
     /**
-     * stream information that describes Mic-In audio stream.
-     * 
+     * Stream information that describes Mic-In audio stream.
      * 
      * @type { AudioStreamInfo }
      * @syscap SystemCapability.Multimedia.Audio.Capturer
@@ -11697,9 +11696,9 @@ declare namespace audio {
      */
     micInStreamInfo: AudioStreamInfo;
     /**
-     * stream information that describes echo reference signal.
+     * Stream information that describes echo reference signal.
      * If not set this attribute, the capturer will only record Mic-In audio stream.
-     * 
+     *
      * @type { ?AudioStreamInfo }
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @systemapi
@@ -11709,7 +11708,7 @@ declare namespace audio {
     ecStreamInfo?: AudioStreamInfo;
     /**
      * Capturer attribute information.
-     * 
+     *
      * @type { AudioCapturerInfo }
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @systemapi
