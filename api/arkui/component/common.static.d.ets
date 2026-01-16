@@ -12183,8 +12183,9 @@ export declare interface Layoutable {
     /**
      * Unique ID of the child component.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     uniqueId?: int;
@@ -12235,8 +12236,9 @@ export declare interface Measurable {
     /**
      * Unique ID that the system assigns to the child component.
      *
-     * @type { ?long }
+     * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     uniqueId?: int;
