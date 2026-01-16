@@ -12342,7 +12342,6 @@ declare namespace window {
      *     1. The window is not a subwindow or floating window.
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
-     * @atomicservice
      * @since 24 dynamic&static
      */
     clearWindowMask(): Promise<void>;
