@@ -44,19 +44,19 @@ export declare interface RectOptions {
     /**
      * Rectangle width.
      *
-     * @type { ?(double | string) }
+     * @type { ?Length }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
      */
-    width?: double | string;
+    width?: Length;
     /**
      * Rectangle height.
      *
-     * @type { ?(double | string) }
+     * @type { ?Length }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
      */
-    height?: double | string;
+    height?: Length;
     /**
      * Corner radius of the rectangle.
      *
@@ -78,35 +78,35 @@ export declare interface RoundedRectOptions {
     /**
      * Rectangle width.
      *
-     * @type { ?(double | string) }
+     * @type { ?Length }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
      */
-    width?: double | string;
+    width?: Length;
     /**
      * Rectangle height.
      *
-     * @type { ?(double | string) }
+     * @type { ?Length }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
      */
-    height?: double | string;
+    height?: Length;
     /**
      * Width of the corner radius.
      *
-     * @type { ?(double | string) }
+     * @type { ?Length }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
      */
-    radiusWidth?: double | string;
+    radiusWidth?: Length;
     /**
      * Height of the corner radius.
      *
-     * @type { ?(double | string) }
+     * @type { ?Length }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
      */
-    radiusHeight?: double | string;
+    radiusHeight?: Length;
 }
 
 /**
@@ -121,21 +121,21 @@ export declare interface RectAttribute extends CommonShapeMethod {
     /**
      * Called when the fillet width is set.
      *
-     * @param { double | string | undefined } value
+     * @param { Length | undefined } value
      * @returns { RectAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
      */
-    default radiusWidth(value: double | string | undefined): this;
+    default radiusWidth(value: Length | undefined): this;
     /**
      * Called when the fillet height is set.
      *
-     * @param { double | string | undefined } value
+     * @param { Length | undefined } value
      * @returns { RectAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
      */
-    default radiusHeight(value: double | string | undefined): this;
+    default radiusHeight(value: Length | undefined): this;
     /**
      * Called when the fillet size is set.
      *
