@@ -1733,7 +1733,7 @@ declare namespace fileAccess {
      * @throws { BusinessError } 14300004 - Get wrong result
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
-     * @since 11 dynamiconly
+     * @since 9 dynamiconly
      * @deprecated since 23
      * @useinstead ohos.file.fs/fileIo#rename
      */
@@ -1782,7 +1782,7 @@ declare namespace fileAccess {
      * @throws { BusinessError } 14300004 - Get wrong result
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
-     * @since 11 dynamiconly
+     * @since 9 dynamiconly
      * @deprecated since 23
      * @useinstead ohos.file.fs/fileIo#rename
      */
