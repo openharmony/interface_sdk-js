@@ -3219,6 +3219,7 @@ export declare enum KeyCode {
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 20 dynamic
+   * @since 23 static
    */
   KEYCODE_DIV = 3220
 }
