@@ -12187,7 +12187,7 @@ export declare interface Layoutable {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
      */
-    uniqueId?: number;
+    uniqueId?: int;
     /**
      * Applies the specified position information to the child component.
      *
@@ -12239,7 +12239,7 @@ export declare interface Measurable {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
      */
-    uniqueId?: long;
+    uniqueId?: int;
     /**
      * Applies the size constraint to the child component.
      *
