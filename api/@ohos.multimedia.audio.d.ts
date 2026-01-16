@@ -11687,7 +11687,7 @@ declare namespace audio {
   interface AudioCapturerMicInConfig {
     /**
      * Stream information that describes Mic-In audio stream.
-     * 
+     *
      * @type { AudioStreamInfo }
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @systemapi
