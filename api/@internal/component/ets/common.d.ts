@@ -17514,6 +17514,19 @@ declare interface PopupCommonOptions {
    * @since 20 dynamic
    */
   borderLinearGradient?: PopupBorderLinearGradient;
+
+  /**
+   * Set system-styled materials for popup. Different materials have different effects, which can influence
+   * the backgroundColor, border, shadow, and other visual attributes of popup.
+   *
+   * @type { ?SystemUiMaterial }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @atomicservice
+   * @since 24 dynamic
+   */
+  systemMaterial?: SystemUiMaterial;
 }
 
 /**
@@ -18365,6 +18378,19 @@ declare interface PopupOptions {
    * @since 20 dynamic
    */
   borderLinearGradient?: PopupBorderLinearGradient;
+
+  /**
+   * Set system-styled materials for popup. Different materials have different effects, which can influence
+   * the backgroundColor, border, shadow, and other visual attributes of popup.
+   *
+   * @type { ?SystemUiMaterial }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @atomicservice
+   * @since 24 dynamic
+   */
+  systemMaterial?: SystemUiMaterial;
 }
 
 /**
@@ -19018,6 +19044,19 @@ declare interface CustomPopupOptions {
    * @since 20 dynamic
    */
   borderLinearGradient?: PopupBorderLinearGradient;
+
+  /**
+   * Set system-styled materials for popup. Different materials have different effects, which can influence
+   * the backgroundColor, border, shadow, and other visual attributes of popup.
+   *
+   * @type { ?SystemUiMaterial }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @atomicservice
+   * @since 24 dynamic
+   */
+  systemMaterial?: SystemUiMaterial;
 }
 
 /**
