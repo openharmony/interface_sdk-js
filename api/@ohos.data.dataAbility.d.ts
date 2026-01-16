@@ -342,6 +342,7 @@ declare namespace dataAbility {
      *
      * @param { string } field - Indicates the name of the index column.
      * @returns { DataAbilityPredicates } Returns DataAbilityPredicates with the specified index column.
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @since 7 dynamiconly
      */
     indexedBy(field: string): DataAbilityPredicates;
