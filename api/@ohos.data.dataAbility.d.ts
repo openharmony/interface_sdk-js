@@ -26,7 +26,8 @@ import rdb from './@ohos.data.rdb';
  *
  * @namespace dataAbility
  * @syscap SystemCapability.DistributedDataManager.DataShare.Core
- * @since 7 dynamic
+ * @famodelonly
+ * @since 7 dynamiconly
  */
 declare namespace dataAbility {
   /**
@@ -37,7 +38,8 @@ declare namespace dataAbility {
    * @param { DataAbilityPredicates } dataAbilityPredicates - Indicates the dataAbility predicates.
    * @returns { rdb.RdbPredicates } Returns an RdbPredicates.
    * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-   * @since 7 dynamic
+   * @famodelonly
+   * @since 7 dynamiconly
    */
   function createRdbPredicates(name: string, dataAbilityPredicates: DataAbilityPredicates): rdb.RdbPredicates;
 
@@ -45,7 +47,8 @@ declare namespace dataAbility {
    * Manages relational database configurations.
    *
    * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-   * @since 7 dynamic
+   * @famodelonly
+   * @since 7 dynamiconly
    */
   class DataAbilityPredicates {
     /**
@@ -57,7 +60,8 @@ declare namespace dataAbility {
      * @param { ValueType } value - Indicates the value to match with the DataAbilityPredicates.
      * @returns { DataAbilityPredicates } Returns the DataAbilityPredicates that match the specified field.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @since 7 dynamic
+     * @famodelonly
+     * @since 7 dynamiconly
      */
     equalTo(field: string, value: ValueType): DataAbilityPredicates;
 
@@ -72,7 +76,8 @@ declare namespace dataAbility {
      * @param { ValueType } value - Indicates the value to match with the DataAbilityPredicates.
      * @returns { DataAbilityPredicates } Returns the DataAbilityPredicates that match the specified field.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @since 7 dynamic
+     * @famodelonly
+     * @since 7 dynamiconly
      */
     notEqualTo(field: string, value: ValueType): DataAbilityPredicates;
 
@@ -82,7 +87,8 @@ declare namespace dataAbility {
      *
      * @returns { DataAbilityPredicates } Returns the DataAbilityPredicates with the left parenthesis.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @since 7 dynamic
+     * @famodelonly
+     * @since 7 dynamiconly
      */
     beginWrap(): DataAbilityPredicates;
 
@@ -93,7 +99,8 @@ declare namespace dataAbility {
      *
      * @returns { DataAbilityPredicates } Returns the DataAbilityPredicates with the right parenthesis.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @since 7 dynamic
+     * @famodelonly
+     * @since 7 dynamiconly
      */
     endWrap(): DataAbilityPredicates;
 
@@ -103,7 +110,8 @@ declare namespace dataAbility {
      *
      * @returns { DataAbilityPredicates } Returns the DataAbilityPredicates with the or condition.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @since 7 dynamic
+     * @famodelonly
+     * @since 7 dynamiconly
      */
     or(): DataAbilityPredicates;
 
@@ -113,7 +121,8 @@ declare namespace dataAbility {
      *
      * @returns { DataAbilityPredicates } Returns the DataAbilityPredicates with the and condition.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @since 7 dynamic
+     * @famodelonly
+     * @since 7 dynamiconly
      */
     and(): DataAbilityPredicates;
 
@@ -126,7 +135,8 @@ declare namespace dataAbility {
      * @param { string } value - Indicates the value to match with the DataAbilityPredicates.
      * @returns { DataAbilityPredicates } Returns the DataAbilityPredicates that match the specified field.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @since 7 dynamic
+     * @famodelonly
+     * @since 7 dynamiconly
      */
     contains(field: string, value: string): DataAbilityPredicates;
 
@@ -139,7 +149,8 @@ declare namespace dataAbility {
      * @param { string } value - Indicates the value to match with the DataAbilityPredicates.
      * @returns { DataAbilityPredicates } Returns the DataAbilityPredicates that match the specified field.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @since 7 dynamic
+     * @famodelonly
+     * @since 7 dynamiconly
      */
     beginsWith(field: string, value: string): DataAbilityPredicates;
 
@@ -152,7 +163,8 @@ declare namespace dataAbility {
      * @param { string } value - Indicates the value to match with the DataAbilityPredicates.
      * @returns { DataAbilityPredicates } Returns the DataAbilityPredicates that match the specified field.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @since 7 dynamic
+     * @famodelonly
+     * @since 7 dynamiconly
      */
     endsWith(field: string, value: string): DataAbilityPredicates;
 
@@ -163,7 +175,8 @@ declare namespace dataAbility {
      * @param { string } field - Indicates the column name in the database table.
      * @returns { DataAbilityPredicates } Returns the DataAbilityPredicates that match the specified field.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @since 7 dynamic
+     * @famodelonly
+     * @since 7 dynamiconly
      */
     isNull(field: string): DataAbilityPredicates;
 
@@ -174,7 +187,8 @@ declare namespace dataAbility {
      * @param { string } field - Indicates the column name in the database table.
      * @returns { DataAbilityPredicates } Returns the DataAbilityPredicates that match the specified field.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @since 7 dynamic
+     * @famodelonly
+     * @since 7 dynamiconly
      */
     isNotNull(field: string): DataAbilityPredicates;
 
@@ -188,7 +202,8 @@ declare namespace dataAbility {
      *                           in the value is a wildcard (like * in a regular expression).
      * @returns { DataAbilityPredicates } Returns the DataAbilityPredicates that match the specified field.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @since 7 dynamic
+     * @famodelonly
+     * @since 7 dynamiconly
      */
     like(field: string, value: string): DataAbilityPredicates;
 
@@ -200,7 +215,8 @@ declare namespace dataAbility {
      * @param { string } value - Indicates the value to match with DataAbilityPredicates.
      * @returns { DataAbilityPredicates } Returns the SQL statement with the specified DataAbilityPredicates.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @since 7 dynamic
+     * @famodelonly
+     * @since 7 dynamiconly
      */
     glob(field: string, value: string): DataAbilityPredicates;
 
@@ -212,7 +228,8 @@ declare namespace dataAbility {
      * @param { ValueType } high - Indicates the maximum value.
      * @returns { DataAbilityPredicates } Returns the SQL query statement with the specified DataAbilityPredicates.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @since 7 dynamic
+     * @famodelonly
+     * @since 7 dynamiconly
      */
     between(field: string, low: ValueType, high: ValueType): DataAbilityPredicates;
 
@@ -225,7 +242,8 @@ declare namespace dataAbility {
      * @param { ValueType } high - Indicates the maximum value to match with DataAbilityPredicates}.
      * @returns { DataAbilityPredicates } Returns the SQL query statement with the specified DataAbilityPredicates.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @since 7 dynamic
+     * @famodelonly
+     * @since 7 dynamiconly
      */
     notBetween(field: string, low: ValueType, high: ValueType): DataAbilityPredicates;
 
@@ -236,7 +254,8 @@ declare namespace dataAbility {
      * @param { ValueType } value - Indicates the String field.
      * @returns { DataAbilityPredicates } Returns the SQL query statement with the specified DataAbilityPredicates.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @since 7 dynamic
+     * @famodelonly
+     * @since 7 dynamiconly
      */
     greaterThan(field: string, value: ValueType): DataAbilityPredicates;
 
@@ -247,7 +266,8 @@ declare namespace dataAbility {
      * @param { ValueType } value - Indicates the String field.
      * @returns { DataAbilityPredicates } Returns the SQL query statement with the specified DataAbilityPredicates.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @since 7 dynamic
+     * @famodelonly
+     * @since 7 dynamiconly
      */
     lessThan(field: string, value: ValueType): DataAbilityPredicates;
 
@@ -258,7 +278,8 @@ declare namespace dataAbility {
      * @param { ValueType } value - Indicates the String field.
      * @returns { DataAbilityPredicates } Returns the SQL query statement with the specified DataAbilityPredicates.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @since 7 dynamic
+     * @famodelonly
+     * @since 7 dynamiconly
      */
     greaterThanOrEqualTo(field: string, value: ValueType): DataAbilityPredicates;
 
@@ -269,7 +290,8 @@ declare namespace dataAbility {
      * @param { ValueType } value - Indicates the String field.
      * @returns { DataAbilityPredicates } Returns the SQL query statement with the specified DataAbilityPredicates.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @since 7 dynamic
+     * @famodelonly
+     * @since 7 dynamiconly
      */
     lessThanOrEqualTo(field: string, value: ValueType): DataAbilityPredicates;
 
@@ -280,7 +302,8 @@ declare namespace dataAbility {
      * @param { string } field - Indicates the column name for sorting the return list.
      * @returns { DataAbilityPredicates } Returns the SQL query statement with the specified DataAbilityPredicates.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @since 7 dynamic
+     * @famodelonly
+     * @since 7 dynamiconly
      */
     orderByAsc(field: string): DataAbilityPredicates;
 
@@ -291,7 +314,8 @@ declare namespace dataAbility {
      * @param { string } field - Indicates the column name for sorting the return list.
      * @returns { DataAbilityPredicates } Returns the SQL query statement with the specified DataAbilityPredicates.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @since 7 dynamic
+     * @famodelonly
+     * @since 7 dynamiconly
      */
     orderByDesc(field: string): DataAbilityPredicates;
 
@@ -300,7 +324,8 @@ declare namespace dataAbility {
      *
      * @returns { DataAbilityPredicates } Returns the SQL query statement with the specified DataAbilityPredicates.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @since 7 dynamic
+     * @famodelonly
+     * @since 7 dynamiconly
      */
     distinct(): DataAbilityPredicates;
 
@@ -310,7 +335,8 @@ declare namespace dataAbility {
      * @param { number } value - Indicates the max length of the return list.
      * @returns { DataAbilityPredicates } Returns the SQL query statement with the specified DataAbilityPredicates.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @since 7 dynamic
+     * @famodelonly
+     * @since 7 dynamiconly
      */
     limitAs(value: number): DataAbilityPredicates;
 
@@ -321,7 +347,8 @@ declare namespace dataAbility {
      * @param { number } rowOffset - Indicates the start position of the returned result. The value is a positive integer.
      * @returns { DataAbilityPredicates } Returns the SQL query statement with the specified AbsPredicates.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @since 7 dynamic
+     * @famodelonly
+     * @since 7 dynamiconly
      */
     offsetAs(rowOffset: number): DataAbilityPredicates;
 
@@ -332,7 +359,8 @@ declare namespace dataAbility {
      * @returns { DataAbilityPredicates } Returns the DataAbilityPredicates with the specified columns by which query
      *                                    results are grouped.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @since 7 dynamic
+     * @famodelonly
+     * @since 7 dynamiconly
      */
     groupBy(fields: Array<string>): DataAbilityPredicates;
 
@@ -343,7 +371,8 @@ declare namespace dataAbility {
      * @param { string } field - Indicates the name of the index column.
      * @returns { DataAbilityPredicates } Returns DataAbilityPredicates with the specified index column.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @since 7 dynamic
+     * @famodelonly
+     * @since 7 dynamiconly
      */
     indexedBy(field: string): DataAbilityPredicates;
 
@@ -355,7 +384,8 @@ declare namespace dataAbility {
      * @param { Array<ValueType> } value - Indicates the values to match with DataAbilityPredicates.
      * @returns { DataAbilityPredicates } Returns DataAbilityPredicates that matches the specified field.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @since 7 dynamic
+     * @famodelonly
+     * @since 7 dynamiconly
      */
     in(field: string, value: Array<ValueType>): DataAbilityPredicates;
 
@@ -367,7 +397,8 @@ declare namespace dataAbility {
      * @param { Array<ValueType> } value - Indicates the values to match with DataAbilityPredicates.
      * @returns { DataAbilityPredicates } Returns DataAbilityPredicates that matches the specified field.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @since 7 dynamic
+     * @famodelonly
+     * @since 7 dynamiconly
      */
     notIn(field: string, value: Array<ValueType>): DataAbilityPredicates;
   }
@@ -376,7 +407,8 @@ declare namespace dataAbility {
    *
    * @typedef { number | string | boolean }
    * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-   * @since 7 dynamic
+   * @famodelonly
+   * @since 7 dynamiconly
    */
   type ValueType = number | string | boolean;
 }
