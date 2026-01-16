@@ -7196,6 +7196,17 @@ export declare interface PopupCommonOptions {
      * @since 23 static
      */
     borderLinearGradient?: PopupBorderLinearGradient;
+    /**
+     * Set system-styled materials for popup. Different materials have different effects, which can influence
+     * the backgroundColor, border, shadow, and other visual attributes of popup.
+     *
+     * @type { ?SystemUiMaterial }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 static
+     */
+    systemMaterial?: SystemUiMaterial;
 
   /**
    * Callback function when the popup disappears.
@@ -7616,6 +7627,18 @@ export declare interface PopupOptions {
      */
     borderLinearGradient?: PopupBorderLinearGradient;
 
+    /**
+     * Set system-styled materials for popup. Different materials have different effects, which can influence
+     * the backgroundColor, border, shadow, and other visual attributes of popup.
+     *
+     * @type { ?SystemUiMaterial }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 static
+     */
+    systemMaterial?: SystemUiMaterial;
+
   /**
    * Callback function before the popup closeAnimation starts.
    *
@@ -7948,6 +7971,18 @@ export declare interface CustomPopupOptions {
      * @since 23 static
      */
     borderLinearGradient?: PopupBorderLinearGradient;
+
+    /**
+     * Set system-styled materials for popup. Different materials have different effects, which can influence
+     * the backgroundColor, border, shadow, and other visual attributes of popup.
+     *
+     * @type { ?SystemUiMaterial }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 static
+     */
+    systemMaterial?: SystemUiMaterial;
 
   /**
    * Callback function when the popup appears.
