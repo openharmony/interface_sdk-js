@@ -18,7 +18,7 @@
  */
 import uniformDataStruct from '@ohos.data.uniformDataStruct';
 /*** if arkts static */
-import { Prop } from '@ohos.arkui.stateManagement'
+import { PropRef } from '@ohos.arkui.stateManagement'
 import { Component, Builder } from '@ohos.arkui.component';
 /*** endif */
 
@@ -87,7 +87,7 @@ declare struct ContentFormCard {
    * @since 20 dynamic
    * @since 23 static
    */
-  @Prop
+  @PropRef
   formType: FormType;
 
   /**
@@ -98,7 +98,7 @@ declare struct ContentFormCard {
    * @since 20 dynamic
    * @since 23 static
    */
-  @Prop
+  @PropRef
   formWidth?: double;
 
   /**
@@ -109,7 +109,7 @@ declare struct ContentFormCard {
    * @since 20 dynamic
    * @since 23 static
    */
-  @Prop
+  @PropRef
   formHeight?: double;
 
   /**

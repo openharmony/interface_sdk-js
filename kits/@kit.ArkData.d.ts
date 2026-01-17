@@ -50,7 +50,8 @@ export {
 import unifiedDataChannel from '@ohos.data.unifiedDataChannel';
 import uniformTypeDescriptor from '@ohos.data.uniformTypeDescriptor';
 import uniformDataStruct from '@ohos.data.uniformDataStruct';
+import { ContentFormCard, FormType } from '@ohos.data.UdmfComponents';
 export {
-  unifiedDataChannel, uniformTypeDescriptor, uniformDataStruct
+  unifiedDataChannel, uniformTypeDescriptor, uniformDataStruct, ContentFormCard, FormType
 };
 /*** endif */
