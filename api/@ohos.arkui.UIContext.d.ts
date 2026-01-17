@@ -2572,7 +2572,7 @@ export class UIObserver {
   /**
    * Removes a callback function that was previously registered with 'onSwiperContentUpdate'.
    *
-   * @param { Callback<SwiperContentInfo> } callback - The callback function to remove. If not provided,
+   * @param { Callback<SwiperContentInfo> } [callback] - The callback function to remove. If not provided,
    *     all callbacks for the given event type will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -2598,7 +2598,7 @@ export class UIObserver {
    * Removes a callback function that was previously registered with 'onSwiperContentUpdate'.
    *
    * @param { observer.ObserverOptions } config - The options object.
-   * @param { Callback<SwiperContentInfo> } callback - The callback function to remove. If not provided,
+   * @param { Callback<SwiperContentInfo> } [callback] - The callback function to remove. If not provided,
    *     all callbacks for the given event type will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
