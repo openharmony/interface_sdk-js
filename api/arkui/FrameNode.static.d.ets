@@ -162,6 +162,79 @@ export enum ExpandMode {
 }
 
 /**
+ * Enum for the UI state of one component, which is used for handling of state style.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 24 static
+ */
+export enum UIState {
+  /**
+   * The normal state.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  NORMAL = 0,
+
+  /**
+   * The pressed state.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  PRESSED = 1 << 0,
+
+  /**
+   * The focused state.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  FOCUSED = 1 << 1,
+
+  /**
+   * The disabled state.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  DISABLED = 1 << 2,
+
+  /**
+   * The selected state, this state is only supported by some specific kind of component,
+   * they are Checkbox, Radio, Toggle and List/Grid/MenuItem, please check the StateStyles docs for details.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  SELECTED = 1 << 3
+}
+
+/**
+ * UI state change handling function, it returns the current UI states, the value is the result
+ * of all current state enumeration values or calculations, and you can determine the state
+ * by performing the & operation as follows。
+ * if (currentStates & UIState.PRESSED == UIState.PRESSED)
+ * But, please be awared, for the normal state check, the equal should be used directly.
+ * if (currentStates == UIState.NORMAL)
+ *
+ * @typedef { function } UIStatesChangeHandler
+ * @param { FrameNode } node - Current node which is triggering the state change.
+ * @param { int } currentUIStates - Current UI states when the handler is triggered.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 24 static
+ */
+declare type UIStatesChangeHandler = (node: FrameNode, currentUIStates: int) => void;
+
+/**
  * Defines FrameNode.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -691,6 +764,40 @@ export declare class FrameNode {
    * @since 23 static
    */
   disposeTree(): void;
+
+  /**
+   * Sets the polymorphic style states supported by the component. To improve efficiency, you need to pass the states
+   * of interest and their corresponding handler functions. When the state changes, the handler function will be
+   * executed. You can update the UI style based on the current state in the callback.
+   * For certain types of control nodes, the system has default style handling for some states (e.g., the button
+   * component has default style changes for the PRESSED state). When using this method to customize state handling
+   * for such components, the system's default style changes will be applied first, followed by the custom styles.
+   * The final effect is a combination of both. You can set `excludeInner` to `true` to disable the system's default
+   * style handling, though this depends on system implementation.
+   * When calling this method, the provided `handler` function will be executed immediately. You do not need to
+   * explicitly register a handler for the NORMAL state. If you register handlers for non-NORMAL states, the system
+   * will automatically call the handler when the state reverts to NORMAL, allowing you to restore the UI style.
+   *
+   * @param { int } uiStates - The target UI states the node needs to handle. Multiple states can be combined
+   *     using the OR operation, e.g., `targetUIStates = UIState.PRESSED | UIState.FOCUSED`.
+   * @param { UIStatesChangeHandler } statesChangeHandler - The handler function for UI state changes.
+   * @param { boolean } [excludeInner=false] - A flag to disable the system's default style handling for states.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  addSupportedUIStates(uiStates: int, statesChangeHandler: UIStatesChangeHandler, excludeInner?: boolean): void;
+
+  /**
+   * Removes the registered state handlers. When all states registered via `addSupportedUIStates` are removed, the
+   * corresponding `statesChangeHandler` will no longer be executed.
+   *
+   * @param { int } uiStates - The target UI states to remove handlers from.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  removeSupportedUIStates(uiStates: int): void;
 
   /**
    * Mount ComponentContent to FrameNode.

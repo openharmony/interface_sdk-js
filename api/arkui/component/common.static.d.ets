@@ -40,7 +40,7 @@ import { ResizableOptions } from "./image";
 import intl from '../../@ohos.intl';
 import { ButtonType, ButtonStyleMode, ButtonRole } from "./button";
 import { Area, ResourceColor, Dimension, ResourceStr, Font, Length, EdgeColors, LocalizedEdgeColors, BorderRadiuses, EdgeWidths, LocalizedEdgeWidths, SizeOptions, Bias, EdgeStyles, Position, LocalizedBorderRadiuses, Margin, ChainWeightOptions, Padding, LocalizedPadding, LocalizedMargin, BorderOptions, OutlineOptions, EdgeOutlineStyles, EdgeOutlineWidths, OutlineRadiuses, Edges, LocalizedEdges, LocalizedPosition, AccessibilityOptions, ConstraintSizeOptions, EdgeWidth, DirectionalEdgesT, VoidCallback, ColorMetrics, AccessibilityActionOptions, ScrollBarMargin } from "./units";
-import { BaseGestureEvent, GestureRecognizer, GestureJudgeResult, GestureType, GestureMask, GestureHandler, GesturePriority, GestureInfo } from "./gesture";
+import { BaseGestureEvent, GestureRecognizer, TouchRecognizer, GestureJudgeResult, GestureType, GestureMask, GestureHandler, GesturePriority, GestureInfo } from "./gesture";
 import { ScrollState } from "./list";
 import { AccessibilityHoverType, Curve, PlayMode, SharedTransitionEffectType, KeySource, BorderStyle, HorizontalAlign, LocalizedAlignment, RenderStrategy, VerticalAlign, MouseButton, MouseAction, FontWeight, TouchType, FontStyle, Color, ColoringStrategy, Placement, ArrowPointPosition, ClickEffectLevel, NestedScrollMode, HitTestMode, Alignment, ImageRepeat, ImageSize, HoverEffect, Visibility, ItemAlign, Direction, Axis, GradientDirection, FunctionKey, ModifierKey, ObscuredReasons, RenderFit, LineCapStyle, LineJoinStyle, PixelRoundCalcPolicy, TextDecorationType, TextDecorationStyle, KeyType, ResponseType, BarState, EdgeEffect, ScrollSource, InteractionHand, AxisAction, AxisType, AxisModel, CrownAction, FocusDrawLevel, CrownSensitivity, IlluminatedType, ResponseRegionSupportedTool, TipsAnchorType } from "./enums";
 import { TextRange } from "./textCommon";
@@ -4304,7 +4304,7 @@ export declare interface ClickEvent extends BaseEvent {
      * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     globalDisplayX?: double;
     /**
@@ -4313,7 +4313,7 @@ export declare interface ClickEvent extends BaseEvent {
      * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     globalDisplayY?: double;
 }
@@ -4388,7 +4388,7 @@ export declare interface HoverEvent extends BaseEvent {
      * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     globalDisplayX?: double;
     /**
@@ -4397,7 +4397,7 @@ export declare interface HoverEvent extends BaseEvent {
      * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     globalDisplayY?: double;
 }
@@ -4514,7 +4514,7 @@ export declare interface MouseEvent extends BaseEvent {
      * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     globalDisplayX?: double;
 
@@ -4524,7 +4524,7 @@ export declare interface MouseEvent extends BaseEvent {
      * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     globalDisplayY?: double;    
 }
@@ -4599,7 +4599,7 @@ export declare interface AccessibilityHoverEvent extends BaseEvent {
      * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     globalDisplayX?: double;
 
@@ -4609,7 +4609,7 @@ export declare interface AccessibilityHoverEvent extends BaseEvent {
      * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     globalDisplayY?: double;
 }
@@ -4731,7 +4731,7 @@ export declare interface TouchObject {
      * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     globalDisplayX?: double;
 
@@ -4741,7 +4741,7 @@ export declare interface TouchObject {
      * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     globalDisplayY?: double;
 }
@@ -4963,7 +4963,7 @@ export declare interface AxisEvent extends BaseEvent {
      * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     globalDisplayX?: double;
 
@@ -4973,7 +4973,7 @@ export declare interface AxisEvent extends BaseEvent {
      * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     globalDisplayY?: double;
 }
@@ -4994,11 +4994,13 @@ export type SizeChangeCallback = (oldValue: SizeOptions, newValue: SizeOptions) 
  * @param { BaseGestureEvent } event - the event information
  * @param { GestureRecognizer } current - the current gesture recognizer of the component
  * @param { Array<GestureRecognizer> } recognizers - the gesture recognizers of the component on the response chain
+ * @param { Array<TouchRecognizer> } [touchRecognizers] - the touch recognizers of the component on the response chain
  * @returns { GestureJudgeResult } the gesture judge result
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 23 static
+ * @stagemodelonly
+ * @since 24 static
  */
-export type GestureRecognizerJudgeBeginCallback = (event: BaseGestureEvent, current: GestureRecognizer, recognizers: Array<GestureRecognizer>) => GestureJudgeResult;
+export type GestureRecognizerJudgeBeginCallback = (event: BaseGestureEvent, current: GestureRecognizer, recognizers: Array<GestureRecognizer>, touchRecognizers?: Array<TouchRecognizer>) => GestureJudgeResult;
 /**
  * Defines the callback type used in shouldBuiltInRecognizerParallelWith.
  *
@@ -5689,7 +5691,7 @@ export declare interface DragEvent {
      * @returns { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     getGlobalDisplayX(): double;
 
@@ -5699,7 +5701,7 @@ export declare interface DragEvent {
      * @returns { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     getGlobalDisplayY(): double;
 }
@@ -5834,6 +5836,33 @@ export declare interface KeyEvent {
      * @since 23 static
      */
     unicode?: long;
+    /**
+     * Whether Num Lock is on
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 24 static
+     */
+    isNumLockOn?: boolean;
+    /**
+     * Whether Caps Lock is on
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 24 static
+     */
+    isCapsLockOn?: boolean;
+    /**
+     * Whether Scroll Lock is on
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 24 static
+     */
+    isScrollLockOn?: boolean;
 }
 /**
  * Focus axis event object description.
@@ -7167,6 +7196,17 @@ export declare interface PopupCommonOptions {
      * @since 23 static
      */
     borderLinearGradient?: PopupBorderLinearGradient;
+    /**
+     * Set system-styled materials for popup. Different materials have different effects, which can influence
+     * the backgroundColor, border, shadow, and other visual attributes of popup.
+     *
+     * @type { ?SystemUiMaterial }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 static
+     */
+    systemMaterial?: SystemUiMaterial;
 
   /**
    * Callback function when the popup disappears.
@@ -7587,6 +7627,18 @@ export declare interface PopupOptions {
      */
     borderLinearGradient?: PopupBorderLinearGradient;
 
+    /**
+     * Set system-styled materials for popup. Different materials have different effects, which can influence
+     * the backgroundColor, border, shadow, and other visual attributes of popup.
+     *
+     * @type { ?SystemUiMaterial }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 static
+     */
+    systemMaterial?: SystemUiMaterial;
+
   /**
    * Callback function before the popup closeAnimation starts.
    *
@@ -7919,6 +7971,18 @@ export declare interface CustomPopupOptions {
      * @since 23 static
      */
     borderLinearGradient?: PopupBorderLinearGradient;
+
+    /**
+     * Set system-styled materials for popup. Different materials have different effects, which can influence
+     * the backgroundColor, border, shadow, and other visual attributes of popup.
+     *
+     * @type { ?SystemUiMaterial }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 static
+     */
+    systemMaterial?: SystemUiMaterial;
 
   /**
    * Callback function when the popup appears.
@@ -9441,6 +9505,18 @@ export declare interface BackgroundOptions {
      * @since 23 static
      */
     align?: Alignment;
+    /**
+     * The set of edges for which to ignore layout safe area. To respect safe area insets on all edges,
+     * explicitly pass empty edge set.
+     *
+     * @type { ?Array<LayoutSafeAreaEdge> }
+     * @default The default value is LayoutSafeAreaEdge.ALL when background is ResourceColor, otherwise
+     *     it is an empty array [].
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 24 static
+    */
+    ignoresLayoutSafeAreaEdges?: Array<LayoutSafeAreaEdge>;
 }
 /**
  * Defines the value of the custom property..
@@ -9649,15 +9725,16 @@ export declare interface CommonMethod {
      */
     default margin(value: Margin | Length | LocalizedMargin | undefined): this;
     /**
-     * Background.
+     * Set the background to a given CustomBuilder, or set it to a specific ResourceColor.
      *
-     * @param { CustomBuilder | undefined } builder
+     * @param { CustomBuilder | ResourceColor | undefined } content
      * @param { BackgroundOptions } [options]
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @stagemodelonly
+     * @since 24 static
      */
-    default background(builder: CustomBuilder | undefined, options?: BackgroundOptions): this;
+    default background(content: CustomBuilder | ResourceColor | undefined, options?: BackgroundOptions): this;
     /**
      * Background color
      *
@@ -10877,6 +10954,22 @@ export declare interface CommonMethod {
      * @since 23 static
      */
     default clickEffect(value: ClickEffect | null | undefined): this;
+    /**
+     * Set whether this component should have sound effects enabled for clicking.
+     *
+     * Sound effects playback is affected by the audio-related settings in the device system settings.
+     * When the user sets the device to silent mode, sound effects cannot be played.
+     *
+     * @param { boolean | undefined } enabled - indicates whether this component should have sound effects
+     *     enabled for clicking.
+     *     <br>Pass in undefined to reset the default value, default value is true, but
+     *     even it's true, the sound effect is only supported in some specific devices.
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 24 static
+     */
+    default enableClickSoundEffect(enabled: boolean | undefined): this
     /**
      * After a listener is bound, the component can be dragged. After the drag occurs, a callback is triggered.
      * (To be triggered, press and hold for 170 milliseconds (ms))
