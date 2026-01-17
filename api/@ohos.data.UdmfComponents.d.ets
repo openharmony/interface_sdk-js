@@ -17,6 +17,10 @@
  * @kit ArkData
  */
 import uniformDataStruct from '@ohos.data.uniformDataStruct';
+/*** if arkts static */
+import { Prop } from '@ohos.arkui.stateManagement'
+import { Component, Builder } from '@ohos.arkui.component';
+/*** endif */
 
 /**
  * Enumerates the form card types.
@@ -117,6 +121,14 @@ declare struct ContentFormCard {
    * @since 23 static
    */
   handleOnClick?: Function;
+
+  /**
+   * The method to build component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 staticonly
+   */
+  @Builder
+  build(): void;
 }
 
 export { ContentFormCard, FormType };
