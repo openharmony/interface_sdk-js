@@ -87,7 +87,12 @@ declare struct ContentFormCard {
    * @since 20 dynamic
    * @since 23 static
    */
+  /*** if arkts dynamic */
+  @Prop
+  /*** endif */
+  /*** if arkts static */
   @PropRef
+  /*** endif */
   formType: FormType;
 
   /**
@@ -98,7 +103,12 @@ declare struct ContentFormCard {
    * @since 20 dynamic
    * @since 23 static
    */
+  /*** if arkts dynamic */
+  @Prop
+  /*** endif */
+  /*** if arkts static */
   @PropRef
+  /*** endif */
   formWidth?: double;
 
   /**
@@ -109,7 +119,12 @@ declare struct ContentFormCard {
    * @since 20 dynamic
    * @since 23 static
    */
+  /*** if arkts dynamic */
+  @Prop
+  /*** endif */
+  /*** if arkts static */
   @PropRef
+  /*** endif */
   formHeight?: double;
 
   /**
