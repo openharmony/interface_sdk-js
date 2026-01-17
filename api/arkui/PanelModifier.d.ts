@@ -24,7 +24,7 @@
  * @extends PanelAttribute
  * @implements AttributeModifier<PanelAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
+ * @FaAndStageModel
  * @atomicservice
  * @since 12 dynamiconly
  * @deprecated since 20
@@ -37,7 +37,7 @@ export declare class PanelModifier extends PanelAttribute implements AttributeMo
    * 
    * @param { PanelAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 12 dynamiconly
