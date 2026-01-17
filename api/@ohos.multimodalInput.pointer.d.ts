@@ -821,7 +821,7 @@ declare namespace pointer {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * <br> When the value of windowId is-1, the system permission is required to set the global window.
+   * <br> When the windowId value is -1, the system permission is required to set the global style.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @since 9 dynamic
    * @since 23 static
@@ -837,7 +837,7 @@ declare namespace pointer {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * <br> When the value of windowId is-1, the system permission is required to set the global window.
+   * <br> When the windowId value is -1, the system permission is required to set the global style.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @since 9 dynamic
    * @since 23 static
@@ -852,7 +852,7 @@ declare namespace pointer {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * <br> When the value of windowId is-1, the system permission is required to set the global window.
+   * <br> When the windowId value is -1, the system permission is required to set the global style.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @since 10 dynamic
    * @since 23 static
