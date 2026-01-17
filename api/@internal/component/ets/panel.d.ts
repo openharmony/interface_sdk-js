@@ -688,7 +688,7 @@ declare class PanelAttribute extends CommonMethod<PanelAttribute> {
    * @param { function } event
    * @returns { PanelAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
+   * @stageModelOnly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamiconly
