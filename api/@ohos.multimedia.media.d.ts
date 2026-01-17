@@ -2502,7 +2502,7 @@ declare namespace media {
   }
 
   /**
-   * Describes the information of an Metrics event.
+   * Describes the information of an Metrics Event.
    *
    * @typedef AVMetricsEvent
    * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -2511,6 +2511,7 @@ declare namespace media {
   interface AVMetricsEvent {
     /**
      * Type of the metrics event.
+     *
      * @type { AVMetricsEventType }
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @stagemodelonly
@@ -2536,7 +2537,8 @@ declare namespace media {
 
     /**
      * The detailed information of the event.
-     * @type {Record<string, Object>}
+     *
+     * @type { Record<string, Object> }
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -3313,8 +3315,7 @@ declare namespace media {
     addSubtitleFromUrl(url: string): Promise<void>;
 
     /**
-     * Get statistic infos of current player. This API can be called only when the AVPlayer is in the prepared,
-     * playing, or paused state.
+     * Get statistic infos of current player.
      * @returns { Promise<PlaybackInfo> } Statistic infos of current player.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 12 dynamic
@@ -3414,7 +3415,7 @@ declare namespace media {
      * @returns { long } returns the time of current playback position - microseconds(us)
      * @throws { BusinessError } 5400102 - Operation not allowed.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
-     * @FaAndStageModel
+     * @stagemodelonly
      * @atomicservice
      * @since 23 dynamic&static
      */
