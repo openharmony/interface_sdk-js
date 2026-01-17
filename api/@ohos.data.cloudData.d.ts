@@ -456,7 +456,7 @@ declare namespace cloudData {
      * @since 11 dynamic
      * @since 23 static
      */
-    static enableCloud(accountId: string, switches: Record<string, boolean>): Promise<void>;
+     static enableCloud(accountId: string, switches: Record<string, boolean>): Promise<void>;
 
     /**
      * Disables the cloud function.
@@ -786,7 +786,7 @@ declare namespace cloudData {
      * @since 11 dynamic
      * @since 23 static
      */
-    static clear(accountId: string, appActions: Record<string, ClearAction>): Promise<void>;
+     static clear(accountId: string, appActions: Record<string, ClearAction>): Promise<void>;
 
     /**
      * deletes cloud information from local data.
@@ -845,7 +845,8 @@ declare namespace cloudData {
      * @throws { BusinessError } 202 - Permission verification failed,
      * <br>application which is not a system application uses system API.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of valid range.
+     * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Empty conditions;
+     * <br>2. Missing GROUP BY clause.
      * @static
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
