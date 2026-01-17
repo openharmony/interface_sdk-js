@@ -992,6 +992,15 @@ declare namespace bundleManager {
     LIVE_FORM = 30,
 
     /**
+     * Indicates extension info with type of the selection
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    SELECTION = 31,
+
+    /**
      * Indicates extension info with type of the web native messaging
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
