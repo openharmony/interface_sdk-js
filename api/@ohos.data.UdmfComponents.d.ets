@@ -18,7 +18,7 @@
  */
 import uniformDataStruct from '@ohos.data.uniformDataStruct';
 /*** if arkts static */
-import { PropRef } from '@ohos.arkui.stateManagement'
+import { PropRef } from '@ohos.arkui.stateManagement';
 import { Component, Builder } from '@ohos.arkui.component';
 /*** endif */
 
@@ -139,7 +139,7 @@ declare struct ContentFormCard {
 
   /**
    * The method to build component.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 23 staticonly
    */
   @Builder
