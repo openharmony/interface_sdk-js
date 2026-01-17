@@ -32,7 +32,7 @@ import { TagSession as _TagSession } from './tag/tagSession';
 import type { PacMap } from './ability/dataAbilityHelper';
 /*** endif */
 import type rpc from './@ohos.rpc';
-import type { AsyncCallback } from './@ohos.base';
+import type { AsyncCallback, BusinessError } from './@ohos.base';
 import Want from './@ohos.app.ability.Want';
 import type { ElementName } from './bundleManager/ElementName';
 
@@ -1280,6 +1280,34 @@ declare namespace tag {
    * @since 12 dynamic
    * @since 23 static
    */
+
+  /**
+   * Set reader mode enabled whenthe specific application is on foreground and set card presence interval.
+   * Tag infomatiom will be dispatched to the application only if a NFC tag is discovered.
+   * 
+   * @permission ohos.permission.NFC_TAG
+   * @param {'readerModeWithInterval'} type - The callback tyoe to be registered.
+   * @param {ElementName} elementName -The element name of application, must include the bundle Name and abilityName.
+   * @param {int[]} discTech - The technologies list to set for discovering.
+   *  From {@link NFC_A} to {@link MIFARE_ULTRALIGHT}.
+   * @param {Callback <TagInfo>} callback -The callback to dispatched the TagInfo object for application.
+   * @param {int} interval -The interval for reader presence check.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 801 - Capability not supported.
+   * @throws {BusinessError} 3100201 - The tag running state is abnormal in the service.
+   * @throws {BusinessError} 3100202 - The element state is invalid.
+   * @syscap Systemcapability.Communication.NFC.Tag
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  function on (
+    type:'readerModeWithInterval',
+    elementName:ElementName,
+    discTech:int[],
+    callback:Callback<TagInfo>,
+    interval: int
+  ):void;
+  
   export interface TagInfo {
     /**
      * The uid of this tag, it.
