@@ -2668,7 +2668,6 @@ declare namespace distributedKVStore {
 
   /**
    * Provides methods related to device-collaboration distributed databases.
-   *
    * <p>To create a {@code DeviceKVStore} database, you can use the {@link data.distributed.common.KVManager.getKVStore(Options, String)}
    * method with {@code KVStoreType} set to {@code DEVICE_COLLABORATION} for the input parameter Options. This database manages distributed
    * data by device, and cannot modify data synchronized from remote devices. When an application writes a key-value pair entry
@@ -3514,12 +3513,13 @@ declare namespace distributedKVStore {
     /**
      * Deletes the KVStore database identified by storeId.
      * <p>Before using this method, close all KVStore instances in use that are identified by the same storeId.
-     * <p>You can use this method to delete a KVStore database not in use. After the database is deleted, all its data will be
-     * lost.
+     * <p>You can use this method to delete a KVStore database not in use. After the database is deleted, all its data
+     * will be lost.
      *
-     * @param { string } appId - Identifies the application that the database belong to, and cannot exceed 256 characters.
-     * @param { string } storeId - Identifies the KVStore database to delete. The storeId can consist of only letters, digits,
-     * and underscores (_), and cannot exceed 128 characters.
+     * @param { string } appId - Identifies the application that the database belong to, and cannot exceed 256
+     * characters.
+     * @param { string } storeId - Identifies the KVStore database to delete. The storeId can consist of only letters,
+     * digits, and underscores (_), and cannot exceed 128 characters.
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Parameter verification failed.
@@ -3531,11 +3531,10 @@ declare namespace distributedKVStore {
     deleteKVStore(appId: string, storeId: string): Promise<void>;
 
     /**
-     * Obtains the storeId of all KVStore databases that are created by using the {@code getKVStore} method and not
-     * deleted by calling the {@code deleteKVStore} method.
+     * Obtains the storeId of all KVStore databases that are created by using the {@code getKVStore} method and not deleted by
+     * calling the {@code deleteKVStore} method.
      *
-     * @param { string } appId - Identifies the application that obtains the databases, and cannot exceed 256
-     * characters.
+     * @param { string } appId - Identifies the application that obtains the databases, and cannot exceed 256 characters.
      * @param { AsyncCallback<string[]> } callback - {string[]}: the storeId of all created KVStore databases.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Parameter verification failed.
@@ -3546,10 +3545,11 @@ declare namespace distributedKVStore {
     getAllKVStoreId(appId: string, callback: AsyncCallback<string[]>): void;
 
     /**
-     * Obtains the storeId of all KVStore databases that are created by using the {@code getKVStore} method and not deleted by
-     * calling the {@code deleteKVStore} method.
+     * Obtains the storeId of all KVStore databases that are created by using the {@code getKVStore} method and not
+     * deleted by calling the {@code deleteKVStore} method.
      *
-     * @param { string } appId - Identifies the application that obtains the databases, and cannot exceed 256 characters.
+     * @param { string } appId - Identifies the application that obtains the databases, and cannot exceed 256
+     * characters.
      * @returns { Promise<string[]> } {string[]}: the storeId of all created KVStore databases.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Parameter verification failed.
@@ -3600,7 +3600,7 @@ declare namespace distributedKVStore {
      */
     off(event: 'distributedDataServiceDie', deathCallback?: Callback<void>): void;
 
-	  /**
+    /**
      * Unregister the death callback. Not notification will be received when the data manager service is terminated.
      * <p>The unregistered death callback must be a registered death callback of the database. If no death callback parameter
      * is passed, all database death callbacks will be unregistered.
