@@ -842,14 +842,6 @@ declare namespace distributedKVStore {
      * @since 9 dynamic
      * @since 23 static
      */
-    /**
-     * Indicates whether to back up database files
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @crossplatform
-     * @since 24 dynamic&static
-     */
     backup?: boolean;
 
     /**
