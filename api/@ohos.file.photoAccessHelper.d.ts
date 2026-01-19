@@ -1008,7 +1008,7 @@ declare namespace photoAccessHelper {
     NO_HIDE_SENSITIVE_TYPE = 3,
 
     /**
-     * Refer MEIDA_LOCATION permission to hide location.
+     * Refer MEDIA_LOCATION permission to hide location.
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
