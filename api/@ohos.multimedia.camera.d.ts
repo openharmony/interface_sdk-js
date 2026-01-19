@@ -539,6 +539,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 20 dynamic
+   * @since 23 static
    */
     interface ControlCenterStatusInfo {
       /**
@@ -549,6 +550,7 @@ declare namespace camera {
        * @syscap SystemCapability.Multimedia.Camera.Core
        * @atomicservice
        * @since 20 dynamic
+       * @since 23 static
        */
       readonly effectType: ControlCenterEffectType;
    
@@ -560,6 +562,7 @@ declare namespace camera {
        * @syscap SystemCapability.Multimedia.Camera.Core
        * @atomicservice
        * @since 20 dynamic
+       * @since 23 static
        */
       readonly isActive: boolean;
     }
@@ -1733,6 +1736,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 20 dynamic
+     * @since 23 static
      */
     isControlCenterActive(): boolean;
  
@@ -1746,6 +1750,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 20 dynamic
+     * @since 23 static
      */
     createControlCenterSession(): ControlCenterSession;
 
@@ -4702,6 +4707,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
+     * @since 23 static
      */
     isFocusAssistSupported(): boolean;
 
@@ -4869,6 +4875,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
+     * @since 23 static
      */
     getFocusAssist(): boolean;
 
@@ -5551,6 +5558,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 20 dynamic
+     * @since 23 static
      */
     isZoomCenterPointSupported(): boolean;
   }
@@ -5686,6 +5694,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 20 dynamic
+     * @since 23 static
      */
     getZoomCenterPoint(): Point;
 
@@ -5698,6 +5707,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 20 dynamic
+     * @since 23 static
      */
     setZoomCenterPoint(point: Point): void;
   }
@@ -6344,6 +6354,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 20 dynamic
+   * @since 23 static
    */
   enum ControlCenterEffectType {
     /**
@@ -6352,6 +6363,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 20 dynamic
+     * @since 23 static
      */
     BEAUTY = 0,
     /**
@@ -6360,6 +6372,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 20 dynamic
+     * @since 23 static
      */
     PORTRAIT = 1
   }
@@ -6585,6 +6598,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 20 dynamic
+     * @since 23 static
      */
     isControlCenterSupported(): boolean;
  
@@ -6595,6 +6609,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 20 dynamic
+     * @since 23 static
      */
     getSupportedEffectTypes(): Array<ControlCenterEffectType>;
   }
@@ -6618,6 +6633,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice 
      * @since 20 dynamic
+     * @since 23 static
      */
     enableControlCenter(enabled: boolean): void;
   }
@@ -13275,6 +13291,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 20 dynamic
+     * @since 23 static
      */
     centerPointOffset: Point;
   }
@@ -14669,6 +14686,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11 dynamic
+     * @since 23 static
      */
     confirmCapture(): void;
 
@@ -18425,6 +18443,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
+     * @since 23 static
      */
     getTimeLapseRecordState(): TimeLapseRecordState;
 
@@ -18451,6 +18470,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
+     * @since 23 static
      */
     getTimeLapsePreviewType(): TimeLapsePreviewType;
 
@@ -18477,6 +18497,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   interface ControlCenterSession extends Beauty, Aperture {
     /**
@@ -18487,6 +18508,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 20 dynamic
+     * @since 23 static
      */
     release(): Promise<void>;
   } 
@@ -19057,6 +19079,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 19 dynamic
+   * @since 23 static
    */
   interface QuickThumbnail {
     /**
@@ -19066,6 +19089,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 19 dynamic
+     * @since 23 static
      */
     readonly captureId: number;
 
@@ -19076,6 +19100,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 19 dynamic
+     * @since 23 static
      */
     thumbnailImage: image.PixelMap;
 
@@ -19083,9 +19108,11 @@ declare namespace camera {
      * Release quick thumbnail object.
      *
      * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 19 dynamic
+     * @since 23 static
      */
     release(): Promise<void>;
   }
