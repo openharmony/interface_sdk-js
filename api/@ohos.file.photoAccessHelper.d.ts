@@ -13322,7 +13322,7 @@ declare namespace photoAccessHelper {
      *     Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 22 dynamic&static
+     * @since 23 dynamic&static
      */
     setDownloadSpecificCloudMediaNetworkPolicy(assetUris: string[], networkOpt: CloudAssetNetworkPolicyType): Promise<void>;
 
@@ -13429,7 +13429,7 @@ declare namespace photoAccessHelper {
      *     Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 22 dynamic&static
+     * @since 23 dynamic&static
      */
     queryDownloadSpecificCloudMediaTaskCountAndSize(predicates: dataSharePredicates.DataSharePredicates): Promise<int[]>;
 
@@ -14518,7 +14518,7 @@ declare namespace photoAccessHelper {
    * @enum { int } CloudAssetNetworkPolicyType
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
-   * @since 22 dynamic&static
+   * @since 23 dynamic&static
    */
   enum CloudAssetNetworkPolicyType {
     /**
@@ -14526,7 +14526,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 22 dynamic&static
+     * @since 23 dynamic&static
      */
     DEFAULT = 0,
     /**
@@ -14534,7 +14534,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 22 dynamic&static
+     * @since 23 dynamic&static
      */
     CELL = 1,
     /**
@@ -14542,7 +14542,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 22 dynamic&static
+     * @since 23 dynamic&static
      */
     WIFI = 2,
   }
