@@ -30,4 +30,8 @@ export { WebNativeMessagingExtensionAbility, webNativeMessagingExtensionManager,
 import webview from '@ohos.web.webview';
 
 export { webview };
+
+import WebNativeMessagingExtensionContext from '@ohos.web.WebNativeMessagingExtensionContext';
+
+export { WebNativeMessagingExtensionContext };
 /*** endif */
