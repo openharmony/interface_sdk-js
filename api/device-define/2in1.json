@@ -141,8 +141,6 @@
     "SystemCapability.Communication.NetManager.Ethernet",
     "SystemCapability.FileManagement.UserFileManager.DistributedCore",
     "SystemCapability.FileManagement.UserFileManager.Core",
-    "SystemCapability.Multimedia.MediaLibrary.DistributedCore",
-    "SystemCapability.Multimedia.MediaLibrary.Core",
     "SystemCapability.Multimedia.Audio.PlaybackCapture",
     "SystemCapability.Multimedia.Audio.Interrupt",
     "SystemCapability.Multimedia.Audio.Tone",

@@ -589,7 +589,7 @@ declare namespace GestureControl {
    *
    * @enum { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
+   * @FaAndStageModel
    * @crossplatform
    * @since 11
    */
@@ -598,7 +598,7 @@ declare namespace GestureControl {
    *
    * @enum { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -608,7 +608,7 @@ declare namespace GestureControl {
      * TapGesture.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
+     * @FaAndStageModel
      * @crossplatform
      * @since 11
      */
@@ -616,7 +616,7 @@ declare namespace GestureControl {
      * TapGesture.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
+     * @FaAndStageModel
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
@@ -627,7 +627,7 @@ declare namespace GestureControl {
      * LongPressGesture.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
+     * @FaAndStageModel
      * @crossplatform
      * @since 11
      */
@@ -635,7 +635,7 @@ declare namespace GestureControl {
      * LongPressGesture.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
+     * @FaAndStageModel
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
@@ -646,7 +646,7 @@ declare namespace GestureControl {
      * PanGesture.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
+     * @FaAndStageModel
      * @crossplatform
      * @since 11
      */
@@ -654,7 +654,7 @@ declare namespace GestureControl {
      * PanGesture.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
+     * @FaAndStageModel
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
@@ -665,7 +665,7 @@ declare namespace GestureControl {
      * PinchGesture.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
+     * @FaAndStageModel
      * @crossplatform
      * @since 11
      */
@@ -673,7 +673,7 @@ declare namespace GestureControl {
      * PinchGesture.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
+     * @FaAndStageModel
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
@@ -684,7 +684,7 @@ declare namespace GestureControl {
      * SwipeGesture.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
+     * @FaAndStageModel
      * @crossplatform
      * @since 11
      */
@@ -692,7 +692,7 @@ declare namespace GestureControl {
      * SwipeGesture.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
+     * @FaAndStageModel
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
@@ -703,7 +703,7 @@ declare namespace GestureControl {
      * RotationGesture.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
+     * @FaAndStageModel
      * @crossplatform
      * @since 11
      */
@@ -711,7 +711,7 @@ declare namespace GestureControl {
      * RotationGesture.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
+     * @FaAndStageModel
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
@@ -722,7 +722,7 @@ declare namespace GestureControl {
      * Drag.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
+     * @FaAndStageModel
      * @crossplatform
      * @since 11
      */
@@ -730,7 +730,7 @@ declare namespace GestureControl {
      * Drag.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
+     * @FaAndStageModel
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
@@ -741,7 +741,7 @@ declare namespace GestureControl {
      * Click.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
+     * @FaAndStageModel
      * @crossplatform
      * @since 11
      */
@@ -749,7 +749,7 @@ declare namespace GestureControl {
      * Click.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
+     * @FaAndStageModel
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic

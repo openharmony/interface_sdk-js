@@ -580,7 +580,7 @@ export declare interface TabsAttribute extends CommonMethod {
     /**
      * Sets the animation curve
      *
-     * @param { Curve | ICurve } curve - animation curve for tabs switch animation,
+     * @param { Curve | ICurve| undefined } curve - animation curve for tabs switch animation,
      *     Curve is an enumeration type for common curves, ICurve is a curve object.
      *     Default value:
      *     When pages are turned by swiping in TabContent, the default value is

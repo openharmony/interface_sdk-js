@@ -1656,6 +1656,15 @@ export declare class RichEditorBaseController implements TextEditControllerEx {
      */
     setTypingStyle(value: RichEditorTextStyle): void;
     /**
+     * Set the typing paragraph style.
+     *
+     * @param { RichEditorParagraphStyle | undefined } style - set the typing paragraph style.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    setTypingParagraphStyle(style: RichEditorParagraphStyle | undefined): void;
+    /**
      * Specify the start and end positions to select a range of content.
      *
      * @param { int } selectionStart - The start position of the selected text.
@@ -1796,7 +1805,7 @@ export declare class RichEditorController extends RichEditorBaseController {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
      */
-    getSpans(value?: RichEditorRange): Array<RichEditorImageSpanResult | RichEditorTextSpanResult> | undefined;;
+    getSpans(value?: RichEditorRange): Array<RichEditorImageSpanResult | RichEditorTextSpanResult> | undefined;
     /**
      * Get span content.
      *

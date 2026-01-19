@@ -1194,7 +1194,7 @@ declare namespace media {
      * @param { AVImageQueryOptions } queryOption - The time options about the relationship
      *     between the given timeUs and a key frame, see @AVImageQueryOptions.
      * @param { PixelMapParams } param - The output pixel map format params, see @PixelMapParams.
-     * @param { OnFrameFetched } callback - the callback function when a fetch is done\failed\cancelled.
+     * @param { OnFrameFetched } callback - the callback function when a fetch is succeeded\failed\cancelled.
      * @throws { BusinessError } 5400102 - Operation not allowed. Returned by callback.
      * @throws { BusinessError } 5400104 - Fetch timeout, Returned by callback.
      * @throws { BusinessError } 5400106 - Unsupported format. Returned by callback.
@@ -2502,7 +2502,7 @@ declare namespace media {
   }
 
   /**
-   * Describes the information of an Metrics event.
+   * Describes the information of an Metrics Event.
    *
    * @typedef AVMetricsEvent
    * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -2511,6 +2511,7 @@ declare namespace media {
   interface AVMetricsEvent {
     /**
      * Type of the metrics event.
+     *
      * @type { AVMetricsEventType }
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @stagemodelonly
@@ -2536,7 +2537,8 @@ declare namespace media {
 
     /**
      * The detailed information of the event.
-     * @type {Record<string, Object>}
+     *
+     * @type { Record<string, Object> }
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -3313,8 +3315,7 @@ declare namespace media {
     addSubtitleFromUrl(url: string): Promise<void>;
 
     /**
-     * Get statistic infos of current player. This API can be called only when the AVPlayer is in the prepared,
-     * playing, or paused state.
+     * Get statistic infos of current player.
      * @returns { Promise<PlaybackInfo> } Statistic infos of current player.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 12 dynamic
@@ -3414,7 +3415,7 @@ declare namespace media {
      * @returns { long } returns the time of current playback position - microseconds(us)
      * @throws { BusinessError } 5400102 - Operation not allowed.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
-     * @FaAndStageModel
+     * @stagemodelonly
      * @atomicservice
      * @since 23 dynamic&static
      */
@@ -8183,7 +8184,7 @@ declare namespace media {
     /**
      * Default audio encoding format, which is AMR-NB.
      * @syscap SystemCapability.Multimedia.Media.AudioRecorder
-     * @since 6 dynamic
+     * @since 6 dynamiconly
      * @deprecated since 8
      */
     DEFAULT = 0,
@@ -8238,7 +8239,7 @@ declare namespace media {
     /**
      * Default audio output format, which is Moving Pictures Expert Group 4 (MPEG-4).
      * @syscap SystemCapability.Multimedia.Media.AudioRecorder
-     * @since 6 dynamic
+     * @since 6 dynamiconly
      * @deprecated since 8
      */
     DEFAULT = 0,
@@ -12263,11 +12264,11 @@ declare namespace media {
      * Indicates whether to enable B Frame Encoding for reduce file size.
      * @type { ?boolean } The default value is false, which means B frame encoding cannot be enabled.
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
-     * @since 20
+     * @since 20 dynamic
      */
     /**
      * Indicates whether to enable B Frame Encoding for reduce file size.
-     * @type { ?boolean } The default value is false, which means B frame encoding cannot be enabled.
+     * @type {  ?boolean  } The default value is false, which means B frame encoding cannot be enabled.
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @atomicservice
      * @since 22 dynamic
@@ -12821,7 +12822,6 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
 	   * @systemapi
      * @since 18 dynamic
-     * @since 23 static
      * @example
      * // This event is reported when the state of the system screen recorder changes.
      * screenCaptureMonitor.on('systemScreenRecorder', (event: media.ScreenCaptureEvent) => {

@@ -5658,7 +5658,7 @@ declare namespace text {
    * @atomicservice
    * @since 24 dynamic&static
    */
-  interface TextBox{
+  interface TextBox {
     /**
      * Information about the rectangle.
      * @type { common2D.Rect }
@@ -8200,7 +8200,7 @@ declare namespace text {
   function getFontCount(path: string | Resource) : int;
 
   /**
-   * Obtains the corresponding font path array based on the font type.
+   * Obtain the corresponding font path array based on the font type.
    * @param { SystemFontType } fontType - System font type.
    * @returns { Array<string> } An array of font path.
    * @syscap SystemCapability.Graphics.Drawing

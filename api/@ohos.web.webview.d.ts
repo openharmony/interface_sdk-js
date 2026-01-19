@@ -4318,6 +4318,18 @@ declare namespace webview {
     refresh(): void;
 
     /**
+     * Refreshes the current URL.
+     *
+     * @param { boolean } ignoreCache - If set to true, it indicates an end-to-end request with "pragma: no-cache";
+     *     otherwise, it performs a normal refresh.
+     * @throws { BusinessError } 17100001 - Init error.
+     *     The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 24 dynamic
+     */
+    refresh(ignoreCache: boolean): void;
+
+    /**
      * Loads the data or URL.
      *
      * @param { string } data - A string encoded according to "Base64" or "URL".
@@ -4366,8 +4378,7 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
-     * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid, or the URL
-     *                           length exceeds 2048.
+     * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid.
      * @throws { BusinessError } 17100003 - Invalid resource path or file type.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 9
@@ -4380,8 +4391,7 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
-     * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid, or the URL
-     *                           length exceeds 2048.
+     * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid.
      * @throws { BusinessError } 17100003 - Invalid resource path or file type.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
@@ -4396,8 +4406,7 @@ declare namespace webview {
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
-     * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid, or the URL
-     *                           length exceeds 2048.
+     * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid.
      * @throws { BusinessError } 17100003 - Invalid resource path or file type.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
@@ -6121,8 +6130,7 @@ declare namespace webview {
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
-     * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid, or the URL
-     *                           length exceeds 2048.
+     * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
@@ -6136,8 +6144,7 @@ declare namespace webview {
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
-     * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid, or the URL
-     *                           length exceeds 2048.
+     * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
