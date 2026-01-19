@@ -34,7 +34,7 @@ import type { AsyncCallback } from './@ohos.base';
  * @namespace autoStartupManager
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
- * @since 11
+ * @since 11 dynamic
  */
 /**
  * The class of auto startup manager.
