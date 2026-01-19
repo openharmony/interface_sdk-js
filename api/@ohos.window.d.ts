@@ -8918,7 +8918,6 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 23 static
      */
     on(type: 'windowEvent', callback: Callback<WindowEventType>): void;
 
@@ -8955,7 +8954,6 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 23 static
      */
     off(type: 'windowEvent', callback?: Callback<WindowEventType>): void;
 
@@ -9143,7 +9141,6 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 23 static
      */
     on(type: 'subWindowClose', callback: Callback<void>): void;
 
@@ -9185,7 +9182,6 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 23 static
      */
     off(type: 'subWindowClose', callback?: Callback<void>): void;
 
@@ -14085,7 +14081,6 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 23 static
      */
     on(eventType: 'windowStageEvent', callback: Callback<WindowStageEventType>): void;
 
@@ -14145,7 +14140,6 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 23 static
      */
     off(eventType: 'windowStageEvent', callback?: Callback<WindowStageEventType>): void;
 
