@@ -25,7 +25,8 @@ import { BusinessError, Callback } from './@ohos.base';
  *
  * @namespace onScreen
  * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
- * @since 20
+ * @since 20 dynamic
+ * @since 23 static
  */
 
 declare namespace onScreen {
