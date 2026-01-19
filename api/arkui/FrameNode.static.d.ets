@@ -1428,6 +1428,17 @@ export declare namespace typeNode {
   export function createLoadingProgressNode(context: UIContext): LoadingProgress;
 
   /**
+   * Get the attribute instance of FrameNode to set attributes.
+   *
+   * @param { FrameNode } node - the target FrameNode.
+   * @returns { LoadingProgressAttribute | undefined } - Return the attribute instance of FrameNode, and return undefined if it
+   *     does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  export function getLoadingProgressAttribute(node: FrameNode): LoadingProgressAttribute | undefined;
+
+  /**
    * Define the Blank type of FrameNode.
    *
    * @extends TypedFrameNode<BlankAttribute>
@@ -1744,6 +1755,17 @@ export declare namespace typeNode {
    * @since 23 static
    */
   export function createProgressNode(context: UIContext): Progress;
+
+  /**
+   * Get the attribute instance of FrameNode to set attributes.
+   *
+   * @param { FrameNode } node - the target FrameNode.
+   * @returns { ProgressAttribute | undefined } - Return the attribute instance of FrameNode, and return undefined if it
+   *     does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  export function getProgressAttribute(node: FrameNode): ProgressAttribute | undefined;
 
   /**
    * Define the Scroll type of FrameNode.
