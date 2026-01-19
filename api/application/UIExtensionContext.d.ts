@@ -389,8 +389,9 @@ declare class UIExtensionContext extends ExtensionContext {
   startAbility(want: Want, options?: StartOptions): Promise<void>;
 
   /**
-   * UI extension uses this method to start a specific ability by implicit want.If the caller application is in foreground,
-   * you can use this method to start ability; If the caller application is in the background,
+   * UI extension uses this method to start a specific ability by implicit want.
+   * If the caller application is in foreground,you can use this method to start ability;
+   * If the caller application is in the background,
    * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
    * If the target ability is visible, you can start the target ability; If the target ability is invisible,
    * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
@@ -401,7 +402,8 @@ declare class UIExtensionContext extends ExtensionContext {
    * @param { AsyncCallback<AbilityResult> } [callback] - The callback is used to return the ability result.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+   *     2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Cannot start an invisible component.
@@ -420,7 +422,42 @@ declare class UIExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 23 static
+   */
+  /**
+   * UI extension uses this method to start a specific ability by implicit want.
+   * If the caller application is in foreground,you can use this method to start ability;
+   * If the caller application is in the background,
+   * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
+   * If the target ability is visible, you can start the target ability; If the target ability is invisible,
+   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
+   * If the target ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
+   *
+   * @param { string } link - Indicates the ability to start.
+   * @param { OpenLinkOptions } [options] - Indicates the open link options.
+   * @param { AsyncCallback<AbilityResult> } [callback] - The callback is used to return the ability result.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+   *     2.Incorrect parameter types.
+   * @throws { BusinessError } 16000001 - The specified ability does not exist.
+   * @throws { BusinessError } 16000002 - Incorrect ability type.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
+   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
+   * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
+   * @throws { BusinessError } 16000008 - The crowdtesting application expires.
+   * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
+   * @throws { BusinessError } 16000010 - The call with the continuation and prepare continuation flag is forbidden.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000012 - The application is controlled.
+   * @throws { BusinessError } 16000013 - The application is controlled by EDM.
+   * @throws { BusinessError } 16000019 - No matching ability is found.
+   * @throws { BusinessError } 16000069 - The extension cannot start the third party application.
+   * @throws { BusinessError } 16200001 - The caller has been released.
+   * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
+   * @throws { BusinessError } 16000136 - The UIAbility is prohibited from launching itself via App Linking.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 23 dynamic&static
    */
   openLink(link: string, options?: OpenLinkOptions, callback?: AsyncCallback<AbilityResult>): Promise<void>;
 

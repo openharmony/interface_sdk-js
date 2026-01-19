@@ -23,7 +23,7 @@ import { CommonMethod } from './common';
 import { CustomBuilder } from './builder';
 import { TextHeightAdaptivePolicy, TextOverflow, VerticalAlign } from './enums';
 import { Dimension, Font, Length, LocalizedPadding, Padding, Resource, ResourceColor, ResourceStr, VoidCallback } from './units';
-import { ComponentContent } from '../ComponentContent';
+import { ComponentContentBase } from '../ComponentContent';
 import { SymbolGlyphModifier } from '../SymbolGlyphModifier';
 import { ComponentBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
@@ -258,23 +258,46 @@ export declare interface TabBarIconStyle {
  */
 export declare class TabBarSymbol {
   /**
-   * Symbol icon in the normal style.
+   * Get symbol icon in the normal style.
    *
-   * @type { SymbolGlyphModifier }
-   * @default fontColor: #66182431, renderingStrategy: SymbolRenderingStrategy.MULTIPLE_OPACITY, fontSize: 24vp
+   * @returns { SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
-  normal: SymbolGlyphModifier;
+  get normal(): SymbolGlyphModifier;
+
   /**
-   * Symbol icon in the selected style.
+   * Set symbol icon in the normal style.
    *
-   * @type { ?SymbolGlyphModifier }
-   * @default fontColor: #ff007dff, renderingStrategy: SymbolRenderingStrategy.MULTIPLE_OPACITY, fontSize: 24vp
+   * @param { SymbolGlyphModifier } normal - Set symbol icon in the normal style.
+   *     <br>@default fontColor: #66182431, renderingStrategy: SymbolRenderingStrategy.MULTIPLE_OPACITY, fontSize: 24vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
-  selected?: SymbolGlyphModifier;
+  set normal(normal: SymbolGlyphModifier);
+
+  /**
+   * Get symbol icon in the selected style.
+   *
+   * @returns { SymbolGlyphModifier | undefined }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  get selected(): SymbolGlyphModifier | undefined;
+
+  /**
+   * Set symbol icon in the selected style.
+   *
+   * @param { SymbolGlyphModifier | undefined } selected - Set symbol icon in the selected style.
+   *     <br>@default fontColor: #ff007dff, renderingStrategy: SymbolRenderingStrategy.MULTIPLE_OPACITY, fontSize: 24vp
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  set selected(selected: SymbolGlyphModifier | undefined);
 }
 /**
  * Icon and text for TabBar.
@@ -318,21 +341,23 @@ export declare class SubTabBarStyle {
   /**
    * constructor.
    *
-   * @param { ResourceStr | ComponentContent } content - indicates the content of the sub tab bar
+   * @param { ResourceStr | ComponentContentBase } content - indicates the content of the sub tab bar
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
-  constructor(content: ResourceStr | ComponentContent);
+  constructor(content: ResourceStr | ComponentContentBase);
   /**
-   * Static constructor used to create a SubTabBarStyle instance. You can set custom content with ComponentContent.
+   * Static constructor used to create a SubTabBarStyle instance. You can set custom content with ComponentContentBase.
    *
-   * @param { ResourceStr | ComponentContent } content - indicates the content of the sub tab bar
+   * @param { ResourceStr | ComponentContentBase } content - indicates the content of the sub tab bar
    * @returns { SubTabBarStyle } the style of the sub tab bar
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
-  static of(content: ResourceStr | ComponentContent): SubTabBarStyle;
+  static of(content: ResourceStr | ComponentContentBase): SubTabBarStyle;
   /**
    * Set the style of the indicator when selected
    *
@@ -537,13 +562,15 @@ export declare interface TabContentAttribute extends CommonMethod {
    * <br>If the content exceeds the space provided by the tab bar, it will be clipped.
    * </p>
    *
-   * @param { ComponentContent | SubTabBarStyle | BottomTabBarStyle | string | Resource | CustomBuilder | TabBarOptions } content
-   * Content displayed on the tab bar.
+   * @param { ComponentContentBase | SubTabBarStyle | BottomTabBarStyle | string | Resource | CustomBuilder | TabBarOptions | undefined} content
+   *     undefined means an empty tab bar.
+   *     Content displayed on the tab bar.
    * @returns { TabContentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
-  tabBar(content: ComponentContent | SubTabBarStyle | BottomTabBarStyle | string | Resource | CustomBuilder | TabBarOptions | undefined): this;
+  tabBar(content: ComponentContentBase | SubTabBarStyle | BottomTabBarStyle | string | Resource | CustomBuilder | TabBarOptions | undefined): this;
   /**
    * Called when the tab content is about to be displayed. The scenarios include the first-time display,
    * tab switching, page switching, and window switching between the foreground and background.

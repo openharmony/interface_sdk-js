@@ -1026,6 +1026,15 @@ declare namespace bundleManager {
     CRYPTO = 35,
 
     /**
+     * Indicates extension info with type of the partner agent
+     * 
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    PARTNER_AGENT = 36,
+
+    /**
      * Indicates extension info with type of unspecified
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -1985,7 +1994,7 @@ declare namespace bundleManager {
   }
 
   /**
-   * This enumeration value is used to identify various types of extension ability
+   * This enumeration value is used to identify the multi app mode type.
    *
    * @enum { int }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core

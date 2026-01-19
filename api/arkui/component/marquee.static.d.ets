@@ -17,8 +17,8 @@
  * @file
  * @kit ArkUI
  */
-import { ResourceColor, Length } from "./units";
-import { CommonMethod, AttributeModifier, Callback } from "./common";
+import { ResourceColor, Length, LengthMetrics } from "./units";
+import { CommonMethod, AttributeModifier } from "./common";
 import { FontWeight, MarqueeUpdateStrategy } from "./enums";
 import { Resource } from './../../../api/global/resource';
 import { ComponentBuilder, CustomBuilder } from './builder';
@@ -100,6 +100,18 @@ export interface MarqueeOptions {
      * @since 23 static
      */
     src: string | undefined;
+
+    /**
+     * The spacing between two rounds of marquee.
+     * 
+     * Default value is marquee width.
+     *
+     * @type { ?LengthMetrics }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    spacing?: LengthMetrics;
 }
 
 /**
@@ -226,19 +238,6 @@ export declare interface MarqueeAttribute extends CommonMethod {
      */
     default onFinish(event: (() => void) | undefined): this;
     /**
-     * Called when scrolling is stoped.
-     *
-     * <p><strong>NOTE</strong>:
-     * <br>If event is set to undefined, the current event will be unbound.
-     * </p>
-     * 
-     * @param { Callback<void> | undefined } event
-     * @returns { MarqueeAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
-     */
-    default onStop(event: Callback<void> | undefined): this;
-    /**
      * Sets the attribute modifier.
      *
      * @param { AttributeModifier<MarqueeAttribute> | AttributeModifier<CommonMethod> | undefined } modifier.
@@ -253,14 +252,13 @@ export declare interface MarqueeAttribute extends CommonMethod {
  * Defines Marquee Component.
  *
  * @param { MarqueeOptions } options
- * @param { CustomBuilder } [content_]
  * @returns { MarqueeAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
 @ComponentBuilder
 export declare function Marquee(
-    options: MarqueeOptions, 
-    content_?: CustomBuilder,
+    options: MarqueeOptions
 ): MarqueeAttribute

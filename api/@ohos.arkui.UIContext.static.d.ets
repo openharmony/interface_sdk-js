@@ -35,6 +35,7 @@ import image from './@ohos.multimedia.image';
 import type common from './@ohos.app.ability.common';
 import type pointer from './@ohos.multimodalInput.pointer';
 import { ComponentContent, FrameNode, Frame } from '@ohos.arkui.node';
+import { ComponentContentBase } from 'arkui.ComponentContent';
 import { AnimatorOptions, AnimatorResult } from './@ohos.animator';
 import { ClickEvent, ExpectedFrameRateRange, DragItemInfo, AnimateParam, KeyframeAnimateParam, KeyframeState,
   SheetOptions, PopupCommonOptions, MenuOptions, KeyEvent,
@@ -52,8 +53,7 @@ import { DatePickerDialogOptions } from '@ohos.arkui.component';
 import { TabsController } from '@ohos.arkui.component';
 import { Scroller } from '@ohos.arkui.component';
 import { KeyProcessingMode } from '@ohos.arkui.component';
-import { TextMenuOptions } from '@ohos.arkui.component';
-
+import { TextMenuOptions, TextLayoutOptions, StyledString, Paragraph } from '@ohos.arkui.component';
 /**
  * class Font
  *
@@ -115,12 +115,22 @@ export declare class UIInspector {
   /**
    * Sets the component after layout or draw criteria and returns the corresponding listening handle
    * @param { string } id - component id.
-   * @returns { inspector.ComponentObserver | undefined } create listener for observer component event.
-   *     If unable to obtain current ui context, the function will return undefined.
+   * @returns { inspector.ComponentObserver } create listener for observer component event.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
-  createComponentObserver(id: string): inspector.ComponentObserver | undefined;
+  createComponentObserver(id: string): inspector.ComponentObserver;
+  /**
+   * Sets the component after layout or draw criteria and returns the corresponding listening handle.
+   *
+   * @param { string | int } id - component id or uniqueId of the component.
+   * @returns { inspector.ComponentObserver } create listener for observer component event.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  createComponentObserver(id: string | int): inspector.ComponentObserver;
 }
 
 /**
@@ -309,6 +319,16 @@ export declare class Router {
    * @since 23 static
    */
   getLength(): string;
+
+  /**
+   * Obtains the number of pages in the current stack.
+   *
+   * @returns { int } Number of pages in the stack. The maximum value is 32.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  getStackSize(): int;
 
   /**
    * Obtains information about the current page state.
@@ -1757,6 +1777,48 @@ export declare class UIObserver {
   offTabContentUpdate(callback?: Callback<observer.TabContentInfo>): void;
 
   /**
+   * Registers a callback function to be called when text field's content is changed.
+   *
+   * @param { Callback<observer.TextChangeEventInfo> } callback - The callback function to be called when
+   *     text field's content is changed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  onTextChange(callback: Callback<observer.TextChangeEventInfo>): void;
+
+  /**
+   * Removes a callback function that was previously registered with `on()`.
+   *
+   * @param { Callback<observer.TextChangeEventInfo> } [callback] - The callback function to remove. If not provided,
+   *     all callbacks for the given event type will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  offTextChange(callback?: Callback<observer.TextChangeEventInfo>): void;
+
+  /**
+   * Registers a callback function to be called when text field's content is changed.
+   *
+   * @param { observer.ObserverOptions } identity - Identity options.
+   * @param { Callback<observer.TextChangeEventInfo> } callback - The callback function to be called when the
+   *     text field's content is changed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  onTextChange(identity: observer.ObserverOptions, callback: Callback<observer.TextChangeEventInfo>): void;
+
+  /**
+   * Removes a callback function that was previously registered with `on()`.
+   *
+   * @param { observer.ObserverOptions } identity - Identity options.
+   * @param { Callback<observer.TextChangeEventInfo> } [callback] - The callback function to remove. If not provided,
+   *     all callbacks for the given event type will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  offTextChange(identity: observer.ObserverOptions, callback?: Callback<observer.TextChangeEventInfo>): void;
+
+  /**
    * Registers a callback to monitor the gesture trigger information.
    *
    * @param { GestureListenerType } type - The type of gesture to monitor.
@@ -2353,6 +2415,16 @@ export declare class MeasureUtils {
    * @since 23 static
    */
   measureTextSize(options: MeasureOptions): SizeOptions;
+  /**
+   * Get layout info of the styled string.
+   *
+   * @param { StyledString } styledString - The styled string value.
+   * @param { TextLayoutOptions } [options] - The layout options.
+   * @returns { Array<Paragraph> } paragraph result
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  getParagraphs(styledString: StyledString, options?: TextLayoutOptions): Array<Paragraph>;
 }
 
 /**
@@ -2461,6 +2533,40 @@ export declare class ContextMenuController {
    * @since 23 static
    */
   close(): void;
+}
+/**
+ * Provides the method for magnifier capabilities.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 23 static
+ */
+export declare class Magnifier {
+   /**
+    * Bind magnifier to a component.
+    *
+    * @param { string } id - component id.
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @since 23 static
+    */
+    bind(id: string);
+   /**
+    * Set the position of the magnified content.
+    *
+    * @param { double } x - the x position of the magnified content relative to the component.
+    *     The unit of x is vp.
+    * @param { double } y - the y position of the magnified content relative to the component.
+    *     The unit of y is vp.
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @since 23 static
+    */
+    show(x: double,y: double): void;
+   /** 
+    * Unbind the magnifier from its associated component.
+    *
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @since 23 static
+    */
+    unbind(): void;
 }
 
 /**
@@ -2777,6 +2883,45 @@ export declare class ResolvedUIContext extends UIContext {
 export declare class UIContext {
 
   /**
+   * Gets the UIContext associated with the current calling scope.
+   * @returns { UIContext | undefined } - The UIContext for the current calling scope,
+   *     or undefined if no context can be determined from the call stack.
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  static getCallingScopeUIContext(): UIContext | undefined;
+
+  /**
+   * Gets the UIContext of the last focused UI instance if one exists.
+   * @returns { UIContext | undefined } - The UIContext of the last focused UI instance or undefined if no one exists.
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  static getLastFocusedUIContext(): UIContext | undefined;
+
+  /**
+   * Gets the UIContext of the last foregrounded UI instance if one exists.
+   * @returns { UIContext | undefined } - The UIContext of the last foregrounded UI instance or undefined if no one
+   *     exists
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  static getLastForegroundUIContext(): UIContext | undefined;
+
+  /**
+   * Gets all currently active UIContext instances.
+   * @returns { UIContext[] } - An array containing all valid UIContext instances,
+   *     returns an empty array if no contexts are available.
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  static getAllUIContexts(): UIContext[];
+
+  /**
    * Resolves a UIContext using priority strategy.
    *
    * Resolves and returns a UIContext instance following a predefined priority sequence.
@@ -2896,6 +3041,14 @@ export declare class UIContext {
    * @since 23 static
    */
   getOverlayManager(): OverlayManager;
+  /**
+   * Obtains the Magnifier object.
+   *
+   * @returns { Magnifier } Magnifier instance obtained.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  getMagnifier(): Magnifier;
 
   /**
    * Init OverlayManager.
@@ -3324,9 +3477,10 @@ export declare class UIContext {
   /**
    * Open the BindSheet.
    *
-   * @param { ComponentContent<T> } bindSheetContent - The content of BindSheet.
+   * @param { ComponentContentBase } bindSheetContent - The content of BindSheet.
    * @param { SheetOptions } [sheetOptions] - The options of sheet.
    * @param { int } [targetId] - The uniqueId of the FrameNode to which BindSheet is attached.
+   *     <br>Value range:(0, +∞)
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
@@ -3338,18 +3492,20 @@ export declare class UIContext {
    * @throws { BusinessError } 120005 - The node of targetId is not in the component tree.
    * @throws { BusinessError } 120006 - The node of targetId is not a child of the page node or NavDestination node.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
-  openBindSheet<T extends Object>(bindSheetContent: ComponentContent<T>, sheetOptions?: SheetOptions, targetId?: int): Promise<void>;
+  openBindSheet(bindSheetContent: ComponentContentBase,
+    sheetOptions?: SheetOptions, targetId?: int): Promise<void>;
 
   /**
    * Update the BindSheet with sheetOptions.
    *
-   * @param { ComponentContent<T> } bindSheetContent - The content of BindSheet.
+   * @param { ComponentContentBase } bindSheetContent - The content of BindSheet.
    * @param { SheetOptions } sheetOptions - The update options of sheet.
-   * @param { boolean } partialUpdate - If true, only the specified properties in the sheetOptions are updated,
-   *                                    otherwise the rest of the properties are overwritten with the default values.
-   *                                    Default value is false.
+   * @param { boolean } [partialUpdate] - If true, only the specified properties in the sheetOptions are updated,
+   *     otherwise the rest of the properties are overwritten with the default values.
+   *     Default value is false.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
@@ -3358,14 +3514,16 @@ export declare class UIContext {
    * @throws { BusinessError } 120001 - The bindSheetContent is incorrect.
    * @throws { BusinessError } 120003 - The bindSheetContent cannot be found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
-  updateBindSheet<T extends Object>(bindSheetContent: ComponentContent<T>, sheetOptions: SheetOptions, partialUpdate?: boolean): Promise<void>;
+  updateBindSheet(bindSheetContent: ComponentContentBase,
+    sheetOptions: SheetOptions, partialUpdate?: boolean): Promise<void>;
 
   /**
    * Close the BindSheet.
    *
-   * @param { ComponentContent<T> } bindSheetContent - The content of BindSheet.
+   * @param { ComponentContentBase } bindSheetContent - The content of BindSheet.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
@@ -3374,9 +3532,10 @@ export declare class UIContext {
    * @throws { BusinessError } 120001 - The bindSheetContent is incorrect.
    * @throws { BusinessError } 120003 - The bindSheetContent cannot be found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
-  closeBindSheet<T extends Object>(bindSheetContent: ComponentContent<T>): Promise<void>;
+  closeBindSheet(bindSheetContent: ComponentContentBase): Promise<void>;
 
   /**
    * Post a frame callback to run on the next frame.
@@ -3609,6 +3768,16 @@ export declare class UIContext {
    * @since 23 static
    */
   recycleInvisibleImageMemory(enabled: boolean): void;
+
+  /**
+   * Set custom keyboard continue feature.
+   *
+   * @param { CustomKeyboardContinueFeature } feature - The custom keyboard continue feature.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  setCustomKeyboardContinueFeature(feature: CustomKeyboardContinueFeature): void;
 }
 
 /**
@@ -3759,4 +3928,33 @@ export declare class ContentCoverController {
    * @since 23 static
    */
   close(): void;
+}
+
+/**
+ * Enum of CustomKeyboardContinueFeature
+ * 
+ * @enum { int } CustomKeyboardContinueFeature
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 23 static
+ */
+ export const enum CustomKeyboardContinueFeature {
+
+  /**
+   * Enable custom keyboard continuation.
+   * 
+   * @syscap SystemCapability. ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  ENABLED = 0,
+
+  /**
+   * Disable custom keyboard continuation.
+   * 
+   * @syscap SystemCapability. ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  DISABLED = 1
 }

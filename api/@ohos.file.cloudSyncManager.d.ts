@@ -647,8 +647,7 @@ declare namespace cloudSyncManager {
    * @interface LocalFilePresentStatus
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
-   * @since 22 dynamic
-   * @since 23 static
+   * @since 23 dynamic&static
    */
   interface LocalFilePresentStatus {
     /**
@@ -657,8 +656,7 @@ declare namespace cloudSyncManager {
      * @type { string }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @systemapi
-     * @since 22 dynamic
-     * @since 23 static
+     * @since 23 dynamic&static
      */
     bundleName: string;
     /**
@@ -667,37 +665,35 @@ declare namespace cloudSyncManager {
      * @type { boolean }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @systemapi
-     * @since 22 dynamic
-     * @since 23 static
+     * @since 23 dynamic&static
      */
     isLocalFilePresent: boolean;
   }
 
-    /**
-     * Check whether there are files in the applications that have been connected to the cloud disk
-     *     <br>that have not been uploaded to the cloud.
-     * 
-     * @permission ohos.permission.CLOUDFILE_SYNC_MANAGER
-     * @param { Array<string> } bundleNames - The bundle names of the applications
-     *     <br>that have been connected to the cloud disk.
-     * @returns { Promise<Array<LocalFilePresentStatus>> } - Return the existence status of files
-     *     <br>that have not been uploaded to the cloud for the queryed applications.
-     * @throws { BusinessError } 201 - Permission verification failed.
-     * @throws { BusinessError } 202 - The caller is not a system application.
-     * @throws { BusinessError } 13600001 - IPC error. Possible causes:
-     *     <br>1.IPC failed or timed out. 2.Failed to load the service.
-     * @throws { BusinessError } 13900010 - Try again.
-     * @throws { BusinessError } 13900020 - Invalid argument. Possible causes:
-     *     <br>1.Mandatory parameters are left unspecified. 2.The length of the input parameter exceeds the upper limit.
-     *     <br>3.The input parameter contains a invalid bundleName.
-     * @throws { BusinessError } 22400005 - Inner error. Possible causes:
-     *     <br>1.Failed to access the database or execute the SQL statement.
-     *     <br>2.System error, such as a null pointer, insufficient memory or a JS engine exception.
-     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
-     * @systemapi
-     * @since 22 dynamic
-     * @since 23 static
-     */
+  /**
+   * Check whether there are files in the applications that have been connected to the cloud disk
+   *     <br>that have not been uploaded to the cloud.
+   * 
+   * @permission ohos.permission.CLOUDFILE_SYNC_MANAGER
+   * @param { Array<string> } bundleNames - The bundle names of the applications
+   *     <br>that have been connected to the cloud disk.
+   * @returns { Promise<Array<LocalFilePresentStatus>> } - Return the existence status of files
+   *     <br>that have not been uploaded to the cloud for the queried applications.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 202 - The caller is not a system application.
+   * @throws { BusinessError } 13600001 - IPC error. Possible causes:
+   *     <br>1.IPC failed or timed out. 2.Failed to load the service.
+   * @throws { BusinessError } 13900010 - Try again.
+   * @throws { BusinessError } 13900020 - Invalid argument. Possible causes:
+   *     <br>1.Mandatory parameter are left unspecified. 2.The length of the input parameter exceeds the upper limit.
+   *     <br>3.The input parameter contains an invalid bundleName.
+   * @throws { BusinessError } 22400005 - Inner error. Possible causes:
+   *     <br>1.Failed to access the database or execute the SQL statement.
+   *     <br>2.System error, such as a null pointer, insufficient memory or a JS engine exception.
+   * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+   * @systemapi
+   * @since 23 dynamic&static
+   */
   function getBundlesLocalFilePresentStatus(bundleNames: Array<string>): Promise<Array<LocalFilePresentStatus>>;
 }
 

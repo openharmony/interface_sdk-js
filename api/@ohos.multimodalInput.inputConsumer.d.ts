@@ -223,7 +223,7 @@ declare namespace inputConsumer {
      * @since 11 dynamic
      * @since 23 static
      */
-    FACTORY_MODE
+    FACTORY_MODE = 0
   }
 
   /**

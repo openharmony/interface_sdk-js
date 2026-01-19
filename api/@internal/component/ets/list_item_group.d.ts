@@ -89,6 +89,7 @@ declare enum ListItemGroupStyle {
  *
  * @interface ListItemGroupOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -114,6 +115,7 @@ declare interface ListItemGroupOptions {
    *
    * @type { ?CustomBuilder }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -151,6 +153,7 @@ declare interface ListItemGroupOptions {
    *
    * @type { ?CustomBuilder }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -188,6 +191,7 @@ declare interface ListItemGroupOptions {
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -233,9 +237,11 @@ declare interface ListItemGroupOptions {
  *
  * @interface ListItemGroupInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
+ * @noninterop
  */
 interface ListItemGroupInterface {
   /**
@@ -261,6 +267,7 @@ interface ListItemGroupInterface {
    * @param { ListItemGroupOptions } options
    * @returns { ListItemGroupAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -288,9 +295,11 @@ interface ListItemGroupInterface {
  *
  * @extends CommonMethod<ListItemGroupAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
+ * @noninterop
  */
 declare class ListItemGroupAttribute extends CommonMethod<ListItemGroupAttribute> {
   /**
@@ -342,6 +351,7 @@ declare class ListItemGroupAttribute extends CommonMethod<ListItemGroupAttribute
    * @param { ListDividerOptions | null } value
    * @returns { ListItemGroupAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -380,9 +390,11 @@ declare class ListItemGroupAttribute extends CommonMethod<ListItemGroupAttribute
  * Defines ListItemGroup Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
+ * @noninterop
  */
 declare const ListItemGroupInstance: ListItemGroupAttribute;
 
@@ -403,8 +415,10 @@ declare const ListItemGroupInstance: ListItemGroupAttribute;
  * Defines ListItemGroup Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
+ * @noninterop
  */
 declare const ListItemGroup: ListItemGroupInterface;

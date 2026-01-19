@@ -73,7 +73,7 @@ declare namespace uniformDataStruct {
      * @since 23 static
      */
     textAbstract?: string;
-    
+
     /**
      * Object of the dictionary type used to describe the attributes of the text content. Both the key and value of the
      * object are of the string type. For example, the following is a details object used to describe the properties of
@@ -89,7 +89,7 @@ declare namespace uniformDataStruct {
      * @since 12 dynamic
      * @since 23 static
      */
-     details?: Record<string, string>;
+    details?: Record<string, string>;
   }
 
   /**
@@ -143,7 +143,7 @@ declare namespace uniformDataStruct {
      * @since 12 dynamic
      * @since 23 static
      */
-     details?: Record<string, string>;
+    details?: Record<string, string>;
   }
 
   /**
@@ -199,7 +199,7 @@ declare namespace uniformDataStruct {
      * @since 12 dynamic
      * @since 23 static
      */
-     details?: Record<string, string>;
+    details?: Record<string, string>;
   }
 
   /**

@@ -541,8 +541,8 @@ export interface FileReadTextOption {
   position?: number;
 
   /**
-   * Position where the reading starts.
-   * The default value is the start position of the file.
+   * Length of the content to read.
+   * If this parameter is not set, all content of the file will be read.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3

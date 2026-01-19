@@ -991,7 +991,7 @@ declare interface SliderStepItemAccessibility {
 }
 
 /**
- * Defines the accessibility information of slider step point.
+ * Defines the options of slider step point.
  *
  * @interface SliderShowStepOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full

@@ -122,13 +122,12 @@ export declare interface LoadingProgressConfiguration extends CommonConfiguratio
 /**
  * Defines the LoadingProgress component.
  *
- * @param { CustomBuilder } [content_]
  * @returns { LoadingProgressAttribute } The attribute of the LoadingProgress.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
 @ComponentBuilder
 export declare function LoadingProgress(
-    content_?: CustomBuilder
 ): LoadingProgressAttribute;

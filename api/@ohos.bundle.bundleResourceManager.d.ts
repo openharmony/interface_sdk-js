@@ -291,6 +291,7 @@ declare namespace bundleResourceManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
    * @since 21 dynamic
+   * @since 23 static
    */
   function getAllUninstalledBundleResourceInfo(resourceFlags: int): Promise<Array<BundleResourceInfo>>;
 

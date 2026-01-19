@@ -138,7 +138,7 @@ declare namespace inputDevice {
   /**
    * Enumerates function key types.
    * 
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @since 15 dynamic
    * @since 23 static
@@ -442,7 +442,7 @@ declare namespace inputDevice {
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @since 23 dynamic&static
      */
-    isLocal?: boolean;    
+    isLocal?: boolean;
   }
 
   /**
@@ -814,7 +814,7 @@ declare namespace inputDevice {
    * This API uses a promise to return the result.
    * 
    * @permission ohos.permission.INPUT_KEYBOARD_CONTROLLER
-   * @param { int } functionKey - Type of the function key.
+   * @param { FunctionKey } functionKey - Type of the function key.
    * @param { boolean } enabled - Status of the function key. The value true indicates that the function key is enabled, 
    * and the value false indicates the opposite.
    * @returns { Promise<void> } Returns the result through a promise.
@@ -833,7 +833,7 @@ declare namespace inputDevice {
    * Checks whether the specified function key (for example, CapsLock) is enabled. 
    * This API uses a promise to return the result.
    * 
-   * @param { int } functionKey - Type of the function key.
+   * @param { FunctionKey } functionKey - Type of the function key.
    * @returns { Promise<boolean> } Promise used to return the result. The value true indicates that the function key is enabled, 
    * and the value false indicates the opposite.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;

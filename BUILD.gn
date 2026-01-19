@@ -469,6 +469,7 @@ group("build_ohos_ets") {
   external_deps = [
     ohos_ets_build_system_deps,
     ohos_ets_dependency_analyzer_deps,
+    ohos_ets_etsstdlib_deps,
     ohos_ets_koala_wrapper_deps,
     ohos_ets_stdlib_deps,
   ]

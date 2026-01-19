@@ -681,17 +681,6 @@ declare namespace dlpPermission {
      * @since 10
      */
     tokenID: number;
-    
-    /**
-     * Index of DLP sandbox applications that have been installed and need to be launched.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.Security.DataLossPrevention
-     * @systemapi Hide this for inner system use.
-     * @stagemodelonly
-     * @since 23
-     */
-    bindAppIndex?: number;
   }
 
   /**
@@ -1194,6 +1183,15 @@ declare namespace dlpPermission {
      * @since 23
      */
     waterMarkConfig?: boolean;
+
+    /**
+     * Defines the countdown for the DLP file can be opened.
+     * @type { ?number }
+     * @syscap SystemCapability.Security.DataLossPrevention
+     * @stagemodelonly
+     * @since 23
+     */
+    countdown?: number;
   }
 
   /**

@@ -1021,14 +1021,14 @@ declare interface CapsuleStyleOptions extends ScanEffectOptions, CommonProgressS
 }
 
 /**
- * Type of progress bar
+ * Style of progress bar
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
- * Type of progress bar
+ * Style of progress bar
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1036,7 +1036,7 @@ declare interface CapsuleStyleOptions extends ScanEffectOptions, CommonProgressS
  * @since 9
  */
 /**
- * Type of progress bar
+ * Style of progress bar
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1045,7 +1045,7 @@ declare interface CapsuleStyleOptions extends ScanEffectOptions, CommonProgressS
  * @since 10
  */
 /**
- * Type of progress bar
+ * Style of progress bar
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full

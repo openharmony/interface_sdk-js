@@ -414,7 +414,7 @@ export declare abstract class GeometryDefinition {
   /**
    * Which geometry shape to interpret from this definition.
    *
-   * @type { GeometryType }
+   * @returns { GeometryType }
    * @readonly
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18 dynamic
@@ -424,7 +424,7 @@ export declare abstract class GeometryDefinition {
 }
 
 /**
- * Defines Mat4x4.
+ * Defines Mat4x4
  *
  * @typedef Mat4x4
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -432,8 +432,7 @@ export declare abstract class GeometryDefinition {
  */
 export interface Mat4x4 {
   /**
-   * the first column of the vec4.
-   *
+   * the first column of the matrix
    * @type { Vec4 }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 23 dynamic&static
@@ -441,8 +440,7 @@ export interface Mat4x4 {
   x: Vec4;
 
   /**
-   * the second column of the vec4.
-   *
+   * the second column of the matrix
    * @type { Vec4 }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 23 dynamic&static
@@ -450,8 +448,7 @@ export interface Mat4x4 {
   y: Vec4;
 
   /**
-   * the third column of the vec4.
-   *
+   * the third column of the matrix
    * @type { Vec4 }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 23 dynamic&static
@@ -459,8 +456,7 @@ export interface Mat4x4 {
   z: Vec4;
 
   /**
-   * the fourth column of the vec4.
-   *
+   * the fourth column of the matrix
    * @type { Vec4 }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 23 dynamic&static

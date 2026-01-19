@@ -24,9 +24,11 @@
  * @extends PanelAttribute
  * @implements AttributeModifier<PanelAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
- * @since 12 dynamic
+ * @since 12 dynamiconly
  * @deprecated since 20
+ * @noninterop
  */
 export declare class PanelModifier extends PanelAttribute implements AttributeModifier<PanelAttribute> {
 
@@ -35,9 +37,10 @@ export declare class PanelModifier extends PanelAttribute implements AttributeMo
    * 
    * @param { PanelAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12 dynamic
+   * @since 12 dynamiconly
    * @deprecated since 20
    */
   applyNormalAttribute?(instance: PanelAttribute): void;

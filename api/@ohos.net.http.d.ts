@@ -624,6 +624,31 @@ declare namespace http {
      * @since 23 dynamic&static
      */
     customMethod?: string;
+  
+	/**
+     * Support specifying the configuration of maximum redirect count
+     * @type {?int}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 23 dynamic&static
+     */
+    maxRedirects?: int;
+  /**
+     * Support specifying a preferred network when making HTTP requests.
+     * If the specified network is unavailable, the default network will be selected to send the request.
+     *
+     * @type { ?PathPreference }
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 23 dynamic&static
+     */
+    pathPreference?: PathPreference;
+	
+    /**
+     * Support specifying an SNI domain name to include the SNI field during the TLS connection process
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 23 dynamic&static
+     */
+    sniHostName?: string;
   }
 
    /**
@@ -695,6 +720,16 @@ declare namespace http {
     * @since 20 dynamic
     */
    export type SslType = 'TLS' | 'TLCP';
+   
+  /**
+   * HTTP request path preference.
+   * This is only a suggestion of the caller, and the system decides which path to use.
+   *
+   * @typedef { 'auto' | 'primaryCellular' | 'secondaryCellular' }
+   * @syscap SystemCapability.Communication.NetStack
+   * @since 23 dynamic&static
+   */
+  export type PathPreference = 'auto' | 'primaryCellular' | 'secondaryCellular';
   
    /**
     * HTTP credential. Some server or proxy server need this.

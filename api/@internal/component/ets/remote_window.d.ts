@@ -24,14 +24,14 @@
  * @interface RRect
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 9
+ * @since 9 dynamic
  */
 interface RRect {
   /**
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   left: number;
 
@@ -39,7 +39,7 @@ interface RRect {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   top: number;
 
@@ -47,7 +47,7 @@ interface RRect {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   width: number;
 
@@ -55,7 +55,7 @@ interface RRect {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   height: number;
 
@@ -63,7 +63,7 @@ interface RRect {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   radius: number;
 }
@@ -74,7 +74,7 @@ interface RRect {
  * @interface WindowAnimationTarget
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 9
+ * @since 9 dynamic
  */
 interface WindowAnimationTarget {
   /**
@@ -82,7 +82,7 @@ interface WindowAnimationTarget {
    * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   readonly bundleName: string;
 
@@ -91,7 +91,7 @@ interface WindowAnimationTarget {
    * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   readonly abilityName: string;
 
@@ -100,7 +100,7 @@ interface WindowAnimationTarget {
    * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   readonly windowBounds: RRect;
 
@@ -109,7 +109,7 @@ interface WindowAnimationTarget {
    * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   readonly missionId: number;
 }
@@ -120,7 +120,7 @@ interface WindowAnimationTarget {
  * @interface RemoteWindowInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 9
+ * @since 9 dynamic
  */
 interface RemoteWindowInterface {
   /**
@@ -130,7 +130,7 @@ interface RemoteWindowInterface {
    * @returns { RemoteWindowAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   (target: WindowAnimationTarget): RemoteWindowAttribute;
 }
@@ -141,7 +141,7 @@ interface RemoteWindowInterface {
  * @extends CommonMethod<RemoteWindowAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 9
+ * @since 9 dynamic
  */
 declare class RemoteWindowAttribute extends CommonMethod<RemoteWindowAttribute> {}
 
@@ -150,7 +150,7 @@ declare class RemoteWindowAttribute extends CommonMethod<RemoteWindowAttribute> 
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 9
+ * @since 9 dynamic
  */
 declare const RemoteWindow: RemoteWindowInterface;
 
@@ -159,6 +159,6 @@ declare const RemoteWindow: RemoteWindowInterface;
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 9
+ * @since 9 dynamic
  */
 declare const RemoteWindowInstance: RemoteWindowAttribute;

@@ -68,13 +68,13 @@ export declare interface EllipseAttribute extends CommonShapeMethod {
  * Ellipse is returned when the parameter is transferred.
  *
  * @param { EllipseOptions } [options] - The options to create an Ellipse
- * @param { CustomBuilder } [content_]
  * @returns { EllipseAttribute } The attribute of the Ellipse.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
+ * @noninterop
  */
 @ComponentBuilder
 export declare function Ellipse(
-    options?: EllipseOptions, 
-    content_?: CustomBuilder,
+    options?: EllipseOptions
 ): EllipseAttribute

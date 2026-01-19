@@ -24,7 +24,7 @@
  * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 /**
  * Web net error list.
@@ -33,7 +33,7 @@
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform
  * @atomicservice
- * @since 22 dynamic
+ * @since 23 dynamic
  */
 export declare enum WebNetErrorList {
   /**
@@ -41,7 +41,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * Normal.
@@ -49,7 +49,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   NET_OK = 0,
 
@@ -61,7 +61,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * An asynchronous IO operation is not yet complete.  This usually does not
@@ -72,7 +72,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_IO_PENDING = -1,
 
@@ -81,7 +81,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * A generic failure occurred.
@@ -89,7 +89,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_FAILED = -2,
 
@@ -98,7 +98,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * An operation was aborted (due to user action).
@@ -106,7 +106,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_ABORTED = -3,
 
@@ -115,7 +115,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * An argument to the function is incorrect.
@@ -123,7 +123,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_INVALID_ARGUMENT = -4,
 
@@ -132,7 +132,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The handle or file descriptor is invalid.
@@ -140,7 +140,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_INVALID_HANDLE = -5,
 
@@ -149,7 +149,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The file or directory cannot be found.
@@ -157,7 +157,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_FILE_NOT_FOUND = -6,
 
@@ -166,7 +166,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * An operation timed out.
@@ -174,7 +174,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_TIMED_OUT = -7,
 
@@ -183,7 +183,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The file is too large.
@@ -191,7 +191,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_FILE_TOO_LARGE = -8,
 
@@ -201,7 +201,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * An unexpected error.  This may be caused by a programming mistake or an
@@ -210,7 +210,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_UNEXPECTED = -9,
 
@@ -219,7 +219,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * Permission to access a resource, other than the network, was denied.
@@ -227,7 +227,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_ACCESS_DENIED = -10,
 
@@ -236,7 +236,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The operation failed because of unimplemented functionality.
@@ -244,7 +244,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_NOT_IMPLEMENTED = -11,
 
@@ -253,7 +253,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * There were not enough resources to complete the operation.
@@ -261,7 +261,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_INSUFFICIENT_RESOURCES = -12,
 
@@ -270,7 +270,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * Memory allocation failed.
@@ -278,7 +278,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_OUT_OF_MEMORY = -13,
 
@@ -288,7 +288,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The file upload failed because the file's modification time was different
@@ -297,7 +297,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_UPLOAD_FILE_CHANGED = -14,
 
@@ -306,7 +306,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The socket is not connected.
@@ -314,7 +314,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_SOCKET_NOT_CONNECTED = -15,
 
@@ -323,7 +323,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The file already exists.
@@ -331,7 +331,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_FILE_EXISTS = -16,
 
@@ -340,7 +340,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The path or file name is too long.
@@ -348,7 +348,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_FILE_PATH_TOO_LONG = -17,
 
@@ -357,7 +357,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * Not enough room left on the disk.
@@ -365,7 +365,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_FILE_NO_SPACE = -18,
 
@@ -374,7 +374,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The file has a virus.
@@ -382,7 +382,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_FILE_VIRUS_INFECTED = -19,
 
@@ -391,7 +391,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The client chose to block the request.
@@ -399,7 +399,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_BLOCKED_BY_CLIENT = -20,
 
@@ -408,7 +408,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The network changed.
@@ -416,7 +416,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_NETWORK_CHANGED = -21,
 
@@ -426,7 +426,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The request was blocked by the URL block list configured by the domain
@@ -435,7 +435,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_BLOCKED_BY_ADMINISTRATOR = -22,
 
@@ -444,7 +444,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The socket is already connected.
@@ -452,7 +452,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_SOCKET_CONNECTED = -23,
 
@@ -462,7 +462,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The upload failed because the upload stream needed to be re-read, due to a
@@ -471,7 +471,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_UPLOAD_STREAM_REWIND_NOT_SUPPORTED = -25,
 
@@ -481,7 +481,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The request failed because the URLRequestContext is shutting down, or has
@@ -490,7 +490,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_CONTEXT_SHUT_DOWN = -26,
 
@@ -501,7 +501,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The request failed because the response was delivered along with requirements
@@ -511,7 +511,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_BLOCKED_BY_RESPONSE = -27,
 
@@ -521,7 +521,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The request was blocked by system policy disallowing some or all cleartext
@@ -530,7 +530,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_CLEARTEXT_NOT_PERMITTED = -29,
 
@@ -539,7 +539,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The request was blocked by a Content Security Policy.
@@ -547,7 +547,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_BLOCKED_BY_CSP = -30,
 
@@ -556,7 +556,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The request was blocked because of no H/2 or QUIC session.
@@ -564,7 +564,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_H2_OR_QUIC_REQUIRED = -31,
 
@@ -573,7 +573,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The request was blocked by CORB or ORB.
@@ -581,7 +581,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_BLOCKED_BY_ORB = -32,
 
@@ -590,7 +590,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * A connection was closed (corresponding to a TCP FIN,.
@@ -598,7 +598,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_CONNECTION_CLOSED = -100,
 
@@ -607,7 +607,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * A connection was reset (corresponding to a TCP RST,.
@@ -615,7 +615,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_CONNECTION_RESET = -101,
 
@@ -624,7 +624,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * A connection attempt was refused.
@@ -632,7 +632,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_CONNECTION_REFUSED = -102,
 
@@ -642,7 +642,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * A connection timed out as a result of not receiving an ACK for data sent.
@@ -651,7 +651,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_CONNECTION_ABORTED = -103,
 
@@ -660,7 +660,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * A connection attempt failed.
@@ -668,7 +668,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_CONNECTION_FAILED = -104,
 
@@ -677,7 +677,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The host name could not be resolved.
@@ -685,7 +685,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_NAME_NOT_RESOLVED = -105,
 
@@ -694,7 +694,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The Internet connection has been lost.
@@ -702,7 +702,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_INTERNET_DISCONNECTED = -106,
 
@@ -711,7 +711,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * An SSL protocol error occurred.
@@ -719,7 +719,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_SSL_PROTOCOL_ERROR = -107,
 
@@ -729,7 +729,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The IP address or port number is invalid (e.g., cannot connect to the IP
@@ -738,7 +738,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_ADDRESS_INVALID = -108,
 
@@ -748,7 +748,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The IP address is unreachable.  This usually means that there is no route to
@@ -757,7 +757,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_ADDRESS_UNREACHABLE = -109,
 
@@ -766,7 +766,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The server requested a client certificate for SSL client authentication.
@@ -774,7 +774,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_SSL_CLIENT_AUTH_CERT_NEEDED = -110,
 
@@ -783,7 +783,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * A tunnel connection through the proxy could not be established.
@@ -791,7 +791,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_TUNNEL_CONNECTION_FAILED = -111,
 
@@ -800,7 +800,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * No SSL protocol versions are enabled.
@@ -808,7 +808,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_NO_SSL_VERSIONS_ENABLED = -112,
 
@@ -818,7 +818,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The client and server don't support a common SSL protocol version or
@@ -827,7 +827,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_SSL_VERSION_OR_CIPHER_MISMATCH = -113,
 
@@ -836,7 +836,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The server requested a renegotiation (rehandshake,.
@@ -844,7 +844,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_SSL_RENEGOTIATION_REQUESTED = -114,
 
@@ -854,7 +854,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The proxy requested authentication (for tunnel establishment, with an
@@ -863,7 +863,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_PROXY_AUTH_UNSUPPORTED = -115,
 
@@ -872,7 +872,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The SSL handshake failed because of a bad or missing client certificate.
@@ -880,7 +880,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_BAD_SSL_CLIENT_AUTH_CERT = -117,
 
@@ -889,7 +889,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * A connection attempt timed out.
@@ -897,7 +897,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_CONNECTION_TIMED_OUT = -118,
 
@@ -907,7 +907,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * There are too many pending DNS resolves, so a request in the queue was
@@ -916,7 +916,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_HOST_RESOLVER_QUEUE_TOO_LARGE = -119,
 
@@ -925,7 +925,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * Failed establishing a connection to the SOCKS proxy server for a target host.
@@ -933,7 +933,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_SOCKS_CONNECTION_FAILED = -120,
 
@@ -943,7 +943,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The SOCKS proxy server failed establishing connection to the target host
@@ -952,7 +952,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_SOCKS_CONNECTION_HOST_UNREACHABLE = -121,
 
@@ -961,7 +961,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The request to negotiate an alternate protocol failed.
@@ -969,7 +969,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_ALPN_NEGOTIATION_FAILED = -122,
 
@@ -978,7 +978,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The peer sent an SSL no_renegotiation alert message.
@@ -986,7 +986,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_SSL_NO_RENEGOTIATION = -123,
 
@@ -996,7 +996,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * Winsock sometimes reports more data written than passed.  This is probably
@@ -1005,7 +1005,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_WINSOCK_UNEXPECTED_WRITTEN_BYTES = -124,
 
@@ -1016,7 +1016,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * An SSL peer sent us a fatal decompression_failure alert. This typically
@@ -1026,7 +1026,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_SSL_DECOMPRESSION_FAILURE_ALERT = -125,
 
@@ -1036,7 +1036,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * An SSL peer sent us a fatal bad_record_mac alert. This has been observed
@@ -1045,7 +1045,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_SSL_BAD_RECORD_MAC_ALERT = -126,
 
@@ -1054,7 +1054,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The proxy requested authentication (for tunnel establishment,.
@@ -1062,7 +1062,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_PROXY_AUTH_REQUESTED = -127,
 
@@ -1074,7 +1074,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * Could not create a connection to the proxy server. An error occurred
@@ -1085,7 +1085,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_PROXY_CONNECTION_FAILED = -130,
 
@@ -1095,7 +1095,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * A mandatory proxy configuration could not be used. Currently this means
@@ -1104,7 +1104,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_MANDATORY_PROXY_CONFIGURATION_FAILED = -131,
 
@@ -1114,7 +1114,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * We've hit the max socket limit for the socket pool while preconnecting.  We
@@ -1123,7 +1123,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_PRECONNECT_MAX_SOCKET_LIMIT = -133,
 
@@ -1132,7 +1132,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The permission to use the SSL client certificate's private key was denied.
@@ -1140,7 +1140,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_SSL_CLIENT_AUTH_PRIVATE_KEY_ACCESS_DENIED = -134,
 
@@ -1149,7 +1149,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The SSL client certificate has no private key.
@@ -1157,7 +1157,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_SSL_CLIENT_AUTH_CERT_NO_PRIVATE_KEY = -135,
 
@@ -1166,7 +1166,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The certificate presented by the HTTPS Proxy was invalid.
@@ -1174,7 +1174,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_PROXY_CERTIFICATE_INVALID = -136,
 
@@ -1183,7 +1183,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * An error occurred when trying to do a name resolution (DNS,.
@@ -1191,7 +1191,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_NAME_RESOLUTION_FAILED = -137,
 
@@ -1202,7 +1202,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * Permission to access the network was denied. This is used to distinguish
@@ -1212,7 +1212,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_NETWORK_ACCESS_DENIED = -138,
 
@@ -1221,7 +1221,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The request throttler module cancelled this request to avoid DDOS.
@@ -1229,7 +1229,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_TEMPORARILY_THROTTLED = -139,
   /**
@@ -1239,7 +1239,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * A request to create an SSL tunnel connection through the HTTPS proxy
@@ -1249,7 +1249,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_HTTPS_PROXY_TUNNEL_RESPONSE_REDIRECT = -140,
 
@@ -1263,7 +1263,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * We were unable to sign the CertificateVerify data of an SSL client auth
@@ -1276,7 +1276,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_SSL_CLIENT_AUTH_SIGNATURE_FAILED = -141,
 
@@ -1286,7 +1286,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The message was too large for the transport.  (for example a UDP message
@@ -1295,7 +1295,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_MSG_TOO_BIG = -142,
 
@@ -1305,7 +1305,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * Websocket protocol error. Indicates that we are terminating the connection
@@ -1314,7 +1314,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_WS_PROTOCOL_ERROR = -145,
 
@@ -1323,7 +1323,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * Returned when attempting to bind an address that is already in use.
@@ -1331,7 +1331,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_ADDRESS_IN_USE = -147,
 
@@ -1340,7 +1340,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * An operation failed because the SSL handshake has not completed.
@@ -1348,7 +1348,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_SSL_HANDSHAKE_NOT_COMPLETED = -148,
 
@@ -1357,7 +1357,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * SSL peer's public key is invalid.
@@ -1365,7 +1365,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_SSL_BAD_PEER_PUBLIC_KEY = -149,
 
@@ -1376,7 +1376,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The certificate didn't match the built-in public key pins for the host name.
@@ -1386,7 +1386,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_SSL_PINNED_KEY_NOT_IN_CERT_CHAIN = -150,
 
@@ -1395,7 +1395,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * Server request for client certificate did not contain any types we support.
@@ -1403,7 +1403,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_CLIENT_AUTH_CERT_TYPE_UNSUPPORTED = -151,
 
@@ -1414,7 +1414,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * An SSL peer sent us a fatal decrypt_error alert. This typically occurs when
@@ -1424,7 +1424,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_SSL_DECRYPT_ERROR_ALERT = -153,
 
@@ -1434,7 +1434,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * There are too many pending WebSocketJob instances, so the new job was not
@@ -1443,7 +1443,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_WS_THROTTLE_QUEUE_TOO_LARGE = -154,
 
@@ -1452,7 +1452,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The SSL server certificate changed in a renegotiation.
@@ -1460,7 +1460,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_SSL_SERVER_CERT_CHANGED = -156,
 
@@ -1469,7 +1469,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The SSL server sent us a fatal unrecognized_name alert.
@@ -1477,7 +1477,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_SSL_UNRECOGNIZED_NAME_ALERT = -159,
 
@@ -1486,7 +1486,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * Failed to set the socket's receive buffer size as requested.
@@ -1494,7 +1494,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_SOCKET_SET_RECEIVE_BUFFER_SIZE_ERROR = -160,
 
@@ -1503,7 +1503,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * Failed to set the socket's send buffer size as requested.
@@ -1511,7 +1511,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_SOCKET_SET_SEND_BUFFER_SIZE_ERROR = -161,
 
@@ -1521,7 +1521,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * Failed to set the socket's receive buffer size as requested, despite success
@@ -1530,7 +1530,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_SOCKET_RECEIVE_BUFFER_SIZE_UNCHANGEABLE = -162,
 
@@ -1540,7 +1540,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * Failed to set the socket's send buffer size as requested, despite success
@@ -1549,7 +1549,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_SOCKET_SEND_BUFFER_SIZE_UNCHANGEABLE = -163,
 
@@ -1559,7 +1559,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * Failed to import a client certificate from the platform store into the SSL
@@ -1568,7 +1568,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_SSL_CLIENT_AUTH_CERT_BAD_FORMAT = -164,
 
@@ -1580,7 +1580,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * Resolving a hostname to an IP address list included the IPv4 address
@@ -1591,7 +1591,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_ICANN_NAME_COLLISION = -166,
 
@@ -1602,7 +1602,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The SSL server presented a certificate which could not be decoded. This is
@@ -1612,7 +1612,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_SSL_SERVER_CERT_BAD_FORMAT = -167,
 
@@ -1621,7 +1621,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * Certificate Transparency: Received a signed tree head that failed to parse.
@@ -1629,7 +1629,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_CT_STH_PARSING_FAILED = -168,
 
@@ -1639,7 +1639,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * Certificate Transparency: Received a signed tree head whose JSON parsing was
@@ -1648,7 +1648,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_CT_STH_INCOMPLETE = -169,
 
@@ -1660,7 +1660,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The attempt to reuse a connection to send proxy auth credentials failed
@@ -1671,7 +1671,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_UNABLE_TO_REUSE_CONNECTION_FOR_PROXY_AUTH = -170,
 
@@ -1680,7 +1680,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * Certificate Transparency: Failed to parse the received consistency proof.
@@ -1688,7 +1688,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_CT_CONSISTENCY_PROOF_PARSING_FAILED = -171,
 
@@ -1700,7 +1700,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The SSL server required an unsupported cipher suite that has since been
@@ -1711,7 +1711,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_SSL_OBSOLETE_CIPHER = -172,
 
@@ -1721,7 +1721,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * When a WebSocket handshake is done successfully and the connection has been
@@ -1730,7 +1730,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_WS_UPGRADE = -173,
 
@@ -1740,7 +1740,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * Socket ReadIfReady support is not implemented. This error should not be user
@@ -1749,7 +1749,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_READ_IF_READY_NOT_IMPLEMENTED = -174,
 
@@ -1758,7 +1758,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * No socket buffer space is available.
@@ -1766,7 +1766,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_NO_BUFFER_SPACE = -176,
 
@@ -1776,7 +1776,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * There were no common signature algorithms between our client certificate
@@ -1785,7 +1785,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_SSL_CLIENT_AUTH_NO_COMMON_ALGORITHMS = -177,
 
@@ -1796,7 +1796,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * TLS 1.3 early data was rejected by the server. This will be received before
@@ -1806,7 +1806,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_EARLY_DATA_REJECTED = -178,
 
@@ -1820,7 +1820,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * TLS 1.3 early data was offered, but the server responded with TLS 1.2 or
@@ -1833,7 +1833,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_WRONG_VERSION_ON_EARLY_DATA = -179,
 
@@ -1846,7 +1846,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * TLS 1.3 was enabled, but a lower version was negotiated and the server
@@ -1858,7 +1858,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_TLS13_DOWNGRADE_DETECTED = -180,
 
@@ -1868,7 +1868,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The server's certificate has a keyUsage extension incompatible with the
@@ -1877,7 +1877,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_SSL_KEY_USAGE_INCOMPATIBLE = -181,
 
@@ -1886,7 +1886,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The ECHConfigList fetched over DNS cannot be parsed.
@@ -1894,7 +1894,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_INVALID_ECH_CONFIG_LIST = -182,
 
@@ -1904,7 +1904,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * ECH was enabled, but the server was unable to decrypt the encrypted
@@ -1913,7 +1913,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_ECH_NOT_NEGOTIATED = -183,
 
@@ -1923,7 +1923,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * ECH was enabled, the server was unable to decrypt the encrypted ClientHello,
@@ -1932,7 +1932,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_ECH_FALLBACK_CERTIFICATE_INVALID = -184,
 
@@ -1949,7 +1949,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The server responded with a certificate whose common name did not match
@@ -1965,7 +1965,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_CERT_COMMON_NAME_INVALID = -200,
 
@@ -1979,7 +1979,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The server responded with a certificate that, by our clock, appears to
@@ -1992,7 +1992,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_CERT_DATE_INVALID = -201,
 
@@ -2008,7 +2008,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The server responded with a certificate that is signed by an authority
@@ -2023,7 +2023,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_CERT_AUTHORITY_INVALID = -202,
 
@@ -2037,7 +2037,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The server responded with a certificate that contains errors.
@@ -2050,7 +2050,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_CERT_CONTAINS_ERRORS = -203,
 
@@ -2060,7 +2060,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The certificate has no mechanism for determining if it is revoked.  In
@@ -2069,7 +2069,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_CERT_NO_REVOCATION_MECHANISM = -204,
 
@@ -2083,7 +2083,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * Revocation information for the security certificate for this site is not
@@ -2096,7 +2096,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_CERT_UNABLE_TO_CHECK_REVOCATION = -205,
 
@@ -2107,7 +2107,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The server responded with a certificate has been revoked.
@@ -2117,7 +2117,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_CERT_REVOKED = -206,
 
@@ -2129,7 +2129,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The server responded with a certificate that is invalid.
@@ -2140,7 +2140,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_CERT_INVALID = -207,
 
@@ -2150,7 +2150,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The server responded with a certificate that is signed using a weak
@@ -2159,7 +2159,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_CERT_WEAK_SIGNATURE_ALGORITHM = -208,
 
@@ -2168,7 +2168,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The host name specified in the certificate is not unique.
@@ -2176,7 +2176,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_CERT_NON_UNIQUE_NAME = -210,
 
@@ -2186,7 +2186,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The server responded with a certificate that contains a weak key (e.g.
@@ -2195,7 +2195,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_CERT_WEAK_KEY = -211,
 
@@ -2204,7 +2204,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The certificate claimed DNS names that are in violation of name constraints.
@@ -2212,7 +2212,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_CERT_NAME_CONSTRAINT_VIOLATION = -212,
 
@@ -2221,7 +2221,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The certificate's validity period is too long.
@@ -2229,7 +2229,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_CERT_VALIDITY_TOO_LONG = -213,
 
@@ -2239,7 +2239,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * Certificate Transparency was required for this connection, but the server
@@ -2248,7 +2248,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_CERTIFICATE_TRANSPARENCY_REQUIRED = -214,
 
@@ -2257,7 +2257,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The certificate chained to a legacy Symantec root that is no longer trusted.
@@ -2265,7 +2265,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_CERT_SYMANTEC_LEGACY = -215,
 
@@ -2275,7 +2275,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The certificate is known to be used for interception by an entity other
@@ -2284,7 +2284,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_CERT_KNOWN_INTERCEPTION_BLOCKED = -217,
 
@@ -2293,7 +2293,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The connection uses an obsolete version of SSL/TLS or cipher.
@@ -2301,7 +2301,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_SSL_OBSOLETE_VERSION_OR_CIPHER = -218,
 
@@ -2310,7 +2310,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The value immediately past the last certificate error code.
@@ -2318,7 +2318,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_CERT_END = -219,
 
@@ -2327,7 +2327,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The URL is invalid.
@@ -2335,7 +2335,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_INVALID_URL = -300,
 
@@ -2344,7 +2344,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The scheme of the URL is disallowed.
@@ -2352,7 +2352,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_DISALLOWED_URL_SCHEME = -301,
 
@@ -2361,7 +2361,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The scheme of the URL is unknown.
@@ -2369,7 +2369,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_UNKNOWN_URL_SCHEME = -302,
 
@@ -2378,7 +2378,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * Attempting to load an URL resulted in a redirect to an invalid URL.
@@ -2386,7 +2386,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_INVALID_REDIRECT = -303,
 
@@ -2395,7 +2395,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * Attempting to load an URL resulted in too many redirects.
@@ -2403,7 +2403,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_TOO_MANY_REDIRECTS = -310,
 
@@ -2413,7 +2413,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * Attempting to load an URL resulted in an unsafe redirect (e.g., a redirect
@@ -2422,7 +2422,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_UNSAFE_REDIRECT = -311,
 
@@ -2431,7 +2431,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * Attempting to load an URL with an unsafe port number.
@@ -2439,7 +2439,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_UNSAFE_PORT = -312,
 
@@ -2448,7 +2448,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The server's response was invalid.
@@ -2456,7 +2456,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_INVALID_RESPONSE = -320,
 
@@ -2465,7 +2465,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * Error in chunked transfer encoding.
@@ -2473,7 +2473,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_INVALID_CHUNKED_ENCODING = -321,
 
@@ -2482,7 +2482,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The server did not support the request method.
@@ -2490,7 +2490,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_METHOD_UNSUPPORTED = -322,
 
@@ -2500,7 +2500,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The response was 407 (Proxy Authentication Required,, yet we did not send
@@ -2509,7 +2509,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_UNEXPECTED_PROXY_AUTH = -323,
 
@@ -2518,7 +2518,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The server closed the connection without sending any data.
@@ -2526,7 +2526,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_EMPTY_RESPONSE = -324,
 
@@ -2535,7 +2535,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The headers section of the response is too large.
@@ -2543,7 +2543,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_RESPONSE_HEADERS_TOO_BIG = -325,
 
@@ -2552,7 +2552,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The evaluation of the PAC script failed.
@@ -2560,7 +2560,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_PAC_SCRIPT_FAILED = -327,
 
@@ -2570,7 +2570,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The response was 416 (Requested range not satisfiable, and the server cannot
@@ -2579,7 +2579,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_REQUEST_RANGE_NOT_SATISFIABLE = -328,
 
@@ -2588,7 +2588,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The identity used for authentication is invalid.
@@ -2596,7 +2596,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_MALFORMED_IDENTITY = -329,
 
@@ -2605,7 +2605,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * Content decoding of the response body failed.
@@ -2613,7 +2613,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_CONTENT_DECODING_FAILED = -330,
 
@@ -2623,7 +2623,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * An operation could not be completed because all network IO
@@ -2632,7 +2632,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_NETWORK_IO_SUSPENDED = -331,
 
@@ -2641,7 +2641,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * FLIP data received without receiving a SYN_REPLY on the stream.
@@ -2649,7 +2649,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_SYN_REPLY_NOT_RECEIVED = -332,
 
@@ -2658,7 +2658,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * Converting the response to target encoding failed.
@@ -2666,7 +2666,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_ENCODING_CONVERSION_FAILED = -333,
 
@@ -2675,7 +2675,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The server sent an FTP directory listing in a format we do not understand.
@@ -2683,7 +2683,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_UNRECOGNIZED_FTP_DIRECTORY_LISTING_FORMAT = -334,
 
@@ -2692,7 +2692,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * There are no supported proxies in the provided list.
@@ -2700,7 +2700,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_NO_SUPPORTED_PROXIES = -336,
 
@@ -2709,7 +2709,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * There is an HTTP/2 protocol error.
@@ -2717,7 +2717,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_HTTP2_PROTOCOL_ERROR = -337,
 
@@ -2726,7 +2726,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * Credentials could not be established during HTTP Authentication.
@@ -2734,7 +2734,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_INVALID_AUTH_CREDENTIALS = -338,
 
@@ -2744,7 +2744,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * An HTTP Authentication scheme was tried which is not supported on this
@@ -2753,7 +2753,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_UNSUPPORTED_AUTH_SCHEME = -339,
 
@@ -2762,7 +2762,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * Detecting the encoding of the response failed.
@@ -2770,7 +2770,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_ENCODING_DETECTION_FAILED = -340,
 
@@ -2779,7 +2779,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * (GSSAPI, No Kerberos credentials were available during HTTP Authentication.
@@ -2787,7 +2787,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_MISSING_AUTH_CREDENTIALS = -341,
 
@@ -2796,7 +2796,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * An unexpected, but documented, SSPI or GSSAPI status code was returned.
@@ -2804,7 +2804,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_UNEXPECTED_SECURITY_LIBRARY_STATUS = -342,
 
@@ -2814,7 +2814,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The environment was not set up correctly for authentication (for
@@ -2823,7 +2823,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_MISCONFIGURED_AUTH_ENVIRONMENT = -343,
 
@@ -2832,7 +2832,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * An undocumented SSPI or GSSAPI status code was returned.
@@ -2840,7 +2840,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_UNDOCUMENTED_SECURITY_LIBRARY_STATUS = -344,
 
@@ -2849,7 +2849,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The HTTP response was too big to drain.
@@ -2857,7 +2857,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_RESPONSE_BODY_TOO_BIG_TO_DRAIN = -345,
 
@@ -2866,7 +2866,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The HTTP response contained multiple distinct Content-Length headers.
@@ -2874,7 +2874,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_RESPONSE_HEADERS_MULTIPLE_CONTENT_LENGTH = -346,
 
@@ -2884,7 +2884,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * HTTP/2 headers have been received, but not all of them - status or version
@@ -2893,7 +2893,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_INCOMPLETE_HTTP2_HEADERS = -347,
 
@@ -2904,7 +2904,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * No PAC URL configuration could be retrieved from DHCP. This can indicate
@@ -2914,7 +2914,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_PAC_NOT_IN_DHCP = -348,
 
@@ -2923,7 +2923,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The HTTP response contained multiple Content-Disposition headers.
@@ -2931,7 +2931,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_RESPONSE_HEADERS_MULTIPLE_CONTENT_DISPOSITION = -349,
 
@@ -2940,7 +2940,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The HTTP response contained multiple Location headers.
@@ -2948,7 +2948,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_RESPONSE_HEADERS_MULTIPLE_LOCATION = -350,
 
@@ -2961,7 +2961,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * HTTP/2 server refused the request without processing, and sent either a
@@ -2973,7 +2973,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_HTTP2_SERVER_REFUSED_STREAM = -351,
 
@@ -2982,7 +2982,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * HTTP/2 server didn't respond to the PING message.
@@ -2990,7 +2990,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_HTTP2_PING_FAILED = -352,
 
@@ -3000,7 +3000,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The HTTP response body transferred fewer bytes than were advertised by the
@@ -3009,7 +3009,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_CONTENT_LENGTH_MISMATCH = -354,
 
@@ -3019,7 +3019,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The HTTP response body is transferred with Chunked-Encoding, but the
@@ -3028,7 +3028,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_INCOMPLETE_CHUNKED_ENCODING = -355,
 
@@ -3037,7 +3037,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * There is a QUIC protocol error.
@@ -3045,7 +3045,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_QUIC_PROTOCOL_ERROR = -356,
 
@@ -3054,7 +3054,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The HTTP headers were truncated by an EOF.
@@ -3062,7 +3062,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_RESPONSE_HEADERS_TRUNCATED = -357,
   /**
@@ -3071,7 +3071,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The QUIC crypto handshake failed.  This means that the server was unable
@@ -3080,7 +3080,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_QUIC_HANDSHAKE_FAILED = -358,
 
@@ -3089,7 +3089,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * Transport security is inadequate for the HTTP/2 version.
@@ -3097,7 +3097,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_HTTP2_INADEQUATE_TRANSPORT_SECURITY = -360,
 
@@ -3106,7 +3106,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The peer violated HTTP/2 flow control.
@@ -3114,7 +3114,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_HTTP2_FLOW_CONTROL_ERROR = -361,
 
@@ -3123,7 +3123,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The peer sent an improperly sized HTTP/2 frame.
@@ -3131,7 +3131,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_HTTP2_FRAME_SIZE_ERROR = -362,
 
@@ -3140,7 +3140,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * Decoding or encoding of compressed HTTP/2 headers failed.
@@ -3148,7 +3148,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_HTTP2_COMPRESSION_ERROR = -363,
 
@@ -3157,7 +3157,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * Proxy Auth Requested without a valid Client Socket Handle.
@@ -3165,7 +3165,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_PROXY_AUTH_REQUESTED_WITH_NO_CONNECTION = -364,
 
@@ -3174,7 +3174,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * HTTP_1_1_REQUIRED error code received on HTTP/2 session.
@@ -3182,7 +3182,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_HTTP_1_1_REQUIRED = -365,
 
@@ -3191,7 +3191,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * HTTP_1_1_REQUIRED error code received on HTTP/2 session to proxy.
@@ -3199,7 +3199,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_PROXY_HTTP_1_1_REQUIRED = -366,
 
@@ -3208,7 +3208,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The PAC script terminated fatally and must be reloaded.
@@ -3216,7 +3216,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_PAC_SCRIPT_TERMINATED = -367,
 
@@ -3226,7 +3226,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The server was expected to return an HTTP/1.x response, but did not. Rather
@@ -3235,7 +3235,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_INVALID_HTTP_RESPONSE = -370,
 
@@ -3244,7 +3244,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * Initializing content decoding failed.
@@ -3252,7 +3252,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_CONTENT_DECODING_INIT_FAILED = -371,
 
@@ -3263,7 +3263,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * Received HTTP/2 RST_STREAM frame with NO_ERROR error code.  This error should
@@ -3273,7 +3273,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_HTTP2_RST_STREAM_NO_ERROR_RECEIVED = -372,
 
@@ -3282,7 +3282,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The pushed stream claimed by the request is no longer available.
@@ -3290,7 +3290,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_HTTP2_PUSHED_STREAM_NOT_AVAILABLE = -373,
 
@@ -3300,7 +3300,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * A pushed stream was claimed and later reset by the server. When this happens,
@@ -3309,7 +3309,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_HTTP2_CLAIMED_PUSHED_STREAM_RESET_BY_SERVER = -374,
 
@@ -3319,7 +3319,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * An HTTP transaction was retried too many times due for authentication or
@@ -3328,7 +3328,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_TOO_MANY_RETRIES = -375,
 
@@ -3337,7 +3337,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * Received an HTTP/2 frame on a closed stream.
@@ -3345,7 +3345,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_HTTP2_STREAM_CLOSED = -376,
 
@@ -3354,7 +3354,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * Client is refusing an HTTP/2 stream.
@@ -3362,7 +3362,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_HTTP2_CLIENT_REFUSED_STREAM = -377,
 
@@ -3372,7 +3372,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * A pushed HTTP/2 stream was claimed by a request based on matching URL and
@@ -3381,7 +3381,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_HTTP2_PUSHED_RESPONSE_DOES_NOT_MATCH = -378,
 
@@ -3390,7 +3390,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The server returned a non-2xx HTTP response code.
@@ -3398,7 +3398,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_HTTP_RESPONSE_CODE_FAILURE = -379,
 
@@ -3409,7 +3409,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The certificate presented on a QUIC connection does not chain to a known root
@@ -3419,7 +3419,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_QUIC_UNKNOWN_CERT_ROOT = -380,
 
@@ -3429,7 +3429,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * A GOAWAY frame has been received indicating that the request has not been
@@ -3438,7 +3438,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_QUIC_GOAWAY_REQUEST_CAN_BE_RETRIED = -381,
 
@@ -3447,7 +3447,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The ACCEPT_CH restart has been triggered too many times.
@@ -3455,7 +3455,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_TOO_MANY_ACCEPT_CH_RESTARTS = -382,
 
@@ -3466,7 +3466,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The IP address space of the remote endpoint differed from the previous
@@ -3476,7 +3476,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_INCONSISTENT_IP_ADDRESS_SPACE = -383,
 
@@ -3486,7 +3486,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The IP address space of the cached remote endpoint is blocked by local
@@ -3495,7 +3495,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_CACHED_IP_ADDRESS_SPACE_BLOCKED_BY_LOCAL_NETWORK_ACCESS_POLICY = -384,
 
@@ -3504,7 +3504,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The cache does not have the requested entry.
@@ -3512,7 +3512,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_CACHE_MISS = -400,
 
@@ -3521,7 +3521,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * Unable to read from the disk cache.
@@ -3529,7 +3529,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_CACHE_READ_FAILURE = -401,
 
@@ -3538,7 +3538,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * Unable to write to the disk cache.
@@ -3546,7 +3546,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_CACHE_WRITE_FAILURE = -402,
 
@@ -3555,7 +3555,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The operation is not supported for this entry.
@@ -3563,7 +3563,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_CACHE_OPERATION_UNSUPPORTED = -403,
 
@@ -3572,7 +3572,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The disk cache is unable to open this entry.
@@ -3580,7 +3580,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_CACHE_OPEN_FAILURE = -404,
 
@@ -3589,7 +3589,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The disk cache is unable to create this entry.
@@ -3597,7 +3597,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_CACHE_CREATE_FAILURE = -405,
 
@@ -3606,7 +3606,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * Multiple transactions are racing to create disk cache entries.
@@ -3614,7 +3614,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_CACHE_RACE = -406,
 
@@ -3623,7 +3623,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The cache was unable to read a checksum record on an entry.
@@ -3631,7 +3631,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_CACHE_CHECKSUM_READ_FAILURE = -407,
 
@@ -3640,7 +3640,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The cache found an entry with an invalid checksum.
@@ -3648,7 +3648,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_CACHE_CHECKSUM_MISMATCH = -408,
 
@@ -3657,7 +3657,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * Internal error code for the HTTP cache.
@@ -3665,7 +3665,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_CACHE_LOCK_TIMEOUT = -409,
 
@@ -3675,7 +3675,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * Received a challenge after the transaction has read some data, and the
@@ -3684,7 +3684,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_CACHE_AUTH_FAILURE_AFTER_READ = -410,
 
@@ -3693,7 +3693,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * Internal not-quite error code for the HTTP cache.
@@ -3701,7 +3701,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_CACHE_ENTRY_NOT_SUITABLE = -411,
 
@@ -3710,7 +3710,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The disk cache is unable to doom this entry.
@@ -3718,7 +3718,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_CACHE_DOOM_FAILURE = -412,
 
@@ -3727,7 +3727,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The disk cache is unable to open or create this entry.
@@ -3735,7 +3735,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_CACHE_OPEN_OR_CREATE_FAILURE = -413,
 
@@ -3744,7 +3744,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The server's response was insecure (e.g. there was a cert error,.
@@ -3752,7 +3752,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_INSECURE_RESPONSE = -501,
 
@@ -3762,7 +3762,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * An attempt to import a client certificate failed, as the user's key
@@ -3771,7 +3771,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_NO_PRIVATE_KEY_FOR_CERT = -502,
 
@@ -3780,7 +3780,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * An error adding a certificate to the OS certificate database.
@@ -3788,7 +3788,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_ADD_USER_CERT_FAILED = -503,
 
@@ -3797,7 +3797,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * An error occurred while handling a signed exchange.
@@ -3805,7 +3805,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_INVALID_SIGNED_EXCHANGE = -504,
 
@@ -3814,7 +3814,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * An error occurred while handling a Web Bundle source.
@@ -3822,7 +3822,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_INVALID_WEB_BUNDLE = -505,
 
@@ -3832,7 +3832,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * A Trust Tokens protocol operation-executing request failed for one of a
@@ -3841,7 +3841,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_TRUST_TOKEN_OPERATION_FAILED = -506,
 
@@ -3852,7 +3852,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * When handling a Trust Tokens protocol operation-executing request, the system
@@ -3862,7 +3862,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_TRUST_TOKEN_OPERATION_SUCCESS_WITHOUT_SENDING_REQUEST = -507,
 
@@ -3872,7 +3872,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * A generic error for failed FTP control connection command.
@@ -3881,7 +3881,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_FTP_FAILED = -601,
 
@@ -3891,7 +3891,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The server cannot fulfill the request at this point. This is a temporary error.
@@ -3900,7 +3900,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_FTP_SERVICE_UNAVAILABLE = -602,
 
@@ -3910,7 +3910,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The server has aborted the transfer.
@@ -3919,7 +3919,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_FTP_TRANSFER_ABORTED = -603,
 
@@ -3929,7 +3929,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The file is busy, or some other temporary error condition on opening the file.
@@ -3938,7 +3938,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_FTP_FILE_BUSY = -604,
 
@@ -3948,7 +3948,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * Server rejected our command because of syntax errors.
@@ -3957,7 +3957,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_FTP_SYNTAX_ERROR = -605,
 
@@ -3967,7 +3967,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * Server does not support the command we issued.
@@ -3976,7 +3976,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_FTP_COMMAND_UNSUPPORTED = -606,
 
@@ -3986,7 +3986,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * Server rejected our command because we didn't issue the commands in right order.
@@ -3995,7 +3995,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_FTP_BAD_COMMAND_SEQUENCE = -607,
 
@@ -4004,7 +4004,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * PKCS #12 import failed due to incorrect password.
@@ -4012,7 +4012,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_PKCS12_IMPORT_BAD_PASSWORD = -701,
 
@@ -4021,7 +4021,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * PKCS #12 import failed due to other error.
@@ -4029,7 +4029,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_PKCS12_IMPORT_FAILED = -702,
 
@@ -4038,7 +4038,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * CA import failed - not a CA cert.
@@ -4046,7 +4046,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_IMPORT_CA_CERT_NOT_CA = -703,
 
@@ -4055,7 +4055,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * Import failed - certificate already exists in database.
@@ -4063,7 +4063,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_IMPORT_CERT_ALREADY_EXISTS = -704,
 
@@ -4072,7 +4072,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * CA import failed due to some other error.
@@ -4080,7 +4080,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_IMPORT_CA_CERT_FAILED = -705,
 
@@ -4089,7 +4089,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * Server certificate import failed due to some internal error.
@@ -4097,7 +4097,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_IMPORT_SERVER_CERT_FAILED = -706,
 
@@ -4106,7 +4106,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * PKCS #12 import failed due to invalid MAC.
@@ -4114,7 +4114,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_PKCS12_IMPORT_INVALID_MAC = -707,
 
@@ -4123,7 +4123,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * PKCS #12 import failed due to invalid/corrupt file.
@@ -4131,7 +4131,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_PKCS12_IMPORT_INVALID_FILE = -708,
 
@@ -4140,7 +4140,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * PKCS #12 import failed due to unsupported features.
@@ -4148,7 +4148,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_PKCS12_IMPORT_UNSUPPORTED = -709,
 
@@ -4157,7 +4157,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * Key generation failed.
@@ -4165,7 +4165,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_KEY_GENERATION_FAILED = -710,
 
@@ -4174,7 +4174,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * Failure to export private key.
@@ -4182,7 +4182,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_PRIVATE_KEY_EXPORT_FAILED = -712,
 
@@ -4191,7 +4191,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * Self-signed certificate generation failed.
@@ -4199,7 +4199,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_SELF_SIGNED_CERT_GENERATION_FAILED = -713,
 
@@ -4208,7 +4208,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The certificate database changed in some way.
@@ -4216,7 +4216,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_CERT_DATABASE_CHANGED = -714,
 
@@ -4225,7 +4225,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The certificate verifier configuration changed in some way.
@@ -4233,7 +4233,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_CERT_VERIFIER_CHANGED = -716,
 
@@ -4242,7 +4242,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * DNS resolver received a malformed response.
@@ -4250,7 +4250,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_DNS_MALFORMED_RESPONSE = -800,
 
@@ -4259,7 +4259,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * DNS server requires TCP.
@@ -4267,7 +4267,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_DNS_SERVER_REQUIRES_TCP = -801,
 
@@ -4284,7 +4284,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * DNS server failed.  This error is returned for all of the following
@@ -4300,7 +4300,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_DNS_SERVER_FAILED = -802,
   /**
@@ -4308,7 +4308,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * DNS transaction timed out.
@@ -4316,7 +4316,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_DNS_TIMED_OUT = -803,
 
@@ -4326,7 +4326,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The entry was not found in cache or other local sources, for lookups where
@@ -4335,7 +4335,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_DNS_CACHE_MISS = -804,
 
@@ -4344,7 +4344,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * Suffix search list rules prevent resolution of the given host name.
@@ -4352,7 +4352,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_DNS_SEARCH_EMPTY = -805,
 
@@ -4361,7 +4361,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * Failed to sort addresses according to RFC3484.
@@ -4369,7 +4369,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_DNS_SORT_ERROR = -806,
 
@@ -4378,7 +4378,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * Failed to resolve the hostname of a DNS-over-HTTPS server.
@@ -4386,7 +4386,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_DNS_SECURE_RESOLVER_HOSTNAME_RESOLUTION_FAILED = -808,
 
@@ -4397,7 +4397,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * DNS identified the request as disallowed for insecure connection (http/ws,.
@@ -4407,7 +4407,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_DNS_NAME_HTTPS_ONLY = -809,
 
@@ -4416,7 +4416,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * All DNS requests associated with this job have been cancelled.
@@ -4424,7 +4424,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_DNS_REQUEST_CANCELED = -810,
 
@@ -4434,7 +4434,7 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * The hostname resolution of HTTPS record was expected to be resolved with
@@ -4443,7 +4443,7 @@ export declare enum WebNetErrorList {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   ERR_DNS_NO_MATCHING_SUPPORTED_ALPN = -811,
 }

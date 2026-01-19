@@ -409,7 +409,7 @@ declare namespace distributedData {
   }
 
   /**
-   * Describes the {@code KVStore} type.
+   * Describes the KVStore type.
    *
    * @syscap SystemCapability.DistributedDataManager.KVStore.Core
    * @since 7 dynamiconly
@@ -445,7 +445,7 @@ declare namespace distributedData {
   }
 
   /**
-   * Describes the {@code KVStore} type.
+   * Describes the KVStore security level.
    *
    * @syscap SystemCapability.DistributedDataManager.KVStore.Core
    * @since 7 dynamiconly

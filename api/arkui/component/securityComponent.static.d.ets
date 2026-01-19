@@ -22,8 +22,8 @@
 import { Dimension, Position, Edges, LocalizedEdges, ResourceColor, Padding, Length, SizeOptions, ConstraintSizeOptions, BorderRadiuses } from './units';
 import { FontStyle, FontWeight, BorderStyle, TextHeightAdaptivePolicy, Axis, Alignment } from './enums';
 import { ChainStyle, LocalizedAlignRuleOptions, AlignRuleOption, AttributeModifier, CommonMethod } from './common';
-import { FocusBoxStyle } from './focus';
 import { Resource } from '../../global/resource';
+import { FocusBoxStyle } from './focus';
 
 /**
  * Enumerates the layout direction of the icon and text.
@@ -318,7 +318,6 @@ export declare interface SecurityComponentMethod {
    * @since 23 static
    */
   alignRules(alignRule: AlignRuleOption | LocalizedAlignRuleOptions | undefined): this;
-
   /**
    * Id. User can set an id to the component to identify it.
    *

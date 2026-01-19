@@ -1117,6 +1117,22 @@ declare namespace PiPWindow {
      getPiPSettingSwitch(): Promise<boolean>;
 
     /**
+     * Returns a Boolean value that indicates whether picture-in-picture is active
+     *
+     * Device Behavior Differences:This interface can be normally invoked on phone, tablet, PC and TV devices,
+     * but cannot be invoked on other devices because the controller cannot be created on them.
+     * 
+     * @returns { Promise<boolean> } - The promise used to return the PIP window active status.
+     *     True if PIP window is onscreen, otherwise false.
+     * @throws { BusinessError } 1300014 - PiP internal error.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 23 dynamic
+     * @since 23 static
+     */
+    isPiPActive(): Promise<boolean>;
+
+    /**
      * Register picture-in-picture control event listener.
      * @param { 'stateChange' } type - Registration type, PiP lifecycle state change, 'stateChange'
      * @param { function } callback - Used to handle {'stateChange'} command

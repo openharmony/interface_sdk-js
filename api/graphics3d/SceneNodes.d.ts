@@ -18,10 +18,7 @@
  * @kit ArkGraphics3D
  */
 
-/*** if arkts dynamic */
-import { Effect } from './SceneResources';
-/*** endif */
-import { SceneResource, Mesh, Morpher } from './SceneResources';
+import { SceneResource, Mesh, Morpher, Effect } from './SceneResources';
 import { RaycastParameters, RaycastResult } from './Scene';
 import { Position3, Quaternion, Scale3, Color, Vec2, Vec3, RenderingPipelineType, Mat4x4 } from './SceneTypes';
 import { PostProcessSettings } from './ScenePostProcessSettings';
@@ -535,6 +532,7 @@ export interface Camera extends Node {
    * @readonly
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 21 dynamic
+   * @since 23 static
    */
   readonly effects: Container<Effect>;
 
@@ -585,8 +583,7 @@ export interface Camera extends Node {
 
   /**
    * get the view matrix of this camera
-   *
-   * @returns { Mat4x4 } the view matrix of this camera
+   * @returns { Mat4x4 } -- the view matrix of this camera
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 23 dynamic&static
    */
@@ -594,8 +591,7 @@ export interface Camera extends Node {
 
   /**
    * get the projection matrix of this camera
-   *
-   * @returns { Mat4x4 } the projection matrix of this camera
+   * @returns { Mat4x4 } -- the projection matrix of this camera
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 23 dynamic&static
    */

@@ -176,7 +176,18 @@ declare namespace audio {
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @crossplatform
    * @since 12 dynamic
-   * @since 23 static
+   */
+  /**
+   * Obtains an {@link AudioManager} instance.
+   * <p><strong>NOTE</strong>:
+   * The {@link AudioManager} instance is not a singleton.
+   * </p>
+   *
+   * @returns { AudioManager } this {@link AudioManager} object.
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic&static
    */
   function getAudioManager(): AudioManager;
 
@@ -259,6 +270,34 @@ declare namespace audio {
    * @since 23 static
    */
   function createAudioCapturer(options: AudioCapturerOptions): Promise<AudioCapturer | null>;
+
+  /**
+   * Obtains a special {@link #AudioCapturer} instance. This method uses a promise to return the capturer instance.
+   * This capture can be used to record both Mic-In audio data and echo reference signal, for application to
+   * process algorithm.
+   * Mic-In audio data and echo reference signal will be put in one buffer or multiple buffers according to
+   * configuration set by application.
+   * Capturer is also not allowed to be created when application is in background.
+   * @permission ohos.permission.MICROPHONE
+   * @param { AudioCapturerMicInConfig } config - Capturer configurations, see {@link #AudioCapturerMicInConfig}
+   *     for details.
+   * * @returns { Promise<AudioCapturer | null> } Promise used to return the audio capturer instance,
+   *     or null if any error occurs.
+   * @throws { BusinessError } 201 - Permission denied, including background recording.
+   * @throws { BusinessError } 202 - Not system App.
+   * @throws { BusinessError } 6800101 - Parameter verification failed.
+   * @throws { BusinessError } 6800104 - Capturer creation is not supported, may caused by following problems:
+   *     <br> 1.Source type is unsupported for this capturer, only {@link #SOURCE_TYPE_UNPROCESSED_VOICE_ASSISTANT} is
+   *     supported currently.
+   *     <br> 2.Echo reference signal's config is unsupported, echo reference's sampling rate and format must be the
+   *     same as MicIn audio data currently.
+   * @throws { BusinessError } 6800301 - Audio system internal error, such as system process crash.
+   * @syscap SystemCapability.Multimedia.Audio.Capturer
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function createMicInAudioCapturer(config: AudioCapturerMicInConfig): Promise<AudioCapturer | null>;
 
   /**
    * Obtains an {@link AudioRenderer} instance.
@@ -660,9 +699,10 @@ declare namespace audio {
 
   /**
    * Enumerates audio loopback equalizer preset.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Capturer
    * @since 21 dynamic
+   * @since 23 static
    */
   enum AudioLoopbackEqualizerPreset {
     /**
@@ -1269,8 +1309,9 @@ declare namespace audio {
     /**
      * Bluetooth device using the SCO link.
      * @syscap SystemCapability.Multimedia.Audio.Device
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.multimedia.audio.DeviceType#BLUETOOTH_SCO
      */
     BLUETOOTH_SCO = 7,
   }
@@ -1307,10 +1348,11 @@ declare namespace audio {
 
   /**
    * Enumerates the device select strategy.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Device
    * @systemapi
    * @since 21 dynamic
+   * @since 23 static
    */
   enum AudioDevcieSelectStrategy {
     /**
@@ -2998,24 +3040,27 @@ declare namespace audio {
    * Enumerates interrupt action types.
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Audio.Renderer
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.multimedia.audio.InterruptType
    */
   enum InterruptActionType {
 
     /**
      * Focus gain event.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.multimedia.audio.InterruptType#INTERRUPT_TYPE_BEGIN
      */
     TYPE_ACTIVATED = 0,
 
     /**
      * Audio interruption event.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.multimedia.audio.InterruptType#INTERRUPT_TYPE_END
      */
     TYPE_INTERRUPT = 1
   }
@@ -3160,7 +3205,14 @@ declare namespace audio {
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @crossplatform
    * @since 12 dynamic
-   * @since 23 static
+   */
+  /**
+   * Implements audio stream, volume, device, effect and many other management functions.
+   * @typedef AudioManager
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic&static
    */
   interface AudioManager {
     /**
@@ -3732,7 +3784,14 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
      * @since 12 dynamic
-     * @since 23 static
+     */
+    /**
+     * Obtains an {@link AudioVolumeManager} instance.
+     * @returns { AudioVolumeManager } AudioVolumeManager instance.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @crossplatform
+     * @atomicservice
+     * @since 23 dynamic&static
      */
     getVolumeManager(): AudioVolumeManager;
 
@@ -5469,6 +5528,28 @@ declare namespace audio {
      * @since 23 static
      */
     AUDIO_SESSION_STATE_CHANGE_HINT_UNDUCK = 5,
+
+    /**
+     * Suggests to mute the playback because there is another application begin to play nonmixable
+     * audio, application can decide whether to mute.
+     * If interrupt strategy is duck, {@link #AUDIO_SESSION_STATE_CHANGE_HINT_DUCK} will replace mute suggestion event,
+     * but application can still decide to mute when receive hint duck.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    AUDIO_SESSION_STATE_CHANGE_HINT_MUTE_SUGGESTION = 6,
+
+    /**
+     * Suggest to unmute the playback because another application's nonmixable audio ends,
+     * application can decide whether to mute.
+     * If interrupt strategy is unduck, {@link #AUDIO_SESSION_STATE_CHANGE_HINT_UNDUCK} will replace unmute
+     * suggestion event, but application can still decide to unmute when receive hint unduck.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    AUDIO_SESSION_STATE_CHANGE_HINT_UNMUTE_SUGGESTION = 7,
   }
 
   /**
@@ -6003,6 +6084,38 @@ declare namespace audio {
      * @since 21 dynamic
      */
     off(type: 'currentInputDeviceChanged', callback?: Callback<CurrentInputDeviceChangedEvent>): void;
+
+    /**
+     * Enables mute suggestion callback function when using {@link #CONCURRENCY_MIX_WITH_OTHERS} mode.
+     * Usually when using mix mode, application won't receive state change event when there is another audio playing
+     * simultaneously. But in some scenarios, like game or radio, the application may intend to mute its audio to
+     * achieve better user experience.
+     * If enabled, the mute and unmute suggestion hint will be sent by {@link #AudioSessionStateChangedEvent}
+     * when subscribes to audioSessionStateChanged event. Mute suggestion means there is another application
+     * starting non-mixable audio.
+     * This function only supports audio session with {@link #AudioSessionScene} set and activated with
+     * {@link #CONCURRENCY_MIX_WITH_OTHERS} mode. And it takes effect only once during activation, so application
+     * need to enable it every time before activation.
+     * 
+     * @param { boolean } enable - Sets true to enable mute suggestion while registering session state
+     *     change event callback.
+     * @throws { BusinessError } 6800103 - Function is called without setting {@link #AudioSessionScene} or
+     *     called after audio session activation.
+     * @throws { BusinessError } 6800301 - Audio client call audio service error, system internal error.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    enableMuteSuggestionWhenMixWithOthers(enable: boolean): void;
+
+    /**
+     * Returns if there is any other application playing audio in media usage, including media session activated.
+     * @returns { boolean } True if there is other application playing audio in media usage.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    isOtherMediaPlaying(): boolean;
   }
 
   /**
@@ -6027,7 +6140,14 @@ declare namespace audio {
    * @syscap SystemCapability.Multimedia.Audio.Volume
    * @crossplatform
    * @since 12 dynamic
-   * @since 23 static
+   */
+  /**
+   * Implements audio volume management.
+   * @typedef AudioVolumeManager
+   * @syscap SystemCapability.Multimedia.Audio.Volume
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic&static
    */
   interface AudioVolumeManager {
     /**
@@ -6112,16 +6232,28 @@ declare namespace audio {
      */
     /**
      * Obtains an AudioVolumeGroupManager instance.
-     * @param { int } groupId - volume group id, use {@link DEFAULT_VOLUME_GROUP_ID} in default
+     * @param { int } groupId - volume group id, use {@link DEFAULT_VOLUME_GROUP_ID} in default.
      * @returns { AudioVolumeGroupManager } The audio volume group manager instance.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *                                 1.Mandatory parameters are left unspecified;
+     *                                 1.Mandatory parameters are left unspecified.
      *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
      * @since 12 dynamic
-     * @since 23 static
+     */
+    /**
+     * Obtains an AudioVolumeGroupManager instance.
+     * @param { int } groupId - volume group id, use {@link DEFAULT_VOLUME_GROUP_ID} in default.
+     * @returns { AudioVolumeGroupManager } The audio volume group manager instance.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified.
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @crossplatform
+     * @atomicservice
+     * @since 23 dynamic&static
      */
     getVolumeGroupManagerSync(groupId: int): AudioVolumeGroupManager;
 
@@ -6244,7 +6376,13 @@ declare namespace audio {
      * @returns { Promise<int> } The application's volume percentage. The value range is from 0 to 100.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 19 dynamic
-     * @since 23 static
+     */
+    /**
+     * Get the volume for your app with range from 0 to 100. Applications with the same uid share the same volume.
+     * @returns { Promise<int> } The application's volume percentage. The value range is from 0 to 100.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @atomicservice
+     * @since 23 dynamic&static
      */
     getAppVolumePercentage(): Promise<int>;
 
@@ -6252,7 +6390,7 @@ declare namespace audio {
      * Sets the volume for your app with range from 0 to 100. Applications with the same uid share the same volume.
      * Only AudioRenderers with {@link AudioRendererInfo.volumeMode} set to {@link AudioVolumeMode.APP_INDIVIDUAL}
      * will be affected by this volume.
-     * When you change your app's volume, your will receive 'appVolumeChange' callback event.
+     * When you change your app's volume, you will receive 'appVolumeChange' callback event.
      * Your app volume can be also changed by other system settings, and you can monitor the changes through
      * 'appVolumeChange' callback.
      * @param { int } volume - Volume to set. The value range is from 0 to 100.
@@ -6261,7 +6399,21 @@ declare namespace audio {
      * @throws { BusinessError } 6800301 - Crash or blocking occurs in system process.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 19 dynamic
-     * @since 23 static
+     */
+    /**
+     * Sets the volume for your app with range from 0 to 100. Applications with the same uid share the same volume.
+     * Only AudioRenderers with {@link AudioRendererInfo.volumeMode} set to {@link AudioVolumeMode.APP_INDIVIDUAL}
+     * will be affected by this volume.
+     * When you change your app's volume, you will receive 'appVolumeChange' callback event.
+     * Your app volume can be also changed by other system settings, and you can monitor the changes through
+     * 'appVolumeChange' callback.
+     * @param { int } volume - Volume to set. The value range is from 0 to 100.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800301 - Crash or blocking occurs in system process.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @atomicservice
+     * @since 23 dynamic&static
      */
     setAppVolumePercentage(volume: int): Promise<void>;
 
@@ -6319,7 +6471,7 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
-     * @since 12 dynamic
+     * @since 12 dynamiconly
      * @deprecated since 20
      * @useinstead ohos.multimedia.audio.AudioVolumeManager#event:streamVolumeChange
      */
@@ -6334,7 +6486,7 @@ declare namespace audio {
      *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
-     * @since 12 dynamic
+     * @since 12 dynamiconly
      * @deprecated since 20
      * @useinstead ohos.multimedia.audio.AudioVolumeManager#event:streamVolumeChange
      */
@@ -6634,7 +6786,15 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 20 dynamic
-     * @since 23 static
+     */
+    /**
+     * Obtains the volume of a stream.
+     * @param { StreamUsage } streamUsage - Audio stream type.
+     * @returns { int } Current system volume level.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @atomicservice
+     * @since 23 dynamic&static
      */
     getVolumeByStream(streamUsage: StreamUsage): int;
 
@@ -6645,7 +6805,15 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 20 dynamic
-     * @since 23 static
+     */
+    /**
+     * Obtains the minimum volume allowed for a stream.
+     * @param { StreamUsage } streamUsage - Audio stream type.
+     * @returns { int } Min volume level.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @atomicservice
+     * @since 23 dynamic&static
      */
     getMinVolumeByStream(streamUsage: StreamUsage): int;
 
@@ -6656,7 +6824,15 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 20 dynamic
-     * @since 23 static
+     */
+    /**
+     * Obtains the maximum volume allowed for a stream.
+     * @param { StreamUsage } streamUsage - Audio stream type.
+     * @returns { int } Max volume level.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @atomicservice
+     * @since 23 dynamic&static
      */
     getMaxVolumeByStream(streamUsage: StreamUsage): int;
 
@@ -9168,8 +9344,9 @@ declare namespace audio {
      * The value TYPE_ACTIVATED means the focus gain event, and TYPE_INTERRUPT means the audio interruption event.
      * @type { InterruptActionType }
      * @syscap SystemCapability.Multimedia.Audio.Renderer
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.multimedia.audio.InterruptEvent#eventType
      */
     actionType: InterruptActionType;
 
@@ -9177,8 +9354,9 @@ declare namespace audio {
      * Type of the audio interruption event.
      * @type { ?InterruptType }
      * @syscap SystemCapability.Multimedia.Audio.Renderer
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.multimedia.audio.InterruptEvent#eventType
      */
     type?: InterruptType;
 
@@ -9186,8 +9364,9 @@ declare namespace audio {
      * Hint for the audio interruption event.
      * @type { ?InterruptHint }
      * @syscap SystemCapability.Multimedia.Audio.Renderer
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.multimedia.audio.InterruptEvent#hintType
      */
     hint?: InterruptHint;
 
@@ -9196,8 +9375,9 @@ declare namespace audio {
      * and false means that the focus fails to be gained or released.
      * @type { ?boolean }
      * @syscap SystemCapability.Multimedia.Audio.Renderer
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.multimedia.audio.InterruptEvent#hintType
      */
     activated?: boolean;
   }
@@ -9206,8 +9386,9 @@ declare namespace audio {
    * Describes input parameters of audio listening events.
    * @typedef AudioInterrupt
    * @syscap SystemCapability.Multimedia.Audio.Renderer
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.multimedia.audio.AudioRendererOptions
    */
   interface AudioInterrupt {
 
@@ -9215,8 +9396,9 @@ declare namespace audio {
      * Audio stream usage type.
      * @type { StreamUsage }
      * @syscap SystemCapability.Multimedia.Audio.Renderer
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.multimedia.audio.AudioRendererOptions#rendererInfo
      */
     streamUsage: StreamUsage;
 
@@ -9224,8 +9406,9 @@ declare namespace audio {
      * Type of the media interrupted.
      * @type { ContentType }
      * @syscap SystemCapability.Multimedia.Audio.Renderer
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.multimedia.audio.AudioRendererOptions#rendererInfo
      */
     contentType: ContentType;
 
@@ -9234,8 +9417,9 @@ declare namespace audio {
      * The value true means that audio playback can be paused when it is interrupted, and false means the opposite.
      * @type { boolean }
      * @syscap SystemCapability.Multimedia.Audio.Renderer
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.multimedia.audio.InterruptEvent#hintType
      */
     pauseWhenDucked: boolean;
   }
@@ -11354,7 +11538,17 @@ declare namespace audio {
      * @since 20 dynamic
      * @since 23 static
      */
-    SOURCE_TYPE_LIVE = 17
+    SOURCE_TYPE_LIVE = 17,
+
+    /**
+     * Unprocessed voice assistant source type.
+     * 
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    SOURCE_TYPE_UNPROCESSED_VOICE_ASSISTANT = 19
   }
 
   /**
@@ -11478,6 +11672,51 @@ declare namespace audio {
      * @since 23 static
      */
     preferredInputDevice?: AudioDeviceDescriptor;
+  }
+
+  /**
+   * Describes audio capturer configuration that can capture
+   * microphone input (mic-in) audio data before any processing.
+   * 
+   * @typedef AudioCapturerMicInConfig
+   * @syscap SystemCapability.Multimedia.Audio.Capturer
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  interface AudioCapturerMicInConfig {
+    /**
+     * stream information that describes Mic-In audio stream.
+     * 
+     * 
+     * @type { AudioStreamInfo }
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    micInStreamInfo: AudioStreamInfo;
+    /**
+     * stream information that describes echo reference signal.
+     * If not set this attribute, the capturer will only record Mic-In audio stream.
+     * 
+     * @type { ?AudioStreamInfo }
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    ecStreamInfo?: AudioStreamInfo;
+    /**
+     * Capturer attribute information.
+     * 
+     * @type { AudioCapturerInfo }
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    capturerInfo: AudioCapturerInfo;
   }
 
   /**

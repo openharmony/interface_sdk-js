@@ -228,7 +228,31 @@ declare namespace uiExtensionHost {
      * @since 12 dynamic
      * @since 23 static
      */
-     createSubWindowWithOptions(name: string, subWindowOptions: window.SubWindowOptions): Promise<window.Window>;
+    createSubWindowWithOptions(name: string, subWindowOptions: window.SubWindowOptions): Promise<window.Window>;
+
+    /**
+     * Create subwindow.
+     *
+     * @param { string } name - Name of the subwindow.
+     * @param { window.SubWindowOptions } subWindowConfig - Configuration parameters for creating the subwindow.
+     * @param { boolean } followCreatorLifecycle - Whether the lifecycle of the subwindow follows creator of
+     *     subwindow. If true, when the creator goes to background, the subwindow will also go to background, when the
+     *     creator returns to foreground, the subwindow will also return to foreground. If false, the subwindow will
+     *     not change when the creator goes to background or returns to foreground.
+     * @returns { Promise<window.Window> } Promise used to return the subwindow.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible causes:
+     *     1. The window is not created or destroyed.
+     *     2. Internal task error.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 22 dynamic
+     * @since 23 static
+     */
+    createSubWindowWithOptions(name: string, subWindowConfig: window.SubWindowOptions,
+        followCreatorLifecycle: boolean): Promise<window.Window>;
 
      /**
      * Set the watermark flag on the UIExtension window

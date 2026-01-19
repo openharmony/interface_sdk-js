@@ -20,8 +20,9 @@
 import { Resource } from '../../global/resource';
 import { ResourceColor } from "./units";
 import { FontWeight } from "./enums";
-import { CommonMethod, AttributeModifier } from "./common";
+import { CommonMethod, AttributeModifier, ShadowOptions } from "./common";
 import { ComponentBuilder, CustomBuilder } from './builder';
+import { ShaderStyle } from "./textCommon";
 /**
  * The symbol rendering strategy.
  *
@@ -150,6 +151,43 @@ export declare enum EffectFillStyle {
      * @since 23 static
      */
     ITERATIVE = 1
+}
+/**
+ * The replace effect type of symbol.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 23 static
+ */
+export declare enum ReplaceEffectType {
+    /**
+     * The default replace effect of symbol, the current symbol fully disappears before the new symbol fades in.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    SEQUENTIAL = 0,
+    /**
+     * The current symbol fades out while the new symbol fades in at the same time,
+     * producing a smoother and faster transition.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    CROSS_FADE = 1,
+    /**
+     * Replaces the current symbol with a symbol that includes a diagonal slash overlay,
+     * typically used to indicate a disabled or inactive state.
+     * If a corresponding slashed symbol variant is not available, the symbol is replaced without animation.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    SLASH_OVERLAY = 2
 }
 /**
  * Defines SymbolEffect class.
@@ -313,11 +351,13 @@ export declare class ReplaceSymbolEffect extends SymbolEffect {
     /**
      * constructor.
      *
-     * @param { EffectScope } [scope] -  The scope type of symbol effect.
+     * @param { EffectScope } [scope] - The scope type of symbol effect.
+     * @param { ReplaceEffectType } [replaceType] - The replace effect type of symbol effect.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
-    constructor(scope?: EffectScope);
+    constructor(scope?: EffectScope, replaceType?: ReplaceEffectType);
     /**
      * The scope type of symbol effect
      *
@@ -326,6 +366,15 @@ export declare class ReplaceSymbolEffect extends SymbolEffect {
      * @since 23 static
      */
     scope?: EffectScope;
+    /**
+     * The replace effect type of symbol effect.
+     *
+     * @type { ?ReplaceEffectType }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    replaceType?: ReplaceEffectType;
 }
 /**
  * Defines PulseSymbolEffect class.
@@ -438,6 +487,39 @@ export declare interface SymbolGlyphAttribute extends CommonMethod {
      */
     default maxFontScale(scale: double | Resource | undefined): this;
     /**
+     * Set the shader style of the symbol, such as lineargradient or radialgradient.
+     *
+     * If a single `ShaderStyle` is provided, all layers of the symbol will use this shader style.
+     * If an array is provided, each item corresponds to the shader style of the matching symbol layer.
+     * - If an array item is `undefined`, that layer will use its default color.
+     * - Any layers beyond the length of the array will also use their default color.
+     *
+     * @param { Array<ShaderStyle | undefined> | ShaderStyle | undefined } shader - The shader style(s) to apply.
+     *     - `ShaderStyle`: Apply the same shader style to all symbol layers.
+     *     - `Array<ShaderStyle | undefined>`: Specify shader styles per layer; `undefined` means default
+     *     color for that layer.
+     *     - `undefined`: means reset all the layers to default color.
+     * @returns { SymbolGlyphAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    default shaderStyle(shader: Array<ShaderStyle | undefined> | ShaderStyle | undefined): this;
+    /**
+     * Set the shadow of symbol.
+     *
+     * <p><strong>NOTE</strong>:
+     * <br>This API does not work with the fill attribute, showType attribute or coloring strategy.
+     * </p>
+     *
+     * @param { ShadowOptions | undefined } shadow - The shadow options. Passing `undefined` will reset to default.
+     * @returns { SymbolGlyphAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    default symbolShadow(shadow: ShadowOptions | undefined): this;
+
+    /**
      * Sets the attribute modifier.
      *
      * @param { AttributeModifier<SymbolGlyphAttribute> | AttributeModifier<CommonMethod> | undefined } modifier.
@@ -452,14 +534,13 @@ export declare interface SymbolGlyphAttribute extends CommonMethod {
  * Defines SymbolGlyph Component.
  *
  * @param { Resource } [value]
- * @param { CustomBuilder } [content_]
  * @returns { SymbolGlyphAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
 @ComponentBuilder
 export declare function SymbolGlyph(
-    value?: Resource, 
-    content_?: CustomBuilder,
+    value?: Resource
 ): SymbolGlyphAttribute

@@ -160,16 +160,15 @@ export declare interface RemoteWindowAttribute extends CommonMethod {
 /**
  * Defines RemoteWindow Component.
  *
- * @param { WindowAnimationTarget } target - target
- * @param { CustomBuilder } [content_] - container
+ * @param { WindowAnimationTarget } target - The target for the window animation.
  * @returns { RemoteWindowAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
 @ComponentBuilder
 export declare function RemoteWindow(
-    target: WindowAnimationTarget,
-    content_?: CustomBuilder,
-): RemoteWindowAttribute
+    target: WindowAnimationTarget
+): RemoteWindowAttribute;

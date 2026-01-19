@@ -29,7 +29,7 @@
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @since 7 dynamiconly
  * @deprecated since 9
- * @useinstead ohos.bundle.bundleManager.ElementName
+ * @useinstead ohos.bundle.bundleManager/bundleManager.ElementName
  */
 export interface ElementName {
   /**
@@ -37,8 +37,9 @@ export interface ElementName {
    *
    * @default -
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.bundleManager/bundleManager.ElementName#deviceId
    */
   deviceId?: string;
 
@@ -47,8 +48,9 @@ export interface ElementName {
    *
    * @default -
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.bundleManager/bundleManager.ElementName#bundleName
    */
   bundleName: string;
 
@@ -57,8 +59,9 @@ export interface ElementName {
    *
    * @default ability class name.
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.bundleManager/bundleManager.ElementName#abilityName
    */
   abilityName: string;
 
@@ -67,8 +70,9 @@ export interface ElementName {
    *
    * @default -
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.bundleManager/bundleManager.ElementName#uri
    */
   uri?: string;
 
@@ -77,8 +81,9 @@ export interface ElementName {
    *
    * @default -
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.bundleManager/bundleManager.ElementName#shortName
    */
   shortName?: string;
 }
