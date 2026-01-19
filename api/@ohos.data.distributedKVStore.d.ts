@@ -1279,7 +1279,7 @@ declare namespace distributedKVStore {
      * Constructs a {@code Query} object to specify the number of results and the start position.
      *
      * @param { int } total - Indicates the number of results.
-     * @param { int } offset - Indicates the start position. 
+     * @param { int } offset - Indicates the start position.
      * @returns { Query } Returns the {@coed Query} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types.
