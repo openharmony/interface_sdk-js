@@ -72,7 +72,7 @@ declare namespace deviceStatus {
      * @systemapi
      * @since 20
      */
-    x: number;
+    x: float;
     /**
      * indicates Y-RotationRadian
      * @type { number }
@@ -80,7 +80,7 @@ declare namespace deviceStatus {
      * @systemapi
      * @since 20
      */
-    y: number;
+    y: float;
     /**
      * indicates Z-RotationRadian
      * @type { number }
@@ -88,7 +88,7 @@ declare namespace deviceStatus {
      * @systemapi
      * @since 20
      */
-    z: number;
+    z: float;
   }
 
   /**
@@ -127,6 +127,7 @@ declare namespace deviceStatus {
    * @syscap SystemCapability.MultimodalAwareness.DeviceStatus
    * @systemapi
    * @since 20
+   * @since 23 static
    */
   function getDeviceRotationRadian(): Promise<DeviceRotationRadian>;
 
