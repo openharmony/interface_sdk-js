@@ -10637,7 +10637,7 @@ export declare interface CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     default excludeFromRenderGroup(exclude: boolean | undefined): this;
     /**
