@@ -21815,7 +21815,6 @@ declare interface BackgroundOptions {
  * @form
  * @atomicservice
  * @since 11 dynamic
- * @noninterop
  */
 declare class CommonMethod<T> {
   /**
@@ -22164,8 +22163,8 @@ declare class CommonMethod<T> {
    * @since 10
    */
   /**
-   * constraint Size:
-   * minWidth: minimum Width, maxWidth: maximum Width, minHeight: minimum Height, maxHeight: maximum Height.
+   * Sets the constraint size of the component, which is used to limit the size range during component layout.
+   * Default value: **{minWidth: 0, maxWidth: Infinity, minHeight: 0, maxHeight: Infinity}**.
    *
    * @param { ConstraintSizeOptions } value
    * @returns { T }
@@ -22273,7 +22272,9 @@ declare class CommonMethod<T> {
    * @since 10
    */
   /**
-   * Defines the weight of the component, according to which the remain part of main-axis is allocated self-adaptively
+   * Sets the weight of the component during layout. A component with this attribute is allocated space
+   * along the main axis of its parent container (Row, Column, or Flex) based on its specified weight.
+   * Default value: **0**.
    *
    * @param { number | string } value
    * @returns { T }
@@ -24580,20 +24581,34 @@ declare class CommonMethod<T> {
   brightness(brightness: Optional<number>): T;
 
   /**
-   * Adds a contrast effect to the current component. The input parameter is the contrast value.
-   * A larger contrast value indicates a sharper image. When the contrast value is 0, the image becomes gray. (%)
+   * Applies a contrast effect to the component.
    *
-   * @param { number } value
+   * @param { number } value - Contrast of the component. The input parameter is a
+   * contrast value. If the value is **1**, the source image is displayed. If the
+   * value is greater than 1, a larger value indicates a higher contrast and a clearer
+   * image. If the value is less than 1, a smaller value indicates a lower contrast is.
+   * If the value is **0**, the image becomes all gray. The unit is percentage.
+   * <br>Default value: **1.0**.
+   * <br>Recommended value range: [0, 10).
+   * <br>**NOTE**
+   * <br>A value less than 0 evaluates to the value **0**.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @since 7
    */
   /**
-   * Adds a contrast effect to the current component. The input parameter is the contrast value.
-   * A larger contrast value indicates a sharper image. When the contrast value is 0, the image becomes gray. (%)
+   * Applies a contrast effect to the component.
    *
-   * @param { number } value
+   * @param { number } value - Contrast of the component. The input parameter is a
+   * contrast value. If the value is **1**, the source image is displayed. If the
+   * value is greater than 1, a larger value indicates a higher contrast and a clearer
+   * image. If the value is less than 1, a smaller value indicates a lower contrast is.
+   * If the value is **0**, the image becomes all gray. The unit is percentage.
+   * <br>Default value: **1.0**.
+   * <br>Recommended value range: [0, 10).
+   * <br>**NOTE**
+   * <br>A value less than 0 evaluates to the value **0**.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -24601,10 +24616,17 @@ declare class CommonMethod<T> {
    * @since 9
    */
   /**
-   * Adds a contrast effect to the current component. The input parameter is the contrast value.
-   * A larger contrast value indicates a sharper image. When the contrast value is 0, the image becomes gray. (%)
+   * Applies a contrast effect to the component.
    *
-   * @param { number } value
+   * @param { number } value - Contrast of the component. The input parameter is a
+   * contrast value. If the value is **1**, the source image is displayed. If the
+   * value is greater than 1, a larger value indicates a higher contrast and a clearer
+   * image. If the value is less than 1, a smaller value indicates a lower contrast is.
+   * If the value is **0**, the image becomes all gray. The unit is percentage.
+   * <br>Default value: **1.0**.
+   * <br>Recommended value range: [0, 10).
+   * <br>**NOTE**
+   * <br>A value less than 0 evaluates to the value **0**.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -24613,10 +24635,17 @@ declare class CommonMethod<T> {
    * @since 10
    */
   /**
-   * Adds a contrast effect to the current component. The input parameter is the contrast value.
-   * A larger contrast value indicates a sharper image. When the contrast value is 0, the image becomes gray. (%)
+   * Applies a contrast effect to the component.
    *
-   * @param { number } value
+   * @param { number } value - Contrast of the component. The input parameter is a
+   * contrast value. If the value is **1**, the source image is displayed. If the
+   * value is greater than 1, a larger value indicates a higher contrast and a clearer
+   * image. If the value is less than 1, a smaller value indicates a lower contrast is.
+   * If the value is **0**, the image becomes all gray. The unit is percentage.
+   * <br>Default value: **1.0**.
+   * <br>Recommended value range: [0, 10).
+   * <br>**NOTE**
+   * <br>A value less than 0 evaluates to the value **0**.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -25968,8 +25997,8 @@ declare class CommonMethod<T> {
    * @since 10
    */
   /**
-   * The percentage of the remaining space of the Flex container allocated to the component on which this property
-   * resides.
+   * Sets the percentage of the parent container's remaining space that is allocated to the component.
+   * Default value: **0**.
    *
    * @param { number } value
    * @returns { T }
@@ -26013,7 +26042,8 @@ declare class CommonMethod<T> {
    * @since 10
    */
   /**
-   * The proportion of the Flex container compression size assigned to the component on which this attribute resides.
+   * Sets the percentage of the parent container's shrink size that is allocated to the component.
+   * Default value: 0 when the parent container is Column or Row, 1 when the parent container is Flex.
    *
    * @param { number } value
    * @returns { T }
@@ -26152,8 +26182,8 @@ declare class CommonMethod<T> {
    * @since 10
    */
   /**
-   * Sets the current component and displays the priority in the layout container. This parameter is valid only in Row,
-   * Column, and Flex single-row layouts.
+   * Sets the display priority for the component in the layout container.
+   * <br>This parameter is only effective in Row, Column, and Flex (single-line) container components.
    *
    * @param { number } value
    * @returns { T }
@@ -26291,7 +26321,8 @@ declare class CommonMethod<T> {
    * @since 10
    */
   /**
-   * Sets the sliding direction. The enumerated value supports logical AND (&) and logical OR (|).
+   * Sets how elements are laid out along the main axis of the container.
+   * Default value: **Direction.Auto**.
    *
    * @param { Direction } value
    * @returns { T }
