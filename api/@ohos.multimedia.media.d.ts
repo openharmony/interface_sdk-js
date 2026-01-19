@@ -1209,7 +1209,7 @@ declare namespace media {
         callback: OnFrameFetched): void;
 
     /**
-     * Cancel all fetch tasks which are triggered by { fetchFramesByTimes }. The callbacks of { fetchFrameByTimes }
+     * Cancel all fetch tasks which are triggered by { fetchFramesByTimes }. The callbacks of { fetchFramesByTimes }
      * will be called with cancelled result.
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @stagemodelonly
@@ -2061,7 +2061,7 @@ declare namespace media {
     image?: image.PixelMap;
 
     /**
-     * The fetch result code -succeed, failed or cancelled.
+     * The fetch result code - succeed, failed or cancelled.
      * @type { FetchResult }
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @stagemodelonly
@@ -2070,11 +2070,11 @@ declare namespace media {
     result: FetchResult;
   }
 
- /**
-   * Describes the callback invoked for the track change event.
+  /**
+   * Defines the OnFrameFetched callback.
    * @typedef { function } OnFrameFetched
    * @param { FrameInfo } frameInfo - the fetched data.
-   * @param { BusinessError<void> } [err] - the error ocurred during fetch.
+   * @param { BusinessError<void> } [err] - the error occurred during fetch.
    * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
    * @stagemodelonly
    * @since 23 dynamic&static
