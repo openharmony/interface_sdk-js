@@ -1286,21 +1286,21 @@ declare namespace tag {
    * Tag infomation will be dispatched to the application only if a NFC tag is discovered.
    * 
    * @permission ohos.permission.NFC_TAG
-   * @param {'readerModeWithInterval' } type - The callback type to be registered.
-   * @param { ElementName } elementName -The element name of application, must include the bundle Name and abilityName.
+   * @param { 'readerModeWithInterval' } type - The callback type to be registered.
+   * @param { ElementName } elementName - The element name of application, must include the bundleName and abilityName.
    * @param { int[] } discTech - The technologies list to set for discovering.
-   *  From {@link NFC_A} to {@link MIFARE_ULTRALIGHT}.
-   * @param { Callback <TagInfo> } callback -The callback to dispatched the TagInfo object for application.
-   * @param { int } interval -The interval for reader presence check.
+   *     From {@link NFC_A} to {@link MIFARE_ULTRALIGHT}.
+   * @param { Callback<TagInfo> } callback - The callback to dispatched the TagInfo object for application.
+   * @param { int } interval - The interval for reader presence check.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
    * @throws { BusinessError } 3100202 - The element state is invalid.
-   * @syscap Systemcapability.Communication.NFC.Tag
+   * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 23 dynamic
    */
-  function on (
+  function on(
     type: 'readerModeWithInterval',
     elementName: ElementName,
     discTech: int[],
