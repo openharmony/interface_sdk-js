@@ -3454,19 +3454,21 @@ declare namespace sensor {
 
     /**
      * Index of sensors of the same type.
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 19 dynamic
+     * @since 23 static
      */
-    sensorIndex?: number;
+    sensorIndex?: int;
 
     /**
      * Device ID which the sensors attached.
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 19 dynamic
+     * @since 23 static
      */
-    deviceId?: number;
+    deviceId?: int;
 
     /**
      * Name of the device.
@@ -3474,6 +3476,7 @@ declare namespace sensor {
      * @type { ?string }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 19 dynamic
+     * @since 23 static
      */
     deviceName?: string;
 
@@ -3482,6 +3485,7 @@ declare namespace sensor {
      * @type { ?boolean }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 19 dynamic
+     * @since 23 static
      */
     isLocalSensor?: boolean;
 
