@@ -3453,7 +3453,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800014 - The target instance is already closed.
      * @throws { BusinessError } 14800019 - The SQL must be a query statement.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
-     *     Possible causes: Insert failed or the update data does not exist.
+     *     Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
      * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
      * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
