@@ -1261,27 +1261,6 @@ declare namespace tag {
   function off(type: 'readerMode', elementName: ElementName, callback?: AsyncCallback<TagInfo>): void;
 
   /**
-   * Provides tag information.
-   * <p>This class provides the technology a tag supports, for example, NFC-A. Applications can create
-   * different tags based on the supported technology.
-   *
-   * @typedef TagInfo
-   * @syscap SystemCapability.Communication.NFC.Tag
-   * @since 7
-   */
-    /**
-   * Provides tag information.
-   * <p>This class provides the technology a tag supports, for example, NFC-A. Applications can create
-   * different tags based on the supported technology.
-   *
-   * @typedef TagInfo
-   * @syscap SystemCapability.Communication.NFC.Tag
-   * @atomicservice
-   * @since 12 dynamic
-   * @since 23 static
-   */
-
-  /**
    * Set reader mode enabled when the specific application is on foreground and set card presence interval.
    * Tag infomation will be dispatched to the application only if a NFC tag is discovered.
    *
@@ -1364,6 +1343,26 @@ declare namespace tag {
    */
   function offReaderModeWithInterval(elementName: ElementName, callback?: Callback<TagInfo>): void;
 
+  /**
+   * Provides tag information.
+   * <p>This class provides the technology a tag supports, for example, NFC-A. Applications can create
+   * different tags based on the supported technology.
+   *
+   * @typedef TagInfo
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @since 7
+   */
+    /**
+   * Provides tag information.
+   * <p>This class provides the technology a tag supports, for example, NFC-A. Applications can create
+   * different tags based on the supported technology.
+   *
+   * @typedef TagInfo
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @atomicservice
+   * @since 12 dynamic
+   * @since 23 static
+   */
   export interface TagInfo {
     /**
      * The uid of this tag, it.
