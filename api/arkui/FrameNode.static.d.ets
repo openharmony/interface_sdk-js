@@ -1540,6 +1540,7 @@ export declare namespace typeNode {
    *
    * @extends TypedFrameNode<ListAttribute>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   abstract class ListFrameNode extends TypedFrameNode<ListAttribute> {  
@@ -1549,6 +1550,7 @@ export declare namespace typeNode {
      * @param { ListOptions } [options] - list options
      * @returns { ListAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     abstract initialize(options?: ListOptions): ListAttribute;
@@ -1614,6 +1616,7 @@ export declare namespace typeNode {
    *
    * @extends TypedFrameNode<ListItemAttribute>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   abstract class ListItemFrameNode extends TypedFrameNode<ListItemAttribute> {
@@ -1623,6 +1626,7 @@ export declare namespace typeNode {
      * @param { ListItemOptions } [options] - list item options.
      * @returns { ListItemAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     abstract initialize(options?: ListItemOptions): ListItemAttribute;
@@ -1663,6 +1667,7 @@ export declare namespace typeNode {
    *
    * @extends TypedFrameNode<ListItemGroupAttribute>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   abstract class ListItemGroupFrameNode extends TypedFrameNode<ListItemGroupAttribute> {
@@ -1672,6 +1677,7 @@ export declare namespace typeNode {
      * @param { ListItemGroupOptions } [options] - list item group options.
      * @returns { ListItemGroupAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     abstract initialize(options?: ListItemGroupOptions): ListItemGroupAttribute;
@@ -1750,6 +1756,7 @@ export declare namespace typeNode {
    *
    * @extends TypedFrameNode<ScrollAttribute>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   abstract class ScrollFrameNode extends TypedFrameNode<ScrollAttribute> {
@@ -1759,6 +1766,7 @@ export declare namespace typeNode {
      * @param { Scroller } [scroller] - The controller for scroll.
      * @returns { ScrollAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     abstract initialize(scroller?: Scroller): ScrollAttribute;
@@ -1899,6 +1907,7 @@ export declare namespace typeNode {
    *
    * @extends TypedFrameNode<GridAttribute>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   abstract class GridFrameNode extends TypedFrameNode<GridAttribute> {
@@ -1909,6 +1918,7 @@ export declare namespace typeNode {
      * @param { GridLayoutOptions } [layoutOptions] - Grid layout options.
      * @returns { GridAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     abstract initialize(scroller?: Scroller, layoutOptions?: GridLayoutOptions): GridAttribute;
@@ -1974,6 +1984,7 @@ export declare namespace typeNode {
    *
    * @extends TypedFrameNode<GridItemAttribute>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   abstract class GridItemFrameNode extends TypedFrameNode<GridItemAttribute> {
@@ -1983,6 +1994,7 @@ export declare namespace typeNode {
      * @param { GridItemOptions } [options] - Grid item options.
      * @returns { GridItemAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     abstract initialize(options?: GridItemOptions): GridItemAttribute;
@@ -2023,6 +2035,7 @@ export declare namespace typeNode {
    *
    * @extends TypedFrameNode<WaterFlowAttribute>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   abstract class WaterFlowFrameNode extends TypedFrameNode<WaterFlowAttribute> {
@@ -2032,6 +2045,7 @@ export declare namespace typeNode {
      * @param { WaterFlowOptions } [options] - WaterFlow options.
      * @returns { WaterFlowAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     abstract initialize(options?: WaterFlowOptions): WaterFlowAttribute;
@@ -2097,6 +2111,7 @@ export declare namespace typeNode {
    *
    * @extends TypedFrameNode<FlowItemAttribute>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   abstract class FlowItemFrameNode extends TypedFrameNode<FlowItemAttribute> {
@@ -2105,6 +2120,7 @@ export declare namespace typeNode {
      *
      * @returns { FlowItemAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     abstract initialize(): FlowItemAttribute;
