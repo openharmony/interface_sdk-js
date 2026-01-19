@@ -13290,6 +13290,7 @@ declare namespace photoAccessHelper {
      *
      * @permission ohos.permission.READ_IMAGEVIDEO
      * @param { string[] } assetUris - Asset uris which will download
+     * @param { int } taskSequence - task sequence set by application
      * @returns { Promise<Map<string, CloudAssetDownloadCode>> } Returns start task result.
      * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 202 - Called by non-system application
@@ -13303,7 +13304,27 @@ declare namespace photoAccessHelper {
      * @since 21 dynamic
      * @since 23 static
      */
-    startDownloadSpecificCloudMedia(assetUris: string[]): Promise<Map<string, CloudAssetDownloadCode>>;
+    startDownloadSpecificCloudMedia(assetUris: string[], taskSequence?: int): Promise<Map<string, CloudAssetDownloadCode>>;
+
+    /**
+     * SetNetWorkPolicy of download cloud assets.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { string[] } assetUris - Asset uris which will download
+     * @param { CloudAssetNetworkPolicyType } networkPolicy - network policy
+     * @returns { Promise<void> } Returns void.
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 23800151  - The scenario parameter verification fails. Possible causes: 
+     *     1. The assetUris is empty; 
+     *     2. The assetUris array size is bigger than 500.
+     * @throws { BusinessError } 23800301  -  Internal system error. It is recommended to retry and check the logs.
+     *     Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    setDownloadSpecificCloudMediaNetworkPolicy(assetUris: string[], networkOpt: CloudAssetNetworkPolicyType): Promise<void>;
 
     /**
      * Pause download cloud assets.
@@ -13395,6 +13416,22 @@ declare namespace photoAccessHelper {
      * @since 23 static
      */
     queryDownloadSpecificCloudMediaTaskCount(predicates: dataSharePredicates.DataSharePredicates): Promise<int>;
+
+    /**
+     * Query download cloud assets task count and size.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { dataSharePredicates.DataSharePredicates } predicates - Filter parameter.
+     * @returns { Promise<int[]> } Returns download cloud assets task count and size.
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 23800301  -  Internal system error. It is recommended to retry and check the logs.
+     *     Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    queryDownloadSpecificCloudMediaTaskCountAndSize(predicates: dataSharePredicates.DataSharePredicates): Promise<int[]>;
 
     /**
      * Register callback of download cloud assets task.
@@ -14475,6 +14512,40 @@ declare namespace photoAccessHelper {
     static getRelatedEntity (topic: string, context: ContextMap, option?: Options): Promise<Entity[]>;
   }
 
+  /**
+   * Set download cloud asset Network Option code.
+   *
+   * @enum { int } CloudAssetNetworkPolicyType
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @since 22 dynamic&static
+   */
+  enum CloudAssetNetworkPolicyType {
+    /**
+     * Download AT DEFAULT ENV
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    DEFAULT = 0,
+    /**
+     * Download AT Cellular ENV
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    CELL = 1,
+    /**
+     * Download At WIFI ENV
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    WIFI = 2,
+  }
 }
 
 export default photoAccessHelper;
