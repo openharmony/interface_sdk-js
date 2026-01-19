@@ -170,7 +170,7 @@ export declare interface ComputedBarAttribute {
  * @extends UIScrollableCommonEvent
  * @interface UIGridEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 23 static
+ * @since 24 static
  */
 export declare interface UIGridEvent extends UIScrollableCommonEvent {
   /**
@@ -179,7 +179,7 @@ export declare interface UIGridEvent extends UIScrollableCommonEvent {
    * @param { OnWillScrollCallback | undefined } callback - callback function, triggered when the Grid will scroll.
    *      Passing undefined will unregister the callback.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   setOnWillScroll(callback: OnWillScrollCallback | undefined): void;
   /**
@@ -188,7 +188,7 @@ export declare interface UIGridEvent extends UIScrollableCommonEvent {
    * @param { OnScrollCallback | undefined } callback - callback function, triggered when the Grid did scroll.
    *     Passing undefined will unregister the callback.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   setOnDidScroll(callback: OnScrollCallback | undefined): void;
   /**
@@ -197,7 +197,7 @@ export declare interface UIGridEvent extends UIScrollableCommonEvent {
    * @param { OnGridScrollIndexCallback | undefined } callback - callback function, triggered when start or
    *     end positions of the display change. Passing undefined will unregister the callback.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   setOnScrollIndex(callback: OnGridScrollIndexCallback | undefined): void;
 }
@@ -208,7 +208,7 @@ export declare interface UIGridEvent extends UIScrollableCommonEvent {
  * @param { int } first - the first index in visible content.
  * @param { int } last - the last index in visible content.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 23 static
+ * @since 24 static
  */
 export type OnGridScrollIndexCallback = (first: int, last: int) => void;
 /**
@@ -227,9 +227,20 @@ export declare interface GridAttribute extends ScrollableCommonMethod {
      *     <br>Default value: <em>'1fr'</em>. Passing undefined will restore the default value.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
     default columnsTemplate(value: string | ItemFillPolicy | undefined): this;
+    /**
+     * This parameter specifies the number of columns in the current grid layout.
+     *
+     * @param { string | undefined } value - Number of columns in the layout.
+     *     <br>Default value: <em>'1fr'</em>. Passing undefined will restore the default value.
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    default columnsTemplate(value: string | undefined): this;
     /**
      * Lets you set the number of rows in the current grid layout,
      *
@@ -275,9 +286,22 @@ export declare interface GridAttribute extends ScrollableCommonMethod {
      *     A string value indicates a color in RGB or ARGB format, for example, <em>'#ffffff'</em>.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
     default scrollBarColor(color: Color | int | string | Resource | undefined): this;
+    /**
+     * Sets the scrollbar color.
+     *
+     * @param { Color | int | string | undefined } color - Scrollbar color.
+     *     <br>Default value: <em>'\#182431'</em> (40% opacity)
+     *     <br>A number value indicates a HEX color in RGB or ARGB format, for example, <em>0xffffff</em>.
+     *     A string value indicates a color in RGB or ARGB format, for example, <em>'#ffffff'</em>.
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    default scrollBarColor(color: Color | int | string | undefined): this;
     /**
      * Lets you set the spacing between rows.
      *
@@ -514,7 +538,7 @@ export declare interface GridAttribute extends ScrollableCommonMethod {
      *     <br>Default value: **FocusWrapMode.DEFAULT**. Passing undefined will restore the default value.
      * @returns { this } the attribute of the Grid.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
     default focusWrapMode(mode: FocusWrapMode | undefined): this;
     /**
@@ -524,7 +548,7 @@ export declare interface GridAttribute extends ScrollableCommonMethod {
      *     <br>Default value: true. Passing undefined will restore the default value.
      * @returns { this } The attribute of the Grid.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
     default syncLoad(enable: boolean | undefined): this;
     /**

@@ -104,7 +104,7 @@ export declare interface ScrollBarAttribute extends CommonMethod {
      *     <br>Default value: <em>'\#182431'</em> (40% opacity), Passing undefined will restore the default value.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
     default scrollBarColor(color: ColorMetrics | undefined): this;
     /**
