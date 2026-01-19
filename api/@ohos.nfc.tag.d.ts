@@ -1288,11 +1288,14 @@ declare namespace tag {
    * @permission ohos.permission.NFC_TAG
    * @param { 'readerModeWithInterval' } type - The callback type to be registered.
    * @param { ElementName } elementName - The element name of application, must include the bundleName and abilityName.
-   * @param { Callback<TagInfo> } [callback] - The callback to dispatched the TagInfo object for application.
+   * @param { int[] } discTech - The technologies list to set for discovering.
+   *     From {@link NFC_A} to {@link MIFARE_ULTRALIGHT}.
+   * @param { Callback<TagInfo> } callback - The callback to dispatched the TagInfo object for application.
+   * @param { int } interval - The interval for reader presence check.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
-   * @throws { BusinessError } 3100203 - The off() API can be called only when the on() has been called.
+   * @throws { BusinessError } 3100202 - The element state is invalid.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 23 dynamic
@@ -1320,7 +1323,7 @@ declare namespace tag {
    * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
    * @throws { BusinessError } 3100202 - The element state is invalid.
    * @syscap SystemCapability.Communication.NFC.Tag
-   * @since 23 dynamic
+   * @since 23 static
    */
   function onReaderModeWithInterval(
     elementName: ElementName,
@@ -1336,11 +1339,10 @@ declare namespace tag {
    * @param { 'readerModeWithInterval' } type - The callback type to be unregistered.
    * @param { ElementName } elementName - The element name of application, must include the bundleName and abilityName.
    * @param { Callback<TagInfo> } [callback] - The callback to dispatched the TagInfo object for application.
-   * @param { int } interval - The interval for reader presence check.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
-   * @throws { BusinessError } 3100203 - The off() API can ve called only when the on() has been called.
+   * @throws { BusinessError } 3100203 - The off() API can be called only when the on() has been called.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 23 dynamic
@@ -1350,16 +1352,15 @@ declare namespace tag {
   /**
    * Disable foreground reader mode settings explicitly.
    *
-   * @permission ohos.permission.NFC_TA
+   * @permission ohos.permission.NFC_TAG
    * @param { ElementName } elementName - The element name of application, must include the bundleName and abilityName.
    * @param { Callback<TagInfo> } [callback] - The callback to dispatched the TagInfo object for application.
-   * @param { int } interval - The interval for reader presence check.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
-   * @throws { BusinessError } 3100203 - The off() API can ve called only when the on() has been called.
+   * @throws { BusinessError } 3100203 - The off() API can be called only when the on() has been called.
    * @syscap SystemCapability.Communication.NFC.Tag
-   * @since 23 dynamic
+   * @since 23 static
    */
   function offReaderModeWithInterval(elementName: ElementName, callback?: Callback<TagInfo>): void;
 
