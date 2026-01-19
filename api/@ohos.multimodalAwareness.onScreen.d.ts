@@ -32,7 +32,7 @@ declare namespace onScreen {
   /**
    * Enum for page content scenario
    *
-   * @enum { number } Scenario
+   * @enum { int } Scenario
    * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
    * @since 20
   */
@@ -58,9 +58,10 @@ declare namespace onScreen {
   /**
    * Enum for control event type
    *
-   * @enum { number } EventType
+   * @enum { int } EventType
    * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
-   * @since 20
+   * @since 20 dynamic
+   * @since 23 static
   */
   export enum EventType {
     /**
@@ -68,7 +69,8 @@ declare namespace onScreen {
      *
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
+     * @since 23 static
      */
     SCROLL_TO_HOOK = 1,
   }
@@ -78,31 +80,35 @@ declare namespace onScreen {
    * @interface Paragraph
    * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
+   * @since 23 static
    */
   export interface Paragraph {
     /**
      * Indicates paragraph hook id
-     * @type { ?number }
+     * @type { ?int64 }
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
+     * @since 23 static
      */
-    hookId?: number,
+    hookId?: int64,
     /**
      * Indicates paragraph chapter id if paragraph is splited to chapters
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
+     * @since 23 static
      */
-    chapterId?: number,
+    chapterId?: int,
     /**
      * Indicates paragraph title
      * @type { ?string }
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
+     * @since 23 static
      */
     title?: string,
     /**
@@ -110,7 +116,8 @@ declare namespace onScreen {
      * @type { ?string }
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
+     * @since 23 static
      */
     text?: string
   }
@@ -120,23 +127,26 @@ declare namespace onScreen {
    * @interface ContentOptions
    * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
+   * @since 23 static
    */
   export interface ContentOptions {
     /**
      * Indicates the windowId which need to gather, full screen window is specified by default
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
+     * @since 23 static
      */
-    windowId?: number,
+    windowId?: int,
     /**
      * Indicates whether content understanding is required, false by default
      * @type { ?boolean }
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
+     * @since 23 static
      */
     contentUnderstand?: boolean,
     /**
@@ -144,7 +154,8 @@ declare namespace onScreen {
      * @type { ?boolean }
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
+     * @since 23 static
      */
     pageLink?: boolean,
     /**
@@ -152,7 +163,8 @@ declare namespace onScreen {
      * @type { ?boolean }
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
+     * @since 23 static
      */
     textOnly?: boolean,
   }
@@ -162,31 +174,35 @@ declare namespace onScreen {
    * @interface PageContent
    * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
+   * @since 23 static
    */
   export interface PageContent {
     /**
      * Indicates window id corresponding to the content
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
+     * @since 23 static
      */
-    windowId: number,
+    windowId: int,
     /**
      * Indicates session id corresponding to the content
-     * @type { number }
+     * @type { int64 }
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
+     * @since 23 static
      */
-    sessionId: number,
+    sessionId: int64,
     /**
      * Indicates bundle name corresponding to the content
      * @type { string }
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
+     * @since 23 static
      */
     bundleName: string,
     /**
@@ -194,7 +210,8 @@ declare namespace onScreen {
      * @type { ?Scenario }
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
+     * @since 23 static
      */
     scenario?: Scenario,
     /**
@@ -202,7 +219,8 @@ declare namespace onScreen {
      * @type { ?string }
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
+     * @since 23 static
      */
     title?: string,
     /**
@@ -210,7 +228,8 @@ declare namespace onScreen {
      * @type { ?string }
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
+     * @since 23 static
      */
     content?: string,
     /**
@@ -218,7 +237,8 @@ declare namespace onScreen {
      * @type { ?string }
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
+     * @since 23 static
      */
     pageLink?: string,
     /**
@@ -226,7 +246,8 @@ declare namespace onScreen {
      * @type { ?Paragraph[] }
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
+     * @since 23 static
      */
     paragraphs?: Paragraph[],
   }
@@ -236,41 +257,46 @@ declare namespace onScreen {
    * @interface ControlEvent
    * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
+   * @since 23 static
    */
   export interface ControlEvent {
     /**
      * Indicates controlled window id
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
+     * @since 23 static
      */
-    windowId: number,
+    windowId: int,
     /**
      * Indicates session id 
-     * @type { number }
+     * @type { int64 }
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
+     * @since 23 static
      */
-    sessionId: number,
+    sessionId: int64,
     /**
      * Indicates control event type
      * @type { EventType }
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
+     * @since 23 static
      */
     eventType: EventType,
     /**
      * Indicates controlled hookid for specific event type and specific session id
-     * @type { ?number }
+     * @type { ?int64 }
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
+     * @since 23 static
      */
-    hookId?: number,
+    hookId?: int64,
   }
 
   /**
@@ -292,7 +318,8 @@ declare namespace onScreen {
    * @throws { BusinessError } 34000006 - The request timed out.
    * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
+   * @since 23 static
    */
   function getPageContent(options?: ContentOptions): Promise<PageContent>;
 
@@ -311,7 +338,8 @@ declare namespace onScreen {
    * @throws { BusinessError } 34000005 - The target is not found.
    * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
+   * @since 23 static
    */
   function sendControlEvent(event: ControlEvent): Promise<void>;
 
