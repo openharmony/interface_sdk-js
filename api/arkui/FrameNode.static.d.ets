@@ -2663,6 +2663,17 @@ export declare namespace typeNode {
     context: UIContext, parameters: NativeXComponentParameters): XComponent;
 
   /**
+ 	 * Get the attribute instance of FrameNode which type is XComponent to set attributes.
+ 	 *
+ 	 * @param { FrameNode } node - the target FrameNode.
+ 	 * @returns { XComponentAttribute | undefined } - Return the attribute instance of FrameNode,
+ 	 *     and return undefined if it does not exist.
+ 	 * @syscap SystemCapability.ArkUI.ArkUI.Full
+ 	 * @since 23 static
+ 	 */ 
+ 	export function getXComponentAttribute(node: FrameNode): XComponentAttribute | undefined;
+
+  /**
    * Define the Button type of FrameNode.
    *
    * @extends TypedFrameNode<ButtonAttribute>
