@@ -62,13 +62,13 @@ declare namespace deviceStatus {
    * @interface DeviceRotationRadian
    * @syscap SystemCapability.MultimodalAwareness.DeviceStatus
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    * @since 23 static
    */
   export interface DeviceRotationRadian {
     /**
      * indicates X-RotationRadian
-     * @type { number }
+     * @type { float }
      * @syscap SystemCapability.MultimodalAwareness.DeviceStatus
      * @systemapi
      * @since 20 dynamic
@@ -77,7 +77,7 @@ declare namespace deviceStatus {
     x: float;
     /**
      * indicates Y-RotationRadian
-     * @type { number }
+     * @type { float }
      * @syscap SystemCapability.MultimodalAwareness.DeviceStatus
      * @systemapi
      * @since 20 dynamic
@@ -86,7 +86,7 @@ declare namespace deviceStatus {
     y: float;
     /**
      * indicates Z-RotationRadian
-     * @type { number }
+     * @type { float }
      * @syscap SystemCapability.MultimodalAwareness.DeviceStatus
      * @systemapi
      * @since 20 dynamic
