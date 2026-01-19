@@ -147,6 +147,7 @@ export function checkSinceTag(jsDocs: JSDoc[], config: JsDocNodeCheckConfigItem)
  */
 function getJSDocMinorVersion(jsDocs: JSDoc[]): number {
   let minorVersion: number = 0;
+
   if (!jsDocs || jsDocs.length === 0) {
     return minorVersion;
   }
@@ -164,6 +165,7 @@ function getJSDocMinorVersion(jsDocs: JSDoc[]): number {
     }
     break;
   }
+
   return minorVersion;
 }
 
@@ -456,6 +458,7 @@ function getSplitsArrayWithDesignatedCharAndArrayStr(
   designatedChar: string
 ): string[] {
   const rightParenthesisItems: string[] = [];
+
   leftParenthesisItems.forEach((leftParenthesisItem: string) => {
     if (!leftParenthesisItem.includes(designatedChar)) {
       rightParenthesisItems.push(leftParenthesisItem);
@@ -467,6 +470,7 @@ function getSplitsArrayWithDesignatedCharAndArrayStr(
       rightParenthesisItems.push(item === '' ? designatedChar : item);
     });
   });
+
   return rightParenthesisItems;
 }
 
@@ -624,7 +628,7 @@ export function readCardPageSet(projectConfig: ProjectConfig): void {
 }
 
 /**
- * 遍历筛选出类型为'form'的拓展，提取其emtadata中的资源信息。
+ * 筛选类型为'form'的扩展能力，提取其metadata中的资源信息
  * 
  * @param { ExtensionAbilities[] } extensionAbilities 扩展能力数组
  * @param { ProjectConfig } projectConfig 项目配置信息
@@ -649,7 +653,7 @@ function setCardPages(extensionAbilities: ExtensionAbilities[], projectConfig: P
 /**
  * 读取卡片资源配置，筛选符合条件的卡片路径并更新到cardPageSet
  * 
- * @param { string } resource 卡片资源标识字符串，格式可能包含$profile:前缀
+ * @param { string } resource 卡片资源标识（可能包含$profile:前缀）
  * @param { ProjectConfig } projectConfig 项目配置信息
  */
 function readCardResource(resource: string, projectConfig: ProjectConfig): void {
@@ -658,19 +662,19 @@ function readCardResource(resource: string, projectConfig: ProjectConfig): void 
   if (!fs.existsSync(modulePagePath)) {
     return;
   }
-  const CardConfig: CardConfig = JSON.parse(fs.readFileSync(modulePagePath, 'utf-8'));
-  if (!CardConfig.forms) {
+  const cardConfig: CardConfig = JSON.parse(fs.readFileSync(modulePagePath, 'utf-8'));
+  if (!cardConfig.forms) {
     return;
   }
-  CardConfig.forms.forEach((form) => {
+  cardConfig.forms.forEach((form) => {
     if (!(form.type === 'eTS' || form.uiSyntax === 'arkts')) {
       return;
     }
-    const cradPath: string = path.resolve(projectConfig.projectPath, '..', form.src);
-    if (!cradPath || !fs.existsSync(cradPath) || projectConfig.cardPageSet.includes(cradPath)) {
+    const cardPath: string = path.resolve(projectConfig.projectPath, '..', form.src);
+    if (!cardPath || !fs.existsSync(cardPath) || projectConfig.cardPageSet.includes(cardPath)) {
       return;
     }
-    projectConfig.cardPageSet.push(cradPath);
+    projectConfig.cardPageSet.push(cardPath);
   });
 }
 
@@ -851,11 +855,18 @@ function collectExternalSyscapInfos(
       externalDeviceDirs.push(externalDeviceDir);
     }
   });
-  externalDeviceDirs.forEach((externalDeviceDir: string) => {
+  externalDeviceDirs.forEach(externalDeviceDir => {
     processDeviceTypes(externalDeviceDir, deviceTypes, deviceInfoMap)
   });
 }
 
+/**
+ * 在外部SDK路径数组中遍历项目支持的设备类型数组，将对应的设备存入deviceInfoMap中
+ * 
+ * @param { string } externalDeviceDir 外部SDK路径
+ * @param { string[] } deviceTypes 项目支持的设备类型数组
+ * @param { Map<string, string[]> } deviceInfoMap 用于存储设备类型与对应Syscap数组的映射表
+ */
 function processDeviceTypes(externalDeviceDir: string, deviceTypes: string[], deviceInfoMap: Map<string, string[]>): void {
   deviceTypes.forEach((deviceType: string) => {
     const files: string[] = fs.readdirSync(externalDeviceDir);
@@ -868,10 +879,10 @@ function processDeviceTypes(externalDeviceDir: string, deviceTypes: string[], de
         return;
       }
       const content: SyscapConfig = JSON.parse(fs.readFileSync(syscapFilePath, 'utf-8'));
-      const existsingSysCaps: string[] = deviceInfoMap.get(deviceType) || [];
-      deviceInfoMap.set(deviceType, existsingSysCaps.concat(content.SysCaps));
-    })
-  })
+      const existingSysCaps: string[] = deviceInfoMap.get(deviceType) || [];
+      deviceInfoMap.set(deviceType, existingSysCaps.concat(content.SysCaps));
+    });
+  });
 }
 
 

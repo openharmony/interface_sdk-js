@@ -251,25 +251,32 @@ export function getPeerJsDocs(decl: arkts.AstNde): string {
 function expressionCheckByJsDoc(
   declaration: arkts.AstNode, identifier: arkts.AstNode,
   address: CurrentAddress, checkConfig: JsDocNodeCheckConfigItem[]): void {
-  const jsDocsString = getPeerJsDocs(declaration);
+  const jsDocsString: string = getPeerJsDocs(declaration);
   const jsDocs: JSDoc[] = parseJSDoc(jsDocsString);
-  const jsDocTags = getCurrentJSDoc(jsDocs);
+  const jsDocTags: JSDocTag[] = getCurrentJSDoc(jsDocs);
   for (let i = 0; i < checkConfig.length; i++) {
-    const config = checkConfig[i];
+    const config: JsDocNodeCheckConfigItem = checkConfig[i];
     let tagNameExisted = false;
     jsDocTags.forEach((item) => {
-      tagNameExisted = false;
-      if (config.tagName.includes(item.tag)) {
-        if (config.checkValidCallback) {
-          tagNameExisted = config.checkValidCallback(jsDocs, config);
-        } else {
-          tagNameExisted = true;
-        }
+      if (!config.tagName.includes(item.tag)) {
+        tagNameExisted = false;
+        return;
       }
+  
+      if (config.checkValidCallback) {
+        tagNameExisted = config.checkValidCallback(jsDocs, config);
+      } else {
+        tagNameExisted = true;
+      }
+  
       if (tagNameExisted && !config.tagNameShouldExisted) {
         curApiCheckWrapper.apiCheckHost.pushLogInfo(
-          identifier.name, curApiCheckWrapper.fileName,
-          address, config.type, config.message);
+          identifier.name, 
+          curApiCheckWrapper.fileName,
+          address, 
+          config.type, 
+          config.message
+        );
       }
     })
     if (config.tagNameShouldExisted && !tagNameExisted) {
@@ -304,23 +311,26 @@ function getCurrentAddressByNode(node: arkts.AstNode): CurrentAddress {
 function getCurrentJSDoc(jsDocs: JSDoc[]): JSDocTag[] {
   let jsDocTags: JSDocTag[] = [];
   let maxVersion: number = 0;
-  if (jsDocs && jsDocs.length > 0) {
-    for (let i = 0; i < jsDocs.length; i++) {
-      const jsdoc: JSDoc = jsDocs[i];
-      if (jsdoc.tags && jsdoc.tags.length > 0) {
-        for (let j = 0; j < jsdoc.tags.length; j++) {
-          const tag: JSDocTag = jsdoc.tags[j];
-          if (tag.tag === SINCE_TAG_NAME) {
-            const currentVersion: number = Number.parseInt(tag.name ?? "0");
-            if (!Number.isNaN(currentVersion) && currentVersion > maxVersion) {
-              maxVersion = currentVersion;
-              jsDocTags = jsdoc.tags;
-            }
-            break;
-          }
-        }
+
+  if (!jsDocs || jsDocs.length === 0) {
+    return jsDocTags;
+  }
+  for (const jsdoc of jsDocs) {
+    if (!jsdoc.tags || jsdoc.tags.length === 0) {
+      continue;
+    }
+    for (const tag of jsdoc.tags) {
+      if (tag.tag !== SINCE_TAG_NAME) {
+        continue;
       }
+      const currentVersion: number = Number.parseInt(tag.name ?? '0');
+      if (!Number.isNaN(currentVersion) && currentVersion > maxVersion) {
+        maxVersion = currentVersion;
+        jsDocTags = jsdoc.tags;
+      }
+      break;
     }
   }
+
   return jsDocTags;
 }
