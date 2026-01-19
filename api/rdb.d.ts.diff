@@ -1,0 +1,543 @@
+diff --git a/api/@ohos.data.relationalStore.d.ts b/api/@ohos.data.relationalStore.d.ts
+index eba420cc37..bd43070991 100644
+--- a/api/@ohos.data.relationalStore.d.ts
++++ b/api/@ohos.data.relationalStore.d.ts
+@@ -1307,7 +1307,7 @@ declare namespace relationalStore {
+    */
+   interface ExceptionMessage {
+     /**
+-     * Error code returned by SQLite, see {@link https://www.sqlite.org/rescode.html}.
++     * Error code.
+      *
+      * @type { int }
+      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+@@ -3453,7 +3453,7 @@ declare namespace relationalStore {
+      * @throws { BusinessError } 14800014 - The target instance is already closed.
+      * @throws { BusinessError } 14800019 - The SQL must be a query statement.
+      * @throws { BusinessError } 14800021 - SQLite: Generic error.
+-     *     Possible causes: Insert failed or the update data does not exist.
++     *     Possible causes: Insert failed or the updated data does not exist.
+      * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
+      * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+      * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
+@@ -4589,7 +4589,7 @@ declare namespace relationalStore {
+      * @throws { BusinessError } 14800014 - The target instance is already closed.
+      * @throws { BusinessError } 14800019 - The SQL must be a query statement.
+      * @throws { BusinessError } 14800021 - SQLite: Generic error.
+-     *     Possible causes: Insert failed or the update data does not exist.
++     *     Possible causes: Insert failed or the updated data does not exist.
+      * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
+      * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+      * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
+@@ -4613,7 +4613,7 @@ declare namespace relationalStore {
+      * @throws { BusinessError } 14800014 - The target instance is already closed.
+      * @throws { BusinessError } 14800019 - The SQL must be a query statement.
+      * @throws { BusinessError } 14800021 - SQLite: Generic error.
+-     *     Possible causes: Insert failed or the update data does not exist.
++     *     Possible causes: Insert failed or the updated data does not exist.
+      * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
+      * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+      * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
+@@ -4735,7 +4735,7 @@ declare namespace relationalStore {
+      * @throws { BusinessError } 14800014 - The target instance is already closed.
+      * @throws { BusinessError } 14800019 - The SQL must be a query statement.
+      * @throws { BusinessError } 14800021 - SQLite: Generic error.
+-     *     Possible causes: Insert failed or the update data does not exist.
++     *     Possible causes: Insert failed or the updated data does not exist.
+      * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
+      * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+      * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
+@@ -4757,7 +4757,7 @@ declare namespace relationalStore {
+      * @throws { BusinessError } 14800014 - The target instance is already closed.
+      * @throws { BusinessError } 14800019 - The SQL must be a query statement.
+      * @throws { BusinessError } 14800021 - SQLite: Generic error.
+-     *     Possible causes: Insert failed or the update data does not exist.
++     *     Possible causes: Insert failed or the updated data does not exist.
+      * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
+      * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+      * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
+@@ -4780,7 +4780,7 @@ declare namespace relationalStore {
+      * @throws { BusinessError } 14800014 - The target instance is already closed.
+      * @throws { BusinessError } 14800019 - The SQL must be a query statement.
+      * @throws { BusinessError } 14800021 - SQLite: Generic error.
+-     *     Possible causes: Insert failed or the update data does not exist.
++     *     Possible causes: Insert failed or the updated data does not exist.
+      * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
+      * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+      * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
+@@ -4805,7 +4805,7 @@ declare namespace relationalStore {
+      * @throws { BusinessError } 14800014 - The target instance is already closed.
+      * @throws { BusinessError } 14800019 - The SQL must be a query statement.
+      * @throws { BusinessError } 14800021 - SQLite: Generic error.
+-     *     Possible causes: Insert failed or the update data does not exist.
++     *     Possible causes: Insert failed or the updated data does not exist.
+      * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
+      * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+      * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
+@@ -4828,7 +4828,7 @@ declare namespace relationalStore {
+      * @throws { BusinessError } 14800014 - The target instance is already closed.
+      * @throws { BusinessError } 14800019 - The SQL must be a query statement.
+      * @throws { BusinessError } 14800021 - SQLite: Generic error.
+-     *     Possible causes: Insert failed or the update data does not exist.
++     *     Possible causes: Insert failed or the updated data does not exist.
+      * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
+      * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+      * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
+@@ -4850,7 +4850,7 @@ declare namespace relationalStore {
+      * @throws { BusinessError } 14800014 - The target instance is already closed.
+      * @throws { BusinessError } 14800019 - The SQL must be a query statement.
+      * @throws { BusinessError } 14800021 - SQLite: Generic error.
+-     *     Possible causes: Insert failed or the update data does not exist.
++     *     Possible causes: Insert failed or the updated data does not exist.
+      * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
+      * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+      * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
+@@ -5020,7 +5020,7 @@ declare namespace relationalStore {
+      * @throws { BusinessError } 14800014 - The target instance is already closed.
+      * @throws { BusinessError } 14800019 - The SQL must be a query statement.
+      * @throws { BusinessError } 14800021 - SQLite: Generic error.
+-     *     Possible causes: Insert failed or the update data does not exist.
++     *     Possible causes: Insert failed or the updated data does not exist.
+      * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
+      * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+      * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
+@@ -5044,7 +5044,7 @@ declare namespace relationalStore {
+      * @throws { BusinessError } 14800014 - The target instance is already closed.
+      * @throws { BusinessError } 14800019 - The SQL must be a query statement.
+      * @throws { BusinessError } 14800021 - SQLite: Generic error.
+-     *     Possible causes: Insert failed or the update data does not exist.
++     *     Possible causes: Insert failed or the updated data does not exist.
+      * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
+      * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+      * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
+@@ -5066,7 +5066,7 @@ declare namespace relationalStore {
+      * @throws { BusinessError } 14800014 - The target instance is already closed.
+      * @throws { BusinessError } 14800019 - The SQL must be a query statement.
+      * @throws { BusinessError } 14800021 - SQLite: Generic error.
+-     *     Possible causes: Insert failed or the update data does not exist.
++     *     Possible causes: Insert failed or the updated data does not exist.
+      * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
+      * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+      * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
+@@ -5090,7 +5090,7 @@ declare namespace relationalStore {
+      * @throws { BusinessError } 14800014 - The target instance is already closed.
+      * @throws { BusinessError } 14800019 - The SQL must be a query statement.
+      * @throws { BusinessError } 14800021 - SQLite: Generic error.
+-     *     Possible causes: Insert failed or the update data does not exist.
++     *     Possible causes: Insert failed or the updated data does not exist.
+      * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
+      * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+      * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
+@@ -5115,7 +5115,7 @@ declare namespace relationalStore {
+      * @throws { BusinessError } 14800014 - The target instance is already closed.
+      * @throws { BusinessError } 14800019 - The SQL must be a query statement.
+      * @throws { BusinessError } 14800021 - SQLite: Generic error.
+-     *     Possible causes: Insert failed or the update data does not exist.
++     *     Possible causes: Insert failed or the updated data does not exist.
+      * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
+      * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+      * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file
+@@ -5243,6 +5243,7 @@ declare namespace relationalStore {
+      * @throws { BusinessError } 14800014 - The target instance is already closed.
+      * @throws { BusinessError } 14800015 - The database does not respond.
+      * @throws { BusinessError } 14800021 - SQLite: Generic error.
++     *     Possible causes: Insert failed or the updated data does not exist.
+      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
+      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+@@ -5294,7 +5295,7 @@ declare namespace relationalStore {
+      * @throws { BusinessError } 14800014 - The target instance is already closed.
+      * @throws { BusinessError } 14800015 - The database does not respond.
+      * @throws { BusinessError } 14800021 - SQLite: Generic error.
+-     * Possible causes: Insert failed or the updated data does not exist.
++     *     Possible causes: Insert failed or the updated data does not exist.
+      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
+      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+@@ -5551,6 +5552,7 @@ declare namespace relationalStore {
+      * The product of the number of inserted data records and the size of the union of all fields in the inserted data
+      * equals the number of parameters. This API returns immediately upon a failure during the process.
+      *
++
+      * @param { string } table - Indicates the target table.
+      * @param { Array<ValuesBucket> } values - Indicates the rows of data {@link ValuesBucket}
+      *     to be inserted into the table.
+@@ -5563,7 +5565,7 @@ declare namespace relationalStore {
+      * @throws { BusinessError } 14800014 - The target instance is already closed.
+      * @throws { BusinessError } 14800015 - The database does not respond.
+      * @throws { BusinessError } 14800021 - SQLite: Generic error.
+-     *     Possible causes: Insert failed or the update data does not exist.
++     *     Possible causes: Insert failed or the updated data does not exist.
+      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
+      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+@@ -5649,7 +5651,7 @@ declare namespace relationalStore {
+      * @throws { BusinessError } 14800014 - The target instance is already closed.
+      * @throws { BusinessError } 14800015 - The database does not respond.
+      * @throws { BusinessError } 14800021 - SQLite: Generic error.
+-     *     Possible causes: Insert failed or the update data does not exist.
++     *     Possible causes: Insert failed or the updated data does not exist.
+      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
+      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+@@ -5691,7 +5693,7 @@ declare namespace relationalStore {
+      * @throws { BusinessError } 14800014 - The target instance is already closed.
+      * @throws { BusinessError } 14800015 - The database does not respond.
+      * @throws { BusinessError } 14800021 - SQLite: Generic error.
+-     *     Possible causes: Insert failed or the update data does not exist.
++     *     Possible causes: Insert failed or the updated data does not exist.
+      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
+      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+@@ -5735,7 +5737,7 @@ declare namespace relationalStore {
+      * @throws { BusinessError } 14800014 - The target instance is already closed.
+      * @throws { BusinessError } 14800015 - The database does not respond.
+      * @throws { BusinessError } 14800021 - SQLite: Generic error.
+-     *     Possible causes: Insert failed or the update data does not exist.
++     *     Possible causes: Insert failed or the updated data does not exist.
+      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
+      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+@@ -5782,7 +5784,7 @@ declare namespace relationalStore {
+      * @throws { BusinessError } 14800014 - The target instance is already closed.
+      * @throws { BusinessError } 14800015 - The database does not respond.
+      * @throws { BusinessError } 14800021 - SQLite: Generic error.
+-     *     Possible causes: Insert failed or the update data does not exist.
++     *     Possible causes: Insert failed or the updated data does not exist.
+      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
+      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+@@ -5829,7 +5831,7 @@ declare namespace relationalStore {
+      * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
+      * @throws { BusinessError } 14800014 - The target instance is already closed.
+      * @throws { BusinessError } 14800021 - SQLite: Generic error.
+-     *     Possible causes: Insert failed or the update data does not exist.
++     *     Possible causes: Insert failed or the updated data does not exist.
+      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+      * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
+      * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
+@@ -5866,7 +5868,7 @@ declare namespace relationalStore {
+      * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
+      * @throws { BusinessError } 14800014 - The target instance is already closed.
+      * @throws { BusinessError } 14800021 - SQLite: Generic error.
+-     *     Possible causes: Insert failed or the update data does not exist.
++     *     Possible causes: Insert failed or the updated data does not exist.
+      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+      * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
+      * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
+@@ -5928,7 +5930,7 @@ declare namespace relationalStore {
+      * @throws { BusinessError } 14800014 - The target instance is already closed.
+      * @throws { BusinessError } 14800015 - The database does not respond.
+      * @throws { BusinessError } 14800021 - SQLite: Generic error.
+-     *     Possible causes: Insert failed or the update data does not exist.
++     *     Possible causes: Insert failed or the updated data does not exist.
+      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
+      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+@@ -5984,7 +5986,7 @@ declare namespace relationalStore {
+      * @throws { BusinessError } 14800014 - The target instance is already closed.
+      * @throws { BusinessError } 14800015 - The database does not respond.
+      * @throws { BusinessError } 14800021 - SQLite: Generic error.
+-     *     Possible causes: Insert failed or the update data does not exist.
++     *     Possible causes: Insert failed or the updated data does not exist.
+      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
+      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+@@ -6057,7 +6059,7 @@ declare namespace relationalStore {
+      * @throws { BusinessError } 14800014 - The target instance is already closed.
+      * @throws { BusinessError } 14800015 - The database does not respond.
+      * @throws { BusinessError } 14800021 - SQLite: Generic error.
+-     *     Possible causes: Insert failed or the update data does not exist.
++     *     Possible causes: Insert failed or the updated data does not exist.
+      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
+      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+@@ -6112,7 +6114,7 @@ declare namespace relationalStore {
+      * @throws { BusinessError } 14800014 - The target instance is already closed.
+      * @throws { BusinessError } 14800015 - The database does not respond.
+      * @throws { BusinessError } 14800021 - SQLite: Generic error.
+-     *     Possible causes: Insert failed or the update data does not exist.
++     *     Possible causes: Insert failed or the updated data does not exist.
+      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
+      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+@@ -6150,7 +6152,7 @@ declare namespace relationalStore {
+      * @throws { BusinessError } 14800014 - The target instance is already closed.
+      * @throws { BusinessError } 14800015 - The database does not respond.
+      * @throws { BusinessError } 14800021 - SQLite: Generic error.
+-     *     Possible causes: Insert failed or the update data does not exist.
++     *     Possible causes: Insert failed or the updated data does not exist.
+      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
+      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+@@ -6189,7 +6191,7 @@ declare namespace relationalStore {
+      * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
+      * @throws { BusinessError } 14800014 - The target instance is already closed.
+      * @throws { BusinessError } 14800021 - SQLite: Generic error.
+-     *     Possible causes: Insert failed or the update data does not exist.
++     *     Possible causes: Insert failed or the updated data does not exist.
+      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+      * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
+      * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
+@@ -6223,7 +6225,7 @@ declare namespace relationalStore {
+      * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
+      * @throws { BusinessError } 14800014 - The target instance is already closed.
+      * @throws { BusinessError } 14800021 - SQLite: Generic error.
+-     *     Possible causes: Insert failed or the update data does not exist.
++     *     Possible causes: Insert failed or the updated data does not exist.
+      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+      * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
+      * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
+@@ -6297,7 +6299,7 @@ declare namespace relationalStore {
+      * @throws { BusinessError } 14800014 - The target instance is already closed.
+      * @throws { BusinessError } 14800015 - The database does not respond.
+      * @throws { BusinessError } 14800021 - SQLite: Generic error.
+-     *     Possible causes: Insert failed or the update data does not exist.
++     *     Possible causes: Insert failed or the updated data does not exist.
+      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
+      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+@@ -6382,7 +6384,7 @@ declare namespace relationalStore {
+      * @throws { BusinessError } 14800014 - The target instance is already closed.
+      * @throws { BusinessError } 14800015 - The database does not respond.
+      * @throws { BusinessError } 14800021 - SQLite: Generic error.
+-     *     Possible causes: Insert failed or the update data does not exist.
++     *     Possible causes: Insert failed or the updated data does not exist.
+      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
+      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+@@ -7702,7 +7704,7 @@ declare namespace relationalStore {
+      * @throws { BusinessError } 14800014 - The target instance is already closed.
+      * @throws { BusinessError } 14800015 - The database does not respond.
+      * @throws { BusinessError } 14800021 - SQLite: Generic error.
+-     *     Possible causes: Insert failed or the update data does not exist.
++     *     Possible causes: Insert failed or the updated data does not exist.
+      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
+      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+@@ -7767,7 +7769,7 @@ declare namespace relationalStore {
+      * @throws { BusinessError } 14800014 - The target instance is already closed.
+      * @throws { BusinessError } 14800015 - The database does not respond.
+      * @throws { BusinessError } 14800021 - SQLite: Generic error.
+-     *     Possible causes: Insert failed or the update data does not exist.
++     *     Possible causes: Insert failed or the updated data does not exist.
+      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
+      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+@@ -7832,7 +7834,7 @@ declare namespace relationalStore {
+      * @throws { BusinessError } 14800014 - The target instance is already closed.
+      * @throws { BusinessError } 14800015 - The database does not respond.
+      * @throws { BusinessError } 14800021 - SQLite: Generic error.
+-     *     Possible causes: Insert failed or the update data does not exist.
++     *     Possible causes: Insert failed or the updated data does not exist.
+      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
+      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+@@ -7869,7 +7871,7 @@ declare namespace relationalStore {
+      * @throws { BusinessError } 14800014 - The target instance is already closed.
+      * @throws { BusinessError } 14800015 - The database does not respond.
+      * @throws { BusinessError } 14800021 - SQLite: Generic error.
+-     *     Possible causes: Insert failed or the update data does not exist.
++     *     Possible causes: Insert failed or the updated data does not exist.
+      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
+      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+@@ -7906,7 +7908,7 @@ declare namespace relationalStore {
+      * @throws { BusinessError } 14800014 - The target instance is already closed.
+      * @throws { BusinessError } 14800015 - The database does not respond.
+      * @throws { BusinessError } 14800021 - SQLite: Generic error.
+-     *     Possible causes: Insert failed or the update data does not exist.
++     *     Possible causes: Insert failed or the updated data does not exist.
+      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
+      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+@@ -7942,7 +7944,7 @@ declare namespace relationalStore {
+      * @throws { BusinessError } 14800014 - The target instance is already closed.
+      * @throws { BusinessError } 14800015 - The database does not respond.
+      * @throws { BusinessError } 14800021 - SQLite: Generic error.
+-     *     Possible causes: Insert failed or the update data does not exist.
++     *     Possible causes: Insert failed or the updated data does not exist.
+      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
+      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+@@ -8017,7 +8019,7 @@ declare namespace relationalStore {
+      * Begins a transaction before executing the SQL statement.
+      *
+      * @returns { Promise<long> } Returns the transaction ID.
+-     * @throws { BusinessError } 401 - Parameter error. The store must not be nullptr.
++     * @throws { BusinessError } 401 - Parameter error. Possible causes: The RdbStore verification failed.
+      * @throws { BusinessError } 801 - Capability not supported the sql(attach,begin,commit,rollback etc.).
+      * @throws { BusinessError } 14800000 - Inner error.
+      * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
+@@ -8172,7 +8174,8 @@ declare namespace relationalStore {
+      *
+      * @param { long } txId - Indicates the transaction ID which is obtained by beginTrans.
+      * @returns { Promise<void> } Promise used to return the result.
+-     * @throws { BusinessError } 401 - Parameter error. The store must not be nullptr.
++     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
++     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+      * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
+      * @throws { BusinessError } 14800000 - Inner error.
+      * @throws { BusinessError } 14800014 - The target instance is already closed.
+@@ -10058,7 +10061,7 @@ declare namespace relationalStore {
+      * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
+      * @throws { BusinessError } 14800014 - The target instance is already closed.
+      * @throws { BusinessError } 14800021 - SQLite: Generic error.
+-     *     Possible causes: Insert failed or the update data does not exist.
++     *     Possible causes: Insert failed or the updated data does not exist.
+      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+      * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
+@@ -10090,7 +10093,7 @@ declare namespace relationalStore {
+      * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
+      * @throws { BusinessError } 14800014 - The target instance is already closed.
+      * @throws { BusinessError } 14800021 - SQLite: Generic error.
+-     *     Possible causes: Insert failed or the update data does not exist.
++     *     Possible causes: Insert failed or the updated data does not exist.
+      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+      * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
+@@ -10121,7 +10124,7 @@ declare namespace relationalStore {
+      * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
+      * @throws { BusinessError } 14800014 - The target instance is already closed.
+      * @throws { BusinessError } 14800021 - SQLite: Generic error.
+-     *     Possible causes: Insert failed or the update data does not exist.
++     *     Possible causes: Insert failed or the updated data does not exist.
+      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+      * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
+@@ -10156,7 +10159,7 @@ declare namespace relationalStore {
+      * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
+      * @throws { BusinessError } 14800014 - The target instance is already closed.
+      * @throws { BusinessError } 14800021 - SQLite: Generic error.
+-     *     Possible causes: Insert failed or the update data does not exist.
++     *     Possible causes: Insert failed or the updated data does not exist.
+      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+      * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
+@@ -10191,7 +10194,7 @@ declare namespace relationalStore {
+      * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
+      * @throws { BusinessError } 14800014 - The target instance is already closed.
+      * @throws { BusinessError } 14800021 - SQLite: Generic error.
+-     *     Possible causes: Insert failed or the update data does not exist.
++     *     Possible causes: Insert failed or the updated data does not exist.
+      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+      * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
+@@ -10229,7 +10232,7 @@ declare namespace relationalStore {
+      * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
+      * @throws { BusinessError } 14800014 - The target instance is already closed.
+      * @throws { BusinessError } 14800021 - SQLite: Generic error.
+-     *     Possible causes: Insert failed or the update data does not exist.
++     *     Possible causes: Insert failed or the updated data does not exist.
+      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
+      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+@@ -10271,7 +10274,7 @@ declare namespace relationalStore {
+      * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
+      * @throws { BusinessError } 14800014 - The target instance is already closed.
+      * @throws { BusinessError } 14800021 - SQLite: Generic error.
+-     *     Possible causes: Insert failed or the update data does not exist.
++     *     Possible causes: Insert failed or the updated data does not exist.
+      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
+      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+@@ -10318,7 +10321,7 @@ declare namespace relationalStore {
+      * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
+      * @throws { BusinessError } 14800014 - The target instance is already closed.
+      * @throws { BusinessError } 14800021 - SQLite: Generic error.
+-     *     Possible causes: Insert failed or the update data does not exist.
++     *     Possible causes: Insert failed or the updated data does not exist.
+      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+      * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
+      * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+@@ -10356,7 +10359,7 @@ declare namespace relationalStore {
+      * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
+      * @throws { BusinessError } 14800014 - The target instance is already closed.
+      * @throws { BusinessError } 14800021 - SQLite: Generic error.
+-     *     Possible causes: Insert failed or the update data does not exist.
++     *     Possible causes: Insert failed or the updated data does not exist.
+      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+      * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
+      * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+@@ -10387,7 +10390,7 @@ declare namespace relationalStore {
+      * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
+      * @throws { BusinessError } 14800014 - The target instance is already closed.
+      * @throws { BusinessError } 14800021 - SQLite: Generic error.
+-     *     Possible causes: Insert failed or the update data does not exist.
++     *     Possible causes: Insert failed or the updated data does not exist.
+      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+      * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
+@@ -10420,7 +10423,7 @@ declare namespace relationalStore {
+      * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
+      * @throws { BusinessError } 14800014 - The target instance is already closed.
+      * @throws { BusinessError } 14800021 - SQLite: Generic error.
+-     *     Possible causes: Insert failed or the update data does not exist.
++     *     Possible causes: Insert failed or the updated data does not exist.
+      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+      * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
+@@ -10455,7 +10458,7 @@ declare namespace relationalStore {
+      * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
+      * @throws { BusinessError } 14800014 - The target instance is already closed.
+      * @throws { BusinessError } 14800021 - SQLite: Generic error.
+-     *     Possible causes: Insert failed or the update data does not exist.
++     *     Possible causes: Insert failed or the updated data does not exist.
+      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+      * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
+      * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+@@ -10488,7 +10491,7 @@ declare namespace relationalStore {
+      * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
+      * @throws { BusinessError } 14800014 - The target instance is already closed.
+      * @throws { BusinessError } 14800021 - SQLite: Generic error.
+-     *     Possible causes: Insert failed or the update data does not exist.
++     *     Possible causes: Insert failed or the updated data does not exist.
+      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+      * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
+      * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+@@ -10575,7 +10578,7 @@ declare namespace relationalStore {
+      * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
+      * @throws { BusinessError } 14800014 - The target instance is already closed.
+      * @throws { BusinessError } 14800021 - SQLite: Generic error.
+-     *     Possible causes: Insert failed or the update data does not exist.
++     *     Possible causes: Insert failed or the updated data does not exist.
+      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+      * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
+      * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+@@ -10603,7 +10606,7 @@ declare namespace relationalStore {
+      * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
+      * @throws { BusinessError } 14800014 - The target instance is already closed.
+      * @throws { BusinessError } 14800021 - SQLite: Generic error.
+-     *     Possible causes: Insert failed or the update data does not exist.
++     *     Possible causes: Insert failed or the updated data does not exist.
+      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+      * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
+      * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+@@ -10800,7 +10803,7 @@ declare namespace relationalStore {
+      * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
+      * @throws { BusinessError } 14800014 - The target instance is already closed.
+      * @throws { BusinessError } 14800021 - SQLite: Generic error.
+-     *     Possible causes: Insert failed or the update data does not exist.
++     *     Possible causes: Insert failed or the updated data does not exist.
+      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+      * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
+@@ -10828,7 +10831,7 @@ declare namespace relationalStore {
+      * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
+      * @throws { BusinessError } 14800014 - The target instance is already closed.
+      * @throws { BusinessError } 14800021 - SQLite: Generic error.
+-     *     Possible causes: Insert failed or the update data does not exist.
++     *     Possible causes: Insert failed or the updated data does not exist.
+      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+      * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
+@@ -10860,7 +10863,7 @@ declare namespace relationalStore {
+      * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
+      * @throws { BusinessError } 14800014 - The target instance is already closed.
+      * @throws { BusinessError } 14800021 - SQLite: Generic error.
+-     *     Possible causes: Insert failed or the update data does not exist.
++     *     Possible causes: Insert failed or the updated data does not exist.
+      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+      * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
