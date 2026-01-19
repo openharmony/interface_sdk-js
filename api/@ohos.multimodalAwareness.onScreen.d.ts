@@ -34,7 +34,8 @@ declare namespace onScreen {
    *
    * @enum { int } Scenario
    * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
-   * @since 20
+   * @since 20 dynamic
+   * @since 23 static
   */
   export enum Scenario {
     /**
@@ -42,7 +43,8 @@ declare namespace onScreen {
      *
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
+     * @since 23 static
      */
     UNKNOWN = 0,
     /**
@@ -50,7 +52,8 @@ declare namespace onScreen {
      *
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
+     * @since 23 static
      */
     ARTICLE = 1,
   }
