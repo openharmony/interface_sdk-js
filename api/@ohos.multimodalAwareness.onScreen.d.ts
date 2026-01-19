@@ -86,13 +86,13 @@ declare namespace onScreen {
   export interface Paragraph {
     /**
      * Indicates paragraph hook id
-     * @type { ?int64 }
+     * @type { ?long }
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
      * @since 20 dynamic
      * @since 23 static
      */
-    hookId?: int64,
+    hookId?: long,
     /**
      * Indicates paragraph chapter id if paragraph is splited to chapters
      * @type { ?int }
@@ -189,13 +189,13 @@ declare namespace onScreen {
     windowId: int,
     /**
      * Indicates session id corresponding to the content
-     * @type { int64 }
+     * @type { long }
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
      * @since 20 dynamic
      * @since 23 static
      */
-    sessionId: int64,
+    sessionId: long,
     /**
      * Indicates bundle name corresponding to the content
      * @type { string }
@@ -272,13 +272,13 @@ declare namespace onScreen {
     windowId: int,
     /**
      * Indicates session id 
-     * @type { int64 }
+     * @type { long }
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
      * @since 20 dynamic
      * @since 23 static
      */
-    sessionId: int64,
+    sessionId: long,
     /**
      * Indicates control event type
      * @type { EventType }
@@ -290,13 +290,13 @@ declare namespace onScreen {
     eventType: EventType,
     /**
      * Indicates controlled hookid for specific event type and specific session id
-     * @type { ?int64 }
+     * @type { ?long }
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
      * @since 20 dynamic
      * @since 23 static
      */
-    hookId?: int64,
+    hookId?: long,
   }
 
   /**
