@@ -1125,8 +1125,8 @@ declare class Decimal {
    * @param { Value } n {number | string | Decimal}
    * @returns { number } the number type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
+   *     1. Incorrect parameter types;
+   *     2. Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
    * @atomicservice
    * @since 12
@@ -1141,8 +1141,8 @@ declare class Decimal {
    * @param { Value } n {double | string | Decimal}
    * @returns { double } the number type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
+   *     1. Incorrect parameter types;
+   *     2. Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -2275,7 +2275,7 @@ declare class Decimal {
    * integer-part trailing zeros.
    *
    * @param { boolean | number } includeZeros Whether to count integer-part trailing zeros: true, false,
-   * 1 or 0.
+   *     1 or 0.
    * @returns { number } the number type
    * @throws { BusinessError } 10200001 - The value of `includeZeros` is out of range.
    * @syscap SystemCapability.Utils.Lang
@@ -2287,7 +2287,7 @@ declare class Decimal {
    * integer-part trailing zeros.
    *
    * @param { boolean | int } includeZeros Whether to count integer-part trailing zeros: true, false,
-   * 1 or 0.
+   *     1 or 0.
    * @returns { double } the number type
    * @throws { BusinessError } 10200001 - The value of `includeZeros` is out of range.
    * @syscap SystemCapability.Utils.Lang
@@ -3485,8 +3485,8 @@ declare class Decimal {
    * @param { Value } significantDigits {number} Significant digits. Integer, 0 to MAX_DIGITS inclusive.
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
+   *     1. Incorrect parameter types;
+   *     2. Parameter verification failed.
    * @throws { BusinessError } 10200061 - Crypto unavailable
    * @static
    * @syscap SystemCapability.Utils.Lang
@@ -3497,11 +3497,11 @@ declare class Decimal {
    * Returns a new Decimal with a random value equal to or greater than 0 and less than 1, and with
    * `significantDigits` significant digits (or less if trailing zeros are produced).
    *
-   * @param { Value } significantDigits {double} Significant digits. Integer, 0 to MAX_DIGITS inclusive.
+   * @param { double } significantDigits Significant digits. Integer, 0 to MAX_DIGITS inclusive.
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
+   *     1. Incorrect parameter types;
+   *     2. Parameter verification failed.
    * @throws { BusinessError } 10200061 - Crypto unavailable
    * @static
    * @syscap SystemCapability.Utils.Lang
@@ -3523,8 +3523,8 @@ declare class Decimal {
    * @param { Value } n {number | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
+   *     1. Incorrect parameter types;
+   *     2. Parameter verification failed.
    * @static
    * @syscap SystemCapability.Utils.Lang
    * @atomicservice
@@ -3539,10 +3539,10 @@ declare class Decimal {
    *   NaN  otherwise
    *
    * @param { Value } n {double | string | Decimal}
-   * @returns { double } the number type
+   * @returns { double } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
+   *     1. Incorrect parameter types;
+   *     2. Parameter verification failed.
    * @static
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
@@ -3637,6 +3637,7 @@ declare class Decimal {
   /**
    * Rounds away from zero
    *
+   * @type { number }
    * @readonly
    * @static
    * @syscap SystemCapability.Utils.Lang

@@ -12674,7 +12674,7 @@ declare namespace collections {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 18 dynamiconly
+   * @since 18 dynamic
    */
   @Sendable
   class BitVector {
@@ -12693,7 +12693,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18 dynamiconly
+     * @since 18 dynamic
      */
     constructor(length: number);
     /**
@@ -12713,7 +12713,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18 dynamiconly
+     * @since 18 dynamic
      */
     readonly length: number;
     /**
@@ -12743,7 +12743,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18 dynamiconly
+     * @since 18 dynamic
      */
     push(element: number): boolean;
     /**
@@ -12765,7 +12765,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18 dynamiconly
+     * @since 18 dynamic
      */
     pop(): number;
     /**
@@ -12800,7 +12800,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18 dynamiconly
+     * @since 18 dynamic
      */
     has(element: number, fromIndex: number, toIndex: number): boolean;
     /**
@@ -12834,7 +12834,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18 dynamiconly
+     * @since 18 dynamic
      */
     setBitsByRange(element: number, fromIndex: number, toIndex: number): void;
     /**
@@ -12862,7 +12862,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18 dynamiconly
+     * @since 18 dynamic
      */
     setAllBits(element: number): void;
     /**
@@ -12896,7 +12896,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18 dynamiconly
+     * @since 18 dynamic
      */
     getBitsByRange(fromIndex: number, toIndex: number): BitVector;
     /**
@@ -12926,7 +12926,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18 dynamiconly
+     * @since 18 dynamic
      */
     resize(size: number): void;
     /**
@@ -12962,7 +12962,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18 dynamiconly
+     * @since 18 dynamic
      */
     getBitCountByRange(element: number, fromIndex: number, toIndex: number): number;
     /**
@@ -13000,7 +13000,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18 dynamiconly
+     * @since 18 dynamic
      */
     getIndexOf(element: number, fromIndex: number, toIndex: number): number;
     /**
@@ -13038,7 +13038,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18 dynamiconly
+     * @since 18 dynamic
      */
     getLastIndexOf(element: number, fromIndex: number, toIndex: number): number;
     /**
@@ -13068,7 +13068,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18 dynamiconly
+     * @since 18 dynamic
      */
     flipBitByIndex(index: number): void;
     /**
@@ -13100,7 +13100,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18 dynamiconly
+     * @since 18 dynamic
      */
     flipBitsByRange(fromIndex: number, toIndex: number): void;
     /**
@@ -13120,7 +13120,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18 dynamiconly
+     * @since 18 dynamic
      */
     [Symbol.iterator](): IterableIterator<number>;    
     /**
@@ -13142,7 +13142,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18 dynamiconly
+     * @since 18 dynamic
      */
     values(): IterableIterator<number>;
     /**
@@ -13158,7 +13158,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18 dynamiconly
+     * @since 18 dynamic
      */
     [index: number]: number;
   }
