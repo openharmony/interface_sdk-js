@@ -1963,7 +1963,6 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 23 static
      */
     off(type: 'keyRequired', callback?: (eventInfo: EventInfo) => void): void;
 
@@ -2034,7 +2033,6 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 23 static
      */
     off(type: 'keyExpired', callback?: (eventInfo: EventInfo) => void): void;
 
@@ -2106,7 +2104,6 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 23 static
      */
     off(type: 'vendorDefined', callback?: (eventInfo: EventInfo) => void): void;
 
@@ -2177,7 +2174,6 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 23 static
      */
     off(type: 'expirationUpdate', callback?: (eventInfo: EventInfo) => void): void;
 
@@ -2248,7 +2244,6 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 23 static
      */
     off(type: 'keysChange', callback?: (keyInfo: KeysInfo[], newKeyAvailable: boolean) => void): void;
 
