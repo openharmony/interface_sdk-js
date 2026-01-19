@@ -165,10 +165,10 @@ template("ohos_handle_declaration_template") {
   _module_info_target = "${target_name}_info"
 
   action_with_pydeps(target_name) {
-    deps = [
-      ":ohos_ets_dynamic",
-      ":ohos_ets_static",
-    ]
+    deps = [ ":ohos_ets_dynamic" ]
+    if (sdk_build_arkts) {
+      deps += [ ":ohos_ets_static" ]
+    }
     deps += [ ":${_module_info_target}" ]
     inputs = []
     outputs = [ target_out_dir + "/${target_name}" ]
