@@ -398,7 +398,7 @@ function addAttributeMemo(node: ts.ClassDeclaration, componentFile: ComponentFil
             return;
         }
         if (functionSet.has(name)) {
-            updatedCode.push(getLeadingSpace(l) + "@Memo");
+            updatedCode.push(getLeadingSpace(l) + '@Memo');
         }
         updatedCode.push(l);
     });
