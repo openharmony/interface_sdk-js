@@ -629,7 +629,7 @@ declare namespace abilityManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 20 dynamic
+   * @since 20 dynamiconly
    */
   function restartSelfAtomicService(context: Context): void;
 
