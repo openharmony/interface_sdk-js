@@ -3315,7 +3315,8 @@ declare namespace media {
     addSubtitleFromUrl(url: string): Promise<void>;
 
     /**
-     * Get statistic infos of current player.
+     * Get statistic infos of current player. This API can be called only when the AVPlayer is in the prepared,	 
+     * playing, or paused state. 
      * @returns { Promise<PlaybackInfo> } Statistic infos of current player.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 12 dynamic
@@ -3324,8 +3325,7 @@ declare namespace media {
     getPlaybackInfo(): Promise<PlaybackInfo>;
 
     /**
-     * Get statistic metrics info of current player. This API can be called only when the AVPlayer is in the prepared,
-     * playing, paused, completed, or stopped state.
+     * Get statistic metrics info of current player.
      * @returns { Promise<PlaybackMetrics> } metrics info of current player.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 23 dynamic&static
@@ -3412,6 +3412,7 @@ declare namespace media {
     /**
      * Get the PresentationTime value at current playback position.
      * This API can be used in the playing, paused, or completed state.
+     *
      * @returns { long } returns the time of current playback position - microseconds(us)
      * @throws { BusinessError } 5400102 - Operation not allowed.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
