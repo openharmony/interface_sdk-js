@@ -58,6 +58,7 @@ declare namespace AbilityConstant {
    * @stagemodelonly
    * @atomicservice
    * @since 20 dynamic
+   * @since 23 static
    */
   const REASON_MESSAGE_DESKTOP_SHORTCUT = 'ReasonMessage_DesktopShortcut';
   /**

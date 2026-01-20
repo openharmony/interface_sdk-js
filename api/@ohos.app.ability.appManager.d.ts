@@ -356,12 +356,13 @@ declare namespace appManager {
       /**
        * The user id of setter.
        *
-       * @type { ?number }
+       * @type { ?int }
        * @syscap SystemCapability.Ability.AbilityRuntime.Core
        * @systemapi
        * @since 20 dynamic
+       * @since 23 static
        */
-      setterUserId?: number;
+      setterUserId?: int;
 
       /**
        * Weather allow user to cancel keep-alive status.
@@ -370,6 +371,7 @@ declare namespace appManager {
        * @syscap SystemCapability.Ability.AbilityRuntime.Core
        * @systemapi
        * @since 20 dynamic
+       * @since 23 static
        */
       allowUserToCancel?: boolean;
     }
