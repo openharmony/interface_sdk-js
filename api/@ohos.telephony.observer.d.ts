@@ -983,7 +983,6 @@ declare namespace observer {
    * @throws { BusinessError } 8800999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 21 dynamic
-   * @since 23 static
    */
   function on(type: 'callStateChangeEx', callback: Callback<TelCallState>, options?: ObserverOptions): void;
 
@@ -1014,7 +1013,6 @@ declare namespace observer {
    * @throws { BusinessError } 8800999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 21 dynamic
-   * @since 23 static
    */
   function off(type: 'callStateChangeEx', callback?: Callback<TelCallState>): void;
 
