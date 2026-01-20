@@ -1237,22 +1237,22 @@ declare namespace systemSoundManager {
      * @permission ohos.permission.WRITE_RINGTONE
      * @param { BaseContext } context - Current application context.
      * @param { ToneAttrs } toneAttr - Tone attributes created by {@link createCustomizedToneAttrs}.
-     * @param { int } fd - File descriptor.
-     * @param { long } [offset] - The offset in the file where the data to be read, in bytes. By default, the offset
-     * is zero.
-     * @param { long } [length] - The length in bytes of the data to be read. By default, the length is the rest of
-     * bytes in the file from the offset.
+     * @param { number } fd - File descriptor.
+     * @param { number } [offset] - The offset in the file where the data to be read, in bytes. By default, the offset
+     *     is zero.
+     * @param { number } [length] - The length in bytes of the data to be read. By default, the length is the rest of
+     *     bytes in the file from the offset.
      * @returns { Promise<string> } Tone uri after adding into ringtone library.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *                                 1.Mandatory parameters are left unspecified;
-     *                                 2.Incorrect parameter types.
+     *     1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types.
      * @throws { BusinessError } 5400102 - Operation is not allowed, e.g. ringtone to add is not customized.
      * @throws { BusinessError } 5400103 - I/O error.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Add customized tone into ringtone library.
@@ -1261,15 +1261,15 @@ declare namespace systemSoundManager {
      * @param { ToneAttrs } toneAttr - Tone attributes created by {@link createCustomizedToneAttrs}.
      * @param { int } fd - File descriptor.
      * @param { long } [offset] - The offset in the file where the data to be read, in bytes. By default, the offset
-     * is zero.
+     *     is zero.
      * @param { long } [length] - The length in bytes of the data to be read. By default, the length is the rest of
-     * bytes in the file from the offset.
+     *     bytes in the file from the offset.
      * @returns { Promise<string> } Tone uri after adding into ringtone library.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *                                 1.Mandatory parameters are left unspecified;
-     *                                 2.Incorrect parameter types.
+     *     1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types.
      * @throws { BusinessError } 5400102 - Operation is not allowed, e.g. ringtone to add is not customized.
      * @throws { BusinessError } 5400103 - I/O error.
      * @throws { BusinessError } 20700004 - Data size exceeds the limit.
