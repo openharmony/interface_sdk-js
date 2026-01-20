@@ -702,7 +702,6 @@ declare namespace audio {
    * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Capturer
    * @since 21 dynamic
-   * @since 23 static
    */
   enum AudioLoopbackEqualizerPreset {
     /**
@@ -1352,7 +1351,6 @@ declare namespace audio {
    * @syscap SystemCapability.Multimedia.Audio.Device
    * @systemapi
    * @since 21 dynamic
-   * @since 23 static
    */
   enum AudioDevcieSelectStrategy {
     /**
