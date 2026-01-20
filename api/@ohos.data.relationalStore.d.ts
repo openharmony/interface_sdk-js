@@ -11080,30 +11080,25 @@ declare namespace relationalStore {
    * to obtain a rdb store.
    *
    * @param { Context } context - Indicates the context of an application or ability.
-   * @param { StoreConfig } config -
-   * Indicates the {@link StoreConfig} configuration of the database related to this RDB store.
-   * @returns { RdbStore } Returns the **RdbStore** object obtained.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed. 
-   * @throws { BusinessError } 14800000 - Inner error.
-   * @throws { BusinessError } 14800010 - Failed to open or delete the database by an invalid database path.
-   * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+   * @param { StoreConfig } config - Indicates the {@link StoreConfig} configuration of the database related to
+   *     this RDB store.
+   * @returns { RdbStore } The RDB store {@link RdbStore}.
+   * @throws { BusinessError } 14800001 - Invalid args.
+   * @throws { BusinessError } 14800010 - Invalid database path.
+   * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
    * @throws { BusinessError } 14801001 - The operation is supported in the stage model only.
    * @throws { BusinessError } 14801002 - Invalid data group ID.
-   * @throws { BusinessError } 14800017 - StoreConfig is changed.
+   * @throws { BusinessError } 14800017 - Config changed.
    * @throws { BusinessError } 14800020 - The secret key is corrupted or lost.
    * @throws { BusinessError } 14800021 - SQLite: Generic error.
-   * Possible causes: Insert failed or the updated data does not exist.
-   * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
-   * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
    * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
    * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
    * @throws { BusinessError } 14800029 - SQLite: The database is full.
    * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @stagemodelonly
    * @crossplatform
-   * @since 14 dynamic
-   * @since 23 static
+   * @since 24 dynamic&static
    */
   function getRdbStoreSync(context: Context, config: StoreConfig): RdbStore;
 
