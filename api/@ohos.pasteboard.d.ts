@@ -448,9 +448,7 @@ declare namespace pasteboard {
      * @atomicservice
      * @since 11 dynamic
      */
-    additions: {
-      [key: string]: object
-    }
+    additions: Record<string, object>;
     /**
      * additional property data. key-value pairs.
      * @type { Record<string, RecordData> }
