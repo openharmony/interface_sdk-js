@@ -5899,7 +5899,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     /**
      * Start a download.
@@ -6410,7 +6410,7 @@ declare namespace webview {
      *                           length exceeds 2048.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Prefetches resource requests based on specified request information and additional HTTP request headers,
@@ -6430,6 +6430,7 @@ declare namespace webview {
      *     The value of cacheValidTime must between 1 and 2147483647.
      * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid, or the URL
      *     length exceeds 2*1024*1024.
+     * @static
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 22 dynamic
@@ -6545,7 +6546,7 @@ declare namespace webview {
      *                           length exceeds 2048.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Warmup the registered service worker associated the url.
@@ -6572,7 +6573,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid, or the URL
      *                           length exceeds 2048.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Inject offline resources into cache.
