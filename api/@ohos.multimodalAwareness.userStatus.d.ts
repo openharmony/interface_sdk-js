@@ -126,30 +126,36 @@ declare namespace userStatus {
   function off(type: 'userAgeGroupDetected', callback?: Callback<UserClassification>): void;
 
   /**
-   * Subscribe to detect the user class ification event.
-   * @permission  ohos.permission.DETECT_GESTURE
+   * Subscribe to age group detection feature.
    * @param { Callback<UserClassification> } callback - Indicates the callback for getting the event data.
-   * @throws { BusinessError } 201 - Permission denied. An attempt was made to subscribe holdingHandChanged
-   *     <br> event forbidden by ohos.permission.DETECT_GESTURE.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
-   * <br> device capabilities.
-   * @throws { BusinessError } 31500001 - Service exception.
-   * @throws { BusinessError } 31500002 - Subscribe Failed.
-   * @syscap SystemCapability.MultimodalAwareness.Motion
+   *     <br> device capabilities.
+   * @throws { BusinessError } 33900001 - Service exception. Possible causes:
+   *     <br>1. System error, such as a null pointer and container-related exception.
+   *     <br>2. Node-API invocation exception, such as invalid Node-API status.
+   * @throws { BusinessError } 33900002 - Subscription failed. Possible causes:
+   *     <br>1. Callback registration failed.
+   *     <br>2. Failed to bind the native object to the JS wrapper.
+   *     <br>3. Node-API invocation exception, such as invalid Node-API status.
+   *     <br>4. IPC request exception.
+   * @syscap SystemCapability.MultimodalAwareness.UserStatus
    * @since 23 static
    */
   function onUserAgeGroupDetected(callback: Callback<UserClassification>): void;
+
   /**
-   * Unsubscribe from the holding hand changed event.
-   * @permission  ohos.permission.DETECT_GESTURE
+   * Unsubscribe to age group detection feature.
    * @param { Callback<UserClassification> } [callback] - Indicates the callback for getting the event data.
-   * @throws { BusinessError } 201 - Permission denied. An attempt was made to unsubscribe holdingHandChanged
-   *     <br> event forbidden by ohos.permission.DETECT_GESTURE.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
-   * <br> device capabilities.
-   * @throws { BusinessError } 31500001 - Service exception.
-   * @throws { BusinessError } 31500003 - Unsubscribe Failed.
-   * @syscap SystemCapability.MultimodalAwareness.Motion
+   *     <br> device capabilities.
+   * @throws { BusinessError } 33900001 - Service exception. Possible causes:
+   *     <br>1. System error, such as a null pointer and container-related exception.
+   *     <br>2. Node-API invocation exception, such as invalid Node-API status.
+   * @throws { BusinessError } 33900003 - Unsubscription failed. Possible causes:
+   *     <br>1. Callback failure.
+   *     <br>2. Node-API invocation exception, such as invalid Node-API status.
+   *     <br>3. IPC request exception.
+   * @syscap SystemCapability.MultimodalAwareness.UserStatus
    * @since 23 static
    */
   function offUserAgeGroupDetected(callback?: Callback<UserClassification>): void;
