@@ -904,7 +904,7 @@ export declare class FrameNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
-   cancelAnimations(properties: AnimationPropertyType[]): boolean;
+  cancelAnimations(properties: AnimationPropertyType[]): boolean;
 
   /**
    * get property value from node.
