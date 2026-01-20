@@ -67,6 +67,7 @@ declare class LiveFormExtensionContext extends ExtensionContext {
   * @systemapi
   * @stagemodelonly
   * @since 21 dynamic
+  * @since 23 static
   */
   public connectServiceExtensionAbility(want: Want, connection: ConnectOptions): number;
 
@@ -83,6 +84,7 @@ declare class LiveFormExtensionContext extends ExtensionContext {
   * @systemapi
   * @stagemodelonly
   * @since 21 dynamic
+  * @since 23 static
   */
   public disconnectServiceExtensionAbility(connectionId: number): Promise<void>;
 }
