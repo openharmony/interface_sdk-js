@@ -150,7 +150,7 @@ declare enum Color {
    * @atomicservice
    * @since 11 dynamic
    */
-  White = 0,
+  White,
 
   /**
    * Black.
@@ -186,7 +186,7 @@ declare enum Color {
    * @atomicservice
    * @since 11 dynamic
    */
-  Black = 1,
+  Black,
 
   /**
    * Blue.
@@ -222,7 +222,7 @@ declare enum Color {
    * @atomicservice
    * @since 11 dynamic
    */
-  Blue = 2,
+  Blue,
 
   /**
    * Brown.
@@ -258,7 +258,7 @@ declare enum Color {
    * @atomicservice
    * @since 11 dynamic
    */
-  Brown = 3,
+  Brown,
 
   /**
    * Gray.
@@ -294,7 +294,7 @@ declare enum Color {
    * @atomicservice
    * @since 11 dynamic
    */
-  Gray = 4,
+  Gray,
 
   /**
    * Green.
@@ -330,7 +330,7 @@ declare enum Color {
    * @atomicservice
    * @since 11 dynamic
    */
-  Green = 5,
+  Green,
 
   /**
    * Grey.
@@ -366,7 +366,7 @@ declare enum Color {
    * @atomicservice
    * @since 11 dynamic
    */
-  Grey = 6,
+  Grey,
 
   /**
    * Orange.
@@ -402,7 +402,7 @@ declare enum Color {
    * @atomicservice
    * @since 11 dynamic
    */
-  Orange = 7,
+  Orange,
 
   /**
    * color.
@@ -438,7 +438,7 @@ declare enum Color {
    * @atomicservice
    * @since 11 dynamic
    */
-  Pink = 8,
+  Pink,
 
   /**
    * Red.
@@ -474,7 +474,7 @@ declare enum Color {
    * @atomicservice
    * @since 11 dynamic
    */
-  Red = 9,
+  Red,
 
   /**
    * Yellow.
@@ -510,7 +510,7 @@ declare enum Color {
    * @atomicservice
    * @since 11 dynamic
    */
-  Yellow = 10,
+  Yellow,
 
   /**
    * Transparent.
@@ -539,7 +539,7 @@ declare enum Color {
    * @atomicservice
    * @since 11 dynamic
    */
-  Transparent = 11
+  Transparent,
 }
 
 /**
@@ -1730,7 +1730,6 @@ declare enum MouseAction {
    * @since 11 dynamic
    */
   Release,
-
   /**
    * Triggered when the mouse is Moved.
    *
@@ -10161,7 +10160,7 @@ declare enum WordBreak {
  * @atomicservice
  * @since 12 dynamic
  */
-declare enum LineBreakStrategy  {
+declare enum LineBreakStrategy {
   /**
    * By default. Display as many characters as possible on each line until no more characters
    * can be displayed on that line, and do not automatically add hyphens under this strategy
@@ -10182,7 +10181,7 @@ declare enum LineBreakStrategy  {
    * @atomicservice
    * @since 12 dynamic
    */
-  HIGH_QUALITY  = 1,
+  HIGH_QUALITY = 1,
 
   /**
    * Balanced folding. We will try our best to ensure that the width of each line in a paragraph
@@ -10193,7 +10192,7 @@ declare enum LineBreakStrategy  {
    * @atomicservice
    * @since 12 dynamic
    */
-  BALANCED  = 2,
+  BALANCED = 2,
 }
 
 /**
@@ -10557,7 +10556,7 @@ declare enum EmbeddedType {
  * @atomicservice
  * @since 12 dynamic
  */
-declare enum MarqueeUpdateStrategy  {
+declare enum MarqueeUpdateStrategy {
   /**
    * Reset scroll position and restart scroll.
    *
@@ -11086,7 +11085,6 @@ declare enum AxisModel {
    */
   ABS_HAT3Y = 18
 }
-
 /**
  * Focus wrap mode of a list or grid when moving focus using the arrow keys.
 
@@ -11332,7 +11330,7 @@ declare enum AxisAction {
  * @atomicservice
  * @since 19 dynamic
  */
- declare enum FocusDrawLevel {
+declare enum FocusDrawLevel {
   /**
    * Draw focus on node self level.
    *
