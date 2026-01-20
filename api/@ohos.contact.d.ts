@@ -5146,7 +5146,7 @@ declare namespace contact {
    *     if the creation is successful. returns {@link Contact#INVALID_CONTACT_ID} if the creation fails.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 16700001 - General error.
-   * @throws { BusinessError } 16700002 - Invalid Parameter value. 
+   * @throws { BusinessError } 16700002 - Invalid parameter value. 
    * @syscap SystemCapability.Applications.ContactsData
    * @atomicservice
    * @since 23
