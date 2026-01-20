@@ -411,9 +411,9 @@ declare namespace buffer {
    * @since 9
    */
   /**
-   * Creates a Buffer instance with the specified array.
+   * Allocates a new Buffer using an array of bytes in the range 0 – 255. Array entries outside that range will be truncated to fit into it.
    *
-   * @param { number[] } array - Array to create a Buffer instance.
+   * @param { number[] } array - array array an array of bytes in the range 0 – 255
    * @returns { Buffer } Return a new allocated Buffer
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * 1.Mandatory parameters are left unspecified;
@@ -423,9 +423,9 @@ declare namespace buffer {
    * @since 10
    */
   /**
-   * Creates a Buffer instance with the specified array.
+   * Allocates a new Buffer using an array of bytes in the range 0 – 255. Array entries outside that range will be truncated to fit into it.
    *
-   * @param { double[] } array - Array to create a Buffer instance.
+   * @param { double[] } array - array array an array of bytes in the range 0 – 255
    * @returns { Buffer } Return a new allocated Buffer
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * 1.Mandatory parameters are left unspecified;
@@ -519,9 +519,9 @@ declare namespace buffer {
    * @since 9
    */
   /**
-   * Copies the data of a passed Buffer instance to create a new Buffer instance and returns the new one.
+   * Copies the passed buffer data onto a new Buffer instance.
    *
-   * @param { Buffer | Uint8Array } buffer - Buffer or Uint8Array instance.
+   * @param { Buffer | Uint8Array } buffer - buffer buffer An existing Buffer or Uint8Array from which to copy data
    * @returns { Buffer } Return a new allocated Buffer
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * 1.Mandatory parameters are left unspecified;
@@ -531,9 +531,9 @@ declare namespace buffer {
    * @since 10
    */
   /**
-   * Copies the data of a passed Buffer instance to create a new Buffer instance and returns the new one.
+   * Copies the passed buffer data onto a new Buffer instance.
    *
-   * @param { Buffer | Uint8Array } buffer - Buffer or Uint8Array instance.
+   * @param { Buffer | Uint8Array } buffer - buffer buffer An existing Buffer or Uint8Array from which to copy data
    * @returns { Buffer } Return a new allocated Buffer
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified;
@@ -561,11 +561,12 @@ declare namespace buffer {
    * @since 9
    */
   /**
-   * Creates a Buffer instance based on the specified object.
+   * For the object whose value returned by valueof() function is strictly equal to object
+   * or supports symbol To primitive object, a new buffer instance is created.
    *
-   * @param { Object } object - Object that supports Symbol.toPrimitive or valueOf().
-   * @param { number | string } offsetOrEncoding - Byte offset or encoding format.
-   * @param { number } length - Length of the Buffer instance to create, in bytes.
+   * @param { Object } object - object object An object supporting Symbol.toPrimitive or valueOf()
+   * @param { number | string } offsetOrEncoding - offsetOrEncoding offsetOrEncoding A byte-offset or encoding
+   * @param { number } length - length length A length
    * @returns { Buffer } Return a new allocated Buffer
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * 1.Mandatory parameters are left unspecified;
@@ -575,11 +576,12 @@ declare namespace buffer {
    * @since 10
    */
   /**
-   * Creates a Buffer instance based on the specified object.
+   * For the object whose value returned by valueof() function is strictly equal to object
+   * or supports symbol To primitive object, a new buffer instance is created.
    *
-   * @param { Object } object - Object that supports Symbol.toPrimitive or valueOf().
-   * @param { int | string } offsetOrEncoding - Byte offset or encoding format.
-   * @param { int } length - Length of the Buffer instance to create, in bytes.
+   * @param { Object } object - object object An object supporting Symbol.toPrimitive or valueOf()
+   * @param { int | string } offsetOrEncoding - offsetOrEncoding offsetOrEncoding A byte-offset or encoding
+   * @param { int } length - length length A length
    * @returns { Buffer } Return a new allocated Buffer
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * 1.Mandatory parameters are left unspecified;
@@ -606,10 +608,11 @@ declare namespace buffer {
    * @since 9
    */
   /**
-   * Creates a Buffer instance based on a string in the given encoding format.
+   * Creates a new Buffer containing string. The encoding parameter identifies the character encoding
+   * to be used when converting string into bytes.
    *
-   * @param { String } string - String.
-   * @param { BufferEncoding } [encoding] - Encoding format of the string. The default value is 'utf8'.
+   * @param { String } string - string string  A string to encode
+   * @param { BufferEncoding } [encoding] - encoding [encoding='utf8'] The encoding of string
    * @returns { Buffer } Return a new Buffer containing string
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * 1.Mandatory parameters are left unspecified;
@@ -619,10 +622,11 @@ declare namespace buffer {
    * @since 10
    */
   /**
-   * Creates a Buffer instance based on a string in the given encoding format.
+   * Creates a new Buffer containing string. The encoding parameter identifies the character encoding
+   * to be used when converting string into bytes.
    *
-   * @param { String } string - String.
-   * @param { BufferEncoding } [encoding] - Encoding format of the string. The default value is 'utf8'.
+   * @param { String } string - string string  A string to encode
+   * @param { BufferEncoding } [encoding] - encoding [encoding='utf8'] The encoding of string
    * @returns { Buffer } Return a new Buffer containing string
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * 1.Mandatory parameters are left unspecified;
