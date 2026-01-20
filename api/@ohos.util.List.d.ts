@@ -39,8 +39,7 @@ import { RecordData } from '@ohos.base';
  */
 /**
  * List is implemented based on the singly linked list. Each node has a reference pointing to the next element.
- * When querying an element, the system traverses the list from the beginning. List offers efficient insertion
- * and removal operations but supports low query efficiency. List allows null elements.
+ * When querying an element, the system traverses the list from the beginning.
  *
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
@@ -65,7 +64,7 @@ declare class List<T> {
    * @since 10
    */
   /**
-   * A constructor used to create a List instance.
+   * A constructor used to create a List object.
    *
    * @throws { BusinessError } 10200012 - The List's constructor cannot be directly invoked.
    * @syscap SystemCapability.Utils.Lang
@@ -91,7 +90,7 @@ declare class List<T> {
    * @since 10
    */
   /**
-   * Number of elements in a list.
+   * Gets the element number of the List. This is a number one higher than the highest index in the list.
    *
    * @type { number }
    * @syscap SystemCapability.Utils.Lang
@@ -104,7 +103,6 @@ declare class List<T> {
   /**
    * Gets the element number of the List.
    *
-   * @type { int }
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -132,9 +130,9 @@ declare class List<T> {
    * @since 10
    */
   /**
-   * Adds an element at the end of this container.
+   * Appends the specified element to the end of this list.
    *
-   * @param { T } element - Target element.
+   * @param { T } element - element element to be appended to this list
    * @returns { boolean } the boolean type, returns true if the addition is successful, and returns false if it fails.
    * @throws { BusinessError } 10200011 - The add method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
@@ -174,10 +172,10 @@ declare class List<T> {
    * @since 10
    */
   /**
-   * Inserts an element at the specified position in this container.
+   * Inserts the specified element at the specified position in this list.
    *
-   * @param { T } element - Target element.
-   * @param { int } index - Index of the position where the element is to be inserted.
+   * @param { T } element - element element element to be inserted
+   * @param { int } index - index index index at which the specified element is to be inserted
    * @throws { BusinessError } 10200011 - The insert method cannot be bound.
    * @throws { BusinessError } 10200001 - The value of index is out of range.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -219,15 +217,16 @@ declare class List<T> {
    * @since 10
    */
   /**
-   * Obtains the element at the specified position in this container.
+   * Returns the element at the specified position in this list,
+   * or returns undefined if this list is empty
    *
-   * @param { int } index - Position index of the target element.
+   * @param { int } index - index index specified position
    * @returns { T } the T type
    * @throws { BusinessError } 10200001 - The value of index is out of range.
    * @throws { BusinessError } 10200011 - The get method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
+   *     1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -256,9 +255,9 @@ declare class List<T> {
    * @since 10
    */
   /**
-   * Checks whether this container has the specified element.
+   * Check if list contains the specified element
    *
-   * @param { T } element - Target element.
+   * @param { T } element - element element element to be contained
    * @returns { boolean } the boolean type,if list contains the specified element,return true,else return false
    * @throws { BusinessError } 10200011 - The has method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
@@ -290,9 +289,10 @@ declare class List<T> {
    * @since 10
    */
   /**
-   * Obtains the index of the first occurrence of the specified element in this container.
+   * Returns the index of the first occurrence of the specified element
+   * in this list, or -1 if this list does not contain the element.
    *
-   * @param { T } element - Target element.
+   * @param { T } element - element element element to be contained
    * @returns { int } the int type ,returns the lowest index such that or -1 if there is no such index.
    * @throws { BusinessError } 10200011 - The getIndexOf method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
@@ -332,9 +332,9 @@ declare class List<T> {
    * @since 10
    */
   /**
-   * Searches for an element based on its index and then removes it.
+   * Find the corresponding element according to the index.
    *
-   * @param { number } index - Position index of the target element.
+   * @param { number } index - index index the index in the list
    * @returns { T } the T type ,returns undefined if list is empty,If the index is
    * out of bounds (greater than or equal to length or less than 0), throw an exception
    * @throws { BusinessError } 10200011 - The removeByIndex method cannot be bound.
@@ -350,13 +350,13 @@ declare class List<T> {
   removeByIndex(index: number): T;
 
   /**
-   * Searches for an element based on its index and then removes it.
+   * Find the corresponding element according to the index.
    *
-   * @param { int } index - Position index of the target element.
+   * @param { int } index - the index in the linkedList
    * @returns { T | undefined } the T type, if the index is
-   * out of bounds (greater than or equal to length or less than 0), throw an exception
+   *     out of bounds (greater than or equal to length or less than 0), throw an exception
    * @throws { BusinessError } 10200001 - The value of "index" is out of range. It must be >= 0 && <= ${length - 1}.
-   * Received value is: ${index}
+   *     Received value is: ${index}
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -388,9 +388,11 @@ declare class List<T> {
    * @since 10
    */
   /**
-   * Removes the first occurrence of the specified element from this container.
+   * Removes the first occurrence of the specified element from this list,
+   * if it is present.  If the list does not contain the element, it is
+   * unchanged.  More formally, removes the element with the lowest index
    *
-   * @param { T } element - Target element.
+   * @param { T } element - element element element to remove
    * @returns { boolean } the boolean type ,If there is no such element, return false
    * @throws { BusinessError } 10200011 - The remove method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
@@ -422,10 +424,11 @@ declare class List<T> {
    * @since 10
    */
   /**
-   * Obtains the index of the last occurrence of the specified element in this container.
+   * Returns in the index of the last occurrence of the specified element in this list ,
+   * or -1 if the list does not contain the element.
    *
-   * @param { T } element - Target element.
-   * @returns { int } the number type
+   * @param { T } element - element element element to find
+   * @returns { int } the int type
    * @throws { BusinessError } 10200011 - The getLastIndexOf method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
@@ -531,10 +534,10 @@ declare class List<T> {
    * @since 10
    */
   /**
-   * Replaces an element at the specified position in this container with a given element.
+   * Replaces the element at the specified position in this List with the specified element
    *
-   * @param { int } index - Position index of the target element.
-   * @param { T } element - Element to be used for replacement.
+   * @param { int } index - index index index to find
+   * @param { T } element - element element replaced element
    * @returns { T } the T type
    * @throws { BusinessError } 10200011 - The set method cannot be bound.
    * @throws { BusinessError } 10200001 - The value of index is out of range.
@@ -548,6 +551,7 @@ declare class List<T> {
    * @since 23 static
    */
   set(index: int, element: T): T;
+
   /**
    * Compares the specified object with this list for equality.if the object are the same as this list
    * return true, otherwise return false.
@@ -570,9 +574,10 @@ declare class List<T> {
    * @since 10
    */
   /**
-   * Compares whether a specified object is equal to this container.
+   * Compares the specified object with this list for equality.if the object are the same as this list
+   * return true, otherwise return false.
    *
-   * @param { Object } obj - Object used for comparison.
+   * @param { Object } obj - obj obj Compare objects
    * @returns { boolean } the boolean type
    * @throws { BusinessError } 10200011 - The equal method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
@@ -630,10 +635,14 @@ declare class List<T> {
    * @since 10
    */
   /**
-   * Uses a callback to traverse the elements in this container and obtain their position indexes.
+   * Replaces each element of this list with the result of applying the operator to that element.
    *
-   * @param { function } callbackFn - Callback invoked for the replacement.
-   * @param { Object } [thisArg] - Value of this to use when callbackFn is invoked. The default value is this instance.
+   * @param { function } callbackFn - callbackFn
+   * callbackFn (required) A function that accepts up to three arguments.
+   * The function to be called for each element.
+   * @param { Object } [thisArg] - thisArg
+   * thisArg (Optional) The value to be used as this value for when callbackFn is called.
+   * If thisArg is omitted, undefined is used as the this value.
    * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * 1.Mandatory parameters are left unspecified;
@@ -646,9 +655,9 @@ declare class List<T> {
   forEach(callbackFn: (value: T, index?: number, List?: List<T>) => void, thisArg?: Object): void;
 
   /**
-   * Uses a callback to traverse the elements in this container and obtain their position indexes.
+   * Replaces each element of this list with the result of applying the operator to that element.
    *
-   * @param { ListForEachCb } callbackFn - Callback invoked for the replacement.
+   * @param { ListForEachCb } callbackFn - callbackFn
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -741,7 +750,8 @@ declare class List<T> {
    * @since 10
    */
   /**
-   * Clears this container and sets its length to 0.
+   * Removes all of the elements from this list.The list will
+   * be empty after this call returns.length becomes 0
    *
    * @throws { BusinessError } 10200011 - The clear method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
@@ -781,11 +791,10 @@ declare class List<T> {
    * @since 10
    */
   /**
-   * Obtains elements within a range in this container, including the element at the start position but not that at the
-   * end position, and returns these elements as a new List instance.
+   * Returns a view of the portion of this list between the specified fromIndex,inclusive,and toIndex,exclusive
    *
-   * @param { int } fromIndex - Index of the start position.
-   * @param { int } toIndex - Index of the end position.
+   * @param { int } fromIndex - fromIndex fromIndex The starting position of the index, containing the value at that index position
+   * @param { int } toIndex - toIndex toIndex the end of the index, excluding the value at that index
    * @returns { List<T> }
    * @throws { BusinessError } 10200011 - The getSubList method cannot be bound.
    * @throws { BusinessError } 10200001 - The value of fromIndex or toIndex is out of range.
@@ -833,9 +842,14 @@ declare class List<T> {
    * @since 10
    */
   /**
-   * Replaces all elements in this container with new elements, and returns the new ones.
-   * @param { function } callbackFn - Callback invoked for the replacement.
-   * @param { Object } [thisArg] - Value of this to use when callbackFn is invoked. The default value is this instance.
+   * Replaces each element of this list with the result of applying the operator to that element.
+   *
+   * @param { function } callbackFn - callbackFn
+   * callbackFn (required) A function that accepts up to three arguments.
+   * The function to be called for each element.
+   * @param { Object } [thisArg] - thisArg
+   * thisArg (Optional) The value to be used as this value for when callbackFn is called.
+   * If thisArg is omitted, undefined is used as the this value.
    * @throws { BusinessError } 10200011 - The replaceAllElements method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * 1.Mandatory parameters are left unspecified;
@@ -848,9 +862,9 @@ declare class List<T> {
   replaceAllElements(callbackFn: (value: T, index?: number, list?: List<T>) => T, thisArg?: Object): void;
 
   /**
-   * Replaces all elements in this container with new elements, and returns the new ones.
+   * Replaces each element of this list with the result of applying the operator to that element.
    *
-   * @param { ListReplaceCb } callbackFn - Callback invoked for the replacement.
+   * @param { ListReplaceCb } callbackFn - callbackFn
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -876,7 +890,7 @@ declare class List<T> {
    * @since 10
    */
   /**
-   * Converts this container into an array.
+   * convert list to array
    *
    * @returns { Array<T> } the Array type
    * @throws { BusinessError } 10200011 - The convertToArray method cannot be bound.
@@ -905,7 +919,7 @@ declare class List<T> {
    * @since 10
    */
   /**
-   * Checks whether this container is empty (contains no element).
+   * Determine whether list is empty and whether there is an element
    *
    * @returns { boolean } the boolean type
    * @throws { BusinessError } 10200011 - The isEmpty method cannot be bound.
@@ -917,20 +931,19 @@ declare class List<T> {
    */
   isEmpty(): boolean;
 
-  /**
-   * Returns the item at that index.
-   * 
-   * @param { int } index - The zero-based index of the desired code unit.
-   *     Throws error if index < 0 or index >= list.length.
-   * @returns { T } The element in the list matching the given index. 
-   * @throws { BusinessError } 10200001 - The value of index is out of range.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 23 static
-   */
-  [index: int]: T;
-
+    /**
+     * Returns the item at that index.
+     *
+     * @param { int } index - The zero-based index of the desired code unit.
+     *     Throws error if index < 0 or index >= list.length.
+     * @returns { T } The element in the list matching the given index.
+     * @throws { BusinessError } 10200001 - The value of index is out of range.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 23 static
+     */
+    [index: int]: T;
   /**
    * returns an iterator.Each item of the iterator is a Javascript Object
    *
@@ -949,7 +962,7 @@ declare class List<T> {
    * @since 10
    */
   /**
-   * Obtains an iterator, each item of which is a JavaScript object.
+   * returns an iterator.Each item of the iterator is a Javascript Object
    *
    * @returns { IterableIterator<T> }
    * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
@@ -961,7 +974,7 @@ declare class List<T> {
   [Symbol.iterator](): IterableIterator<T>;
 
   /**
-   * Obtains an iterator, each item of which is a JavaScript object.
+   * returns an iterator. Each item of the iterator is a ArkTS Object
    *
    * @returns { IterableIterator<T> }
    * @syscap SystemCapability.Utils.Lang
@@ -997,7 +1010,7 @@ export type ListComparatorFn<T> = (firstValue: T, secondValue: T) => double;
  * @atomicservice
  * @since 23 static
  */
-export type ListForEachCb<T> = (value: T, index: int, list: List<T>) => void
+export type ListForEachCb<T> = (value: T, index: int, list: List<T>) => void;
 
 /**
  * The type of List callback function.
@@ -1011,6 +1024,6 @@ export type ListForEachCb<T> = (value: T, index: int, list: List<T>) => void
  * @atomicservice
  * @since 23 static
  */
-export type ListReplaceCb<T> = (value: T, index: int, list: List<T>) => T
+export type ListReplaceCb<T> = (value: T, index: int, list: List<T>) => T;
 
 export default List;
