@@ -28,7 +28,7 @@
  */
 export declare interface IVariableOwner {
 }
- 
+
 /**
  * Defining State annotation
  * State variable that holds the state property and is used to render the owning custom component.
@@ -37,15 +37,6 @@ export declare interface IVariableOwner {
  */
 @Retention({policy: "SOURCE"})
 export declare @interface State {};
-
-/**
- * Defining Prop annotation
- * Prop is an annotation which is mutable, and its changes will not be synchronized to the parent component.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 23 static
- */
-@Retention({policy: "SOURCE"})
-export declare @interface Prop {};
 
 /**
  * Defining PropRef annotation
@@ -97,19 +88,6 @@ export declare @interface Track {};
 export declare @interface ObjectLink {};
 
 /**
- * Defining StorageProp annotation
- * StorageProp a one-way data synchronization is established from the attribute with the given key in AppStorage to the variable. 
- * A local change can be made, but it will not be synchronized to AppStorage. 
- * An update to the attribute with the given key in AppStorage will overwrite local changes.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 23 static
- */
-@Retention({policy: "SOURCE"})
-export declare @interface StorageProp {
-    property: string;
-};
-
-/**
  * Defining StoragePropRef annotation
  * StoragePropRef is an annotation which is mutable.
  * Any object property modifications made through StoragePropRef are visible in the 
@@ -141,26 +119,6 @@ export declare @interface StoragePropRef {
 export declare @interface StorageLink {
     /**
      * The give property in AppStorage.
-     *
-     * @type { string }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
-     */
-    property: string;
-};
-
-/**
- * Defining LocalStorageProp annotation
- * LocalStorageProp is a one-way data synchronization is established from the attribute with the given key in 
- * LocalStorage to the variable. This means that, local changes 
- * (if any) will not be synchronized to LocalStorage, and an update to the attribute with the given key in LocalStorage.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 23 static
- */
-@Retention({policy: "SOURCE"})
-export declare @interface LocalStorageProp {
-    /**
-     * The give property in LocalStorage.
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -930,7 +888,7 @@ export declare interface IStateMgmtFactory {
    */
   makePropRef<T>(owner: IVariableOwner, varName: string, initValue: T,
     watchFunc?: WatchFuncType): IPropRefDecoratedVariable<T>;
-  
+
   /**
    * Create a Link variable instance.
    *
@@ -1074,7 +1032,7 @@ export declare interface IStateMgmtFactory {
    * @since 23 static
    */
    makeLocal<T>(owner: IVariableOwner, varName: string, localInitValue: T): ILocalDecoratedVariable<T>;
-  
+
   /**
    * Create a static local variable instance.
    *
@@ -1138,7 +1096,7 @@ export declare interface IStateMgmtFactory {
 
   /**
    * Create a computed variable instance.
-   * 
+   *
    * @param { ComputedCallback<T> } computedCallback - computed callback function
    * @param { string } computeName - name of the computed function
    * @returns { IComputedDecoratedVariable<T> } Computed instance
@@ -1149,7 +1107,7 @@ export declare interface IStateMgmtFactory {
 
   /**
    * Create a monitored variable instance.
-   * 
+   *
    * @param { Array<IMonitorPathInfo> } pathInfos - monitor path to its accessor
    * @param { MonitorCallback } monitorCallback - callback when monitor triggers
    * @param { IVariableOwner } [owner] - owner of this monitor
@@ -1172,7 +1130,7 @@ export declare interface IStateMgmtFactory {
  */
 export interface IDecoratedV2Variable<T> extends IDecoratedVariable {
   /**
-   * Reset V2 decorated variable when then ComponentV2 instance is reused.
+   * Reset V2 decorated variable when the ComponentV2 instance is reused.
    *
    * @param { T } newValue
    * @syscap SystemCapability.ArkUI.ArkUI.Full
