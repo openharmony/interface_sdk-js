@@ -21991,7 +21991,7 @@ declare class CommonMethod<T> {
   /**
    * Sets the safe area to be expanded to.
    * default:{types: [SafeAreaType.SYSTEM, SafeAreaType.CUTOUT, SafeAreaType.KEYBOARD],
-   * edges: [SafeAreaEdge.TOP, SafeAreaEdge.BOTTOM, SafeAreaEdge.START, SafeAreaEdge.END]}
+   * edges: [SafeAreaEdge.TOP, SafeAreaEdge.BOTTOM, SafeAreaEdge.START, SafeAreaEdge.END]}.
    *
    * @param { Array<SafeAreaType> } types - Indicates the types of the safe area.
    * @param { Array<SafeAreaEdge> } edges - Indicates the edges of the safe area.
@@ -22355,7 +22355,7 @@ declare class CommonMethod<T> {
   /**
    * Sets the safe area padding. It enables a container to add a component-level
    * safe area for child components to expand into.
-   * Default value: **LengthMetrics.vp(0)**
+   * Default value: **LengthMetrics.vp(0)**.
    *
    * @param { Padding | LengthMetrics | LocalizedPadding } paddingValue - Indicates safeArea padding values
    * @returns { T }
@@ -30960,7 +30960,7 @@ declare interface LayoutChild {
 }
 
 /**
- * Custom component layout info.
+ * Sub component layout info.
  *
  * @extends SizeResult
  * @interface GeometryInfo
@@ -30969,7 +30969,7 @@ declare interface LayoutChild {
  * @since 10
  */
 /**
- * Custom component layout info.
+ * Sub component layout info.
  *
  * @extends SizeResult
  * @interface GeometryInfo
@@ -30980,7 +30980,7 @@ declare interface LayoutChild {
  */
 declare interface GeometryInfo extends SizeResult {
   /**
-   * Custom component borderWidth info.
+   * Sub component borderWidth info.
    *
    * @type { EdgeWidth }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -30988,7 +30988,7 @@ declare interface GeometryInfo extends SizeResult {
    * @since 10
    */
   /**
-   * Custom component borderWidth info.
+   * Sub component borderWidth info.
    *
    * @type { EdgeWidth }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -30999,7 +30999,7 @@ declare interface GeometryInfo extends SizeResult {
   borderWidth: EdgeWidth;
 
   /**
-   * Custom component margin info.
+   * Sub component margin info.
    *
    * @type { Margin }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -31007,7 +31007,7 @@ declare interface GeometryInfo extends SizeResult {
    * @since 10
    */
   /**
-   * Custom component margin info.
+   * Sub component margin info.
    *
    * @type { Margin }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -31018,7 +31018,7 @@ declare interface GeometryInfo extends SizeResult {
   margin: Margin,
 
   /**
-   * Custom component padding info.
+   * Sub component padding info.
    *
    * @type { Padding }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -31026,7 +31026,7 @@ declare interface GeometryInfo extends SizeResult {
    * @since 10
    */
   /**
-   * Custom component padding info.
+   * Sub component padding info.
    *
    * @type { Padding }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
