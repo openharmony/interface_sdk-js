@@ -114,6 +114,7 @@ export declare interface SubscribedAbstractProperty<T> extends AbstractProperty<
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare enum ColorMode {
@@ -121,6 +122,7 @@ export declare enum ColorMode {
    * Light mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   LIGHT = 0,
@@ -129,9 +131,10 @@ export declare enum ColorMode {
    * Dark mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
-  DARK
+  DARK = 1
 }
 
 /**
@@ -139,30 +142,34 @@ export declare enum ColorMode {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare enum LayoutDirection {
   /**
-   * Elements are laid out from left to right.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  LTR,
-
-  /**
    * Elements are laid out from right to left.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
-  RTL,
+  RTL = 0,
+
+  /**
+   * Elements are laid out from left to right.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  LTR = 1,
 
   /**
    * Elements are laid out from auto.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
-  Auto
+  Auto = 2,
 }
