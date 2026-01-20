@@ -75,6 +75,7 @@ import { PanelInfo, PanelType } from '@ohos.selectionInput.SelectionPanel';
 import selectionManager from '@ohos.selectionInput.selectionManager';
 import SelectionExtensionContext from '@ohos.selectionInput.SelectionExtensionContext';
 import { Available, SuppressWarnings, SuppressWarningsType } from '@ohos.annotation';
+import intelligentScene from '@ohos.intelligentScene';
 export {
   AsyncCallback, Battery, BatteryResponse, Brightness, BrightnessModeResponse,
   BrightnessResponse, BusinessError, Callback, Device, DeviceResponse,
@@ -87,7 +88,7 @@ export {
   screenLock, settings, systemCapability, systemDateTime, systemParameter, systemParameterEnhance, systemTime,
   systemTimer, thermal, update, usb, usbManager, serialManager, wallpaper, zlib, commonEventManager, emitter, StaticSubscriberExtensionAbility,
   StaticSubscriberExtensionContext, systemLoad, intelligentVoice, selectionManager, SelectionExtensionAbility,
-  PanelInfo, PanelType, SelectionExtensionContext, Available, SuppressWarnings, SuppressWarningsType
+  PanelInfo, PanelType, SelectionExtensionContext, Available, SuppressWarnings, SuppressWarningsType, intelligentScene
 };
 
 /*** if arkts static */
@@ -104,9 +105,10 @@ import request from '@ohos.request';
 import appAccount from '@ohos.account.appAccount';
 import distributedAccount from '@ohos.account.distributedAccount';
 import osAccount from '@ohos.account.osAccount';
+import intelligentScene from '@ohos.intelligentScene';
 
 export {
   zlib, configPolicy, AsyncCallback, BusinessError, Callback, ErrorCallback, RecordData, customConfig, systemDateTime,
-  systemTimer, systemLoad, request, commonEventManager, emitter, appAccount, distributedAccount, osAccount
+  systemTimer, systemLoad, request, commonEventManager, emitter, appAccount, distributedAccount, osAccount, intelligentScene
 };
 /*** endif */
