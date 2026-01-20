@@ -13,8 +13,11 @@
  * limitations under the License.
  */
 /**
+ * @file
+ * @kit AbilityKit
+ */
+/**
  * @since 20
- * 
  */
 export namespace TestModuleB {
   /**

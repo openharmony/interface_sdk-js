@@ -1,5 +1,3 @@
-
-
 /*
  * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,8 +13,11 @@
  * limitations under the License.
  */
 /**
+ * @file
+ * @kit AbilityKit
+ */
+/**
  * @since 20
- *
  */
 export namespace TestModuleB {
     /**
