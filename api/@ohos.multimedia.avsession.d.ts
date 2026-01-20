@@ -95,7 +95,6 @@ declare namespace avSession {
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @atomicservice
    * @since 22 dynamic
-   * @since 23 static
    */
   function getAVSession(context: Context): Promise<AVSession>;
 
@@ -146,7 +145,6 @@ declare namespace avSession {
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi
    * @since 22 dynamic
-   * @since 23 static
    */
   function getSessionDescriptors(category: SessionCategory): Promise<Array<Readonly<AVSessionDescriptor>>>;
 
@@ -417,7 +415,6 @@ declare namespace avSession {
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi
    * @since 22 dynamic
-   * @since 23 static
    */
   enum SessionCategory {
     /**
@@ -425,7 +422,6 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.Manager
      * @systemapi
      * @since 22 dynamic
-     * @since 23 static
      */
     CATEGORY_ACTIVE = 1,
 
@@ -434,7 +430,6 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.Manager
      * @systemapi
      * @since 22 dynamic
-     * @since 23 static
      */
     CATEGORY_NOT_ACTIVE = 2,
 
@@ -443,7 +438,6 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.Manager
      * @systemapi
      * @since 22 dynamic
-     * @since 23 static
      */
     CATEGORY_ALL = 3,
   }
@@ -1677,7 +1671,6 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
      * @since 22 dynamic
-     * @since 23 static
      */
     readonly sessionTag: string;
 
@@ -5675,7 +5668,6 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
      * @since 21 dynamic
-     * @since 23 static
      */
     resetCommunicationDevice(): Promise<void>;
 
@@ -5753,7 +5745,6 @@ declare namespace avSession {
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @atomicservice
    * @since 22 dynamic
-   * @since 23 static
    */
   interface MenuPosition {
     /**
@@ -5762,7 +5753,6 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
      * @since 22 dynamic
-     * @since 23 static
      */
     x: int;
 
@@ -5772,7 +5762,6 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
      * @since 22 dynamic
-     * @since 23 static
      */
     y: int;
 
@@ -5782,7 +5771,6 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
      * @since 22 dynamic
-     * @since 23 static
      */
     width: int;
 
@@ -5792,7 +5780,6 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
      * @since 22 dynamic
-     * @since 23 static
      */
     height: int;
   }
@@ -5825,7 +5812,6 @@ declare namespace avSession {
      * @type { ? AVCastPickerStyle }
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 22 dynamic
-     * @since 23 static
      */
     pickerStyle?: AVCastPickerStyle;
 
@@ -5835,7 +5821,6 @@ declare namespace avSession {
      * @type { ? MenuPosition }
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 22 dynamic
-     * @since 23 static
      */
     menuPosition?: MenuPosition;
   }
