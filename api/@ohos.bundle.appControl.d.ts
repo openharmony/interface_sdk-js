@@ -670,7 +670,7 @@ declare namespace appControl {
    * @systemapi
    * @since 23 dynamic&static
    */
-  function getAllDisposedRules(callerName?: string): Array<DisposedRuleConfiguration>;
+  function getAllDisposedRules(): Array<DisposedRuleConfiguration>;
 
   /**
    * Query all disposed rules under the current user for specified caller.
