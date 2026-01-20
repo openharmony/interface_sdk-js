@@ -7196,6 +7196,17 @@ export declare interface PopupCommonOptions {
      * @since 23 static
      */
     borderLinearGradient?: PopupBorderLinearGradient;
+    /**
+     * Set system-styled materials for popup. Different materials have different effects, which can influence
+     * the backgroundColor, border, shadow, and other visual attributes of popup.
+     *
+     * @type { ?SystemUiMaterial }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 static
+     */
+    systemMaterial?: SystemUiMaterial;
 
   /**
    * Callback function when the popup disappears.
@@ -7616,6 +7627,18 @@ export declare interface PopupOptions {
      */
     borderLinearGradient?: PopupBorderLinearGradient;
 
+    /**
+     * Set system-styled materials for popup. Different materials have different effects, which can influence
+     * the backgroundColor, border, shadow, and other visual attributes of popup.
+     *
+     * @type { ?SystemUiMaterial }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 static
+     */
+    systemMaterial?: SystemUiMaterial;
+
   /**
    * Callback function before the popup closeAnimation starts.
    *
@@ -7948,6 +7971,18 @@ export declare interface CustomPopupOptions {
      * @since 23 static
      */
     borderLinearGradient?: PopupBorderLinearGradient;
+
+    /**
+     * Set system-styled materials for popup. Different materials have different effects, which can influence
+     * the backgroundColor, border, shadow, and other visual attributes of popup.
+     *
+     * @type { ?SystemUiMaterial }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 static
+     */
+    systemMaterial?: SystemUiMaterial;
 
   /**
    * Callback function when the popup appears.
@@ -10602,7 +10637,7 @@ export declare interface CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     default excludeFromRenderGroup(exclude: boolean | undefined): this;
     /**
@@ -10919,6 +10954,22 @@ export declare interface CommonMethod {
      * @since 23 static
      */
     default clickEffect(value: ClickEffect | null | undefined): this;
+    /**
+     * Set whether this component should have sound effects enabled for clicking.
+     *
+     * Sound effects playback is affected by the audio-related settings in the device system settings.
+     * When the user sets the device to silent mode, sound effects cannot be played.
+     *
+     * @param { boolean | undefined } enabled - indicates whether this component should have sound effects
+     *     enabled for clicking.
+     *     <br>Pass in undefined to reset the default value, default value is true, but
+     *     even it's true, the sound effect is only supported in some specific devices.
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 24 static
+     */
+    default enableClickSoundEffect(enabled: boolean | undefined): this
     /**
      * After a listener is bound, the component can be dragged. After the drag occurs, a callback is triggered.
      * (To be triggered, press and hold for 170 milliseconds (ms))

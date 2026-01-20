@@ -1209,7 +1209,7 @@ declare namespace media {
         callback: OnFrameFetched): void;
 
     /**
-     * Cancel all fetch tasks which are triggered by { fetchFramesByTimes }. The callbacks of { fetchFrameByTimes }
+     * Cancel all fetch tasks which are triggered by { fetchFramesByTimes }. The callbacks of { fetchFramesByTimes }
      * will be called with cancelled result.
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @stagemodelonly
@@ -2061,7 +2061,7 @@ declare namespace media {
     image?: image.PixelMap;
 
     /**
-     * The fetch result code -succeed, failed or cancelled.
+     * The fetch result code - succeed, failed or cancelled.
      * @type { FetchResult }
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @stagemodelonly
@@ -2070,11 +2070,11 @@ declare namespace media {
     result: FetchResult;
   }
 
- /**
-   * Describes the callback invoked for the track change event.
+  /**
+   * Defines the OnFrameFetched callback.
    * @typedef { function } OnFrameFetched
    * @param { FrameInfo } frameInfo - the fetched data.
-   * @param { BusinessError<void> } [err] - the error ocurred during fetch.
+   * @param { BusinessError<void> } [err] - the error occurred during fetch.
    * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
    * @stagemodelonly
    * @since 23 dynamic&static
@@ -2502,7 +2502,7 @@ declare namespace media {
   }
 
   /**
-   * Describes the information of an Metrics event.
+   * Describes the information of an Metrics Event.
    *
    * @typedef AVMetricsEvent
    * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -2511,6 +2511,7 @@ declare namespace media {
   interface AVMetricsEvent {
     /**
      * Type of the metrics event.
+     *
      * @type { AVMetricsEventType }
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @stagemodelonly
@@ -2536,7 +2537,8 @@ declare namespace media {
 
     /**
      * The detailed information of the event.
-     * @type {Record<string, Object>}
+     *
+     * @type { Record<string, Object> }
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -3313,8 +3315,7 @@ declare namespace media {
     addSubtitleFromUrl(url: string): Promise<void>;
 
     /**
-     * Get statistic infos of current player. This API can be called only when the AVPlayer is in the prepared,
-     * playing, or paused state.
+     * Get statistic infos of current player.
      * @returns { Promise<PlaybackInfo> } Statistic infos of current player.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 12 dynamic
@@ -3414,7 +3415,7 @@ declare namespace media {
      * @returns { long } returns the time of current playback position - microseconds(us)
      * @throws { BusinessError } 5400102 - Operation not allowed.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
-     * @FaAndStageModel
+     * @stagemodelonly
      * @atomicservice
      * @since 23 dynamic&static
      */

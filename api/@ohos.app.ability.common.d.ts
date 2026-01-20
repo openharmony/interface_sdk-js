@@ -614,7 +614,7 @@ declare namespace common {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 12 dynamic
+   * @since 12 dynamiconly
    */
   export type EmbeddableUIAbilityContext = _EmbeddableUIAbilityContext.default;
 

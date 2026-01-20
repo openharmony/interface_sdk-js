@@ -155,7 +155,7 @@ export interface ExtensionAbilities {
 export interface MetaData {
   name: string;
   value: string;
-  resource: string;
+  resource: string
 }
 
 export interface ModuleJson {

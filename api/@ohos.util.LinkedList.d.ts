@@ -470,9 +470,9 @@ declare class LinkedList<T> {
    *
    * @param { int } index - the index in the linkedList
    * @returns { T | undefined } the T type, if the index is
-   * out of bounds (greater than or equal to length or less than 0), throw an exception
+   *     out of bounds (greater than or equal to length or less than 0), throw an exception
    * @throws { BusinessError } 10200001 - The value of "index" is out of range. It must be >= 0 && <= ${length}.
-   * Received value is: ${index}
+   *     Received value is: ${index}
    * @throws { BusinessError } 10200010 - Container is empty.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
@@ -505,7 +505,9 @@ declare class LinkedList<T> {
    * @since 10
    */
   /**
-   * Removes the first occurrence of the specified element from this container.
+   * Removes the first occurrence of the specified element from this linkedlist,
+   * if it is present.  If the linkedlist does not contain the element, it is
+   * unchanged.  More formally, removes the element with the lowest index
    *
    * @param { T } element - Target element.
    * @returns { boolean } the boolean type ,If there is no such element, return false
@@ -545,7 +547,9 @@ declare class LinkedList<T> {
    * @since 10
    */
   /**
-   * Removes the first occurrence of the specified element from this container.
+   * Removes the first occurrence of the specified element from this linkedlist,
+   * if it is present.  If the linkedlist does not contain the element, it is
+   * unchanged.  More formally, removes the element with the lowest index
    *
    * @param { T } element - Target element.
    * @returns { boolean } the boolean type ,If there is no such element, return false
@@ -587,7 +591,9 @@ declare class LinkedList<T> {
    * @since 10
    */
   /**
-   * Removes the last occurrence of the specified element from this container.
+   * Removes the last occurrence of the specified element from this linkedlist,
+   * if it is present.  If the linkedlist does not contain the element, it is
+   * unchanged.  More formally, removes the element with the lowest index
    *
    * @param { T } element - Target element.
    * @returns { boolean } the boolean type ,If there is no such element, return false
@@ -623,7 +629,8 @@ declare class LinkedList<T> {
    * @since 10
    */
   /**
-   * Obtains the index of the last occurrence of the specified element in this container.
+   * Returns in the index of the last occurrence of the specified element in this linkedlist ,
+   * or -1 if the linkedlist does not contain the element.
    *
    * @param { T } element - Target element.
    * @returns { int } the int type
@@ -795,10 +802,17 @@ declare class LinkedList<T> {
    * @since 10
    */
   /**
-   * Uses a callback to traverse the elements in this container and obtain their position indexes.
+   * Replaces each element of this linkedlist with the result of applying the operator to that element.
    *
-   * @param { function } callbackFn - Callback invoked to traverse the elements in the container.
-   * @param { Object } [thisArg] - Value of this to use when callbackFn is invoked. The default value is this instance.
+   * @param { function } callbackFn - callbackFn
+   * callbackFn (required) A function that accepts up to three arguments.
+   * The function to be called for each element.
+   * Value (required) current element
+   * Index (Optional) The index value of the current element.
+   * LinkedList (Optional) The linkedlist object to which the current element belongs.
+   * @param { Object } [thisArg] - thisArg
+   * thisArg (Optional) The value to be used as this value for when callbackFn is called.
+   * If thisArg is omitted, undefined is used as the this value.
    * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * 1.Mandatory parameters are left unspecified;
@@ -811,7 +825,7 @@ declare class LinkedList<T> {
   forEach(callbackFn: (value: T, index?: number, LinkedList?: LinkedList<T>) => void, thisArg?: Object): void;
 
   /**
-   * Uses a callback to traverse the elements in this container and obtain their position indexes.
+   * Replaces each element of this linkedList with the result of applying the operator to that element.
    *
    * @param { LinkedListForEachCb } callbackFn - Callback invoked to traverse the elements in the container.
    * @syscap SystemCapability.Utils.Lang
@@ -839,7 +853,8 @@ declare class LinkedList<T> {
    * @since 10
    */
   /**
-   * Clears this container and sets its length to 0.
+   * Removes all of the elements from this linkedlist.The linkedlist will
+   * be empty after this call returns.length becomes 0
    *
    * @throws { BusinessError } 10200011 - The clear method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
@@ -867,7 +882,7 @@ declare class LinkedList<T> {
    * @since 10
    */
   /**
-   * Clones this container and returns a copy. The modification to the copy does not affect the original instance.
+   * Returns a shallow copy of this instance. (The elements themselves are not copied.)
    *
    * @returns { LinkedList<T> } this linkedlist instance
    * @throws { BusinessError } 10200011 - The clone method cannot be bound.
@@ -896,7 +911,7 @@ declare class LinkedList<T> {
    * @since 10
    */
   /**
-   * Converts this container into an array.
+   * convert linkedlist to array
    *
    * @returns { Array<T> } the Array type
    * @throws { BusinessError } 10200011 - The convertToArray method cannot be bound.

@@ -31,7 +31,7 @@ import { LengthMetrics, ColorMetrics } from '../Graphics';
 import { TextBackgroundStyle } from './span';
 import { ComponentBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
-import { ComponentContent } from '../ComponentContent';
+import { ComponentContentBase } from '../ComponentContent';
 /**
  * Defines delete text direction.
  *
@@ -1656,6 +1656,15 @@ export declare class RichEditorBaseController implements TextEditControllerEx {
      */
     setTypingStyle(value: RichEditorTextStyle): void;
     /**
+     * Set the typing paragraph style.
+     *
+     * @param { RichEditorParagraphStyle | undefined } style - set the typing paragraph style.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    setTypingParagraphStyle(style: RichEditorParagraphStyle | undefined): void;
+    /**
      * Specify the start and end positions to select a range of content.
      *
      * @param { int } selectionStart - The start position of the selected text.
@@ -2000,7 +2009,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
     /**
      * Set custom keyboard of the rich editor.
      *
-     * @param { CustomBuilder | ComponentContent | undefined } value - The custom keyboard of RichEditor
+     * @param { CustomBuilder | ComponentContentBase | undefined } value - The custom keyboard of RichEditor
      *     If undefined is set, current custom keyboard will be unbound from rich editor.
      * @param { KeyboardOptions | undefined } [options] - Indicates the custom keyboard options of RichEditor
      * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
@@ -2008,7 +2017,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
      * @stagemodelonly
      * @since 23 static
      */
-    default customKeyboard(value: CustomBuilder | ComponentContent | undefined,
+    default customKeyboard(value: CustomBuilder | ComponentContentBase | undefined,
                            options?: KeyboardOptions | undefined): this;
     /**
      * Defines onPaste callback.

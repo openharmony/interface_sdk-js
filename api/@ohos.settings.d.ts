@@ -1152,7 +1152,7 @@ declare namespace settings {
    * @param { string } name - Indicates the name of the setting to set.
    * @param { AsyncCallback<object> } [callback] - The callback of getURI result.
    * @syscap SystemCapability.Applications.Settings.Core
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   function getURI(name: string, callback: AsyncCallback<object>): void;
@@ -1164,7 +1164,7 @@ declare namespace settings {
    * @param { string } name - Indicates the name of the setting to set.
    * @returns { Promise<object> } Returns the corresponding URI; returns {@code null} if the URI does not exist.
    * @syscap SystemCapability.Applications.Settings.Core
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   function getURI(name: string): Promise<object>;

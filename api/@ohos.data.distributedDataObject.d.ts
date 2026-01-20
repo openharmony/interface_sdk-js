@@ -221,11 +221,10 @@ declare namespace distributedDataObject {
 
   /**
    * Defines a callback used to return the asset sync progress.
-     *
    * @typedef { function } ProcessObserver
    * @param { string } sessionId - Session ID of the observed object.
    * @param { int } progress - Asset sync progress. The value range is -1 to 100, where
-   * <br>100 indicates that the asset sync is complete and -1 indicates that the asset sync failed.
+   *     100 indicates that the asset sync is complete and -1 indicates that the asset sync failed.
    * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
    * @since 20 dynamic
    * @since 23 static

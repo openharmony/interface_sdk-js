@@ -60,7 +60,7 @@ declare namespace buffer {
    * @since 10
    */
   /**
-   * Enumerates the supported encoding formats.
+   * This parameter specifies the type of a common encoding format.
    *
    * @typedef { 'ascii' | 'utf8' | 'utf-8' | 'utf16le' | 'ucs2' | 'ucs-2' | 'base64' | 'base64url' | 'latin1' | 'binary' | 'hex' }
    * @syscap SystemCapability.Utils.Lang
@@ -125,6 +125,7 @@ declare namespace buffer {
     | Float64Array
     | BigInt64Array
     | BigUint64Array;
+
   /**
    * ArrayUnionType features and methods
    *
@@ -164,7 +165,7 @@ declare namespace buffer {
    * 2.Incorrect parameter types;
    * 3.Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
-   * @since 9
+   * @since 9 dynamic
    */
   /**
    * Creates and initializes a Buffer instance of the specified length.
@@ -179,7 +180,7 @@ declare namespace buffer {
    * 3.Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
-   * @since 10
+   * @since 10 dynamic
    */
   /**
    * Creates and initializes a Buffer instance of the specified length.
@@ -348,7 +349,7 @@ declare namespace buffer {
   function byteLength(
     doc: string | Buffer | TypedArray | DataView | ArrayBuffer,
     encoding?: BufferEncoding
-  ): int;
+  ): int
 
   /**
    * Returns a new `Buffer` which is the result of concatenating all the `Buffer`instances in the `list` together.
@@ -493,12 +494,12 @@ declare namespace buffer {
   /**
    * This creates a view of the ArrayBuffer without copying the underlying memory.
    *
-   * @param { ArrayBuffer } arrayBuffer - arrayBuffer arrayBuffer An ArrayBuffer,
+   * @param { ArrayBuffer } arrayBuffer - arrayBuffer arrayBuffer An ArrayBuffer, 
    * @param { int } [byteOffset] - byteOffset [byteOffset = 0] Index of first byte to expose
    * @param { int } [length] - length [length = arrayBuffer.byteLength - byteOffset] Number of bytes to expose
    * @returns { Buffer } Return a view of the ArrayBuffer
    * @throws { BusinessError } 10200001 - The value of "[byteOffset/length]" is out of range.
-   * It must be >= [left range] and <= [right range]. Received value is: [byteOffset/length]
+   *     It must be >= [left range] and <= [right range]. Received value is: [byteOffset/length]
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -535,8 +536,8 @@ declare namespace buffer {
    * @param { Buffer | Uint8Array } buffer - Buffer or Uint8Array instance.
    * @returns { Buffer } Return a new allocated Buffer
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
+   *     1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -589,7 +590,7 @@ declare namespace buffer {
    * @since 11 dynamic
    * @since 23 static
    */
-  function from(object: Object, offsetOrEncoding: int | string, length: int): Buffer;
+  function from(object: Object, offsetOrEncoding: int | string, length: int): Buffer
 
   /**
    * Creates a new Buffer containing string. The encoding parameter identifies the character encoding
@@ -747,8 +748,8 @@ declare namespace buffer {
    * @param { Buffer | Uint8Array } buf1 - buf1 buf1 A Buffer or Uint8Array instance.
    * @param { Buffer | Uint8Array } buf2 - buf2 buf2 A Buffer or Uint8Array instance.
    * @returns { int } 0 is returned if target is the same as buf
-   *         1 is returned if target should come before buf when sorted.
-   *        -1 is returned if target should come after buf when sorted.
+   *     1 is returned if target should come before buf when sorted.
+   *     -1 is returned if target should come after buf when sorted.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -960,7 +961,7 @@ declare namespace buffer {
      * 1.Incorrect parameter types;
      * 2.Parameter verification failed.
      * @syscap SystemCapability.Utils.Lang
-     * @since 9
+     * @since 9 dynamic
      */
     /**
      * Fills this Buffer instance at the specified position. By default, data is filled cyclically.
@@ -976,7 +977,7 @@ declare namespace buffer {
      * 2.Parameter verification failed.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
-     * @since 10
+     * @since 10 dynamic
      */
     /**
      * Fills this Buffer instance at the specified position. By default, data is filled cyclically.
@@ -1100,7 +1101,7 @@ declare namespace buffer {
       targetEnd?: int,
       sourceStart?: int,
       sourceEnd?: int
-    ): int;
+    ): int
 
     /**
      * Copies data from a region of buf to a region in target, even if the target memory region overlaps with buf.
@@ -1157,7 +1158,7 @@ declare namespace buffer {
      * @since 11 dynamic
      * @since 23 static
      */
-    copy(target: Buffer | Uint8Array, targetStart?: int, sourceStart?: int, sourceEnd?: int): int;
+    copy(target: Buffer | Uint8Array, targetStart?: int, sourceStart?: int, sourceEnd?: int): int
 
     /**
      * Returns true if both buf and otherBuffer have exactly the same bytes, false otherwise
@@ -1203,7 +1204,7 @@ declare namespace buffer {
      * 1.Mandatory parameters are left unspecified;
      * 2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
-     * @since 9
+     * @since 9 dynamic
      */
     /**
      * Checks whether this Buffer instance contains the specified value.
@@ -1219,7 +1220,7 @@ declare namespace buffer {
      * 2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
-     * @since 10
+     * @since 10 dynamic
      */
     /**
      * Checks whether this Buffer instance contains the specified value.
@@ -1253,7 +1254,7 @@ declare namespace buffer {
      * 1.Mandatory parameters are left unspecified;
      * 2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
-     * @since 9
+     * @since 9 dynamic
      */
     /**
      * Obtains the index of the first occurrence of the specified value in this Buffer instance.
@@ -1268,7 +1269,7 @@ declare namespace buffer {
      * 2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
-     * @since 10
+     * @since 10 dynamic
      */
     /**
      * Obtains the index of the first occurrence of the specified value in this Buffer instance.
@@ -1382,7 +1383,7 @@ declare namespace buffer {
      * 1.Mandatory parameters are left unspecified;
      * 2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
-     * @since 9
+     * @since 9 dynamic
      */
     /**
      * Obtains the index of the last occurrence of the specified value in this Buffer instance.
@@ -1399,7 +1400,7 @@ declare namespace buffer {
      * 2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
-     * @since 10
+     * @since 10 dynamic
      */
     /**
      * Obtains the index of the last occurrence of the specified value in this Buffer instance.
@@ -2300,7 +2301,7 @@ declare namespace buffer {
      * @since 11 dynamic
      * @since 23 static
      */
-    subarray(start?: int, end?: int): Buffer;
+    subarray(start?: int, end?: int): Buffer
 
     /**
      * Interprets buf as an array of unsigned 16-bit integers and swaps the byte order in-place.
@@ -2479,7 +2480,7 @@ declare namespace buffer {
      * @atomicservice
      * @since 23 static
      */
-    toString(encoding?: BufferEncoding, start?: int, end?: int): string;
+    toString(encoding?: BufferEncoding, start?: int, end?: int): string
 
     /**
      * Writes string to buf at offset according to the character encoding in encoding
@@ -2530,7 +2531,7 @@ declare namespace buffer {
      * @since 11 dynamic
      * @since 23 static
      */
-    write(str: string, offset?: int, length?: int, encoding?: string): int;
+    write(str: string, offset?: int, length?: int, encoding?: string): int
 
     /**
      * Writes value to buf at the specified offset as big-endian.
@@ -3588,7 +3589,7 @@ declare namespace buffer {
      *
      * @param { int } index - The zero-based index of the desired code unit.
      *     Throws error if index < 0 or index >= buffer.length.
-     * @returns { long } The element in the buffer matching the given index. 
+     * @returns { long } The element in the buffer matching the given index.
      * @throws { BusinessError } 10200001 - The value of index is out of range.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -3702,10 +3703,10 @@ declare namespace buffer {
     /**
      * Creates a new Blob object containing a concatenation of the given sources.
      *
-     * @param { ArrayUnionType } sources - sources sources ArrayUnionType
+     * @param { ArrayUnionType } sources - sources sources ArrayUnionType will be stored within the Blob.
      * @param { BlobOptions } [options] - options options {endings: string, type: string}
-     *                 endings:  One of either 'transparent' or 'native'.
-     *                 type: The Blob content-type
+     *     endings:  One of either 'transparent' or 'native'.
+     *     type: The Blob content-type
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -3828,7 +3829,7 @@ declare namespace buffer {
      * @since 11 dynamic
      * @since 23 static
      */
-    slice(start?: int, end?: int, type?: string): Blob;
+    slice(start?: int, end?: int, type?: string): Blob
 
     /**
      * Returns a promise that fulfills with the contents of the Blob decoded as a UTF-8 string.

@@ -8918,7 +8918,6 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 23 static
      */
     on(type: 'windowEvent', callback: Callback<WindowEventType>): void;
 
@@ -8955,7 +8954,6 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 23 static
      */
     off(type: 'windowEvent', callback?: Callback<WindowEventType>): void;
 
@@ -9143,7 +9141,6 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 23 static
      */
     on(type: 'subWindowClose', callback: Callback<void>): void;
 
@@ -9185,7 +9182,6 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 23 static
      */
     off(type: 'subWindowClose', callback?: Callback<void>): void;
 
@@ -14085,7 +14081,6 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 23 static
      */
     on(eventType: 'windowStageEvent', callback: Callback<WindowStageEventType>): void;
 
@@ -14145,7 +14140,6 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 23 static
      */
     off(eventType: 'windowStageEvent', callback?: Callback<WindowStageEventType>): void;
 
@@ -14380,13 +14374,15 @@ declare namespace window {
      * @param { double } density - the specified custom density value.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
      *                                                                  2. Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.Window.SessionManager
-     * @StageModelOnly
+     * @stagemodelonly
      * @atomicservice
      * @since 15 dynamic
+     * @since 23 static
      */
     setCustomDensity(density: double): void;
 

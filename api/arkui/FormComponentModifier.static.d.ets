@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 Huawei Device Co., Ltd.
+ * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -15,19 +15,20 @@
 
 /**
  * @file
- * @kit AbilityKit
+ * @kit ArkUI
  */
 
-import UIAbilityContext from './UIAbilityContext';
+import { AttributeModifier } from './component/common';
+import { FormComponentAttribute } from './component/formComponent';
 
 /**
- * The context of an embeddable UIAbility.
+ * Defines FormComponent Modifier
  *
- * @extends UIAbilityContext
- * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @StageModelOnly
- * @atomicservice
- * @since 12 dynamiconly
+ * @implements { FormComponentAttribute, AttributeModifier<FormComponentAttribute> }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @stagemodelonly
+ * @since 23 static
+ * @noninterop
  */
-export default class EmbeddableUIAbilityContext extends UIAbilityContext {
-}
+export declare class FormComponentModifier implements FormComponentAttribute, AttributeModifier<FormComponentAttribute> {}

@@ -4826,23 +4826,23 @@ declare namespace cert {
     publicKey?: DataBlob;
 
     /**
-     * The specified value must match the publicKey for the X509Certificate:
+     * The specified value must match the publicKeyAlgID (public key algorithm identifier) for the X509Certificate:
      * [Rule]
      * null : Do not match.
-     * NOT null : match ok if it is equal with [publicKey of cert].
+     * NOT null : match ok if it is equal with [publicKeyAlgID of cert].
      *
-     * @type { ?string } the object identifier (OID) of the signature algorithm to check.
+     * @type { ?string } the object identifier (OID) of the public key algorithm identifier to check.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @since 11
      */
     /**
-     * The specified value must match the publicKey for the X509Certificate:
+     * The specified value must match the publicKeyAlgID (public key algorithm identifier) for the X509Certificate:
      * [Rule]
      * null : Do not match.
-     * NOT null : match ok if it is equal with [publicKey of cert].
+     * NOT null : match ok if it is equal with [publicKeyAlgID of cert].
      *
-     * @type { ?string } the object identifier (OID) of the signature algorithm to check.
+     * @type { ?string } the object identifier (OID) of the public key algorithm identifier to check.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice

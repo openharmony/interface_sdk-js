@@ -19,7 +19,7 @@
 import { ImageAIOptions, ImageAnalyzerConfig } from "./imageCommon";
 import { CommonMethod, AttributeModifier, Callback } from "./common";
 import { XComponentType } from "./enums";
-import { VoidCallback } from "./units";
+import { VoidCallback, DrawingCanvas } from "./units";
 import { ComponentBuilder, CustomBuilder } from './builder';
 
 /**
@@ -89,6 +89,28 @@ export declare interface SurfaceRotationOptions {
      * @since 23 static
      */
     lock?: boolean;
+}
+
+/**
+ * Surface config.
+ *
+ * @interface SurfaceConfig
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 23 static
+ */
+export declare interface SurfaceConfig {
+    /**
+    * Whether the surface held by XComponent needs to be considered opaque,
+    * even if the surface has translucent pixel.
+    * True means needing to be considered opaque, false otherwise.
+    *
+    * @type { ?boolean }
+    * @default false
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @since 23 static
+    */
+    isOpaque?: boolean;
 }
 
 /**
@@ -189,6 +211,34 @@ export declare class XComponentController {
      * @since 23 static
      */
     stopImageAnalyzer(): void;
+
+    /**
+    * Get a Canvas for drawing into the surface created by XComponent.
+    *
+    * @returns { DrawingCanvas | null} Returns a Canvas for drawing into the surface created by XComponent.
+    *    Returns null if the surface is not available.
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @since 23 static
+    */
+    lockCanvas(): DrawingCanvas | null;
+
+    /**
+    * Posts the new contents of the Canvas to the surface created by XComponent and releases the Canvas.
+    *
+    * @param { DrawingCanvas } canvas - The canvas previously obtained from lockCanvas.
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @since 23 static
+    */
+    unlockCanvasAndPost(canvas: DrawingCanvas):void;
+
+    /**
+    * Set the config of the surface created by the XComponent.
+    *
+    * @param { SurfaceConfig } config - surface config
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @since 23 static
+    */
+    setXComponentSurfaceConfig(config: SurfaceConfig):void;
 }
 
 /**

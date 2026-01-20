@@ -21,14 +21,14 @@
 /**
  * Available is an Annotation and it supports class function variable type interface namespace etc
  * Apply this annotation at the source code location, then call the corresponding source code (e.g., class). 
- * During compilation, compatibility checks will be triggered. If minApiVersion exceeds the compatibleSDKVersion specified in build-profile.json5,
- * a compatibility warning will be generated.
+ * During compilation, compatibility checks will be triggered. If minApiVersion exceeds the compatibleSDKVersion
+ * specified in build-profile.json5, a compatibility warning will be generated.
  * @syscap SystemCapability.Base
  * @stagemodelonly
  * @crossplatform
  * @form
  * @atomicservice
- * @since 22
+ * @since 22 dynamic
  */
 export @interface Available {
   /**
@@ -39,7 +39,7 @@ export @interface Available {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 22
+   * @since 22 dynamic
    */
   minApiVersion: string = '';
 }
@@ -53,7 +53,7 @@ export @interface Available {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 23
+ * @since 23 dynamic
  */
 export const enum SuppressWarningsType {
   /**
@@ -64,7 +64,7 @@ export const enum SuppressWarningsType {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 23
+   * @since 23 dynamic
    */
   COMPATIBILITY = 'compatibility';
 }
@@ -79,7 +79,7 @@ export const enum SuppressWarningsType {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 23
+ * @since 23 dynamic
  */
 export @interface SuppressWarnings {
   /**
@@ -91,7 +91,7 @@ export @interface SuppressWarnings {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 23
+   * @since 23 dynamic
    */
   rules: Array<SuppressWarningsType>;
 }
