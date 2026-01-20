@@ -686,7 +686,7 @@ declare namespace appControl {
    * @systemapi
    * @since 23 dynamic&static
    */
-    function getAllDisposedRulesByCaller(bundleName: string, appIndex: int): Array<DisposedRuleConfiguration>;
+    function getAllDisposedRulesByCaller(bundleName: string, appIndex?: int): Array<DisposedRuleConfiguration>;
 }
 
 export default appControl;
