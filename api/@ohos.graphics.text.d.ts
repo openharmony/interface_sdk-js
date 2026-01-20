@@ -1365,6 +1365,7 @@ declare namespace text {
    * @syscap SystemCapability.Graphics.Drawing
    * @atomicservice
    * @since 22 dynamic
+   * @since 23 static
    */
   enum LineHeightStyle {
     /**
@@ -1377,6 +1378,7 @@ declare namespace text {
      * @syscap SystemCapability.Graphics.Drawing
      * @atomicservice
      * @since 22 dynamic
+     * @since 23 static
      */
     FONT_SIZE = 0,
 
@@ -1390,6 +1392,7 @@ declare namespace text {
      * @syscap SystemCapability.Graphics.Drawing
      * @atomicservice
      * @since 22 dynamic
+     * @since 23 static
      */
     FONT_HEIGHT = 1
   }
@@ -1724,6 +1727,7 @@ declare namespace text {
      * @syscap SystemCapability.Graphics.Drawing
      * @atomicservice
      * @since 22 dynamic
+     * @since 23 static
      */
     lineHeightMaximum?: double;
 
@@ -1739,6 +1743,7 @@ declare namespace text {
      * @syscap SystemCapability.Graphics.Drawing
      * @atomicservice
      * @since 22 dynamic
+     * @since 23 static
      */
     lineHeightMinimum?: double;
 
@@ -1754,6 +1759,7 @@ declare namespace text {
      * @syscap SystemCapability.Graphics.Drawing
      * @atomicservice
      * @since 22 dynamic
+     * @since 23 static
      */
     lineHeightStyle?: LineHeightStyle;
 
@@ -2637,6 +2643,7 @@ declare namespace text {
      * @syscap SystemCapability.Graphics.Drawing
      * @atomicservice
      * @since 22 dynamic
+     * @since 23 static
      */
     lineSpacing?: double;
 
