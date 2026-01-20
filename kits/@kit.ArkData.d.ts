@@ -47,10 +47,15 @@ export {
 };
 
 /*** if arkts static */
+import cloudData from '@ohos.data.cloudData';
+import cloudExtension from '@ohos.data.cloudExtension';
+import commonType from '@ohos.data.commonType';
+import distributedDataObject from '@ohos.data.distributedDataObject';
 import unifiedDataChannel from '@ohos.data.unifiedDataChannel';
 import uniformTypeDescriptor from '@ohos.data.uniformTypeDescriptor';
 import uniformDataStruct from '@ohos.data.uniformDataStruct';
 export {
-  unifiedDataChannel, uniformTypeDescriptor, uniformDataStruct
+  cloudData, cloudExtension, commonType, distributedDataObject, unifiedDataChannel, uniformTypeDescriptor,
+  uniformDataStruct
 };
 /*** endif */
