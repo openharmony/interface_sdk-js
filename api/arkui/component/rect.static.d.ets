@@ -26,7 +26,8 @@ import { ComponentBuilder, CustomBuilder } from './builder';
  *
  * @typedef { [Length, Length] } RadiusItem
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 23 static
+ * @stagemodelonly
+ * @since 23 staticonly
  */
 export type RadiusItem = [
     Length,

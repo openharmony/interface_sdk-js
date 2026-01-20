@@ -25,7 +25,8 @@ import { ComponentBuilder, CustomBuilder } from './builder';
  *
  * @typedef { [Length, Length] } ShapePoint
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 23 static
+ * @stagemodelonly
+ * @since 23 staticonly
  */
 export type ShapePoint = [
     Length,
