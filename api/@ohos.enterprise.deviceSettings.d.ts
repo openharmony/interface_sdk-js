@@ -148,7 +148,7 @@ declare namespace deviceSettings {
    * @enum { number }
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
-   * @since 23
+   * @since 24
    */
   enum SettingsItem {
       /**
@@ -156,7 +156,7 @@ declare namespace deviceSettings {
        *
        * @syscap SystemCapability.Customization.EnterpriseDeviceManager
        * @stagemodelonly
-       * @since 23
+       * @since 24
        */
       DEVICE_NAME = 0
   }
@@ -527,19 +527,21 @@ declare namespace deviceSettings {
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SETTINGS
    * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
+   *     The admin must have the corresponding permission.
    * @param { SettingsItem } item - item indicates the settings item that need to be set.
    * @param { number } accountId - accountId indicates the account ID to be queried.
-   * <br>Value range:[0, ∞)
+   *     <br>Value range:[0, ∞)
    * @param { string } value - device settings policy.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9200012 - Parameter verification failed.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *     Failed to call the API due to limited device capabilities.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
-   * @since 23
+   * @since 24
    */
   function setValueForAccount(admin: Want, item: SettingsItem, accountId: number, value: string): void;
   /**
@@ -547,18 +549,21 @@ declare namespace deviceSettings {
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SETTINGS
    * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
+   *     The admin must have the corresponding permission.
    * @param { SettingsItem } item - item indicates the device properties that need to be get.
    * @param { number } accountId - accountId indicates the account ID to be queried.
-   * <br>Value range:[0, ∞)
+   *     <br>Value range:[0, ∞)
    * @returns { string } device settings policy.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *     Failed to call the API due to limited device capabilities.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
-   * @since 23
+   * @since 24
    */
   function getValueForAccount(admin: Want, item: SettingsItem, accountId: number): string;
 }
