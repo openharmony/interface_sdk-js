@@ -901,8 +901,9 @@ declare const Provider: (aliasName?: string) => PropertyDecorator;
 
 /**
  * Define Env Decorator type
+ *
  * @typedef { function } EnvDecorator
- * @param { string } value - key value input by the user
+ * @param { SystemProperties } value - key value input by the user
  * @returns { PropertyDecorator } Env decorator
  * @throws { BusinessError } 140000 - Invalid key for @Env
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -973,7 +974,7 @@ declare enum SystemProperties {
 };
 
 /**
- * Defines the Consumption attribute decorator.
+ * Defines the consumption attribute decorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -998,7 +999,7 @@ declare enum SystemProperties {
  * @since 10
  */
 /**
- * Defining Consumption attribute decorator.
+ * Defining Consume PropertyDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel

@@ -27,5 +27,6 @@ import { AttributeModifier, CommonAttribute } from '@ohos.arkui.component';
  * @implements { CommonAttribute, AttributeModifier<CommonAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 23 static
+ * @noninterop
  */
 export declare class CommonModifier implements CommonAttribute, AttributeModifier<CommonAttribute> {}
