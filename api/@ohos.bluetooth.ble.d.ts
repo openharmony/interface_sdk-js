@@ -7619,7 +7619,7 @@ declare namespace ble {
   }
 
   /**
-   * Phy type associated with the connection.
+   * Phy type for advertising or connection.
    *
    * @enum { int }
    * @syscap SystemCapability.Communication.Bluetooth.Core
@@ -7628,7 +7628,7 @@ declare namespace ble {
    */
   enum BlePhy {
     /**
-     * Use 1M phy associated with the connection.
+     * Use 1M phy for advertising or connection.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @stagemodelonly
@@ -7636,7 +7636,7 @@ declare namespace ble {
      */
     BLE_PHY_1M = 1,
     /**
-     * Use 2M phy associated with the connection.
+     * Use 2M phy for advertising or connection.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @stagemodelonly
@@ -7644,7 +7644,7 @@ declare namespace ble {
      */
     BLE_PHY_2M = 2,
     /**
-     * Use coded phy associated with the connection.
+     * Use coded phy for advertising or connection.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @stagemodelonly
@@ -7653,7 +7653,7 @@ declare namespace ble {
     BLE_PHY_CODED = 3
   }
   /**
-   * Coded phy mode associated with the connection.
+   * Coded phy mode for advertising or connection.
    *
    * @enum { int }
    * @syscap SystemCapability.Communication.Bluetooth.Core
@@ -7662,7 +7662,7 @@ declare namespace ble {
    */
   enum CodedPhyMode {
     /**
-     * Use coded S2 phy associated with the connection.
+     * Use coded S2 phy for advertising or connection.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @stagemodelonly
@@ -7670,7 +7670,7 @@ declare namespace ble {
      */
     BLE_PHY_CODED_S2 = 1,
     /**
-     * Use coded S8 phy associated with the connection.
+     * Use coded S8 phy for advertising or connection.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @stagemodelonly
