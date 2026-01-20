@@ -851,7 +851,7 @@ declare namespace pointer {
    * @param { PointerStyle } pointerStyle - Pointer style.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-  * @throws { BusinessError } 202 - Permission denied, non-system app called system api. [staticonly]
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api. [staticonly]
    * <br> When the windowId value is -1, the system permission is required to set the global style. [staticonly]
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @since 10 dynamic
