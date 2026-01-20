@@ -33527,7 +33527,7 @@ declare interface EditModeOptions {
    * Returning true means using the number of selected items within the display range.
    * Returning a number to include selected items outside the display range.
    *
-   * @type { ?OnGetPreviewBadgeCallback } OnGetPreviewBadgeCallback
+   * @type { ?OnGetPreviewBadgeCallback } onGetPreviewBadge
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
