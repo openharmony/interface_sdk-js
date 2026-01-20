@@ -7127,6 +7127,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @systemapi
      * @since 13 dynamic
+     * @since 23 static
      * @example
      * import { BusinessError } from '@kit.BasicServicesKit';
      *
@@ -7178,6 +7179,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @systemapi
      * @since 19 dynamic
+     * @since 23 static
      * @example
      * import { BusinessError } from '@kit.BasicServicesKit';
      *
