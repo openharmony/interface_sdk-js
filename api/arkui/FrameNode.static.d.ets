@@ -884,9 +884,9 @@ export declare class FrameNode {
    *     and it is recommended to set undefined if the property already has a value.
    * @param { double[] } endValue - end value of animation.
    * @param { AnimateParam } param - param of animation.
-   * @returns { boolean } whether the createAnimation operation is successful. For example, 
+   * @returns { boolean } - whether the createAnimation operation is successful. For example,
    *     if the array lengths of startValue and endValue do not match the data lengths required by type,
-   *     creating animation fails. 
+   *     creating animation fails.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -894,16 +894,17 @@ export declare class FrameNode {
   createAnimation(property: AnimationPropertyType, startValue: double[] | undefined, endValue: double[], param: AnimateParam): boolean;
 
   /**
-   * request to cancel all animations on specified properties. It blocks synchronously to wait for the cancellation result.
-   * If the cancellation is successful, the corresponding properties on the node are restored to the cancelled value.
+   * Request to cancel all animations on specified properties. It blocks synchronously to wait for the cancellation
+   * result. If the cancellation is successful, the corresponding properties on the node are restored to the cancelled
+   * value.
    *
    * @param { AnimationPropertyType[] } properties - animation property types to cancel.
-   * @returns { boolean } whether the cancel operation is successful. For example, 
-   * if ipc fails, canceling the animation fails.
+   * @returns { boolean } - whether the cancel operation is successful. For example,
+   *     if ipc fails, canceling the animation fails.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static 
+   * @since 23 static
    */
-  cancelAnimations(properties: AnimationPropertyType[]): boolean;
+   cancelAnimations(properties: AnimationPropertyType[]): boolean;
 
   /**
    * get property value from node.
