@@ -886,7 +886,7 @@ export declare class FrameNode {
    * @param { AnimateParam } param - param of animation.
    * @returns { boolean } whether the createAnimation operation is successful. For example, 
    *     if the array lengths of startValue and endValue do not match the data lengths required by type,
-   *     creating animation fails.
+   *     creating animation fails. 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -901,7 +901,7 @@ export declare class FrameNode {
    * @returns { boolean } whether the cancel operation is successful. For example, 
    * if ipc fails, canceling the animation fails.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 23 static 
    */
   cancelAnimations(properties: AnimationPropertyType[]): boolean;
 
