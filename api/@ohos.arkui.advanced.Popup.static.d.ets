@@ -137,8 +137,8 @@ export interface PopupIconOptions {
   /**
    * Set the icon width.
    * @type { ?Dimension }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @default 32.0_vp
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -247,7 +247,7 @@ export interface PopupOptions {
   ];
 
   /**
-   * The direction of Popup.
+   * Indicates the attribute of the current popup direction.
    *
    * @type { ?Direction }
    * @default Direction.Auto

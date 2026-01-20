@@ -75,6 +75,18 @@ export declare struct PhotoPickerComponent {
   onItemClicked?: (itemInfo: ItemInfo, clickType: ClickType) => boolean;
 
   /**
+   * Callback when click item. Includes camera items and thumbnail items. Returns itemInfo in the callback.
+   * Must be used in conjunction with the addData method.
+   *
+   * @type { ?ItemClickedNotifyCallback }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  onItemClickedNotify?: ItemClickedNotifyCallback;
+
+  /**
    * Callback when enter photo browser, will return photoBrowserInfo
    *
    * @type { ?function }
@@ -118,6 +130,17 @@ export declare struct PhotoPickerComponent {
    * @since 23 static
    */
   onPhotoBrowserChanged?: (browserItemInfo: BaseItemInfo) => boolean;
+
+  /**
+   * Callback when photo browser change start (upon user swipe release), will return targetPhotoInfo
+   *
+   * @type { ?PhotoBrowserChangeStartCallback }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  onPhotoBrowserChangeStart?: PhotoBrowserChangeStartCallback;
 
   /**
    * Callback when selected items are deleted
@@ -217,6 +240,28 @@ export declare struct PhotoPickerComponent {
    * @since 23 dynamic&static
    */
   onScrollStopAtEnd?: ScrollStopAtEndCallback;
+
+  /**
+   * Callback when the grid's level is switched via pinch gesture.
+   *
+   * @type { ?PinchGridSwitchedCallback }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  onPinchGridSwitched?: PinchGridSwitchedCallback;
+
+  /**
+   * Callback when an error occurs in the PhotoPickerComponent.
+   *
+   * @type { ?ErrorCallback }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  onError?: ErrorCallback;
 }
 
 
@@ -401,6 +446,26 @@ export declare class PickerController {
    * @since 23 static
    */
   updatePickerOptions(updateConfig: UpdatablePickerConfigs): Promise<void>;
+
+  /**
+   * Sets the moving photo effect in the photo browser view.
+   * This configuration only takes effect for moving photo when viewed in the photo browser.
+   * Note: Only MOVING_PHOTO_ENABLE and MOVING_PHOTO_DISABLE are supported as values.
+   *
+   * @param { photoAccessHelper.MovingPhotoBadgeStateType } movingPhotoState - State of moving photo.
+   * @returns { Promise<void> } Promise<void>
+   * @throws { BusinessError } 23800151 - Scene parameters validate failed, possible causes:
+   *     1. An invalid enumeration value was passed. Only MOVING_PHOTO_ENABLE and
+   *     MOVING_PHOTO_DISABLE are supported for configuration;
+   * @throws { BusinessError } 23800202 - Invalid call context. Possible causes:
+   *     1. The API is called outside the photo browsing scenario.
+   *     2. The API is called when isMovingPhotoBadgeShown is already set to true.
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  setMovingPhotoState(movingPhotoState: photoAccessHelper.MovingPhotoBadgeStateType): Promise<void>;
 }
 
 /**
@@ -668,6 +733,18 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
    * @since 23 dynamic&static
    */
   edgeEffect?: EdgeEffect;
+
+  /**
+   * Only display album contents corresponding to the specified applications.
+   * Use the bundle name to identify the application.
+   *
+   * @type { ?Array<string> }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  appAlbumFilters?: Array<string>;
 }
 
 /**
@@ -1158,6 +1235,29 @@ export declare class UpdatablePickerConfigs {
    * @since 23 dynamic&static
    */
   edgeEffect?: EdgeEffect;
+
+  /**
+   * Moving photo playback mode. Supports up to two modes.
+   *
+   * @type { ?Array<photoAccessHelper.AutoPlayScene> }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  autoPlayScenes?: Array<photoAccessHelper.AutoPlayScene>;
+
+  /**
+   * Only display album contents corresponding to the specified applications.
+   * Use the bundle name to identify the application.
+   *
+   * @type { ?Array<string> }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  appAlbumFilters?: Array<string>;
 }
 
 /**
@@ -1190,6 +1290,81 @@ export declare class BadgeConfig {
    * @since 23 static
    */
   uris?: Array<string>;
+}
+
+/**
+ * PickerError
+ *
+ * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+ * @stagemodelonly
+ * @atomicservice
+ * @since 23 dynamic&static
+ */
+export declare class PickerError {
+  /**
+    * Name of function.
+    *
+    * @type { string }
+    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+    * @stagemodelonly
+    * @atomicservice
+    * @since 23 dynamic&static
+    */
+  functionName: string;
+
+  /**
+    * Code of the error.
+    *
+    * @type { int }
+    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+    * @stagemodelonly
+    * @atomicservice
+    * @since 23 dynamic&static
+    */
+  errorCode: int;
+
+  /**
+    * Message of the error.
+    *
+    * @type { string }
+    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+    * @stagemodelonly
+    * @atomicservice
+    * @since 23 dynamic&static
+    */
+  message: string;
+}
+
+/**
+ * ClickResult
+ *
+ * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+ * @stagemodelonly
+ * @atomicservice
+ * @since 23 dynamic&static
+ */
+export declare class ClickResult {
+  /**
+   * Uri of the media file.
+   *
+   * @type { string }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  uri: string;
+
+  /**
+   * Indicates whether the media file is selected.
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  isSelected: boolean;
 }
 
 /**
@@ -1240,7 +1415,17 @@ export declare enum DataType {
    * @since 21 dynamic
    * @since 23 static
    */
-  SET_BADGE_CONFIGS = 4
+  SET_BADGE_CONFIGS = 4,
+
+  /**
+   * SET_ITEM_CLICK_RESULT. Set click result to picker component.
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  SET_ITEM_CLICK_RESULT = 5
 }
 
 /**
@@ -1746,3 +1931,52 @@ export type ScrollStopAtStartCallback = () => void;
  * @since 23 dynamic&static
  */
 export type ScrollStopAtEndCallback = () => void;
+
+/**
+ * The callback of onItemClickedNotify event
+ *
+ * @typedef { function } ItemClickedNotifyCallback
+ * @param { ItemInfo } itemInfo
+ * @param { ClickType } clickType
+ * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+ * @stagemodelonly
+ * @atomicservice
+ * @since 23 dynamic&static
+ */
+export type ItemClickedNotifyCallback = (itemInfo: ItemInfo, clickType: ClickType) => void;
+
+/**
+ * The callback of onPinchGridSwitched event
+ *
+ * @typedef { function } PinchGridSwitchedCallback
+ * @param { photoAccessHelper.GridLevel } gridLevel
+ * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+ * @stagemodelonly
+ * @atomicservice
+ * @since 23 dynamic&static
+ */
+export type PinchGridSwitchedCallback = (gridLevel: photoAccessHelper.GridLevel) => void;
+  
+/**
+ * The callback of onPhotoBrowserChangeStart event
+ *
+ * @typedef { function } PhotoBrowserChangeStartCallback
+ * @param { BaseItemInfo } targetPhotoInfo
+ * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+ * @stagemodelonly
+ * @atomicservice
+ * @since 23 dynamic&static
+ */
+export type PhotoBrowserChangeStartCallback = (targetPhotoInfo: BaseItemInfo) => void;
+  
+/**
+ * The callback of onError event
+ *
+ * @typedef { function } PhotoBrowserChangeStartCallback
+ * @param { PickerError } pickerError
+ * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+ * @stagemodelonly
+ * @atomicservice
+ * @since 23 dynamic&static
+ */
+export type ErrorCallback = (pickerError: PickerError) => void;

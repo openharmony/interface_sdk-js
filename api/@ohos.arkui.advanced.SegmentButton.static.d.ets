@@ -1277,18 +1277,6 @@ declare struct SegmentButton {
    * @noninterop
    */
   onItemClicked?: Callback<int>;
-
-  /**
-   * Enable animation when selectedIndexes change.
-   *
-   * @type { boolean }
-   * @default false
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 23 static
-   */
-  @PropRef
-  enableStateAnimation: boolean;
   
   /**
    * The method to build component.

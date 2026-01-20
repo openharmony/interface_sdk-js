@@ -241,4 +241,24 @@ export default class EnterpriseAdminExtensionAbility {
    * @since 23
    */
   onKeyEvent(keyEvent: systemManager.KeyEvent): void;
+
+  /**
+   * Called back when startup guide is completed.
+   *
+   * @param { common.StartupScene } scene - scene indicates the scene of startup guide completed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 24
+   */
+  onStartupGuideCompleted(scene: common.StartupScene): void;
+
+  /**
+   * Called back when the device boot is completed.
+   *
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 24
+   */
+  onDeviceBootCompleted(): void;
+
 }

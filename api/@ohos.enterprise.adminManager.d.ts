@@ -169,7 +169,25 @@ declare namespace adminManager {
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @since 18
      */
-    MANAGED_EVENT_ACCOUNT_REMOVED = 7
+    MANAGED_EVENT_ACCOUNT_REMOVED = 7,
+
+    /**
+     * Event indicating that startup guide is completed.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 24
+     */
+    MANAGED_EVENT_STARTUP_GUIDE_COMPLETED = 8,
+
+    /**
+     * Event indicating that device boot is completed.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 24
+     */
+    MANAGED_EVENT_BOOT_COMPLETED = 9
   }
 
   /**
@@ -945,6 +963,18 @@ declare namespace adminManager {
    * @since 20
    */
   function setDelegatedPolicies(bundleName: string, accountId: number, policies: Array<string>): void;
+
+  /**
+   * Gets enterprise message tips.
+   *
+   * @returns { Promise<string> } returns the enterprise message tips.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function getEnterpriseManagedTips(): Promise<string>;
 }
 
 export default adminManager;

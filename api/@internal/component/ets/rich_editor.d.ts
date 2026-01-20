@@ -1998,7 +1998,7 @@ declare interface RichEditorGesture {
    * @crossplatform
    * @since 11
    */
-   /**
+  /**
    * Trigger a click event when a click is clicked.
    *
    * @type { ?Callback<ClickEvent> }
@@ -2141,7 +2141,6 @@ declare interface RichEditorTextSpanOptions {
    */
   urlStyle?: RichEditorUrlStyle;
 }
-
 /**
  * Defines the custom keyboard options of RichEditor.
  *
@@ -2992,7 +2991,7 @@ declare interface SelectionMenuOptions {
    */
   /**
    * Callback function when the selection menu disappears.
-   * 
+   *
    * @type { ?Callback<void> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -4308,18 +4307,6 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
   selectedDragPreviewStyle(value: SelectedDragPreviewStyle | undefined): RichEditorAttribute;
 
   /**
-   * Whether to compress punctuation at the beginning of line.
-   *
-   * @param { Optional<boolean> } enabled - Whether to enable the feature, the default value is false.
-   * @returns { RichEditorAttribute } - returns the instance of the RichEditorAttribute.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
-   */
-  compressLeadingPunctuation(enabled: Optional<boolean>): RichEditorAttribute;
-
-  /**
    * Determines whether the layout adds extra padding at the top and bottom to make space for characters.
    *
    * @param { Optional<boolean> } include - Whether enable the feature, the default value is false.
@@ -4342,8 +4329,20 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @since 23 dynamic
    */
   fallbackLineSpacing(enabled: Optional<boolean>): RichEditorAttribute;
-}
 
+  /**
+   * Whether to compress punctuation at the beginning of line.
+   *
+   * @param { Optional<boolean> } enabled - Whether to enable the feature, the default value is false.
+   * @returns { RichEditorAttribute } - returns the instance of the RichEditorAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  compressLeadingPunctuation(enabled: Optional<boolean>): RichEditorAttribute;
+}
+ 
 /**
  * the callback of cut event.
  * @interface CutEvent
@@ -4364,7 +4363,7 @@ declare interface CutEvent {
    */
   preventDefault?: Callback<void>;
 }
-
+ 
 /**
  * the callback of copy event.
  * @interface CopyEvent

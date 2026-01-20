@@ -51,24 +51,7 @@ declare namespace systemDateTime {
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use
    * @since 9 dynamic
-   */
-  /**
-   * Sets the system time.
-   *
-   * @permission ohos.permission.SET_TIME
-   * @param { long } time - Indicates the target timestamp(in milliseconds)
-   * @param { AsyncCallback<void> } callback - The callback of setTime
-   * @throws { BusinessError } 201 - Permission denied
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 204 - Access denied due to user access control policy. Possible causes:
-   *     1. The operation is restricted by the OS-account constraint.
-   *     2. The required privilege for the operation has not been granted.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1. Mandatory parameters are left unspecified;
-   *     2. Incorrect parameter types;
-   * @syscap SystemCapability.MiscServices.Time
-   * @systemapi Hide this for inner system use
-   * @since 23 dynamic&static
+   * @since 23 static
    */
   function setTime(time: long, callback: AsyncCallback<void>): void;
   /**
@@ -85,24 +68,7 @@ declare namespace systemDateTime {
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use
    * @since 9 dynamic
-   */
-  /**
-   * Sets the system time.
-   *
-   * @permission ohos.permission.SET_TIME
-   * @param { long } time - Indicates the target timestamp(in milliseconds)
-   * @returns { Promise<void> } The promise returned by the function
-   * @throws { BusinessError } 201 - Permission denied
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 204 - Access denied due to user access control policy. Possible causes:
-   *     1. The operation is restricted by the OS-account constraint.
-   *     2. The required privilege for the operation has not been granted.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1. Mandatory parameters are left unspecified;
-   *     2. Incorrect parameter types;
-   * @syscap SystemCapability.MiscServices.Time
-   * @systemapi Hide this for inner system use
-   * @since 23 dynamic&static
+   * @since 23 static
    */
   function setTime(time: long): Promise<void>;
 
@@ -401,24 +367,7 @@ declare namespace systemDateTime {
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use
    * @since 9 dynamic
-   */
-  /**
-   * Sets the system time zone.
-   *
-   * @permission ohos.permission.SET_TIME_ZONE
-   * @param { string } timezone - The system time zone
-   * @param { AsyncCallback<void> } callback - The callback of setTimezone
-   * @throws { BusinessError } 201 - Permission denied
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 204 - Access denied due to user access control policy. Possible causes:
-   *     1. The operation is restricted by the OS-account constraint.
-   *     2. The required privilege for the operation has not been granted.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1. Mandatory parameters are left unspecified;
-   *     2. Incorrect parameter types;
-   * @syscap SystemCapability.MiscServices.Time
-   * @systemapi Hide this for inner system use
-   * @since 23 dynamic&static
+   * @since 23 static
    */
   function setTimezone(timezone: string, callback: AsyncCallback<void>): void;
 
@@ -436,24 +385,7 @@ declare namespace systemDateTime {
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use
    * @since 9 dynamic
-   */
-  /**
-   * Sets the system time zone.
-   *
-   * @permission ohos.permission.SET_TIME_ZONE
-   * @param { string } timezone -  The system time zone
-   * @returns { Promise<void> } The promise returned by the function
-   * @throws { BusinessError } 201 - Permission denied
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 204 - Access denied due to user access control policy. Possible causes:
-   *     1. The operation is restricted by the OS-account constraint.
-   *     2. The required privilege for the operation has not been granted.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types;
-   * @syscap SystemCapability.MiscServices.Time
-   * @systemapi Hide this for inner system use
-   * @since 23 dynamic&static
+   * @since 23 static
    */
   function setTimezone(timezone: string): Promise<void>;
 
@@ -580,25 +512,7 @@ declare namespace systemDateTime {
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi
    * @since 21 dynamic
-   */
-  /**
-   * Sets the status of automatic system time update switch.
-   *
-   * @permission ohos.permission.SET_TIME
-   * @param { boolean } status - True indicates the automatic system time update is enabled and false indicates the
-   *     automatic time update is disabled.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 201 - Permission denied
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 204 - Access denied due to user access control policy. Possible causes:
-   *     1. The operation is restricted by the OS-account constraint.
-   *     2. The required privilege for the operation has not been granted.
-   * @throws { BusinessError } 13000001 - Network connection error or OS error. Possible causes:
-   *     1. System memory is insufficient;
-   *     2. Calls the underlying system interface failed.
-   * @syscap SystemCapability.MiscServices.Time
-   * @systemapi
-   * @since 23 dynamic&static
+   * @since 23 static
    */
   function setAutoTimeStatus(status: boolean): Promise<void>;
 }

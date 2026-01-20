@@ -272,6 +272,34 @@ declare namespace audio {
   function createAudioCapturer(options: AudioCapturerOptions): Promise<AudioCapturer | null>;
 
   /**
+   * Obtains a special {@link #AudioCapturer} instance. This method uses a promise to return the capturer instance.
+   * This capture can be used to record both Mic-In audio data and echo reference signal, for application to
+   * process algorithm.
+   * Mic-In audio data and echo reference signal will be put in one buffer or multiple buffers according to
+   * configuration set by application.
+   * Capturer is also not allowed to be created when application is in background.
+   * @permission ohos.permission.MICROPHONE
+   * @param { AudioCapturerMicInConfig } config - Capturer configuration, see {@link #AudioCapturerMicInConfig}
+   *     for details.
+   * @returns { Promise<AudioCapturer | null> } Promise used to return the audio capturer instance,
+   *     or null if any error occurs.
+   * @throws { BusinessError } 201 - Permission denied, including background recording.
+   * @throws { BusinessError } 202 - Not system App.
+   * @throws { BusinessError } 6800101 - Parameter verification failed.
+   * @throws { BusinessError } 6800104 - Capturer creation is not supported, may caused by following problems:
+   *     <br> 1. Source type is unsupported for this capturer, only {@link #SOURCE_TYPE_UNPROCESSED_VOICE_ASSISTANT} is
+   *     supported currently.
+   *     <br> 2. Echo reference signal's config is unsupported, echo reference's sampling rate and format must be the
+   *     same as MicIn audio data currently.
+   * @throws { BusinessError } 6800301 - Audio system internal error, such as system process crash.
+   * @syscap SystemCapability.Multimedia.Audio.Capturer
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function createMicInAudioCapturer(config: AudioCapturerMicInConfig): Promise<AudioCapturer | null>;
+
+  /**
    * Obtains an {@link AudioRenderer} instance.
    * This method uses an asynchronous callback to return the renderer instance.
    * @param { AudioRendererOptions } options - Renderer configurations.
@@ -1931,14 +1959,7 @@ declare namespace audio {
      * @since 12 dynamic
      * @since 23 static
      */
-    ENCODING_TYPE_RAW = 0,
-    /**
-     * Audio vivid encoding.
-     * @syscap SystemCapability.Multimedia.Audio.Core
-     * @systemapi
-     * @since 23 dynamic&static
-     */
-    ENCODING_TYPE_AUDIOVIVID = 1
+    ENCODING_TYPE_RAW = 0
   }
 
   /**
@@ -2264,20 +2285,6 @@ declare namespace audio {
      * @since 23 static
      */
     STREAM_USAGE_VOICE_CALL_ASSISTANT = 21,
-    /**
-     * Announcement usage.
-     * @syscap SystemCapability.Multimedia.Audio.Core
-     * @systemapi
-     * @since 23 dynamic&static
-     */
-    STREAM_USAGE_ANNOUNCEMENT = 22,
-    /**
-     * Emergency usage.
-     * @syscap SystemCapability.Multimedia.Audio.Core
-     * @systemapi
-     * @since 23 dynamic&static
-     */
-    STREAM_USAGE_EMERGENCY = 23,
   }
 
   /**
@@ -6086,7 +6093,7 @@ declare namespace audio {
      * @param { boolean } enable - Sets true to enable mute suggestion while registering session state
      *     change event callback.
      * @throws { BusinessError } 6800103 - Function is called without setting {@link #AudioSessionScene} or
-     *     called before audio session activation.
+     *     called after audio session activation.
      * @throws { BusinessError } 6800301 - Audio client call audio service error, system internal error.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @stagemodelonly
@@ -7823,8 +7830,7 @@ declare namespace audio {
   }
 
   /**
-   * This interface is used to notify the listener of any device Spatialization or Head Tracking enable
-   * or Adaptive Spatial Rendering state change.
+   * This interface is used to notify the listener of any device Spatialization or Head Tracking enable state change.
    * @interface AudioSpatialEnabledStateForDevice
    * @syscap SystemCapability.Multimedia.Audio.Spatialization
    * @systemapi
@@ -7842,7 +7848,7 @@ declare namespace audio {
      */
     deviceDescriptor: AudioDeviceDescriptor;
     /**
-     * Spatialization or Head Tracking or Adaptive Spatial Rendering enable state.
+     * Spatialization or Head Tracking enable state.
      * @type { boolean }
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
@@ -8349,63 +8355,6 @@ declare namespace audio {
      * @since 23 static
      */
     offSpatializationEnabledChangeForCurrentDevice(callback?: Callback<boolean>): void;
-
-    /**
-     * Sets the adaptive spatial rendering enabled or disabled by the specified device.
-     *     This method uses a promise to return the result.
-     *     When the adaptive spatial rendering is enabled, spatial audio rendering will not take effect on stereo audio.
-     * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
-     * @param { AudioDeviceDescriptor } deviceDescriptor - The target device
-     *     to be set adaptive spatial rendering enabled.
-     * @param { boolean } enabled - Adaptive spatial rendering enable state.
-     * @returns { Promise<void> } Promise used to return the result.
-     * @throws { BusinessError } 201 - Permission denied. Return by promise.
-     * @throws { BusinessError } 202 - Not system App.
-     * @throws { BusinessError } 801 - Capability not supported on the device.
-     * @throws { BusinessError } 6800101 - Parameter verification failed.
-     * @syscap SystemCapability.Multimedia.Audio.Spatialization
-     * @systemapi
-     * @since 23 dynamic&static
-     */
-    setAdaptiveSpatialRenderingEnabled(deviceDescriptor: AudioDeviceDescriptor, enabled: boolean): Promise<void>;
-
-    /**
-     * Checks whether the adaptive spatial rendering is enabled by the specified device.
-     * @param { AudioDeviceDescriptor } deviceDescriptor - The target device
-     *     to be check whether the adaptive spatial rendering is enabled.
-     * @returns { boolean } Whether the adaptive spatial rendering is enabled by the specified device.
-     * @throws { BusinessError } 202 - Not system App.
-     * @throws { BusinessError } 6800101 - Parameter verification failed.
-     * @syscap SystemCapability.Multimedia.Audio.Spatialization
-     * @systemapi
-     * @since 23 dynamic&static
-     */
-    isAdaptiveSpatialRenderingEnabled(deviceDescriptor: AudioDeviceDescriptor): boolean;
-
-    /**
-     * Subscribes to the adaptive spatial rendering enable state change events by the specified device.
-     *     When the adaptive spatial rendering enable state changes, registered clients will receive the callback.
-     * @param { Callback<AudioSpatialEnabledStateForDevice> } callback - Callback used to get the adaptive spatial
-     *     rendering enable state by the specified device.
-     * @throws { BusinessError } 202 - Not system App.
-     * @throws { BusinessError } 6800101 - Parameter verification failed.
-     * @syscap SystemCapability.Multimedia.Audio.Spatialization
-     * @systemapi
-     * @since 23 dynamic&static
-     */
-    onAdaptiveSpatialRenderingEnabledChangeForAnyDevice(callback: Callback<AudioSpatialEnabledStateForDevice>): void;
-
-    /**
-     * Unsubscribes to the adaptive spatial rendering enable state change events by the specified device.
-     * @param { Callback<AudioSpatialEnabledStateForDevice> } [callback] - Callback used to get the adaptive spatial
-     *     rendering enable state by the specified device.
-     * @throws { BusinessError } 202 - Not system App.
-     * @throws { BusinessError } 6800101 - Parameter verification failed.
-     * @syscap SystemCapability.Multimedia.Audio.Spatialization
-     * @systemapi
-     * @since 23 dynamic&static
-     */
-    offAdaptiveSpatialRenderingEnabledChangeForAnyDevice(callback?: Callback<AudioSpatialEnabledStateForDevice>): void;
   }
 
   /**
@@ -8726,16 +8675,6 @@ declare namespace audio {
      * @since 23 static
      */
     readonly deviceDescriptors: AudioDeviceDescriptors;
-
-    /**
-     * Stream information.
-     * @type { ?AudioStreamInfo }
-     * @readonly
-     * @syscap SystemCapability.Multimedia.Audio.Renderer
-     * @systemapi
-     * @since 23 dynamic&static
-     */
-    readonly streamInfo?: AudioStreamInfo;
   }
 
   /**
@@ -11524,7 +11463,17 @@ declare namespace audio {
      * @since 20 dynamic
      * @since 23 static
      */
-    SOURCE_TYPE_LIVE = 17
+    SOURCE_TYPE_LIVE = 17,
+
+    /**
+     * Unprocessed voice assistant source type.
+     *
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    SOURCE_TYPE_UNPROCESSED_VOICE_ASSISTANT = 19
   }
 
   /**
@@ -11648,6 +11597,50 @@ declare namespace audio {
      * @since 23 static
      */
     preferredInputDevice?: AudioDeviceDescriptor;
+  }
+
+  /**
+   * Describes audio capturer configuration that can capture
+   * microphone input (mic-in) audio data before any processing.
+   *
+   * @typedef AudioCapturerMicInConfig
+   * @syscap SystemCapability.Multimedia.Audio.Capturer
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  interface AudioCapturerMicInConfig {
+    /**
+     * Stream information that describes Mic-In audio stream.
+     *
+     * @type { AudioStreamInfo }
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    micInStreamInfo: AudioStreamInfo;
+    /**
+     * Stream information that describes echo reference signal.
+     * If not set this attribute, the capturer will only record Mic-In audio stream.
+     *
+     * @type { ?AudioStreamInfo }
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    ecStreamInfo?: AudioStreamInfo;
+    /**
+     * Capturer attribute information.
+     *
+     * @type { AudioCapturerInfo }
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    capturerInfo: AudioCapturerInfo;
   }
 
   /**

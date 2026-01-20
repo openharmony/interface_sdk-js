@@ -24,40 +24,44 @@ import type SelectionExtensionContext from './@ohos.selectionInput.SelectionExte
 
 /**
  * Defines the class of the ExtensionAbility for word selection.
+ * 
  * @syscap SystemCapability.SelectionInput.Selection
- * @systemapi
+ * @stagemodelonly
  * @since 20 dynamic
- * @since 23 static
+ * @since 24 static
  */
 
 export default class SelectionExtensionAbility {
   /**
    * Context of the ExtensionAbility.
+   * 
    * @type { SelectionExtensionContext }
    * @syscap SystemCapability.SelectionInput.Selection
-   * @systemapi
+   * @stagemodelonly
    * @since 20 dynamic
-   * @since 23 static
+   * @since 24 static
    */
   context: SelectionExtensionContext;
 
   /**
    * Callback invoked when the ExtensionAbility is initialized.
+   * 
    * @param { Want } want Want object used to initialize the ExtensionAbility.
    * @returns { rpc.RemoteObject } RPC remote connection object.
    * @syscap SystemCapability.SelectionInput.Selection
-   * @systemapi
+   * @stagemodelonly
    * @since 20 dynamic
-   * @since 23 static
+   * @since 24 static
    */
   onConnect(want: Want): rpc.RemoteObject;
 
   /**
    * Callback invoked when the ExtensionAbility is disconnected.
+   * 
    * @syscap SystemCapability.SelectionInput.Selection
-   * @systemapi
+   * @stagemodelonly
    * @since 20 dynamic
-   * @since 23 static
+   * @since 24 static
    */
   onDisconnect(): void;
 }

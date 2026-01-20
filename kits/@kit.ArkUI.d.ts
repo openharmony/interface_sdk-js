@@ -114,7 +114,7 @@ import {
 import uiObserver from '@ohos.arkui.observer';
 import performanceMonitor from '@ohos.arkui.performanceMonitor';
 import { AppStorageV2, PersistenceV2, Type, UIUtils, ConnectOptions, Binding, MutableBinding, CustomComponentLifecycle, CustomComponentLifecycleObserver, 
-CustomComponentLifecycleState, ComponentInit, ComponentAppear, ComponentBuilt, ComponentAttach, ComponentDetach, ComponentReuse, 
+CustomComponentLifecycleState, ComponentInit, ComponentAppear, ComponentBuilt, ComponentReuse, 
 ComponentRecycle, ComponentDisappear, CollectionType, ConnectOptionsCollections } from '@ohos.arkui.StateManagement';
 import { RectShape, CircleShape, EllipseShape, PathShape } from '@ohos.arkui.shape';
 import {
@@ -186,7 +186,7 @@ import {
   MarqueeModifier, ProgressModifier, QRCodeModifier, TextClockModifier, TextTimerModifier, LineModifier, PathModifier,
   PolygonModifier, PolylineModifier, RectModifier, ShapeModifier, AlphabetIndexerModifier,
   HyperlinkModifier, MenuModifier, MenuItemModifier, PanelModifier, SymbolGlyphModifier, AttributeUpdater,
-  ContainerSpanModifier, SymbolSpanModifier, ParticleModifier, StepperModifier, PickerModifier
+  ContainerSpanModifier, SymbolSpanModifier, ParticleModifier, StepperModifier, UIPickerComponentModifier
 } from '@ohos.arkui.modifier';
 import { IDataSourcePrefetching, IPrefetcher, BasicPrefetcher } from '@ohos.arkui.Prefetcher';
 import {
@@ -319,8 +319,8 @@ export {
   ExpandMode, Magnifier,
   HalfScreenLaunchComponent, ArcSliderPosition, ArcSwiper, ArcSwiperAttribute, ArcDotIndicator, ArcDirection, ArcSwiperController, TargetInfo, UIState,
   StepperModifier, TextMenuController, InputEventType, GestureListenerType, GestureActionPhase, GestureTriggerInfo, GestureObserverConfigs, 
-  GestureListenerCallback, NodeIdentity, NodeRenderState, NodeRenderStateChangeCallback, PickerModifier, SwiperContentInfo, SwiperItemInfo, 
+  GestureListenerCallback, NodeIdentity, NodeRenderState, NodeRenderStateChangeCallback, UIPickerComponentModifier, SwiperContentInfo, SwiperItemInfo, 
   ResolvedUIContext, imageGeneration, CustomComponentLifecycle, CustomComponentLifecycleObserver, CustomComponentLifecycleState, 
-  ComponentInit, ComponentAppear, ComponentBuilt, ComponentAttach, ComponentDetach, ComponentReuse, ComponentRecycle, ComponentDisappear,
+  ComponentInit, ComponentAppear, ComponentBuilt, ComponentReuse, ComponentRecycle, ComponentDisappear,
   CollectionType, ConnectOptionsCollections, uiMaterial
 };

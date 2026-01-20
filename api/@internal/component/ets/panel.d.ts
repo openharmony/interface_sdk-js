@@ -38,7 +38,7 @@
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamiconly
@@ -62,7 +62,7 @@ declare enum PanelMode {
    * Minimum state.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamiconly
@@ -87,7 +87,7 @@ declare enum PanelMode {
    * SHalf-screen-like status
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamiconly
@@ -112,7 +112,7 @@ declare enum PanelMode {
    * Class Full Screen Status.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamiconly
@@ -141,7 +141,7 @@ declare enum PanelMode {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamiconly
@@ -165,7 +165,7 @@ declare enum PanelType {
    * The switch between the minibar and full-screen display is provided.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamiconly
@@ -193,7 +193,7 @@ declare enum PanelType {
    * The switchover effect is provided in three sizes: large (full-screen), medium (half-screen), and small.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamiconly
@@ -221,7 +221,7 @@ declare enum PanelType {
    * The switchover effect is provided in three sizes: large (full-screen), medium (half-screen), and small.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamiconly
@@ -240,7 +240,7 @@ declare enum PanelType {
    * Custom content display area.
    * The switchover effect is provided in three sizes: large (full-screen), medium (half-screen), and small.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamiconly
@@ -262,7 +262,7 @@ declare enum PanelType {
  *
  * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamiconly
@@ -280,7 +280,7 @@ declare enum PanelHeight {
    * The Panel adapts to the content height.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamiconly
@@ -309,7 +309,7 @@ declare enum PanelHeight {
  *
  * @interface PanelInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamiconly
@@ -340,7 +340,7 @@ interface PanelInterface {
    * @param { boolean } show
    * @returns { PanelAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamiconly
@@ -367,7 +367,7 @@ interface PanelInterface {
  *
  * @extends CommonMethod<PanelAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamiconly
@@ -398,7 +398,7 @@ declare class PanelAttribute extends CommonMethod<PanelAttribute> {
    * @param { PanelMode } value
    * @returns { PanelAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamiconly
@@ -429,7 +429,7 @@ declare class PanelAttribute extends CommonMethod<PanelAttribute> {
    * @param { PanelType } value
    * @returns { PanelAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamiconly
@@ -460,7 +460,7 @@ declare class PanelAttribute extends CommonMethod<PanelAttribute> {
    * @param { boolean } value
    * @returns { PanelAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamiconly
@@ -481,7 +481,7 @@ declare class PanelAttribute extends CommonMethod<PanelAttribute> {
    * @param {Dimension | PanelHeight} value - value - Content height to set.
    * @returns { PanelAttribute } Returns the component attribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamiconly
@@ -512,7 +512,7 @@ declare class PanelAttribute extends CommonMethod<PanelAttribute> {
    * @param { number | string } value
    * @returns { PanelAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamiconly
@@ -543,7 +543,7 @@ declare class PanelAttribute extends CommonMethod<PanelAttribute> {
    * @param { number | string } value
    * @returns { PanelAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamiconly
@@ -574,7 +574,7 @@ declare class PanelAttribute extends CommonMethod<PanelAttribute> {
    * @param { number | string } value
    * @returns { PanelAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamiconly
@@ -605,7 +605,7 @@ declare class PanelAttribute extends CommonMethod<PanelAttribute> {
    * @param { boolean } value
    * @returns { PanelAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamiconly
@@ -636,7 +636,7 @@ declare class PanelAttribute extends CommonMethod<PanelAttribute> {
    * @param { ResourceColor } color
    * @returns { PanelAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamiconly
@@ -658,7 +658,7 @@ declare class PanelAttribute extends CommonMethod<PanelAttribute> {
    * @param { boolean } value - used to set whether to display the close icon.
    * @returns { PanelAttribute } return the component attribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
+   * @FaAndStageModel
    * @atomicservice
    * @since 11 dynamiconly
    * @deprecated since 12
@@ -688,7 +688,7 @@ declare class PanelAttribute extends CommonMethod<PanelAttribute> {
    * @param { function } event
    * @returns { PanelAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamiconly
@@ -706,7 +706,7 @@ declare class PanelAttribute extends CommonMethod<PanelAttribute> {
      * Width of content area.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
+     * @FaAndStageModel
      * @atomicservice
      * @since 11 dynamiconly
      * @deprecated since 12
@@ -723,7 +723,7 @@ declare class PanelAttribute extends CommonMethod<PanelAttribute> {
      * Height of content area.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
+     * @FaAndStageModel
      * @atomicservice
      * @since 11 dynamiconly
      * @deprecated since 12
@@ -740,7 +740,7 @@ declare class PanelAttribute extends CommonMethod<PanelAttribute> {
      * Initial state.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
+     * @FaAndStageModel
      * @atomicservice
      * @since 11 dynamiconly
      * @deprecated since 12
@@ -772,7 +772,7 @@ declare class PanelAttribute extends CommonMethod<PanelAttribute> {
    * @param { function } callback
    * @returns { PanelAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamiconly
@@ -798,7 +798,7 @@ declare class PanelAttribute extends CommonMethod<PanelAttribute> {
  * Defines Panel Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamiconly
@@ -825,7 +825,7 @@ declare const Panel: PanelInterface;
  * Defines Panel Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamiconly

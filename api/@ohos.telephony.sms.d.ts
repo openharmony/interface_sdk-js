@@ -467,6 +467,7 @@ declare namespace sms {
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
+   * @since 23 static
    */
   function updateSimMessage(options: UpdateSimMessageOptions, callback: AsyncCallback<void>): void;
 
@@ -487,6 +488,7 @@ declare namespace sms {
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
+   * @since 23 static
    */
   function updateSimMessage(options: UpdateSimMessageOptions): Promise<void>;
 
@@ -2645,25 +2647,28 @@ declare namespace sms {
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
+   * @since 23 static
    */
   export interface UpdateSimMessageOptions {
     /**
      * Indicates the card slot ID for the updating SIM message options.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
      * @since 7 dynamic
+     * @since 23 static
      */
     slotId: number;
 
     /**
      * Indicates the message index for the updating SIM message options.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
      * @since 7 dynamic
+     * @since 23 static
      */
     msgIndex: number;
 
@@ -2674,6 +2679,7 @@ declare namespace sms {
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
      * @since 7 dynamic
+     * @since 23 static
      */
     newStatus: SimMessageStatus;
 
@@ -2684,6 +2690,7 @@ declare namespace sms {
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
      * @since 7 dynamic
+     * @since 23 static
      */
     pdu: string;
 
@@ -2694,6 +2701,7 @@ declare namespace sms {
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
      * @since 7 dynamic
+     * @since 23 static
      */
     smsc: string;
   }

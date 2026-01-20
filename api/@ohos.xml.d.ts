@@ -1367,6 +1367,18 @@ declare namespace xml {
     attributeValueCallbackFunction?: (name: string, value: string) => boolean;
 
     /**
+     * Attribute value and tag callback function.
+     *
+     * @type { ?AttributeWithTagCb }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20 dynamic
+     * @since 24 static
+     */
+    attributeWithTagCallbackFunction?: AttributeWithTagCb;
+
+    /**
      * Token value callback function.
      *
      * @type { ?function }
@@ -1392,17 +1404,6 @@ declare namespace xml {
      * @since 23 static
      */
     tokenValueCallbackFunction?: (eventType: EventType, value: ParseInfo) => boolean;
-
-    /**
-     * Attribute value and tag callback function.
-     *
-     * @type { ?AttributeWithTagCb }
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 20 dynamic
-     */
-    attributeWithTagCallbackFunction?: AttributeWithTagCb;
   }
 
   /**
@@ -1429,7 +1430,7 @@ declare namespace xml {
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
-   * @since 23 static
+   * @since 24 static
    */
   type AttributeWithTagCb = (tagName: string, key: string, value: string) => boolean;
 

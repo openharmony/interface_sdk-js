@@ -1361,7 +1361,6 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
-   * @since 23 static
    */
   function on(type: 'callDetailsChange', callback: Callback<CallAttributeOptions>): void;
 
@@ -1383,7 +1382,6 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
-   * @since 23 static
    */
   function off(type: 'callDetailsChange', callback?: Callback<CallAttributeOptions>): void;
 
@@ -1404,7 +1402,6 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
-   * @since 23 static
    */
   function on(type: 'callEventChange', callback: Callback<CallEventOptions>): void;
 
@@ -1425,7 +1422,6 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
-   * @since 23 static
    */
   function off(type: 'callEventChange', callback?: Callback<CallEventOptions>): void;
 
@@ -1446,7 +1442,6 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
-   * @since 23 static
    */
   function on(type: 'callDisconnectedCause', callback: Callback<DisconnectedDetails>): void;
 
@@ -1468,7 +1463,6 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
-   * @since 23 static
    */
   function off(type: 'callDisconnectedCause', callback?: Callback<DisconnectedDetails>): void;
 
@@ -1489,7 +1483,6 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 23 static
    */
   function on(type: 'mmiCodeResult', callback: Callback<MmiCodeResults>): void;
 
@@ -1510,7 +1503,6 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 23 static
    */
   function off(type: 'mmiCodeResult', callback?: Callback<MmiCodeResults>): void;
 
@@ -1531,7 +1523,6 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
-   * @since 23 static
    */
   function on(type: 'audioDeviceChange', callback: Callback<AudioDeviceCallbackInfo>): void;
 
@@ -1552,7 +1543,6 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
-   * @since 23 static
    */
   function off(type: 'audioDeviceChange', callback?: Callback<AudioDeviceCallbackInfo>): void;
 
@@ -1573,7 +1563,6 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
-   * @since 23 static
    */
   function on(type: 'postDialDelay', callback: Callback<string>): void;
 
@@ -1594,7 +1583,6 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
-   * @since 23 static
    */
   function off(type: 'postDialDelay', callback?: Callback<string>): void;
 
@@ -2423,7 +2411,6 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
-   * @since 23 static
    */
   function on(type: 'imsCallModeChange', callback: Callback<ImsCallModeInfo>): void;
 
@@ -2445,7 +2432,6 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
-   * @since 23 static
    */
   function off(type: 'imsCallModeChange', callback?: Callback<ImsCallModeInfo>): void;
 
@@ -2468,7 +2454,6 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
-   * @since 23 static
    */
   function on(type: 'callSessionEvent', callback: Callback<CallSessionEvent>): void;
 
@@ -2491,7 +2476,6 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
-   * @since 23 static
    */
   function off(type: 'callSessionEvent', callback?: Callback<CallSessionEvent>): void;
 
@@ -2514,7 +2498,6 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
-   * @since 23 static
    */
   function on(type: 'peerDimensionsChange', callback: Callback<PeerDimensionsDetail>): void;
 
@@ -2537,7 +2520,6 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
-   * @since 23 static
    */
   function off(type: 'peerDimensionsChange', callback?: Callback<PeerDimensionsDetail>): void;
 
@@ -2560,7 +2542,6 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
-   * @since 23 static
    */
   function on(type: 'cameraCapabilitiesChange', callback: Callback<CameraCapabilities>): void;
 
@@ -2583,7 +2564,6 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
-   * @since 23 static
    */
   function off(type: 'cameraCapabilitiesChange', callback?: Callback<CameraCapabilities>): void;
 
@@ -4701,6 +4681,7 @@ declare namespace call {
    * @interface DialOptions
    * @syscap SystemCapability.Telephony.CallManager
    * @since 6 dynamic
+   * @since 23 static
    */
   export interface DialOptions {
     /**
@@ -4710,6 +4691,7 @@ declare namespace call {
      * @type { ?boolean }
      * @syscap SystemCapability.Telephony.CallManager
      * @since 6 dynamic
+     * @since 23 static
      */
     extras?: boolean;
 
@@ -4717,10 +4699,11 @@ declare namespace call {
      * Indicates the card slot index number, ranging from 0 to the maximum card slot index number
      * supported by the device.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
+     * @since 23 static
      */
     accountId?: number;
 
@@ -4731,6 +4714,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
+     * @since 23 static
      */
     videoState?: VideoStateType;
 
@@ -4741,6 +4725,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
+     * @since 23 static
      */
     dialScene?: DialScene;
 
@@ -4751,6 +4736,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
+     * @since 23 static
      */
     dialType?: DialType;
   }

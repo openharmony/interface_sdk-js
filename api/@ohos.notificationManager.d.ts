@@ -6506,6 +6506,7 @@ declare namespace notificationManager {
    *
    * @typedef { _TriggerType } TriggerType
    * @syscap SystemCapability.Notification.Notification
+   * @systemapi
    * @stagemodelonly
    * @since 23 dynamic&static
    */
@@ -6516,6 +6517,7 @@ declare namespace notificationManager {
    *
    * @typedef { _Trigger } Trigger
    * @syscap SystemCapability.Notification.Notification
+   * @systemapi
    * @stagemodelonly
    * @since 23 dynamic&static
    */
@@ -6526,6 +6528,7 @@ declare namespace notificationManager {
    *
    * @typedef { _Geofence } Geofence
    * @syscap SystemCapability.Notification.Notification
+   * @systemapi
    * @stagemodelonly
    * @since 23 dynamic&static
    */
@@ -6536,6 +6539,7 @@ declare namespace notificationManager {
    *
    * @typedef { _CoordinateSystemType } CoordinateSystemType
    * @syscap SystemCapability.Notification.Notification
+   * @systemapi
    * @stagemodelonly
    * @since 23 dynamic&static
    */
@@ -6546,6 +6550,7 @@ declare namespace notificationManager {
    *
    * @typedef { _MonitorEvent } MonitorEvent
    * @syscap SystemCapability.Notification.Notification
+   * @systemapi
    * @stagemodelonly
    * @since 23 dynamic&static
    */

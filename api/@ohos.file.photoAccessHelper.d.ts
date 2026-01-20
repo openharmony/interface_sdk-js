@@ -201,6 +201,18 @@ declare namespace photoAccessHelper {
      * @since 21 dynamic
      */
     version: number;
+
+    /**
+     * Enum value of the grid level by the user during the last selection.
+     * This information is only included when gridPinchModeType is configured as FULL_FUNCTION_GRID.
+     *
+     * @type { ?GridLevel }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    gridLevel?: GridLevel;
   }
 
   /**
@@ -996,12 +1008,11 @@ declare namespace photoAccessHelper {
     NO_HIDE_SENSITIVE_TYPE = 3,
 
     /**
-     * Refer MEDIA_LOCATION permission to hide location and shooting parameters.
+     * Refer MEIDA_LOCATION permission to hide location and shooting parameters.
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 22 dynamic
-     * @since 23 static
+     * @since 23 dynamic&static
      */
     DEFAULT = 4,
   }
@@ -1124,8 +1135,7 @@ declare namespace photoAccessHelper {
    * @enum { int } CompositeDisplayMode
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
-   * @since 22 dynamic
-   * @since 23 static
+   * @since 23 dynamic&static
    */
   enum CompositeDisplayMode {
     /**
@@ -1133,8 +1143,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 22 dynamic
-     * @since 23 static
+     * @since 23 dynamic&static
      */
     DEFAULT = 0,
 
@@ -1143,8 +1152,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 22 dynamic
-     * @since 23 static
+     * @since 23 dynamic&static
      */
     CLOUD_ENHANCEMENT = 1,
   }
@@ -3199,8 +3207,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 22 dynamic
-     * @since 23 static
+     * @since 23 dynamic&static
      */
     COMPOSITE_DISPLAY_STATUS = 'composite_display_status',
     /**
@@ -3370,8 +3377,7 @@ declare namespace photoAccessHelper {
      * Virtual path of the album.
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @since 23 dynamic
-     * @since 23 static
+     * @since 23 dynamic&static
      */
     ALBUM_LPATH = 'lpath',
     /**
@@ -4463,8 +4469,7 @@ declare namespace photoAccessHelper {
      * Album created by app.
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @since 23 dynamic
-     * @since 23 static
+     * @since 23 dynamic&static
      */
     SOURCE = 2048,
     /**
@@ -4611,8 +4616,7 @@ declare namespace photoAccessHelper {
      * Source album
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @since 23 dynamic
-     * @since 23 static
+     * @since 23 dynamic&static
      */
     SOURCE_GENERIC = 2049,
     /**
@@ -4909,8 +4913,7 @@ declare namespace photoAccessHelper {
      * @type { ?string }
      * @readonly
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @since 23 dynamic
-     * @since 23 static
+     * @since 23 dynamic&static
      */
     readonly lpath?: string;
     /**
@@ -6235,8 +6238,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 22 dynamic
-     * @since 23 static
+     * @since 23 dynamic&static
      */
      getDataAnalysisProgress(analysisType?: AnalysisType): Promise<string>;
     /**
@@ -6309,15 +6311,36 @@ declare namespace photoAccessHelper {
      *
      * @param { Array<string> } srcFileUris - List of the file uris to be saved
      * @param { Array<CreationSetting> } creationSettings - List of the photo asset creation settings
-     * @param { boolean } isImageFullyDisplayed - Supports displaying the image without cropping in the window
      * @returns { Promise<Array<string>> } - Returns the media library file uri list to application which has been authorized
-     * @throws { BusinessError } 14000011 - Internal system error
+     * @throws { BusinessError } 23800301 - Internal system error.
+     *     It is recommended to retry and check the logs. Possible causes:
+     *     1. Database corrupted;
+     *     2. The file system is abnormal;
+     *     3. The IPC request timed out.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @stagemodelonly
      * @atomicservice
      * @since 23 dynamic&static
      */
-    showAssetsCreationDialogEx(srcFileUris: Array<string>, creationSettings: Array<CreationSetting>, isImageFullyDisplayed: boolean): Promise<Array<string>>;
+    showAssetsCreationDialogEx(srcFileUris: Array<string>, creationSettings: Array<CreationSetting>): Promise<Array<string>>;
+    /**
+     * Create a save dialog to save single photo
+     *
+     * @param { string } srcFileUri - The file uri to be saved
+     * @param { CreationSetting } creationSetting - The photo asset creation setting
+     * @param { boolean } isImageFullyDisplayed - Supports displaying the image without cropping in the window
+     * @returns { Promise<string> } - Returns the media library file uri to application which has been authorized
+     * @throws { BusinessError } 23800301 - Internal system error.
+     *     It is recommended to retry and check the logs. Possible causes:
+     *     1. Database corrupted;
+     *     2. The file system is abnormal;
+     *     3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    showSingleAssetCreationDialogEx(srcFileUri: string, creationSetting: CreationSetting, isImageFullyDisplayed: boolean): Promise<string>;
     /**
      * Create assets and grant save permission to the app which called the save dialog.
      *
@@ -6407,6 +6430,23 @@ declare namespace photoAccessHelper {
      * @since 14 dynamic
      */
     requestPhotoUrisReadPermission(srcFileUris: Array<string>): Promise<Array<string>>;
+     /**
+      * Grants the save permission for URIs. This API uses a promise to return the result.
+      *
+      * @param { Array<string> } srcFileUris - URIs of the images or videos to be granted with the permission.
+      * @returns { Promise<RequestReadPermissionResult> } - Returns the result list,
+      *     which includes authorized URI list and invalid URI list.
+      * @throws { BusinessError } 23800301 - Internal system error.
+      *     It is recommended to retry and check the logs. Possible causes:
+      *     1. Database corrupted;
+      *     2. The file system is abnormal;
+      *     3. The IPC request timed out.
+      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+      * @stagemodelonly
+      * @atomicservice
+      * @since 23 dynamic&static
+      */
+    requestPhotoUrisReadPermissionEx(srcFileUris: Array<string>): Promise<RequestReadPermissionResult>;
     /**
      * Obtains the index of an image or video in an album. This API uses an asynchronous callback to return the result.
      *
@@ -6713,13 +6753,13 @@ declare namespace photoAccessHelper {
      * @permission ohos.permission.READ_IMAGEVIDEO
      * @param { dataSharePredicates.DataSharePredicates } predicate - Rule options for generating thumbnails.
      * @param { AsyncCallback<void> } callback - Returns void when the task is completed.
-     * @param { AsyncCallback<int> } response - Returns information indicating that all thumbnails have been genrated.
+     * @param { AsyncCallback<int> } response - Return information indicating that all thumbnails have been generated.
      * @returns { int } Create task id for generating thumbnails
      * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 202 - Called by non-system application
-     * @throws { BusinessError } 23800151 - The scenario parameter verification fails;
+     * @throws { BusinessError } 23800151 - The scenario parameter verification fails.
      *    Possible causes: The predicates invalid.
-     * @throws { BusinessError } 23800301 - Internal system error
+     * @throws { BusinessError } 23800301 - Internal system error.
      *     It is recommended to retry and check the logs. Possible causes:
      *     1. Database corrupted;
      *     2. The file system is abnormal;
@@ -9052,7 +9092,42 @@ declare namespace photoAccessHelper {
      * @since 22 dynamic
      * @since 23 static
      */
-    assetFilter?: Array<OperationItem>;   
+    assetFilter?: Array<OperationItem>;
+
+    /**
+     * Moving photo playback mode. Supports up to two modes.
+     *
+     * @type { ?Array<AutoPlayScene> }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    autoPlayScenes?: Array<AutoPlayScene>;    
+
+    /**
+     * Grid pinch mode.
+     *
+     * @type { ?GridPinchMode }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    gridPinchMode?: GridPinchMode;
+
+    /**
+     * Initial state for global moving photos.
+     * Only MOVING_PHOTO_ENABLE and MOVING_PHOTO_DISABLE are supported for configuration.
+     * Defaults to MOVING_PHOTO_ENABLE, which enables the dynamic effect.
+     *
+     * @type { ?MovingPhotoBadgeStateType }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    globalMovingPhotoState?: MovingPhotoBadgeStateType;
   }
 
   /**
@@ -9297,6 +9372,70 @@ declare namespace photoAccessHelper {
   }
 
   /**
+   * Request read permission result
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  export class RequestReadPermissionResult {
+    /**
+    * The list of authorized URI.
+    *
+    * @type { ?Array<string> }
+    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+    * @stagemodelonly
+    * @atomicservice
+    * @since 23 dynamic&static
+    */
+    authorizedUris?: Array<string>;
+
+    /**
+    * The list of invalid URI.
+    *
+    * @type { ?Array<string> }
+    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+    * @stagemodelonly
+    * @atomicservice
+    * @since 23 dynamic&static
+    */
+    invalidUris?: Array<string>;
+  }
+  
+  /**
+   * Grid pinch mode
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  export class GridPinchMode {
+    /**
+    * The type of grid pinch mode.
+    *
+    * @type { ?GridPinchModeType }
+    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+    * @stagemodelonly
+    * @atomicservice
+    * @since 23 dynamic&static
+    */
+    gridPinchModeType?: GridPinchModeType;
+
+    /**
+    * The default grid level.
+    *
+    * @type { ?GridLevel }
+    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+    * @stagemodelonly
+    * @atomicservice
+    * @since 23 dynamic&static
+    */
+    defaultGridLevel?: GridLevel;
+  }
+
+  /**
    * PhotoSelectOptions Object
    *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -9422,6 +9561,17 @@ declare namespace photoAccessHelper {
      * @since 23 dynamic&static
      */
     maxVideoSelectNumber?: int;
+
+    /**
+     * In single selection mode, supports returning to the photo browser page after taking and confirming a photo.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    isReturnToPhotoBrowserEnabled?: boolean;
   }
 
   /**
@@ -9588,7 +9738,7 @@ declare namespace photoAccessHelper {
 
     /**
      * Moving photo badge states for the selected media files in the gallery.
-     * When isShowMovingPhotoBadge is true, movingPhotoBadgeStates contains the moving photo states;
+     * When isMovingPhotoBadgeShown is true, movingPhotoBadgeStates contains the moving photo states;
      * otherwise, it is empty.
      *
      * @type { Array<MovingPhotoBadgeStateType> }
@@ -9657,10 +9807,14 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 13900042 - Unknown error
+     * @throws { BusinessError } 23800151 - Scene parameters validate failed, possible causes:
+     *     1. An illegal enumeration value was passed to PhotoSelectOptions.globalMovingPhotoState.
+     *     Only MOVING_PHOTO_ENABLE and MOVING_PHOTO_DISABLE are supported for configuration;
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
+     * @since 23 static
      */
     select(option?: PhotoSelectOptions): Promise<PhotoSelectResult>;
 
@@ -9695,10 +9849,14 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 13900042 - Unknown error
+     * @throws { BusinessError } 23800151 - Scene parameters validate failed, possible causes:
+     *     1. An illegal enumeration value was passed to PhotoSelectOptions.globalMovingPhotoState.
+     *     Only MOVING_PHOTO_ENABLE and MOVING_PHOTO_DISABLE are supported for configuration;
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
+     * @since 23 static
      */
     select(option: PhotoSelectOptions, callback: AsyncCallback<PhotoSelectResult>): void;
 
@@ -9734,6 +9892,7 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
+     * @since 23 static
      */
     select(callback: AsyncCallback<PhotoSelectResult>): void;
   }
@@ -10823,8 +10982,7 @@ declare namespace photoAccessHelper {
      *     <br>Possible causes: 1. Database corrupted.2. The file system is abnormal.3. The IPC request timed out.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 22 dynamic
-     * @since 23 static
+     * @since 23 dynamic&static
      */
     setCompositeDisplayMode(compositeDisplayMode: CompositeDisplayMode): Promise<void>;
   }
@@ -13614,6 +13772,161 @@ declare namespace photoAccessHelper {
      */
     close(): void;
   }
+
+  /**
+   * Automatic playback scene of moving photo.
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  class AutoPlayScene {
+    /**
+     * Type of moving photo scene.
+     *
+     * @type { SceneType }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    sceneType: SceneType;
+ 	
+    /**
+     * Play mode of moving photo in different scenes.
+     *
+     * @type { PlayMode }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    playMode: PlayMode;
+  }
+  
+  /**
+   * Enumeration type of scene.
+   *
+   * @enum { int } SceneType
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  export enum SceneType {
+    /**
+     * GRID_TO_PHOTO_BROWSER indicates that the view is transitioning from the grid to the photo browser.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    GRID_TO_PHOTO_BROWSER = 0,
+    /**
+     * PHOTO_BROWSER_SWIPE indicates that a swipe operation occurs in the photo browser.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    PHOTO_BROWSER_SWIPE = 1,
+  }
+
+  /**
+   * Enumeration type of grid pinch mode.
+   *
+   * @enum { int } GridPinchModeType
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  export enum GridPinchModeType {
+    /**
+    * FULL_FUNCTION_GRID indicates that the grid supports selection and other operations after pinch-to-zoom gesture.
+    *
+    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+    * @stagemodelonly
+    * @atomicservice
+    * @since 23 dynamic&static
+    */
+    FULL_FUNCTION_GRID = 0
+  }
+  
+  /**
+   * Enumeration type of grid level.
+   *
+   * @enum { int } GridLevel
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  export enum GridLevel {
+    /**
+    * SPACIOUS indicates that a grid layout with one fewer column than the standard grid level.
+    *
+    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+    * @stagemodelonly
+    * @atomicservice
+    * @since 23 dynamic&static
+    */
+    SPACIOUS = 0,
+
+    /**
+    * STANDARD indicates that the standard grid level across different forms or states.
+    *
+    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+    * @stagemodelonly
+    * @atomicservice
+    * @since 23 dynamic&static
+    */
+    STANDARD = 1,
+
+    /**
+    * COMPACT indicates that a grid layout with one more column than the standard grid level.
+    *
+    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+    * @stagemodelonly
+    * @atomicservice
+    * @since 23 dynamic&static
+    */
+    COMPACT = 2
+  }
+  
+  /**
+   * Enumeration type of play mode.
+   *
+   * @enum { int } PlayMode
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  export enum PlayMode {
+    /**
+     * DEFAULT indicates that the default play mode.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    DEFAULT = 0,
+    /**
+     * AUTO_PLAY indicates that moving photos will play automatically.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    AUTO_PLAY = 1,
+  }
+ 	 
 
   /**
    * Enumerates the HDR mode of media assets.

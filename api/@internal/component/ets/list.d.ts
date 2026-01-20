@@ -1977,13 +1977,12 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
   /**
    * Sets the number of list items or list item groups to be cached (preloaded) and specifies whether to display
    * the preloaded nodes.
-   * 
+   *
    * @param { number | CacheCountInfo } count - If the parameter type is number, it indicates number of list items
-   * to be preloaded. If the parameter type is CacheCountInfo, it indicates the range of list items to be preloaded.
-   * <br>Default value: number of nodes visible on the screen, with the maximum value of 16
-   * <br>Value range for number type: [0, +∞)
-   * @param { boolean } show - Whether to display the preloaded list items.
-   * Default value: false
+   *     to be preloaded. If the parameter type is CacheCountInfo, it indicates the range of list items to be preloaded.
+   *     <br>Default value: number of nodes visible on the screen, with the maximum value of 16
+   *     <br>Value range for number type: [0, +∞)
+   * @param { boolean } show - Whether to display the preloaded list items.<br> Default value: <em>false</em>
    * @returns { ListAttribute } the attribute of the list.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -2812,20 +2811,6 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @since 20 dynamic
    */
   onScrollFrameBegin(event: OnScrollFrameBeginCallback): ListAttribute;
-
-  /**
-   * Called when scrolling begin each frame.
-   * Anonymous Object Rectification.
-   *
-   * @param { OnScrollFrameBeginCallback } event - callback function, triggered when the scrolling begin each frame.
-   * @returns { ListAttribute } Returns the instance of the ListAttribute.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20 dynamic
-   */
-   onScrollFrameBegin(event: OnScrollFrameBeginCallback): ListAttribute;
 }
 
 /**

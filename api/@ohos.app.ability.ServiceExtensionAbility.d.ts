@@ -129,7 +129,7 @@ declare class ServiceExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    */
   onReconnect(want: Want): void;
 

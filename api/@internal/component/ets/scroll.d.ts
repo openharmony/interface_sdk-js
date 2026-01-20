@@ -758,10 +758,9 @@ declare class Scroller {
    * </p>
    *
    * @param { Length } dx - Amount to scroll by in the horizontal direction. The percentage format is not supported.
-   * <br>Value range: (-∞, +∞).
    * @param { Length } dy - Amount to scroll by in the vertical direction. The percentage format is not supported.
-   * <br>Value range: (-∞, +∞).
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1131,6 +1130,7 @@ declare interface ScrollSnapOptions {
    * @type { ?boolean }
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 11 dynamic
    */
@@ -1730,9 +1730,10 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
   /**
    * Sets the scrollbar color.
    *
-   * @param { Color | number | string } color - Scrollbar color.<br>Default value: '#66182431'
+   * @param { Color | number | string } color - Scrollbar color.<br>Default value: <em>'\#182431'</em> (40% opacity)
    * @returns { ScrollAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic

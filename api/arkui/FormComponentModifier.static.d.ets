@@ -1,6 +1,6 @@
 /*
- * Copyright (C) 2025 Huawei Device Co., Ltd.
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Copyright (c) 2025 Huawei Device Co., Ltd.
+ * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
@@ -18,20 +18,17 @@
  * @kit ArkUI
  */
 
+import { AttributeModifier } from './component/common';
+import { FormComponentAttribute } from './component/formComponent';
+
 /**
- * MemoState is a mutable and remember state.
+ * Defines FormComponent Modifier
  *
- * @interface MemoState
+ * @implements { FormComponentAttribute, AttributeModifier<FormComponentAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @stagemodelonly
  * @since 23 static
+ * @noninterop
  */
-export interface MemoState<T> {
-  /**
-   * The current value of the memoized state.
-   * @type { T }
-   * @readonly
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  readonly value: T;
-}
+export declare class FormComponentModifier implements FormComponentAttribute, AttributeModifier<FormComponentAttribute> {}

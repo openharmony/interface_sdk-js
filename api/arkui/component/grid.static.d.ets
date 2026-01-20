@@ -18,11 +18,11 @@
  * @kit ArkUI
  */
 import { EdgeEffectOptions, EditModeOptions, NestedScrollOptions, ItemDragInfo, ScrollableCommonMethod, CommonMethod, OnWillScrollCallback, OnScrollCallback, OnItemDragStartCallback } from './common';
-import { Length, Resource } from './units';
+import { Length, Resource, ItemFillPolicy } from './units';
 import { Scroller, OnScrollFrameBeginCallback } from './scroll';
-import { BarState, Color, EdgeEffect } from './enums';
+import { BarState, Color, EdgeEffect, FocusWrapMode } from './enums';
 import { ComponentBuilder, CustomBuilder } from './builder';
-import { AttributeModifier, CommonMethod } from "./common";
+import { AttributeModifier, CommonMethod, UIScrollableCommonEvent } from "./common";
 /**
  * The options to help grid layout
  *
@@ -164,7 +164,53 @@ export declare interface ComputedBarAttribute {
      */
     totalLength: double;
 }
-
+/**
+ * Defines a UIGridEvent which is used to set event to target component.
+ *
+ * @extends UIScrollableCommonEvent
+ * @interface UIGridEvent
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 23 static
+ */
+export declare interface UIGridEvent extends UIScrollableCommonEvent {
+  /**
+   * Set or reset the callback which is triggered when the Grid will scroll.
+   *
+   * @param { OnWillScrollCallback | undefined } callback - callback function, triggered when the Grid will scroll.
+   *      Passing undefined will unregister the callback.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  setOnWillScroll(callback: OnWillScrollCallback | undefined): void;
+  /**
+   * Set or reset the callback which is triggered when the Grid did scroll.
+   *
+   * @param { OnScrollCallback | undefined } callback - callback function, triggered when the Grid did scroll.
+   *     Passing undefined will unregister the callback.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  setOnDidScroll(callback: OnScrollCallback | undefined): void;
+  /**
+   * Set or reset the callback which is triggered when the start and end positions of the display change.
+   *
+   * @param { OnGridScrollIndexCallback | undefined } callback - callback function, triggered when start or
+   *     end positions of the display change. Passing undefined will unregister the callback.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  setOnScrollIndex(callback: OnGridScrollIndexCallback | undefined): void;
+}
+/**
+ * Defines the callback type used in onScrollIndex.
+ *
+ * @typedef {function} OnGridScrollIndexCallback
+ * @param { int } first - the first index in visible content.
+ * @param { int } last - the last index in visible content.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 23 static
+ */
+export type OnGridScrollIndexCallback = (first: int, last: int) => void;
 /**
  * The gridAttribute.
  * 
@@ -177,12 +223,13 @@ export declare interface GridAttribute extends ScrollableCommonMethod {
     /**
      * This parameter specifies the number of columns in the current grid layout.
      *
-     * @param { string | undefined } value
+     * @param { string | ItemFillPolicy | undefined } value - Number of columns in the layout.
+     *     <br>Default value: <em>'1fr'</em>. Passing undefined will restore the default value.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
      */
-    default columnsTemplate(value: string | undefined): this;
+    default columnsTemplate(value: string | ItemFillPolicy | undefined): this;
     /**
      * Lets you set the number of rows in the current grid layout,
      *
@@ -220,14 +267,17 @@ export declare interface GridAttribute extends ScrollableCommonMethod {
      */
     default scrollBarWidth(value: double | string | undefined): this;
     /**
-     * Sets the color of the scroll bar.
+     * Sets the scrollbar color.
      *
-     * @param { Color | int | string | undefined } value
+     * @param { Color | int | string | Resource | undefined } color - Scrollbar color.
+     *     <br>Default value: <em>'\#182431'</em> (40% opacity)
+     *     <br>A number value indicates a HEX color in RGB or ARGB format, for example, <em>0xffffff</em>.
+     *     A string value indicates a color in RGB or ARGB format, for example, <em>'#ffffff'</em>.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
      */
-    default scrollBarColor(value: Color | int | string | undefined): this;
+    default scrollBarColor(color: Color | int | string | Resource | undefined): this;
     /**
      * Lets you set the spacing between rows.
      *
@@ -457,6 +507,26 @@ export declare interface GridAttribute extends ScrollableCommonMethod {
      * @since 23 static
      */
     default editModeOptions(options?: EditModeOptions): this;
+    /**
+     * Sets the focus wrap mode of the Gird component.
+     *
+     * @param { FocusWrapMode | undefined } mode - the focus wrap mode of the Grid component.
+     *     <br>Default value: **FocusWrapMode.DEFAULT**. Passing undefined will restore the default value.
+     * @returns { this } the attribute of the Grid.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    default focusWrapMode(mode: FocusWrapMode | undefined): this;
+    /**
+     * Sets whether to synchronously load all child components in the Grid.
+     *
+     * @param { boolean | undefined } enable - Whether to synchronously load all child components in the Grid.
+     *     <br>Default value: true. Passing undefined will restore the default value.
+     * @returns { this } The attribute of the Grid.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    default syncLoad(enable: boolean | undefined): this;
     /**
      * Called when scrolling begin each frame.
      * Anonymous Object Rectification.
