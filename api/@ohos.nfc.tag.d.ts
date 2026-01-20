@@ -32,7 +32,7 @@ import { TagSession as _TagSession } from './tag/tagSession';
 import type { PacMap } from './ability/dataAbilityHelper';
 /*** endif */
 import type rpc from './@ohos.rpc';
-import type { AsyncCallback } from './@ohos.base';
+import type { AsyncCallback, Callback } from './@ohos.base';
 import Want from './@ohos.app.ability.Want';
 import type { ElementName } from './bundleManager/ElementName';
 
