@@ -103,9 +103,13 @@ declare namespace audioHaptic {
     /**
      * Register audio and haptic file into manager. Audio and haptic works are paired while playing. After registering
      * source, it will returns the source id. This method uses a promise to return the source id.
+     * <p><strong>NOTE</strong>:
+     * The maximum number one application can register is 128, exceeding this limit will lead to registration failure.
+     * </p>
      * @param { string } audioUri - Audio file uri.
      * @param { string } hapticUri - Haptic file uri.
-     * @returns { Promise<int> } Promise used to return the source id.
+     * @returns { Promise<int> } Promise used to return the source id. Source id is non-negative in normal case, if it
+     *     is negative, you should check if sources registered exceeded the limit.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters are left unspecified;
      *                                 2.Incorrect parameter types.
@@ -117,6 +121,9 @@ declare namespace audioHaptic {
 
     /**
      * Unregister source. This method uses a promise to return the result.
+     * <p><strong>NOTE</strong>:
+     * Application should unregister the source once it is out of use to avoid exceeding th resource limit.
+     * </p>
      * @param { int } id source id.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -181,7 +188,7 @@ declare namespace audioHaptic {
      * should have the permission of ohos.permission.VIBRATE.
      * @permission ohos.permission.VIBRATE
      * @param { int } id - Source id.
-     * @param { AudioHapticPlayerOptions } options - Options when creating audio haptic player.
+     * @param { AudioHapticPlayerOptions } [options] - Options when creating audio haptic player.
      * @returns { Promise<AudioHapticPlayer | null> } Promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 5400102 - Operation not allowed.
@@ -195,9 +202,13 @@ declare namespace audioHaptic {
     /**
      * Register audio and haptic file represented by fd into manager. Audio and haptic works are paired while playing.
      * After registering source, it will returns the source id. This method uses a promise to return the source id.
+     * <p><strong>NOTE</strong>:
+     * The maximum number one application can register is 128, exceeding this limit will lead to registration failure.
+     * </p>
      * @param { AudioHapticFileDescriptor } audioFd : The file descriptor of audio source from file system.
      * @param { AudioHapticFileDescriptor } hapticFd : The file descriptor of haptic source from file system.
-     * @returns { Promise<int> } Promise used to return the source id.
+     * @returns { Promise<int> } Promise used to return the source id. Source id is non-negative in normal case, if it
+     *     is negative, you should check if sources registered exceeded the limit.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @since 20 dynamic
      * @since 23 static

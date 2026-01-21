@@ -62,6 +62,7 @@ action("ohos_base_split") {
   outputs = [
     "${interface_sdk_path}",
     "${interface_sdk_path_ets1}/api/bundle/bundleStatusCallback.d.ts",
+    "${target_out_dir}/${target_name}.timestamp",
   ]
 }
 
@@ -95,7 +96,10 @@ template("ohos_copy_internal") {
     deps = [ ":ohos_base_split" ]
     deps += [ ":$_module_info_target" ]
     inputs = []
-    outputs = [ target_out_dir + "/${target_name}" ]
+    outputs = [
+      target_out_dir + "/${target_name}",
+      "${target_out_dir}/${target_name}.timestamp",
+    ]
     script = "//interface/sdk-js/process_internal.py"
     args = [
       "--input",
@@ -136,7 +140,10 @@ template("ohos_declaration_template") {
     deps = [ ":ohos_base_split" ]
     deps += [ ":$_module_info_target" ]
     inputs = []
-    outputs = [ root_out_dir + "/ohos_declaration/${target_name}" ]
+    outputs = [
+      root_out_dir + "/ohos_declaration/${target_name}",
+      "${target_out_dir}/${target_name}.timestamp",
+    ]
 
     # 处理api文件下全部文件，过滤特定文件
     script = "//interface/sdk-js/remove_internal.py"
@@ -165,10 +172,10 @@ template("ohos_handle_declaration_template") {
   _module_info_target = "${target_name}_info"
 
   action_with_pydeps(target_name) {
-    deps = [
-      ":ohos_ets_dynamic",
-      ":ohos_ets_static",
-    ]
+    deps = [ ":ohos_ets_dynamic" ]
+    if (sdk_build_arkts) {
+      deps += [ ":ohos_ets_static" ]
+    }
     deps += [ ":${_module_info_target}" ]
     inputs = []
     outputs = [ target_out_dir + "/${target_name}" ]
@@ -469,6 +476,7 @@ group("build_ohos_ets") {
   external_deps = [
     ohos_ets_build_system_deps,
     ohos_ets_dependency_analyzer_deps,
+    ohos_ets_etsstdlib_deps,
     ohos_ets_koala_wrapper_deps,
     ohos_ets_stdlib_deps,
   ]

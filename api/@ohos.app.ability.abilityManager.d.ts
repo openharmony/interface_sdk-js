@@ -25,8 +25,8 @@ import { ExtensionRunningInfo as _ExtensionRunningInfo } from './application/Ext
 import { Configuration } from './@ohos.app.ability.Configuration';
 import Context from './application/Context';
 import Want from './@ohos.app.ability.Want';
-/*** if arkts dynamic */
 import { AbilityResult } from './ability/abilityResult';
+/*** if arkts dynamic */
 import * as _AbilityForegroundStateObserver from './application/AbilityForegroundStateObserver';
 import * as _AbilityStateData from './application/AbilityStateData';
 /*** endif */
@@ -480,7 +480,7 @@ declare namespace abilityManager {
   /**
    * Notify the result of save as to target ability.
    * @param { AbilityResult } parameter - Indicates the result to return.
-   * @param { number } requestCode - Request code defined by the user.
+   * @param { int } requestCode - Request code defined by the user.
    * @param { AsyncCallback<void> } callback - The callback of the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
@@ -491,13 +491,14 @@ declare namespace abilityManager {
    * @systemapi
    * @StageModelOnly
    * @since 10 dynamic
+   * @since 23 static
    */
-  function notifySaveAsResult(parameter: AbilityResult, requestCode: number, callback: AsyncCallback<void>): void;
+  function notifySaveAsResult(parameter: AbilityResult, requestCode: int, callback: AsyncCallback<void>): void;
 
   /**
    * Notify the result of save as to target ability.
    * @param { AbilityResult } parameter - Indicates the result to return.
-   * @param { number } requestCode - Request code defined by the user.
+   * @param { int } requestCode - Request code defined by the user.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
@@ -508,8 +509,9 @@ declare namespace abilityManager {
    * @systemapi
    * @StageModelOnly
    * @since 10 dynamic
+   * @since 23 static
    */
-  function notifySaveAsResult(parameter: AbilityResult, requestCode: number): Promise<void>;
+  function notifySaveAsResult(parameter: AbilityResult, requestCode: int): Promise<void>;
 
   /**
    * Get the foreground ui abilities.
@@ -629,7 +631,7 @@ declare namespace abilityManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 20 dynamic
+   * @since 20 dynamiconly
    */
   function restartSelfAtomicService(context: Context): void;
 

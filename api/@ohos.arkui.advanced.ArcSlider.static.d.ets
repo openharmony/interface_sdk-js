@@ -105,7 +105,7 @@ export declare class ArcSliderValueOptions {
   /**
    * The constructor used to create a ArcSliderValueOptions object.
    *
-   * @param { ArcSliderValueOptionsConstructorOptions } options
+   * @param { ArcSliderValueOptionsConstructorOptions } [options]
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @since 23 static
    */
@@ -165,7 +165,7 @@ export declare class ArcSliderLayoutOptions {
   /**
    * The constructor used to create a ArcSliderLayoutOptions object.
    *
-   * @param { ArcSliderLayoutOptionsConstructorOptions } options
+   * @param { ArcSliderLayoutOptionsConstructorOptions } [options]
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @since 23 static
    */
@@ -318,7 +318,7 @@ export declare class ArcSliderStyleOptions {
   /**
    * The constructor used to create a ArcSliderStyleOptions object.
    *
-   * @param { ArcSliderStyleOptionsConstructorOptions } options
+   * @param { ArcSliderStyleOptionsConstructorOptions } [options]
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @since 23 static
    */
@@ -513,7 +513,7 @@ export declare class ArcSliderOptions {
   /**
    * The constructor used to create a ArcSliderOptions object.
    *
-   * @param { ArcSliderOptionsConstructorOptions } options
+   * @param { ArcSliderOptionsConstructorOptions } [options]
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @since 23 static
    */
@@ -560,7 +560,7 @@ export declare struct ArcSlider {
  */
 export declare enum ArcSliderPosition {
   /**
-   * The position is on the left
+   * The position is on the left.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @since 23 static

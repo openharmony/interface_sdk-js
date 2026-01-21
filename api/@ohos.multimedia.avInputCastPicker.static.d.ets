@@ -53,7 +53,7 @@ export declare struct AVInputCastPicker {
    /**
    * The method to build component.
    * @syscap SystemCapability.Multimedia.AVSession.AVInputCast
-   * @since 23 static
+   * @since 23 staticonly
    */
    @Builder
    build(): void;

@@ -76,7 +76,7 @@
     { "filePath": "@internal/component/ets/paste_button.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },
     { "filePath": "@internal/component/ets/path.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },
     { "filePath": "@internal/component/ets/pattern_lock.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },
-    { "filePath": "@internal/component/ets/picker.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },
+    { "filePath": "@internal/component/ets/ui_picker_component.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },
     { "filePath": "@internal/component/ets/plugin_component.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },
     { "filePath": "@internal/component/ets/polygon.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },
     { "filePath": "@internal/component/ets/polyline.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },
@@ -927,6 +927,7 @@
     { "filePath": "@ohos.graphics.text.d.ts", "kitName": "ArkGraphics2D", "subSystem": "图形图像" },
     { "filePath": "wantAgent/wantAgentInfo.d.ts", "kitName": "AbilityKit", "subSystem": "元能力" },
     { "filePath": "permissions.d.ts", "kitName": "NA", "subSystem": "NA" },
-    { "filePath": "@ohos.arkui.uiMaterial.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" }
+    { "filePath": "@ohos.arkui.uiMaterial.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },
+    { "filePath": "@ohos.intelligentScene.d.ts", "kitName": "BasicServicesKit", "subSystem": "应用" }
   ]
 }

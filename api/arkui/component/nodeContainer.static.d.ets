@@ -46,16 +46,16 @@ export declare interface NodeContainerAttribute extends CommonMethod {
 }
 
 /**
- * Defines NodeContainer Component.
+ * Defines NodeContainer Component
  *
- * @param { NodeController } controller - instance of NodeController
- * @param { function } [content_ ] - container
- * @return { NodeContainerAttribute }
+ * @param { NodeController } controller - instance of NodeController.
+ * @returns { NodeContainerAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
+ * @noninterop
  */
 @ComponentBuilder
 export declare function NodeContainer(
-    controller: NodeController, 
-    content_?: CustomBuilder,
-): NodeContainerAttribute
+    controller: NodeController
+): NodeContainerAttribute;

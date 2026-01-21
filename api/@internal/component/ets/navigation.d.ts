@@ -2586,7 +2586,7 @@ declare interface NavigationMenuOptions {
 }
 
 /**
- * Indicates the options of Navigation's Menu.
+ * The more button options of Navigation's menu or toolbar.
  *
  * @interface MoreButtonOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full

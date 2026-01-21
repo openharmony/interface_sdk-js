@@ -654,6 +654,7 @@ declare class DotIndicator extends Indicator<DotIndicator> {
  *
  * @typedef { object } SwiperAutoFill
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @form
  * @atomicservice
  * @since 11
@@ -663,6 +664,7 @@ declare class DotIndicator extends Indicator<DotIndicator> {
  *
  * @typedef SwiperAutoFill
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @form
  * @atomicservice
  * @since 18 dynamic
@@ -682,6 +684,7 @@ declare interface SwiperAutoFill {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11 dynamic
+   * @crossplatform
    * @form
    */
   minSize: VP;
@@ -1330,6 +1333,7 @@ declare interface AutoPlayOptions {
 
  * @enum { number } SwiperNestedScrollMode
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @atomicservice
  * @since 11 dynamic
  */
@@ -1339,6 +1343,7 @@ declare enum SwiperNestedScrollMode {
    * the parent container does not scroll when the component scrolling reaches the boundary.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 11 dynamic
    */
@@ -1348,6 +1353,7 @@ declare enum SwiperNestedScrollMode {
    * The Swiper component scrolls first, and when it hits the boundary, the parent container scrolls.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 11 dynamic
    */

@@ -82,7 +82,7 @@ export declare function clearTimeout(timeoutID?: number): void;
  * The reject callback returns the object containing code and error data.
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
  * @famodelonly
- * @since 5 dynamic
+ * @since 5 dynamiconly
  * @deprecated since 8
  */
 export declare function createLocalParticleAbility(name?: string): any;

@@ -681,17 +681,6 @@ declare namespace dlpPermission {
      * @since 10
      */
     tokenID: number;
-    
-    /**
-     * Index of DLP sandbox applications that have been installed and need to be launched.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.Security.DataLossPrevention
-     * @systemapi Hide this for inner system use.
-     * @stagemodelonly
-     * @since 23
-     */
-    bindAppIndex?: number;
   }
 
   /**

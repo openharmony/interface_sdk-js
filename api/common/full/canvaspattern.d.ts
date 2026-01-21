@@ -23,6 +23,7 @@
  *
  * @interface CanvasPattern
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @famodelonly
  * @since 8
  */
 /**
@@ -30,6 +31,7 @@
  *
  * @interface CanvasPattern
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @famodelonly
  * @form
  * @since 9
  */
@@ -38,9 +40,10 @@
  *
  * @interface CanvasPattern
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @famodelonly
  * @form
  * @atomicservice
- * @since 11 dynamic
+ * @since 11 dynamiconly
  */
 export interface CanvasPattern {
   /**
@@ -48,6 +51,7 @@ export interface CanvasPattern {
    *
    * @param { Matrix2D } [transform] - transformation matrix
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 8
    */
   /**
@@ -55,6 +59,7 @@ export interface CanvasPattern {
    *
    * @param { Matrix2D } [transform] - transformation matrix
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @form
    * @since 9
    */
@@ -63,9 +68,10 @@ export interface CanvasPattern {
    *
    * @param { Matrix2D } [transform] - transformation matrix
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @form
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11 dynamiconly
    */
   setTransform(transform?: Matrix2D): void;
 }
@@ -74,12 +80,14 @@ export interface CanvasPattern {
  * 2D transformation matrix, supporting rotation, translation, and scaling of the X-axis and Y-axis
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @famodelonly
  * @since 8
  */
 /**
  * 2D transformation matrix, supporting rotation, translation, and scaling of the X-axis and Y-axis
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @famodelonly
  * @form
  * @since 9
  */
@@ -87,9 +95,10 @@ export interface CanvasPattern {
  * 2D transformation matrix, supporting rotation, translation, and scaling of the X-axis and Y-axis
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @famodelonly
  * @form
  * @atomicservice
- * @since 11 dynamic
+ * @since 11 dynamiconly
  */
 export class Matrix2D {
   /**
@@ -97,6 +106,7 @@ export class Matrix2D {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 8
    */
   /**
@@ -104,6 +114,7 @@ export class Matrix2D {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @form
    * @since 9
    */
@@ -112,9 +123,10 @@ export class Matrix2D {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @form
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11 dynamiconly
    */
   scaleX?: number;
 
@@ -123,6 +135,7 @@ export class Matrix2D {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 8
    */
   /**
@@ -130,6 +143,7 @@ export class Matrix2D {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @form
    * @since 9
    */
@@ -138,9 +152,10 @@ export class Matrix2D {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @form
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11 dynamiconly
    */
   rotateY?: number;
 
@@ -149,6 +164,7 @@ export class Matrix2D {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 8
    */
   /**
@@ -156,6 +172,7 @@ export class Matrix2D {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @form
    * @since 9
    */
@@ -164,9 +181,10 @@ export class Matrix2D {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @form
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11 dynamiconly
    */
   rotateX?: number;
 
@@ -175,6 +193,7 @@ export class Matrix2D {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 8
    */
   /**
@@ -182,6 +201,7 @@ export class Matrix2D {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @form
    * @since 9
    */
@@ -190,9 +210,10 @@ export class Matrix2D {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @form
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11 dynamiconly
    */
   scaleY?: number;
 
@@ -201,6 +222,7 @@ export class Matrix2D {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 8
    */
   /**
@@ -208,6 +230,7 @@ export class Matrix2D {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @form
    * @since 9
    */
@@ -216,9 +239,10 @@ export class Matrix2D {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @form
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11 dynamiconly
    */
   translateX?: number;
 
@@ -227,6 +251,7 @@ export class Matrix2D {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 8
    */
   /**
@@ -234,6 +259,7 @@ export class Matrix2D {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @form
    * @since 9
    */
@@ -242,9 +268,10 @@ export class Matrix2D {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @form
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11 dynamiconly
    */
   translateY?: number;
 
@@ -254,6 +281,7 @@ export class Matrix2D {
    *
    * @returns { Matrix2D }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 8
    */
   /**
@@ -262,6 +290,7 @@ export class Matrix2D {
    *
    * @returns { Matrix2D }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @form
    * @since 9
    */
@@ -271,9 +300,10 @@ export class Matrix2D {
    *
    * @returns { Matrix2D }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @form
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11 dynamiconly
    */
   identity(): Matrix2D;
 
@@ -283,6 +313,7 @@ export class Matrix2D {
    *
    * @returns { Matrix2D }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 8
    */
   /**
@@ -291,6 +322,7 @@ export class Matrix2D {
    *
    * @returns { Matrix2D }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @form
    * @since 9
    */
@@ -300,9 +332,10 @@ export class Matrix2D {
    *
    * @returns { Matrix2D }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @form
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11 dynamiconly
    */
   invert(): Matrix2D;
 
@@ -313,6 +346,7 @@ export class Matrix2D {
    * @param { Matrix2D } [other] - Matrix to be superimposed
    * @returns { Matrix2D }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 8
    */
   /**
@@ -322,6 +356,7 @@ export class Matrix2D {
    * @param { Matrix2D } [other] - Matrix to be superimposed
    * @returns { Matrix2D }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @form
    * @since 9
    */
@@ -332,9 +367,10 @@ export class Matrix2D {
    * @param { Matrix2D } [other] - Matrix to be superimposed
    * @returns { Matrix2D }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @form
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11 dynamiconly
    */
   multiply(other?: Matrix2D): Matrix2D;
 
@@ -345,6 +381,7 @@ export class Matrix2D {
    * @param { number } [ry] - Rotation effect of the Y-axis
    * @returns { Matrix2D }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 8
    */
   /**
@@ -354,6 +391,7 @@ export class Matrix2D {
    * @param { number } [ry] - Rotation effect of the Y-axis
    * @returns { Matrix2D }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @form
    * @since 9
    */
@@ -364,9 +402,10 @@ export class Matrix2D {
    * @param { number } [ry] - Rotation effect of the Y-axis
    * @returns { Matrix2D }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @form
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11 dynamiconly
    */
   rotate(rx?: number, ry?: number): Matrix2D;
 
@@ -377,6 +416,7 @@ export class Matrix2D {
    * @param { number } [ty] - Y-axis translation effect
    * @returns { Matrix2D }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 8
    */
   /**
@@ -386,6 +426,7 @@ export class Matrix2D {
    * @param { number } [ty] - Y-axis translation effect
    * @returns { Matrix2D }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @form
    * @since 9
    */
@@ -396,9 +437,10 @@ export class Matrix2D {
    * @param { number } [ty] - Y-axis translation effect
    * @returns { Matrix2D }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @form
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11 dynamiconly
    */
   translate(tx?: number, ty?: number): Matrix2D;
 
@@ -409,6 +451,7 @@ export class Matrix2D {
    * @param { number } [sy] - Y-axis scaling effect
    * @returns { Matrix2D }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 8
    */
   /**
@@ -418,6 +461,7 @@ export class Matrix2D {
    * @param { number } [sy] - Y-axis scaling effect
    * @returns { Matrix2D }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @form
    * @since 9
    */
@@ -428,9 +472,10 @@ export class Matrix2D {
    * @param { number } [sy] - Y-axis scaling effect
    * @returns { Matrix2D }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @form
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11 dynamiconly
    */
   scale(sx?: number, sy?: number): Matrix2D;
 
@@ -438,12 +483,14 @@ export class Matrix2D {
    * Constructs a 2D change matrix object. The default value is the unit matrix.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 8
    */
   /**
    * Constructs a 2D change matrix object. The default value is the unit matrix.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @form
    * @since 9
    */
@@ -451,9 +498,10 @@ export class Matrix2D {
    * Constructs a 2D change matrix object. The default value is the unit matrix.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @form
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11 dynamiconly
    */
   constructor();
 }

@@ -132,8 +132,7 @@ export declare struct ExceptionPrompt {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
-  @PropRef
-  options: PromptOptions;
+  @PropRef options: PromptOptions;
   /**
    * Callback when clicking the text on the left.
    *

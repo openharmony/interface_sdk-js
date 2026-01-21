@@ -24,6 +24,7 @@
  * @interface CalendarDay
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @FaAndStageModel
  * @since 7
  */
 /**
@@ -32,6 +33,7 @@
  * @interface CalendarDay
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @FaAndStageModel
  * @form
  * @since 10 dynamiconly
  * @deprecated since 20
@@ -44,6 +46,7 @@ interface CalendarDay {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -53,6 +56,7 @@ interface CalendarDay {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 10 dynamiconly
    * @deprecated since 20
@@ -66,6 +70,7 @@ interface CalendarDay {
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -75,6 +80,7 @@ interface CalendarDay {
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 10 dynamiconly
    * @deprecated since 20
@@ -87,6 +93,7 @@ interface CalendarDay {
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -95,6 +102,7 @@ interface CalendarDay {
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 10 dynamiconly
    * @deprecated since 20
@@ -107,6 +115,7 @@ interface CalendarDay {
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -115,6 +124,7 @@ interface CalendarDay {
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 10 dynamiconly
    * @deprecated since 20
@@ -127,6 +137,7 @@ interface CalendarDay {
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -135,6 +146,7 @@ interface CalendarDay {
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 10 dynamiconly
    * @deprecated since 20
@@ -147,6 +159,7 @@ interface CalendarDay {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -155,6 +168,7 @@ interface CalendarDay {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 10 dynamiconly
    * @deprecated since 20
@@ -167,6 +181,7 @@ interface CalendarDay {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -175,6 +190,7 @@ interface CalendarDay {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 10 dynamiconly
    * @deprecated since 20
@@ -187,6 +203,7 @@ interface CalendarDay {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -195,6 +212,7 @@ interface CalendarDay {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 10 dynamiconly
    * @deprecated since 20
@@ -207,6 +225,7 @@ interface CalendarDay {
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -215,6 +234,7 @@ interface CalendarDay {
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 10 dynamiconly
    * @deprecated since 20
@@ -228,6 +248,7 @@ interface CalendarDay {
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -237,6 +258,7 @@ interface CalendarDay {
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 10 dynamiconly
    * @deprecated since 20
@@ -249,6 +271,7 @@ interface CalendarDay {
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -257,6 +280,7 @@ interface CalendarDay {
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 10 dynamiconly
    * @deprecated since 20
@@ -270,6 +294,7 @@ interface CalendarDay {
  * @interface MonthData
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @FaAndStageModel
  * @since 7
  */
 /**
@@ -278,6 +303,7 @@ interface CalendarDay {
  * @interface MonthData
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @FaAndStageModel
  * @form
  * @since 10 dynamiconly
  * @deprecated since 20
@@ -289,6 +315,7 @@ interface MonthData {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -297,6 +324,7 @@ interface MonthData {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 10 dynamiconly
    * @deprecated since 20
@@ -309,6 +337,7 @@ interface MonthData {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -317,6 +346,7 @@ interface MonthData {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 10 dynamiconly
    * @deprecated since 20
@@ -329,6 +359,7 @@ interface MonthData {
    * @type { CalendarDay[] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -337,6 +368,7 @@ interface MonthData {
    * @type { CalendarDay[] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 10 dynamiconly
    * @deprecated since 20
@@ -350,6 +382,7 @@ interface MonthData {
  * @interface CurrentDayStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @FaAndStageModel
  * @since 7
  */
 /**
@@ -358,6 +391,7 @@ interface MonthData {
  * @interface CurrentDayStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @FaAndStageModel
  * @form
  * @since 10 dynamiconly
  * @deprecated since 20
@@ -369,6 +403,7 @@ interface CurrentDayStyle {
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -377,6 +412,7 @@ interface CurrentDayStyle {
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 10 dynamiconly
    * @deprecated since 20
@@ -389,6 +425,7 @@ interface CurrentDayStyle {
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -397,6 +434,7 @@ interface CurrentDayStyle {
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 10 dynamiconly
    * @deprecated since 20
@@ -409,6 +447,7 @@ interface CurrentDayStyle {
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -417,6 +456,7 @@ interface CurrentDayStyle {
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 10 dynamiconly
    * @deprecated since 20
@@ -429,6 +469,7 @@ interface CurrentDayStyle {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -437,6 +478,7 @@ interface CurrentDayStyle {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 10 dynamiconly
    * @deprecated since 20
@@ -449,6 +491,7 @@ interface CurrentDayStyle {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -457,6 +500,7 @@ interface CurrentDayStyle {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 10 dynamiconly
    * @deprecated since 20
@@ -469,6 +513,7 @@ interface CurrentDayStyle {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -477,6 +522,7 @@ interface CurrentDayStyle {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 10 dynamiconly
    * @deprecated since 20
@@ -489,6 +535,7 @@ interface CurrentDayStyle {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -497,6 +544,7 @@ interface CurrentDayStyle {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 10 dynamiconly
    * @deprecated since 20
@@ -509,6 +557,7 @@ interface CurrentDayStyle {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -517,6 +566,7 @@ interface CurrentDayStyle {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 10 dynamiconly
    * @deprecated since 20
@@ -529,6 +579,7 @@ interface CurrentDayStyle {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -537,6 +588,7 @@ interface CurrentDayStyle {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 10 dynamiconly
    * @deprecated since 20
@@ -549,6 +601,7 @@ interface CurrentDayStyle {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -557,6 +610,7 @@ interface CurrentDayStyle {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 10 dynamiconly
    * @deprecated since 20
@@ -569,6 +623,7 @@ interface CurrentDayStyle {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -577,6 +632,7 @@ interface CurrentDayStyle {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 10 dynamiconly
    * @deprecated since 20
@@ -589,6 +645,7 @@ interface CurrentDayStyle {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -597,6 +654,7 @@ interface CurrentDayStyle {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 10 dynamiconly
    * @deprecated since 20
@@ -609,6 +667,7 @@ interface CurrentDayStyle {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -617,6 +676,7 @@ interface CurrentDayStyle {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 10 dynamiconly
    * @deprecated since 20
@@ -629,6 +689,7 @@ interface CurrentDayStyle {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -637,6 +698,7 @@ interface CurrentDayStyle {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 10 dynamiconly
    * @deprecated since 20
@@ -649,6 +711,7 @@ interface CurrentDayStyle {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -657,6 +720,7 @@ interface CurrentDayStyle {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 10 dynamiconly
    * @deprecated since 20
@@ -669,6 +733,7 @@ interface CurrentDayStyle {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -677,6 +742,7 @@ interface CurrentDayStyle {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 10 dynamiconly
    * @deprecated since 20
@@ -689,6 +755,7 @@ interface CurrentDayStyle {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -697,6 +764,7 @@ interface CurrentDayStyle {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 10 dynamiconly
    * @deprecated since 20
@@ -709,6 +777,7 @@ interface CurrentDayStyle {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -717,6 +786,7 @@ interface CurrentDayStyle {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 10 dynamiconly
    * @deprecated since 20
@@ -729,6 +799,7 @@ interface CurrentDayStyle {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -737,6 +808,7 @@ interface CurrentDayStyle {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 10 dynamiconly
    * @deprecated since 20
@@ -749,6 +821,7 @@ interface CurrentDayStyle {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -757,6 +830,7 @@ interface CurrentDayStyle {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 10 dynamiconly
    * @deprecated since 20
@@ -769,6 +843,7 @@ interface CurrentDayStyle {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -777,6 +852,7 @@ interface CurrentDayStyle {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 10 dynamiconly
    * @deprecated since 20
@@ -789,6 +865,7 @@ interface CurrentDayStyle {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -797,6 +874,7 @@ interface CurrentDayStyle {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 10 dynamiconly
    * @deprecated since 20
@@ -809,6 +887,7 @@ interface CurrentDayStyle {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -817,6 +896,7 @@ interface CurrentDayStyle {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 10 dynamiconly
    * @deprecated since 20
@@ -830,6 +910,7 @@ interface CurrentDayStyle {
  * @interface NonCurrentDayStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @FaAndStageModel
  * @since 7
  */
 /**
@@ -838,6 +919,7 @@ interface CurrentDayStyle {
  * @interface NonCurrentDayStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @FaAndStageModel
  * @form
  * @since 10 dynamiconly
  * @deprecated since 20
@@ -849,6 +931,7 @@ interface NonCurrentDayStyle {
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -857,6 +940,7 @@ interface NonCurrentDayStyle {
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 10 dynamiconly
    * @deprecated since 20
@@ -869,6 +953,7 @@ interface NonCurrentDayStyle {
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -877,6 +962,7 @@ interface NonCurrentDayStyle {
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 10 dynamiconly
    * @deprecated since 20
@@ -889,6 +975,7 @@ interface NonCurrentDayStyle {
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -897,6 +984,7 @@ interface NonCurrentDayStyle {
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 10 dynamiconly
    * @deprecated since 20
@@ -909,6 +997,7 @@ interface NonCurrentDayStyle {
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -917,6 +1006,7 @@ interface NonCurrentDayStyle {
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 10 dynamiconly
    * @deprecated since 20
@@ -930,6 +1020,7 @@ interface NonCurrentDayStyle {
  * @interface TodayStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @FaAndStageModel
  * @since 7
  */
 /**
@@ -938,6 +1029,7 @@ interface NonCurrentDayStyle {
  * @interface TodayStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @FaAndStageModel
  * @form
  * @since 10 dynamiconly
  * @deprecated since 20
@@ -949,6 +1041,7 @@ interface TodayStyle {
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -957,6 +1050,7 @@ interface TodayStyle {
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 10 dynamiconly
    * @deprecated since 20
@@ -969,6 +1063,7 @@ interface TodayStyle {
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -977,6 +1072,7 @@ interface TodayStyle {
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 10 dynamiconly
    * @deprecated since 20
@@ -989,6 +1085,7 @@ interface TodayStyle {
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -997,6 +1094,7 @@ interface TodayStyle {
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 10 dynamiconly
    * @deprecated since 20
@@ -1009,6 +1107,7 @@ interface TodayStyle {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -1017,6 +1116,7 @@ interface TodayStyle {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 10 dynamiconly
    * @deprecated since 20
@@ -1030,6 +1130,7 @@ interface TodayStyle {
  * @interface WeekStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @FaAndStageModel
  * @since 7
  */
 /**
@@ -1038,6 +1139,7 @@ interface TodayStyle {
  * @interface WeekStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @FaAndStageModel
  * @form
  * @since 10 dynamiconly
  * @deprecated since 20
@@ -1049,6 +1151,7 @@ interface WeekStyle {
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -1057,6 +1160,7 @@ interface WeekStyle {
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 10 dynamiconly
    * @deprecated since 20
@@ -1069,6 +1173,7 @@ interface WeekStyle {
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -1077,6 +1182,7 @@ interface WeekStyle {
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 10 dynamiconly
    * @deprecated since 20
@@ -1089,6 +1195,7 @@ interface WeekStyle {
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -1097,6 +1204,7 @@ interface WeekStyle {
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 10 dynamiconly
    * @deprecated since 20
@@ -1109,6 +1217,7 @@ interface WeekStyle {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -1117,6 +1226,7 @@ interface WeekStyle {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 10 dynamiconly
    * @deprecated since 20
@@ -1129,6 +1239,7 @@ interface WeekStyle {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -1137,6 +1248,7 @@ interface WeekStyle {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 10 dynamiconly
    * @deprecated since 20
@@ -1149,6 +1261,7 @@ interface WeekStyle {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -1157,6 +1270,7 @@ interface WeekStyle {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 10 dynamiconly
    * @deprecated since 20
@@ -1169,6 +1283,7 @@ interface WeekStyle {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -1177,6 +1292,7 @@ interface WeekStyle {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 10 dynamiconly
    * @deprecated since 20
@@ -1190,6 +1306,7 @@ interface WeekStyle {
  * @interface WorkStateStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @FaAndStageModel
  * @since 7
  */
 /**
@@ -1198,6 +1315,7 @@ interface WeekStyle {
  * @interface WorkStateStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @FaAndStageModel
  * @form
  * @since 10 dynamiconly
  * @deprecated since 20
@@ -1209,6 +1327,7 @@ interface WorkStateStyle {
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -1217,6 +1336,7 @@ interface WorkStateStyle {
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 10 dynamiconly
    * @deprecated since 20
@@ -1229,6 +1349,7 @@ interface WorkStateStyle {
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -1237,6 +1358,7 @@ interface WorkStateStyle {
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 10 dynamiconly
    * @deprecated since 20
@@ -1249,6 +1371,7 @@ interface WorkStateStyle {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -1257,6 +1380,7 @@ interface WorkStateStyle {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 10 dynamiconly
    * @deprecated since 20
@@ -1269,6 +1393,7 @@ interface WorkStateStyle {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -1277,6 +1402,7 @@ interface WorkStateStyle {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 10 dynamiconly
    * @deprecated since 20
@@ -1289,6 +1415,7 @@ interface WorkStateStyle {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -1297,6 +1424,7 @@ interface WorkStateStyle {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 10 dynamiconly
    * @deprecated since 20
@@ -1309,6 +1437,7 @@ interface WorkStateStyle {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -1317,6 +1446,7 @@ interface WorkStateStyle {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 10 dynamiconly
    * @deprecated since 20
@@ -1329,6 +1459,7 @@ interface WorkStateStyle {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -1337,6 +1468,7 @@ interface WorkStateStyle {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 10 dynamiconly
    * @deprecated since 20
@@ -1350,6 +1482,7 @@ interface WorkStateStyle {
  * @interface CalendarSelectedDate
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @FaAndStageModel
  * @since 7
  */
 /**
@@ -1358,6 +1491,7 @@ interface WorkStateStyle {
  * @interface CalendarSelectedDate
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @FaAndStageModel
  * @form
  * @since 10 dynamiconly
  * @deprecated since 20
@@ -1369,6 +1503,7 @@ declare interface CalendarSelectedDate {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -1377,6 +1512,7 @@ declare interface CalendarSelectedDate {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 10 dynamiconly
    * @deprecated since 20
@@ -1389,6 +1525,7 @@ declare interface CalendarSelectedDate {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -1397,6 +1534,7 @@ declare interface CalendarSelectedDate {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 10 dynamiconly
    * @deprecated since 20
@@ -1409,6 +1547,7 @@ declare interface CalendarSelectedDate {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -1417,6 +1556,7 @@ declare interface CalendarSelectedDate {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 10 dynamiconly
    * @deprecated since 20
@@ -1430,6 +1570,7 @@ declare interface CalendarSelectedDate {
  * @interface CalendarRequestedData
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @FaAndStageModel
  * @since 7
  */
 /**
@@ -1438,6 +1579,7 @@ declare interface CalendarSelectedDate {
  * @interface CalendarRequestedData
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @FaAndStageModel
  * @form
  * @since 10 dynamiconly
  * @deprecated since 20
@@ -1449,6 +1591,7 @@ declare interface CalendarRequestedData {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -1457,6 +1600,7 @@ declare interface CalendarRequestedData {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 10 dynamiconly
    * @deprecated since 20
@@ -1469,6 +1613,7 @@ declare interface CalendarRequestedData {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -1477,6 +1622,7 @@ declare interface CalendarRequestedData {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 10 dynamiconly
    * @deprecated since 20
@@ -1489,6 +1635,7 @@ declare interface CalendarRequestedData {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -1497,6 +1644,7 @@ declare interface CalendarRequestedData {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 10 dynamiconly
    * @deprecated since 20
@@ -1509,6 +1657,7 @@ declare interface CalendarRequestedData {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -1517,6 +1666,7 @@ declare interface CalendarRequestedData {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 10 dynamiconly
    * @deprecated since 20
@@ -1529,6 +1679,7 @@ declare interface CalendarRequestedData {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -1537,6 +1688,7 @@ declare interface CalendarRequestedData {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 10 dynamiconly
    * @deprecated since 20
@@ -1549,6 +1701,7 @@ declare interface CalendarRequestedData {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @FaAndStageModel
  * @since 7
  */
 /**
@@ -1556,6 +1709,7 @@ declare interface CalendarRequestedData {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @FaAndStageModel
  * @form
  * @since 10 dynamiconly
  * @deprecated since 20
@@ -1566,6 +1720,7 @@ declare class CalendarController {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -1573,6 +1728,7 @@ declare class CalendarController {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 10 dynamiconly
    * @deprecated since 20
@@ -1584,6 +1740,7 @@ declare class CalendarController {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -1591,6 +1748,7 @@ declare class CalendarController {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 10 dynamiconly
    * @deprecated since 20
@@ -1603,6 +1761,7 @@ declare class CalendarController {
    * @param { object } value
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -1611,6 +1770,7 @@ declare class CalendarController {
    * @param { object } value
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 10 dynamiconly
    * @deprecated since 20
@@ -1624,6 +1784,7 @@ declare class CalendarController {
  * @interface CalendarInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @FaAndStageModel
  * @since 7
  */
 /**
@@ -1632,6 +1793,7 @@ declare class CalendarController {
  * @interface CalendarInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @FaAndStageModel
  * @form
  * @since 10 dynamiconly
  * @deprecated since 20
@@ -1644,6 +1806,7 @@ interface CalendarInterface {
    * @returns { CalendarAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -1653,6 +1816,7 @@ interface CalendarInterface {
    * @returns { CalendarAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 10 dynamiconly
    * @deprecated since 20
@@ -1669,11 +1833,13 @@ interface CalendarInterface {
 /**
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @FaAndStageModel
  * @since 7
  */
 /**
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @FaAndStageModel
  * @form
  * @since 10 dynamiconly
  * @deprecated since 20
@@ -1686,6 +1852,7 @@ declare class CalendarAttribute {
    * @returns { CalendarAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -1695,6 +1862,7 @@ declare class CalendarAttribute {
    * @returns { CalendarAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 10 dynamiconly
    * @deprecated since 20
@@ -1708,6 +1876,7 @@ declare class CalendarAttribute {
    * @returns { CalendarAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -1717,6 +1886,7 @@ declare class CalendarAttribute {
    * @returns { CalendarAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 10 dynamiconly
    * @deprecated since 20
@@ -1730,6 +1900,7 @@ declare class CalendarAttribute {
    * @returns { CalendarAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -1739,6 +1910,7 @@ declare class CalendarAttribute {
    * @returns { CalendarAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 10 dynamiconly
    * @deprecated since 20
@@ -1752,6 +1924,7 @@ declare class CalendarAttribute {
    * @returns { CalendarAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -1761,6 +1934,7 @@ declare class CalendarAttribute {
    * @returns { CalendarAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 10 dynamiconly
    * @deprecated since 20
@@ -1774,6 +1948,7 @@ declare class CalendarAttribute {
    * @returns { CalendarAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -1783,6 +1958,7 @@ declare class CalendarAttribute {
    * @returns { CalendarAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 10 dynamiconly
    * @deprecated since 20
@@ -1796,6 +1972,7 @@ declare class CalendarAttribute {
    * @returns { CalendarAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -1805,6 +1982,7 @@ declare class CalendarAttribute {
    * @returns { CalendarAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 10 dynamiconly
    * @deprecated since 20
@@ -1818,6 +1996,7 @@ declare class CalendarAttribute {
    * @returns { CalendarAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -1827,6 +2006,7 @@ declare class CalendarAttribute {
    * @returns { CalendarAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 10 dynamiconly
    * @deprecated since 20
@@ -1840,6 +2020,7 @@ declare class CalendarAttribute {
    * @returns { CalendarAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -1849,6 +2030,7 @@ declare class CalendarAttribute {
    * @returns { CalendarAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 10 dynamiconly
    * @deprecated since 20
@@ -1862,6 +2044,7 @@ declare class CalendarAttribute {
    * @returns { CalendarAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -1871,6 +2054,7 @@ declare class CalendarAttribute {
    * @returns { CalendarAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 10 dynamiconly
    * @deprecated since 20
@@ -1884,6 +2068,7 @@ declare class CalendarAttribute {
    * @returns { CalendarAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -1893,6 +2078,7 @@ declare class CalendarAttribute {
    * @returns { CalendarAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 10 dynamiconly
    * @deprecated since 20
@@ -1906,6 +2092,7 @@ declare class CalendarAttribute {
    * @returns { CalendarAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -1915,6 +2102,7 @@ declare class CalendarAttribute {
    * @returns { CalendarAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 10 dynamiconly
    * @deprecated since 20
@@ -1928,6 +2116,7 @@ declare class CalendarAttribute {
    * @returns { CalendarAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -1937,6 +2126,7 @@ declare class CalendarAttribute {
    * @returns { CalendarAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 10 dynamiconly
    * @deprecated since 20
@@ -1950,6 +2140,7 @@ declare class CalendarAttribute {
    * @returns { CalendarAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -1959,6 +2150,7 @@ declare class CalendarAttribute {
    * @returns { CalendarAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 10 dynamiconly
    * @deprecated since 20
@@ -1973,6 +2165,7 @@ declare class CalendarAttribute {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @FaAndStageModel
  * @since 7
  */
 /**
@@ -1980,6 +2173,7 @@ declare class CalendarAttribute {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @FaAndStageModel
  * @form
  * @since 10 dynamiconly
  * @deprecated since 20
@@ -1991,6 +2185,7 @@ declare const Calendar: CalendarInterface;
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @FaAndStageModel
  * @since 7
  */
 /**
@@ -1998,6 +2193,7 @@ declare const Calendar: CalendarInterface;
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @FaAndStageModel
  * @form
  * @since 10 dynamiconly
  * @deprecated since 20

@@ -82,6 +82,7 @@ declare enum CheckBoxShape {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
@@ -89,6 +90,7 @@ declare enum CheckBoxShape {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @form
  * @since 9
  */
@@ -97,6 +99,7 @@ declare enum CheckBoxShape {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @since 10
@@ -117,22 +120,16 @@ declare enum Color {
    * White.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
    * White.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
-   */
-  /**
-   * White.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
    */
   /**
    * White.
@@ -141,64 +138,70 @@ declare enum Color {
    * @FaAndStageModel
    * @crossplatform
    * @form
+   * @since 10
+   */
+  /**
+   * White.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
+   * @crossplatform
+   * @form
    * @atomicservice
    * @since 11 dynamic
    */
-  White = 0,
+  White,
 
   /**
    * Black.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
-   */
-  /**
-   * Black.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Black.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
    */
   /**
    * Black.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
+   * @form
+   * @since 9
+   */
+  /**
+   * Black.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
+   * @crossplatform
+   * @form
+   * @since 10
+   */
+  /**
+   * Black.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
    * @since 11 dynamic
    */
-  Black = 1,
+  Black,
 
   /**
    * Blue.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
    * Blue.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
-   */
-  /**
-   * Blue.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
    */
   /**
    * Blue.
@@ -207,64 +210,70 @@ declare enum Color {
    * @FaAndStageModel
    * @crossplatform
    * @form
+   * @since 10
+   */
+  /**
+   * Blue.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
+   * @crossplatform
+   * @form
    * @atomicservice
    * @since 11 dynamic
    */
-  Blue = 2,
+  Blue,
 
   /**
    * Brown.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
-   */
-  /**
-   * Brown.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Brown.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
    */
   /**
    * Brown.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
+   * @form
+   * @since 9
+   */
+  /**
+   * Brown.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
+   * @crossplatform
+   * @form
+   * @since 10
+   */
+  /**
+   * Brown.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
    * @since 11 dynamic
    */
-  Brown = 3,
+  Brown,
 
   /**
    * Gray.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
    * Gray.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
-   */
-  /**
-   * Gray.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
    */
   /**
    * Gray.
@@ -273,64 +282,70 @@ declare enum Color {
    * @FaAndStageModel
    * @crossplatform
    * @form
+   * @since 10
+   */
+  /**
+   * Gray.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
+   * @crossplatform
+   * @form
    * @atomicservice
    * @since 11 dynamic
    */
-  Gray = 4,
+  Gray,
 
   /**
    * Green.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
-   */
-  /**
-   * Green.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Green.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
    */
   /**
    * Green.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
+   * @form
+   * @since 9
+   */
+  /**
+   * Green.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
+   * @crossplatform
+   * @form
+   * @since 10
+   */
+  /**
+   * Green.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
    * @since 11 dynamic
    */
-  Green = 5,
+  Green,
 
   /**
    * Grey.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
    * Grey.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
-   */
-  /**
-   * Grey.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
    */
   /**
    * Grey.
@@ -339,21 +354,32 @@ declare enum Color {
    * @FaAndStageModel
    * @crossplatform
    * @form
+   * @since 10
+   */
+  /**
+   * Grey.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
+   * @crossplatform
+   * @form
    * @atomicservice
    * @since 11 dynamic
    */
-  Grey = 6,
+  Grey,
 
   /**
    * Orange.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
    * Orange.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -361,6 +387,7 @@ declare enum Color {
    * Orange.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -375,18 +402,20 @@ declare enum Color {
    * @atomicservice
    * @since 11 dynamic
    */
-  Orange = 7,
+  Orange,
 
   /**
    * color.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
    * color.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -394,6 +423,7 @@ declare enum Color {
    * color.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -408,18 +438,20 @@ declare enum Color {
    * @atomicservice
    * @since 11 dynamic
    */
-  Pink = 8,
+  Pink,
 
   /**
    * Red.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
    * Red.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -427,6 +459,7 @@ declare enum Color {
    * Red.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -441,18 +474,20 @@ declare enum Color {
    * @atomicservice
    * @since 11 dynamic
    */
-  Red = 9,
+  Red,
 
   /**
    * Yellow.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
    * Yellow.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -460,6 +495,7 @@ declare enum Color {
    * Yellow.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -474,12 +510,13 @@ declare enum Color {
    * @atomicservice
    * @since 11 dynamic
    */
-  Yellow = 10,
+  Yellow,
 
   /**
    * Transparent.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -487,6 +524,7 @@ declare enum Color {
    * Transparent.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -501,7 +539,7 @@ declare enum Color {
    * @atomicservice
    * @since 11 dynamic
    */
-  Transparent = 11
+  Transparent,
 }
 
 /**
@@ -590,6 +628,7 @@ declare enum ColoringStrategy {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
@@ -597,6 +636,7 @@ declare enum ColoringStrategy {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @form
  * @since 9
  */
@@ -605,6 +645,7 @@ declare enum ColoringStrategy {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @since 10
@@ -614,6 +655,7 @@ declare enum ColoringStrategy {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
@@ -624,12 +666,14 @@ declare enum ImageFit {
    * Keep the aspect ratio to zoom out or zoom in so that the image is completely displayed within the display boundary.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
    * Keep the aspect ratio to zoom out or zoom in so that the image is completely displayed within the display boundary.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -637,6 +681,7 @@ declare enum ImageFit {
    * Keep the aspect ratio to zoom out or zoom in so that the image is completely displayed within the display boundary.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -645,6 +690,7 @@ declare enum ImageFit {
    * Keep the aspect ratio to zoom out or zoom in so that the image is completely displayed within the display boundary.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -656,12 +702,14 @@ declare enum ImageFit {
    * Keep the aspect ratio to zoom out or zoom in so that both sides of the image are greater than or equal to the display boundary.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
    * Keep the aspect ratio to zoom out or zoom in so that both sides of the image are greater than or equal to the display boundary.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -669,6 +717,7 @@ declare enum ImageFit {
    * Keep the aspect ratio to zoom out or zoom in so that both sides of the image are greater than or equal to the display boundary.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -677,6 +726,7 @@ declare enum ImageFit {
    * Keep the aspect ratio to zoom out or zoom in so that both sides of the image are greater than or equal to the display boundary.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -688,12 +738,14 @@ declare enum ImageFit {
    * Adaptive display
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
    * Adaptive display
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -701,6 +753,7 @@ declare enum ImageFit {
    * Adaptive display
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -709,6 +762,7 @@ declare enum ImageFit {
    * Adaptive display
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -720,12 +774,14 @@ declare enum ImageFit {
    * Zoom in or out without maintaining the aspect ratio so that the image fills the display boundary.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
    * Zoom in or out without maintaining the aspect ratio so that the image fills the display boundary.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -733,6 +789,7 @@ declare enum ImageFit {
    * Zoom in or out without maintaining the aspect ratio so that the image fills the display boundary.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -741,6 +798,7 @@ declare enum ImageFit {
    * Zoom in or out without maintaining the aspect ratio so that the image fills the display boundary.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -752,12 +810,14 @@ declare enum ImageFit {
    * Keep the aspect ratio displayed, and the image zooms out or remains unchanged.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
    * Keep the aspect ratio displayed, and the image zooms out or remains unchanged.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -765,6 +825,7 @@ declare enum ImageFit {
    * Keep the aspect ratio displayed, and the image zooms out or remains unchanged.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -773,6 +834,7 @@ declare enum ImageFit {
    * Keep the aspect ratio displayed, and the image zooms out or remains unchanged.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -784,12 +846,14 @@ declare enum ImageFit {
    * Keep the original size and display it in the center.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
    * Keep the original size and display it in the center.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -797,6 +861,7 @@ declare enum ImageFit {
    * Keep the original size and display it in the center.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -805,6 +870,7 @@ declare enum ImageFit {
    * Keep the original size and display it in the center.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -1422,14 +1488,14 @@ declare enum InteractionHand {
 }
 
 /**
- * Function Called by Mouse
+ * Define the button types of the mouse device.
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
- * Function Called by Mouse
+ * Define the button types of the mouse device.
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1437,7 +1503,7 @@ declare enum InteractionHand {
  * @since 10
  */
 /**
- * Function Called by Mouse
+ * Define the button types of the mouse device.
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1664,7 +1730,6 @@ declare enum MouseAction {
    * @since 11 dynamic
    */
   Release,
-
   /**
    * Triggered when the mouse is Moved.
    *
@@ -2335,6 +2400,7 @@ declare enum Curve {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
@@ -2342,6 +2408,7 @@ declare enum Curve {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @since 10
@@ -2362,12 +2429,14 @@ declare enum FillMode {
    * Restores to the initial state after the playback is complete.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
    * Restores to the initial state after the playback is complete.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -2382,18 +2451,20 @@ declare enum FillMode {
    * @atomicservice
    * @since 11 dynamic
    */
-  None = 0,
+  None,
 
   /**
    * Retains the state at the end of the animation when the playback is complete.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
    * Retains the state at the end of the animation when the playback is complete.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -2408,18 +2479,20 @@ declare enum FillMode {
    * @atomicservice
    * @since 11 dynamic
    */
-  Forwards = 1,
+  Forwards,
 
   /**
    * Applies the start attribute value for the period specified by animation-delay before the animation is displayed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
    * Applies the start attribute value for the period specified by animation-delay before the animation is displayed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -2434,18 +2507,20 @@ declare enum FillMode {
    * @atomicservice
    * @since 11 dynamic
    */
-  Backwards = 2,
+  Backwards,
 
   /**
    * Both forward and backward fill modes are applied.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
    * Both forward and backward fill modes are applied.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -2460,7 +2535,7 @@ declare enum FillMode {
    * @atomicservice
    * @since 11 dynamic
    */
-  Both = 3,
+  Both,
 }
 
 /**
@@ -2468,6 +2543,7 @@ declare enum FillMode {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
@@ -2475,6 +2551,7 @@ declare enum FillMode {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @form
  * @since 9
  */
@@ -2483,6 +2560,7 @@ declare enum FillMode {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @since 10
@@ -2503,22 +2581,16 @@ declare enum PlayMode {
    * The animation plays normally.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
    * The animation plays normally.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
-   */
-  /**
-   * The animation plays normally.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
    */
   /**
    * The animation plays normally.
@@ -2527,21 +2599,32 @@ declare enum PlayMode {
    * @FaAndStageModel
    * @crossplatform
    * @form
+   * @since 10
+   */
+  /**
+   * The animation plays normally.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
+   * @crossplatform
+   * @form
    * @atomicservice
    * @since 11 dynamic
    */
-  Normal = 0,
+  Normal,
 
   /**
    * The animation plays backwards.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
    * The animation plays backwards.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -2549,6 +2632,7 @@ declare enum PlayMode {
    * The animation plays backwards.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -2563,18 +2647,20 @@ declare enum PlayMode {
    * @atomicservice
    * @since 11 dynamic
    */
-  Reverse = 1,
+  Reverse,
 
   /**
    * The animation plays forward on odd numbers (1, 3, 7...) and backward on even numbers (2, 4, 6...).
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
    * The animation plays forward on odd numbers (1, 3, 7...) and backward on even numbers (2, 4, 6...).
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -2582,6 +2668,7 @@ declare enum PlayMode {
    * The animation plays forward on odd numbers (1, 3, 7...) and backward on even numbers (2, 4, 6...).
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -2596,18 +2683,20 @@ declare enum PlayMode {
    * @atomicservice
    * @since 11 dynamic
    */
-  Alternate = 2,
+  Alternate,
 
   /**
    * The animation plays backwards on odd numbers (1, 3, 7...) and forwards on even numbers (2, 4, 6...)..
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
    * The animation plays backwards on odd numbers (1, 3, 7...) and forwards on even numbers (2, 4, 6...)..
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -2615,6 +2704,7 @@ declare enum PlayMode {
    * The animation plays backwards on odd numbers (1, 3, 7...) and forwards on even numbers (2, 4, 6...)..
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -2629,7 +2719,7 @@ declare enum PlayMode {
    * @atomicservice
    * @since 11 dynamic
    */
-  AlternateReverse = 3,
+  AlternateReverse,
 }
 
 /**
@@ -2637,6 +2727,7 @@ declare enum PlayMode {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
@@ -2644,6 +2735,7 @@ declare enum PlayMode {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @since 10
  */
@@ -2662,12 +2754,14 @@ declare enum KeyType {
    * Press the key.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
    * Press the key.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -2680,18 +2774,20 @@ declare enum KeyType {
    * @atomicservice
    * @since 11 dynamic
    */
-  Down = 0,
+  Down,
 
   /**
    * The key is released.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
    * The key is released.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -2704,7 +2800,7 @@ declare enum KeyType {
    * @atomicservice
    * @since 11 dynamic
    */
-  Up = 1,
+  Up,
 }
 
 /**
@@ -2712,6 +2808,7 @@ declare enum KeyType {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
@@ -2719,6 +2816,7 @@ declare enum KeyType {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @since 10
  */
@@ -2737,12 +2835,14 @@ declare enum KeySource {
    * The input device type is unknown.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
    * The input device type is unknown.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -2755,18 +2855,20 @@ declare enum KeySource {
    * @atomicservice
    * @since 11 dynamic
    */
-  Unknown = 0,
+  Unknown,
 
   /**
    * Set Device Type to Keyboard.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
    * Set Device Type to Keyboard.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -2779,18 +2881,17 @@ declare enum KeySource {
    * @atomicservice
    * @since 11 dynamic
    */
-  Keyboard = 1,
+  Keyboard,
 
   /**
    * Set Device Type to Joystic.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 15 dynamic
    */
-  JOYSTICK = 2,
+  JOYSTICK,
 }
 
 /**
@@ -2943,6 +3044,7 @@ declare enum Edge {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
@@ -2950,6 +3052,7 @@ declare enum Edge {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @since 10
  */
@@ -2968,12 +3071,14 @@ declare enum Week {
    * Monday.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
    * Monday.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -2986,20 +3091,14 @@ declare enum Week {
    * @atomicservice
    * @since 11 dynamic
    */
-  Mon = 0,
+  Mon,
 
   /**
    * Tuesday.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
-   */
-  /**
-   * Tuesday.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
    */
   /**
    * Tuesday.
@@ -3007,21 +3106,31 @@ declare enum Week {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform
+   * @since 10
+   */
+  /**
+   * Tuesday.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
+   * @crossplatform
    * @atomicservice
    * @since 11 dynamic
    */
-  Tue = 1,
+  Tue,
 
   /**
    * Wednesday.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
    * Wednesday.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -3034,20 +3143,14 @@ declare enum Week {
    * @atomicservice
    * @since 11 dynamic
    */
-  Wed = 2,
+  Wed,
 
   /**
    * Thursday.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
-   */
-  /**
-   * Thursday.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
    */
   /**
    * Thursday.
@@ -3055,21 +3158,31 @@ declare enum Week {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform
+   * @since 10
+   */
+  /**
+   * Thursday.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
+   * @crossplatform
    * @atomicservice
    * @since 11 dynamic
    */
-  Thur = 3,
+  Thur,
 
   /**
    * Friday.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
    * Friday.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -3082,18 +3195,20 @@ declare enum Week {
    * @atomicservice
    * @since 11 dynamic
    */
-  Fri = 4,
+  Fri,
 
   /**
    * Saturday.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
    * Saturday.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -3106,18 +3221,20 @@ declare enum Week {
    * @atomicservice
    * @since 11 dynamic
    */
-  Sat = 5,
+  Sat,
 
   /**
    * Sunday.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
    * Sunday.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -3130,7 +3247,7 @@ declare enum Week {
    * @atomicservice
    * @since 11 dynamic
    */
-  Sun = 6,
+  Sun,
 }
 
 /**
@@ -3138,6 +3255,7 @@ declare enum Week {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
@@ -3145,6 +3263,7 @@ declare enum Week {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @form
  * @since 9
  */
@@ -3153,6 +3272,7 @@ declare enum Week {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @since 10
@@ -3173,12 +3293,14 @@ declare enum Direction {
    * Elements are laid out from left to right.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
    * Elements are laid out from left to right.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -3186,6 +3308,7 @@ declare enum Direction {
    * Elements are laid out from left to right.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -3200,18 +3323,20 @@ declare enum Direction {
    * @atomicservice
    * @since 11 dynamic
    */
-  Ltr = 0,
+  Ltr,
 
   /**
    * Elements are laid out from right to left.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
    * Elements are laid out from right to left.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -3219,6 +3344,7 @@ declare enum Direction {
    * Elements are laid out from right to left.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -3233,18 +3359,20 @@ declare enum Direction {
    * @atomicservice
    * @since 11 dynamic
    */
-  Rtl = 1,
+  Rtl,
 
   /**
    * Use the default layout direction.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
    * Use the default layout direction.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -3252,6 +3380,7 @@ declare enum Direction {
    * Use the default layout direction.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -3266,7 +3395,7 @@ declare enum Direction {
    * @atomicservice
    * @since 11 dynamic
    */
-  Auto = 2,
+  Auto,
 }
 
 /**
@@ -3274,6 +3403,7 @@ declare enum Direction {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
@@ -3281,6 +3411,7 @@ declare enum Direction {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @form
  * @since 9
  */
@@ -3289,6 +3420,7 @@ declare enum Direction {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @since 10
@@ -3309,12 +3441,14 @@ declare enum BarState {
    * Not displayed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
    * Not displayed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -3322,6 +3456,7 @@ declare enum BarState {
    * Not displayed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -3336,18 +3471,20 @@ declare enum BarState {
    * @atomicservice
    * @since 11 dynamic
    */
-  Off = 0,
+  Off,
 
   /**
    * On-demand display (displayed when you touch it and disappears after 2 seconds).
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
    * On-demand display (displayed when you touch it and disappears after 2 seconds).
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -3355,6 +3492,7 @@ declare enum BarState {
    * On-demand display (displayed when you touch it and disappears after 2 seconds).
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -3369,18 +3507,20 @@ declare enum BarState {
    * @atomicservice
    * @since 11 dynamic
    */
-  Auto = 1,
+  Auto,
 
   /**
    * Resident display.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
    * Resident display.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -3388,6 +3528,7 @@ declare enum BarState {
    * Resident display.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -3402,7 +3543,7 @@ declare enum BarState {
    * @atomicservice
    * @since 11 dynamic
    */
-  On = 2,
+  On,
 }
 
 /**
@@ -3470,7 +3611,7 @@ declare enum EdgeEffect {
    * @atomicservice
    * @since 11 dynamic
    */
-  Spring = 0,
+  Spring,
 
   /**
    * Fade.
@@ -3502,7 +3643,7 @@ declare enum EdgeEffect {
    * @atomicservice
    * @since 11 dynamic
    */
-  Fade = 1,
+  Fade,
 
   /**
    * Sliding to the edge has no effect.
@@ -3534,7 +3675,7 @@ declare enum EdgeEffect {
    * @atomicservice
    * @since 11 dynamic
    */
-  None = 2,
+  None,
 }
 
 /**
@@ -3542,6 +3683,7 @@ declare enum EdgeEffect {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
@@ -3549,6 +3691,7 @@ declare enum EdgeEffect {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @form
  * @since 9
  */
@@ -3557,6 +3700,7 @@ declare enum EdgeEffect {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @since 10
@@ -3577,22 +3721,16 @@ declare enum Alignment {
    * Top Start.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
    * Top Start.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
-   */
-  /**
-   * Top Start.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
    */
   /**
    * Top Start.
@@ -3601,64 +3739,70 @@ declare enum Alignment {
    * @FaAndStageModel
    * @crossplatform
    * @form
+   * @since 10
+   */
+  /**
+   * Top Start.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
+   * @crossplatform
+   * @form
    * @atomicservice
    * @since 11 dynamic
    */
-  TopStart = 0,
+  TopStart,
 
   /**
    * The top is centered horizontally.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
-   */
-  /**
-   * The top is centered horizontally.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * The top is centered horizontally.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
    */
   /**
    * The top is centered horizontally.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
+   * @form
+   * @since 9
+   */
+  /**
+   * The top is centered horizontally.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
+   * @crossplatform
+   * @form
+   * @since 10
+   */
+  /**
+   * The top is centered horizontally.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
    * @since 11 dynamic
    */
-  Top = 1,
+  Top,
 
   /**
    * Top tail end.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
    * Top tail end.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
-   */
-  /**
-   * Top tail end.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
    */
   /**
    * Top tail end.
@@ -3667,64 +3811,70 @@ declare enum Alignment {
    * @FaAndStageModel
    * @crossplatform
    * @form
+   * @since 10
+   */
+  /**
+   * Top tail end.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
+   * @crossplatform
+   * @form
    * @atomicservice
    * @since 11 dynamic
    */
-  TopEnd = 2,
+  TopEnd,
 
   /**
    * The starting end is centered longitudinally.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
-   */
-  /**
-   * The starting end is centered longitudinally.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * The starting end is centered longitudinally.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
    */
   /**
    * The starting end is centered longitudinally.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
+   * @form
+   * @since 9
+   */
+  /**
+   * The starting end is centered longitudinally.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
+   * @crossplatform
+   * @form
+   * @since 10
+   */
+  /**
+   * The starting end is centered longitudinally.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
    * @since 11 dynamic
    */
-  Start = 3,
+  Start,
 
   /**
    * Center horizontal and vertical.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
    * Center horizontal and vertical.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
-   */
-  /**
-   * Center horizontal and vertical.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
    */
   /**
    * Center horizontal and vertical.
@@ -3733,21 +3883,32 @@ declare enum Alignment {
    * @FaAndStageModel
    * @crossplatform
    * @form
+   * @since 10
+   */
+  /**
+   * Center horizontal and vertical.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
+   * @crossplatform
+   * @form
    * @atomicservice
    * @since 11 dynamic
    */
-  Center = 4,
+  Center,
 
   /**
    * The tail end is centered longitudinally.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
    * The tail end is centered longitudinally.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -3755,6 +3916,7 @@ declare enum Alignment {
    * The tail end is centered longitudinally.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -3769,18 +3931,20 @@ declare enum Alignment {
    * @atomicservice
    * @since 11 dynamic
    */
-  End = 5,
+  End,
 
   /**
    * Bottom starting end.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
    * Bottom starting end.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -3788,6 +3952,7 @@ declare enum Alignment {
    * Bottom starting end.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -3802,18 +3967,20 @@ declare enum Alignment {
    * @atomicservice
    * @since 11 dynamic
    */
-  BottomStart = 6,
+  BottomStart,
 
   /**
    * The bottom is centered horizontally.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
    * The bottom is centered horizontally.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -3821,6 +3988,7 @@ declare enum Alignment {
    * The bottom is centered horizontally.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -3835,18 +4003,20 @@ declare enum Alignment {
    * @atomicservice
    * @since 11 dynamic
    */
-  Bottom = 7,
+  Bottom,
 
   /**
    * Bottom end.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
    * Bottom end.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -3854,6 +4024,7 @@ declare enum Alignment {
    * Bottom end.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -3868,15 +4039,14 @@ declare enum Alignment {
    * @atomicservice
    * @since 11 dynamic
    */
-  BottomEnd = 8,
+  BottomEnd,
 }
 
 /**
- * Alignment enumeration description.
+ * LocalizedAlignment enumeration description.
  *
  * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
@@ -3887,7 +4057,6 @@ declare enum LocalizedAlignment {
    * Top Start.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -3898,7 +4067,6 @@ declare enum LocalizedAlignment {
    * The top is centered horizontally.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -3909,7 +4077,6 @@ declare enum LocalizedAlignment {
    * Top tail end.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -3920,7 +4087,6 @@ declare enum LocalizedAlignment {
    * The starting end is centered longitudinally.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -3931,7 +4097,6 @@ declare enum LocalizedAlignment {
    * Center horizontal and vertical.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -3942,7 +4107,6 @@ declare enum LocalizedAlignment {
    * The tail end is centered longitudinally.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -3953,7 +4117,6 @@ declare enum LocalizedAlignment {
    * Bottom starting end.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -3964,7 +4127,6 @@ declare enum LocalizedAlignment {
    * The bottom is centered horizontally.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -3975,7 +4137,6 @@ declare enum LocalizedAlignment {
    * Bottom end.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -4049,7 +4210,7 @@ declare enum TransitionType {
    * @atomicservice
    * @since 11 dynamic
    */
-  All = 0,
+  All,
 
   /**
    * Specifies the insertion scenario in which the current transition action takes effect.
@@ -4081,7 +4242,7 @@ declare enum TransitionType {
    * @atomicservice
    * @since 11 dynamic
    */
-  Insert = 1,
+  Insert,
 
   /**
    * Specifies the deletion scenario in which the current transition action takes effect.
@@ -4113,7 +4274,7 @@ declare enum TransitionType {
    * @atomicservice
    * @since 11 dynamic
    */
-  Delete = 2,
+  Delete,
 }
 
 /**
@@ -4121,6 +4282,7 @@ declare enum TransitionType {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
@@ -4128,6 +4290,7 @@ declare enum TransitionType {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @since 10
  */
@@ -4146,12 +4309,14 @@ declare enum RelateType {
    * Scales the current component to fill the parent component.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
    * Scales the current component to fill the parent component.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -4164,18 +4329,20 @@ declare enum RelateType {
    * @atomicservice
    * @since 11 dynamic
    */
-  FILL = 0,
+  FILL,
 
   /**
    * Scales the current component to fit the parent component.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
    * Scales the current component to fit the parent component.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -4188,7 +4355,7 @@ declare enum RelateType {
    * @atomicservice
    * @since 11 dynamic
    */
-  FIT = 1,
+  FIT,
 }
 
 /**
@@ -4256,7 +4423,7 @@ declare enum Visibility {
    * @atomicservice
    * @since 11 dynamic
    */
-  Visible = 0,
+  Visible,
 
   /**
    * Hide, but participate in layout for placeholder.
@@ -4288,7 +4455,7 @@ declare enum Visibility {
    * @atomicservice
    * @since 11 dynamic
    */
-  Hidden = 1,
+  Hidden,
 
   /**
    * Hides but does not participate in layout and does not take place.
@@ -4320,7 +4487,7 @@ declare enum Visibility {
    * @atomicservice
    * @since 11 dynamic
    */
-  None = 2,
+  None,
 }
 
 /**
@@ -4388,7 +4555,7 @@ declare enum LineCapStyle {
    * @atomicservice
    * @since 11 dynamic
    */
-  Butt = 0,
+  Butt,
 
   /**
    * The two ends of the dividing line are semicircles.
@@ -4420,7 +4587,7 @@ declare enum LineCapStyle {
    * @atomicservice
    * @since 11 dynamic
    */
-  Round = 1,
+  Round,
 
   /**
    * Extends half a circle at the end of the path with a width equal to half the dividing line width and a height equal to the dividing line width.
@@ -4452,7 +4619,7 @@ declare enum LineCapStyle {
    * @atomicservice
    * @since 11 dynamic
    */
-  Square = 2,
+  Square,
 }
 
 /**
@@ -4520,7 +4687,7 @@ declare enum Axis {
    * @atomicservice
    * @since 11 dynamic
    */
-  Vertical = 0,
+  Vertical,
 
   /**
    * Horizontal arrangement.
@@ -4552,7 +4719,7 @@ declare enum Axis {
    * @atomicservice
    * @since 11 dynamic
    */
-  Horizontal = 1,
+  Horizontal,
 }
 
 /**
@@ -4560,6 +4727,7 @@ declare enum Axis {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
@@ -4567,6 +4735,7 @@ declare enum Axis {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @form
  * @since 9
  */
@@ -4575,6 +4744,7 @@ declare enum Axis {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @since 10
@@ -4595,12 +4765,14 @@ declare enum HorizontalAlign {
    * Aligns the start end in the language direction.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
    * Aligns the start end in the language direction.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -4608,6 +4780,7 @@ declare enum HorizontalAlign {
    * Aligns the start end in the language direction.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -4622,18 +4795,20 @@ declare enum HorizontalAlign {
    * @atomicservice
    * @since 11 dynamic
    */
-  Start = 0,
+  Start,
 
   /**
    * Center alignment. The default alignment mode is used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
    * Center alignment. The default alignment mode is used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -4641,6 +4816,7 @@ declare enum HorizontalAlign {
    * Center alignment. The default alignment mode is used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -4655,18 +4831,20 @@ declare enum HorizontalAlign {
    * @atomicservice
    * @since 11 dynamic
    */
-  Center = 1,
+  Center,
 
   /**
    * Aligns the ends in the language direction.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
    * Aligns the ends in the language direction.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -4674,6 +4852,7 @@ declare enum HorizontalAlign {
    * Aligns the ends in the language direction.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -4688,7 +4867,7 @@ declare enum HorizontalAlign {
    * @atomicservice
    * @since 11 dynamic
    */
-  End = 2,
+  End,
 }
 
 /**
@@ -4760,7 +4939,7 @@ declare enum FlexAlign {
    * @atomicservice
    * @since 11 dynamic
    */
-  Start = 0,
+  Start,
 
   /**
    * The elements are centered in the direction of the principal axis,
@@ -4796,7 +4975,7 @@ declare enum FlexAlign {
    * @atomicservice
    * @since 11 dynamic
    */
-  Center = 1,
+  Center,
 
   /**
    * The element is aligned at the tail of the principal axis,
@@ -4832,7 +5011,7 @@ declare enum FlexAlign {
    * @atomicservice
    * @since 11 dynamic
    */
-  End = 2,
+  End,
 
   /**
    * Elastic elements are evenly distributed in the direction of the Flex principal axis,
@@ -4872,7 +5051,7 @@ declare enum FlexAlign {
    * @atomicservice
    * @since 11 dynamic
    */
-  SpaceBetween = 3,
+  SpaceBetween,
 
   /**
    * Elastic elements are evenly distributed in the direction of the Flex principal axis,
@@ -4912,7 +5091,7 @@ declare enum FlexAlign {
    * @atomicservice
    * @since 11 dynamic
    */
-  SpaceAround = 4,
+  SpaceAround,
 
   /**
    * Elements in the Flex axis direction are evenly spaced.
@@ -4952,7 +5131,7 @@ declare enum FlexAlign {
    * @atomicservice
    * @since 11 dynamic
    */
-  SpaceEvenly = 5,
+  SpaceEvenly,
 }
 
 /**
@@ -4960,6 +5139,7 @@ declare enum FlexAlign {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
@@ -4967,6 +5147,7 @@ declare enum FlexAlign {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @form
  * @since 9
  */
@@ -4975,6 +5156,7 @@ declare enum FlexAlign {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @since 10
@@ -4995,22 +5177,16 @@ declare enum ItemAlign {
    * Use the default configuration in the Flex container.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
    * Use the default configuration in the Flex container.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
-   */
-  /**
-   * Use the default configuration in the Flex container.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
    */
   /**
    * Use the default configuration in the Flex container.
@@ -5019,54 +5195,68 @@ declare enum ItemAlign {
    * @FaAndStageModel
    * @crossplatform
    * @form
+   * @since 10
+   */
+  /**
+   * Use the default configuration in the Flex container.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
+   * @crossplatform
+   * @form
    * @atomicservice
    * @since 11 dynamic
    */
-  Auto = 0,
+  Auto,
 
   /**
    * The element is in the Flex container with the cross-axis direction head aligned.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
-   */
-  /**
-   * The element is in the Flex container with the cross-axis direction head aligned.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * The element is in the Flex container with the cross-axis direction head aligned.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
    */
   /**
    * The element is in the Flex container with the cross-axis direction head aligned.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
+   * @form
+   * @since 9
+   */
+  /**
+   * The element is in the Flex container with the cross-axis direction head aligned.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
+   * @crossplatform
+   * @form
+   * @since 10
+   */
+  /**
+   * The element is in the Flex container with the cross-axis direction head aligned.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
    * @since 11 dynamic
    */
-  Start = 1,
+  Start,
 
   /**
    * The element is centered in the Flex container with the cross axis direction aligned.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
    * The element is centered in the Flex container with the cross axis direction aligned.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -5074,6 +5264,7 @@ declare enum ItemAlign {
    * The element is centered in the Flex container with the cross axis direction aligned.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -5088,18 +5279,20 @@ declare enum ItemAlign {
    * @atomicservice
    * @since 11 dynamic
    */
-  Center = 2,
+  Center,
 
   /**
    * The element is bottom aligned in the Flex container with the cross axis direction.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
    * The element is bottom aligned in the Flex container with the cross axis direction.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -5107,6 +5300,7 @@ declare enum ItemAlign {
    * The element is bottom aligned in the Flex container with the cross axis direction.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -5121,18 +5315,20 @@ declare enum ItemAlign {
    * @atomicservice
    * @since 11 dynamic
    */
-  End = 3,
+  End,
 
   /**
    * Element In the Flex container, the cross-axis direction text baseline is aligned.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
    * Element In the Flex container, the cross-axis direction text baseline is aligned.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -5140,6 +5336,7 @@ declare enum ItemAlign {
    * Element In the Flex container, the cross-axis direction text baseline is aligned.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -5154,18 +5351,20 @@ declare enum ItemAlign {
    * @atomicservice
    * @since 11 dynamic
    */
-  Baseline = 4,
+  Baseline,
 
   /**
    * Element In a Flex container, the fill is stretched across the axis and, when no dimension is set, to the container size.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
    * Element In a Flex container, the fill is stretched across the axis and, when no dimension is set, to the container size.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -5173,6 +5372,7 @@ declare enum ItemAlign {
    * Element In a Flex container, the fill is stretched across the axis and, when no dimension is set, to the container size.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -5187,7 +5387,7 @@ declare enum ItemAlign {
    * @atomicservice
    * @since 11 dynamic
    */
-  Stretch = 5,
+  Stretch,
 }
 
 /**
@@ -5255,7 +5455,7 @@ declare enum FlexDirection {
    * @atomicservice
    * @since 11 dynamic
    */
-  Row = 0,
+  Row,
 
   /**
    * The main axis is consistent with the column direction as the layout mode.
@@ -5287,7 +5487,7 @@ declare enum FlexDirection {
    * @atomicservice
    * @since 11 dynamic
    */
-  Column = 1,
+  Column,
 
   /**
    * The layout is in the opposite direction to the Row direction.
@@ -5319,7 +5519,7 @@ declare enum FlexDirection {
    * @atomicservice
    * @since 11 dynamic
    */
-  RowReverse = 2,
+  RowReverse,
 
   /**
    * Layout in the opposite direction to the column.
@@ -5351,7 +5551,7 @@ declare enum FlexDirection {
    * @atomicservice
    * @since 11 dynamic
    */
-  ColumnReverse = 3,
+  ColumnReverse,
 }
 
 /**
@@ -5359,7 +5559,6 @@ declare enum FlexDirection {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
@@ -5370,7 +5569,6 @@ declare enum PixelRoundCalcPolicy {
    * No Force round the component boundary coordinates to integer pixel.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -5381,7 +5579,6 @@ declare enum PixelRoundCalcPolicy {
    * Force ceil the component boundary coordinates to integer pixel.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -5392,7 +5589,6 @@ declare enum PixelRoundCalcPolicy {
    * Force floor the component boundary coordinates to integer pixel.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -5406,7 +5602,6 @@ declare enum PixelRoundCalcPolicy {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
@@ -5417,7 +5612,6 @@ declare enum PixelRoundMode {
    * Do pixel round on layout finish.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -5428,7 +5622,6 @@ declare enum PixelRoundMode {
    * Do pixel round after measure.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -5574,6 +5767,7 @@ declare enum FlexWrap {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
@@ -5581,6 +5775,7 @@ declare enum FlexWrap {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @form
  * @since 9
  */
@@ -5589,6 +5784,7 @@ declare enum FlexWrap {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @since 10
@@ -5609,12 +5805,14 @@ declare enum VerticalAlign {
    * Top alignment.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
    * Top alignment.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -5622,6 +5820,7 @@ declare enum VerticalAlign {
    * Top alignment.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -5636,18 +5835,20 @@ declare enum VerticalAlign {
    * @atomicservice
    * @since 11 dynamic
    */
-  Top = 0,
+  Top,
 
   /**
    * Center alignment. The default alignment mode is used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
    * Center alignment. The default alignment mode is used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -5655,6 +5856,7 @@ declare enum VerticalAlign {
    * Center alignment. The default alignment mode is used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -5669,18 +5871,20 @@ declare enum VerticalAlign {
    * @atomicservice
    * @since 11 dynamic
    */
-  Center = 1,
+  Center,
 
   /**
    * Bottom alignment.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
    * Bottom alignment.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -5688,6 +5892,7 @@ declare enum VerticalAlign {
    * Bottom alignment.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -5702,7 +5907,7 @@ declare enum VerticalAlign {
    * @atomicservice
    * @since 11 dynamic
    */
-  Bottom = 2,
+  Bottom,
 }
 
 /**
@@ -5710,6 +5915,7 @@ declare enum VerticalAlign {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
@@ -5717,6 +5923,7 @@ declare enum VerticalAlign {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @form
  * @since 9
  */
@@ -5725,6 +5932,7 @@ declare enum VerticalAlign {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @since 10
@@ -5734,6 +5942,7 @@ declare enum VerticalAlign {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
@@ -5744,12 +5953,14 @@ declare enum ImageRepeat {
    * Do not draw the picture again.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
    * Do not draw the picture again.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -5757,6 +5968,7 @@ declare enum ImageRepeat {
    * Do not draw the picture again.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -5765,23 +5977,26 @@ declare enum ImageRepeat {
    * Do not draw the picture again.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
    * @since 11 dynamic
    */
-  NoRepeat = 0,
+  NoRepeat,
 
   /**
    * Repeat the drawing only on the horizontal axis.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
    * Repeat the drawing only on the horizontal axis.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -5789,6 +6004,7 @@ declare enum ImageRepeat {
    * Repeat the drawing only on the horizontal axis.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -5797,23 +6013,26 @@ declare enum ImageRepeat {
    * Repeat the drawing only on the horizontal axis.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
    * @since 11 dynamic
    */
-  X = 1,
+  X,
 
   /**
    * Repeat the drawing only on the vertical axis.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
    * Repeat the drawing only on the vertical axis.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -5821,6 +6040,7 @@ declare enum ImageRepeat {
    * Repeat the drawing only on the vertical axis.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -5829,23 +6049,26 @@ declare enum ImageRepeat {
    * Repeat the drawing only on the vertical axis.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
    * @since 11 dynamic
    */
-  Y = 2,
+  Y,
 
   /**
    * Draw the picture repeatedly on both axes.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
    * Draw the picture repeatedly on both axes.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -5853,6 +6076,7 @@ declare enum ImageRepeat {
    * Draw the picture repeatedly on both axes.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -5861,12 +6085,13 @@ declare enum ImageRepeat {
    * Draw the picture repeatedly on both axes.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
    * @since 11 dynamic
    */
-  XY = 3,
+  XY,
 }
 
 /**
@@ -5934,7 +6159,7 @@ declare enum ImageSize {
    * @atomicservice
    * @since 11 dynamic
    */
-  Auto = 0,
+  Auto,
 
   /**
    * Keep the aspect ratio to zoom in or out the image so that both sides of the image are greater than or equal to the display boundary.
@@ -5966,7 +6191,7 @@ declare enum ImageSize {
    * @atomicservice
    * @since 11 dynamic
    */
-  Cover = 1,
+  Cover,
 
   /**
    * Keep the aspect ratio to zoom out or zoom in so that the image is completely displayed within the display boundary.
@@ -5998,7 +6223,7 @@ declare enum ImageSize {
    * @atomicservice
    * @since 11 dynamic
    */
-  Contain = 2,
+  Contain,
 
   /**
    * Zoom in or out without maintaining the aspect ratio so that the image fills the display boundary.
@@ -6016,6 +6241,7 @@ declare enum ImageSize {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
@@ -6023,6 +6249,7 @@ declare enum ImageSize {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @form
  * @since 9
  */
@@ -6031,6 +6258,7 @@ declare enum ImageSize {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @since 10
@@ -6051,22 +6279,16 @@ declare enum GradientDirection {
    * Right to left.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
    * Right to left.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
-   */
-  /**
-   * Right to left.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
    */
   /**
    * Right to left.
@@ -6075,64 +6297,70 @@ declare enum GradientDirection {
    * @FaAndStageModel
    * @crossplatform
    * @form
+   * @since 10
+   */
+  /**
+   * Right to left.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
+   * @crossplatform
+   * @form
    * @atomicservice
    * @since 11 dynamic
    */
-  Left = 0,
+  Left,
 
   /**
    * From the bottom up.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
-   */
-  /**
-   * From the bottom up.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * From the bottom up.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
    */
   /**
    * From the bottom up.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
+   * @form
+   * @since 9
+   */
+  /**
+   * From the bottom up.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
+   * @crossplatform
+   * @form
+   * @since 10
+   */
+  /**
+   * From the bottom up.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
    * @since 11 dynamic
    */
-  Top = 1,
+  Top,
 
   /**
    * From left to right.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
    * From left to right.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
-   */
-  /**
-   * From left to right.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
    */
   /**
    * From left to right.
@@ -6141,64 +6369,70 @@ declare enum GradientDirection {
    * @FaAndStageModel
    * @crossplatform
    * @form
+   * @since 10
+   */
+  /**
+   * From left to right.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
+   * @crossplatform
+   * @form
    * @atomicservice
    * @since 11 dynamic
    */
-  Right = 2,
+  Right,
 
   /**
    * From the top down.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
-   */
-  /**
-   * From the top down.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * From the top down.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
    */
   /**
    * From the top down.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
+   * @form
+   * @since 9
+   */
+  /**
+   * From the top down.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
+   * @crossplatform
+   * @form
+   * @since 10
+   */
+  /**
+   * From the top down.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
    * @since 11 dynamic
    */
-  Bottom = 3,
+  Bottom,
 
   /**
    * Top Left
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
    * Top Left
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
-   */
-  /**
-   * Top Left
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
    */
   /**
    * Top Left
@@ -6207,21 +6441,32 @@ declare enum GradientDirection {
    * @FaAndStageModel
    * @crossplatform
    * @form
+   * @since 10
+   */
+  /**
+   * Top Left
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
+   * @crossplatform
+   * @form
    * @atomicservice
    * @since 11 dynamic
    */
-  LeftTop = 4,
+  LeftTop,
 
   /**
    * Left Bottom
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
    * Left Bottom
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -6229,6 +6474,7 @@ declare enum GradientDirection {
    * Left Bottom
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -6243,18 +6489,20 @@ declare enum GradientDirection {
    * @atomicservice
    * @since 11 dynamic
    */
-  LeftBottom = 5,
+  LeftBottom,
 
   /**
    * Right Top
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
    * Right Top
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -6262,6 +6510,7 @@ declare enum GradientDirection {
    * Right Top
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -6276,18 +6525,20 @@ declare enum GradientDirection {
    * @atomicservice
    * @since 11 dynamic
    */
-  RightTop = 6,
+  RightTop,
 
   /**
    * Right Bottom
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
    * Right Bottom
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -6295,6 +6546,7 @@ declare enum GradientDirection {
    * Right Bottom
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -6309,18 +6561,20 @@ declare enum GradientDirection {
    * @atomicservice
    * @since 11 dynamic
    */
-  RightBottom = 7,
+  RightBottom,
 
   /**
    * None
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
    * None
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -6328,6 +6582,7 @@ declare enum GradientDirection {
    * None
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -6342,7 +6597,7 @@ declare enum GradientDirection {
    * @atomicservice
    * @since 11 dynamic
    */
-  None = 8,
+  None,
 }
 
 /**
@@ -6394,7 +6649,7 @@ declare enum SharedTransitionEffectType {
    * @atomicservice
    * @since 11 dynamic
    */
-  Static = 0,
+  Static,
 
   /**
    * Move the source page element to the destination page element location and scale it appropriately.
@@ -6417,7 +6672,7 @@ declare enum SharedTransitionEffectType {
    * @atomicservice
    * @since 11 dynamic
    */
-  Exchange = 1,
+  Exchange,
 }
 
 /**
@@ -6485,7 +6740,7 @@ declare enum FontStyle {
    * @atomicservice
    * @since 11 dynamic
    */
-  Normal = 0,
+  Normal,
 
   /**
    * Italic style.
@@ -6517,7 +6772,7 @@ declare enum FontStyle {
    * @atomicservice
    * @since 11 dynamic
    */
-  Italic = 1,
+  Italic,
 }
 
 /**
@@ -6585,7 +6840,7 @@ declare enum FontWeight {
    * @atomicservice
    * @since 11 dynamic
    */
-  Lighter = 0,
+  Lighter,
 
   /**
    * Normal font. Equivalent to a digital value of 400.
@@ -6617,7 +6872,7 @@ declare enum FontWeight {
    * @atomicservice
    * @since 11 dynamic
    */
-  Normal = 1,
+  Normal,
 
   /**
    * Defines a more general value than [Inherited Value].
@@ -6649,7 +6904,7 @@ declare enum FontWeight {
    * @atomicservice
    * @since 11 dynamic
    */
-  Regular = 2,
+  Regular,
 
   /**
    * Defines a value that is more centered than [Inherited Value].
@@ -6681,7 +6936,7 @@ declare enum FontWeight {
    * @atomicservice
    * @since 11 dynamic
    */
-  Medium = 3,
+  Medium,
 
   /**
    * Bold. Equivalent to a numeric value of 700.
@@ -6713,7 +6968,7 @@ declare enum FontWeight {
    * @atomicservice
    * @since 11 dynamic
    */
-  Bold = 4,
+  Bold,
 
   /**
    * Defines a value that is heavier than [Inherited Value].
@@ -6745,7 +7000,7 @@ declare enum FontWeight {
    * @atomicservice
    * @since 11 dynamic
    */
-  Bolder = 5,
+  Bolder,
 }
 
 /**
@@ -6813,7 +7068,7 @@ declare enum TextAlign {
    * @atomicservice
    * @since 11 dynamic
    */
-  Center = 0,
+  Center,
 
   /**
    * The text is aligned in the same direction as the writing
@@ -6845,7 +7100,7 @@ declare enum TextAlign {
    * @atomicservice
    * @since 11 dynamic
    */
-  Start = 1,
+  Start,
 
   /**
    * The text is aligned in the opposite direction of writing
@@ -6877,7 +7132,7 @@ declare enum TextAlign {
    * @atomicservice
    * @since 11 dynamic
    */
-  End = 2,
+  End,
 
   /**
    * Justify the text.
@@ -6896,7 +7151,7 @@ declare enum TextAlign {
    * @atomicservice
    * @since 11 dynamic
    */
-  JUSTIFY = 3,
+  JUSTIFY,
 
   /**
    * The text is aligned in the left direction.
@@ -6918,7 +7173,7 @@ declare enum TextAlign {
    * @atomicservice
    * @since 23 dynamic
    */
-  RIGHT = 5
+  RIGHT = 5,
 }
 
 /**
@@ -6986,7 +7241,7 @@ declare enum TextOverflow {
    * @atomicservice
    * @since 11 dynamic
    */
-  None = 0,
+  None,
 
   /**
    * When the text overflows its dimensions, the text will be cropped and displayed.
@@ -7018,7 +7273,7 @@ declare enum TextOverflow {
    * @atomicservice
    * @since 11 dynamic
    */
-  Clip = 1,
+  Clip,
 
   /**
    * If the text overflows its dimensions, the text that cannot be displayed shall be replaced by ellipsis.
@@ -7050,7 +7305,7 @@ declare enum TextOverflow {
    * @atomicservice
    * @since 11 dynamic
    */
-  Ellipsis = 2,
+  Ellipsis,
 
   /**
    * When the text overflows its dimensions, the text will scroll for displaying.
@@ -7067,7 +7322,7 @@ declare enum TextOverflow {
    * @atomicservice
    * @since 11 dynamic
    */
-  MARQUEE = 3,
+  MARQUEE,
 }
 
 /**
@@ -7135,7 +7390,7 @@ declare enum TextDecorationType {
    * @atomicservice
    * @since 11 dynamic
    */
-  None = 0,
+  None,
 
   /**
    * Underline the words.
@@ -7167,7 +7422,7 @@ declare enum TextDecorationType {
    * @atomicservice
    * @since 11 dynamic
    */
-  Underline = 1,
+  Underline,
 
   /**
    * Text is in all uppercase.
@@ -7199,7 +7454,7 @@ declare enum TextDecorationType {
    * @atomicservice
    * @since 11 dynamic
    */
-  Overline = 2,
+  Overline,
 
   /**
    * A modifier line that passes through the text.
@@ -7231,7 +7486,7 @@ declare enum TextDecorationType {
    * @atomicservice
    * @since 11 dynamic
    */
-  LineThrough = 3,
+  LineThrough,
 }
 
 /**
@@ -7299,7 +7554,7 @@ declare enum TextCase {
    * @atomicservice
    * @since 11 dynamic
    */
-  Normal = 0,
+  Normal,
 
   /**
    * The text is all lowercase.
@@ -7331,7 +7586,7 @@ declare enum TextCase {
    * @atomicservice
    * @since 11 dynamic
    */
-  LowerCase = 1,
+  LowerCase,
 
   /**
    * The text is all uppercase.
@@ -7363,7 +7618,7 @@ declare enum TextCase {
    * @atomicservice
    * @since 11 dynamic
    */
-  UpperCase = 2,
+  UpperCase,
 }
 
 /**
@@ -7403,7 +7658,7 @@ declare enum TextHeightAdaptivePolicy {
    * @atomicservice
    * @since 11 dynamic
    */
-  MAX_LINES_FIRST = 0,
+  MAX_LINES_FIRST,
 
   /**
    * Priority is given to using the minFontSize attribute to adapt the text height.
@@ -7424,7 +7679,7 @@ declare enum TextHeightAdaptivePolicy {
    * @atomicservice
    * @since 11 dynamic
    */
-  MIN_FONT_SIZE_FIRST = 1,
+  MIN_FONT_SIZE_FIRST,
 
   /**
    * Priority is given to using the layout constraint to adapt the text height.
@@ -7447,7 +7702,7 @@ declare enum TextHeightAdaptivePolicy {
    * @atomicservice
    * @since 11 dynamic
    */
-  LAYOUT_CONSTRAINT_FIRST = 2,
+  LAYOUT_CONSTRAINT_FIRST,
 }
 
 /**
@@ -7455,6 +7710,7 @@ declare enum TextHeightAdaptivePolicy {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 8
  */
 /**
@@ -7462,6 +7718,7 @@ declare enum TextHeightAdaptivePolicy {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @since 10
  */
@@ -7480,12 +7737,14 @@ declare enum ResponseType {
    * Right click.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8
    */
   /**
    * Right click.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -7498,18 +7757,20 @@ declare enum ResponseType {
    * @atomicservice
    * @since 11 dynamic
    */
-  RightClick = 0,
+  RightClick,
 
   /**
    * Long press.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8
    */
   /**
    * Long press.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -7522,7 +7783,7 @@ declare enum ResponseType {
    * @atomicservice
    * @since 11 dynamic
    */
-  LongPress = 1,
+  LongPress,
 }
 
 /**
@@ -7571,7 +7832,7 @@ declare enum HoverEffect {
    * @atomicservice
    * @since 11 dynamic
    */
-  Auto = 0,
+  Auto,
 
   /**
    * Zoom in and out effect
@@ -7594,7 +7855,7 @@ declare enum HoverEffect {
    * @atomicservice
    * @since 11 dynamic
    */
-  Scale = 1,
+  Scale,
 
   /**
    * Highlight effect
@@ -7617,7 +7878,7 @@ declare enum HoverEffect {
    * @atomicservice
    * @since 11 dynamic
    */
-  Highlight = 2,
+  Highlight,
 
   /**
    * None effect
@@ -7640,7 +7901,7 @@ declare enum HoverEffect {
    * @atomicservice
    * @since 11 dynamic
    */
-  None = 3,
+  None,
 }
 
 /**
@@ -7648,6 +7909,7 @@ declare enum HoverEffect {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 8
  */
 /**
@@ -7655,6 +7917,7 @@ declare enum HoverEffect {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @since 10
  */
@@ -7673,12 +7936,14 @@ declare enum Placement {
    * Left placement
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8
    */
   /**
    * Left placement
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -7691,20 +7956,14 @@ declare enum Placement {
    * @atomicservice
    * @since 11 dynamic
    */
-  Left = 0,
+  Left,
 
   /**
    * Right placement
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8
-   */
-  /**
-   * Right placement
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
    */
   /**
    * Right placement
@@ -7712,21 +7971,31 @@ declare enum Placement {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform
+   * @since 10
+   */
+  /**
+   * Right placement
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
+   * @crossplatform
    * @atomicservice
    * @since 11 dynamic
    */
-  Right = 1,
+  Right,
 
   /**
    * Top placement
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8
    */
   /**
    * Top placement
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -7739,20 +8008,14 @@ declare enum Placement {
    * @atomicservice
    * @since 11 dynamic
    */
-  Top = 2,
+  Top,
 
   /**
    * Bottom placement
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8
-   */
-  /**
-   * Bottom placement
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
    */
   /**
    * Bottom placement
@@ -7760,21 +8023,31 @@ declare enum Placement {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform
+   * @since 10
+   */
+  /**
+   * Bottom placement
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
+   * @crossplatform
    * @atomicservice
    * @since 11 dynamic
    */
-  Bottom = 3,
+  Bottom,
 
   /**
    * TopLeft placement
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8
    */
   /**
    * TopLeft placement
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -7787,18 +8060,20 @@ declare enum Placement {
    * @atomicservice
    * @since 11 dynamic
    */
-  TopLeft = 4,
+  TopLeft,
 
   /**
    * TopRight placement
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8
    */
   /**
    * TopRight placement
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -7811,20 +8086,14 @@ declare enum Placement {
    * @atomicservice
    * @since 11 dynamic
    */
-  TopRight = 5,
+  TopRight,
 
   /**
    * BottomLeft placement
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8
-   */
-  /**
-   * BottomLeft placement
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
    */
   /**
    * BottomLeft placement
@@ -7832,21 +8101,31 @@ declare enum Placement {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform
+   * @since 10
+   */
+  /**
+   * BottomLeft placement
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
+   * @crossplatform
    * @atomicservice
    * @since 11 dynamic
    */
-  BottomLeft = 6,
+  BottomLeft,
 
   /**
    * BottomRight placement
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8
    */
   /**
    * BottomRight placement
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -7859,20 +8138,14 @@ declare enum Placement {
    * @atomicservice
    * @since 11 dynamic
    */
-  BottomRight = 7,
+  BottomRight,
 
   /**
    * LeftTop placement
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 9
-   */
-  /**
-   * LeftTop placement
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
    */
   /**
    * LeftTop placement
@@ -7880,21 +8153,31 @@ declare enum Placement {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform
+   * @since 10
+   */
+  /**
+   * LeftTop placement
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
+   * @crossplatform
    * @atomicservice
    * @since 11 dynamic
    */
-  LeftTop = 8,
+  LeftTop,
 
   /**
    * LeftBottom placement
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 9
    */
   /**
    * LeftBottom placement
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -7907,18 +8190,20 @@ declare enum Placement {
    * @atomicservice
    * @since 11 dynamic
    */
-  LeftBottom = 9,
+  LeftBottom,
 
   /**
    * RightTop placement
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 9
    */
   /**
    * RightTop placement
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -7931,18 +8216,20 @@ declare enum Placement {
    * @atomicservice
    * @since 11 dynamic
    */
-  RightTop = 10,
+  RightTop,
 
   /**
    * RightBottom placement
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 9
    */
   /**
    * RightBottom placement
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -7955,7 +8242,7 @@ declare enum Placement {
    * @atomicservice
    * @since 11 dynamic
    */
-  RightBottom = 11,
+  RightBottom,
 }
 
 /**
@@ -7971,7 +8258,6 @@ declare enum Placement {
  *
  * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -7988,7 +8274,6 @@ declare enum ArrowPointPosition {
    * Target start position
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -8006,7 +8291,6 @@ declare enum ArrowPointPosition {
    * Target center position
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -8024,7 +8308,6 @@ declare enum ArrowPointPosition {
    * Target end position
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -8037,6 +8320,7 @@ declare enum ArrowPointPosition {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @form
  * @since 9
  */
@@ -8045,6 +8329,7 @@ declare enum ArrowPointPosition {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @since 10
@@ -8065,6 +8350,7 @@ declare enum CopyOptions {
    * Not allow share.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -8072,6 +8358,7 @@ declare enum CopyOptions {
    * Not allow share.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -8092,6 +8379,7 @@ declare enum CopyOptions {
    * Share in app.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -8099,6 +8387,7 @@ declare enum CopyOptions {
    * Share in app.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -8119,6 +8408,7 @@ declare enum CopyOptions {
    * Share in local device.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -8126,6 +8416,7 @@ declare enum CopyOptions {
    * Share in local device.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -8146,7 +8437,6 @@ declare enum CopyOptions {
    * Share in cross Device
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 11 dynamiconly
@@ -8391,7 +8681,6 @@ declare enum TitleHeight {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -8408,12 +8697,11 @@ declare enum ModifierKey {
    * ctrl.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
    */
-  CTRL = 0,
+  CTRL,
 
   /**
    * shift.
@@ -8426,12 +8714,11 @@ declare enum ModifierKey {
    * shift.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
    */
-  SHIFT = 1,
+  SHIFT,
 
   /**
    * alt.
@@ -8444,12 +8731,11 @@ declare enum ModifierKey {
    * alt.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
    */
-  ALT = 2,
+  ALT,
 }
 
 /**
@@ -8465,7 +8751,6 @@ declare enum ModifierKey {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -8482,12 +8767,11 @@ declare enum FunctionKey {
    * Escape key.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
    */
-  ESC = 0,
+  ESC,
 
   /**
    * F1 key.
@@ -8500,12 +8784,11 @@ declare enum FunctionKey {
    * F1 key.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
    */
-  F1 = 1,
+  F1,
 
   /**
    * F2 key.
@@ -8518,12 +8801,11 @@ declare enum FunctionKey {
    * F2 key.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
    */
-  F2 = 2,
+  F2,
 
   /**
    * F3 key.
@@ -8536,12 +8818,11 @@ declare enum FunctionKey {
    * F3 key.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
    */
-  F3 = 3,
+  F3,
 
   /**
    * F4 key.
@@ -8554,12 +8835,11 @@ declare enum FunctionKey {
    * F4 key.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
    */
-  F4 = 4,
+  F4,
 
   /**
    * F5 key.
@@ -8572,12 +8852,11 @@ declare enum FunctionKey {
    * F5 key.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
    */
-  F5 = 5,
+  F5,
 
   /**
    * F6 key.
@@ -8590,12 +8869,11 @@ declare enum FunctionKey {
    * F6 key.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
    */
-  F6 = 6,
+  F6,
 
   /**
    * F7 key.
@@ -8608,12 +8886,11 @@ declare enum FunctionKey {
    * F7 key.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
    */
-  F7 = 7,
+  F7,
 
   /**
    * F8 key.
@@ -8626,12 +8903,11 @@ declare enum FunctionKey {
    * F8 key.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
    */
-  F8 = 8,
+  F8,
 
   /**
    * F9 key.
@@ -8644,12 +8920,11 @@ declare enum FunctionKey {
    * F9 key.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
    */
-  F9 = 9,
+  F9,
 
   /**
    * F10 key.
@@ -8662,12 +8937,11 @@ declare enum FunctionKey {
    * F10 key.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
    */
-  F10 = 10,
+  F10,
 
   /**
    * F11 key.
@@ -8680,12 +8954,11 @@ declare enum FunctionKey {
    * F11 key.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
    */
-  F11 = 11,
+  F11,
 
   /**
    * F12 key.
@@ -8698,67 +8971,61 @@ declare enum FunctionKey {
    * F12 key.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
    */
-  F12 = 12,
-
+  F12,
+    
   /**
    * Tab key.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
-  TAB = 13,
+  TAB,
 
   /**
    * Up arrow key.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
-  DPAD_UP = 14,
+  DPAD_UP,
 
   /**
    * Down arrow key.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
-  DPAD_DOWN = 15,
+  DPAD_DOWN,
 
   /**
    * Left arrow key.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
-  DPAD_LEFT = 16,
+  DPAD_LEFT,
 
   /**
    * Right arrow key.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
-  DPAD_RIGHT = 17,
+  DPAD_RIGHT,
 }
 
 /**
@@ -8870,7 +9137,6 @@ declare enum ImageSpanAlignment {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -8886,7 +9152,6 @@ declare enum ObscuredReasons {
    * Displayed data should appear as generic placeholders.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -8925,7 +9190,7 @@ declare enum TextContentStyle {
    * @atomicservice
    * @since 11 dynamic
    */
-  DEFAULT = 0,
+  DEFAULT,
 
   /**
    * Text content inline style.
@@ -8941,7 +9206,7 @@ declare enum TextContentStyle {
    * @atomicservice
    * @since 11 dynamic
    */
-  INLINE = 1,
+  INLINE
 }
 
 /**
@@ -8966,7 +9231,7 @@ declare enum ClickEffectLevel {
    * Click effect level1.
    * The default scale number of this click effect level1 is 0.90.
    * The animation type is interpolatingSpring, velocity:10, mass:1, stiffness:410, damping:38.
-   *
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -8975,19 +9240,19 @@ declare enum ClickEffectLevel {
    * Click effect level1.
    * The default scale number of this click effect level1 is 0.90.
    * The animation type is interpolatingSpring, velocity:10, mass:1, stiffness:410, damping:38.
-   *
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
    */
-  LIGHT = 0,
+  LIGHT,
 
   /**
    * Click effect level2.
    * The default scale number of this click effect level2 is 0.95.
    * The animation type is interpolatingSpring, velocity:10, mass:1, stiffness:350, damping:35.
-   *
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -8996,19 +9261,19 @@ declare enum ClickEffectLevel {
    * Click effect level2.
    * The default scale number of this click effect level2 is 0.95.
    * The animation type is interpolatingSpring, velocity:10, mass:1, stiffness:350, damping:35.
-   *
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
    */
-  MIDDLE = 1,
+  MIDDLE,
 
   /**
    * Click effect level3.
    * The default scale number of this click effect level3 is 0.95.
    * The animation type is interpolatingSpring, velocity:0, mass:1, stiffness:240, damping:28.
-   *
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -9017,13 +9282,13 @@ declare enum ClickEffectLevel {
    * Click effect level3.
    * The default scale number of this click effect level3 is 0.95.
    * The animation type is interpolatingSpring, velocity:0, mass:1, stiffness:240, damping:28.
-   *
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
    */
-  HEAVY = 2,
+  HEAVY,
 }
 
 /**
@@ -9072,7 +9337,7 @@ declare enum XComponentType {
    * @atomicservice
    * @since 12 dynamic
    */
-  SURFACE = 0,
+  SURFACE,
 
   /**
    * Component type.
@@ -9085,8 +9350,9 @@ declare enum XComponentType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11 dynamiconly
    * @deprecated since 12
+   * @useinstead Column
    */
   COMPONENT,
 
@@ -9125,8 +9391,9 @@ declare enum XComponentType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12 dynamic
+   * @since 12 dynamiconly
    * @deprecated since 20
+   * @useinstead ContentSlot
    */
   NODE,
 }
@@ -9297,7 +9564,7 @@ declare enum ScrollSource {
 
 /**
  * Enum of RenderFit
- *
+ * 
  * @enum { number } RenderFit
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -9305,7 +9572,7 @@ declare enum ScrollSource {
  */
 /**
  * Enum of RenderFit
- *
+ * 
  * @enum { number } RenderFit
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -9314,10 +9581,9 @@ declare enum ScrollSource {
  */
 /**
  * Enum of RenderFit
- *
+ * 
  * @enum { number } RenderFit
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
@@ -9326,14 +9592,14 @@ declare enum ScrollSource {
 declare enum RenderFit {
   /**
    * Without scaling the content area, the content area is drawn in the center of the node.
-   *
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
    * Without scaling the content area, the content area is drawn in the center of the node.
-   *
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -9341,9 +9607,8 @@ declare enum RenderFit {
    */
   /**
    * Without scaling the content area, the content area is drawn in the center of the node.
-   *
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -9352,14 +9617,14 @@ declare enum RenderFit {
   CENTER = 0,
   /**
    * Without scaling the content area, the content area is drawn in the top center of the node.
-   *
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
    * Without scaling the content area, the content area is drawn in the top center of the node.
-   *
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -9367,9 +9632,8 @@ declare enum RenderFit {
    */
   /**
    * Without scaling the content area, the content area is drawn in the top center of the node.
-   *
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -9378,14 +9642,14 @@ declare enum RenderFit {
   TOP = 1,
   /**
    * Without scaling the content area, the content area is drawn in the bottom center of the node.
-   *
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
    * Without scaling the content area, the content area is drawn in the bottom center of the node.
-   *
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -9393,9 +9657,8 @@ declare enum RenderFit {
    */
   /**
    * Without scaling the content area, the content area is drawn in the bottom center of the node.
-   *
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -9404,14 +9667,14 @@ declare enum RenderFit {
   BOTTOM = 2,
   /**
    * Without scaling the content area, the content area is drawn in the left center of the node.
-   *
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
    * Without scaling the content area, the content area is drawn in the left center of the node.
-   *
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -9419,9 +9682,8 @@ declare enum RenderFit {
    */
   /**
    * Without scaling the content area, the content area is drawn in the left center of the node.
-   *
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -9430,14 +9692,14 @@ declare enum RenderFit {
   LEFT = 3,
   /**
    * Without scaling the content area, the content area is drawn in the right center of the node.
-   *
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
    * Without scaling the content area, the content area is drawn in the right center of the node.
-   *
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -9445,9 +9707,8 @@ declare enum RenderFit {
    */
   /**
    * Without scaling the content area, the content area is drawn in the right center of the node.
-   *
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -9456,14 +9717,14 @@ declare enum RenderFit {
   RIGHT = 4,
   /**
    * Without scaling the content area, the content area is drawn in the top left of the node.
-   *
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
    * Without scaling the content area, the content area is drawn in the top left of the node.
-   *
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -9471,9 +9732,8 @@ declare enum RenderFit {
    */
   /**
    * Without scaling the content area, the content area is drawn in the top left of the node.
-   *
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -9482,14 +9742,14 @@ declare enum RenderFit {
   TOP_LEFT = 5,
   /**
    * Without scaling the content area, the content area is drawn in the top right of the node.
-   *
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
    * Without scaling the content area, the content area is drawn in the top right of the node.
-   *
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -9497,9 +9757,8 @@ declare enum RenderFit {
    */
   /**
    * Without scaling the content area, the content area is drawn in the top right of the node.
-   *
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -9508,14 +9767,14 @@ declare enum RenderFit {
   TOP_RIGHT = 6,
   /**
    * Without scaling the content area, the content area is drawn in the bottom left of the node.
-   *
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
    * Without scaling the content area, the content area is drawn in the bottom left of the node.
-   *
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -9523,9 +9782,8 @@ declare enum RenderFit {
    */
   /**
    * Without scaling the content area, the content area is drawn in the bottom left of the node.
-   *
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -9534,14 +9792,14 @@ declare enum RenderFit {
   BOTTOM_LEFT = 7,
   /**
    * Without scaling the content area, the content area is drawn in the bottom right of the node.
-   *
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
    * Without scaling the content area, the content area is drawn in the bottom right of the node.
-   *
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -9549,9 +9807,8 @@ declare enum RenderFit {
    */
   /**
    * Without scaling the content area, the content area is drawn in the bottom right of the node.
-   *
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -9560,14 +9817,14 @@ declare enum RenderFit {
   BOTTOM_RIGHT = 8,
   /**
    * Scale the length and width of the content area to the node size to fill the node.
-   *
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
    * Scale the length and width of the content area to the node size to fill the node.
-   *
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -9575,9 +9832,8 @@ declare enum RenderFit {
    */
   /**
    * Scale the length and width of the content area to the node size to fill the node.
-   *
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -9586,18 +9842,18 @@ declare enum RenderFit {
   RESIZE_FILL = 9,
   /**
    * Scale the length or width of the content to the length or width of the node, ensuring that one side is equal,
-   * the other side is less than or equal to the corresponding side of the node, and the content after scaling
+   * the other side is less than or equal to the corresponding side of the node, and the content after scaling 
    * is centered.
-   *
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
    * Scale the length or width of the content to the length or width of the node, ensuring that one side is equal,
-   * the other side is less than or equal to the corresponding side of the node, and the content after scaling
+   * the other side is less than or equal to the corresponding side of the node, and the content after scaling 
    * is centered.
-   *
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -9605,11 +9861,10 @@ declare enum RenderFit {
    */
   /**
    * Scale the length or width of the content to the length or width of the node, ensuring that one side is equal,
-   * the other side is less than or equal to the corresponding side of the node, and the content after scaling
+   * the other side is less than or equal to the corresponding side of the node, and the content after scaling 
    * is centered.
-   *
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -9622,7 +9877,7 @@ declare enum RenderFit {
    * is less than or equal to the height of the node, the scaled content area is displayed at the top; otherwise,
    * the width of the scaled content is less than or equal to the width of the node, the scaled content area is
    * displayed at the left.
-   *
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -9633,7 +9888,7 @@ declare enum RenderFit {
    * is less than or equal to the height of the node, the scaled content area is displayed at the top; otherwise,
    * the width of the scaled content is less than or equal to the width of the node, the scaled content area is
    * displayed at the left.
-   *
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -9645,9 +9900,8 @@ declare enum RenderFit {
    * is less than or equal to the height of the node, the scaled content area is displayed at the top; otherwise,
    * the width of the scaled content is less than or equal to the width of the node, the scaled content area is
    * displayed at the left.
-   *
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -9660,7 +9914,7 @@ declare enum RenderFit {
    * is less than or equal to the height of the node, the scaled content area is displayed at the bottom; otherwise,
    * the width of the scaled content is less than or equal to the width of the node, the scaled content area is
    * displayed at the right.
-   *
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -9671,7 +9925,7 @@ declare enum RenderFit {
    * is less than or equal to the height of the node, the scaled content area is displayed at the bottom; otherwise,
    * the width of the scaled content is less than or equal to the width of the node, the scaled content area is
    * displayed at the right.
-   *
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -9683,9 +9937,8 @@ declare enum RenderFit {
    * is less than or equal to the height of the node, the scaled content area is displayed at the bottom; otherwise,
    * the width of the scaled content is less than or equal to the width of the node, the scaled content area is
    * displayed at the right.
-   *
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -9694,18 +9947,18 @@ declare enum RenderFit {
   RESIZE_CONTAIN_BOTTOM_RIGHT = 12,
   /**
    * Scale the length or width of the content to the length or width of the node, ensuring that one side is equal,
-   * the other side is greater than or equal to the corresponding side of the node, and the content after scaling
+   * the other side is greater than or equal to the corresponding side of the node, and the content after scaling 
    * displays the center area.
-   *
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
    * Scale the length or width of the content to the length or width of the node, ensuring that one side is equal,
-   * the other side is greater than or equal to the corresponding side of the node, and the content after scaling
+   * the other side is greater than or equal to the corresponding side of the node, and the content after scaling 
    * displays the center area.
-   *
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -9713,11 +9966,10 @@ declare enum RenderFit {
    */
   /**
    * Scale the length or width of the content to the length or width of the node, ensuring that one side is equal,
-   * the other side is greater than or equal to the corresponding side of the node, and the content after scaling
+   * the other side is greater than or equal to the corresponding side of the node, and the content after scaling 
    * displays the center area.
-   *
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -9730,7 +9982,7 @@ declare enum RenderFit {
    * is greater than or equal to the height of the node, the scaled content area displays the top area; otherwise,
    * the width of the scaled content is greater than or equal to the width of the node, the scaled content area
    * displays the left area.
-   *
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -9741,7 +9993,7 @@ declare enum RenderFit {
    * is greater than or equal to the height of the node, the scaled content area displays the top area; otherwise,
    * the width of the scaled content is greater than or equal to the width of the node, the scaled content area
    * displays the left area.
-   *
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -9753,9 +10005,8 @@ declare enum RenderFit {
    * is greater than or equal to the height of the node, the scaled content area displays the top area; otherwise,
    * the width of the scaled content is greater than or equal to the width of the node, the scaled content area
    * displays the left area.
-   *
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -9768,7 +10019,7 @@ declare enum RenderFit {
    * is greater than or equal to the height of the node, the scaled content area displays the bottom area; otherwise,
    * the width of the scaled content is greater than or equal to the width of the node, the scaled content area
    * displays the right area.
-   *
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -9779,7 +10030,7 @@ declare enum RenderFit {
    * is greater than or equal to the height of the node, the scaled content area displays the bottom area; otherwise,
    * the width of the scaled content is greater than or equal to the width of the node, the scaled content area
    * displays the right area.
-   *
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -9791,9 +10042,8 @@ declare enum RenderFit {
    * is greater than or equal to the height of the node, the scaled content area displays the bottom area; otherwise,
    * the width of the scaled content is greater than or equal to the width of the node, the scaled content area
    * displays the right area.
-   *
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -9910,7 +10160,7 @@ declare enum WordBreak {
  * @atomicservice
  * @since 12 dynamic
  */
-declare enum LineBreakStrategy  {
+declare enum LineBreakStrategy {
   /**
    * By default. Display as many characters as possible on each line until no more characters
    * can be displayed on that line, and do not automatically add hyphens under this strategy
@@ -9931,7 +10181,7 @@ declare enum LineBreakStrategy  {
    * @atomicservice
    * @since 12 dynamic
    */
-  HIGH_QUALITY  = 1,
+  HIGH_QUALITY = 1,
 
   /**
    * Balanced folding. We will try our best to ensure that the width of each line in a paragraph
@@ -9942,7 +10192,7 @@ declare enum LineBreakStrategy  {
    * @atomicservice
    * @since 12 dynamic
    */
-  BALANCED  = 2,
+  BALANCED = 2,
 }
 
 /**
@@ -9951,7 +10201,6 @@ declare enum LineBreakStrategy  {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @FaAndStageModel
  * @since 11 dynamic
  */
 declare enum IlluminatedType {
@@ -9960,7 +10209,6 @@ declare enum IlluminatedType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @FaAndStageModel
    * @since 11 dynamic
    */
   NONE = 0,
@@ -9969,7 +10217,6 @@ declare enum IlluminatedType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @FaAndStageModel
    * @since 11 dynamic
    */
   BORDER = 1,
@@ -9978,7 +10225,6 @@ declare enum IlluminatedType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @FaAndStageModel
    * @since 11 dynamic
    */
   CONTENT = 2,
@@ -9987,7 +10233,6 @@ declare enum IlluminatedType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @FaAndStageModel
    * @since 11 dynamic
    */
   BORDER_CONTENT = 3,
@@ -9996,7 +10241,6 @@ declare enum IlluminatedType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @FaAndStageModel
    * @since 11 dynamic
    */
   BLOOM_BORDER = 4,
@@ -10005,10 +10249,9 @@ declare enum IlluminatedType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @FaAndStageModel
    * @since 11 dynamic
    */
-  BLOOM_BORDER_CONTENT = 5,
+  BLOOM_BORDER_CONTENT = 5
 }
 
 /**
@@ -10094,7 +10337,6 @@ declare enum EllipsisMode {
  *
  * @typedef { T | undefined } Nullable<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -10111,11 +10353,10 @@ declare type Nullable<T> = T | undefined;
  * @since 11
  */
 /**
- * Decide whether the width of select menu fit the trigger or content
+ * Decide whether the width of select menu fit the trigger or content 
  *
  * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -10132,7 +10373,6 @@ declare enum OptionWidthMode {
    * The menu width fit the content.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -10150,7 +10390,6 @@ declare enum OptionWidthMode {
    * The menu width fit the trigger.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -10171,7 +10410,6 @@ declare enum OptionWidthMode {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -10188,7 +10426,6 @@ declare enum FoldStatus {
    * Fold Status Unknown.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -10205,7 +10442,6 @@ declare enum FoldStatus {
    * Fold Status Expanded.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -10222,7 +10458,6 @@ declare enum FoldStatus {
    * Fold Status Folded.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -10239,7 +10474,6 @@ declare enum FoldStatus {
    * Fold Status Half Folded.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -10252,7 +10486,6 @@ declare enum FoldStatus {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
  * @atomicservice
  * @since 12 dynamic
  */
@@ -10262,7 +10495,6 @@ declare enum AppRotation {
    * App does not rotate to display vertically.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @atomicservice
    * @since 12 dynamic
    */
@@ -10272,7 +10504,6 @@ declare enum AppRotation {
    * App rotates 90 degrees clockwise to display horizontally.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @atomicservice
    * @since 12 dynamic
    */
@@ -10282,7 +10513,6 @@ declare enum AppRotation {
    * App rotates 180 degrees clockwise to display vertically in reverse.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @atomicservice
    * @since 12 dynamic
    */
@@ -10292,7 +10522,6 @@ declare enum AppRotation {
    * App rotates 270 degrees clockwise to display horizontally in reverse.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @atomicservice
    * @since 12 dynamic
    */
@@ -10304,7 +10533,6 @@ declare enum AppRotation {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
  * @atomicservice
  * @since 12 dynamic
  */
@@ -10313,7 +10541,6 @@ declare enum EmbeddedType {
    * The EmbeddedComponent show the UI in EmbeddedUIExtensionAbility.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @atomicservice
    * @since 12 dynamic
    */
@@ -10329,7 +10556,7 @@ declare enum EmbeddedType {
  * @atomicservice
  * @since 12 dynamic
  */
-declare enum MarqueeUpdateStrategy  {
+declare enum MarqueeUpdateStrategy {
   /**
    * Reset scroll position and restart scroll.
    *
@@ -10353,7 +10580,7 @@ declare enum MarqueeUpdateStrategy  {
 
 /**
  * Type of text decoration line style.
- *
+ * 
  * @enum {number}
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -10363,7 +10590,7 @@ declare enum MarqueeUpdateStrategy  {
 declare enum TextDecorationStyle {
   /**
    * Solid line.
-   *
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -10373,7 +10600,7 @@ declare enum TextDecorationStyle {
 
   /**
    * Double lines.
-   *
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -10383,7 +10610,7 @@ declare enum TextDecorationStyle {
 
   /**
    * Dotted line.
-   *
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -10393,7 +10620,7 @@ declare enum TextDecorationStyle {
 
   /**
    * Dashed line.
-   *
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -10403,7 +10630,7 @@ declare enum TextDecorationStyle {
 
   /**
    * Wavy line.
-   *
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -10517,7 +10744,6 @@ declare enum AccessibilityHoverType {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 22 dynamic
@@ -10534,7 +10760,6 @@ declare enum WidthBreakpoint {
    * Window width < 320vp type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
@@ -10552,7 +10777,6 @@ declare enum WidthBreakpoint {
    * Window width >= 320vp and < 600vp type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
@@ -10570,7 +10794,6 @@ declare enum WidthBreakpoint {
    * Window width >= 600vp and < 840vp type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
@@ -10588,7 +10811,6 @@ declare enum WidthBreakpoint {
    * Window width >= 840vp and < 1440vp type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
@@ -10606,12 +10828,11 @@ declare enum WidthBreakpoint {
    * Window width >= 1440vp type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
    */
-  WIDTH_XL = 4
+  WIDTH_XL = 4,
 }
 
 /**
@@ -10627,7 +10848,6 @@ declare enum WidthBreakpoint {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 22 dynamic
@@ -10644,7 +10864,6 @@ declare enum HeightBreakpoint {
    * Window aspectRatio < 0.8 type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
@@ -10662,7 +10881,6 @@ declare enum HeightBreakpoint {
    * Window aspectRatio >= 0.8 and < 1.2 type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
@@ -10680,7 +10898,6 @@ declare enum HeightBreakpoint {
    * Window aspectRatio >= 1.2 type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
@@ -10868,7 +11085,6 @@ declare enum AxisModel {
    */
   ABS_HAT3Y = 18
 }
-
 /**
  * Focus wrap mode of a list or grid when moving focus using the arrow keys.
 
@@ -11020,7 +11236,6 @@ declare enum CrownSensitivity {
 
  * @enum { number } PageFlipMode
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
@@ -11031,7 +11246,6 @@ declare enum PageFlipMode {
    * Turn pages continuously according to the number of mouse wheel events.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -11043,7 +11257,6 @@ declare enum PageFlipMode {
    * The page-turning animation remains unresponsive to other mouse wheel events until it completes.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -11117,7 +11330,7 @@ declare enum AxisAction {
  * @atomicservice
  * @since 19 dynamic
  */
- declare enum FocusDrawLevel {
+declare enum FocusDrawLevel {
   /**
    * Draw focus on node self level.
    *
@@ -11307,7 +11520,7 @@ declare enum AnimationPropertyType {
 
 /**
  * Defines the event tool type that support response region settings.
- *
+ * 
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -11317,7 +11530,7 @@ declare enum AnimationPropertyType {
 declare enum ResponseRegionSupportedTool {
   /**
    * All source tool type.
-   *
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -11327,7 +11540,7 @@ declare enum ResponseRegionSupportedTool {
 
   /**
    * The finger type.
-   *
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -11337,7 +11550,7 @@ declare enum ResponseRegionSupportedTool {
 
   /**
    * The pen type.
-   *
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -11347,7 +11560,7 @@ declare enum ResponseRegionSupportedTool {
 
   /**
    * The mouse type.
-   *
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice

@@ -205,14 +205,14 @@ declare namespace uiObserver {
      */
     export enum TabContentState {
         /**
-         * When the TabContent hidden.
+         * When the TabContent is shown.
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 23 static
          */
         ON_SHOW = 0,
         /**
-         * When the TabContent hidden.
+         * When the TabContent is hidden.
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 23 static
@@ -447,6 +447,41 @@ declare namespace uiObserver {
          */
         lastIndex?: int;
     }
+  /**
+   * Text change event info
+   *
+   * @interface TextChangeEventInfo
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  export interface TextChangeEventInfo {
+    /**
+     * The id of text field component.
+     *
+     * @type { string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    id: string;
+
+    /**
+     * The uniqueId of the text field component.
+     *
+     * @type { int }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    uniqueId: int;
+
+    /**
+     * Current content of text field component.
+     *
+     * @type { string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    content: string;
+  }
     /**
      * observer options.
      *

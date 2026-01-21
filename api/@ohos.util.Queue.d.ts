@@ -325,6 +325,6 @@ declare class Queue<T> {
  * @atomicservice
  * @since 23 static
  */
-export type QueueForEachCb<T> = (value: T, index: int, queue: Queue<T>) => void
+export type QueueForEachCb<T> = (value: T, index: int, queue: Queue<T>) => void;
 
 export default Queue;

@@ -102,6 +102,7 @@ declare namespace hardwareManager {
    * @syscap SystemCapability.DistributedHardware.DistributedHardwareFWK
    * @systemapi
    * @since 11 dynamic
+   * @since 23 static
    */
   enum DistributedHardwareErrorCode {
     /**

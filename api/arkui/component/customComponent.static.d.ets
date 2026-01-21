@@ -203,7 +203,6 @@ export declare abstract class BaseCustomDialog<T extends BaseCustomDialog<T, T_O
 
     /**
      * Implementation for creating a custom dialog
-     *
      * @param { function } factory - factory to create instance of custom dialog
      * @param { function } [initializers] - initial data for all the fields in custom dialog
      * @param { CustomBuilder } [content] - tail closure for custom dialog
@@ -220,12 +219,10 @@ export declare abstract class BaseCustomDialog<T extends BaseCustomDialog<T, T_O
 
 /**
  * Definition of base custom component, which is base class of custom component.
- *
+ * 
  * @extends ExtendableComponent
  * @implements CommonAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 23 static
  */
 export declare abstract class BaseCustomComponent<T_Options> extends ExtendableComponent implements CommonAttribute {
@@ -240,8 +237,7 @@ export declare abstract class BaseCustomComponent<T_Options> extends ExtendableC
 
 /**
  * Definition of custom component class.
- *
- * @extends BaseCustomComponent
+ * @extends BaseCustomComponent<T_Options>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 23 static
  */
@@ -257,7 +253,6 @@ export declare abstract class CustomComponent<T extends CustomComponent<T, T_Opt
     
     /**
      * Implementation for creating a custom component
-     *
      * @param { function } styles - styles of custom component
      * @param { function } factory - factory to create instance of custom component
      * @param { function } [initializers] - initial data for all the fields in custom component
@@ -287,8 +282,7 @@ export declare abstract class CustomComponent<T extends CustomComponent<T, T_Opt
 
 /**
  * Definition of V2 custom component class.
- *
- * @extends BaseCustomComponent
+ * @extends BaseCustomComponent<T_Options>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 23 static
  */
@@ -299,7 +293,7 @@ export declare abstract class CustomComponentV2<T extends CustomComponentV2<T, T
      * @param { function } styles - styles of custom component
      * @param { function } factory - factory to create instance of custom component
      * @param { function } [initializers] - initial data for all the fields in custom component
-     * @param { function } [reuseId] - reuse id for reusable. Only valid if custom component decorated with @Reusable
+     * @param { function } [reuseId] - reuse id for reusable. Only valid if custom component decorated with @ReusableV2
      * @param { CustomBuilder } [content] - tail closure for custom component
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly

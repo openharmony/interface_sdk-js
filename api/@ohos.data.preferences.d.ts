@@ -84,7 +84,7 @@ declare namespace preferences {
   type ValueType = number | string | boolean | Array<number> | Array<string> | Array<boolean> | Uint8Array | object | bigint;
 
   /**
-   * RrcordData is used for input parameter obj of the equal function
+   * RecordData is used for input parameter obj of the equal function
    *
    * @typedef { undefined | null | Object | Record<string, RecordData> | Array<RecordData> }
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
@@ -177,7 +177,7 @@ declare namespace preferences {
   /**
    * the storage type
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @atomicservice
    * @since 18 dynamic
@@ -2031,7 +2031,7 @@ declare namespace preferences {
     /**
      * Unregisters an existing observer.
      *
-     * @param { Callback<string> } callback - Indicates the callback function.
+     * @param { Callback<string> } [callback] - Indicates the callback function.
      * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
@@ -2068,7 +2068,7 @@ declare namespace preferences {
     /**
      * Unregisters an existing observer.
      *
-     * @param { Callback<string> } callback - Indicates the callback function.
+     * @param { Callback<string> } [callback] - Indicates the callback function.
      * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @since 23 static
@@ -2110,7 +2110,7 @@ declare namespace preferences {
      * Unregisters an observer for changes to the {@ link Preferences} object.
      *
      * @param { Array<string> } keys - Indicates the data whose changes are not observed.
-     * @param { Callback<Record<string, ValueType>> } callback - Indicates the callback to unregister.
+     * @param { Callback<Record<string, ValueType>> } [callback] - Indicates the callback to unregister.
      * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform

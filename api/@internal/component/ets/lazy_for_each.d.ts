@@ -460,6 +460,7 @@ declare type DataOperation =
  *
  * @interface DataChangeListener
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
@@ -467,6 +468,7 @@ declare type DataOperation =
  *
  * @interface DataChangeListener
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @since 10
  */
@@ -475,6 +477,7 @@ declare type DataOperation =
  *
  * @interface DataChangeListener
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -485,6 +488,7 @@ declare interface DataChangeListener {
    * the original child component is used. For data items whose key changes, a new child component is created.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -492,6 +496,7 @@ declare interface DataChangeListener {
    * the original child component is used. For data items whose key changes, a new child component is created.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -500,6 +505,7 @@ declare interface DataChangeListener {
    * the original child component is used. For data items whose key changes, a new child component is created.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -511,6 +517,7 @@ declare interface DataChangeListener {
    *
    * @param { number } index
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7 dynamiconly
    * @deprecated since 8
    * @useinstead onDataAdd
@@ -522,6 +529,7 @@ declare interface DataChangeListener {
    *
    * @param { number } index
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8
    */
   /**
@@ -529,6 +537,7 @@ declare interface DataChangeListener {
    *
    * @param { number } index
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -537,6 +546,7 @@ declare interface DataChangeListener {
    *
    * @param { number } index
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -549,6 +559,7 @@ declare interface DataChangeListener {
    * @param { number } from
    * @param { number } to
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7 dynamiconly
    * @deprecated since 8
    * @useinstead onDataMove
@@ -561,6 +572,7 @@ declare interface DataChangeListener {
    * @param { number } from
    * @param { number } to
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8
    */
   /**
@@ -569,6 +581,7 @@ declare interface DataChangeListener {
    * @param { number } from
    * @param { number } to
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -578,6 +591,7 @@ declare interface DataChangeListener {
    * @param { number } from
    * @param { number } to
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -590,6 +604,7 @@ declare interface DataChangeListener {
    *
    * @param { number } index
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7 dynamiconly
    * @deprecated since 8
    * @useinstead onDataDelete
@@ -602,6 +617,7 @@ declare interface DataChangeListener {
    *
    * @param { number } index
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8
    */
   /**
@@ -610,6 +626,7 @@ declare interface DataChangeListener {
    *
    * @param { number } index
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -619,6 +636,7 @@ declare interface DataChangeListener {
    *
    * @param { number } index
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -630,6 +648,7 @@ declare interface DataChangeListener {
    *
    * @param { number } index
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7 dynamiconly
    * @deprecated since 8
    * @useinstead onDataChange
@@ -641,6 +660,7 @@ declare interface DataChangeListener {
    *
    * @param { number } index
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8
    */
   /**
@@ -648,6 +668,7 @@ declare interface DataChangeListener {
    *
    * @param { number } index
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -656,6 +677,7 @@ declare interface DataChangeListener {
    *
    * @param { number } index
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -679,6 +701,7 @@ declare interface DataChangeListener {
  *
  * @interface IDataSource
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
@@ -686,6 +709,7 @@ declare interface DataChangeListener {
  *
  * @interface IDataSource
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @since 10
  */
@@ -694,6 +718,7 @@ declare interface DataChangeListener {
  *
  * @interface IDataSource
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -704,6 +729,7 @@ declare interface IDataSource {
    *
    * @returns { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -711,6 +737,7 @@ declare interface IDataSource {
    *
    * @returns { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -719,6 +746,7 @@ declare interface IDataSource {
    *
    * @returns { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -731,6 +759,7 @@ declare interface IDataSource {
    * @param { number } index
    * @returns { any }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -739,6 +768,7 @@ declare interface IDataSource {
    * @param { number } index
    * @returns { any }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -748,6 +778,7 @@ declare interface IDataSource {
    * @param { number } index
    * @returns { any }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -759,6 +790,7 @@ declare interface IDataSource {
    *
    * @param { DataChangeListener } listener
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -766,6 +798,7 @@ declare interface IDataSource {
    *
    * @param { DataChangeListener } listener
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -774,6 +807,7 @@ declare interface IDataSource {
    *
    * @param { DataChangeListener } listener
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -785,6 +819,7 @@ declare interface IDataSource {
    *
    * @param { DataChangeListener } listener
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -792,6 +827,7 @@ declare interface IDataSource {
    *
    * @param { DataChangeListener } listener
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -800,6 +836,7 @@ declare interface IDataSource {
    *
    * @param { DataChangeListener } listener
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -823,6 +860,7 @@ declare class LazyForEachAttribute extends DynamicNode<LazyForEachAttribute> {
  *
  * @interface LazyForEachInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
@@ -830,6 +868,7 @@ declare class LazyForEachAttribute extends DynamicNode<LazyForEachAttribute> {
  *
  * @interface LazyForEachInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @since 10
  */
@@ -838,6 +877,7 @@ declare class LazyForEachAttribute extends DynamicNode<LazyForEachAttribute> {
  *
  * @interface LazyForEachInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -851,6 +891,7 @@ interface LazyForEachInterface {
    * @param { function } keyGenerator
    * @returns { LazyForEachInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -861,6 +902,7 @@ interface LazyForEachInterface {
    * @param { function } keyGenerator
    * @returns { LazyForEachInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -872,6 +914,7 @@ interface LazyForEachInterface {
    * @param { function } keyGenerator
    * @returns { LazyForEachInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -884,6 +927,7 @@ interface LazyForEachInterface {
    * @param { function } keyGenerator
    * @returns { LazyForEachAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -899,12 +943,14 @@ interface LazyForEachInterface {
  * Defines LazyForEach Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
  * Defines LazyForEach Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @since 10
  */
@@ -912,6 +958,7 @@ interface LazyForEachInterface {
  * Defines LazyForEach Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic

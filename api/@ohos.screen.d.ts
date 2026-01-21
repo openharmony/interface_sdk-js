@@ -69,7 +69,6 @@ declare namespace screen {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 23 static
    */
   function on(eventType: 'connect' | 'disconnect' | 'change', callback: Callback<long>): void;
 
@@ -119,7 +118,6 @@ declare namespace screen {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 23 static
    */
   function off(eventType: 'connect' | 'disconnect' | 'change', callback?: Callback<long>): void;
 

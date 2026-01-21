@@ -27,7 +27,7 @@ import rdb from '../@ohos.data.rdb';
  *
  * @typedef DataAbilityOperation
  * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
- * @since 7 dynamic
+ * @since 7 dynamiconly
  */
 export interface DataAbilityOperation {
   /**

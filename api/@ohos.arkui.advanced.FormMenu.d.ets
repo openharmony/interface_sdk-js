@@ -21,6 +21,9 @@
 import formBindingData from './@ohos.app.form.formBindingData';
 import Want from './@ohos.app.ability.Want';
 import { AsyncCallback } from './@ohos.base';
+/*** if arkts static */
+import { Builder, MenuItemOptions } from '@ohos.arkui.component';
+/*** endif */
 
 /**
  * Defines the form menu item style.

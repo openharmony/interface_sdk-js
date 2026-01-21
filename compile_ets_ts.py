@@ -118,7 +118,7 @@ def build_ets_tool_config(root_build_dir, tool_dir, output_dir, out_interop_path
         return str(out_path_dir)
     except Exception as e:
         print(f"run_compile_ets_ts: {str(e)}")
-        return None
+        raise Exception(f"Error generate declgen config json failed")
 
 
 def run_compile_ets_ts(tool_dir: str, node_path: str, config_json_path: str, out_interop_path: str):
@@ -147,6 +147,8 @@ def run_compile_ets_ts(tool_dir: str, node_path: str, config_json_path: str, out
     except subprocess.CalledProcessError as e:
         print(f"run_compile_ets_ts error: {e.returncode}")
         print("run_compile_ets_ts:", e.stderr)
+        check_static_interop_path_exists(interop_path_declaration)
+        check_static_interop_path_exists(interop_path_bridge)
 
 
 def check_static_interop_path_exists(input_path: str):

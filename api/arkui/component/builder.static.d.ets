@@ -28,6 +28,15 @@ import { Callback } from '@ohos.base';
  * @noninterop
  */
 @Retention({policy: "SOURCE"})
+@Target([
+  AnnotationTargets.FUNCTION,
+  AnnotationTargets.CLASS_METHOD,
+  AnnotationTargets.CLASS_FIELD,
+  AnnotationTargets.TYPE,
+  AnnotationTargets.PARAMETER,
+  AnnotationTargets.TYPE_ALIAS,
+  AnnotationTargets.LAMBDA
+])
 export declare @interface Builder {}
 
 /**

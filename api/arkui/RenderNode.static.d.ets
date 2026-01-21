@@ -52,8 +52,8 @@ export declare class RenderNode {
    * Add child to the current RenderNode.
    *
    * @param { RenderNode } child - The node will be added.
-   * @param { RenderNode | null } sibling - The new node is added after this node. When sibling is null, insert node as
-   *     the first children of the node.
+   * @param { RenderNode | null } sibling - The new node is added after this node. When sibling is null,
+   *     insert node as the first children of the node.
    * @throws { BusinessError } 100025 - The parameter is invalid. Details about the invalid parameter and the reason
    *     are included in the error message. For example: "The parameter 'child' is invalid: its corresponding FrameNode
    *     cannot be adopted."

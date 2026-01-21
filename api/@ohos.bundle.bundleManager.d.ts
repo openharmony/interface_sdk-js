@@ -992,6 +992,15 @@ declare namespace bundleManager {
     LIVE_FORM = 30,
 
     /**
+     * Indicates extension info with type of the selection
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    SELECTION = 31,
+
+    /**
      * Indicates extension info with type of the web native messaging
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -1024,6 +1033,15 @@ declare namespace bundleManager {
      * @since 22 dynamic
      */
     CRYPTO = 35,
+
+    /**
+     * Indicates extension info with type of the partner agent
+     * 
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    PARTNER_AGENT = 36,
 
     /**
      * Indicates extension info with type of unspecified
@@ -1985,7 +2003,7 @@ declare namespace bundleManager {
   }
 
   /**
-   * This enumeration value is used to identify various types of extension ability
+   * This enumeration value is used to identify the multi app mode type.
    *
    * @enum { int }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core

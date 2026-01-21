@@ -113,10 +113,10 @@ function createTargetImport(sourceFile: ts.SourceFile, context: ts.Transformatio
             false,
             undefined,
             ts.factory.createNamedImports([
-                ts.factory.createImportSpecifier(false, undefined, ts.factory.createIdentifier("Memo"))
+                ts.factory.createImportSpecifier(false, undefined, ts.factory.createIdentifier('Memo'))
             ])
         ),
-        ts.factory.createStringLiteral("./../incremental/annotation")
+        ts.factory.createStringLiteral('./../incremental/annotation')
     );
     targetImport.push(memoImport);
 
@@ -129,7 +129,7 @@ function createTargetImport(sourceFile: ts.SourceFile, context: ts.Transformatio
                 ts.factory.createImportSpecifier(false, undefined, ts.factory.createIdentifier("ComponentBuilder"))
             ])
         ),
-        ts.factory.createStringLiteral("./builder")
+        ts.factory.createStringLiteral('./builder')
     );
     targetImport.push(customBuilderImport);
 

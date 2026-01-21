@@ -2089,7 +2089,7 @@ declare namespace avSession {
     /**
      * Set desktop lyric visible state for this session.
      * @param { boolean } visible - make desktop lyric window visible or not
-     * @returns { Promise<boolean> } void promise when executed successfully
+     * @returns { Promise<void> } void promise when executed successfully
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @throws { BusinessError } 6600110 - The desktop lyrics feature of this application is not enabled.
@@ -8122,7 +8122,12 @@ declare namespace avSession {
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi
    * @since 9 dynamic
-   * @since 23 static
+   */
+  /**
+   * The description of the session
+   * @interface AVSessionDescriptor
+   * @syscap SystemCapability.Multimedia.AVSession.Manager
+   * @since 23 dynamic&static
    */
   interface AVSessionDescriptor {
     /**
@@ -8131,7 +8136,12 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.Manager
      * @systemapi
      * @since 9 dynamic
-     * @since 23 static
+     */
+    /**
+     * Unique ID of the session
+     * @type { string }
+     * @syscap SystemCapability.Multimedia.AVSession.Manager
+     * @since 23 dynamic&static
      */
     sessionId: string;
 
@@ -8141,7 +8151,12 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.Manager
      * @systemapi
      * @since 9 dynamic
-     * @since 23 static
+     */
+    /**
+     * Session type, currently supports audio or video
+     * @type { AVSessionType }
+     * @syscap SystemCapability.Multimedia.AVSession.Manager
+     * @since 23 dynamic&static
      */
     type: AVSessionType;
 
@@ -8151,7 +8166,12 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.Manager
      * @systemapi
      * @since 9 dynamic
-     * @since 23 static
+     */
+    /**
+     * The session tag set by the application
+     * @type { string }
+     * @syscap SystemCapability.Multimedia.AVSession.Manager
+     * @since 23 dynamic&static
      */
     sessionTag: string;
 
@@ -8161,7 +8181,12 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.Manager
      * @systemapi
      * @since 9 dynamic
-     * @since 23 static
+     */
+    /**
+     * The elementName of the ability that created this session. See {@link ElementName} in bundle/elementName.d.ts
+     * @type { ElementName }
+     * @syscap SystemCapability.Multimedia.AVSession.Manager
+     * @since 23 dynamic&static
      */
     elementName: ElementName;
 
@@ -8171,7 +8196,12 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.Manager
      * @systemapi
      * @since 9 dynamic
-     * @since 23 static
+     */
+    /**
+     * Session active state
+     * @type { boolean }
+     * @syscap SystemCapability.Multimedia.AVSession.Manager
+     * @since 23 dynamic&static
      */
     isActive: boolean;
 
@@ -8181,7 +8211,12 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.Manager
      * @systemapi
      * @since 9 dynamic
-     * @since 23 static
+     */
+    /**
+     * Is it the top priority session
+     * @type { boolean }
+     * @syscap SystemCapability.Multimedia.AVSession.Manager
+     * @since 23 dynamic&static
      */
     isTopSession: boolean;
 
@@ -8200,9 +8235,17 @@ declare namespace avSession {
   /**
    * The extra info object.
    *
-   * @typedef { Record<string, Object> } ExtraInfo
+   * @typedef { object } ExtraInfo
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @since 18 dynamic
+   */
+  type ExtraInfo = {[key: string]: Object; }
+
+  /**
+   * The extra info object.
+   *
+   * @typedef { Record<string, Object> } ExtraInfo
+   * @syscap SystemCapability.Multimedia.AVSession.Core
    * @since 23 static
    */
   type ExtraInfo = Record<string, Object>;
@@ -9120,7 +9163,7 @@ declare namespace avSession {
     /**
      * Set desktop lyric visible state for this session.
      * @param { boolean } visible - make desktop lyric window visible or not
-     * @returns { Promise<boolean> } void promise when executed successfully
+     * @returns { Promise<void> } void promise when executed successfully
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @throws { BusinessError } 6600103 - The session controller does not exist.

@@ -214,7 +214,7 @@ declare class By {
    * @param { number } id The id value.
    * @returns { By } this {@link By} object.
    * @syscap SystemCapability.Test.UiTest
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.UiTest.On#id
    * @test
@@ -379,7 +379,7 @@ declare class UiComponent {
    *
    * @returns { Promise<number> } the id value.
    * @syscap SystemCapability.Test.UiTest
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.UiTest.Component#getId
    * @test

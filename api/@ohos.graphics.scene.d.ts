@@ -86,3 +86,10 @@ export { LayerMask, NodeType, Container, Node, Geometry, LightType, Light, SpotL
  */
 export { SceneResourceParameters, SceneNodeParameters, SceneResourceFactory, Scene, RaycastResult, RaycastParameters,
   RenderParameters, RenderResourceFactory, SceneComponent, RenderContext, CameraParameters, EffectParameters } from './graphics3d/Scene';
+
+/**
+ * Export scene
+ * @syscap SystemCapability.ArkUi.Graphics3D
+ * @since 23 dynamic&static
+ */
+export { RenderConfiguration } from './graphics3d/Scene';

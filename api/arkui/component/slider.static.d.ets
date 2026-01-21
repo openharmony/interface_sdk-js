@@ -596,7 +596,7 @@ export declare interface SliderAttribute extends CommonMethod {
      * Set the prefix part of the slider.
      * The prefix is the content that appears before the main slider component.
      *
-     * @param { ComponentContent | undefined } content - Custom components that will be displayed as the prefix.
+     * @param { ComponentContent<T> | undefined } content - Custom components that will be displayed as the prefix.
      *     This can be any valid custom UI component structure. Undefined indicates that no prefix is set.
      * @param { SliderPrefixOptions | undefined } [options] - Optional options for customizing the prefix.
      *     These options can include accessibility settings.
@@ -605,12 +605,12 @@ export declare interface SliderAttribute extends CommonMethod {
      * @stagemodelonly
      * @since 23 static
      */
-    default prefix(content: ComponentContent | undefined, options?: SliderPrefixOptions | undefined): this;
+    default prefix<T extends Object>(content: ComponentContent<T> | undefined, options?: SliderPrefixOptions | undefined): this;
     /**
      * Set the suffix part of the slider.
      * The suffix is the content that appears after the main slider component.
      *
-     * @param { ComponentContent | undefined } content - Custom components that will be displayed as the suffix.
+     * @param { ComponentContent<T> | undefined } content - Custom components that will be displayed as the suffix.
      *     This can be any valid custom UI component structure. Undefined indicates that no suffix is set.
      * @param { SliderSuffixOptions | undefined } [options] - Optional options for customizing the suffix.
      *     These options can include accessibility settings.
@@ -619,7 +619,7 @@ export declare interface SliderAttribute extends CommonMethod {
      * @stagemodelonly
      * @since 23 static
      */
-    default suffix(content: ComponentContent | undefined, options?: SliderSuffixOptions | undefined): this;
+    default suffix<T extends Object>(content: ComponentContent<T> | undefined, options?: SliderSuffixOptions | undefined): this;
     /**
      * Called when the percentage of bubble prompt is set when sliding.
      *

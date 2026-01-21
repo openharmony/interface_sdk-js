@@ -41,7 +41,7 @@ import colorSpaceManager from './@ohos.graphics.colorSpaceManager';
  */
 declare namespace componentSnapshot {
   /**
-   * Defines the extra options for snapshot taking.
+   * Defines the target region information for snapshot taking.
    *
    * @typedef SnapshotRegion
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -107,7 +107,7 @@ declare namespace componentSnapshot {
    */
   interface LocalizedSnapshotRegion {
     /**
-     * Left/Right side position of rectangle, in PX
+     * Start side position of rectangle, in PX
      *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -129,7 +129,7 @@ declare namespace componentSnapshot {
     end: number;
 
     /**
-     * Left/Right side position of rectangle, in PX
+     * Top side position of rectangle, in PX
      *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full

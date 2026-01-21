@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -159,13 +159,14 @@ declare namespace webSocket {
      * @type { ?boolean }
      * @syscap SystemCapability.Communication.NetStack
      * @since 20 dynamic
+     * @since 23 static
      */
     /**
      * Wheter or not to skip the verification of the server's certification.
      * @type { ?boolean }
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since 24 dynamic
+     * @since 24 dynamic&static
      */
     skipServerCertVerification?: boolean;
 
@@ -224,34 +225,38 @@ declare namespace webSocket {
      * @type {?int}
      * @syscap SystemCapability.Communication.NetStack
      * @since 21 dynamic
+     * @since 23 static
      */
     /**
      * Self defined interval of ping frame.
      * default: 30. disable: 0. max: 30000. unit:second.
      * Ping is performed at every pingInterval.
+     *
      * @type {?int}
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since 24 dynamic
+     * @since 24 dynamic&static
      */
     pingInterval?: int;
 
     /**
      * Self defined timeout of pong frame.
      * default: 30. max: 30000. unit:second. The value must be less than or equal to pingInterval.
-     * If no pong is received with the pongTimeout period, the websocket connection will be disconnected.
+     * If no pong is received within the pongTimeout period, the websocket connection will be disconnected.
      * @type {?int}
      * @syscap SystemCapability.Communication.NetStack
      * @since 21 dynamic
+     * @since 23 static
      */
     /**
      * Self defined timeout of pong frame.
      * default: 30. max: 30000. unit:second. The value must be less than or equal to pingInterval.
-     * If no pong is received with the pongTimeout period, the websocket connection will be disconnected.
+     * If no pong is received within the pongTimeout period, the websocket connection will be disconnected.
+     *
      * @type {?int}
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since 24 dynamic
+     * @since 24 dynamic&static
      */
     pongTimeout?: int;
   }
