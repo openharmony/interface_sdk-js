@@ -20,6 +20,9 @@
  
 import ExtensionContext from './ExtensionContext';
 import Want from '../@ohos.app.ability.Want';
+/*** if arkts static */
+import type { ConnectOptions } from '../ability/connectOptions';
+/*** endif */
 
 /**
  * The context of live form extension. It allows access to
