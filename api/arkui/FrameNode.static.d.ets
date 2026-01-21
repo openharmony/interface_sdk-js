@@ -1039,6 +1039,7 @@ export declare namespace typeNode {
    *
    * @extends TypedFrameNode<ColumnAttribute>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   abstract class ColumnFrameNode extends TypedFrameNode<ColumnAttribute> {  
@@ -1048,6 +1049,7 @@ export declare namespace typeNode {
      * @param { ColumnOptions | ColumnOptionsV2} [options] - Column options.
      * @returns { ColumnAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     abstract initialize(options?: ColumnOptions | ColumnOptionsV2): ColumnAttribute;
@@ -1088,6 +1090,7 @@ export declare namespace typeNode {
    *
    * @extends TypedFrameNode<RowAttribute>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   abstract class RowFrameNode extends TypedFrameNode<RowAttribute> {  
@@ -1097,6 +1100,7 @@ export declare namespace typeNode {
      * @param { RowOptions | RowOptionsV2} [options] - Row options.
      * @returns { RowAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     abstract initialize(options?: RowOptions | RowOptionsV2): RowAttribute;
@@ -1137,6 +1141,7 @@ export declare namespace typeNode {
    *
    * @extends TypedFrameNode<StackAttribute>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   abstract class StackFrameNode extends TypedFrameNode<StackAttribute> {  
@@ -1146,6 +1151,7 @@ export declare namespace typeNode {
      * @param { StackOptions } [options] - Stack options.
      * @returns { StackAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     abstract initialize(options?: StackOptions): StackAttribute;
@@ -1186,6 +1192,7 @@ export declare namespace typeNode {
    *
    * @extends TypedFrameNode<GridRowAttribute>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   abstract class GridRowFrameNode extends TypedFrameNode<GridRowAttribute> {  
@@ -1195,6 +1202,7 @@ export declare namespace typeNode {
      * @param { GridRowOptions } [options] - GridRow options.
      * @returns { GridRowAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     abstract initialize(options?: GridRowOptions): GridRowAttribute;
@@ -1224,6 +1232,7 @@ export declare namespace typeNode {
    *
    * @extends TypedFrameNode<GridColAttribute>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   abstract class GridColFrameNode extends TypedFrameNode<GridColAttribute> {  
@@ -1233,6 +1242,7 @@ export declare namespace typeNode {
      * @param { GridColOptions } [options] - GridCol options.
      * @returns { GridColAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     abstract initialize(options?: GridColOptions): GridColAttribute;
@@ -1262,6 +1272,7 @@ export declare namespace typeNode {
    *
    * @extends TypedFrameNode<FlexAttribute>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   abstract class FlexFrameNode extends TypedFrameNode<FlexAttribute> {  
@@ -1271,6 +1282,7 @@ export declare namespace typeNode {
      * @param { FlexOptions } [value] - Flex options.
      * @returns { FlexAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     abstract initialize(value?: FlexOptions): FlexAttribute;
@@ -1311,6 +1323,7 @@ export declare namespace typeNode {
    *
    * @extends TypedFrameNode<RelativeContainerAttribute>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   abstract class RelativeContainerFrameNode extends TypedFrameNode<RelativeContainerAttribute> {  
@@ -1319,6 +1332,7 @@ export declare namespace typeNode {
      *
      * @returns { RelativeContainerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     abstract initialize(): RelativeContainerAttribute;
@@ -1359,6 +1373,7 @@ export declare namespace typeNode {
    *
    * @extends TypedFrameNode<DividerAttribute>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   abstract class DividerFrameNode extends TypedFrameNode<DividerAttribute> {  
@@ -1367,6 +1382,7 @@ export declare namespace typeNode {
      *
      * @returns { DividerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     abstract initialize(): DividerAttribute;
@@ -1433,6 +1449,7 @@ export declare namespace typeNode {
    *
    * @extends TypedFrameNode<BlankAttribute>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   abstract class BlankFrameNode extends TypedFrameNode<BlankAttribute> {  
@@ -1442,6 +1459,7 @@ export declare namespace typeNode {
      * @param { double | string} [min] - Blank options.
      * @returns { BlankAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     abstract initialize(min?: double | string): BlankAttribute;
