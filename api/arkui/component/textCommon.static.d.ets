@@ -22,7 +22,7 @@ import { SelectionOptions, Callback } from './common';
 import { TextDecorationType, TextDecorationStyle } from './enums';
 import { AttributeModifier, CommonMethod, LinearGradientOptions, RadialGradientOptions } from './common';
 import text from '../../@ohos.graphics.text';
-import { InputMethodExtraConfig } from '@ohos.inputMethod.ExtraConfig'
+import { InputMethodExtraConfig } from '../../@ohos.inputMethod.ExtraConfig'
 
 /**
  * Defines the text data detector type.
