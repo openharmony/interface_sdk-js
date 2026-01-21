@@ -1979,6 +1979,7 @@ declare namespace text {
      * @syscap SystemCapability.Graphics.Drawing
      * @atomicservice
      * @since 22 dynamic
+     * @since 23 static
      */
     fontWidth?: FontWidth;
   }
