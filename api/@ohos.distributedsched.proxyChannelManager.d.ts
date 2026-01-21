@@ -18,6 +18,8 @@
  * @kit DistributedServiceKit
  */
 
+import { Callback } from './@ohos.base';
+
 /**
  * The proxy channel management module provides functions for opening and closing proxy channels, sending data, as well
  * as functions for registering and unregistering, receiving data, and receiving channel status callback functions.
