@@ -524,7 +524,7 @@ export interface NdefTag extends TagSession {
    * @permission ohos.permission.NFC_TAG
    * @param { AsyncCallback<NdefMessage> } callback The callback.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -734,7 +734,7 @@ export interface NdefTag extends TagSession {
    * <br> 3. Parameter verification failed.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
-   * @since 12 
+   * @since 12 dynamic
    * @since 23 static
    */
   getNdefTagTypeString(type: tag.NfcForumType): string;
@@ -913,7 +913,7 @@ export interface MifareClassicTag extends TagSession {
    * @param { number[] } data - The block data to write.
    * @returns { Promise<void> } The void
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -1302,7 +1302,7 @@ export interface MifareClassicTag extends TagSession {
    *
    * @param { int } sectorIndex - The index of sector.
    * @returns { int } Returns the number of blocks.
-   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -1618,6 +1618,7 @@ export interface MifareUltralightTag extends TagSession {
  * @syscap SystemCapability.Communication.NFC.Tag
  * @atomicservice
  * @since 12 dynamic
+ * @since 23 static
  */
 export interface NdefFormatableTag extends TagSession {
   /**

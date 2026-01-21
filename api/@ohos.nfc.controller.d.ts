@@ -151,7 +151,7 @@ declare namespace nfcController {
 
   /**
    * register nfc state changed event.
-   * 
+   *
    * @param { Callback<NfcState> } callback Callback used to listen to the nfc state changed event.
    * @syscap SystemCapability.Communication.NFC.Core
    * @since 23 static
@@ -167,7 +167,7 @@ declare namespace nfcController {
    * @since 7
    */
   /**
-   * C
+   * unregister nfc state changed event.
    *
    * @param { 'nfcStateChange' } type The type to unregister.
    * @param { Callback<NfcState> }  callback Callback used to listen to the nfc state changed event.
@@ -179,8 +179,8 @@ declare namespace nfcController {
 
   /**
    * unregister nfc state changed event.
-   * 
-   * @param { Callback<NfcState> } callback Callback used to listen to the nfc state changed event.
+   *
+   * @param { Callback<NfcState> } [callback] Callback used to listen to the nfc state changed event.
    * @syscap SystemCapability.Communication.NFC.Core
    * @since 23 static
    */

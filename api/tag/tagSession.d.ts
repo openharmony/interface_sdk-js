@@ -280,7 +280,7 @@ export interface TagSession {
    * @returns { Promise<number[]> } Returns bytes received in response. Or bytes with a length of 0 if the
    * data fails to be written to the tag.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -293,11 +293,11 @@ export interface TagSession {
    * Writes data to a tag.
    *
    * @permission ohos.permission.NFC_TAG
-   * @param { number[] } data Indicates the data to be written to the tag.
-   * @returns { Promise<number[]> } Returns bytes received in response. Or bytes with a length of 0 if the
+   * @param { int[] } data Indicates the data to be written to the tag.
+   * @returns { Promise<int[]> } Returns bytes received in response. Or bytes with a length of 0 if the
    * data fails to be written to the tag.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -318,7 +318,7 @@ export interface TagSession {
    * @param { number[] } data Indicates the data to be written to the tag.
    * @param { AsyncCallback<number[]> } callback The callback.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
