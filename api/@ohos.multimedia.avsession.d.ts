@@ -1870,7 +1870,7 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @stagemodelonly
+     * @FaAndStageModel
      * @since 10 dynamic
      */
     dispatchSessionEvent(event: string, args: {[key: string]: Object}, callback: AsyncCallback<void>): void;
@@ -1910,7 +1910,7 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @stagemodelonly
+     * @FaAndStageModel
      * @atomicservice
      * @since 12 dynamic
      */
@@ -2018,7 +2018,7 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @stagemodelonly
+     * @FaAndStageModel
      * @since 10 dynamic
      */
     setExtras(extras: {[key: string]: Object}, callback: AsyncCallback<void>): void;
@@ -2055,7 +2055,7 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @stagemodelonly
+     * @FaAndStageModel
      * @atomicservice
      * @since 12 dynamic
      */
@@ -3555,7 +3555,7 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @stagemodelonly
+     * @FaAndStageModel
      * @atomicservice
      * @since 12 dynamic
      */
@@ -3594,7 +3594,7 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @stagemodelonly
+     * @FaAndStageModel
      * @atomicservice
      * @since 12 dynamic
      */
@@ -4588,7 +4588,7 @@ declare namespace avSession {
      * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
-     * @stagemodelonly
+     * @FaAndStageModel
      * @atomicservice
      * @since 12 dynamic
      */
@@ -5006,7 +5006,7 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
-     * @stagemodelonly
+     * @FaAndStageModel
      * @since 11 dynamic
      */
     on(type: 'validCommandChange', callback: Callback<Array<AVCastControlCommandType>>);
@@ -5032,7 +5032,7 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
-     * @stagemodelonly
+     * @FaAndStageModel
      * @since 11 dynamic
      */
     off(type: 'validCommandChange', callback?: Callback<Array<AVCastControlCommandType>>);
@@ -6606,7 +6606,7 @@ declare namespace avSession {
      * Any additional attributes that can be represented as key-value pairs
      * @type { ?object }
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @stagemodelonly
+     * @FaAndStageModel
      * @since 10 dynamic
      */
     extras?: {[key: string]: Object};
@@ -7159,7 +7159,7 @@ declare namespace avSession {
      * Current custom media packets
      * @type { ?object }
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @stagemodelonly
+     * @FaAndStageModel
      * @atomicservice
      * @since 12 dynamic
      */
@@ -8962,7 +8962,7 @@ declare namespace avSession {
      * @throws { BusinessError } 6600106 - The session is not activated.
      * @throws { BusinessError } 6600107 - Too many commands or events.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @stagemodelonly
+     * @FaAndStageModel
      * @since 10 dynamic
      */
     sendCommonCommand(command: string, args: {[key: string]: Object}, callback: AsyncCallback<void>): void;
@@ -9014,7 +9014,7 @@ declare namespace avSession {
      * @throws { BusinessError } 6600106 - The session is not activated.
      * @throws { BusinessError } 6600107 - Too many commands or events.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @stagemodelonly
+     * @FaAndStageModel
      * @atomicservice
      * @since 12 dynamic
      */
@@ -9049,7 +9049,7 @@ declare namespace avSession {
      * @throws { BusinessError } 6600105 - Invalid session command.
      * @throws { BusinessError } 6600107 - Too many commands or events.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @stagemodelonly
+     * @FaAndStageModel
      * @since 10 dynamic
      */
     getExtras(callback: AsyncCallback<{[key: string]: Object}>): void;
@@ -9091,7 +9091,7 @@ declare namespace avSession {
      * @throws { BusinessError } 6600105 - Invalid session command.
      * @throws { BusinessError } 6600107 - Too many commands or events.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @stagemodelonly
+     * @FaAndStageModel
      * @atomicservice
      * @since 12 dynamic
      */
@@ -9288,7 +9288,7 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @stagemodelonly
+     * @FaAndStageModel
      * @atomicservice
      * @since 12 dynamic
      */
@@ -9343,7 +9343,7 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @stagemodelonly
+     * @FaAndStageModel
      * @atomicservice
      * @since 12 dynamic
      */
@@ -9387,7 +9387,7 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @stagemodelonly
+     * @FaAndStageModel
      * @atomicservice
      * @since 12 dynamic
      */
@@ -9439,7 +9439,7 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @stagemodelonly
+     * @FaAndStageModel
      * @atomicservice
      * @since 12 dynamic
      */
@@ -9482,7 +9482,7 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @stagemodelonly
+     * @FaAndStageModel
      * @atomicservice
      * @since 12 dynamic
      */
@@ -9578,7 +9578,7 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @stagemodelonly
+     * @FaAndStageModel
      * @atomicservice
      * @since 12 dynamic
      */
@@ -9665,7 +9665,7 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @stagemodelonly
+     * @FaAndStageModel
      * @atomicservice
      * @since 12 dynamic
      */
@@ -9701,7 +9701,7 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @stagemodelonly
+     * @FaAndStageModel
      * @atomicservice
      * @since 12 dynamic
      */
@@ -9739,7 +9739,7 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @stagemodelonly
+     * @FaAndStageModel
      * @atomicservice
      * @since 12 dynamic
      */
@@ -9778,7 +9778,7 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @stagemodelonly
+     * @FaAndStageModel
      * @atomicservice
      * @since 12 dynamic
      */
@@ -9817,7 +9817,7 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @stagemodelonly
+     * @FaAndStageModel
      * @atomicservice
      * @since 12 dynamic
      */
@@ -9856,7 +9856,7 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @stagemodelonly
+     * @FaAndStageModel
      * @atomicservice
      * @since 12 dynamic
      */
@@ -9973,7 +9973,7 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @stagemodelonly
+     * @FaAndStageModel
      * @atomicservice
      * @since 12 dynamic
      */
@@ -10012,7 +10012,7 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @stagemodelonly
+     * @FaAndStageModel
      * @atomicservice
      * @since 12 dynamic
      */
@@ -10204,7 +10204,7 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @stagemodelonly
+     * @FaAndStageModel
      * @atomicservice
      * @since 12 dynamic
      */
@@ -10243,7 +10243,7 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @stagemodelonly
+     * @FaAndStageModel
      * @atomicservice
      * @since 12 dynamic
      */
