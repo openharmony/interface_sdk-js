@@ -389,7 +389,6 @@ declare namespace avSession {
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi
    * @since 22 dynamic
-   * @since 23 static
    */
   function startAVPlayback(bundleName: string, assetId: string, info: CommandInfo): Promise<void>;
 
