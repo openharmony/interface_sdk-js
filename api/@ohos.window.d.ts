@@ -12714,7 +12714,7 @@ declare namespace window {
     createSubWindowWithOptions(name: string, options: SubWindowOptions): Promise<Window>;
 
     /**
-     * Set the parent window of the child window.
+     * Change the parent window of a child window.
      *
      * @param { int } windowId - Indicates parent window id.
      * @returns { Promise<void> } Promise that returns no value.
@@ -12724,7 +12724,7 @@ declare namespace window {
      *                     2. Internal task error.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
-     * @throws { BusinessError } 1300009 - The parent window is invaild.
+     * @throws { BusinessError } 1300009 - The parent window is invalid.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 19 dynamic
@@ -12740,7 +12740,7 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      *     Possible cause: The window is not created or destroyed.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
-     * @throws { BusinessError } 1300009 - The parent window is invaild.
+     * @throws { BusinessError } 1300009 - The parent window is invalid.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 19 dynamic
