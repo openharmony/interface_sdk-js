@@ -147,7 +147,8 @@ def run_compile_ets_ts(tool_dir: str, node_path: str, config_json_path: str, out
     except subprocess.CalledProcessError as e:
         print(f"run_compile_ets_ts error: {e.returncode}")
         print("run_compile_ets_ts:", e.stderr)
-        raise Exception(f"Error run_compile_ets_ts failed in declgen")
+        check_static_interop_path_exists(interop_path_declaration)
+        check_static_interop_path_exists(interop_path_bridge)
 
 
 def check_static_interop_path_exists(input_path: str):
