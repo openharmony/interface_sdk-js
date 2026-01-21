@@ -1414,7 +1414,7 @@ export declare enum KeyboardFluidLightMode {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
- * @since 23 static
+ * @since 24 static
  */
 export declare enum TextChangeReason {
     /**
@@ -1423,7 +1423,7 @@ export declare enum TextChangeReason {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     UNKNOWN = 0,
     /**
@@ -1432,7 +1432,7 @@ export declare enum TextChangeReason {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     INPUT = 1,
     /**
@@ -1441,7 +1441,7 @@ export declare enum TextChangeReason {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     PASTE = 2,
     /**
@@ -1450,7 +1450,7 @@ export declare enum TextChangeReason {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     CUT = 3,
     /**
@@ -1459,7 +1459,7 @@ export declare enum TextChangeReason {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     DRAG = 4,
     /**
@@ -1468,7 +1468,7 @@ export declare enum TextChangeReason {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     AUTO_FILL = 5,
     /**
@@ -1477,7 +1477,7 @@ export declare enum TextChangeReason {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     AI_WRITE = 6,
     /**
@@ -1486,7 +1486,7 @@ export declare enum TextChangeReason {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     REDO = 7,
     /**
@@ -1495,7 +1495,7 @@ export declare enum TextChangeReason {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     UNDO = 8,
     /**
@@ -1504,7 +1504,7 @@ export declare enum TextChangeReason {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     CONTROLLER = 9,
     /**
@@ -1513,7 +1513,7 @@ export declare enum TextChangeReason {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     ACCESSIBILITY = 10,
     /**
@@ -1522,7 +1522,7 @@ export declare enum TextChangeReason {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     COLLABORATION = 11,
     /**
@@ -1531,7 +1531,7 @@ export declare enum TextChangeReason {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     STYLUS = 12
 }

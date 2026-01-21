@@ -104,21 +104,21 @@ export declare enum RichEditorSpanType {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 23 static
+ * @since 24 static
  */
 export declare enum UndoStyle {
     /**
      * Undo without style.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
     CLEAR_STYLE = 0,
     /**
      * Undo keep style.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
     KEEP_STYLE = 1
 }
@@ -364,7 +364,7 @@ export declare interface RichEditorParagraphStyle {
      * @type { ?TextVerticalAlign }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     textVerticalAlign?: TextVerticalAlign;
     /**
@@ -1494,7 +1494,7 @@ export declare interface RichEditorChangeValue {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     changeReason?: TextChangeReason;
 }
@@ -1661,7 +1661,7 @@ export declare class RichEditorBaseController implements TextEditControllerEx {
      * @param { RichEditorParagraphStyle | undefined } style - set the typing paragraph style.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     setTypingParagraphStyle(style: RichEditorParagraphStyle | undefined): void;
     /**
@@ -2061,7 +2061,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
      * @param { boolean | undefined } enable - whether to enable the selected data detector.
      * @returns { RichEditorAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
     default enableSelectedDataDetector(enable: boolean | undefined): this;
     /**
@@ -2216,7 +2216,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
      * @param { boolean | undefined } enable - The default value is false, indicates the flag whether to enable automatic spacing.
      * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
     default enableAutoSpacing(enable: boolean | undefined): this;
     /**
@@ -2234,7 +2234,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
      * @param { UndoStyle | undefined } style - Default value is UndoStyle.CLEAR_STYLE.
      * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
     default undoStyle(style: UndoStyle | undefined): this;
     /**
@@ -2243,7 +2243,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
      * @param { ColorMetrics | undefined } color  - Color of the rich editor scrollbar.
      * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
     default scrollBarColor(color: ColorMetrics | undefined): this;
     /**

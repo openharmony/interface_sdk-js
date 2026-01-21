@@ -636,7 +636,7 @@ export declare interface GestureStyleInterface {
      * @type { ?Callback<TouchEvent> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     onTouch?: Callback<TouchEvent>;
 }
@@ -671,7 +671,7 @@ export declare class ParagraphStyle {
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     readonly textVerticalAlign?: TextVerticalAlign;
     /**
@@ -771,7 +771,7 @@ export declare interface ParagraphStyleInterface {
      * @type { ?TextVerticalAlign }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     textVerticalAlign?: TextVerticalAlign;
     /**
