@@ -94,6 +94,7 @@ declare namespace metadataBinding {
    * @syscap SystemCapability.MultimodalAwareness.MetadataBinding
    * @atomicservice
    * @since 18 dynamic
+   * @since 23 static
    */
   function on(type: 'operationSubmitMetadata', bundleName: string, callback: Callback<int>): void;
  
@@ -107,6 +108,7 @@ declare namespace metadataBinding {
    * @syscap SystemCapability.MultimodalAwareness.MetadataBinding
    * @atomicservice
    * @since 18 dynamic
+   * @since 23 static
    */
   function off(type: 'operationSubmitMetadata', bundleName: string, callback?: Callback<int>): void;
 
