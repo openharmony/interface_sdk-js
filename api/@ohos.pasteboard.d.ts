@@ -448,6 +448,13 @@ declare namespace pasteboard {
      * @atomicservice
      * @since 11 dynamic
      */
+    /**
+     * additional property data. key-value pairs.
+     * @type { object }
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 23 dynamic
+     */
     additions: Record<string, object>;
     /**
      * additional property data. key-value pairs.
