@@ -9,6 +9,7 @@
     "SystemCapability.Ability.AppExtension.PhotoEditorExtension",
     "SystemCapability.Ability.AppStartup",
     "SystemCapability.Security.AccessToken",
+    "SystemCapability.ArkUI.ArkUI.Circle",
     "SystemCapability.ArkUI.ArkUI.Full",
     "SystemCapability.FileManagement.AppFileService",
     "SystemCapability.FileManagement.File.Environment",
