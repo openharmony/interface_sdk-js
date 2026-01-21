@@ -259,9 +259,9 @@ declare namespace componentSnapshot {
      * @returns { image.PixelMap | null } - The snapshot result in PixelMap format.
      * @throws { BusinessError } 100001 - Invalid ID.
      * @throws { BusinessError } 160002 - Timeout.
+     * @throws { BusinessError } 160003 - Unsupported color space or dynamic range mode in snapshot options.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
      */
     export function getSync(id: string, options?: SnapshotOptions): image.PixelMap | null;
-}
 export default componentSnapshot;
