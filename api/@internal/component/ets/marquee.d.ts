@@ -300,6 +300,19 @@ interface MarqueeOptions {
    * @since 23 dynamic
    */
   spacing?: LengthMetrics;
+
+  /**
+   * The waiting time between each round of the marquee.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  delay?: number;
 }
 
 /**
