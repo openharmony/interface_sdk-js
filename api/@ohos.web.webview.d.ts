@@ -6887,6 +6887,45 @@ declare namespace webview {
     setUrlTrustList(urlTrustList: string): void;
 
     /**
+     * Sets the URL trust list for the ArkWeb.
+     *
+     * <p><strong>API Note</strong>:<br>
+     * When the URL trust list is set, only the URLs in the list can be accessed.
+     *
+     * Example of the urlTrustList:
+     *
+     * {
+     *   "UrlPermissionList": [
+     *     {
+     *       "scheme": "https",
+     *       "host": "www.example1.com",
+     *       "port": 443,
+     *       "path": "pathA/pathB"
+     *     },
+     *     {
+     *       "scheme": "http",
+     *       "host": "*.example2.com",
+     *       "port": 80,
+     *       "path": "test1/test2/test3"
+     *     }
+     *   ]
+     * }
+     * </p>
+     *
+     * @param { string } urlTrustList - The URL trust list in JSON format.
+     *     An empty string means all URLs are allowed.
+     * @param { boolean } allowOpaqueOrigin - If true, loading of opaque origin URLs (e.g., javascript, data) is
+     *     allowed. If false, it is not allowed.
+     * @param { boolean } supportWildcard - If true, wildcard matching is supported (e.g., *.example.com matches all
+     *     subdomains). If false, wildcard matching is not supported.
+     * @throws { BusinessError } 17100001 - Initialization error.
+     *     The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 24 dynamic
+     */
+    setUrlTrustList(urlTrustList: string, allowOpaqueOrigin: boolean, supportWildcard: boolean): void
+
+    /**
      * Sets a path list. When a file protocol accesses resources in the path list, it can access the local files across
      * domains. In addition, when a path list is set, the file protocol can access only the resources in the path list.
      * The behavior of {@link fileAccess} will be overwritten by that of this API.
