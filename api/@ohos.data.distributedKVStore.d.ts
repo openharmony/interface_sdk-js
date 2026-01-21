@@ -740,14 +740,6 @@ declare namespace distributedKVStore {
      * @since 9 dynamic
      * @since 23 static
      */
-    /**
-     * S1: means the db is in the low security level
-     * There are some low impact when the data is leaked.
-     *
-     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @crossplatform
-     * @since 24 dynamic&static
-     */
     S1,
 
     /**
@@ -767,6 +759,14 @@ declare namespace distributedKVStore {
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
      * @since 23 static
+     */
+    /**
+     * S3: means the db is in the high security level
+     * There are some severity impact when the data is leaked.
+     *
+     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+     * @crossplatform
+     * @since 24 dynamic&static
      */
     S3,
 
