@@ -71,14 +71,13 @@ export declare interface EmbeddedComponentAttribute extends CommonMethod {
  *
  * @param { Want } loader - indicates initialization parameter.
  * @param { EmbeddedType } [type] - indicates type of the EmbeddedComponent.
- * @param { CustomBuilder } [content_] - container
  * @returns { EmbeddedComponentAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @systemapi
  * @since 23 static
  */
 @ComponentBuilder
 export declare function EmbeddedComponent(
-    loader: Want, type?: EmbeddedType, 
-    content_?: CustomBuilder,
+    loader: Want, type?: EmbeddedType
 ): EmbeddedComponentAttribute
