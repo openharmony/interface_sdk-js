@@ -2749,6 +2749,17 @@ export declare namespace typeNode {
   export function createButtonNode(context: UIContext): Button;
 
   /**
+   * Get the attribute instance of FrameNode to set attributes.
+   *
+   * @param { FrameNode } node - the target FrameNode.
+   * @returns { ButtonAttribute | undefined } - Return the attribute instance of FrameNode, and return undefined if it
+   *     does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  export function getButtonAttribute(node: FrameNode): ButtonAttribute | undefined;
+
+  /**
    * Define the Checkbox type of FrameNode.
    *
    * @extends TypedFrameNode<CheckboxAttribute>
@@ -2785,6 +2796,17 @@ export declare namespace typeNode {
    * @since 23 static
    */
   export function createCheckboxNode(context: UIContext): Checkbox;
+
+  /**
+   * Get the attribute instance of FrameNode to set attributes.
+   *
+   * @param { FrameNode } node - the target FrameNode.
+   * @returns { CheckboxAttribute | undefined } - Return the attribute instance of FrameNode, and return undefined if it
+   *     does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  export function getCheckboxAttribute(node: FrameNode): CheckboxAttribute | undefined;
 
   /**
    * Define the CheckboxGroup type of FrameNode.
@@ -2861,6 +2883,17 @@ export declare namespace typeNode {
    * @since 23 static
    */
   export function createRadioNode(context: UIContext): Radio;
+
+  /**
+   * Get the attribute instance of FrameNode to set attributes.
+   *
+   * @param { FrameNode } node - the target FrameNode.
+   * @returns { RadioAttribute | undefined } - Return the attribute instance of FrameNode, and return undefined if it
+   *     does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  export function getRadioAttribute(node: FrameNode): RadioAttribute | undefined;
 
   /**
    * Define the Rating type of FrameNode.
@@ -2977,6 +3010,17 @@ export declare namespace typeNode {
   export function createSliderNode(context: UIContext): Slider;
 
   /**
+   * Get the attribute instance of FrameNode to set attributes.
+   *
+   * @param { FrameNode } node - the target FrameNode.
+   * @returns { SliderAttribute | undefined } - Return the attribute instance of FrameNode, and return undefined if it
+   *     does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  export function getSliderAttribute(node: FrameNode): SliderAttribute | undefined;
+
+  /**
    * Define the Toggle type of FrameNode.
    *
    * @extends TypedFrameNode<ToggleAttribute>
@@ -3014,6 +3058,17 @@ export declare namespace typeNode {
    * @since 23 static
    */
   export function createToggleNode(context: UIContext, options?: ToggleOptions): Toggle;
+
+  /**
+   * Get the attribute instance of FrameNode to set attributes.
+   *
+   * @param { FrameNode } node - the target FrameNode.
+   * @returns { ToggleAttribute | undefined } - Return the attribute instance of FrameNode, and return undefined if it
+   *     does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  export function getToggleAttribute(node: FrameNode): ToggleAttribute | undefined;
 }
 
 /**
