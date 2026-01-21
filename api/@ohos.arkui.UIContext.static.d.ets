@@ -1722,7 +1722,7 @@ export declare class UIObserver {
    *     {@link WindowSizeLayoutBreakpointInfo} object containing the current width and height
    *     breakpoint classifications.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   onWindowSizeLayoutBreakpointChange(callback: Callback<observer.WindowSizeLayoutBreakpointInfo>): void;
 
@@ -1733,7 +1733,7 @@ export declare class UIObserver {
    * @param { Callback<observer.WindowSizeLayoutBreakpointInfo> } [callback] - The specific callback function to remove.
    *     If not provided, all callbacks for the given event type and context will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   offWindowSizeLayoutBreakpointChange(callback?: Callback<observer.WindowSizeLayoutBreakpointInfo>): void;
 
@@ -3069,7 +3069,7 @@ export declare class UIContext {
    *     or undefined if no context can be determined from the call stack.
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   static getCallingScopeUIContext(): UIContext | undefined;
 
@@ -3078,7 +3078,7 @@ export declare class UIContext {
    * @returns { UIContext | undefined } - The UIContext of the last focused UI instance or undefined if no one exists.
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   static getLastFocusedUIContext(): UIContext | undefined;
 
@@ -3088,7 +3088,7 @@ export declare class UIContext {
    *     exists
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   static getLastForegroundUIContext(): UIContext | undefined;
 
@@ -3098,7 +3098,7 @@ export declare class UIContext {
    *     returns an empty array if no contexts are available.
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   static getAllUIContexts(): UIContext[];
 
