@@ -12839,7 +12839,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    */
   interface Image {
     /**
-     * Sets or gets the image area to crop, default is size.
+     * Gets the image area, which always covers the entire image and can not be modified.
+     * clipRect.size equals to the size of the image.
+     * clipRect.x and clipRect.y are always 0, indicating the top-left corner of the image.
      *
      * @type { Region }
      * @syscap SystemCapability.Multimedia.Image.Core
