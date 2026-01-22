@@ -3000,7 +3000,7 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since 11 dynamic
+     * @since 11 dynamiconly
      * @deprecated since 12
      */
     release();
