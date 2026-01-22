@@ -10936,7 +10936,7 @@ declare namespace window {
     /**
      * Sets the radius of the rounded corners for this window.
      *
-     * @param { number } cornerRadius the corner radius.
+     * @param { double } cornerRadius the corner radius.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
@@ -10948,7 +10948,7 @@ declare namespace window {
      * @since 12 dynamic
      * @since 23 static
      */
-    setCornerRadius(cornerRadius: number): void;
+    setCornerRadius(cornerRadius: double): void;
 
     /**
      * Sets the radius of the rounded corners for a child window or floating window.
