@@ -274,7 +274,8 @@ export interface SubscribeCallbackData {
 }
 
 /**
- * Describes the switch state to Restrict notification capability.
+ * Describes the properties of the application that the permission to send notifications 
+ * or the badge enabled state has changed.
  *
  * @typedef EnabledNotificationCallbackData
  * @syscap SystemCapability.Notification.Notification
