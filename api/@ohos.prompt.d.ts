@@ -24,6 +24,7 @@ import { AsyncCallback } from './@ohos.base';
 /**
  * @namespace prompt
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 8 dynamiconly
  * @deprecated since 9
  * @useinstead ohos.promptAction/promptAction
@@ -35,6 +36,7 @@ declare namespace prompt {
    * 
    * @interface ShowToastOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.promptAction/promptAction.ShowToastOptions
@@ -46,6 +48,7 @@ declare namespace prompt {
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @FaAndStageModel
      * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.promptAction/promptAction.ShowToastOptions#message
@@ -59,6 +62,7 @@ declare namespace prompt {
      *
      * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @FaAndStageModel
      * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.promptAction/promptAction.ShowToastOptions#duration
@@ -70,6 +74,7 @@ declare namespace prompt {
      *
      * @type { ?(string | number) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @FaAndStageModel
      * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.promptAction/promptAction.ShowToastOptions#bottom
@@ -82,6 +87,7 @@ declare namespace prompt {
    * 
    * @interface Button
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.promptAction/promptAction.Button
@@ -93,6 +99,7 @@ declare namespace prompt {
      * 
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @FaAndStageModel
      * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.promptAction/promptAction.Button#text
@@ -104,6 +111,7 @@ declare namespace prompt {
      * 
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @FaAndStageModel
      * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.promptAction/promptAction.Button#color
@@ -127,6 +135,7 @@ declare namespace prompt {
      * 
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @FaAndStageModel
      * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.promptAction/promptAction.ShowDialogSuccessResponse#index
@@ -139,6 +148,7 @@ declare namespace prompt {
    * 
    * @interface ShowDialogOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.promptAction/promptAction.ShowDialogOptions
@@ -150,6 +160,7 @@ declare namespace prompt {
      *
      * @type { ?string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @FaAndStageModel
      * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.promptAction/promptAction.ShowDialogOptions#title
@@ -161,6 +172,7 @@ declare namespace prompt {
      *
      * @type { ?string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @FaAndStageModel
      * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.promptAction/promptAction.ShowDialogOptions#message
@@ -174,6 +186,7 @@ declare namespace prompt {
      *
      * @type { ?[Button, Button?, Button?] }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @FaAndStageModel
      * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.promptAction/promptAction.ShowDialogOptions#buttons
@@ -197,6 +210,7 @@ declare namespace prompt {
      * 
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @FaAndStageModel
      * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.promptAction/promptAction.ActionMenuSuccessResponse#index
@@ -209,6 +223,7 @@ declare namespace prompt {
    * 
    * @interface ActionMenuOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.promptAction/promptAction.ActionMenuOptions
@@ -220,6 +235,7 @@ declare namespace prompt {
      *
      * @type { ?string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @FaAndStageModel
      * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.promptAction/promptAction.ActionMenuOptions#title
@@ -233,6 +249,7 @@ declare namespace prompt {
      *
      * @type { [Button, Button?, Button?, Button?, Button?, Button?] }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @FaAndStageModel
      * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.promptAction/promptAction.ActionMenuOptions#buttons
@@ -245,6 +262,7 @@ declare namespace prompt {
    *
    * @param { ShowToastOptions } options - Options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.arkui.UIContext.PromptAction#showToast
@@ -257,6 +275,7 @@ declare namespace prompt {
    * @param { ShowDialogOptions } options - Options.
    * @param { AsyncCallback<ShowDialogSuccessResponse> } callback
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.arkui.UIContext.PromptAction#showDialog
@@ -269,6 +288,7 @@ declare namespace prompt {
    * @param { ShowDialogOptions } options - Options.
    * @returns { Promise<ShowDialogSuccessResponse> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.arkui.UIContext.PromptAction#showDialog
@@ -281,6 +301,7 @@ declare namespace prompt {
    * @param { ActionMenuOptions } options - Options.
    * @param { AsyncCallback<ActionMenuSuccessResponse> } callback
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.arkui.UIContext.PromptAction#showActionMenu
@@ -293,6 +314,7 @@ declare namespace prompt {
    * @param { ActionMenuOptions } options - Options.
    * @returns { Promise<ActionMenuSuccessResponse> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.arkui.UIContext.PromptAction#showActionMenu

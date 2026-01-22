@@ -38,9 +38,11 @@
  *
  * @interface SelectOption
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
+ * @noninterop
  */
 declare interface SelectOption {
   /**
@@ -63,6 +65,7 @@ declare interface SelectOption {
    *
    * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -89,6 +92,7 @@ declare interface SelectOption {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -135,9 +139,11 @@ declare interface SelectOption {
  *
  * @interface SelectInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
+ * @noninterop
  */
 interface SelectInterface {
   /**
@@ -163,6 +169,7 @@ interface SelectInterface {
    * @param { Array<SelectOption> } options
    * @returns { SelectAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -382,9 +389,11 @@ declare interface MenuOutlineOptions {
  *
  * @extends CommonMethod<SelectAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
+ * @noninterop
  */
 declare class SelectAttribute extends CommonMethod<SelectAttribute> {
   /**
@@ -410,6 +419,7 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @param { number | Resource } value - the serial number of the select item.
    * @returns { SelectAttribute } the attribute of the select.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -451,6 +461,7 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @param { ResourceStr } value - the text display of the select button itself.
    * @returns { SelectAttribute } the attribute of the select.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -492,6 +503,7 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @param { Font } value
    * @returns { SelectAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -533,6 +545,7 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @param { ResourceColor } value
    * @returns { SelectAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -574,6 +587,7 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @param { ResourceColor } value
    * @returns { SelectAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -615,6 +629,7 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @param { Font } value
    * @returns { SelectAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -656,6 +671,7 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @param { ResourceColor } value
    * @returns { SelectAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -697,6 +713,7 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @param { ResourceColor } value
    * @returns { SelectAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -738,6 +755,7 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @param { Font } value
    * @returns { SelectAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -779,6 +797,7 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @param { ResourceColor } value
    * @returns { SelectAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -820,6 +839,7 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @param { function } callback
    * @returns { SelectAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1371,6 +1391,7 @@ declare interface MenuItemConfiguration extends CommonConfiguration<MenuItemConf
  * Defines Select Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -1394,6 +1415,7 @@ declare const Select: SelectInterface;
  * Defines Select Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic

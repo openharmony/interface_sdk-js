@@ -38,9 +38,11 @@
  *
  * @interface MenuItemOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
+ * @noninterop
  */
 declare interface MenuItemOptions {
   /**
@@ -63,6 +65,7 @@ declare interface MenuItemOptions {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -108,6 +111,7 @@ declare interface MenuItemOptions {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -134,6 +138,7 @@ declare interface MenuItemOptions {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -179,6 +184,7 @@ declare interface MenuItemOptions {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -205,6 +211,7 @@ declare interface MenuItemOptions {
    *
    * @type { ?CustomBuilder }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -232,9 +239,11 @@ declare interface MenuItemOptions {
  *
  * @interface MenuItemInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
+ * @noninterop
  */
 interface MenuItemInterface {
   /**
@@ -260,6 +269,7 @@ interface MenuItemInterface {
    * @param { MenuItemOptions | CustomBuilder } value
    * @returns { MenuItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -287,9 +297,11 @@ interface MenuItemInterface {
  *
  * @extends CommonMethod<MenuItemAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
+ * @noninterop
  */
 declare class MenuItemAttribute extends CommonMethod<MenuItemAttribute> {
   /**
@@ -315,6 +327,7 @@ declare class MenuItemAttribute extends CommonMethod<MenuItemAttribute> {
    * @param { boolean } value
    * @returns { MenuItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -366,6 +379,7 @@ declare class MenuItemAttribute extends CommonMethod<MenuItemAttribute> {
    * <br>ResourceStr or SymbolGlyphModifier: displays the specified icon when selected.
    * @returns { MenuItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -395,6 +409,7 @@ declare class MenuItemAttribute extends CommonMethod<MenuItemAttribute> {
    * @param { function } callback
    * @returns { MenuItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -507,6 +522,7 @@ declare class MenuItemAttribute extends CommonMethod<MenuItemAttribute> {
  * Defines MenuItem Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -530,6 +546,7 @@ declare const MenuItem: MenuItemInterface;
  * Defines MenuItem Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
