@@ -11994,7 +11994,7 @@ declare class LayoutPolicy {
    * @form
    * @atomicservice 
    * @since 20 dynamic
-   */
+  */
   static readonly fixAtIdealSize: LayoutPolicy;
 }
 
@@ -14670,20 +14670,20 @@ declare interface DragEvent {
   getY(): number;
 
   /**
-   * If copy is COPY, this DragEvent is a copy event.
-   * @type { DragBehavior } Operation, if use copy then set COPY, else set MOVE.
-   * @default COPY
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
+  * If copy is COPY, this DragEvent is a copy event.
+  * @type { DragBehavior } Operation, if use copy then set COPY, else set MOVE.
+  * @default COPY
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @since 10
+  */
   /**
-   * If copy is COPY, this DragEvent is a copy event.
-   * @type { DragBehavior } Operation, if use copy then set COPY, else set MOVE.
-   * @default COPY
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
+  * If copy is COPY, this DragEvent is a copy event.
+  * @type { DragBehavior } Operation, if use copy then set COPY, else set MOVE.
+  * @default COPY
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @atomicservice
+  * @since 11
+  */
   /**
    * If copy is COPY, this DragEvent is a copy event.
    * @type { DragBehavior } Operation, if use copy then set COPY, else set MOVE.
@@ -19271,7 +19271,7 @@ declare enum ModalMode {
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
-   */    
+   */
   AUTO = 0,
   /**
    * Operation takes effect around menu.
@@ -21212,7 +21212,7 @@ declare enum DraggingSizeChangeEffect {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 19 dynamic
+   * @since 19
    */
   DEFAULT = 0,
 
@@ -27155,7 +27155,7 @@ declare class CommonMethod<T> {
    */
   overlay(value: string | CustomBuilder | ComponentContent, options?: OverlayOptions): T;
 
-  /**
+    /**
    * Config toolbar for current component.
    *
    * @param { CustomBuilder } value
@@ -29402,7 +29402,7 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 20 dynamic
    */
-  onDragSpringLoading(callback: Callback<SpringLoadingContext> | null, configuration?: DragSpringLoadingConfiguration): T;
+ onDragSpringLoading(callback: Callback<SpringLoadingContext> | null, configuration?: DragSpringLoadingConfiguration): T
 
   /**
    * Set whether the component enables the ability to invert colors.

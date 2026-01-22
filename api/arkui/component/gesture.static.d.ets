@@ -1467,6 +1467,15 @@ export interface LongPressGestureHandlerOptions extends BaseHandlerOptions {
      * @since 23 static
      */
     duration?: int;
+    /**
+     * Indicates maximum moving distance, in px.
+     * The default value is 15px.
+     *
+     * @type { ?double }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    allowableMovement?: double;
 }
 /**
  * Defines the LongPressGesture handler.
@@ -2174,6 +2183,15 @@ export declare class LongPressRecognizer extends GestureRecognizer {
      * @since 23 static
      */
     getDuration(): int;
+    /**
+     * Returns the long press gesture's maximum moving distance.
+     * The unit is px.
+     *
+     * @returns { double } - the maximum moving distance of the long press gesture.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    getAllowableMovement(): double;
 }
 /**
  * Defines the swipe gesture recognizer.
