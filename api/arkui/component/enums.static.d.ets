@@ -4066,24 +4066,26 @@ export declare enum TipsAnchorType {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 23 static
+ * @stagemodelonly
+ * @since 24 static
  */
 declare enum DialogDisplayMode {
   /**
-   * dialog display in center of app window.
+   * The dialog displayed based on screen.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @stagemodelonly
+   * @since 24 static
    */
-  CENTER_IN_WINDOW = 1,
-
+  SCREEN_BASED = 0,
   /**
-   * dialog display in center of screen.
+   * The dialog displayed based on application window.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @stagemodelonly
+   * @since 24 static
    */
-  CENTER_IN_SCREEN = 0
+  WINDOW_BASED = 1
 }
 
 /**
