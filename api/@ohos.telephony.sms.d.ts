@@ -467,6 +467,7 @@ declare namespace sms {
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
+   * @since 23 static
    */
   function updateSimMessage(options: UpdateSimMessageOptions, callback: AsyncCallback<void>): void;
 
@@ -487,6 +488,7 @@ declare namespace sms {
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
+   * @since 23 static
    */
   function updateSimMessage(options: UpdateSimMessageOptions): Promise<void>;
 
@@ -585,10 +587,10 @@ declare namespace sms {
    * @returns { Promise<void> } The promise returned by the setCBConfigList.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 8700001 - Invalid parameter value.
-   * @throws { BusinessError } 8700002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 8700003 - System internal error.
-   * @throws { BusinessError } 8700999 - Unknown error code.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
    * @since 23 dynamic&static
@@ -826,6 +828,29 @@ declare namespace sms {
    * @since 23 static
    */
   function getDefaultSmsSimId(): Promise<int>;
+
+  /**
+   * Get the SMS short code type of the destination address.
+   *
+   * @permission ohos.permission.SEND_MESSAGES
+   * @param { int } slotId - Indicates the ID of the slot holding the SIM card for sending SMS messages.
+   *     The value {@code 0} indicates card slot 1, and the value {@code 1} indicates card slot 2.
+   * @param { string } destAddr - Indicates the destination address of the sending SMS.
+   *     <br>Value range:[0,+∞)
+   * @returns { Promise<SmsShortCodeType> } Returns the SMS short code type of the sending destination address.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Nonsystem applications use system APIs.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300004 - Do not have sim card.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.SmsMms
+   * @systemapi Hide this for inner system use.
+   * @FaAndStageModel
+   * @since 23 dynamic&static
+   */
+  function getSmsShortCodeType(slotId: int, destAddr: string): Promise<SmsShortCodeType>;
 
   /**
    * Defines the MMS message information.
@@ -2622,25 +2647,28 @@ declare namespace sms {
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
+   * @since 23 static
    */
   export interface UpdateSimMessageOptions {
     /**
      * Indicates the card slot ID for the updating SIM message options.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
      * @since 7 dynamic
+     * @since 23 static
      */
     slotId: number;
 
     /**
      * Indicates the message index for the updating SIM message options.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
      * @since 7 dynamic
+     * @since 23 static
      */
     msgIndex: number;
 
@@ -2651,6 +2679,7 @@ declare namespace sms {
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
      * @since 7 dynamic
+     * @since 23 static
      */
     newStatus: SimMessageStatus;
 
@@ -2661,6 +2690,7 @@ declare namespace sms {
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
      * @since 7 dynamic
+     * @since 23 static
      */
     pdu: string;
 
@@ -2671,6 +2701,7 @@ declare namespace sms {
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
      * @since 7 dynamic
+     * @since 23 static
      */
     smsc: string;
   }
@@ -3278,6 +3309,47 @@ declare namespace sms {
      * @since 23 static
      */
     SMS_ENCODING_16BIT,
+  }
+
+  /**
+   * Enumerates SMS short code types.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Telephony.SmsMms
+   * @systemapi Hide this for inner system use.
+   * @FaAndStageModel
+   * @since 23 dynamic&static
+   */
+  export enum SmsShortCodeType {
+    /**
+     * Indicates an unknown SMS short code type.
+     *
+     * @syscap SystemCapability.Telephony.SmsMms
+     * @systemapi Hide this for inner system use.
+     * @FaAndStageModel
+     * @since 23 dynamic&static
+     */
+    SMS_SHORT_CODE_TYPE_UNKNOWN = -1,
+
+    /**
+     * Indicates a not premium SMS short code type.
+     *
+     * @syscap SystemCapability.Telephony.SmsMms
+     * @systemapi Hide this for inner system use.
+     * @FaAndStageModel
+     * @since 23 dynamic&static
+     */
+    SMS_SHORT_CODE_TYPE_NOT_PREMIUM = 0,
+
+    /**
+     * Indicates a possible premium SMS short code type.
+     *
+     * @syscap SystemCapability.Telephony.SmsMms
+     * @systemapi Hide this for inner system use.
+     * @FaAndStageModel
+     * @since 23 dynamic&static
+     */
+    SMS_SHORT_CODE_TYPE_POSSIBLE_PREMIUM = 1
   }
 }
 

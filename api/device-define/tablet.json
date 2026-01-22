@@ -84,8 +84,6 @@
     "SystemCapability.Multimedia.Image.ImageSource",
     "SystemCapability.Multimedia.Image.ImagePacker",
     "SystemCapability.Multimedia.Image.ImageReceiver",
-    "SystemCapability.Multimedia.MediaLibrary.Core",
-    "SystemCapability.Multimedia.MediaLibrary.DistributedCore",
     "SystemCapability.Multimedia.SystemSound.Core",
     "SystemCapability.Global.I18n",
     "SystemCapability.Global.ResourceManager",
@@ -217,6 +215,7 @@
     "SystemCapability.Resourceschedule.BackgroundProcessManager",
     "SystemCapability.Test.PerfTest",
     "SystemCapability.DistributedHardware.DistributedHardwareFWK",
-    "SystemCapability.ResourceSchedule.SystemLoad"
+    "SystemCapability.ResourceSchedule.SystemLoad",
+    "SystemCapability.Communication.FusionConnectivity.Core"
   ]
 }

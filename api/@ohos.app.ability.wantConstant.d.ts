@@ -534,7 +534,17 @@ declare namespace wantConstant {
      * @since 12 dynamic
      * @since 23 static
      */
-    EMBEDDED_FULL = 1
+    EMBEDDED_FULL = 1 ,
+
+    /**
+    * Indicates the embedded half show mode.
+    *
+    * @syscap SystemCapability.Ability.AbilityBase
+    * @stagemodelonly
+    * @atomicservice
+    * @since 23 dynamic&static
+    */
+    EMBEDDED_HALF = 2
   }
 }
 

@@ -27,7 +27,6 @@ export * from './arkui/stateManagement/storage/appStorage';
 export * from './arkui/stateManagement/storage/appStorageV2';
 export * from './arkui/stateManagement/storage/environment';
 export * from './arkui/stateManagement/storage/localStorage';
-export * from './arkui/stateManagement/storage/persistenceV2';
 export * from './arkui/stateManagement/storage/persistentStorage';
 export * from './arkui/stateManagement/storage/storageProperty';
 export * from './arkui/stateManagement/utils';

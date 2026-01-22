@@ -1587,6 +1587,8 @@ declare namespace sensor {
    * @param { Callback<FusionPressureResponse> } callback - callback fusion pressure percent data.
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported,
    * <br> {@code Options}.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
    * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
@@ -2509,6 +2511,8 @@ declare namespace sensor {
    * @param { SensorId.FUSION_PRESSURE } type - Indicate the sensor type to listen for, {@code SensorId.FUSION_PRESSURE}.
    * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
    * @param { Callback<FusionPressureResponse> } callback - callback fusion pressure percent data.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
    * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
@@ -3450,19 +3454,21 @@ declare namespace sensor {
 
     /**
      * Index of sensors of the same type.
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 19 dynamic
+     * @since 23 static
      */
-    sensorIndex?: number;
+    sensorIndex?: int;
 
     /**
      * Device ID which the sensors attached.
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 19 dynamic
+     * @since 23 static
      */
-    deviceId?: number;
+    deviceId?: int;
 
     /**
      * Name of the device.
@@ -3470,6 +3476,7 @@ declare namespace sensor {
      * @type { ?string }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 19 dynamic
+     * @since 23 static
      */
     deviceName?: string;
 
@@ -3478,6 +3485,7 @@ declare namespace sensor {
      * @type { ?boolean }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 19 dynamic
+     * @since 23 static
      */
     isLocalSensor?: boolean;
 
@@ -3564,8 +3572,9 @@ declare namespace sensor {
    * @returns { Array<Sensor> } Returns sensor information.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 19 dynamic
+   * @since 23 static
    */
-  function getSingleSensorByDeviceSync(type: SensorId, deviceId?: number): Array<Sensor>;
+  function getSingleSensorByDeviceSync(type: SensorId, deviceId?: int): Array<Sensor>;
 
   /**
    * Obtains all sensor information on the device.
@@ -3610,8 +3619,9 @@ declare namespace sensor {
    * @returns { Array<Sensor> } Return a list of sensor information.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 19 dynamic
+   * @since 23 static
    */
-  function getSensorListByDeviceSync(deviceId?: number): Array<Sensor>;
+  function getSensorListByDeviceSync(deviceId?: int): Array<Sensor>;
 
   /**
    * Indicates geomagnetic field data.
@@ -5425,7 +5435,7 @@ declare namespace sensor {
 
   /**
    * Stop listening on device status changes.
-   * @param { 'sensorStatusChange' } type - event of the listening
+   * @param { 'sensorStatusChange' } type - event of the listening.
    * @param { Callback<SensorStatusEvent> } [callback] - callback of sensor status.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
    * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
@@ -5435,10 +5445,31 @@ declare namespace sensor {
   function off(type: 'sensorStatusChange', callback?: Callback<SensorStatusEvent>): void;
 
   /**
+   * Start listening on device status changes.
+   * @param { Callback<SensorStatusEvent> } callback - callback of sensor status.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   * @syscap SystemCapability.Sensors.Sensor
+   * @since 23 static
+   */
+  function onSensorStatusChange(callback: Callback<SensorStatusEvent>): void;
+
+  /**
+   * Stop listening on device status changes.
+   * @param { Callback<SensorStatusEvent> } [callback] - callback of sensor status.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   * @syscap SystemCapability.Sensors.Sensor
+   * @since 23 static
+   */
+  function offSensorStatusChange(callback?: Callback<SensorStatusEvent>): void;
+
+  /**
    * Defines the data structure of the device status change event.
    * @typedef SensorStatusEvent
    * @syscap SystemCapability.Sensors.Sensor
    * @since 19 dynamic
+   * @since 23 static
    */
   interface SensorStatusEvent {
     /**
@@ -5446,24 +5477,27 @@ declare namespace sensor {
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 19 dynamic
+     * @since 23 static
      */
-    timestamp: number;
+    timestamp: long;
 
     /**
      * Sensor type id.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 19 dynamic
+     * @since 23 static
      */
-    sensorId: number;
+    sensorId: int;
 
     /**
      * Index of sensors of the same type.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 19 dynamic
+     * @since 23 static
      */
-    sensorIndex: number;
+    sensorIndex: int;
 
     /**
      * Whether the device is online, true indicates online, false indicates offline.
@@ -5471,22 +5505,25 @@ declare namespace sensor {
      * @type { boolean }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 19 dynamic
+     * @since 23 static
      */
     isSensorOnline: boolean;
 
     /**
      * Device ID.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 19 dynamic
+     * @since 23 static
      */
-    deviceId: number;
+    deviceId: int;
 
     /**
      * Device name.
      * @type { string }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 19 dynamic
+     * @since 23 static
      */
     deviceName: string;
   }

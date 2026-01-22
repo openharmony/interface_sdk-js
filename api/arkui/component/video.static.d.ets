@@ -506,14 +506,14 @@ export declare interface VideoAttribute extends CommonMethod {
 /**
  * Video is returned when the parameter is transferred.
  *
- * @param { VideoOptions } value - The options to create a Video
- * @param { CustomBuilder } [content_]
- * @returns { VideoAttribute } The attribute of the Video
+ * @param { VideoOptions } value - The options to create a Video.
+ * @returns { VideoAttribute } The attribute of the Video.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
+ * @noninterop
  */
 @ComponentBuilder
 export declare function Video(
-    value: VideoOptions, 
-    content_?: CustomBuilder,
-): VideoAttribute
+    value: VideoOptions
+): VideoAttribute;

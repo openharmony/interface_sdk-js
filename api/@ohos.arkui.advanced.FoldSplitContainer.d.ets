@@ -29,7 +29,7 @@ import { Callback } from '@ohos.base';
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 /**
  * Position enum of the extra region
@@ -46,7 +46,7 @@ export declare enum ExtraRegionPosition {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * The extra region position is in the top.
@@ -62,7 +62,7 @@ export declare enum ExtraRegionPosition {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * The extra region position is in the bottom.
@@ -80,7 +80,7 @@ export declare enum ExtraRegionPosition {
  * @interface ExpandedRegionLayoutOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 /**
  * The layout options for the container when the foldable screen is expanded.
@@ -98,7 +98,7 @@ export interface ExpandedRegionLayoutOptions {
      * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * The ratio of the widths of two areas in the horizontal direction.
@@ -116,7 +116,7 @@ export interface ExpandedRegionLayoutOptions {
      * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * The ratio of the heights of two areas in the vertical direction.
@@ -134,7 +134,7 @@ export interface ExpandedRegionLayoutOptions {
      * @type { ?boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Does the extended area span from top to bottom within the container?
@@ -152,7 +152,7 @@ export interface ExpandedRegionLayoutOptions {
      * @type { ?ExtraRegionPosition }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Specify the position of the extra area when the extra area does not vertically span the container.
@@ -171,7 +171,7 @@ export interface ExpandedRegionLayoutOptions {
  * @typedef HoverModeRegionLayoutOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 /**
  * The layout options for the container when the foldable screen is in hover mode.
@@ -189,7 +189,7 @@ export interface HoverModeRegionLayoutOptions {
      * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * The ratio of the widths of two areas in the horizontal direction.
@@ -207,7 +207,7 @@ export interface HoverModeRegionLayoutOptions {
      * @type { ?boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Does the foldable screen display an extra area when it's in the half-folded state?
@@ -225,7 +225,7 @@ export interface HoverModeRegionLayoutOptions {
      * @type { ?ExtraRegionPosition }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Specify the position of the extra area when the foldable screen is in the half-folded state.
@@ -244,7 +244,7 @@ export interface HoverModeRegionLayoutOptions {
  * @interface FoldedRegionLayoutOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 /**
  * The layout options for the container when the foldable screen is folded.
@@ -262,7 +262,7 @@ export interface FoldedRegionLayoutOptions {
      * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * The ratio of the heights of two areas in the vertical direction.
@@ -281,7 +281,7 @@ export interface FoldedRegionLayoutOptions {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 /**
  * Preset split ratio.
@@ -298,7 +298,7 @@ export declare enum PresetSplitRatio {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * 1:1
@@ -314,7 +314,7 @@ export declare enum PresetSplitRatio {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * 2:3
@@ -330,7 +330,7 @@ export declare enum PresetSplitRatio {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * 3:2
@@ -348,7 +348,7 @@ export declare enum PresetSplitRatio {
  * @interface HoverStatus
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 /**
  * The status of hover mode.
@@ -366,7 +366,7 @@ export interface HoverModeStatus {
      * @type { display.FoldStatus }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * The fold status of devices.
@@ -385,7 +385,7 @@ export interface HoverModeStatus {
      * @type { boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Is the app currently in hover mode?
@@ -404,7 +404,7 @@ export interface HoverModeStatus {
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * The angle of rotation applied.
@@ -422,7 +422,7 @@ export interface HoverModeStatus {
      * @type { window.WindowStatusType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * The status of window.
@@ -442,7 +442,7 @@ export interface HoverModeStatus {
  * @param { HoverModeStatus } status - The status of hover mode
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 /**
  * The handler of onHoverStatusChange event
@@ -461,7 +461,7 @@ export type OnHoverStatusChangeHandler = (status: HoverModeStatus) => void;
  * @struct { FoldSplitContainer }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 /**
  * Defines FoldSplitContainer container.
@@ -480,7 +480,7 @@ export declare struct FoldSplitContainer {
      * @type { Callback<void> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * The builder function which will be rendered in the major region of container.
@@ -499,7 +499,7 @@ export declare struct FoldSplitContainer {
      * @type { Callback<void> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * The builder function which will be rendered in the minor region of container.
@@ -518,7 +518,7 @@ export declare struct FoldSplitContainer {
      * @type { ?Callback<void> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * The builder function which will be rendered in the extra region of container.
@@ -537,7 +537,7 @@ export declare struct FoldSplitContainer {
      * @type { ExpandedRegionLayoutOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * The layout options for the container when the foldable screen is expanded.
@@ -556,7 +556,7 @@ export declare struct FoldSplitContainer {
      * @type { HoverModeRegionLayoutOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * The layout options for the container when the foldable screen is in hover mode.
@@ -575,7 +575,7 @@ export declare struct FoldSplitContainer {
      * @type { FoldedRegionLayoutOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * The layout options for the container when the foldable screen is folded.
@@ -594,7 +594,7 @@ export declare struct FoldSplitContainer {
      * @type { ?(AnimateParam | null) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * The animation options of layout
@@ -614,7 +614,7 @@ export declare struct FoldSplitContainer {
      * @type { ?OnHoverStatusChangeHandler }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * The callback function that is triggered when the foldable screen enters or exits hover mode.

@@ -332,7 +332,7 @@ export interface AnimatorResult {
  * @stagemodelonly
  * @since 23 static
  */
-export default class Animator {
+export default declare class Animator {
     /**
      * Create an animator object for custom animation.
      * This interface depends on the UI context and cannot be used when the UI context is unclear. It is recommended to

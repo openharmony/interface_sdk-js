@@ -34,7 +34,6 @@ import type { Size } from './@ohos.arkui.node';
  *
  * @namespace uiObserver
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -329,7 +328,7 @@ declare namespace uiObserver {
    */
   export enum TabContentState {
     /**
-     * When the TabContent hidden.
+     * When the TabContent is shown.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
@@ -339,7 +338,7 @@ declare namespace uiObserver {
     ON_SHOW = 0,
 
     /**
-     * When the TabContent hidden.
+     * When the TabContent is hidden.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
@@ -850,7 +849,6 @@ declare namespace uiObserver {
    * Density info.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -861,7 +859,6 @@ declare namespace uiObserver {
      *
      * @type { UIContext }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
@@ -873,12 +870,48 @@ declare namespace uiObserver {
      *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
      */
     density: number;
+  }
+
+  /**
+   * Defines the window size layout breakpoint information.
+   * This class provides the current breakpoint classification of the window's width and height
+   * based on the configured breakpoint thresholds.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  export class WindowSizeLayoutBreakpointInfo {
+    /**
+     * The width breakpoint classification of the current window.
+     * This value indicates which width category the window currently falls into based on
+     * the configured width breakpoint thresholds.
+     *
+     * @type { WidthBreakpoint }
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 22 dynamic
+     */
+    readonly widthBreakpoint: WidthBreakpoint;
+
+    /**
+     * The height breakpoint classification of the current window.
+     * This value indicates which height category the window currently falls into based on
+     * the configured height breakpoint thresholds and aspect ratio.
+     *
+     * @type { HeightBreakpoint }
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 22 dynamic
+     */
+    readonly heightBreakpoint: HeightBreakpoint;
   }
 
   /**
@@ -934,46 +967,6 @@ declare namespace uiObserver {
      * @since 12 dynamic
      */
     operation: NavigationOperation;
-  }
-
-  /**
-   * Defines the window size layout breakpoint information.
-   * This class provides the current breakpoint classification of the window's width and height
-   * based on the configured breakpoint thresholds.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @atomicservice
-   * @since 22 dynamic
-   */
-  export class WindowSizeLayoutBreakpointInfo {
-    /**
-     * The width breakpoint classification of the current window.
-     * This value indicates which width category the window currently falls into based on
-     * the configured width breakpoint thresholds.
-     *
-     * @type { WidthBreakpoint }
-     * @readonly
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-     * @atomicservice
-     * @since 22 dynamic
-     */
-    readonly widthBreakpoint: WidthBreakpoint;
-
-    /**
-     * The height breakpoint classification of the current window.
-     * This value indicates which height category the window currently falls into based on
-     * the configured height breakpoint thresholds and aspect ratio.
-     *
-     * @type { HeightBreakpoint }
-     * @readonly
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-     * @atomicservice
-     * @since 22 dynamic
-     */
-    readonly heightBreakpoint: HeightBreakpoint;
   }
 
   /**
@@ -1239,7 +1232,6 @@ declare namespace uiObserver {
    * @param { UIContext } context - The context scope of the observer.
    * @param { Callback<DensityInfo> } callback - The callback function to be called when the screen density is updated.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1254,7 +1246,6 @@ declare namespace uiObserver {
    * @param { Callback<DensityInfo> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
    *                                               will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1268,7 +1259,6 @@ declare namespace uiObserver {
    * @param { UIContext } context - The context scope of the observer.
    * @param { Callback<void> } callback - The callback function to be called when the draw command will be drawn.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1283,7 +1273,6 @@ declare namespace uiObserver {
    * @param { Callback<void> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
    *                                               will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1297,7 +1286,6 @@ declare namespace uiObserver {
    * @param { UIContext } context - The context scope of the observer.
    * @param { Callback<void> } callback - The callback function to be called when the layout is done.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1312,7 +1300,6 @@ declare namespace uiObserver {
    * @param { Callback<void> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
    *                                               will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic

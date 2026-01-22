@@ -176,9 +176,8 @@ export declare struct SelectTitleBar {
   onSelected?: OnSelectedCallback;
   /**
    * The method to build component.
-   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 23 staticonly
    */
   @Builder build(): void;
 }

@@ -300,6 +300,19 @@ interface MarqueeOptions {
    * @since 23 dynamic
    */
   spacing?: LengthMetrics;
+
+  /**
+   * The waiting time between each round of the marquee.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  delay?: number;
 }
 
 /**
@@ -789,22 +802,6 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
    * @since 11 dynamic
    */
   onFinish(event: () => void): MarqueeAttribute;
-  /**
-   * Called when scrolling is stoped.
-   *
-   * <p><strong>NOTE</strong>:
-   * <br>If event is set to undefined, the current event will be unbound.
-   * </p>
-   * 
-   * @param { Callback<void> | undefined } event
-   * @returns { MarqueeAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 23 dynamic
-   */
-  onStop(event: Callback<void> | undefined): MarqueeAttribute;
 }
 
 /**

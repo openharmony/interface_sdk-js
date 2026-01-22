@@ -18,14 +18,15 @@
  * @kit ArkUI
  */
 import { KeyboardOptions, PasteEvent } from "./richEditor";
-import { CaretStyle, DeleteValue, EditMenuOptions, EditableTextOnChangeCallback, InsertValue, AutoCapitalizationMode, EditableTextChangeValue, KeyboardAppearance, SelectedDragPreviewStyle, TextDirection } from "./textCommon";
+import { CaretStyle, DeleteValue, EditMenuOptions, EditableTextOnChangeCallback, InsertValue, AutoCapitalizationMode, EditableTextChangeValue, KeyboardAppearance, SelectedDragPreviewStyle, TextDirection, LineSpacingOptions, MaxLinesOptions, IMEClient } from "./textCommon";
 import { BarState, CopyOptions, FontStyle, FontWeight, LineBreakStrategy, TextContentStyle, TextAlign, TextOverflow, TextHeightAdaptivePolicy, WordBreak, EllipsisMode } from "./enums";
 import { EnterKeyType, SubmitEvent, ContentType } from "./textInput";
-import { Dimension, Font, Length, LengthMetrics, ResourceColor, ResourceStr } from "./units";
+import { Dimension, Font, Length, LengthMetrics, ResourceColor, ResourceStr, ColorMetrics } from "./units";
 import { InputCounterOptions, TextContentControllerBase, SelectionOptions, TextDecorationOptions, CommonMethod, Callback, Bindable, AttributeModifier } from "./common";
 import { CustomBuilder } from './builder';
 import { Resource } from '../../global/resource';
 import { ComponentBuilder } from './builder';
+import { ComponentContentBase } from '../ComponentContent';
 /**
  * Provides the method of switching the cursor position.
  *
@@ -170,7 +171,15 @@ export declare enum TextAreaType {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
      */
-    URL = 13
+    URL = 13,
+    /**
+     * One time code mode.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    ONE_TIME_CODE = 14
 }
 /**
  * Declare the event listener callback of the enter key.
@@ -666,12 +675,14 @@ export declare interface TextAreaAttribute extends CommonMethod {
      * indicating that there is no maximum number of lines.
      * </p>
      *
-     * @param { int | undefined } value
+     * @param { int | undefined } value - Max lines of the node
+     * @param { MaxLinesOptions } [options] - max lines of setting options.
+     *     Passing `undefined` resets it to the default value.
      * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
      */
-    default maxLines(value: int | undefined): this;
+    default maxLines(value: int | undefined, options?: MaxLinesOptions): this;
     /**
      * Set the word break type.
      *
@@ -717,13 +728,15 @@ export declare interface TextAreaAttribute extends CommonMethod {
      * <br>When setting a custom keyboard, you can bind the onKeyPrelme event to prevent input from the physical keyboard.
      * </p>
      *
-     * @param { CustomBuilder | undefined } value - Set up a custom keyboard of TextArea
+     * @param { CustomBuilder | ComponentContentBase | undefined } value - Set up a custom keyboard of TextArea
      * @param { KeyboardOptions } [options] - Indicates the custom keyboard options of TextArea
      * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
-    default customKeyboard(value: CustomBuilder | undefined, options?: KeyboardOptions): this;
+    default customKeyboard(value: CustomBuilder | ComponentContentBase | undefined,
+                           options?: KeyboardOptions): this;
     /**
      * Called when the text decoration of the text is set.
      *
@@ -756,12 +769,14 @@ export declare interface TextAreaAttribute extends CommonMethod {
      * <br>If the value specified is less than or equal to 0, the default value 0 is used.
      * </p>
      *
-     * @param { LengthMetrics | undefined } value - Default value is 0.
+     * @param { LengthMetrics | undefined } value - The default value is 0.
+     *     Passing `undefined` resets it to the default value.
+     * @param { LineSpacingOptions } [options]
      * @returns { TextAreaAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
      */
-    default lineSpacing(value: LengthMetrics | undefined): this;
+    default lineSpacing(value: LengthMetrics | undefined, options?: LineSpacingOptions): this;
     /**
      * Called when the line height of the font is set.
      *
@@ -1003,6 +1018,83 @@ export declare interface TextAreaAttribute extends CommonMethod {
      * @since 23 static
      */
     default fallbackLineSpacing(enabled: boolean | undefined): this;
+
+    /**
+     * Define min lines of the text area.
+     *
+     * @param { int | undefined } lines - Min lines of the node
+     *     Passing `undefined` resets it to the default value.
+     * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    default minLines(lines: int | undefined): this;
+
+    /**
+     * Whether to enable automatic spacing between Chinese and Latin characters.
+     *
+     * @param { boolean | undefined } enabled - The default value is false,
+     *     indicates the flag whether to enable automatic spacing.
+     *     Passing `undefined` resets it to the default value.
+     * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    default enableAutoSpacing(enabled: boolean | undefined): this;
+
+    /**
+     * Set the stroke width.
+     *
+     * @param { LengthMetrics | undefined } width - indicates the stroke width.
+     *     Passing `undefined` resets it to the default value.
+     * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    default strokeWidth(width: LengthMetrics | undefined): this;
+
+    /**
+     * Set the stroke color.
+     *
+     * @param { ResourceColor | undefined } color - indicates the stroke color.
+     *     Passing `undefined` resets it to the default value.
+     * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    default strokeColor(color: ResourceColor | undefined): this;
+
+    /**
+     * Called before the text area component attach the InputMethod.
+     *
+     * @param { Callback<IMEClient> | undefined } callback - The triggered function before attach the InputMethod.
+     *     If `undefined` is passed, the existing registered event will be removed.
+     * @returns { TextAreaAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    default onWillAttachIME(callback: Callback<IMEClient> | undefined): this;
+
+    /**
+     * Color of the scrollbar.
+     *
+     * @param { ColorMetrics | undefined } thumbColor - scroll bar thumb Color of the TextArea.
+     * @returns { TextAreaAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    default scrollBarColor(thumbColor: ColorMetrics | undefined): this;
+
+    /**
+     * Enable selected data detector.
+     * 
+     * @param { boolean | undefined } enable - whether to enable the selected data detector.
+     * @returns { TextAreaAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    default enableSelectedDataDetector(enable: boolean | undefined): this
+
     /**
      * Sets the attribute modifier.
      *
@@ -1051,13 +1143,12 @@ export declare interface TextAreaAttribute extends CommonMethod {
  * Defines TextArea Component.
  *
  * @param { TextAreaOptions } [value]
- * @param { CustomBuilder } [content_]
  * @returns { TextAreaAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 @ComponentBuilder
 export declare function TextArea(
-    value?: TextAreaOptions, 
-    content_?: CustomBuilder,
+    value?: TextAreaOptions
 ): TextAreaAttribute

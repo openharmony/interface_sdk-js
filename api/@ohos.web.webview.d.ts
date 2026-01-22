@@ -3702,7 +3702,7 @@ declare namespace webview {
     ERR_SIGNIFICANT_CHANGE = -5,
 
     /**
-     * The value of BlanklessLoadingParam.duration is out of the range of 0 ∪ [200, 2000].
+     * The value of BlanklessLoadingParam.duration is out of the valid range.
      *
      * Device behavior differences: Only the mobile phone is supported. For other devices, 801 is returned.
      *
@@ -3713,7 +3713,7 @@ declare namespace webview {
     ERR_DURATION_OUT_OF_RANGE = -6,
 
     /**
-     * The value of BlanklessLoadingParam.expirationTime is out of the range (0, 30 days].
+     * The value of BlanklessLoadingParam.expirationTime is out of the valid range.
      *
      * Device behavior differences: Only the mobile phone is supported. For other devices, 801 is returned.
      *
@@ -3917,7 +3917,8 @@ declare namespace webview {
     enable: boolean;
 
     /**
-     * Duration of the frame interpolation, in milliseconds.
+     * Duration of the frame interpolation, in ms.
+     * The valid range is the union of {0} and [200, 2000].
      *
      * Device behavior differences: Only the mobile phone is supported. For other devices, 801 is returned.
      *
@@ -3929,7 +3930,9 @@ declare namespace webview {
     duration?: number;
 
     /**
-     * Expiration time of the generated historical frame, in milliseconds.
+     * Expiration time of the historical frame, in ms (UTC time). T indicates the current UTC time. If the
+     * expiration time is 30 days, the value is 2592000000 ms. The value range is the union of (T, T + 2592000000] and
+     * {0}. 0 indicates that the expiration time is not specified and the default expiration time (7 days) is used.
      *
      * Device behavior differences: Only the mobile phone is supported. For other devices, 801 is returned.
      *
@@ -4315,6 +4318,18 @@ declare namespace webview {
     refresh(): void;
 
     /**
+     * Refreshes the current URL.
+     *
+     * @param { boolean } ignoreCache - If set to true, it indicates an end-to-end request with "pragma: no-cache";
+     *     otherwise, it performs a normal refresh.
+     * @throws { BusinessError } 17100001 - Init error.
+     *     The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 24 dynamic
+     */
+    refresh(ignoreCache: boolean): void;
+
+    /**
      * Loads the data or URL.
      *
      * @param { string } data - A string encoded according to "Base64" or "URL".
@@ -4363,8 +4378,7 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
-     * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid, or the URL
-     *                           length exceeds 2048.
+     * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid.
      * @throws { BusinessError } 17100003 - Invalid resource path or file type.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 9
@@ -4377,8 +4391,7 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
-     * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid, or the URL
-     *                           length exceeds 2048.
+     * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid.
      * @throws { BusinessError } 17100003 - Invalid resource path or file type.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
@@ -4393,8 +4406,7 @@ declare namespace webview {
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
-     * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid, or the URL
-     *                           length exceeds 2048.
+     * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid.
      * @throws { BusinessError } 17100003 - Invalid resource path or file type.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
@@ -6093,7 +6105,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     /**
      * Start a download.
@@ -6118,8 +6130,7 @@ declare namespace webview {
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
-     * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid, or the URL
-     *                           length exceeds 2048.
+     * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
@@ -6133,8 +6144,7 @@ declare namespace webview {
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
-     * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid, or the URL
-     *                           length exceeds 2048.
+     * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
@@ -6606,7 +6616,7 @@ declare namespace webview {
      *                           length exceeds 2048.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Prefetches resource requests based on specified request information and additional HTTP request headers,
@@ -6626,6 +6636,7 @@ declare namespace webview {
      *     The value of cacheValidTime must between 1 and 2147483647.
      * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid, or the URL
      *     length exceeds 2*1024*1024.
+     * @static
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 22 dynamic
@@ -6741,7 +6752,7 @@ declare namespace webview {
      *                           length exceeds 2048.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Warmup the registered service worker associated the url.
@@ -6768,7 +6779,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid, or the URL
      *                           length exceeds 2048.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Inject offline resources into cache.
@@ -6874,6 +6885,45 @@ declare namespace webview {
      * @since 12 dynamic
      */
     setUrlTrustList(urlTrustList: string): void;
+
+    /**
+     * Sets the URL trust list for the ArkWeb.
+     *
+     * <p><strong>API Note</strong>:<br>
+     * When the URL trust list is set, only the URLs in the list can be accessed.
+     *
+     * Example of the urlTrustList:
+     *
+     * {
+     *   "UrlPermissionList": [
+     *     {
+     *       "scheme": "https",
+     *       "host": "www.example1.com",
+     *       "port": 443,
+     *       "path": "pathA/pathB"
+     *     },
+     *     {
+     *       "scheme": "http",
+     *       "host": "*.example2.com",
+     *       "port": 80,
+     *       "path": "test1/test2/test3"
+     *     }
+     *   ]
+     * }
+     * </p>
+     *
+     * @param { string } urlTrustList - The URL trust list in JSON format.
+     *     An empty string means all URLs are allowed.
+     * @param { boolean } allowOpaqueOrigin - If true, loading of opaque origin URLs (e.g., javascript, data) is
+     *     allowed. If false, it is not allowed.
+     * @param { boolean } supportWildcard - If true, wildcard matching is supported (e.g., *.example.com matches all
+     *     subdomains). If false, wildcard matching is not supported.
+     * @throws { BusinessError } 17100001 - Initialization error.
+     *     The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 24 dynamic
+     */
+    setUrlTrustList(urlTrustList: string, allowOpaqueOrigin: boolean, supportWildcard: boolean): void
 
     /**
      * Sets a path list. When a file protocol accesses resources in the path list, it can access the local files across
@@ -7022,6 +7072,61 @@ declare namespace webview {
      * @since 20 dynamic
      */
     static setUserAgentForHosts(userAgent: string, hosts : Array<string>) : void;
+
+    /**
+     * Enable the UserAgent Client Hints.
+     *
+     * @param { boolean } enabled - UserAgent Client Hints will enabled when set true.
+     * @static
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 24 dynamic
+     */
+    static setUserAgentClientHintsEnabled(enabled: boolean): void;
+
+
+    /**
+     * Get if the UserAgent Client Hints enabled.
+     *
+     * @returns { boolean } If UserAgent Client Hints was enabled.
+     * @static
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 24 dynamic
+     */
+    static getUserAgentClientHintsEnabled(): boolean;
+
+    /**
+     * Sets the User-Agent metadata corresponding to the User-Agent.
+     *
+     * <p><strong>API Note</strong>:<br>
+     * This User-Agent metadata will be used to populate the User-Agent client hints, They can provide the client's
+     * branding and version information, the underlying  operating system's branding and major version, as well as
+     * details about the underlying device.
+     * 
+     * The User-Agent can be set with setCustomUserAgent or setAppCustomUserAgent or setUserAgentForHosts.
+     * 
+     * If the UserAgentMetadata is not found according to the overridden User-Agent and the overridden User-Agent
+     * contains the system default User-Agent, the system default value will be used.
+     *
+     * If the UserAgentMetadata is null but the overridden User-Agent doesn't contain the system default user-agent,
+     * only the low-entry User-Agent client hints will be generated.
+     * </p>
+     * 
+     * @param { string } userAgent - The User-Agent string.
+     * @param { UserAgentMetadata } metaData - The UserAgentMetadata for the userAgent.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 24 dynamic
+     */
+    setUserAgentMetadata(userAgent: string, metaData: UserAgentMetadata): void;
+
+    /**
+     * Get the User-Agent metadata corresponding to the User-Agent.
+     *
+     * @param { string } userAgent - The UserAgent string.
+     * @returns { UserAgentMetadata } The UserAgentMetadata for the userAgent.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 24 dynamic
+     */
+    getUserAgentMetadata(userAgent: string): UserAgentMetadata;
 
     /**
      * Get whether webviewController is attached to a web component.
@@ -10607,6 +10712,388 @@ declare namespace webview {
      * @since 23 dynamic
      */
     STRICT = 2
+  }
+
+  /**
+   * The form factors for User-Agent metadata.
+   *
+   * @enum { string }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @stagemodelonly
+   * @since 24 dynamic
+   */
+  enum UserAgentFormFactor {  
+    /**
+     * Form factor option: Automotive.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 24 dynamic
+     */
+    AUTOMOTIVE = 'Automotive',
+    /**
+     * Form factor option: Desktop.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 24 dynamic
+     */
+    DESKTOP = 'Desktop',
+    /**
+     * Form factor option: Mobile.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 24 dynamic
+     */
+    MOBILE = 'Mobile',
+    /**
+     * Form factor option: EInk.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 24 dynamic
+     */
+    EINK = 'EInk',
+    /**
+     * Form factor option: Tablet.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 24 dynamic
+     */
+    TABLET = 'Tablet',
+    /**
+     * Form factor option: Watch.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 24 dynamic
+     */
+    WATCH = 'Watch',
+    /**
+     * Form factor option: XR.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 24 dynamic
+     */
+    XR = 'XR'
+  }
+
+  /**
+   * Class that holds brand name, major version and full version. Brand name and major version used to generated
+   * User-Agent client hints sec-cu-ua. Brand name and full version used to generated user-agent client hint
+   * sec-ch-ua-full-version-list.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @stagemodelonly
+   * @since 24 dynamic
+   */
+  class UserAgentBrandVersion {
+    /**
+     * Sets the brand. Should not be blank.
+     *
+     * @param { string } brand - The brand.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 24 dynamic
+     */
+    setBrand(brand: string): void;
+
+    /**
+     * Get the brand info.
+     *
+     * @returns { string } - Returns brand info of UserAgentBrandVersion.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 24 dynamic
+     */
+    getBrand(): string;
+
+    /**
+     * Sets the major version. Should not be blank.
+     *
+     * @param { string } majorVersion - The major version.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 24 dynamic
+     */
+    setMajorVersion(majorVersion: string): void;
+
+    /**
+     * Get the major version.
+     *
+     * @returns { string } - Returns major version of UserAgentBrandVersion.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 24 dynamic
+     */
+    getMajorVersion(): string;
+
+    /**
+     * Sets the full version. Should not be blank.
+     *
+     * @param { string } fullVersion - The full version.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 24 dynamic
+     */
+    setFullVersion(fullVersion: string): void;
+
+    /**
+     * Get the full version.
+     *
+     * @returns { string } - Returns full version of UserAgentBrandVersion.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 24 dynamic
+     */
+    getFullVersion(): string;
+  }
+
+  /**
+   * Holds User-Agent metadata information and uses to generate User-Agent client hints.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @stagemodelonly
+   * @since 24 dynamic
+   */
+  class UserAgentMetadata {
+    /**
+     * Sets User-Agent metadata brands and their versions.
+     *
+     * <p><strong>API Note</strong>:<br>
+     * The default value is an empty list which means the system default User-Agent metadata brands and versions will be
+     * used to generate the User-Agent client hints.
+     * </p>
+     *
+     * @param { Array<UserAgentBrandVersion> } brandVersionList - The brandVersionList is used to generate User-Agent
+     *     client hints sec-ch-ua-full-version-list.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 24 dynamic
+     */
+    setBrandVersionList(brandVersionList: Array<UserAgentBrandVersion>): void;
+
+    /**
+     * Returns the current list of UserAgentBrandVersion which are used to generate the User-Agent client hints
+     * sec-ch-ua and sec-ch-ua-full-version-list.
+     *
+     * @returns { Array<UserAgentBrandVersion> } - Returns the current list of UserAgentBrandVersion.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 24 dynamic
+     */
+    getBrandVersionList(): Array<UserAgentBrandVersion>;
+
+    /**
+     * Sets User-Agent metadata architecture.
+     *
+     * <p><strong>API Note</strong>:<br>
+     * The default value is empty string which means the system default value will be used.
+     * </p>
+     *
+     * @param { string } arch - The arch is used to generate User-Agent client hints sec-ch-ua-architecture.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 24 dynamic
+     */
+    setArchitecture(arch: string): void;
+
+    /**
+     * Gets the value for sec-ch-ua-architecture.
+     *
+     * @returns { string } - Returns the value for sec-ch-ua-architecture.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 24 dynamic
+     */
+    getArchitecture(): string;
+
+    /**
+     * Sets User-Agent metadata bitness default is "".
+     *
+     * @param { string } bitness - The bitness is used to generate User-Agent client hints sec-ch-ua-bitness.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 24 dynamic
+     */
+    setBitness(bitness: string): void;
+
+    /**
+     * Gets the value for the sec-ch-ua-bitness.
+     *
+     * @returns { string } - Returns the value for the sec-ch-ua-bitness.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 24 dynamic
+     */
+    getBitness(): string;
+
+    /**
+     * Sets User-Agent metadata form factors.
+     *
+     * <p><strong>API Note</strong>:<br>
+     * The default value is empty list which means the system default value will be used.
+     * Form factor value should be one or more of DESKTOP, AUTOMOTIVE, MOBILE, TABLET, XR, EINK, WATCH.
+     * </p>
+     *
+     * @param { Array<UserAgentFormFactor> } formFactors - The formFactors is used to generate User-Agent client hints
+     *     sec-ch-ua-form-factors.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 24 dynamic
+     */
+    setFormFactors(formFactors: Array<UserAgentFormFactor>): void;
+
+    /**
+     * Gets the value for the sec-ch-ua-form-factors.
+     *
+     * @returns { Array<UserAgentFormFactor> } - Returns the form factors.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 24 dynamic
+     */
+    getFormFactors(): Array<UserAgentFormFactor>;
+
+    /**
+     * Sets User-Agent metadata full version.
+     *
+     * <p><strong>API Note</strong>:<br>
+     * The default value is empty string which means the system default value will be used.
+     * </p>
+     *
+     * @param { string } fullVersion - The fullVersion is used to generate User-Agent client hints
+     *     sec-ch-ua-full-version.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 24 dynamic
+     */
+    setFullVersion(fullVersion: string): void;
+
+    /**
+     * Gets the value for the sec-ch-ua-full-version.
+     *
+     * @returns { string } - Returns the value for the sec-ch-ua-full-version.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 24 dynamic
+     */
+    getFullVersion(): string;
+
+    /**
+     * Sets User-Agent metadata mobile, default is true.
+     *
+     * @param { boolean } isMobile - The isMobile is used to generate User-Agent client hints sec-ch-ua-mobile.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 24 dynamic
+     */
+    setMobile(isMobile: boolean): void;
+
+    /**
+     * Gets the value for the sec-ch-ua-mobile.
+     *
+     * @returns { boolean } - Returns the value for the sec-ch-ua-mobile.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 24 dynamic
+     */
+    getMobile(): boolean;
+
+    /**
+     * Sets User-Agent metadata model.
+     *
+     * <p><strong>API Note</strong>:<br>
+     * The default value is empty string which means the system default value will be used.
+     * </p>
+     *
+     * @param { string } model - The model is used to generate User-Agent client hints sec-ch-ua-model.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 24 dynamic
+     */
+    setModel(model: string): void;
+
+    /**
+     * Gets the value for the sec-ch-ua-model.
+     *
+     * @returns { string } - Returns the value for the sec-ch-ua-model.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 24 dynamic
+     */
+    getModel(): string;
+
+    /**
+     * Sets User-Agent metadata platform.
+     *
+     * <p><strong>API Note</strong>:<br>
+     * The default value is empty string which means the system default value will be used.
+     * </p>
+     *
+     * @param { string } platform - The platform is used to generate User-Agent client hints sec-ch-ua-platform.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 24 dynamic
+     */
+    setPlatform(platform: string): void;
+
+    /**
+     * Gets the value for the sec-ch-ua-platform.
+     *
+     * @returns { string } - Returns the value for the sec-ch-ua-platform.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 24 dynamic
+     */
+    getPlatform(): string;
+
+    /**
+     * Sets User-Agent metadata platform version.
+     *
+     * <p><strong>API Note</strong>:<br>
+     * The default value is empty string which means the system default value will be used.
+     * </p>
+     *
+     * @param { string } platformVersion - The platformVersion is used to generate User-Agent client hints
+     *     sec-ch-ua-platform-version.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 24 dynamic
+     */
+    setPlatformVersion(platformVersion: string): void;
+
+    /**
+     * Gets the value for the sec-ch-ua-platform-version.
+     *
+     * @returns { string } - Returns the value for the sec-ch-ua-platform-version.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 24 dynamic
+     */
+    getPlatformVersion(): string;
+
+    /**
+     * Sets User-Agent metadata wow64, default is false.
+     *
+     * @param { boolean } isWow64 - The wow64 is used to generate User-Agent client hints sec-ch-ua-wow64.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 24 dynamic
+     */
+    setWow64(isWow64: boolean): void;
+
+    /**
+     * Gets the value for the sec-ch-ua-wow64.
+     *
+     * @returns { boolean } - Returns the value for the sec-ch-ua-wow64.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 24 dynamic
+     */
+    getWow64(): boolean;
   }
   
   /**

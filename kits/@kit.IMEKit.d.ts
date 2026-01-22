@@ -40,10 +40,11 @@ import InputMethodExtensionContext from '@ohos.InputMethodExtensionContext';
 import InputMethodSubtype from '@ohos.InputMethodSubtype';
 import { PanelInfo, PanelType, PanelFlag } from '@ohos.inputMethod.Panel';
 import { InputMethodListDialog, PatternOptions, Pattern } from '@ohos.inputMethodList';
+import { InputMethodExtraConfig } from '@ohos.inputMethod.ExtraConfig';
 
 export {
   InputMethodExtensionAbility, InputMethodExtensionContext, InputMethodSubtype, inputMethod, inputMethodEngine,
-  InputMethodListDialog, PatternOptions, Pattern, PanelInfo, PanelType, PanelFlag
+  InputMethodListDialog, PatternOptions, Pattern, PanelInfo, PanelType, PanelFlag, InputMethodExtraConfig
 
 };
 /*** endif */

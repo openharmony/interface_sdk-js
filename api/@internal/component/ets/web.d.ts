@@ -5144,8 +5144,9 @@ declare class WebController {
    * Constructor.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.web.webview.webview.WebviewController#constructor
    */
   constructor();
 
@@ -11188,14 +11189,14 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * see [Rendering Native Components on the Web Using Same-Layer Rendering]{@link https://developer.huawei.com/consumer/en/doc/best-practices/bpta-render-web-using-same-layer-render}
    * </p>
    *
-   * @param { boolean } mode - Whether to enable the same-layer rendering feature.
+   * @param { boolean } enabled - Whether to enable the same-layer rendering feature.
    *    The value true means to enable the same-layer rendering feature, and false means the opposite.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
    */
-  enableNativeEmbedMode(mode: boolean): WebAttribute;
+  enableNativeEmbedMode(enabled: boolean): WebAttribute;
 
   /**
    * Registers the HTML tag name and type for same-layer rendering.

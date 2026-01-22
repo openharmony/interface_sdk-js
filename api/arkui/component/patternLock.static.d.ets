@@ -274,14 +274,13 @@ export declare interface PatternLockAttribute extends CommonMethod {
  * Defines the PatternLock component.
  *
  * @param { PatternLockController } [controller] - pattern lock controller.
- * @param { CustomBuilder } [content_]
  * @returns { PatternLockAttribute } The attribute of the PatternLock.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
 @ComponentBuilder
 export declare function PatternLock(
-    controller?: PatternLockController, 
-    content_?: CustomBuilder
+    controller?: PatternLockController
 ): PatternLockAttribute;

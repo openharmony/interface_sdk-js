@@ -332,6 +332,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600016 - The notification version for this update is too low.
    * @throws { BusinessError } 1600020 - The application is not allowed to send notifications due to permission settings.
    * @throws { BusinessError } 1600025 - Geofencing disabled.
+   * @throws { BusinessError } 1600026 - The location switch is off.
+   * @throws { BusinessError } 1600027 - The "Awareness & suggestions" switch of the location-based service is off.
    * @throws { BusinessError } 2300007 - Network unreachable.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -445,6 +447,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600016 - The notification version for this update is too low.
    * @throws { BusinessError } 1600020 - The application is not allowed to send notifications due to permission settings.
    * @throws { BusinessError } 1600025 - Geofencing disabled.
+   * @throws { BusinessError } 1600026 - The location switch is off.
+   * @throws { BusinessError } 1600027 - The "Awareness & suggestions" switch of the location-based service is off.
    * @throws { BusinessError } 2300007 - Network unreachable.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -507,6 +511,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600016 - The notification version for this update is too low.
    * @throws { BusinessError } 1600020 - The application is not allowed to send notifications due to permission settings.
    * @throws { BusinessError } 1600025 - Geofencing disabled.
+   * @throws { BusinessError } 1600026 - The location switch is off.
+   * @throws { BusinessError } 1600027 - The "Awareness & suggestions" switch of the location-based service is off.
    * @throws { BusinessError } 2300007 - Network unreachable.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -574,6 +580,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600016 - The notification version for this update is too low.
    * @throws { BusinessError } 1600020 - The application is not allowed to send notifications due to permission settings.
    * @throws { BusinessError } 1600025 - Geofencing disabled.
+   * @throws { BusinessError } 1600026 - The location switch is off.
+   * @throws { BusinessError } 1600027 - The "Awareness & suggestions" switch of the location-based service is off.
    * @throws { BusinessError } 2300007 - Network unreachable.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -613,9 +621,8 @@ declare namespace notificationManager {
    * Publishes a representative notification.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
+   * @param { BundleOption } representativeBundle - bundle option of the representative.
    * @param { NotificationRequest } request - a notification.
-   * @param { string } representativeBundle - bundle name of the representative
-   * @param { int } userId - userid of the representative
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
@@ -635,6 +642,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600016 - The notification version for this update is too low.
    * @throws { BusinessError } 1600020 - The application is not allowed to send notifications due to permission settings.
    * @throws { BusinessError } 1600025 - Geofencing disabled.
+   * @throws { BusinessError } 1600026 - The location switch is off.
+   * @throws { BusinessError } 1600027 - The "Awareness & suggestions" switch of the location-based service is off.
    * @throws { BusinessError } 2300007 - Network unreachable.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -6487,8 +6496,8 @@ declare namespace notificationManager {
    *
    * @typedef { _NotificationIconButton } NotificationIconButton
    * @syscap SystemCapability.Notification.Notification
-   * @since 22 dynamic
-   * @since 23 static
+   * @systemapi
+   * @since 23 dynamic&static
    */
   export type NotificationIconButton = _NotificationIconButton;
 
@@ -6497,6 +6506,7 @@ declare namespace notificationManager {
    *
    * @typedef { _TriggerType } TriggerType
    * @syscap SystemCapability.Notification.Notification
+   * @systemapi
    * @stagemodelonly
    * @since 23 dynamic&static
    */
@@ -6507,6 +6517,7 @@ declare namespace notificationManager {
    *
    * @typedef { _Trigger } Trigger
    * @syscap SystemCapability.Notification.Notification
+   * @systemapi
    * @stagemodelonly
    * @since 23 dynamic&static
    */
@@ -6517,6 +6528,7 @@ declare namespace notificationManager {
    *
    * @typedef { _Geofence } Geofence
    * @syscap SystemCapability.Notification.Notification
+   * @systemapi
    * @stagemodelonly
    * @since 23 dynamic&static
    */
@@ -6527,6 +6539,7 @@ declare namespace notificationManager {
    *
    * @typedef { _CoordinateSystemType } CoordinateSystemType
    * @syscap SystemCapability.Notification.Notification
+   * @systemapi
    * @stagemodelonly
    * @since 23 dynamic&static
    */
@@ -6537,6 +6550,7 @@ declare namespace notificationManager {
    *
    * @typedef { _MonitorEvent } MonitorEvent
    * @syscap SystemCapability.Notification.Notification
+   * @systemapi
    * @stagemodelonly
    * @since 23 dynamic&static
    */

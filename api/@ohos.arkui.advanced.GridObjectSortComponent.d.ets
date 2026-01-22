@@ -32,6 +32,7 @@
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
+ * @noninterop 
  */
 export declare enum GridObjectSortComponentType {
   /**
@@ -79,6 +80,7 @@ export declare enum GridObjectSortComponentType {
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
+ * @noninterop
  */
 export interface GridObjectSortComponentItem {
   /**
@@ -171,7 +173,7 @@ export interface GridObjectSortComponentItem {
    * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   /**
    * symbol of the GridObjectSortComponent item.
@@ -198,6 +200,7 @@ export interface GridObjectSortComponentItem {
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
+ * @noninterop
  */
 export interface GridObjectSortComponentOptions {
   /**
@@ -319,6 +322,7 @@ export interface GridObjectSortComponentOptions {
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
+ * @noninterop
  */
 @Component
 export declare struct GridObjectSortComponent {

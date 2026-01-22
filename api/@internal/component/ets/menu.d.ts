@@ -250,6 +250,16 @@ declare class MenuAttribute extends CommonMethod<MenuAttribute> {
      * @atomicservice
      * @since 20 dynamic
      */
+    /**
+     * Set the expand symbol of sub-menu.
+     *
+     * @param { SymbolGlyphModifier } symbol
+     * @returns { MenuAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 23 dynamic
+     */
     subMenuExpandSymbol(symbol: SymbolGlyphModifier): MenuAttribute;
 }
 

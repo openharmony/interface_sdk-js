@@ -1086,7 +1086,7 @@ export interface AbilityDelegator {
 
   /**
    * Prints log information to the unit testing console.
-   * The total length of the log information to be printed cannot exceed 1000 characters.
+   * The total length of the log information to be printed cannot exceed 10000 characters.
    *
    * @param { string } msg - Log information
    * @param { AsyncCallback<void> } callback - The callback of print.
@@ -1095,7 +1095,7 @@ export interface AbilityDelegator {
    */
   /**
    * Prints log information to the unit testing console.
-   * The total length of the log information to be printed cannot exceed 1000 characters.
+   * The total length of the log information to be printed cannot exceed 10000 characters.
    *
    * @param { string } msg - Log information
    * @param { AsyncCallback<void> } callback - The callback of print.
@@ -1105,7 +1105,7 @@ export interface AbilityDelegator {
    */
   /**
    * Prints log information to the unit testing console.
-   * The total length of the log information to be printed cannot exceed 1000 characters.
+   * The total length of the log information to be printed cannot exceed 10000 characters.
    *
    * @param { string } msg - Log information
    * @param { AsyncCallback<void> } callback - The callback of print.
@@ -1119,7 +1119,7 @@ export interface AbilityDelegator {
 
   /**
    * Prints log information to the unit testing console.
-   * The total length of the log information to be printed cannot exceed 1000 characters.
+   * The total length of the log information to be printed cannot exceed 10000 characters.
    *
    * @param { string } msg - Log information
    * @returns { Promise<void> } the promise returned by the function.
@@ -1128,7 +1128,7 @@ export interface AbilityDelegator {
    */
   /**
    * Prints log information to the unit testing console.
-   * The total length of the log information to be printed cannot exceed 1000 characters.
+   * The total length of the log information to be printed cannot exceed 10000 characters.
    *
    * @param { string } msg - Log information
    * @returns { Promise<void> } the promise returned by the function.
@@ -1138,7 +1138,7 @@ export interface AbilityDelegator {
    */
   /**
    * Prints log information to the unit testing console.
-   * The total length of the log information to be printed cannot exceed 1000 characters.
+   * The total length of the log information to be printed cannot exceed 10000 characters.
    *
    * @param { string } msg - Log information
    * @returns { Promise<void> } the promise returned by the function.
@@ -1152,7 +1152,7 @@ export interface AbilityDelegator {
 
   /**
    * Prints log information to the unit testing console.
-   * The total length of the log information to be printed cannot exceed 1000 characters.
+   * The total length of the log information to be printed cannot exceed 10000 characters.
    *
    * @param { string } msg - Log information.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
@@ -1161,7 +1161,7 @@ export interface AbilityDelegator {
    */
   /**
    * Prints log information to the unit testing console.
-   * The total length of the log information to be printed cannot exceed 1000 characters.
+   * The total length of the log information to be printed cannot exceed 10000 characters.
    *
    * @param { string } msg - Log information.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
@@ -1171,7 +1171,7 @@ export interface AbilityDelegator {
    */
   /**
    * Prints log information to the unit testing console.
-   * The total length of the log information to be printed cannot exceed 1000 characters.
+   * The total length of the log information to be printed cannot exceed 10000 characters.
    *
    * @param { string } msg - Log information.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
@@ -1340,7 +1340,7 @@ export interface AbilityDelegator {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11 dynamiconly
    */
   setMockList(mockList: Record<string, string>): void;
 }

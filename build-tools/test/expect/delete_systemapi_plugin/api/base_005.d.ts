@@ -1,5 +1,6 @@
+'use static';
 /*
- * Copyright (C) 2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -12,26 +13,23 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
  * @file
- * @kit ArkUI
+ * @kit AbilityKit
  */
-
 /**
- * MemoState is a mutable and remember state.
+ * Defines error codes used when starting an ability, for example, featureAbility.ErrorCode.NO_ERROR.
  *
- * @interface MemoState
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 23 static
+ * @enum { number }
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @since 20
  */
-export interface MemoState<T> {
-  /**
-   * The current value of the memoized state.
-   * @type { T }
-   * @readonly
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  readonly value: T;
+export enum ErrorCode {
+    /**
+     * No error.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @since 20
+     */
+    NO_ERROR = 0
 }

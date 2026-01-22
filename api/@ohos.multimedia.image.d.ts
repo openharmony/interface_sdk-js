@@ -5438,7 +5438,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    *     Otherwise, an exception will be thrown.
    * @throws { BusinessError } 7600104 - Failed to get the data from Surface.
    * @throws { BusinessError } 7600201 - Unsupported operation, e.g. on cross-platform.
-   * @throws { BusinessError } 7600206 - Invalid parameter
+   * @throws { BusinessError } 7600206 - Invalid parameter.
    * @throws { BusinessError } 7600305 - Failed to create the PixelMap.
    * @syscap SystemCapability.Multimedia.Image.Core
    * @stagemodelonly
@@ -7604,7 +7604,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 11
      */
     /**
-     * Releases this PixelMap object. After release, any method call that accesses the object's internal data will fail. This method uses a callback to return the result.
+     * Releases this PixelMap object. After release, any method call that accesses the object's internal data will fail.
+     * This method uses a callback to return the result.
      *
      * @param { AsyncCallback<void> } callback Callback invoked for instance release. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -7641,7 +7642,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 11
      */
     /**
-     * Releases this PixelMap object. After release, any method call that accesses the object's internal data will fail. This method uses a promise to return the result.
+     * Releases this PixelMap object. After release, any method call that accesses the object's internal data will fail.
+     * This method uses a promise to return the result.
      *
      * @returns { Promise<void> } A Promise instance used to return the instance release result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -7703,13 +7705,14 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 501 - Resource unavailable.
      * @throws { BusinessError } 62980102 - Image malloc abnormal. This status code is thrown when an error occurs during the process of copying data.
      * @throws { BusinessError } 62980103 - Image YUV And ASTC types are not supported.
-     * @throws { BusinessError } 62980104 - Image initialization abnormal. This status code is thrown when an error occurs during the process of creating empty pixelmap.
+     * @throws { BusinessError } 62980104 - Image initialization abnormal.
+     *     This status code is thrown when an error occurs during the process of creating empty pixelmap.
      * @throws { BusinessError } 62980106 - The image data is too large. This status code is thrown when an error occurs during the process of checking size.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 18 dynamic
      * @since 23 static
      */
-    cloneSync(): PixelMap;    
+    cloneSync(): PixelMap;
 
     /**
      * Clone pixelmap from current pixelmap.
@@ -7718,7 +7721,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 501 - Resource unavailable.
      * @throws { BusinessError } 62980102 - Image malloc abnormal. This status code is thrown when an error occurs during the process of copying data.
      * @throws { BusinessError } 62980103 - Image YUV And ASTC types are not supported.
-     * @throws { BusinessError } 62980104 - Image initialization abnormal. This status code is thrown when an error occurs during the process of creating empty pixelmap.
+     * @throws { BusinessError } 62980104 - Image initialization abnormal.
+     *     This status code is thrown when an error occurs during the process of creating empty pixelmap.
      * @throws { BusinessError } 62980106 - The image data is too large. This status code is thrown when an error occurs during the process of checking size.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 18 dynamic
@@ -8382,6 +8386,28 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 23 static
      */
     clone(): Promise<Metadata | undefined>;
+
+    /**
+     * Obtains the metadata as a blob.
+     *
+     * @returns { Promise<ArrayBuffer> } A Promise instance used to return the blob's ArrayBuffer.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    getBlob(): Promise<ArrayBuffer>;
+  
+    /**
+     * Set a blob into the metadata.
+     *
+     * @param { ArrayBuffer } blob - blob data.
+     * @returns { Promise<void> } Returns void.
+     * @throws { BusinessError } 7600206 - Invalid parameter. Possible causes: The blob is empty or has a length of 0.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    setBlob(blob: ArrayBuffer): Promise<void>;
   }
 
   /**
@@ -8549,6 +8575,28 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 23 dynamic&static
      */
     clone(): Promise<HeifsMetadata>;
+
+    /**
+     * Obtains the metadata as a blob.
+     *
+     * @returns { Promise<ArrayBuffer> } A Promise instance used to return the blob's ArrayBuffer.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    getBlob(): Promise<ArrayBuffer>;
+
+    /**
+     * Set a blob into the metadata.
+     *
+     * @param { ArrayBuffer } blob - blob data.
+     * @returns { Promise<void> } Returns void.
+     * @throws { BusinessError } 7600206 - Invalid parameter. Possible causes: The blob is empty or has a length of 0.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    setBlob(blob: ArrayBuffer): Promise<void>;
   }
 
   /**
@@ -8742,8 +8790,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      */
     model?: string;
 
-    /**double$0
-     * For each strip, the byte offset of that strip.
+    /**
+     * Byte offset of each strip.
      *
      * @type { ?int[] }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -8784,7 +8832,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     rowsPerStrip?: int;
     
     /**
-     * The total number of bytes in each strip of image data.
+     * Number of bytes in each strip after compression.
      *
      * @type { ?int[] }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -8905,7 +8953,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     photoMode?: int;
 
     /**
-     * The offset to the start byte (SOI) of JPEG compressed thumbnail data.
+     * Offset of the SOI marker of a JPEG interchange format bitstream.
      *
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -8915,7 +8963,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     jpegInterchangeFormat?: int;
 
     /**
-     * The number of bytes of JPEG compressed thumbnail data.
+     * Number of bytes of the JPEG stream.
      *
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -9381,7 +9429,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     sensitivityType?: int;
 
     /**
-     * Standard output sensitivity
+     * Standard output sensitivity.
      *
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -9391,7 +9439,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     standardOutputSensitivity?: int;
 
     /**
-     * Recommended exposure index
+     * Recommended exposure index.
      *
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -9401,7 +9449,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     recommendedExposureIndex?: int;
 
     /**
-     * The tag indicate the ISO speed latitude yyy value of the camera or input device that is defined in ISO 12232.
+     * ISO speed latitude yyy value of the camera or input device, which is defined in ISO 12232.
      *
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -9411,7 +9459,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     isoSpeedLatitudeyyy?: int;
 
     /**
-     * The tag indicate the ISO speed latitude zzz value of the camera or input device that is defined in ISO 12232.
+     * ISO speed latitude zzz value of the camera or input device, which is defined in ISO 12232.
      *
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -9421,7 +9469,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     isoSpeedLatitudezzz?: int;
 
     /**
-     * The version of the Exif standard supported.
+     * Version of the supported Exif standard.
      *
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -9484,7 +9532,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     offsetTimeDigitized?: string;
 
     /**
-     * Information specific to compressed data.
+     * Specific information about compressed data.
      *
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -9624,7 +9672,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     makerNote?: ArrayBuffer;
     
     /**
-     * A tag for Exif users to freely write keywords or comments on the image.
+     * User comments.
      *
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -9664,7 +9712,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     subsecTimeDigitized?: string;
 	
     /**
-     * This tag denotes the Flashpix format version supported by an FPXR file, enhancing device compatibility.
+     * FlashPix format version supported by an FPXR file. It is used to enhance device compatibility.
      *
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -9684,7 +9732,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     colorSpace?: int;
 	
     /**
-     * Pixel x dimension
+     * Pixel X dimension.
      *
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -9694,7 +9742,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     pixelXDimension?: int;
 	
     /**
-     * Pixel y dimension
+     * Pixel Y dimension.
      *
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -10002,7 +10050,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 23 dynamic&static
      */
     lensModel?: string;
-  
+
     /**
      * The serial number of the lens.
      *
@@ -10032,7 +10080,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 23 dynamic&static
      */
     sourceImageNumberOfCompositeImage?: int[];
-  
+
     /**
      * Exposure times of source images for a composite image, such as 1/33 sec.
      *
@@ -10042,7 +10090,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 23 dynamic&static
      */
     sourceExposureTimesOfCompositeImage?: ArrayBuffer;
-  
+
     /**
      * The per-component gamma values.
      *
@@ -10054,9 +10102,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     gamma?: double;
 
     /**
-     * Create an empty instance of ExifMetadata.
+     * Creates an empty ExifMetadata instance.
      *
-     * @returns { ExifMetadata } Returns an empty instance of ExifMetadata.
+     * @returns { ExifMetadata } Empty ExifMetadata instance.
      * @static
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
@@ -10065,11 +10113,12 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     static createInstance(): ExifMetadata;
 
     /**
-     * Obtains the value of properties in an image. This method uses a promise to return the property values in records.
+     * Obtains the values of metadata properties of the image. This API uses a promise to return the result.
      *
-     * @param { Array<string> } key Name of the properties whose value is to be obtained.
-     * @returns { Promise<Record<string, string | null>> } Record instance used to return the property values.
-     * @throws { BusinessError } 7600202 - Unsupported metadata. Possible causes: unsupported metadata type
+     * @param { Array<string> } key Array of properties.
+     * @returns { Promise<Record<string, string | null>> } Promise used to return an array of properties and their
+     *     values in key-value pairs.
+     * @throws { BusinessError } 7600202 - Unsupported metadata. Possible causes: unsupported metadata type.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10077,11 +10126,11 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     getProperties(key: Array<string>): Promise<Record<string, string | null>>;
 
     /**
-     * Set the value of properties in an image with the specified keys.
+     * Sets the values of metadata properties for the image.
      *
-     * @param { Record<string, string | null> } records Property records whose values are to be modified.
-     * @returns { Promise<void> } A Promise instance used to return the operation result.
-     * @throws { BusinessError } 7600202 - Unsupported metadata. Possible causes: unsupported metadata type
+     * @param { Record<string, string | null> } records Array of properties in key-value pair format.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 7600202 - Unsupported metadata. Possible causes: unsupported metadata type.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10089,9 +10138,10 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     setProperties(records: Record<string, string | null>): Promise<void>;
 
     /**
-     * Obtains the value of all properties in an image. This method uses a promise to return the property values in record.
+     * Obtains all properties and their values of the metadata. This API uses a promise to return the result.
      *
-     * @returns { Promise<Record<string, string | null>> } Record instance used to return the property values.
+     * @returns { Promise<Record<string, string | null>> } Promise used to return an array of properties and their
+     *     values in key-value pairs.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10099,18 +10149,40 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     getAllProperties(): Promise<Record<string, string | null>>;
 
     /**
-     * Obtains a clone of metadata. This method uses a promise to return the metadata.
+     * Clones the metadata. This API uses a promise to return the result.
      *
-     * @returns { Promise<ExifMetadata> } A Promise instance used to return the metadata.
+     * @returns { Promise<ExifMetadata> } Promise used to return the metadata.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
      */
     clone(): Promise<ExifMetadata>;
+
+    /**
+     * Obtains the metadata as a blob.
+     *
+     * @returns { Promise<ArrayBuffer> } A Promise instance used to return the blob's ArrayBuffer.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    getBlob(): Promise<ArrayBuffer>;
+	
+    /**
+     * Set a blob into the metadata.
+     *
+     * @param { ArrayBuffer } blob - blob data.
+     * @returns { Promise<void> } Returns void.
+     * @throws { BusinessError } 7600206 - Invalid parameter. Possible causes: The blob is empty or has a length of 0.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    setBlob(blob: ArrayBuffer): Promise<void>;
   }
 
   /**
-   * The XMAGE watermark is at the bottom of the image.
+   * The XMAGE watermark is at the bottom of the photo.
    *
    * @constant
    * @syscap SystemCapability.Multimedia.Image.Core
@@ -10120,7 +10192,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   const XMAGE_WATERMARK_MODE_AT_THE_BOTTOM : int = 9;
 
   /**
-   * The XMAGE watermark is at the bottom of the image.
+   * The XMAGE watermark is around the edges of the photo.
    *
    * @constant
    * @syscap SystemCapability.Multimedia.Image.Core
@@ -10130,7 +10202,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   const XMAGE_WATERMARK_MODE_BORDER : int = 10;
 
   /**
-   * Capture mode: Professional.
+   * Capture mode: professional.
    *
    * @constant
    * @syscap SystemCapability.Multimedia.Image.Core
@@ -10140,7 +10212,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   const CAPTURE_MODE_PROFESSIONAL : int = 2;
 
   /**
-   * Capture mode: Front lens night view.
+   * Capture mode: night view with front lens.
    *
    * @constant
    * @syscap SystemCapability.Multimedia.Image.Core
@@ -10150,7 +10222,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   const CAPTURE_MODE_FRONT_LENS_NIGHT_VIEW : int = 7;
 
   /**
-   * Capture mode: Panorama.
+   * Capture mode: panorama.
    * @constant
    * @syscap SystemCapability.Multimedia.Image.Core
    * @stagemodelonly
@@ -10159,7 +10231,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   const CAPTURE_MODE_PANORAMA : int = 8;
 
   /**
-   * Capture mode: Tail light.
+   * Capture mode: tail light.
    *
    * @constant
    * @syscap SystemCapability.Multimedia.Image.Core
@@ -10169,7 +10241,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   const CAPTURE_MODE_TAIL_LIGHT : int = 9;
 
   /**
-   * Capture mode: Light graffiti.
+   * Capture mode: light graffiti.
    *
    * @constant
    * @syscap SystemCapability.Multimedia.Image.Core
@@ -10179,7 +10251,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   const CAPTURE_MODE_LIGHT_GRAFFITI : int = 10;
 
   /**
-   * Capture mode: Silky water.
+   * Capture mode: silky water.
    *
    * @constant
    * @syscap SystemCapability.Multimedia.Image.Core
@@ -10189,7 +10261,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   const CAPTURE_MODE_SILKY_WATER : int = 11;
 
   /**
-   * Capture mode: Star track.
+   * Capture mode: star track.
    *
    * @constant
    * @syscap SystemCapability.Multimedia.Image.Core
@@ -10199,7 +10271,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   const CAPTURE_MODE_STAR_TRACK : int = 12;
 
   /**
-   * Capture mode: Wideaperture.
+   * Capture mode: wide aperture.
    *
    * @constant
    * @syscap SystemCapability.Multimedia.Image.Core
@@ -10209,7 +10281,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   const CAPTURE_MODE_WIDEAPERTURE : int = 19;
 
   /**
-   * Capture mode: Moving photo.
+   * Capture mode: moving photos.
    *
    * @constant
    * @syscap SystemCapability.Multimedia.Image.Core
@@ -10219,7 +10291,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   const CAPTURE_MODE_MOVING_PHOTO : int = 20;
 
   /**
-   * Capture mode: Portrait.
+   * Capture mode: portrait.
    *
    * @constant
    * @syscap SystemCapability.Multimedia.Image.Core
@@ -10229,7 +10301,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   const CAPTURE_MODE_PORTRAIT : int = 23;
 
   /**
-   * Capture mode: Rear lens night view.
+   * Capture mode: night view with rear lens.
    *
    * @constant
    * @syscap SystemCapability.Multimedia.Image.Core
@@ -10239,7 +10311,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   const CAPTURE_MODE_REAR_LENS_NIGHT_VIEW : int = 42;
 
   /**
-   * Capture mode: Super macro.
+   * Capture mode: super macro.
    *
    * @constant
    * @syscap SystemCapability.Multimedia.Image.Core
@@ -10249,7 +10321,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   const CAPTURE_MODE_SUPER_MACRO : int = 47;
 
   /**
-   * Capture mode: Snap shot.
+   * Capture mode: snap shot.
    *
    * @constant
    * @syscap SystemCapability.Multimedia.Image.Core
@@ -10259,7 +10331,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   const CAPTURE_MODE_SNAP_SHOT : int = 62;
 
   /**
-   * Enumerates focus mode.
+   * Enumerates the focus modes.
    *
    * @enum { int }
    * @syscap SystemCapability.Multimedia.Image.Core
@@ -10268,7 +10340,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    */
   enum FocusMode {  
     /**
-     * Autofocus-Automatic.
+     * Intelligent autofocus.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
@@ -10277,7 +10349,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     AF_A = 0,
 
     /**
-     * Autofocus-Single.
+     * Single autofocus.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
@@ -10286,7 +10358,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     AF_S = 1,
 
     /**
-     * Autofocus-Continuous.
+     * Continuous auto focus.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
@@ -10305,7 +10377,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   }
 
   /**
-   * Enumerates XMAGE color mode.
+   * Enumerates the XMAGE color modes.
    *
    * @enum { int }
    * @syscap SystemCapability.Multimedia.Image.Core
@@ -10314,7 +10386,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    */
   enum XmageColorMode {  
     /**
-     * Normal.
+     * Original.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
@@ -10332,7 +10404,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     BRIGHT = 1,
 
     /**
-     * Soft.
+     * Vivid.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
@@ -10351,7 +10423,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   }
 
   /**
-   * MakerNote metadata from Huawei camera.
+   * Photo metadata defined by Huawei Camera.
    *
    * @implements Metadata
    * @syscap SystemCapability.Multimedia.Image.Core
@@ -10360,7 +10432,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    */
   class MakerNoteHuaweiMetadata implements Metadata {  
     /**
-     * Is Xmage Supported.
+     * Whether XMAGE watermark is supported.
      *
      * @type { ?boolean }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -10368,7 +10440,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 23 dynamic&static
      */
     isXmageSupported?: boolean;
-  
+
     /**
      * Xmage Watermark Mode, for possible values see {@link XMAGE_WATERMARK_MODE_AT_THE_BOTTOM}
      *     and {@link XMAGE_WATERMARK_MODE_AT_THE_BOTTOM}.
@@ -10379,9 +10451,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 23 dynamic&static
      */
     xmageWatermarkMode?: int;
-  
+
     /**
-     * Xmage X1 Coordinate.
+     * X coordinate of the top-left corner of the content area of a photo with the XMAGE watermark.
      *
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -10389,9 +10461,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 23 dynamic&static
      */
     xmageLeft?: int;
-  
+
     /**
-     * Xmage Y1 Coordinate.
+     * Y coordinate of the top-left corner of the content area of a photo with the XMAGE watermark.
      *
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -10399,9 +10471,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 23 dynamic&static
      */
     xmageTop?: int;
-  
+
     /**
-     * Xmage X2 Coordinate.
+     * X coordinate of the right-bottom corner of the content area of a photo with the XMAGE watermark.
      *
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -10409,9 +10481,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 23 dynamic&static
      */
     xmageRight?: int;
-  
+
     /**
-     * Xmage Y2 Coordinate.
+     * Y coordinate of the right-bottom corner of the content area of a photo with the XMAGE watermark.
      *
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -10421,7 +10493,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     xmageBottom?: int;
 
     /**
-     * Xmage color mode.
+     * XMAGE color mode.
      *
      * @type { ?XmageColorMode }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -10429,9 +10501,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 23 dynamic&static
      */
     xmageColorMode?: XmageColorMode;
-  
+
     /**
-     * Is enhanced by cloud computing.
+     * Whether the image is enhanced on the cloud.
      *
      * @type { ?boolean }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -10441,7 +10513,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     isCloudEnhanced?: boolean;
 
     /**
-     * Cloud enhance label.
+     * Cloud enhancement label.
      *
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -10449,9 +10521,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 23 dynamic&static
      */
     cloudLabel?: string;
-  
+
     /**
-     * Is shot by wind snapshot mode.
+     * Whether a rapid snapshot is enabled.
      *
      * @type { ?boolean }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -10459,9 +10531,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 23 dynamic&static
      */
     isWindSnapshot?: boolean;
-  
+
     /**
-     * Scene Version.
+     * Scene version.
      *
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -10469,9 +10541,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 23 dynamic&static
      */
     sceneVersion?: int;
-  
+
     /**
-     * Capture Scene: Food Confidence.
+     * Capture scene: food confidence.
      *
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -10479,9 +10551,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 23 dynamic&static
      */
     sceneFoodConfidence?: int;
-  
+
     /**
-     * Capture Scene: Stage Confidence.
+     * Capture scene: stage confidence.
      *
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -10489,9 +10561,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 23 dynamic&static
      */
     sceneStageConfidence?: int;
-  
+
     /**
-     * Capture Scene: Blue Sky Confidence.
+     * Capture scene: blue sky confidence.
      *
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -10499,9 +10571,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 23 dynamic&static
      */
     sceneBlueSkyConfidence?: int;
-  
+
     /**
-     * Capture Scene: Green Plant Confidence.
+     * Capture scene: green plant confidence.
      *
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -10509,9 +10581,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 23 dynamic&static
      */
     sceneGreenPlantConfidence?: int;
-  
+
     /**
-     * Capture Scene: Beach Confidence.
+     * Capture scene: beach confidence.
      *
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -10519,9 +10591,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 23 dynamic&static
      */
     sceneBeachConfidence?: int;
-  
+
     /**
-     * Capture Scene: Snow Confidence.
+     * Capture scene: snow confidence.
      *
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -10529,9 +10601,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 23 dynamic&static
      */
     sceneSnowConfidence?: int;
-  
+
     /**
-     * Capture Scene: Sunset Confidence.
+     * Capture scene: sunset confidence.
      *
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -10539,9 +10611,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 23 dynamic&static
      */
     sceneSunsetConfidence?: int;
-  
+
     /**
-     * Capture Scene: Flowers Confidence.
+     * Capture scene: flower confidence.
      *
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -10549,9 +10621,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 23 dynamic&static
      */
     sceneFlowersConfidence?: int;
-  
+
     /**
-     * Capture Scene: Night Confidence.
+     * Capture scene: night confidence.
      *
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -10559,9 +10631,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 23 dynamic&static
      */
     sceneNightConfidence?: int;
-  
+
     /**
-     * Capture Scene: Text Confidence.
+     * Capture scene: text confidence.
      *
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -10569,9 +10641,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 23 dynamic&static
      */
     sceneTextConfidence?: int;
-  
+
     /**
-     * Face Count.
+     * Number of faces.
      *
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -10579,18 +10651,18 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 23 dynamic&static
      */
     faceCount?: int;
-  
+
     /**
-     * Confidence of {@link faceCount} faces.
+     * Confidence for a specified number of faces.
      * @type { ?int[] }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
      */
     faceConfidences?: int[];
-  
+
     /**
-     * Smile score of {@link faceCount} faces.
+     * Smile score for a specified number of faces.
      *
      * @type { ?int[] }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -10598,10 +10670,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 23 dynamic&static
      */
     faceSmileScores?: int[];
-  
+
     /**
-     * Capture mode, for possible values see {@link CAPTURE_MODE_PROFESSIONAL}
-     *     , {@link CAPTURE_MODE_FRONT_LENS_NIGHT_VIEW}, {@link CAPTURE_MODE_PANORAMA}, etc.
+     * Capture mode.
      *
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -10609,9 +10680,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 23 dynamic&static
      */
     captureMode?: int;
-  
+
     /**
-     * Burst Number.
+     * Number of continuous shots.
      *
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -10619,9 +10690,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 23 dynamic&static
      */
     burstNumber?: int;
-  
+
     /**
-     * Is front camera used.
+     * Whether the front camera is in use.
      *
      * @type { ?boolean }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -10629,9 +10700,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 23 dynamic&static
      */
     isFrontCamera?: boolean;
-  
+
     /**
-     * Roll Angle.
+     * Roll angle.
      *
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -10639,9 +10710,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 23 dynamic&static
      */
     rollAngle?: int;
-  
+
     /**
-     * Pitch Angle.
+     * Pitch angle.
      *
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -10649,7 +10720,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 23 dynamic&static
      */
     pitchAngle?: int;
-  
+
     /**
      * Physical aperture.
      *
@@ -10659,9 +10730,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 23 dynamic&static
      */
     physicalAperture?: int;
-  
+
     /**
-     * Focus Mode.
+     * Focus mode.
      *
      * @type { ?FocusMode }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -10671,9 +10742,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     focusMode?: FocusMode;
 
     /**
-     * Create an empty instance of MakerNoteHuaweiMetadata.
+     * Creates an empty MakerNoteHuaweiMetadata instance.
      *
-     * @returns { MakerNoteHuaweiMetadata } Returns an empty instance of MakerNoteHuaweiMetadata.
+     * @returns { MakerNoteHuaweiMetadata } Empty MakerNoteHuaweiMetadata instance.
      * @static
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
@@ -10682,11 +10753,12 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     static createInstance(): MakerNoteHuaweiMetadata;
 
     /**
-     * Obtains the value of properties in an image. This method uses a promise to return the property values in records.
+     * Obtains the values of metadata properties of the image. This API uses a promise to return the result.
      *
-     * @param { Array<string> } key Name of the properties whose value is to be obtained.
-     * @returns { Promise<Record<string, string | null>> } Record instance used to return the property values.
-     * @throws { BusinessError } 7600202 - Unsupported metadata. Possible causes: unsupported metadata type
+     * @param { Array<string> } key Array of properties.
+     * @returns { Promise<Record<string, string | null>> } Promise used to return an array of properties and their
+     *     values in key-value pairs.
+     * @throws { BusinessError } 7600202 - Unsupported metadata. Possible causes: unsupported metadata type.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10694,11 +10766,11 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     getProperties(key: Array<string>): Promise<Record<string, string | null>>;
 
     /**
-     * Modify the value of properties in an image with the specified keys.
+     * Sets the values of metadata properties for the image. This API uses a promise to return the result.
      *
-     * @param { Record<string, string | null> } records Property records whose values are to be modified.
-     * @returns { Promise<void> } A Promise instance used to return the operation result.
-     * @throws { BusinessError } 7600202 - Unsupported metadata. Possible causes: unsupported metadata type
+     * @param { Record<string, string | null> } records Array of properties in key-value pair format.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 7600202 - Unsupported metadata. Possible causes: unsupported metadata type.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10706,9 +10778,10 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     setProperties(records: Record<string, string | null>): Promise<void>;
 
     /**
-     * Obtains the value of all properties in an image. This method uses a promise to return the property values in record.
+     * Obtains all properties and their values of the metadata. This API uses a promise to return the result.
      *
-     * @returns { Promise<Record<string, string | null>> } Record instance used to return the property values.
+     * @returns { Promise<Record<string, string | null>> } Promise used to return an array of properties and their
+     *     values in key-value pairs.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10716,14 +10789,36 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     getAllProperties(): Promise<Record<string, string | null>>;
 
     /**
-     * Obtains a clone of metadata. This method uses a promise to return the metadata.
+     * Clones the metadata. This API uses a promise to return the result.
      *
-     * @returns { Promise<MakerNoteHuaweiMetadata> } A Promise instance used to return the metadata.
+     * @returns { Promise<MakerNoteHuaweiMetadata> } Promise used to return the metadata.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
      */
     clone(): Promise<MakerNoteHuaweiMetadata>;
+
+    /**
+     * Obtains the metadata as a blob.
+     *
+     * @returns { Promise<ArrayBuffer> } A Promise instance used to return the blob's ArrayBuffer.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    getBlob(): Promise<ArrayBuffer>;
+	
+    /**
+     * Set a blob into the metadata.
+     *
+     * @param { ArrayBuffer } blob - blob data.
+     * @returns { Promise<void> } Returns void.
+     * @throws { BusinessError } 7600206 - Invalid parameter. Possible causes: The blob is empty or has a length of 0.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    setBlob(blob: ArrayBuffer): Promise<void>;
   }
 
   /**
@@ -10746,7 +10841,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     exifMetadata?: ExifMetadata;
 
     /**
-     * MakerNote metadata from Huawei camera.
+     * Huawei Camera metadata.
      *
      * @type { ?MakerNoteHuaweiMetadata }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -11814,14 +11909,30 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * 2. Decoding process exception. 3. Insufficient memory.
      * @throws { BusinessError } 62980110 - The image source data is incorrect.
      * @throws { BusinessError } 62980113 - Unknown image format.
-     * The image data provided is not in a recognized or supported format, or it may be occorrupted.
      * @throws { BusinessError } 62980116 - Failed to decode the image.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 12 dynamic
-     * @since 23 static
      */
     getImageProperties(key: Array<PropertyKey>): Promise<Record<PropertyKey, string|null>>;
+
+    /**
+     * Obtains the value of properties in an image. This method uses a promise to return the property values in array
+     * of records.
+     *
+     * @param { Array<PropertyKey> } key - Name of the properties whose value is to be obtained.
+     * @returns { Promise<Record<string, string|null>> } Array of Records instance used to return the
+     *     property values. If the operation fails, the null is returned.
+     * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
+     *     2. Decoding process exception. 3. Insufficient memory.
+     * @throws { BusinessError } 62980110 - The image source data is incorrect.
+     * @throws { BusinessError } 62980113 - Unknown image format.
+     * @throws { BusinessError } 62980116 - Failed to decode the image.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @crossplatform
+     * @since 23 static
+     */
+    getImageProperties(key: Array<PropertyKey>): Promise<Record<string, string|null>>;
 
     /**
      * Obtains the value of a property in the image.
@@ -11954,9 +12065,24 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 12 dynamic
-     * @since 23 static
      */
     modifyImageProperties(records: Record<PropertyKey, string|null>): Promise<void>;
+
+    /**
+     * Modify the value of properties in an image with the specified keys.
+     *
+     * @param { Record<string, string|null> } records - Array of the property Records whose values are to
+     *     be modified.
+     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an
+     *     error message is returned.
+     * @throws { BusinessError } 62980123 - The image does not support EXIF decoding.
+     * @throws { BusinessError } 62980135 - The EXIF value is invalid.
+     * @throws { BusinessError } 62980146 - The EXIF data failed to be written to the file.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @crossplatform
+     * @since 23 static
+     */
+    modifyImageProperties(records: Record<string, string|null>): Promise<void>;
 
     /**
      * Modify the value of properties in an image with the specified keys. The method is more efficient than
@@ -12208,14 +12334,16 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     readonly supportedFormats: Array<string>;
 
     /**
-     * Read metadata of the image source, use propertyKeys to specify properties of interest. If propertyKeys
-     * is not specified, all supported metadata will be returned.
+     * Reads image metadata. You can use propertyKeys to specify the keys of metadata. If propertyKeys is not
+     * specified, all metadata that can be read is returned.
      *
-     * @param { string[] } [propertyKeys] Properties of interest.
-     * @param { int } [index] Index of interest, default is 0.
-     * @returns { Promise<ImageMetadata> } Promise that returns the metadata of the image source.
-     * @throws { BusinessError } 7700102  - Unsupported MIME type.
-     * @throws { BusinessError } 7700202  - Unsupported metadata.
+     * @param { string[] } [propertyKeys] - Keys of metadata.
+     * @param { int } [index] - Frame number. The first frame is used by default.
+     * @returns { Promise<ImageMetadata> } Promise used to return the metadata.
+     * @throws { BusinessError } 7700102 - Unsupported MIME type.
+     * @throws { BusinessError } 7700202 - Unsupported metadata.
+     * @throws { BusinessError } 7700204 - Invalid parameter. Possible causes: 1. The index is negative.
+     *     2. The index is greater than or equal to the number of frames in the image.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -12225,10 +12353,11 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Write metadata into the image source.
      *
-     * @param { ImageMetadata } imageMetadata ImageMetadata to write into the image source.
+     * @param { ImageMetadata } imageMetadata - ImageMetadata to write into the image source.
      * @returns { Promise<void> } Returns void.
-     * @throws { BusinessError } 7700102  - Unsupported MIME type.
-     * @throws { BusinessError } 7700202  - Unsupported metadata.
+     * @throws { BusinessError } 7700102 - Unsupported MIME type.
+     * @throws { BusinessError } 7700202 - Unsupported metadata.
+     * @throws { BusinessError } 7700204 - Invalid parameter. Possible causes: The imageSource object is released.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @stagemodelonly
      * @since 23 dynamic&static

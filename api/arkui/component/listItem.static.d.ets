@@ -20,9 +20,10 @@
 import { CommonMethod, Bindable } from './common';
 import { CustomBuilder } from './builder';
 import { Length } from './units';
-import { ComponentContent } from '../ComponentContent';
+import { ComponentContent, ComponentContentBase } from '../ComponentContent';
 import { ComponentBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from "./common";
+import { FrameNode } from '../FrameNode';
 /**
  * Sliding effect
  *
@@ -76,6 +77,72 @@ export declare enum SwipeActionState {
      */
     ACTIONING
 }
+
+/**
+ * Declare enum ListItemSwipeActionDirection.
+ *
+ * @enum { int }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 23 static
+ */
+export declare enum ListItemSwipeActionDirection {
+    /**
+     * When the List direction is vertical, it indicates the left in LTR mode and right in RTL mode.
+     * When the List direction is horizontal, it indicates the top.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    START = 0,
+    /**
+     * When the List direction is vertical, it indicates the right in LTR mode and left in RTL mode.
+     * When the List direction is horizontal, it indicates the bottom.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    END = 1
+}
+
+/**
+ * The swipe action manager.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 23 static
+ */
+export declare class ListItemSwipeActionManager {
+    /**
+     * Expand the swipe action
+     *
+     * @param { FrameNode } node - The ListItem FrameNode.
+     * @param { ListItemSwipeActionDirection } direction- The direction to expand.
+     * @throws { BusinessError } 100023 - The component type of the node is incorrect.
+     * @throws { BusinessError } 106203 - The node not mounted to component tree.
+     * @static
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    static expand(node: FrameNode, direction: ListItemSwipeActionDirection): void;
+
+    /**
+     * Collapse the swipe action
+     *
+     * @param { FrameNode } node - The ListItem FrameNode.
+     * @throws { BusinessError } 100023 - The component type of the node is incorrect.
+     * @throws { BusinessError } 106203 - The node not mounted to component tree.
+     * @static
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    static collapse(node: FrameNode): void;
+}
+
 /**
  * Defines the swipe action item for SwipeActionOptions.
  *
@@ -97,11 +164,11 @@ export declare interface SwipeActionItem {
       * An action item that appears when a list item slides right (when list direction is Vertical) or
       * slides down (when list direction Horizontal).
       *
-      * @type { ?ComponentContent }
+      * @type { ?ComponentContentBase }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
       * @since 23 static
       */
-    builderComponent?: ComponentContent;
+    builderComponent?: ComponentContentBase;
     /**
      * Defines distance for the delete area.
      *

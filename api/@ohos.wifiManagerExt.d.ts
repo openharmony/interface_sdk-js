@@ -27,7 +27,8 @@ import { AsyncCallback, Callback } from './@ohos.base';
  * Common products should not use these APIs.</p>
  *
  * @namespace wifiManagerExt
- * @since 9 dynamic
+ * @syscap SystemCapability.Communication.WiFi.AP.Extension
+ * @since 9 dynamiconly
  */
 declare namespace wifiManagerExt {
 
@@ -65,7 +66,7 @@ declare namespace wifiManagerExt {
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2701000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.AP.Extension
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    */
   function getSupportedPowerMode(): Promise<Array<PowerMode>>;
 
@@ -77,7 +78,7 @@ declare namespace wifiManagerExt {
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2701000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.AP.Extension
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    */
   function getSupportedPowerMode(callback: AsyncCallback<Array<PowerMode>>): void;
 
@@ -89,7 +90,7 @@ declare namespace wifiManagerExt {
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2701000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.AP.Extension
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    */
   function getPowerMode(): Promise<PowerMode>;
 
@@ -101,7 +102,7 @@ declare namespace wifiManagerExt {
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2701000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.AP.Extension
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    */
   function getPowerMode(callback: AsyncCallback<PowerMode>): void;
 
@@ -123,13 +124,13 @@ declare namespace wifiManagerExt {
    * 
    * @enum { number } PowerMode
    * @syscap SystemCapability.Communication.WiFi.AP.Extension
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    */
   export enum PowerMode {
     /** 
      * Sleeping Mode. 
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 9 dynamic
+     * @since 9 dynamiconly
     */
     
     SLEEPING = 0,
@@ -137,14 +138,14 @@ declare namespace wifiManagerExt {
     /** 
      * General Mode. 
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      * */
     GENERAL = 1,
 
     /** 
      * Through wall Mode. 
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      * */
     THROUGH_WALL = 2,
   }

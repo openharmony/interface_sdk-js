@@ -27,7 +27,7 @@ import type EmbeddableUIAbilityContext from './application/EmbeddableUIAbilityCo
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @StageModelOnly
  * @atomicservice
- * @since 12 dynamic
+ * @since 12 dynamiconly
  */
 export default class EmbeddableUIAbility extends UIAbility {
     /**
@@ -37,7 +37,7 @@ export default class EmbeddableUIAbility extends UIAbility {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @atomicservice
-     * @since 12 dynamic
+     * @since 12 dynamiconly
      */
     context: EmbeddableUIAbilityContext;
 }

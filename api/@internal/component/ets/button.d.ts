@@ -420,14 +420,14 @@ declare enum ControlSize {
  */
 declare interface ButtonOptions {
     /**
-     * Describes the button style.
+     * Defines the button type.
      *
      * @type { ?ButtonType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 7
      */
     /**
-     * Describes the button style.
+     * Defines the button type.
      *
      * @type { ?ButtonType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -435,7 +435,7 @@ declare interface ButtonOptions {
      * @since 9
      */
     /**
-     * Describes the button style.
+     * Defines the button type.
      *
      * @type { ?ButtonType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -444,10 +444,11 @@ declare interface ButtonOptions {
      * @since 10
      */
     /**
-     * Describes the button style.
+     * Defines the button type.
      *
      * @type { ?ButtonType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @FaAndStageModel
      * @crossplatform
      * @form
      * @atomicservice

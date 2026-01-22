@@ -27,6 +27,7 @@ import type { AsyncCallback, Callback } from './@ohos.base';
  * @syscap SystemCapability.FileManagement.StorageService.Backup
  * @systemapi
  * @since 10 dynamic
+ * @since 23 static
  */
 declare namespace backup {
   /**
@@ -36,6 +37,7 @@ declare namespace backup {
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @systemapi
    * @since 10 dynamic
+   * @since 23 static
    */
   interface FileMeta {
     /**
@@ -45,6 +47,7 @@ declare namespace backup {
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
      * @since 10 dynamic
+     * @since 23 static
      */
     bundleName: string;
 
@@ -55,6 +58,7 @@ declare namespace backup {
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
      * @since 10 dynamic
+     * @since 23 static
      */
     uri: string;
   }
@@ -66,17 +70,19 @@ declare namespace backup {
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @systemapi
    * @since 10 dynamic
+   * @since 23 static
    */
   interface FileData {
     /**
      * Indicates a native file descriptor typically retrieved from the backup service to hold the file's content.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
      * @since 10 dynamic
+     * @since 23 static
      */
-    fd: number;
+    fd: int;
   }
 
   /**
@@ -86,6 +92,7 @@ declare namespace backup {
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @systemapi
    * @since 12 dynamic
+   * @since 23 static
    */
   interface IncrementalBackupTime {
     /**
@@ -95,18 +102,20 @@ declare namespace backup {
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
      * @since 12 dynamic
+     * @since 23 static
      */
     bundleName: string;
 
     /**
      * Time of the last incremental backup
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
      * @since 12 dynamic
+     * @since 23 static
      */
-    lastIncrementalTime: number;
+    lastIncrementalTime: long;
   }
 
   /**
@@ -116,17 +125,19 @@ declare namespace backup {
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @systemapi
    * @since 12 dynamic
+   * @since 23 static
    */
   interface FileManifestData {
     /**
      * A file descriptor for the manifest file that holds the data
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
      * @since 12 dynamic
+     * @since 23 static
      */
-    manifestFd: number;
+    manifestFd: int;
   }
 
   /**
@@ -136,6 +147,7 @@ declare namespace backup {
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @systemapi
    * @since 12 dynamic
+   * @since 23 static
    */
   interface BackupParams {
     /**
@@ -145,6 +157,7 @@ declare namespace backup {
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
      * @since 12 dynamic
+     * @since 23 static
      */
     parameters?: string;
   }
@@ -156,17 +169,19 @@ declare namespace backup {
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @systemapi
    * @since 12 dynamic
+   * @since 23 static
    */
   interface BackupPriority {
     /**
      * Indicates the priority of a bundle.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
      * @since 12 dynamic
+     * @since 23 static
      */
-    priority?: number;
+    priority?: int;
   }
 
   /**
@@ -177,6 +192,7 @@ declare namespace backup {
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @systemapi
    * @since 12 dynamic
+   * @since 23 static
    */
   interface IncrementalBackupData extends IncrementalBackupTime, FileManifestData, BackupParams, BackupPriority {}
 
@@ -199,6 +215,7 @@ declare namespace backup {
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @systemapi
    * @since 12 dynamic
+   * @since 23 static
    */
   interface File extends FileMeta, FileData, FileManifestData {}
 
@@ -274,6 +291,7 @@ declare namespace backup {
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @systemapi
    * @since 18 dynamic
+   * @since 23 static
    */
   function getBackupVersion(): string;
 
@@ -291,6 +309,7 @@ declare namespace backup {
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @systemapi
    * @since 10 dynamic
+   * @since 23 static
    */
   function getLocalCapabilities(): Promise<FileData>;
 
@@ -308,6 +327,7 @@ declare namespace backup {
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @systemapi
    * @since 10 dynamic
+   * @since 23 static
    */
   function getLocalCapabilities(callback: AsyncCallback<FileData>): void;
 
@@ -330,6 +350,7 @@ declare namespace backup {
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @systemapi
    * @since 12 dynamic
+   * @since 23 static
    */
   function getLocalCapabilities(dataList: Array<IncrementalBackupTime>): Promise<FileData>;
 
@@ -346,6 +367,7 @@ declare namespace backup {
     * @syscap SystemCapability.FileManagement.StorageService.Backup
     * @systemapi
     * @since 12 dynamic
+    * @since 23 static
     */
   function getBackupInfo(bundleToBackup: string): string;
 
@@ -354,7 +376,7 @@ declare namespace backup {
    *
    * @permission ohos.permission.BACKUP
    * @param { string } bundleName set update to bundleName app.
-   * @param { number } timeout Update backup or restore timeout(unit:ms).
+   * @param { int } timeout Update backup or restore timeout(unit:ms).
    * @returns { boolean } Return update result, true is success, false is fail.
    * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
    * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
@@ -363,15 +385,16 @@ declare namespace backup {
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @systemapi
    * @since 12 dynamic
+   * @since 23 static
    */
-  function updateTimer(bundleName: string, timeout: number): boolean;
+  function updateTimer(bundleName: string, timeout: int): boolean;
 
   /**
    * Update send file fd rate.
    *
    * @permission ohos.permission.BACKUP
    * @param { string } bundleName set update to bundleName app.
-   * @param { number } sendRate set send file fd rate.
+   * @param { int } sendRate set send file fd rate.
    * @returns { boolean } Return update result, true is success, false is fail.
    * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
    * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
@@ -380,8 +403,9 @@ declare namespace backup {
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @systemapi
    * @since 12 dynamic
+   * @since 23 static
   */
-  function updateSendRate(bundleName: string, sendRate: number): boolean;
+  function updateSendRate(bundleName: string, sendRate: int): boolean;
 
   /**
    * function that returns backup datasize by bundleName.
@@ -391,8 +415,50 @@ declare namespace backup {
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @systemapi
    * @since 18 dynamic
+   * @since 23 static
    */
    type OnBackupSizeReport = (reportInfo: string) => void;
+
+  /**
+   * function that returns backup BundlePara.
+   *
+   * @typedef { undefined | string }
+   * @syscap SystemCapability.FileManagement.StorageService.Backup
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 static
+   */
+  type BundlePara = undefined | string;
+
+  /**
+   * function that returns backup datasize by bundleName.
+   * Callback called when the backup_sa service return result information.
+   * The first return string parameter indicates the result of the bundle.
+   * 
+   * @typedef {function} OnProcess
+   * @param { string } bundleName - the bundleName that triggers the callback.
+   * @param { string } process - the process info of the bundle.
+   * @syscap SystemCapability.FileManagement.StorageService.Backup
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 static
+   */
+  type OnProcess = (bundleName: string, process: string) => void;
+
+  /**
+   * Callback called when the backup service return result information.
+   * The first return string parameter indicates the bundleName that triggers the callback.
+   * The second return string parameter indicates the result of the bundle.
+   * 
+   * @typedef {function} OnResultReport
+   * @param { string } bundleName - the bundleName that triggers the callback.
+   * @param { string } result - the result of the bundle.
+   * @syscap SystemCapability.FileManagement.StorageService.Backup
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 static
+   */
+  type OnResultReport = (bundleName: string, result: string) => void;
 
   /**
    * General callbacks for both backup and restore procedure.
@@ -402,6 +468,7 @@ declare namespace backup {
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @systemapi
    * @since 10 dynamic
+   * @since 23 static
    */
   interface GeneralCallbacks {
     /**
@@ -419,6 +486,7 @@ declare namespace backup {
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
      * @since 10 dynamic
+     * @since 23 static
      */
     onFileReady: AsyncCallback<File>;
 
@@ -434,7 +502,7 @@ declare namespace backup {
      * @throws { BusinessError } 13900042 - Unknown error
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
-     * @since 10
+     * @since 10 dynamic
      */
     /**
      * Callback called when a backup/restore procedure for an bundle is started.
@@ -444,7 +512,7 @@ declare namespace backup {
      *
      * @type { AsyncCallback<string, void | string> }
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     *     2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 13500001 - The application is not added to the backup or restore
      * @throws { BusinessError } 13500002 - Failed to start application extension Procedure
      * @throws { BusinessError } 13600001 - IPC error
@@ -459,6 +527,29 @@ declare namespace backup {
     onBundleBegin: AsyncCallback<string, void | string>;
 
     /**
+     * Callback called when a backup/restore procedure for an bundle is started.
+     * The first return string parameter indicates the name of the bundle.
+     * The second return string parameter indicates that when BusinessError errors occur,
+     * the callback data is the name of the bundle.
+     *
+     * @type { AsyncCallback<string, BundlePara> }
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     *     2. Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 13500001 - The application is not added to the backup or restore
+     * @throws { BusinessError } 13500002 - Failed to start application extension Procedure
+     * @throws { BusinessError } 13600001 - IPC error
+     * @throws { BusinessError } 13900005 - I/O error
+     * @throws { BusinessError } 13900011 - Out of memory
+     * @throws { BusinessError } 13900025 - No space left on device
+     * @throws { BusinessError } 13900042 - Unknown error
+     * @syscap SystemCapability.FileManagement.StorageService.Backup
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static
+     */
+    onBundleBegin: AsyncCallback<string, BundlePara>;
+
+    /**
      * Callback called when a backup/restore procedure for an bundle ends successfully or gets aborted unexpectedly.
      * The return string argument indicates the name of the bundle.
      *
@@ -470,7 +561,7 @@ declare namespace backup {
      * @throws { BusinessError } 13900042 - Unknown error
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
-     * @since 10
+     * @since 10 dynamic
      */
     /**
      * Callback called when a backup/restore procedure for an bundle ends successfully or gets aborted unexpectedly.
@@ -480,7 +571,7 @@ declare namespace backup {
      *
      * @type { AsyncCallback<string, void | string> }
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     *     2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 13500003 - Backup or restore timed out
      * @throws { BusinessError } 13500004 - Application extension death
      * @throws { BusinessError } 13600001 - IPC error
@@ -495,6 +586,29 @@ declare namespace backup {
     onBundleEnd: AsyncCallback<string, void | string>;
 
     /**
+     * Callback called when a backup/restore procedure for an bundle ends successfully or gets aborted unexpectedly.
+     * The first return string parameter indicates the name of the bundle.
+     * The second return string parameter indicates that when BusinessError errors occur,
+     * the callback data is the name of the bundle.
+     *
+     * @type { AsyncCallback<string, BundlePara> }
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     *     2. Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 13500003 - Backup or restore timed out
+     * @throws { BusinessError } 13500004 - Application extension death
+     * @throws { BusinessError } 13600001 - IPC error
+     * @throws { BusinessError } 13900005 - I/O error
+     * @throws { BusinessError } 13900011 - Out of memory
+     * @throws { BusinessError } 13900025 - No space left on device
+     * @throws { BusinessError } 13900042 - Unknown error
+     * @syscap SystemCapability.FileManagement.StorageService.Backup
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static
+     */
+    onBundleEnd: AsyncCallback<string, BundlePara>;
+
+    /**
      * Callback called when the all the bundles to backup/restore are done or aborted unexpectedly.
      *
      * @type { AsyncCallback<undefined> }
@@ -507,6 +621,7 @@ declare namespace backup {
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
      * @since 10 dynamic
+     * @since 23 static
      */
     onAllBundlesEnd: AsyncCallback<undefined>;
 
@@ -517,6 +632,7 @@ declare namespace backup {
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
      * @since 10 dynamic
+     * @since 23 static
      */
     onBackupServiceDied: Callback<undefined>;
 
@@ -527,9 +643,10 @@ declare namespace backup {
      *
      * @param { string } bundleName the bundleName that triggers the callback.
      * @param { string } result the result of the bundle.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed,
+     *     application which is not a system application uses system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     *     2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 13600001 - IPC error
      * @throws { BusinessError } 13900005 - I/O error
      * @throws { BusinessError } 13900011 - Out of memory
@@ -537,9 +654,32 @@ declare namespace backup {
      * @throws { BusinessError } 13900042 - Unknown error
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
+     * @stagemodelonly
      * @since 12 dynamic
      */
-    onResultReport(bundleName: string, result: string);
+    onResultReport(bundleName: string, result: string): void;
+
+    /**
+     * Callback called when the backup service return result information.
+     * The first return string parameter indicates the bundleName that triggers the callback.
+     * The second return string parameter indicates the result of the bundle.
+     *
+     * @type { OnResultReport }
+     * @throws { BusinessError } 202 - Permission verification failed,
+     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     *     2. Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 13600001 - IPC error
+     * @throws { BusinessError } 13900005 - I/O error
+     * @throws { BusinessError } 13900011 - Out of memory
+     * @throws { BusinessError } 13900025 - No space left on device
+     * @throws { BusinessError } 13900042 - Unknown error
+     * @syscap SystemCapability.FileManagement.StorageService.Backup
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static
+     */
+    onResultReport: OnResultReport;
 
     /**
      * Callback called when the backup_sa service return result information.
@@ -547,9 +687,10 @@ declare namespace backup {
      *
      * @param { string } bundleName the bundleName that triggers the callback.
      * @param { string } process the process info of the bundle.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed,
+     *     application which is not a system application uses system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     *     2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 13500006 - Tar error
      * @throws { BusinessError } 13500008 - Untar error
      * @throws { BusinessError } 13600001 - IPC error
@@ -560,9 +701,34 @@ declare namespace backup {
      * @throws { BusinessError } 13900025 - No space left on device
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
+     * @stagemodelonly
      * @since 12 dynamic
      */
-    onProcess(bundleName: string, process: string);
+    onProcess(bundleName: string, process: string): void;
+
+    /**
+     * Callback called when the backup_sa service return result information.
+     * The first return string parameter indicates the result of the bundle.
+     *
+     * @type { OnProcess }
+     * @throws { BusinessError } 202 - Permission verification failed,
+     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     *     2. Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 13500006 - Tar error
+     * @throws { BusinessError } 13500008 - Untar error
+     * @throws { BusinessError } 13600001 - IPC error
+     * @throws { BusinessError } 13900001 - Operation not permitted
+     * @throws { BusinessError } 13900005 - I/O error
+     * @throws { BusinessError } 13900011 - Out of memory
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 13900025 - No space left on device
+     * @syscap SystemCapability.FileManagement.StorageService.Backup
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static
+     */
+    onProcess: OnProcess;
 
     /**
      * Callback called when the backup_sa service return result information.
@@ -572,6 +738,7 @@ declare namespace backup {
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
      * @since 18 dynamic
+     * @since 23 static
      */
     onBackupSizeReport?: OnBackupSizeReport;
   }
@@ -582,6 +749,7 @@ declare namespace backup {
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @systemapi
    * @since 10 dynamic
+   * @since 23 static
    */
   class SessionBackup {
     /**
@@ -592,6 +760,7 @@ declare namespace backup {
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
      * @since 10 dynamic
+     * @since 23 static
      */
     constructor(callbacks: GeneralCallbacks);
 
@@ -610,6 +779,7 @@ declare namespace backup {
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
      * @since 18 dynamic
+     * @since 23 static
      */
     getLocalCapabilities(): Promise<FileData>;
 
@@ -631,6 +801,7 @@ declare namespace backup {
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
      * @since 18 dynamic
+     * @since 23 static
      */
     getBackupDataSize(isPreciseScan: boolean, dataList: Array<IncrementalBackupTime>): Promise<void>;
 
@@ -668,6 +839,7 @@ declare namespace backup {
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
      * @since 12 dynamic
+     * @since 23 static
      */
     appendBundles(bundlesToBackup: string[], infos?: string[]): Promise<void>;
 
@@ -687,6 +859,7 @@ declare namespace backup {
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
      * @since 10 dynamic
+     * @since 23 static
      */
     appendBundles(bundlesToBackup: string[], callback: AsyncCallback<void>): void;
 
@@ -706,6 +879,7 @@ declare namespace backup {
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
      * @since 12 dynamic
+     * @since 23 static
      */
     release(): Promise<void>;
 
@@ -714,7 +888,7 @@ declare namespace backup {
      *
      * @permission ohos.permission.BACKUP
      * @param { string } bundleName - Set the bundleName of the application to be canceled.
-     * @returns { number } Return cancel result, 0 is success, 13500011 is fail, 13500012 is not have task. 
+     * @returns { int } Return cancel result, 0 is success, 13500011 is fail, 13500012 is not have task. 
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -722,8 +896,9 @@ declare namespace backup {
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
      * @since 18 dynamic
+     * @since 23 static
      */
-    cancel(bundleName: string): number;
+    cancel(bundleName: string): int;
 
      /**
      * Provides an interface for the tool to clear temporary directories
@@ -733,7 +908,6 @@ declare namespace backup {
      * @returns { Promise<boolean> } Return clean result, true is success, false is fail.
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
      * @since 20 dynamic
@@ -764,6 +938,7 @@ declare namespace backup {
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @systemapi
    * @since 10 dynamic
+   * @since 23 static
    */
   class SessionRestore {
     /**
@@ -774,6 +949,7 @@ declare namespace backup {
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
      * @since 10 dynamic
+     * @since 23 static
      */
     constructor(callbacks: GeneralCallbacks);
 
@@ -792,6 +968,7 @@ declare namespace backup {
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
      * @since 18 dynamic
+     * @since 23 static
      */
     getLocalCapabilities(): Promise<FileData>;
 
@@ -799,7 +976,7 @@ declare namespace backup {
      * Append new bundles to be restore up during the restore.
      *
      * @permission ohos.permission.BACKUP
-     * @param { number } remoteCapabilitiesFd Opened JSON file that stores remote device capabilities.
+     * @param { int } remoteCapabilitiesFd Opened JSON file that stores remote device capabilities.
      *     You can use the getLocalCapabilities method to obtain the value.
      * @param { string[] } bundlesToBackup Bundles to restore.
      * @returns { Promise<void> } The promise returned by the function.
@@ -818,7 +995,7 @@ declare namespace backup {
      * Append new bundles and restoreInfos to be restore up during the restore.
      *
      * @permission ohos.permission.BACKUP
-     * @param { number } remoteCapabilitiesFd Opened JSON file that stores remote device capabilities.
+     * @param { int } remoteCapabilitiesFd Opened JSON file that stores remote device capabilities.
      *     You can use the getLocalCapabilities method to obtain the value.
      * @param { string[] } bundlesToBackup Bundles to restore.
      * @param { string[] } [infos] infos to restore
@@ -833,14 +1010,15 @@ declare namespace backup {
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
      * @since 12 dynamic
+     * @since 23 static
      */
-    appendBundles(remoteCapabilitiesFd: number, bundlesToBackup: string[], infos?: string[]): Promise<void>;
+    appendBundles(remoteCapabilitiesFd: int, bundlesToBackup: string[], infos?: string[]): Promise<void>;
 
     /**
      * Append new bundles to be restore up during the restore.
      *
      * @permission ohos.permission.BACKUP
-     * @param { number } remoteCapabilitiesFd Opened JSON file that stores remote device capabilities.
+     * @param { int } remoteCapabilitiesFd Opened JSON file that stores remote device capabilities.
      *     You can use the getLocalCapabilities method to obtain the value.
      * @param { string[] } bundlesToBackup Bundles to restore.
      * @param { AsyncCallback<void> } callback Asynchronous callback to be called when appendBundles has finished.
@@ -854,8 +1032,9 @@ declare namespace backup {
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
      * @since 10 dynamic
+     * @since 23 static
      */
-    appendBundles(remoteCapabilitiesFd: number, bundlesToBackup: string[], callback: AsyncCallback<void>): void;
+    appendBundles(remoteCapabilitiesFd: int, bundlesToBackup: string[], callback: AsyncCallback<void>): void;
 
     /**
      * Publish the file handle to the backup service to make the service aware that the file's content is ready.
@@ -872,6 +1051,7 @@ declare namespace backup {
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
      * @since 10 dynamic
+     * @since 23 static
      */
     publishFile(fileMeta: FileMeta): Promise<void>;
 
@@ -890,6 +1070,7 @@ declare namespace backup {
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
      * @since 10 dynamic
+     * @since 23 static
      */
     publishFile(fileMeta: FileMeta, callback: AsyncCallback<void>): void;
 
@@ -909,6 +1090,7 @@ declare namespace backup {
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
      * @since 10 dynamic
+     * @since 23 static
      */
     getFileHandle(fileMeta: FileMeta): Promise<void>;
 
@@ -928,6 +1110,7 @@ declare namespace backup {
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
      * @since 10 dynamic
+     * @since 23 static
      */
     getFileHandle(fileMeta: FileMeta, callback: AsyncCallback<void>): void;
 
@@ -947,6 +1130,7 @@ declare namespace backup {
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
      * @since 12 dynamic
+     * @since 23 static
      */
     release(): Promise<void>;
 
@@ -955,7 +1139,7 @@ declare namespace backup {
      *
      * @permission ohos.permission.BACKUP
      * @param { string } bundleName - Set the bundleName of the application to be canceled.
-     * @returns { number } Return cancel result, 0 is success, 13500011 is fail, 13500012 is not have task. 
+     * @returns { int } Return cancel result, 0 is success, 13500011 is fail, 13500012 is not have task. 
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -963,8 +1147,9 @@ declare namespace backup {
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
      * @since 18 dynamic
+     * @since 23 static
      */
-    cancel(bundleName: string): number;
+    cancel(bundleName: string): int;
 
     /**
      * Provides an interface for the tool to clear temporary directories
@@ -974,7 +1159,6 @@ declare namespace backup {
      * @returns { Promise<boolean> } Return clean result, true is success, false is fail.
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
      * @since 20 dynamic
@@ -1005,6 +1189,7 @@ declare namespace backup {
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @systemapi
    * @since 12 dynamic
+   * @since 23 static
    */
   class IncrementalBackupSession {
     /**
@@ -1019,6 +1204,7 @@ declare namespace backup {
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
      * @since 12 dynamic
+     * @since 23 static
      */
     constructor(callbacks: GeneralCallbacks);
 
@@ -1037,6 +1223,7 @@ declare namespace backup {
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
      * @since 18 dynamic
+     * @since 23 static
      */
     getLocalCapabilities(): Promise<FileData>;
 
@@ -1058,6 +1245,7 @@ declare namespace backup {
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
      * @since 18 dynamic
+     * @since 23 static
      */
     getBackupDataSize(isPreciseScan: boolean, dataList: Array<IncrementalBackupTime>): Promise<void>;
 
@@ -1080,6 +1268,7 @@ declare namespace backup {
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
      * @since 12 dynamic
+     * @since 23 static
      */
     appendBundles(bundlesToBackup: Array<IncrementalBackupData>): Promise<void>;
 
@@ -1103,6 +1292,7 @@ declare namespace backup {
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
      * @since 12 dynamic
+     * @since 23 static
      */
     appendBundles(bundlesToAppend: Array<IncrementalBackupData>, infos: string[]): Promise<void>;
 
@@ -1122,6 +1312,7 @@ declare namespace backup {
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
      * @since 12 dynamic
+     * @since 23 static
      */
     release(): Promise<void>;
 
@@ -1130,7 +1321,7 @@ declare namespace backup {
      *
      * @permission ohos.permission.BACKUP
      * @param { string } bundleName - Set the bundleName of the application to be canceled.
-     * @returns { number } Return cancel result, 0 is success, 13500011 is fail, 13500012 is not have task. 
+     * @returns { int } Return cancel result, 0 is success, 13500011 is fail, 13500012 is not have task. 
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -1138,8 +1329,9 @@ declare namespace backup {
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
      * @since 18 dynamic
+     * @since 23 static
      */
-    cancel(bundleName: string): number;
+    cancel(bundleName: string): int;
 
     /**
      * Provides an interface for the tool to clear temporary directories
@@ -1149,7 +1341,6 @@ declare namespace backup {
      * @returns { Promise<boolean> } Return clean result, true is success, false is fail.
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
      * @since 20 dynamic

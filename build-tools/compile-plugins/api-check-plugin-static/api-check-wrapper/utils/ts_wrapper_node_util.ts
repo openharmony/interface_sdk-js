@@ -17,7 +17,7 @@ import * as arkts from '@koalaui/libarkts';
 import { checkIdentifier } from '../src/api_check_wrapper';
 
 // 不同节点对应的处理函数映射
-export const nodeHandleFunctionMap = new Map<arkts.Es2pandaAstNodeType, (node: arkts.AstNde, ...args: arkts.AstNde[]) => void>([
+export const nodeHandleFunctionMap = new Map<arkts.Es2pandaAstNodeType, (node: arkts.AstNode, ...args: arkts.AstNode[]) => void>([
   [arkts.Es2pandaAstNodeType.AST_NODE_TYPE_ASSIGNMENT_EXPRESSION, handleAssignmentExpression],
   [arkts.Es2pandaAstNodeType.AST_NODE_TYPE_ANNOTATION_USAGE, handleAnnotatedAstNode],
   [arkts.Es2pandaAstNodeType.AST_NODE_TYPE_LABELLED_STATEMENT, handleLabelledStatement],
@@ -190,14 +190,14 @@ const limitCount = 5;
 let exporssionCount = 0;
 
 // 转换函数：将枚举值数组拼接为数字字符串数组
-const convertToNumberStringArray = (matchArray: arkts.Es2pandaAstNodeType[][]):string[] => {
+const convertToNumberStringArray = (matchArray: arkts.Es2pandaAstNodeType[][]): string[] => {
   return matchArray.map(pair => {
     // 直接将枚举值（数字）转换为字符串并拼接
     return pair.map(item => item.toString()).join('|');
   });
 };
 // 转换函数：将元组的数组最后4个元素拼接成字符串
-const joinLastFourElement = (nodePath: VisitNode[]): string => 
+const joinLastFourElement = (nodePath: VisitNode[]): string =>
   nodePath.slice(-4).map(node => node[0]).join('|');
 
 // 有效的节点校验路径列表(倒序，从子节点开始)
@@ -283,7 +283,7 @@ function handleAstNode(node: arkts.AstNode): void {
   visitPath.pop();
 }
 
-export function handleAnnotatedAstNode(node: arkts.AstNode): void {}
+export function handleAnnotatedAstNode(node: arkts.AstNode): void { }
 
 export function handleAnnotatedExpression(node: arkts.AstNode): void {
   if (!!node.typeAnnotation) {
@@ -291,7 +291,7 @@ export function handleAnnotatedExpression(node: arkts.AstNode): void {
   }
 }
 
-export function handleAnnotatedStatement(node: arkts.AstNode): void {}
+export function handleAnnotatedStatement(node: arkts.AstNode): void { }
 
 export function handleAnnotationDeclaration(node: arkts.AstNode): void {
   if (!!node.expr) {
@@ -363,7 +363,7 @@ export function handleAwaitExpression(node: arkts.AstNode): void {
   }
 }
 
-export function handleBigIntLiteral(node: arkts.AstNode): void {}
+export function handleBigIntLiteral(node: arkts.AstNode): void { }
 
 export function handleBinaryExpression(node: arkts.AstNode): void {
   if (!!node.left) {
@@ -389,7 +389,7 @@ export function handleBlockStatement(node: arkts.AstNode): void {
   }
 }
 
-export function handleBooleanLiteral(node: arkts.AstNode): void {}
+export function handleBooleanLiteral(node: arkts.AstNode): void { }
 
 export function handleBreakStatement(node: arkts.AstNode): void {
   if (!!node.ident) {
@@ -430,7 +430,7 @@ export function handleChainExpression(node: arkts.AstNode): void {
   }
 }
 
-export function handleCharLiteral(node: arkts.AstNode): void {}
+export function handleCharLiteral(node: arkts.AstNode): void { }
 
 export function handleClassDeclaration(node: arkts.AstNode): void {
   if (!!node.definition) {
@@ -531,11 +531,11 @@ export function handleConditionalExpression(node: arkts.AstNode): void {
   }
 }
 
-export function handleContext(node: arkts.AstNode): void {}
+export function handleContext(node: arkts.AstNode): void { }
 
 /**
  * target重复节点，不遍历
- * @param { arkts.AstNode } node
+ * @param { arkts.AstNode } node 
  */
 export function handleContinueStatement(node: arkts.AstNode): void {
   if (!!node.ident) {
@@ -543,7 +543,7 @@ export function handleContinueStatement(node: arkts.AstNode): void {
   }
 }
 
-export function handleDebuggerStatement(node: arkts.AstNode): void {}
+export function handleDebuggerStatement(node: arkts.AstNode): void { }
 
 export function handleDecorator(node: arkts.AstNode): void {
   if (!!node.expr) {
@@ -614,7 +614,7 @@ export function handleETSFunctionType(node: arkts.AstNode): void {
   }
 }
 
-export function handleETSImportDeclaration(node: arkts.AstNode): void {}
+export function handleETSImportDeclaration(node: arkts.AstNode): void { }
 
 export function handleETSModule(node: arkts.AstNode): void {
   if (!!node.ident) {
@@ -646,9 +646,7 @@ export function handleETSNewClassInstanceExpression(node: arkts.AstNode): void {
   }
 }
 
-export function handleETSNewMultiDimArrayInstanceExpression(
-  node: arkts.AstNode
-): void {
+export function handleETSNewMultiDimArrayInstanceExpression(node: arkts.AstNode): void {
   if (!!node.dimensions) {
     node.dimensions.forEach((item: arkts.AstNode) => handleAstNode(item));
   }
@@ -657,9 +655,9 @@ export function handleETSNewMultiDimArrayInstanceExpression(
   }
 }
 
-export function handleETSNullType(node: arkts.AstNode): void {}
+export function handleETSNullType(node: arkts.AstNode): void { }
 
-export function handleETSPackageDeclaration(node: arkts.AstNode): void {}
+export function handleETSPackageDeclaration(node: arkts.AstNode): void { }
 
 export function handleETSParameterExpression(node: arkts.AstNode): void {
   if (!!node.annotations) {
@@ -676,7 +674,8 @@ export function handleETSParameterExpression(node: arkts.AstNode): void {
   }
 }
 
-export function handleETSPrimitiveType(node: arkts.AstNode): void {}
+export function handleETSPrimitiveType(node: arkts.AstNode): void {
+}
 
 export function handleETSReExportDeclaration(node: arkts.AstNode): void {
   if (!!node.getETSImportDeclarations) {
@@ -719,7 +718,7 @@ export function handleETSTypeReferencePart(node: arkts.AstNode): void {
   }
 }
 
-export function handleETSUndefinedType(node: arkts.AstNode): void {}
+export function handleETSUndefinedType(node: arkts.AstNode): void { }
 
 export function handleETSUnionType(node: arkts.AstNode): void {
   if (!!node.types) {
@@ -733,7 +732,7 @@ export function handleETSWildcardType(node: arkts.AstNode): void {
   }
 }
 
-export function handleEmptyStatement(node: arkts.AstNode): void {}
+export function handleEmptyStatement(node: arkts.AstNode): void { }
 
 export function handleExportAllDeclaration(node: arkts.AstNode): void {
   if (!!node.source) {
@@ -771,7 +770,7 @@ export function handleExportSpecifier(node: arkts.AstNode): void {
   }
 }
 
-export function handleExpression(node: arkts.AstNode): void {}
+export function handleExpression(node: arkts.AstNode): void { }
 
 export function handleExpressionStatement(node: arkts.AstNode): void {
   if (!!node.expression) {
@@ -870,6 +869,7 @@ export function handleFunctionExpression(node: arkts.AstNode): void {
   if (!!node.scriptFunction) {
     handleAstNode(node.scriptFunction);
   }
+
 }
 
 export function handleFunctionSignature(node: arkts.AstNode): void {
@@ -885,10 +885,7 @@ export function handleFunctionSignature(node: arkts.AstNode): void {
 }
 
 export function handleIdentifier(node: arkts.AstNode): void {
-  if (
-    exporssionCount > 1 ||
-    ValidNodeTypePathStrList.includes(joinLastFourElement(visitPath))
-  ) {
+  if (exporssionCount > 1 || ValidNodeTypePathStrList.includes(joinLastFourElement(visitPath))) {
     checkIdentifier(node);
   }
 
@@ -912,7 +909,8 @@ export function handleIfStatement(node: arkts.AstNode): void {
   }
 }
 
-export function handleImportDeclaration(node: arkts.AstNode): void {}
+export function handleImportDeclaration(node: arkts.AstNode): void {
+}
 
 export function handleImportDefaultSpecifier(node: arkts.AstNode): void {
   if (!!node.local) {
@@ -930,6 +928,7 @@ export function handleImportNamespaceSpecifier(node: arkts.AstNode): void {
   if (!!node.local) {
     handleAstNode(node.local);
   }
+
 }
 
 export function handleImportSource(node: arkts.AstNode): void {
@@ -948,6 +947,7 @@ export function handleImportSpecifier(node: arkts.AstNode): void {
   if (!!node.local) {
     handleAstNode(node.local);
   }
+
 }
 
 export function handleInterfaceDecl(node: arkts.AstNode): void {
@@ -983,13 +983,13 @@ export function handleLabelPair(node: arkts.AstNode): void {
   }
 }
 
-export function handleLabelledStatement(node: arkts.AstNode): void {}
+export function handleLabelledStatement(node: arkts.AstNode): void { }
 
-export function handleLiteral(node: arkts.AstNode): void {}
+export function handleLiteral(node: arkts.AstNode): void { }
 
-export function handleLoopStatement(node: arkts.AstNode): void {}
+export function handleLoopStatement(node: arkts.AstNode): void { }
 
-export function handleMaybeOptionalExpression(node: arkts.AstNode): void {}
+export function handleMaybeOptionalExpression(node: arkts.AstNode): void { }
 
 export function handleMemberExpression(node: arkts.AstNode): void {
   if (!!node.object) {
@@ -1000,7 +1000,7 @@ export function handleMemberExpression(node: arkts.AstNode): void {
   }
 }
 
-export function handleMetaProperty(node: arkts.AstNode): void {}
+export function handleMetaProperty(node: arkts.AstNode): void { }
 
 export function handleMethodDefinition(node: arkts.AstNode): void {
   if (!!node.overloads) {
@@ -1041,9 +1041,9 @@ export function handleNewExpression(node: arkts.AstNode): void {
   }
 }
 
-export function handleNullLiteral(node: arkts.AstNode): void {}
+export function handleNullLiteral(node: arkts.AstNode): void { }
 
-export function handleNumberLiteral(node: arkts.AstNode): void {}
+export function handleNumberLiteral(node: arkts.AstNode): void { }
 
 export function handleObjectExpression(node: arkts.AstNode): void {
   if (!!node.properties) {
@@ -1057,9 +1057,9 @@ export function handleObjectExpression(node: arkts.AstNode): void {
   }
 }
 
-export function handleOmittedExpression(node: arkts.AstNode): void {}
+export function handleOmittedExpression(node: arkts.AstNode): void { }
 
-export function handleOpaqueTypeNode(node: arkts.AstNode): void {}
+export function handleOpaqueTypeNode(node: arkts.AstNode): void { }
 
 export function handlePrefixAssertionExpression(node: arkts.AstNode): void {
   if (!!node.expr) {
@@ -1079,7 +1079,7 @@ export function handleProperty(node: arkts.AstNode): void {
   }
 }
 
-export function handleRegExpLiteral(node: arkts.AstNode): void {}
+export function handleRegExpLiteral(node: arkts.AstNode): void { }
 
 export function handleReturnStatement(node: arkts.AstNode): void {
   if (!!node.argument) {
@@ -1133,9 +1133,10 @@ export function handleSrcDumper(node: arkts.AstNode): void {
   return;
 }
 
-export function handleStatement(node: arkts.AstNode): void {}
+export function handleStatement(node: arkts.AstNode): void {
+}
 
-export function handleStringLiteral(node: arkts.AstNode): void {}
+export function handleStringLiteral(node: arkts.AstNode): void { }
 
 export function handleSuperExpression(node: arkts.AstNode): void {
   if (!!node.id) {
@@ -1161,7 +1162,8 @@ export function handleSwitchStatement(node: arkts.AstNode): void {
   }
 }
 
-export function handleTSAnyKeyword(node: arkts.AstNode): void {}
+export function handleTSAnyKeyword(node: arkts.AstNode): void {
+}
 
 export function handleTSArrayType(node: arkts.AstNode): void {
   if (!!node.elementType) {
@@ -1178,9 +1180,9 @@ export function handleTSAsExpression(node: arkts.AstNode): void {
   }
 }
 
-export function handleTSBigintKeyword(node: arkts.AstNode): void {}
+export function handleTSBigintKeyword(node: arkts.AstNode): void { }
 
-export function handleTSBooleanKeyword(node: arkts.AstNode): void {}
+export function handleTSBooleanKeyword(node: arkts.AstNode): void { }
 
 export function handleTSClassImplements(node: arkts.AstNode): void {
   if (!!node.expr) {
@@ -1401,7 +1403,7 @@ export function handleTSNamedTupleMember(node: arkts.AstNode): void {
   }
 }
 
-export function handleTSNeverKeyword(node: arkts.AstNode): void {}
+export function handleTSNeverKeyword(node: arkts.AstNode): void { }
 
 export function handleTSNonNullExpression(node: arkts.AstNode): void {
   if (!!node.expr) {
@@ -1409,11 +1411,11 @@ export function handleTSNonNullExpression(node: arkts.AstNode): void {
   }
 }
 
-export function handleTSNullKeyword(node: arkts.AstNode): void {}
+export function handleTSNullKeyword(node: arkts.AstNode): void { }
 
-export function handleTSNumberKeyword(node: arkts.AstNode): void {}
+export function handleTSNumberKeyword(node: arkts.AstNode): void { }
 
-export function handleTSObjectKeyword(node: arkts.AstNode): void {}
+export function handleTSObjectKeyword(node: arkts.AstNode): void { }
 
 export function handleTSParameterProperty(node: arkts.AstNode): void {
   if (!!node.parameter) {
@@ -1457,9 +1459,9 @@ export function handleTSSignatureDeclaration(node: arkts.AstNode): void {
   }
 }
 
-export function handleTSStringKeyword(node: arkts.AstNode): void {}
+export function handleTSStringKeyword(node: arkts.AstNode): void { }
 
-export function handleTSThisType(node: arkts.AstNode): void {}
+export function handleTSThisType(node: arkts.AstNode): void { }
 
 export function handleTSTupleType(node: arkts.AstNode): void {
   if (!!node.elementType) {
@@ -1492,6 +1494,7 @@ export function handleTSTypeAssertion(node: arkts.AstNode): void {
   if (!!node.typeAnnotation) {
     handleAstNode(node.typeAnnotation);
   }
+
 }
 
 export function handleTSTypeLiteral(node: arkts.AstNode): void {
@@ -1560,7 +1563,7 @@ export function handleTSTypeReference(node: arkts.AstNode): void {
   }
 }
 
-export function handleTSUndefinedKeyword(node: arkts.AstNode): void {}
+export function handleTSUndefinedKeyword(node: arkts.AstNode): void { }
 
 export function handleTSUnionType(node: arkts.AstNode): void {
   if (!!node.types) {
@@ -1568,9 +1571,9 @@ export function handleTSUnionType(node: arkts.AstNode): void {
   }
 }
 
-export function handleTSUnknownKeyword(node: arkts.AstNode): void {}
+export function handleTSUnknownKeyword(node: arkts.AstNode): void { }
 
-export function handleTSVoidKeyword(node: arkts.AstNode): void {}
+export function handleTSVoidKeyword(node: arkts.AstNode): void { }
 
 export function handleTaggedTemplateExpression(node: arkts.AstNode): void {
   if (!!node.tag) {
@@ -1584,7 +1587,7 @@ export function handleTaggedTemplateExpression(node: arkts.AstNode): void {
   }
 }
 
-export function handleTemplateElement(node: arkts.AstNode): void {}
+export function handleTemplateElement(node: arkts.AstNode): void { }
 
 export function handleTemplateLiteral(node: arkts.AstNode): void {
   if (!!node.quasis) {
@@ -1595,7 +1598,7 @@ export function handleTemplateLiteral(node: arkts.AstNode): void {
   }
 }
 
-export function handleThisExpression(node: arkts.AstNode): void {}
+export function handleThisExpression(node: arkts.AstNode): void { }
 
 export function handleThrowStatement(node: arkts.AstNode): void {
   if (!!node.argument) {
@@ -1615,11 +1618,11 @@ export function handleTryStatement(node: arkts.AstNode): void {
   }
 }
 
-export function handleTypeNode(node: arkts.AstNode): void {}
+export function handleTypeNode(node: arkts.AstNode): void { }
 
-export function handleTypedAstNode(node: arkts.AstNode): void {}
+export function handleTypedAstNode(node: arkts.AstNode): void { }
 
-export function handleTypedStatement(node: arkts.AstNode): void {}
+export function handleTypedStatement(node: arkts.AstNode): void { }
 
 export function handleTypeofExpression(node: arkts.AstNode): void {
   if (!!node.argument) {
@@ -1633,7 +1636,7 @@ export function handleUnaryExpression(node: arkts.AstNode): void {
   }
 }
 
-export function handleUndefinedLiteral(node: arkts.AstNode): void {}
+export function handleUndefinedLiteral(node: arkts.AstNode): void { }
 
 export function handleUpdateExpression(node: arkts.AstNode): void {
   if (!!node.argument) {
@@ -1641,7 +1644,7 @@ export function handleUpdateExpression(node: arkts.AstNode): void {
   }
 }
 
-export function handleValidationInfo(node: arkts.AstNode): void {}
+export function handleValidationInfo(node: arkts.AstNode): void { }
 
 export function handleVariableDeclaration(node: arkts.AstNode): void {
   if (!!node.annotations) {

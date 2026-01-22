@@ -21,9 +21,7 @@ import contextConstant from "./@ohos.app.ability.contextConstant";
 import image from "./@ohos.multimedia.image";
 import bundleManager from './@ohos.bundle.bundleManager';
 import CompletionHandler from './@ohos.app.ability.CompletionHandler';
-/*** if arkts dynamic */
 import window from './@ohos.window';
-/*** endif */
 
 /**
  * StartOptions is the basic communication component of the system.
@@ -276,6 +274,7 @@ declare class StartOptions {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 20 dynamic
+   * @since 23 static
    */
   windowCreateParams?: window.WindowCreateParams;
 }

@@ -244,7 +244,7 @@ export enum MaterialType {
   UNLIT = 3,
 
   /**
-   * The material is an occlusion material.
+   * The material is an occlusion material
    * 
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 23 dynamic&static
@@ -702,7 +702,7 @@ export interface ShaderMaterial extends Material {
 }
 
 /**
- * Occlusion material resource.
+ * Occlusion material resource
  *
  * @extends Material
  * @interface OcclusionMaterial

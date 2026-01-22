@@ -568,7 +568,7 @@ declare namespace radio {
   /**
    * Get the option mode of NR.
    *
-   * @param { number } slotId - Indicates the card slot index number, ranging from 0 to the maximum card slot
+   * @param { int } slotId - Indicates the card slot index number, ranging from 0 to the maximum card slot
    * index number supported by the device.
    * @param { AsyncCallback<NrOptionMode> } callback - Indicates the callback for getting the selection mode of NR.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -580,16 +580,16 @@ declare namespace radio {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8 dynamiconly
+   * @since 8 dynamic
    * @deprecated since 10
    * @useinstead telephony.radio#getNROptionMode
    */
-  function getNrOptionMode(slotId: number, callback: AsyncCallback<NrOptionMode>): void;
+  function getNrOptionMode(slotId: int, callback: AsyncCallback<NrOptionMode>): void;
 
   /**
    * Get the option mode of NR.
    *
-   * @param { number } slotId - Indicates the card slot index number, ranging from 0 to the maximum card slot
+   * @param { int } slotId - Indicates the card slot index number, ranging from 0 to the maximum card slot
    * index number supported by the device.
    * @returns { Promise<NrOptionMode> } Returns the selection mode of NR.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -601,11 +601,11 @@ declare namespace radio {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8 dynamiconly
+   * @since 8 dynamic
    * @deprecated since 10
    * @useinstead telephony.radio#getNROptionMode
    */
-  function getNrOptionMode(slotId?: number): Promise<NrOptionMode>;
+  function getNrOptionMode(slotId?: int): Promise<NrOptionMode>;
 
   /**
    * Get the option mode of NR.
@@ -982,15 +982,15 @@ declare namespace radio {
   /**
    * Checks whether the device supports 5G New Radio (NR) by according card slot.
    *
-   * @param { number } slotId - Indicates the card slot index number, ranging from 0 to the maximum card slot
+   * @param { int } slotId - Indicates the card slot index number, ranging from 0 to the maximum card slot
    * index number supported by the device.
    * @returns { boolean } Returns {@code true} if the device supports 5G NR; returns {@code false} otherwise.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 8 dynamiconly
+   * @since 8 dynamic
    * @deprecated since 9
    * @useinstead telephony.radio#isNRSupported
    */
-  function isNrSupported(slotId: number): boolean;
+  function isNrSupported(slotId: int): boolean;
 
   /**
    * Checks whether the device supports 5G New Radio (NR).
@@ -1391,7 +1391,7 @@ declare namespace radio {
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
    * @param { 'imsRegStateChange' } type - Event type. Indicates the imsRegStateChange event to be subscribed to.
-   * @param { number } slotId - Indicates the card slot index number,
+   * @param { int } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param { ImsServiceType } imsType - Indicates the ims service type of the {@link ImsServiceType}.
    * @param { Callback<ImsRegInfo> } callback - Indicates the callback for getting an instance of
@@ -1407,14 +1407,14 @@ declare namespace radio {
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
    */
-  function on(type: 'imsRegStateChange', slotId: number, imsType: ImsServiceType, callback: Callback<ImsRegInfo>): void;
+  function on(type: 'imsRegStateChange', slotId: int, imsType: ImsServiceType, callback: Callback<ImsRegInfo>): void;
 
   /**
    * Unsubscribe from imsRegStateChange event.
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
    * @param { 'imsRegStateChange' } type - Event type. Indicates the imsRegStateChange event to unsubscribe from.
-   * @param { number } slotId - Indicates the card slot index number,
+   * @param { int } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param { ImsServiceType } imsType - Indicates the ims service type of the {@link ImsServiceType}.
    * @param { Callback<ImsRegInfo> } callback - Indicates the callback for getting
@@ -1430,7 +1430,50 @@ declare namespace radio {
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
    */
-  function off(type: 'imsRegStateChange', slotId: number, imsType: ImsServiceType, callback?: Callback<ImsRegInfo>): void;
+  function off(type: 'imsRegStateChange', slotId: int, imsType: ImsServiceType, callback?: Callback<ImsRegInfo>): void;
+
+  /**
+   * Called when the IMS registration state of specified IMS service type corresponding to
+   * a monitored {@code slotId} updates.
+   *
+   * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @param { int } slotId - Indicates the card slot index number,
+   *     ranging from 0 to the maximum card slot index number supported by the device.
+   * @param { ImsServiceType } imsType - Indicates the ims service type of the {@link ImsServiceType}.
+   * @param { Callback<ImsRegInfo> } callback - Indicates the callback for getting an instance of
+   *     the {@link ImsRegInfo} class.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Service connection failed.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @syscap SystemCapability.Telephony.CoreService
+   * @systemapi
+   * @since 23 static
+   */
+  function onImsRegStateChange(slotId: int, imsType: ImsServiceType, callback: Callback<ImsRegInfo>): void;
+
+  /**
+   * Unsubscribe from imsRegStateChange event.
+   *
+   * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @param { int } slotId - Indicates the card slot index number,
+   *     ranging from 0 to the maximum card slot index number supported by the device.
+   * @param { ImsServiceType } imsType - Indicates the ims service type of the {@link ImsServiceType}.
+   * @param { Callback<ImsRegInfo> } [callback] - Indicates the callback for getting
+   *     an instance of the {@link ImsRegInfo} class.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Service connection failed.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @syscap SystemCapability.Telephony.CoreService
+   * @systemapi
+   * @since 23 static
+   */
+  function offImsRegStateChange(slotId: int, imsType: ImsServiceType, callback?: Callback<ImsRegInfo>): void;
+
+
 
   /**
    * Get the version of Baseband.
@@ -1658,7 +1701,7 @@ declare namespace radio {
    * @since 23 static
    */
   function getNetworkCapability(slotId: int, type: NetworkCapabilityType): Promise<NetworkCapabilityState>;
-  
+
   /**
    * Reset all network settings of telephony.
    *
@@ -2051,7 +2094,7 @@ declare namespace radio {
      * @since 8 dynamic
      * @since 23 static
      */
-    PREFERRED_NETWORK_MODE_MAX_VALUE = 99,
+    PREFERRED_NETWORK_MODE_MAX_VALUE = 99
   }
 
   /**
@@ -2271,7 +2314,7 @@ declare namespace radio {
      * @since 6 dynamic
      * @since 23 static
      */
-    NETWORK_TYPE_UNKNOWN,
+    NETWORK_TYPE_UNKNOWN = 0,
 
     /**
      * Indicates that the network type is GSM.
@@ -2280,7 +2323,7 @@ declare namespace radio {
      * @since 6 dynamic
      * @since 23 static
      */
-    NETWORK_TYPE_GSM,
+    NETWORK_TYPE_GSM = 1,
 
     /**
      * Indicates that the network type is CDMA.
@@ -2289,7 +2332,7 @@ declare namespace radio {
      * @since 6 dynamic
      * @since 23 static
      */
-    NETWORK_TYPE_CDMA,
+    NETWORK_TYPE_CDMA = 2,
 
     /**
      * Indicates that the network type is WCDMA.
@@ -2298,7 +2341,7 @@ declare namespace radio {
      * @since 6 dynamic
      * @since 23 static
      */
-    NETWORK_TYPE_WCDMA,
+    NETWORK_TYPE_WCDMA = 3,
 
     /**
      * Indicates that the network type is TD-SCDMA.
@@ -2307,7 +2350,7 @@ declare namespace radio {
      * @since 6 dynamic
      * @since 23 static
      */
-    NETWORK_TYPE_TDSCDMA,
+    NETWORK_TYPE_TDSCDMA = 4,
 
     /**
      * Indicates that the network type is LTE.
@@ -2316,7 +2359,7 @@ declare namespace radio {
      * @since 6 dynamic
      * @since 23 static
      */
-    NETWORK_TYPE_LTE,
+    NETWORK_TYPE_LTE = 5,
 
     /**
      * Indicates that the network type is 5G NR.
@@ -2325,7 +2368,7 @@ declare namespace radio {
      * @since 6 dynamic
      * @since 23 static
      */
-    NETWORK_TYPE_NR
+    NETWORK_TYPE_NR = 6
   }
 
   /**
@@ -2624,7 +2667,7 @@ declare namespace radio {
      * @since 23 static
      */
     data: CdmaCellInformation | GsmCellInformation | LteCellInformation | NrCellInformation | TdscdmaCellInformation
-    | WcdmaCellInformation;
+      | WcdmaCellInformation;
   }
 
   /**
@@ -2726,7 +2769,7 @@ declare namespace radio {
     cellId: int;
 
     /**
-     * Indicates the ARFCN(absolute radio frequency channel number).
+     * Indicates the ARFCN(absolute radio frequency channel int).
      *
      * @type { int }
      * @syscap SystemCapability.Telephony.CoreService
@@ -3103,10 +3146,10 @@ declare namespace radio {
   /**
    * Obtains the option mode of NR.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8 dynamiconly
+   * @since 8 dynamic
    * @deprecated since 10
    * @useinstead telephony.radio#NROptionMode
    */
@@ -3119,7 +3162,7 @@ declare namespace radio {
      * @since 8 dynamic
      * @deprecated since 10
      */
-    NR_OPTION_UNKNOWN,
+    NR_OPTION_UNKNOWN = 0,
 
     /**
      * Indicates that the NR networking mode is NSA only.
@@ -3129,7 +3172,7 @@ declare namespace radio {
      * @since 8 dynamic
      * @deprecated since 10
      */
-    NR_OPTION_NSA_ONLY,
+    NR_OPTION_NSA_ONLY = 1,
 
     /**
      * Indicates that the NR networking mode is SA only.
@@ -3139,7 +3182,7 @@ declare namespace radio {
      * @since 8 dynamic
      * @deprecated since 10
      */
-    NR_OPTION_SA_ONLY,
+    NR_OPTION_SA_ONLY = 2,
 
     /**
      * Indicates that the NR networking mode is NSA and SA.
@@ -3149,7 +3192,7 @@ declare namespace radio {
      * @since 8 dynamic
      * @deprecated since 10
      */
-    NR_OPTION_NSA_AND_SA,
+    NR_OPTION_NSA_AND_SA = 3
   }
 
   /**
@@ -3170,7 +3213,7 @@ declare namespace radio {
      * @since 10 dynamic
      * @since 23 static
      */
-    NR_OPTION_UNKNOWN,
+    NR_OPTION_UNKNOWN = 0,
 
     /**
      * Indicates that the NR networking mode is NSA only.
@@ -3180,7 +3223,7 @@ declare namespace radio {
      * @since 10 dynamic
      * @since 23 static
      */
-    NR_OPTION_NSA_ONLY,
+    NR_OPTION_NSA_ONLY = 1,
 
     /**
      * Indicates that the NR networking mode is SA only.
@@ -3190,7 +3233,7 @@ declare namespace radio {
      * @since 10 dynamic
      * @since 23 static
      */
-    NR_OPTION_SA_ONLY,
+    NR_OPTION_SA_ONLY = 2,
 
     /**
      * Indicates that the NR networking mode is NSA and SA.
@@ -3200,7 +3243,7 @@ declare namespace radio {
      * @since 10 dynamic
      * @since 23 static
      */
-    NR_OPTION_NSA_AND_SA,
+    NR_OPTION_NSA_AND_SA = 3
   }
 
   /**
@@ -3309,7 +3352,7 @@ declare namespace radio {
      * @since 6 dynamic
      * @since 23 static
      */
-    NETWORK_UNKNOWN,
+    NETWORK_UNKNOWN = 0,
 
     /**
      * Indicates that the network is available for registration.
@@ -3319,7 +3362,7 @@ declare namespace radio {
      * @since 6 dynamic
      * @since 23 static
      */
-    NETWORK_AVAILABLE,
+    NETWORK_AVAILABLE = 1,
 
     /**
      * Indicates that you have already registered with the network.
@@ -3329,7 +3372,7 @@ declare namespace radio {
      * @since 6 dynamic
      * @since 23 static
      */
-    NETWORK_CURRENT,
+    NETWORK_CURRENT = 2,
 
     /**
      * Indicates that the network is unavailable for registration.
@@ -3339,7 +3382,7 @@ declare namespace radio {
      * @since 6 dynamic
      * @since 23 static
      */
-    NETWORK_FORBIDDEN
+    NETWORK_FORBIDDEN = 3
   }
 
   /**
@@ -3414,7 +3457,7 @@ declare namespace radio {
      * @since 6 dynamic
      * @since 23 static
      */
-    NETWORK_SELECTION_UNKNOWN,
+    NETWORK_SELECTION_UNKNOWN = 0,
 
     /**
      * Indicates that the network is unavailable for registration.
@@ -3423,7 +3466,7 @@ declare namespace radio {
      * @since 6 dynamic
      * @since 23 static
      */
-    NETWORK_SELECTION_AUTOMATIC,
+    NETWORK_SELECTION_AUTOMATIC = 1,
 
     /**
      * Manual network selection modes.
@@ -3432,7 +3475,7 @@ declare namespace radio {
      * @since 6 dynamic
      * @since 23 static
      */
-    NETWORK_SELECTION_MANUAL
+    NETWORK_SELECTION_MANUAL = 2
   }
 
   /**
@@ -3453,7 +3496,7 @@ declare namespace radio {
      * @since 9 dynamic
      * @since 23 static
      */
-    IMS_UNREGISTERED,
+    IMS_UNREGISTERED = 0,
 
     /**
      * Indicates that the ims service has been registered.
@@ -3463,7 +3506,7 @@ declare namespace radio {
      * @since 9 dynamic
      * @since 23 static
      */
-    IMS_REGISTERED,
+    IMS_REGISTERED = 1
   }
 
   /**
@@ -3484,7 +3527,7 @@ declare namespace radio {
      * @since 9 dynamic
      * @since 23 static
      */
-    REGISTRATION_TECH_NONE,
+    REGISTRATION_TECH_NONE = 0,
 
     /**
      * Indicates that ims registers LTE technology.
@@ -3494,7 +3537,7 @@ declare namespace radio {
      * @since 9 dynamic
      * @since 23 static
      */
-    REGISTRATION_TECH_LTE,
+    REGISTRATION_TECH_LTE = 1,
 
     /**
      * Indicates that ims registers IWLAN technology.
@@ -3504,7 +3547,7 @@ declare namespace radio {
      * @since 9 dynamic
      * @since 23 static
      */
-    REGISTRATION_TECH_IWLAN,
+    REGISTRATION_TECH_IWLAN = 2,
 
     /**
      * Indicates that ims registers NR technology.
@@ -3514,7 +3557,7 @@ declare namespace radio {
      * @since 9 dynamic
      * @since 23 static
      */
-    REGISTRATION_TECH_NR,
+    REGISTRATION_TECH_NR = 3
   }
 
   /**
@@ -3568,7 +3611,7 @@ declare namespace radio {
      * @since 9 dynamic
      * @since 23 static
      */
-    TYPE_VOICE,
+    TYPE_VOICE = 0,
 
     /**
      * Indicates video service.
@@ -3578,7 +3621,7 @@ declare namespace radio {
      * @since 9 dynamic
      * @since 23 static
      */
-    TYPE_VIDEO,
+    TYPE_VIDEO = 1,
 
     /**
      * Indicates UT service.
@@ -3588,7 +3631,7 @@ declare namespace radio {
      * @since 9 dynamic
      * @since 23 static
      */
-    TYPE_UT,
+    TYPE_UT = 2,
 
     /**
      * Indicates SMS service.
@@ -3598,7 +3641,7 @@ declare namespace radio {
      * @since 9 dynamic
      * @since 23 static
      */
-    TYPE_SMS,
+    TYPE_SMS = 3
   }
 
   /**
@@ -3619,7 +3662,7 @@ declare namespace radio {
      * @since 10 dynamic
      * @since 23 static
      */
-    SERVICE_TYPE_LTE,
+    SERVICE_TYPE_LTE = 0,
 
     /**
      * Indicates NR network switch type.
@@ -3629,7 +3672,7 @@ declare namespace radio {
      * @since 10 dynamic
      * @since 23 static
      */
-    SERVICE_TYPE_NR,
+    SERVICE_TYPE_NR = 1
   }
 
   /**
@@ -3650,7 +3693,7 @@ declare namespace radio {
      * @since 10 dynamic
      * @since 23 static
      */
-    SERVICE_CAPABILITY_OFF,
+    SERVICE_CAPABILITY_OFF = 0,
 
     /**
      * Indicates turn on network switch.
@@ -3660,7 +3703,99 @@ declare namespace radio {
      * @since 10 dynamic
      * @since 23 static
      */
-    SERVICE_CAPABILITY_ON,
+    SERVICE_CAPABILITY_ON = 1
+  }
+
+  /**
+   * Determine whether the current manual network scan is in progress.
+   *
+   * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @param { int } slotId - Indicates the card slot index number.
+   * @returns { Promise<boolean> } the promise return ManualNetworkScanState.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Nonsystem applications use system APIs.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Service connection failed.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error.
+   * @syscap SystemCapability.Telephony.CoreService
+   * @systemapi Hide this for inner system use.
+   * @FaAndStageModel
+   * @since 23 dynamic&static
+   */
+  function isManualNetworkScanning(slotId: int): Promise<boolean>;
+
+  /**
+   * Stop ManualNetworkScan.
+   *
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @param { int } slotId - Indicates the card slot index number.
+   * @returns { Promise<void> } the promise return stopManualNetworkScan.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Nonsystem applications use system APIs.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Service connection failed.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error.
+   * @syscap SystemCapability.Telephony.CoreService
+   * @systemapi Hide this for inner system use.
+   * @FaAndStageModel
+   * @since 23 dynamic&static
+   */
+  function stopManualNetworkScan(slotId: int): Promise<void>;
+
+  /**
+   * start ManualNetworkScan , Real-time report.
+   *
+   * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @param { int } slotId - Indicates the card slot index number.
+   * @param { Callback< NetworkSearchRealTimeResult> } callback - Indicates the callback for manual network scan
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Nonsystem applications use system APIs.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Service connection failed.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error.
+   * @syscap SystemCapability.Telephony.CoreService
+   * @systemapi Hide this for inner system use.
+   * @FaAndStageModel
+   * @since 23 dynamic&static
+   */
+  function startManualNetworkScan(slotId: int, callback: Callback<NetworkSearchRealTimeResult>): void;
+
+
+  /**
+   * Indicates the results of manual network scan
+   *
+   * @interface NetworkSearchRealTimeResult
+   * @syscap SystemCapability.Telephony.CoreService
+   * @systemapi Hide this for inner system use.
+   * @FaAndStageModel
+   * @since 23 dynamic&static
+   */
+  export interface NetworkSearchRealTimeResult {
+
+    /**
+     * the network search results.
+     *
+     * @type { Array<NetworkInformation> }
+     * @syscap SystemCapability.Telephony.CoreService
+     * @systemapi Hide this for inner system use.
+     * @FaAndStageModel
+     * @since 23 dynamic&static
+     */
+    networkInfos: Array<NetworkInformation>;
+
+    /**
+     * Indicates whether the network search was stop.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.Telephony.CoreService
+     * @systemapi Hide this for inner system use.
+     * @FaAndStageModel
+     * @since 23 dynamic&static
+     */
+    isFinish: boolean;
   }
 }
 

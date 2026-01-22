@@ -23,18 +23,18 @@ import Want from './@ohos.app.ability.Want';
 
 /**
  * Defines the ExtensionContext for the word selection service.
+ * 
  * @extends ExtensionContext
  * @syscap SystemCapability.SelectionInput.Selection
- * @systemapi
+ * @stagemodelonly
  * @since 20 dynamic
- * @since 23 static
+ * @since 24 static
  */
 export default class SelectionExtensionContext extends ExtensionContext {
 
   /**
-   * Starts a specific ability. Only abilities with the same bundle name as the current application can be
-   * started. If the ability to start has a different bundle name, this operation fails and an error code is
-   * returned.
+   * Starts a specific ability. Only abilities with the same bundle name as the current application can be started.
+   *     If the ability to start has a different bundle name, this operation fails and an error code is returned.
    *
    * @param { Want } want - Indicates the ability to start.
    * @returns { Promise<void> } The promise returned by the function.
@@ -60,9 +60,9 @@ export default class SelectionExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000083 The ExtensionAbility cannot start the ability due to system control.
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.SelectionInput.Selection
-   * @systemapi
+   * @stagemodelonly
    * @since 20 dynamic
-   * @since 23 static
+   * @since 24 static
    */
   startAbility(want: Want): Promise<void>;
 }

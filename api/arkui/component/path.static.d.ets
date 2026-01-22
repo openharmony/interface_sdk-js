@@ -83,13 +83,13 @@ export declare interface PathAttribute extends CommonShapeMethod {
  * Path is returned when the parameter is transferred.
  *
  * @param { PathOptions } [options] - The options to create a Path
- * @param { CustomBuilder } [content_]
  * @returns { PathAttribute } The attribute of the Path.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
+ * @noninterop
  */
 @ComponentBuilder
 export declare function Path(
-    options?: PathOptions, 
-    content_?: CustomBuilder,
-): PathAttribute
+    options?: PathOptions
+): PathAttribute;

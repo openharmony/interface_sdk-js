@@ -510,6 +510,7 @@ declare namespace formProvider {
    * @param { boolean } [isMainPage] - Indicates close the main edit page, default is true.
    * @throws { BusinessError } 801 - Capability not supported due to limited device capabilities.
    * @throws { BusinessError } 16500050 - IPC connection error.
+   * @throws { BusinessError } 16501015 - Cannot close the widget editing page opened by other apps.
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
    * @since 23 dynamic&static

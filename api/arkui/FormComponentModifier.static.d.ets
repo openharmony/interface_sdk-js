@@ -1,6 +1,6 @@
 /*
  * Copyright (c) 2025 Huawei Device Co., Ltd.
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
@@ -18,26 +18,17 @@
  * @kit ArkUI
  */
 
-/**
- * Defines Picker Modifier
- *
- * @extends PickerAttribute
- * @implements AttributeModifier<PickerAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 22 dynamic
-*/
-export declare class PickerModifier extends PickerAttribute implements AttributeModifier<PickerAttribute> {
+import { AttributeModifier } from './component/common';
+import { FormComponentAttribute } from './component/formComponent';
 
-  /**
-   * Defines the normal update attribute function.
-   * 
-   * @param { PickerAttribute } instance
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
-   */
-  applyNormalAttribute?(instance: PickerAttribute): void;
-}
+/**
+ * Defines FormComponent Modifier
+ *
+ * @implements { FormComponentAttribute, AttributeModifier<FormComponentAttribute> }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @stagemodelonly
+ * @since 23 static
+ * @noninterop
+ */
+export declare class FormComponentModifier implements FormComponentAttribute, AttributeModifier<FormComponentAttribute> {}

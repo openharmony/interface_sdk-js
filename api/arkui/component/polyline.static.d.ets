@@ -78,13 +78,13 @@ export declare interface PolylineAttribute extends CommonShapeMethod {
  * Polyline is returned when the parameter is transferred.
  *
  * @param { PolylineOptions } [options] - The options to create a Polyline
- * @param { CustomBuilder } [content_]
  * @returns { PolylineAttribute } The attribute of the Polyline.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
+ * @noninterop
  */
 @ComponentBuilder
 export declare function Polyline(
-    options?: PolylineOptions, 
-    content_?: CustomBuilder,
+    options?: PolylineOptions
 ): PolylineAttribute

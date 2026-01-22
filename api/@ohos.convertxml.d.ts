@@ -578,7 +578,7 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.convertxml.ConvertXML.convertToJSObject
+     * @useinstead ohos.convertxml.ConvertXML.fastConvertToJSObject
      */
     convert(xml: string, options?: ConvertOptions): Object;
 

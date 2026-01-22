@@ -44,13 +44,6 @@ export default class EnvironmentCallback {
  *
  * @typedef EnvironmentCallback
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @since 9
- */
-/**
- * The environment callback.
- *
- * @typedef EnvironmentCallback
- * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @atomicservice
  * @since 23 static
  */
