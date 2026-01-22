@@ -8403,16 +8403,6 @@ export class TaskSignal {
    * @since 12 dynamic
    */
   onCancel(): Promise<string>;
-
-  /**
-   * Defines the callback for listening for the copy canceled.
-   *
-   * @param { Callback<string> } callback - callback of progress callback
-   * @throws { BusinessError } 13900020 - Invalid argument
-   * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 23 dynamic&static
-   */
-  onCancel(callback: Callback<string>): void;
 }
 
 /**
