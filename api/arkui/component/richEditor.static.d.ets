@@ -2416,9 +2416,10 @@ export type OnHoverCallback = (status: boolean, event: HoverEvent) => void;
 /**
  * Defines RichEditor Component.
  *
- * @param { RichEditorOptions | RichEditorStyledStringOptions } [options]
+ * @param { RichEditorOptions | RichEditorStyledStringOptions } options
  * @returns { RichEditorAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
