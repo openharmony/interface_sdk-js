@@ -803,7 +803,7 @@ declare namespace inputDevice {
    *     3. Parameter verification failed.
    * @throws { BusinessError } 3900001 - The specified device does not exist.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-   * @systemapi
+   * @systemapi hide for inner use.
    * @since 18 dynamic
    * @since 23 static
    */
