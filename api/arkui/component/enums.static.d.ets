@@ -4019,14 +4019,16 @@ export declare enum DividerMode {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 23 static
+ * @stagemodelonly
+ * @since 24 static
  */
-declare enum EventQueryType {
+export declare enum EventQueryType {
   /**
    * Type of onClick event.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @stagemodelonly
+   * @since 24 static
    */
   ON_CLICK = 0
 }
