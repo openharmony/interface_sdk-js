@@ -699,22 +699,22 @@ function saveApiByArktsDefinition(sourceFile, fileContent, outputPath) {
  */
 function joinFileJsdoc(deletionContent, sourceFile) {
   const fileJsdoc = sourceFile.getFullText().replace(sourceFile.getText(), '');
-  const copyrightMessage = hasCopyright(fileJsdoc.split('*/')[0]) ? fileJsdoc.split('*/')[0] + '*/\r\n' : '';
+  const copyrightMessage = hasCopyright(fileJsdoc.split('*/')[0]) ? fileJsdoc.split('*/')[0] + '*/' : '';
   const regx = /@kit | @file/g;
   let kitMessage = '';
 
   if (regx.test(fileJsdoc)) {
-    kitMessage = fileJsdoc.split('*/')[1] + '*/\r\n';
+    kitMessage = fileJsdoc.split('*/')[1] + '*/';
   }
   let newContent = deletionContent;
   const isHasCopyright = hasCopyright(deletionContent);
 
   if (!isHasCopyright && !regx.test(deletionContent)) {
-    newContent = copyrightMessage + kitMessage + deletionContent;
+    newContent = copyrightMessage + '\r\n' + kitMessage + deletionContent;
   } else if (!isHasCopyright) {
-    newContent = copyrightMessage + deletionContent;
+    newContent = copyrightMessage + '\r\n' + deletionContent;
   } else if (isHasCopyright && !/@kit | @file/g.test(deletionContent)) {
-    const joinFileJsdoc = copyrightMessage + kitMessage;
+    const joinFileJsdoc = copyrightMessage + '\r\n' + kitMessage;
     newContent = deletionContent.replace(copyrightMessage, joinFileJsdoc);
   }
 
