@@ -4841,37 +4841,6 @@ declare namespace notificationManager {
   function getBadgeDisplayStatusByBundles(bundles: Array<BundleOption>) : Promise<Map<BundleOption, boolean>>;
 
   /**
-   * Set geofence switch.
-   *
-   * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { boolean } enabled - Set enable or not.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not system application to call the interface.
-   * @throws { BusinessError } 1600001 - Internal error.
-   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect to the service.
-   * @throws { BusinessError } 1600012 - No memory space.
-   * @syscap SystemCapability.Notification.Notification
-   * @systemapi
-   * @since 23 dynamic&static
-   */
-  function setGeofenceEnabled(enabled: boolean): Promise<void>;
-
-  /**
-   * Checks if the geofence is enabled.
-   *
-   * @returns { Promise<boolean> } whether the geofence is enabled.
-   * @throws { BusinessError } 1600001 - Internal error.
-   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect to the service.
-   * @throws { BusinessError } 1600012 - No memory space.
-   * @syscap SystemCapability.Notification.Notification
-   * @since 23 dynamic&static
-   */
-  function isGeofenceEnabled(): Promise<boolean>;
-
-  /**
    * Subscribe the callback for getting the badge number.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
@@ -4916,6 +4885,37 @@ declare namespace notificationManager {
    * @since 23 static
    */
   function getBadgeNumber(): Promise<long>;
+
+  /**
+   * Set geofence switch.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { boolean } enabled - Set enable or not.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600012 - No memory space.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  function setGeofenceEnabled(enabled: boolean): Promise<void>;
+
+  /**
+   * Checks if the geofence is enabled.
+   *
+   * @returns { Promise<boolean> } whether the geofence is enabled.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600012 - No memory space.
+   * @syscap SystemCapability.Notification.Notification
+   * @since 23 dynamic&static
+   */
+  function isGeofenceEnabled(): Promise<boolean>;
 
   /**
    * Represents the state of a switch,
@@ -5709,50 +5709,6 @@ declare namespace notificationManager {
   }
 
   /**
-   * Describes reminder info.
-   *
-   * @typedef NotificationReminderInfo
-   * @syscap SystemCapability.Notification.Notification
-   * @systemapi
-   * @since 21 dynamic
-   * @since 23 static
-   */
-  export interface NotificationReminderInfo {
-    /**
-     * The application bundle option.
-     *
-     * @type { BundleOption }
-     * @syscap SystemCapability.Notification.Notification
-     * @systemapi
-     * @since 21 dynamic
-     * @since 23 static
-     */
-    bundle: BundleOption;
-
-    /**
-     * Obtains the notification reminder flags.
-     *
-     * @type { long }
-     * @syscap SystemCapability.Notification.Notification
-     * @systemapi
-     * @since 21 dynamic
-     * @since 23 static
-     */
-    reminderFlags: long;
-
-    /**
-     * The application silent reminder enable status.
-     *
-     * @type { boolean }
-     * @syscap SystemCapability.Notification.Notification
-     * @systemapi
-     * @since 21 dynamic
-     * @since 23 static
-     */
-    silentReminderEnabled: boolean;
-  }
-
-  /**
    * Describes the ringtone information.
    *
    * @typedef RingtoneInfo
@@ -5805,6 +5761,50 @@ declare namespace notificationManager {
      * @since 23 static
      */
     ringtoneUri?: string;
+  }
+
+  /**
+   * Describes reminder info.
+   *
+   * @typedef NotificationReminderInfo
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 21 dynamic
+   * @since 23 static
+   */
+  export interface NotificationReminderInfo {
+    /**
+     * The application bundle option.
+     *
+     * @type { BundleOption }
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 21 dynamic
+     * @since 23 static
+     */
+    bundle: BundleOption;
+
+    /**
+     * Obtains the notification reminder flags.
+     *
+     * @type { long }
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 21 dynamic
+     * @since 23 static
+     */
+    reminderFlags: long;
+
+    /**
+     * The application silent reminder enable status.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 21 dynamic
+     * @since 23 static
+     */
+    silentReminderEnabled: boolean;
   }
 
   /**
