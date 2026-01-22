@@ -759,7 +759,8 @@ declare type SegmentButtonItemTuple = ItemRestriction<SegmentButtonTextItem> | I
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12 dynamic
+ * @since 12 dynamiconly
+ * @noninterop
  */
 declare type SegmentButtonItemArray = Array<SegmentButtonTextItem> | Array<SegmentButtonIconItem> | Array<SegmentButtonIconTextItem>;
 
