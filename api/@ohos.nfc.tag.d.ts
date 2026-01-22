@@ -1261,7 +1261,7 @@ declare namespace tag {
   function on(type: 'readerMode', elementName: ElementName, discTech: int[], callback: AsyncCallback<TagInfo>): void;
 
   /**
-   * Set reader mode enabled when the specific application is foreground. 
+   * Set reader mode enabled when the specific application is foreground.
    * Dispatches to this application only if a tag discovered.
    *
    * @permission ohos.permission.NFC_TAG
@@ -1837,7 +1837,7 @@ declare namespace tag {
 
     /**
      * Creates an NDEF message with record list.
-     * @param { int[] } ndefRecords - The NDEF records to parse NDEF message.
+     * @param { NdefRecord[] } ndefRecords - The NDEF records to parse NDEF message.
      * @returns { NdefMessage } The instance of NdefMessage.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1. Mandatory parameters are left unspecified.
