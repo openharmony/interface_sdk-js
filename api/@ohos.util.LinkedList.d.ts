@@ -222,7 +222,7 @@ declare class LinkedList<T> {
    *
    * @param { int } index - index index specified position
    * @returns { T } the T type
-   * @throws { BusinessError } 10200001 - The value of index is out of range.
+   * @throws { BusinessError } 10200001 - The value of index is out of range.[staticonly]
    * @throws { BusinessError } 10200011 - The get method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * 1.Mandatory parameters are left unspecified;
