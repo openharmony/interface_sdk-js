@@ -7718,7 +7718,7 @@ declare namespace avSession {
      * @since 20 dynamic
      * @since 23 static
      */
-    supportedPullClients?: Array<number>;
+    supportedPullClients?: Array<int>;
 
     /**
      * Define different authentication status.

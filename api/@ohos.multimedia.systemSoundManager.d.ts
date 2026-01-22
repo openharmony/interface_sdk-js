@@ -1206,7 +1206,7 @@ declare namespace systemSoundManager {
      * @throws { BusinessError } 5400103 - I/O error.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Add customized tone into ringtone library.
