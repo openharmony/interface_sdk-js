@@ -1261,15 +1261,16 @@ declare namespace tag {
   function on(type: 'readerMode', elementName: ElementName, discTech: int[], callback: AsyncCallback<TagInfo>): void;
 
   /**
-   * Set reader mode enabled when the specific application is foreground. Dispatches to this application only if a tag discovered.
+   * Set reader mode enabled when the specific application is foreground. 
+   * Dispatches to this application only if a tag discovered.
    *
    * @permission ohos.permission.NFC_TAG
    * @param { ElementName } elementName - The element name of application, must include the bundleName and abilityName.
-   * @param { int[] } discTech - The technologies list to set for discovering. 
+   * @param { int[] } discTech - The technologies list to set for discovering.
    *     From {@link NFC_A} to {@link MIFARE_ULTRALIGHT}.
    * @param { AsyncCallback<TagInfo> } callback - The callback to dispatched the TagInfo object for application.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The Parameter check failed. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    *     3. Parameter verification failed.
@@ -1326,13 +1327,13 @@ declare namespace tag {
    * @param { ElementName } elementName - The element name of application, must include the bundleName and abilityName.
    * @param { AsyncCallback<TagInfo> } [callback] - The callback to dispatched the TagInfo object for application.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The Parameter check failed. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
-   * @throws { BusinessError } 3100202 - The off() API can be called only when the on() has been called.
+   * @throws { BusinessError } 3100203 - The off() API can be called only when the on() has been called.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @since 23 static
    */
@@ -1796,10 +1797,9 @@ declare namespace tag {
 
     /**
      * Creates an NDEF message with raw bytes.
-     * 
      * @param { int[] } data - The raw bytes to parse NDEF message.
      * @returns { NdefMessage } The instance of NdefMessage.
-     * @throws { BusinessError } 401 - The Parameter error. Possible causes:
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1. Mandatory parameters are left unspecified.
      *     2. Incorrect parameter types.
      *     3. Parameter verification failed.
@@ -1837,10 +1837,9 @@ declare namespace tag {
 
     /**
      * Creates an NDEF message with record list.
-     * 
      * @param { int[] } ndefRecords - The NDEF records to parse NDEF message.
      * @returns { NdefMessage } The instance of NdefMessage.
-     * @throws { BusinessError } 401 - The Parameter error. Possible causes:
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1. Mandatory parameters are left unspecified.
      *     2. Incorrect parameter types.
      *     3. Parameter verification failed.
