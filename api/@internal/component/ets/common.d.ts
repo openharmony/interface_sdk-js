@@ -21232,7 +21232,7 @@ declare enum DraggingSizeChangeEffect {
    * @atomicservice
    * @since 19 dynamic
    */
-  SIZE_CONTENT_TRANSITION = 2
+  SIZE_CONTENT_TRANSITION = 2,
 }
 
 /**
