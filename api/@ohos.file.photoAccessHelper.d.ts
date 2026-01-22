@@ -2297,13 +2297,14 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 23800151 - Scene parameters validate failed, possible causes:
      *    1. The original file does not exist locally in PhotoAsset;
      *    2. The original file format is not within the supported range;
-     *    3. The original file is a temporary file or is being editted;
+     *    3. The original file is a temporary file or is being edited;
      * @throws { BusinessError } 23800301 - Internal system error.It is recommended to retry and check the
      *    logs.Possible causes:
      *    1. Database corrupted.2. The file system is abnormal.3. The IPC request timed out.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 21 dynamic
+     * @since 23 static
      */
     createTemporaryCompatibleDuplicate(): Promise<void>;
     /**
