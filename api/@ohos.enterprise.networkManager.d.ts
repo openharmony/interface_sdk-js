@@ -603,7 +603,6 @@ declare namespace networkManager {
 
   /**
    * Defines the configuration mode of the Ethernet connection.
-   *
    * @enum { int }
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
@@ -611,7 +610,7 @@ declare namespace networkManager {
    */
   enum IpSetMode {
     /**
-     * Static configuration
+     * Static configuration.
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 23
@@ -619,7 +618,7 @@ declare namespace networkManager {
     STATIC = 0,
 
     /**
-     * Dynamic configuration
+     * Dynamic configuration.
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 23
@@ -1578,14 +1577,15 @@ declare namespace networkManager {
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_NETWORK
    * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
+   *     The admin must have the corresponding permission.
    * @param { string } networkInterface - networkInterface indicates the network interface to set ip address.
    * @param { InterfaceConfig } config - config indicates configuration of network interface.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9200012 - Parameter verification failed.
    * @throws { BusinessError } 9201010 - Ethernet configuration failed. Ethernet device not connected.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 23
