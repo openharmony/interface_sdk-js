@@ -11714,11 +11714,11 @@ declare namespace window {
      *     1. The window is not created or destroyed.
      *     2. Internal task error.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
-     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause:
      *     1. The window is not float window.
      *     2. The window is not at foreground or has never been clicked.
      *     3. The window cannot find main window.
-     * @throws { BusinessError } 1300007 - Restore parent main window failed.
+     * @throws { BusinessError } 1300007 - Restore parent main window failed. Possible cause:
      *     1. The main window is in PAUSED lifecycle state.
      *     2. The main window is in background during recent.
      * @syscap SystemCapability.Window.SessionManager
