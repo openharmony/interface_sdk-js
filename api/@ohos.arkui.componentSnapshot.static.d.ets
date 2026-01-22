@@ -264,4 +264,5 @@ declare namespace componentSnapshot {
      * @since 23 static
      */
     export function getSync(id: string, options?: SnapshotOptions): image.PixelMap | null;
+}
 export default componentSnapshot;
