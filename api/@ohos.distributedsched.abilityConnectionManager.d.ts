@@ -841,9 +841,20 @@ declare namespace abilityConnectionManager {
    * @syscap SystemCapability.DistributedSched.AppCollaboration
    * @stagemodelonly
    * @since 18 dynamic
-   * @since 23 static
    */
   function getPeerInfoById(sessionId: int): PeerInfo | undefined;
+
+  /**
+   * Get the application information in the ability connection session
+   *
+   * @param { int } sessionId - Ability connection Session id.
+   * @returns { PeerInfo | undefined } Returns the collaborative application information at the sink end.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
+   * @syscap SystemCapability.DistributedSched.AppCollaboration
+   * @stagemodelonly
+   * @since 23 static
+   */
+  function getPeerInfoById(sessionId: int): PeerInfo | null;
 
   /**
    * Initiate an ability session connection.
