@@ -462,7 +462,7 @@ declare namespace componentSnapshot {
    * waiting time of the interface is 3s, if it does not return after 3s, an exception will be thrown.
    *
    * @param { string } id - Target component ID, set by developer through .id attribute.
-   * @param { componentSnapshot.SnapshotOptions } [options] - Define the snapshot options.
+   * @param { SnapshotOptions } [options] - Define the snapshot options.
    * @returns { image.PixelMap } The snapshot result in PixelMap format.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
@@ -481,7 +481,7 @@ declare namespace componentSnapshot {
    * waiting time of the interface is 3s, if it does not return after 3s, an exception will be thrown.
    *
    * @param { string } id - Target component ID, set by developer through .id attribute.
-   * @param { componentSnapshot.SnapshotOptions } [options] - Define the snapshot options.
+   * @param { SnapshotOptions } [options] - Define the snapshot options.
    * @returns { image.PixelMap } The snapshot result in PixelMap format.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
