@@ -32,6 +32,7 @@
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
+ * @crossplatform
  * @atomicservice
  * @since 11 dynamic
  */
@@ -48,6 +49,7 @@ declare enum ColorMode {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
+   * @crossplatform
    * @atomicservice
    * @since 11 dynamic
    */
@@ -65,6 +67,7 @@ declare enum ColorMode {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
+   * @crossplatform
    * @atomicservice
    * @since 11 dynamic
    */
@@ -85,6 +88,7 @@ declare enum ColorMode {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
+ * @crossplatform
  * @atomicservice
  * @since 11 dynamic
  */
@@ -101,6 +105,7 @@ declare enum LayoutDirection {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
+   * @crossplatform
    * @atomicservice
    * @since 11 dynamic
    */
@@ -117,6 +122,7 @@ declare enum LayoutDirection {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
+   * @crossplatform
    * @atomicservice
    * @since 11 dynamic
    */
@@ -134,6 +140,7 @@ declare enum LayoutDirection {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
+   * @crossplatform
    * @atomicservice
    * @since 11 dynamic
    */
