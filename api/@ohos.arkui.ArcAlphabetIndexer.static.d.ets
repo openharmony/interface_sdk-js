@@ -19,7 +19,7 @@
  * @kit ArkUI
  */
 
-import { memo, ComponentBuilder, CommonMethod, Optional, ColorMetrics, Font, BlurStyle, LengthMetrics, Bindable } from '@ohos.arkui.component'; 
+import { ComponentBuilder, CommonMethod, Optional, ColorMetrics, Font, BlurStyle, LengthMetrics, Bindable } from '@ohos.arkui.component'; 
 
 /**
  * Define the initialization parameters of the arc alphabet index bar
