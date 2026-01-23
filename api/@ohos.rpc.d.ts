@@ -3838,14 +3838,15 @@ declare namespace rpc {
     /**
      * Queries a local interface with a specified descriptor.
      *
-     * @param { string } interface - Indicates the descriptor of the interface to query.
+     * @param { string } interfaceDes - Indicates the descriptor of the interface to query.
      * @returns { IRemoteBroker } Return null by default, indicating a proxy interface.
      * @throws { BusinessError } 401 - check param failed
      * @throws { BusinessError } 1900006 - Operation allowed only for the remote object.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
+	 * @since 23 static
      */
-    getLocalInterface(interface: string): IRemoteBroker;
+    getLocalInterface(interfaceDes: string): IRemoteBroker;
 
     /**
      * Register a callback used to receive death notifications of a remote object.
