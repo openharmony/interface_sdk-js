@@ -10923,7 +10923,7 @@ declare namespace window {
     /**
      * Sets corner radius.
      *
-     * @param { number } cornerRadius the corner radius.
+     * @param { double } cornerRadius the corner radius.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
      *                                                                  3. Parameter verification failed.
