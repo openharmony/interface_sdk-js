@@ -193,6 +193,7 @@ export declare class OperationOption {
    * Accessible label name for the icon on the right side of the subheader.
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 18 dynamic
    */
@@ -202,6 +203,7 @@ export declare class OperationOption {
    * The accessibilityDescription of this text or icon.
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 18 dynamic
    */
@@ -212,6 +214,7 @@ export declare class OperationOption {
    * @type { ?string }
    * @default "auto"
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 18 dynamic
    */
@@ -222,6 +225,7 @@ export declare class OperationOption {
    * @type { ?boolean }.
    * @default { false }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 18 dynamic
    */
@@ -352,6 +356,7 @@ export declare class SelectOptions {
    * @type { ?boolean }.
    * @default { false }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 18 dynamic
    */
@@ -513,6 +518,7 @@ export declare struct SubHeader {
    * Attributes of Symbol icon.
    * @type { ?SymbolOptions }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 18 dynamic
    */
@@ -644,6 +650,7 @@ export declare struct SubHeader {
    * Attributes of Symbol icons in operation area.
    * @type { ?Array<SymbolOptions> }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 18 dynamic
    */
