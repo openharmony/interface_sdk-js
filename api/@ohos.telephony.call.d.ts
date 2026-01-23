@@ -4726,7 +4726,8 @@ declare namespace call {
    * @since 23 dynamic&static
    */
   export enum CCallState {
-    /* Indicates the call is unknown.
+    /**
+     * Indicates the call is unknown.
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @since 23 dynamic&static
@@ -4811,7 +4812,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @since 23 dynamic&static
      */
-    CCALL_STATE_ANSWERED = 9,
+    CCALL_STATE_ANSWERED = 9
   }
 
   /**
