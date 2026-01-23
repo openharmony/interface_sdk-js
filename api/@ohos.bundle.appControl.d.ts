@@ -683,8 +683,9 @@ declare namespace appControl {
    * @throws { BusinessError } 202 - Permission denied. A non-system application is not allowed to call a system API.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
+   * @stagemodelonly
    * @systemapi
-   * @since 23 dynamic&static
+   * @since 24 dynamic&static
    */
     function getAllDisposedRulesByCaller(bundleName: string, appIndex?: int): Array<DisposedRuleConfiguration>;
 }
