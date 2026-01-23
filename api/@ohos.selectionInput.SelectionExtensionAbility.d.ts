@@ -26,20 +26,32 @@ import type SelectionExtensionContext from './@ohos.selectionInput.SelectionExte
  * Defines the class of the ExtensionAbility for word selection.
  * 
  * @syscap SystemCapability.SelectionInput.Selection
- * @stagemodelonly
+ * @systemapi
  * @since 20 dynamic
- * @since 24 static
  */
-
-export default class SelectionExtensionAbility {
+/**
+ * Defines the class of the ExtensionAbility for word selection.
+ * 
+ * @syscap SystemCapability.SelectionInput.Selection
+ * @stagemodelonly
+ * @since 24 dynamic&static
+ */
+declare class SelectionExtensionAbility {
+  /**
+   * Context of the ExtensionAbility.
+   * 
+   * @type { SelectionExtensionContext }
+   * @syscap SystemCapability.SelectionInput.Selection
+   * @systemapi
+   * @since 20 dynamic
+   */
   /**
    * Context of the ExtensionAbility.
    * 
    * @type { SelectionExtensionContext }
    * @syscap SystemCapability.SelectionInput.Selection
    * @stagemodelonly
-   * @since 20 dynamic
-   * @since 24 static
+   * @since 24 dynamic&static
    */
   context: SelectionExtensionContext;
 
@@ -49,9 +61,17 @@ export default class SelectionExtensionAbility {
    * @param { Want } want Want object used to initialize the ExtensionAbility.
    * @returns { rpc.RemoteObject } RPC remote connection object.
    * @syscap SystemCapability.SelectionInput.Selection
-   * @stagemodelonly
+   * @systemapi
    * @since 20 dynamic
-   * @since 24 static
+   */
+  /**
+   * Callback invoked when the ExtensionAbility is initialized.
+   * 
+   * @param { Want } want Want object used to initialize the ExtensionAbility.
+   * @returns { rpc.RemoteObject } RPC remote connection object.
+   * @syscap SystemCapability.SelectionInput.Selection
+   * @stagemodelonly
+   * @since 24 dynamic&static
    */
   onConnect(want: Want): rpc.RemoteObject;
 
@@ -59,9 +79,18 @@ export default class SelectionExtensionAbility {
    * Callback invoked when the ExtensionAbility is disconnected.
    * 
    * @syscap SystemCapability.SelectionInput.Selection
-   * @stagemodelonly
+   * @systemapi
    * @since 20 dynamic
-   * @since 24 static
+   */
+  /**
+   * Callback invoked when the ExtensionAbility is disconnected.
+   * 
+   * @syscap SystemCapability.SelectionInput.Selection
+   * @stagemodelonly
+   * @since 24 dynamic&static
    */
   onDisconnect(): void;
+
 }
+
+export default SelectionExtensionAbility;
