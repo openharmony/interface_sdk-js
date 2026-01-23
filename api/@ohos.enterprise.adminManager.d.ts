@@ -881,7 +881,7 @@ declare namespace adminManager {
    */
   function isByodAdmin(admin: Want): boolean;
 
-/**
+  /**
    * Administrator gets the delegated applications which access to the policy.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_DELEGATED_POLICY

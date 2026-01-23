@@ -408,7 +408,8 @@ declare namespace securityManager {
    * @stagemodelonly
    * @since 20
    */
-  function setPermissionManagedState(admin: Want, applicationInstance: ApplicationInstance, permissions: Array<string>, managedState: PermissionManagedState): void;
+  function setPermissionManagedState(admin: Want, applicationInstance: ApplicationInstance,
+      permissions: Array<string>, managedState: PermissionManagedState): void;
 
   /**
    * Gets the permission managed state of an application instance.
