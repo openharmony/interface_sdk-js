@@ -309,6 +309,29 @@ export declare abstract class CustomComponentV2<T extends CustomComponentV2<T, T
     ): void;
 
     /**
+     * Implementation for creating a v2 custom component
+     *
+     * @param { function } styles - styles of custom component
+     * @param { function } factory - factory to create instance of custom component
+     * @param { function } [initializers] - initial data for all the fields in custom component
+     * @param { function } [reuseId] - reuse id for reusable. Only valid if custom component decorated with @ReusableV2
+     * @param { CustomBuilder } [content] - tail closure for custom component
+     * @param { CustomComponentInvokeOptions } [options] - additional invoke options
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 24 static
+     */
+    @Builder
+    static _invokeImpl<S extends CustomComponentV2<S, S_Options>, S_Options>(
+        @Builder styles: (instance: S) => void,
+        factory: () => S,
+        initializers?: () => S_Options,
+        reuseId?: () => string,
+        content?: CustomBuilder,
+        options?: CustomComponentInvokeOptions
+    ): void;
+
+    /**
      * aboutToReuse Method
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -416,4 +439,24 @@ export interface LayoutCallbacks {
     onMeasureSize(selfLayoutInfo: GeometryInfo, children: Array<Measurable>, constraint: ConstraintSizeOptions): SizeResult {
         return {width: 0, height: 0} as SizeResult;
     }
+}
+
+/**
+ * Defining interface for _invokeImpl options.
+ *
+ * @typedef CustomComponentInvokeOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 24 static
+ */
+export interface CustomComponentInvokeOptions {
+    /**
+     * CustomComponent Class object. Used to generate default reuse key.
+     *
+     * @type { ?Class }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 24 static
+     */
+    sClass?: Class;
 }
