@@ -27,7 +27,7 @@ import { AsyncCallback } from './@ohos.base';
  * @namespace deviceStandby
  * @syscap SystemCapability.ResourceSchedule.DeviceStandby
  * @since 10 dynamic
- * @since 20 static
+ * @since 23 static
  */
 declare namespace deviceStandby {
 
