@@ -479,6 +479,7 @@ export interface BadgeEnabledChangedCallback {
  * @param { EnabledNotificationCallbackData } data
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
+ * @stagemodelonly
  * @since 23 static
  */
 export type BadgeEnabledChangedCallback = (data: EnabledNotificationCallbackData) => void;
