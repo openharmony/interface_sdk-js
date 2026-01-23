@@ -288,7 +288,7 @@ export declare interface WaterFlowOptions {
  * @extends UIScrollableCommonEvent
  * @interface UIWaterFlowEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 23 static
+ * @since 24 static
  */
 export declare interface UIWaterFlowEvent extends UIScrollableCommonEvent {
   /**
@@ -297,7 +297,7 @@ export declare interface UIWaterFlowEvent extends UIScrollableCommonEvent {
    * @param { OnWillScrollCallback | undefined } callback - callback function, triggered when the WaterFlow will scroll.
    *     Passing undefined will unregister the callback.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   setOnWillScroll(callback: OnWillScrollCallback | undefined): void;
   /**
@@ -306,7 +306,7 @@ export declare interface UIWaterFlowEvent extends UIScrollableCommonEvent {
    * @param { OnScrollCallback | undefined } callback - callback function, triggered when the WaterFlow did scroll.
    *     Passing undefined will unregister the callback.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   setOnDidScroll(callback: OnScrollCallback | undefined): void;
   /**
@@ -315,7 +315,7 @@ export declare interface UIWaterFlowEvent extends UIScrollableCommonEvent {
    * @param { OnWaterFlowScrollIndexCallback | undefined } callback - callback function, triggered when start or
    *     end positions of the display change. Passing undefined will unregister the callback.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   setOnScrollIndex(callback: OnWaterFlowScrollIndexCallback | undefined): void;
 }
@@ -346,9 +346,20 @@ export declare interface WaterFlowAttribute extends ScrollableCommonMethod {
      *     <br>Default value: <em>'1fr'</em>. Passing undefined will restore the default value.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
     default columnsTemplate(value: string | ItemFillPolicy | undefined): this;
+    /**
+     * Sets the number of columns in the layout. If this attribute is not set, one column is used by default.
+     *
+     * @param { string | undefined } value - Number of columns in the layout.
+     *     <br>Default value: <em>'1fr'</em>. Passing undefined will restore the default value.
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    default columnsTemplate(value: string | undefined): this;
     /**
      * Sets the size constraints of the child components during layout.
      *
@@ -428,7 +439,7 @@ export declare interface WaterFlowAttribute extends ScrollableCommonMethod {
      *     <br>Default value: true. Passing undefined will restore the default value.
      * @returns { this } The attribute of the WaterFlow.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
     default syncLoad(enable: boolean | undefined): this;
     /**

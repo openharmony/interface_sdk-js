@@ -84,7 +84,7 @@ export declare enum SwipeActionState {
  * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 23 static
+ * @since 24 static
  */
 export declare enum ListItemSwipeActionDirection {
     /**
@@ -93,7 +93,7 @@ export declare enum ListItemSwipeActionDirection {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     START = 0,
     /**
@@ -102,7 +102,7 @@ export declare enum ListItemSwipeActionDirection {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     END = 1
 }
@@ -112,7 +112,7 @@ export declare enum ListItemSwipeActionDirection {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 23 static
+ * @since 24 static
  */
 export declare class ListItemSwipeActionManager {
     /**
@@ -125,7 +125,7 @@ export declare class ListItemSwipeActionManager {
      * @static
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     static expand(node: FrameNode, direction: ListItemSwipeActionDirection): void;
 
@@ -138,7 +138,7 @@ export declare class ListItemSwipeActionManager {
      * @static
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     static collapse(node: FrameNode): void;
 }

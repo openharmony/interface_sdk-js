@@ -1664,7 +1664,7 @@ export declare namespace typeNode {
    * @returns { ListAttribute | undefined } - Return the attribute instance of FrameNode, and return undefined if it
    *     does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   export function getListAttribute(node: FrameNode): ListAttribute | undefined;
 
@@ -1675,7 +1675,7 @@ export declare namespace typeNode {
    * @returns { UIListEvent | undefined } - Return the event instance of FrameNode, and return undefined if it
    *     does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   export function getListEvent(node: FrameNode): UIListEvent | undefined;
 
@@ -1689,7 +1689,7 @@ export declare namespace typeNode {
    * @throws { BusinessError } 100021 - The FrameNode is not modifiable.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 23 static
+   * @since 24 static
    */
   export function bindListController(node: FrameNode, controller: Scroller): void;
 
@@ -1740,7 +1740,7 @@ export declare namespace typeNode {
    * @returns { ListItemAttribute | undefined } - Return the attribute instance of FrameNode, and return undefined if it
    *     does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   export function getListItemAttribute(node: FrameNode): ListItemAttribute | undefined;
 
@@ -1791,7 +1791,7 @@ export declare namespace typeNode {
    * @returns { ListItemGroupAttribute | undefined } - Return the attribute instance of FrameNode,
    *      and return undefined if it does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   export function getListItemGroupAttribute(node: FrameNode): ListItemGroupAttribute | undefined;
 
@@ -1882,7 +1882,7 @@ export declare namespace typeNode {
    *     is incorrect. 2. The node is null or undefined. 3. The controller is null or undefined.
    * @throws { BusinessError } 100021 - The FrameNode is not modifiable.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   export function bindScrollController(node: FrameNode, controller: Scroller): void;
 
@@ -1893,7 +1893,7 @@ export declare namespace typeNode {
    * @returns { ScrollAttribute | undefined } - Return the attribute instance of FrameNode, and return undefined if it
    *     does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   export function getScrollAttribute(node: FrameNode): ScrollAttribute | undefined;
 
@@ -1904,7 +1904,7 @@ export declare namespace typeNode {
    * @returns { UIScrollEvent | undefined } - Return the event instance of FrameNode, and return undefined if it
    *     does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   export function getScrollEvent(node: FrameNode): UIScrollEvent | undefined;
 
@@ -2032,7 +2032,7 @@ export declare namespace typeNode {
    * @returns { GridAttribute | undefined } - Return the attribute instance of FrameNode, and return undefined if it
    *     does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   export function getGridAttribute(node: FrameNode): GridAttribute | undefined;
 
@@ -2043,7 +2043,7 @@ export declare namespace typeNode {
    * @returns { UIGridEvent | undefined } - Return the event instance of FrameNode, and return undefined if it
    *     does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   export function getGridEvent(node: FrameNode): UIGridEvent | undefined;
 
@@ -2057,7 +2057,7 @@ export declare namespace typeNode {
    * @throws { BusinessError } 100021 - The FrameNode is not modifiable.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 23 static
+   * @since 24 static
    */
   export function bindGridController(node: FrameNode, controller: Scroller): void;
 
@@ -2108,7 +2108,7 @@ export declare namespace typeNode {
    * @returns { GridItemAttribute | undefined } - Return the attribute instance of FrameNode, and return undefined if it
    *     does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   export function getGridItemAttribute(node: FrameNode): GridItemAttribute | undefined;
 
@@ -2159,7 +2159,7 @@ export declare namespace typeNode {
    * @returns { WaterFlowAttribute | undefined } - Return the attribute instance of FrameNode,
    *      and return undefined if it does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */ 
   export function getWaterFlowAttribute(node: FrameNode): WaterFlowAttribute | undefined;
 
@@ -2170,7 +2170,7 @@ export declare namespace typeNode {
    * @returns { UIWaterFlowEvent | undefined } - Return the event instance of FrameNode, and return undefined if it
    *     does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   export function getWaterFlowEvent(node: FrameNode): UIWaterFlowEvent | undefined;
 
@@ -2184,7 +2184,7 @@ export declare namespace typeNode {
    * @throws { BusinessError } 100021 - The FrameNode is not modifiable.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 23 static
+   * @since 24 static
    */
   export function bindWaterFlowController(node: FrameNode, controller: Scroller): void;
 
@@ -2234,7 +2234,7 @@ export declare namespace typeNode {
    * @returns { FlowItemAttribute | undefined } - Return the attribute instance of FrameNode, and return undefined if it
    *     does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   export function getFlowItemAttribute(node: FrameNode): FlowItemAttribute | undefined;
 
