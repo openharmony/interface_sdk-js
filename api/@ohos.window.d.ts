@@ -3401,21 +3401,21 @@ declare namespace window {
     /**
      * Display id of the window.
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.Window.SessionManager
      * @since 21 dynamic
      * @since 23 static
      */
-    displayId: number,
+    displayId: long,
     /**
      * Window id.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Window.SessionManager
      * @since 21 dynamic
      * @since 23 static
      */
-    windowId: number,
+    windowId: int,
     /**
      * Showing state of the window.
      *
@@ -4581,10 +4581,10 @@ declare namespace window {
    * Get snapshot of the specified windows
    *
    * @permission ohos.permission.CUSTOM_SCREEN_CAPTURE
-   * @param { Array<number> } windowId - List of main window IDs to be obtained.
+   * @param { Array<int> } windowId - List of main window IDs to be obtained.
    * @param { WindowSnapshotConfiguration } config - Configuration for getting windows' snapshot.
-   * @returns { Promise<Array<image.PixelMap | undefined>> } The list of snapshot PixelMaps,
-   *     arranged in the order of the provided window ID array. If window not found or not main window, will return undefined.
+   * @returns { Promise<Array<image.PixelMap | undefined>> } The list of snapshot PixelMaps, arranged in
+   *     the order of the provided window ID array. If window not found or not main window, will return undefined.
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
@@ -4592,7 +4592,7 @@ declare namespace window {
    * @since 21 dynamic
    * @since 23 static
    */
-  function getMainWindowSnapshot(windowId: Array<number>, config: WindowSnapshotConfiguration):
+  function getMainWindowSnapshot(windowId: Array<int>, config: WindowSnapshotConfiguration):
     Promise<Array<image.PixelMap | undefined>>;
 
   /**
@@ -8909,7 +8909,8 @@ declare namespace window {
     /**
      * Subscribes to the window lifecycle change event.
      *
-     * @param { 'windowEvent' } type - Event type. The value is fixed at 'windowEvent', indicating the window lifecycle change event.
+     * @param { 'windowEvent' } type - Event type.
+     *     The value is fixed at 'windowEvent', indicating the window lifecycle change event.
      * @param { Callback<WindowEventType> } callback - Callback used to return the window lifecycle state.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
@@ -8944,10 +8945,11 @@ declare namespace window {
     /**
      * Unsubscribes from the window lifecycle change event.
      *
-     * @param { 'windowEvent' } type - Event type. The value is fixed at 'windowEvent', indicating the window lifecycle change event.
+     * @param { 'windowEvent' } type - Event type.
+     *     The value is fixed at 'windowEvent', indicating the window lifecycle change event.
      * @param { Callback<WindowEventType> } callback - Callback used to return the window lifecycle state.
-     *                                                 If a value is passed in, the corresponding subscription is canceled.
-     *                                                 If no value is passed in, all subscriptions to the specified event are canceled.
+     *     If a value is passed in, the corresponding subscription is canceled.
+     *     If no value is passed in, all subscriptions to the specified event are canceled.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types; 
      *                                                                  2. Parameter verification failed.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -9125,14 +9127,17 @@ declare namespace window {
 
     /**
      * Subscribes to the event indicating that the child window is closed.
-     * This event is triggered only when the user clicks the system-provided close button in the upper right corner to close the child window.
+     * This event is triggered only when the user clicks the system-provided close button 
+     *     in the upper right corner to close the child window.
      * It is not triggered when the child window is closed in other ways.
      *
-     * @param { 'subWindowClose' } type - Event type. The value is fixed at 'subWindowClose', indicating the child window close event.
-     * @param { Callback<void> } callback - Callback invoked when the close button in the upper right corner of the child window is clicked.
-     *                                      The internal logic of the callback function requires a return value of the Boolean type.
-     *                                      The return value determines whether to continue to close the child window.
-     *                                      The value true means not to close the child window, and false means to continue to close the child window.
+     * @param { 'subWindowClose' } type - Event type.
+     *     The value is fixed at 'subWindowClose', indicating the child window close event.
+     * @param { Callback<void> } callback - Callback invoked when the close button in the upper right corner
+     *     of the child window is clicked.
+     *     The internal logic of the callback function requires a return value of the Boolean type.
+     *     The return value determines whether to continue to close the child window.
+     *     The value true means not to close the child window, and false means to continue to close the child window.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types; 
      *                                                                  2. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
@@ -9167,13 +9172,15 @@ declare namespace window {
     /**
      * Unsubscribes from the event indicating that the child window is closed.
      *
-     * @param { 'subWindowClose' } type - Event type. The value is fixed at 'subWindowClose', indicating the child window close event.
-     * @param { Callback<void> } callback - Callback invoked when the close button in the upper right corner of the child window is clicked.
-     *                                      The internal logic of the callback function requires a return value of the Boolean type.
-     *                                      The return value determines whether to continue to close the child window.
-     *                                      The value true means not to close the child window, and false means to continue to close the child window.
-     *                                      If a value is passed in, the corresponding subscription is canceled.
-     *                                      If no value is passed in, all subscriptions to the specified event are canceled.
+     * @param { 'subWindowClose' } type - Event type. 
+     *     The value is fixed at 'subWindowClose', indicating the child window close event.
+     * @param { Callback<void> } callback - Callback invoked when the close button in the upper right corner
+     *     of the child window is clicked.
+     *     The internal logic of the callback function requires a return value of the Boolean type.
+     *     The return value determines whether to continue to close the child window.
+     *     The value true means not to close the child window, and false means to continue to close the child window.
+     *     If a value is passed in, the corresponding subscription is canceled.
+     *     If no value is passed in, all subscriptions to the specified event are canceled.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types; 
      *                                                                  2. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
@@ -14069,7 +14076,8 @@ declare namespace window {
     /**
      * Subscribes to the window stage lifecycle change event.
      *
-     * @param { 'windowStageEvent' } eventType Event type. The value is fixed at 'windowStageEvent', indicating the window stage lifecycle change event.
+     * @param { 'windowStageEvent' } eventType Event type.
+     *     The value is fixed at 'windowStageEvent', indicating the window stage lifecycle change event.
      * @param { Callback<WindowStageEventType> } callback Callback used to return the window stage lifecycle state.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
@@ -14127,10 +14135,11 @@ declare namespace window {
     /**
      * Unsubscribes from the window stage lifecycle change event.
      *
-     * @param { 'windowStageEvent' } eventType Event type. The value is fixed at 'windowStageEvent', indicating the window stage lifecycle change event.
+     * @param { 'windowStageEvent' } eventType Event type.
+     *     The value is fixed at 'windowStageEvent', indicating the window stage lifecycle change event.
      * @param { Callback<WindowStageEventType> } callback Callback used to return the window stage lifecycle state.
-     *                                                    If a value is passed in, the corresponding subscription is canceled.
-     *                                                    If no value is passed in, all subscriptions to the specified event are canceled.
+     *     If a value is passed in, the corresponding subscription is canceled.
+     *     If no value is passed in, all subscriptions to the specified event are canceled.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types; 
      *                                                                  2. Parameter verification failed.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
