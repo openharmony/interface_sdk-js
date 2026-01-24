@@ -452,15 +452,15 @@ export declare interface SliderStepItemAccessibility {
  */
 export declare interface SliderShowStepOptions {
     /**
-     * Map key value range: [0, INT32_MAX]. When the key value is set to a negative number or a decimal,
+     * Map key value range: [0, INT32_MAX]. When the key value is set to a negative double or a decimal,
      * the setting does not take effect.
      *
-     * @param { ?Map<number, SliderStepItemAccessibility> } value
+     * @param { ?Map<double, SliderStepItemAccessibility> } value
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
      */
-    stepsAccessibility?: Map<number, SliderStepItemAccessibility>;
+    stepsAccessibility?: Map<double, SliderStepItemAccessibility>;
 }
 /**
  * Defines the options for customizing the accessibility of content within a slider.
