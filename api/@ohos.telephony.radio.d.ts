@@ -580,7 +580,7 @@ declare namespace radio {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 10
    * @useinstead telephony.radio#getNROptionMode
    */
@@ -601,7 +601,7 @@ declare namespace radio {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 10
    * @useinstead telephony.radio#getNROptionMode
    */
@@ -986,7 +986,7 @@ declare namespace radio {
    * index number supported by the device.
    * @returns { boolean } Returns {@code true} if the device supports 5G NR; returns {@code false} otherwise.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead telephony.radio#isNRSupported
    */
@@ -3149,7 +3149,7 @@ declare namespace radio {
    * @enum { int }
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 10
    * @useinstead telephony.radio#NROptionMode
    */
