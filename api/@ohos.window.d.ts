@@ -12324,6 +12324,25 @@ declare namespace window {
      setWindowMask(windowMask: Array<Array<long>>): Promise<void>;
 
     /**
+     *  Clear the window mask of window
+     *
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
+     *     1. The window is not created or destroyed.
+     *     2. Internal task error.
+     *     3. The window has not set window mask yet.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause:
+     *     1. The window is not a subwindow or floating window.
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    clearWindowMask(): Promise<void>;
+
+    /**
      * Register the callback of window rect change
      *
      * @param { 'windowRectChange' } type - The value is fixed at 'windowRectChange', indicating the window rect change event.
