@@ -786,9 +786,9 @@ declare namespace restrictions {
    * Restricting users from changing specified settings item for account on the device.
    *
    * @permission ohos.permission.ENTERPRISE_SET_USER_RESTRICTION
-   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
    * @param { string } settingsItem - settingsItem indicates the specific settings item to be disallowed.
-   * the supported settingsItems are as follows: modifyWallpaper.
+   *     the supported settingsItems are as follows: modifyWallpaper.
    * @param { int } accountId - accountId indicates the account ID to be restricted.
    * @param { boolean } restricted - true if restrict the specific settings item of device, otherwise false.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
@@ -809,7 +809,7 @@ declare namespace restrictions {
    * @permission ohos.permission.ENTERPRISE_SET_USER_RESTRICTION
    * @param { Want | null } admin - admin indicates the administrator ability information.
    * @param { string } settingsItem - settingsItem indicates the specific settings item to be disallowed.
-   * the supported settingsItems are as follows: modifyWallpaper.
+   *     the supported settingsItems are as follows: modifyWallpaper.
    * @param { int } accountId - accountId indicates the account ID to be restricted.
    * @returns { boolean } true if restrict the specific settings item of device, otherwise false.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
