@@ -92,20 +92,20 @@ export declare interface EffectComponentOptions {
  * @noninterop
  */
 export declare interface EffectComponentAttribute extends CommonMethod {
-  /**
-   * Use snapshot when Effect Component have no visual effect.
-   *
-   * @param { boolean | undefined } enable - <br>true indicates using the snapshot method,
-   *     false indicates not using the snapshot method.
-   *     undefined means the default value false.
-   * @returns { EffectComponentAttribute }
-   * @throws { BusinessError } 202 - Permission verification failed. A nonsystem application calls a system API.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @stagemodelonly
-   * @since 23 static
-   */
-  alwaysSnapshot(enable: boolean | undefined): this;
+    /**
+     * Use snapshot when Effect Component have no visual effect.
+     *
+     * @param { boolean | undefined } enable - <br>true indicates using the snapshot method,
+     *     false indicates not using the snapshot method.
+     *     undefined means the default value false.
+     * @returns { EffectComponentAttribute }
+     * @throws { BusinessError } 202 - Permission verification failed. A nonsystem application calls a system API.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static
+     */
+    alwaysSnapshot(enable: boolean | undefined): this;
     /**
      * Set the attribute modifier for EffectComponent.
      *
