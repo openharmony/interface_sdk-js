@@ -2679,7 +2679,7 @@ export declare namespace typeNode {
 
   /**
    * Defines the XComponent type of FrameNode.
-   * 
+   *
    * @extends TypedFrameNode<XComponentAttribute>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
@@ -2687,7 +2687,7 @@ export declare namespace typeNode {
   abstract class XComponentFrameNode extends TypedFrameNode<XComponentAttribute> {
     /**
      * Initialize XComponent FrameNode.
-     * 
+     *
      * @param { XComponentParameters } value - Indicates the options of the xcomponent.
      * @returns { XComponentAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2697,7 +2697,7 @@ export declare namespace typeNode {
 
     /**
      * Initialize XComponent FrameNode.
-     * 
+     *
      * @param { XComponentOptions } value - Indicates the options of the xcomponent.
      * @returns { XComponentAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2707,9 +2707,9 @@ export declare namespace typeNode {
 
     /**
      * Initialize XComponent FrameNode.
-     * 
+     *
      * @param { NativeXComponentParameters } params - Indicates the constructor parameters of the
-     *  xcomponent for native developing.
+     *    xcomponent for native developing.
      *
      * @returns { XComponentAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full

@@ -18,22 +18,12 @@
  * @kit ArkUI
  */
 import Want from '../../@ohos.app.ability.Want';
-import { Callback, ErrorCallback, BusinessError } from '../../@ohos.base';
+import { Callback, ErrorCallback, BusinessError, RecordData } from '../../@ohos.base';
 import { CommonMethod, TerminationInfo } from './common';
 import { ComponentContentBase } from '../ComponentContent';
 import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
 import { VoidCallback } from './units';
-
-/**
- * Defines RecordData.
- * 
- * @typedef { undefined | null | Object | Record<string, RecordData> | Array<RecordData> } RecordData
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @systemapi
- * @since 23 static
- */
-export type RecordData = undefined | null | Object | Record<string, RecordData> | Array<RecordData>;
 
 /**
  * Enumeration of different types of DpiFollowStrategy.
@@ -246,6 +236,7 @@ export declare interface UIExtensionProxy {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 23 static
+ * @noninterop
  */
 export declare interface UIExtensionComponentAttribute extends CommonMethod {
     /**
