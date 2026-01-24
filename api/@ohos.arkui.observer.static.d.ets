@@ -641,7 +641,7 @@ declare namespace uiObserver {
      * based on the configured breakpoint thresholds.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
     export class WindowSizeLayoutBreakpointInfo {
         /**
@@ -652,7 +652,7 @@ declare namespace uiObserver {
          * @type { WidthBreakpoint }
          * @readonly
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 23 static
+         * @since 24 static
          */
         readonly widthBreakpoint: WidthBreakpoint;
         /**
@@ -663,7 +663,7 @@ declare namespace uiObserver {
          * @type { HeightBreakpoint }
          * @readonly
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 23 static
+         * @since 24 static
          */
         readonly heightBreakpoint: HeightBreakpoint;
     }
