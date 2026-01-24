@@ -3830,28 +3830,6 @@ export declare class UIContext {
   enableSwipeBack(enabled: boolean | undefined): void;
 
   /**
-   * Open the BindContentCover.
-   *
-   * @param { ComponentContent<T> } content - The content of BindContentCover.
-   * @param { ContentCoverController } controller - ContentCover controller.
-   * @param { ContentCoverOptions } [contentCoverOptions] - The options of contentCover.
-   * @param { number } [targetId] - The uniqueId of the FrameNode to which BindContentCover is attached.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 120301 - The BindContentCover is incorrect.
-   * @throws { BusinessError } 120302 - The BindContentCover already exists.
-   * @throws { BusinessError } 120304 - The targetId does not exist.
-   * @throws { BusinessError } 120305 - The node of targetId is not in the component tree.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  openBindContentCover<T extends Object>(content: ComponentContent<T>, controller: ContentCoverController,
-    contentCoverOptions?: ContentCoverOptions, targetId?: number): Promise<void>;
-
-  /**
    * Sets the component freezing flag based on the component id to prevent the
    * UI component from marking and updating dirty areas.
    * @param { string } id - Id of the frame node.

@@ -23,8 +23,10 @@ import { LengthMetrics, SizeT, PositionT, Vector2T } from '../../arkui/Graphics'
 import { VP, ResourceStr, Dimension, ResourceColor } from "./units";
 import { ImageFit, Curve } from "./enums";
 import { ICurve, CommonMethod } from './common';
-import { ComponentBuilder, CustomBuilder } from './builder';
+import { ComponentBuilder } from "./../stateManagement/runtime";
 import { AttributeModifier, CommonMethod } from "./common";
+import { CustomBuilder } from './builder';
+
 /**
  * Defines a pair of given type for particle.
  *
@@ -42,7 +44,6 @@ export type ParticleTuple<T1, T2> = [
  * @typedef VelocityOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 23 static
- * @noninterop
  */
 export declare interface VelocityOptions {
     /**
@@ -101,7 +102,6 @@ export interface ParticleOptions {
      * @type { EmitterOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
-     * @noninterop
      */
     emitter: EmitterOptions;
     /**
@@ -110,7 +110,6 @@ export interface ParticleOptions {
      * @default {range:['#FFFFFF','#FFFFFF']}
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
-     * @noninterop
      */
     color?: ParticleColorPropertyOptions;
     /**
@@ -119,7 +118,6 @@ export interface ParticleOptions {
      * @default {range:[1.0,1.0]}
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
-     * @noninterop
      */
     opacity?: ParticlePropertyOptions;
     /**
@@ -128,7 +126,6 @@ export interface ParticleOptions {
      * @default {range:[1.0,1.0]}
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
-     * @noninterop
      */
     scale?: ParticlePropertyOptions;
     /**
@@ -138,7 +135,6 @@ export interface ParticleOptions {
      * @default {speed:[0,0];angle:[0,0]}
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
-     * @noninterop
      */
     velocity?: VelocityOptions;
     /**
@@ -148,7 +144,6 @@ export interface ParticleOptions {
      * @default {speed:{range:[0,0]};angle:{range:[0,0]}}
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
-     * @noninterop
      */
     acceleration?: AccelerationOptions;
     /**
@@ -157,7 +152,6 @@ export interface ParticleOptions {
      * @default {range:[0,0]}
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
-     * @noninterop
      */
     spin?: ParticlePropertyOptions;
 }
@@ -173,7 +167,6 @@ export interface PointParticleParameters {
      * @type { VP }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
-     * @noninterop
      */
     radius: VP;
 }
@@ -189,7 +182,6 @@ export interface ImageParticleParameters {
      * @type { ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
-     * @noninterop
      */
     src: ResourceStr;
     /**
@@ -199,7 +191,6 @@ export interface ImageParticleParameters {
      * @type { ParticleTuple<Dimension, Dimension> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
-     * @noninterop
      */
     size: ParticleTuple<Dimension, Dimension>;
     /**
@@ -208,7 +199,6 @@ export interface ImageParticleParameters {
      * @default ImageFit.Cover
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
-     * @noninterop
      */
     objectFit?: ImageFit;
 }
@@ -282,7 +272,6 @@ export interface EmitterParticleOptions {
      * @type { ParticleType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
-     * @noninterop
      */
     type: ParticleType;
     /**
@@ -291,16 +280,14 @@ export interface EmitterParticleOptions {
      * @type { ParticleConfigs }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
-     * @noninterop
      */
     config: ParticleConfigs;
     /**
-     * Particle int.
+     * Particle count.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
-     * @noninterop
      */
     count: int;
     /**
@@ -310,7 +297,6 @@ export interface EmitterParticleOptions {
      * @default 1000
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
-     * @noninterop
      */
     lifetime?: int;
     /**
@@ -321,7 +307,6 @@ export interface EmitterParticleOptions {
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
-     * @noninterop
      */
     lifetimeRange?: int;
 }
@@ -409,7 +394,6 @@ export interface ParticleUpdaterOptions {
      * @type { ParticleUpdater }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
-     * @noninterop
      */
     type: ParticleUpdater;
     /**
@@ -418,7 +402,6 @@ export interface ParticleUpdaterOptions {
      * @type { ParticlePropertyUpdaterConfigs }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
-     * @noninterop
      */
     config: ParticlePropertyUpdaterConfigs;
 }
@@ -514,7 +497,6 @@ export interface ParticlePropertyOptions {
      * @default  {type:UPDATER.NONE;config:undefined}
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
-     * @noninterop
      */
     updater?: ParticleUpdaterOptions;
 }
@@ -555,7 +537,6 @@ export interface ParticleColorPropertyOptions {
      * @default {type:UPDATER.NONE;config:undefined}
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
-     * @noninterop
      */
     updater?: ParticleColorUpdaterOptions;
 }
@@ -721,7 +702,17 @@ export declare enum ParticleUpdater {
      */
     CURVE = 'curve'
 }
-export declare interface ParticleAttribute extends CommonMethod {
+
+/**
+ * The ParticleAttribute.
+ * 
+ * @extends CommonMethod
+ * @interface ParticleAttribute
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 23 static
+ * @noninterop
+ */
+ export declare interface ParticleAttribute extends CommonMethod {
     /**
      * Particle disturbance Field.
      *
@@ -729,7 +720,6 @@ export declare interface ParticleAttribute extends CommonMethod {
      * @returns { ParticleAttribute } Returns the particle attribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
-     * @noninterop
      */
     default disturbanceFields(fields: Array<DisturbanceFieldOptions> | undefined): this;
     /**
@@ -739,7 +729,6 @@ export declare interface ParticleAttribute extends CommonMethod {
      * @returns { ParticleAttribute } Returns the particle attribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
-     * @noninterop
      */
     default emitter(value: Array<EmitterProperty> | undefined): this;
 
@@ -747,11 +736,10 @@ export declare interface ParticleAttribute extends CommonMethod {
      * Add particle attribute modifier.
      *
      * @param { AttributeModifier<ParticleAttribute> | AttributeModifier<CommonMethod> | undefined } modifier -
-     *  The AttributeModifier.
+     *     The AttributeModifier.
      * @returns { ParticleAttribute } Returns the particle attribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
-     * @noninterop
      */
     default attributeModifier(modifier: AttributeModifier<ParticleAttribute> | AttributeModifier<CommonMethod> | undefined): this;
     /**
@@ -1092,7 +1080,6 @@ export declare interface ParticleAnnulusRegion {
     endAngle?: double;
 }
 
-
 /**
  * Defines Particle Component
  *
@@ -1101,7 +1088,6 @@ export declare interface ParticleAnnulusRegion {
  * @returns { ParticleAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 23 static
- * @noninterop
  */
 @ComponentBuilder
 export declare function Particle(
