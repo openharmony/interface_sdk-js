@@ -930,8 +930,7 @@ export declare class PromptAction {
  * @param { ClickEvent } event - the information of ClickEvent
  * @param { FrameNode } [node] - the information of frameNode
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 24 static
+ * @since 23 static
  */
 type ClickEventListenerCallback = (event: ClickEvent, node?: FrameNode) => void;
 /**
@@ -944,8 +943,7 @@ type ClickEventListenerCallback = (event: ClickEvent, node?: FrameNode) => void;
  * @param { GestureRecognizer } current - the information of panRecognizer
  * @param { FrameNode } [node] - the information of frameNode
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 24 static
+ * @since 23 static
  */
 type PanListenerCallback = (event: GestureEvent, current: GestureRecognizer, node?: FrameNode) => void;
 /**
@@ -957,8 +955,7 @@ type PanListenerCallback = (event: GestureEvent, current: GestureRecognizer, nod
  * @param { GestureEvent } event - the information of GestureEvent
  * @param { FrameNode } [node] - the information of frameNode
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 24 static
+ * @since 23 static
  */
 type GestureEventListenerCallback = (event: GestureEvent, node?: FrameNode) => void;
 /**
@@ -1991,182 +1988,6 @@ export declare class UIObserver {
    * @since 23 static
    */
   offNavDestinationSizeChangeByUniqueId(navigationUniqueId: int, callback?: Callback<observer.NavDestinationInfo>): void;
-
-  /**
-   * Registers a callback function to be called before clickEvent is called.
-   *
-   * @param { ClickEventListenerCallback } callback - The callback function to be called
-   *     when the clickEvent will be trigger or after.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 24 static
-   */
-  onWillClick(callback: ClickEventListenerCallback): void;
-
-  /**
-   * Removes a callback function to be called before clickEvent is called.
-   *
-   * @param { ClickEventListenerCallback } [callback] - The callback function to remove. If not provided,
-   *     all callbacks for the given event type will be removed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 24 static
-   */
-  offWillClick(callback?: ClickEventListenerCallback): void;
-
-  /**
-   * Registers a callback function to be called after clickEvent is called.
-   *
-   * @param { ClickEventListenerCallback } callback - The callback function to be called
-   *     when the clickEvent will be trigger or after.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 24 static
-   */
-  onDidClick(callback: ClickEventListenerCallback): void;
-
-  /**
-   * Removes a callback function to be called after clickEvent is called.
-   *
-   * @param { ClickEventListenerCallback } [callback] - The callback function to remove. If not provided,
-   *     all callbacks for the given event type will be removed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 24 static
-   */
-  offDidClick(callback?: ClickEventListenerCallback): void;
-
-  /**
-   * Registers a callback function to be called before tapGesture is called.
-   *
-   * @param { GestureEventListenerCallback } callback - The callback function to be called
-   *     when the clickEvent will be trigger or after.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 24 static
-   */
-  onWillTap(callback: GestureEventListenerCallback): void;
-
-  /**
-   * Removes a callback function to be called before tapGesture is called.
-   *
-   * @param { GestureEventListenerCallback } [callback] - The callback function to remove. If not provided,
-   *     all callbacks for the given event type will be removed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 24 static
-   */
-  offWillTap(callback?: GestureEventListenerCallback): void;
-
-  /**
-   * Registers a callback function to be called after tapGesture is called.
-   *
-   * @param { GestureEventListenerCallback } callback - The callback function to be called
-   *     when the clickEvent will be trigger or after.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 24 static
-   */
-  onDidTap(callback: GestureEventListenerCallback): void;
-
-  /**
-   * Removes a callback function to be called after tapGesture is called.
-   *
-   * @param { GestureEventListenerCallback } [callback] - The callback function to remove. If not provided,
-   *     all callbacks for the given event type will be removed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 24 static
-   */
-  offDidTap(callback?: GestureEventListenerCallback): void;
-
-  /**
-   * Registers a callback function to be called before panGesture onActionStart is called.
-   *
-   * @param { PanListenerCallback } callback - The callback function to be called
-   *     when the panGesture will be trigger or after.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 24 static
-   */
-  onBeforePanStart(callback: PanListenerCallback): void;
-
-  /**
-   * Removes a callback function to be called before panGesture onActionStart is called.
-   *
-   * @param { PanListenerCallback } [callback] - The callback function to remove. If not provided,
-   *     all callbacks for the given event type will be removed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 24 static
-   */
-  offBeforePanStart(callback?: PanListenerCallback): void;
-
-  /**
-   * Registers a callback function to be called before panGesture onActionEnd is called.
-   *
-   * @param { PanListenerCallback } callback - The callback function to be called
-   *     when the panGesture will be trigger or after.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 24 static
-   */
-  onBeforePanEnd(callback: PanListenerCallback): void;
-
-  /**
-   * Removes a callback function to be called before panGesture onActionEnd is called.
-   *
-   * @param { PanListenerCallback } [callback] - The callback function to remove. If not provided,
-   *     all callbacks for the given event type will be removed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 24 static
-   */
-  offBeforePanEnd(callback?: PanListenerCallback): void;
-
-  /**
-   * Registers a callback function to be called after panGesture onActionStart is called.
-   *
-   * @param { PanListenerCallback } callback - The callback function to be called
-   *     when the panGesture will be trigger or after.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 24 static
-   */
-  onAfterPanStart(callback: PanListenerCallback): void;
-
-  /**
-   * Removes a callback function to be called after panGesture onActionStart is called.
-   *
-   * @param { PanListenerCallback } [callback] - The callback function to remove. If not provided,
-   *     all callbacks for the given event type will be removed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 24 static
-   */
-  offAfterPanStart(callback?: PanListenerCallback): void;
-
-  /**
-   * Registers a callback function to be called after panGesture onActionEnd is called.
-   *
-   * @param { PanListenerCallback } callback - The callback function to be called
-   *     when the panGesture will be trigger or after.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 24 static
-   */
-  onAfterPanEnd(callback: PanListenerCallback): void;
-
-  /**
-   * Removes a callback function to be called after panGesture onActionEnd is called.
-   *
-   * @param { PanListenerCallback } [callback] - The callback function to remove. If not provided,
-   *     all callbacks for the given event type will be removed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 24 static
-   */
-  offAfterPanEnd(callback?: PanListenerCallback): void;
 }
 
 /**
