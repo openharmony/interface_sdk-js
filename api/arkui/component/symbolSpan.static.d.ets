@@ -29,6 +29,7 @@ import { ComponentBuilder, CustomBuilder } from './builder';
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 23 static
+ * @noninterop
  */
 export declare interface SymbolSpanAttribute {
     /**
@@ -115,6 +116,7 @@ export declare interface SymbolSpanAttribute {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
+ * @noninterop
  */
 @ComponentBuilder
 export declare function SymbolSpan(
