@@ -2633,6 +2633,7 @@ export declare namespace typeNode {
    *
    * @extends TypedFrameNode<SwiperAttribute>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   abstract class SwiperFrameNode extends TypedFrameNode<SwiperAttribute> {
@@ -2642,6 +2643,7 @@ export declare namespace typeNode {
      * @param { SwiperController } [controller] - a controller for Swiper container components.
      * @returns { SwiperAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     abstract initialize(controller?: SwiperController): SwiperAttribute;

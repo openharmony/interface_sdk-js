@@ -123,8 +123,6 @@ export * from './arkui/component/sidebar';
 export * from './arkui/component/slider';
 export * from './arkui/component/span';
 export * from './arkui/component/stack';
-export * from './arkui/component/stepper';
-export * from './arkui/component/stepperItem';
 export * from './arkui/component/styledString';
 export * from './arkui/component/swiper';
 export * from './arkui/component/symbolSpan';

@@ -213,20 +213,6 @@ export { ScrollModifier } from './arkui/ScrollModifier';
 export { SideBarContainerModifier } from './arkui/SideBarContainerModifier';
 
 /**
- * Export StepperItemModifier, which is used to expose applyNormalAttribute function.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 23 static
- */
-export { StepperItemModifier } from './arkui/StepperItemModifier';
-
-/**
- * Export StepperModifier, which is used to expose applyNormalAttribute function.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 23 static
- */
-export { StepperModifier } from './arkui/StepperModifier';
-
-/**
  * Export SwiperModifier, which is used to expose applyNormalAttribute function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 23 static
