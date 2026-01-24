@@ -2267,7 +2267,6 @@ declare namespace dataShare {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
      * @since 20 dynamic
-     * @since 23 static
      */
     on(
       event: 'dataChange',
@@ -2310,7 +2309,6 @@ declare namespace dataShare {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
      * @since 20 dynamic
-     * @since 23 static
      */
     off(
       event: 'dataChange',
