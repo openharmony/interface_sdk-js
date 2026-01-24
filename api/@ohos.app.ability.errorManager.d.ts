@@ -46,7 +46,6 @@ import { LoopObserver as _LoopObserver } from './application/LoopObserver';
  * @crossplatform
  * @atomicservice
  * @since 19 dynamic
- * @since 23 static
  */
 declare namespace errorManager {
   /**
@@ -262,18 +261,6 @@ declare namespace errorManager {
   function on(type: 'unhandledRejection', observer: UnhandledRejectionObserver): void;
 
   /**
-   * Register unhandled rejection observer.
-   *
-   * @param { UnhandledRejectionObserver } observer - The unhandled rejection observer.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16200001 - If the caller is invalid.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 23 static
-   */
-  function onUnhandledRejection(observer: UnhandledRejectionObserver): void;
-
-  /**
    * Unregister unhandled rejection observer.
    *
    * @param { 'unhandledRejection' } type - error.
@@ -301,19 +288,6 @@ declare namespace errorManager {
    * @since 19 dynamic
    */
   function off(type: 'unhandledRejection', observer?: UnhandledRejectionObserver): void;
-
-  /**
-   * Unregister unhandled rejection observer.
-   *
-   * @param { UnhandledRejectionObserver } [observer] - the registered observer
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16200001 - If the caller is invalid.
-   * @throws { BusinessError } 16300004 - If the observer does not exist
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 23 static
-   */
-  function offUnhandledRejection(observer?: UnhandledRejectionObserver): void;
 
   /**
    * The observer will be called by system when an error occurs.
@@ -377,7 +351,6 @@ declare namespace errorManager {
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
-   * @since 23 static
    */
   export type UnhandledRejectionObserver = (reason: Error | any, promise: Promise<any>) => void;
 
@@ -435,20 +408,6 @@ declare namespace errorManager {
    * @since 18 dynamic
    */
   function on(type: 'freeze', observer: FreezeObserver): void;
-
-  /**
-   * Register an observer for freeze event.
-   * This function can only be called from main thread.
-   * Please note that each process only supports registering one observer.
-   * If you register multiple times, the later one will overwrite the previous one.
-   *
-   * @param { FreezeObserver } observer - The freeze event observer.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 23 static
-   */
-  function onFreeze(observer: FreezeObserver): void;
 
   /**
    * Register an error observer for all VM instances include worker and taskpool.
@@ -555,19 +514,6 @@ declare namespace errorManager {
   function off(type: 'freeze', observer?: FreezeObserver): void;
 
   /**
-   * Unregister the observer for freeze event.
-   * This function can only be called from main thread.
-   *
-   * @param { FreezeObserver } [observer] - The freeze event observer.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16300004 - If the observer does not exist
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 23 static
-   */
-  function offFreeze(observer?: FreezeObserver): void;
-
-  /**
    * Unregister the error observer for all VM instance include worker and taskpool.
    * @param { 'globalErrorOccurred'} type - globalErrorOccurred.
    * @param { GlobalObserver } observer - the global error observer.
@@ -592,7 +538,6 @@ declare namespace errorManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 21 dynamic
-   * @since 23 static
    */
   function setDefaultErrorHandler(defaultHandler?: ErrorHandler) : ErrorHandler;
 
@@ -604,7 +549,6 @@ declare namespace errorManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 21 dynamic
-   * @since 23 static
    */
   export type ErrorHandler = (errObject: Error) => void;
 
@@ -615,7 +559,6 @@ declare namespace errorManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 18 dynamic
-   * @since 23 static
    */
   export type FreezeObserver = () => void;
 }
