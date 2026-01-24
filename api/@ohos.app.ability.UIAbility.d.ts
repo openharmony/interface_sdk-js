@@ -895,6 +895,19 @@ declare class UIAbility extends Ability {
   */
   onSaveStateAsync(stateType: AbilityConstant.StateType, wantParam: Record<string, Object>): Promise<AbilityConstant.OnSaveResult>;
 
+ /**
+  * Called back asynchronously when an ability prepares to save.
+  *
+  * @param { AbilityConstant.StateType } stateType - state type when save.
+  * @param { Record<string, RecordData> } wantParam - Indicates the want parameter.
+  * @returns { Promise<AbilityConstant.OnSaveResult> } agree with the current UIAbility status or not.return 0 if ability
+  *                                           agrees to save data successfully, otherwise errcode.
+  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+  * @stagemodelonly
+  * @since 23 static
+  */
+  onSaveStateAsync(stateType: AbilityConstant.StateType, wantParam: Record<string, RecordData>): Promise<AbilityConstant.OnSaveResult>;
+
   /**
    * Called back when an ability shares data.
    *
