@@ -2776,6 +2776,7 @@ export declare namespace typeNode {
    *
    * @extends TypedFrameNode<ButtonAttribute>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   abstract class ButtonFrameNode extends TypedFrameNode<ButtonAttribute> {
@@ -2784,6 +2785,7 @@ export declare namespace typeNode {
      *
      * @returns { ButtonAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     abstract initialize(): ButtonAttribute;
@@ -2794,6 +2796,7 @@ export declare namespace typeNode {
      * @param { ButtonOptions } value
      * @returns { ButtonAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     abstract initialize(value: ButtonOptions): ButtonAttribute;
@@ -2805,6 +2808,7 @@ export declare namespace typeNode {
      * @param { ButtonOptions } [options]
      * @returns { ButtonAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     abstract initialize(label: ResourceStr, options?: ButtonOptions): ButtonAttribute;
@@ -2845,15 +2849,17 @@ export declare namespace typeNode {
    *
    * @extends TypedFrameNode<CheckboxAttribute>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   abstract class CheckboxFrameNode extends TypedFrameNode<CheckboxAttribute> {
     /**
-     * Initialize FrameNode.
+     * Initialize Checkbox FrameNode.
      *
-     * @param { CheckboxOptions } [options] - Checkbox options
+     * @param { CheckboxOptions } [options]
      * @returns { CheckboxAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     abstract initialize(options?: CheckboxOptions): CheckboxAttribute;
@@ -2894,15 +2900,17 @@ export declare namespace typeNode {
    *
    * @extends TypedFrameNode<CheckboxGroupAttribute>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   abstract class CheckboxGroupFrameNode extends TypedFrameNode<CheckboxGroupAttribute> {
     /**
-     * Initialize FrameNode.
+     * Initialize CheckboxGroup FrameNode.
      *
-     * @param { CheckboxGroupOptions } [options] - CheckboxGroup options
+     * @param { CheckboxGroupOptions } [options]
      * @returns { CheckboxGroupAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     abstract initialize(options?: CheckboxGroupOptions): CheckboxGroupAttribute;
@@ -2932,15 +2940,17 @@ export declare namespace typeNode {
    *
    * @extends TypedFrameNode<RadioAttribute>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   abstract class RadioFrameNode extends TypedFrameNode<RadioAttribute> {
     /**
-     * Initialize FrameNode.
+     * Initialize Radio FrameNode.
      *
-     * @param { RadioOptions } options - Radio options
+     * @param { RadioOptions } value
      * @returns { RadioAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     abstract initialize(value: RadioOptions): RadioAttribute;
@@ -2981,15 +2991,17 @@ export declare namespace typeNode {
    *
    * @extends TypedFrameNode<RatingAttribute>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   abstract class RatingFrameNode extends TypedFrameNode<RatingAttribute> {
     /**
-     * Initialize FrameNode.
+     * Initialize Rating FrameNode.
      *
-     * @param { RatingOptions } [options] - Rating options
+     * @param { RatingOptions } [options]
      * @returns { RatingAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     abstract initialize(options?: RatingOptions): RatingAttribute;
@@ -3019,15 +3031,17 @@ export declare namespace typeNode {
    *
    * @extends TypedFrameNode<SelectAttribute>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   abstract class SelectFrameNode extends TypedFrameNode<SelectAttribute> {
     /**
-     * Initialize FrameNode.
+     * Initialize Select FrameNode.
      *
-     * @param { Array<SelectOption> } [options] - Select options
+     * @param { Array<SelectOption> } value
      * @returns { SelectAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     abstract initialize(value: Array<SelectOption>): SelectAttribute;
@@ -3057,15 +3071,17 @@ export declare namespace typeNode {
    *
    * @extends TypedFrameNode<SliderAttribute>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   abstract class SliderFrameNode extends TypedFrameNode<SliderAttribute> {
     /**
-     * Initialize FrameNode.
+     * Initialize Slider FrameNode.
      *
-     * @param { SliderOptions } [options] - Slider options
+     * @param { SliderOptions } [options]
      * @returns { SliderAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     abstract initialize(options?: SliderOptions): SliderAttribute;
@@ -3106,15 +3122,17 @@ export declare namespace typeNode {
    *
    * @extends TypedFrameNode<ToggleAttribute>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   abstract class ToggleFrameNode extends TypedFrameNode<ToggleAttribute> {
     /**
-     * Initialize FrameNode.
+     * Initialize Toggle FrameNode.
      *
-     * @param { ToggleOptions } [options] - Toggle options
+     * @param { ToggleOptions } value
      * @returns { ToggleAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     abstract initialize(value: ToggleOptions): ToggleAttribute;
