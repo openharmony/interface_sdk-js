@@ -68,8 +68,8 @@ declare namespace distributedKVStore {
      *
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9 dynamic
      * @stagemodelonly[staticonly]
+     * @since 9 dynamic
      * @since 23 static
      */
     /**
