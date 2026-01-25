@@ -381,7 +381,7 @@ declare namespace distributedKVStore {
      * Indicates that the value type is byte array.
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @stagemodelonly
+     * @stagemodelonly[staticonly]
      * @since 9 dynamic
      * @since 23 static
      */
