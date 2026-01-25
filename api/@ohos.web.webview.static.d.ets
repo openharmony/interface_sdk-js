@@ -6744,7 +6744,7 @@ declare namespace webview {
          * @since 23 static
          */
         NONE = 0,
-        
+
         /**
          * Allow specific cross-site requests to carry cookies.
          *
@@ -6752,7 +6752,7 @@ declare namespace webview {
          * @since 23 static
          */
         LAX = 1,
-        
+
         /**
          * Prohibit cross-site requests from carrying cookies.
          *
@@ -7163,7 +7163,7 @@ declare namespace webview {
          * @since 23 static
          */
         samesitePolicy: WebHttpCookieSameSitePolicy;
-        
+
         /**
          * Gets the cookie's expiration date.
          *
@@ -7172,7 +7172,7 @@ declare namespace webview {
          * @since 23 static
          */
         expiresDate: string;
-        
+
         /**
          * Gets the cookie's name.
          *
@@ -7181,7 +7181,7 @@ declare namespace webview {
          * @since 23 static
          */
         name: string;
-        
+
         /**
          * Gets if the cookie is session cookie.
          *
@@ -7190,7 +7190,7 @@ declare namespace webview {
          * @since 23 static
          */
         isSessionCookie: boolean;
-        
+
         /**
          * Gets the cookie's value.
          *
@@ -7199,7 +7199,7 @@ declare namespace webview {
          * @since 23 static
          */
         value: string;
-        
+
         /**
          * Gets the cookie's path.
          *
@@ -7208,7 +7208,7 @@ declare namespace webview {
          * @since 23 static
          */
         path: string;
-        
+
         /**
          * Gets whether the current cookie is marked as HttpOnly.
          *
@@ -7217,7 +7217,7 @@ declare namespace webview {
          * @since 23 static
          */
         isHttpOnly: boolean;
-        
+
         /**
          * Gets whether the current cookie is marked as Secure.
          *
@@ -7226,7 +7226,7 @@ declare namespace webview {
          * @since 23 static
          */
         isSecure: boolean;
-        
+
         /**
          * Gets the domain of the cookie.
          *
