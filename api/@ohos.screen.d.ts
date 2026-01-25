@@ -747,9 +747,10 @@ declare namespace screen {
     /**
      * Indicates the user identification.
      *
-     * @type { int }
+     * @type { ?int }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
+     * @stagemodelonly
      * @since 24 dynamic&static
      */
     userId?: int;
