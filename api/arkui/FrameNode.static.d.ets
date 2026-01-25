@@ -2706,6 +2706,7 @@ export declare namespace typeNode {
    *
    * @extends TypedFrameNode<XComponentAttribute>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   abstract class XComponentFrameNode extends TypedFrameNode<XComponentAttribute> {
@@ -2715,6 +2716,7 @@ export declare namespace typeNode {
      * @param { XComponentParameters } value - Indicates the options of the xcomponent.
      * @returns { XComponentAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     abstract initialize(value: XComponentParameters): XComponentAttribute;
@@ -2725,6 +2727,7 @@ export declare namespace typeNode {
      * @param { XComponentOptions } value - Indicates the options of the xcomponent.
      * @returns { XComponentAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     abstract initialize(value: XComponentOptions): XComponentAttribute;
@@ -2737,6 +2740,7 @@ export declare namespace typeNode {
      *
      * @returns { XComponentAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     abstract initialize(params: NativeXComponentParameters): XComponentAttribute;
