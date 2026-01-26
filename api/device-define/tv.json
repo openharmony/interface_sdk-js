@@ -180,6 +180,7 @@
     "SystemCapability.ResourceSchedule.SystemLoad",
     "SystemCapability.FileManagement.UserFileManager.DistributedCore",  
     "SystemCapability.Notification.NotificationSettings",
+    "SystemCapability.PowerManager.PowerManager.Core",
     "SystemCapability.ArkUI.ArkUI.Lite"
   ]
 }
