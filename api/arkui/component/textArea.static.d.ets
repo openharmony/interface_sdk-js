@@ -675,7 +675,7 @@ export declare interface TextAreaAttribute extends CommonMethod {
      * indicating that there is no maximum number of lines.
      * </p>
      *
-     * @param { int | undefined } value - Max lines of the node
+     * @param { int | undefined } value
      * @param { MaxLinesOptions } [options] - max lines of setting options.
      *     Passing `undefined` resets it to the default value.
      * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
@@ -769,7 +769,7 @@ export declare interface TextAreaAttribute extends CommonMethod {
      * <br>If the value specified is less than or equal to 0, the default value 0 is used.
      * </p>
      *
-     * @param { LengthMetrics | undefined } value - The default value is 0.
+     * @param { LengthMetrics | undefined } value - Default value is 0.
      *     Passing `undefined` resets it to the default value.
      * @param { LineSpacingOptions } [options]
      * @returns { TextAreaAttribute }
@@ -1018,7 +1018,6 @@ export declare interface TextAreaAttribute extends CommonMethod {
      * @since 23 static
      */
     default fallbackLineSpacing(enabled: boolean | undefined): this;
-
     /**
      * Define min lines of the text area.
      *
@@ -1104,7 +1103,6 @@ export declare interface TextAreaAttribute extends CommonMethod {
      * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<TextAreaAttribute> | AttributeModifier<CommonMethod> | undefined): this;
-    
     /**
      * Whether to compress punctuation at the beginning of line.
      *
@@ -1115,7 +1113,6 @@ export declare interface TextAreaAttribute extends CommonMethod {
      * @since 23 static
      */
     default compressLeadingPunctuation(enabled: boolean | undefined): this;
-
     /**
      * Used to set the selected drag preview style.
      *

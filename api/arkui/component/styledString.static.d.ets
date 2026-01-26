@@ -1383,7 +1383,6 @@ export declare interface ImageAttachmentInterface {
      */
     colorFilter?: ColorFilterType;
 }
-
 /**
  * Defines the LeadingMarginSpanDrawInfo interface.
  *

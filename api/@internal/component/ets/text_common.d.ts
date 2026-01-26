@@ -901,7 +901,7 @@ declare type TextBox = import('../api/@ohos.graphics.text').default.TextBox;
 declare type Paragraph = import('../api/@ohos.graphics.text').default.Paragraph;
 
 /**
- * The type for input method extra config, see the detailed description in ExtraConfig.
+ * The type for input method extra config, see the detailed description in InputMethodExtraConfig.
  *
  * @typedef { import('../api/@ohos.inputMethod.ExtraConfig').InputMethodExtraConfig } InputMethodExtraConfig
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1205,7 +1205,7 @@ declare class TextMenuItemId {
    * @since 23 dynamic
    */
   static readonly autoFill: TextMenuItemId;
-
+ 
   /**
    * Indicates the TextMenuItemId for password vault.
    *
@@ -2183,6 +2183,38 @@ declare interface KeyboardAppearanceConfig {
 }
 
 /**
+ * Defines the input method client.
+ *
+ * @interface IMEClient
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20 dynamic
+ */
+declare interface IMEClient {
+  /**
+   * The unique ID of this input component node.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20 dynamic
+   */
+  nodeId: number;
+
+  /**
+   * Called when the extra config is set.
+   *
+   * @param { InputMethodExtraConfig } config - The extra config object.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  setExtraConfig(config: InputMethodExtraConfig): void;
+}
+
+/**
  * Vertical Alignment of text.
  *
  * @enum { number }
@@ -2272,38 +2304,6 @@ declare enum TextContentAlign {
    * @since 21 dynamic
    */
   BOTTOM = 2
-}
-
-/**
- * Defines the input method client.
- *
- * @interface IMEClient
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20 dynamic
- */
-declare interface IMEClient {
-  /**
-   * The unique ID of this input component node.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
-   */
-  nodeId: number;
-
-  /**
-   * Called when the extra config is set.
-   *
-   * @param { InputMethodExtraConfig } config - The extra config object.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 22 dynamic
-   */
-  setExtraConfig(config: InputMethodExtraConfig): void;
 }
 
 /**

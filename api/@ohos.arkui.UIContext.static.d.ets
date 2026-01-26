@@ -4120,7 +4120,7 @@ export declare class ContentCoverController {
  * @since 23 static
  */
  export const enum CustomKeyboardContinueFeature {
-
+ 
   /**
    * Enable custom keyboard continuation.
    * 
@@ -4129,7 +4129,7 @@ export declare class ContentCoverController {
    * @since 23 static
    */
   ENABLED = 0,
-
+ 
   /**
    * Disable custom keyboard continuation.
    * 

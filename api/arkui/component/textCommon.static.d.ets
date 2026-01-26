@@ -617,7 +617,6 @@ declare type RectHeightStyle = text.RectHeightStyle;
  * @since 23 static
  */
 declare type TextBox = text.TextBox;
-
 /**
  * The Paragraph type provides detailed information about a paragraph,
  * including properties such as line count, line height, and other relevant metrics.
@@ -791,7 +790,7 @@ export declare class TextMenuItemId {
      * @since 23 static
      */
     static readonly autoFill: TextMenuItemId;
-
+ 
     /**
      * Indicates the TextMenuItemId for password vault.
      *
