@@ -687,6 +687,15 @@ export declare class FrameNode {
   get commonAttribute(): CommonAttribute;
 
   /**
+   * Draw Method. Executed when the current FrameNode is rendering its content.
+   *
+   * @param { DrawContext } context - The DrawContext will be used when executed draw method.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  onDraw(context: DrawContext): void
+
+  /**
    * Method to measure the FrameNode and its content to determine the measured size. Use this method to override the
    * default measure method when measuring the FrameNode.
    *
