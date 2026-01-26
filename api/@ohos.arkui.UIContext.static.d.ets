@@ -3919,17 +3919,6 @@ export declare class UIContext {
   setUIStates(callback: VoidCallback): void;
 
   /**
-   * Retrieves the UIContext corresponding to the UI instance of the currently focused window.
-   * Returns undefined if it does not exist.
-   *
-   * @returns { UIContext | undefined } The focused UIContext, or undefined if it does not exist.
-   * @static
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  static getFocusedUIContext(): UIContext | undefined;
-
-  /**
    * Get id of the UI instance.
    *
    * @returns { int } Returns id of the UI instance.
