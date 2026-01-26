@@ -30,6 +30,7 @@ import { RecordData } from '@ohos.base';
  *
  * @extends Content
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export abstract class ComponentContentBase extends Content {

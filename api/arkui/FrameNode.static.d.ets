@@ -1094,6 +1094,7 @@ export declare abstract class TypedFrameNode<T> extends FrameNode {
  * @namespace typeNode
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 23 static
+ * @stagemodelonly
  * @noninterop
  */
 export declare namespace typeNode {

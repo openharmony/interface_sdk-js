@@ -26,8 +26,6 @@ import { FrameNode } from 'arkui.FrameNode';
  *
  * @extends Content
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 23 static
  */
 export declare class NodeContent extends Content {
