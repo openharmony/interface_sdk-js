@@ -2416,15 +2416,14 @@ export type OnHoverCallback = (status: boolean, event: HoverEvent) => void;
 /**
  * Defines RichEditor Component.
  *
- * @param { RichEditorOptions | RichEditorStyledStringOptions } [options]
- * @param { CustomBuilder } [content_]
+ * @param { RichEditorOptions | RichEditorStyledStringOptions } options
  * @returns { RichEditorAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
 @ComponentBuilder
 export declare function RichEditor(
     options: RichEditorOptions | RichEditorStyledStringOptions, 
-    content_?: CustomBuilder,
 ): RichEditorAttribute
