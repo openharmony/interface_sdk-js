@@ -3255,7 +3255,7 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9 dynamic
+     * @since 9
      */
     /**
      * Obtains the result set with a specified prefix from a {@code SingleKVStore} database. The {@code KVStoreResultSet}
@@ -4520,7 +4520,7 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @since 9 dynamic
      */
     /**
      * Obtains the result set with the local device ID and specified prefix from a {@code DeviceKVStore} database.
