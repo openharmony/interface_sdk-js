@@ -1475,6 +1475,7 @@ export declare namespace typeNode {
    *
    * @extends TypedFrameNode<LoadingProgressAttribute>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   abstract class LoadingProgressFrameNode extends TypedFrameNode<LoadingProgressAttribute> {  
@@ -1483,6 +1484,7 @@ export declare namespace typeNode {
      *
      * @returns { LoadingProgressAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     abstract initialize(): LoadingProgressAttribute;
@@ -1811,6 +1813,7 @@ export declare namespace typeNode {
    *
    * @extends TypedFrameNode<ProgressAttribute>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   abstract class ProgressFrameNode extends TypedFrameNode<ProgressAttribute> {  
@@ -1820,6 +1823,7 @@ export declare namespace typeNode {
      * @param { ProgressOptions } value
      * @returns { ProgressAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     abstract initialize(value: ProgressOptions): ProgressAttribute;
@@ -1935,6 +1939,7 @@ export declare namespace typeNode {
    *
    * @extends TypedFrameNode<TextClockAttribute>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   abstract class TextClockFrameNode extends TypedFrameNode<TextClockAttribute> {  
@@ -1944,6 +1949,7 @@ export declare namespace typeNode {
      * @param { TextClockOptions } [options]
      * @returns { TextClockAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     abstract initialize(options?: TextClockOptions): TextClockAttribute;
@@ -1973,6 +1979,7 @@ export declare namespace typeNode {
    *
    * @extends TypedFrameNode<TextTimerAttribute>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   abstract class TextTimerFrameNode extends TypedFrameNode<TextTimerAttribute> {  
@@ -1982,6 +1989,7 @@ export declare namespace typeNode {
      * @param { TextTimerOptions } [options]
      * @returns { TextTimerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     abstract initialize(options?: TextTimerOptions): TextTimerAttribute;
@@ -2265,6 +2273,7 @@ export declare namespace typeNode {
    *
    * @extends TypedFrameNode<TextAttribute>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   abstract class TextFrameNode extends TypedFrameNode<TextAttribute> {
@@ -2275,6 +2284,7 @@ export declare namespace typeNode {
      * @param { TextOptions } [value] - text options
      * @returns { TextAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     abstract initialize(content?: string | Resource, value?: TextOptions): TextAttribute;
@@ -2329,6 +2339,7 @@ export declare namespace typeNode {
    *
    * @extends TypedFrameNode<SearchAttribute>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   abstract class SearchFrameNode extends TypedFrameNode<SearchAttribute> {
@@ -2338,6 +2349,7 @@ export declare namespace typeNode {
      * @param { SearchOptions } [value] - search options
      * @returns { SearchAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     abstract initialize(value?: SearchOptions): SearchAttribute;
@@ -2367,6 +2379,7 @@ export declare namespace typeNode {
    *
    * @extends TypedFrameNode<TextInputAttribute>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   abstract class TextInputFrameNode extends TypedFrameNode<TextInputAttribute> {
@@ -2376,6 +2389,7 @@ export declare namespace typeNode {
      * @param { TextInputOptions } [value] - textInput options
      * @returns { TextInputAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     abstract initialize(value?: TextInputOptions): TextInputAttribute;
@@ -2430,6 +2444,7 @@ export declare namespace typeNode {
    *
    * @extends TypedFrameNode<TextAreaAttribute>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   abstract class TextAreaFrameNode extends TypedFrameNode<TextAreaAttribute> {
@@ -2439,6 +2454,7 @@ export declare namespace typeNode {
      * @param { TextAreaOptions } [value] - textArea options
      * @returns { TextAreaAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     abstract initialize(value?: TextAreaOptions): TextAreaAttribute;
@@ -2493,6 +2509,7 @@ export declare namespace typeNode {
    *
    * @extends TypedFrameNode<SymbolGlyphAttribute>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   abstract class SymbolGlyphFrameNode extends TypedFrameNode<SymbolGlyphAttribute> {
@@ -2502,6 +2519,7 @@ export declare namespace typeNode {
      * @param { Resource } [value] - symbolGlyph resource
      * @returns { SymbolGlyphAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     abstract initialize(value?: Resource): SymbolGlyphAttribute;
@@ -2531,6 +2549,7 @@ export declare namespace typeNode {
    *
    * @extends TypedFrameNode<QRCodeAttribute>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   abstract class QRCodeFrameNode extends TypedFrameNode<QRCodeAttribute> {  
@@ -2540,6 +2559,7 @@ export declare namespace typeNode {
      * @param { string } value
      * @returns { QRCodeAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     abstract initialize(value: string): QRCodeAttribute;
@@ -2569,6 +2589,7 @@ export declare namespace typeNode {
    *
    * @extends TypedFrameNode<BadgeAttribute>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   abstract class BadgeFrameNode extends TypedFrameNode<BadgeAttribute> {  
@@ -2578,6 +2599,7 @@ export declare namespace typeNode {
      * @param { BadgeParamWithNumber } value
      * @returns { BadgeAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     abstract initialize(value: BadgeParamWithNumber): BadgeAttribute;
@@ -2588,6 +2610,7 @@ export declare namespace typeNode {
      * @param { BadgeParamWithString } value
      * @returns { BadgeAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     abstract initialize(value: BadgeParamWithString): BadgeAttribute;
@@ -2617,6 +2640,7 @@ export declare namespace typeNode {
    *
    * @extends TypedFrameNode<MarqueeAttribute>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   abstract class MarqueeFrameNode extends TypedFrameNode<MarqueeAttribute> {
@@ -2626,6 +2650,7 @@ export declare namespace typeNode {
      * @param { MarqueeOptions } value
      * @returns { MarqueeAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     abstract initialize(value: MarqueeOptions): MarqueeAttribute;

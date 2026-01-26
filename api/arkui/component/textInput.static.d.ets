@@ -144,6 +144,7 @@ export declare enum InputType {
      * URL entry mode.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     URL = 13,
