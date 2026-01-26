@@ -6169,7 +6169,7 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
      * @syscap SystemCapability.Multimedia.Audio.Device
-     * @since 23 static
+     * @since 24 static
      */
     onCurrentInputDeviceChanged(callback: Callback<CurrentInputDeviceChangedEvent>): void;
 
@@ -6189,7 +6189,7 @@ declare namespace audio {
      * @param { Callback<CurrentInputDeviceChangedEvent> } [callback] - Callback used in subscribe.
      * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
      * @syscap SystemCapability.Multimedia.Audio.Device
-     * @since 23 static
+     * @since 24 static
      */
     offCurrentInputDeviceChanged(callback?: Callback<CurrentInputDeviceChangedEvent>): void;
 
