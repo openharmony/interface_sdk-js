@@ -14410,7 +14410,7 @@ declare namespace window {
      * @atomicservice
      * @since 15 dynamic
      */
-    setCustomDensity(density: double): void;
+    setCustomDensity(density: number): void;
 
     /**
      * Sets the custom density of ability.
