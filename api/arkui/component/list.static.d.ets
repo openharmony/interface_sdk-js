@@ -824,7 +824,7 @@ export declare interface ListAttribute extends ScrollableCommonMethod {
      *     <br>Value range: [0, +∞)
      * @param { boolean | undefined } show - Whether to display the preloaded list items.
      *     <br> Default value: <em>false</em>. Passing undefined will restore the default value.
-     * @returns { this } theattributeof the list.
+     * @returns { this } the attribute of the list.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static

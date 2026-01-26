@@ -4117,7 +4117,7 @@ export declare enum FocusWrapMode {
    * No wrap when moving focus using the arrow keys.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   DEFAULT = 0,
 
@@ -4125,7 +4125,7 @@ export declare enum FocusWrapMode {
    * Auto wrap when moving focus using the arrow keys.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   WRAP_WITH_ARROW = 1
 }
