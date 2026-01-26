@@ -326,7 +326,7 @@ export declare interface UIWaterFlowEvent extends UIScrollableCommonEvent {
  * @param { int } first - the first index in visible content.
  * @param { int } last - the last index in visible content.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 23 static
+ * @since 24 static
  */
 export declare type OnWaterFlowScrollIndexCallback = (first: int, last: int) => void;
 
