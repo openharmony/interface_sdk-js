@@ -3921,7 +3921,7 @@ declare namespace socket {
      * @type {?(string | Array<string>)}
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since 23 dynamic&static
+     * @since 24 dynamic&static
      */
     cert?: string | Array<string>;
 
