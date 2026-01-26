@@ -889,6 +889,7 @@ declare namespace dragController {
    *
    * @enum { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @rossplatform
    * @atomicservice
    * @since 20 dynamic
    */
@@ -898,6 +899,7 @@ declare namespace dragController {
      * This state allows for some preparatory operations during spring loading.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @rossplatform
      * @atomicservice
      * @since 20 dynamic
      */
@@ -908,6 +910,7 @@ declare namespace dragController {
      * This state allows for UI effect refreshes to emphasize the hover state.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @rossplatform
      * @atomicservice
      * @since 20 dynamic
      */
@@ -917,6 +920,7 @@ declare namespace dragController {
      * and execute navigation or view switching actions when this state occurs.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @rossplatform
      * @atomicservice
      * @since 20 dynamic
      */
@@ -927,6 +931,7 @@ declare namespace dragController {
      * The application should restore the UI style and cancel any pending navigation or view switching actions.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @rossplatform
      * @atomicservice
      * @since 20 dynamic
      */
@@ -940,6 +945,7 @@ declare namespace dragController {
    *
    * @typedef { DragSpringLoadingConfiguration }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @rossplatform
    * @atomicservice
    * @since 20 dynamic
    */
@@ -949,6 +955,7 @@ declare namespace dragController {
      *
      * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @rossplatform
      * @atomicservice
      * @since 20 dynamic
      */
@@ -959,6 +966,7 @@ declare namespace dragController {
      *
      * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @rossplatform
      * @atomicservice
      * @since 20 dynamic
      */
@@ -969,6 +977,7 @@ declare namespace dragController {
      *
      * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @rossplatform
      * @atomicservice
      * @since 20 dynamic
      */
@@ -979,6 +988,7 @@ declare namespace dragController {
      *
      * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @rossplatform
      * @atomicservice
      * @since 20 dynamic
      */
@@ -992,6 +1002,7 @@ declare namespace dragController {
    *
    * @typedef { SpringLoadingDragInfos }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @rossplatform
    * @atomicservice
    * @since 20 dynamic
    */
@@ -1001,6 +1012,7 @@ declare namespace dragController {
      *
      * @type { ?unifiedDataChannel.Summary }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @rossplatform
      * @atomicservice
      * @since 20 dynamic
      */
@@ -1012,6 +1024,7 @@ declare namespace dragController {
      *
      * @type { ?string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @rossplatform
      * @atomicservice
      * @since 20 dynamic
      */
@@ -1033,6 +1046,7 @@ declare namespace dragController {
      *
      * @type { DragSpringLoadingState }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @rossplatform
      * @atomicservice
      * @since 20 dynamic
      */
@@ -1043,6 +1057,7 @@ declare namespace dragController {
      *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @rossplatform
      * @atomicservice
      * @since 20 dynamic
      */
@@ -1052,6 +1067,7 @@ declare namespace dragController {
      *
      * @type { ?SpringLoadingDragInfos }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @rossplatform
      * @atomicservice
      * @since 20 dynamic
      */
@@ -1061,6 +1077,7 @@ declare namespace dragController {
      *
      * @type { ?DragSpringLoadingConfiguration }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @rossplatform
      * @atomicservice
      * @since 20 dynamic
      */
@@ -1070,6 +1087,7 @@ declare namespace dragController {
      * Note: Aborting does not trigger a CANCEL notification, the application must handle state cleanup when aborting.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @rossplatform
      * @atomicservice
      * @since 20 dynamic
      */
@@ -1084,6 +1102,7 @@ declare namespace dragController {
      * @param { DragSpringLoadingConfiguration } config - The spring loading detection configuration
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
+     * @rossplatform
      * @since 20 dynamic
      */
     updateConfiguration(config: DragSpringLoadingConfiguration): void;

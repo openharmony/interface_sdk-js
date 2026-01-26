@@ -2783,6 +2783,7 @@ export class ComponentUtils {
    * @returns { componentUtils.ComponentInfo } the object of ComponentInfo.
    * @throws { BusinessError } 100001 - UI execution context not found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @rossplatform
    * @atomicservice
    * @since 11 dynamic
    */
@@ -3376,8 +3377,10 @@ export class DragController {
    * Please be noted, the default value of the flag is false, it means, for the same situation, the
    * parent will not receive the leave notification, just the child can get the enter event, which is
    * not fully strict.
+   * 
    * @param { boolean } enable - Indicating enable drag event strict reporting or not.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @rossplatform
    * @atomicservice
    * @since 12 dynamic
    */
