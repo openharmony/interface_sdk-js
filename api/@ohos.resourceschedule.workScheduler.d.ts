@@ -207,7 +207,7 @@ declare namespace workScheduler {
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
      * @since 22 dynamic
-     * @since 23 dynamic
+     * @since 23 static
      */
     earliestStartTime?: int;
   }
