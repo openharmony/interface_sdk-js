@@ -14409,7 +14409,6 @@ declare namespace window {
      * @stagemodelonly
      * @atomicservice
      * @since 15 dynamic
-     * @since 23 static
      */
     setCustomDensity(density: double): void;
 
