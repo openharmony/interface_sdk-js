@@ -3255,7 +3255,7 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @since 9 dynamic
      */
     /**
      * Obtains the result set with a specified prefix from a {@code SingleKVStore} database. The {@code KVStoreResultSet}
@@ -4160,6 +4160,7 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 15100001 - Over max limits.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+     * @stagemodelonly
      * @since 23 static
      */
     onDataChange(type: SubscribeType, listener: Callback<ChangeNotification>): void;
@@ -4187,6 +4188,7 @@ declare namespace distributedKVStore {
      *     deviceId and it's corresponding synchronization result which 0 means synchronization success
      *     and otherwise failed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+     * @stagemodelonly
      * @since 23 static
      */
     onSyncComplete(syncCallback: Callback<Array<[string, int]>>): void;
@@ -4212,6 +4214,7 @@ declare namespace distributedKVStore {
      *     object indicates the data change events in the distributed database.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+     * @stagemodelonly
      * @since 23 static
      */
     offDataChange(listener?: Callback<ChangeNotification>): void;
@@ -4237,6 +4240,7 @@ declare namespace distributedKVStore {
      *     deviceId and it's corresponding synchronization result which 0 means synchronization success
      *     and otherwise failed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+     * @stagemodelonly
      * @since 23 static
      */
     offSyncComplete(syncCallback?: Callback<Array<[string, int]>>): void;
@@ -4278,6 +4282,7 @@ declare namespace distributedKVStore {
    * @extends SingleKVStore
    * @typedef DeviceKVStore
    * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
+   * @stagemodelonly[staticonly]
    * @since 9 dynamic
    * @since 23 static
    */
