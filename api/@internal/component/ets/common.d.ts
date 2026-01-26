@@ -18,6 +18,7 @@
  * @kit ArkUI
  */
 
+
 /**
  * The type for SpringLoadingContext, see the detailed description in dragController.
  *
@@ -39,6 +40,7 @@ declare type SpringLoadingContext = import('../api/@ohos.arkui.dragController').
  * @since 20 dynamic
  */
 declare type DragSpringLoadingConfiguration = import('../api/@ohos.arkui.dragController').default.DragSpringLoadingConfiguration;
+
 
 /**
  * Defines the options of Component ClassDecorator.
