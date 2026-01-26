@@ -666,7 +666,7 @@ declare namespace audio {
 
   /**
    * Enumerates audio loopback reverberation preset.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Capturer
    * @since 21 dynamic
    * @since 24 static
@@ -718,14 +718,14 @@ declare namespace audio {
      */
     FLAT = 1,
     /**
-     * A preset representing a equalizer that can enhance the fullness of the vocie
+     * A preset representing a equalizer effect that can enhance the fullness of the vocie
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 21 dynamic
      * @since 24 static
      */
     FULL = 2,
     /**
-     * A preset representing a equalizer that can enhance the brightness of the vocie
+     * A preset representing a equalizer effect that can enhance the brightness of the vocie
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 21 dynamic
      * @since 24 static
@@ -4639,7 +4639,7 @@ declare namespace audio {
     off(type: 'preferredOutputDeviceChangeByFilter', callback?: Callback<AudioDeviceDescriptors>): void;
 
     /**
-     * UnSubscribes to prefer output device change events.
+     * UnSubscribes to preferred output device change events.
      *
      * @param { Callback<AudioDeviceDescriptors> } [callback] - Callback used in subscribe.
      * @throws { BusinessError } 202 - Not system App.
@@ -5408,10 +5408,11 @@ declare namespace audio {
     isRecordingAvailable(capturerInfo: AudioCapturerInfo): boolean;
 
     /**
-     * Checks whether the system recording enables Intelligent noise reduction for current device
-     * @param { SourceType } sourceType Type of audio source.
-     * @returns { boolean } Check result. The value <b>true</b> means that the system recording enables intelligent noise reduction for current device,
-     *          and <b>false</b> means the opposite.
+     * Checks whether the system recording enables Intelligent noise reduction for current device.
+     *
+     * @param { SourceType } sourceType - Type of audio source.
+     * @returns { boolean } Check result. The value <b>true</b> means that the system recording enables intelligent
+           noise reduction for current device, and <b>false</b> means the opposite.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 21 dynamic
@@ -5720,7 +5721,7 @@ declare namespace audio {
   /**
    * Enumerates the categories application prefer to use
    * when recording with bluetooth and nearlink.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @since 21 dynamic
    * @since 24 static
@@ -9167,7 +9168,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @systemapi
      * @since 21 dynamic
-     * @since 23 static
+     * @since 24 static
      */
     readonly highQualityRecordingSupported?: boolean;
 
@@ -14441,7 +14442,7 @@ declare namespace audio {
 
     /**
      * Get the current reverberation.
-     * The defalut reverberation preset of audio loopback is {@link AudioLoopbackReverbPreset#THEATER} if
+     * The default reverberation preset of audio loopback is {@link AudioLoopbackReverbPreset#THEATER} if
      * users do not modify the preset.
      *
      * @returns { AudioLoopbackReverbPreset  } Returns the current reverberation.
@@ -14465,7 +14466,7 @@ declare namespace audio {
 
     /**
      * Gets the current equalizer preset.
-     * The defalut equalizer preset of audio loopback is {@link AudioLoopbackEqualizerPreset#FULL} if
+     * The default equalizer preset of audio loopback is {@link AudioLoopbackEqualizerPreset#FULL} if
      * users do not modify the preset.
      *
      * @returns { AudioLoopbackEqualizerPreset } Returns the current equalizer preset.
