@@ -440,6 +440,8 @@ export type OnScrollVisibleContentChangeCallback = (start: VisibleListContentInf
  */
 export type OnListScrollIndexCallback = (start: int, end: int, center: int) => void;
 /**
+ * Scroll controller for list component.
+ *
  * @extends Scroller
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 23 static
