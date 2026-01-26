@@ -12076,6 +12076,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
+     * @since 24 static
      */
     enableLandscapeMultiWindow(): Promise<void>;
 
@@ -12176,6 +12177,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
+     * @since 24 static
      */
     disableLandscapeMultiWindow(): Promise<void>;
 
