@@ -174,33 +174,33 @@ declare namespace photoAccessHelper {
      * Enum value of the recommendation content set by the user during the last selection (see `RecommendationType`).
      * The default value is 0.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 21 dynamic
      */
-    recommendationType: number;
+    recommendationType: int;
 
     /**
      * Enum value of the recommendation content selected by  the user during the last selection (see `RecommendationType`).
      * The default value is 0.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 21 dynamic
      */
-    selectedRecommendationType: number;
+    selectedRecommendationType: int;
 
     /**
      * Context data version number for validating compatibility of context recovery.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 21 dynamic
      */
-    version: number;
+    version: int;
 
     /**
      * Enum value of the grid level by the user during the last selection.
@@ -1291,7 +1291,8 @@ declare namespace photoAccessHelper {
      * @param { Context } context - Context of the ability instance.
      * @param { PhotoAsset } asset - Image to request.
      * @param { RequestOptions } requestOptions - Options for requesting the image.
-     * @param { MediaAssetDataHandler<image.ImageSource> } dataHandler - Media asset handler, which invokes a callback to return the image when the requested image is ready.
+     * @param { MediaAssetDataHandler<image.ImageSource> } dataHandler - Media asset handler,
+     * <br>which invokes a callback to return the image when the requested image is ready.
      * @returns { Promise<string> } Returns request id
      * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1316,7 +1317,8 @@ declare namespace photoAccessHelper {
      * @param { Context } context - Context of the ability instance.
      * @param { PhotoAsset } asset - Image to request.
      * @param { RequestOptions } requestOptions - Options for requesting the image.
-     * @param { QuickImageDataHandler<image.Picture> } dataHandler - Media asset handler, which invokes a callback to return the image when the requested image is ready.
+     * @param { QuickImageDataHandler<image.Picture> } dataHandler - Media asset handler,
+     * <br>which invokes a callback to return the image when the requested image is ready.
      * @returns { Promise<string> } Returns request id
      * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1340,7 +1342,8 @@ declare namespace photoAccessHelper {
      * @param { Context } context - Context of the ability instance.
      * @param { PhotoAsset } asset - Image to request.
      * @param { RequestOptions } requestOptions - Options for requesting the image.
-     * @param { MediaAssetDataHandler<ArrayBuffer> } dataHandler - Media asset handler, which invokes a callback to return the image when the requested image is ready.
+     * @param { MediaAssetDataHandler<ArrayBuffer> } dataHandler - Media asset handler,
+     * <br>which invokes a callback to return the image when the requested image is ready.
      * @returns { Promise<string> } Returns request id
      * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1365,7 +1368,8 @@ declare namespace photoAccessHelper {
      * @param { Context } context - Context of the ability instance.
      * @param { PhotoAsset } asset - Image to request.
      * @param { RequestOptions } requestOptions - Options for requesting the image.
-     * @param { MediaAssetDataHandler<MovingPhoto> } dataHandler - Media asset handler, which invokes a callback to return the image when the requested image is ready.
+     * @param { MediaAssetDataHandler<MovingPhoto> } dataHandler - Media asset handler,
+     * <br>which invokes a callback to return the image when the requested image is ready.
      * @returns { Promise<string> } Returns request id
      * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1382,7 +1386,8 @@ declare namespace photoAccessHelper {
      * @param { Context } context - Context of the ability instance.
      * @param { PhotoAsset } asset - Image to request.
      * @param { RequestOptions } requestOptions - Options for requesting the image.
-     * @param { MediaAssetDataHandler<MovingPhoto> } dataHandler - Media asset handler, which invokes a callback to return the image when the requested image is ready.
+     * @param { MediaAssetDataHandler<MovingPhoto> } dataHandler - Media asset handler,
+     * <br>which invokes a callback to return the image when the requested image is ready.
      * @returns { Promise<string> } Returns request id
      * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1427,7 +1432,8 @@ declare namespace photoAccessHelper {
      * @param { PhotoAsset } asset - Image to request.
      * @param { RequestOptions } requestOptions - Options for requesting the video asset.
      * @param { string } fileUri - the destination file uri to save the video data
-     * @param { MediaAssetDataHandler<boolean> } dataHandler - Media asset handler. When the requested video is written to the specified directory, a callback is triggered.
+     * @param { MediaAssetDataHandler<boolean> } dataHandler - Media asset handler.
+     * <br>When the requested video is written to the specified directory, a callback is triggered.
      * @returns { Promise<string> } Returns request id
      * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1445,7 +1451,8 @@ declare namespace photoAccessHelper {
      * @param { PhotoAsset } asset - Image to request.
      * @param { RequestOptions } requestOptions - Options for requesting the video asset.
      * @param { string } fileUri - the destination file uri to save the video data
-     * @param { MediaAssetDataHandler<boolean> } dataHandler - Media asset handler. When the requested video is written to the specified directory, a callback is triggered.
+     * @param { MediaAssetDataHandler<boolean> } dataHandler - Media asset handler.
+     * <br>When the requested video is written to the specified directory, a callback is triggered.
      * @returns { Promise<string> } Returns request id
      * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1659,12 +1666,10 @@ declare namespace photoAccessHelper {
      * @since 12
      */
     /**
-     * Obtains a PhotoAsset member parameter.
+     * Returns the value of the specified member.
      *
      * @param { string } member - Photo asset member. for example : get(PhotoKeys.SIZE)
      * @returns { MemberType } Returns the value of the specified photo asset member
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 13900020 - Invalid argument
      * @throws { BusinessError } 14000014 - The provided member must be a property name of PhotoKey.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -2129,7 +2134,8 @@ declare namespace photoAccessHelper {
      * Sets the pending state for this image or video asset. This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
-     * @param { boolean } pendingState - Whether to set the file to pending state. The value true means to set the file to pending state, and the value false means to remove the pending state.
+     * @param { boolean } pendingState - Whether to set the file to pending state.
+     * <br>The value true means to set the file to pending state, and the value false means to remove the pending state.
      * @param { AsyncCallback<void> } callback - Callback that returns no value.
      * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 202 - Called by non-system application.
@@ -2146,7 +2152,8 @@ declare namespace photoAccessHelper {
      * Sets the pending state for this image or video asset. This API uses a promise to return the result.
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
-     * @param { boolean } pendingState - Whether to set the file to pending state. The value true means to set the file to pending state, and the value false means to remove the pending state.
+     * @param { boolean } pendingState - Whether to set the file to pending state.
+     * <br>The value true means to set the file to pending state, and the value false means to remove the pending state.
      * @returns { Promise<void> } Returns void
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Called by non-system application.
@@ -2163,7 +2170,9 @@ declare namespace photoAccessHelper {
      * Checks whether this image or video asset is edited. This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.READ_IMAGEVIDEO
-     * @param { AsyncCallback<boolean> } callback - Callback used to return the result. The value true means that the image or video asset is edited, and false means the opposite. The default value is false.
+     * @param { AsyncCallback<boolean> } callback - Callback used to return the result.
+     * <br>The value true means that the image or video asset is edited, and false means the opposite.
+     * <br>The default value is false.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Called by non-system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -2258,7 +2267,7 @@ declare namespace photoAccessHelper {
     /**
      * Copy a picture in the same album and convert it to a specified format.
      * The album here refers to the album created by user or application album.
-     * The API supports media types include normal picture, moving(only picture part), and burst photo, but video is not include.
+     * The API supports media types include normal picture, movingphoto(only picture part), and burst photo, but video is not included.
      * The API supports image format include heif and heic.
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
@@ -2266,7 +2275,7 @@ declare namespace photoAccessHelper {
      * @param { SupportedImageFormat } imageFormat - The target image format.
      * @returns { Promise<PhotoAsset> } Returns the new PhotoAsset.
      * @throws { BusinessError } 201 - Permission denied
-     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 202 - Called by non-system application
      * @throws { BusinessError } 23800151 - Scene parameters validate failed, possible causes:
      * 1. The original file does not exist locally in PhotoAsset;
      * 2. The original file format is not within the supported range;
@@ -2275,7 +2284,7 @@ declare namespace photoAccessHelper {
      * 5. PhotoAsset is a photo in the trash or a hidden photo;
      * 6. The title does not meet the parameter specifications.
      * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the
-     * kogs. Possible causes:
+     * logs. Possible causes:
      * 1. Database corrupted. 2. The file system is abnormal. 3. The IPC request timed out.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
@@ -2429,7 +2438,8 @@ declare namespace photoAccessHelper {
      *
      * @permission ohos.permission.READ_IMAGEVIDEO
      * @param { RequestPhotoOptions } options - Options for obtaining the asset thumbnail.
-     * @param { AsyncCallback<image.PixelMap> } callback - Callback used to return the thumbnails obtained. The callback may be invoked more than once, depending on options.
+     * @param { AsyncCallback<image.PixelMap> } callback - Callback used to return the thumbnails obtained.
+     * <br>The callback may be invoked more than once, depending on options.
      * @returns { string } Returns request photo task id.
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
@@ -3183,7 +3193,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 22
+     * @since 22 dynamic
      */
     HDR_MODE = 'hdr_mode',
     /**
@@ -3454,7 +3464,8 @@ declare namespace photoAccessHelper {
      */
     ASSETS_MODE,
     /**
-     * Display hidden files by album (display all albums that contain hidden files in the system, excluding the preset hidden album and the albums in the trash).
+     * Display hidden files by album (display all albums that contain hidden files in the system,
+     * <br>excluding the preset hidden album and the albums in the trash).
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
@@ -3959,7 +3970,7 @@ declare namespace photoAccessHelper {
     /**
      * Obtains the first object in the fetch result.
      *
-     * @param { AsyncCallback<T> } callback - Callback used to return the first file asset obtained.
+     * @param { AsyncCallback<T> } callback - Returns the first object in the fetch result.
      * @throws { BusinessError } 13900020 - Invalid argument
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -4035,7 +4046,7 @@ declare namespace photoAccessHelper {
      * Before using this API, you must use isAfterLast() to check whether the current position is the end of the result set.
      * in the fetch result. This method only works when the current position is not the last row.
      *
-     * @param { AsyncCallback<T> } callback - Callback used to return the next file asset obtained.
+     * @param { AsyncCallback<T> } callback - Returns the next object
      * @throws { BusinessError } 13900020 - Invalid argument
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -4072,7 +4083,7 @@ declare namespace photoAccessHelper {
      */
     /**
      * Obtains the next object in the fetch result.
-     * Before using this API, you must use isAfterLast() to check whether the current position is the end of the result set.
+     * Before calling this method, you must use isAfterLast() to check whether the current position is the last row
      * in the fetch result. This method only works when the current position is not the last row.
      *
      * @returns { Promise<T> } Returns the next object
@@ -4109,9 +4120,9 @@ declare namespace photoAccessHelper {
      * @since 12
      */
     /**
-     * Obtains the last object asset in the fetch result.
+     * Obtains the last object in the fetch result
      *
-     * @param { AsyncCallback<T> } callback - Callback used to return the last file asset obtained.
+     * @param { AsyncCallback<T> } callback - Returns the last object
      * @throws { BusinessError } 13900020 - Invalid argument
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -4145,7 +4156,7 @@ declare namespace photoAccessHelper {
      * @since 12
      */
     /**
-     * Obtains the last object asset in the fetch result.
+     * Obtains the last object in the fetch result
      *
      * @returns { Promise<T> } Returns the last object
      * @throws { BusinessError } 13900020 - Invalid argument
@@ -4183,7 +4194,7 @@ declare namespace photoAccessHelper {
      * @since 12
      */
     /**
-     * Obtains the object with the specified index in the result set.
+     * Obtains the object with the specified index in the fetch result.
      *
      * @param { int } index - Index of the file asset to obtain. The value starts from 0.
      * @param { AsyncCallback<T> } callback - Callback used to return the file asset obtained.
@@ -4222,7 +4233,7 @@ declare namespace photoAccessHelper {
      * @since 12
      */
     /**
-     * Obtains the object with the specified index in the result set.
+     * Obtains the object with the specified index in the fetch result.
      *
      * @param { int } index - Index of the file asset to obtain. The value starts from 0.
      * @returns { Promise<T> } Returns the object
@@ -4290,7 +4301,7 @@ declare namespace photoAccessHelper {
     /**
      * Obtains all objects in the fetch result.
      *
-     * @param { AsyncCallback<Array<T>> } callback - Callback used to return an array of all file assets in the result set.
+     * @param { AsyncCallback<Array<T>> } callback - Returns all the objects
      * @throws { BusinessError } 13900020 - Invalid argument
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -4358,7 +4369,7 @@ declare namespace photoAccessHelper {
      * @since 12
      */
     /**
-     * Release the fetch result.
+     * Releases the fetch result.
      *
      * @throws { BusinessError } 13900020 - Invalid argument
      * @throws { BusinessError } 14000011 - System inner fail
@@ -5594,7 +5605,7 @@ declare namespace photoAccessHelper {
      * Fetch photo assets
      *
      * @permission ohos.permission.READ_IMAGEVIDEO
-     * @param { FetchOptions } options - Options for fetching the image and video assets.
+     * @param { FetchOptions } options - Retrieval options.
      * @returns { Promise<FetchResult<PhotoAsset>> } Returns the fetch result.
      * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 13900020 - Invalid argument
@@ -5624,8 +5635,8 @@ declare namespace photoAccessHelper {
      * Fetch a group of burst assets
      *
      * @permission ohos.permission.READ_IMAGEVIDEO
-     * @param { string } burstKey - UUID of a set of burst photos (BURST_KEY of PhotoKeys). The value is a string of 36 characters.
-     * @param { FetchOptions } options - Options for fetching the burst photos.
+     * @param { string } burstKey - Burst asset uuid
+     * @param { FetchOptions } options - Retrieval options.
      * @returns { Promise<FetchResult<PhotoAsset>> } Returns the fetch result.
      * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 14000011 - Internal system error
@@ -6475,7 +6486,8 @@ declare namespace photoAccessHelper {
      *
      * @permission ohos.permission.READ_IMAGEVIDEO
      * @param { string } photoUri - URI of the media asset whose index is to be obtained.
-     * @param { string } albumUri - Album URI, which can be an empty string. If it is an empty string, all the media assets in the Gallery are obtained by default.
+     * @param { string } albumUri - Album URI, which can be an empty string.
+     * <br>If it is an empty string, all the media assets in the Gallery are obtained by default.
      * @param { FetchOptions } options - Fetch options. Only one search condition or sorting mode must be set in predicates.
      * <br>If no value is set or multiple search criteria or sorting modes are set, the API cannot be called successfully.
      * @returns { Promise<int> } - Returns the index of the asset in the album
@@ -7566,7 +7578,7 @@ declare namespace photoAccessHelper {
      *     3. The IPC request timed out.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 22
+     * @since 22 dynamic
      */
     getClonedAssetUris(oldUris: Array<string>): Promise<Map<string, string>>;
 
@@ -7587,7 +7599,7 @@ declare namespace photoAccessHelper {
      *     3. The IPC request timed out.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 22
+     * @since 22 dynamic
      */
     getClonedAlbumUris(oldUris: Array<string>): Promise<Map<string, string>>;
 
@@ -8126,8 +8138,7 @@ declare namespace photoAccessHelper {
      * @type { ?PositionType }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 22 dynamic
-     * @since 23 static
+     * @since 23 dynamic&static
      */
     position?: PositionType;
 
@@ -8137,21 +8148,19 @@ declare namespace photoAccessHelper {
      * @type { ?string }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 22 dynamic
-     * @since 23 static
+     * @since 23 dynamic&static
      */
     displayName?: string;
 
     /**
      * Size of photo asset.
      *
-     * @type { ?number }
+     * @type { ?long }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 22 dynamic
-     * @since 23 static
+     * @since 23 dynamic&static
      */
-    size?: number;
+    size?: long;
 
     /**
      * The analysis album change info.
@@ -9513,12 +9522,12 @@ declare namespace photoAccessHelper {
     /**
      * user id
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 18 dynamic
      */
-    userId?: number;
+    userId?: int;
 
      /**
      * Context recovery information for restoring the last selection session.
@@ -12004,12 +12013,12 @@ declare namespace photoAccessHelper {
     getUri(): string;
 
     /**
-     * Check if the video of the moving photo is ready.
+     * Check whether the video of the moving photo is ready.
      *
      * @permission ohos.permission.READ_IMAGEVIDEO
-     * @returns { Promise<boolean> } Returns whether the video is ready
-     * @throws { BusinessError } 201 - Permission denied
-     * @throws { BusinessError } 202 - Called by non-system application
+     * @returns { Promise<boolean> } Promise used to return the check result.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Called by non-system application.
      * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
      * <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -13935,7 +13944,7 @@ declare namespace photoAccessHelper {
    * @enum { number } HdrMode
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
-   * @since 22
+   * @since 22 dynamic
    */
   enum HdrMode {
     /**
@@ -13943,7 +13952,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 22
+     * @since 22 dynamic
      */
     DEFAULT = 0,
     /**
@@ -13951,7 +13960,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 22
+     * @since 22 dynamic
      */
     HDR_ISO_SINGLE = 1,
     /**
@@ -13959,7 +13968,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 22
+     * @since 22 dynamic
      */
     HDR_ISO_DUAL = 2,
     /**
@@ -13967,7 +13976,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 22
+     * @since 22 dynamic
      */
     HDR_CUVA = 3,
     /**
@@ -13975,7 +13984,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 22
+     * @since 22 dynamic
      */
     HDR_VIVID_SINGLE = 4,
     /**
@@ -13983,7 +13992,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 22
+     * @since 22 dynamic
      */
     HDR_VIVID_DUAL = 5,
   }
