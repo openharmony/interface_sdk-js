@@ -176,8 +176,9 @@ export declare type PersistenceErrorCallback = (key: string, reason: 'quota' | '
  * @atomicservice
  * @since 23 dynamic
  */
-export declare type CollectionType<S> = Array<S> | Map<string | number, S> | 
+export declare type CollectionType<S> = Array<S> | Map<string | number, S> |
     Set<S> | collections.Array<S> | collections.Map<string | number, S> | collections.Set<S>;
+
 /**
  * Define ConnectOptionsCollections class.
  * To be used with globalConnect for collection type return only.
