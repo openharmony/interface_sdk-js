@@ -3461,7 +3461,7 @@ declare namespace window {
    * @param { Configuration } config - Parameters for window creation.
    * @param { AsyncCallback<Window> } callback - Callback used to return the window created.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
    *                                                                  2. Incorrect parameter types.
    * @throws { BusinessError } 1300001 - Repeated operation.
    * @throws { BusinessError } 1300006 - This window context is abnormal.
@@ -3478,7 +3478,7 @@ declare namespace window {
    * @param { Configuration } config - Parameters for window creation.
    * @param { AsyncCallback<Window> } callback - Callback used to return the window created.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
    *                                                                  2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
    * @throws { BusinessError } 1300001 - Repeated operation.
@@ -3492,13 +3492,14 @@ declare namespace window {
    * @since 12
    */
   /**
-   * Creates a child window or system window. This API uses an asynchronous callback to return the result.
+   * Create a window with a specific configuration
+   * When config.windowType == TYPE_FLOAT, the "ohos.permission.SYSTEM_FLOAT_WINDOW" permission is required
    *
    * @permission ohos.permission.SYSTEM_FLOAT_WINDOW
    * @param { Configuration } config - Parameters used for creating the window.
-   * @param { AsyncCallback<Window> } callback - Callback used to return the window created.
+   * @param { AsyncCallback<Window> } callback - Callback used to return for window creation.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
    *                                                                  2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.createWindow can not work correctly due to limited device capabilities.
    * @throws { BusinessError } 1300001 - Repeated operation.
@@ -5144,7 +5145,7 @@ declare namespace window {
   type SpecificSystemBar = 'status' | 'navigation' | 'navigationIndicator';
 
   /**
-   * Describes the window transition type
+   * Describes the window transition animation type
    *
    * @enum { number }
    * @syscap SystemCapability.Window.SessionManager
@@ -5278,7 +5279,7 @@ declare namespace window {
   }
 
   /**
-   * The animation configuration of window transition
+   * window transition animation config
    *
    * @interface TransitionAnimation
    * @syscap SystemCapability.Window.SessionManager
@@ -5288,7 +5289,7 @@ declare namespace window {
    */
   interface TransitionAnimation {
     /**
-     * The config of window animation
+     * transition animation config
      *
      * @type { WindowAnimationConfig }
      * @syscap SystemCapability.Window.SessionManager
@@ -5298,7 +5299,7 @@ declare namespace window {
      */
     config: WindowAnimationConfig;
     /**
-     * The opacity of window
+     * transition animation opacity
      *
      * @type { ?double }
      * @syscap SystemCapability.Window.SessionManager
@@ -7117,7 +7118,7 @@ declare namespace window {
 
     /**
      * Get whether the gesture back function is currently disabled.
-     * 
+     *
      * @returns { boolean } enabled - If true then the gesture back function is currently enabled, false then the gesture back function is currently disabled.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
@@ -8911,8 +8912,8 @@ declare namespace window {
      * @param { 'windowEvent' } type - Event type.
      *     The value is fixed at 'windowEvent', indicating the window lifecycle change event.
      * @param { Callback<WindowEventType> } callback - Callback used to return the window lifecycle state.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types; 
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
+     *                                                                  2. Incorrect parameter types;
      *                                                                  3. Parameter verification failed.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
@@ -8921,7 +8922,7 @@ declare namespace window {
      */
     on(type: 'windowEvent', callback: Callback<WindowEventType>): void;
 
-    /**
+     /**
      * Subscribes to the window lifecycle change event.
      *
      * @param { Callback<WindowEventType> } callback - Callback used to return the window lifecycle state.
@@ -8929,7 +8930,7 @@ declare namespace window {
      * @crossplatform
      * @since 23 static
      */
-    onWindowEvent(callback: Callback<WindowEventType>): void;
+     onWindowEvent(callback: Callback<WindowEventType>): void;
 
     /**
      * Unregister the callback of windowEvent
@@ -8949,7 +8950,7 @@ declare namespace window {
      * @param { Callback<WindowEventType> } callback - Callback used to return the window lifecycle state.
      *     If a value is passed in, the corresponding subscription is canceled.
      *     If no value is passed in, all subscriptions to the specified event are canceled.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types; 
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types;
      *                                                                  2. Parameter verification failed.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
@@ -10918,7 +10919,7 @@ declare namespace window {
      *                                          1. The window is not created or destroyed;
      *                                          2. Internal task error.
      * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause:
-     *                                          Invalid window type. Only subwindows and float windows are supported.
+     *     Invalid window type. Only subwindows and float windows are supported.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 17 dynamic
@@ -12183,11 +12184,11 @@ declare namespace window {
     disableLandscapeMultiWindow(): Promise<void>;
 
     /**
-     * Set window transition animation
+     * Set window transition animation.
      *
      * @param { WindowTransitionType } transitionType - Transition animation type.
      * @param { TransitionAnimation } animation - Transition animation config.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @returns { Promise<void> } - Promise that returns no value.
      * @throws { BusinessError } 801 - Capability not supported.
      *     Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
@@ -13024,6 +13025,22 @@ declare namespace window {
     getRotationLocked(): boolean;
 
     /**
+     * Convert orientation and rotation between window and display.
+     * @param { RotationInfoType } from - The type of the value to be converted.
+     * @param { RotationInfoType } to - The target type of conversion.
+     * @param { int } value - The value to be converted.
+     * @returns { int } - The converted value.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
+     *                                          1. The window is not created or destroyed;
+     *                                          2. Internal task error.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 23 dynamic&static
+     */
+    convertOrientationAndRotation(from: RotationInfoType, to: RotationInfoType, value: int): int;
+
+    /**
      * Set whether the window supports event separation capability.
      * When the window doesn't support event separation capability:
      *    After the first finger touch the window,
@@ -13095,22 +13112,6 @@ declare namespace window {
      * @since 23 dynamic&static
      */
     isReceiveDragEventEnabled(): boolean;
-
-    /**
-     * Convert orientation and rotation between window and display.
-     * @param { RotationInfoType } from - The type of the value to be converted.
-     * @param { RotationInfoType } to - The target type of conversion.
-     * @param { int } value - The value to be converted.
-     * @returns { int } - The converted value.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
-     *                                          1. The window is not created or destroyed;
-     *                                          2. Internal task error.
-     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
-     * @syscap SystemCapability.Window.SessionManager
-     * @since 23 dynamic&static
-     */
-    convertOrientationAndRotation(from: RotationInfoType, to: RotationInfoType, value: int): int;
   }
 
   /**
@@ -13655,10 +13656,10 @@ declare namespace window {
      * @since 10
      */
     /**
-     * Creates a child window for this window stage. This API uses a promise to return the result.
+     * Create sub window of the stage.
      *
-     * @param { string } name Name of the child window.
-     * @returns { Promise<Window> } Promise used to return the child window.
+     * @param { string } name window name of sub window
+     * @returns { Promise<Window> } Promise used to return the subwindow.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      *     Possible cause: The subWindow has been created and can not be created again.
@@ -13695,10 +13696,10 @@ declare namespace window {
      * @since 10
      */
     /**
-     * Creates a child window for this window stage. This API uses an asynchronous callback to return the result.
+     * Create sub window of the stage.
      *
-     * @param { string } name Name of the child window.
-     * @param { AsyncCallback<Window> } callback Callback used to return the child window.
+     * @param { string } name window name of sub window
+     * @param { AsyncCallback<Window> } callback Callback used to return the subwindow.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      *     Possible cause: The subWindow has been created and can not be created again.

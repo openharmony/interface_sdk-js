@@ -19298,7 +19298,7 @@ declare enum ModalMode {
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
-   */    
+   */
   AUTO = 0,
   /**
    * Operation takes effect around menu.

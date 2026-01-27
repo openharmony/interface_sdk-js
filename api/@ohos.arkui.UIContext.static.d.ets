@@ -3914,7 +3914,8 @@ export declare class UIContext {
    *
    * @param { VoidCallback } callback - The callback function to be executed in the UI thread.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @stagemodelonly
+   * @since 23 staticonly
    */
   setUIStates(callback: VoidCallback): void;
 

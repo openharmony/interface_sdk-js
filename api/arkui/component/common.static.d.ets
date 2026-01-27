@@ -11477,6 +11477,7 @@ export declare interface CommonMethod {
      * @param { VisibleAreaChangeCallback | undefined } event - Callback for visible area changes of the component.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default onVisibleAreaChange(ratios: Array<double> | undefined, event: VisibleAreaChangeCallback | undefined): this;
@@ -12339,11 +12340,12 @@ export declare interface Layoutable {
     /**
      * Applies the specified position information to the child component.
      *
-     * @param { Position } position
+     * @param { Position | undefined } position
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
-    layout(position: Position): void;
+    layout(position: Position | undefined): void;
     /**
      * Obtains the margin of the child component.
      *
@@ -12392,13 +12394,14 @@ export declare interface Measurable {
     /**
      * Applies the size constraint to the child component.
      *
-     * @param { ConstraintSizeOptions } constraint
+     * @param { ConstraintSizeOptions | undefined } constraint
      * @returns { MeasureResult | undefined } Provides the measurement result of the component. If some errors
-     * occur in the internal runtime environment, returns undefined.
+     *     occur in the internal runtime environment, returns undefined.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
-    measure(constraint: ConstraintSizeOptions): MeasureResult | undefined;
+    measure(constraint: ConstraintSizeOptions | undefined): MeasureResult | undefined;
     /**
      * Obtains the margin of the child component.
      *

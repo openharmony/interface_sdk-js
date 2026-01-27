@@ -335,7 +335,8 @@ declare namespace sendablePhotoAccessHelper {
     /**
      * Sets a PhotoAsset member parameter.
      *
-     * @param { string } member - Name of the parameter to set, for example, PhotoKeys.TITLE. The value contains 1 to 255 characters.
+     * @param { string } member - Name of the parameter to set, for example, PhotoKeys.TITLE.
+     * The value contains 1 to 255 characters.
      * @param { string } value - Value to set. Only the value of PhotoKeys. TITLE can be changed. 
      * The title must meet the following requirements:
      * - It does not contain a file name extension.
@@ -454,7 +455,8 @@ declare namespace sendablePhotoAccessHelper {
     getFirstObject(): Promise<T>;
     /**
      * Obtains the next asset in the result set. This API uses a promise to return the result.
-     * Before using this API, you must use isAfterLast() to check whether the current position is the end of the result set.
+     * Before using this API, you must use isAfterLast() to check whether the current position is the end of
+     * <br>the result set.
      *
      * @returns { Promise<T> } Returns the next object
      * @throws { BusinessError } 14000011 - Internal system error
@@ -1233,8 +1235,10 @@ declare namespace sendablePhotoAccessHelper {
     createAsset(displayName: string, options: photoAccessHelper.PhotoCreateOptions): Promise<PhotoAsset>;
     /**
      * Creates an image or video asset with the specified file type, file name extension, and options.
-     * This API uses a promise to return the result. If the caller does not have the ohos.permission.WRITE_IMAGEVIDEO permission,
-     * you can create a media asset by using a security component. For details, see Creating a Media Asset Using a Security Component.
+     * This API uses a promise to return the result.
+     * If the caller does not have the ohos.permission.WRITE_IMAGEVIDEO permission,
+     * you can create a media asset by using a security component.
+     * For details, see Creating a Media Asset Using a Security Component.
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
      * @param { PhotoType } photoType - Type of the file to create, which can be IMAGE or VIDEO.

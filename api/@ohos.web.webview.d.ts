@@ -3782,7 +3782,7 @@ declare namespace webview {
      * @since 22 dynamic
      */
     DEFAULT = 0,
-
+ 
     /**
      * Soft keyboard will not be hidden or shown automatically when web comes into pause/continue state
      * @syscap SystemCapability.Web.Webview.Core
@@ -5970,8 +5970,8 @@ declare namespace webview {
      * Preresolve or Preconnect the url. This API can be called before loading the url to make loading faster.
      * @param { string } url - Which url to preresolve/preconnect.
      * @param { boolean } preconnectable - Indicates whether to preconnect.
-     * @param { number } numSockets - If preconnectable is true, this parameter indicates the number of sockets to be 
-     * preconnected.
+     * @param { number } numSockets - If preconnectable is true, this parameter indicates the number of sockets to be
+     *     preconnected.
      * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid, or the URL
      *     length exceeds 2048.
      * @throws { BusinessError } 17100013 - The number of preconnect sockets is invalid.
@@ -5982,8 +5982,8 @@ declare namespace webview {
      * Preresolve or Preconnect the url. This API can be called before loading the url to make loading faster.
      * @param { string } url - Which url to preresolve/preconnect.
      * @param { boolean } preconnectable - Indicates whether to preconnect.
-     * @param { number } numSockets - If preconnectable is true, this parameter indicates the number of sockets to be 
-     * preconnected.
+     * @param { number } numSockets - If preconnectable is true, this parameter indicates the number of sockets to be
+     *     preconnected.
      * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid, or the URL
      *     length exceeds 2048.
      * @throws { BusinessError } 17100013 - The number of preconnect sockets is invalid.
@@ -7431,7 +7431,7 @@ declare namespace webview {
     /**
      * Set the WebSoftKeyboardBehaviorMode to decide whether the keyboard will be shown/hidden automatically
      * in particular situation, for example, when web is inactive or active.
-     *
+     * 
      * @param { WebSoftKeyboardBehaviorMode } mode - The WebSoftKeyboardBehaviorMode of this web.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.

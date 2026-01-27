@@ -414,15 +414,6 @@ export declare enum ProgressStyle {
     Capsule
 }
 /**
- * Defines the map for progress type and style.
- *
- * @interface ProgressStyleMap
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 23 static
- */
-export declare interface ProgressStyleMap {}
-/**
  * Defines the Progress component attributes.
  *
  * @extends CommonMethod
