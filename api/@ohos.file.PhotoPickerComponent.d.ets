@@ -566,7 +566,6 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 20 dynamic
-   * @since 23 static
    */
   singleLineConfig?: SingleLineConfig;
 
@@ -579,6 +578,26 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
    * @since 20 dynamic
    */
   uiComponentColorMode?: PickerColorMode;
+
+  /**
+   * Support to set offset between first grid item and the top of grid
+   *
+   * @type { ?int  }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 20 dynamic
+   */
+  gridStartOffset?: int;
+
+  /**
+   * Support to set offset between last grid item and the bottom of grid
+   *
+   * @type { ?int  }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 20 dynamic
+   */
+  gridEndOffset?: int;
 
   /**
    * Support to set a serial number to distinguish different picker components. Default value is -1.
@@ -645,28 +664,6 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
    * @since 23 dynamic&static
    */
   appAlbumFilters?: Array<string>;
-
-  /**
-   * Support to set offset between first grid item and the top of grid
-   *
-   * @type { ?number  }
-   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @atomicservice
-   * @since 20 dynamic
-   * @since 22 static
-   */
-  gridStartOffset?: number;
-
-  /**
-   * Support to set offset between last grid item and the bottom of grid
-   *
-   * @type { ?number  }
-   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @atomicservice
-   * @since 20 dynamic
-   * @since 22 static
-   */
-  gridEndOffset?: number;
 }
 
 /**
@@ -885,7 +882,6 @@ export declare class MaxSelected {
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @atomicservice
  * @since 20 dynamic
- * @since 23 static
  */
 export declare class SingleLineConfig {
   /**
@@ -905,7 +901,6 @@ export declare class SingleLineConfig {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 20 dynamic
-   * @since 23 static
    */
   itemBorderRadius?: Length | BorderRadiuses | LocalizedBorderRadiuses;
 
@@ -1688,7 +1683,6 @@ export declare enum SaveMode {
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @atomicservice
  * @since 20 dynamic
- * @since 23 static
  */
 export declare enum ItemDisplayRatio {
   /**
