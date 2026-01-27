@@ -87,7 +87,7 @@ declare namespace distributedKVStore {
      * Indicates the ability or hap context
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * if swap the area, you should close all the KV store and use the new Context to create the KVManager
+     *     if swap the area, you should close all the KV store and use the new Context to create the KVManager
      * @since 9
      */
     /**
@@ -95,7 +95,7 @@ declare namespace distributedKVStore {
      *
      * @type { BaseContext }
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * if swap the area, you should close all the KV store and use the new BaseContext to create the KVManager
+     *     if swap the area, you should close all the KV store and use the new BaseContext to create the KVManager
      * @stagemodelonly[staticonly]
      * @since 10 dynamic
      * @since 23 static
