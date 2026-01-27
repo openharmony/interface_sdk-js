@@ -11789,9 +11789,11 @@ declare namespace window {
     getWindowDecorVisible(): boolean;
 
     /**
-     * Enables or disables the capability to move the window (either main window or child window) by dragging its title bar and to maximize the window with a double-click.
+     * Enables or disables the capability to move the window (either main window or child window)
+     * by dragging its title bar and to maximize the window with a double-click.
      *
-     * @param { boolean } enabled - Whether to enable the capability to move the window by dragging the title bar and to maximize the window with a double-click.
+     * @param { boolean } enabled - Whether to enable the capability to move the window
+     *                              by dragging the title bar and to maximize the window with a double-click.
      *                              The value true means to enable the capability, and false means the opposite.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
      *                                                                  2. Incorrect parameter types.
