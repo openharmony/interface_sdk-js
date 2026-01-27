@@ -1,6 +1,8 @@
+'use static';
+
 /*
- * Copyright (c) 2025 Huawei Device Co., Ltd.
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Copyright (c) 2026 Huawei Device Co., Ltd.
+ * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
@@ -12,25 +14,30 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 /**
  * @file
  * @kit ArkData
  */
 import uniformDataStruct from '@ohos.data.uniformDataStruct';
+import { PropRef } from '@ohos.arkui.stateManagement';
+import { Component, Builder } from '@ohos.arkui.component';
 
 /**
  * Enumerates the form card types.
  *
  * @enum { int }
  * @syscap SystemCapability.DistributedDataManager.UDMF.Core
- * @since 20 dynamic
+ * @stagemodelonly
+ * @since 23 static
  */
 declare enum FormType {
   /**
    * Big form card, with fixed size of 4 x 4.
    *
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-   * @since 20 dynamic
+   * @stagemodelonly
+   * @since 23 static
    */
   TYPE_BIG = 0,
 
@@ -38,7 +45,8 @@ declare enum FormType {
    * Medium-sized form card, with fixed size of 4 x 2.
    *
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-   * @since 20 dynamic
+   * @stagemodelonly
+   * @since 23 static
    */
   TYPE_MID = 1,
 
@@ -46,7 +54,8 @@ declare enum FormType {
    * Small form card, with fixed size of 2 x 1.
    *
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-   * @since 20 dynamic
+   * @stagemodelonly
+   * @since 23 static
    */
   TYPE_SMALL = 2
 }
@@ -56,7 +65,8 @@ declare enum FormType {
  *
  * @struct { ContentFormCard }
  * @syscap SystemCapability.DistributedDataManager.UDMF.Core
- * @since 20 dynamic
+ * @stagemodelonly
+ * @since 23 static
  */
 @Component
 declare struct ContentFormCard {
@@ -65,7 +75,8 @@ declare struct ContentFormCard {
    *
    * @type { uniformDataStruct.ContentForm }
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-   * @since 20 dynamic
+   * @stagemodelonly
+   * @since 23 static
    */
   contentFormData: uniformDataStruct.ContentForm;
 
@@ -74,9 +85,10 @@ declare struct ContentFormCard {
    *
    * @type { FormType }
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-   * @since 20 dynamic
+   * @stagemodelonly
+   * @since 23 static
    */
-  @Prop
+  @PropRef
   formType: FormType;
 
   /**
@@ -84,9 +96,10 @@ declare struct ContentFormCard {
    *
    * @type { ?double }
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-   * @since 20 dynamic
+   * @stagemodelonly
+   * @since 23 static
    */
-  @Prop
+  @PropRef
   formWidth?: double;
 
   /**
@@ -94,9 +107,10 @@ declare struct ContentFormCard {
    *
    * @type { ?double }
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-   * @since 20 dynamic
+   * @stagemodelonly
+   * @since 23 static
    */
-  @Prop
+  @PropRef
   formHeight?: double;
 
   /**
@@ -104,9 +118,20 @@ declare struct ContentFormCard {
    *
    * @type { ?Function }
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-   * @since 20 dynamic
+   * @stagemodelonly
+   * @since 23 static
    */
   handleOnClick?: Function;
+
+  /**
+   * The method to build component.
+   *
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @stagemodelonly
+   * @since 23 staticonly
+   */
+  @Builder
+  build(): void;
 }
 
 export { ContentFormCard, FormType };
