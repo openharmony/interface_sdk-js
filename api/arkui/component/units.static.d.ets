@@ -1185,16 +1185,6 @@ export declare interface BorderOptions {
    * @since 23 static
    */
   dashWidth?: EdgeWidths | LengthMetrics | LocalizedEdgeWidths;
-
-  /**
-   * Defines the border display hierarchy, such as show in the background or foreground。
-   *
-   * @type { ?boolean }
-   * @default true
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  showInForeground?: boolean;
 }
 
 /**
