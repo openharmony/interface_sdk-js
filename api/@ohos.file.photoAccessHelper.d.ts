@@ -13435,16 +13435,17 @@ declare namespace photoAccessHelper {
     queryDownloadSpecificCloudMediaTaskCount(predicates: dataSharePredicates.DataSharePredicates): Promise<int>;
 
     /**
-     * Query download cloud assets task count and size.
+     * Query download cloud assets count and size.
      *
      * @permission ohos.permission.READ_IMAGEVIDEO
-     * @param { dataSharePredicates.DataSharePredicates } predicates - Filter parameter.
-     * @returns { Promise<int[]> } Returns download cloud assets task count and size.
+     * @param { dataSharePredicates.DataSharePredicates } predicates - Filtering parameters
+     * @returns { Promise<int[]> } Returns download cloud assets count and size.
      * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 202 - Called by non-system application
-     * @throws { BusinessError } 23800301  -  Internal system error. It is recommended to retry and check the logs.
+     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
      *     Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+	 * @stagemodelonly
      * @systemapi
      * @since 24 dynamic&static
      */
