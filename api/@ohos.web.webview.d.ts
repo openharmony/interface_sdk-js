@@ -5970,8 +5970,8 @@ declare namespace webview {
      * Preresolve or Preconnect the url. This API can be called before loading the url to make loading faster.
      * @param { string } url - Which url to preresolve/preconnect.
      * @param { boolean } preconnectable - Indicates whether to preconnect.
-     * @param { number } numSockets - If preconnectable is true, this parameter indicates the number of sockets to be 
-     * preconnected.
+     * @param { number } numSockets - If preconnectable is true, this parameter indicates the number of sockets to be
+     *     preconnected.
      * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid, or the URL
      *     length exceeds 2048.
      * @throws { BusinessError } 17100013 - The number of preconnect sockets is invalid.
@@ -5982,8 +5982,8 @@ declare namespace webview {
      * Preresolve or Preconnect the url. This API can be called before loading the url to make loading faster.
      * @param { string } url - Which url to preresolve/preconnect.
      * @param { boolean } preconnectable - Indicates whether to preconnect.
-     * @param { number } numSockets - If preconnectable is true, this parameter indicates the number of sockets to be 
-     * preconnected.
+     * @param { number } numSockets - If preconnectable is true, this parameter indicates the number of sockets to be
+     *     preconnected.
      * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid, or the URL
      *     length exceeds 2048.
      * @throws { BusinessError } 17100013 - The number of preconnect sockets is invalid.
