@@ -46,6 +46,7 @@ import { AccessibilityHoverType, Curve, PlayMode, SharedTransitionEffectType, Ke
 import { TextRange } from "./textCommon";
 import { StyledString } from "./styledString";
 import { CustomBuilder, WrappedBuilder, CustomBuilderT } from './builder';
+import { RecordData } from '@ohos.base';
 import curves from '../../@ohos.curves';
 import matrix4 from '../../@ohos.matrix4';
 import { AvoidanceMode } from './select';
