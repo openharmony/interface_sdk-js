@@ -9468,7 +9468,8 @@ declare namespace window {
      * Sets whether the modal window responds to the back gesture event. An error code is returned if this API is called for a non-modal window.
      *
      * @param { boolean } enabled - Whether to respond to the back gesture event.
-     *                              The value true means to respond to the back gesture event and trigger the onBackPress callback, and false means the opposite.
+     *                              The value true means to respond to the back gesture event and trigger the onBackPress callback,
+     *                              and false means the opposite.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
      *                                                                  2. Incorrect parameter types.
