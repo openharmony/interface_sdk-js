@@ -2659,7 +2659,7 @@ declare namespace sms {
      * @since 7 dynamic
      * @since 23 static
      */
-    slotId: number;
+    slotId: int;
 
     /**
      * Indicates the message index for the updating SIM message options.
@@ -2670,7 +2670,7 @@ declare namespace sms {
      * @since 7 dynamic
      * @since 23 static
      */
-    msgIndex: number;
+    msgIndex: int;
 
     /**
      * Indicates the new status for the updating SIM message options.
