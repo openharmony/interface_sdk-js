@@ -436,7 +436,7 @@ declare namespace inputConsumer {
   function on(type: 'keyPressed', options: KeyPressedConfig, callback: Callback<KeyEvent>): void;
 
    /**
-   * Consumed key events. Only the VolumeUp and VolumeDown keys are supported. When the current application process
+   * Consumed key events. Only the VolumeUp, VolumeDown, MediaPlayPause, MediaPrevious and MediaNext keys are supported. When the current application process
    * is the focus window's process, a callback will be triggered if the user operates the specified key.
    *
    * @param { KeyPressedConfig } options - Key consumption settings.
