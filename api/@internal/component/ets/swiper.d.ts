@@ -201,6 +201,66 @@ declare class SwiperController {
    * @since 18 dynamic
    */
   preloadItems(indices: Optional<Array<number>>): Promise<void>;
+
+  /**
+   * Start a fake drag.
+   * Call 'fakeDragBy' to simulate the drag motion. Call 'stopFakeDrag' to complete the fake drag.
+   * A fake drag can be interrupted by a real drag. If you need to ignore touch events and other
+   *     user input during a fake drag, use 'disableSwipe(true)'.
+   *
+   * @returns { boolean } If the fake drag started successfully, return true.
+   *     If the Swiper is not ready to start the fake drag, or a real or fake drag is already in progress, return false.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 24 dynamic
+   */
+  startFakeDrag(): boolean;
+
+  /**
+   * Fake drag by an offset.
+   * The 'startFakeDrag' must be called first.
+   *
+   * @param { number } offset - Indicate the offset that needs to be scrolled. The unit is vp.
+   * @returns { boolean } If not in a fake drag progress, or no offset is consumed, return false.
+   *     If any offset is consumed, return true.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 24 dynamic
+   */
+  fakeDragBy(offset: number): boolean;
+
+  /**
+   * Stop a fake drag.
+   *
+   * @returns { boolean } If the fake drag stopped successfully, return true.
+   *     If the Swiper is not ready to stop a fake drag, or no fake drag is in progress, return false.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 24 dynamic
+   */
+  stopFakeDrag(): boolean;
+
+  /**
+   * Get the fake drag state.
+   *
+   * @returns { boolean } If a fake drag is in progress return true, otherwise return false.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 24 dynamic
+   */
+  isFakeDragging(): boolean;
 }
 
 /**
@@ -654,6 +714,7 @@ declare class DotIndicator extends Indicator<DotIndicator> {
  *
  * @typedef { object } SwiperAutoFill
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @form
  * @atomicservice
  * @since 11
@@ -663,6 +724,7 @@ declare class DotIndicator extends Indicator<DotIndicator> {
  *
  * @typedef SwiperAutoFill
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @form
  * @atomicservice
  * @since 18 dynamic
@@ -682,6 +744,7 @@ declare interface SwiperAutoFill {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11 dynamic
+   * @crossplatform
    * @form
    */
   minSize: VP;
@@ -1127,8 +1190,9 @@ interface SwiperInterface {
  *
  * @interface IndicatorStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 8 dynamic
+ * @since 8 dynamiconly
  * @deprecated since 10
+ * @useinstead DotIndicator
  */
 declare interface IndicatorStyle {
   /**
@@ -1136,8 +1200,9 @@ declare interface IndicatorStyle {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 10
+   * @useinstead DotIndicator#left
    */
   left?: Length;
 
@@ -1146,8 +1211,9 @@ declare interface IndicatorStyle {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 10
+   * @useinstead DotIndicator#top
    */
   top?: Length;
 
@@ -1156,8 +1222,9 @@ declare interface IndicatorStyle {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 10
+   * @useinstead DotIndicator#right
    */
   right?: Length;
 
@@ -1166,8 +1233,9 @@ declare interface IndicatorStyle {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 10
+   * @useinstead DotIndicator#bottom
    */
   bottom?: Length;
 
@@ -1176,8 +1244,9 @@ declare interface IndicatorStyle {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 10
+   * @useinstead DotIndicator
    */
   size?: Length;
 
@@ -1186,8 +1255,9 @@ declare interface IndicatorStyle {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 10
+   * @useinstead DotIndicator#mask
    */
   mask?: boolean;
 
@@ -1196,8 +1266,9 @@ declare interface IndicatorStyle {
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 10
+   * @useinstead DotIndicator#color
    */
   color?: ResourceColor;
 
@@ -1206,8 +1277,9 @@ declare interface IndicatorStyle {
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 10
+   * @useinstead DotIndicator#selectColor
    */
   selectedColor?: ResourceColor;
 }
@@ -1321,6 +1393,7 @@ declare interface AutoPlayOptions {
 
  * @enum { number } SwiperNestedScrollMode
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @atomicservice
  * @since 11 dynamic
  */
@@ -1330,6 +1403,7 @@ declare enum SwiperNestedScrollMode {
    * the parent container does not scroll when the component scrolling reaches the boundary.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 11 dynamic
    */
@@ -1339,6 +1413,7 @@ declare enum SwiperNestedScrollMode {
    * The Swiper component scrolls first, and when it hits the boundary, the parent container scrolls.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 11 dynamic
    */
@@ -2097,8 +2172,9 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @param { IndicatorStyle } value
    * @returns { SwiperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 10
+   * @useinstead indicator
    */
   indicatorStyle(value?: IndicatorStyle): SwiperAttribute;
 

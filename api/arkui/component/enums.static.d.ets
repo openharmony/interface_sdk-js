@@ -194,12 +194,20 @@ export declare enum ColoringStrategy {
  */
 export declare enum ImageFit {
   /**
+   * Zoom in or out without maintaining the aspect ratio so that the image fills the display boundary.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  Fill = 0,
+
+  /**
    * Keep the aspect ratio to zoom out or zoom in so that the image is completely displayed within the display boundary.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
-  Contain = 0,
+  Contain = 1,
 
   /**
    * Keep the aspect ratio to zoom out or zoom in so that both sides of the image are greater than or equal to the
@@ -208,7 +216,7 @@ export declare enum ImageFit {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
-  Cover = 1,
+  Cover = 2,
 
   /**
    * Adaptive display
@@ -216,23 +224,7 @@ export declare enum ImageFit {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
-  Auto = 2,
-
-  /**
-   * Zoom in or out without maintaining the aspect ratio so that the image fills the display boundary.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  Fill = 3,
-
-  /**
-   * Keep the aspect ratio displayed, and the image zooms out or remains unchanged.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  ScaleDown = 4,
+  Auto = 3,
 
   /**
    * Keep the original size and display it in the center.
@@ -241,6 +233,14 @@ export declare enum ImageFit {
    * @since 23 static
    */
   None = 5,
+
+  /**
+   * Keep the aspect ratio displayed, and the image zooms out or remains unchanged.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  ScaleDown = 6,
 
   /**
    * Top Start.
@@ -523,7 +523,7 @@ export declare enum InteractionHand {
 }
 
 /**
- * Function Called by Mouse
+ * Define the button types of the mouse device.
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -3299,7 +3299,23 @@ export declare enum EllipsisMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
-  END = 2
+  END = 2,
+
+  /**
+   * The ellipsis is in the head. It is valid for multiline and single line.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 24 static
+   */
+  MULTILINE_START = 3,
+
+  /**
+   * The ellipsis is in the middle. It is valid for multiline and single line.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 24 static
+   */
+  MULTILINE_CENTER = 4,
 }
 
 /**
@@ -4019,14 +4035,16 @@ export declare enum DividerMode {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 23 static
+ * @stagemodelonly
+ * @since 24 static
  */
-declare enum EventQueryType {
+export declare enum EventQueryType {
   /**
    * Type of onClick event.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @stagemodelonly
+   * @since 24 static
    */
   ON_CLICK = 0
 }
@@ -4064,39 +4082,42 @@ export declare enum TipsAnchorType {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 23 static
+ * @stagemodelonly
+ * @since 24 static
  */
 declare enum DialogDisplayMode {
   /**
-   * dialog display in center of app window.
+   * The dialog displayed based on screen.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @stagemodelonly
+   * @since 24 static
    */
-  CENTER_IN_WINDOW = 1,
-
+  SCREEN_BASED = 0,
   /**
-   * dialog display in center of screen.
+   * The dialog displayed based on application window.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @stagemodelonly
+   * @since 24 static
    */
-  CENTER_IN_SCREEN = 0
+  WINDOW_BASED = 1
 }
 
 /**
  * Focus wrap mode of a list or grid when moving focus using the arrow keys.
-
+ *
  * @enum { number } FocusWrapMode
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 23 static
+ * @stagemodelonly
+ * @since 24 static
  */
-declare enum FocusWrapMode {
+export declare enum FocusWrapMode {
   /**
    * No wrap when moving focus using the arrow keys.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   DEFAULT = 0,
 
@@ -4104,7 +4125,7 @@ declare enum FocusWrapMode {
    * Auto wrap when moving focus using the arrow keys.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   WRAP_WITH_ARROW = 1
 }
@@ -4272,4 +4293,37 @@ export enum AttributeModifierState {
    * @since 23 staticonly
    */
   ALL = (1 << 4) - 1
+}
+
+/**
+ * Specify the number of columns for different responsive breakpoints.
+ *
+ * @enum { int }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 24 static
+ */
+export declare enum PresetFillType {
+    /**
+     * For Lists and Swipers: One column is displayed on SM (and smaller), two on MD, and three on LG (and larger)
+     * devices. For Grid and WaterFlow: two column is displayed on SM (and smaller), three on MD, and five on LG
+     * (and larger) devices.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 24 static
+     */
+    BREAKPOINT_DEFAULT = 0,
+    /**
+     * For SM (and smaller), MD, and LG (and larger) devices, one, two, and three columns are displayed respectively.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 24 static
+     */
+    BREAKPOINT_SM1MD2LG3 = 1,
+    /**
+     * For SM (and smaller), MD, and LG (and larger) devices, two, three, and five columns are displayed respectively.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 24 static
+     */
+    BREAKPOINT_SM2MD3LG5 = 2
 }

@@ -21,7 +21,7 @@
 /**
  * @typedef StartBLEScanOptions
  * @syscap SystemCapability.Communication.Bluetooth.Lite
- * @since 6 dynamic
+ * @since 6 dynamiconly
  */
 export interface StartBLEScanOptions {
   /**
@@ -29,7 +29,7 @@ export interface StartBLEScanOptions {
    *
    * @type { number }
    * @syscap SystemCapability.Communication.Bluetooth.Lite
-   * @since 6 dynamic
+   * @since 6 dynamiconly
    */
   interval: number;
   /**
@@ -37,7 +37,7 @@ export interface StartBLEScanOptions {
    *
    * @type { function }
    * @syscap SystemCapability.Communication.Bluetooth.Lite
-   * @since 6 dynamic
+   * @since 6 dynamiconly
    */
   success: () => void;
   /**
@@ -45,7 +45,7 @@ export interface StartBLEScanOptions {
    *
    * @type { function }
    * @syscap SystemCapability.Communication.Bluetooth.Lite
-   * @since 6 dynamic
+   * @since 6 dynamiconly
    */
   fail: (data: string, code: number) => void;
   /**
@@ -53,7 +53,7 @@ export interface StartBLEScanOptions {
    *
    * @type { function }
    * @syscap SystemCapability.Communication.Bluetooth.Lite
-   * @since 6 dynamic
+   * @since 6 dynamiconly
    */
   complete: () => void;
 }
@@ -61,7 +61,7 @@ export interface StartBLEScanOptions {
 /**
  * @typedef StopBLEScanOptions
  * @syscap SystemCapability.Communication.Bluetooth.Lite
- * @since 6 dynamic
+ * @since 6 dynamiconly
  */
 export interface StopBLEScanOptions {
   /**
@@ -69,7 +69,7 @@ export interface StopBLEScanOptions {
    *
    * @type { function }
    * @syscap SystemCapability.Communication.Bluetooth.Lite
-   * @since 6 dynamic
+   * @since 6 dynamiconly
    */
   success: () => void;
   /**
@@ -77,7 +77,7 @@ export interface StopBLEScanOptions {
    *
    * @type { function }
    * @syscap SystemCapability.Communication.Bluetooth.Lite
-   * @since 6 dynamic
+   * @since 6 dynamiconly
    */
   fail: (data: string, code: number) => void;
   /**
@@ -85,7 +85,7 @@ export interface StopBLEScanOptions {
    *
    * @type { function }
    * @syscap SystemCapability.Communication.Bluetooth.Lite
-   * @since 6 dynamic
+   * @since 6 dynamiconly
    */
   complete: () => void;
 }
@@ -93,7 +93,7 @@ export interface StopBLEScanOptions {
 /**
  * @typedef BluetoothDevice
  * @syscap SystemCapability.Communication.Bluetooth.Lite
- * @since 6 dynamic
+ * @since 6 dynamiconly
  */
 export interface BluetoothDevice {
   /**
@@ -101,7 +101,7 @@ export interface BluetoothDevice {
    *
    * @type { 'public' | 'random' }
    * @syscap SystemCapability.Communication.Bluetooth.Lite
-   * @since 6 dynamic
+   * @since 6 dynamiconly
    */
   addrType: 'public' | 'random';
   /**
@@ -109,7 +109,7 @@ export interface BluetoothDevice {
    *
    * @type { string }
    * @syscap SystemCapability.Communication.Bluetooth.Lite
-   * @since 6 dynamic
+   * @since 6 dynamiconly
    */
   addr: string;
   /**
@@ -117,7 +117,7 @@ export interface BluetoothDevice {
    *
    * @type { number }
    * @syscap SystemCapability.Communication.Bluetooth.Lite
-   * @since 6 dynamic
+   * @since 6 dynamiconly
    */
   rssi: number;
   /**
@@ -125,7 +125,7 @@ export interface BluetoothDevice {
    *
    * @type { string }
    * @syscap SystemCapability.Communication.Bluetooth.Lite
-   * @since 6 dynamic
+   * @since 6 dynamiconly
    */
   txpower: string;
   /**
@@ -133,7 +133,7 @@ export interface BluetoothDevice {
    *
    * @type { string }
    * @syscap SystemCapability.Communication.Bluetooth.Lite
-   * @since 6 dynamic
+   * @since 6 dynamiconly
    */
   data: string;
 }
@@ -141,7 +141,7 @@ export interface BluetoothDevice {
 /**
  * @typedef BLEFoundResponse
  * @syscap SystemCapability.Communication.Bluetooth.Lite
- * @since 6 dynamic
+ * @since 6 dynamiconly
  */
 export interface BLEFoundResponse {
   /**
@@ -149,7 +149,7 @@ export interface BLEFoundResponse {
    *
    * @type { Array<BluetoothDevice> }
    * @syscap SystemCapability.Communication.Bluetooth.Lite
-   * @since 6 dynamic
+   * @since 6 dynamiconly
    */
   devices: Array<BluetoothDevice>;
 }
@@ -157,7 +157,7 @@ export interface BLEFoundResponse {
 /**
  * @typedef SubscribeBLEFoundOptions
  * @syscap SystemCapability.Communication.Bluetooth.Lite
- * @since 6 dynamic
+ * @since 6 dynamiconly
  */
 export interface SubscribeBLEFoundOptions {
   /**
@@ -165,7 +165,7 @@ export interface SubscribeBLEFoundOptions {
    *
    * @type { function }
    * @syscap SystemCapability.Communication.Bluetooth.Lite
-   * @since 6 dynamic
+   * @since 6 dynamiconly
    */
   success: (data: BLEFoundResponse) => void;
   /**
@@ -173,7 +173,7 @@ export interface SubscribeBLEFoundOptions {
    *
    * @type { function }
    * @syscap SystemCapability.Communication.Bluetooth.Lite
-   * @since 6 dynamic
+   * @since 6 dynamiconly
    */
   fail: (data: string, code: number) => void;
 }
@@ -182,7 +182,7 @@ export interface SubscribeBLEFoundOptions {
  * Provides methods to manage BLE scan.
  *
  * @syscap SystemCapability.Communication.Bluetooth.Lite
- * @since 6 dynamic
+ * @since 6 dynamiconly
  */
 export default class Bluetooth {
   /**
@@ -190,7 +190,7 @@ export default class Bluetooth {
    *
    * @param { StartBLEScanOptions } options - Options
    * @syscap SystemCapability.Communication.Bluetooth.Lite
-   * @since 6 dynamic
+   * @since 6 dynamiconly
    */
   static startBLEScan(options: StartBLEScanOptions): void;
 
@@ -199,7 +199,7 @@ export default class Bluetooth {
    *
    * @param { StopBLEScanOptions } options - Options
    * @syscap SystemCapability.Communication.Bluetooth.Lite
-   * @since 6 dynamic
+   * @since 6 dynamiconly
    */
   static stopBLEScan(options: StopBLEScanOptions): void;
 
@@ -208,7 +208,7 @@ export default class Bluetooth {
    *
    * @param { SubscribeBLEFoundOptions } options - Options
    * @syscap SystemCapability.Communication.Bluetooth.Lite
-   * @since 6 dynamic
+   * @since 6 dynamiconly
    */
   static subscribeBLEFound(options: SubscribeBLEFoundOptions): void;
 
@@ -216,7 +216,7 @@ export default class Bluetooth {
    * Stop the subscription of BLE found
    *
    * @syscap SystemCapability.Communication.Bluetooth.Lite
-   * @since 6 dynamic
+   * @since 6 dynamiconly
    */
   static unsubscribeBLEFound(): void;
 }

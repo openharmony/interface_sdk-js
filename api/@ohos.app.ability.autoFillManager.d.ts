@@ -28,6 +28,7 @@ import type * as _CustomData from './application/CustomData';
 import type * as _AutoFillRect from './application/AutoFillRect';
 import type * as _AutoFillPopupConfig from './application/AutoFillPopupConfig';
 import { PopupPlacement } from './application/AutoFillPopupConfig';
+import { AutoFillTriggerType } from './application/AutoFillTriggerType';
 /*** endif */
 /*** if arkts static */
 import { UIContext } from './@ohos.arkui.UIContext';
@@ -43,6 +44,7 @@ import _AutoFillRect from './application/AutoFillRect';
 import _AutoFillPopupConfig from './application/AutoFillPopupConfig';
 import { PopupSize as _PopupSize } from './application/AutoFillPopupConfig';
 import { PopupPlacement as _PopupPlacement } from './application/AutoFillPopupConfig';
+import { AutoFillTriggerType as _AutoFillTriggerType } from './application/AutoFillTriggerType';
 /*** endif */
 
 /**
@@ -71,7 +73,7 @@ declare namespace autoFillManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-   * @since 23 dynamic&static
+   * @since 23 static
    */
   type OnSuccessFn = () => void;
 
@@ -82,7 +84,7 @@ declare namespace autoFillManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-   * @since 23 dynamic&static
+   * @since 23 static
    */
   type OnFailureFn = () => void;
 
@@ -118,8 +120,10 @@ declare namespace autoFillManager {
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @stagemodelonly
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
+    onSuccess(): void;
+
     /**
      * Called when auto save request is successfully handled.
      *
@@ -127,7 +131,7 @@ declare namespace autoFillManager {
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @stagemodelonly
      * @atomicservice
-     * @since 23 dynamic&static
+     * @since 23 static
      */
     onSuccess: OnSuccessFn;
 
@@ -144,8 +148,10 @@ declare namespace autoFillManager {
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @stagemodelonly
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
+    onFailure(): void;
+
     /**
      * Called when auto save request is failed to be handled.
      *
@@ -153,7 +159,7 @@ declare namespace autoFillManager {
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @stagemodelonly
      * @atomicservice
-     * @since 23 dynamic&static
+     * @since 23 static
      */
     onFailure: OnFailureFn;
   }
@@ -553,6 +559,26 @@ declare namespace autoFillManager {
    * @since 23 static
    */
   export type PopupPlacement = _PopupPlacement;
+
+  /**
+  * The enum of auto fill trigget type.
+  *
+  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+  * @systemapi
+  * @stagemodelonly
+  * @since 23 dynamic
+  */
+  export { AutoFillTriggerType };
+
+  /**
+  * The enum of auto fill trigget type.
+  *
+  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+  * @systemapi
+  * @stagemodelonly
+  * @since 23 static
+  */
+  export type AutoFillTriggerType = _AutoFillTriggerType;
 }
 
 export default autoFillManager;

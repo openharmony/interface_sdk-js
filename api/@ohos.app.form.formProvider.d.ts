@@ -400,8 +400,7 @@ declare namespace formProvider {
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
-   * @since 18 dynamic
-   * @since 23 static
+   * @since 18 dynamiconly
    * @deprecated since 20
    * @useinstead getPublishedRunningFormInfoById
    */
@@ -417,8 +416,7 @@ declare namespace formProvider {
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
-   * @since 18 dynamic
-   * @since 23 static
+   * @since 18 dynamiconly
    * @deprecated since 20
    * @useinstead getPublishedRunningFormInfos
    */
@@ -505,6 +503,19 @@ declare namespace formProvider {
    * @since 23 static
    */
   function openFormEditAbility(abilityName: string, formId: string, isMainPage?: boolean): void;
+
+  /**
+   * Close the form edit ability.
+   *
+   * @param { boolean } [isMainPage] - Indicates close the main edit page, default is true.
+   * @throws { BusinessError } 801 - Capability not supported due to limited device capabilities.
+   * @throws { BusinessError } 16500050 - IPC connection error.
+   * @throws { BusinessError } 16501015 - Cannot close the widget editing page opened by other apps.
+   * @syscap SystemCapability.Ability.Form
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function closeFormEditAbility(isMainPage?: boolean): void;
 
   /**
    * Activate scene animation

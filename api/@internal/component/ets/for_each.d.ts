@@ -36,6 +36,7 @@ declare class ForEachAttribute extends DynamicNode<ForEachAttribute> {
  *
  * @interface ForEachInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
@@ -43,6 +44,7 @@ declare class ForEachAttribute extends DynamicNode<ForEachAttribute> {
  *
  * @interface ForEachInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @form
  * @since 9
  */
@@ -51,6 +53,7 @@ declare class ForEachAttribute extends DynamicNode<ForEachAttribute> {
  *
  * @interface ForEachInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @since 10
@@ -60,6 +63,7 @@ declare class ForEachAttribute extends DynamicNode<ForEachAttribute> {
  *
  * @interface ForEachInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
@@ -74,6 +78,7 @@ interface ForEachInterface {
    * @param { function } keyGenerator
    * @returns { ForEachInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -84,6 +89,7 @@ interface ForEachInterface {
    * @param { function } keyGenerator
    * @returns { ForEachInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -95,6 +101,7 @@ interface ForEachInterface {
    * @param { function } keyGenerator
    * @returns { ForEachInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -107,6 +114,7 @@ interface ForEachInterface {
    * @param { function } keyGenerator
    * @returns { ForEachInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -120,6 +128,7 @@ interface ForEachInterface {
    * @param { function } keyGenerator
    * @returns { ForEachAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -136,12 +145,14 @@ interface ForEachInterface {
  * Defines ForEach Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
  * Defines ForEach Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @form
  * @since 9
  */
@@ -149,6 +160,7 @@ interface ForEachInterface {
  * Defines ForEach Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @since 10
@@ -157,6 +169,7 @@ interface ForEachInterface {
  * Defines ForEach Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice

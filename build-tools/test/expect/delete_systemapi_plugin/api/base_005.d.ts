@@ -1,7 +1,7 @@
 'use static';
 /*
- * Copyright (c) 2025 Huawei Device Co., Ltd.
- * Licensed under the Apache License, Version 2.0 (the "License"),
+ * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
+ * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
@@ -13,18 +13,23 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
  * @file
- * @kit ArkUI
+ * @kit AbilityKit
  */
-import { AttributeModifier } from '@ohos.arkui.component';
-import { PickerAttribute } from '@ohos.arkui.component';
-
 /**
- * Defines Picker Modifier
- * @implements { PickerAttribute, AttributeModifier<PickerAttribute> }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 23 static
+ * Defines error codes used when starting an ability, for example, featureAbility.ErrorCode.NO_ERROR.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @since 20
  */
-export declare class PickerModifier implements PickerAttribute, AttributeModifier<PickerAttribute> {}
+export enum ErrorCode {
+    /**
+     * No error.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @since 20
+     */
+    NO_ERROR = 0
+}

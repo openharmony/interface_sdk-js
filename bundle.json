@@ -33,7 +33,7 @@
     },
     "build": {
       "sub_component": [],
-      "inner_api": [
+      "inner_kits": [
         {
           "name": "//interface/sdk-js:ohos_ets_api"
         },

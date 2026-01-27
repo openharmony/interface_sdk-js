@@ -23,6 +23,7 @@
  *
  * @interface CircleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
@@ -30,6 +31,7 @@
  *
  * @interface CircleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @form
  * @since 9
  */
@@ -38,6 +40,7 @@
  *
  * @interface CircleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @since 10
@@ -47,6 +50,7 @@
  *
  * @interface CircleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
@@ -58,6 +62,7 @@ declare interface CircleOptions {
    *
    * @type { ?(string | number) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -65,6 +70,7 @@ declare interface CircleOptions {
    *
    * @type { ?(string | number) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -73,6 +79,7 @@ declare interface CircleOptions {
    *
    * @type { ?(string | number) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -82,6 +89,7 @@ declare interface CircleOptions {
    *
    * @type { ?(string | number) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -92,6 +100,7 @@ declare interface CircleOptions {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -104,6 +113,7 @@ declare interface CircleOptions {
    *
    * @type { ?(string | number) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -111,6 +121,7 @@ declare interface CircleOptions {
    *
    * @type { ?(string | number) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -119,6 +130,7 @@ declare interface CircleOptions {
    *
    * @type { ?(string | number) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -128,6 +140,7 @@ declare interface CircleOptions {
    *
    * @type { ?(string | number) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -138,6 +151,7 @@ declare interface CircleOptions {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -151,6 +165,7 @@ declare interface CircleOptions {
  *
  * @interface CircleInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
@@ -158,6 +173,7 @@ declare interface CircleOptions {
  *
  * @interface CircleInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @form
  * @since 9
  */
@@ -166,6 +182,7 @@ declare interface CircleOptions {
  *
  * @interface CircleInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @since 10
@@ -175,6 +192,7 @@ declare interface CircleOptions {
  *
  * @interface CircleInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
@@ -187,6 +205,7 @@ interface CircleInterface {
    * @param { CircleOptions } value
    * @returns { CircleAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -195,6 +214,7 @@ interface CircleInterface {
    * @param { CircleOptions } value
    * @returns { CircleAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -204,6 +224,7 @@ interface CircleInterface {
    * @param { CircleOptions } value
    * @returns { CircleAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -214,6 +235,7 @@ interface CircleInterface {
    * @param { CircleOptions } value
    * @returns { CircleAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -227,6 +249,7 @@ interface CircleInterface {
    * @param { CircleOptions } value
    * @returns { CircleAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -235,6 +258,7 @@ interface CircleInterface {
    * @param { CircleOptions } value
    * @returns { CircleAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -244,6 +268,7 @@ interface CircleInterface {
    * @param { CircleOptions } value
    * @returns { CircleAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -254,6 +279,7 @@ interface CircleInterface {
    * @param { CircleOptions } value
    * @returns { CircleAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -267,6 +293,7 @@ interface CircleInterface {
  *
  * @extends CommonShapeMethod<CircleAttribute> 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
@@ -274,6 +301,7 @@ interface CircleInterface {
  *
  * @extends CommonShapeMethod<CircleAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @form
  * @since 9
  */
@@ -282,6 +310,7 @@ interface CircleInterface {
  *
  * @extends CommonShapeMethod<CircleAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @since 10
@@ -291,6 +320,7 @@ interface CircleInterface {
  *
  * @extends CommonShapeMethod<CircleAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
@@ -302,12 +332,14 @@ declare class CircleAttribute extends CommonShapeMethod<CircleAttribute> {}
  * Defines Circle Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
  * Defines Circle Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @form
  * @since 9
  */
@@ -315,6 +347,7 @@ declare class CircleAttribute extends CommonShapeMethod<CircleAttribute> {}
  * Defines Circle Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @since 10
@@ -323,6 +356,7 @@ declare class CircleAttribute extends CommonShapeMethod<CircleAttribute> {}
  * Defines Circle Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
@@ -334,12 +368,14 @@ declare const Circle: CircleInterface;
  * Defines Circle Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
  * Defines Circle Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @form
  * @since 9
  */
@@ -347,6 +383,7 @@ declare const Circle: CircleInterface;
  * Defines Circle Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @since 10
@@ -355,6 +392,7 @@ declare const Circle: CircleInterface;
  * Defines Circle Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice

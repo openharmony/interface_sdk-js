@@ -183,6 +183,16 @@ export declare interface RefreshAttribute extends CommonMethod {
      */
     default pullDownRatio(ratio: double | undefined): this;
     /**
+     * The max pull down distance for Refresh.
+     *
+     * @param { double | undefined } distance - The max pull down distance for Refresh,
+     *     value range is [0, +∞), default value is { undefined }, Unlimited maximum pull-down distance.
+     * @returns { this } The attribute of the Refresh.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 24 static
+     */
+    default maxPullDownDistance(distance: double | undefined): this;
+    /**
      * Called attributeModifier.
      *
      * @param { AttributeModifier<RefreshAttribute> | AttributeModifier<CommonMethod> | undefined } modifier

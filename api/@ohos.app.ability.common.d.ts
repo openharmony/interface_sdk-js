@@ -24,7 +24,6 @@ import type * as _UIExtensionContext from './application/UIExtensionContext';
 import type * as _AutoFillExtensionContext from './application/AutoFillExtensionContext';
 import * as _AbilityStageContext from './application/AbilityStageContext';
 import * as _ApplicationContext from './application/ApplicationContext';
-import * as _AppServiceExtensionContext from './application/AppServiceExtensionContext';
 import * as _BaseContext from './application/BaseContext';
 import * as _Context from './application/Context';
 import * as _ExtensionContext from './application/ExtensionContext';
@@ -614,7 +613,7 @@ declare namespace common {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 12 dynamic
+   * @since 12 dynamiconly
    */
   export type EmbeddableUIAbilityContext = _EmbeddableUIAbilityContext.default;
 
@@ -677,7 +676,6 @@ declare namespace common {
    * @typedef { _UIServiceProxy }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @atomicservice
    * @since 23 static
    */
   export type UIServiceProxy = _UIServiceProxy;
@@ -721,7 +719,6 @@ declare namespace common {
    * @typedef { _UIServiceExtensionConnectCallback}
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @atomicservice
    * @since 23 static
    */
   export type UIServiceExtensionConnectCallback = _UIServiceExtensionConnectCallback;

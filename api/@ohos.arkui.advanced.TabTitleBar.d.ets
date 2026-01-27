@@ -31,7 +31,7 @@
  * Declaration of the menu item on the right side.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 /**
  * Declaration of the menu item on the right side.
@@ -52,7 +52,7 @@ export declare class TabTitleBarMenuItem {
    * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   /**
    * Icon resource for this menu item.
@@ -69,7 +69,7 @@ export declare class TabTitleBarMenuItem {
    * @type { ?SymbolGlyphModifier }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   /**
    * Symbol resource for this menu item.
@@ -86,7 +86,7 @@ export declare class TabTitleBarMenuItem {
    * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 13
+   * @since 13 dynamic
    */
   /**
    * Icon label for this menu item.
@@ -109,7 +109,7 @@ export declare class TabTitleBarMenuItem {
    * @type { ?boolean }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   /**
    * Whether to enable this menu item.
@@ -132,7 +132,7 @@ export declare class TabTitleBarMenuItem {
    * @type { ?() => void }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   /**
    * Callback function when click on this menu item.
@@ -149,7 +149,7 @@ export declare class TabTitleBarMenuItem {
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   /**
    * The accessibilityText of this menu item.
@@ -166,7 +166,7 @@ export declare class TabTitleBarMenuItem {
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   /**
    * The accessibilityDescription of this menu item.
@@ -184,7 +184,7 @@ export declare class TabTitleBarMenuItem {
    * @default "auto"
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   /**
    * The accessibilityLevel of this menu item.
@@ -207,7 +207,7 @@ export declare class TabTitleBarMenuItem {
  * Declaration of the tab item.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 /**
  * Declaration of the tab item.
@@ -228,7 +228,7 @@ export declare class TabTitleBarTabItem {
    * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   /**
    * Text description for this tab item.
@@ -251,7 +251,7 @@ export declare class TabTitleBarTabItem {
    * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   /**
    * Icon resource for this tab item.
@@ -268,7 +268,7 @@ export declare class TabTitleBarTabItem {
    * @type { ?SymbolGlyphModifier }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   /**
    * Symbol resource for this tab item.
@@ -290,7 +290,7 @@ export declare class TabTitleBarTabItem {
  * Declaration of the tabbed title bar.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 /**
  * Declaration of the tabbed title bar.
@@ -312,7 +312,7 @@ export declare struct TabTitleBar {
    * @type { ?Array<TabTitleBarItem> }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   /**
    * Tab items on the left side.
@@ -335,7 +335,7 @@ export declare struct TabTitleBar {
    * @type { Array<TabTitleBarMenuItem> }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   /**
    * Menu items on the right side.
@@ -360,7 +360,7 @@ export declare struct TabTitleBar {
    * @type { () => void }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   /**
    * Content builder. Each component corresponds to a tab item.

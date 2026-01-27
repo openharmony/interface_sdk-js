@@ -18,7 +18,7 @@
  * @kit ArkUI
  */
 
-
+import uiMaterial from './@ohos.arkui.uiMaterial';
 
 
 
@@ -695,6 +695,21 @@ interface CommonSegmentButtonOptions {
    * @since 20 dynamic
    */
   itemBorderRadius?: LengthMetrics;
+
+  /**
+   * Set system-styled materials for the component. Different materials have different effects, which can influence
+   * the backgroundColor, border, shadow, and other visual attributes of the component.
+   *
+   * Device Behavior Differences:The effect of the same material may vary across different devices depending on
+   * their computing power.
+   *
+   * @type { ?uiMaterial.Material } material - System-styled material.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic
+   */
+  backgroundSystemMaterial?: uiMaterial.Material;
 }
 
 /**
@@ -744,7 +759,8 @@ declare type SegmentButtonItemTuple = ItemRestriction<SegmentButtonTextItem> | I
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12 dynamic
+ * @since 12 dynamiconly
+ * @noninterop
  */
 declare type SegmentButtonItemArray = Array<SegmentButtonTextItem> | Array<SegmentButtonIconItem> | Array<SegmentButtonIconTextItem>;
 
@@ -1683,6 +1699,21 @@ declare class SegmentButtonOptions {
   backgroundBlurStyle: BlurStyle;
 
   /**
+   * Set system-styled materials for the component. Different materials have different effects, which can influence
+   * the backgroundColor, border, shadow, and other visual attributes of the component.
+   *
+   * Device Behavior Differences:The effect of the same material may vary across different devices depending on
+   * their computing power.
+   *
+   * @type { ?uiMaterial.Material } material - System-styled material.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic
+   */
+  backgroundSystemMaterial?: uiMaterial.Material;
+
+  /**
    * The constructor used to create a SegmentButtonOptions object.
    *
    * @param { TabSegmentButtonOptions | CapsuleSegmentButtonOptions } options - The options of SegmentButton.
@@ -1873,20 +1904,6 @@ declare struct SegmentButton {
    * @since 13 dynamic
    */
   onItemClicked?: Callback<number>;
-
-  /**
-   * Enable animation when selectedIndexes change.
-   *
-   * @type { boolean }
-   * @default false
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
-   */
-  @Prop
-  enableStateAnimation: boolean;
 }
 
 export {

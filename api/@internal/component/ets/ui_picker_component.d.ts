@@ -21,19 +21,21 @@
 /**
  * Defines the options of Picker.
  *
- * @interface PickerOptions
+ * @interface UIPickerComponentOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 22 dynamic
  */
-declare interface PickerOptions {
+declare interface UIPickerComponentOptions {
   /**
    * Current selected subscript.
    *
    * @type { ?number }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
@@ -42,45 +44,49 @@ declare interface PickerOptions {
 }
 
 /**
- * PickerInterface
+ * UIPickerComponentInterface
  *
- * @interface PickerInterface
+ * @interface UIPickerComponentInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 22 dynamic
  */
-interface PickerInterface {
+interface UIPickerComponentInterface {
   /**
    * Defines the Picker constructor.
    *
-   * @param { PickerOptions } options
-   * @returns { PickerAttribute }
+   * @param { UIPickerComponentOptions } [options]
+   * @returns { UIPickerComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
    */
-  (options?: PickerOptions): PickerAttribute;
+  (options?: UIPickerComponentOptions): UIPickerComponentAttribute;
 }
 
 /**
  * Callback of Picker item is selected event.
  *
- * @typedef {function} OnPickerCallback
+ * @typedef {function} OnUIPickerComponentCallback
  * @param { number } selectedIndex - Index of the selected item.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 22 dynamic
  */
-declare type OnPickerCallback = (selectedIndex: number) => void;
+declare type OnUIPickerComponentCallback = (selectedIndex: number) => void;
 
 /**
  * PickerIndicatorType
  * 
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 22 dynamic
@@ -90,6 +96,7 @@ declare enum PickerIndicatorType {
    * Background marks the selected item.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
@@ -100,6 +107,7 @@ declare enum PickerIndicatorType {
    * Divider marks the selected item.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
@@ -112,6 +120,7 @@ declare enum PickerIndicatorType {
  *
  * @interface PickerIndicatorStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 22 dynamic
@@ -122,6 +131,7 @@ declare interface PickerIndicatorStyle {
    *
    * @type { PickerIndicatorType } type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
@@ -134,6 +144,7 @@ declare interface PickerIndicatorStyle {
    * @type { ?LengthMetrics } strokeWidth
    * @default $r('sys.float.border_medium')
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
@@ -146,6 +157,7 @@ declare interface PickerIndicatorStyle {
    * @type { ?ResourceColor } dividerColor
    * @default $r('sys.color.comp_divider')
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
@@ -158,6 +170,7 @@ declare interface PickerIndicatorStyle {
    * @type { ?LengthMetrics } startMargin
    * @default 0vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
@@ -170,6 +183,7 @@ declare interface PickerIndicatorStyle {
    * @type { ?LengthMetrics } endMargin
    * @default 0vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
@@ -182,6 +196,7 @@ declare interface PickerIndicatorStyle {
    * @type { ?ResourceColor } backgroundColor
    * @default $r('sys.color.comp_background_tertiary')
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
@@ -194,6 +209,7 @@ declare interface PickerIndicatorStyle {
    * @type { ?(LengthMetrics | BorderRadiuses | LocalizedBorderRadiuses) } borderRadius
    * @default $r('sys.float.corner_radius_level6')
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
@@ -204,91 +220,99 @@ declare interface PickerIndicatorStyle {
 /**
  * Style the picker.
  *
- * @extends CommonMethod<PickerAttribute>
+ * @extends CommonMethod<UIPickerComponentAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 22 dynamic
  */
-declare class PickerAttribute extends CommonMethod<PickerAttribute> {
+declare class UIPickerComponentAttribute extends CommonMethod<UIPickerComponentAttribute> {
   /**
    * This event is triggered when a Picker item is selected.
    *
-   * @param { Optional<OnPickerCallback> } callback - the callback of onChange.
-   * @returns { PickerAttribute }
+   * @param { Optional<OnUIPickerComponentCallback> } callback - the callback of onChange.
+   * @returns { UIPickerComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
    */  
-  onChange(callback: Optional<OnPickerCallback>): PickerAttribute;
+  onChange(callback: Optional<OnUIPickerComponentCallback>): UIPickerComponentAttribute;
 
   /**
    * This event is triggered when a Picker item is selected and scrolling has stopped.
    *
-   * @param { Optional<OnPickerCallback> } callback - the callback of onScrollStop.
-   * @returns { PickerAttribute }
+   * @param { Optional<OnUIPickerComponentCallback> } callback - the callback of onScrollStop.
+   * @returns { UIPickerComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
    */
-  onScrollStop(callback: Optional<OnPickerCallback>): PickerAttribute;
+  onScrollStop(callback: Optional<OnUIPickerComponentCallback>): UIPickerComponentAttribute;
 
   /**
    * Can scroll loop if true is set, on the contrary it can not.
    *
    * @param { Optional<boolean> } isLoop
-   * @returns { PickerAttribute }
+   * @returns { UIPickerComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
    */
-  canLoop(isLoop: Optional<boolean>): PickerAttribute;
+  canLoop(isLoop: Optional<boolean>): UIPickerComponentAttribute;
 
   /**
    * Enable or disable haptic feedback.
    *
    * @param { Optional<boolean> } enable - Default value is true, set false to disable haptic feedback.
-   * @returns { PickerAttribute }
+   * @returns { UIPickerComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 22 dynamic
    */
-  enableHapticFeedback(enable: Optional<boolean>): PickerAttribute;
+  enableHapticFeedback(enable: Optional<boolean>): UIPickerComponentAttribute;
 
   /**
    * Sets the indicator's type and style.
    *
    * @param { Optional<PickerIndicatorStyle> } style
-   * @returns { PickerAttribute }
+   * @returns { UIPickerComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
    */
-  selectionIndicator(style: Optional<PickerIndicatorStyle>): PickerAttribute;
+  selectionIndicator(style: Optional<PickerIndicatorStyle>): UIPickerComponentAttribute;
 }
 
 /**
  * Defines Picker Component.
  *
- * @type { PickerInterface } Picker
+ * @type { UIPickerComponentInterface } UIPickerComponent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 22 dynamic
  */
-declare const Picker: PickerInterface;
+declare const UIPickerComponent: UIPickerComponentInterface;
 
 /**
  * Defines Picker Component instance.
  *
- * @type { PickerAttribute } PickerInstance
+ * @type { UIPickerComponentAttribute } UIPickerComponentInstance
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 22 dynamic
  */
-declare const PickerInstance: PickerAttribute;
+declare const UIPickerComponentInstance: UIPickerComponentAttribute;

@@ -19,7 +19,7 @@
 import { Resource } from '../../global/resource';
 import { ImageAIOptions, ImageAnalyzerConfig } from "./imageCommon";
 import { ImageFit } from "./enums";
-import { CommonMethod, Callback, PixelMap, AttributeModifier } from "./common";
+import { CommonMethod, Callback, PixelMap, AttributeModifier, ContentTransitionEffect } from "./common";
 import { VoidCallback, ColorMetrics } from "./units";
 import { ComponentBuilder, CustomBuilder } from './builder';
 import { ErrorCallback } from '../../@ohos.base'
@@ -65,8 +65,9 @@ export declare enum SeekMode {
 /**
  * playback speed.
  *
- * @enum { number }
+ * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare enum PlaybackSpeed {
@@ -74,37 +75,82 @@ export declare enum PlaybackSpeed {
      * 0.75x speed playback.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
-    Speed_Forward_0_75_X,
+    Speed_Forward_0_75_X = '0.75',
     /**
      * 1.00x speed playback.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
-    Speed_Forward_1_00_X,
+    Speed_Forward_1_00_X = '1.00',
     /**
      * 1.25x speed playback.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
-    Speed_Forward_1_25_X,
+    Speed_Forward_1_25_X = '1.25',
     /**
      * 1.75x speed playback.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
-    Speed_Forward_1_75_X,
+    Speed_Forward_1_75_X = '1.75',
     /**
      * 2.00x speed playback.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
-    Speed_Forward_2_00_X
+    Speed_Forward_2_00_X = '2.00',
+    /**
+     * 0.50x speed playback.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    SPEED_FORWARD_0_50_X = '0.50',
+    /**
+     * 1.50x speed playback.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    SPEED_FORWARD_1_50_X = '1.50',
+    /**
+     * 3.00x speed playback.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    SPEED_FORWARD_3_00_X = '3.00',
+    /**
+     * 0.25x speed playback.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    SPEED_FORWARD_0_25_X = '0.25',
+    /**
+     * 0.125x speed playback.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    SPEED_FORWARD_0_125_X = '0.125',
 }
 
 /**
@@ -178,6 +224,15 @@ export declare interface PosterOptions {
      * @since 23 static
      */
     showFirstFrame?: boolean;
+    /**
+     * Animation effect when the poster image content changes.
+     *
+     * @type { ?ContentTransitionEffect }
+     * @default ContentTransitionEffect.IDENTITY
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    contentTransitionEffect?: ContentTransitionEffect;
 }
 
 /**
@@ -506,14 +561,14 @@ export declare interface VideoAttribute extends CommonMethod {
 /**
  * Video is returned when the parameter is transferred.
  *
- * @param { VideoOptions } value - The options to create a Video
- * @param { CustomBuilder } [content_]
- * @returns { VideoAttribute } The attribute of the Video
+ * @param { VideoOptions } value - The options to create a Video.
+ * @returns { VideoAttribute } The attribute of the Video.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
+ * @noninterop
  */
 @ComponentBuilder
 export declare function Video(
-    value: VideoOptions, 
-    content_?: CustomBuilder,
-): VideoAttribute
+    value: VideoOptions
+): VideoAttribute;

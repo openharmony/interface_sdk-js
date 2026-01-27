@@ -37,6 +37,7 @@ export interface AccelerometerResponse {
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
+   * @useinstead ohos.sensor/sensor#AccelerometerResponse.x
    */
   x: number;
 
@@ -49,6 +50,7 @@ export interface AccelerometerResponse {
     * @since 3 dynamiconly
     * @deprecated since 8
     * @reserved ["liteWearable"]
+    * @useinstead ohos.sensor/sensor#AccelerometerResponse.y
     */
   y: number;
  
@@ -61,6 +63,7 @@ export interface AccelerometerResponse {
     * @since 3 dynamiconly
     * @deprecated since 8
     * @reserved ["liteWearable"]
+    * @useinstead ohos.sensor/sensor#AccelerometerResponse.z
     */
   z: number;
 }
@@ -89,6 +92,7 @@ export interface subscribeAccelerometerOptions {
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
+   * @useinstead ohos.sensor/sensor#Options.interval
    */
   interval: string;
 
@@ -101,6 +105,7 @@ export interface subscribeAccelerometerOptions {
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
+   * @useinstead ohos.sensor/sensor#on
    */
   success: (data: AccelerometerResponse) => void;
 
@@ -113,6 +118,7 @@ export interface subscribeAccelerometerOptions {
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
+   * @useinstead ohos.sensor/sensor#on
    */
   fail?: (data: string, code: number) => void;
 }
@@ -123,7 +129,7 @@ export interface subscribeAccelerometerOptions {
  * @since 3 dynamiconly
  * @deprecated since 8
  * @reserved ["liteWearable"]
- * @useinstead ohos.sensor/sensor#MagneticFieldResponse
+ * @useinstead ohos.sensor/sensor#OrientationResponse
  */
 export interface CompassResponse {
   /**
@@ -134,6 +140,7 @@ export interface CompassResponse {
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
+   * @useinstead ohos.sensor/sensor#OrientationResponse.alpha
    */
   direction: number;
 }
@@ -144,7 +151,7 @@ export interface CompassResponse {
  * @since 3 dynamiconly
  * @deprecated since 8
  * @reserved ["liteWearable"]
- * @useinstead ohos.sensor/sensor.SensorId#MAGNETIC_FIELD
+ * @useinstead ohos.sensor/sensor.SensorId#ORIENTATION
  */
 export interface SubscribeCompassOptions {
   /**
@@ -155,6 +162,7 @@ export interface SubscribeCompassOptions {
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
+   * @useinstead ohos.sensor/sensor#on
    */
   success: (data: CompassResponse) => void;
 
@@ -166,6 +174,7 @@ export interface SubscribeCompassOptions {
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
+   * @useinstead ohos.sensor/sensor#on
    */
   fail?: (data: string, code: number) => void;
 }
@@ -187,6 +196,7 @@ export interface ProximityResponse {
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
+   * @useinstead ohos.sensor/sensor#ProximityResponse.distance
    */
   distance: number;
 }
@@ -208,6 +218,7 @@ export interface SubscribeProximityOptions {
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
+   * @useinstead ohos.sensor/sensor#on
    */
   success: (data: ProximityResponse) => void;
 
@@ -219,6 +230,7 @@ export interface SubscribeProximityOptions {
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
+   * @useinstead ohos.sensor/sensor#on
    */
   fail?: (data: string, code: number) => void;
 }
@@ -240,6 +252,7 @@ export interface LightResponse {
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
+   * @useinstead ohos.sensor/sensor#LightResponse.intensity
    */
   intensity: number;
 }
@@ -261,6 +274,7 @@ export interface SubscribeLightOptions {
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
+   * @useinstead ohos.sensor/sensor#on
    */
   success: (data: LightResponse) => void;
 
@@ -272,6 +286,7 @@ export interface SubscribeLightOptions {
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
+   * @useinstead ohos.sensor/sensor#on
    */
   fail?: (data: string, code: number) => void;
 }
@@ -296,6 +311,7 @@ export interface StepCounterResponse {
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
+   * @useinstead ohos.sensor/sensor#PedometerResponse.steps
    */
   steps: number;
 }
@@ -319,6 +335,7 @@ export interface SubscribeStepCounterOptions {
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
+   * @useinstead ohos.sensor/sensor#on
    */
   success: (data: StepCounterResponse) => void;
 
@@ -331,6 +348,7 @@ export interface SubscribeStepCounterOptions {
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
+   * @useinstead ohos.sensor/sensor#on
    */
   fail?: (data: string, code: number) => void;
 }
@@ -352,6 +370,7 @@ export interface BarometerResponse {
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
+   * @useinstead ohos.sensor/sensor#BarometerResponse.pressure
    */
   pressure: number;
 }
@@ -373,6 +392,7 @@ export interface SubscribeBarometerOptions {
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
+   * @useinstead ohos.sensor/sensor#on
    */
   success: (data: BarometerResponse) => void;
 
@@ -384,6 +404,7 @@ export interface SubscribeBarometerOptions {
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
+   * @useinstead ohos.sensor/sensor#on
    */
   fail?: (data: string, code: number) => void;
 }
@@ -408,6 +429,7 @@ export interface HeartRateResponse {
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
+   * @useinstead ohos.sensor/sensor#HeartRateResponse.heartRate
    */
   heartRate: number;
 }
@@ -431,6 +453,7 @@ export interface SubscribeHeartRateOptions {
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
+   * @useinstead ohos.sensor/sensor#on
    */
   success: (data: HeartRateResponse) => void;
 
@@ -443,6 +466,7 @@ export interface SubscribeHeartRateOptions {
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
+   * @useinstead ohos.sensor/sensor#on
    */
   fail?: (data: string, code: number) => void;
 }
@@ -464,6 +488,7 @@ export interface OnBodyStateResponse {
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
+   * @useinstead ohos.sensor/sensor#WearDetectionResponse.value
    */
   value: boolean;
 }
@@ -485,6 +510,7 @@ export interface SubscribeOnBodyStateOptions {
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
+   * @useinstead ohos.sensor/sensor#on
    */
   success: (data: OnBodyStateResponse) => void;
 
@@ -496,6 +522,7 @@ export interface SubscribeOnBodyStateOptions {
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
+   * @useinstead ohos.sensor/sensor#on
    */
   fail?: (data: string, code: number) => void;
 }
@@ -517,6 +544,7 @@ export interface GetOnBodyStateOptions {
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
+   * @useinstead ohos.sensor/sensor#once
    */
   success: (data: OnBodyStateResponse) => void;
 
@@ -528,6 +556,7 @@ export interface GetOnBodyStateOptions {
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
+   * @useinstead ohos.sensor/sensor#once
    */
   fail?: (data: string, code: number) => void;
 
@@ -539,6 +568,7 @@ export interface GetOnBodyStateOptions {
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
+   * @useinstead ohos.sensor/sensor#once
    */
   complete?: () => void;
 }
@@ -560,6 +590,7 @@ export interface DeviceOrientationResponse {
    * @since 6 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
+   * @useinstead ohos.sensor/sensor#OrientationResponse.alpha
    */
   alpha: number;
 
@@ -571,6 +602,7 @@ export interface DeviceOrientationResponse {
    * @since 6 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
+   * @useinstead ohos.sensor/sensor#OrientationResponse.beta
    */
   beta: number;
 
@@ -582,6 +614,7 @@ export interface DeviceOrientationResponse {
    * @since 6 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
+   * @useinstead ohos.sensor/sensor#OrientationResponse.gamma
    */
   gamma: number;
 }
@@ -608,6 +641,7 @@ export interface SubscribeDeviceOrientationOptions {
    * @since 6 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
+   * @useinstead ohos.sensor/sensor#Options.interval
    */
   interval: string;
 
@@ -619,6 +653,7 @@ export interface SubscribeDeviceOrientationOptions {
    * @since 6 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
+   * @useinstead ohos.sensor/sensor#on
    */
   success: (data: DeviceOrientationResponse) => void;
 
@@ -630,6 +665,7 @@ export interface SubscribeDeviceOrientationOptions {
    * @since 6 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
+   * @useinstead ohos.sensor/sensor#on
    */
   fail?: (data: string, code: number) => void;
 }
@@ -653,6 +689,7 @@ export interface GyroscopeResponse {
    * @since 6 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
+   * @useinstead ohos.sensor/sensor#GyroscopeResponse.x
    */
   x: number;
 
@@ -665,6 +702,7 @@ export interface GyroscopeResponse {
    * @since 6 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
+   * @useinstead ohos.sensor/sensor#GyroscopeResponse.y
    */
   y: number;
 
@@ -677,6 +715,7 @@ export interface GyroscopeResponse {
    * @since 6 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
+   * @useinstead ohos.sensor/sensor#GyroscopeResponse.z
    */
   z: number;
 }
@@ -705,6 +744,7 @@ export interface SubscribeGyroscopeOptions {
    * @since 6 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
+   * @useinstead ohos.sensor/sensor#Options.interval
    */
   interval: string;
 
@@ -717,6 +757,7 @@ export interface SubscribeGyroscopeOptions {
    * @since 6 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
+   * @useinstead ohos.sensor/sensor#on
    */
   success: (data: GyroscopeResponse) => void;
 
@@ -729,6 +770,7 @@ export interface SubscribeGyroscopeOptions {
    * @since 6 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
+   * @useinstead ohos.sensor/sensor#on
    */
   fail?: (data: string, code: number) => void;
 }
@@ -776,7 +818,7 @@ export default class Sensor {
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
-   * @useinstead ohos.sensor/sensor.SensorId#MAGNETIC_FIELD
+   * @useinstead ohos.sensor/sensor.SensorId#ORIENTATION
    */
   static subscribeCompass(options: SubscribeCompassOptions): void;
 
@@ -787,7 +829,7 @@ export default class Sensor {
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
-   * @useinstead ohos.sensor/sensor.SensorId#MAGNETIC_FIELD
+   * @useinstead ohos.sensor/sensor.SensorId#ORIENTATION
    */
   static unsubscribeCompass(): void;
 

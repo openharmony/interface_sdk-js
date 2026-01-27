@@ -1343,7 +1343,7 @@ declare namespace rpc {
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The number of parameters is incorrect;
      *     2.The parameter type does not match;
-     *     3.The string length exceeds 40960 bytes;
+     *     3.The string length is greater than or equal to 40960 bytes;
      *     4.The number of bytes copied to the buffer is different from the length of the obtained string.
      * @throws { BusinessError } 1900009 - Failed to write data to the message sequence. 
      * @syscap SystemCapability.Communication.IPC.Core
@@ -1637,7 +1637,7 @@ declare namespace rpc {
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The number of parameters is incorrect;
      *     2.The parameter type does not match;
-     *     3.The string length exceeds 40960 bytes;
+     *     3.The string length is greater than or equal to 40960 bytes;
      *     4.The number of bytes copied to the buffer is different from the length of the obtained string.
      * @throws { BusinessError } 1900009 - Failed to write data to the message sequence. 
      * @syscap SystemCapability.Communication.IPC.Core
@@ -1820,7 +1820,7 @@ declare namespace rpc {
      *     1.The parameter is an empty array;
      *     2.The number of parameters is incorrect;
      *     3.The parameter type does not match;
-     *     4.The string length exceeds 40960 bytes;
+     *     4.The string length is greater than or equal to 40960 bytes;
      *     5.The number of bytes copied to the buffer is different from the length of the obtained string.
      * @throws { BusinessError } 1900009 - Failed to write data to the message sequence. 
      * @syscap SystemCapability.Communication.IPC.Core
@@ -2698,7 +2698,7 @@ declare namespace rpc {
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The number of parameters is incorrect;
      *     2.The parameter type does not match;
-     *     3.The string length exceeds 40960 bytes;
+     *     3.The string length is greater than or equal to 40960 bytes;
      *     4.The number of bytes copied to the buffer is different from the length of the obtained string.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
@@ -3416,7 +3416,7 @@ declare namespace rpc {
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The number of parameters is incorrect;
      *     2.The parameter type does not match;
-     *     3.The string length exceeds 40960 bytes;
+     *     3.The string length is greater than or equal to 40960 bytes;
      *     4.The number of bytes copied to the buffer is different from the length of the obtained string.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
@@ -3687,7 +3687,7 @@ declare namespace rpc {
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The number of parameters is incorrect;
      *     2.The parameter type does not match;
-     *     3.The string length exceeds 40960 bytes;
+     *     3.The string length is greater than or equal to 40960 bytes;
      *     4.The number of bytes copied to the buffer is different from the length of the obtained string.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
@@ -3838,14 +3838,15 @@ declare namespace rpc {
     /**
      * Queries a local interface with a specified descriptor.
      *
-     * @param { string } interface - Indicates the descriptor of the interface to query.
+     * @param { string } interfaceDes - Indicates the descriptor of the interface to query.
      * @returns { IRemoteBroker } Return null by default, indicating a proxy interface.
      * @throws { BusinessError } 401 - check param failed
      * @throws { BusinessError } 1900006 - Operation allowed only for the remote object.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
+	 * @since 23 static
      */
-    getLocalInterface(interface: string): IRemoteBroker;
+    getLocalInterface(interfaceDes: string): IRemoteBroker;
 
     /**
      * Register a callback used to receive death notifications of a remote object.
@@ -4239,7 +4240,7 @@ declare namespace rpc {
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The number of parameters is incorrect;
      *     2.The parameter type does not match;
-     *     3.The string length exceeds 40960 bytes;
+     *     3.The string length is greater than or equal to 40960 bytes;
      *     4.The number of bytes copied to the buffer is different from the length of the obtained string.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic

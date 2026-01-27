@@ -1340,7 +1340,7 @@ declare function copyDir(src: string, dest: string, mode: number, callback: Asyn
  * Copies the source directory to the destination directory. This API returns the result synchronously.
  *
  * @param { string } src - Application sandbox path of the source directory.
- * @param { string } dest - Application sandbox path of the source directory.
+ * @param { string } dest - Application sandbox path of the destination directory.
  * @param { number } [mode = 0] - Copy mode. The default value is 0.
  *     <br>0: Throw an exception if a file conflict occurs.
  *     <br>An exception will be thrown if the destination directory contains a directory with
@@ -1379,7 +1379,7 @@ declare function copyDir(src: string, dest: string, mode: number, callback: Asyn
  * Copies the source directory to the destination directory. This API returns the result synchronously.
  *
  * @param { string } src - Application sandbox path of the source directory.
- * @param { string } dest - Application sandbox path of the source directory.
+ * @param { string } dest - Application sandbox path of the destination directory.
  * @param { number } [mode = 0] - Copy mode. The default value is 0.
  *     <br>0: Throw an exception if a file conflict occurs.
  *     <br>An exception will be thrown if the destination directory contains a directory with
@@ -2837,7 +2837,7 @@ declare function createWriteStream(path: string, options?: WriteStreamOptions): 
 declare function createWatcher(path: string, events: number, listener: WatchEventListener): Watcher;
 
 /**
- * Opens a File object based on an FD.
+ * Duplicates the file descriptor and returns the corresponding File object.
  *
  * @param { number } fd - FD of the file.
  * @returns { File } File object opened.
@@ -7820,7 +7820,7 @@ declare function unlinkSync(path: string): void;
  * @since 11
  */
 /**
- * Updates the latest access timestamp of a file.
+ * Changes the time when the file was last modified.
  *
  * @param { string } path - Application sandbox path of the file.
  * @param { number } mtime - New timestamp. The value is the number of milliseconds elapsed since
@@ -8403,16 +8403,6 @@ export class TaskSignal {
    * @since 12 dynamic
    */
   onCancel(): Promise<string>;
-
-  /**
-   * Defines the callback for listening for the copy canceled.
-   *
-   * @param { Callback<string> } callback - callback of progress callback
-   * @throws { BusinessError } 13900020 - Invalid argument
-   * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 23 dynamic&static
-   */
-  onCancel(callback: Callback<string>): void;
 }
 
 /**
@@ -9651,7 +9641,7 @@ export class AtomicFile {
   /**
    * Obtains the file object through the AtomicFile object. The FD needs to be closed by calling close().
    *
-   * @returns { File } Returns the file object.
+   * @returns { File } File object opened.
    * @throws { BusinessError } 13900002 No such file or directory
    * @throws { BusinessError } 13900005 IO error
    * @throws { BusinessError } 13900012 Permission denied
@@ -9662,7 +9652,7 @@ export class AtomicFile {
   /**
    * Obtains the file object through the AtomicFile object. The FD needs to be closed by calling close().
    *
-   * @returns { File } Returns the file object.
+   * @returns { File } File object opened.
    * @throws { BusinessError } 13900002 No such file or directory
    * @throws { BusinessError } 13900005 IO error
    * @throws { BusinessError } 13900012 Permission denied
@@ -10299,7 +10289,7 @@ declare interface Stream {
    * @since 9
    */
   /**
-   * Close stream.
+   * Closes the file stream. This API uses a promise to return the result.
    *
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 13900004 - Interrupted system call
@@ -10329,7 +10319,7 @@ declare interface Stream {
    * @since 9
    */
   /**
-   * Close stream.
+   * Closes the file stream. This API uses an asynchronous callback to return the result.
    *
    * @param { AsyncCallback<void> } callback - Return the callback function.
    * @throws { BusinessError } 13900004 - Interrupted system call
@@ -11576,7 +11566,7 @@ export interface ConflictFiles {
   srcFile: string;
 
   /**
-   * The path of the source file.
+   * The path of the destination file.
    *
    * @type { string }
    * @syscap SystemCapability.FileManagement.File.FileIO

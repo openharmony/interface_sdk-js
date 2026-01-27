@@ -25,7 +25,8 @@ import { ComponentBuilder, CustomBuilder } from './builder';
  *
  * @typedef { [Length, Length] } ShapePoint
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 23 static
+ * @stagemodelonly
+ * @since 23 staticonly
  */
 export type ShapePoint = [
     Length,
@@ -43,19 +44,19 @@ export interface LineOptions {
     /**
      * Width of the rectangle where the line resides.
      *
-     * @type { ?(string | double) }
+     * @type { ?Length }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
      */
-    width?: string | double;
+    width?: Length;
     /**
      * Height of the rectangle where the line resides.
      *
-     * @type { ?(string | double) }
+     * @type { ?Length }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
      */
-    height?: string | double;
+    height?: Length;
 }
 
 /**
@@ -100,13 +101,13 @@ export declare interface LineAttribute extends CommonShapeMethod {
  * Line is returned when the parameter is transferred.
  *
  * @param { LineOptions } [options] - The options to create a Line
- * @param { CustomBuilder } [content_]
  * @returns { LineAttribute } The attribute of the Line.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
+ * @noninterop
  */
 @ComponentBuilder
 export declare function Line(
-    options?: LineOptions, 
-    content_?: CustomBuilder,
+    options?: LineOptions
 ): LineAttribute

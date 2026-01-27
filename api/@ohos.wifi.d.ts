@@ -23,8 +23,8 @@ import { AsyncCallback, Callback } from './@ohos.base';
 /**
  * Provides methods to operate or manage Wi-Fi.
  * @namespace wifi
- * @since 6 dynamic
- * @since 23 static
+ * @syscap SystemCapability.Communication.WiFi.STA
+ * @since 6 dynamiconly
  */
 declare namespace wifi {
   /**

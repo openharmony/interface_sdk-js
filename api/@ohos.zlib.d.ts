@@ -48,19 +48,19 @@ declare namespace zlib {
    *
    * @enum { number }
    * @syscap SystemCapability.BundleManager.Zlib
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   export enum ErrorCode {
     /**
      * @syscap SystemCapability.BundleManager.Zlib
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      */
     ERROR_CODE_OK = 0,
     /**
      * @syscap SystemCapability.BundleManager.Zlib
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      */
     ERROR_CODE_ERRNO = -1
@@ -2670,7 +2670,7 @@ declare namespace zlib {
      * Convert, format, compress, and write the arguments to file under control of the string format, as in fprintf.
      *
      * @param { string } format - Format descriptors and plain text.
-     * @param { Array<string | number> } args - Variable argument lists.
+     * @param { Array<string | double> } args - Variable argument lists.
      * @returns { Promise<int> } Return the number of uncompressed bytes actually written.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter verification failed.
@@ -2681,7 +2681,7 @@ declare namespace zlib {
      * @since 12 dynamic
      * @since 23 static
      */
-    gzprintf(format: string, ...args: Array<string | number>): Promise<int>;
+    gzprintf(format: string, ...args: Array<string | double>): Promise<int>;
 
     /**
      * Return the current compressed (actual) read or write offset of file.

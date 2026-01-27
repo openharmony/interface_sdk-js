@@ -185,6 +185,19 @@ export class UIInspector {
    * @since 11 dynamic
    */
   createComponentObserver(id: string): inspector.ComponentObserver;
+
+  /**
+   * Sets the component after layout or draw criteria and returns the corresponding listening handle.
+   * 
+   * @param { string | number } id - component id or uniqueId of the component.
+   * @returns { inspector.ComponentObserver } create listener for observer component event.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  createComponentObserver(id: string | number): inspector.ComponentObserver;
 }
 
 /**
@@ -563,8 +576,22 @@ export class Router {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
+   * @deprecated since 23
+   * @useinstead ohos.arkui.UIContext.Router#getStackSize
    */
   getLength(): string;
+
+  /**
+   * Obtains the number of pages in the current stack.
+   *
+   * @returns { number } Number of pages in the stack. The maximum value is 32.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  getStackSize(): number;
 
   /**
    * Obtains information about the current page state.
@@ -1591,6 +1618,7 @@ export interface PageInfo {
    *
    * @type { ?observer.RouterPageInfo }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
@@ -1602,6 +1630,7 @@ export interface PageInfo {
    * @type { ?observer.NavDestinationInfo }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
+   * @crossplatform
    * @since 12 dynamic
    */
   navDestinationInfo?: observer.NavDestinationInfo;
@@ -2362,6 +2391,37 @@ export class UIObserver {
   off(type: 'tabChange', callback?: Callback<observer.TabContentInfo>): void;
 
   /**
+   * Registers a callback function to be called when the window size layout breakpoint changes.
+   * This method allows observing changes in window size breakpoints which can be used to
+   * adapt UI layouts responsively based on window dimensions.
+   *
+   * @param { 'windowSizeLayoutBreakpointChange' } type - The type of event to listen for.
+   *     Must be 'windowSizeLayoutBreakpointChange'.
+   * @param { Callback<observer.WindowSizeLayoutBreakpointInfo> } callback - The callback function to be
+   *     called when the window size layout breakpoint changes. The callback receives a
+   *     {@link WindowSizeLayoutBreakpointInfo} object containing the current width and height
+   *     breakpoint classifications.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  on(type: 'windowSizeLayoutBreakpointChange', callback: Callback<observer.WindowSizeLayoutBreakpointInfo>): void;
+
+  /**
+   * Removes a previously registered callback function for window size layout breakpoint changes.
+   * If no callback is provided, all callbacks for the specified context will be removed.
+   *
+   * @param { 'windowSizeLayoutBreakpointChange' } type - The type of event to remove the listener for.
+   *     Must be 'windowSizeLayoutBreakpointChange'.
+   * @param { Callback<observer.WindowSizeLayoutBreakpointInfo> } [callback] - The specific callback function to remove.
+   *     If not provided, all callbacks for the given event type and context will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  off(type: 'windowSizeLayoutBreakpointChange', callback?: Callback<observer.WindowSizeLayoutBreakpointInfo>): void;
+
+  /**
    * Registers a callback function to be called when the specific node's render state changed.
    * This callback will be executed once immediately when the register is successful.
    * [Notes]:
@@ -2409,37 +2469,6 @@ export class UIObserver {
    * @since 20 dynamic
    */
   off(type: 'nodeRenderState', nodeIdentity: NodeIdentity, callback?: NodeRenderStateChangeCallback): void;
-
-  /**
-   * Registers a callback function to be called when the window size layout breakpoint changes.
-   * This method allows observing changes in window size breakpoints which can be used to
-   * adapt UI layouts responsively based on window dimensions.
-   *
-   * @param { 'windowSizeLayoutBreakpointChange' } type - The type of event to listen for.
-   *     Must be 'windowSizeLayoutBreakpointChange'.
-   * @param { Callback<observer.WindowSizeLayoutBreakpointInfo> } callback - The callback function to be
-   *     called when the window size layout breakpoint changes. The callback receives a
-   *     {@link WindowSizeLayoutBreakpointInfo} object containing the current width and height
-   *     breakpoint classifications.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 22 dynamic
-   */
-  on(type: 'windowSizeLayoutBreakpointChange', callback: Callback<observer.WindowSizeLayoutBreakpointInfo>): void;
-
-  /**
-   * Removes a previously registered callback function for window size layout breakpoint changes.
-   * If no callback is provided, all callbacks for the specified context will be removed.
-   *
-   * @param { 'windowSizeLayoutBreakpointChange' } type - The type of event to remove the listener for.
-   *     Must be 'windowSizeLayoutBreakpointChange'.
-   * @param { Callback<observer.WindowSizeLayoutBreakpointInfo> } [callback] - The specific callback function to remove.
-   *     If not provided, all callbacks for the given event type and context will be removed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 22 dynamic
-   */
-  off(type: 'windowSizeLayoutBreakpointChange', callback?: Callback<observer.WindowSizeLayoutBreakpointInfo>): void;
 
   /**
   * Registers a callback function to be called when text field's content is changed.
@@ -2529,19 +2558,19 @@ export class UIObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 23 dynamic
+   * @since 22 dynamic
    */
   onSwiperContentUpdate(callback: Callback<SwiperContentInfo>): void;
 
   /**
    * Removes a callback function that was previously registered with 'onSwiperContentUpdate'.
    *
-   * @param { Callback<SwiperContentInfo> } callback - The callback function to remove. If not provided,
+   * @param { Callback<SwiperContentInfo> } [callback] - The callback function to remove. If not provided,
    *     all callbacks for the given event type will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 23 dynamic
+   * @since 22 dynamic
    */
   offSwiperContentUpdate(callback?: Callback<SwiperContentInfo>): void;
 
@@ -2554,7 +2583,7 @@ export class UIObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 23 dynamic
+   * @since 22 dynamic
    */
   onSwiperContentUpdate(config: observer.ObserverOptions, callback: Callback<SwiperContentInfo>): void;
 
@@ -2562,12 +2591,12 @@ export class UIObserver {
    * Removes a callback function that was previously registered with 'onSwiperContentUpdate'.
    *
    * @param { observer.ObserverOptions } config - The options object.
-   * @param { Callback<SwiperContentInfo> } callback - The callback function to remove. If not provided,
+   * @param { Callback<SwiperContentInfo> } [callback] - The callback function to remove. If not provided,
    *     all callbacks for the given event type will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 23 dynamic
+   * @since 22 dynamic
    */
   offSwiperContentUpdate(config: observer.ObserverOptions, callback?: Callback<SwiperContentInfo>): void;
 
@@ -2654,7 +2683,7 @@ export class UIObserver {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 23 dynamic
+ * @since 22 dynamic
  */
 export interface SwiperContentInfo {
   /**
@@ -2664,7 +2693,7 @@ export interface SwiperContentInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 23 dynamic
+   * @since 22 dynamic
    */
   id: string;
 
@@ -2675,7 +2704,7 @@ export interface SwiperContentInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 23 dynamic
+   * @since 22 dynamic
    */
   uniqueId: number;
 
@@ -2686,7 +2715,7 @@ export interface SwiperContentInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 23 dynamic
+   * @since 22 dynamic
    */
   swiperItemInfos: Array<SwiperItemInfo>;
 }
@@ -2698,7 +2727,7 @@ export interface SwiperContentInfo {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 23 dynamic
+ * @since 22 dynamic
  */
 export interface SwiperItemInfo {
   /**
@@ -2708,7 +2737,7 @@ export interface SwiperItemInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 23 dynamic
+   * @since 22 dynamic
    */
   uniqueId: number;
 
@@ -2719,7 +2748,7 @@ export interface SwiperItemInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 23 dynamic
+   * @since 22 dynamic
    */
   index: number;
 }  
@@ -4161,7 +4190,8 @@ export class UIContext {
 
   /**
    * Gets the UIContext of the last foregrounded UI instance if one exists.
-   * @returns { UIContext | undefined } - The UIContext of the last foregrounded UI instance or undefined if no one exists.
+   * @returns { UIContext | undefined } - The UIContext of the last foregrounded UI instance or undefined if no one
+   * exists
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -4782,7 +4812,7 @@ export class UIContext {
    *     state changes caused by the closure function.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * Define animation functions for immediate distribution.
@@ -4793,7 +4823,7 @@ export class UIContext {
    *     state changes caused by the closure function.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   animateToImmediately(param: AnimateParam, processor: Callback<void>): void;
 
@@ -5084,7 +5114,7 @@ export class UIContext {
   /**
    * Get the width breakpoint of current window.
    *
-   * @returns { WidthBreakpoint } The width breakpoint of current window.
+   * @returns { WidthBreakpoint } - The width breakpoint of current window.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 13 dynamic
@@ -5092,29 +5122,29 @@ export class UIContext {
   /**
    * Get the width breakpoint of current window.
    *
-   * @returns { WidthBreakpoint } The width breakpoint of current window.
+   * @returns { WidthBreakpoint } - The width breakpoint of current window.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
    */
   getWindowWidthBreakpoint(): WidthBreakpoint;
-  
+
   /**
    * Get the height breakpoint of current window.
    *
-   * @returns { HeightBreakpoint } The height breakpoint of current window.
+   * @returns { HeightBreakpoint } - The height breakpoint of current window.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice 
+   * @atomicservice
    * @since 13 dynamic
    */
   /**
    * Get the height breakpoint of current window.
    *
-   * @returns { HeightBreakpoint } The height breakpoint of current window.
+   * @returns { HeightBreakpoint } - The height breakpoint of current window.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @atomicservice 
+   * @atomicservice
    * @since 22 dynamic
    */
   getWindowHeightBreakpoint(): HeightBreakpoint;
@@ -5198,6 +5228,7 @@ export class UIContext {
    *
    * @param { FrameCallback } frameCallback - The frame callback to run on the next frame.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
@@ -5209,6 +5240,7 @@ export class UIContext {
    * @param { FrameCallback } frameCallback - The frame callback to run on the next frame.
    * @param { number } delayTime - The delay time in milliseconds,
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
@@ -5247,13 +5279,13 @@ export class UIContext {
    * @since 13 dynamic
    */
   /**
-   * Clear the cache generated by using $r/$rawfile to retrieve resources in HSP. This cache is used to accelerate the process
-   * of repeatedly loading resources. Clearing this cache may slow down the loading speed of resources during
+   * Clear the cache generated by using $r/$rawfile to retrieve resources in HSP. This cache is used to accelerate the
+   * process of repeatedly loading resources. Clearing this cache may slow down the loading speed of resources during
    * page overload.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   clearResourceCache(): void;
 
@@ -5414,19 +5446,34 @@ export class UIContext {
 
   /**
    * Set the upper limit for the cache count of HSP resource management objects.
-   * <p>**NOTE**:
-   * <br>If the upper limit of the cache is set too high, there is a risk of excessive memory overhead. 
+   *
+   * If the upper limit of the cache is set too high, there is a risk of excessive memory overhead. 
    * It is recommended to configure it according to actual needs.
-   * </p>
    *
    * @param { number } count - The cache limit of resource manager for HSP, must be non-negative integers.
-   * @throws { BusinessError } 100101 - The parameter value cannot be less than 0.
+   * @throws { BusinessError } 100101 - The parameter is less than 0.
    * @throws { BusinessError } 100102 - The parameter value cannot be a floating-point number.
    * @throws { BusinessError } 100103 - The function cannot be called from a non-main thread.
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 21 dynamic
+   */
+  /**
+   * Set the upper limit for the cache count of HSP resource management objects.
+   * 
+   * If the upper limit of the cache is set too high, there is a risk of excessive memory overhead. 
+   * It is recommended to configure it according to actual needs.
+   *
+   * @param { number } count - The cache limit of resource manager for HSP, must be non negative integers.
+   * @throws { BusinessError } 100101 - The parameter is less than 0.
+   * @throws { BusinessError } 100102 - The parameter value cannot be a floating point number.
+   * @throws { BusinessError } 100103 - The function cannot be called from a non main thread.
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
    */
   static setResourceManagerCacheMaxCountForHSP(count: number): void;
 
@@ -5442,7 +5489,7 @@ export class UIContext {
   getId(): number;
 
   /**
-   * Set the switch for memory recycling of invisible image nodes.
+   * Set the switch for memory recycling of invisible image nodes
    * 
    * @param { boolean } enabled - The switch for memory recycling.
    *    <br>Default value: false, Passing `undefined` restores the default value.
@@ -5452,6 +5499,18 @@ export class UIContext {
    * @since 23 dynamic
    */
   recycleInvisibleImageMemory(enabled: boolean): void;
+
+  /**
+   * Set custom keyboard continue feature.
+   *
+   * @param { CustomKeyboardContinueFeature } feature - The custom keyboard continue feature.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  setCustomKeyboardContinueFeature(feature: CustomKeyboardContinueFeature): void;
 }
 
 /**
@@ -5741,4 +5800,39 @@ export const enum GestureActionPhase {
    * @since 20 dynamic
    */
   ROTATION = 5
+}
+
+/**
+ * Enum of CustomKeyboardContinueFeature
+ * 
+ * @enum { number } CustomKeyboardContinueFeature
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 23 dynamic
+ */
+ export const enum CustomKeyboardContinueFeature {
+
+  /**
+   * Enable custom keyboard continuation.
+   * 
+   * @syscap SystemCapability. ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  ENABLED = 0,
+
+  /**
+   * Disable custom keyboard continuation.
+   * 
+   * @syscap SystemCapability. ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  DISABLED = 1
 }

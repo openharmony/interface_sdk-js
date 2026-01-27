@@ -1,7 +1,7 @@
-'use static'
+'use static';
 /*
  * Copyright (c) 2025 Huawei Device Co., Ltd.
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
@@ -18,24 +18,15 @@
  * @file
  * @kit ArkUI
  */
-
 import { AttributeModifier } from '@ohos.arkui.component';
-import { StepperItemAttribute } from '@ohos.arkui.component';
+import { UIPickerComponentAttribute } from '@ohos.arkui.component';
 
 /**
- * Defines StepperItem Modifier
+ * Defines Picker Modifier
  *
- * @implements { StepperItemAttribute, AttributeModifier<StepperItemAttribute> }
+ * @implements { UIPickerComponentAttribute, AttributeModifier<UIPickerComponentAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
-export declare class StepperItemModifier implements StepperItemAttribute, AttributeModifier<StepperItemAttribute> {
-  /**
-   * Defines the normal update attribute function.
-   * 
-   * @param { StepperItemAttribute } instance
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  applyNormalAttribute(instance: StepperItemAttribute): void;  
-}
+export declare class UIPickerComponentModifier implements UIPickerComponentAttribute, AttributeModifier<UIPickerComponentAttribute> {}

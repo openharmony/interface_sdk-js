@@ -6061,7 +6061,7 @@ declare namespace drawing {
      * @param { number } [glyphCount] - Number of glyphs represented by the text.
      *     The value must be the same as the value obtained from countText.
      *     The default value is the number of characters in the text string. The value is an integer.
-     * @returns { Array<number> } Returns the storage for glyph indices.
+     * @returns { Array<int> } Returns the storage for glyph indices.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -35,14 +35,14 @@ import networkManager from '@ohos.enterprise.networkManager';
 import restrictions from '@ohos.enterprise.restrictions';
 import securityManager from '@ohos.enterprise.securityManager';
 import systemManager from '@ohos.enterprise.systemManager';
+import telephonyManager from '@ohos.enterprise.telephonyManager';
 import usbManager from '@ohos.enterprise.usbManager';
 import wifiManager from '@ohos.enterprise.wifiManager';
-import telephonyManager from '@ohos.enterprise.telephonyManager';
 
 export {
   EnterpriseAdminExtensionAbility, accountManager, adminManager, applicationManager, bluetoothManager, browser,
   bundleManager, common, dateTimeManager, deviceControl, deviceInfo, deviceSettings, locationManager,
-  networkManager, restrictions, securityManager, systemManager, usbManager, wifiManager, telephonyManager
+  networkManager, restrictions, securityManager, systemManager, telephonyManager, usbManager, wifiManager
 };
 
 /*** if arkts static */

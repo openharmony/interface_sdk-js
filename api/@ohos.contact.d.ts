@@ -20,6 +20,7 @@
 
 import { AsyncCallback } from './@ohos.base';
 import type Context from './application/BaseContext';
+import { ValueType } from './@ohos.data.ValuesBucket';
 import type image from './@ohos.multimedia.image';
 
 /**
@@ -1435,7 +1436,7 @@ declare namespace contact {
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
-   * @useinstead contact.deleteContact#deleteContact
+   * @useinstead contact.isMyCard#isMyCard
    */
   function isMyCard(id: number, callback: AsyncCallback<boolean>): void;
 
@@ -5134,6 +5135,23 @@ declare namespace contact {
    * @since 23 static
    */
   function queryContactsCount(context: Context): Promise<int>;
+
+  /**
+   * Creates multiple contacts in batches.
+   *
+   * @permission ohos.permission.WRITE_CONTACTS
+   * @param { Context } context - Indicates the context of application or capability.
+   * @param { Array<Contact> } contacts - Indicates the contacts information to be inserted to the database.
+   * @returns { Promise<Array<int>> } Returns the array of contact ID (which can be obtained by {@link Contact#getId()}) 
+   *     if the creation is successful. returns {@link Contact#INVALID_CONTACT_ID} if the creation fails.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 16700001 - General error.
+   * @throws { BusinessError } 16700002 - Invalid parameter value. 
+   * @syscap SystemCapability.Applications.ContactsData
+   * @atomicservice
+   * @since 23
+   */
+  function addContacts(context: Context, contacts: Array<Contact>): Promise<Array<int>>;
 }
 
 export default contact;

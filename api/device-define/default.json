@@ -1,5 +1,6 @@
 {
   "SysCaps": [
+    "SystemCapability.ArkUI.ArkUI.Circle",
     "SystemCapability.ArkUI.ArkUI.Full",
     "SystemCapability.ArkUI.ArkUI.Napi",
     "SystemCapability.ArkUI.ArkUI.Libuv",
@@ -85,8 +86,6 @@
     "SystemCapability.Multimedia.Image.ImageSource",
     "SystemCapability.Multimedia.Image.ImagePacker",
     "SystemCapability.Multimedia.Image.ImageReceiver",
-    "SystemCapability.Multimedia.MediaLibrary.Core",
-    "SystemCapability.Multimedia.MediaLibrary.DistributedCore",
     "SystemCapability.Multimedia.SystemSound.Core",
     "SystemCapability.Telephony.CoreService",
     "SystemCapability.Telephony.CallManager",
@@ -167,7 +166,6 @@
     "SystemCapability.Ability.AbilityRuntime.FAModel",
     "SystemCapability.Ability.AbilityRuntime.AbilityCore",
     "SystemCapability.Ability.AbilityRuntime.Mission",
-    "SystemCapability.Ability.AbilityTools.AbilityAssistant",
     "SystemCapability.Ability.Form",
     "SystemCapability.Ability.DistributedAbilityManager",
     "SystemCapability.Applications.CalendarData",
@@ -226,6 +224,7 @@
     "SystemCapability.Ability.AppExtension.PhotoEditorExtension",
     "SystemCapability.Resourceschedule.BackgroundProcessManager",
     "SystemCapability.Test.PerfTest",
-    "SystemCapability.ResourceSchedule.SystemLoad"
+    "SystemCapability.ResourceSchedule.SystemLoad",
+    "SystemCapability.Communication.FusionConnectivity.Core"
   ]
 }

@@ -19,6 +19,7 @@
 import { CommonShapeMethod, AttributeModifier, CommonMethod } from "./common";
 import { ShapePoint } from "./line";
 import { ComponentBuilder, CustomBuilder } from './builder';
+import { Length } from './units';
 
 /**
  * Define options used to construct a polygon.
@@ -31,19 +32,19 @@ export declare interface PolygonOptions {
     /**
      * Polygon width.
      *
-     * @type { ?(string | double) }
+     * @type { ?Length }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
      */
-    width?: string | double;
+    width?: Length;
     /**
      * Polygon height.
      *
-     * @type { ?(string | double) }
+     * @type { ?Length }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
      */
-    height?: string | double;
+    height?: Length;
 }
 
 /**
@@ -78,14 +79,14 @@ export declare interface PolygonAttribute extends CommonShapeMethod {
 /**
  * Polygon is returned when the parameter is transferred.
  *
- * @param { PolygonOptions } [options] - The options to create a Polygon
- * @param { CustomBuilder } [content_]
+ * @param { PolygonOptions } [options] - The options to create a Polygon.
  * @returns { PolygonAttribute } The attribute of the Polygon.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
+ * @noninterop
  */
 @ComponentBuilder
 export declare function Polygon(
-    options?: PolygonOptions, 
-    content_?: CustomBuilder
+    options?: PolygonOptions
 ): PolygonAttribute

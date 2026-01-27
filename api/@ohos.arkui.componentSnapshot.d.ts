@@ -41,7 +41,7 @@ import colorSpaceManager from './@ohos.graphics.colorSpaceManager';
  */
 declare namespace componentSnapshot {
   /**
-   * Defines the extra options for snapshot taking.
+   * Defines the target region information for snapshot taking.
    *
    * @typedef SnapshotRegion
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -107,7 +107,7 @@ declare namespace componentSnapshot {
    */
   interface LocalizedSnapshotRegion {
     /**
-     * Left/Right side position of rectangle, in PX
+     * Start side position of rectangle, in PX
      *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -129,7 +129,7 @@ declare namespace componentSnapshot {
     end: number;
 
     /**
-     * Left/Right side position of rectangle, in PX
+     * Top side position of rectangle, in PX
      *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -465,15 +465,35 @@ declare namespace componentSnapshot {
    * @param { SnapshotOptions } [options] - Define the snapshot options.
    * @returns { image.PixelMap } The snapshot result in PixelMap format.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Invalid ID.
    * @throws { BusinessError } 160002 - Timeout.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
+   */
+  /**
+   * Take a screenshot of the specified component in synchronous mode,
+   * this mode will block the main thread, please use it with caution, the maximum
+   * waiting time of the interface is 3s, if it does not return after 3s, an exception will be thrown.
+   *
+   * @param { string } id - Target component ID, set by developer through .id attribute.
+   * @param { SnapshotOptions } [options] - Define the snapshot options.
+   * @returns { image.PixelMap } The snapshot result in PixelMap format.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100001 - Invalid ID.
+   * @throws { BusinessError } 160002 - Timeout.
+   * @throws { BusinessError } 160003 - Unsupported color space or dynamic range mode in snapshot options.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
    */
   function getSync(id: string, options?: SnapshotOptions): image.PixelMap;
 }

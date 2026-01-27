@@ -80,7 +80,16 @@ declare namespace application {
      * @since 22 dynamic
      * @since 23 static
      */
-    TYPE_CREATE_WINDOW_STAGE = 3
+    TYPE_CREATE_WINDOW_STAGE = 3,
+
+    /**
+     * Indicates that the preloading will be completed after the entryAbility create and go background.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    TYPE_CREATE_BACKGROUND_ABILITY = 4
   }
 
   /**
@@ -188,8 +197,7 @@ declare namespace application {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 22 dynamic
-   * @since 23 static
+   * @since 23 dynamic&static
    */
     export function getApplicationContextInstance(): ApplicationContext;
 

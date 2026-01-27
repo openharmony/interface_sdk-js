@@ -26,8 +26,12 @@ import { SubscribeCallbackData as _SubscribeCallbackData } from './notification/
 import { EnabledNotificationCallbackData as _EnabledNotificationCallbackData } from './notification/notificationSubscriber';
 import { EnabledPriorityNotificationCallbackData as _EnabledPriorityNotificationCallbackData } from './notification/notificationSubscriber';
 import { EnabledPriorityNotificationByBundleCallbackData as _EnabledPriorityNotificationByBundleCallbackData } from './notification/notificationSubscriber';
+/*** if arkts dynamic */
 import type { BadgeNumberCallbackData as _BadgeNumberCallbackData } from './notification/notificationSubscriber';
-
+/*** endif */
+/*** if arkts static */
+import type { BadgeNumberCallbackData as _BadgeNumberCallbackData } from './notification/notificationSubscriber';
+/*** endif */
 
 /**
  * @namespace notificationSubscribe

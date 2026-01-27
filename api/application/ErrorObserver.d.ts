@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -37,7 +37,7 @@
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @crossplatform
  * @atomicservice
- * @since 19 dynamic
+ * @since 19 dynamiconly
  */
 export default class ErrorObserver {
   /**
@@ -62,7 +62,7 @@ export default class ErrorObserver {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 19 dynamic
+   * @since 19 dynamiconly
    */
   onUnhandledException(errMsg: string): void;
 
@@ -88,7 +88,7 @@ export default class ErrorObserver {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 19 dynamic
+   * @since 19 dynamiconly
    */
   onException?(errObject: Error): void;
 }

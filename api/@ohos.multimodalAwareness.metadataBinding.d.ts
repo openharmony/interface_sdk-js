@@ -111,6 +111,28 @@ declare namespace metadataBinding {
    * @since 23 static
    */
   function off(type: 'operationSubmitMetadata', bundleName: string, callback?: Callback<int>): void;
+
+  /**
+   * Subscribes to a system event to obtain the encoded metadata. 
+   * @param { string } bundleName - Bundle name of a third-party application
+   * @param { Callback<int> } callback - Call back the screenshot event
+   * @throws { BusinessError } 32100001 - Internal handling failed. Service exception.
+   * @throws { BusinessError } 32100004 - Subscribe Failed.
+   * @syscap SystemCapability.MultimodalAwareness.MetadataBinding
+   * @since 23 static
+   */
+  function onOperationSubmitMetadata(bundleName: string, callback: Callback<int>): void;
+
+  /**
+   * Unsubscribes from system events that are used to obtain the encoded metadata. 
+   * @param { string } bundleName - Bundle name of a third-party application
+   * @param { Callback<int> } [callback] - Call back the screenshot event
+   * @throws { BusinessError } 32100001 - Internal handling failed. Service exception.
+   * @throws { BusinessError } 32100005 - Unsubscribe Failed.
+   * @syscap SystemCapability.MultimodalAwareness.MetadataBinding
+   * @since 23 static
+   */
+  function offOperationSubmitMetadata(bundleName: string, callback?: Callback<int>): void;
 }
 
 export default metadataBinding;

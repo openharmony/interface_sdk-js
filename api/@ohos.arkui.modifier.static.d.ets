@@ -192,6 +192,13 @@ export { NavigationModifier } from './arkui/NavigationModifier';
 export { RefreshModifier } from './arkui/RefreshModifier';
 
 /**
+ * Export RichEditorModifier, which is used to update attributes to native side.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 23 static
+ */
+export { RichEditorModifier } from './arkui/RichEditorModifier';
+
+/**
  * Export RefreshModifier, which is used to update attributes to native side.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 23 static
@@ -204,20 +211,6 @@ export { ScrollModifier } from './arkui/ScrollModifier';
  * @since 23 static
  */
 export { SideBarContainerModifier } from './arkui/SideBarContainerModifier';
-
-/**
- * Export StepperItemModifier, which is used to expose applyNormalAttribute function.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 23 static
- */
-export { StepperItemModifier } from './arkui/StepperItemModifier';
-
-/**
- * Export StepperModifier, which is used to expose applyNormalAttribute function.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 23 static
- */
-export { StepperModifier } from './arkui/StepperModifier';
 
 /**
  * Export SwiperModifier, which is used to expose applyNormalAttribute function.

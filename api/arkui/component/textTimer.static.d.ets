@@ -288,14 +288,13 @@ export declare interface TextTimerAttribute extends CommonMethod {
  * Defines the TextTimer component.
  *
  * @param { TextTimerOptions } [options] - text timer options.
- * @param { CustomBuilder } [content_]
  * @returns { TextTimerAttribute } The attribute of the TextTimer.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
 @ComponentBuilder
 export declare function TextTimer(
-    options?: TextTimerOptions, 
-    content_?: CustomBuilder
+    options?: TextTimerOptions
 ): TextTimerAttribute;

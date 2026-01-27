@@ -141,8 +141,6 @@
     "SystemCapability.Communication.NetManager.Ethernet",
     "SystemCapability.FileManagement.UserFileManager.DistributedCore",
     "SystemCapability.FileManagement.UserFileManager.Core",
-    "SystemCapability.Multimedia.MediaLibrary.DistributedCore",
-    "SystemCapability.Multimedia.MediaLibrary.Core",
     "SystemCapability.Multimedia.Audio.PlaybackCapture",
     "SystemCapability.Multimedia.Audio.Interrupt",
     "SystemCapability.Multimedia.Audio.Tone",
@@ -180,7 +178,6 @@
     "SystemCapability.DistributedHardware.DeviceManager",
     "SystemCapability.DistributedHardware.DistributedHardwareFWK",
     "SystemCapability.Developtools.Syscap",
-    "SystemCapability.Ability.AbilityTools.AbilityAssistant",
     "SystemCapability.Ability.AbilityRuntime.QuickFix",
     "SystemCapability.Ability.AbilityRuntime.Mission",
     "SystemCapability.Ability.AbilityRuntime.AbilityCore",
@@ -214,9 +211,17 @@
     "SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask",
     "SystemCapability.FileManagement.File.Environment",
     "SystemCapability.FileManagement.File.FileIO",
+    "SystemCapability.ArkUI.ArkUI.Circle",
     "SystemCapability.ArkUI.ArkUI.Full",
     "SystemCapability.Global.I18n",
     "SystemCapability.Test.PerfTest",
-    "SystemCapability.ArkUI.ArkUI.Lite"
+    "SystemCapability.ArkUI.ArkUI.Lite",
+	"SystemCapability.Driver.ExternalDevice",
+	"SystemCapability.Driver.DDK.Extension",
+	"SystemCapability.Driver.HID.Extension",
+	"SystemCapability.Driver.SCSI.Extension",
+	"SystemCapability.Driver.USB.Extension",
+	"SystemCapability.Driver.UsbSerial.Extension",
+    "SystemCapability.Communication.FusionConnectivity.Core"
   ]
 }

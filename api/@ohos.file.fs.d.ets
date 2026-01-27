@@ -580,7 +580,7 @@ function copyDirWithConflictFiles(src: string, dest: string, mode: int,
  * Copies the source directory to the destination directory. This API returns the result synchronously.
  *
  * @param { string } src - Application sandbox path of the source directory.
- * @param { string } dest - Application sandbox path of the source directory.
+ * @param { string } dest - Application sandbox path of the destination directory.
  * @param { int } [mode = 0] - Copy mode. The default value is 0.
  *     <br>0: Throw an exception if a file conflict occurs.
  *     <br>An exception will be thrown if the destination directory contains a directory with
@@ -1190,7 +1190,7 @@ function createWriteStream(path: string, options?: WriteStreamOptions): WriteStr
 function createWatcher(path: string, events: int, listener: WatchEventListener): Watcher;
 
 /**
- * Opens a File object based on an FD.
+ * Duplicates the file descriptor and returns the corresponding File object.
  *
  * @param { int } fd - FD of the file.
  * @returns { File } File object opened.
@@ -1475,10 +1475,11 @@ function listFile(
 ): Promise<string[]>;
 
 /**
- * Lists all file names in a directory. This API uses a promise to return the result.
+ * Lists the names of all files and directories in the current path.
+ * This API uses an asynchronous callback to return the result.
  *
  * @param { string } path - Application sandbox path of the directory.
- * @param { AsyncCallback<string[]> } callback - Options for filtering files. The files are not filtered by default.
+ * @param { AsyncCallback<string[]> } callback - Callback used to return the file names listed.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900011 - Out of memory
@@ -3216,7 +3217,7 @@ function unlink(path: string, callback: AsyncCallback<void>): void;
 function unlinkSync(path: string): void;
 
 /**
- * Updates the latest access timestamp of a file.
+ * Changes the time when the file was last modified.
  *
  * @param { string } path - Application sandbox path of the file.
  * @param { double } mtime - New timestamp. The value is the number of milliseconds elapsed since
@@ -3351,6 +3352,70 @@ function writeSync(
   buffer: ArrayBuffer | string,
   options?: WriteOptions
 ): long;
+
+/**
+ * Connect Distributed File System.
+ *
+ * @permission ohos.permission.DISTRIBUTED_DATASYNC
+ * @param { string } networkId - The networkId of device.
+ * @param { DfsListeners } listeners - The listeners of Distributed File System.
+ * @returns { Promise<void> } The promise returned by the function.
+ * @throws { BusinessError } 201 - Permission denied.
+ * @throws { BusinessError } 401 - The parameter check failed.Possible causes:1.Mandatory parameters are left unspecified;
+ * <br>2.Incorrect parameter types.
+ * @throws { BusinessError } 13900045 - Connection failed.
+ * @throws { BusinessError } 13900046 - Software caused connection abort.
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 23 static
+ */
+function connectDfs(networkId: string, listeners: DfsListeners): Promise<void>;
+
+/**
+ * Disconnect Distributed File System.
+ *
+ * @permission ohos.permission.DISTRIBUTED_DATASYNC
+ * @param { string } networkId - The networkId of device.
+ * @returns { Promise<void> } The promise returned by the function.
+ * @throws { BusinessError } 201 - Permission denied.
+ * @throws { BusinessError } 401 - The parameter check failed.Possible causes:1.Mandatory parameters are left unspecified;
+ * <br>2.Incorrect parameter types.
+ * @throws { BusinessError } 13600004 - Unmount failed.
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 23 static
+ */
+function disconnectDfs(networkId: string): Promise<void>;
+
+/**
+ * DfsListener Callback function.
+ *
+ * @typedef {function} DfsListenerCallback.
+ * @param { string } networkId - The networkId of device.
+ * @param { int } status - The status code of Distributed File System.
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @stagemodelonly
+ * @since 23 static
+ */
+type DfsListenerCallback = (networkId: string, status: int) => void;
+
+/**
+ * The listeners of Distributed File System.
+ *
+ * @typedef DfsListeners
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @stagemodelonly
+ * @since 23 static
+ */
+export interface DfsListeners {
+  /**
+   * The Listener of Distributed File System status
+   *
+   * @type { DfsListenerCallback }
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @stagemodelonly
+   * @since 23 static
+   */
+  onStatus: DfsListenerCallback;
+}
 
 /**
  * Sets an extended attribute of a file or directory.
@@ -4147,7 +4212,7 @@ export class AtomicFile {
   /**
    * Obtains the file object through the AtomicFile object. The FD needs to be closed by calling close().
    *
-   * @returns { File } Returns the file object.
+   * @returns { File } File object opened.
    * @throws { BusinessError } 13900002 No such file or directory
    * @throws { BusinessError } 13900005 IO error
    * @throws { BusinessError } 13900012 Permission denied
@@ -4486,7 +4551,7 @@ interface Stat {
  */
 interface Stream {
   /**
-   * Close stream.
+   * Closes the file stream. This API uses a promise to return the result.
    *
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 13900004 - Interrupted system call
@@ -4501,7 +4566,7 @@ interface Stream {
   close(): Promise<void>;
 
   /**
-   * Close stream.
+   * Closes the file stream. This API uses an asynchronous callback to return the result.
    *
    * @param { AsyncCallback<void> } callback - Return the callback function.
    * @throws { BusinessError } 13900004 - Interrupted system call
@@ -5266,19 +5331,6 @@ export interface WriteOptions extends Options {
   /**
    * Start position of the file to write (current filePointer plus offset), in bytes. This parameter is optional.
    * By default, data is written from the filePointer.
-   * OpenMode.WRITE_ONLY(0o1): write-only.
-   * OpenMode.READ_WRITE(0o2): read/write.
-   * You can also specify the following options, separated by a bitwise OR operator (|).
-   * By default, no additional options are given.
-   * OpenMode.CREATE(0o100): If the file does not exist, create it.
-   * OpenMode.TRUNC(0o1000): If the file exists and is opened in write mode, truncate the file length to 0.
-   * OpenMode.APPEND(0o2000): Open the file in append mode. New data will be added to the end of the file.
-   * OpenMode.NONBLOCK(0o4000): If path points to a named pipe (also known as a FIFO), block special file,
-   * or character special file, perform non-blocking operations on the opened file and in subsequent I/Os.
-   * OpenMode.DIR(0o200000): If path does not point to a directory, throw an exception.
-   * The write permission is not allowed.
-   * OpenMode.NOFOLLOW(0o400000): If path points to a symbolic link, throw an exception.
-   * OpenMode.SYNC(0o4010000): Open the file in synchronous I/O mode.
    *
    * @type { ?long }
    * @syscap SystemCapability.FileManagement.File.FileIO

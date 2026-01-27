@@ -23,10 +23,11 @@ import { CommonMethod } from './common';
 import { CustomBuilder } from './builder';
 import { TextHeightAdaptivePolicy, TextOverflow, VerticalAlign } from './enums';
 import { Dimension, Font, Length, LocalizedPadding, Padding, Resource, ResourceColor, ResourceStr, VoidCallback } from './units';
-import { ComponentContent } from '../ComponentContent';
+import { ComponentContentBase } from '../ComponentContent';
 import { SymbolGlyphModifier } from '../SymbolGlyphModifier';
 import { ComponentBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
+import { DrawableDescriptor } from '../../@ohos.arkui.drawableDescriptor';
 
 /**
  * Enum for the mode of the tab bar when selected.
@@ -131,6 +132,76 @@ export declare interface SubTabBarIndicatorStyle {
    * @type { ?Length }
    * @default 8
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  marginTop?: Length;
+}
+/**
+ * Provide an interface for the style of a drawable indicator including margin top.
+ *
+ * @interface DrawableTabBarIndicator
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 23 static
+ */
+declare interface DrawableTabBarIndicator {
+  /**
+   * Define the drawable object for the indicator.
+   *
+   * @type { ?DrawableDescriptor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 static
+   */
+  drawable?: DrawableDescriptor;
+
+  /**
+   * Width of the indicator. It cannot be set in percentage.
+   * If it is 0, the width will be equal to the width of the content
+   *
+   * @type { ?Length }
+   * @default 0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 static
+   */
+  width?: Length;
+
+  /**
+   * Height of the indicator. It cannot be set in percentage.
+   *
+   * @type { ?Length }
+   * @default 2vp
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 static
+   */
+  height?: Length;
+
+  /**
+   * Rounded corner radius of the indicator. It cannot be set in percentage.
+   *
+   * @type { ?Length }
+   * @default 0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 static
+   */
+  borderRadius?: Length;
+
+  /**
+   * Spacing between the indicator and text.It cannot be set in percentage.
+   *
+   * @type { ?Length }
+   * @default 8vp
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
    * @since 23 static
    */
   marginTop?: Length;
@@ -258,23 +329,46 @@ export declare interface TabBarIconStyle {
  */
 export declare class TabBarSymbol {
   /**
-   * Symbol icon in the normal style.
+   * Get symbol icon in the normal style.
    *
-   * @type { SymbolGlyphModifier }
-   * @default fontColor: #66182431, renderingStrategy: SymbolRenderingStrategy.MULTIPLE_OPACITY, fontSize: 24vp
+   * @returns { SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
-  normal: SymbolGlyphModifier;
+  get normal(): SymbolGlyphModifier;
+
   /**
-   * Symbol icon in the selected style.
+   * Set symbol icon in the normal style.
    *
-   * @type { ?SymbolGlyphModifier }
-   * @default fontColor: #ff007dff, renderingStrategy: SymbolRenderingStrategy.MULTIPLE_OPACITY, fontSize: 24vp
+   * @param { SymbolGlyphModifier } normal - Set symbol icon in the normal style.
+   *     <br>@default fontColor: #66182431, renderingStrategy: SymbolRenderingStrategy.MULTIPLE_OPACITY, fontSize: 24vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
-  selected?: SymbolGlyphModifier;
+  set normal(normal: SymbolGlyphModifier);
+
+  /**
+   * Get symbol icon in the selected style.
+   *
+   * @returns { SymbolGlyphModifier | undefined }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  get selected(): SymbolGlyphModifier | undefined;
+
+  /**
+   * Set symbol icon in the selected style.
+   *
+   * @param { SymbolGlyphModifier | undefined } selected - Set symbol icon in the selected style.
+   *     <br>@default fontColor: #ff007dff, renderingStrategy: SymbolRenderingStrategy.MULTIPLE_OPACITY, fontSize: 24vp
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  set selected(selected: SymbolGlyphModifier | undefined);
 }
 /**
  * Icon and text for TabBar.
@@ -318,21 +412,23 @@ export declare class SubTabBarStyle {
   /**
    * constructor.
    *
-   * @param { ResourceStr | ComponentContent } content - indicates the content of the sub tab bar
+   * @param { ResourceStr | ComponentContentBase } content - indicates the content of the sub tab bar
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
-  constructor(content: ResourceStr | ComponentContent);
+  constructor(content: ResourceStr | ComponentContentBase);
   /**
-   * Static constructor used to create a SubTabBarStyle instance. You can set custom content with ComponentContent.
+   * Static constructor used to create a SubTabBarStyle instance. You can set custom content with ComponentContentBase.
    *
-   * @param { ResourceStr | ComponentContent } content - indicates the content of the sub tab bar
+   * @param { ResourceStr | ComponentContentBase } content - indicates the content of the sub tab bar
    * @returns { SubTabBarStyle } the style of the sub tab bar
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
-  static of(content: ResourceStr | ComponentContent): SubTabBarStyle;
+  static of(content: ResourceStr | ComponentContentBase): SubTabBarStyle;
   /**
    * Set the style of the indicator when selected
    *
@@ -342,6 +438,15 @@ export declare class SubTabBarStyle {
    * @since 23 static
    */
   indicator(style: SubTabBarIndicatorStyle): SubTabBarStyle;
+  /**
+   * Sets the indicator style of the selected subtab. Use DrawableTabBarIndicator to set image for the indicator.
+   *
+   * @param { SubTabBarIndicatorStyle | DrawableTabBarIndicator } value - indicator style object for the selected subtab.
+   * @returns { SubTabBarStyle } the style of the sub tab bar
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  indicator(value: SubTabBarIndicatorStyle | DrawableTabBarIndicator): SubTabBarStyle;
   /**
    * Sets the display mode of the selected subtab.
    *
@@ -537,13 +642,15 @@ export declare interface TabContentAttribute extends CommonMethod {
    * <br>If the content exceeds the space provided by the tab bar, it will be clipped.
    * </p>
    *
-   * @param { ComponentContent | SubTabBarStyle | BottomTabBarStyle | string | Resource | CustomBuilder | TabBarOptions } content
-   * Content displayed on the tab bar.
+   * @param { ComponentContentBase | SubTabBarStyle | BottomTabBarStyle | string | Resource | CustomBuilder | TabBarOptions | undefined} content
+   *     undefined means an empty tab bar.
+   *     Content displayed on the tab bar.
    * @returns { TabContentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
-  tabBar(content: ComponentContent | SubTabBarStyle | BottomTabBarStyle | string | Resource | CustomBuilder | TabBarOptions | undefined): this;
+  tabBar(content: ComponentContentBase | SubTabBarStyle | BottomTabBarStyle | string | Resource | CustomBuilder | TabBarOptions | undefined): this;
   /**
    * Called when the tab content is about to be displayed. The scenarios include the first-time display,
    * tab switching, page switching, and window switching between the foreground and background.

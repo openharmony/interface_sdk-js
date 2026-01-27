@@ -2818,14 +2818,13 @@ declare namespace commonEventManager {
     COMMON_EVENT_SCREEN_SHARE = 'usual.event.SCREEN_SHARE',
 
     /**
-     * Indicates that an application finish restore.
+     * Indicates that an application finished restore.
      * To subscribe to this common event, your application must have the
      * ohos.permission.RESTORE_END_NOTIFICATION permission.
      * This is a protected common event that can only be sent by system.
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
-     * @since 22 dynamic
-     * @since 23 static
+     * @since 23 dynamic&static
      */
     COMMON_EVENT_RESTORE_END = 'usual.event.RESTORE_END',
 
@@ -2846,8 +2845,7 @@ declare namespace commonEventManager {
      * This common event means that the open and closed state of the stand associated with the tablet mode has changed.
      * This is a protected common event that can only be sent by system.
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 22 dynamic
-     * @since 23 static
+     * @since 23 dynamic&static
      */
     COMMON_EVENT_TABLET_MODE_CHANGED = 'usual.event.TABLET_MODE_CHANGED',
 
@@ -2855,8 +2853,7 @@ declare namespace commonEventManager {
      * This common event means that the state (open or closed) of the laptop lid has changed.
      * This is a protected common event that can only be sent by system.
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 22 dynamic
-     * @since 23 static
+     * @since 23 dynamic&static
      */
     COMMON_EVENT_LID_STATE_CHANGED = 'usual.event.LID_STATE_CHANGED',
   }

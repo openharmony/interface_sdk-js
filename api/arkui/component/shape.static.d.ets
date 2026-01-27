@@ -30,39 +30,38 @@ import { ComponentBuilder, CustomBuilder } from './builder';
  * @since 23 static
  */
 export declare interface ViewportRect {
-    
     /**
      * Viewport X coordinate.
      *
-     * @type { ?(double | string) }
+     * @type { ?Length }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
      */
-    x?: double | string;
+    x?: Length;
     /**
      * Viewport Y coordinate.
      *
-     * @type { ?(double | string) }
+     * @type { ?Length }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
      */
-    y?: double | string;
+    y?: Length;
     /**
      * Viewport width.
      *
-     * @type { ?(double | string) }
+     * @type { ?Length }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
      */
-    width?: double | string;
+    width?: Length;
     /**
      * Viewport height.
      *
-     * @type { ?(double | string) }
+     * @type { ?Length }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
      */
-    height?: double | string;
+    height?: Length;
 }
 
 /**
@@ -103,12 +102,12 @@ export declare interface ShapeAttribute extends CommonMethod {
     /**
      * Called when the offset of the starting point of border drawing is set.
      *
-     * @param { double | string | undefined } value
+     * @param { Length | undefined } value
      * @returns { ShapeAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
      */
-    default strokeDashOffset(value: double | string | undefined): this;
+    default strokeDashOffset(value: Length | undefined): this;
     /**
      * Called when the gap of the border is set.
      *
@@ -139,12 +138,12 @@ export declare interface ShapeAttribute extends CommonMethod {
     /**
      * Called when the limit value for drawing acute angles as oblique angles is set.
      *
-     * @param { double | string | undefined } value
+     * @param { Length | undefined } value
      * @returns { ShapeAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
      */
-    default strokeMiterLimit(value: double | string | undefined): this;
+    default strokeMiterLimit(value: Length | undefined): this;
     /**
      * Called when the opacity of the border is set.
      *
@@ -166,12 +165,12 @@ export declare interface ShapeAttribute extends CommonMethod {
     /**
      * Called when the width of the border is set.
      *
-     * @param { double | string | undefined } value
+     * @param { Length | undefined } value
      * @returns { ShapeAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
      */
-    default strokeWidth(value: double | string | undefined): this;
+    default strokeWidth(value: Length | undefined): this;
     /**
      * Called when setting whether anti aliasing is on.
      *

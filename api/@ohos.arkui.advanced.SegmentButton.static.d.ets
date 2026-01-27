@@ -47,6 +47,7 @@ import {
   BuilderParam,
   Builder,
 } from './@ohos.arkui.component';
+import uiMaterial from './@ohos.arkui.uiMaterial';
 
 /**
  * Defines text only item of SegmentButton.
@@ -489,6 +490,18 @@ interface CommonSegmentButtonOptions {
    * @noninterop
    */
   itemBorderRadius?: LengthMetrics;
+
+  /**
+   * Set system-styled materials for the component. Different materials have different effects, which can influence
+   * the backgroundColor, border, shadow, and other visual attributes of the component.
+   *
+   * @type { ?uiMaterial.Material } material - System-styled material. 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 static
+   */
+  backgroundSystemMaterial?: uiMaterial.Material;
 }
 
 /**
@@ -1121,6 +1134,21 @@ declare class SegmentButtonOptions {
   backgroundBlurStyle: BlurStyle;
 
   /**
+   * Set system-styled materials for the component. Different materials have different effects, which can influence
+   * the backgroundColor, border, shadow, and other visual attributes of the component.
+   *
+   * Device Behavior Differences:The effect of the same material may vary across different devices depending on
+   * their computing power.
+   *
+   * @type { ?uiMaterial.Material } material - System-styled material. 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 static
+   */
+  backgroundSystemMaterial?: uiMaterial.Material;
+
+  /**
    * The constructor used to create a SegmentButtonOptions object.
    *
    * @param { TabSegmentButtonOptions | CapsuleSegmentButtonOptions } options - The options of SegmentButton.
@@ -1249,18 +1277,6 @@ declare struct SegmentButton {
    * @noninterop
    */
   onItemClicked?: Callback<int>;
-
-  /**
-   * Enable animation when selectedIndexes change.
-   *
-   * @type { boolean }
-   * @default false
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 23 static
-   */
-  @PropRef
-  enableStateAnimation: boolean;
   
   /**
    * The method to build component.

@@ -20,8 +20,8 @@
  */
 
 import { Resource as _Resource } from '../../global/resource';
-import { Color, BorderStyle, FontWeight, FontStyle, DividerMode } from './enums';
-import { OutlineStyle, AttributeModifier, CommonMethod } from './common';
+import { Color, BorderStyle, FontWeight, FontStyle, DividerMode, PresetFillType } from './enums';
+import { OutlineStyle, AttributeModifier, CommonMethod, AccessibilityRoleType} from './common';
 import { LengthMetricsUnit as _LengthMetricsUnit, LengthMetrics as _LengthMetrics, ColorMetrics as _ColorMetrics } from '../Graphics';
 import _drawing from '../../../api/@ohos.graphics.drawing'
 /**
@@ -1185,20 +1185,10 @@ export declare interface BorderOptions {
    * @since 23 static
    */
   dashWidth?: EdgeWidths | LengthMetrics | LocalizedEdgeWidths;
-
-  /**
-   * Defines the border display hierarchy, such as show in the background or foreground。
-   *
-   * @type { ?boolean }
-   * @default true
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  showInForeground?: boolean;
 }
 
 /**
- * Defines the options of border.
+ * Defines the options of outline.
  *
  * @interface OutlineOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1427,15 +1417,17 @@ export declare interface DividerStyleOptions {
  *
  * @interface ScrollBarMargin
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 23 static
+ * @stagemodelonly
+ * @since 24 static
  */
-declare interface ScrollBarMargin {
+export declare interface ScrollBarMargin {
   /**
    * Start margin of the scroll bar.
    *
    * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @stagemodelonly
+   * @since 24 static
    */
   start?: LengthMetrics;
 
@@ -1444,7 +1436,8 @@ declare interface ScrollBarMargin {
    *
    * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @stagemodelonly
+   * @since 24 static
    */
   end?: LengthMetrics;
 }
@@ -1494,6 +1487,46 @@ export declare interface AccessibilityOptions {
    * @since 23 static
    */
   accessibilityPreferred?: boolean;
+
+  /**
+   * stateControllerType - the first component of a specific type found within the composition defined by
+   * accessibility group will take over the state attributes and announcement of the composition
+   *
+   * @type { ?AccessibilityRoleType }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  stateControllerRoleType?: AccessibilityRoleType;
+
+  /**
+   * stateControllerId - the first component of a specific id found within the composition defined by
+   * accessibility group will take over the state attributes and announcement of the composition
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  stateControllerId?: string;
+
+  /**
+   * actionControllerRoleType - the first component of a specific type found within the composition defined by
+   * accessibility group will take over part of the accessibility action of the composition
+   *
+   * @type { ?AccessibilityRoleType }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  actionControllerRoleType?: AccessibilityRoleType;
+
+  /**
+   * actionControllerId - the first component of a specific id found within the composition defined by
+   * accessibility group will take over part of the accessibility action of the composition
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  actionControllerId?: string;
 }
 
 /**
@@ -1513,4 +1546,64 @@ export declare interface AccessibilityActionOptions {
    * @since 23 static
    */
   scrollStep?: int;
+}
+
+/**
+ * Define a responsive item filling pattern that can be used in WaterFlow, Grid, List, and Swiper components.
+ *
+ * @typedef { PresetFillType } ResponsiveFillType
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 24 static
+ */
+export type ResponsiveFillType = PresetFillType;
+
+/**
+ * Define a responsive item layout suitable for WaterFlow, Grid, List, and Swiper components.
+ *
+ * @interface ItemFillPolicy
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 24 static
+ */
+export declare interface ItemFillPolicy {
+  /**
+   * Specify the number of columns for different responsive breakpoints.
+   *
+   * @type { ?ResponsiveFillType }
+   * @default ResponsiveFillType.BREAKPOINT_DEFAULT
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  fillType?: ResponsiveFillType;
+}
+
+/**
+ * Define cache count information.
+ *
+ * @interface CacheCountInfo
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 24 static
+ */
+export declare interface CacheCountInfo {
+  /**
+   * min cache count.
+   *
+   * @type { int }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  minCount: int;
+  /**
+   * max cache count.
+   *
+   * @type { int }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  maxCount: int;
 }

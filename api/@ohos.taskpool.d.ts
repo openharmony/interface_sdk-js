@@ -2047,7 +2047,7 @@ declare namespace taskpool {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20 dynamiconly
+   * @since 20 dynamic
    */
   interface TaskResult {
     /**
@@ -2057,7 +2057,7 @@ declare namespace taskpool {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 20 dynamiconly
+     * @since 20 dynamic
      */
     result?: Object;
 
@@ -2068,7 +2068,7 @@ declare namespace taskpool {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 20 dynamiconly
+     * @since 20 dynamic
      */
     error?: Error | Object;
   }

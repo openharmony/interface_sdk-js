@@ -968,6 +968,318 @@ declare namespace print {
   }
 
   /**
+   * defines job data for multi format supported print.
+   * @typedef PrintJobData
+   * @syscap SystemCapability.Print.PrintFramework
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  interface PrintJobData {
+    /**
+     * Printer id to take charge of printing.
+     * 
+     * @type { string }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    printerId: string;
+
+    /**
+     * Print Job Name.
+     * 
+     * @type { string }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    jobName: string;
+
+    /**
+     * Document format.
+     * 
+     * @type { PrintDocumentFormat }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    documentFormat: PrintDocumentFormat;
+
+    /**
+     * Specifies the data source type for the document.
+     * 
+     * @type { DocFlavor }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    docFlavor: DocFlavor;
+
+    /**
+     * Copies of document list.
+     * 
+     * @type { int }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    copyNumber: int;
+
+    /**
+     * Landscape printing.
+     * 
+     * @type { boolean }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    isLandscape: boolean;
+
+    /**
+     * Color mode.
+     * 
+     * @type { PrintColorMode }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    colorMode: PrintColorMode;
+
+    /**
+     * Duplex mode.
+     * 
+     * @type { PrintDuplexMode }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    duplexMode: PrintDuplexMode;
+
+    /**
+     * Page size.
+     * @type { PrintPageSize }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    pageSize: PrintPageSize;
+
+    /**
+     * Job id.
+     * @type { ?string }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    jobId?: string;
+
+    /**
+     * Document fd list to be printed.
+     * 
+     * @type { ?int[] }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    fdList?: int[];
+
+    /**
+     * Binary data to be printed.
+     * 
+     * @type { ?Uint8Array }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    binaryData?: Uint8Array;
+
+    /**
+     * Print quality.
+     * 
+     * @type { ?PrintQuality }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    printQuality?: PrintQuality;
+
+    /**
+     * Media type.
+     * 
+     * @type { ?string }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    mediaType?: string;
+
+    /**
+     * Is borderless.
+     * 
+     * @type { ?boolean }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    isBorderless?: boolean;
+
+    /**
+     * Is Auto Rotate.
+     * 
+     * @type { ?boolean }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    isAutoRotate?: boolean;
+
+    /**
+     * Print Reverse.
+     * 
+     * @type { ?boolean }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    isReverse?: boolean;
+
+    /**
+     * Is Collate Print.
+     * 
+     * @type { ?boolean }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    isCollate?: boolean;
+
+    /**
+     * Sequential print.
+     * 
+     * @type { ?boolean }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    isSequential?: boolean;
+
+    /**
+     * Detail information in json format.
+     * 
+     * @type { ?string }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    options?: string;
+  }
+
+  /**
+   * Print Document Format.
+   * 
+   * @enum { int } PrintDocumentFormat
+   * @syscap SystemCapability.Print.PrintFramework
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  enum PrintDocumentFormat {
+    /**
+     * Auto format.
+     * 
+     * @syscap SystemCapability.Print.PrintFramework
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    DOCUMENT_FORMAT_AUTO = 0,
+
+    /**
+     * Jpeg format.
+     * 
+     * @syscap SystemCapability.Print.PrintFramework
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    DOCUMENT_FORMAT_JPEG = 1,
+
+    /**
+     * Pdf format.
+     * 
+     * @syscap SystemCapability.Print.PrintFramework
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    DOCUMENT_FORMAT_PDF = 2,
+
+    /**
+     * Postscript format.
+     * 
+     * @syscap SystemCapability.Print.PrintFramework
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    DOCUMENT_FORMAT_POSTSCRIPT = 3,
+
+    /**
+     * Text format.
+     * 
+     * @syscap SystemCapability.Print.PrintFramework
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    DOCUMENT_FORMAT_TEXT = 4,
+
+    /**
+     * Raw format.
+     * 
+     * @syscap SystemCapability.Print.PrintFramework
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    DOCUMENT_FORMAT_RAW = 5
+  }
+
+  /**
+   * Print Data Format.
+   * 
+   * @enum { int } DocFlavor
+   * @syscap SystemCapability.Print.PrintFramework
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  enum DocFlavor {
+    /**
+     * Document is provided via file descriptors.
+     * 
+     * @syscap SystemCapability.Print.PrintFramework
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    FILE_DESCRIPTOR = 0,
+
+    /**
+     * Document is provided as raw binary data.
+     * 
+     * @syscap SystemCapability.Print.PrintFramework
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    BYTES = 1
+  }
+
+  /**
+   * Start print job supporting multiple formats
+   * .
+   * @permission ohos.permission.PRINT
+   * @param { PrintJobData } job - Indicates the information of print job.
+   * @returns { Promise<void> } callback - The promise returned by the function.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @syscap SystemCapability.Print.PrintFramework
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function startPrint(job: PrintJobData): Promise<void>;
+
+  /**
    * Enumeration of Print Direction Mode.
    * @enum { int } PrintDirectionMode
    * @syscap SystemCapability.Print.PrintFramework
@@ -1408,7 +1720,7 @@ declare namespace print {
     PRINT_JOB_BLOCK_BUSY = 5,
 
     /**
-     * Print job has been cancelled.
+     * Blocking print job is cancelled.
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
      * @since 23 static

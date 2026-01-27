@@ -26,6 +26,7 @@ import { Callback } from './@ohos.base';
 import { NavDestinationMode } from '@ohos.arkui.component';
 import { HeightBreakpoint, WidthBreakpoint } from '@ohos.arkui.component';
 import { Size } from '@ohos.arkui.node';
+import { Axis } from '@ohos.arkui.component';
 /**
  * Register callbacks to observe ArkUI behavior.
  *
@@ -205,14 +206,14 @@ declare namespace uiObserver {
      */
     export enum TabContentState {
         /**
-         * When the TabContent hidden.
+         * When the TabContent is shown.
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 23 static
          */
         ON_SHOW = 0,
         /**
-         * When the TabContent hidden.
+         * When the TabContent is hidden.
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 23 static
@@ -380,6 +381,14 @@ declare namespace uiObserver {
          * @since 23 static
          */
         offset: double;
+        /**
+         * Scroll axis.
+         *
+         * @type { ?Axis }
+         * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @since 24 static
+         */
+        axis?: Axis;
     }
     /**
      * TabContent info.
@@ -447,6 +456,41 @@ declare namespace uiObserver {
          */
         lastIndex?: int;
     }
+  /**
+   * Text change event info
+   *
+   * @interface TextChangeEventInfo
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  export interface TextChangeEventInfo {
+    /**
+     * The id of text field component.
+     *
+     * @type { string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    id: string;
+
+    /**
+     * The uniqueId of the text field component.
+     *
+     * @type { int }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    uniqueId: int;
+
+    /**
+     * Current content of text field component.
+     *
+     * @type { string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    content: string;
+  }
     /**
      * observer options.
      *
@@ -606,7 +650,7 @@ declare namespace uiObserver {
      * based on the configured breakpoint thresholds.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
     export class WindowSizeLayoutBreakpointInfo {
         /**
@@ -617,7 +661,7 @@ declare namespace uiObserver {
          * @type { WidthBreakpoint }
          * @readonly
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 23 static
+         * @since 24 static
          */
         readonly widthBreakpoint: WidthBreakpoint;
         /**
@@ -628,7 +672,7 @@ declare namespace uiObserver {
          * @type { HeightBreakpoint }
          * @readonly
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 23 static
+         * @since 24 static
          */
         readonly heightBreakpoint: HeightBreakpoint;
     }

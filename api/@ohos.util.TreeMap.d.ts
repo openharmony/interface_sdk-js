@@ -291,11 +291,13 @@ declare class TreeMap<K, V> {
    * Or returns undefined if tree map is empty
    *
    * @returns { K } value or undefined
+   * @throws { BusinessError } 10200010 - Container is empty.[staticonly]
    * @throws { BusinessError } 10200011 - The getFirstKey method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
+   * @since 23 static
    */
   getFirstKey(): K;
   /**
@@ -322,11 +324,13 @@ declare class TreeMap<K, V> {
    * Or returns undefined if tree map is empty
    *
    * @returns { K } value or undefined
+   * @throws { BusinessError } 10200010 - Container is empty.[staticonly]
    * @throws { BusinessError } 10200011 - The getLastKey method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
+   * @since 23 static
    */
   getLastKey(): K;
 
@@ -341,30 +345,6 @@ declare class TreeMap<K, V> {
    * @since 23 static
    */
   get(key: K): V | undefined;
-
-  /**
-   * Obtains the first sorted key in the treemap.
-   * Or returns undefined if tree map is empty
-   *
-   * @returns { K | undefined } the key of the first element if exists, undefined otherwise
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 23 static
-   */
-  getFirstKey(): K | undefined;
-
-  /**
-   * Obtains the last sorted key in the treemap.
-   * Or returns undefined if tree map is empty
-   *
-   * @returns { K | undefined } the key of the last element if exists, undefined otherwise
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 23 static
-   */
-  getLastKey(): K | undefined;
 
   /**
    * Adds all element groups in one map to another map
@@ -595,7 +575,9 @@ declare class TreeMap<K, V> {
    * if the key does not exist, undefined is returned
    *
    * @param { K } key - key key Objective of comparison
-   * @returns { K | undefined } the lower key of the given key's element if exists, undefined otherwise
+   * @returns { K | undefined } key or undefined
+   * @throws { BusinessError } 10200010 - Container is empty.
+   * @throws { BusinessError } 10200011 - The getLowerKey method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -608,7 +590,9 @@ declare class TreeMap<K, V> {
    * if the key does not exist, undefined is returned
    *
    * @param { K } key - key key Objective of comparison
-   * @returns { K | undefined } the higher key of the given key's element if exists, undefined otherwise
+   * @returns { K | undefined } key or undefined
+   * @throws { BusinessError } 10200010 - Container is empty.
+   * @throws { BusinessError } 10200011 - The getHigherKey method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -873,6 +857,6 @@ export type TreeMapForEachCb<K, V> = (value: V, key: K, map: TreeMap<K, V>) => v
  * @atomicservice
  * @since 23 static
  */
-export type TreeMapComparator<K> = (firstValue: K, secondValue: K) => double
+export type TreeMapComparator<K> = (firstValue: K, secondValue: K) => double;
 
 export default TreeMap;

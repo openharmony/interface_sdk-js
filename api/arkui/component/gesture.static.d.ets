@@ -486,6 +486,25 @@ export interface FingerInfo {
      */
     id: int;
     /**
+     * X position of the click point relative to the global display coordinate.
+     *
+     * @type { ?double }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 24 static
+     */
+    globalDisplayX?: double;
+
+    /**
+     * Y position of the click point relative to the global display coordinate.
+     *
+     * @type { ?double }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 24 static
+     */
+    globalDisplayY?: double;
+    /**
      * X coordinate of the touch point relative to the left edge of the device screen.
      *
      * @type { double }
@@ -494,7 +513,7 @@ export interface FingerInfo {
      */
     globalX: double;
     /**
-     * The Y coordinate of the touch point relative to the upper edge of the device screen.
+     * The Y coordinate of the touch point relative to the upper edge of the current window.
      *
      * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -502,7 +521,7 @@ export interface FingerInfo {
      */
     globalY: double;
     /**
-     * X coordinate of the touch point relative to the left edge of the touched element.
+     * X coordinate of the touch point relative to the left edge of the current window.
      *
      * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1530,6 +1549,15 @@ export interface PanGestureHandlerOptions extends BaseHandlerOptions {
      * @since 23 static
      */
     distance?: double;
+    /**
+     * Indicates minimum move distance map.
+     *
+     * @type { ?Map<SourceTool, double> }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 24 static
+     */
+    distanceMap?: Map<SourceTool, double>;
 }
 /**
  * Defines the PanGesture handler.
@@ -1978,6 +2006,32 @@ export declare class EventTargetInfo {
     getId(): string;
 }
 /**
+ * Defines the touch recognizer.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 24 static
+ */
+export declare class TouchRecognizer {
+    /**
+     * Returns the event target information of the component.
+     *
+     * @returns { EventTargetInfo } - the event target information of the component.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 24 static
+     */
+    getEventTargetInfo(): EventTargetInfo;
+    /**
+     * Dispatch touch cancel to the touch recognizer.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 24 static
+     */
+    cancelTouch(): void;
+}
+/**
  * Defines the gesture recognizer.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2064,6 +2118,19 @@ export declare class GestureRecognizer {
      * @since 23 static
      */
     isFingerCountLimit(): boolean;
+    /**
+     * Prevent the gesture recognizer from participating in this gesture recognition until all fingers are lifted.
+     * If the system has already made out the result of this gesture recognizer (success and failure), calling this
+     * function will have no any effect.
+     *
+     * [Note]: This method is different from GestureRecognizer.setEnabled(isEnabled: boolean), setEnabled does not
+     * prevent a gesture recognizer object from participating in the gesture recognition process, but only affects
+     * whether the gesture's corresponding callback function is executed.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    preventBegin(): void;
 }
 /**
  * Defines the tap gesture recognizer.
@@ -2185,4 +2252,33 @@ export declare class PanRecognizer extends GestureRecognizer {
      * @since 23 static
      */
     getPanGestureOptions(): PanGestureOptions;
+    /**
+     * Returns the pan recognizer's direction attribute.
+     *
+     * @returns { PanDirection } - Pan recognizer direction
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 24 static
+     */
+    getDirection(): PanDirection;
+    /**
+     * Returns the pan recognizer's distance.
+     * The unit is vp.
+     *
+     * @returns { double } - the distance of the pan recognizer.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 24 static
+     */
+    getDistance(): double;
+    /**
+     * Returns the pan recognizer's distance map.
+     * The unit is vp.
+     *
+     * @returns { Map<SourceTool, double> } - the distance map of the pan recognizer.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 24 static
+     */
+    getDistanceMap(): Map<SourceTool, double>;
 }

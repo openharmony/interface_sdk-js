@@ -20,82 +20,162 @@
 
 /**
  * Defines information about the word selection panel.
+ * 
  * @typedef PanelInfo
  * @syscap SystemCapability.SelectionInput.Selection
  * @systemapi
  * @since 20 dynamic
  */
-
+/**
+ * Defines information about the word selection panel.
+ * 
+ * @typedef PanelInfo
+ * @syscap SystemCapability.SelectionInput.Selection
+ * @stagemodelonly
+ * @since 24 dynamic&static
+ */
 export interface PanelInfo {
   /**
    * Type of the word selection panel.
+   * 
    * @type { PanelType }
    * @default MENU_PANEL
    * @syscap SystemCapability.SelectionInput.Selection
    * @systemapi
    * @since 20 dynamic
    */
+  /**
+   * Type of the word selection panel.
+   * 
+   * @type { PanelType }
+   * @default MENU_PANEL
+   * @syscap SystemCapability.SelectionInput.Selection
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
   panelType: PanelType;
 
   /**
    * X-coordinate of the upper left corner of the word selection panel on the screen.
-   * @type { number }
+   * 
+   * @type { int }
    * @syscap SystemCapability.SelectionInput.Selection
    * @systemapi
    * @since 20 dynamic
    */
-  x: number;
+  /**
+   * X-coordinate of the upper left corner of the word selection panel on the screen.
+   * 
+   * @type { int }
+   * @syscap SystemCapability.SelectionInput.Selection
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  x: int;
 
   /**
    * Y-coordinate of the upper left corner of the word selection panel on the screen.
-   * @type { number }
+   * 
+   * @type { int }
    * @syscap SystemCapability.SelectionInput.Selection
    * @systemapi
    * @since 20 dynamic
    */
-  y: number;
+  /**
+   * Y-coordinate of the upper left corner of the word selection panel on the screen.
+   * 
+   * @type { int }
+   * @syscap SystemCapability.SelectionInput.Selection
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  y: int;
 
   /**
    * Width of the word selection panel.
-   * @type { number }
+   * 
+   * @type { int }
    * @syscap SystemCapability.SelectionInput.Selection
    * @systemapi
    * @since 20 dynamic
    */
-  width: number;
+  /**
+   * Width of the word selection panel.
+   * 
+   * @type { int }
+   * @syscap SystemCapability.SelectionInput.Selection
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  width: int;
 
   /**
    * Height of the word selection panel.
-   * @type { number }
+   * 
+   * @type { int }
    * @syscap SystemCapability.SelectionInput.Selection
    * @systemapi
    * @since 20 dynamic
    */
-  height: number;
+  /**
+   * Height of the word selection panel.
+   * 
+   * @type { int }
+   * @syscap SystemCapability.SelectionInput.Selection
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  height: int;
 }
 
 /**
  * Enumerates the types of the word selection panel.
- * @enum { number }
+ * 
+ * @enum { int }
  * @syscap SystemCapability.SelectionInput.Selection
  * @systemapi
  * @since 20 dynamic
  */
-
+/**
+ * Enumerates the types of the word selection panel.
+ * 
+ * @enum { int }
+ * @syscap SystemCapability.SelectionInput.Selection
+ * @stagemodelonly
+ * @since 24 dynamic&static
+ */
 export enum PanelType {
   /**
-   * Menu panel.
+   * The menu panel can serve as a primary panel to display the functions that the current application can provide,
+   *     such as translation, search, etc.
+   * 
    * @syscap SystemCapability.SelectionInput.Selection
    * @systemapi
    * @since 20 dynamic
    */
+  /**
+   * The menu panel can serve as a primary panel to display the functions that the current application can provide,
+   *     such as translation, search, etc.
+   * 
+   * @syscap SystemCapability.SelectionInput.Selection
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
   MENU_PANEL = 1,
 
   /**
-   * Main panel.
+   * The main panel can serve as a secondary panel that pops up when the user clicks on the function bottons
+   *     on the menu panel, displaying specific translation or search results, etc.
    * @syscap SystemCapability.SelectionInput.Selection
    * @systemapi
    * @since 20 dynamic
+   */
+  /**
+   * The main panel can serve as a secondary panel that pops up when the user clicks on the function bottons
+   *     on the menu panel, displaying specific translation or search results, etc.
+   * @syscap SystemCapability.SelectionInput.Selection
+   * @stagemodelonly
+   * @since 24 dynamic&static
    */
   MAIN_PANEL = 2
 }

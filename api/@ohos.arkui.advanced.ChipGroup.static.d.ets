@@ -521,6 +521,14 @@ export declare struct IconGroupSuffix {
      */
     @Require @PropRef
     items: Array<IconItemOptions | SymbolGlyphModifier | SymbolItemOptions>;
+
+    /**
+     * The method to build component.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 staticonly
+     */
+    @Builder
+    build(): void;
 }
 
 /**

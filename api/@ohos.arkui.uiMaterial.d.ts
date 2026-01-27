@@ -39,7 +39,7 @@ declare namespace uiMaterial {
    * @form
    * @since 23 dynamic
    */
-  declare enum MaterialType {
+  enum MaterialType {
     /**
      * Material type with no effect.
      *
@@ -72,7 +72,7 @@ declare namespace uiMaterial {
    * @form
    * @since 23 dynamic
    */
-  declare interface MaterialOptions {
+  interface MaterialOptions {
     /**
      * The type of the material.
      *
@@ -96,7 +96,7 @@ declare namespace uiMaterial {
    * @form
    * @since 23 dynamic
    */
-  declare class Material {
+  class Material {
     /**
      * Constructor of material class.
      *

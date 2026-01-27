@@ -24,7 +24,7 @@
  * @typedef { Function }
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @atomicservice
- * @since 23 dynamic&static
+ * @since 23 static
  */
 type OnPrepareFn = () => void;
 
@@ -34,7 +34,7 @@ type OnPrepareFn = () => void;
  * @typedef { Function }
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @atomicservice
- * @since 23 dynamic&static
+ * @since 23 static
  */
 type OnRunFn = () => void;
 
@@ -68,15 +68,17 @@ interface TestRunner {
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
+  onPrepare(): void;
+
   /**
    * Prepare the unit testing environment for running test cases.
    * 
    * @type { OnPrepareFn }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 23 dynamic&static
+   * @since 23 static
    */
   onPrepare: OnPrepareFn;
 
@@ -91,15 +93,17 @@ interface TestRunner {
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
+  onRun(): void;
+
   /**
    * Run all test cases.
    *
    * @typedef { OnRunFn }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 23 dynamic&static
+   * @since 23 static
    */
   onRun: OnRunFn;
 }

@@ -138,7 +138,7 @@ declare namespace vibrator {
    * @param { AsyncCallback<void> } callback - The callback of startVibration
    * @throws { BusinessError } 201 - Permission denied
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported
    * @throws { BusinessError } 14600101 - Device operation failed
    * @syscap SystemCapability.Sensors.MiscDevice
@@ -189,7 +189,7 @@ declare namespace vibrator {
    * @returns { Promise<void> } Promise used to return the result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 14600101 - Device operation failed.
    * @syscap SystemCapability.Sensors.MiscDevice
@@ -220,7 +220,7 @@ declare namespace vibrator {
    * @returns { Promise<void> } Promise used to return the result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Sensors.MiscDevice
    * @crossplatform
    * @since 22 dynamic
@@ -248,7 +248,7 @@ declare namespace vibrator {
    * @param { AsyncCallback<void> } callback - The callback of stopVibration.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Sensors.MiscDevice
    * @crossplatform
    * @since 22 dynamic
@@ -308,7 +308,7 @@ declare namespace vibrator {
    * @atomicservice
    * @since 11 dynamic
    */
-    /**
+  /**
    * Stop any type of vibration.
    *
    * @permission ohos.permission.VIBRATE
@@ -392,7 +392,7 @@ declare namespace vibrator {
    * @param { AsyncCallback<boolean> } callback The callback of isSupportEffect.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Sensors.MiscDevice
    * @crossplatform
    * @since 22 dynamic
@@ -418,7 +418,7 @@ declare namespace vibrator {
    * @returns { Promise<boolean> } Promise used to return the result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Sensors.MiscDevice
    * @crossplatform
    * @since 22 dynamic
@@ -443,7 +443,7 @@ declare namespace vibrator {
    * @param { string } effectId Indicate the specified effect of the preset, {@code EffectId}.
    * @returns { boolean } Returns whether the effect is supported.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14600101 - Device operation failed.
    * @syscap SystemCapability.Sensors.MiscDevice
    * @crossplatform
@@ -562,7 +562,7 @@ declare namespace vibrator {
 
   /**
    * Preset vibration effect string.
-   * 
+   *
    * @enum { string }
    * @syscap SystemCapability.Sensors.MiscDevice
    * @since 8 dynamic
@@ -577,26 +577,26 @@ declare namespace vibrator {
    * @since 23 static
    */
   enum EffectId {
-  /**
-   * Describes the vibration effect of the vibrator when a user adjusts the timer.
-   *
-   * @syscap SystemCapability.Sensors.MiscDevice
-   * @since 8 dynamic
-   */
-  /**
-   * Describes the vibration effect of the vibrator when a user adjusts the timer.
-   *
-   * @syscap SystemCapability.Sensors.MiscDevice
-   * @crossplatform
-   * @since 22 dynamic
-   * @since 23 static
-   */
+    /**
+     * Describes the vibration effect of the vibrator when a user adjusts the timer.
+     *
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 8 dynamic
+     */
+    /**
+     * Describes the vibration effect of the vibrator when a user adjusts the timer.
+     *
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @crossplatform
+     * @since 22 dynamic
+     * @since 23 static
+     */
     EFFECT_CLOCK_TIMER = 'haptic.clock.timer'
   }
 
   /**
    * Simple and universal vibration effects.
-   * 
+   *
    * @enum { string }
    * @syscap SystemCapability.Sensors.MiscDevice
    * @since 12 dynamic
@@ -660,13 +660,13 @@ declare namespace vibrator {
     EFFECT_SHARP = 'haptic.effect.sharp',
 
     /**
-     * Describes the vibration effect of the successful notice.
+     * Describes the vibration effect of the succeed notice.
      *
      * @syscap SystemCapability.Sensors.MiscDevice
      * @since 18 dynamic
      */
     /**
-     * Describes the vibration effect of the successful notice.
+     * Describes the vibration effect of the succeed notice.
      *
      * @syscap SystemCapability.Sensors.MiscDevice
      * @crossplatform
@@ -725,36 +725,36 @@ declare namespace vibrator {
    * @since 23 static
    */
   enum VibratorStopMode {
-  /**
-   * Indicates the mode of stopping a one-shot vibration effect.
-   *
-   * @syscap SystemCapability.Sensors.MiscDevice
-   * @since 8 dynamic
-   */
-  /**
-   * Indicates the mode of stopping a one-shot vibration effect.
-   *
-   * @syscap SystemCapability.Sensors.MiscDevice
-   * @crossplatform
-   * @since 22 dynamic
-   * @since 23 static
-   */
+    /**
+     * Indicates the mode of stopping a one-shot vibration effect.
+     *
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 8 dynamic
+     */
+    /**
+     * Indicates the mode of stopping a one-shot vibration effect.
+     *
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @crossplatform
+     * @since 22 dynamic
+     * @since 23 static
+     */
     VIBRATOR_STOP_MODE_TIME = 'time',
 
-  /**
-   * Indicates the mode of stopping a preset vibration effect.
-   *
-   * @syscap SystemCapability.Sensors.MiscDevice
-   * @since 8 dynamic
-   */
-  /**
-   * Indicates the mode of stopping a preset vibration effect.
-   *
-   * @syscap SystemCapability.Sensors.MiscDevice
-   * @crossplatform
-   * @since 22 dynamic
-   * @since 23 static
-   */
+    /**
+     * Indicates the mode of stopping a preset vibration effect.
+     *
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 8 dynamic
+     */
+    /**
+     * Indicates the mode of stopping a preset vibration effect.
+     *
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @crossplatform
+     * @since 22 dynamic
+     * @since 23 static
+     */
     VIBRATOR_STOP_MODE_PRESET = 'preset'
   }
 
@@ -815,89 +815,89 @@ declare namespace vibrator {
    * @since 23 static
    */
   interface VibrateAttribute {
-  /**
-   * Vibrator id, default is 0.
-   *
-   * @syscap SystemCapability.Sensors.MiscDevice
-   * @since 9
-   */
-  /**
-   * Vibrator id, default is 0.
-   *
-   * @type { ?int }
-   * @syscap SystemCapability.Sensors.MiscDevice
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  /**
-   * Vibrator id, default is 0.
-   *
-   * @type { ?int }
-   * @syscap SystemCapability.Sensors.MiscDevice
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
-   * @since 23 static
-   */
+    /**
+     * Vibrator id, default is 0.
+     *
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 9
+     */
+    /**
+     * Vibrator id, default is 0.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @atomicservice
+     * @since 11 dynamic
+     */
+    /**
+     * Vibrator id, default is 0.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamic
+     * @since 23 static
+     */
     id?: int;
 
-  /**
-   * Unique identifier for the device that contains one or multiple vibrators.
-   * By default, deviceId represents the local device.
-   *
-   * @type { ?number }
-   * @syscap SystemCapability.Sensors.MiscDevice
-   * @atomicservice
-   * @since 19 dynamic
-   */
-  /**
-   * Unique identifier for the device that contains one or multiple vibrators.
-   * By default, deviceId represents the local device.
-   *
-   * @type { ?number }
-   * @syscap SystemCapability.Sensors.MiscDevice
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
-   * @since 23 static
-   */
+    /**
+     * Unique identifier for the device that contains one or multiple vibrators.
+     * By default, deviceId represents the local device.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @atomicservice
+     * @since 19 dynamic
+     */
+    /**
+     * Unique identifier for the device that contains one or multiple vibrators.
+     * By default, deviceId represents the local device.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamic
+     * @since 23 static
+     */
     deviceId?: number;
 
-  /**
-   * The use of vibration.
-   *
-   * @syscap SystemCapability.Sensors.MiscDevice
-   * @since 9
-   */
-  /**
-   * The use of vibration.
-   *
-   * @type { Usage }
-   * @syscap SystemCapability.Sensors.MiscDevice
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  /**
-   * The use of vibration.
-   *
-   * @type { Usage }
-   * @syscap SystemCapability.Sensors.MiscDevice
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
-   * @since 23 static
-   */
+    /**
+     * The use of vibration.
+     *
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 9
+     */
+    /**
+     * The use of vibration.
+     *
+     * @type { Usage }
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @atomicservice
+     * @since 11 dynamic
+     */
+    /**
+     * The use of vibration.
+     *
+     * @type { Usage }
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamic
+     * @since 23 static
+     */
     usage: Usage;
 
-  /**
-   * Indicates whether to bypass system management switches.
-   *
-   * @type { ?boolean }
-   * @syscap SystemCapability.Sensors.MiscDevice
-   * @systemapi
-   * @since 12 dynamic
-   * @since 23 static
-   */
+    /**
+     * Indicates whether to bypass system management switches.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @systemapi
+     * @since 12 dynamic
+     * @since 23 static
+     */
     systemUsage?: boolean;
   }
 
@@ -1019,7 +1019,7 @@ declare namespace vibrator {
      * @since 22 dynamic
      * @since 23 static
      */
-    duration: int; /** The duration of the vibration, in ms */
+    duration: int;
   }
 
   /**
@@ -1135,40 +1135,40 @@ declare namespace vibrator {
    * @since 23 static
    */
   interface VibrateFromFile {
-  /**
-   * The value is "file", which triggers motor vibration according to the vibration profile.
-   *
-   * @type { 'file' }
-   * @syscap SystemCapability.Sensors.MiscDevice
-   * @since 10 dynamic
-   */
-  /**
-   * The value is "file", which triggers motor vibration according to the vibration profile.
-   *
-   * @type { 'file' }
-   * @syscap SystemCapability.Sensors.MiscDevice
-   * @crossplatform
-   * @since 22 dynamic
-   * @since 23 static
-   */
+    /**
+     * The value is "file", which triggers motor vibration according to the vibration profile.
+     *
+     * @type { 'file' }
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 10 dynamic
+     */
+    /**
+     * The value is "file", which triggers motor vibration according to the vibration profile.
+     *
+     * @type { 'file' }
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @crossplatform
+     * @since 22 dynamic
+     * @since 23 static
+     */
     type: 'file';
 
-  /**
-   * Haptic file descriptor, some formats are supported.
-   *
-   * @type { HapticFileDescriptor }
-   * @syscap SystemCapability.Sensors.MiscDevice
-   * @since 10 dynamic
-   */
-  /**
-   * Haptic file descriptor, some formats are supported.
-   *
-   * @type { HapticFileDescriptor }
-   * @syscap SystemCapability.Sensors.MiscDevice
-   * @crossplatform
-   * @since 22 dynamic
-   * @since 23 static
-   */
+    /**
+     * Haptic file descriptor, some formats are supported.
+     *
+     * @type { HapticFileDescriptor }
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 10 dynamic
+     */
+    /**
+     * Haptic file descriptor, some formats are supported.
+     *
+     * @type { HapticFileDescriptor }
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @crossplatform
+     * @since 22 dynamic
+     * @since 23 static
+     */
     hapticFd: HapticFileDescriptor;
   }
 
@@ -1320,39 +1320,39 @@ declare namespace vibrator {
    */
   interface VibratorCurvePoint {
     /**
-      * The offset of the starting time of the relative event.
-      *
-      * @type { int }
-      * @syscap SystemCapability.Sensors.MiscDevice
-      * @since 18 dynamic
-      */
+     * The offset of the starting time of the relative event.
+     *
+     * @type { int }
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 18 dynamic
+     */
     /**
-      * The offset of the starting time of the relative event.
-      *
-      * @type { int }
-      * @syscap SystemCapability.Sensors.MiscDevice
-      * @crossplatform
-      * @since 22 dynamic
-      * @since 23 static
-      */
+     * The offset of the starting time of the relative event.
+     *
+     * @type { int }
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @crossplatform
+     * @since 22 dynamic
+     * @since 23 static
+     */
     time: int;
 
     /**
-      * Gain in relative event vibration intensity
-      *
-      * @type { ?double }
-      * @syscap SystemCapability.Sensors.MiscDevice
-      * @since 18 dynamic
-      */
+     * Gain in relative event vibration intensity
+     *
+     * @type { ?double }
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 18 dynamic
+     */
     /**
-      * Gain in relative event vibration intensity
-      *
-      * @type { ?double }
-      * @syscap SystemCapability.Sensors.MiscDevice
-      * @crossplatform
-      * @since 22 dynamic
-      * @since 23 static
-      */
+     * Gain in relative event vibration intensity
+     *
+     * @type { ?double }
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @crossplatform
+     * @since 22 dynamic
+     * @since 23 static
+     */
     intensity?: double;
     /**
      * Changes in relative event vibration frequency
@@ -1755,7 +1755,7 @@ declare namespace vibrator {
      *
      * @param { int } time Relative starting time of the long-term vibration event.
      * @param { int } duration The duration of the long-term vibration event
-     * @param { ContinuousParam } options Optional parameter object
+     * @param { ContinuousParam } [options] Optional parameter object
      * @returns { VibratorPatternBuilder } Return the current VibratorPatternBuilder object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
@@ -1767,10 +1767,10 @@ declare namespace vibrator {
      *
      * @param { int } time Relative starting time of the long-term vibration event.
      * @param { int } duration The duration of the long-term vibration event
-     * @param { ContinuousParam } options Optional parameter object
+     * @param { ContinuousParam } [options] Optional parameter object
      * @returns { VibratorPatternBuilder } Return the current VibratorPatternBuilder object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+     *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Sensors.MiscDevice
      * @crossplatform
      * @since 22 dynamic
@@ -1782,7 +1782,7 @@ declare namespace vibrator {
      * Method for adding short vibration events.
      *
      * @param { int } time Relative starting time of short oscillation events.
-     * @param { TransientParam } options Optional parameter object
+     * @param { TransientParam } [options] Optional parameter object
      * @returns { VibratorPatternBuilder } Return the current VibratorPatternBuilder object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
@@ -1793,10 +1793,10 @@ declare namespace vibrator {
      * Method for adding short vibration events.
      *
      * @param { int } time Relative starting time of short oscillation events.
-     * @param { TransientParam } options Optional parameter object
+     * @param { TransientParam } [options] Optional parameter object
      * @returns { VibratorPatternBuilder } Return the current VibratorPatternBuilder object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+     *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Sensors.MiscDevice
      * @crossplatform
      * @since 22 dynamic
@@ -1878,21 +1878,23 @@ declare namespace vibrator {
   }
 
   /**
-  * Parameters of vibrator on the device. By default, VibratorInfoParam may default to querying or controlling
-  * the local default vibrator.
-  * @interface VibratorInfoParam
-  * @syscap SystemCapability.Sensors.MiscDevice
-  * @since 19 dynamic
-  */
+   * Parameters of vibrator on the device. By default, VibratorInfoParam may default to querying or controlling
+   * the local default vibrator.
+   *
+   * @typedef VibratorInfoParam
+   * @syscap SystemCapability.Sensors.MiscDevice
+   * @since 19 dynamic
+   */
   /**
-  * Parameters of vibrator on the device. By default, VibratorInfoParam may default to querying or controlling
-  * the local default vibrator.
-  * @interface VibratorInfoParam
-  * @syscap SystemCapability.Sensors.MiscDevice
-  * @crossplatform
-  * @since 22 dynamic
-  * @since 23 static
-  */
+   * Parameters of vibrator on the device. By default, VibratorInfoParam may default to querying or controlling
+   * the local default vibrator.
+   *
+   * @typedef VibratorInfoParam
+   * @syscap SystemCapability.Sensors.MiscDevice
+   * @crossplatform
+   * @since 22 dynamic
+   * @since 23 static
+   */
   interface VibratorInfoParam {
     /**
      * Unique identifier for the device that contains one or multiple vibrators.
@@ -1936,13 +1938,15 @@ declare namespace vibrator {
 
   /**
    * Represents the information about a vibrator device in the system.
-   * @interface VibratorInfo
+   *
+   * @typedef VibratorInfo
    * @syscap SystemCapability.Sensors.MiscDevice
    * @since 19 dynamic
    */
   /**
    * Represents the information about a vibrator device in the system.
-   * @interface VibratorInfo
+   *
+   * @typedef VibratorInfo
    * @syscap SystemCapability.Sensors.MiscDevice
    * @crossplatform
    * @since 22 dynamic
@@ -2047,7 +2051,7 @@ declare namespace vibrator {
    *
    * @param { VibratorInfoParam } [param] - Indicate the device and vibrator information that needs to be controlled,
    * <br> {@code VibratorInfoParam}. By default, this returns all vibrators on all device when param is unspecified.
-   * @returns { Array<VibratorInfo> } Promise used to return a list of vibrator IDs containing information
+   * @returns { Array<VibratorInfo> } A list of vibrator IDs containing information
    * <br> about the vibrator device.
    * @syscap SystemCapability.Sensors.MiscDevice
    * @since 19 dynamic
@@ -2056,9 +2060,9 @@ declare namespace vibrator {
    * Retrieve the list of vibrator information about one or all devices.
    *
    * @param { VibratorInfoParam } [param] - Indicate the device and vibrator information that needs to be controlled,
-   * <br> {@code VibratorInfoParam}. By default, this returns all vibrators on all device when param is unspecified.
-   * @returns { Array<VibratorInfo> } Promise used to return a list of vibrator IDs containing information
-   * <br> about the vibrator device.
+   *     <br> {@code VibratorInfoParam}. By default, this returns all vibrators on all device when param is unspecified.
+   * @returns { Array<VibratorInfo> } A list of vibrator IDs containing information
+   *     <br> about the vibrator device.
    * @syscap SystemCapability.Sensors.MiscDevice
    * @crossplatform
    * @since 22 dynamic
@@ -2090,38 +2094,63 @@ declare namespace vibrator {
   function off(type: 'vibratorStateChange', callback?: Callback<VibratorStatusEvent>): void;
 
   /**
+   * Register a callback function to be called when a vibrator plugin or unplug event occurs.
+   *
+   * @param { Callback<VibratorStatusEvent> } callback - The callback function to be executed when
+   * <br> the event is triggered.
+   * @throws { BusinessError } 14600101 - Device operation failed.
+   * @syscap SystemCapability.Sensors.MiscDevice
+   * @since 23 static
+   */
+  function onVibratorStateChange(callback: Callback<VibratorStatusEvent>): void;
+
+  /**
+   * Unregister a callback function for vibrator plugin or unplug events.
+   *
+   * @param { Callback<VibratorStatusEvent> } [callback] - The callback function to be removed from the event listener.
+   * @throws { BusinessError } 14600101 - Device operation failed.
+   * @syscap SystemCapability.Sensors.MiscDevice
+   * @since 23 static
+   */
+  function offVibratorStateChange(callback?: Callback<VibratorStatusEvent>): void;
+
+  /**
    * Indicates information about vibrator online or offline events.
    *
    * @interface
    * @syscap SystemCapability.Sensors.MiscDevice
    * @since 19 dynamic
+   * @since 23 static
    */
   interface VibratorStatusEvent {
     /**
      * The timestamp of the reported event.
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.Sensors.MiscDevice
      * @since 19 dynamic
+     * @since 23 static
      */
-    timestamp: number;
+    timestamp: long;
 
     /**
      * Unique identifier for the device that contains one or multiple vibrators.
      * 
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Sensors.MiscDevice
      * @since 19 dynamic
+     * @since 23 static
      */
-    deviceId: number;
+    deviceId: int;
 
     /**
      * Indicate the number of vibrators on the device.
      * 
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Sensors.MiscDevice
      * @since 19 dynamic
+     * @since 23 static
      */
-    vibratorCount: number;
+    vibratorCount: int;
 
     /**
      * Indicates the device's online and offline status, true indicates online, false indicates offline.
@@ -2129,6 +2158,7 @@ declare namespace vibrator {
      * @type { boolean }
      * @syscap SystemCapability.Sensors.MiscDevice
      * @since 19 dynamic
+     * @since 23 static
      */
     isVibratorOnline: boolean;
   }

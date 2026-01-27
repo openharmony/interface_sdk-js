@@ -26,7 +26,7 @@ import AbilityStageContext from './application/AbilityStageContext';
  * @syscap SystemCapability.Ability.AppStartup
  * @stagemodelonly
  * @since 12 dynamic
- * @since 22 static
+ * @since 23 static
  */
 /*** if arkts dynamic */
 @Sendable
