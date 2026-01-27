@@ -24,6 +24,7 @@
  *
  * @typedef {import('../api/@ohos.arkui.dragController').default.SpringLoadingContext} SpringLoadingContext
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @atomicservice
  * @since 20 dynamic
  */
@@ -34,6 +35,7 @@ declare type SpringLoadingContext = import('../api/@ohos.arkui.dragController').
  *
  * @typedef {import('../api/@ohos.arkui.dragController').default.DragSpringLoadingConfiguration} DragSpringLoadingConfiguration
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @atomicservice
  * @since 20 dynamic
  */
@@ -8185,6 +8187,7 @@ declare enum EffectType {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @atomicservice
  * @since 12 dynamic
  */
@@ -8193,6 +8196,7 @@ declare enum PreDragStatus {
    * Define the status for user prepare to start long press gesture.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
@@ -8202,6 +8206,7 @@ declare enum PreDragStatus {
    * Define the status for user can start drag action.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
@@ -8211,6 +8216,7 @@ declare enum PreDragStatus {
    * Define the status for dragItem lift animation started.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
@@ -8220,6 +8226,7 @@ declare enum PreDragStatus {
    * Define the status for dragItem lift animation finished.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
@@ -8229,6 +8236,7 @@ declare enum PreDragStatus {
    * Define the status for dragItem landing animation started.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
@@ -8238,6 +8246,7 @@ declare enum PreDragStatus {
    * Define the status for dragItem landing animation finished.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
@@ -8247,6 +8256,7 @@ declare enum PreDragStatus {
    * Define the status for user cancel drag action.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
@@ -8256,6 +8266,7 @@ declare enum PreDragStatus {
    * Define the status for user to sense the availability of drag in advance.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 18 dynamic
    */
@@ -13706,6 +13717,7 @@ declare type Summary = import('../api/@ohos.data.unifiedDataChannel').default.Su
  *
  * @typedef { import('../api/@ohos.data.uniformTypeDescriptor').default.UniformDataType } UniformDataType
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @atomicservice
  * @since 11 dynamic
  */
@@ -13812,6 +13824,7 @@ declare enum DragResult {
    * If drag action cancel, return DragResult.DRAG_CANCELED.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 11 dynamic
    */
@@ -13826,6 +13839,7 @@ declare enum DragResult {
    * If node allow drop in, return DragResult.DROP_ENABLED.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 11 dynamic
    */
@@ -13840,6 +13854,7 @@ declare enum DragResult {
    * If node don't allow drop in, return DragResult.DROP_DISABLED.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 11 dynamic
    */
@@ -21188,6 +21203,7 @@ declare enum DragPreviewMode {
    * Enable the default gray effect on the dragging item.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 18 dynamic
    */
@@ -21196,6 +21212,7 @@ declare enum DragPreviewMode {
    * Enable the tile effect for multi drag, each dragged graph is display in the original relative position.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 18 dynamic
    */
@@ -21204,6 +21221,7 @@ declare enum DragPreviewMode {
    * Enable the touch point calculation position based on final preview rect.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 19 dynamic
    */
@@ -21215,6 +21233,7 @@ declare enum DragPreviewMode {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @atomicservice
  * @since 19 dynamic
  */
@@ -21223,6 +21242,7 @@ declare enum DraggingSizeChangeEffect {
    * Default effect, no transition.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 19 dynamic
    */
@@ -21232,6 +21252,7 @@ declare enum DraggingSizeChangeEffect {
    * Only scaled transition, this parameter take effect when PREVIEW_MODE is not DISABLE_SCALE.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 19 dynamic
    */
@@ -21241,6 +21262,7 @@ declare enum DraggingSizeChangeEffect {
    * Scaled and content transition together, this size transition take effect when PREVIEW_MODE is not DISABLE_SCALE.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 19 dynamic
    */
@@ -21415,6 +21437,7 @@ declare interface DragPreviewOptions {
   * @type { ?DraggingSizeChangeEffect }
   * @default DraggingSizeChangeEffect.DEFAULT
   * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
   * @atomicservice
   * @since 19 dynamic
   */
@@ -21426,6 +21449,7 @@ declare interface DragPreviewOptions {
  *
  * @interface DragInteractionOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @atomicservice
  * @since 12 dynamic
  */
@@ -21436,6 +21460,7 @@ declare interface DragInteractionOptions {
   * @type { ?boolean }
   * @default false
   * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
   * @atomicservice
   * @since 12 dynamic
   */
@@ -21447,6 +21472,7 @@ declare interface DragInteractionOptions {
   * @type { ?boolean }
   * @default false
   * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
   * @atomicservice
   * @since 12 dynamic
   */
@@ -21469,6 +21495,7 @@ declare interface DragInteractionOptions {
   * @type { ?boolean }
   * @default true
   * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
   * @atomicservice
   * @since 18 dynamic
   */
@@ -21480,6 +21507,7 @@ declare interface DragInteractionOptions {
   * @type { ?boolean }
   * @default false
   * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
   * @atomicservice
   * @since 15 dynamic
   */
@@ -21491,6 +21519,7 @@ declare interface DragInteractionOptions {
  *
  * @interface PreviewConfiguration
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @atomicservice
  * @since 15 dynamic
  */
@@ -21501,6 +21530,7 @@ declare interface PreviewConfiguration {
    * @type { ?boolean }
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 15 dynamic
    */
@@ -21512,6 +21542,7 @@ declare interface PreviewConfiguration {
    * @type { ?boolean }
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 15 dynamic
    */
@@ -27063,6 +27094,7 @@ declare class CommonMethod<T> {
    * @param { CustomBuilder | DragItemInfo | string } value - preview of the component for dragging process
    * @returns { T } property value of type T.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
@@ -27075,6 +27107,7 @@ declare class CommonMethod<T> {
    * @param { PreviewConfiguration } config - drag preview configuration.
    * @returns { T } property value of type T.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 15 dynamic
    */
@@ -27095,6 +27128,7 @@ declare class CommonMethod<T> {
    * @param { DragInteractionOptions } options - drag interaction options value.
    * @returns { T } property value of type T.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
@@ -27106,6 +27140,7 @@ declare class CommonMethod<T> {
    * @param { Callback<PreDragStatus> } callback callback - The callback will be triggered when the preDrag status change.
    * @returns { T } property value of type T.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
@@ -29411,6 +29446,7 @@ declare class CommonMethod<T> {
    *    only used when the entire spring detecting.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 20 dynamic
    */
