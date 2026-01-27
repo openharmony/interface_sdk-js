@@ -2731,9 +2731,24 @@ export declare namespace typeNode {
    * @returns { SwiperAttribute | undefined } - Return the attribute instance of FrameNode, and return undefined if it
    *     does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @stagemodelonly
+   * @since 24 static
    */
   export function getSwiperAttribute(node: FrameNode): SwiperAttribute | undefined;
+
+  /**
+    * Bind the controller of FrameNode which type is Swiper.
+    *
+    * @param { FrameNode } node - the target FrameNode.
+    * @param { SwiperController } controller - the controller which is bind to the target FrameNode.
+    * @throws { BusinessError } 100023 - Parameter error. Possible causes: 1. The component type of the node
+    *     is incorrect. 2. The node is null or undefined. 3. The controller is null or undefined.
+    * @throws { BusinessError } 100021 - The FrameNode is not modifiable.
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @since 24 static
+    */
+  export function bindSwiperController(node: FrameNode, controller: SwiperController): void;
 
   /**
    * Defines the XComponent type of FrameNode.
