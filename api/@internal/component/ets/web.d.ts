@@ -11332,7 +11332,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * </p>
    *
    * @param { OnOverrideErrorPageCallback } callback The triggered function when the
-   * web page's document resource error.
+   *                                        web page's document resource error.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20 dynamic
