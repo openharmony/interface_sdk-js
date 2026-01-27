@@ -89,7 +89,6 @@ export declare interface EffectComponentOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 23 static
- * @noninterop
  */
 export declare interface EffectComponentAttribute extends CommonMethod {
     /**
