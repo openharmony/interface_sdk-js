@@ -12339,7 +12339,7 @@ declare namespace window {
      *     3. The window has not set window mask yet.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause:
-     *     1. The window is not a subwindow or floating window.
+     *     1. The window is not a subwindow or float window.
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
      * @since 24 dynamic&static
