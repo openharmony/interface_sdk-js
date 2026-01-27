@@ -2783,7 +2783,7 @@ export class ComponentUtils {
    * @returns { componentUtils.ComponentInfo } the object of ComponentInfo.
    * @throws { BusinessError } 100001 - UI execution context not found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @rossplatform
+   * @crossplatform
    * @atomicservice
    * @since 11 dynamic
    */
@@ -3380,7 +3380,7 @@ export class DragController {
    * 
    * @param { boolean } enable - Indicating enable drag event strict reporting or not.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @rossplatform
+   * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
