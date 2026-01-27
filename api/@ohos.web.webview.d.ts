@@ -3782,7 +3782,7 @@ declare namespace webview {
      * @since 22 dynamic
      */
     DEFAULT = 0,
-
+ 
     /**
      * Soft keyboard will not be hidden or shown automatically when web comes into pause/continue state
      * @syscap SystemCapability.Web.Webview.Core
@@ -7431,7 +7431,7 @@ declare namespace webview {
     /**
      * Set the WebSoftKeyboardBehaviorMode to decide whether the keyboard will be shown/hidden automatically
      * in particular situation, for example, when web is inactive or active.
-     *
+     * 
      * @param { WebSoftKeyboardBehaviorMode } mode - The WebSoftKeyboardBehaviorMode of this web.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.

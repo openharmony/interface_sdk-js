@@ -5120,8 +5120,8 @@ declare class EventResult {
    *    {@code true} Indicates the consumption of the mouse event.
    *    {@code false} Indicates the non-consumption of the mouse event.
    *    Default value: true.
-   * @param { boolean } [stopPropagation] - Whether to stop propagation.
-   *    This parameter is valid only when result is set to true.
+   * @param { boolean } stopPropagation - Whether to stop propagation.
+   *    This parameter is valid only when result is set to true. 
    *    {@code true} Indicates stops the propagation of events farther along.
    *    {@code false} Indicates the propagation of events farther along.
    *    Default value: true.
