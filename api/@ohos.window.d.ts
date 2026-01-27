@@ -5144,7 +5144,7 @@ declare namespace window {
   type SpecificSystemBar = 'status' | 'navigation' | 'navigationIndicator';
 
   /**
-   * Describes the window transition type
+   * Describes the window transition animation type
    *
    * @enum { number }
    * @syscap SystemCapability.Window.SessionManager
@@ -5278,7 +5278,7 @@ declare namespace window {
   }
 
   /**
-   * The animation configuration of window transition
+   * window transition animation config
    *
    * @interface TransitionAnimation
    * @syscap SystemCapability.Window.SessionManager
@@ -5288,7 +5288,7 @@ declare namespace window {
    */
   interface TransitionAnimation {
     /**
-     * The config of window animation
+     * transition animation config
      *
      * @type { WindowAnimationConfig }
      * @syscap SystemCapability.Window.SessionManager
@@ -5298,7 +5298,7 @@ declare namespace window {
      */
     config: WindowAnimationConfig;
     /**
-     * The opacity of window
+     * transition animation opacity
      *
      * @type { ?double }
      * @syscap SystemCapability.Window.SessionManager
@@ -10918,7 +10918,7 @@ declare namespace window {
      *                                          1. The window is not created or destroyed;
      *                                          2. Internal task error.
      * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause:
-     *                                          Invalid window type. Only subwindows and float windows are supported.
+     *     Invalid window type. Only subwindows and float windows are supported.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 17 dynamic
@@ -12180,11 +12180,11 @@ declare namespace window {
     disableLandscapeMultiWindow(): Promise<void>;
 
     /**
-     * Set window transition animation
+     * Set window transition animation.
      *
      * @param { WindowTransitionType } transitionType - Transition animation type.
      * @param { TransitionAnimation } animation - Transition animation config.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @returns { Promise<void> } - Promise that returns no value.
      * @throws { BusinessError } 801 - Capability not supported.
      *     Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
@@ -13021,6 +13021,22 @@ declare namespace window {
     getRotationLocked(): boolean;
 
     /**
+     * Convert orientation and rotation between window and display.
+     * @param { RotationInfoType } from - The type of the value to be converted.
+     * @param { RotationInfoType } to - The target type of conversion.
+     * @param { int } value - The value to be converted.
+     * @returns { int } - The converted value.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
+     *                                          1. The window is not created or destroyed;
+     *                                          2. Internal task error.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 23 dynamic&static
+     */
+    convertOrientationAndRotation(from: RotationInfoType, to: RotationInfoType, value: int): int;
+
+    /**
      * Set whether the window supports event separation capability.
      * When the window doesn't support event separation capability:
      *    After the first finger touch the window,
@@ -13092,22 +13108,6 @@ declare namespace window {
      * @since 23 dynamic&static
      */
     isReceiveDragEventEnabled(): boolean;
-
-    /**
-     * Convert orientation and rotation between window and display.
-     * @param { RotationInfoType } from - The type of the value to be converted.
-     * @param { RotationInfoType } to - The target type of conversion.
-     * @param { int } value - The value to be converted.
-     * @returns { int } - The converted value.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
-     *                                          1. The window is not created or destroyed;
-     *                                          2. Internal task error.
-     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
-     * @syscap SystemCapability.Window.SessionManager
-     * @since 23 dynamic&static
-     */
-    convertOrientationAndRotation(from: RotationInfoType, to: RotationInfoType, value: int): int;
   }
 
   /**
