@@ -959,7 +959,7 @@ declare namespace rdb {
 /**
  * Provides methods for rdbStore create and delete.
  * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
- * @since 7 dynamic
+ * @since 7 dynamiconly
  * @deprecated since 9
  */
 export default rdb;
