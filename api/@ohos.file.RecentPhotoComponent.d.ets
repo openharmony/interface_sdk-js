@@ -19,6 +19,7 @@
  */
 
 import photoAccessHelper from '@ohos.file.photoAccessHelper';
+import photoAccessHelper from '@ohos.file.photoAccessHelper';
 import { BaseItemInfo, PickerColorMode } from '@ohos.file.PhotoPickerComponent';
 
 /**
@@ -116,12 +117,12 @@ export declare class RecentPhotoOptions {
   /**
    * Support set period time
    *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 12 dynamic
    */
-  period?: number;
+  period?: int;
 
   /**
    * The Type of the file in the recent photo window.
@@ -175,12 +176,12 @@ export declare class RecentPhotoInfo {
   /**
    * The dateTaken of photos or videos
    *
-   * @type { ?number }
+   * @type { ?long }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 13 dynamic
    */
-  dateTaken?: number;
+  dateTaken?: long;
 
   /**
    * The identifier of photos or videos
@@ -196,7 +197,7 @@ export declare class RecentPhotoInfo {
 /**
  * Enumeration of PhotoSource type
  *
- * @enum { number } PhotoSource
+ * @enum { int } PhotoSource
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @atomicservice
  * @since 12 dynamic
@@ -219,7 +220,7 @@ export declare enum PhotoSource {
    * @since 12 dynamic
    */
   CAMERA = 1,
-  
+
   /**
    * screenshot resource
    *
