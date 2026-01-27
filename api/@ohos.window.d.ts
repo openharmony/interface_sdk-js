@@ -12099,7 +12099,8 @@ declare namespace window {
     startMoving(): Promise<void>;
 
     /**
-     * Specifies the cursor position within the window and moves the window. It first adjusts the window to the cursor position before starting to move the window.
+     * Specifies the cursor position within the window and moves the window.
+     * It first adjusts the window to the cursor position before starting to move the window.
      * The window moves along with the cursor only when this API is called in the callback function of onTouch, where the event type is TouchType.Down.
      *
      * @param { int } offsetX - X-axis offset of the cursor position relative to the upper left corner of the window during movement, measured in px.
