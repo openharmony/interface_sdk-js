@@ -9137,7 +9137,7 @@ declare namespace window {
      *     The internal logic of the callback function requires a return value of the Boolean type.
      *     The return value determines whether to continue to close the child window.
      *     The value true means not to close the child window, and false means to continue to close the child window.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types; 
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types;
      *                                                                  2. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
@@ -9180,7 +9180,7 @@ declare namespace window {
      *     The value true means not to close the child window, and false means to continue to close the child window.
      *     If a value is passed in, the corresponding subscription is canceled.
      *     If no value is passed in, all subscriptions to the specified event are canceled.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types; 
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types;
      *                                                                  2. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
@@ -11789,9 +11789,11 @@ declare namespace window {
     getWindowDecorVisible(): boolean;
 
     /**
-     * Enables or disables the capability to move the window (either main window or child window) by dragging its title bar and to maximize the window with a double-click.
+     * Enables or disables the capability to move the window (either main window or child window)
+     * by dragging its title bar and to maximize the window with a double-click.
      *
-     * @param { boolean } enabled - Whether to enable the capability to move the window by dragging the title bar and to maximize the window with a double-click.
+     * @param { boolean } enabled - Whether to enable the capability to move the window
+     *                              by dragging the title bar and to maximize the window with a double-click.
      *                              The value true means to enable the capability, and false means the opposite.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
      *                                                                  2. Incorrect parameter types.
