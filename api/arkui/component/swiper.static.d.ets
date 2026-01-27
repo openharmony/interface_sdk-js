@@ -22,7 +22,7 @@
 import { IndicatorComponentController } from './indicatorcomponent';
 import { CommonMethod, Callback, ICurve, Bindable, AttributeModifier } from './common';
 import { EdgeEffect, Curve, PageFlipMode } from './enums';
-import { Length, LengthMetrics, VoidCallback, ResourceColor, VP, Font, ItemFillPolicy } from './units';
+import { Length, LengthMetrics, VoidCallback, ResourceColor, VP, Font } from './units';
 import { ComponentBuilder, CustomBuilder } from './builder';
 import { ScrollState } from "./list";
 
@@ -848,33 +848,13 @@ export declare interface SwiperAttribute extends CommonMethod {
    * 4、Placeholder items do not display any content and are only used as placeholders.
    * 5、When turning pages, turn pages by group.
    *
-   * @param { int | string | SwiperAutoFill | undefined } value - the number of elements
+   * @param { int | string | SwiperAutoFill | undefined } value
    * @param { boolean | undefined } [swipeByGroup] - if swipe by group.
    * @returns { SwiperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
-  /**
-   * Sets the number of elements to display per page.
-   *
-   * If swipeByGroup is set to true:
-   * 1、All sub-items are grouped from index 0.
-   * 2、The number of sub-items in each group is the value of displayCount.
-   * 3、If the number of sub-items in the last group is less than displayCount, placeholder items are added to supplement the number of last group.
-   * 4、Placeholder items do not display any content and are only used as placeholders.
-   * 5、When turning pages, turn pages by group.
-   *
-   * @param { int | string | SwiperAutoFill | ItemFillPolicy | undefined } value - the number of elements to display per page.
-   * @param { boolean | undefined } [swipeByGroup] - if swipe by group.
-   *    <br>Default value: false
-   *    <br>true: the page is turned by group. The number of subelements in each group is the value of displayCount.
-   *    <br>false: The default page turning behavior is used. That is, pages are turned based on subelements.
-   * @returns { SwiperAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 24 static
-   */
-  default displayCount(value: int | string | SwiperAutoFill | ItemFillPolicy | undefined, swipeByGroup?: boolean | undefined): this;
+  default displayCount(value: int | string | SwiperAutoFill | undefined, swipeByGroup?: boolean | undefined): this;
 
   /**
    * Invoked when setting the sliding effect
@@ -965,13 +945,12 @@ export declare interface SwiperAttribute extends CommonMethod {
   /**
    * Called when the scroll state of the swiper changed.
    *
-   * @param { Callback<ScrollState> | undefined } event - callback to notify the change of the scroll state.
+   * @param { Callback<ScrollState> } event - callback to notify the change of the scroll state.
    * @returns { SwiperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 24 static
+   * @since 23 static
    */
-  default onScrollStateChanged(event: Callback<ScrollState> | undefined): this;
+  default onScrollStateChanged(event: Callback<ScrollState>): this;
 
   /**
    * Called when the swiper animation start.
@@ -1068,17 +1047,15 @@ export declare interface SwiperAttribute extends CommonMethod {
   default onContentWillScroll(handler: ContentWillScrollCallback | undefined): this;
 
   /**
-   * Set whether to keep the position of the visible content unchanged
-   * when data is inserted or deleted above or in front of the display area.
+   * Set maintain visible content position.
    *
-   * @param { boolean | undefined } enabled - maintain visible content position.
-   *    Default value is false.
+   * @param { boolean } enabled - maintain visible content position.
+   * Default value is false.
    * @returns { SwiperAttribute } the attribute of swiper.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 24 static
+   * @since 23 static
    */
-  default maintainVisibleContentPosition(enabled: boolean | undefined): this;
+  default maintainVisibleContentPosition(enabled: boolean): this;
 
   /**
    * Set the attribute modifier of swiper.
