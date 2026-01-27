@@ -2357,7 +2357,7 @@ declare namespace geoLocationManager {
    * @atomicservice
    * @since 20 dynamic
    */
-  function addBeaconFence(fenceRequest: BeaconFenceRequest): Promise<number>;
+  function addBeaconFence(fenceRequest: BeaconFenceRequest): Promise<int>;
 
   /**
    * Remove a beacon fence.
