@@ -932,8 +932,7 @@ export declare interface NavigationInterception {
      *
      * @type { ?InterceptionCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 24 static
+     * @since 23 static
      */
     interception?: InterceptionCallback;
 }
@@ -1679,7 +1678,7 @@ export declare interface NavigationAttribute extends CommonMethod {
      * @returns { NavigationAttribute } - Returns the instance of the NavigationAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 23 static
      */
     default splitPlaceholder<T extends Object>(placeholder: ComponentContent<T>): this;
 
@@ -1693,8 +1692,7 @@ export declare interface NavigationAttribute extends CommonMethod {
      *                                          **false**: The bindContentCover can not affect the show or hide lifecycle of Navigation.
      * @returns { NavigationAttribute } Returns the instance of the NavigationAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 24 static
+     * @since 23 static
      */
     default enableVisibilityLifecycleWithContentCover(isEnabled: boolean | undefined): this;
 
@@ -1932,24 +1930,5 @@ export declare interface NavigationDividerStyle {
 @ComponentBuilder
 export declare function Navigation(
     pathInfos?: NavPathStack, 
-    content_?: CustomBuilder
-): NavigationAttribute
-
-/**
- * Defines Navigation Component
- *
- * @param { NavPathStack } [pathInfos] - Navigation constructor options
- * @param { HomePathInfo } [homeDestination] - The custom home destination info.
- * @param { CustomBuilder } [content_] - container
- * @returns { NavigationAttribute }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 24 static
- * @noninterop
- */
-@ComponentBuilder
-export declare function Navigation(
-    pathInfos?: NavPathStack, 
-    homeDestination?: HomePathInfo,
     content_?: CustomBuilder
 ): NavigationAttribute
