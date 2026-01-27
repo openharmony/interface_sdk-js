@@ -28,7 +28,7 @@ import { ComponentBuilder, CustomBuilder } from './builder';
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 23 static
+ * @since 24 static
  */
 export declare interface IfAttribute {
     /**
@@ -39,7 +39,7 @@ export declare interface IfAttribute {
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     ElseIf(
         condition: boolean,
@@ -52,7 +52,7 @@ export declare interface IfAttribute {
      * @param { CustomBuilder } content_ - code for the branch
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     Else(
         content_: CustomBuilder
@@ -67,7 +67,7 @@ export declare interface IfAttribute {
  * @returns { IfAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 23 static
+ * @since 24 static
  */
 @ComponentBuilder
 export declare function If(
