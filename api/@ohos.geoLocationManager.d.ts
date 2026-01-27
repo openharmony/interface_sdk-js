@@ -5116,12 +5116,12 @@ declare namespace geoLocationManager {
     /**
      * Indicates the confidence of POI information.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
      * @since 19 dynamic
      */
-    confidence: number;
+    confidence: double;
 
     /**
      * Indicates the name of the POI.
@@ -5228,13 +5228,13 @@ declare namespace geoLocationManager {
     /**
      * Indicates the timestamp when the POI information is obtained.
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
      * @since 19 dynamic
      * @since 23 static
      */
-    timestamp: number;
+    timestamp: long;
   }
 
   /**
