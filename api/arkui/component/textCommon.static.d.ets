@@ -1870,3 +1870,26 @@ export declare class ColorShaderStyle extends ShaderStyle {
      */
     color: ResourceColor;
 }
+
+/**
+ * Defines the voice button options.
+ *
+ * @interface VoiceButtonOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @stagemodelonly
+ * @since 23 static
+ */
+export interface VoiceButtonOptions {
+    /**
+     * Enable or disable voice button.
+     * True means enable voice button, false means disable voice button.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static
+     */
+    enabled?: boolean;
+}
