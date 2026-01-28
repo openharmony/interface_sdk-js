@@ -1785,7 +1785,7 @@ export declare class UIObserver {
    * @param { Callback<observer.TextChangeEventInfo> } callback - The callback function to be called when
    *     text field's content is changed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   onTextChange(callback: Callback<observer.TextChangeEventInfo>): void;
 
@@ -1795,7 +1795,7 @@ export declare class UIObserver {
    * @param { Callback<observer.TextChangeEventInfo> } [callback] - The callback function to remove. If not provided,
    *     all callbacks for the given event type will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   offTextChange(callback?: Callback<observer.TextChangeEventInfo>): void;
 
@@ -1806,7 +1806,7 @@ export declare class UIObserver {
    * @param { Callback<observer.TextChangeEventInfo> } callback - The callback function to be called when the
    *     text field's content is changed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   onTextChange(identity: observer.ObserverOptions, callback: Callback<observer.TextChangeEventInfo>): void;
 
@@ -1817,7 +1817,7 @@ export declare class UIObserver {
    * @param { Callback<observer.TextChangeEventInfo> } [callback] - The callback function to remove. If not provided,
    *     all callbacks for the given event type will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   offTextChange(identity: observer.ObserverOptions, callback?: Callback<observer.TextChangeEventInfo>): void;
 
@@ -2321,6 +2321,41 @@ export declare class OverlayManager {
 }
 
 /**
+ * Provides the method for magnifier capabilities.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 23 static
+ */
+export declare class Magnifier {
+   /**
+    * Bind magnifier to a component.
+    *
+    * @param { string } id - component id.
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @since 23 static
+    */
+    bind(id: string);
+   /**
+    * Set the position of the magnified content.
+    *
+    * @param { double } x - the x position of the magnified content relative to the component.
+    *     The unit of x is vp.
+    * @param { double } y - the y position of the magnified content relative to the component.
+    *     The unit of y is vp.
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @since 23 static
+    */
+    show(x: double,y: double): void;
+   /** 
+    * Unbind the magnifier from its associated component.
+    *
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @since 23 static
+    */
+    unbind(): void;
+}
+
+/**
  * interface AtomicServiceBar
  * @interface AtomicServiceBar
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2602,7 +2637,7 @@ export declare class MeasureUtils {
    * @param { TextLayoutOptions } [options] - The layout options.
    * @returns { Array<Paragraph> } paragraph result
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   getParagraphs(styledString: StyledString, options?: TextLayoutOptions): Array<Paragraph>;
 }
@@ -2713,40 +2748,6 @@ export declare class ContextMenuController {
    * @since 23 static
    */
   close(): void;
-}
-/**
- * Provides the method for magnifier capabilities.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 23 static
- */
-export declare class Magnifier {
-   /**
-    * Bind magnifier to a component.
-    *
-    * @param { string } id - component id.
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 23 static
-    */
-    bind(id: string);
-   /**
-    * Set the position of the magnified content.
-    *
-    * @param { double } x - the x position of the magnified content relative to the component.
-    *     The unit of x is vp.
-    * @param { double } y - the y position of the magnified content relative to the component.
-    *     The unit of y is vp.
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 23 static
-    */
-    show(x: double,y: double): void;
-   /** 
-    * Unbind the magnifier from its associated component.
-    *
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 23 static
-    */
-    unbind(): void;
 }
 
 /**

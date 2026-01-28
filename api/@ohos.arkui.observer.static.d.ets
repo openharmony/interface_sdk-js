@@ -461,7 +461,7 @@ declare namespace uiObserver {
    *
    * @interface TextChangeEventInfo
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   export interface TextChangeEventInfo {
     /**
@@ -469,7 +469,7 @@ declare namespace uiObserver {
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
     id: string;
 
@@ -478,7 +478,7 @@ declare namespace uiObserver {
      *
      * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
     uniqueId: int;
 
@@ -487,7 +487,7 @@ declare namespace uiObserver {
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
     content: string;
   }

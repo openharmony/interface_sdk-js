@@ -745,7 +745,7 @@ export declare class ParagraphStyle {
      * @type { ?LeadingMarginSpan } - the leading margin span of the StyledString or undefined
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
     readonly leadingMarginSpan?: LeadingMarginSpan;
 }
@@ -835,7 +835,7 @@ export declare interface ParagraphStyleInterface {
      *
      * @type { ?LeadingMarginSpan }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
     leadingMarginSpan?: LeadingMarginSpan;
 }
@@ -1237,7 +1237,7 @@ export declare class ImageAttachment {
      * @type { ?boolean } - Whether color filter support svg.
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
     readonly supportSvg2?: boolean;
     /**
@@ -1247,7 +1247,7 @@ export declare class ImageAttachment {
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     readonly sizeInVp?: SizeOptions;
 }
@@ -1322,7 +1322,7 @@ export declare interface ResourceImageAttachmentOptions {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
     supportSvg2?: boolean;
 }
@@ -1388,16 +1388,17 @@ export declare interface ImageAttachmentInterface {
  *
  * @interface LeadingMarginSpanDrawInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 23 static
+ * @stagemodelonly
+ * @since 24 static
  */
-declare interface LeadingMarginSpanDrawInfo {
+export declare interface LeadingMarginSpanDrawInfo {
   /**
    * The x offset of the line.
    * The unit is px.
    *
    * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
 	x: double;
 
@@ -1407,7 +1408,7 @@ declare interface LeadingMarginSpanDrawInfo {
    *
    * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
 	top: double;
 
@@ -1417,7 +1418,7 @@ declare interface LeadingMarginSpanDrawInfo {
    *
    * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
 	bottom: double;
 
@@ -1427,7 +1428,7 @@ declare interface LeadingMarginSpanDrawInfo {
    *
    * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
 	baseline: double;
 
@@ -1436,7 +1437,7 @@ declare interface LeadingMarginSpanDrawInfo {
    *
    * @type { TextDirection }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
 	direction: TextDirection;
 
@@ -1445,7 +1446,7 @@ declare interface LeadingMarginSpanDrawInfo {
    *
    * @type { int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
 	start: int;
 
@@ -1454,7 +1455,7 @@ declare interface LeadingMarginSpanDrawInfo {
    *
    * @type { int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
 	end: int;
 
@@ -1463,7 +1464,7 @@ declare interface LeadingMarginSpanDrawInfo {
    *
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
 	first: boolean;
 }
@@ -1653,7 +1654,7 @@ export declare abstract class UserDataSpan {
  * Defines LeadingMarginSpan.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 23 static
+ * @since 24 static
  */
 export declare abstract class LeadingMarginSpan {
     /**
@@ -1662,7 +1663,7 @@ export declare abstract class LeadingMarginSpan {
      * @param { DrawContext } context
      * @param { LeadingMarginSpanDrawInfo } drawInfo
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
     abstract onDraw(context: DrawContext, drawInfo: LeadingMarginSpanDrawInfo): void;
     /**
@@ -1670,7 +1671,7 @@ export declare abstract class LeadingMarginSpan {
      *
      * @returns { LengthMetrics } - the literal content of the StyledString
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
     abstract getLeadingMargin(): LengthMetrics;
 }

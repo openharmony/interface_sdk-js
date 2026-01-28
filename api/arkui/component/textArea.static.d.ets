@@ -177,7 +177,7 @@ export declare enum TextAreaType {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     ONE_TIME_CODE = 14
 }
@@ -292,13 +292,13 @@ export declare interface TextAreaAttribute extends CommonMethod {
      */
     default fontStyle(value: FontStyle | undefined): this;
     /**
-    * Called when the font weight is set.
-    *
-    * @param { int | FontWeight | string | undefined } value
-    * @returns { TextAreaAttribute }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 23 static
-    */
+     * Called when the font weight is set.
+     *
+     * @param { int | FontWeight | string | undefined } value
+     * @returns { TextAreaAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
     default fontWeight(value: int | FontWeight | string | undefined): this;
     /**
      * Called when the font list of text is set.
@@ -733,7 +733,7 @@ export declare interface TextAreaAttribute extends CommonMethod {
      * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     default customKeyboard(value: CustomBuilder | ComponentContentBase | undefined,
                            options?: KeyboardOptions): this;
@@ -774,7 +774,7 @@ export declare interface TextAreaAttribute extends CommonMethod {
      * @param { LineSpacingOptions } [options]
      * @returns { TextAreaAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
     default lineSpacing(value: LengthMetrics | undefined, options?: LineSpacingOptions): this;
     /**
@@ -1025,7 +1025,7 @@ export declare interface TextAreaAttribute extends CommonMethod {
      *     Passing `undefined` resets it to the default value.
      * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
     default minLines(lines: int | undefined): this;
 
@@ -1037,7 +1037,7 @@ export declare interface TextAreaAttribute extends CommonMethod {
      *     Passing `undefined` resets it to the default value.
      * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
     default enableAutoSpacing(enabled: boolean | undefined): this;
 
@@ -1048,7 +1048,7 @@ export declare interface TextAreaAttribute extends CommonMethod {
      *     Passing `undefined` resets it to the default value.
      * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
     default strokeWidth(width: LengthMetrics | undefined): this;
 
@@ -1059,7 +1059,7 @@ export declare interface TextAreaAttribute extends CommonMethod {
      *     Passing `undefined` resets it to the default value.
      * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
     default strokeColor(color: ResourceColor | undefined): this;
 
@@ -1070,7 +1070,7 @@ export declare interface TextAreaAttribute extends CommonMethod {
      *     If `undefined` is passed, the existing registered event will be removed.
      * @returns { TextAreaAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
     default onWillAttachIME(callback: Callback<IMEClient> | undefined): this;
 
@@ -1086,13 +1086,13 @@ export declare interface TextAreaAttribute extends CommonMethod {
 
     /**
      * Enable selected data detector.
-     * 
+     *
      * @param { boolean | undefined } enable - whether to enable the selected data detector.
      * @returns { TextAreaAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
-    default enableSelectedDataDetector(enable: boolean | undefined): this
+    default enableSelectedDataDetector(enable: boolean | undefined): this;
 
     /**
      * Sets the attribute modifier.

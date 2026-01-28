@@ -128,7 +128,7 @@ export declare interface SpanAttribute {
      * @returns { SpanAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     default fontWeight(value: int | FontWeight | ResourceStr | undefined): this;
     /**

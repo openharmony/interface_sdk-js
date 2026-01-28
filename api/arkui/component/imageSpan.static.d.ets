@@ -97,7 +97,7 @@ export declare interface ImageSpanAttribute extends BaseSpan {
      *     The default value is false. Passing `undefined` resets it to the default value.
      * @returns { ImageSpanAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
     default supportSvg2(enable: boolean | undefined) : this;
     /**
