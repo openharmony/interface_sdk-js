@@ -49,7 +49,6 @@
     "SystemCapability.BundleManager.BundleFramework.Resource",
     "SystemCapability.BundleManager.Zlib",
     "SystemCapability.Applications.CalendarData",
-    "SystemCapability.Applications.Contacts",
     "SystemCapability.Telephony.CallManager",
     "SystemCapability.Telephony.CellularData",
     "SystemCapability.Security.Cert",
