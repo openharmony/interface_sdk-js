@@ -24,6 +24,8 @@ import { NotificationSubscribeInfo as _NotificationSubscribeInfo } from './notif
 import { NotificationSubscriber as _NotificationSubscriber } from './notification/notificationSubscriber';
 import { SubscribeCallbackData as _SubscribeCallbackData } from './notification/notificationSubscriber';
 import { EnabledNotificationCallbackData as _EnabledNotificationCallbackData } from './notification/notificationSubscriber';
+import { EnabledSilentReminderCallbackData as _EnabledSilentReminderCallbackData } from './notification/notificationSubscriber';
+import { EnabledSilentReminderChangedCallback as _EnabledSilentReminderChangedCallback } from './notification/notificationSubscriber';
 import { EnabledPriorityNotificationCallbackData as _EnabledPriorityNotificationCallbackData } from './notification/notificationSubscriber';
 import { EnabledPriorityNotificationByBundleCallbackData as _EnabledPriorityNotificationByBundleCallbackData } from './notification/notificationSubscriber';
 /*** if arkts dynamic */
@@ -637,6 +639,28 @@ declare namespace notificationSubscribe {
    * @since 23 static
    */
   export type EnabledNotificationCallbackData = _EnabledNotificationCallbackData;
+
+  /**
+   * Describes the switch state for silent reminder notification.
+   *
+   * @typedef { _EnabledSilentReminderCallbackData } EnabledSilentReminderCallbackData
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  export type EnabledSilentReminderCallbackData = _EnabledSilentReminderCallbackData;
+
+  /**
+   * Called when the enabling status of the silent reminder changes.
+   *
+   * @typedef { _EnabledSilentReminderChangedCallback } EnabledSilentReminderChangedCallback
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  export type EnabledSilentReminderChangedCallback = _EnabledSilentReminderChangedCallback;
 
   /**
    * Describes the main switch state for priority notification.
