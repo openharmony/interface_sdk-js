@@ -12287,7 +12287,8 @@ declare namespace window {
      *
      * @param { 'windowTitleButtonRectChange' } type - Event type. The value is fixed at 'windowTitleButtonRectChange',
      *                                                 indicating that the change event of the rectangle that holds the minimize, maximize, and close buttons.
-     * @param { Callback<TitleButtonRect> } callback - Callback used to return the new rectangle. If a value is passed in, the corresponding subscription is canceled.
+     * @param { Callback<TitleButtonRect> } callback - Callback used to return the new rectangle.
+     *                                                 If a value is passed in, the corresponding subscription is canceled.
      *                                                 If no value is passed in, all subscriptions to the specified event are canceled.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types;
      *                                                                  2. Parameter verification failed.
@@ -12298,7 +12299,7 @@ declare namespace window {
      * @since 12 dynamic
      */
     off(type: 'windowTitleButtonRectChange', callback?: Callback<TitleButtonRect>): void;
-
+    
     /**
      * Unsubscribes from the change event of the rectangle that holds the minimize, maximize, and close buttons on the title bar of the window.
      *
@@ -12571,7 +12572,8 @@ declare namespace window {
      * 
      * @param { 'uiExtensionSecureLimitChange' } eventType The value is fixed at 'uiExtensionSecureLimitChange', indicating the UIExtension secure limit change.
      * @param { Callback<boolean> } callback Callback used to return the result whether the APP has uiextension secure limit. 
-     * @throws { BusinessError } 801 - Capability not supported.Function on('uiExtensionSecureLimitChange') can not work correctly due to limited device capabilities.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * Function on('uiExtensionSecureLimitChange') can not work correctly due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
@@ -12648,8 +12650,8 @@ declare namespace window {
      * Set whether to enable immersive mode.
      *
      * @param { boolean } enabled - The value true means to enable immersive mode, and false means the opposite.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
+     *                                                                  2. Incorrect parameter types;
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      *     Possible cause: The window is not created or destroyed.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
@@ -12803,7 +12805,7 @@ declare namespace window {
      * @param { boolean } isDockHoverShown - The value true means to display the dock bar, and false means the opposite.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types.
+     *                                                                  2. Incorrect parameter types;
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
@@ -14101,8 +14103,8 @@ declare namespace window {
      * @param { 'windowStageEvent' } eventType Event type.
      *     The value is fixed at 'windowStageEvent', indicating the window stage lifecycle change event.
      * @param { Callback<WindowStageEventType> } callback Callback used to return the window stage lifecycle state.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types; 
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
+     *                                                                  2. Incorrect parameter types;
      *                                                                  3. Parameter verification failed.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
@@ -14162,7 +14164,7 @@ declare namespace window {
      * @param { Callback<WindowStageEventType> } callback Callback used to return the window stage lifecycle state.
      *     If a value is passed in, the corresponding subscription is canceled.
      *     If no value is passed in, all subscriptions to the specified event are canceled.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types; 
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types;
      *                                                                  2. Parameter verification failed.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
@@ -14437,7 +14439,8 @@ declare namespace window {
 
     /**
      * Allows the application to control the time when the launch page disappears.
-     * This API takes effect only for the application main window when enable.remove.starting.window under metadata in abilities in the module.json5 file is set to true.
+     * This API takes effect only for the application main window
+     * when enable.remove.starting.window under metadata in abilities in the module.json5 file is set to true.
      *
      * @returns { Promise<void> } - Promise that returns no value.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
@@ -14548,7 +14551,8 @@ declare namespace window {
     /**
      * Checks whether the auto-save feature is enabled for the main window's size.
      *
-     * @returns { Promise<boolean> } Promise used to return the result. The value true means that the auto-save feature is enabled, and false means the opposite.
+     * @returns { Promise<boolean> } Promise used to return the result.
+     *                               The value true means that the auto-save feature is enabled, and false means the opposite.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      *     Possible cause: 1. The window is not created or destroyed;
