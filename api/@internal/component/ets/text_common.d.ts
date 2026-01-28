@@ -2397,3 +2397,28 @@ declare interface SelectedDragPreviewStyle {
      */
     color?: ResourceColor;
 }
+
+/**
+ * Defines the voice button options.
+ *
+ * @interface VoiceButtonOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @stagemodelonly
+ * @atomicservice
+ * @since 23 dynamic
+ */
+interface VoiceButtonOptions {
+    /**
+     * Enable or disable voice button.
+     * True means enable voice button, false means disable voice button.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic
+     */
+    enabled?: boolean;
+}
