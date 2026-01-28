@@ -18,10 +18,9 @@
  * @kit ArkUI
  */
 
-import { CommonMethod } from './common';
-import { ComponentBuilder } from './../stateManagement/runtime';
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
-import { CustomBuilder } from './builder';
+import { CustomBuilder } from '@ohos.arkui.component';
 
 /**
  * Effect layer enum.
