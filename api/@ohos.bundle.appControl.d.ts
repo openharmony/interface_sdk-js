@@ -681,11 +681,12 @@ declare namespace appControl {
    * @returns { Array<DisposedRuleConfiguration> } Returns all disposed rules.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied. A non-system application is not allowed to call a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @stagemodelonly
    * @systemapi
-   * @since 24 dynamic&static
+   * @since 23 dynamiconly
    */
     function getAllDisposedRulesByCaller(bundleName: string, appIndex?: int): Array<DisposedRuleConfiguration>;
 }
