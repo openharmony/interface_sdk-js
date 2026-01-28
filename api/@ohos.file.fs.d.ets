@@ -3550,18 +3550,6 @@ class TaskSignal {
    * @since 23 static
    */
   cancel(): void;
-
-  /**
-   * Subscribes to the event reported when a copy task is canceled.
-   *
-   * @returns { Promise<string> } Return the result of the cancel event.
-   * @throws { BusinessError } 13900004 - Interrupted system call
-   * @throws { BusinessError } 13900008 - Bad file descriptor
-   * @throws { BusinessError } 13900042 - Unknown error
-   * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 23 static
-   */
-  onCancel(): Promise<string>;
 }
 
 /**

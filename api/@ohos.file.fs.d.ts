@@ -8400,7 +8400,8 @@ export class TaskSignal {
    * @throws { BusinessError } 13900008 - Bad file descriptor
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 12 dynamic
+   * @since 12 dynamiconly
+   * @deprecated since 24
    */
   onCancel(): Promise<string>;
 }
