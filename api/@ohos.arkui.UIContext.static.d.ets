@@ -299,6 +299,7 @@ export declare class Router {
    * @param { int } index - index of page.
    * @param { Object } [params] - params of page.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   back(index: int, params?: Object): void;
@@ -386,6 +387,7 @@ export declare class Router {
    *
    * @returns { Object } Page params.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   getParams(): Object;
