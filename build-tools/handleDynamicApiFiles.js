@@ -106,7 +106,7 @@ function start() {
 }
 /**
  * 处理API文件的入口函数
- * 
+ *
  * @param {*} rootPath 
  * @param {*} type 
  */
@@ -155,12 +155,12 @@ function handleApiFiles(rootPath, type, output, isPublic, createKeepFile) {
 
 /**
  * 根据传入的type值去处理文件
- * 
+ *
  * @param {*} apiRelativePath 
  * @param {*} allApiFilePathSet 
  * @param {*} rootPath 
  * @param {*} type 
- * @returns 
+ * @returns
  */
 function handleApiFileByType(apiRelativePath, rootPath, type, output, isPublic) {
   const fullPath = path.join(rootPath, apiRelativePath);
@@ -185,7 +185,7 @@ function handleApiFileByType(apiRelativePath, rootPath, type, output, isPublic) 
  * @param {*} fullPath 
  * @param {*} apiRelativePath 
  * @param {*} type 
- * @returns 
+ * @returns
  */
 function isHandleFullPath(fullPath, apiRelativePath, type) {
   // 当前文件为.ts结尾文件
@@ -214,10 +214,10 @@ function isHandleFullPath(fullPath, apiRelativePath, type) {
 
 /**
  * 处理文件过滤 if arkts 1.1|1.2|1.1&1.2 定义
- * 
+ *
  * @param {*} type 
  * @param {*} fileContent 
- * @returns 
+ * @returns
  */
 function handleArktsDefinition(type, fileContent) {
   const REGX_DYNAMIC = /\/\*\*\* if arkts (1\.1|dynamic) \*\/\s*([\s\S]*?)\s*\/\*\*\* endif \*\//g;
@@ -247,10 +247,10 @@ function handleArktsDefinition(type, fileContent) {
 
 /**
  * 处理dynamic目录
- * 
+ *
  * @param {string} apiRelativePath 
  * @param {string} fullPath 
- * @returns 
+ * @returns
  */
 function handleFileInDynamicApi(apiRelativePath, fullPath, type, output) {
   const outputPath = output ? path.join(output, apiRelativePath) : fullPath;
@@ -303,7 +303,7 @@ function handleFileInDynamicApi(apiRelativePath, fullPath, type, output) {
  * 处理1.1目录中无arkts标签的文件
  * @param {*} sourceFile 
  * @param {*} outputPath 
- * @returns 
+ * @returns
  */
 function handleNoTagFileInFirstType(sourceFile, outputPath, fileContent) {
   if (path.basename(outputPath) === 'index-full.d.ts') {
@@ -323,10 +323,10 @@ function handleNoTagFileInFirstType(sourceFile, outputPath, fileContent) {
 
 /**
  * 删除指定的arkts标签
- * 
+ *
  * @param {*} fileContent 文件内容
  * @param {*} regx 删除的正则表达式
- * @returns 
+ * @returns
  */
 function deleteArktsTag(fileContent) {
   const arktsTagRegx = /\s*\*\s*@arkts\s(1\.1|1\.2|1\.1&1\.2|dynamic|static|dynamic&static)\s*(?=\r|\n)/g;
@@ -341,7 +341,7 @@ function deleteArktsTag(fileContent) {
 /**
  * 通过正则去除since标签之后的dynamic和static修饰符，根据dirType判断场景替换
  * @param {string} fileContent 
- * @returns 
+ * @returns
  */
 function replaceSinceDynamicStatic(fileContent) {
   const arktsSinceTagRegx = /\s*\*\s*@since\s\S*(\s(dynamic&static|dynamiconly|dynamic|staticonly|static))?\s*(?=\r?\n)/g;
@@ -366,7 +366,7 @@ function replaceSinceDynamicStatic(fileContent) {
 /**
  * 通过正则去除jsdoc所有标签之后的dynamiconly和staticonly修饰符，根据dirType判断场景替换
  * @param {string} fileContent 
- * @returns 
+ * @returns
  */
 function replaceJsDocDynamicStatic(fileContent) {
   const getJsDocWithDynamicStaticRegx = /\s*\/\*\*(?:(?!\*\/)[\s\S])*?\[(dynamiconly|staticonly)\][\s\S]*?\*\/\s*?/g;
@@ -394,10 +394,10 @@ function replaceJsDocTagDynamicStatic(jsDoc) {
 
 /**
  * 删除1.2未支持标签
- * 
+ *
  * @param {*} fileContent 文件内容
  * @param {*} regx 删除的正则表达式
- * @returns 
+ * @returns
  */
 function deleteUnsportedTag(fileContent) {
   const arktsTagRegx = /\*\s*@crossplatform\s*(\r|\n)\s*|\*\s*@form\s*(\r|\n)\s*|\*\s*@atomicservice\s*(\r|\n)\s*/g;
@@ -409,7 +409,7 @@ function deleteUnsportedTag(fileContent) {
 
 /**
  * 生成1.1目录里文件时，需要去掉since标签里的1.2版本号
- * 
+ *
  * @param {*} sourceFile 
  * @param {*} fullPath 
  */
@@ -426,7 +426,7 @@ function handleSinceInFirstType(fileContent) {
 /**
  * 获取文件jsdoc
  * @param {*} firstNode 
- * @returns 
+ * @returns
  */
 function getFileJsdoc(firstNode) {
   const firstNodeJSDoc = firstNode.getFullText().replace(firstNode.getText(), '');
@@ -444,29 +444,29 @@ function getFileJsdoc(firstNode) {
 
 /**
  * 拼接上被删除的文件注释
- * 
+ *
  * @param {*} deletionContent 
  * @param {*} sourceFile 
- * @returns 
+ * @returns
  */
 function joinFileJsdoc(deletionContent, sourceFile) {
   const fileJsdoc = sourceFile.getFullText().replace(sourceFile.getText(), '');
-  const copyrightMessage = hasCopyright(fileJsdoc.split('*/')[0]) ? fileJsdoc.split('*/')[0] + '*/\r\n' : '';
+  const copyrightMessage = hasCopyright(fileJsdoc.split('*/')[0]) ? fileJsdoc.split('*/')[0] + '*/' : '';
   const regx = /@kit | @file/g;
   let kitMessage = '';
 
   if (regx.test(fileJsdoc)) {
-    kitMessage = fileJsdoc.split('*/')[1] + '*/\r\n';
+    kitMessage = fileJsdoc.split('*/')[1] + '*/';
   }
   let newContent = deletionContent;
   const isHasCopyright = hasCopyright(deletionContent);
 
   if (!isHasCopyright && !regx.test(deletionContent)) {
-    newContent = copyrightMessage + kitMessage + deletionContent;
+    newContent = copyrightMessage + '\r\n' + kitMessage + deletionContent;
   } else if (!isHasCopyright) {
-    newContent = copyrightMessage + deletionContent;
+    newContent = copyrightMessage + '\r\n' + deletionContent;
   } else if (isHasCopyright && !/@kit | @file/g.test(deletionContent)) {
-    const joinFileJsdoc = copyrightMessage + kitMessage;
+    const joinFileJsdoc = copyrightMessage + '\r\n' + kitMessage;
     newContent = deletionContent.replace(copyrightMessage, joinFileJsdoc);
   }
 
@@ -497,10 +497,10 @@ function writeFile(outputPath, fileContent) {
 
 /**
  * 添加use static字符串
- * 
+ *
  * @param {*} fileContent 文件内容
  * @param {*} copyrightMessage 版权头内容
- * @returns 
+ * @returns
  */
 function addStaticString(fileContent) {
   let newContent = fileContent;
@@ -520,9 +520,9 @@ function addStaticString(fileContent) {
 
 /**
  * 判断新生成的文件内容有没有版权头
- * 
+ *
  * @param {*} fileText 新生成的文件内容
- * @returns 
+ * @returns
  */
 function hasCopyright(fileText) {
   return /http(\:|\?:)\/\/www(\.|\/)apache\.org\/licenses\/LICENSE\-2\.0 | Copyright\s*\(c\)/gi.test(fileText);
@@ -558,7 +558,7 @@ function validateExportDeclaration(node) {
 /**
  * 删除API
  * @param {*} sourceFile 
- * @returns 
+ * @returns
  */
 function deleteApi(sourceFile) {
   let result = ts.transform(sourceFile, [transformer], { etsAnnotationsEnable: true });
@@ -579,7 +579,7 @@ function deleteApi(sourceFile) {
 /**
  * api被删除后，对应的export api也需要被删除
  * @param {*} context 
- * @returns 
+ * @returns
  */
 const transformExportApi = (context) => {
   return (rootNode) => {
@@ -636,7 +636,7 @@ function getApiNodeName(node) {
 /**
  * 获取 variableStatement节点名称
  * @param {ts.Node} statement 
- * @returns 
+ * @returns
  */
 function variableStatementGetEscapedText(statement) {
   let name = '';
@@ -715,10 +715,10 @@ function collectDeletionApiName(node) {
  * 判断import节点和export节点。
  * 当前文本如果还有其他节点则不能删除，
  * 如果只有import和export则判断是否export导出import节点
- * 
+ *
  * @param {*} statement 
  * @param {*} needExportName 
- * @returns 
+ * @returns
  */
 function judgeExportHasImport(statement, needExportName) {
   if (ts.isImportDeclaration(statement)) {
@@ -760,9 +760,9 @@ function processImportDeclaration(statement, needExportName) {
 
 /**
  * 判断node节点中是否有famodelonly/deprecated/arkts <=1.1标签
- * 
+ *
  * @param {*} node 
- * @returns 
+ * @returns
  */
 function judgeIsDeleteApi(node) {
   // 删除api适配arkts标签
@@ -802,7 +802,7 @@ function judgeIsDeleteApi(node) {
 }
 
 /**
- * 
+ *
  * @param { string } apiPath 需要处理的api文件所在路径
  * @param { string } rootPath ets文件夹路径
  * @returns { Set<string> } 需要处理的api文件的相对于ets目录的路径
