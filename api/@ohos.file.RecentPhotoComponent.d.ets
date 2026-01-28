@@ -19,7 +19,6 @@
  */
 
 import photoAccessHelper from '@ohos.file.photoAccessHelper';
-import photoAccessHelper from '@ohos.file.photoAccessHelper';
 import { BaseItemInfo, PickerColorMode } from '@ohos.file.PhotoPickerComponent';
 
 /**
