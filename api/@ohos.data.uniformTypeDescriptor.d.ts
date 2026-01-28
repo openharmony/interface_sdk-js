@@ -2550,8 +2550,8 @@ declare namespace uniformTypeDescriptor {
    *
    * @param { string } filenameExtension - Filename extension.
    * @param { string } [belongsTo] - A uniform data type ID it belongs to.
-   * @returns { Array<string> } Returns the uniform data type ID list corresponding to the given filename extension and
-   * the uniform data type it belongs to(If the 'belongsTo' parameter is set) or flexible type if the uniform data type
+   * @returns { Array<string> } Returns the uniform data type ID list corresponding to the given filename extension and the
+   * <br>uniform data type it belongs to(If the 'belongsTo' parameter is set) or flexible type if the uniform data type
    * does not exist.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
    * <br>2.Incorrect parameters types.
