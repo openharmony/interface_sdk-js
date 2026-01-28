@@ -30,6 +30,7 @@ import { BuilderParam, Builder } from '@ohos.arkui.component';
  *
  * @typedef { ResourceStr | SymbolGlyphModifier } SubHeaderV2IconType
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
@@ -39,6 +40,7 @@ declare type SubHeaderV2IconType = ResourceStr | SymbolGlyphModifier;
  *
  * @interface SubHeaderV2TitleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
@@ -48,6 +50,7 @@ export interface SubHeaderV2TitleOptions {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   primaryTitle?: ResourceStr;
@@ -56,6 +59,7 @@ export interface SubHeaderV2TitleOptions {
    *
    * @type { ?TextModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   primaryTitleModifier?: TextModifier;
@@ -64,6 +68,7 @@ export interface SubHeaderV2TitleOptions {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   secondaryTitle?: ResourceStr;
@@ -72,6 +77,7 @@ export interface SubHeaderV2TitleOptions {
    *
    * @type { ?TextModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   secondaryTitleModifier?: TextModifier;
@@ -81,6 +87,7 @@ export interface SubHeaderV2TitleOptions {
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @stagemodelonly
    * @since 23 static
    */
   titleAccessibilityText?: ResourceStr;
@@ -89,6 +96,7 @@ export interface SubHeaderV2TitleOptions {
  * Declare the SubHeaderV2Title
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
@@ -99,6 +107,7 @@ export declare class SubHeaderV2Title {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   @Trace
@@ -108,6 +117,7 @@ export declare class SubHeaderV2Title {
    *
    * @type { ?TextModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   @Trace
@@ -117,6 +127,7 @@ export declare class SubHeaderV2Title {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   @Trace
@@ -126,6 +137,7 @@ export declare class SubHeaderV2Title {
    *
    * @type { ?TextModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   @Trace
@@ -135,6 +147,7 @@ export declare class SubHeaderV2Title {
    *
    * @param { SubHeaderV2TitleOptions } options - the options of the SubHeaderV2Title
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   public constructor(options: SubHeaderV2TitleOptions);
@@ -143,6 +156,7 @@ export declare class SubHeaderV2Title {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @stagemodelonly
    * @since 23 static
    */
@@ -156,6 +170,7 @@ export declare class SubHeaderV2Title {
  * @param { int } selectedIndex - the index of selected item
  * @param { string } [selectedContent] - the content of selected item
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
@@ -165,6 +180,7 @@ export type SubHeaderV2SelectOnSelect = (selectedIndex: int, selectedContent?: s
  *
  * @interface SubHeaderV2SelectOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
@@ -174,6 +190,7 @@ export interface SubHeaderV2SelectOptions {
    *
    * @type { SelectOption[] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   options: SelectOption[];
@@ -182,6 +199,7 @@ export interface SubHeaderV2SelectOptions {
    *
    * @type { ?int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   selectedIndex?: int;
@@ -190,6 +208,7 @@ export interface SubHeaderV2SelectOptions {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   selectedContent?: ResourceStr;
@@ -198,6 +217,7 @@ export interface SubHeaderV2SelectOptions {
    *
    * @type { ?SubHeaderV2SelectOnSelect }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   onSelect?: SubHeaderV2SelectOnSelect;
@@ -207,6 +227,7 @@ export interface SubHeaderV2SelectOptions {
    * @type { ?boolean }
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   defaultFocus?: boolean;
@@ -215,6 +236,7 @@ export interface SubHeaderV2SelectOptions {
  * Declare the SubHeaderV2Select
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
@@ -225,6 +247,7 @@ export declare class SubHeaderV2Select {
    *
    * @type { SelectOption[] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   @Trace
@@ -234,6 +257,7 @@ export declare class SubHeaderV2Select {
    *
    * @type { ?int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   @Trace
@@ -243,6 +267,7 @@ export declare class SubHeaderV2Select {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   @Trace
@@ -252,6 +277,7 @@ export declare class SubHeaderV2Select {
    *
    * @type { ?SubHeaderV2SelectOnSelect }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   @Trace
@@ -261,6 +287,7 @@ export declare class SubHeaderV2Select {
    * @type { ?boolean }
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   @Trace
@@ -270,6 +297,7 @@ export declare class SubHeaderV2Select {
    *
    * @param { SubHeaderV2SelectOptions } options - the options of the SubHeaderV2Select
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   public constructor(options: SubHeaderV2SelectOptions);
@@ -279,6 +307,7 @@ export declare class SubHeaderV2Select {
  *
  * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
@@ -287,6 +316,7 @@ export declare enum SubHeaderV2OperationType {
    * The TextArrow style.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   TEXT_ARROW = 0,
@@ -294,6 +324,7 @@ export declare enum SubHeaderV2OperationType {
    * The Button style.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   BUTTON = 1,
@@ -301,6 +332,7 @@ export declare enum SubHeaderV2OperationType {
    * The IconGroup style.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   ICON_GROUP = 2,
@@ -308,6 +340,7 @@ export declare enum SubHeaderV2OperationType {
    * The LoadingProgress style.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   LOADING = 3
@@ -317,6 +350,7 @@ export declare enum SubHeaderV2OperationType {
  *
  * @typedef { function } OnClicked
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
@@ -326,6 +360,7 @@ export type SubHeaderV2OperationItemAction = () => void;
  *
  * @typedef { ResourceStr | SymbolGlyphModifier } SubHeaderV2OperationItemType
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
@@ -335,6 +370,7 @@ declare type SubHeaderV2OperationItemType = ResourceStr | SymbolGlyphModifier;
  *
  * @interface SubHeaderV2OperationItemOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
@@ -344,6 +380,7 @@ export interface SubHeaderV2OperationItemOptions {
    *
    * @type { SubHeaderV2OperationItemType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   content: SubHeaderV2OperationItemType;
@@ -352,6 +389,7 @@ export interface SubHeaderV2OperationItemOptions {
    *
    * @type { ?SubHeaderV2OperationItemAction }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   action?: SubHeaderV2OperationItemAction;
@@ -360,6 +398,7 @@ export interface SubHeaderV2OperationItemOptions {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   accessibilityText?: ResourceStr;
@@ -368,6 +407,7 @@ export interface SubHeaderV2OperationItemOptions {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   accessibilityDescription?: ResourceStr;
@@ -382,6 +422,7 @@ export interface SubHeaderV2OperationItemOptions {
    *     "no-hide-descendants":The current component and all its child components are not selectable<br/>
    *     for the accessibility service.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   accessibilityLevel?: string;
@@ -391,6 +432,7 @@ export interface SubHeaderV2OperationItemOptions {
    * @type { ?boolean }
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   defaultFocus?: boolean;
@@ -399,6 +441,7 @@ export interface SubHeaderV2OperationItemOptions {
  * Declare the SubHeaderV2OperationItem
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
@@ -409,6 +452,7 @@ export declare class SubHeaderV2OperationItem {
    *
    * @type { SubHeaderV2OperationItemType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   @Trace
@@ -418,6 +462,7 @@ export declare class SubHeaderV2OperationItem {
    *
    * @type { ?SubHeaderV2OperationItemAction }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   @Trace
@@ -427,6 +472,7 @@ export declare class SubHeaderV2OperationItem {
    *
    * @param { SubHeaderV2OperationItemOptions } options - the options of the SubHeaderV2OperationItem
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   constructor(options: SubHeaderV2OperationItemOptions);
@@ -435,6 +481,7 @@ export declare class SubHeaderV2OperationItem {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   @Trace
@@ -444,6 +491,7 @@ export declare class SubHeaderV2OperationItem {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   @Trace
@@ -459,6 +507,7 @@ export declare class SubHeaderV2OperationItem {
    *     "no-hide-descendants":The current component and all its child components are not selectable<br/>
    *     for the accessibility service.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   @Trace
@@ -469,6 +518,7 @@ export declare class SubHeaderV2OperationItem {
    * @type { ?boolean }
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   @Trace
@@ -479,6 +529,7 @@ export declare class SubHeaderV2OperationItem {
  *
  * @typedef { function } SubHeaderV2TitleBuilder
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
@@ -489,6 +540,7 @@ export type SubHeaderV2TitleBuilder = () => void;
  *
  * @struct { SubHeaderV2 }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
@@ -500,6 +552,7 @@ export declare struct SubHeaderV2 {
    * @type { ?SubHeaderV2IconType }
    * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   @Param
@@ -510,6 +563,7 @@ export declare struct SubHeaderV2 {
    * @type { ?SubHeaderV2Title }
    * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   @Param
@@ -520,6 +574,7 @@ export declare struct SubHeaderV2 {
    * @type { ?SubHeaderV2Select }
    * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   @Param
@@ -530,6 +585,7 @@ export declare struct SubHeaderV2 {
    * @type { ?SubHeaderV2OperationType }
    * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   @Param
@@ -540,6 +596,7 @@ export declare struct SubHeaderV2 {
    * @type { ?SubHeaderV2OperationItem[] }
    * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   @Param
@@ -549,6 +606,7 @@ export declare struct SubHeaderV2 {
    *
    * @type { ?SubHeaderV2TitleBuilder }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   @BuilderParam
@@ -557,6 +615,7 @@ export declare struct SubHeaderV2 {
   /**
    * The method to build component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 staticonly
    */
   @Builder
