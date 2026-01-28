@@ -22,7 +22,7 @@ import { ImageFit } from "./enums";
 import { CommonMethod, Callback, PixelMap, AttributeModifier, ContentTransitionEffect } from "./common";
 import { VoidCallback, ColorMetrics } from "./units";
 import { ComponentBuilder, CustomBuilder } from './builder';
-import { ErrorCallback } from '../../@ohos.base'
+import { ErrorCallback } from '../../@ohos.base';
 
 /**
  * Seek mode.
