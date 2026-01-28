@@ -19,13 +19,12 @@
  * @kit ArkUI
  */
 
-import { LengthMetrics, SizeT, PositionT, Vector2T } from '../../arkui/Graphics';
-import { VP, ResourceStr, Dimension, ResourceColor } from "./units";
-import { ImageFit, Curve } from "./enums";
-import { ICurve, CommonMethod } from './common';
-import { ComponentBuilder } from "./../stateManagement/runtime";
+import { LengthMetrics, SizeT, PositionT, Vector2T } from '../../arkui/Graphics';	 
+import { VP, ResourceStr, Dimension, ResourceColor } from "./units";	 
+import { ImageFit, Curve } from "./enums";	 
+import { ICurve, CommonMethod } from './common';	 
+import { ComponentBuilder, CustomBuilder } from './builder';	 
 import { AttributeModifier, CommonMethod } from "./common";
-import { CustomBuilder } from './builder';
 
 /**
  * Defines a pair of given type for particle.
