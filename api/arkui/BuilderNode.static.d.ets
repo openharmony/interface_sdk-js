@@ -99,7 +99,7 @@ export interface BuildOptions {
    * @type { ?boolean } useParallel - Indicates whether use parallel.
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 23 staticonly
    */
   useParallel?: boolean;
 }
