@@ -849,7 +849,6 @@ export declare struct SubHeader {
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 23 dynamic

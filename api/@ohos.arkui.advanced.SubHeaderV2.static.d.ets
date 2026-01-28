@@ -87,7 +87,6 @@ export interface SubHeaderV2TitleOptions {
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @stagemodelonly
    * @since 23 static
    */
   titleAccessibilityText?: ResourceStr;
@@ -156,7 +155,6 @@ export declare class SubHeaderV2Title {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
    * @stagemodelonly
    * @since 23 static
    */
