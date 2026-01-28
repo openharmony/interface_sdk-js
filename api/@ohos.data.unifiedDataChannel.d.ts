@@ -329,7 +329,7 @@ declare namespace unifiedDataChannel {
      * For file types, if the type set of UnifiedData contains general.jpeg, true is returned when the hasType API is
      * called to check whether the general.image type is included, because the general.jpeg type belongs to the
      * general.image type.
-     *
+     * 
      * @param { string } type - indicates to query data type.
      * @returns { boolean } if having mimeType in UnifiedData returns true, else returns false.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
@@ -344,7 +344,7 @@ declare namespace unifiedDataChannel {
      * For file types, if the type set of UnifiedData contains general.jpeg, true is returned when the hasType API is
      * called to check whether the general.image type is included, because the general.jpeg type belongs to the
      * general.image type.
-     *
+     * 
      * @param { string } type - indicates to query data type.
      * @returns { boolean } if having mimeType in UnifiedData returns true, else returns false.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
