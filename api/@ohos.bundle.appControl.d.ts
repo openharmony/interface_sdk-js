@@ -684,8 +684,8 @@ declare namespace appControl {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
-   * @stagemodelonly
    * @systemapi
+   * @stagemodelonly
    * @since 23 dynamiconly
    */
     function getAllDisposedRulesByCaller(bundleName: string, appIndex?: int): Array<DisposedRuleConfiguration>;
