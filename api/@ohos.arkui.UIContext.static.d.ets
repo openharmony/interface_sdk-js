@@ -2341,11 +2341,11 @@ export interface AtomicServiceBar {
   /**
    * Set the background color of the bar.
    *
-   * @param { Nullable< Color | number | string> } color - the color to set, undefined indicates using default.
+   * @param { Nullable< Color | int | string> } color - the color to set, undefined indicates using default.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
-  setBackgroundColor(color: Nullable< Color | number | string>): void;
+  setBackgroundColor(color: Nullable< Color | int | string>): void;
 
   /**
    * Set the title of the bar.
@@ -2368,11 +2368,11 @@ export interface AtomicServiceBar {
   /**
    * Set the color of the icon on the bar.
    *
-   * @param { Nullable< Color | number | string> } color - the color to set to icon, undefined indicates using default.
+   * @param { Nullable< Color | int | string> } color - the color to set to icon, undefined indicates using default.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
-  setIconColor(color: Nullable< Color | number | string>): void;
+  setIconColor(color: Nullable< Color | int | string>): void;
 
   /**
    * Get size and position of the bar.
@@ -3391,12 +3391,12 @@ export declare class UIContext {
   /**
    * Dispach keyboard event to the frameNode with inspector key.
    *
-   * @param { number | string } node - The uniqueId or inspector key of the target FrameNode.
+   * @param { int | string } node - The uniqueId or inspector key of the target FrameNode.
    * @returns { boolean } Returns whether the key event is consumed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
-  dispatchKeyEvent(node: number | string, event: KeyEvent): boolean;
+  dispatchKeyEvent(node: int | string, event: KeyEvent): boolean;
 
   /**
    * Get AtomicServiceBar.
