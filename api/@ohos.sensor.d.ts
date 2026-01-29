@@ -3568,7 +3568,7 @@ declare namespace sensor {
   /**
    * Synchronously obtains the sensor information of the specified device and type.
    * @param { SensorId } type - Indicate the sensor type, {@code SensorId}.
-   * @param { number } [deviceId] - Device ID which the sensors attached. If not specified, the local device will be used.
+   * @param { int } [deviceId] - Device ID which the sensors attached. If not specified, the local device will be used.
    * @returns { Array<Sensor> } Returns sensor information.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 19 dynamic
@@ -3615,7 +3615,7 @@ declare namespace sensor {
 
   /**
    * Synchronously obtains all sensor information on the device.
-   * @param { number } [deviceId] - Device ID which the sensors attached. If not specified, the local device will be used.
+   * @param { int } [deviceId] - Device ID which the sensors attached. If not specified, the local device will be used.
    * @returns { Array<Sensor> } Return a list of sensor information.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 19 dynamic
@@ -5474,7 +5474,7 @@ declare namespace sensor {
   interface SensorStatusEvent {
     /**
      * Indicates the timestamp of the status change.
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 19 dynamic
      * @since 23 static
