@@ -843,7 +843,7 @@ declare namespace observer {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
-   * @since 6 dynamic
+   * @since 6
    */
   /**
    * Callback when the call state corresponding to the default sim card is updated.
@@ -859,7 +859,6 @@ declare namespace observer {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 11 dynamic
-   * @since 23 static
    */
   function on(type: 'callStateChange', callback: Callback<CallStateInfo>): void;
 
@@ -893,7 +892,7 @@ declare namespace observer {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
-   * @since 6 dynamic
+   * @since 6
    */
   /**
    * Callback when the call state corresponding to the monitored {@code slotId} is updated.
@@ -910,7 +909,6 @@ declare namespace observer {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 11 dynamic
-   * @since 23 static
    */
   function on(type: 'callStateChange', options: ObserverOptions, callback: Callback<CallStateInfo>): void;
 
@@ -943,7 +941,7 @@ declare namespace observer {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
-   * @since 6 dynamic
+   * @since 6
    */
   /**
    * Cancel callback when the call state is updated.
@@ -959,7 +957,6 @@ declare namespace observer {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 11 dynamic
-   * @since 23 static
    */
   function off(type: 'callStateChange', callback?: Callback<CallStateInfo>): void;
 
