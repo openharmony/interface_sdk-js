@@ -9591,7 +9591,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 11 dynamic
-     * @since 24 static
+     * @since 23 static
      */
     recommendationType?: RecommendationType;
 
@@ -9603,7 +9603,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 24 static
+     * @since 23 static
      */
     textContextInfo?: TextContextInfo;
 
@@ -9614,7 +9614,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @stagemodelonly
-     * @since 24 dynamic&static
+     * @since 23 dynamic&static
      */
     recommendationTypeList?: Array<RecommendationType>;
   }
@@ -9626,7 +9626,7 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 23 static
+   * @since 24 static
    */
   interface TextContextInfo {
     /**
@@ -9637,7 +9637,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 23 static
+     * @since 24 static
      */
     text?: string;
   }
