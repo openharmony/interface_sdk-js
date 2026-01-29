@@ -33,6 +33,7 @@ import bundleManager from './@ohos.bundle.bundleManager';
 import { LocalStorage } from '@ohos.arkui.stateManagement';
 import { UIContext } from '@ohos.arkui.UIContext';
 import { ColorMetrics } from '@ohos.arkui.node';
+import { ImageFit } from '@ohos.arkui.component';
 /*** endif */
 
 /*** if arkts dynamic */
