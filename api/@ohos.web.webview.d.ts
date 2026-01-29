@@ -919,7 +919,7 @@ declare namespace webview {
      * The horizontal scroll offset of the web page. The value is the difference between
      * the x-coordinate of the left border of the web page and the x-coordinate of the
      * left border of the Web component. When the web page scrolls to the right,
-     * the value range is negative.
+     * the value range is negative. 
      * When the web page is not over-scrolled or the web page is over-scrolled to the left,
      * the value is 0 or a positive value. Unit: vp.
      *
@@ -931,8 +931,8 @@ declare namespace webview {
     x: number;
 
     /**
-     * The vertical scroll offset of the web page. The value is the difference between
-     * the y-coordinate of the upper border of the web page and the y-coordinate of the
+     * The vertical scroll offset of the web page. The value is the difference between 
+     * the y-coordinate of the upper border of the web page and the y-coordinate of the 
      * upper boundary of the Web component. When the web page is scrolled down,
      * the value range is negative.
      * When the web page is not over-scrolled or the web page is over-scrolled to the up,
