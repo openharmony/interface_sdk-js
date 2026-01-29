@@ -28,6 +28,7 @@ import { PropRef } from '@ohos.arkui.stateManagement';
  * Declaration of the menu item on the right side.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
@@ -37,6 +38,7 @@ export declare class SelectTitleBarMenuItem {
    *
    * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   public value: ResourceStr;
@@ -45,6 +47,7 @@ export declare class SelectTitleBarMenuItem {
    *
    * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   public symbolStyle?: SymbolGlyphModifier;
@@ -53,6 +56,7 @@ export declare class SelectTitleBarMenuItem {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   public label?: ResourceStr;
@@ -61,6 +65,7 @@ export declare class SelectTitleBarMenuItem {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   public isEnabled?: boolean;
@@ -69,6 +74,7 @@ export declare class SelectTitleBarMenuItem {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   public action?: () => void;
@@ -77,6 +83,7 @@ export declare class SelectTitleBarMenuItem {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   public accessibilityText?: ResourceStr;
@@ -85,6 +92,7 @@ export declare class SelectTitleBarMenuItem {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   public accessibilityDescription?: ResourceStr;
@@ -94,6 +102,7 @@ export declare class SelectTitleBarMenuItem {
    * @type { ?string }
    * @default "auto"
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   public accessibilityLevel?: string;
@@ -103,6 +112,7 @@ export declare class SelectTitleBarMenuItem {
  * @typedef { function } OnSelectedCallback
  * @param { int } index -the result of option.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
@@ -111,6 +121,7 @@ declare type OnSelectedCallback = (index: int) => void;
  * Declaration of the selectable title bar.
  * @struct { SelectTitleBar }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
@@ -122,6 +133,7 @@ export declare struct SelectTitleBar {
    *
    * @type { int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   @PropRef
@@ -131,6 +143,7 @@ export declare struct SelectTitleBar {
    *
    * @type { Array<SelectOption> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   options: Array<SelectOption>;
@@ -139,6 +152,7 @@ export declare struct SelectTitleBar {
    *
    * @type { ?Array<SelectTitleBarMenuItem> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   menuItems?: Array<SelectTitleBarMenuItem>;
@@ -147,6 +161,7 @@ export declare struct SelectTitleBar {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   subtitle?: ResourceStr;
@@ -155,6 +170,7 @@ export declare struct SelectTitleBar {
    *
    * @type { ?int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   badgeValue?: int;
@@ -163,6 +179,7 @@ export declare struct SelectTitleBar {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   hidesBackButton?: boolean;
@@ -171,12 +188,14 @@ export declare struct SelectTitleBar {
    *
    * @type { ?OnSelectedCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   onSelected?: OnSelectedCallback;
   /**
    * The method to build component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 staticonly
    */
   @Builder build(): void;
