@@ -80,6 +80,7 @@ declare namespace router {
      *
      * @type { ?Object }
      * @syscap SystemCapability.ArkUI.ArkUI.Lite
+     * @stagemodelonly
      * @since 23 static
      */
     params?: Object;
@@ -134,6 +135,7 @@ declare namespace router {
      *
      * @type { Object }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     params: Object;
@@ -176,6 +178,7 @@ declare namespace router {
      *
      * @type { ?Object }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     params?: Object;
