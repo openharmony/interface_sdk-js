@@ -107,18 +107,18 @@ export declare interface InputCounterOptions {
      * 
      * @type { ?ColorMetrics }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
-    counterTextColor?: ColorMetrics
+    counterTextColor?: ColorMetrics;
 
     /**
      * It is the color of counter when textField wants to exceed the maximum character count.
      * 
      * @type { ?ColorMetrics }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
-    counterTextOverflowColor?: ColorMetrics
+    counterTextOverflowColor?: ColorMetrics;
 }
 /**
  * Defines the options of decoration.
@@ -12702,6 +12702,15 @@ export declare abstract class TextContentControllerBase {
      */
     addText(text: string, textOperationOptions?: TextContentControllerOptions): int | undefined;
     /**
+     * Set the styled placeholder
+     *
+     * @param { StyledString } styledString - The styledString for placeholder.
+     *     If the parameter is invalid, this method will have no effect.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    setStyledPlaceholder(styledString: StyledString): void;
+    /**
      * Delete text in TextRange.
      *
      * @param { TextRange } [range] - range for deleting.
@@ -12751,15 +12760,6 @@ export declare abstract class TextContentControllerBase {
      * @since 23 static
      */
     scrollToVisible(range?: TextRange): void
-    /**
-     * Set the styled placeholder
-     *
-     * @param { StyledString } styledString - The styledString for placeholder.
-     *     If the parameter is invalid, this method will have no effect.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
-     */
-    setStyledPlaceholder(styledString: StyledString): void;
 }
 /**
  * Enum of scrollable containers' content clip mode.

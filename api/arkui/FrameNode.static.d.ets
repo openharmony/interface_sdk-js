@@ -1523,7 +1523,7 @@ export declare namespace typeNode {
    * Get the attribute instance of FrameNode to set attributes.
    *
    * @param { FrameNode } node - the target FrameNode.
-   * @returns { LoadingProgressAttribute | undefined } - Return the attribute instance of FrameNode, and return undefined if it
+   * @returns { LoadingProgressAttribute | undefined } - Return the attribute instance of FrameNode, and return undefined if it	 
    *     does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
@@ -2326,12 +2326,12 @@ export declare namespace typeNode {
    * @returns { TextAttribute | undefined } - Return the attribute instance of FrameNode, and return undefined if it
    * does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   export function getTextAttribute(node: FrameNode): TextAttribute | undefined;
   
   /**
-   * Bind the controller of FrameNode which type is Text.
+   * Bind the controller of FrameNode whose type is Text.
    *
    * @param { FrameNode } node - the target FrameNode.
    * @param { TextController } controller - the controller which is bind to the target FrameNode.
@@ -2340,7 +2340,7 @@ export declare namespace typeNode {
    * @throws { BusinessError } 100021 - The FrameNode is not modifiable.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 23 static
+   * @since 24 static
    */
   export function bindTextController(node: FrameNode, controller: TextController): void;
 
@@ -2431,12 +2431,12 @@ export declare namespace typeNode {
    * @returns { TextInputAttribute | undefined } - Return the attribute instance of FrameNode, and
    * return undefined if it does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   export function getTextInputAttribute(node: FrameNode): TextInputAttribute | undefined;
   
   /**
-   * Bind the controller of FrameNode which type is TextInput.
+   * Bind the controller of FrameNode whose type is TextInput.
    *
    * @param { FrameNode } node - the target FrameNode.
    * @param { TextInputController } controller - the controller which is bind to the target FrameNode.
@@ -2445,7 +2445,7 @@ export declare namespace typeNode {
    * @throws { BusinessError } 100021 - The FrameNode is not modifiable.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 23 static
+   * @since 24 static
    */
   export function bindTextInputController(node: FrameNode, controller: TextInputController): void;
 
@@ -2496,12 +2496,12 @@ export declare namespace typeNode {
    * @returns { TextAreaAttribute | undefined } - Return the attribute instance of FrameNode, and return undefined if it
    * does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   export function getTextAreaAttribute(node: FrameNode): TextAreaAttribute | undefined;
   
   /**
-   * Bind the controller of FrameNode which type is TextArea.
+   * Bind the controller of FrameNode whose type is TextArea.
    *
    * @param { FrameNode } node - the target FrameNode.
    * @param { TextAreaController } controller - the controller which is bind to the target FrameNode.
@@ -2510,7 +2510,7 @@ export declare namespace typeNode {
    * @throws { BusinessError } 100021 - The FrameNode is not modifiable.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 23 static
+   * @since 24 static
    */
   export function bindTextAreaController(node: FrameNode, controller: TextAreaController): void;
 
