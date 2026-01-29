@@ -518,7 +518,6 @@ export declare class ToolBarV2Modifier {
    * @param { ColorMetrics } backgroundColor - toolBarV2's backgroundColor.
    * @returns { ToolBarV2Modifier } returns the instance of the ToolBarV2Modifier.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
    * @since 23 static
    */
   public backgroundColor(backgroundColor: ColorMetrics): ToolBarV2Modifier;
