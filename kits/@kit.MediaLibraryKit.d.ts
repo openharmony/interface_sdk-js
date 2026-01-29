@@ -29,8 +29,7 @@ import {
     SelectMode, PickerColorMode, ReminderMode, MaxCountType, PhotoBrowserRange,
     PhotoBrowserUIElement, ItemsDeletedCallback, ExceedMaxSelectedCallback, CurrentAlbumDeletedCallback,
     videoPlayStateChangedCallback, MovingPhotoBadgeStateChangedCallback, UpdatablePickerConfigs, SingleLineConfig,
-    BadgeConfig, ClickResult, PickerError, PreselectedInfo, SaveMode, BadgeType, VideoPlayerState, ItemDisplayRatio, ScrollStopAtStartCallback,
-    ScrollStopAtEndCallback, ItemClickedNotifyCallback, PinchGridSwitchedCallback, PhotoBrowserChangeStartCallback, ErrorCallback
+    BadgeConfig, PreselectedInfo, SaveMode, BadgeType, VideoPlayerState, ItemDisplayRatio 
 } from '@ohos.file.PhotoPickerComponent';
 import {
     RecentPhotoComponent, RecentPhotoCheckResultCallback, RecentPhotoInfo, RecentPhotoCheckInfoCallback, 
@@ -48,6 +47,5 @@ export {
     RecentPhotoClickCallback, RecentPhotoOptions, PhotoSource,
     PhotoBrowserUIElement, ItemsDeletedCallback, ExceedMaxSelectedCallback, CurrentAlbumDeletedCallback,
     videoPlayStateChangedCallback, MovingPhotoBadgeStateChangedCallback, UpdatablePickerConfigs, SingleLineConfig,
-    BadgeConfig, ClickResult, PickerError, PreselectedInfo, SaveMode, BadgeType, VideoPlayerState, ItemDisplayRatio, ScrollStopAtStartCallback,
-    ScrollStopAtEndCallback, ItemClickedNotifyCallback, PinchGridSwitchedCallback, PhotoBrowserChangeStartCallback, ErrorCallback
+    BadgeConfig, PreselectedInfo, SaveMode, BadgeType, VideoPlayerState, ItemDisplayRatio 
 };
