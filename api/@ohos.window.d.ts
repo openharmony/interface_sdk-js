@@ -33,6 +33,7 @@ import bundleManager from './@ohos.bundle.bundleManager';
 import { LocalStorage } from '@ohos.arkui.stateManagement';
 import { UIContext } from '@ohos.arkui.UIContext';
 import { ColorMetrics } from '@ohos.arkui.node';
+import { ImageFit } from '@ohos.arkui.component';
 /*** endif */
 
 /*** if arkts dynamic */
@@ -3496,8 +3497,8 @@ declare namespace window {
    * When config.windowType == TYPE_FLOAT, the "ohos.permission.SYSTEM_FLOAT_WINDOW" permission is required
    *
    * @permission ohos.permission.SYSTEM_FLOAT_WINDOW
-   * @param { Configuration } config - Parameters used for creating the window.
-   * @param { AsyncCallback<Window> } callback - Callback used to return for window creation.
+   * @param { Configuration } config - Parameters for window creation.
+   * @param { AsyncCallback<Window> } callback - Callback used to return the window created.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
    *                                                                  2. Incorrect parameter types.
@@ -5162,7 +5163,7 @@ declare namespace window {
      * @since 20 dynamic
      * @since 23 static
      */
-    DESTROY = 0,
+    DESTROY = 0
   }
 
   /**
@@ -5380,6 +5381,7 @@ declare namespace window {
      * @since 23 static
      */
     animationParams?: StartAnimationParams;
+
     /**
      * The params of system start animation
      *
@@ -12206,13 +12208,12 @@ declare namespace window {
      * @since 23 static
      */
     setWindowTransitionAnimation(transitionType: WindowTransitionType, animation: TransitionAnimation): Promise<void>;
-
     
     /**
-     * Get window transition animation configuration
+     * Get window transition animation configuration.
      *
      * @param { WindowTransitionType } transitionType - Transition animation type.
-     * @returns { TransitionAnimation | undefined } Transition animation with transition type, or undefined if it has not been set.
+     * @returns { TransitionAnimation | undefined } - Transition animation with transition type, or undefined if it has not been set.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities. 
      * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
      *                                          1. The window is not created or destroyed;
@@ -12805,7 +12806,7 @@ declare namespace window {
      * @param { boolean } isDockHoverShown - The value true means to display the dock bar, and false means the opposite.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types;
+     *                                                                  2. Incorrect parameter types; 
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
