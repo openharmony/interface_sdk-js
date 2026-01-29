@@ -673,12 +673,11 @@ declare namespace appControl {
   function getAllDisposedRules(): Array<DisposedRuleConfiguration>;
 
   /**
-   * Query all disposed rules under the current user for specified caller.
+   * Query all disposed rules under the current user for the specified setter bundle name.
    *
    * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS or ohos.permission.GET_DISPOSED_APP_STATUS
-   * @param { string } bundleName - Indicates the bundleName of the setter that sets the disposed rules. 
-   * @param { int } [appIndex] Indicates the appIndex of the setter that sets the disposed rules. 
-   * @returns { Array<DisposedRuleConfiguration> } Returns all disposed rules.
+   * @param { string } bundleName - Indicates the bundle name of the setter that sets the disposed rules.
+   * @returns { Array<DisposedRuleConfiguration> } Returns disposed rules.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied. A non-system application is not allowed to call a system API.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -687,7 +686,7 @@ declare namespace appControl {
    * @stagemodelonly
    * @since 23 dynamiconly
    */
-    function getAllDisposedRulesBySetter(bundleName: string, appIndex?: int): Array<DisposedRuleConfiguration>;
+  function getDisposedRulesByBundle(bundleName: string): Array<DisposedRuleConfiguration>;
 }
 
 export default appControl;
