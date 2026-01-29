@@ -656,7 +656,6 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 24 static
    */
   enum RecommendationType {
     /**
@@ -665,7 +664,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 11 dynamic
-     * @since 24 static
      */
     QR_OR_BAR_CODE = 1,
 
@@ -675,7 +673,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 11 dynamic
-     * @since 24 static
      */
     QR_CODE = 2,
 
@@ -685,7 +682,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 11 dynamic
-     * @since 24 static
      */
     BAR_CODE = 3,
 
@@ -695,7 +691,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 11 dynamic
-     * @since 24 static
      */
     ID_CARD = 4,
 
@@ -705,7 +700,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 11 dynamic
-     * @since 24 static
      */
     PROFILE_PICTURE = 5,
 
@@ -715,7 +709,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 24 static
      */
     PASSPORT = 6,
 
@@ -725,7 +718,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 24 static
      */
     BANK_CARD = 7,
 
@@ -735,7 +727,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 24 static
      */
     DRIVER_LICENSE = 8,
 
@@ -745,7 +736,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 24 static
      */
     DRIVING_LICENSE = 9,
 
@@ -755,7 +745,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 24 static
      */
     FEATURED_SINGLE_PORTRAIT = 10,
 
@@ -1096,7 +1085,6 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 14 dynamic
-   * @since 24 static
    */
   enum CompleteButtonText {
     /**
@@ -1105,7 +1093,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 14 dynamic
-     * @since 24 static
      */
     TEXT_DONE = 0,
     /**
@@ -1114,7 +1101,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 14 dynamic
-     * @since 24 static
      */
     TEXT_SEND = 1,
 
@@ -1124,7 +1110,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 14 dynamic
-     * @since 24 static
      */
     TEXT_ADD = 2,
   }
@@ -8861,7 +8846,6 @@ declare namespace photoAccessHelper {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 24 static
    */
   class BaseSelectOptions {
     /**
@@ -9456,7 +9440,6 @@ declare namespace photoAccessHelper {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 24 static
    */
   class PhotoSelectOptions extends BaseSelectOptions {
     /**
@@ -9581,7 +9564,6 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 24 static
    */
   class RecommendationOptions {
     /**
@@ -9626,7 +9608,6 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 24 static
    */
   interface TextContextInfo {
     /**
@@ -9637,7 +9618,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 24 static
      */
     text?: string;
   }
@@ -9662,7 +9642,6 @@ declare namespace photoAccessHelper {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 24 static
    */
   class PhotoSelectResult {
     /**
