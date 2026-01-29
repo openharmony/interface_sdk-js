@@ -572,7 +572,6 @@ export declare struct SubHeaderV2 {
    * @type { ?SubHeaderV2Select }
    * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
    * @since 23 static
    */
   @Param
@@ -583,7 +582,6 @@ export declare struct SubHeaderV2 {
    * @type { ?SubHeaderV2OperationType }
    * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
    * @since 23 static
    */
   @Param
@@ -594,7 +592,6 @@ export declare struct SubHeaderV2 {
    * @type { ?SubHeaderV2OperationItem[] }
    * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
    * @since 23 static
    */
   @Param
@@ -604,7 +601,6 @@ export declare struct SubHeaderV2 {
    *
    * @type { ?SubHeaderV2TitleBuilder }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
    * @since 23 static
    */
   @BuilderParam
@@ -613,7 +609,6 @@ export declare struct SubHeaderV2 {
   /**
    * The method to build component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
    * @since 23 staticonly
    */
   @Builder
