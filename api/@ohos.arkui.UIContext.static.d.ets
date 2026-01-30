@@ -3664,7 +3664,7 @@ export declare class UIContext {
    * @param { ComponentContentBase } bindSheetContent - The content of BindSheet.
    * @param { SheetOptions } [sheetOptions] - The options of sheet.
    * @param { int } [targetId] - The uniqueId of the FrameNode to which BindSheet is attached.
-   *     <br>Value range:(0, +¡ީ
+   *     <br>Value range:(0, +∞)
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
@@ -3902,7 +3902,7 @@ export declare class UIContext {
    * @throws { BusinessError } 100103 - The function cannot be called from a non-main thread.
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   static setResourceManagerCacheMaxCountForHSP(count: int): void;
 
