@@ -3890,6 +3890,8 @@ export declare class UIContext {
    */
   static destroyUIContextWithoutWindow(): void;
 
+  static setResourceCache(): void;
+
   /**
    * Thread-safe UI state variables updates interface.
    *

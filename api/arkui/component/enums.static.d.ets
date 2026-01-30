@@ -182,7 +182,9 @@ export declare enum ColoringStrategy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
-  PRIMARY = 'primary'
+  PRIMARY = 'primary',
+
+  CONSTRAST ;
 }
 
 /**
