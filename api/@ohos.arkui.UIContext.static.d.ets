@@ -3891,22 +3891,6 @@ export declare class UIContext {
   static destroyUIContextWithoutWindow(): void;
 
   /**
-   * Set the upper limit for the cache count of HSP resource management objects.
-   * 
-   * If the upper limit of the cache is set too high, there is a risk of excessive memory overhead. 
-   * It is recommended to configure it according to actual needs.
-   *
-   * @param { int } count - The cache limit of resource manager for HSP, must be non-negative integers.
-   * @throws { BusinessError } 100101 - The parameter is less than 0.
-   * @throws { BusinessError } 100102 - The parameter value cannot be a floating-point number.
-   * @throws { BusinessError } 100103 - The function cannot be called from a non-main thread.
-   * @static
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 24 static
-   */
-  static setResourceManagerCacheMaxCountForHSP(count: int): void;
-
-  /**
    * Thread-safe UI state variables updates interface.
    *
    * @param { VoidCallback } callback - The callback function to be executed in the UI thread.
