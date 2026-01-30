@@ -4069,42 +4069,6 @@ export declare class TextMenuController {
 }
 
 /**
- * The class used to control ContentConver
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 23 static
- */
-export declare class ContentCoverController {
-  /**
-   * The constructor.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  constructor();
-
-  /**
-   * Update cotentCoverOptions.
-   *
-   * @param { ContentCoverOptions } contentCoverOptions - The options of contentCover.
-   * @param { boolean } [partialUpdate] - If true, only the specified properties in the sheetOptions are updated,
-   *     otherwise the rest of the properties are overwritten with the default values.
-   *     Default value is false.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  update(contentCoverOptions: ContentCoverOptions, partialUpdate?: boolean): void;
-
-  /**
-   * Close contentConver.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  close(): void;
-}
-
-/**
  * Enum of CustomKeyboardContinueFeature
  * 
  * @enum { int } CustomKeyboardContinueFeature
