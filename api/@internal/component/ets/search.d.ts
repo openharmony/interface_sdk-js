@@ -1792,7 +1792,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * <br>The custom keyboard cannot obtain the focus, but it blocks gesture events.
    * <br>By default, the custom keyboard is closed when the input component loses the focus.
    * <br>You can also use the stopEditing API to close the keyboard.
-   * <br>When a custom keyboard is set, the text box does not support camera input, even when the device supports.
+   *  <br>When a custom keyboard is set, the text box does not support camera input, even when the device supports.
    * <br>When setting a custom keyboard, you can bind the onKeyPrelme event to prevent input from the physical keyboard.
    * </p>
    * 
@@ -1802,7 +1802,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * Define custom keyboard.
