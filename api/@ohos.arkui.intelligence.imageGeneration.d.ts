@@ -448,9 +448,10 @@ declare namespace imageGeneration {
      * Request AI text generation task to get the generated text.
      *
      * @param { int } sessionId - The session id for requesting an AI text generation task.
-     *     <br>Value: range: [0, +∞]
+     *     <br>Value range: [0, +∞]
      * @param { string } value - Parameters for requesting an AI text generation task.
-     * @param { Callback<GenerateTextTaskPartialResult> } callback - the callback used to return the GenerateTextTaskPartialResult.
+     * @param { Callback<GenerateTextTaskPartialResult> } callback - the callback
+     *     used to return the GenerateTextTaskPartialResult.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
@@ -461,8 +462,8 @@ declare namespace imageGeneration {
     /**
      * Cancel AI text generation task.
      *
-     * @param { int } sessionId - The session id for cancel an AI text generation task.
-     *     <br>Value: range: [0, +∞]
+     * @param { int } sessionId - The session id for canceling an AI text generation task.
+     *     <br>Value range:[0, +∞]
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
