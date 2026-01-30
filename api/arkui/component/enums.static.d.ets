@@ -191,7 +191,7 @@ export declare enum ColoringStrategy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
-   * @since 23 static
+   * @since 24 static
    */
   CONTRAST = 'contrast'
 }
