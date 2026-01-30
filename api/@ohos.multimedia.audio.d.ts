@@ -7945,6 +7945,43 @@ declare namespace audio {
   }
 
   /**
+   * Enumerates the spatial audio source type.
+   *
+   * @syscap SystemCapability.Multimedia.Audio.Spatialization
+   * @systemapi
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  enum SpatialAudioSourceType {
+    /**
+     * stereo source type.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    SPATIAL_AUDIO_SOURCE_TYPE_STEREO = 0,
+
+    /**
+     * audio vivid source type.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    SPATIAL_AUDIO_SOURCE_TYPE_AUDIO_VIVID = 1,
+
+    /**
+     * multichannel source type.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    SPATIAL_AUDIO_SOURCE_TYPE_MULTI_CHANNEL = 2
+  }  
+
+  /**
    * This interface is used to notify the listener of any device Spatialization or Head Tracking enable state change.
    * @interface AudioSpatialEnabledStateForDevice
    * @syscap SystemCapability.Multimedia.Audio.Spatialization
@@ -7963,7 +8000,7 @@ declare namespace audio {
      */
     deviceDescriptor: AudioDeviceDescriptor;
     /**
-     * Spatialization or Head Tracking enable state.
+     * Spatialization or Head Tracking or Adaptive Spatial Rendering enable state.
      * @type { boolean }
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
@@ -8470,6 +8507,99 @@ declare namespace audio {
      * @since 23 static
      */
     offSpatializationEnabledChangeForCurrentDevice(callback?: Callback<boolean>): void;
+
+    /**
+     * Sets the adaptive spatial rendering enabled or disabled by the specified device.
+     *     This method uses a promise to return the result.
+     *     When the adaptive spatial rendering is enabled, spatial audio rendering will not take effect on stereo audio.
+     * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
+     * @param { AudioDeviceDescriptor } deviceDescriptor - The target device
+     *     to be set adaptive spatial rendering enabled.
+     * @param { boolean } enabled - Adaptive spatial rendering enable state.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 201 - Permission denied. Return by promise.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 801 - Capability not supported on the device.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @systemapi
+     * @since 24 dynamic&static
+     */
+    setAdaptiveSpatialRenderingEnabled(deviceDescriptor: AudioDeviceDescriptor, enabled: boolean): Promise<void>;
+
+    /**
+     * Checks whether the adaptive spatial rendering is enabled by the specified device.
+     * @param { AudioDeviceDescriptor } deviceDescriptor - The target device
+     *     to be check whether the adaptive spatial rendering is enabled.
+     * @returns { boolean } Whether the adaptive spatial rendering is enabled by the specified device.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @systemapi
+     * @since 24 dynamic&static
+     */
+    isAdaptiveSpatialRenderingEnabled(deviceDescriptor: AudioDeviceDescriptor): boolean;
+
+    /**
+     * Subscribes to the adaptive spatial rendering enable state change events by the specified device.
+     *     When the adaptive spatial rendering enable state changes, registered clients will receive the callback.
+     * @param { Callback<AudioSpatialEnabledStateForDevice> } callback - Callback used to get the adaptive spatial
+     *     rendering enable state by the specified device.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @systemapi
+     * @since 24 dynamic&static
+     */
+    onAdaptiveSpatialRenderingEnabledChangeForAnyDevice(callback: Callback<AudioSpatialEnabledStateForDevice>): void;
+
+    /**
+     * Unsubscribes to the adaptive spatial rendering enable state change events by the specified device.
+     * @param { Callback<AudioSpatialEnabledStateForDevice> } [callback] - Callback used to get the adaptive spatial
+     *     rendering enable state by the specified device.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @systemapi
+     * @since 24 dynamic&static
+     */
+    offAdaptiveSpatialRenderingEnabledChangeForAnyDevice(callback?: Callback<AudioSpatialEnabledStateForDevice>): void;
+
+    /**
+     * Checks the current spatial audio source type.
+     * @returns { SpatialAudioSourceType } The spatial audio source type on current device.
+     * @throws { BusinessError } 202 - Not system App.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    getCurrentSpatialAudioSourceType(): SpatialAudioSourceType;
+
+    /**
+     * Subscribes to the spatial audio source type change events. When current spatial audio source type changes,
+     *     registered clients will receive the callback.
+     * @param { Callback<SpatialAudioSourceType> } callback - Callback used to get current spatial audio source type
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    onSpatialAudioSourceTypeChange(callback: Callback<SpatialAudioSourceType>): void;
+
+    /**
+     * Unsubscribes to the spatial audio source type change events.
+     * @param { Callback<SpatialAudioSourceType> } [callback] - Callback used to get current spatial audio source type mode change
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    offSpatialAudioSourceTypeChange(callback?: Callback<SpatialAudioSourceType>): void;
   }
 
   /**
