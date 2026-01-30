@@ -182,18 +182,7 @@ export declare enum ColoringStrategy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
-  PRIMARY = 'primary',
-
-  /**
-   * Extract the average color from the component background and convert to a contrasting black or white color.
-   * Child components can use this color through Color('foreground').
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @stagemodelonly
-   * @since 24 static
-   */
-  CONTRAST = 'contrast'
+  PRIMARY = 'primary'
 }
 
 /**
