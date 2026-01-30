@@ -11149,6 +11149,29 @@ declare namespace photoAccessHelper {
     static deleteCloudAssetsWithUri(context: Context, assetUris: string[]): Promise<void>;
 
     /**
+     * Delete assets without trash album.
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { Context } context - Hap context information
+     *     <br>Hap context information
+     * @param { string[] } assetUris - Uris of the assets to be deleted
+     * @returns { Promise<void> } - Returns void
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by nonsystem application
+     * @throws { BusinessError } 23800151 - The scenario parameter verification fails. Possible causes:
+     *     1. The context is empty;
+     *     2. Asset uri array size is empty or bigger than 500 .
+     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
+     *     Possible causes:1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out;
+     * @static
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    static deleteAssetsPermanentlyWithUri(context: Context, assetUris: string[]): Promise<void>;
+
+    /**
      * Set the AppLink state of this asset.
      *
      * @param { int } hasAppLink - AppLink state of the asset to set.
