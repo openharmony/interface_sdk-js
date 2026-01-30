@@ -182,6 +182,18 @@ export declare interface TextAttribute extends CommonMethod {
      */
     default fontWeight(weight: int | FontWeight | string | undefined, options?: FontSettingOptions | undefined): this;
     /**
+     * Set font line spacing.
+     *
+     * <p><strong>NOTE</strong>:
+     * <br>If the value specified is less than or equal to 0, the default value 0 is used.
+     * </p>
+     *
+     * @param { LengthMetrics | undefined } value - Default value is 0.
+     * @returns { TextAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    /**
      * Set font line spacing with options.
      *
      * <p><strong>NOTE</strong>:

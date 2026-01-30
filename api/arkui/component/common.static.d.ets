@@ -12702,7 +12702,7 @@ export declare abstract class TextContentControllerBase {
      */
     addText(text: string, textOperationOptions?: TextContentControllerOptions): int | undefined;
     /**
-     * Set the styled placeholder
+     * Set the styled placeholder.
      *
      * @param { StyledString } styledString - The styledString for placeholder.
      *     If the parameter is invalid, this method will have no effect.

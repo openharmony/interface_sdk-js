@@ -1523,8 +1523,8 @@ export declare namespace typeNode {
    * Get the attribute instance of FrameNode to set attributes.
    *
    * @param { FrameNode } node - the target FrameNode.
-   * @returns { LoadingProgressAttribute | undefined } - Return the attribute instance of FrameNode, and return undefined if it	 
-   *     does not exist.
+   * @returns { LoadingProgressAttribute | undefined } - Return the attribute instance of FrameNode, 
+   *     and return undefined if it does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */

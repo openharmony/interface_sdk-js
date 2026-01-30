@@ -1359,6 +1359,29 @@ export declare interface TextInputAttribute extends CommonMethod {
      * <br>When setting a custom keyboard, you can bind the onKeyPrelme event to prevent input from the physical keyboard.
      * </p>
      *
+     * @param { CustomBuilder | undefined } value - Set up a custom keyboard of TextInput
+     * @param { KeyboardOptions } [options] - Indicates the custom keyboard options of TextInput
+     * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    /**
+     * Define custom keyboard of the text input.
+     *
+     * <p><strong>NOTE</strong>:
+     * <br>When a custom keyboard is set, activating the text box opens the specified custom component,
+     * instead of the system input method.
+     * <br>The custom keyboard's height can be set through the height attribute of the custom component's root node,
+     * and its width is fixed at the default value.
+     * <br>The custom keyboard is presented by overlaying the original screen,
+     * which is not compressed or lifted if avoid mode is not enabled or avoidance is not needed for the text box.
+     * <br>The custom keyboard cannot obtain the focus, but it blocks gesture events.
+     * <br>By default, the custom keyboard is closed when the input component loses the focus.
+     * <br>You can also use the TextInputController.stopEditing API to close the keyboard.
+     * <br>When a custom keyboard is set, the text box does not support camera input, even when the device supports.
+     * <br>When setting a custom keyboard, you can bind the onKeyPrelme event to prevent input from the physical keyboard.
+     * </p>
+     *
      * @param { CustomBuilder | ComponentContentBase | undefined } value - Set up a custom keyboard of TextInput
      * @param { KeyboardOptions } [options] - Indicates the custom keyboard options of TextInput
      * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
@@ -1366,8 +1389,7 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @stagemodelonly
      * @since 24 static
      */
-    default customKeyboard(value: CustomBuilder | ComponentContentBase | undefined,
-                           options?: KeyboardOptions): this;
+    default customKeyboard(value: CustomBuilder | ComponentContentBase | undefined, options?: KeyboardOptions): this;
     /**
      * Show the counter when the number of characters entered exceeds the threshold through InputCounterOptions.
      *

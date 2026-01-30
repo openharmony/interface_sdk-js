@@ -2329,32 +2329,33 @@ export declare class OverlayManager {
  * @since 23 static
  */
 export declare class Magnifier {
-   /**
-    * Bind magnifier to a component.
-    *
-    * @param { string } id - component id.
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 23 static
-    */
-    bind(id: string);
-   /**
-    * Set the position of the magnified content.
-    *
-    * @param { double } x - the x position of the magnified content relative to the component.
-    *     The unit of x is vp.
-    * @param { double } y - the y position of the magnified content relative to the component.
-    *     The unit of y is vp.
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 23 static
-    */
-    show(x: double,y: double): void;
-   /** 
-    * Unbind the magnifier from its associated component.
-    *
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 23 static
-    */
-    unbind(): void;
+  /**
+   * Bind magnifier to a component.
+   *
+   * @param { string } id - component id.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @StageModelOnly
+   * @since 23 static
+   */
+  bind(id: string): void;
+  /**
+   * Set the position of the magnified content.
+   *
+   * @param { double } x - the x position of the magnified content relative to the component.
+   *     The unit of x is vp.
+   * @param { double } y - the y position of the magnified content relative to the component.
+   *     The unit of y is vp.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  show(x: double,y: double): void;
+  /** 
+   * Unbind the magnifier from its associated component.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  unbind(): void;
 }
 
 /**
