@@ -1419,7 +1419,7 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since 16 dynamic
+     * @since 18 dynamic
      * @since 23 static
      */
     request(url: string, callback: AsyncCallback<HttpResponse>): void;
