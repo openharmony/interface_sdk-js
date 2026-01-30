@@ -1533,7 +1533,7 @@ declare namespace inputMethod {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
      */
-    on(type: 'deleteLeft', callback: (length: int) => void): void;
+    on(type: 'deleteLeft', callback: (length: number) => void): void;
 
     /**
      * Unregister the callback of deleteLeft.
@@ -1544,7 +1544,7 @@ declare namespace inputMethod {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
      */
-    off(type: 'deleteLeft', callback?: (length: int) => void): void;
+    off(type: 'deleteLeft', callback?: (length: number) => void): void;
 
     /**
      * Register a callback and when IME sends delete right event with length,
@@ -1560,7 +1560,7 @@ declare namespace inputMethod {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
      */
-    on(type: 'deleteRight', callback: (length: int) => void): void;
+    on(type: 'deleteRight', callback: (length: number) => void): void;
 
     /**
      * Unregister the callback of deleteRight.
@@ -1571,7 +1571,7 @@ declare namespace inputMethod {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
      */
-    off(type: 'deleteRight', callback?: (length: int) => void): void;
+    off(type: 'deleteRight', callback?: (length: number) => void): void;
 
     /**
      * Register a callback and when IME sends keyboard status, the callback will be invoked.
@@ -1687,7 +1687,7 @@ declare namespace inputMethod {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
      */
-    on(type: 'getLeftTextOfCursor', callback: (length: int) => string): void;
+    on(type: 'getLeftTextOfCursor', callback: (length: number) => string): void;
 
     /**
      * Unregister the callback of getLeftTextOfCursor event.
@@ -1698,7 +1698,7 @@ declare namespace inputMethod {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
      */
-    off(type: 'getLeftTextOfCursor', callback?: (length: int) => string): void;
+    off(type: 'getLeftTextOfCursor', callback?: (length: number) => string): void;
 
     /**
      * Register a callback and when input method ability gets right text of cursor, the callback will be invoked.
@@ -1712,7 +1712,7 @@ declare namespace inputMethod {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
      */
-    on(type: 'getRightTextOfCursor', callback: (length: int) => string): void;
+    on(type: 'getRightTextOfCursor', callback: (length: number) => string): void;
 
     /**
      * Unregister the callback of getRightTextOfCursor event.
@@ -1723,7 +1723,7 @@ declare namespace inputMethod {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
      */
-    off(type: 'getRightTextOfCursor', callback?: (length: int) => string): void;
+    off(type: 'getRightTextOfCursor', callback?: (length: number) => string): void;
 
     /**
      * Register a callback and when input method ability gets the text index at cursor, the callback will be invoked.
@@ -1737,7 +1737,7 @@ declare namespace inputMethod {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
      */
-    on(type: 'getTextIndexAtCursor', callback: () => int): void;
+    on(type: 'getTextIndexAtCursor', callback: () => number): void;
 
     /**
      * Unregister the callback of getTextIndexAtCursor.
@@ -1748,7 +1748,7 @@ declare namespace inputMethod {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
      */
-    off(type: 'getTextIndexAtCursor', callback?: () => int): void;
+    off(type: 'getTextIndexAtCursor', callback?: () => number): void;
 
     /**
      * <p>Subscribe 'setPreviewText' event.</p>
