@@ -171,6 +171,7 @@
     "SystemCapability.Applications.ContactsData",
     "SystemCapability.Applications.Contacts",
     "SystemCapability.Applications.Settings.Core",
+    "SystemCapability.Applications.IntelligentScene",
     "SystemCapability.Test.UiTest",
     "SystemCapability.Web.Webview.Core",
     "SystemCapability.Advertising.OAID",
