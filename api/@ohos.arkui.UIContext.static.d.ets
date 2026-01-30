@@ -3664,7 +3664,7 @@ export declare class UIContext {
    * @param { ComponentContentBase } bindSheetContent - The content of BindSheet.
    * @param { SheetOptions } [sheetOptions] - The options of sheet.
    * @param { int } [targetId] - The uniqueId of the FrameNode to which BindSheet is attached.
-   *     <br>Value range:(0, +∞)
+   *     <br>Value range:(0, +¡ީ
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
@@ -3890,7 +3890,21 @@ export declare class UIContext {
    */
   static destroyUIContextWithoutWindow(): void;
 
-  static setResourceCache(): void;
+  /**
+   * Set the upper limit for the cache count of HSP resource management objects.
+   * 
+   * If the upper limit of the cache is set too high, there is a risk of excessive memory overhead. 
+   * It is recommended to configure it according to actual needs.
+   *
+   * @param { int } count - The cache limit of resource manager for HSP, must be non-negative integers.
+   * @throws { BusinessError } 100101 - The parameter is less than 0.
+   * @throws { BusinessError } 100102 - The parameter value cannot be a floating-point number.
+   * @throws { BusinessError } 100103 - The function cannot be called from a non-main thread.
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  static setResourceManagerCacheMaxCountForHSP(count: int): void;
 
   /**
    * Thread-safe UI state variables updates interface.
