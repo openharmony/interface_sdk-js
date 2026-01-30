@@ -1352,7 +1352,7 @@ declare namespace connection {
      * @param { 'netAvailable' } type - Indicates Event name.
      * @param { Callback<NetHandle> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @since 8
+     * @since 8 dynamic
      */
     /**
      * Registers a listener for netAvailable events.
@@ -1360,7 +1360,7 @@ declare namespace connection {
      * @param { Callback<NetHandle> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetManager.Core
      * @crossplatform
-     * @since 10
+     * @since 10 dynamic
      */
     /**
      * Registers a listener for netAvailable events.
@@ -1379,7 +1379,7 @@ declare namespace connection {
      * @param { 'netBlockStatusChange' } type - Indicates Event name.
      * @param { Callback<{ netHandle: NetHandle, blocked: boolean }> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @since 8
+     * @since 8 dynamic
      */
     /**
      * Registers a listener for netBlockStatusChange events.
@@ -1403,7 +1403,7 @@ declare namespace connection {
      * @param { 'netCapabilitiesChange' } type - Indicates Event name.
      * @param { Callback<NetCapabilityInfo> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @since 8
+     * @since 8 dynamic
      */
     /**
      * Registers a listener for **netCapabilitiesChange** events.
@@ -1411,7 +1411,7 @@ declare namespace connection {
      * @param { Callback<NetCapabilityInfo> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetManager.Core
      * @crossplatform
-     * @since 10
+     * @since 10 dynamic
      */
     /**
      * Registers a listener for **netCapabilitiesChange** events.
@@ -1430,7 +1430,7 @@ declare namespace connection {
      * @param { 'netConnectionPropertiesChange' } type - Indicates Event name.
      * @param { Callback<{ netHandle: NetHandle, connectionProperties: ConnectionProperties }> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @since 8
+     * @since 8 dynamic
      */
     /**
      * Registers a listener for netConnectionPropertiesChange events.
@@ -1447,7 +1447,7 @@ declare namespace connection {
      * @param { 'netLost' } type - Indicates Event name.
      * @param { Callback<NetHandle> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @since 8
+     * @since 8 dynamic
      */
     /**
      * Registers a listener for **netLost** events.
@@ -1455,7 +1455,7 @@ declare namespace connection {
      * @param { Callback<NetHandle> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetManager.Core
      * @crossplatform
-     * @since 10
+     * @since 10 dynamic
      */
     /**
      * Registers a listener for **netLost** events.
@@ -1483,7 +1483,7 @@ declare namespace connection {
      * @param { 'netUnavailable' } type - Indicates Event name.
      * @param { Callback<void> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @since 8
+     * @since 8 dynamic
      */
     /**
      * Registers a listener for netUnavailable events.
@@ -1491,7 +1491,7 @@ declare namespace connection {
      * @param { Callback<void> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetManager.Core
      * @crossplatform
-     * @since 10
+     * @since 10 dynamic
      */
     /**
      * Registers a listener for netUnavailable events.

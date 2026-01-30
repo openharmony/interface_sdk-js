@@ -1419,7 +1419,7 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since 18 dynamic
+     * @since 16 dynamic
      * @since 23 static
      */
     request(url: string, callback: AsyncCallback<HttpResponse>): void;
@@ -2384,7 +2384,7 @@ declare namespace http {
      * @param { AsyncCallback<Object> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
      * @since 6 dynamiconly
-     * @deprecated since 8
+     * @deprecated since 8 dynamic
      * @useinstead on_headersReceive
      */
     on(type: "headerReceive", callback: AsyncCallback<Object>): void;
@@ -2395,7 +2395,7 @@ declare namespace http {
      * @param { AsyncCallback<Object> } [callback] - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
      * @since 6 dynamiconly
-     * @deprecated since 8
+     * @deprecated since 8 dynamic
      * @useinstead off_headersReceive
      */
     off(type: "headerReceive", callback?: AsyncCallback<Object>): void;
@@ -2405,7 +2405,7 @@ declare namespace http {
      * @param { "headersReceive" } type - Indicates Event name.
      * @param { Callback<Object> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 8
+     * @since 8 dynamic
      */
     /**
      * Registers an observer for HTTP Response Header events.
@@ -2413,7 +2413,7 @@ declare namespace http {
      * @param { Callback<Object> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since 10
+     * @since 10 dynamic
      */
     /**
      * Registers an observer for HTTP Response Header events.
@@ -2431,7 +2431,7 @@ declare namespace http {
      * @param { "headersReceive" } type - Indicates Event name.
      * @param { Callback<Object> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 8
+     * @since 8 dynamic
      */
     /**
      * Unregisters the observer for HTTP Response Header events.
@@ -2439,7 +2439,7 @@ declare namespace http {
      * @param { Callback<Object> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since 10
+     * @since 10 dynamic
      */
     /**
      * Unregisters the observer for HTTP Response Header events.
@@ -2457,7 +2457,7 @@ declare namespace http {
      * @param { "headersReceive" } type - Indicates Event name.
      * @param { Callback<Object> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 8
+     * @since 8 dynamic
      */
     /**
      * Registers a one-time observer for HTTP Response Header events.
@@ -2465,7 +2465,7 @@ declare namespace http {
      * @param { Callback<Object> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since 10
+     * @since 10 dynamic
      */
     /**
      * Registers a one-time observer for HTTP Response Header events.
@@ -2483,7 +2483,7 @@ declare namespace http {
      * @param { "dataReceive" } type - Indicates Event name.
      * @param { Callback<ArrayBuffer> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 10
+     * @since 10 dynamic
      */
     /**
      * Registers an observer for receiving HTTP Response data events continuously.
@@ -2491,7 +2491,7 @@ declare namespace http {
      * @param { Callback<ArrayBuffer> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
      * @atomicservice
-     * @since 15
+     * @since 15 dynamic
      */
     /**
      * Registers an observer for receiving HTTP Response data events continuously.
@@ -2509,7 +2509,7 @@ declare namespace http {
      * @param { "dataReceive" } type - Indicates Event name.
      * @param { Callback<ArrayBuffer> } [callback] - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 10
+     * @since 10 dynamic
      */
     /**
      * Unregisters an observer for receiving HTTP Response data events continuously.
@@ -2517,7 +2517,7 @@ declare namespace http {
      * @param { Callback<ArrayBuffer> } [callback] - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
      * @atomicservice
-     * @since 15
+     * @since 15 dynamic
      */
     /**
      * Unregisters an observer for receiving HTTP Response data events continuously.
@@ -2535,7 +2535,7 @@ declare namespace http {
      * @param { "dataEnd" } type - Indicates Event name.
      * @param { Callback<void> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 10
+     * @since 10 dynamic
      */
     /**
      * Registers an observer for receiving HTTP Response data ends events.
@@ -2543,7 +2543,7 @@ declare namespace http {
      * @param { Callback<void> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
      * @atomicservice
-     * @since 15
+     * @since 15 dynamic
      */
     /**
      * Registers an observer for receiving HTTP Response data ends events.
@@ -2561,7 +2561,7 @@ declare namespace http {
      * @param { "dataEnd" } type - Indicates Event name.
      * @param { Callback<void> } [callback] - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 10
+     * @since 10 dynamic
      */
     /**
      * Unregisters an observer for receiving HTTP Response data ends events.
@@ -2569,7 +2569,7 @@ declare namespace http {
      * @param { Callback<void> } [callback] - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
      * @atomicservice
-     * @since 15
+     * @since 15 dynamic
      */
     /**
      * Unregisters an observer for receiving HTTP Response data ends events.
@@ -2585,16 +2585,16 @@ declare namespace http {
     /**
      * Registers an observer for progress of receiving HTTP Response data events.
      * @param { 'dataReceiveProgress' } type - Indicates Event name.
-     * @param { Callback<{ receiveSize: number, totalSize: number }> } callback - the callback used to return the result.
+     * @param { Callback<{ receiveSize: int, totalSize: int }> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 10
+     * @since 10 dynamic
      */
     /**
      * Registers an observer for progress of receiving HTTP Response data events.
      * @param { 'dataReceiveProgress' } type - Indicates Event name.
      * @param { Callback<DataReceiveProgressInfo> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
+     * @since 11 dynamic
      */
     /**
      * Registers an observer for progress of receiving HTTP Response data events.
@@ -2602,7 +2602,7 @@ declare namespace http {
      * @param { Callback<DataReceiveProgressInfo> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Registers an observer for progress of receiving HTTP Response data events.
@@ -2618,16 +2618,16 @@ declare namespace http {
     /**
      * Unregisters an observer for progress of receiving HTTP Response data events.
      * @param { 'dataReceiveProgress' } type - Indicates Event name.
-     * @param { Callback<{ receiveSize: number, totalSize: number }> } [callback] - the callback used to return the result.
+     * @param { Callback<{ receiveSize: int, totalSize: int }> } [callback] - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 10
+     * @since 10 dynamic
      */
     /**
      * Unregisters an observer for progress of receiving HTTP Response data events.
      * @param { 'dataReceiveProgress' } type - Indicates Event name.
      * @param { Callback<DataReceiveProgressInfo> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
+     * @since 11 dynamic
      */
     /**
      * Unregisters an observer for progress of receiving HTTP Response data events.
@@ -2635,7 +2635,7 @@ declare namespace http {
      * @param { Callback<DataReceiveProgressInfo> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Unregisters an observer for progress of receiving HTTP Response data events.
@@ -2653,7 +2653,7 @@ declare namespace http {
      * @param { 'dataSendProgress' } type - Indicates Event name.
      * @param { Callback<DataSendProgressInfo> } callback - the callback of on.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
+     * @since 11 dynamic
      */
     /**
      * Registers an observer for progress of sendSize HTTP Response data events.
@@ -2661,7 +2661,7 @@ declare namespace http {
      * @param { Callback<DataSendProgressInfo> } callback - the callback of on.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Registers an observer for progress of sendSize HTTP Response data events.
@@ -2679,7 +2679,7 @@ declare namespace http {
      * @param { 'dataSendProgress' } type - Indicates Event name.
      * @param { Callback<DataSendProgressInfo> } [callback] - the callback of off.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
+     * @since 11 dynamic
      */
     /**
      * Unregisters an observer for progress of sendSize HTTP Response data events.
@@ -2687,7 +2687,7 @@ declare namespace http {
      * @param { Callback<DataSendProgressInfo> } [callback] - the callback of off.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Unregisters an observer for progress of sendSize HTTP Response data events.

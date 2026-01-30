@@ -640,7 +640,7 @@ declare namespace policy {
    * Register uid policy change listener.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
    * @param { 'netUidPolicyChange' } type - Indicates Event name.
-   * @param { Callback<{ uid: number, policy: NetUidPolicy }> } callback - the callback of on.
+   * @param { Callback<{ uid: int, policy: NetUidPolicy }> } callback - the callback of on.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -649,7 +649,7 @@ declare namespace policy {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 10 dynamic
    */
   /**
    * Register uid policy change listener.
@@ -672,7 +672,7 @@ declare namespace policy {
    * Unregister uid policy change listener.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
    * @param { 'netUidPolicyChange' } type - Indicates Event name.
-   * @param { Callback<{ uid: number, policy: NetUidPolicy }> } callback - the callback of off.
+   * @param { Callback<{ uid: int, policy: NetUidPolicy }> } callback - the callback of off.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -681,7 +681,7 @@ declare namespace policy {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 10 dynamic
    */
   /**
    * Unregister uid policy change listener.
@@ -704,7 +704,7 @@ declare namespace policy {
    * Register uid rule change listener.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
    * @param { 'netUidRuleChange' } type - Indicates Event name.
-   * @param { Callback<{ uid: number, rule: NetUidRule }> } callback - the callback of on.
+   * @param { Callback<{ uid: int, rule: NetUidRule }> } callback - the callback of on.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -713,7 +713,7 @@ declare namespace policy {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 10 dynamic
    */
   /**
    * Register uid rule change listener.
@@ -736,7 +736,7 @@ declare namespace policy {
    * Unregister uid rule change listener.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
    * @param { 'netUidRuleChange' } type - Indicates Event name.
-   * @param { Callback<{ uid: number, rule: NetUidRule }> } callback - the callback of off.
+   * @param { Callback<{ uid: int, rule: NetUidRule }> } callback - the callback of off.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -745,7 +745,7 @@ declare namespace policy {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 10 dynamic
    */
   /**
    * Unregister uid rule change listener.
