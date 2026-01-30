@@ -120,7 +120,8 @@ declare namespace vcard {
    * @since 11 dynamic
    * @since 23 static
    */
-  function exportVCard(context: Context, predicates: dataSharePredicates.DataSharePredicates, options: VCardBuilderOptions, callback: AsyncCallback<string>): void;
+  function exportVCard(context: Context, 
+      predicates: dataSharePredicates.DataSharePredicates, options: VCardBuilderOptions, callback: AsyncCallback<string>): void;
 
   /**
    * Export contact data to a vcf file.

@@ -666,33 +666,38 @@ declare namespace audio {
 
   /**
    * Enumerates audio loopback reverberation preset.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Capturer
    * @since 21 dynamic
+   * @since 24 static
    */
   enum AudioLoopbackReverbPreset {
     /**
      * A preset that keep the original reverberation without any enhancement.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 21 dynamic
+     * @since 24 static
      */
     ORIGINAL = 1,
     /**
      * A preset representing a reverberation effect with karaoke-like acoustic characteristics.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 21 dynamic
+     * @since 24 static
      */
     KTV = 2,
     /**
      * A preset representing a reverberation effect with theater-like acoustic characteristics.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 21 dynamic
+     * @since 24 static
      */
     THEATER = 3,
     /**
      * A preset representing a reverberation effect with concert-like acoustic characteristics.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 21 dynamic
+     * @since 24 static
      */
     CONCERT = 4,
   }
@@ -702,25 +707,28 @@ declare namespace audio {
    * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Capturer
    * @since 21 dynamic
-   * @since 23 static
+   * @since 24 static
    */
   enum AudioLoopbackEqualizerPreset {
     /**
      * A preset that keep the original frequency response without any enhancement.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 21 dynamic
+     * @since 24 static
      */
     FLAT = 1,
     /**
-     * A preset representing a equalizer that can enhance the fullness of the vocie
+     * A preset representing a equalizer effect that can enhance the fullness of the vocie
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 21 dynamic
+     * @since 24 static
      */
     FULL = 2,
     /**
-     * A preset representing a equalizer that can enhance the brightness of the vocie
+     * A preset representing a equalizer effect that can enhance the brightness of the vocie
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 21 dynamic
+     * @since 24 static
      */
     BRIGHT = 3,
   }
@@ -1352,7 +1360,7 @@ declare namespace audio {
    * @syscap SystemCapability.Multimedia.Audio.Device
    * @systemapi
    * @since 21 dynamic
-   * @since 23 static
+   * @since 24 static
    */
   enum AudioDevcieSelectStrategy {
     /**
@@ -1360,6 +1368,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @systemapi
      * @since 21 dynamic
+     * @since 24 static
      */
     SELECT_STRATEGY_DEFAULT = 0,
     /**
@@ -1367,6 +1376,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @systemapi
      * @since 21 dynamic
+     * @since 24 static
      */
     SELECT_STRATEGY_INDEPENDENT = 1,
   }
@@ -2285,6 +2295,22 @@ declare namespace audio {
      * @since 23 static
      */
     STREAM_USAGE_VOICE_CALL_ASSISTANT = 21,
+    /**
+     * Announcement usage.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    STREAM_USAGE_ANNOUNCEMENT = 22,
+    /**
+     * Emergency usage.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    STREAM_USAGE_EMERGENCY = 23,
   }
 
   /**
@@ -2671,6 +2697,7 @@ declare namespace audio {
      * However, the internal capture is allowed under the PRIVACY_TYPE_SHARED policy.
      * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
      * @since 21 dynamic
+     * @since 24 static
      */
     PRIVACY_TYPE_SHARED = 2,
   }
@@ -4354,6 +4381,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @systemapi
      * @since 21 dynamic
+     * @since 24 static
      */
     selectOutputDeviceByFilter(filter: AudioRendererFilter, outputAudioDevices: AudioDeviceDescriptors, strategy: AudioDevcieSelectStrategy): Promise<void>;
 
@@ -4583,6 +4611,21 @@ declare namespace audio {
     on(type: 'preferredOutputDeviceChangeByFilter', filter: AudioRendererFilter, callback: Callback<AudioDeviceDescriptors>): void;
 
     /**
+     * Subscribes to prefer output device change events. When preferred device for target audio renderer
+     * filter changes, registered clients will receive the callback.
+     * @param { AudioRendererFilter } filter - Filter for AudioRenderer.
+     * @param { Callback<AudioDeviceDescriptors> } callback - Callback used to obtain the changed prefer devices
+     *     information.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     * @since 24 static
+     */
+    onPreferredOutputDeviceChangeByFilter(filter: AudioRendererFilter, callback: Callback<AudioDeviceDescriptors>): void;
+
+    /**
      * UnSubscribes to prefer output device change events.
      * @param { 'preferredOutputDeviceChangeByFilter' } type - Type of the event to listen for. Only the
      *     preferredOutputDeviceChangeByFilter event is supported.
@@ -4594,6 +4637,18 @@ declare namespace audio {
      * @since 21 dynamic
      */
     off(type: 'preferredOutputDeviceChangeByFilter', callback?: Callback<AudioDeviceDescriptors>): void;
+
+    /**
+     * UnSubscribes to preferred output device change events.
+     *
+     * @param { Callback<AudioDeviceDescriptors> } [callback] - Callback used in subscribe.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     * @since 24 static
+     */
+    offPreferredOutputDeviceChangeByFilter(callback?: Callback<AudioDeviceDescriptors>): void;
 
     /**
      * Get input device for target audio capturer info.
@@ -5353,13 +5408,15 @@ declare namespace audio {
     isRecordingAvailable(capturerInfo: AudioCapturerInfo): boolean;
 
     /**
-     * Checks whether the system recording enables Intelligent noise reduction for current device
-     * @param { SourceType } sourceType Type of audio source.
-     * @returns { boolean } Check result. The value <b>true</b> means that the system recording enables intelligent noise reduction for current device,
-     *          and <b>false</b> means the opposite.
+     * Checks whether the system recording enables Intelligent noise reduction for current device.
+     *
+     * @param { SourceType } sourceType - Type of audio source.
+     * @returns { boolean } Check result. The value <b>true</b> means that the system recording enables intelligent
+           noise reduction for current device, and <b>false</b> means the opposite.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 21 dynamic
+     * @since 24 static
      */
     isIntelligentNoiseReductionEnabledForCurrentDevice(sourceType: SourceType): boolean;
 
@@ -5664,15 +5721,17 @@ declare namespace audio {
   /**
    * Enumerates the categories application prefer to use
    * when recording with bluetooth and nearlink.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @since 21 dynamic
+   * @since 24 static
    */
   enum BluetoothAndNearlinkPreferredRecordCategory {
     /**
      * Not prefer to use bluetooth and nearlink to record.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 21 dynamic
+     * @since 24 static
      */
     PREFERRED_NONE = 0,
     /**
@@ -5680,18 +5739,21 @@ declare namespace audio {
      * However, whether to use low latency or high quality recording depends on system.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 21 dynamic
+     * @since 24 static
      */
     PREFERRED_DEFAULT = 1,
     /**
      * Prefer to use bluetooth and nearlink low latency mode to record.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 21 dynamic
+     * @since 24 static
      */
     PREFERRED_LOW_LATENCY = 2,
     /**
      * Prefer to use bluetooth and nearlink high quality mode to record.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 21 dynamic
+     * @since 24 static
      */
     PREFERRED_HIGH_QUALITY = 3,
   }
@@ -5701,6 +5763,7 @@ declare namespace audio {
    * @typedef CurrentInputDeviceChangedEvent
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @since 21 dynamic
+   * @since 24 static
    */
   interface CurrentInputDeviceChangedEvent {
     /**
@@ -5708,6 +5771,7 @@ declare namespace audio {
      * @type { AudioDeviceDescriptors }
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 21 dynamic
+     * @since 24 static
      */
     devices: AudioDeviceDescriptors;
     /**
@@ -5715,6 +5779,7 @@ declare namespace audio {
      * @type { AudioStreamDeviceChangeReason }
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 21 dynamic
+     * @since 24 static
      */
     changeReason: AudioStreamDeviceChangeReason;
   }
@@ -5964,6 +6029,7 @@ declare namespace audio {
      * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 21 dynamic
+     * @since 24 static
      */
     getAvailableDevices(deviceUsage: DeviceUsage): AudioDeviceDescriptors;
 
@@ -5982,6 +6048,19 @@ declare namespace audio {
     on(type: 'availableDeviceChange', deviceUsage: DeviceUsage, callback: Callback<DeviceChangeAction>): void;
 
     /**
+     * Subscribes to available device change events. When a device is connected/disconnected, registered clients
+     * will receive the callback.
+     *
+     * @param { DeviceUsage } deviceUsage - Audio device usage to filter available devices.
+     * @param { Callback<DeviceChangeAction> } callback - Callback used to obtain the device update details.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 24 static
+     */
+    onAvailableDeviceChange(deviceUsage: DeviceUsage, callback: Callback<DeviceChangeAction>): void;
+
+    /**
      * Unsubscribes to available device change events.
      * @param { 'availableDeviceChange' } type - Type of the event to listen for. Only the availableDeviceChange
      *     event is supported.
@@ -5991,6 +6070,16 @@ declare namespace audio {
      * @since 21 dynamic
      */
     off(type: 'availableDeviceChange', callback?: Callback<DeviceChangeAction>): void;
+
+    /**
+     * Unsubscribes to available device change events.
+     *
+     * @param { Callback<DeviceChangeAction> } [callback] - Callback used in subscribe.
+     * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 24 static
+     */
+    offAvailableDeviceChange(callback?: Callback<DeviceChangeAction>): void;
 
     /**
      * Selects the media input device. It uses a promise to return the result.
@@ -6007,6 +6096,7 @@ declare namespace audio {
      * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 21 dynamic
+     * @since 24 static
      */
     selectMediaInputDevice(inputAudioDevice: AudioDeviceDescriptor): Promise<void>;
 
@@ -6017,6 +6107,7 @@ declare namespace audio {
      * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 21 dynamic
+     * @since 24 static
      */
     getSelectedMediaInputDevice(): AudioDeviceDescriptor;
 
@@ -6026,6 +6117,7 @@ declare namespace audio {
      * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 21 dynamic
+     * @since 24 static
      */
     clearSelectedMediaInputDevice(): Promise<void>;
 
@@ -6044,6 +6136,7 @@ declare namespace audio {
      * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 21 dynamic
+     * @since 24 static
      */
     setBluetoothAndNearlinkPreferredRecordCategory(category: BluetoothAndNearlinkPreferredRecordCategory): Promise<void>;
 
@@ -6054,6 +6147,7 @@ declare namespace audio {
      * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 21 dynamic
+     * @since 24 static
      */
     getBluetoothAndNearlinkPreferredRecordCategory(): BluetoothAndNearlinkPreferredRecordCategory;
 
@@ -6069,6 +6163,17 @@ declare namespace audio {
     on(type: 'currentInputDeviceChanged', callback: Callback<CurrentInputDeviceChangedEvent>): void;
 
     /**
+     * Subscribes input device change event callback. The event is triggered when current input device change.
+     *
+     * @param { Callback<CurrentInputDeviceChangedEvent> } callback - Callback used to listen input device change event.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 24 static
+     */
+    onCurrentInputDeviceChanged(callback: Callback<CurrentInputDeviceChangedEvent>): void;
+
+    /**
      * Unsubscribes current input device change events.
      * @param { 'currentInputDeviceChanged' } type - Type of the event to listen for.
      * @param { Callback<CurrentInputDeviceChangedEvent> } [callback] - Callback used in subscribe.
@@ -6077,6 +6182,16 @@ declare namespace audio {
      * @since 21 dynamic
      */
     off(type: 'currentInputDeviceChanged', callback?: Callback<CurrentInputDeviceChangedEvent>): void;
+
+    /**
+     * Unsubscribes current input device change events.
+     *
+     * @param { Callback<CurrentInputDeviceChangedEvent> } [callback] - Callback used in subscribe.
+     * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 24 static
+     */
+    offCurrentInputDeviceChanged(callback?: Callback<CurrentInputDeviceChangedEvent>): void;
 
     /**
      * Enables mute suggestion callback function when using {@link #CONCURRENCY_MIX_WITH_OTHERS} mode.
@@ -9053,6 +9168,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @systemapi
      * @since 21 dynamic
+     * @since 24 static
      */
     readonly highQualityRecordingSupported?: boolean;
 
@@ -14320,17 +14436,19 @@ declare namespace audio {
      * @throws  { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 21 dynamic
+     * @since 24 static
      */
     setReverbPreset(preset: AudioLoopbackReverbPreset): boolean;
 
     /**
      * Get the current reverberation.
-     * The defalut reverberation preset of audio loopback is {@link AudioLoopbackReverbPreset#THEATER} if
+     * The default reverberation preset of audio loopback is {@link AudioLoopbackReverbPreset#THEATER} if
      * users do not modify the preset.
      *
      * @returns { AudioLoopbackReverbPreset  } Returns the current reverberation.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 21 dynamic
+     * @since 24 static
      */
     getReverbPreset(): AudioLoopbackReverbPreset;
 
@@ -14342,17 +14460,19 @@ declare namespace audio {
      * @throws  { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 21 dynamic
+     * @since 24 static
      */
     setEqualizerPreset(preset: AudioLoopbackEqualizerPreset): boolean;
 
     /**
      * Gets the current equalizer preset.
-     * The defalut equalizer preset of audio loopback is {@link AudioLoopbackEqualizerPreset#FULL} if
+     * The default equalizer preset of audio loopback is {@link AudioLoopbackEqualizerPreset#FULL} if
      * users do not modify the preset.
      *
      * @returns { AudioLoopbackEqualizerPreset } Returns the current equalizer preset.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 21 dynamic
+     * @since 24 static
      */
     getEqualizerPreset(): AudioLoopbackEqualizerPreset;
   }

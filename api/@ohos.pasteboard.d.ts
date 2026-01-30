@@ -446,11 +446,16 @@ declare namespace pasteboard {
      * @type { object }
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since 11 dynamic
+     * @since 11
      */
-    additions: {
-      [key: string]: object
-    }
+    /**
+     * additional property data. key-value pairs.
+     * @type { Record<string, object> }
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 23 dynamic
+     */
+    additions: Record<string, object>;
     /**
      * additional property data. key-value pairs.
      * @type { Record<string, RecordData> }
@@ -1425,15 +1430,15 @@ declare namespace pasteboard {
      */
     off(type: 'update', callback?: () => void): void;
 
-    /**	
-     * Remove a callback invoked when remote pasteboard content changes.	
-     * @param { UpdateCallback } [callback] - the callback to remove. If this parameter is not filled in, it indicates	
+    /**
+     * Remove a callback invoked when remote pasteboard content changes.
+     * @param { UpdateCallback } [callback] - the callback to remove. If this parameter is not filled in, it indicates
      * that all callbacks for this application will be cleared. Otherwise, it indicates that the specified callback
      * will be cleared.
-     * @syscap SystemCapability.MiscServices.Pasteboard	
+     * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 22 dynamic
      * @since 23 static
-     */	
+     */
     offRemoteUpdate(callback?: UpdateCallback): void;
 
     /**

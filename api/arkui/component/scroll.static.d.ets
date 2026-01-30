@@ -55,7 +55,7 @@ export declare enum ScrollDirection {
     /**
      * Free scrolling is supported.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
     FREE = 4
 }
@@ -235,7 +235,7 @@ export declare interface OffsetOptions {
  * @extends UIScrollableCommonEvent
  * @interface UIScrollEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 23 static
+ * @since 24 static
  */
 export declare interface UIScrollEvent extends UIScrollableCommonEvent {
   /**
@@ -244,7 +244,7 @@ export declare interface UIScrollEvent extends UIScrollableCommonEvent {
    * @param { ScrollOnWillScrollCallback | undefined } callback - callback function, triggered when
    *     the Scroll will scroll. Passing undefined will unregister the callback.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   setOnWillScroll(callback: ScrollOnWillScrollCallback | undefined): void;
   /**
@@ -253,7 +253,7 @@ export declare interface UIScrollEvent extends UIScrollableCommonEvent {
    * @param { ScrollOnScrollCallback | undefined } callback - callback function, triggered when the Scroll did scroll.
    *      Passing undefined will unregister the callback.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   setOnDidScroll(callback: ScrollOnScrollCallback | undefined): void;
 }
@@ -419,7 +419,7 @@ export declare class Scroller {
      * @returns { SizeResult } Returns the content size.
      * @throws { BusinessError } 100004 - Controller not bound to a component.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
     contentSize() : SizeResult;
 }
@@ -486,7 +486,7 @@ export declare interface ScrollOptions {
      * @type { ?boolean } whether the scroll target position can over the boundary.
      * @default false
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
     canOverScroll?: boolean;
 }
@@ -648,7 +648,7 @@ export declare interface ScrollAttribute extends ScrollableCommonMethod {
      *     <br>Default value: 1. Passing undefined will restore the default value.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
     default maxZoomScale(scale: double | undefined): this;
     /**
@@ -659,7 +659,7 @@ export declare interface ScrollAttribute extends ScrollableCommonMethod {
      *     If the value is greater than maxZoomScale, the value of maxZoomScale is used.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
     default minZoomScale(scale: double | undefined): this;
     /**
@@ -672,7 +672,7 @@ export declare interface ScrollAttribute extends ScrollableCommonMethod {
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     default zoomScale(scale: double | Bindable<double> | undefined): this;
     /**
@@ -682,7 +682,7 @@ export declare interface ScrollAttribute extends ScrollableCommonMethod {
      *     <br>Default value: true. Passing undefined will restore the default value.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
     default enableBouncesZoom(enable: boolean | undefined): this;
     /**
@@ -771,7 +771,7 @@ export declare interface ScrollAttribute extends ScrollableCommonMethod {
      *     <br>Passing undefined will unregister the callback.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
     default onDidZoom(event: ScrollOnDidZoomCallback | undefined): this;
     /**
@@ -781,7 +781,7 @@ export declare interface ScrollAttribute extends ScrollableCommonMethod {
      *     <br>Passing undefined will unregister the callback.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
     default onZoomStart(event: VoidCallback | undefined): this;
     /**
@@ -791,7 +791,7 @@ export declare interface ScrollAttribute extends ScrollableCommonMethod {
      *     <br>Passing undefined will unregister the callback.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
     default onZoomStop(event: VoidCallback | undefined): this;
     /**
@@ -812,9 +812,20 @@ export declare interface ScrollAttribute extends ScrollableCommonMethod {
      *     A string value indicates a color in RGB or ARGB format, for example,<em>'#ffffff'</em>.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
     default scrollBarColor(color: Color | int | string | Resource | undefined): this;
+    /**
+     * Sets the scrollbar color.
+     *
+     * @param { Color | int | string | undefined } color - Scrollbar color.
+     *     <br>Default value: <em>'\#182431'</em> (40% opacity)
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    default scrollBarColor(color: Color | int | string | undefined): this;
     /**
      * Sets the scrollbar width.
      *
@@ -963,7 +974,7 @@ export type ScrollOnWillScrollCallback = (xOffset: double, yOffset: double, scro
  * @typedef { function } ScrollOnDidZoomCallback
  * @param { double } scale - current zoom scale.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 23 static
+ * @since 24 static
  */
 export type ScrollOnDidZoomCallback = (scale: double) => void;
 /**

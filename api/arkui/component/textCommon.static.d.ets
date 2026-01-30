@@ -22,7 +22,7 @@ import { SelectionOptions, Callback } from './common';
 import { TextDecorationType, TextDecorationStyle } from './enums';
 import { AttributeModifier, CommonMethod, LinearGradientOptions, RadialGradientOptions } from './common';
 import text from '../../@ohos.graphics.text';
-import { InputMethodExtraConfig } from '@ohos.inputMethod.ExtraConfig'
+import { InputMethodExtraConfig } from '../../@ohos.inputMethod.ExtraConfig'
 
 /**
  * Defines the text data detector type.
@@ -114,7 +114,7 @@ export declare interface TextDataDetectorConfig {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
     enablePreviewMenu?: boolean;
 }
@@ -617,7 +617,6 @@ declare type RectHeightStyle = text.RectHeightStyle;
  * @since 23 static
  */
 declare type TextBox = text.TextBox;
-
 /**
  * The Paragraph type provides detailed information about a paragraph,
  * including properties such as line count, line height, and other relevant metrics.
@@ -625,7 +624,7 @@ declare type TextBox = text.TextBox;
  * @typedef { text.Paragraph } Paragraph
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 23 static
+ * @since 24 static
  */
 export declare type Paragraph = text.Paragraph;
 
@@ -791,7 +790,7 @@ export declare class TextMenuItemId {
      * @since 23 static
      */
     static readonly autoFill: TextMenuItemId;
-
+ 
     /**
      * Indicates the TextMenuItemId for password vault.
      *
@@ -873,7 +872,7 @@ export type OnMenuItemClickCallback = (menuItem: TextMenuItem, range: TextRange)
  * @param { Array<TextMenuItem> } menuItems - currently displayed menu items.
  * @returns { Array<TextMenuItem> } Return the menu items will displayed after operations.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 23 static
+ * @since 24 static
  */
 export type OnPrepareMenuCallback = (menuItems: Array<TextMenuItem>) => Array<TextMenuItem>;
 /**
@@ -907,7 +906,7 @@ export declare interface EditMenuOptions {
      *
      * @type { ?OnPrepareMenuCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
     onPrepareMenu?: OnPrepareMenuCallback;
 }
@@ -949,7 +948,7 @@ export interface DecorationStyleResult {
      * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     thicknessScale?: double;
 }
@@ -1228,7 +1227,7 @@ export declare enum TextDirection {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 23 static
+ * @since 24 static
  */
 export declare enum TextContentAlign {
     /**
@@ -1236,7 +1235,7 @@ export declare enum TextContentAlign {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     TOP = 0,
     /**
@@ -1244,7 +1243,7 @@ export declare enum TextContentAlign {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     CENTER = 1,
     /**
@@ -1252,7 +1251,7 @@ export declare enum TextContentAlign {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     BOTTOM = 2
 }
@@ -1264,7 +1263,7 @@ export declare enum TextContentAlign {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
- * @since 23 static
+ * @since 24 static
  */
 export declare enum KeyboardGradientMode {
   /**
@@ -1273,7 +1272,7 @@ export declare enum KeyboardGradientMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
-   * @since 23 static
+   * @since 24 static
    */
   NONE = 0,
 
@@ -1283,7 +1282,7 @@ export declare enum KeyboardGradientMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
-   * @since 23 static
+   * @since 24 static
    */
   LINEAR_GRADIENT = 1
 }
@@ -1293,14 +1292,14 @@ export declare enum KeyboardGradientMode {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 23 static
+ * @since 24 static
  */
 export declare enum FlipDirection {
   /**
    * The flip direction is down.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   DOWN = 0,
 
@@ -1308,7 +1307,7 @@ export declare enum FlipDirection {
    * The flip direction is up.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   UP = 1
 }
@@ -1319,7 +1318,7 @@ export declare enum FlipDirection {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 23 static
+ * @since 24 static
  */
 export declare enum SuperscriptStyle {
     /**
@@ -1327,7 +1326,7 @@ export declare enum SuperscriptStyle {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     NORMAL = 0,
     /**
@@ -1335,7 +1334,7 @@ export declare enum SuperscriptStyle {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     SUPERSCRIPT = 1,
     /**
@@ -1343,7 +1342,7 @@ export declare enum SuperscriptStyle {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     SUBSCRIPT = 2
 }
@@ -1354,7 +1353,7 @@ export declare enum SuperscriptStyle {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 23 static
+ * @since 24 static
  */
 export declare enum MaxLinesMode {
   /**
@@ -1362,7 +1361,7 @@ export declare enum MaxLinesMode {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 23 static
+   * @since 24 static
    */
   CLIP = 0,
 
@@ -1371,7 +1370,7 @@ export declare enum MaxLinesMode {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 23 static
+   * @since 24 static
    */
   SCROLL = 1
 }
@@ -1383,7 +1382,7 @@ export declare enum MaxLinesMode {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
- * @since 23 static
+ * @since 24 static
  */
 export declare enum KeyboardFluidLightMode {
   /**
@@ -1392,7 +1391,7 @@ export declare enum KeyboardFluidLightMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
-   * @since 23 static
+   * @since 24 static
    */
   NONE = 0,
 
@@ -1402,7 +1401,7 @@ export declare enum KeyboardFluidLightMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
-   * @since 23 static
+   * @since 24 static
    */
   BACKGROUND_FLUID_LIGHT = 1
 }
@@ -1414,7 +1413,7 @@ export declare enum KeyboardFluidLightMode {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
- * @since 23 static
+ * @since 24 static
  */
 export declare enum TextChangeReason {
     /**
@@ -1423,7 +1422,7 @@ export declare enum TextChangeReason {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     UNKNOWN = 0,
     /**
@@ -1432,7 +1431,7 @@ export declare enum TextChangeReason {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     INPUT = 1,
     /**
@@ -1441,7 +1440,7 @@ export declare enum TextChangeReason {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     PASTE = 2,
     /**
@@ -1450,7 +1449,7 @@ export declare enum TextChangeReason {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     CUT = 3,
     /**
@@ -1459,7 +1458,7 @@ export declare enum TextChangeReason {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     DRAG = 4,
     /**
@@ -1468,7 +1467,7 @@ export declare enum TextChangeReason {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     AUTO_FILL = 5,
     /**
@@ -1477,7 +1476,7 @@ export declare enum TextChangeReason {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     AI_WRITE = 6,
     /**
@@ -1486,7 +1485,7 @@ export declare enum TextChangeReason {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     REDO = 7,
     /**
@@ -1495,7 +1494,7 @@ export declare enum TextChangeReason {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     UNDO = 8,
     /**
@@ -1504,7 +1503,7 @@ export declare enum TextChangeReason {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     CONTROLLER = 9,
     /**
@@ -1513,7 +1512,7 @@ export declare enum TextChangeReason {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     ACCESSIBILITY = 10,
     /**
@@ -1522,7 +1521,7 @@ export declare enum TextChangeReason {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     COLLABORATION = 11,
     /**
@@ -1531,7 +1530,7 @@ export declare enum TextChangeReason {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     STYLUS = 12
 }
@@ -1542,14 +1541,14 @@ export declare enum TextChangeReason {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 23 static
+ * @since 24 static
  */
 export declare enum TextVerticalAlign {
   /**
    * Baseline alignment, the default value.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   BASELINE = 0,
 
@@ -1557,7 +1556,7 @@ export declare enum TextVerticalAlign {
    * Bottom alignment.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   BOTTOM = 1,
 
@@ -1565,7 +1564,7 @@ export declare enum TextVerticalAlign {
    * Center alignment.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   CENTER = 2,
 
@@ -1573,7 +1572,7 @@ export declare enum TextVerticalAlign {
    * Top alignment.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   TOP = 3
 }
@@ -1583,7 +1582,7 @@ export declare enum TextVerticalAlign {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 23 static
+ * @since 24 static
  */
 export declare class ShaderStyle {}
 
@@ -1591,7 +1590,7 @@ export declare class ShaderStyle {}
  * Defines the text content transition class.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 23 static
+ * @since 24 static
  */
 export declare class ContentTransition {}
 
@@ -1601,7 +1600,7 @@ export declare class ContentTransition {}
  * @extends ShaderStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 23 static
+ * @since 24 static
  */
 export declare class LinearGradientStyle extends ShaderStyle {
     /**
@@ -1610,7 +1609,7 @@ export declare class LinearGradientStyle extends ShaderStyle {
      * @param { LinearGradientOptions } options - The options of the gradient.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     constructor(options: LinearGradientOptions);
     /**
@@ -1623,7 +1622,7 @@ export declare class LinearGradientStyle extends ShaderStyle {
      * @type { LinearGradientOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     options: LinearGradientOptions;
 }
@@ -1633,7 +1632,7 @@ export declare class LinearGradientStyle extends ShaderStyle {
  *
  * @extends ContentTransition
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 23 static
+ * @since 24 static
  */
 export declare class NumericTextTransition extends ContentTransition {
   /**
@@ -1641,7 +1640,7 @@ export declare class NumericTextTransition extends ContentTransition {
    *
    * @param { NumericTextTransitionOptions } [options] - The options of numeric text transition.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   constructor(options?: NumericTextTransitionOptions);
 
@@ -1650,7 +1649,7 @@ export declare class NumericTextTransition extends ContentTransition {
    *
    * @type { ?FlipDirection }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   flipDirection?: FlipDirection;
 
@@ -1659,7 +1658,7 @@ export declare class NumericTextTransition extends ContentTransition {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   enableBlur?: boolean;
 }
@@ -1670,7 +1669,7 @@ export declare class NumericTextTransition extends ContentTransition {
  * @extends ShaderStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 23 static
+ * @since 24 static
  */
 export declare class RadialGradientStyle extends ShaderStyle {
     /**
@@ -1679,7 +1678,7 @@ export declare class RadialGradientStyle extends ShaderStyle {
      * @param { RadialGradientOptions } options - The options of the gradient.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     constructor(options: RadialGradientOptions);
     /**
@@ -1692,7 +1691,7 @@ export declare class RadialGradientStyle extends ShaderStyle {
      * @type { RadialGradientOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     options: RadialGradientOptions;
 }
@@ -1703,7 +1702,7 @@ export declare class RadialGradientStyle extends ShaderStyle {
  * @interface MaxLinesOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 23 static
+ * @since 24 static
  */
 export declare interface MaxLinesOptions {
   /**
@@ -1712,7 +1711,7 @@ export declare interface MaxLinesOptions {
    * @type { ?MaxLinesMode }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 23 static
+   * @since 24 static
    */
   overflowMode?: MaxLinesMode;
 }
@@ -1722,7 +1721,7 @@ export declare interface MaxLinesOptions {
  *
  * @interface IMEClient
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 23 static
+ * @since 24 static
  */
 export declare interface IMEClient {
   /**
@@ -1730,7 +1729,7 @@ export declare interface IMEClient {
    *
    * @type { long }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   nodeId: long;
 
@@ -1739,7 +1738,7 @@ export declare interface IMEClient {
    *
    * @param { InputMethodExtraConfig } config - The extra config object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   setExtraConfig(config: InputMethodExtraConfig): void;
 }
@@ -1750,7 +1749,7 @@ export declare interface IMEClient {
  * @interface LineSpacingOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 23 static
+ * @since 24 static
  */
 export declare interface LineSpacingOptions {
     /**
@@ -1759,7 +1758,7 @@ export declare interface LineSpacingOptions {
      * @type { ?boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     onlyBetweenLines?: boolean;
 }
@@ -1769,7 +1768,7 @@ export declare interface LineSpacingOptions {
  *
  * @interface NumericTextTransitionOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 23 static
+ * @since 24 static
  */
 export declare interface NumericTextTransitionOptions {
   /**
@@ -1777,7 +1776,7 @@ export declare interface NumericTextTransitionOptions {
    *
    * @type { ?FlipDirection }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   flipDirection?: FlipDirection;
 
@@ -1786,7 +1785,7 @@ export declare interface NumericTextTransitionOptions {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   enableBlur?: boolean;
 }
@@ -1797,7 +1796,7 @@ export declare interface NumericTextTransitionOptions {
  * @interface TextLayoutOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 23 static
+ * @since 24 static
  */
 export declare interface TextLayoutOptions {
   /**
@@ -1806,7 +1805,7 @@ export declare interface TextLayoutOptions {
    * @type { ?LengthMetrics } constraintWidth
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 23 static
+   * @since 24 static
    */
   constraintWidth?: LengthMetrics;
 }
@@ -1818,7 +1817,7 @@ export declare interface TextLayoutOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
- * @since 23 static
+ * @since 24 static
  */
 export declare interface KeyboardAppearanceConfig {
   /**
@@ -1828,7 +1827,7 @@ export declare interface KeyboardAppearanceConfig {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
-   * @since 23 static
+   * @since 24 static
    */
   gradientMode?: KeyboardGradientMode;
 
@@ -1839,7 +1838,7 @@ export declare interface KeyboardAppearanceConfig {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
-   * @since 23 static
+   * @since 24 static
    */
   fluidLightMode?: KeyboardFluidLightMode;
 }
@@ -1849,7 +1848,7 @@ export declare interface KeyboardAppearanceConfig {
  * @extends ShaderStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 23 static
+ * @since 24 static
  */
 export declare class ColorShaderStyle extends ShaderStyle {
     /**
@@ -1858,7 +1857,7 @@ export declare class ColorShaderStyle extends ShaderStyle {
      * @param { ResourceColor } color - The color used by shader.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     constructor(color: ResourceColor);
     /**
@@ -1867,7 +1866,30 @@ export declare class ColorShaderStyle extends ShaderStyle {
      * @type { ResourceColor }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     color: ResourceColor;
+}
+
+/**
+ * Defines the voice button options.
+ *
+ * @interface VoiceButtonOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @stagemodelonly
+ * @since 23 static
+ */
+export interface VoiceButtonOptions {
+    /**
+     * Enable or disable voice button.
+     * True means enable voice button, false means disable voice button.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static
+     */
+    enabled?: boolean;
 }

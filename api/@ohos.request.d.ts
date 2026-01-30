@@ -5286,7 +5286,6 @@ declare namespace request {
       config: Config;
       /**
        * Enable the specified callback for a frontend task.
-       * Subscribes to task progress changes.
        *
        * @param { 'progress' } event event types.
        * @param { function } callback callback function with a `Progress` argument.
@@ -5298,7 +5297,6 @@ declare namespace request {
        */
       /**
        * Enables the specified callback.
-       * Subscribes to task progress changes.
        *
        * @param { 'progress' } event - event types.
        * @param { function } callback - callback function with a `Progress` argument.
@@ -5308,7 +5306,6 @@ declare namespace request {
        * @crossplatform
        * @atomicservice
        * @since 11 dynamic
-       * @since 23 static
        */
       on(event: 'progress', callback: (progress: Progress) => void): void;
       /**
@@ -5355,19 +5352,17 @@ declare namespace request {
       offProgress(callback?: ProgressCallback): void;
       /**
        * Enable the specified callback for a frontend task.
-       * Subscribes to task completion events.
        *
        * @param { 'completed' } event event types.
        * @param { function } callback callback function with a `Progress` argument.
        * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
        * <br>2. Incorrect parameter type. 3. Parameter verification failed.
-       * @throws { BusinessError } 21900005 - Operation with wrong task mode.
+       * @throws { BusinessError } 21900005 - task mode error.
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
        */
       /**
        * Enables the specified callback.
-       * Subscribes to task completion events.
        *
        * @param { 'completed' } event - event types.
        * @param { function } callback - callback function with a `Progress` argument.
@@ -5377,7 +5372,6 @@ declare namespace request {
        * @crossplatform
        * @atomicservice
        * @since 11 dynamic
-       * @since 23 static
        */
       on(event: 'completed', callback: (progress: Progress) => void): void;
       /**
@@ -5684,7 +5678,6 @@ declare namespace request {
       offRemove(callback?: ProgressCallback): void;
       /**
        * Enables the response callback.
-       * Subscribes to task response headers.
        *
        * @param { 'response' } event - event types.
        * @param { Callback<HttpResponse> } callback - callback function with an `HttpResponse` argument.
@@ -5696,7 +5689,6 @@ declare namespace request {
        */
       /**
        * Enables the response callback.
-       * Subscribes to task response headers.
        *
        * @param { 'response' } event - event types.
        * @param { Callback<HttpResponse> } callback - callback function with an `HttpResponse` argument.
@@ -5706,7 +5698,6 @@ declare namespace request {
        * @crossplatform
        * @atomicservice
        * @since 20 dynamic
-       * @since 23 static
        */
       on(event: 'response', callback: Callback<HttpResponse>): void;
       /**

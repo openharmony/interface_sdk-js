@@ -192,17 +192,6 @@ export default class EnterpriseAdminExtensionAbility {
   onKioskModeExiting(bundleName: string, accountId: number): void;
 
   /**
-   * Called back when the installation status of an application that installed by the application market changes.
-   *
-   * @param { string } bundleName - bundleName indicates the name of the bundle.
-   * @param { common.InstallationResult } result - status indicates the result of application installation.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @stagemodelonly
-   * @since 22
-   */
-  onMarketAppInstallResult(bundleName: string, result: common.InstallationResult): void;
-
-  /**
    * Called back when an application is enabled as a device administrator.
    *
    * @param { string } bundleName - bundleName indicates the name of the enabled admin.
@@ -221,6 +210,17 @@ export default class EnterpriseAdminExtensionAbility {
    * @since 23
    */
   onDeviceAdminDisabled(bundleName: string): void;
+
+  /**
+   * Called back when the installation status of an application that installed by the application market changes.
+   *
+   * @param { string } bundleName - bundleName indicates the name of the bundle.
+   * @param { common.InstallationResult } result - status indicates the result of application installation.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 22
+   */
+  onMarketAppInstallResult(bundleName: string, result: common.InstallationResult): void;
 
   /**
    * Called back when the log has collected.

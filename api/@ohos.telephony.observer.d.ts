@@ -136,6 +136,15 @@ declare namespace observer {
   type TelCallState = call.TelCallState;
 
   /**
+   * Indicates the states of carrier call.
+   *
+   * @typedef { call.CCallState }
+   * @syscap SystemCapability.Telephony.StateRegistry
+   * @since 23 dynamic&static
+   */
+  type CCallState = call.CCallState;
+
+  /**
    * Indicates the result of network search.
    *
    * @typedef { radio.NetworkSearchRealTimeResult }
@@ -834,7 +843,7 @@ declare namespace observer {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
-   * @since 6 dynamic
+   * @since 6
    */
   /**
    * Callback when the call state corresponding to the default sim card is updated.
@@ -850,7 +859,6 @@ declare namespace observer {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 11 dynamic
-   * @since 23 static
    */
   function on(type: 'callStateChange', callback: Callback<CallStateInfo>): void;
 
@@ -884,7 +892,7 @@ declare namespace observer {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
-   * @since 6 dynamic
+   * @since 6
    */
   /**
    * Callback when the call state corresponding to the monitored {@code slotId} is updated.
@@ -901,7 +909,6 @@ declare namespace observer {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 11 dynamic
-   * @since 23 static
    */
   function on(type: 'callStateChange', options: ObserverOptions, callback: Callback<CallStateInfo>): void;
 
@@ -934,7 +941,7 @@ declare namespace observer {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
-   * @since 6 dynamic
+   * @since 6
    */
   /**
    * Cancel callback when the call state is updated.
@@ -950,7 +957,6 @@ declare namespace observer {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 11 dynamic
-   * @since 23 static
    */
   function off(type: 'callStateChange', callback?: Callback<CallStateInfo>): void;
 
@@ -1029,6 +1035,39 @@ declare namespace observer {
    * @since 23 static
    */
   function offCallStateChangeEx(callback?: Callback<TelCallState>): void;
+
+  /**
+   * Called when the carrier call state changes.
+   *
+   * @permission ohos.permission.MANAGE_CALL_FOR_DEVICES
+   * @param { Callback<CCallStateInfo> } callback - Indicates the callback for getting the carrier call state.
+   * @param { ObserverOptions } [options] - Indicates the options for observer.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 8800001 - Invalid parameter value.
+   * @throws { BusinessError } 8800002 - Service connection failed.
+   * @throws { BusinessError } 8800003 - System internal error.
+   * @throws { BusinessError } 8800999 - Unknown error.
+   * @syscap SystemCapability.Telephony.StateRegistry
+   * @FaAndStageModel
+   * @since 23 dynamic&static
+   */
+  function onCCallStateChange(callback: Callback<CCallStateInfo>, options?: ObserverOptions): void;
+
+  /**
+   * Unsubscribes from the callback for listening to the carrier call state.
+   *
+   * @permission ohos.permission.MANAGE_CALL_FOR_DEVICES
+   * @param { Callback<CCallStateInfo> } [callback] - Indicates the callback to unsubscribe from.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 8800001 - Invalid parameter value.
+   * @throws { BusinessError } 8800002 - Service connection failed.
+   * @throws { BusinessError } 8800003 - System internal error.
+   * @throws { BusinessError } 8800999 - Unknown error.
+   * @syscap SystemCapability.Telephony.StateRegistry
+   * @FaAndStageModel
+   * @since 23 dynamic&static
+   */
+  function offCCallStateChange(callback?: Callback<CCallStateInfo>): void;
 
   /**
    * Callback when the sim state corresponding to the default sim card is updated.
@@ -1289,6 +1328,33 @@ declare namespace observer {
      * @type { string }
      * @syscap SystemCapability.Telephony.StateRegistry
      * @since 23 static
+     */
+    teleNumber: string;
+  }
+
+  /**
+   * Indicates carrier call state and number.
+   *
+   * @interface CCallStateInfo
+   * @syscap SystemCapability.Telephony.StateRegistry
+   * @since 23 dynamic&static
+   */
+  export interface CCallStateInfo {
+    /**
+     * Indicates carrier call state.
+     *
+     * @type { CCallState }
+     * @syscap SystemCapability.Telephony.StateRegistry
+     * @since 23 dynamic&static
+     */
+    state: CCallState;
+
+    /**
+     * Indicates carrier call number.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Telephony.StateRegistry
+     * @since 23 dynamic&static
      */
     teleNumber: string;
   }

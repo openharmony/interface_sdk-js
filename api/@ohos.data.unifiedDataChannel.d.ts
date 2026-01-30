@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023-2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -329,6 +329,7 @@ declare namespace unifiedDataChannel {
      * For file types, if the type set of UnifiedData contains general.jpeg, true is returned when the hasType API is
      * called to check whether the general.image type is included, because the general.jpeg type belongs to the
      * general.image type.
+     * 
      * @param { string } type - indicates to query data type.
      * @returns { boolean } if having mimeType in UnifiedData returns true, else returns false.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
@@ -343,6 +344,7 @@ declare namespace unifiedDataChannel {
      * For file types, if the type set of UnifiedData contains general.jpeg, true is returned when the hasType API is
      * called to check whether the general.image type is included, because the general.jpeg type belongs to the
      * general.image type.
+     * 
      * @param { string } type - indicates to query data type.
      * @returns { boolean } if having mimeType in UnifiedData returns true, else returns false.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
@@ -2416,7 +2418,7 @@ declare namespace unifiedDataChannel {
      * @since 11 dynamic
      */
     /**
-     * Indicates the id of app.
+     * Indicates the id of app label.
      * This field can be sourced from BMS or customized as needed.
      *
      * @returns { string } the id of app label
@@ -3249,12 +3251,12 @@ declare namespace unifiedDataChannel {
 
   /**
    * Indicates the callback function for deferred and non-blocking data loading.
-   * 
+   *
    * @typedef { function } DelayedDataLoadHandler
    * @param { DataLoadInfo } [acceptableInfo] - Indicates the type and number of data
-   *    that can be accepted by the receiver.
+   *     that can be accepted by the receiver.
    * @returns { Promise<UnifiedData | null> } - Asynchronously return the {@link UnifiedData} object
-   *    that needs to be loaded.
+   *     that needs to be loaded.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @stagemodelonly
    * @atomicservice

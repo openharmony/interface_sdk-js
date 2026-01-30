@@ -2783,6 +2783,7 @@ export class ComponentUtils {
    * @returns { componentUtils.ComponentInfo } the object of ComponentInfo.
    * @throws { BusinessError } 100001 - UI execution context not found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 11 dynamic
    */
@@ -3376,8 +3377,10 @@ export class DragController {
    * Please be noted, the default value of the flag is false, it means, for the same situation, the
    * parent will not receive the leave notification, just the child can get the enter event, which is
    * not fully strict.
+   * 
    * @param { boolean } enable - Indicating enable drag event strict reporting or not.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
@@ -5489,7 +5492,7 @@ export class UIContext {
   getId(): number;
 
   /**
-   * Set the switch for memory recycling of invisible image nodes.
+   * Set the switch for memory recycling of invisible image nodes
    * 
    * @param { boolean } enabled - The switch for memory recycling.
    *    <br>Default value: false, Passing `undefined` restores the default value.

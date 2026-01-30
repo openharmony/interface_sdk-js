@@ -20,7 +20,7 @@
 import { CommonMethod, Bindable } from './common';
 import { CustomBuilder } from './builder';
 import { Length } from './units';
-import { ComponentContent } from '../ComponentContent';
+import { ComponentContent, ComponentContentBase } from '../ComponentContent';
 import { ComponentBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from "./common";
 import { FrameNode } from '../FrameNode';
@@ -84,7 +84,7 @@ export declare enum SwipeActionState {
  * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 23 static
+ * @since 24 static
  */
 export declare enum ListItemSwipeActionDirection {
     /**
@@ -93,7 +93,7 @@ export declare enum ListItemSwipeActionDirection {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     START = 0,
     /**
@@ -102,7 +102,7 @@ export declare enum ListItemSwipeActionDirection {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     END = 1
 }
@@ -112,7 +112,7 @@ export declare enum ListItemSwipeActionDirection {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 23 static
+ * @since 24 static
  */
 export declare class ListItemSwipeActionManager {
     /**
@@ -125,7 +125,7 @@ export declare class ListItemSwipeActionManager {
      * @static
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     static expand(node: FrameNode, direction: ListItemSwipeActionDirection): void;
 
@@ -138,7 +138,7 @@ export declare class ListItemSwipeActionManager {
      * @static
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     static collapse(node: FrameNode): void;
 }
@@ -164,11 +164,11 @@ export declare interface SwipeActionItem {
       * An action item that appears when a list item slides right (when list direction is Vertical) or
       * slides down (when list direction Horizontal).
       *
-      * @type { ?ComponentContent }
+      * @type { ?ComponentContentBase }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
       * @since 23 static
       */
-    builderComponent?: ComponentContent;
+    builderComponent?: ComponentContentBase;
     /**
      * Defines distance for the delete area.
      *

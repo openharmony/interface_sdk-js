@@ -443,6 +443,7 @@ declare namespace fileShare {
    * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
    * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 13900042 - Out of memory.
    * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
    * @systemapi
    * @since 15 dynamic

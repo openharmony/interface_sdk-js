@@ -1185,16 +1185,6 @@ export declare interface BorderOptions {
    * @since 23 static
    */
   dashWidth?: EdgeWidths | LengthMetrics | LocalizedEdgeWidths;
-
-  /**
-   * Defines the border display hierarchy, such as show in the background or foreground。
-   *
-   * @type { ?boolean }
-   * @default true
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  showInForeground?: boolean;
 }
 
 /**
@@ -1428,7 +1418,7 @@ export declare interface DividerStyleOptions {
  * @interface ScrollBarMargin
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 23 static
+ * @since 24 static
  */
 export declare interface ScrollBarMargin {
   /**
@@ -1436,7 +1426,8 @@ export declare interface ScrollBarMargin {
    *
    * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @stagemodelonly
+   * @since 24 static
    */
   start?: LengthMetrics;
 
@@ -1445,7 +1436,8 @@ export declare interface ScrollBarMargin {
    *
    * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @stagemodelonly
+   * @since 24 static
    */
   end?: LengthMetrics;
 }
@@ -1561,7 +1553,8 @@ export declare interface AccessibilityActionOptions {
  *
  * @typedef { PresetFillType } ResponsiveFillType
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 23 static
+ * @stagemodelonly
+ * @since 24 static
  */
 export type ResponsiveFillType = PresetFillType;
 
@@ -1570,7 +1563,8 @@ export type ResponsiveFillType = PresetFillType;
  *
  * @interface ItemFillPolicy
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 23 static
+ * @stagemodelonly
+ * @since 24 static
  */
 export declare interface ItemFillPolicy {
   /**
@@ -1579,7 +1573,8 @@ export declare interface ItemFillPolicy {
    * @type { ?ResponsiveFillType }
    * @default ResponsiveFillType.BREAKPOINT_DEFAULT
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @stagemodelonly
+   * @since 24 static
    */
   fillType?: ResponsiveFillType;
 }
@@ -1589,8 +1584,8 @@ export declare interface ItemFillPolicy {
  *
  * @interface CacheCountInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 23 static
+ * @stagemodelonly
+ * @since 24 static
  */
 export declare interface CacheCountInfo {
   /**
@@ -1598,8 +1593,8 @@ export declare interface CacheCountInfo {
    *
    * @type { int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 23 static
+   * @stagemodelonly
+   * @since 24 static
    */
   minCount: int;
   /**
@@ -1607,8 +1602,8 @@ export declare interface CacheCountInfo {
    *
    * @type { int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 23 static
+   * @stagemodelonly
+   * @since 24 static
    */
   maxCount: int;
 }

@@ -172,14 +172,16 @@ export interface BuildOptions {
 
   /**
    * Build type of the Builder.
+   * 
    * @type { ?boolean } nestingBuilderSupported - Build type of the Builder.
    * Indicates whether support the type that WrappedBuilder contains builder used different params.
    * The value false means that the input arguments for @Builder are consistent, and true means the opposite.
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12 dynamic
+   * @since 12 dynamiconly
    */
   nestingBuilderSupported?: boolean;
 

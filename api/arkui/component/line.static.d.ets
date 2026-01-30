@@ -25,7 +25,8 @@ import { ComponentBuilder, CustomBuilder } from './builder';
  *
  * @typedef { [Length, Length] } ShapePoint
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 23 static
+ * @stagemodelonly
+ * @since 23 staticonly
  */
 export type ShapePoint = [
     Length,
@@ -43,19 +44,19 @@ export interface LineOptions {
     /**
      * Width of the rectangle where the line resides.
      *
-     * @type { ?(string | double) }
+     * @type { ?Length }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
      */
-    width?: string | double;
+    width?: Length;
     /**
      * Height of the rectangle where the line resides.
      *
-     * @type { ?(string | double) }
+     * @type { ?Length }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
      */
-    height?: string | double;
+    height?: Length;
 }
 
 /**

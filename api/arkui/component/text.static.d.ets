@@ -192,7 +192,7 @@ export declare interface TextAttribute extends CommonMethod {
      * @param { LineSpacingOptions } [options]
      * @returns { TextAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
     default lineSpacing(value: LengthMetrics | undefined, options?: LineSpacingOptions): this;
     /**
@@ -698,18 +698,18 @@ export declare interface TextAttribute extends CommonMethod {
      *     Passing `undefined` resets it to the default value.
      * @returns { TextAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
     default optimizeTrailingSpace(optimize: boolean | undefined): this;
 
     /**
      * Set the shader style of the text, such as lineargradient or radialgradient.
      *
-     * @param { ShaderStyle | undefined } shader - The shader style of the text. 
+     * @param { ShaderStyle | undefined } shader - The shader style of the text.
      *     Passing `undefined` resets it to the default value.
      * @returns { TextAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
     default shaderStyle(shader: ShaderStyle | undefined): this;
 
@@ -720,7 +720,7 @@ export declare interface TextAttribute extends CommonMethod {
      *     to enable automatic spacing. Passing `undefined` resets it to the default value.
      * @returns { TextAttribute } returns the instance of the TextAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
     default enableAutoSpacing(enabled: boolean | undefined): this;
 
@@ -731,7 +731,7 @@ export declare interface TextAttribute extends CommonMethod {
      *     Use default value when undefined.
      * @returns { TextAttribute } returns the instance of the TextAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
     default textVerticalAlign(textVerticalAlign: TextVerticalAlign | undefined): this;
 
@@ -742,7 +742,7 @@ export declare interface TextAttribute extends CommonMethod {
      *     Passing `undefined` resets it to the default value.
      * @returns { TextAttribute } returns the instance of the TextAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
     default contentTransition(transition: ContentTransition | undefined): this;
 
@@ -753,7 +753,7 @@ export declare interface TextAttribute extends CommonMethod {
      * @returns { TextAttribute } returns the instance of the TextAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     default textContentAlign(textContentAlign: TextContentAlign | undefined): this;
 
@@ -764,7 +764,7 @@ export declare interface TextAttribute extends CommonMethod {
      *     Passing `undefined` resets it to the default value.
      * @returns { TextAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
     default minLines(minLines: int | undefined): this;
 
@@ -774,17 +774,17 @@ export declare interface TextAttribute extends CommonMethod {
      * <p><strong>NOTE</strong>:
      * <br>If the value is set to undefined, this property does not limit the text line height.
      * </p>
-     * 
+     *
      * @param { LengthMetrics | undefined } value
      * @returns { TextAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
     default minLineHeight(value: LengthMetrics | undefined): this;
 
     /**
      * Set the maximum line height
-     * 
+     *
      * <p><strong>NOTE</strong>:
      * <br>If the value is set to undefined, this property does not limit the text line height.
      * </p>
@@ -792,7 +792,7 @@ export declare interface TextAttribute extends CommonMethod {
      * @param { LengthMetrics | undefined } value
      * @returns { TextAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
     default maxLineHeight(value: LengthMetrics | undefined): this;
 
@@ -806,19 +806,19 @@ export declare interface TextAttribute extends CommonMethod {
      * @param { double | undefined } value
      * @returns { TextAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
     default lineHeightMultiple(value: double | undefined): this;
   
     /**
      * Enable selected data detector.
-     * 
+     *
      * @param { boolean | undefined } enable - Whether to enable the selected data detector.
      * @returns { TextAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
-    default enableSelectedDataDetector(enable: boolean | undefined): this
+    default enableSelectedDataDetector(enable: boolean | undefined): this;
 
     /**
      * Sets the attribute modifier.
@@ -829,7 +829,6 @@ export declare interface TextAttribute extends CommonMethod {
      * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<TextAttribute> | AttributeModifier<CommonMethod> | undefined): this;
-    
     /**
      * Whether to compress punctuation at the beginning of line.
      *
@@ -840,7 +839,6 @@ export declare interface TextAttribute extends CommonMethod {
      * @since 23 static
      */
     default compressLeadingPunctuation(enabled: boolean | undefined): this;
-
     /**
      * Used to set the selected drag preview style.
      *

@@ -37,9 +37,11 @@
  *
  * @interface MenuInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
+ * @noninterop
  */
 interface MenuInterface {
     /**
@@ -62,6 +64,7 @@ interface MenuInterface {
      *
      * @returns { MenuAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @FaAndStageModel
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
@@ -128,9 +131,11 @@ declare enum SubMenuExpandingMode {
  *
  * @extends CommonMethod<MenuAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
+ * @noninterop
  */
 declare class MenuAttribute extends CommonMethod<MenuAttribute> {
     /**
@@ -139,6 +144,7 @@ declare class MenuAttribute extends CommonMethod<MenuAttribute> {
      * @param { Length } value - Indicates the font size of menu item.
      * @returns { MenuAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @FaAndStageModel
      * @since 9 dynamiconly
      * @deprecated since 10
      * @useinstead font
@@ -280,9 +286,11 @@ declare class MenuAttribute extends CommonMethod<MenuAttribute> {
  * Defines Menu Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
+ * @noninterop
  */
 declare const Menu: MenuInterface;
 
@@ -303,8 +311,10 @@ declare const Menu: MenuInterface;
  * Defines Menu Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
+ * @noninterop
  */
 declare const MenuInstance: MenuAttribute;

@@ -255,6 +255,23 @@ export declare class CanvasPath {
    * @since 23 static
    */
   rect(x: double, y: double, w: double, h: double): void;
+
+  /**
+   * Draw rounded Rectangular Paths
+   *
+   * @param { double } x - The x-axis coordinate of the start point of the rectangle.
+   * @param { double } y - The y-axis coordinate of the start point of the rectangle.
+   * @param { double } w - Width of the rectangle.
+   * @param { double } h - Height of the rectangle.
+   * @param { double | Array<double> } [radii] - A number or list specifying the radii of the circular arc
+   *     to be used for the corners of the rectangle. The default value is 0.
+   * @throws { BusinessError } 103701 - Parameter error. Possible causes: 
+   * <br> 1. The param radii is a list that has zero or more than four elements.
+   * <br> 2. The param radii contains negative value.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  roundRect(x: double, y: double, w: double, h: double, radii?: double | Array<double>): void;
 }
 
 /**

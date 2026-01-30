@@ -8400,19 +8400,10 @@ export class TaskSignal {
    * @throws { BusinessError } 13900008 - Bad file descriptor
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 12 dynamic
+   * @since 12 dynamiconly
+   * @deprecated since 24
    */
   onCancel(): Promise<string>;
-
-  /**
-   * Defines the callback for listening for the copy canceled.
-   *
-   * @param { Callback<string> } callback - callback of progress callback
-   * @throws { BusinessError } 13900020 - Invalid argument
-   * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 23 dynamic&static
-   */
-  onCancel(callback: Callback<string>): void;
 }
 
 /**

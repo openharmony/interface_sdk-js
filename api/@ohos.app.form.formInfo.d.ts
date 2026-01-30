@@ -1758,6 +1758,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 20 dynamic
+     * @since 23 static
      */
     FORM_SIZE_CHANGE = 3,
   }
@@ -1943,7 +1944,7 @@ declare namespace formInfo {
    * @atomicservice
    * @since 20 dynamic
    * @since 23 static
-   */  
+   */
   interface RunningFormInfo {
     /**
      * Obtains the id of the this form.

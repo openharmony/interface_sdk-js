@@ -90,6 +90,7 @@ declare enum RadioIndicatorType {
  *
  * @interface RadioOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
@@ -125,6 +126,7 @@ declare interface RadioOptions {
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -161,6 +163,7 @@ declare interface RadioOptions {
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -302,10 +305,12 @@ declare interface RadioStyle {
  *
  * @interface RadioInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
  * @since 11 dynamic
+ * @noninterop
  */
 interface RadioInterface {
   /**
@@ -341,6 +346,7 @@ interface RadioInterface {
    * @param { RadioOptions } options
    * @returns { RadioAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -389,10 +395,12 @@ declare type OnRadioChangeCallback = (isChecked: boolean) => void;
  *
  * @extends CommonMethod<RadioAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
  * @since 11 dynamic
+ * @noninterop
  */
 declare class RadioAttribute extends CommonMethod<RadioAttribute> {
   /**
@@ -428,6 +436,7 @@ declare class RadioAttribute extends CommonMethod<RadioAttribute> {
    * @param { boolean } value
    * @returns { RadioAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -481,6 +490,7 @@ declare class RadioAttribute extends CommonMethod<RadioAttribute> {
    * @param { function } callback
    * @returns { RadioAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -617,6 +627,7 @@ declare interface RadioConfiguration extends CommonConfiguration<RadioConfigurat
  * Defines Radio Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
@@ -649,6 +660,7 @@ declare const Radio: RadioInterface;
  * Defines Radio Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice

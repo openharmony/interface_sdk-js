@@ -388,14 +388,13 @@ export declare interface AlphabetIndexerAttribute extends CommonMethod {
  * Defines AlphabetIndexer Component
  *
  * @param { AlphabetIndexerOptions } options - indexer constructor options
- * @param { CustomBuilder } [content_] - container
  * @returns { AlphabetIndexerAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
 @ComponentBuilder
 export declare function AlphabetIndexer(
-    options: AlphabetIndexerOptions, 
-    content_?: CustomBuilder,
+    options: AlphabetIndexerOptions
 ): AlphabetIndexerAttribute

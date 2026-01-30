@@ -17,7 +17,7 @@
  * @file
  * @kit ConnectivityKit
  */
-/*** if arkts dynamic */
+
 import type { NfcATag as _NfcATag, NfcBTag as _NfcBTag, NfcFTag as _NfcFTag, NfcVTag as _NfcVTag } from './tag/nfctech';
 import {
   IsoDepTag as _IsoDepTag,
@@ -30,9 +30,8 @@ import {
 import { NdefMessage as _NdefMessage } from './tag/nfctech';
 import { TagSession as _TagSession } from './tag/tagSession';
 import type { PacMap } from './ability/dataAbilityHelper';
-/*** endif */
 import type rpc from './@ohos.rpc';
-import type { AsyncCallback } from './@ohos.base';
+import type { AsyncCallback, Callback } from './@ohos.base';
 import Want from './@ohos.app.ability.Want';
 import type { ElementName } from './bundleManager/ElementName';
 
@@ -175,6 +174,7 @@ declare namespace tag {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
+   * @since 23 static
    */
   const NDEF_FORMATABLE = 7;
 
@@ -221,6 +221,7 @@ declare namespace tag {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 18 dynamic
+   * @since 23 static
    */
   const NFC_BARCODE = 10;
 
@@ -234,10 +235,11 @@ declare namespace tag {
   /**
    * TNF types definitions, see NFCForum-TS-NDEF_1.0.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
+   * @since 23 static
    */
   enum TnfType {
     /**
@@ -252,6 +254,7 @@ declare namespace tag {
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 12 dynamic
+     * @since 23 static
      */
     TNF_EMPTY = 0x0,
 
@@ -267,6 +270,7 @@ declare namespace tag {
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 12 dynamic
+     * @since 23 static
      */
     TNF_WELL_KNOWN = 0x1,
 
@@ -282,6 +286,7 @@ declare namespace tag {
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 12 dynamic
+     * @since 23 static
      */
     TNF_MEDIA = 0x2,
 
@@ -297,6 +302,7 @@ declare namespace tag {
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 12 dynamic
+     * @since 23 static
      */
     TNF_ABSOLUTE_URI = 0x3,
 
@@ -312,6 +318,7 @@ declare namespace tag {
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 12 dynamic
+     * @since 23 static
      */
     TNF_EXT_APP = 0x4,
 
@@ -327,6 +334,7 @@ declare namespace tag {
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 12 dynamic
+     * @since 23 static
      */
     TNF_UNKNOWN = 0x5,
 
@@ -342,6 +350,7 @@ declare namespace tag {
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 12 dynamic
+     * @since 23 static
      */
     TNF_UNCHANGED = 0x6
   }
@@ -356,7 +365,7 @@ declare namespace tag {
   /**
    * NfcForum Type definition. The NDEF tag may use one of them.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
@@ -375,6 +384,7 @@ declare namespace tag {
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 12 dynamic
+     * @since 23 static
      */
     NFC_FORUM_TYPE_1 = 1,
 
@@ -390,6 +400,7 @@ declare namespace tag {
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 12 dynamic
+     * @since 23 static
      */
     NFC_FORUM_TYPE_2 = 2,
 
@@ -405,6 +416,7 @@ declare namespace tag {
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 12 dynamic
+     * @since 23 static
      */
     NFC_FORUM_TYPE_3 = 3,
 
@@ -420,6 +432,7 @@ declare namespace tag {
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 12 dynamic
+     * @since 23 static
      */
     NFC_FORUM_TYPE_4 = 4,
 
@@ -454,8 +467,9 @@ declare namespace tag {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
+   * @since 23 static
    */
-  const RTD_TEXT: number[];
+  const RTD_TEXT: int[];
 
   /**
    * RTD type URI, see NFC Record Type Definition (RTD) Specification.
@@ -471,8 +485,9 @@ declare namespace tag {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
+   * @since 23 static
    */
-  const RTD_URI: number[];
+  const RTD_URI: int[];
 
   /**
    * MifareClassic Type definition
@@ -484,10 +499,11 @@ declare namespace tag {
   /**
    * MifareClassic Type definition
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
+   * @since 23 static
    */
   enum MifareClassicType {
     /**
@@ -502,6 +518,7 @@ declare namespace tag {
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 12 dynamic
+     * @since 23 static
      */
     TYPE_UNKNOWN = 0,
 
@@ -517,6 +534,7 @@ declare namespace tag {
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 12 dynamic
+     * @since 23 static
      */
     TYPE_CLASSIC = 1,
 
@@ -532,6 +550,7 @@ declare namespace tag {
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 12 dynamic
+     * @since 23 static
      */
     TYPE_PLUS = 2,
 
@@ -547,6 +566,7 @@ declare namespace tag {
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 12 dynamic
+     * @since 23 static
      */
     TYPE_PRO = 3
   }
@@ -561,10 +581,11 @@ declare namespace tag {
   /**
    * MifareClassic Tag size.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
+   * @since 23 static
    */
   enum MifareClassicSize {
     /**
@@ -579,6 +600,7 @@ declare namespace tag {
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 12 dynamic
+     * @since 23 static
      */
     MC_SIZE_MINI = 320,
 
@@ -594,6 +616,7 @@ declare namespace tag {
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 12 dynamic
+     * @since 23 static
      */
     MC_SIZE_1K = 1024,
 
@@ -609,6 +632,7 @@ declare namespace tag {
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 12 dynamic
+     * @since 23 static
      */
     MC_SIZE_2K = 2048,
 
@@ -624,6 +648,7 @@ declare namespace tag {
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 12 dynamic
+     * @since 23 static
      */
     MC_SIZE_4K = 4096
   }
@@ -638,10 +663,11 @@ declare namespace tag {
   /**
    * MifareUltralight Type definition
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
+   * @since 23 static
    */
   enum MifareUltralightType {
     /**
@@ -656,6 +682,7 @@ declare namespace tag {
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 12 dynamic
+     * @since 23 static
      */
     TYPE_UNKNOWN = 0,
 
@@ -671,6 +698,7 @@ declare namespace tag {
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 12 dynamic
+     * @since 23 static
      */
     TYPE_ULTRALIGHT = 1,
 
@@ -686,6 +714,7 @@ declare namespace tag {
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 12 dynamic
+     * @since 23 static
      */
     TYPE_ULTRALIGHT_C = 2
   }
@@ -711,7 +740,7 @@ declare namespace tag {
    *
    * @param { TagInfo } tagInfo - Indicates the dispatched tag information.
    * @returns { NfcATag } {@link NfcATag} object.
-   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -727,7 +756,7 @@ declare namespace tag {
    *
    * @param { TagInfo } tagInfo - Indicates the dispatched tag information.
    * @returns { NfcATag } {@link NfcATag} object.
-   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -736,6 +765,7 @@ declare namespace tag {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
+   * @since 23 static
    */
   function getNfcA(tagInfo: TagInfo): NfcATag;
 
@@ -760,7 +790,7 @@ declare namespace tag {
    *
    * @param { TagInfo } tagInfo - Indicates the dispatched tag information.
    * @returns { NfcBTag } The {@link NfcBTag} object.
-   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -776,7 +806,7 @@ declare namespace tag {
    *
    * @param { TagInfo } tagInfo - Indicates the dispatched tag information.
    * @returns { NfcBTag } The {@link NfcBTag} object.
-   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -785,6 +815,7 @@ declare namespace tag {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
+   * @since 23 static
    */
   function getNfcB(tagInfo: TagInfo): NfcBTag;
 
@@ -809,7 +840,7 @@ declare namespace tag {
    *
    * @param { TagInfo } tagInfo - Indicates the dispatched tag information.
    * @returns { NfcFTag } The {@link NfcFTag} object.
-   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -825,7 +856,7 @@ declare namespace tag {
    *
    * @param { TagInfo } tagInfo - Indicates the dispatched tag information.
    * @returns { NfcFTag } The {@link NfcFTag} object.
-   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -834,6 +865,7 @@ declare namespace tag {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
+   * @since 23 static
    */
   function getNfcF(tagInfo: TagInfo): NfcFTag;
 
@@ -858,7 +890,7 @@ declare namespace tag {
    *
    * @param { TagInfo } tagInfo - Indicates the dispatched tag information.
    * @returns { NfcVTag } The {@link NfcVTag} object.
-   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -874,7 +906,7 @@ declare namespace tag {
    *
    * @param { TagInfo } tagInfo - Indicates the dispatched tag information.
    * @returns { NfcVTag } The {@link NfcVTag} object.
-   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -883,6 +915,7 @@ declare namespace tag {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
+   * @since 23 static
    */
   function getNfcV(tagInfo: TagInfo): NfcVTag;
 
@@ -893,7 +926,7 @@ declare namespace tag {
    *
    * @param { TagInfo } tagInfo - Indicates the dispatched tag information.
    * @returns { IsoDepTag } The {@link IsoDepTag} object.
-   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -909,7 +942,7 @@ declare namespace tag {
    *
    * @param { TagInfo } tagInfo - Indicates the dispatched tag information.
    * @returns { IsoDepTag } The {@link IsoDepTag} object.
-   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -918,6 +951,7 @@ declare namespace tag {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
+   * @since 23 static
    */
   function getIsoDep(tagInfo: TagInfo): IsoDepTag;
 
@@ -928,7 +962,7 @@ declare namespace tag {
    *
    * @param { TagInfo } tagInfo - Indicates the dispatched tag information.
    * @returns { NdefTag } The {@link NdefTag} object.
-   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -944,7 +978,7 @@ declare namespace tag {
    *
    * @param { TagInfo } tagInfo - Indicates the dispatched tag information.
    * @returns { NdefTag } The {@link NdefTag} object.
-   * @throws { BusinessError } 401 - The parameter check failed.  Possible causes: 
+   * @throws { BusinessError } 401 - The parameter check failed.  Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -953,6 +987,7 @@ declare namespace tag {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
+   * @since 23 static
    */
   function getNdef(tagInfo: TagInfo): NdefTag;
 
@@ -963,7 +998,7 @@ declare namespace tag {
    *
    * @param { TagInfo } tagInfo - Indicates the dispatched tag information.
    * @returns { MifareClassicTag } The {@link MifareClassicTag} object.
-   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -979,7 +1014,7 @@ declare namespace tag {
    *
    * @param { TagInfo } tagInfo - Indicates the dispatched tag information.
    * @returns { MifareClassicTag } The {@link MifareClassicTag} object.
-   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -988,6 +1023,7 @@ declare namespace tag {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
+   * @since 23 static
    */
   function getMifareClassic(tagInfo: TagInfo): MifareClassicTag;
 
@@ -998,7 +1034,7 @@ declare namespace tag {
    *
    * @param { TagInfo } tagInfo - Indicates the dispatched tag information.
    * @returns { MifareUltralightTag } The {@link MifareUltralightTag} object.
-   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -1014,7 +1050,7 @@ declare namespace tag {
    *
    * @param { TagInfo } tagInfo - Indicates the dispatched tag information.
    * @returns { MifareUltralightTag } The {@link MifareUltralightTag} object.
-   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -1023,6 +1059,7 @@ declare namespace tag {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
+   * @since 23 static
    */
   function getMifareUltralight(tagInfo: TagInfo): MifareUltralightTag;
 
@@ -1033,7 +1070,7 @@ declare namespace tag {
    *
    * @param { TagInfo } tagInfo - Indicates the dispatched tag information.
    * @returns { NdefFormatableTag } The {@link NdefFormatableTag} object.
-   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -1049,7 +1086,7 @@ declare namespace tag {
    *
    * @param { TagInfo } tagInfo - Indicates the dispatched tag information.
    * @returns { NdefFormatableTag } The {@link NdefFormatableTag} object.
-   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -1058,6 +1095,7 @@ declare namespace tag {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
+   * @since 23 static
    */
   function getNdefFormatable(tagInfo: TagInfo): NdefFormatableTag;
 
@@ -1077,6 +1115,7 @@ declare namespace tag {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 18 dynamic
+   * @since 23 static
    */
   function getBarcodeTag(tagInfo: TagInfo): BarcodeTag;
 
@@ -1085,7 +1124,7 @@ declare namespace tag {
    *
    * @param { Want } want - The want object that contains the values of TagInfo.
    * @returns { TagInfo } The {@link TagInfo} object.
-   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -1098,7 +1137,7 @@ declare namespace tag {
    *
    * @param { Want } want - The want object that contains the values of TagInfo.
    * @returns { TagInfo } The {@link TagInfo} object.
-   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -1106,6 +1145,7 @@ declare namespace tag {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
+   * @since 23 static
    */
   function getTagInfo(want: Want): TagInfo;
 
@@ -1117,7 +1157,7 @@ declare namespace tag {
    * @param { number[] } discTech - The technologies list to set for discovering. From {@link NFC_A} to {@link MIFARE_ULTRALIGHT}.
    * @param { AsyncCallback<TagInfo> } callback - The callback to dispatched the TagInfo object for application.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -1130,10 +1170,10 @@ declare namespace tag {
    *
    * @permission ohos.permission.NFC_TAG
    * @param { ElementName } elementName - The element name of application, must include the bundleName and abilityName.
-   * @param { number[] } discTech - The technologies list to set for discovering. From {@link NFC_A} to {@link MIFARE_ULTRALIGHT}.
+   * @param { int[] } discTech - The technologies list to set for discovering. From {@link NFC_A} to {@link MIFARE_ULTRALIGHT}.
    * @param { AsyncCallback<TagInfo> } callback - The callback to dispatched the TagInfo object for application.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -1143,12 +1183,9 @@ declare namespace tag {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
+   * @since 23 static
    */
-  function registerForegroundDispatch(
-    elementName: ElementName,
-    discTech: number[],
-    callback: AsyncCallback<TagInfo>
-  ): void;
+  function registerForegroundDispatch(elementName: ElementName, discTech: int[], callback: AsyncCallback<TagInfo>): void;
 
   /**
    * Unregister tag foreground dispatch.
@@ -1156,7 +1193,7 @@ declare namespace tag {
    * @permission ohos.permission.NFC_TAG
    * @param { ElementName } elementName - The element name of application, must include the bundleName and abilityName.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -1170,7 +1207,7 @@ declare namespace tag {
    * @permission ohos.permission.NFC_TAG
    * @param { ElementName } elementName - The element name of application, must include the bundleName and abilityName.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -1179,6 +1216,7 @@ declare namespace tag {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
+   * @since 23 static
    */
   function unregisterForegroundDispatch(elementName: ElementName): void;
 
@@ -1191,7 +1229,7 @@ declare namespace tag {
    * @param { number[] } discTech - The technologies list to set for discovering. From {@link NFC_A} to {@link MIFARE_ULTRALIGHT}.
    * @param { AsyncCallback<TagInfo> } callback - The callback to dispatched the TagInfo object for application.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -1206,10 +1244,10 @@ declare namespace tag {
    * @permission ohos.permission.NFC_TAG
    * @param { 'readerMode' } type - The callback type to be registered.
    * @param { ElementName } elementName - The element name of application, must include the bundleName and abilityName.
-   * @param { number[] } discTech - The technologies list to set for discovering. From {@link NFC_A} to {@link MIFARE_ULTRALIGHT}.
+   * @param { int[] } discTech - The technologies list to set for discovering. From {@link NFC_A} to {@link MIFARE_ULTRALIGHT}.
    * @param { AsyncCallback<TagInfo> } callback - The callback to dispatched the TagInfo object for application.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -1220,7 +1258,29 @@ declare namespace tag {
    * @atomicservice
    * @since 12 dynamic
    */
-  function on(type: 'readerMode', elementName: ElementName, discTech: number[], callback: AsyncCallback<TagInfo>): void;
+  function on(type: 'readerMode', elementName: ElementName, discTech: int[], callback: AsyncCallback<TagInfo>): void;
+
+  /**
+   * Set reader mode enabled when the specific application is foreground.
+   * Dispatches to this application only if a tag discovered.
+   *
+   * @permission ohos.permission.NFC_TAG
+   * @param { ElementName } elementName - The element name of application, must include the bundleName and abilityName.
+   * @param { int[] } discTech - The technologies list to set for discovering.
+   *     From {@link NFC_A} to {@link MIFARE_ULTRALIGHT}.
+   * @param { AsyncCallback<TagInfo> } callback - The callback to dispatched the TagInfo object for application.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
+   * @throws { BusinessError } 3100202 - The element state is invalid.
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @since 23 static
+   */
+  function onReaderMode(elementName: ElementName, discTech: int[], callback: AsyncCallback<TagInfo>): void;
 
   /**
    * Disable foreground reader mode settings explicitly.
@@ -1230,7 +1290,7 @@ declare namespace tag {
    * @param { ElementName } elementName - The element name of application, must include the bundleName and abilityName.
    * @param { AsyncCallback<TagInfo> } [callback] - The callback to dispatched the TagInfo object for application.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -1247,7 +1307,7 @@ declare namespace tag {
    * @param { ElementName } elementName - The element name of application, must include the bundleName and abilityName.
    * @param { AsyncCallback<TagInfo> } [callback] - The callback to dispatched the TagInfo object for application.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -1261,6 +1321,108 @@ declare namespace tag {
   function off(type: 'readerMode', elementName: ElementName, callback?: AsyncCallback<TagInfo>): void;
 
   /**
+   * Disable foreground reader mode settings explicitly.
+   *
+   * @permission ohos.permission.NFC_TAG
+   * @param { ElementName } elementName - The element name of application, must include the bundleName and abilityName.
+   * @param { AsyncCallback<TagInfo> } [callback] - The callback to dispatched the TagInfo object for application.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
+   * @throws { BusinessError } 3100203 - The off() API can be called only when the on() has been called.
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @since 23 static
+   */
+  function offReaderMode(elementName: ElementName, callback?: AsyncCallback<TagInfo>): void;
+
+  /**
+   * Set reader mode enabled when the specific application is on foreground and set card presence interval.
+   * Tag infomation will be dispatched to the application only if a NFC tag is discovered.
+   *
+   * @permission ohos.permission.NFC_TAG
+   * @param { 'readerModeWithInterval' } type - The callback type to be registered.
+   * @param { ElementName } elementName - The element name of application, must include the bundleName and abilityName.
+   * @param { int[] } discTech - The technologies list to set for discovering.
+   *     From {@link NFC_A} to {@link MIFARE_ULTRALIGHT}.
+   * @param { Callback<TagInfo> } callback - The callback to dispatched the TagInfo object for application.
+   * @param { int } interval - The interval for reader presence check.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
+   * @throws { BusinessError } 3100202 - The element state is invalid.
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  function on(
+    type: 'readerModeWithInterval',
+    elementName: ElementName,
+    discTech: int[],
+    callback: Callback<TagInfo>,
+    interval: int
+  ): void;
+
+  /**
+   * Set reader mode enabled when the specific application is on foreground and set card presence interval.
+   * Tag infomation will be dispatched to the application only if a NFC tag is discovered.
+   *
+   * @permission ohos.permission.NFC_TAG
+   * @param { ElementName } elementName - The element name of application, must include the bundleName and abilityName.
+   * @param { int[] } discTech - The technologies list to set for discovering.
+   *     From {@link NFC_A} to {@link MIFARE_ULTRALIGHT}.
+   * @param { Callback<TagInfo> } callback - The callback to dispatched the TagInfo object for application.
+   * @param { int } interval - The interval for reader presence check.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
+   * @throws { BusinessError } 3100202 - The element state is invalid.
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @since 23 static
+   */
+  function onReaderModeWithInterval(
+    elementName: ElementName,
+    discTech: int[],
+    callback: Callback<TagInfo>,
+    interval: int
+  ): void;
+
+  /**
+   * Disable foreground reader mode settings explicitly.
+   *
+   * @permission ohos.permission.NFC_TAG
+   * @param { 'readerModeWithInterval' } type - The callback type to be unregistered.
+   * @param { ElementName } elementName - The element name of application, must include the bundleName and abilityName.
+   * @param { Callback<TagInfo> } [callback] - The callback to dispatched the TagInfo object for application.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
+   * @throws { BusinessError } 3100203 - The off() API can be called only when the on() has been called.
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  function off(type: 'readerModeWithInterval', elementName: ElementName, callback?: Callback<TagInfo>): void;
+
+  /**
+   * Disable foreground reader mode settings explicitly.
+   *
+   * @permission ohos.permission.NFC_TAG
+   * @param { ElementName } elementName - The element name of application, must include the bundleName and abilityName.
+   * @param { Callback<TagInfo> } [callback] - The callback to dispatched the TagInfo object for application.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
+   * @throws { BusinessError } 3100203 - The off() API can be called only when the on() has been called.
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @since 23 static
+   */
+  function offReaderModeWithInterval(elementName: ElementName, callback?: Callback<TagInfo>): void;
+
+  /**
    * Provides tag information.
    * <p>This class provides the technology a tag supports, for example, NFC-A. Applications can create
    * different tags based on the supported technology.
@@ -1269,7 +1431,7 @@ declare namespace tag {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @since 7
    */
-    /**
+  /**
    * Provides tag information.
    * <p>This class provides the technology a tag supports, for example, NFC-A. Applications can create
    * different tags based on the supported technology.
@@ -1292,13 +1454,13 @@ declare namespace tag {
      * The uid of this tag, it.
      *
      * @permission ohos.permission.NFC_TAG
-     * @type { number[] }
+     * @type { int[] }
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
      */
-    uid: number[];
+    uid: int[];
 
     /**
      * The supported technology list of this tag.
@@ -1311,13 +1473,13 @@ declare namespace tag {
      * The supported technology list of this tag.
      *
      * @permission ohos.permission.NFC_TAG
-     * @type { number[] }
+     * @type { int[] }
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
      */
-    technology: number[];
+    technology: int[];
 
     /**
      * The extra data for each technology of this tag.
@@ -1327,6 +1489,7 @@ declare namespace tag {
      * @syscap SystemCapability.Communication.NFC.Tag
      * @systemapi hide for inner use.
      * @since 9 dynamic
+     * @since 23 static
      */
     extrasData: PacMap[];
 
@@ -1334,12 +1497,13 @@ declare namespace tag {
      * The the RF discovery id of this tag.
      *
      * @permission ohos.permission.NFC_TAG
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.NFC.Tag
      * @systemapi hide for inner use.
      * @since 9 dynamic
+     * @since 23 static
      */
-    tagRfDiscId: number;
+    tagRfDiscId: int;
 
     /**
      * The extra data for the technology of this tag.
@@ -1349,6 +1513,7 @@ declare namespace tag {
      * @syscap SystemCapability.Communication.NFC.Tag
      * @systemapi hide for inner use.
      * @since 9 dynamic
+     * @since 23 static
      */
     remoteTagService: rpc.RemoteObject;
 
@@ -1378,6 +1543,7 @@ declare namespace tag {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
+   * @since 23 static
    */
   export interface NdefRecord {
     /**
@@ -1389,12 +1555,13 @@ declare namespace tag {
     /**
      * tnf of NdefRecord
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 12 dynamic
+     * @since 23 static
      */
-    tnf: number;
+    tnf: int;
 
     /**
      * RTD type of NdefRecord
@@ -1406,12 +1573,13 @@ declare namespace tag {
     /**
      * RTD type of NdefRecord
      *
-     * @type { number[] }
+     * @type { int[] }
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 12 dynamic
+     * @since 23 static
      */
-    rtdType: number[];
+    rtdType: int[];
 
     /**
      * id of NdefRecord
@@ -1422,12 +1590,13 @@ declare namespace tag {
     /**
      * id of NdefRecord
      *
-     * @type { number[] }
+     * @type { int[] }
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 12 dynamic
+     * @since 23 static
      */
-    id: number[];
+    id: int[];
 
     /**
      * payload of NdefRecord
@@ -1438,12 +1607,13 @@ declare namespace tag {
     /**
      * payload of NdefRecord
      *
-     * @type { number[] }
+     * @type { int[] }
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 12 dynamic
+     * @since 23 static
      */
-    payload: number[];
+    payload: int[];
   }
 
   /**
@@ -1468,7 +1638,7 @@ declare namespace tag {
      *
      * @param { string } uri - Uri data for new NDEF record.
      * @returns { NdefRecord } The instance of NdefRecord.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
      * <br> 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameters types.
      * <br> 3. Parameter verification failed.
@@ -1480,13 +1650,14 @@ declare namespace tag {
      *
      * @param { string } uri - Uri data for new NDEF record.
      * @returns { NdefRecord } The instance of NdefRecord.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
      * <br> 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameters types.
      * <br> 3. Parameter verification failed.
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 12 dynamic
+     * @since 23 static
      */
     function makeUriRecord(uri: string): NdefRecord;
 
@@ -1496,7 +1667,7 @@ declare namespace tag {
      * @param { string } text - Text data for new an NDEF record.
      * @param { string } locale - Language code for the NDEF record. if locale is null, use default locale.
      * @returns { NdefRecord } The instance of NdefRecord.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
      * <br> 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameters types.
      * <br> 3. Parameter verification failed.
@@ -1509,13 +1680,14 @@ declare namespace tag {
      * @param { string } text - Text data for new an NDEF record.
      * @param { string } locale - Language code for the NDEF record. if locale is null, use default locale.
      * @returns { NdefRecord } The instance of NdefRecord.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
      * <br> 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameters types.
      * <br> 3. Parameter verification failed.
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 12 dynamic
+     * @since 23 static
      */
     function makeTextRecord(text: string, locale: string): NdefRecord;
 
@@ -1531,6 +1703,7 @@ declare namespace tag {
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 18 dynamic
+     * @since 23 static
      */
     function makeApplicationRecord(bundleName: string): NdefRecord;
 
@@ -1540,7 +1713,7 @@ declare namespace tag {
      * @param { string } mimeType type of mime data for new an NDEF record.
      * @param { number[] } mimeData mime data for new an NDEF record.
      * @returns { NdefRecord } The instance of NdefRecord.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
      * <br> 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameters types.
      * <br> 3. Parameter verification failed.
@@ -1551,17 +1724,18 @@ declare namespace tag {
      * Creates an NDEF record with mime data.
      *
      * @param { string } mimeType type of mime data for new an NDEF record.
-     * @param { number[] } mimeData mime data for new an NDEF record.
+     * @param { int[] } mimeData mime data for new an NDEF record.
      * @returns { NdefRecord } The instance of NdefRecord.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
      * <br> 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameters types.
      * <br> 3. Parameter verification failed.
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 12 dynamic
+     * @since 23 static
      */
-    function makeMimeRecord(mimeType: string, mimeData: number[]): NdefRecord;
+    function makeMimeRecord(mimeType: string, mimeData: int[]): NdefRecord;
 
     /**
      * Creates an NDEF record with external data.
@@ -1570,7 +1744,7 @@ declare namespace tag {
      * @param { string } type - Domain specific type of data for the external data.
      * @param { number[] } externalData - Data payload of an NDEF record.
      * @returns { NdefRecord } The instance of NdefRecord.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
      * <br> 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameters types.
      * <br> 3. Parameter verification failed.
@@ -1582,23 +1756,24 @@ declare namespace tag {
      *
      * @param { string } domainName - Domain name of issuing organization for the external data.
      * @param { string } type - Domain specific type of data for the external data.
-     * @param { number[] } externalData - Data payload of an NDEF record.
+     * @param { int[] } externalData - Data payload of an NDEF record.
      * @returns { NdefRecord } The instance of NdefRecord.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
      * <br> 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameters types.
      * <br> 3. Parameter verification failed.
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 12 dynamic
+     * @since 23 static
      */
-    function makeExternalRecord(domainName: string, type: string, externalData: number[]): NdefRecord;
+    function makeExternalRecord(domainName: string, type: string, externalData: int[]): NdefRecord;
     /**
      * Creates an NDEF message with raw bytes.
      *
      * @param { number[] } data - The raw bytes to parse NDEF message.
      * @returns { NdefMessage } The instance of NdefMessage.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
      * <br> 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameters types.
      * <br> 3. Parameter verification failed.
@@ -1608,9 +1783,9 @@ declare namespace tag {
     /**
      * Creates an NDEF message with raw bytes.
      *
-     * @param { number[] } data - The raw bytes to parse NDEF message.
+     * @param { int[] } data - The raw bytes to parse NDEF message.
      * @returns { NdefMessage } The instance of NdefMessage.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
      * <br> 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameters types.
      * <br> 3. Parameter verification failed.
@@ -1618,14 +1793,27 @@ declare namespace tag {
      * @atomicservice
      * @since 12 dynamic
      */
-    function createNdefMessage(data: number[]): NdefMessage;
+    function createNdefMessage(data: int[]): NdefMessage;
+
+    /**
+     * Creates an NDEF message with raw bytes.
+     * @param { int[] } data - The raw bytes to parse NDEF message.
+     * @returns { NdefMessage } The instance of NdefMessage.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1. Mandatory parameters are left unspecified.
+     *     2. Incorrect parameter types.
+     *     3. Parameter verification failed.
+     * @syscap SystemCapability.Communication.NFC.Tag
+     * @since 23 static
+     */
+    function createNdefMessageByData(data: int[]): NdefMessage;
 
     /**
      * Creates an NDEF message with record list.
      *
      * @param { NdefRecord[] } ndefRecords - The NDEF records to parse NDEF message.
      * @returns { NdefMessage } The instance of NdefMessage.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
      * <br> 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameters types.
      * <br> 3. Parameter verification failed.
@@ -1637,7 +1825,7 @@ declare namespace tag {
      *
      * @param { NdefRecord[] } ndefRecords - The NDEF records to parse NDEF message.
      * @returns { NdefMessage } The instance of NdefMessage.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
      * <br> 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameters types.
      * <br> 3. Parameter verification failed.
@@ -1646,6 +1834,19 @@ declare namespace tag {
      * @since 12 dynamic
      */
     function createNdefMessage(ndefRecords: NdefRecord[]): NdefMessage;
+
+    /**
+     * Creates an NDEF message with record list.
+     * @param { NdefRecord[] } ndefRecords - The NDEF records to parse NDEF message.
+     * @returns { NdefMessage } The instance of NdefMessage.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1. Mandatory parameters are left unspecified.
+     *     2. Incorrect parameter types.
+     *     3. Parameter verification failed.
+     * @syscap SystemCapability.Communication.NFC.Tag
+     * @since 23 static
+     */
+    function createNdefMessageByRecords(ndefRecords: NdefRecord[]): NdefMessage;
 
     /**
      * Parses an NDEF message into raw bytes.
@@ -1660,202 +1861,215 @@ declare namespace tag {
      * Parses an NDEF message into raw bytes.
      *
      * @param { NdefMessage } ndefMessage - An NDEF message to parse.
-     * @returns { number[] } Returns the raw bytes of an NDEF message.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+     * @returns { int[] } Returns the raw bytes of an NDEF message.
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
      * <br> 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameters types.
      * <br> 3. Parameter verification failed.
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 12 dynamic
+     * @since 23 static
      */
-    function messageToBytes(ndefMessage: NdefMessage): number[];
+    function messageToBytes(ndefMessage: NdefMessage): int[];
   }
 
- /**
-  * Exports type NfcATag.
-  *
-  * @syscap SystemCapability.Communication.NFC.Tag
-  * @since 7
-  */
- /**
-  * Exports type NfcATag.
-  *
-  * @typedef { _NfcATag }
-  * @syscap SystemCapability.Communication.NFC.Tag
-  * @atomicservice
-  * @since 12 dynamic
-  */
+  /**
+   * Exports type NfcATag.
+   *
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @since 7
+   */
+  /**
+   * Exports type NfcATag.
+   *
+   * @typedef { _NfcATag }
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @atomicservice
+   * @since 12 dynamic
+   * @since 23 static
+   */
   export type NfcATag = _NfcATag;
 
- /**
-  * Exports type NfcBTag.
-  *
-  * @syscap SystemCapability.Communication.NFC.Tag
-  * @since 7
-  */
- /**
-  * Exports type NfcBTag.
-  *
-  * @typedef { _NfcBTag }
-  * @syscap SystemCapability.Communication.NFC.Tag
-  * @atomicservice
-  * @since 12 dynamic
-  */
+  /**
+   * Exports type NfcBTag.
+   *
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @since 7
+   */
+  /**
+   * Exports type NfcBTag.
+   *
+   * @typedef { _NfcBTag }
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @atomicservice
+   * @since 12 dynamic
+   * @since 23 static
+   */
   export type NfcBTag = _NfcBTag;
 
- /**
-  * Exports type NfcFTag.
-  *
-  * @syscap SystemCapability.Communication.NFC.Tag
-  * @since 7
-  */
- /**
-  * Exports type NfcFTag.
-  *
-  * @typedef { _NfcFTag }
-  * @syscap SystemCapability.Communication.NFC.Tag
-  * @atomicservice
-  * @since 12 dynamic
-  */
+  /**
+   * Exports type NfcFTag.
+   *
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @since 7
+   */
+  /**
+   * Exports type NfcFTag.
+   *
+   * @typedef { _NfcFTag }
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @atomicservice
+   * @since 12 dynamic
+   * @since 23 static
+   */
   export type NfcFTag = _NfcFTag;
 
- /**
-  * Exports type NfcVTag.
-  *
-  * @syscap SystemCapability.Communication.NFC.Tag
-  * @since 7
-  */
- /**
-  * Exports type NfcVTag.
-  *
-  * @typedef { _NfcVTag }
-  * @syscap SystemCapability.Communication.NFC.Tag
-  * @atomicservice
-  * @since 12 dynamic
-  */
+  /**
+   * Exports type NfcVTag.
+   *
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @since 7
+   */
+  /**
+   * Exports type NfcVTag.
+   *
+   * @typedef { _NfcVTag }
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @atomicservice
+   * @since 12 dynamic
+   * @since 23 static
+   */
   export type NfcVTag = _NfcVTag;
 
- /**
-  * Exports type IsoDepTag.
-  *
-  * @syscap SystemCapability.Communication.NFC.Tag
-  * @since 9
-  */
- /**
-  * Exports type IsoDepTag.
-  *
-  * @typedef { _IsoDepTag }
-  * @syscap SystemCapability.Communication.NFC.Tag
-  * @atomicservice
-  * @since 12 dynamic
-  */
+  /**
+   * Exports type IsoDepTag.
+   *
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @since 9
+   */
+  /**
+   * Exports type IsoDepTag.
+   *
+   * @typedef { _IsoDepTag }
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @atomicservice
+   * @since 12 dynamic
+   * @since 23 static
+   */
   export type IsoDepTag = _IsoDepTag;
 
- /**
-  * Exports type NdefTag.
-  *
-  * @syscap SystemCapability.Communication.NFC.Tag
-  * @since 9
-  */
- /**
-  * Exports type NdefTag.
-  *
-  * @typedef { _NdefTag }
-  * @syscap SystemCapability.Communication.NFC.Tag
-  * @atomicservice
-  * @since 12 dynamic
-  */
+  /**
+   * Exports type NdefTag.
+   *
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @since 9
+   */
+  /**
+   * Exports type NdefTag.
+   *
+   * @typedef { _NdefTag }
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @atomicservice
+   * @since 12 dynamic
+   * @since 23 static
+   */
   export type NdefTag = _NdefTag;
 
- /**
-  * Exports type MifareClassicTag.
-  *
-  * @syscap SystemCapability.Communication.NFC.Tag
-  * @since 9
-  */
- /**
-  * Exports type MifareClassicTag.
-  *
-  * @typedef { _MifareClassicTag }
-  * @syscap SystemCapability.Communication.NFC.Tag
-  * @atomicservice
-  * @since 12 dynamic
-  */
+  /**
+   * Exports type MifareClassicTag.
+   *
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @since 9
+   */
+  /**
+   * Exports type MifareClassicTag.
+   *
+   * @typedef { _MifareClassicTag }
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @atomicservice
+   * @since 12 dynamic
+   * @since 23 static
+   */
   export type MifareClassicTag = _MifareClassicTag;
 
- /**
-  * Exports type MifareUltralightTag.
-  *
-  * @syscap SystemCapability.Communication.NFC.Tag
-  * @since 9
-  */
- /**
-  * Exports type MifareUltralightTag.
-  *
-  * @typedef { _MifareUltralightTag }
-  * @syscap SystemCapability.Communication.NFC.Tag
-  * @atomicservice
-  * @since 12 dynamic
-  */
+  /**
+   * Exports type MifareUltralightTag.
+   *
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @since 9
+   */
+  /**
+   * Exports type MifareUltralightTag.
+   *
+   * @typedef { _MifareUltralightTag }
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @atomicservice
+   * @since 12 dynamic
+   * @since 23 static
+   */
   export type MifareUltralightTag = _MifareUltralightTag;
 
- /**
-  * Exports type NdefFormatableTag.
-  *
-  * @syscap SystemCapability.Communication.NFC.Tag
-  * @since 9
-  */
- /**
-  * Exports type NdefFormatableTag.
-  *
-  * @typedef { _NdefFormatableTag }
-  * @syscap SystemCapability.Communication.NFC.Tag
-  * @atomicservice
-  * @since 12 dynamic
-  */
+  /**
+   * Exports type NdefFormatableTag.
+   *
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @since 9
+   */
+  /**
+   * Exports type NdefFormatableTag.
+   *
+   * @typedef { _NdefFormatableTag }
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @atomicservice
+   * @since 12 dynamic
+   * @since 23 static
+   */
   export type NdefFormatableTag = _NdefFormatableTag;
 
- /**
-  * Exports type BarcodeTag.
-  *
-  * @typedef { _BarcodeTag }
-  * @syscap SystemCapability.Communication.NFC.Tag
-  * @atomicservice
-  * @since 18 dynamic
-  */
+  /**
+   * Exports type BarcodeTag.
+   *
+   * @typedef { _BarcodeTag }
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @atomicservice
+   * @since 18 dynamic
+   * @since 23 static
+   */
   export type BarcodeTag = _BarcodeTag;
 
- /**
-  * Exports type NdefMessage.
-  *
-  * @syscap SystemCapability.Communication.NFC.Tag
-  * @since 9
-  */
- /**
-  * Exports type NdefMessage.
-  *
-  * @typedef { _NdefMessage }
-  * @syscap SystemCapability.Communication.NFC.Tag
-  * @atomicservice
-  * @since 12 dynamic
-  */
+  /**
+   * Exports type NdefMessage.
+   *
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @since 9
+   */
+  /**
+   * Exports type NdefMessage.
+   *
+   * @typedef { _NdefMessage }
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @atomicservice
+   * @since 12 dynamic
+   * @since 23 static
+   */
   export type NdefMessage = _NdefMessage;
 
- /**
-  * Exports type TagSession.
-  *
-  * @syscap SystemCapability.Communication.NFC.Tag
-  * @since 7
-  */
- /**
-  * Exports type TagSession.
-  *
-  * @typedef { _TagSession }
-  * @syscap SystemCapability.Communication.NFC.Tag
-  * @atomicservice
-  * @since 12 dynamic
-  */
+  /**
+   * Exports type TagSession.
+   *
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @since 7
+   */
+  /**
+   * Exports type TagSession.
+   *
+   * @typedef { _TagSession }
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @atomicservice
+   * @since 12 dynamic
+   * @since 23 static
+   */
   export type TagSession = _TagSession;
 }
 export default tag;

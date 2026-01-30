@@ -5120,8 +5120,8 @@ declare class EventResult {
    *    {@code true} Indicates the consumption of the mouse event.
    *    {@code false} Indicates the non-consumption of the mouse event.
    *    Default value: true.
-   * @param { boolean } [stopPropagation] - Whether to stop propagation.
-   *    This parameter is valid only when result is set to true.
+   * @param { boolean } stopPropagation - Whether to stop propagation.
+   *    This parameter is valid only when result is set to true. 
    *    {@code true} Indicates stops the propagation of events farther along.
    *    {@code false} Indicates the propagation of events farther along.
    *    Default value: true.
@@ -9219,7 +9219,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Called to notify the user that the request for obtaining the geolocation information received
    * when {@link onGeolocationShow} is called has been canceled.
    *
-   * @param { function } callback - Callback invoked when the request for obtaining geolocation information has been canceled.
+   * @param { function } callback Callback invoked when the request for obtaining geolocation information has been canceled.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
@@ -10890,7 +10890,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Triggered when the first meaningful paint occurs on the web page.
    *
-   * @param { OnFirstMeaningfulPaintCallback } callback Callback invoked when the first meaningful paint occurs on the web page.
+   * @param { OnFirstMeaningfulPaintCallback } callback - Callback invoked when the first meaningful paint occurs on the web page.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -11317,7 +11317,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * </p>
    *
    * @param { OnOverrideErrorPageCallback } callback The triggered function when the
-   * web page's document resource error.
+   *                                        web page's document resource error.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20 dynamic

@@ -137,6 +137,17 @@ export interface NotificationSubscriber {
   onEnabledNotificationChanged?: (callbackData: EnabledNotificationCallbackData) => void;
 
   /**
+   * Called when the enabling status of the silent reminder changed.
+   *
+   * @type { ?EnabledSilentReminderChangedCallback }
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  onEnabledSilentReminderChanged?: EnabledSilentReminderChangedCallback;
+
+  /**
    * Called when the enabling status of the priority notification changes.
    * 
    * @type { ?function }
@@ -274,7 +285,8 @@ export interface SubscribeCallbackData {
 }
 
 /**
- * Describes the switch state to Restrict notification capability.
+ * Describes the properties of the application that the permission to send notifications 
+ * or the badge enabled state has changed.
  *
  * @typedef EnabledNotificationCallbackData
  * @syscap SystemCapability.Notification.Notification
@@ -318,6 +330,53 @@ export interface EnabledNotificationCallbackData {
    * @since 23 static
    */
   readonly enable: boolean;
+}
+
+/**
+ * Describes the switch state for silent reminder notification.
+ *
+ * @typedef EnabledSilentReminderCallbackData
+ * @syscap SystemCapability.Notification.Notification
+ * @systemapi
+ * @stagemodelonly
+ * @since 24 dynamic&static
+ */
+export interface EnabledSilentReminderCallbackData {
+  /**
+   * The bundle name of the application.
+   *
+   * @type { string }
+   * @readonly
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  readonly bundle: string;
+
+  /**
+   * The uid of the application.
+   *
+   * @type { int }
+   * @readonly
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  readonly uid: int;
+
+  /**
+   * The switch state for silent reminder notification.
+   *
+   * @type { notificationManager.SwitchState }
+   * @readonly
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  readonly enableStatus: notificationManager.SwitchState;
 }
 
 /**
@@ -478,6 +537,7 @@ export interface BadgeEnabledChangedCallback {
  * @param { EnabledNotificationCallbackData } data
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
+ * @stagemodelonly
  * @since 23 static
  */
 export type BadgeEnabledChangedCallback = (data: EnabledNotificationCallbackData) => void;
@@ -492,3 +552,15 @@ export type BadgeEnabledChangedCallback = (data: EnabledNotificationCallbackData
  * @since 23 dynamic&static
  */
 export type SystemUpdateCallback = (data: SubscribeCallbackData) => void;
+
+/**
+ * Called when the enabling status of the silent reminder changed.
+ *
+ * @typedef { function }
+ * @param { EnabledSilentReminderCallbackData } callbackData - the information of application's silent reminder status.
+ * @syscap SystemCapability.Notification.Notification
+ * @systemapi
+ * @stagemodelonly
+ * @since 24 dynamic&static
+ */
+export type EnabledSilentReminderChangedCallback = (callbackData: EnabledSilentReminderCallbackData) => void;

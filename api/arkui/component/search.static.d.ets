@@ -172,7 +172,7 @@ export declare enum SearchType {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     ONE_TIME_CODE = 14
 }
@@ -807,7 +807,7 @@ export declare interface SearchAttribute extends CommonMethod {
      * @returns { SearchAttribute } returns the instance of the SearchAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     default customKeyboard(value: CustomBuilder | ComponentContentBase | undefined,
                            options?: KeyboardOptions): this;
@@ -1031,7 +1031,7 @@ export declare interface SearchAttribute extends CommonMethod {
      *     Passing `undefined` resets it to the default value.
      * @returns { SearchAttribute } returns the instance of the SearchAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
     default strokeWidth(width: LengthMetrics | undefined): this;
     /**
@@ -1041,7 +1041,7 @@ export declare interface SearchAttribute extends CommonMethod {
      *     If `undefined` is passed, the existing registered event will be removed.
      * @returns { SearchAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
     default onWillAttachIME(callback: Callback<IMEClient> | undefined): this;
     /**
@@ -1051,7 +1051,7 @@ export declare interface SearchAttribute extends CommonMethod {
      *     Passing `undefined` resets it to the default value.
      * @returns { SearchAttribute } returns the instance of the SearchAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
     default strokeColor(color: ResourceColor | undefined): this;
     /**
@@ -1062,16 +1062,16 @@ export declare interface SearchAttribute extends CommonMethod {
      *     Passing `undefined` resets it to the default value.
      * @returns { SearchAttribute } returns the instance of the SearchAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
     default enableAutoSpacing(enabled: boolean | undefined): this;
     /**
      * Enable selected data detector.
-     * 
+     *
      * @param { boolean | undefined } enable - whether to enable the selected data detector.
      * @returns { SearchAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
     default enableSelectedDataDetector(enable: boolean | undefined): this;
 

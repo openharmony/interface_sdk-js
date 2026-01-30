@@ -52,6 +52,33 @@ export declare enum BarMode {
     Fixed = 1
 }
 /**
+ * Tabs nested scroll nested mode
+ * 
+ * @enum { number } TabsNestedScrollMode
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 24 static
+ */
+export declare enum TabsNestedScrollMode {
+  /**
+   * The scrolling is contained within the Tabs component, and no scroll chaining occurs, that is,
+   * the parent container does not scroll when the component scrolling reaches the boundary.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  SELF_ONLY = 0,
+  /**
+   * The Tabs component scrolls first, and when it hits the boundary, the parent container scrolls.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  SELF_FIRST = 1,
+}
+/**
  * Declare the animation mode of tab content.
  *
  * @enum { number }
@@ -184,6 +211,7 @@ export declare enum TabsCacheMode {
  * Provides methods for switching tabs.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare class TabsController {
@@ -724,6 +752,17 @@ export declare interface TabsAttribute extends CommonMethod {
      * @noninterop
      */
     default divider(value: DividerStyle | null | undefined): this;
+    /**
+     * Sets the nested scrolling mode of the tabs component and its parent container.
+     *
+     * @param { TabsNestedScrollMode | undefined } value - mode for nested scrolling.
+     *     Default value is TabsNestedScrollMode.SELF_ONLY. Undefined means default value.
+     * @returns { TabsAttribute } the attribute of the tabs.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 24 static
+     */
+    default nestedScroll(value: TabsNestedScrollMode | undefined): this;
     /**
      * Sets whether the tab bar is superimposed on the TabContent component after having its background blurred.
      *

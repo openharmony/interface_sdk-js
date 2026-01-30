@@ -299,6 +299,7 @@ export declare class Router {
    * @param { int } index - index of page.
    * @param { Object } [params] - params of page.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   back(index: int, params?: Object): void;
@@ -386,6 +387,7 @@ export declare class Router {
    *
    * @returns { Object } Page params.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   getParams(): Object;
@@ -1722,7 +1724,7 @@ export declare class UIObserver {
    *     {@link WindowSizeLayoutBreakpointInfo} object containing the current width and height
    *     breakpoint classifications.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   onWindowSizeLayoutBreakpointChange(callback: Callback<observer.WindowSizeLayoutBreakpointInfo>): void;
 
@@ -1733,7 +1735,7 @@ export declare class UIObserver {
    * @param { Callback<observer.WindowSizeLayoutBreakpointInfo> } [callback] - The specific callback function to remove.
    *     If not provided, all callbacks for the given event type and context will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   offWindowSizeLayoutBreakpointChange(callback?: Callback<observer.WindowSizeLayoutBreakpointInfo>): void;
 
@@ -1785,7 +1787,7 @@ export declare class UIObserver {
    * @param { Callback<observer.TextChangeEventInfo> } callback - The callback function to be called when
    *     text field's content is changed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   onTextChange(callback: Callback<observer.TextChangeEventInfo>): void;
 
@@ -1795,7 +1797,7 @@ export declare class UIObserver {
    * @param { Callback<observer.TextChangeEventInfo> } [callback] - The callback function to remove. If not provided,
    *     all callbacks for the given event type will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   offTextChange(callback?: Callback<observer.TextChangeEventInfo>): void;
 
@@ -1806,7 +1808,7 @@ export declare class UIObserver {
    * @param { Callback<observer.TextChangeEventInfo> } callback - The callback function to be called when the
    *     text field's content is changed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   onTextChange(identity: observer.ObserverOptions, callback: Callback<observer.TextChangeEventInfo>): void;
 
@@ -1817,7 +1819,7 @@ export declare class UIObserver {
    * @param { Callback<observer.TextChangeEventInfo> } [callback] - The callback function to remove. If not provided,
    *     all callbacks for the given event type will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   offTextChange(identity: observer.ObserverOptions, callback?: Callback<observer.TextChangeEventInfo>): void;
 
@@ -2321,6 +2323,41 @@ export declare class OverlayManager {
 }
 
 /**
+ * Provides the method for magnifier capabilities.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 23 static
+ */
+export declare class Magnifier {
+   /**
+    * Bind magnifier to a component.
+    *
+    * @param { string } id - component id.
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @since 23 static
+    */
+    bind(id: string);
+   /**
+    * Set the position of the magnified content.
+    *
+    * @param { double } x - the x position of the magnified content relative to the component.
+    *     The unit of x is vp.
+    * @param { double } y - the y position of the magnified content relative to the component.
+    *     The unit of y is vp.
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @since 23 static
+    */
+    show(x: double,y: double): void;
+   /** 
+    * Unbind the magnifier from its associated component.
+    *
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @since 23 static
+    */
+    unbind(): void;
+}
+
+/**
  * interface AtomicServiceBar
  * @interface AtomicServiceBar
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2339,11 +2376,11 @@ export interface AtomicServiceBar {
   /**
    * Set the background color of the bar.
    *
-   * @param { Nullable< Color | number | string> } color - the color to set, undefined indicates using default.
+   * @param { Nullable< Color | int | string> } color - the color to set, undefined indicates using default.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
-  setBackgroundColor(color: Nullable< Color | number | string>): void;
+  setBackgroundColor(color: Nullable< Color | int | string>): void;
 
   /**
    * Set the title of the bar.
@@ -2366,11 +2403,11 @@ export interface AtomicServiceBar {
   /**
    * Set the color of the icon on the bar.
    *
-   * @param { Nullable< Color | number | string> } color - the color to set to icon, undefined indicates using default.
+   * @param { Nullable< Color | int | string> } color - the color to set to icon, undefined indicates using default.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
-  setIconColor(color: Nullable< Color | number | string>): void;
+  setIconColor(color: Nullable< Color | int | string>): void;
 
   /**
    * Get size and position of the bar.
@@ -2602,7 +2639,7 @@ export declare class MeasureUtils {
    * @param { TextLayoutOptions } [options] - The layout options.
    * @returns { Array<Paragraph> } paragraph result
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   getParagraphs(styledString: StyledString, options?: TextLayoutOptions): Array<Paragraph>;
 }
@@ -2713,40 +2750,6 @@ export declare class ContextMenuController {
    * @since 23 static
    */
   close(): void;
-}
-/**
- * Provides the method for magnifier capabilities.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 23 static
- */
-export declare class Magnifier {
-   /**
-    * Bind magnifier to a component.
-    *
-    * @param { string } id - component id.
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 23 static
-    */
-    bind(id: string);
-   /**
-    * Set the position of the magnified content.
-    *
-    * @param { double } x - the x position of the magnified content relative to the component.
-    *     The unit of x is vp.
-    * @param { double } y - the y position of the magnified content relative to the component.
-    *     The unit of y is vp.
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 23 static
-    */
-    show(x: double,y: double): void;
-   /** 
-    * Unbind the magnifier from its associated component.
-    *
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 23 static
-    */
-    unbind(): void;
 }
 
 /**
@@ -3069,7 +3072,7 @@ export declare class UIContext {
    *     or undefined if no context can be determined from the call stack.
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   static getCallingScopeUIContext(): UIContext | undefined;
 
@@ -3078,7 +3081,7 @@ export declare class UIContext {
    * @returns { UIContext | undefined } - The UIContext of the last focused UI instance or undefined if no one exists.
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   static getLastFocusedUIContext(): UIContext | undefined;
 
@@ -3088,7 +3091,7 @@ export declare class UIContext {
    *     exists
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   static getLastForegroundUIContext(): UIContext | undefined;
 
@@ -3098,7 +3101,7 @@ export declare class UIContext {
    *     returns an empty array if no contexts are available.
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   static getAllUIContexts(): UIContext[];
 
@@ -3389,12 +3392,12 @@ export declare class UIContext {
   /**
    * Dispach keyboard event to the frameNode with inspector key.
    *
-   * @param { number | string } node - The uniqueId or inspector key of the target FrameNode.
+   * @param { int | string } node - The uniqueId or inspector key of the target FrameNode.
    * @returns { boolean } Returns whether the key event is consumed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
-  dispatchKeyEvent(node: number | string, event: KeyEvent): boolean;
+  dispatchKeyEvent(node: int | string, event: KeyEvent): boolean;
 
   /**
    * Get AtomicServiceBar.
@@ -3914,20 +3917,10 @@ export declare class UIContext {
    *
    * @param { VoidCallback } callback - The callback function to be executed in the UI thread.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @stagemodelonly
+   * @since 23 staticonly
    */
   setUIStates(callback: VoidCallback): void;
-
-  /**
-   * Retrieves the UIContext corresponding to the UI instance of the currently focused window.
-   * Returns undefined if it does not exist.
-   *
-   * @returns { UIContext | undefined } The focused UIContext, or undefined if it does not exist.
-   * @static
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  static getFocusedUIContext(): UIContext | undefined;
 
   /**
    * Get id of the UI instance.
@@ -3939,7 +3932,7 @@ export declare class UIContext {
   getId(): int;
 
   /**
-   * Set the switch for memory recycling of invisible image nodes.
+   * Set the switch for memory recycling of invisible image nodes
    * 
    * @param { boolean } enabled - The switch for memory recycling.
    *    <br>Default value: false, Passing `undefined` restores the default value.
@@ -4120,7 +4113,7 @@ export declare class ContentCoverController {
  * @since 23 static
  */
  export const enum CustomKeyboardContinueFeature {
-
+ 
   /**
    * Enable custom keyboard continuation.
    * 
@@ -4129,7 +4122,7 @@ export declare class ContentCoverController {
    * @since 23 static
    */
   ENABLED = 0,
-
+ 
   /**
    * Disable custom keyboard continuation.
    * 

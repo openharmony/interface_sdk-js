@@ -108,9 +108,9 @@ export declare interface ImageAIOptions {
     /**
      * Image analyze types.
      *
-     * @type { ?ImageAnalyzerController }
+     * @type { ?(ImageAnalyzerController | ESValue) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
      */
-    aiController?: ImageAnalyzerController;
+    aiController?: ImageAnalyzerController | ESValue;
 }

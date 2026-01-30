@@ -111,14 +111,6 @@ export declare interface ToggleConfiguration extends CommonConfiguration<ToggleC
      */
     isOn: boolean;
     /**
-     * Indicates whether the Toggle is enabled.
-     *
-     * @type { boolean }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
-     */
-    enabled: boolean;
-    /**
      * Trigger toggle select change
      *
      * @type { Callback<boolean> }

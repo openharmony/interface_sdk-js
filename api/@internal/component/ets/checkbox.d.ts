@@ -47,6 +47,7 @@
  *
  * @interface CheckboxOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
@@ -82,6 +83,7 @@ declare interface CheckboxOptions {
    *
    * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -118,6 +120,7 @@ declare interface CheckboxOptions {
    *
    * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -211,10 +214,12 @@ declare interface CheckBoxConfiguration extends CommonConfiguration<CheckBoxConf
  *
  * @interface CheckboxInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
  * @since 11 dynamic
+ * @noninterop
  */
 interface CheckboxInterface {
   /**
@@ -254,6 +259,7 @@ interface CheckboxInterface {
    * @param { CheckboxOptions } options
    * @returns { CheckboxAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -305,10 +311,12 @@ declare type OnCheckboxChangeCallback = (value: boolean) => void;
  *
  * @extends CommonMethod<CheckboxAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
  * @since 11 dynamic
+ * @noninterop
  */
 declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
   /**
@@ -344,6 +352,7 @@ declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
    * @param { boolean } value
    * @returns { CheckboxAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -397,6 +406,7 @@ declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
    * @param { ResourceColor } value
    * @returns { CheckboxAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -564,6 +574,7 @@ declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
    * @param { OnCheckboxChangeCallback } callback
    * @returns { CheckboxAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -634,6 +645,7 @@ declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
  * Defines Checkbox Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
@@ -666,6 +678,7 @@ declare const Checkbox: CheckboxInterface;
  * Defines Checkbox Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice

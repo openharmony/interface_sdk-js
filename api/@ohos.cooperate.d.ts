@@ -348,7 +348,7 @@ declare namespace cooperate {
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
    * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types.3.Parameter verification failed.
+   * <br>2.Incorrect parameter types.3.Parameter verification failed.[dynamiconly]
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
@@ -364,7 +364,7 @@ declare namespace cooperate {
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
    * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types.3.Parameter verification failed.
+   * <br>2.Incorrect parameter types.3.Parameter verification failed.[dynamiconly]
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
@@ -410,7 +410,7 @@ declare namespace cooperate {
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
    * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types.3.Parameter verification failed.
+   * <br>2.Incorrect parameter types.3.Parameter verification failed.[dynamiconly]
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
@@ -481,7 +481,8 @@ declare namespace cooperate {
    * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
    * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types.3.Parameter verification failed.
-   * @throws {BusinessError} 20900001 - Operation failed.
+   * @throws {BusinessError} 20900001 - Service exception. Possible causes: 1. A system error, such as null pointer,
+   * <br>container-related exception, or IPC exception. 2. N-API invocation exception or invalid N-API status.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
@@ -500,7 +501,8 @@ declare namespace cooperate {
    * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
    * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types.3.Parameter verification failed.
-   * @throws {BusinessError} 20900001 - Operation failed.
+   * @throws {BusinessError} 20900001 - Service exception. Possible causes: 1. A system error, such as null pointer,
+   * <br>container-related exception, or IPC exception. 2. N-API invocation exception or invalid N-API status.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
@@ -547,7 +549,7 @@ declare namespace cooperate {
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
    * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types.3.Parameter verification failed.
+   * <br>2.Incorrect parameter types.3.Parameter verification failed.[dynamiconly]
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
@@ -750,8 +752,6 @@ declare namespace cooperate {
    *     <br> return the screen hopping status change event.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types.3.Parameter verification failed.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 23 static

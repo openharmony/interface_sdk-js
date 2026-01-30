@@ -662,15 +662,7 @@ declare class UIAbility extends Ability {
   onForeground(): void;
 
   /**
-   * Triggered just before the application transitions to the foreground.
-   * It is called before onForeground.
-   * It can be used to capture the moment when the application starts to transition to the foreground.
-   * When paired with onDidForeground, it can also measure the duration from the application's initial
-   * foreground entry to its full transition into the foreground state.
-   * 
-   * <p>**NOTE**:
-   * <br>This API returns the result synchronously and does not support asynchronous callback.
-   * </p>
+   * Called back when the state of an ability will changes to foreground.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
@@ -681,15 +673,7 @@ declare class UIAbility extends Ability {
   onWillForeground(): void;
 
   /**
-   * Triggered after the application has transitioned to the foreground.
-   * It is called after onForeground.
-   * It can be used to capture the moment when the application fully transitions to the foreground.
-   * When paired with onWillForeground, it can also measure the duration from the application's initial foreground
-   * entry to its full transition into the foreground state.
-   * 
-   * <p>**NOTE**:
-   * <br>This API returns the result synchronously and does not support asynchronous callback.
-   * </p>
+   * Called back when the state of an ability changed to foreground.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
@@ -729,14 +713,7 @@ declare class UIAbility extends Ability {
   onBackground(): void;
 
   /**
-   * Triggered just when the application transitions to the background.
-   * It is called before onBackground.
-   * It can be used to log various types of data, such as faults, statistics, security information, and user behavior
-   * that occur during application running.
-   * 
-   * <p>**NOTE**:
-   * <br>This API returns the result synchronously and does not support asynchronous callback.
-   * </p>
+   * Called back when the state of an ability will changes to background.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
@@ -747,14 +724,7 @@ declare class UIAbility extends Ability {
   onWillBackground(): void;
 
   /**
-   * Triggered after the application has transitioned to the background.
-   * It is called after onBackground.
-   * It can be used to release resources after the application has entered the background, for example, stopping
-   * audio playback.
-   * 
-   * <p>**NOTE**:
-   * <br>This API returns the result synchronously and does not support asynchronous callback.
-   * <p/>
+   * Called back when the state of an ability changed to background.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
@@ -924,6 +894,19 @@ declare class UIAbility extends Ability {
   * @since 20 dynamic
   */
   onSaveStateAsync(stateType: AbilityConstant.StateType, wantParam: Record<string, Object>): Promise<AbilityConstant.OnSaveResult>;
+
+ /**
+  * Called back asynchronously when an ability prepares to save.
+  *
+  * @param { AbilityConstant.StateType } stateType - state type when save.
+  * @param { Record<string, RecordData> } wantParam - Indicates the want parameter.
+  * @returns { Promise<AbilityConstant.OnSaveResult> } agree with the current UIAbility status or not.return 0 if ability
+  *                                           agrees to save data successfully, otherwise errcode.
+  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+  * @stagemodelonly
+  * @since 23 static
+  */
+  onSaveStateAsync(stateType: AbilityConstant.StateType, wantParam: Record<string, RecordData>): Promise<AbilityConstant.OnSaveResult>;
 
   /**
    * Called back when an ability shares data.

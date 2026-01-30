@@ -2791,7 +2791,7 @@ declare namespace camera {
      * @since 12
      */
     /**
-     * The camera mounting angle, which does not change with screen rotation, takes values from 0бу to 360бу in degrees.
+     * The camera mounting angle, which does not change with screen rotation, takes values from 0 to 360 in degrees.
      *
      * @type { int }
      * @readonly
@@ -11962,7 +11962,7 @@ declare namespace camera {
     /**
      * Unsubscribes slow motion status callback.
      *
-     * @param { AsyncCallback<SlowMotionStatus> } callback - Callback used to get the slow motion status.
+     * @param { AsyncCallback<SlowMotionStatus> } [callback] - Callback used to get the slow motion status.
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi

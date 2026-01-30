@@ -189,8 +189,6 @@ import Ability from '@ohos.app.ability.Ability';
 import AbilityLifecycleCallback from '@ohos.app.ability.AbilityLifecycleCallback';
 import ApplicationStateChangeCallback from '@ohos.app.ability.ApplicationStateChangeCallback';
 import EnvironmentCallback from '@ohos.app.ability.EnvironmentCallback';
-import abilityDelegatorRegistry from '@ohos.app.ability.abilityDelegatorRegistry';
-import TestRunner from '@ohos.application.testRunner';
 import abilityAccessCtrl, {
   Context, PermissionRequestResult, Permissions
 } from '@ohos.abilityAccessCtrl';
@@ -230,7 +228,7 @@ export {
   application, appRecovery, autoFillManager, dataUriUtils, dialogSession, insightIntent, insightIntentDriver, insightIntentProvider,
   missionManager, wantAgent, WantAgent, UIAbility, Callee, CalleeCallback, Caller,
   OnReleaseCallback, OnRemoteStateChangeCallback, Ability, AbilityLifecycleCallback, ApplicationStateChangeCallback,
-  EnvironmentCallback, abilityDelegatorRegistry, TestRunner, ExtensionAbility, ShareExtensionAbility, dialogRequest,
+  EnvironmentCallback, ExtensionAbility, ShareExtensionAbility, dialogRequest,
   Context, abilityAccessCtrl, PermissionRequestResult, Permissions, privacyManager,
   ability, ActionExtensionAbility, AutoFillExtensionAbility, autoStartupManager, ChildProcess, childProcessManager,
   ChildProcessArgs, ChildProcessOptions, quickFixManager, businessAbilityRouter, EmbeddedUIExtensionAbility,

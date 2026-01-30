@@ -2123,6 +2123,18 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @since 23 dynamic
    */
   textDirection(direction: TextDirection | undefined): TextAreaAttribute;
+  
+  /**
+   * Set voice button options.
+   *
+   * @param { Optional<VoiceButtonOptions> } options - Indicates the options of the voice button.
+   * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  voiceButton(options: Optional<VoiceButtonOptions>): TextAreaAttribute;
 }
 
 /**

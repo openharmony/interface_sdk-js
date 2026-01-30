@@ -3878,6 +3878,55 @@ declare namespace webview {
         getSurfaceId(): string;
 
         /**
+         * Sets the URL trust list for the ArkWeb.
+         *
+         * <p><strong>API Note</strong>:<br>
+         * When the URL trust list is set, only the URLs in the list can be accessed.
+         *
+         * Example of the urlTrustList:
+         *
+         * {
+         *   "UrlPermissionList": [
+         *     {
+         *       "scheme": "https",
+         *       "host": "www.example1.com",
+         *       "port": 443,
+         *       "path": "pathA/pathB"
+         *     },
+         *     {
+         *       "scheme": "http",
+         *       "host": "*.example2.com",
+         *       "port": 80,
+         *       "path": "test1/test2/test3"
+         *     }
+         *   ]
+         * }
+         * </p>
+         *
+         * @param { string } urlTrustList - The URL trust list in JSON format.
+         *     An empty string means all URLs are allowed.
+         * @param { boolean } allowOpaqueOrigin - If true, loading of opaque origin URLs (e.g., javascript, data) is
+         *     allowed. If false, it is not allowed.
+         * @param { boolean } supportWildcard - If true, wildcard matching is supported (e.g., *.example.com matches all
+         *     subdomains). If false, wildcard matching is not supported.
+         * @throws { BusinessError } 401 Parameter error, possible causes:
+         *     1. Mandatory parameters are left unspecified
+         *     2. JSON string exceeds 10MB limit
+         *     3. JSON parsing failed (syntax errors, etc.)
+         *     4. UrlPermissionList field is missing
+         *     5. URL rule validation failed:
+         *        - scheme must be http or https
+         *        - host cannot be empty
+         *        - port must be between 0-65535
+         *        - path length cannot exceed 65536 characters
+         * @throws { BusinessError } 17100001 - Initialization error.
+         *     The WebviewController must be associated with a Web component.
+         * @syscap SystemCapability.Web.Webview.Core
+         * @since 24 static
+         */
+        setUrlTrustList(urlTrustList: string, allowOpaqueOrigin: boolean, supportWildcard: boolean): void
+
+        /**
          * Set the URL trust list for the ArkWeb.
          * When the URL trust list has been set, only the URLs in the list can be accessed.
          *
@@ -6695,7 +6744,7 @@ declare namespace webview {
          * @since 23 static
          */
         NONE = 0,
-        
+
         /**
          * Allow specific cross-site requests to carry cookies.
          *
@@ -6703,7 +6752,7 @@ declare namespace webview {
          * @since 23 static
          */
         LAX = 1,
-        
+
         /**
          * Prohibit cross-site requests from carrying cookies.
          *
@@ -7114,7 +7163,7 @@ declare namespace webview {
          * @since 23 static
          */
         samesitePolicy: WebHttpCookieSameSitePolicy;
-        
+
         /**
          * Gets the cookie's expiration date.
          *
@@ -7123,7 +7172,7 @@ declare namespace webview {
          * @since 23 static
          */
         expiresDate: string;
-        
+
         /**
          * Gets the cookie's name.
          *
@@ -7132,7 +7181,7 @@ declare namespace webview {
          * @since 23 static
          */
         name: string;
-        
+
         /**
          * Gets if the cookie is session cookie.
          *
@@ -7141,7 +7190,7 @@ declare namespace webview {
          * @since 23 static
          */
         isSessionCookie: boolean;
-        
+
         /**
          * Gets the cookie's value.
          *
@@ -7150,7 +7199,7 @@ declare namespace webview {
          * @since 23 static
          */
         value: string;
-        
+
         /**
          * Gets the cookie's path.
          *
@@ -7159,7 +7208,7 @@ declare namespace webview {
          * @since 23 static
          */
         path: string;
-        
+
         /**
          * Gets whether the current cookie is marked as HttpOnly.
          *
@@ -7168,7 +7217,7 @@ declare namespace webview {
          * @since 23 static
          */
         isHttpOnly: boolean;
-        
+
         /**
          * Gets whether the current cookie is marked as Secure.
          *
@@ -7177,7 +7226,7 @@ declare namespace webview {
          * @since 23 static
          */
         isSecure: boolean;
-        
+
         /**
          * Gets the domain of the cookie.
          *

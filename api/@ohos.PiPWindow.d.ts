@@ -181,7 +181,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 22 dynamic
-     * @since 23 static
+     * @since 24 static
      */
     handleId?: number;
 
@@ -285,7 +285,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 22 dynamic
-     * @since 23 static
+     * @since 24 static
      */
     cornerAdsorptionEnabled?: boolean;
   }
@@ -1051,9 +1051,9 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 23 static
+     * @since 24 static
      */
-    updateContentSize(width: number, height: number): void;
+    updateContentSize(width: int, height: int): void;
 
     /**
      * Set dashboard control status.
@@ -1063,7 +1063,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 23 static
+     * @since 24 static
      */
     updatePiPControlStatus(controlType: PiPControlType, status: PiPControlStatus): void;
 
@@ -1079,6 +1079,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 18 dynamic
+     * @since 24 static
      */
     updateContentNode(contentNode: typeNode.XComponent): Promise<void>;
 
@@ -1090,7 +1091,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 23 static
+     * @since 24 static
      */
     setPiPControlEnabled(controlType: PiPControlType, enabled: boolean): void;
 
@@ -1128,7 +1129,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 23 dynamic
-     * @since 23 static
+     * @since 24 static
      */
     isPiPActive(): Promise<boolean>;
 
@@ -1257,7 +1258,7 @@ declare namespace PiPWindow {
      *     True indicates that the pip is onscreen, and vice verse.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 22
+     * @since 22 dynamic
      */
     on(type: 'activeStatusChange', callback: Callback<boolean>): void;
 
@@ -1269,7 +1270,7 @@ declare namespace PiPWindow {
      *     all callbacks for the given event type will be removed.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 22
+     * @since 22 dynamic
      */
     off(type: 'activeStatusChange', callback?: Callback<boolean>): void;
 

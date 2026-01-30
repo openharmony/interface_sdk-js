@@ -20,12 +20,13 @@
 import webview from '../../@ohos.web.webview';
 import image from '../../@ohos.multimedia.image';
 import { CommonMethod, Callback, TouchEvent, MouseEvent, NestedScrollOptions, KeyEvent, HapticFeedbackMode } from './common';
-import { CustomBuilder, ComponentBuilder } from './builder';
+import { CustomBuilder } from './builder';
 import { Resource } from '../../global/resource';
 import { Position, ResourceStr, VoidCallback } from './units';
 import { MenuType, EditMenuOptions, TextDataDetectorConfig } from './textCommon';
 import { CopyOptions, NestedScrollMode } from './enums';
 import { PreviewMenuOptions } from './richEditor';
+import { ComponentBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from "./common";
 /**
  * Provides methods for controlling the web controller.
@@ -6409,9 +6410,9 @@ export declare interface WebAttribute extends CommonMethod {
      */
     default onNativeEmbedObjectParamChange(callback: OnNativeEmbedObjectParamChangeCallback | undefined): this;
     /**
-     * Set up the effect of web roation
+     * Set up the effect of web rotation
      *
-     * @param { WebRotateEffect | undefined } effect - The effect of roation.
+     * @param { WebRotateEffect | undefined } effect - The effect of rotation.
      * @returns { WebAttribute }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
@@ -6484,34 +6485,34 @@ export declare interface WebAttribute extends CommonMethod {
      */
     default onFirstScreenPaint(callback: OnFirstScreenPaintCallback | undefined): this;
     /**
-    * Sets whether enable auto fill or not.
-    *
-    * @param { boolean | undefined } value - Indicates the flag whether autofill is enabled.
-    *      Default value is true.true: enable, false: disable.
-    * @returns { WebAttribute }
-    * @syscap SystemCapability.Web.Webview.Core
-    * @since 23 static
-    */
+     * Sets whether enable auto fill or not.
+     *
+     * @param { boolean | undefined } value - Indicates the flag whether autofill is enabled.
+     *      Default value is true.true: enable, false: disable.
+     * @returns { WebAttribute }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 23 static
+     */
     default enableAutoFill(value: boolean | undefined): this;
     /**
-    * Called when the text selection changes.
-    *
-    * @param { TextSelectionChangeCallback | undefined } callback - when the text selection changes.
-    * @returns { WebAttribute }
-    * @syscap SystemCapability.Web.Webview.Core
-    * @since 23 static
-    */
+     * Called when the text selection changes.
+     *
+     * @param { TextSelectionChangeCallback | undefined } callback - when the text selection changes.
+     * @returns { WebAttribute }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 23 static
+     */
     default onTextSelectionChange(callback: TextSelectionChangeCallback | undefined): this;
     /**
-    * Set up web component to support AI image recognition capability.
-    *
-    * @param { boolean | undefined } enable - {@code true} means the Web AI image recognition capability,
-    *    {@code false} otherwise.
-    *    The default value is true.
-    * @returns { WebAttribute }
-    * @syscap SystemCapability.Web.Webview.Core
-    * @since 23 static
-    */
+     * Set up web component to support AI image recognition capability.
+     *
+     * @param { boolean | undefined } enable - {@code true} means the Web AI image recognition capability,
+     *    {@code false} otherwise.
+     *    The default value is true.
+     * @returns { WebAttribute }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 23 static
+     */
     default enableImageAnalyzer(enable: boolean | undefined): this;
     /**
      *  Triggered after camera capture state changed.

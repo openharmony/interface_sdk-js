@@ -1424,7 +1424,7 @@ declare class UIAbilityContext extends Context {
    *
    * @permission ohos.permission.ABILITY_BACKGROUND_COMMUNICATION and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
    * @param { Want } want - Indicates the ability to start.
-   * @param { number } accountId - Indicates the account to start.
+   * @param { int } accountId - Indicates the account to start.
    * @returns { Promise<Caller> } Returns the Caller interface.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
@@ -1452,8 +1452,9 @@ declare class UIAbilityContext extends Context {
    * @systemapi
    * @stagemodelonly
    * @since 14 dynamic
+   * @since 23 static
    */
-  startAbilityByCallWithAccount(want: Want, accountId: number): Promise<Caller>;
+  startAbilityByCallWithAccount(want: Want, accountId: int): Promise<Caller>;
 
   /**
    * Starts a new ability with account. If the caller application is in foreground,
@@ -5059,15 +5060,16 @@ declare class UIAbilityContext extends Context {
    * The onNewWant callback is not triggered when a UIAbility's lifecycle is driven by scenarios.
    * For scenarios, refer to {@link contextConstant.Scenarios}.
    *
-   * @param { number } scenarios - The number code of the scenarios.
+   * @param { int } scenarios - The number code of the scenarios.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 16000050 - Internal error. Possible causes: Connection to service failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
    * @since 20 dynamic
+   * @since 23 static
    */
-  setOnNewWantSkipScenarios(scenarios: number): Promise<void>;
+  setOnNewWantSkipScenarios(scenarios: int): Promise<void>;
 
   /**
   * Launch the application's own UIAbility in the current process.
