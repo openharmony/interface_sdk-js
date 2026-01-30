@@ -29,6 +29,7 @@ import type Context from './application/BaseContext';
  * @namespace vcard
  * @syscap SystemCapability.Telephony.CoreService
  * @since 11 dynamic
+ * @since 23 static
  */
 declare namespace vcard {
   /**
@@ -168,7 +169,7 @@ declare namespace vcard {
    * @enum { string }
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 11 dynamic
+   * @since 24 dynamic&static
    */
   export enum VCardType {
     /**
@@ -176,7 +177,7 @@ declare namespace vcard {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 11 dynamic
+     * @since 24 dynamic&static
      */
     VERSION_21 = 0,
 
@@ -185,7 +186,7 @@ declare namespace vcard {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 11 dynamic
+     * @since 24 dynamic&static
      */
     VERSION_30 = 1,
 
@@ -194,7 +195,7 @@ declare namespace vcard {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 11 dynamic
+     * @since 24 dynamic&static
      */
     VERSION_40 = 2
   }
@@ -205,7 +206,7 @@ declare namespace vcard {
    * @interface VCardBuilderOptions
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 11 dynamic
+   * @since 24 dynamic&static
    */
   export interface VCardBuilderOptions {
     /**
@@ -214,7 +215,7 @@ declare namespace vcard {
      * @type { ?VCardType }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 11 dynamic
+     * @since 24 dynamic&static
      */
     cardType?: VCardType;
     /**
@@ -223,7 +224,7 @@ declare namespace vcard {
      * @type { ?string }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 11 dynamic
+     * @since 24 dynamic&static
      */
     charset?: string;
   }
