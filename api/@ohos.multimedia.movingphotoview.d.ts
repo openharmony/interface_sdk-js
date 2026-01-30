@@ -20,6 +20,7 @@
 
 import photoAccessHelper from './@ohos.file.photoAccessHelper';
 import media from './@ohos.multimedia.media';
+import {CommonMethod, ComponentBuilder, CustomBuilder, ImageFit, ImageAIOptions} from '@ohos.arkui.component';
 
 /**
  * Defines the moving photo view options.
@@ -586,3 +587,18 @@ export declare enum PixelMapFormat {
      */
     UNKNOWN = 0
 }
+
+/**
+ * Defines the MovingPhotoimport component
+ * 
+ * @param { MovingPhotoViewOptions } options - movingphotoView option
+ * @param { CustomBuilder } [content_] - container
+ * @returns { MovingPhotoViewAttribute } The arrtribute of the movingphotoView
+ * @syscap SystemCapability.FillManagement.PhotoAccessHelper.Core
+ * @since 23 static
+ */
+@ComponentBuilder
+export declare function MovingPhotoView(
+    options: MovingPhotoViewOptions,
+    content_?: CustomBuilder,
+): MovingPhotoViewAttribute
