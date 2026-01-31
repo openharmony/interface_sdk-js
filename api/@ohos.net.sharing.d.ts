@@ -216,6 +216,7 @@ declare namespace sharing {
    * @returns { Promise<int> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2200002 - Failed to connect to the service.
    * @throws { BusinessError } 2200003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.NetSharing
@@ -247,6 +248,7 @@ declare namespace sharing {
    * @returns { Promise<int> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2200002 - Failed to connect to the service.
    * @throws { BusinessError } 2200003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.NetSharing
@@ -278,6 +280,7 @@ declare namespace sharing {
    * @returns { Promise<int> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2200002 - Failed to connect to the service.
    * @throws { BusinessError } 2200003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.NetSharing

@@ -1085,7 +1085,7 @@ declare namespace socket {
      * @param { 'listening' | 'close' } type - Indicates Event name.
      * @param { Callback<void> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 7
+     * @since 7 dynamic
      */
     /**
      * Listens for data packet message events or close events of the UDPSocket connection.
@@ -1102,7 +1102,7 @@ declare namespace socket {
      * @param { 'listening' | 'close' } type - Indicates Event name.
      * @param { Callback<void> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 7
+     * @since 7 dynamic
      */
     /**
      * Cancels listening for data packet message events or close events of the UDPSocket connection.
@@ -1119,7 +1119,7 @@ declare namespace socket {
      * @param { 'error' } type - Indicates Event name.
      * @param { ErrorCallback } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 7
+     * @since 7 dynamic
      */
     /**
      * Listens for error events of the UDPSocket connection.
@@ -1136,7 +1136,7 @@ declare namespace socket {
      * @param { 'error' } type - Indicates Event name.
      * @param { ErrorCallback } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 7
+     * @since 7 dynamic
      */
     /**
      * Cancels listening for error events of the UDPSocket connection.
@@ -1681,7 +1681,7 @@ declare namespace socket {
      * @param { Callback<LocalSocketMessageInfo> } callback - the callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
+     * @since 11 dynamic
      */
     /**
      * Listens for message receiving events of the LocalSocket connection.
@@ -1700,7 +1700,7 @@ declare namespace socket {
      * @param { Callback<LocalSocketMessageInfo> } callback - the callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
+     * @since 11 dynamic
      */
     /**
      * Cancels listening for message receiving events of the LocalSocket connection.
@@ -1719,7 +1719,7 @@ declare namespace socket {
      * @param { Callback<void> } callback - the callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
+     * @since 11 dynamic
      */
     /**
      * Listens for connection events of the LocalSocket connection.
@@ -1738,7 +1738,7 @@ declare namespace socket {
      * @param { Callback<void> } callback - the callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
+     * @since 11 dynamic
      */
     /**
      * Cancels listening for connection events of the LocalSocket connection.
@@ -1757,7 +1757,7 @@ declare namespace socket {
      * @param { Callback<void> } callback - the callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
+     * @since 11 dynamic
      */
     /**
      * Listens for close events of the LocalSocket connection.
@@ -1776,7 +1776,7 @@ declare namespace socket {
      * @param { Callback<void> } callback - the callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
+     * @since 11 dynamic
      */
     /**
      * Cancels listening for close events of the LocalSocket connection.
@@ -1795,7 +1795,7 @@ declare namespace socket {
      * @param { ErrorCallback } callback - the callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
+     * @since 11 dynamic
      */
     /**
      * Listens for error events of the LocalSocket connection.
@@ -1814,7 +1814,7 @@ declare namespace socket {
      * @param { ErrorCallback } callback - the callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
+     * @since 11 dynamic
      */
     /**
      * Cancels listening for error events of the LocalSocket connection.
@@ -1923,7 +1923,7 @@ declare namespace socket {
      * @param { Callback<LocalSocketMessageInfo> } callback - The callback of on.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
+     * @since 11 dynamic
      */
     /**
      * Listens for message receiving events of the LocalSocketConnection.
@@ -1942,7 +1942,7 @@ declare namespace socket {
      * @param { Callback<LocalSocketMessageInfo> } callback - The callback of off.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
+     * @since 11 dynamic
      */
     /**
      * Cancels listening for message receiving events of the LocalSocketConnection.
@@ -1961,7 +1961,7 @@ declare namespace socket {
      * @param { Callback<void> } callback - The callback of on.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
+     * @since 11 dynamic
      */
     /**
      * Listens for close events of the LocalSocketConnection.
@@ -1980,7 +1980,7 @@ declare namespace socket {
      * @param { Callback<void> } callback - The callback of off.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
+     * @since 11 dynamic
      */
     /**
      * Cancels listening for close events of the LocalSocketConnection.
@@ -1999,7 +1999,7 @@ declare namespace socket {
      * @param { ErrorCallback } callback - The callback of on.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
+     * @since 11 dynamic
      */
     /**
      * Listens for error events of the LocalSocketConnection.
@@ -2018,7 +2018,7 @@ declare namespace socket {
      * @param { ErrorCallback } callback - The callback of off.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
+     * @since 11 dynamic
      */
     /**
      * Cancels listening for error events of the LocalSocketConnection.
@@ -2192,7 +2192,7 @@ declare namespace socket {
      * @param { Callback<LocalSocketConnection> } callback - The callback of on.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
+     * @since 11 dynamic
      */
     /**
      * Listens for connect events of the LocalSocketServer connection.
@@ -2211,7 +2211,7 @@ declare namespace socket {
      * @param { Callback<LocalSocketConnection> } callback - The callback of off.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
+     * @since 11 dynamic
      */
     /**
      * Cancels listening for connect events of the LocalSocketServer connection.
@@ -2230,7 +2230,7 @@ declare namespace socket {
      * @param { ErrorCallback } callback - The callback of on.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
+     * @since 11 dynamic
      */
     /**
      * Listens for error events of the LocalSocketServer connection.
@@ -2249,7 +2249,7 @@ declare namespace socket {
      * @param { ErrorCallback } callback - The callback of off.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
+     * @since 11 dynamic
      */
     /**
      * Cancels listening for error events of the LocalSocketServer connection.
@@ -2863,7 +2863,7 @@ declare namespace socket {
      * @param { 'message' } type - Indicates Event name.
      * @param { Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 7
+     * @since 7 dynamic
      */
     /**
      * Listens for message receiving events of the TCPSocket connection.
@@ -2871,7 +2871,7 @@ declare namespace socket {
      * @param { Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since 10
+     * @since 10 dynamic
      */
     /**
      * Listens for message receiving events of the TCPSocket connection.
@@ -2888,7 +2888,7 @@ declare namespace socket {
      * @param { 'message' } type Indicates Event name.
      * @param { Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 7
+     * @since 7 dynamic
      */
     /**
      * Cancels listening for message receiving events of the TCPSocket connection.
@@ -2896,7 +2896,7 @@ declare namespace socket {
      * @param { Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since 10
+     * @since 10 dynamic
      */
     /**
      * Cancels listening for message receiving events of the TCPSocket connection.
@@ -2914,7 +2914,7 @@ declare namespace socket {
      * @param { 'connect' | 'close' } type - Indicates Event name.
      * @param { Callback<void> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 7
+     * @since 7 dynamic
      */
     /**
      * Listens for connection or close events of the TCPSocket connection.
@@ -2931,7 +2931,7 @@ declare namespace socket {
      * @param { 'connect' | 'close' } type - Indicates Event name.
      * @param { Callback<void> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 7
+     * @since 7 dynamic
      */
     /**
      * Cancels listening for connection or close events of the TCPSocket connection.
@@ -2948,7 +2948,7 @@ declare namespace socket {
      * @param { 'error' } type - Indicates Event name.
      * @param { ErrorCallback } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 7
+     * @since 7 dynamic
      */
     /**
      * Listens for error events of the TCPSocket connection.
@@ -2965,7 +2965,7 @@ declare namespace socket {
      * @param { 'error' } type - Indicates Event name.
      * @param { ErrorCallback } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 7
+     * @since 7 dynamic
      */
     /**
      * Cancels listening for error events of the TCPSocket connection.
@@ -3196,7 +3196,7 @@ declare namespace socket {
      * @param { Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }> } callback - the callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 9
+     * @since 9 dynamic
      */
     /**
      * Listens for message receiving events of the TLSSocket connection.
@@ -3205,7 +3205,7 @@ declare namespace socket {
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since 10
+     * @since 10 dynamic
      */
     /**
      * Listens for message receiving events of the TLSSocket connection.
@@ -3224,7 +3224,7 @@ declare namespace socket {
      * @param { Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }> } callback - the callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 9
+     * @since 9 dynamic
      */
     /**
      * Cancels listening for message receiving events of the TLSSocket connection.
@@ -3233,7 +3233,7 @@ declare namespace socket {
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since 10
+     * @since 10 dynamic
      */
     /**
      * Cancels listening for message receiving events of the TLSSocket connection.
@@ -3252,7 +3252,7 @@ declare namespace socket {
      * @param {Callback<void> } callback - the callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 9
+     * @since 9 dynamic
      */
     /**
      * Listens for connection or close events of the TLSSocket connection.
@@ -3271,7 +3271,7 @@ declare namespace socket {
      * @param {Callback<void> } callback - the callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 9
+     * @since 9 dynamic
      */
     /**
      * Cancels listening for connection or close events of the TLSSocket connection.
@@ -3290,7 +3290,7 @@ declare namespace socket {
      * @param { ErrorCallback } callback - the callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 9
+     * @since 9 dynamic
      */
     /**
      * Listens for error events of the TLSSocket connection.
@@ -3309,7 +3309,7 @@ declare namespace socket {
      * @param { ErrorCallback } callback - the callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 9
+     * @since 9 dynamic
      */
     /**
      * Cancels listening for error events of the TLSSocket connection.
