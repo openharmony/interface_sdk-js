@@ -29,6 +29,7 @@ import type Context from './application/BaseContext';
  * @namespace vcard
  * @syscap SystemCapability.Telephony.CoreService
  * @since 11 dynamic
+ * @since 23 static
  */
 declare namespace vcard {
   /**
@@ -169,14 +170,30 @@ declare namespace vcard {
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
+   * @since 23 static
+   */
+  /**
+   * Indicates the VCard types.
+   *
+   * @enum { string }
+   * @syscap SystemCapability.Telephony.CoreService
+   * @since 24 dynamic&static
    */
   export enum VCardType {
+
     /**
      * Indicates the VCard version 2.1.
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
+     * @since 23 static
+     */
+    /**
+     * Indicates the VCard version 2.1.
+
+     * @syscap SystemCapability.Telephony.CoreService
+     * @since 24 dynamic&static
      */
     VERSION_21 = 0,
 
@@ -186,26 +203,48 @@ declare namespace vcard {
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
+     * @since 23 static
+     */
+    /**
+     * Indicates the VCard version 3.0.
+     *
+     * @syscap SystemCapability.Telephony.CoreService
+     * @since 24 dynamic&static
      */
     VERSION_30 = 1,
-
+    
     /**
      * Indicates the VCard version 4.0.
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
+     * @since 23 static
+     */
+    /**
+     * Indicates the VCard version 4.0.
+     *
+     * @syscap SystemCapability.Telephony.CoreService
+     * @since 24 dynamic&static
      */
     VERSION_40 = 2
   }
 
-  /**
+   /**
    * Indicates the options for VCard export.
    *
    * @interface VCardBuilderOptions
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
+   * @since 23 static
+   */
+  /**
+   * Indicates the options for VCard export.
+   *
+   * @interface VCardBuilderOptions
+   * @syscap SystemCapability.Telephony.CoreService
+   * @since 24 dynamic&static
    */
   export interface VCardBuilderOptions {
     /**
@@ -215,6 +254,14 @@ declare namespace vcard {
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
+     * @since 23 static
+     */
+    /**
+     * Indicates the VCard types.
+     *
+     * @type { ?VCardType }
+     * @syscap SystemCapability.Telephony.CoreService
+     * @since 24 dynamic&static
      */
     cardType?: VCardType;
     /**
@@ -224,6 +271,14 @@ declare namespace vcard {
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
+     * @since 23 static
+     */
+    /**
+     * Indicates the Encoding format.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Telephony.CoreService
+     * @since 24 dynamic&static
      */
     charset?: string;
   }
