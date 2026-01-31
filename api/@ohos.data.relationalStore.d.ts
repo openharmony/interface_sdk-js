@@ -11076,8 +11076,8 @@ declare namespace relationalStore {
 
   /**
    * Obtains a RDB store.
-   * You can set parameters of the RDB store as required. In general, this method is recommended
-   * to obtain a rdb store.
+   * You can set parameters of the RDB store as required. This is a synchronous method
+   * that blocks the thread until the RDB store is obtained.
    *
    * @param { Context } context - Indicates the context of an application or ability.
    * @param { StoreConfig } config - Indicates the {@link StoreConfig} configuration of the database related to
