@@ -1025,14 +1025,15 @@ export interface OverlayManagerOptions {
 
 /**
  * Defines the type can be used for identiting the node, for the string type, it's the inspector id
- * set through .id attribute, and for the number type, it's the unique ID got from the FrameNode by
+ * set through .id attribute, and for the int type, it's the unique ID got from the FrameNode by
  * getUniqueID method.
  *
- * @typedef { string | number } NodeIdentity
+ * @typedef { string | int } NodeIdentity
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 23 static
+ * @stagemodelonly
+ * @since 24 static
  */
-export declare type NodeIdentity = string | number;
+export declare type NodeIdentity = string | int;
 
 /**
  * An enumeration type that identifies the current node's rendering state. The UI components used in
@@ -1045,7 +1046,8 @@ export declare type NodeIdentity = string | number;
  *
  * @enum { number } NodeRenderState
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 23 static
+ * @stagemodelonly
+ * @since 24 static
  */
 export const enum NodeRenderState {
   /**
@@ -1056,7 +1058,8 @@ export const enum NodeRenderState {
    * trigger the callback once, and the state notified at this time typically represents the current state.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @stagemodelonly
+   * @since 24 static
    */
   ABOUT_TO_RENDER_IN = 0,
 
@@ -1067,7 +1070,8 @@ export const enum NodeRenderState {
    * trigger the callback once, and the state notified at this time typically represents the current state.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @stagemodelonly
+   * @since 24 static
    */
   ABOUT_TO_RENDER_OUT = 1
 }
@@ -1079,7 +1083,8 @@ export const enum NodeRenderState {
  * @param { NodeRenderState } state - the node's render state
  * @param { FrameNode } [node] - the information of frameNode
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 23 static
+ * @stagemodelonly
+ * @since 24 static
  */
 export declare type NodeRenderStateChangeCallback = (state: NodeRenderState, node?: FrameNode) => void;
 
@@ -1091,7 +1096,8 @@ export declare type NodeRenderStateChangeCallback = (state: NodeRenderState, nod
  *
  * @enum { number } GestureActionPhase
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 23 static
+ * @stagemodelonly
+ * @since 24 static
  */
 export const enum GestureActionPhase {
   /**
@@ -1099,7 +1105,8 @@ export const enum GestureActionPhase {
    * executed immediately.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @stagemodelonly
+   * @since 24 static
    */
   WILL_START = 0,
 
@@ -1108,7 +1115,8 @@ export const enum GestureActionPhase {
    * fingers, ending the entire interaction, and the action-end callback will be executed immediately.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @stagemodelonly
+   * @since 24 static
    */
   WILL_END = 1
 }
@@ -1118,14 +1126,16 @@ export const enum GestureActionPhase {
  *
  * @enum { number } GestureListenerType
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 23 static
+ * @stagemodelonly
+ * @since 24 static
  */
 export const enum GestureListenerType {
   /**
    * The tap gesture.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @stagemodelonly
+   * @since 24 static
    */
   TAP = 0,
 
@@ -1133,7 +1143,8 @@ export const enum GestureListenerType {
    * The long press gesture.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @stagemodelonly
+   * @since 24 static
    */
   LONG_PRESS = 1,
 
@@ -1141,7 +1152,8 @@ export const enum GestureListenerType {
    * The pan gesture.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @stagemodelonly
+   * @since 24 static
    */
   PAN = 2,
 
@@ -1149,7 +1161,8 @@ export const enum GestureListenerType {
    * The pinch gesture.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @stagemodelonly
+   * @since 24 static
    */
   PINCH = 3,
 
@@ -1157,7 +1170,8 @@ export const enum GestureListenerType {
    * The swipe gesture.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @stagemodelonly
+   * @since 24 static
    */
   SWIPE = 4,
 
@@ -1165,7 +1179,8 @@ export const enum GestureListenerType {
    * The rotation gesture.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @stagemodelonly
+   * @since 24 static
    */
   ROTATION = 5
 }
@@ -1175,7 +1190,8 @@ export const enum GestureListenerType {
  *
  * @interface GestureTriggerInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 23 static
+ * @stagemodelonly
+ * @since 24 static
  */
 export interface GestureTriggerInfo {
   /**
@@ -1183,7 +1199,8 @@ export interface GestureTriggerInfo {
    *
    * @type { GestureEvent }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @stagemodelonly
+   * @since 24 static
    */
   event: GestureEvent;
 
@@ -1193,7 +1210,8 @@ export interface GestureTriggerInfo {
    *
    * @type { GestureRecognizer }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @stagemodelonly
+   * @since 24 static
    */
   current: GestureRecognizer;
 
@@ -1202,7 +1220,8 @@ export interface GestureTriggerInfo {
    *
    * @type { GestureActionPhase }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @stagemodelonly
+   * @since 24 static
    */
   currentPhase: GestureActionPhase;
 
@@ -1211,7 +1230,8 @@ export interface GestureTriggerInfo {
    *
    * @type { ?FrameNode }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @stagemodelonly
+   * @since 24 static
    */
   node?: FrameNode;
 }
@@ -1221,17 +1241,18 @@ export interface GestureTriggerInfo {
  *
  * @interface GestureObserverConfigs
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 23 static
+ * @stagemodelonly
+ * @since 24 static
  */
 export interface GestureObserverConfigs {
   /**
-   * The gesture callback phases want to monitor. Only the specific action phases can be notified when the gesture is
-   * triggered.
-   * If empty array provided, the register will has no any effect.
+   * The gesture callback phases want to monitor. Only the specific action phases can be notified when the
+   * gesture is triggered. If empty array provided, the register will has no any effect.
    *
    * @type { Array<GestureActionPhase> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @stagemodelonly
+   * @since 24 static
    */
   actionPhases: Array<GestureActionPhase>;
 }
@@ -1241,9 +1262,9 @@ export interface GestureObserverConfigs {
  *
  * @typedef { function } GestureListenerCallback
  * @param { GestureTriggerInfo } info - the gesture details triggered with user interaction
- *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 23 static
+ * @stagemodelonly
+ * @since 24 static
  */
 export declare type GestureListenerCallback = (info: GestureTriggerInfo) => void;
 
@@ -1829,9 +1850,9 @@ export declare class UIObserver {
    * @param { GestureListenerType } type - The type of gesture to monitor.
    * @param { GestureObserverConfigs } option - The options when bind the global listener.
    * @param { GestureListenerCallback } callback - The callback function to be called when any gesture's state
-   *                                               is updated.
+   *     is updated.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   addGlobalGestureListener(type: GestureListenerType,
       option: GestureObserverConfigs, callback: GestureListenerCallback): void;
@@ -1841,9 +1862,9 @@ export declare class UIObserver {
    *
    * @param { GestureListenerType } type - The type of event to remove the listener for.
    * @param { GestureListenerCallback } [callback] - The callback function to be removed. If not provided,
-   *                                                      all callbacks for the given gesture type will be removed.
+   *     all callbacks for the given gesture type will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   removeGlobalGestureListener(type: GestureListenerType, callback?: GestureListenerCallback): void;
 
@@ -1982,6 +2003,51 @@ export declare class UIObserver {
    * @since 23 static
    */
   onNavDestinationSizeChangeByUniqueId(navigationUniqueId: int, callback: Callback<observer.NavDestinationInfo>): void;
+
+  /**
+   * Registers a callback function to be called when the specific node's render state changed.
+   * This callback will be executed once immediately when the register is successful.
+   * [Notes]:
+   *  1. Be aware of the limit on the number of nodes:
+   *     For performance considerations, the system has imposed a limit on the number of
+   *     nodes that can be registered for monitoring in a single UI instance, exception will be thrown
+   *     if overmuch. Please use this interface with caution.
+   *  2. Understanding scenarios where notifications may not occur:
+   *     In general, within container components that have view or page switching functionality,
+   *     when a view or page within the screen is moved outside the screen, the components previously
+   *     within the screen should be removed from the render tree and should receive a RENDER_OUT
+   *     notification. However, this is not always the case, as some scenarios involve views or components
+   *     being moved outside the screen's display range without triggering a RENDER_OUT notification.
+   *     For example, some components with caching capabilities may affect this behavior, and swiper is one
+   *     such component. The cacheCount property of the swiper component allows you to force, via its second
+   *     parameter isShow, that even if the current page is moved outside the display range, it remains in the
+   *     render tree. This can be useful in scenarios where multiple pages are displayed on the screen simultaneously.
+   *     Another example is scrolling components like list or scroll, where their internal content remains in the
+   *     render tree even if it is scrolled outside the screen's display range, provided that lazyForEach/Repeat is
+   *     not used. As a result, there will be no changes to the render state. Once you understand the principles
+   *     behind the triggers for render state changes, these scenarios will become easier to comprehend.
+   *
+   * @param { NodeIdentity } nodeIdentity - The identity of the target node
+   * @param { NodeRenderStateChangeCallback } callback - The callback function executed when the rendering state
+   *     of the component node changes.
+   * @throws { BusinessError } 161001 - The count of nodes monitoring render state is over the limitation.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  onNodeRenderState(nodeIdentity: NodeIdentity, callback: NodeRenderStateChangeCallback): void;
+
+  /**
+   * Removes a callback function for node render state monitoring.
+   *
+   * @param { NodeIdentity } nodeIdentity - The identity of the target node
+   * @param { NodeRenderStateChangeCallback } [callback] - The callback function to remove. If not provided,
+   *     all callbacks will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  offNodeRenderState(nodeIdentity: NodeIdentity, callback?: NodeRenderStateChangeCallback): void;
 
   /**
    * Removes a callback function that was previously registered with 'onNavDestinationSizeChangeByUniqueId()'.
