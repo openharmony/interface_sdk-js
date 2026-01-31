@@ -3385,7 +3385,34 @@ declare namespace photoAccessHelper {
      * @stagemodelonly
      * @since 23 dynamic&static
      */
-    PHOTO_RISK_STATUS = 'photo_risk_status'
+    PHOTO_RISK_STATUS = 'photo_risk_status',
+    /**
+     * Year of date_added time.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    DATE_ADDED_YEAR = 'date_added_year',
+    /**
+     * Month of date_added time.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    DATE_ADDED_MONTH = 'date_added_month',
+    /**
+     * Day of date_added time.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    DATE_ADDED_DAY = 'date_added_day'
   }
 
   /**
@@ -7865,6 +7892,24 @@ declare namespace photoAccessHelper {
      * @since 23 static
      */
     getAlbumIdByLpath(lpath: string): Promise<int>;
+
+    /**
+     * Whether a kind of media data is ready.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { string } mediaDataKey - Media data key.
+     * @returns { Promise<boolean> } Returns whether the specified media data is ready.
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 23800151 - The scenario parameter verification fails, unsupported media data type.
+     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
+     *     Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    isMediaDataReady(mediaDataKey: string): Promise<boolean>;
   }
 
   /**
