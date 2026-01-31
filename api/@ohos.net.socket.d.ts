@@ -3329,7 +3329,7 @@ declare namespace socket {
      * @throws { BusinessError } 2303504 - An error occurred when verifying the X.509 certificate.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 9 dynamic
+     * @since 9
      */
     /**
      * Returns an object representing a local certificate.
