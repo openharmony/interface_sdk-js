@@ -21,6 +21,7 @@
 
 import { FillMode, PlayMode } from '@ohos.arkui.component';
 import { ExpectedFrameRateRange } from '@ohos.arkui.component';
+export { FillMode, PlayMode } from '@ohos.arkui.component';
 
 
 /**
