@@ -244,7 +244,6 @@ declare namespace socket {
    * @typedef SppOptions
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 10 dynamic
-   * @since 23 static
    */
   interface SppOptions {
     /**
@@ -277,7 +276,6 @@ declare namespace socket {
      * @type { ?number }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 20 dynamic
-     * @since 23 static
      */
     psm?: number;
   }
@@ -288,7 +286,6 @@ declare namespace socket {
    * @enum { number }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 10 dynamic
-   * @since 23 static
    */
   enum SppType {
     /**
@@ -303,7 +300,6 @@ declare namespace socket {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 20 dynamic
-     * @since 23 static
      */
     SPP_L2CAP = 1,
      /**
@@ -311,7 +307,6 @@ declare namespace socket {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 20 dynamic
-     * @since 23 static
      */
     SPP_L2CAP_BLE = 2
   }
