@@ -12338,7 +12338,7 @@ declare namespace window {
      *     2. Internal task error.
      *     3. The window has not set window mask yet.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
-     * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause:
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
      *     Possible cause: Invalid window type. Only subwindows and float windows are supported.
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
