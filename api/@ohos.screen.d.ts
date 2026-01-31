@@ -552,8 +552,8 @@ declare namespace screen {
    * Resize virtual screen.
    *
    * @param { long } screenId The id of virtual screen to be resized, Value Range: [1000, 2147483647].
-   * @param { long } width The new width, Value Range: [1, 2147483647].
-   * @param { long } height The new height, Value Range: [1, 2147483647].
+   * @param { long } width The new width, Value Range: [1, 65536].
+   * @param { long } height The new height, Value Range: [1, 65536].
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work because the current device does
