@@ -7429,9 +7429,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Get color space of pixel map.
      *
      * @returns { colorSpaceManager.ColorSpaceManager } If the operation fails, an error message is returned.
-     * @throws { BusinessError } 62980101 - If the image data abnormal.
-     * @throws { BusinessError } 62980103 - If the image data unsupport.
-     * @throws { BusinessError } 62980115 - If the image parameter invalid.
+     * @throws { BusinessError } 62980101 - The image data is abnormal.
+     * @throws { BusinessError } 62980103 - The image data is not supported.
+     * @throws { BusinessError } 62980115 - Invalid image parameter.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform  
      * @since 11 dynamic
