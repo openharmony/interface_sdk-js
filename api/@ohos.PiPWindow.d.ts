@@ -318,7 +318,6 @@ declare namespace PiPWindow {
    * @since 24 static
    */
     interface PiPWindowSize {
-
       /**
        * The width of the picture-in-picture window.
        *
@@ -331,17 +330,6 @@ declare namespace PiPWindow {
       width: int;
   
       /**
-       * The scale of the picture-in-picture window.
-       *
-       * @type { double }
-       * @syscap SystemCapability.Window.SessionManager
-       * @atomicservice
-       * @since 15 dynamic
-       * @since 24 static
-       */
-      scale: double;
-  
-      /**
        * The height of the picture-in-picture window.
        *
        * @type { int }
@@ -351,6 +339,17 @@ declare namespace PiPWindow {
        * @since 24 static
        */
       height: int;
+
+      /**
+       * The scale of the picture-in-picture window.
+       *
+       * @type { double }
+       * @syscap SystemCapability.Window.SessionManager
+       * @atomicservice
+       * @since 15 dynamic
+       * @since 24 static
+       */
+      scale: double;
     }
 
   /**
@@ -1368,20 +1367,6 @@ declare namespace PiPWindow {
     offControlEvent(callback?: Callback<ControlEventParam>): void;
 
     /**
-     * Returns a Boolean value that indicates whether picture-in-picture is supported
-     *
-     * @returns { boolean } - True if picture-in-picture is supported, otherwise false
-     * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
-     * @throws { BusinessError } 1300014 - PiP internal error.
-     * @syscap SystemCapability.Window.SessionManager
-     * @systemapi Hide this for inner system use
-     * @since 18 dynamic
-     * @since 24 static
-     * @test
-     */
-    isPiPSupported(): boolean;
-
-    /**
      * Unregister picture-in-picture window size change event listener
      *
      * @param { 'pipWindowSizeChange' } type - The value is fixed at 'pipWindowSizeChange', indicating the picture-in-picture
@@ -1483,6 +1468,20 @@ declare namespace PiPWindow {
      * @since 24 static
      */
     offActiveStatusChange(callback?: Callback<boolean>): void;
+
+    /**
+     * Returns a Boolean value that indicates whether picture-in-picture is supported
+     *
+     * @returns { boolean } - True if picture-in-picture is supported, otherwise false
+     * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
+     * @throws { BusinessError } 1300014 - PiP internal error.
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use
+     * @since 18 dynamic
+     * @since 24 static
+     * @test
+     */
+    isPiPSupported(): boolean;
   }
 }
 
