@@ -1367,6 +1367,33 @@ declare namespace PiPWindow {
     offControlEvent(callback?: Callback<ControlEventParam>): void;
 
     /**
+     * Register picture-in-picture window size change event listener
+     *
+     * @param { 'pipWindowSizeChange' } type - The value is fixed at 'pipWindowSizeChange', indicating the picture-in-picture
+     * window size change event.
+     * @param { Callback<PiPWindowSize> } callback - Callback used to return the picture-in-picture window size.
+     * @throws { BusinessError } 401 - Params error. Possible causes: Callback is already registered.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300014 - PiP internal error.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 15 dynamic
+     */
+    on(type: 'pipWindowSizeChange', callback: Callback<PiPWindowSize>): void;
+
+    /**
+     * Register picture-in-picture window size change event listener
+     *
+     * @param { Callback<PiPWindowSize> } callback - Callback used to return the picture-in-picture window size.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
+     *     capabilities.
+     * @throws { BusinessError } 1300014 - PiP internal error.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 24 static
+     */
+    onPipWindowSizeChange(callback: Callback<PiPWindowSize>): void;
+
+    /**
      * Unregister picture-in-picture window size change event listener
      *
      * @param { 'pipWindowSizeChange' } type - The value is fixed at 'pipWindowSizeChange', indicating the picture-in-picture
@@ -1393,33 +1420,6 @@ declare namespace PiPWindow {
      * @since 24 static
      */
     offPipWindowSizeChange(callback?: Callback<PiPWindowSize>): void;
-
-    /**
-     * Register picture-in-picture window size change event listener
-     *
-     * @param { 'pipWindowSizeChange' } type - The value is fixed at 'pipWindowSizeChange', indicating the picture-in-picture
-     * window size change event.
-     * @param { Callback<PiPWindowSize> } callback - Callback used to return the picture-in-picture window size.
-     * @throws { BusinessError } 401 - Params error. Possible causes: Callback is already registered.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
-     * @throws { BusinessError } 1300014 - PiP internal error.
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
-     * @since 15 dynamic
-     */
-    on(type: 'pipWindowSizeChange', callback: Callback<PiPWindowSize>): void;
-
-    /**
-     * Register picture-in-picture window size change event listener
-     *
-     * @param { Callback<PiPWindowSize> } callback - Callback used to return the picture-in-picture window size.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
-     *     capabilities.
-     * @throws { BusinessError } 1300014 - PiP internal error.
-     * @syscap SystemCapability.Window.SessionManager
-     * @since 24 static
-     */
-    onPipWindowSizeChange(callback: Callback<PiPWindowSize>): void;
 
     /**
      * Register picture-in-picture active status change listener.
