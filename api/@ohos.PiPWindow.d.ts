@@ -317,40 +317,40 @@ declare namespace PiPWindow {
    * @since 15 dynamic
    * @since 24 static
    */
-    interface PiPWindowSize {
-      /**
-       * The width of the picture-in-picture window.
-       *
-       * @type { int }
-       * @syscap SystemCapability.Window.SessionManager
-       * @atomicservice
-       * @since 15 dynamic
-       * @since 24 static
-       */
-      width: int;
-  
-      /**
-       * The height of the picture-in-picture window.
-       *
-       * @type { int }
-       * @syscap SystemCapability.Window.SessionManager
-       * @atomicservice
-       * @since 15 dynamic
-       * @since 24 static
-       */
-      height: int;
+  interface PiPWindowSize {
+    /**
+     * The width of the picture-in-picture window.
+     *
+     * @type { int }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 15 dynamic
+     * @since 24 static
+     */
+    width: int;
 
-      /**
-       * The scale of the picture-in-picture window.
-       *
-       * @type { double }
-       * @syscap SystemCapability.Window.SessionManager
-       * @atomicservice
-       * @since 15 dynamic
-       * @since 24 static
-       */
-      scale: double;
-    }
+    /**
+     * The height of the picture-in-picture window.
+     *
+     * @type { int }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 15 dynamic
+     * @since 24 static
+     */
+    height: int;
+
+    /**
+     * The scale of the picture-in-picture window.
+     *
+     * @type { double }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 15 dynamic
+     * @since 24 static
+     */
+    scale: double;
+  }
 
   /**
    * The info of picture-in-picture window
@@ -1456,7 +1456,7 @@ declare namespace PiPWindow {
      * @since 22 dynamic
      */
     off(type: 'activeStatusChange', callback?: Callback<boolean>): void;
-    
+
     /**
      * Unregister picture-in-picture active status change listener
      * @param { Callback<boolean> } [callback] - Used to handle {'activeStatusChange'} command. If not provided,
