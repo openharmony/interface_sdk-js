@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2022-2026 Huawei Device Co., Ltd.
+ * Copyright (C) 2022-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -2496,14 +2496,6 @@ declare namespace connection {
    * @since 12 dynamic
    * @since 23 static
    */
-  /**
-   * Defines a network address.
-   * @interface NetAddress
-   * @syscap SystemCapability.Communication.NetManager.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 24 dynamic&static
-   */
   export interface NetAddress {
     /**
      * Network address.
@@ -2518,14 +2510,6 @@ declare namespace connection {
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
-     */
-    /**
-     * Network address.
-     * @type {string}
-     * @syscap SystemCapability.Communication.NetManager.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 24 dynamic&static
      */
     address: string;
 
@@ -2543,14 +2527,6 @@ declare namespace connection {
      * @since 12 dynamic
      * @since 23 static
      */
-    /**
-     * Address family identifier. The value is 1 for IPv4 and 2 for IPv6. The default value is 1.
-     * @type {?int}
-     * @syscap SystemCapability.Communication.NetManager.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 24 dynamic&static
-     */
     family?: int; 
 
     /**
@@ -2566,14 +2542,6 @@ declare namespace connection {
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
-     */
-    /**
-     * Port number. The value ranges from 0 to 65535.
-     * @type {?int}
-     * @syscap SystemCapability.Communication.NetManager.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 24 dynamic&static
      */
     port?: int; 
   }
@@ -2592,14 +2560,6 @@ declare namespace connection {
    * @since 11 dynamic
    * @since 23 static
    */
-  /**
-   * Network Global Proxy Configuration Information.
-   * @interface HttpProxy
-   * @syscap SystemCapability.Communication.NetManager.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 24 dynamic&static
-   */
   export interface HttpProxy {
     /**
      * Proxy server host name.
@@ -2614,14 +2574,6 @@ declare namespace connection {
      * @atomicservice
      * @since 11 dynamic
      * @since 23 static
-     */
-    /**
-     * Proxy server host name.
-     * @type {string}
-     * @syscap SystemCapability.Communication.NetManager.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 24 dynamic&static
      */
     host: string;
 
@@ -2638,14 +2590,6 @@ declare namespace connection {
      * @atomicservice
      * @since 11 dynamic
      * @since 23 static
-     */
-    /**
-     * Host port.
-     * @type {int}
-     * @syscap SystemCapability.Communication.NetManager.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 24 dynamic&static
      */
     port: int;
 
