@@ -1775,22 +1775,6 @@ declare namespace text {
      * @since 24 dynamic&static
      */
     END,
-
-    /**
-     * Places the ellipsis in the text header. It is valid for any value of maxLines in ParagraphStyle.
-     * @syscap SystemCapability.Graphics.Drawing
-     * @atomicservice
-     * @since 24 dynamic&static
-     */
-    MULTILINE_START,
-
-    /**
-     * Places the ellipsis in the middle of the text. It is valid for any value of maxLines in ParagraphStyle.
-     * @syscap SystemCapability.Graphics.Drawing
-     * @atomicservice
-     * @since 24 dynamic&static
-     */
-    MULTILINE_MIDDLE,
   }
 
   /**
