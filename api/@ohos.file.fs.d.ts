@@ -8401,7 +8401,6 @@ export class TaskSignal {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 12 dynamiconly
-   * @deprecated since 24
    */
   onCancel(): Promise<string>;
 }
