@@ -2244,15 +2244,6 @@ declare namespace pasteboard {
     hasPasteData(): Promise<boolean>;
 
     /**
-     * Checks whether the paste data is in a remote device.
-     * @returns { boolean } True is in a remote device, else false.
-     * @syscap SystemCapability.MiscServices.Pasteboard
-     * @atomicservice
-     * @since 24 dynamic&static
-     */
-    hasRemoteData(): boolean;
-
-    /**
      * Checks whether there is content in the system pasteboard.
      * @param { AsyncCallback<boolean> } callback - the callback of hasData.
      * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
