@@ -22,7 +22,6 @@ import { BarState } from './enums';
 import { CommonMethod } from './common';
 import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from "./common";
-import { ColorMetrics } from '../Graphics';
 /**
  * Content scroll direction.
  *
@@ -97,16 +96,6 @@ export declare interface ScrollBarAttribute extends CommonMethod {
      * @since 23 static
      */
     default enableNestedScroll(enabled: boolean | undefined): this;
-    /**
-     * Color of the scrollbar.
-     *
-     * @param { ColorMetrics | undefined } color - Color of the scrollbar.
-     *     <br>Default value: <em>'\#182431'</em> (40% opacity), Passing undefined will restore the default value.
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 24 static
-     */
-    default scrollBarColor(color: ColorMetrics | undefined): this;
     /**
      * Called attributeModifier.
      *

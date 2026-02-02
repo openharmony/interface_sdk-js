@@ -1417,17 +1417,15 @@ export declare interface DividerStyleOptions {
  *
  * @interface ScrollBarMargin
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 24 static
+ * @since 23 static
  */
-export declare interface ScrollBarMargin {
+declare interface ScrollBarMargin {
   /**
    * Start margin of the scroll bar.
    *
    * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 24 static
+   * @since 23 static
    */
   start?: LengthMetrics;
 
@@ -1436,8 +1434,7 @@ export declare interface ScrollBarMargin {
    *
    * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 24 static
+   * @since 23 static
    */
   end?: LengthMetrics;
 }
