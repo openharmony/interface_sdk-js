@@ -4318,18 +4318,6 @@ declare namespace webview {
     refresh(): void;
 
     /**
-     * Refreshes the current URL.
-     *
-     * @param { boolean } ignoreCache - If set to true, it indicates an end-to-end request with "pragma: no-cache";
-     *     otherwise, it performs a normal refresh.
-     * @throws { BusinessError } 17100001 - Init error.
-     *     The WebviewController must be associated with a Web component.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 24 dynamic
-     */
-    refresh(ignoreCache: boolean): void;
-
-    /**
      * Loads the data or URL.
      *
      * @param { string } data - A string encoded according to "Base64" or "URL".
