@@ -1063,7 +1063,7 @@ declare namespace display {
   function getBrightnessInfo(displayId: long): BrightnessInfo;
 
   /**
-   * Defines the Brightness callback.
+   * Defines the brightness callback.
    *
    * @typedef {function}
    * @param { T1 } data1 - the data will be used in the callback.
