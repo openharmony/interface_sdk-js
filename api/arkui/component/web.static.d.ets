@@ -6477,7 +6477,7 @@ export declare interface WebAttribute extends CommonMethod {
      * but in a few seconds according to the current network condition.
      * However, if the user scrolls or inputs before the first screen has been painted,
      * the callback will be triggered immediately.
-     * @param { OnFirstScreenPaintCallback | undefined } callback - callback triggered to 
+     * @param { OnFirstScreenPaintCallback | undefined } callback - callback triggered to
      *     report the info for the first screen painting of the current web page.
      * @returns { WebAttribute }
      * @syscap SystemCapability.Web.Webview.Core
@@ -6534,6 +6534,18 @@ export declare interface WebAttribute extends CommonMethod {
      * @since 23 static
      */
     default onMicrophoneCaptureStateChange(callback: OnMicrophoneCaptureStateChangeCallback | undefined): this;
+    /**
+     * Set whether to enable the default right-click context menu.
+     *
+     * @param { boolean | undefined } enable - {@code true} means the Web enable the default right-click context menu,
+     *    {@code false} otherwise.
+     *    The default value is false.
+     * @returns { WebAttribute }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 24 static
+     */
+    default enableDefaultContextMenu(enable: boolean | undefined): this;
     /**
      * Set the attribute modifier
      *
