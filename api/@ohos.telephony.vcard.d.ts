@@ -172,7 +172,6 @@ declare namespace vcard {
    * @since 11 dynamic
    * @since 23 static
    */
-
   export enum VCardType {
 
     /**
@@ -183,7 +182,6 @@ declare namespace vcard {
      * @since 11 dynamic
      * @since 23 static
      */
-   
     VERSION_21 = 0,
 
     /**
@@ -194,7 +192,6 @@ declare namespace vcard {
      * @since 11 dynamic
      * @since 23 static
      */
-    
     VERSION_30 = 1,
     
     /**
@@ -205,7 +202,6 @@ declare namespace vcard {
      * @since 11 dynamic
      * @since 23 static
      */
-    
     VERSION_40 = 2
   }
 
@@ -218,7 +214,6 @@ declare namespace vcard {
    * @since 11 dynamic
    * @since 23 static
    */
-  
   export interface VCardBuilderOptions {
     /**
      * Indicates the VCard types.
@@ -229,7 +224,6 @@ declare namespace vcard {
      * @since 11 dynamic
      * @since 23 static
      */
-    
     cardType?: VCardType;
     /**
      * Indicates the Encoding format.
@@ -240,7 +234,6 @@ declare namespace vcard {
      * @since 11 dynamic
      * @since 23 static
      */
-    
     charset?: string;
   }
 }
