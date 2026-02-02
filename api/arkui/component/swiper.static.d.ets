@@ -22,7 +22,7 @@
 import { IndicatorComponentController } from './indicatorcomponent';
 import { CommonMethod, Callback, ICurve, Bindable, AttributeModifier } from './common';
 import { EdgeEffect, Curve, PageFlipMode } from './enums';
-import { Length, LengthMetrics, VoidCallback, ResourceColor, VP, Font, ItemFillPolicy } from './units';
+import { Length, LengthMetrics, VoidCallback, ResourceColor, VP, Font } from './units';
 import { ComponentBuilder, CustomBuilder } from './builder';
 import { ScrollState } from "./list";
 
@@ -94,54 +94,6 @@ export declare class SwiperController {
    * @since 23 static
    */
   preloadItems(indices: Array<int> | undefined): Promise<void>;
-
-  /**
-   * Start a fake drag.
-   * Call 'fakeDragBy' to simulate the drag motion. Call 'stopFakeDrag' to complete the fake drag.
-   * A fake drag can be interrupted by a real drag. If you need to ignore touch events and other
-   *     user input during a fake drag, use 'disableSwipe(true)'.
-   *
-   * @returns { boolean } If the fake drag started successfully, return true.
-   *     If the Swiper is not ready to start the fake drag, or a real or fake drag is already in progress, return false.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 24 static
-   */
-  startFakeDrag(): boolean;
-
-  /**
-   * Fake drag by an offset.
-   * The 'startFakeDrag' must be called first.
-   *
-   * @param { float } offset - Indicate the offset that needs to be scrolled. The unit is vp.
-   * @returns { boolean } If not in a fake drag progress, or no offset is consumed, return false.
-   *     If any offset is consumed, return true.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 24 static
-   */
-  fakeDragBy(offset: float): boolean;
-
-  /**
-   * Stop a fake drag.
-   *
-   * @returns { boolean } If the fake drag stopped successfully, return true.
-   *     If the Swiper is not ready to stop a fake drag, or no fake drag is in progress, return false.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 24 static
-   */
-  stopFakeDrag(): boolean;
-
-  /**
-   * Get the fake drag state.
-   *
-   * @returns { boolean } If a fake drag is in progress return true, otherwise return false.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 24 static
-   */
-  isFakeDragging(): boolean;
 }
 
 /**
@@ -854,27 +806,7 @@ export declare interface SwiperAttribute extends CommonMethod {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
-  /**
-   * Sets the number of elements to display per page.
-   *
-   * If swipeByGroup is set to true:
-   * 1、All sub-items are grouped from index 0.
-   * 2、The number of sub-items in each group is the value of displayCount.
-   * 3、If the number of sub-items in the last group is less than displayCount, placeholder items are added to supplement the number of last group.
-   * 4、Placeholder items do not display any content and are only used as placeholders.
-   * 5、When turning pages, turn pages by group.
-   *
-   * @param { int | string | SwiperAutoFill | ItemFillPolicy | undefined } value - the number of elements to display per page.
-   * @param { boolean | undefined } [swipeByGroup] - if swipe by group.
-   *    <br>Default value: false
-   *    <br>true: the page is turned by group. The number of subelements in each group is the value of displayCount.
-   *    <br>false: The default page turning behavior is used. That is, pages are turned based on subelements.
-   * @returns { SwiperAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 24 static
-   */
-  default displayCount(value: int | string | SwiperAutoFill | ItemFillPolicy | undefined, swipeByGroup?: boolean | undefined): this;
+  default displayCount(value: int | string | SwiperAutoFill | undefined, swipeByGroup?: boolean | undefined): this;
 
   /**
    * Invoked when setting the sliding effect
@@ -961,17 +893,6 @@ export declare interface SwiperAttribute extends CommonMethod {
    * @since 23 static
    */
   default onUnselected(event: Callback<int> | undefined): this;
-
-  /**
-   * Called when the scroll state of the swiper changed.
-   *
-   * @param { Callback<ScrollState> | undefined } event - callback to notify the change of the scroll state.
-   * @returns { SwiperAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 24 static
-   */
-  default onScrollStateChanged(event: Callback<ScrollState> | undefined): this;
 
   /**
    * Called when the swiper animation start.
@@ -1066,19 +987,6 @@ export declare interface SwiperAttribute extends CommonMethod {
    * @since 23 static
    */
   default onContentWillScroll(handler: ContentWillScrollCallback | undefined): this;
-
-  /**
-   * Set whether to keep the position of the visible content unchanged
-   * when data is inserted or deleted above or in front of the display area.
-   *
-   * @param { boolean | undefined } enabled - maintain visible content position.
-   *    Default value is false.
-   * @returns { SwiperAttribute } the attribute of swiper.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 24 static
-   */
-  default maintainVisibleContentPosition(enabled: boolean | undefined): this;
 
   /**
    * Set the attribute modifier of swiper.
