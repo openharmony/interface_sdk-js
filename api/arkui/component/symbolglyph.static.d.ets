@@ -20,9 +20,8 @@
 import { Resource } from '../../global/resource';
 import { ResourceColor } from "./units";
 import { FontWeight } from "./enums";
-import { CommonMethod, AttributeModifier, ShadowOptions } from "./common";
+import { CommonMethod, AttributeModifier } from "./common";
 import { ComponentBuilder, CustomBuilder } from './builder';
-import { ShaderStyle } from "./textCommon";
 /**
  * The symbol rendering strategy.
  *
@@ -158,7 +157,7 @@ export declare enum EffectFillStyle {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 24 static
+ * @since 23 static
  */
 export declare enum ReplaceEffectType {
     /**
@@ -166,7 +165,7 @@ export declare enum ReplaceEffectType {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 23 static
      */
     SEQUENTIAL = 0,
     /**
@@ -175,7 +174,7 @@ export declare enum ReplaceEffectType {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 23 static
      */
     CROSS_FADE = 1,
     /**
@@ -185,7 +184,7 @@ export declare enum ReplaceEffectType {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 23 static
      */
     SLASH_OVERLAY = 2
 }
@@ -345,7 +344,7 @@ export declare class BounceSymbolEffect extends SymbolEffect {
  *
  * @extends SymbolEffect
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 24 static
+ * @since 23 static
  */
 export declare class ReplaceSymbolEffect extends SymbolEffect {
     /**
@@ -355,7 +354,7 @@ export declare class ReplaceSymbolEffect extends SymbolEffect {
      * @param { ReplaceEffectType } [replaceType] - The replace effect type of symbol effect.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 23 static
      */
     constructor(scope?: EffectScope, replaceType?: ReplaceEffectType);
     /**
@@ -363,7 +362,7 @@ export declare class ReplaceSymbolEffect extends SymbolEffect {
      *
      * @type { ?EffectScope }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 24 static
+     * @since 23 static
      */
     scope?: EffectScope;
     /**
@@ -372,7 +371,7 @@ export declare class ReplaceSymbolEffect extends SymbolEffect {
      * @type { ?ReplaceEffectType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 23 static
      */
     replaceType?: ReplaceEffectType;
 }
@@ -486,38 +485,6 @@ export declare interface SymbolGlyphAttribute extends CommonMethod {
      * @since 23 static
      */
     default maxFontScale(scale: double | Resource | undefined): this;
-    /**
-     * Set the shader style of the symbol, such as lineargradient or radialgradient.
-     *
-     * If a single `ShaderStyle` is provided, all layers of the symbol will use this shader style.
-     * If an array is provided, each item corresponds to the shader style of the matching symbol layer.
-     * - If an array item is `undefined`, that layer will use its default color.
-     * - Any layers beyond the length of the array will also use their default color.
-     *
-     * @param { Array<ShaderStyle | undefined> | ShaderStyle | undefined } shader - The shader style(s) to apply.
-     *     - `ShaderStyle`: Apply the same shader style to all symbol layers.
-     *     - `Array<ShaderStyle | undefined>`: Specify shader styles per layer; `undefined` means default
-     *     color for that layer.
-     *     - `undefined`: means reset all the layers to default color.
-     * @returns { SymbolGlyphAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 24 static
-     */
-    default shaderStyle(shader: Array<ShaderStyle | undefined> | ShaderStyle | undefined): this;
-    /**
-     * Set the shadow of symbol.
-     *
-     * <p><strong>NOTE</strong>:
-     * <br>This API does not work with the fill attribute, showType attribute or coloring strategy.
-     * </p>
-     *
-     * @param { ShadowOptions | undefined } shadow - The shadow options. Passing `undefined` will reset to default.
-     * @returns { SymbolGlyphAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 24 static
-     */
-    default symbolShadow(shadow: ShadowOptions | undefined): this;
 
     /**
      * Sets the attribute modifier.

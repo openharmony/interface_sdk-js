@@ -24,7 +24,7 @@ import { FontStyle, FontWeight, TextAlign, WordBreak, LineBreakStrategy, ImageSp
 import { DecorationStyleInterface, StyledString, MutableStyledString } from './styledString';
 import { Resource } from './../../../api/global/resource';
 import { SymbolEffectStrategy, SymbolRenderingStrategy } from './symbolglyph';
-import { DecorationStyleResult, TextRange, MenuType, TextEditControllerEx, LayoutManager, PreviewText, StyledStringController, StyledStringChangedListener, TextDataDetectorConfig, OnDidChangeCallback, EditMenuOptions, KeyboardAppearance, AccessibilitySpanOptions, TextDirection, SelectedDragPreviewStyle, TextVerticalAlign, TextChangeReason } from './textCommon';
+import { DecorationStyleResult, TextRange, MenuType, TextEditControllerEx, LayoutManager, PreviewText, StyledStringController, StyledStringChangedListener, TextDataDetectorConfig, OnDidChangeCallback, EditMenuOptions, KeyboardAppearance, AccessibilitySpanOptions, TextDirection, SelectedDragPreviewStyle } from './textCommon';
 import { GestureEvent } from './gesture';
 import { EnterKeyType, SubmitEvent } from './textInput';
 import { LengthMetrics, ColorMetrics } from '../Graphics';
@@ -358,15 +358,6 @@ export declare interface RichEditorParagraphStyle {
      * @since 23 static
      */
     textAlign?: TextAlign;
-    /**
-     * Vertical alignment of text.
-     *
-     * @type { ?TextVerticalAlign }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 24 static
-     */
-    textVerticalAlign?: TextVerticalAlign;
     /**
      * Leading margin.
      *
@@ -1487,16 +1478,6 @@ export declare interface RichEditorChangeValue {
      * @since 23 static
      */
     replacedSymbolSpans: Array<RichEditorTextSpanResult>;
-    /**
-     * The reason for text changes.
-     *
-     * @type { ?TextChangeReason }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 24 static
-     */
-    changeReason?: TextChangeReason;
 }
 /**
  * Defines the options of RichEditor.

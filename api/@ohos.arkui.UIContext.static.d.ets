@@ -53,7 +53,7 @@ import { DatePickerDialogOptions } from '@ohos.arkui.component';
 import { TabsController } from '@ohos.arkui.component';
 import { Scroller } from '@ohos.arkui.component';
 import { KeyProcessingMode } from '@ohos.arkui.component';
-import { TextMenuOptions, TextLayoutOptions, StyledString, Paragraph } from '@ohos.arkui.component';
+import { TextMenuOptions, StyledString } from '@ohos.arkui.component';
 /**
  * class Font
  *
@@ -1803,48 +1803,6 @@ export declare class UIObserver {
   offTabContentUpdate(callback?: Callback<observer.TabContentInfo>): void;
 
   /**
-   * Registers a callback function to be called when text field's content is changed.
-   *
-   * @param { Callback<observer.TextChangeEventInfo> } callback - The callback function to be called when
-   *     text field's content is changed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 24 static
-   */
-  onTextChange(callback: Callback<observer.TextChangeEventInfo>): void;
-
-  /**
-   * Removes a callback function that was previously registered with `on()`.
-   *
-   * @param { Callback<observer.TextChangeEventInfo> } [callback] - The callback function to remove. If not provided,
-   *     all callbacks for the given event type will be removed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 24 static
-   */
-  offTextChange(callback?: Callback<observer.TextChangeEventInfo>): void;
-
-  /**
-   * Registers a callback function to be called when text field's content is changed.
-   *
-   * @param { observer.ObserverOptions } identity - Identity options.
-   * @param { Callback<observer.TextChangeEventInfo> } callback - The callback function to be called when the
-   *     text field's content is changed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 24 static
-   */
-  onTextChange(identity: observer.ObserverOptions, callback: Callback<observer.TextChangeEventInfo>): void;
-
-  /**
-   * Removes a callback function that was previously registered with `on()`.
-   *
-   * @param { observer.ObserverOptions } identity - Identity options.
-   * @param { Callback<observer.TextChangeEventInfo> } [callback] - The callback function to remove. If not provided,
-   *     all callbacks for the given event type will be removed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 24 static
-   */
-  offTextChange(identity: observer.ObserverOptions, callback?: Callback<observer.TextChangeEventInfo>): void;
-
-  /**
    * Registers a callback to monitor the gesture trigger information.
    *
    * @param { GestureListenerType } type - The type of gesture to monitor.
@@ -2698,16 +2656,6 @@ export declare class MeasureUtils {
    * @since 23 static
    */
   measureTextSize(options: MeasureOptions): SizeOptions;
-  /**
-   * Get layout info of the styled string.
-   *
-   * @param { StyledString } styledString - The styled string value.
-   * @param { TextLayoutOptions } [options] - The layout options.
-   * @returns { Array<Paragraph> } paragraph result
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 24 static
-   */
-  getParagraphs(styledString: StyledString, options?: TextLayoutOptions): Array<Paragraph>;
 }
 
 /**
