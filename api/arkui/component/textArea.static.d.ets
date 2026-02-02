@@ -675,12 +675,32 @@ export declare interface TextAreaAttribute extends CommonMethod {
      * indicating that there is no maximum number of lines.
      * </p>
      *
-     * @param { int | undefined } value
+     * @param { int | undefined } value - Max lines of the node
+     * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    /**
+     * Define max lines of the text area.
+     * Value range: (0, +∞)
+     *
+     * <p><strong>NOTE</strong>:
+     * <br>Sets the maximum number of lines that can be displayed.
+     * <br>When textOverflow is set, text is truncated if the content exceeds this limit.
+     * <br>When textOverflow is not set, in inline style,
+     * the text is scrollable if the content exceeds the limit while the text box is focused;
+     * maxLines does not apply when the text box is not focused.
+     * <br>In non-inline style, the text is truncated according to the number of lines.
+     * <br>Default value: 3 with the inline style; +∞ with the non-inline style,
+     * indicating that there is no maximum number of lines.
+     * </p>
+     *
+     * @param { int | undefined } value - Max lines of the node
      * @param { MaxLinesOptions } [options] - max lines of setting options.
      *     Passing `undefined` resets it to the default value.
      * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
     default maxLines(value: int | undefined, options?: MaxLinesOptions): this;
     /**
@@ -728,6 +748,29 @@ export declare interface TextAreaAttribute extends CommonMethod {
      * <br>When setting a custom keyboard, you can bind the onKeyPrelme event to prevent input from the physical keyboard.
      * </p>
      *
+     * @param { CustomBuilder | undefined } value - Set up a custom keyboard of TextArea
+     * @param { KeyboardOptions } [options] - Indicates the custom keyboard options of TextArea
+     * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    /**
+     * Define custom keyboard of the text area.
+     *
+     * <p><strong>NOTE</strong>:
+     * <br>When a custom keyboard is set, activating the text box opens the specified custom component,
+     * instead of the system input method.
+     * <br>The custom keyboard's height can be set through the height attribute of the custom component's root node,
+     * and its width is fixed at the default value.
+     * <br>The custom keyboard is presented by overlaying the original screen,
+     * which is not compressed or lifted if avoid mode is not enabled or avoidance is not needed for the text box.
+     * <br>The custom keyboard cannot obtain the focus, but it blocks gesture events.
+     * <br>By default, the custom keyboard is closed when the input component loses the focus.
+     * <br>You can also use the TextAreaController.stopEditing API to close the keyboard.
+     * <br>When a custom keyboard is set, the text box does not support camera input, even when the device supports.
+     * <br>When setting a custom keyboard, you can bind the onKeyPrelme event to prevent input from the physical keyboard.
+     * </p>
+     *
      * @param { CustomBuilder | ComponentContentBase | undefined } value - Set up a custom keyboard of TextArea
      * @param { KeyboardOptions } [options] - Indicates the custom keyboard options of TextArea
      * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
@@ -735,8 +778,7 @@ export declare interface TextAreaAttribute extends CommonMethod {
      * @stagemodelonly
      * @since 24 static
      */
-    default customKeyboard(value: CustomBuilder | ComponentContentBase | undefined,
-                           options?: KeyboardOptions): this;
+    default customKeyboard(value: CustomBuilder | ComponentContentBase | undefined, options?: KeyboardOptions): this;
     /**
      * Called when the text decoration of the text is set.
      *
@@ -762,6 +804,18 @@ export declare interface TextAreaAttribute extends CommonMethod {
      * @since 23 static
      */
     default letterSpacing(value: double | string | Resource | undefined): this;
+    /**
+     * Set font line spacing.
+     *
+     * <p><strong>NOTE</strong>:
+     * <br>If the value specified is less than or equal to 0, the default value 0 is used.
+     * </p>
+     *
+     * @param { LengthMetrics | undefined } value - Default value is 0.
+     * @returns { TextAreaAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
     /**
      * Set font line spacing.
      *
@@ -1080,7 +1134,7 @@ export declare interface TextAreaAttribute extends CommonMethod {
      * @param { ColorMetrics | undefined } thumbColor - scroll bar thumb Color of the TextArea.
      * @returns { TextAreaAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
     default scrollBarColor(thumbColor: ColorMetrics | undefined): this;
 

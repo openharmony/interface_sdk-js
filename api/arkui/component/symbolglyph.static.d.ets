@@ -345,9 +345,16 @@ export declare class BounceSymbolEffect extends SymbolEffect {
  *
  * @extends SymbolEffect
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 24 static
+ * @since 23 static
  */
 export declare class ReplaceSymbolEffect extends SymbolEffect {
+    /**
+     * constructor.
+     *
+     * @param { EffectScope } [scope] - The scope type of symbol effect.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
     /**
      * constructor.
      *
@@ -363,7 +370,7 @@ export declare class ReplaceSymbolEffect extends SymbolEffect {
      *
      * @type { ?EffectScope }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 24 static
+     * @since 23 static
      */
     scope?: EffectScope;
     /**
