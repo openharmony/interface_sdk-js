@@ -6918,16 +6918,6 @@ declare namespace webview {
      *     allowed. If false, it is not allowed.
      * @param { boolean } supportWildcard - If true, wildcard matching is supported (e.g., *.example.com matches all
      *     subdomains). If false, wildcard matching is not supported.
-     * @throws { BusinessError } 401 Parameter error, possible causes:
-     *     1. Mandatory parameters are left unspecified
-     *     2. JSON string exceeds 10MB limit
-     *     3. JSON parsing failed (syntax errors, etc.)
-     *     4. UrlPermissionList field is missing
-     *     5. URL rule validation failed:
-     *        - scheme must be http or https
-     *        - host cannot be empty
-     *        - port must be between 0-65535
-     *        - path length cannot exceed 65536 characters
      * @throws { BusinessError } 17100001 - Initialization error.
      *     The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
