@@ -10638,22 +10638,6 @@ export declare interface CommonMethod {
      */
     default renderGroup(value: boolean | undefined): this;
     /**
-     * Set the component and its child components not to render off the screen following the parent component.
-     * Must be used in conjunction with renderGroup.
-     *
-     * @param { boolean | undefined } exclude - Whether the component and its child components are not
-     *     rendered off the screen following the parent component.
-     *     True means to not follow the parent component.
-     *     Default value: false.
-     *     Undefined means to default value.
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 24 static
-     */
-    default excludeFromRenderGroup(exclude: boolean | undefined): this;
-    /**
      * Sets whether to freeze the component. When frozen, the component and its children are cached for
      * repeated drawing after offscreen rendering, without updating internal attributes.
      *
