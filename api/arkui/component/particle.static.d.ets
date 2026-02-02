@@ -19,7 +19,7 @@
  * @kit ArkUI
  */
 
-import { LengthMetrics, SizeT, PositionT, Vector2T } from '../../arkui/Graphics';
+import { LengthMetrics, SizeT, PositionT } from '../../arkui/Graphics';
 import { VP, ResourceStr, Dimension, ResourceColor } from "./units";
 import { ImageFit, Curve } from "./enums";
 import { ICurve, CommonMethod } from './common';
@@ -754,26 +754,6 @@ export declare interface ParticleAttribute extends CommonMethod {
      * @noninterop
      */
     default attributeModifier(modifier: AttributeModifier<ParticleAttribute> | AttributeModifier<CommonMethod> | undefined): this;
-    /**
-     * Set ripple fields of particles. The ripple field applies a force that varies in a wave-like pattern to particles
-     * within its influence range, creating an effect similar to the spreading of ripples.
-     *
-     * @param { Array<RippleFieldOptions> | undefined } fields - The infomation of ripple fields.
-     * @returns { this } Returns this.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 24 static
-     */
-    default rippleFields(fields: Array<RippleFieldOptions> | undefined): this;
-    /**
-     * Set velocity fields of particles. The velocity field applies a force to particles within its influence range,
-     * causing the particles to superimpose the specified velocity of the field onto their original velocity.
-     *
-     * @param { Array<VelocityFieldOptions> | undefined } fields - The infomation of velocity fields.
-     * @returns { this } Returns this.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 24 static
-     */
-    default velocityFields(fields: Array<VelocityFieldOptions> | undefined): this;
 }
 /**
  * Defines particle disturbance Field params.
@@ -890,155 +870,6 @@ export declare enum DisturbanceFieldShape {
      * @since 23 static
      */
     ELLIPSE
-}
-/**
- * Defines particle field region params.
- *
- * @interface FieldRegion
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 24 static
- */
-export declare interface FieldRegion {
-    /**
-     * The shape of the field
-     *
-     * @type { ?DisturbanceFieldShape }
-     * @default DisturbanceFieldShape.RECT
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 24 static
-     */
-    shape?: DisturbanceFieldShape;
-    /**
-     * The coordinates of the center position of the field. The top-left corner of the component is the origin of the
-     * coordinate system. The coordinate unit is vp.
-     *
-     * @type { ?PositionT<double> }
-     * @default {x:0,y:0}
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 24 static
-     */
-    position?: PositionT<double>;
-    /**
-     * The size of the field. The unit of value is vp.
-     *
-     * @type { ?SizeT<double> }
-     * @default {width:0,height:0}
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 24 static
-     */
-    size?: SizeT<double>;
-}
-/**
- * Defines ripple field options.
- *
- * @interface RippleFieldOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 24 static
- */
-export declare interface RippleFieldOptions {
-    /**
-     * The amplitude of the ripple field. The greater the amplitude, the stronger the force of the ripple field.
-     * Range of values:[0, +∞)
-     *
-     * @type { ?double }
-     * @default 0
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 24 static
-     */
-    amplitude?: double;
-    /**
-     * Wavelength, which is the distance over which a wave cycle changes. The larger
-     * the wavelength, the slower the wave changes with distance, and the less pronounced the wave fluctiations.
-     * Range of values:[0, +∞)
-     *
-     * @type { ?double }
-     * @default 0
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 24 static
-     */
-    wavelength?: double;
-    /**
-     * Wave speed. The greater the wave speed, the faster the wave changes over time, and the more pronounced the wave
-     * motion. Range of values:[0, +∞)
-     *
-     * @type { ?double }
-     * @default 0
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 24 static
-     */
-    waveSpeed?: double;
-    /**
-     * The attenuation coefficient of the ripple field. The larger the attenuation coefficient, the faster the wave
-     * attenuates over time. Range of values:[0,1]
-     *
-     * @type { ?double }
-     * @default 0
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 24 static
-     */
-    attenuation?: double;
-    /**
-     * The central point where the ripple field generates force. The top-left corner of the component is the origin of
-     * coordinates. The coordinate unit is vp.
-     *
-     * @type { ?PositionT<double> }
-     * @default {x:0,y:0}
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 24 static
-     */
-    center?: PositionT<double>;
-    /**
-     * The region influenced by the ripple field.
-     *
-     * @type { ?FieldRegion }
-     * @default {shape:DisturbanceFieldShape.RECT,position:{x:0,y:0},size:{width:0,height:0}}
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 24 static
-     */
-    region?: FieldRegion;
-}
-/**
- * Defines velocity field options.
- *
- * @interface VelocityFieldOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 24 static
- */
-export declare interface VelocityFieldOptions {
-    /**
-     * The velocity values in each direction of the velocity field. Particles only acquire this velocity when within
-     * the range of the velocity field; once they leave the range of the velocity field, they are no longer influenced
-     * by it and do not gain this additional velocity.
-     *
-     * @type { ?Vector2T<double> }
-     * @default {x:0,y:0}
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 24 static
-     */
-    velocity?: Vector2T<double>
-    /**
-     * The region influenced by the velocity field.
-     *
-     * @type { ?FieldRegion }
-     * @default {shape:DisturbanceFieldShape.RECT,position:{x:0,y:0},size:{width:0,height:0}}
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 24 static
-     */
-    region?: FieldRegion;
 }
 /**
  * Defines particle annuslus region params.
