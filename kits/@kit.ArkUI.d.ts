@@ -324,6 +324,5 @@ export {
   GestureListenerCallback, NodeIdentity, NodeRenderState, NodeRenderStateChangeCallback, UIPickerComponentModifier, SwiperContentInfo, SwiperItemInfo, 
   ResolvedUIContext, imageGeneration, CustomComponentLifecycle, CustomComponentLifecycleObserver, CustomComponentLifecycleState, 
   ComponentInit, ComponentAppear, ComponentBuilt, ComponentReuse, ComponentRecycle, ComponentDisappear,
-  CollectionType, ConnectOptionsCollections, uiMaterial,
-  RowLayoutAlgorithm, ColumnLayoutAlgorithm, StackLayoutAlgorithm, CustomLayoutAlgorithm, LayoutAlgorithm, DynamicLayout, DynamicLayoutAttribute
+  CollectionType, ConnectOptionsCollections, uiMaterial
 };
