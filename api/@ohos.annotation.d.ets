@@ -67,6 +67,17 @@ export const enum SuppressWarningsType {
    * @since 23 dynamic
    */
   COMPATIBILITY = 'compatibility';
+  /**
+   * Support for suppressing generated syscap warnings.
+   * 
+   * @syscap SystemCapability.Base
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  SYSCAP = 'syscap';
 }
 
 /**
