@@ -421,3 +421,112 @@ export class StackLayoutAlgorithm implements LayoutAlgorithm {
      */
     public alignContent: LocalizedAlignment;
 }
+
+/**
+ * GridLayoutAlgorithm constructor options.
+ *
+ * @interface GridLayoutAlgorithmOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 24 dynamic
+ */
+interface GridLayoutAlgorithmOptions {
+    /**
+     * This parameter specifies the number of columns in the current grid layout.
+     *
+     * @type { ?string | ItemFillPolicy }
+     * @default '1fr'
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 24 dynamic
+     */
+    columnsTemplate?: string | ItemFillPolicy;
+    /**
+     * The spacing between columns.
+     *
+     * @type { ?LengthMetrics }
+     * @default LengthMetrics.vp(0)
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 24 dynamic
+     */
+    columnsGap?: LengthMetrics;
+    /**
+     * The spacing between rows.
+     *
+     * @type { ?LengthMetrics }
+     * @default LengthMetrics.vp(0)
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 24 dynamic
+     */
+    rowsGap?: LengthMetrics;
+}
+
+/**
+ * Defines the grid layout algorithm.
+ *
+ * @implements LayoutAlgorithm
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 24 dynamic
+ */
+export class GridLayoutAlgorithm implements LayoutAlgorithm {
+    /**
+     * Constructor.
+     *
+     * @param { GridLayoutAlgorithmOptions } [option] - set properties of grid layout algorithm.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 24 dynamic
+     */
+    constructor(option?: GridLayoutAlgorithmOptions);
+    /**
+     * This parameter specifies the number of columns in the current grid layout.
+     *
+     * @type { ?(string | ItemFillPolicy) }
+     * @default '1fr'
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 24 dynamic
+     */
+    public columnsTemplate?: string | ItemFillPolicy;
+    /**
+     * The spacing between columns.
+     *
+     * @type { ?LengthMetrics }
+     * @default LengthMetrics.vp(0)
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 24 dynamic
+     */
+    public columnsGap?: LengthMetrics;
+    /**
+     * The spacing between rows.
+     *
+     * @type { ?LengthMetrics }
+     * @default LengthMetrics.vp(0)
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 24 dynamic
+     */
+    public rowsGap?: LengthMetrics;
+}
