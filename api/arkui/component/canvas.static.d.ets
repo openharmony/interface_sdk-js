@@ -550,11 +550,11 @@ export declare class ImageData {
   /**
    * Array containing image pixel data
    *
-   * @returns { Uint8ClampedArray }
+   * @returns { Uint8ClampedArray | undefined }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
-  get data(): Uint8ClampedArray;
+  get data(): Uint8ClampedArray | undefined;
   /**
    * Height of the image.
    *
@@ -1030,11 +1030,11 @@ export declare class CanvasRenderer extends CanvasPath {
    *     to be extracted.
    * @param { double } sw - The width of the rectangular area of the PixelMap to be extracted.
    * @param { double } sh - The height of the rectangular area of the PixelMap to be extracted.
-   * @returns { PixelMap }
+   * @returns { PixelMap | undefined }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
-  getPixelMap(sx: double, sy: double, sw: double, sh: double): PixelMap;
+  getPixelMap(sx: double, sy: double, sw: double, sh: double): PixelMap | undefined;
   /**
    * Draws the specified ImageData object onto the canvas
    *
@@ -1552,11 +1552,11 @@ export declare class CanvasRenderingContext2D extends CanvasRenderer {
   /**
    * Frame node of the canvas. The default value is null.
    *
-   * @returns { FrameNode }
+   * @returns { FrameNode | null }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
-  get canvas(): FrameNode;
+  get canvas(): FrameNode | null;
   /**
    * Generate a character string in the data url format.
    *
