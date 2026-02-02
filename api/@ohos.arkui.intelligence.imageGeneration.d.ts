@@ -811,6 +811,18 @@ declare namespace imageGeneration {
    * @since 23 dynamic
    */
   function showGeneratorDialog(uiContext: UIContext, options?: GeneratorDialogOptions): Promise<Array<GeneratorResult>>;
+
+  /**
+   * Close the AI image generation task popup.
+   *
+   * @param { UIContext } uiContext - the context of dialog for ui display.
+   * @returns { Promise<void> } - Returns the result of generated image.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic
+   */
+  function closeGeneratorDialog(uiContext: UIContext): Promise<void>;
 }
 
 export default imageGeneration;
