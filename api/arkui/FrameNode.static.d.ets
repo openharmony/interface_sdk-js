@@ -1575,6 +1575,7 @@ export declare namespace typeNode {
    *
    * @extends TypedFrameNode<ImageAttribute>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   abstract class ImageFrameNode extends TypedFrameNode<ImageAttribute> {  
@@ -1584,6 +1585,7 @@ export declare namespace typeNode {
      * @param { image.PixelMap | ResourceStr | DrawableDescriptor } src
      * @returns { ImageAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     abstract initialize(src: image.PixelMap | ResourceStr | DrawableDescriptor): ImageAttribute;
@@ -1594,6 +1596,7 @@ export declare namespace typeNode {
      * @param { image.PixelMap | ResourceStr | DrawableDescriptor | ImageContent } src
      * @returns { ImageAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     abstract initialize(src: image.PixelMap | ResourceStr | DrawableDescriptor | ImageContent): ImageAttribute;
@@ -1605,6 +1608,7 @@ export declare namespace typeNode {
      * @param { ImageAIOptions } value
      * @returns { ImageAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     abstract initialize(src: image.PixelMap | ResourceStr | DrawableDescriptor, value: ImageAIOptions): ImageAttribute;
