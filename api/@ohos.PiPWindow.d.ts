@@ -309,6 +309,84 @@ declare namespace PiPWindow {
   }
 
   /**
+   * The picture-in-picture window size
+   *
+   * @interface PiPWindowSize
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since 15 dynamic
+   * @since 24 static
+   */
+    interface PiPWindowSize {
+
+      /**
+       * The width of the picture-in-picture window.
+       *
+       * @type { int }
+       * @syscap SystemCapability.Window.SessionManager
+       * @atomicservice
+       * @since 15 dynamic
+       * @since 24 static
+       */
+      width: int;
+  
+      /**
+       * The scale of the picture-in-picture window.
+       *
+       * @type { double }
+       * @syscap SystemCapability.Window.SessionManager
+       * @atomicservice
+       * @since 15 dynamic
+       * @since 24 static
+       */
+      scale: double;
+  
+      /**
+       * The height of the picture-in-picture window.
+       *
+       * @type { int }
+       * @syscap SystemCapability.Window.SessionManager
+       * @atomicservice
+       * @since 15 dynamic
+       * @since 24 static
+       */
+      height: int;
+    }
+
+  /**
+   * The info of picture-in-picture window
+   *
+   * @interface PiPWindowInfo
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since 15 dynamic
+   * @since 24 static
+   */
+  interface PiPWindowInfo {
+    /**
+     * Indicates target window id.
+     *
+     * @type { int }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 15 dynamic
+     * @since 24 static
+     */
+    windowId: int;
+
+    /**
+     * The picture-in-picture window size.
+     *
+     * @type { PiPWindowSize }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 15 dynamic
+     * @since 24 static
+     */
+    size: PiPWindowSize;
+  }
+
+  /**
    * Describe the type of picture-in-picture.
    *
    * @enum { number }.
@@ -1087,6 +1165,22 @@ declare namespace PiPWindow {
     updatePiPControlStatus(controlType: PiPControlType, status: PiPControlStatus): void;
 
     /**
+     * Update the node which display the content of PiP window.
+     * @param { typeNode.XComponent } contentNode - The node which display the content of pip window.
+     * @returns { Promise<void> } - The promise returned by the function.
+     * @throws { BusinessError } 401 - Params error. Possible causes: 1. Mandatory parameters are left unspecified.
+     *                                                                2. Incorrect parameter types.
+     *                                                                3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300014 - PiP internal error.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 18 dynamic
+     * @since 24 static
+     */
+    updateContentNode(contentNode: typeNode.XComponent): Promise<void>;
+
+    /**
      * Set Dashboard control enable status.
      * @param { PiPControlType } controlType - Describe picture-in-picture control type.
      * @param { boolean } enabled - Describe picture-in-picture control enable Status.
@@ -1097,6 +1191,18 @@ declare namespace PiPWindow {
      * @since 24 static
      */
     setPiPControlEnabled(controlType: PiPControlType, enabled: boolean): void;
+
+    /**
+     * Get the info of PiP window.
+     * @returns { Promise<PiPWindowInfo> } - The promise used to return the PIP window info.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300014 - PiP internal error.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 15 dynamic
+     * @since 24 static
+     */
+    getPiPWindowInfo(): Promise<PiPWindowInfo>;
 
     /**
      * Get the PiP switch status of system setting.
@@ -1304,22 +1410,6 @@ declare namespace PiPWindow {
     offPipWindowSizeChange(callback?: Callback<PiPWindowSize>): void;
 
     /**
-     * Update the node which display the content of PiP window.
-     * @param { typeNode.XComponent } contentNode - The node which display the content of pip window.
-     * @returns { Promise<void> } - The promise returned by the function.
-     * @throws { BusinessError } 401 - Params error. Possible causes: 1. Mandatory parameters are left unspecified.
-     *                                                                2. Incorrect parameter types.
-     *                                                                3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
-     * @throws { BusinessError } 1300014 - PiP internal error.
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
-     * @since 18 dynamic
-     * @since 24 static
-     */
-    updateContentNode(contentNode: typeNode.XComponent): Promise<void>;
-
-    /**
      * Register picture-in-picture window size change event listener
      *
      * @param { 'pipWindowSizeChange' } type - The value is fixed at 'pipWindowSizeChange', indicating the picture-in-picture
@@ -1393,97 +1483,6 @@ declare namespace PiPWindow {
      * @since 24 static
      */
     offActiveStatusChange(callback?: Callback<boolean>): void;
-
-    /**
-     * Get the info of PiP window.
-     * @returns { Promise<PiPWindowInfo> } - The promise used to return the PIP window info.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
-     * @throws { BusinessError } 1300014 - PiP internal error.
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
-     * @since 15 dynamic
-     * @since 24 static
-     */
-    getPiPWindowInfo(): Promise<PiPWindowInfo>;
-  }
-
-  /**
-   * The info of picture-in-picture window
-   *
-   * @interface PiPWindowInfo
-   * @syscap SystemCapability.Window.SessionManager
-   * @atomicservice
-   * @since 15 dynamic
-   * @since 24 static
-   */
-  interface PiPWindowInfo {
-
-    /**
-     * Indicates target window id.
-     *
-     * @type { int }
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
-     * @since 15 dynamic
-     * @since 24 static
-     */
-    windowId: int;
-
-    /**
-     * The picture-in-picture window size.
-     *
-     * @type { PiPWindowSize }
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
-     * @since 15 dynamic
-     * @since 24 static
-     */
-    size: PiPWindowSize;
-  }
-
-  /**
-   * The picture-in-picture window size
-   *
-   * @interface PiPWindowSize
-   * @syscap SystemCapability.Window.SessionManager
-   * @atomicservice
-   * @since 15 dynamic
-   * @since 24 static
-   */
-  interface PiPWindowSize {
-
-    /**
-     * The width of the picture-in-picture window.
-     *
-     * @type { int }
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
-     * @since 15 dynamic
-     * @since 24 static
-     */
-    width: int;
-
-    /**
-     * The scale of the picture-in-picture window.
-     *
-     * @type { double }
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
-     * @since 15 dynamic
-     * @since 24 static
-     */
-    scale: double;
-
-    /**
-     * The height of the picture-in-picture window.
-     *
-     * @type { int }
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
-     * @since 15 dynamic
-     * @since 24 static
-     */
-    height: int;
   }
 }
 
