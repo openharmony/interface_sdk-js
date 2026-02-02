@@ -131,9 +131,10 @@ export type BuilderParameterCallback = () => Any;
  * @param { Map<string, BuilderParameterCallback> } propertyGetters override property getters
  * @param { Callback<T> } initializer update proxied instance with literal's initial values
  * @returns { T } proxied literal instance
+ * @stagemodelonly
  * @since 23 static
  */
-export declare function makeBuilderParameterProxy<T extends Object>(instance: T, propertyGetters: Map<string, BuilderParameterCallback>, initializer?: Callback<T>): T;
+export declare function makeBuilderParameterProxy<T>(instance: T, propertyGetters: Map<string, BuilderParameterCallback>, initializer?: Callback<T>): T;
 
 /**
  * Defines ComponentBuilder Annotation.
