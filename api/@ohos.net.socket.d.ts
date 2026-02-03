@@ -3753,13 +3753,6 @@ declare namespace socket {
      * @crossplatform
      * @since 10 dynamic
      */
-    /**
-     * Certificate proving the identity of the client
-     * @type {?(string | Array<string>)}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic&static
-     */
     cert?: string | Array<string>;
 
     /**
