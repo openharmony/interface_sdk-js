@@ -117,7 +117,6 @@ import AppServiceExtensionAbility from '@ohos.app.ability.AppServiceExtensionAbi
 import kioskManager from '@ohos.app.ability.kioskManager';
 import CompletionHandlerForAtomicService, { FailureCode } from '@ohos.app.ability.CompletionHandlerForAtomicService';
 import { CompletionHandlerForAbilityStartCallback, AbilityStartFailureCode } from '@ohos.app.ability.CompletionHandlerForAbilityStartCallback';
-import systemConfiguration from '@ohos.app.ability.systemConfiguration';
 
 export {
   Ability, AbilityConstant, AbilityLifecycleCallback, AbilityStage, ActionExtensionAbility,
@@ -138,8 +137,7 @@ export {
   sendableContextManager, PhotoEditorExtensionAbility, UIServiceExtensionAbility, shortcutManager, application, appDomainVerify,
   InsightIntentLink, InsightIntentPage, InsightIntentFunctionMethod, InsightIntentFunction, InsightIntentEntryExecutor,
   InsightIntentEntry, LinkParamCategory, CompletionHandler, AppServiceExtensionAbility, InsightIntentForm, InsightIntentEntity, kioskManager,
-  CompletionHandlerForAtomicService, CompletionHandlerForAbilityStartCallback, AbilityStartFailureCode, FailureCode, InteropAbilityLifecycleCallback,
-  systemConfiguration
+  CompletionHandlerForAtomicService, CompletionHandlerForAbilityStartCallback, AbilityStartFailureCode, FailureCode, InteropAbilityLifecycleCallback
 };
 
 /*** if arkts static */
@@ -219,7 +217,6 @@ import StartupListener from '@ohos.app.appstartup.StartupListener';
 import StartupTask from '@ohos.app.appstartup.StartupTask';
 import startupManager from '@ohos.app.appstartup.startupManager';
 import PhotoEditorExtensionAbility from '@ohos.app.ability.PhotoEditorExtensionAbility';
-import systemConfiguration from '@ohos.app.ability.systemConfiguration';
 
 export {
   appControl, bundleManager, bundleMonitor, bundleResourceManager, defaultAppManager, distributedBundleManager,
@@ -236,7 +233,6 @@ export {
   ability, ActionExtensionAbility, AutoFillExtensionAbility, autoStartupManager, ChildProcess, childProcessManager,
   ChildProcessArgs, ChildProcessOptions, quickFixManager, businessAbilityRouter, EmbeddedUIExtensionAbility,
   UIServiceExtensionAbility, CompletionHandler, AppServiceExtensionAbility, kioskManager,
-  StartupConfig, StartupConfigEntry, StartupListener, StartupTask, startupManager, systemConfiguration,
-  PhotoEditorExtensionAbility
+  StartupConfig, StartupConfigEntry, StartupListener, StartupTask, startupManager, PhotoEditorExtensionAbility
 };
 /*** endif */
