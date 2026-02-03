@@ -1873,28 +1873,6 @@ export declare class DragController {
    * @since 23 static
    */
   cancelDataLoading(key: string): void;
-
-  /**
-   * Sets whether to enable the disallow badge icon show.
-   *
-   * Typically, when a component can receive or process data dragged by the user, or when it declares to the
-   * system that data should be processed in COPY way by returning DragBehavior.COPY, the system will display
-   * a plus sign together with the data number on the upper-left corner of the dragged object; if returning
-   * DragBehavior.MOVE to the system to declare that data should be processed in CUT way, the system will only
-   * display the data number on the upper-left corner of the dragged object.
-   *
-   * In some cases, when the system determines or the component explicitly declares that it cannot handle the
-   * data that the user is dragging, the system displays a badge icon in the same way as it does for DragBehavior.MOVE.
-   * So if you want to show the more clearly status, you can call this method on the UI instance in advance to force
-   * the system to display a clear prohibition icon on the upper left corner in such cases, and the user can clearly
-   * know that data cannot be dropped here.
-   *
-   * @param { boolean } enabled - Indicating enable the disallow status showing or not.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 24 static
-   */
-  enableDropDisallowedBadge(enabled: boolean): void;
 }
 
 /**
