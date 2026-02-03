@@ -46,6 +46,7 @@ import { AccessibilityHoverType, Curve, PlayMode, SharedTransitionEffectType, Ke
 import { TextRange } from "./textCommon";
 import { StyledString } from "./styledString";
 import { CustomBuilder, WrappedBuilder, CustomBuilderT } from './builder';
+import { RecordData } from '../../@ohos.base';
 import curves from '../../@ohos.curves';
 import matrix4 from '../../@ohos.matrix4';
 import { AvoidanceMode } from './select';
@@ -458,12 +459,12 @@ export declare interface ExpectedFrameRateRange {
  * global $r function
  *
  * @param { string } value
- * @param { (Object | null | undefined)[] } params
+ * @param { RecordData[] } params
  * @returns { Resource }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 23 static
  */
-export declare function $r(value: string, ...params: (Object | null | undefined)[]): Resource;
+export declare function $r(value: string, ...params: RecordData[]): Resource;
 /**
  * global $rawfile function
  *
@@ -5998,22 +5999,24 @@ export declare interface BindOptions {
  *
  * @interface DismissContentCoverAction
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare interface DismissContentCoverAction {
     /**
      * Defines content cover dismiss function
      *
-     * @type { VoidCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
-    dismiss: VoidCallback;
+    dismiss(): void;
     /**
      * Defines content cover dismiss reason
      *
      * @type { DismissReason }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     reason: DismissReason;
@@ -6233,44 +6236,48 @@ export declare enum SheetKeyboardAvoidMode {
      */
     POPUP_SHEET = 4
 }
+
 /**
  * Component sheet dismiss
  *
  * @interface SheetDismiss
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare interface SheetDismiss {
     /**
      * Defines sheet dismiss function
      *
-     * @type { VoidCallback  }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
-    dismiss: VoidCallback;
+    dismiss(): void;
 }
 /**
  * Component sheet dismiss
  *
  * @interface DismissSheetAction
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare interface DismissSheetAction {
     /**
      * Defines sheet dismiss function
      *
-     * @type { VoidCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
-    dismiss: VoidCallback;
+    dismiss(): void;
     /**
      * Dismiss reason type.
      *
      * @type { DismissReason }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     reason: DismissReason;
@@ -14167,3 +14174,4 @@ export declare function $$<T>(value: T): Bindable<T>;
  * @since 23 static
  */
 export declare function applyStyles<T extends CommonMethod>(this: T, customStyles: CustomStyles): T;
+ 

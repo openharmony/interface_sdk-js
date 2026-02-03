@@ -93,10 +93,6 @@ declare namespace uiAppearance {
      * Acquire the current dark-mode.
      *
      * @returns { DarkMode } current dark-mode.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * <br> 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameters types.
-     * <br> 3. Parameter verification failed.
      * @throws { BusinessError } 500001 - Internal error.
      * @syscap SystemCapability.ArkUI.UiAppearance
      * @since 23 static
