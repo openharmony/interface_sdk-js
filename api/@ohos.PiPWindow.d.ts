@@ -181,7 +181,6 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 22 dynamic
-     * @since 24 static
      */
     handleId?: number;
 
@@ -285,7 +284,6 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 22 dynamic
-     * @since 24 static
      */
     cornerAdsorptionEnabled?: boolean;
   }
@@ -1045,15 +1043,14 @@ declare namespace PiPWindow {
      */
     /**
      * Update source content size to adjust PiP window aspect ratio.
-     * @param { int } width - Indicate the width of the content. The width can consist of only digits and above 0.
-     * @param { int } height - Indicate the height of the content. The height can consist of only digits and above 0.
+     * @param { number } width - Indicate the width of the content. The width can consist of only digits and above 0.
+     * @param { number } height - Indicate the height of the content. The height can consist of only digits and above 0.
      * @throws { BusinessError } 401 - Params error. Possible causes: The PiPController is not created or destroyed.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 24 static
      */
-    updateContentSize(width: int, height: int): void;
+    updateContentSize(width: number, height: number): void;
 
     /**
      * Set dashboard control status.
@@ -1063,7 +1060,6 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 24 static
      */
     updatePiPControlStatus(controlType: PiPControlType, status: PiPControlStatus): void;
 
@@ -1079,7 +1075,6 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 18 dynamic
-     * @since 24 static
      */
     updateContentNode(contentNode: typeNode.XComponent): Promise<void>;
 
@@ -1091,7 +1086,6 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 24 static
      */
     setPiPControlEnabled(controlType: PiPControlType, enabled: boolean): void;
 
@@ -1129,7 +1123,6 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 23 dynamic
-     * @since 24 static
      */
     isPiPActive(): Promise<boolean>;
 
