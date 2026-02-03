@@ -169,25 +169,7 @@ declare namespace adminManager {
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @since 18
      */
-    MANAGED_EVENT_ACCOUNT_REMOVED = 7,
-
-    /**
-     * Event indicating that startup guide is completed.
-     *
-     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @stagemodelonly
-     * @since 24
-     */
-    MANAGED_EVENT_STARTUP_GUIDE_COMPLETED = 8,
-
-    /**
-     * Event indicating that device boot is completed.
-     *
-     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @stagemodelonly
-     * @since 24
-     */
-    MANAGED_EVENT_BOOT_COMPLETED = 9
+    MANAGED_EVENT_ACCOUNT_REMOVED = 7
   }
 
   /**
