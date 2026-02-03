@@ -1736,31 +1736,6 @@ export declare class UIObserver {
   off(type: 'nodeRenderState', nodeIdentity: NodeIdentity, callback?: NodeRenderStateChangeCallback): void;
 
   /**
-   * Registers a callback function to be called when the window size layout breakpoint changes.
-   * This method allows observing changes in window size breakpoints which can be used to
-   * adapt UI layouts responsively based on window dimensions.
-   *
-   * @param { Callback<observer.WindowSizeLayoutBreakpointInfo> } callback - The callback function to be
-   *     called when the window size layout breakpoint changes. The callback receives a
-   *     {@link WindowSizeLayoutBreakpointInfo} object containing the current width and height
-   *     breakpoint classifications.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 24 static
-   */
-  onWindowSizeLayoutBreakpointChange(callback: Callback<observer.WindowSizeLayoutBreakpointInfo>): void;
-
-  /**
-   * Removes a previously registered callback function for window size layout breakpoint changes.
-   * If no callback is provided, all callbacks for the specified context will be removed.
-   *
-   * @param { Callback<observer.WindowSizeLayoutBreakpointInfo> } [callback] - The specific callback function to remove.
-   *     If not provided, all callbacks for the given event type and context will be removed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 24 static
-   */
-  offWindowSizeLayoutBreakpointChange(callback?: Callback<observer.WindowSizeLayoutBreakpointInfo>): void;
-
-  /**
    * Registers a callback function to be called when the tabContent is showed or hidden.
    *
    * @param { observer.ObserverOptions } options - The options object.
@@ -3079,45 +3054,6 @@ export declare class ResolvedUIContext extends UIContext {
  * @since 23 static
  */
 export declare class UIContext {
-
-  /**
-   * Gets the UIContext associated with the current calling scope.
-   * @returns { UIContext | undefined } - The UIContext for the current calling scope,
-   *     or undefined if no context can be determined from the call stack.
-   * @static
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 24 static
-   */
-  static getCallingScopeUIContext(): UIContext | undefined;
-
-  /**
-   * Gets the UIContext of the last focused UI instance if one exists.
-   * @returns { UIContext | undefined } - The UIContext of the last focused UI instance or undefined if no one exists.
-   * @static
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 24 static
-   */
-  static getLastFocusedUIContext(): UIContext | undefined;
-
-  /**
-   * Gets the UIContext of the last foregrounded UI instance if one exists.
-   * @returns { UIContext | undefined } - The UIContext of the last foregrounded UI instance or undefined if no one
-   *     exists
-   * @static
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 24 static
-   */
-  static getLastForegroundUIContext(): UIContext | undefined;
-
-  /**
-   * Gets all currently active UIContext instances.
-   * @returns { UIContext[] } - An array containing all valid UIContext instances,
-   *     returns an empty array if no contexts are available.
-   * @static
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 24 static
-   */
-  static getAllUIContexts(): UIContext[];
 
   /**
    * Resolves a UIContext using priority strategy.

@@ -20,9 +20,9 @@
 import { EdgeEffectOptions, EditModeOptions, NestedScrollOptions, ItemDragInfo, ScrollableCommonMethod, CommonMethod, OnWillScrollCallback, OnScrollCallback, OnItemDragStartCallback } from './common';
 import { Length, Resource, ItemFillPolicy } from './units';
 import { Scroller, OnScrollFrameBeginCallback } from './scroll';
-import { BarState, Color, EdgeEffect, FocusWrapMode } from './enums';
+import { BarState, Color, EdgeEffect } from './enums';
 import { ComponentBuilder, CustomBuilder } from './builder';
-import { AttributeModifier, CommonMethod, UIScrollableCommonEvent } from "./common";
+import { AttributeModifier, CommonMethod } from "./common";
 
 /**
  * Define start line info used in GridLayoutOptions.
@@ -268,53 +268,7 @@ export declare interface ComputedBarAttribute {
      */
     totalLength: double;
 }
-/**
- * Defines a UIGridEvent which is used to set event to target component.
- *
- * @extends UIScrollableCommonEvent
- * @interface UIGridEvent
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 24 static
- */
-export declare interface UIGridEvent extends UIScrollableCommonEvent {
-  /**
-   * Set or reset the callback which is triggered when the Grid will scroll.
-   *
-   * @param { OnWillScrollCallback | undefined } callback - callback function, triggered when the Grid will scroll.
-   *      Passing undefined will unregister the callback.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 24 static
-   */
-  setOnWillScroll(callback: OnWillScrollCallback | undefined): void;
-  /**
-   * Set or reset the callback which is triggered when the Grid did scroll.
-   *
-   * @param { OnScrollCallback | undefined } callback - callback function, triggered when the Grid did scroll.
-   *     Passing undefined will unregister the callback.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 24 static
-   */
-  setOnDidScroll(callback: OnScrollCallback | undefined): void;
-  /**
-   * Set or reset the callback which is triggered when the start and end positions of the display change.
-   *
-   * @param { OnGridScrollIndexCallback | undefined } callback - callback function, triggered when start or
-   *     end positions of the display change. Passing undefined will unregister the callback.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 24 static
-   */
-  setOnScrollIndex(callback: OnGridScrollIndexCallback | undefined): void;
-}
-/**
- * Defines the callback type used in onScrollIndex.
- *
- * @typedef {function} OnGridScrollIndexCallback
- * @param { int } first - the first index in visible content.
- * @param { int } last - the last index in visible content.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 24 static
- */
-export type OnGridScrollIndexCallback = (first: int, last: int) => void;
+
 /**
  * The gridAttribute.
  * 
@@ -635,26 +589,6 @@ export declare interface GridAttribute extends ScrollableCommonMethod {
      * @since 23 static
      */
     default editModeOptions(options?: EditModeOptions): this;
-    /**
-     * Sets the focus wrap mode of the Gird component.
-     *
-     * @param { FocusWrapMode | undefined } mode - the focus wrap mode of the Grid component.
-     *     <br>Default value: **FocusWrapMode.DEFAULT**. Passing undefined will restore the default value.
-     * @returns { this } the attribute of the Grid.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 24 static
-     */
-    default focusWrapMode(mode: FocusWrapMode | undefined): this;
-    /**
-     * Sets whether to synchronously load all child components in the Grid.
-     *
-     * @param { boolean | undefined } enable - Whether to synchronously load all child components in the Grid.
-     *     <br>Default value: true. Passing undefined will restore the default value.
-     * @returns { this } The attribute of the Grid.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 24 static
-     */
-    default syncLoad(enable: boolean | undefined): this;
     /**
      * Called when scrolling begin each frame.
      * Anonymous Object Rectification.

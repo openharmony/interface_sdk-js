@@ -18,11 +18,11 @@
  * @kit ArkUI
  */
 import { ChildrenMainSize, EditModeOptions, ItemDragInfo, RectResult, ScrollableCommonMethod, OnWillScrollCallback, OnScrollCallback, OnItemDragStartCallback } from './common';
-import { Axis, FocusWrapMode } from './enums';
+import { Axis } from './enums';
 import { OnScrollFrameBeginCallback, ScrollAlign, Scroller } from "./scroll";
 import { Dimension, Length, LengthConstrain, ResourceColor, ItemFillPolicy, CacheCountInfo, Resource } from './units';
 import { ComponentBuilder, CustomBuilder } from './builder';
-import { AttributeModifier, CommonMethod, UIScrollableCommonEvent } from "./common";
+import { AttributeModifier, CommonMethod } from "./common";
 /**
  * Declare scroll status
  *
@@ -321,52 +321,6 @@ export declare interface ChainAnimationOptions {
     damping?: double;
 }
 /**
- * Defines a UIListEvent which is used to set different common event to target component.
- *
- * @extends UIScrollableCommonEvent
- * @interface UIListEvent
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 24 static
- */
-export declare interface UIListEvent extends UIScrollableCommonEvent {
-  /**
-   * Set or reset the callback which is triggered when the List will scroll.
-   *
-   * @param { OnWillScrollCallback | undefined } callback - The callback will be triggered when the List will scroll.
-   *     Passing undefined will unregister the callback.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 24 static
-   */
-  setOnWillScroll(callback: OnWillScrollCallback | undefined): void;
-  /**
-   * Set or reset the callback which is triggered when List view did scroll.
-   *
-   * @param { OnScrollCallback | undefined } callback - callback function, triggered when the List view did scroll.
-   *     Passing undefined will unregister the callback.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 24 static
-   */
-  setOnDidScroll(callback: OnScrollCallback | undefined): void;
-  /**
-   * Set or reset the callback which is triggered when the start, end, or center positions of the display change.
-   *
-   * @param { OnListScrollIndexCallback | undefined } callback - callback function, triggered when the
-   *     start, end, or center positions of the display change. Passing undefined will unregister the callback.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 24 static
-   */
-  setOnScrollIndex(callback: OnListScrollIndexCallback | undefined): void;
-  /**
-   * Set or reset the callback which is triggered when the list visible content changes.
-   *
-   * @param { OnScrollVisibleContentChangeCallback | undefined } callback - callback function, triggered when
-   *     the list visible content changes. Passing undefined will unregister the callback.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 24 static
-   */
-  setOnScrollVisibleContentChange(callback: OnScrollVisibleContentChangeCallback | undefined): void;
-}
-/**
  * Defines the close swipe action options.
  *
  * @interface CloseSwipeActionOptions
@@ -428,17 +382,6 @@ export declare interface VisibleListContentInfo {
  * @since 23 static
  */
 export type OnScrollVisibleContentChangeCallback = (start: VisibleListContentInfo, end: VisibleListContentInfo) => void;
-/**
- * Defines the callback type used in onScrollIndex.
- *
- * @typedef {function} OnListScrollIndexCallback
- * @param { int } start - the first index in visible content.
- * @param { int } end - the last index in visible content.
- * @param { int } center - the center index in visible content.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 24 static
- */
-export type OnListScrollIndexCallback = (start: int, end: int, center: int) => void;
 /**
  * Scroll controller for list component.
  *
@@ -590,30 +533,6 @@ export interface ListOptions {
      * @since 23 static
      */
     scroller?: Scroller;
-}
-/**
- * Declare the speed scroll snap animation.
- *
- * @enum { int }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 24 static
- */
-export declare enum ScrollSnapAnimationSpeed {
-  /**
-   * The speed of scroll snap animation is normal.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 24 static
-   */
-  NORMAL = 0,
-  /**
-   * The speed of scroll snap animation slow.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 24 static
-   */
-  SLOW = 1
 }
 /**
  * Defines the divider style of the list or list item group.
@@ -952,36 +871,6 @@ export declare interface ListAttribute extends ScrollableCommonMethod {
      * @since 23 static
      */
     default editModeOptions(options?: EditModeOptions): this;
-    /**
-     * Sets the focus wrap mode of the List component.
-     *
-     * @param { FocusWrapMode | undefined } mode - the focus wrap mode of the List component.
-     *     <br>Default value: **FocusWrapMode.DEFAULT**. Passing undefined will restore the default value.
-     * @returns { this } the attribute of the list.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 24 static
-     */
-    default focusWrapMode(mode: FocusWrapMode | undefined): this;
-    /**
-     * Sets whether to synchronously load all child components in the list.
-     *
-     * @param { boolean | undefined } enable - Whether to synchronously load all child components in the list.
-     *     <br>Default value: true. Passing undefined will restore the default value.
-     * @returns { this } The attribute of the list.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 24 static
-     */
-    default syncLoad(enable: boolean | undefined): this;
-    /**
-     * Sets the speed of scroll snap animation.
-     *
-     * @param { ScrollSnapAnimationSpeed | undefined } speed - Speed of scroll snap animation.
-     *     <br>Default value: <em>ScrollSnapAnimationSpeed.NORMAL</em> Passing undefined will restore the default value.
-     * @returns { this } The attribute of the list.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 24 static
-     */
-    default scrollSnapAnimationSpeed(speed: ScrollSnapAnimationSpeed | undefined): this;
     /**
      * Triggered when a child component enters or leaves the list display area.
      *
