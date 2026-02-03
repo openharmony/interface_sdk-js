@@ -99,7 +99,7 @@ declare namespace photoAccessHelper {
   * @stagemodelonly
   * @crossplatform
   * @atomicservice
-  * @since 24 static
+  * @since 23 static
   */
   function getPhotoAccessHelper(context: Context): PhotoAccessHelper | null;
 
@@ -134,7 +134,7 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
    * @stagemodelonly
-   * @since 24 static
+   * @since 23 static
    */
   function getPhotoAccessHelper(context: Context, userId: int): PhotoAccessHelper | null;
 
@@ -1272,7 +1272,7 @@ declare namespace photoAccessHelper {
      *     if data of media asset is invalid, return undefined.
      * @param { Map<string, string> } [map] - additional information for the data
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @since 24 static
+     * @since 23 static
      */
     onDataPrepared(data: T | undefined, map?: Map<string, string>): void;
   }
@@ -1306,7 +1306,7 @@ declare namespace photoAccessHelper {
     *     if data of imageSource is invalid, return null.
     * @param { Map<string, string> } map - additional information for the data
     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-    * @since 24 static
+    * @since 23 static
     */
     onDataPrepared(data: T | undefined, imageSource: image.ImageSource | null, map: Map<string, string>): void;
   }
@@ -2504,7 +2504,7 @@ declare namespace photoAccessHelper {
      *     Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 24 static
+     * @since 23 static
      */
     requestPhoto(callback: AsyncCallback<image.PixelMap>): string | null;
 
@@ -2545,7 +2545,7 @@ declare namespace photoAccessHelper {
      *     Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 24 static
+     * @since 23 static
      */
     requestPhoto(options: RequestPhotoOptions, callback: AsyncCallback<image.PixelMap>): string | null
 
@@ -10691,7 +10691,7 @@ declare namespace photoAccessHelper {
      * @static
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
-     * @since 24 static
+     * @since 23 static
      */
     static createImageAssetRequest(context: Context, fileUri: string): MediaAssetChangeRequest | null;
 
@@ -10726,7 +10726,7 @@ declare namespace photoAccessHelper {
      *     Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
      * @static
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @since 24 static
+     * @since 23 static
      */
     static createVideoAssetRequest(context: Context, fileUri: string): MediaAssetChangeRequest | null;
 
@@ -10766,7 +10766,7 @@ declare namespace photoAccessHelper {
      * @static
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 24 static
+     * @since 23 static
      */
     static createAssetRequest(context: Context, displayName: string, options?: PhotoCreateOptions): MediaAssetChangeRequest | null;
 
@@ -10805,7 +10805,7 @@ declare namespace photoAccessHelper {
      * @static
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
-     * @since 24 static
+     * @since 23 static
      */
     static createAssetRequest(context: Context, photoType: PhotoType, extension: string, options?: CreateOptions): MediaAssetChangeRequest | null;
 
@@ -10859,7 +10859,7 @@ declare namespace photoAccessHelper {
      *     Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
      * @static
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @since 24 static
+     * @since 23 static
      */
     static deleteAssetsToTrashWithUris(context: Context, uriList: Array<string>): Promise<void>;
 
@@ -10894,7 +10894,7 @@ declare namespace photoAccessHelper {
      *     Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
-     * @since 24 static
+     * @since 23 static
      */
     getAsset(): PhotoAsset | null;
 
@@ -11494,7 +11494,7 @@ declare namespace photoAccessHelper {
      * @static
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 24 static
+     * @since 23 static
      */
     static createAlbumRequest(context: Context, name: string): MediaAlbumChangeRequest | null;
 
@@ -11580,7 +11580,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
      *     Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @since 24 static
+     * @since 23 static
      */
     getAlbum(): Album | null;
 
@@ -12380,7 +12380,7 @@ declare namespace photoAccessHelper {
      *     Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
-     * @since 24 static
+     * @since 23 static
      */
     getUri(): string | null;
 
@@ -13122,7 +13122,7 @@ declare namespace photoAccessHelper {
      * @static
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 24 static
+     * @since 23 static
      */
  	  static getCloudEnhancementInstance(context: Context): CloudEnhancement | null;
 
@@ -13610,7 +13610,7 @@ declare namespace photoAccessHelper {
      * @static
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 24 static
+     * @since 23 static
      */
     static getCloudMediaAssetManagerInstance(context: Context): CloudMediaAssetManager | null;
 
