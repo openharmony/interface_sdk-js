@@ -55,18 +55,22 @@ export declare enum DataPanelType {
 export declare interface ColorStop {
     /**
      * Color property.
-     * @type { ResourceColor | undefined } color - the color value.
+     *
+     * @type { ResourceColor } color - the color value.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
-    color: ResourceColor | undefined;
+    color: ResourceColor;
     /**
      * Offset property.
-     * @type { Length | undefined } offset - the color offset.
+     *
+     * @type { Length } offset - the color offset.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
-    offset: Length | undefined;
+    offset: Length;
 }
 /**
  * LinearGradient class
