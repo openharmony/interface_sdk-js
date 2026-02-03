@@ -40,7 +40,7 @@ import { ResizableOptions } from "./image";
 import intl from '../../@ohos.intl';
 import { ButtonType, ButtonStyleMode, ButtonRole } from "./button";
 import { Area, ResourceColor, Dimension, ResourceStr, Font, Length, EdgeColors, LocalizedEdgeColors, BorderRadiuses, EdgeWidths, LocalizedEdgeWidths, SizeOptions, Bias, EdgeStyles, Position, LocalizedBorderRadiuses, Margin, ChainWeightOptions, Padding, LocalizedPadding, LocalizedMargin, BorderOptions, OutlineOptions, EdgeOutlineStyles, EdgeOutlineWidths, OutlineRadiuses, Edges, LocalizedEdges, LocalizedPosition, AccessibilityOptions, ConstraintSizeOptions, EdgeWidth, DirectionalEdgesT, VoidCallback, ColorMetrics, AccessibilityActionOptions } from "./units";
-import { BaseGestureEvent, GestureRecognizer, TouchRecognizer, GestureJudgeResult, GestureType, GestureMask, GestureHandler, GesturePriority, GestureInfo } from "./gesture";
+import { BaseGestureEvent, GestureRecognizer, GestureJudgeResult, GestureType, GestureMask, GestureHandler, GesturePriority, GestureInfo } from "./gesture";
 import { ScrollState } from "./list";
 import { AccessibilityHoverType, Curve, PlayMode, SharedTransitionEffectType, KeySource, BorderStyle, HorizontalAlign, LocalizedAlignment, RenderStrategy, VerticalAlign, MouseButton, MouseAction, FontWeight, TouchType, FontStyle, Color, ColoringStrategy, Placement, ArrowPointPosition, ClickEffectLevel, NestedScrollMode, HitTestMode, Alignment, ImageRepeat, ImageSize, HoverEffect, Visibility, ItemAlign, Direction, Axis, GradientDirection, FunctionKey, ModifierKey, ObscuredReasons, RenderFit, LineCapStyle, LineJoinStyle, PixelRoundCalcPolicy, TextDecorationType, TextDecorationStyle, KeyType, ResponseType, BarState, EdgeEffect, ScrollSource, InteractionHand, AxisAction, AxisType, AxisModel, CrownAction, FocusDrawLevel, CrownSensitivity, IlluminatedType, ResponseRegionSupportedTool, TipsAnchorType } from "./enums";
 import { TextRange } from "./textCommon";
@@ -50,7 +50,6 @@ import curves from '../../@ohos.curves';
 import matrix4 from '../../@ohos.matrix4';
 import { AvoidanceMode } from './select';
 import uiMaterial from '../../@ohos.arkui.uiMaterial';
-import dragController from '../../@ohos.arkui.dragController';
 /**
  * Define the ratio of characters entered by the the percentage of InputCounterOptions.
  *
@@ -4299,24 +4298,6 @@ export declare interface ClickEvent extends BaseEvent {
      * @since 23 static
      */
     preventDefault(): void;
-    /**
-     * X coordinate of the point relative to the global display.
-     *
-     * @type { ?double }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 24 static
-     */
-    globalDisplayX?: double;
-    /**
-     * Y coordinate of the point relative to the global display.
-     *
-     * @type { ?double }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 24 static
-     */
-    globalDisplayY?: double;
 }
 /**
  * The hover action triggers this method invocation.
@@ -4383,24 +4364,6 @@ export declare interface HoverEvent extends BaseEvent {
      * @since 23 static
      */
     stopPropagation(): void;
-    /**
-     * X coordinate of the point relative to the global display.
-     *
-     * @type { ?double }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 24 static
-     */
-    globalDisplayX?: double;
-    /**
-     * Y coordinate of the point relative to the global display.
-     *
-     * @type { ?double }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 24 static
-     */
-    globalDisplayY?: double;
 }
 /**
  * The mouse click action triggers this method invocation.
@@ -4509,25 +4472,6 @@ export declare interface MouseEvent extends BaseEvent {
      * @since 23 static
      */
     pressedButtons?: MouseButton[];
-    /**
-     * X coordinate of the point relative to the global display.
-     *
-     * @type { ?double }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 24 static
-     */
-    globalDisplayX?: double;
-
-    /**
-     * Y coordinate of the point relative to the global display.
-     *
-     * @type { ?double }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 24 static
-     */
-    globalDisplayY?: double;    
 }
 /**
  * The accessibility hover action triggers this method invocation.
@@ -4594,25 +4538,6 @@ export declare interface AccessibilityHoverEvent extends BaseEvent {
      * @since 23 static
      */
     windowY: double;
-    /**
-     * X coordinate of the point relative to the global display.
-     *
-     * @type { ?double }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 24 static
-     */
-    globalDisplayX?: double;
-
-    /**
-     * Y coordinate of the point relative to the global display.
-     *
-     * @type { ?double }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 24 static
-     */
-    globalDisplayY?: double;
 }
 /**
  * Type of the touch event.
@@ -4726,25 +4651,6 @@ export declare interface TouchObject {
      * @since 23 static
      */
     height?: double;
-    /**
-     * X coordinate of the point relative to the global display.
-     *
-     * @type { ?double }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 24 static
-     */
-    globalDisplayX?: double;
-
-    /**
-     * Y coordinate of the point relative to the global display.
-     *
-     * @type { ?double }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 24 static
-     */
-    globalDisplayY?: double;
 }
 /**
  * TouchObject getHistoricalPoints Function Parameters
@@ -4958,25 +4864,6 @@ export declare interface AxisEvent extends BaseEvent {
      * @since 23 static
      */
     hasAxis(axisType: AxisType): boolean;
-    /**
-     * X coordinate of the point relative to the global display.
-     *
-     * @type { ?double }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 24 static
-     */
-    globalDisplayX?: double;
-
-    /**
-     * Y coordinate of the point relative to the global display.
-     *
-     * @type { ?double }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 24 static
-     */
-    globalDisplayY?: double;
 }
 /**
  * Defines the callback type used in onSizeChange.
@@ -4988,20 +4875,6 @@ export declare interface AxisEvent extends BaseEvent {
  * @since 23 static
  */
 export type SizeChangeCallback = (oldValue: SizeOptions, newValue: SizeOptions) => void;
-/**
- * Defines the callback type used in onGestureRecognizerJudgeBegin.
- *
- * @typedef { function } GestureRecognizerJudgeBeginCallback
- * @param { BaseGestureEvent } event - the event information
- * @param { GestureRecognizer } current - the current gesture recognizer of the component
- * @param { Array<GestureRecognizer> } recognizers - the gesture recognizers of the component on the response chain
- * @param { Array<TouchRecognizer> } [touchRecognizers] - the touch recognizers of the component on the response chain
- * @returns { GestureJudgeResult } the gesture judge result
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 24 static
- */
-export type GestureRecognizerJudgeBeginCallback = (event: BaseGestureEvent, current: GestureRecognizer, recognizers: Array<GestureRecognizer>, touchRecognizers?: Array<TouchRecognizer>) => GestureJudgeResult;
 /**
  * Defines the callback type used in shouldBuiltInRecognizerParallelWith.
  *
@@ -5124,33 +4997,6 @@ export type UniformDataType = uniformTypeDescriptor.UniformDataType;
  * @since 23 static
  */
 export type DataSyncOptions = unifiedDataChannel.GetDataParams;
-/**
- * Import the DataLoadParams type object for ui component.
- *
- * @typedef { unifiedDataChannel.DataLoadParams } DataLoadParams
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 24 static
- */
-export type DataLoadParams = unifiedDataChannel.DataLoadParams;
-/**
- * The type for SpringLoadingContext, see the detailed description in dragController.
- *
- * @typedef { dragController.SpringLoadingContext } SpringLoadingContext
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 24 static
- */
-export type SpringLoadingContext = dragController.SpringLoadingContext;
-/**
- * The type for DragSpringLoadingConfiguration, see the detailed description in dragController.
- *
- * @typedef { dragController.DragSpringLoadingConfiguration } DragSpringLoadingConfiguration
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 24 static
- */
-export type DragSpringLoadingConfiguration = dragController.DragSpringLoadingConfiguration;
 /**
  * Enum for Drag Result.
  *
@@ -5637,74 +5483,6 @@ export declare interface DragEvent {
      * @since 23 static
      */
      getDisplayId(): int;
-    /**
-     * Retrieve the bundle information of the drag source application.
-     *
-     * @returns { string }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 24 static
-     */
-     getDragSource(): string;
-    /**
-     * Call this method to determine whether the current drag operation is a cross-device drag.
-     *
-     * @returns { boolean }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 24 static
-     */
-     isRemote(): boolean;
-    /**
-     * Use this method to provide a data representation to the system instead of directly providing a complete data
-     * object. When the user releases the drag over the target application, the system will use this data
-     * representation to request the actual data from drag source. This approach significantly improves the
-     * efficiency of initiating drag operations for large volumes of data and enhances the effectiveness of data
-     * reception. It is recommended to use this method instead of the setData method.
-     *
-     * @param { DataLoadParams } dataLoadParams - The data backend representation.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 24 static
-     */
-     setDataLoadParams(dataLoadParams: DataLoadParams): void;
-    /**
-     * Enable the internal drop animation, which is only avaiable for system applications.
-     *
-     * The animations' configuration need to be provided through the input paramerter, and it is a string in json format.
-     *
-     * This method can only be called in onDrop, and please do not use custom drop animation after this method,
-     * as it will reset the calling result, and use custom drop animation insteadly.
-     *
-     * @param { string } configuration - the internal drop animation's configuration.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 190003 - Operation not allowed for current phase.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 24 static
-     */
-    enableInternalDropAnimation(configuration: string): void;
-    /**
-     * X coordinate of the point relative to the global display.
-     *
-     * @returns { double }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 24 static
-     */
-    getGlobalDisplayX(): double;
-
-    /**
-     * Y coordinate of the point relative to the global display.
-     *
-     * @returns { double }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 24 static
-     */
-    getGlobalDisplayY(): double;
 }
 /**
  * The event callback function for drag and drop common interfaces.
@@ -5837,33 +5615,6 @@ export declare interface KeyEvent {
      * @since 23 static
      */
     unicode?: long;
-    /**
-     * Whether Num Lock is on
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 24 static
-     */
-    isNumLockOn?: boolean;
-    /**
-     * Whether Caps Lock is on
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 24 static
-     */
-    isCapsLockOn?: boolean;
-    /**
-     * Whether Scroll Lock is on
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 24 static
-     */
-    isScrollLockOn?: boolean;
 }
 /**
  * Focus axis event object description.
@@ -9482,18 +9233,6 @@ export declare interface BackgroundOptions {
      * @since 23 static
      */
     align?: Alignment;
-    /**
-     * The set of edges for which to ignore layout safe area. To respect safe area insets on all edges,
-     * explicitly pass empty edge set.
-     *
-     * @type { ?Array<LayoutSafeAreaEdge> }
-     * @default The default value is LayoutSafeAreaEdge.ALL when background is ResourceColor, otherwise
-     *     it is an empty array [].
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 24 static
-    */
-    ignoresLayoutSafeAreaEdges?: Array<LayoutSafeAreaEdge>;
 }
 /**
  * Defines the value of the custom property..
@@ -9701,17 +9440,6 @@ export declare interface CommonMethod {
      * @since 23 static
      */
     default margin(value: Margin | Length | LocalizedMargin | undefined): this;
-    /**
-     * Set the background to a given CustomBuilder, or set it to a specific ResourceColor.
-     *
-     * @param { CustomBuilder | ResourceColor | undefined } content
-     * @param { BackgroundOptions } [options]
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 24 static
-     */
-    default background(content: CustomBuilder | ResourceColor | undefined, options?: BackgroundOptions): this;
     /**
      * Background color
      *
@@ -10977,28 +10705,6 @@ export declare interface CommonMethod {
      */
     default onDrop(eventCallback: OnDragEventCallback | undefined, dropOptions: DropOptions): this;
     /**
-     * Enables the component as a drag-and-drop target with spring loading functionality.
-     *
-     * When a dragged object hovers over the target, it triggers a callback notification. Spring Loading is an enhanced
-     * feature for drag-and-drop operations, allowing users to automatically trigger view transitions during dragging
-     * by hovering (hover) without needing to use another hand.
-     * This feature is primarily designed to enhance the smoothness and efficiency of drag-and-drop operations. Below are
-     * some common scenarios suitable for supporting this feature:
-     *  - In a file manager, when dragging a file and hovering over a folder, the folder is automatically opened.
-     *  - On a desktop launcher, when dragging a file and hovering over an application icon, the application is
-     *  automatically opened.
-     *
-     * @param { Callback<SpringLoadingContext> | null | undefined } callback Registers the callback for spring loading response, or
-     *    sets it to null to disable the support for spring loading.
-     * @param { DragSpringLoadingConfiguration } [configuration] The initialized spring loading configuration which is
-     *    only used when the entire spring detecting.
-     * @returns { this } - return the component attribute.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 24 static
-     */
-    default onDragSpringLoading(callback: Callback<SpringLoadingContext> | null | undefined, configuration?: DragSpringLoadingConfiguration): this;
-    /**
      * This function is called when the drag event is end.
      *
      * @param { ((event: DragEvent, extraParams?: string) => void) | undefined } event - indicates the function to be called.
@@ -11735,37 +11441,6 @@ export declare interface CommonMethod {
      * @since 23 static
      */
     default onGestureJudgeBegin(callback: ((gestureInfo: GestureInfo, event: BaseGestureEvent) => GestureJudgeResult) | undefined): this;
-    /**
-     * Binds a custom gesture recognizer judgment callback to the component.
-     *
-     * @param { GestureRecognizerJudgeBeginCallback | undefined } callback - A callback instance used when
-     *     a gesture bound to this component will be accepted.
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
-     */
-    default onGestureRecognizerJudgeBegin(callback: GestureRecognizerJudgeBeginCallback | undefined): this;
-    /**
-     * Binds a custom gesture recognizer judgment callback to the component.
-     *
-     * <p><strong>NOTE</strong>:
-     * <br> For a composite component, setting exposeInnerGesture to true exposes the internal gesture recognizer of the
-     * <br> composite component in the current parameter callback. Currently, only the Tabs component is supported.
-     *
-     * <br> Do not set exposeInnerGesture for other components. When exposeInnerGesture is set to false, this API
-     * provides the same functionality
-     * <br> as the onGestureRecognizerJudgeBegin API.
-     * </p>
-     * @param { GestureRecognizerJudgeBeginCallback | undefined } callback - A callback instance used when a gesture
-     *     bound to this component will be accepted.
-     * @param { boolean | undefined } exposeInnerGesture - This parameter is a flag. This flag determines whether to
-     *     expose internal gestures.
-     * @default false
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
-     */
-    default onGestureRecognizerJudgeBegin(callback: GestureRecognizerJudgeBeginCallback | undefined, exposeInnerGesture: boolean | undefined): this;
     /**
      * Provides a callback to set the parallel relationship between built-in gestures and gestures of other components in the response chain.
      *

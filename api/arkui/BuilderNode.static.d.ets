@@ -222,34 +222,6 @@ export declare class BuilderNode<T = undefined> {
   isDisposed(): boolean;
 
   /**
-   * Dispatches the input event to the FrameNode in the BuilderNode.
-   * postInputEvent dispatches the event from a middle node in the component tree downwards. To ensure the event
-   * is dispatched correctly, the event coordinates need to be transformed into the coordinate system of the
-   * parent component.
-   *
-   * Notes:
-   * The input coordinate values need to be converted to pixels (px). Left mouse click events will be converted to
-   * touch events. When forwarding, note that if touch events and mouse events are bound to outer layers, it may
-   * cause coordinate offset. When injecting axis events, since axis events lack rotation axis information,
-   * injected events cannot trigger rotate gestures Forwarded events will undergo touch testing in the subtree of
-   * the target component where they are dispatched and trigger corresponding gestures. Original events will also
-   * trigger gestures in the current component's component tree. The competition outcome between these two types
-   * of gestures is not guaranteed. For developer-constructed events, required fields must be assigned values,
-   * such as the touches field for touch events and the scrollStep field for axis events. Also, ensure event
-   * completeness - for example, both DOWN and UP fields in TouchType for touch events must be present to prevent
-   * undefined behavior. Webview has already handled coordinate system transformations, so events can be dispatched
-   * directly. The postInputEvent interface requires providing gesture coordinates relative to the window
-   * coordinates within the input event peer. It is not recommended to forward the same event multiple times.
-   * The postInputEvent parameter does not support UIExtensionComponent.
-   * @param { InputEventType } event - The event which will be sent.
-   * @returns { boolean } - Returns true if the event has been successfully posted, false otherwise.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 24 static
-   */
-  postInputEvent(event: InputEventType): boolean;
-
-  /**
    * Set if the BuilderNode inherits the freezing policy of the parent CustomComponent, ComponentContent,
    * or BuilderNode.
    *
@@ -260,13 +232,3 @@ export declare class BuilderNode<T = undefined> {
    */
   inheritFreezeOptions(enabled: boolean): void;
 }
-
-/**
- * Defines the event type used for posting.
- *
- * @typedef { TouchEvent | MouseEvent | AxisEvent } InputEventType
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 24 static
- */
-export declare type InputEventType = TouchEvent | MouseEvent | AxisEvent;

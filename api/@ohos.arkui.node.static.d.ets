@@ -45,14 +45,6 @@ export { FrameNode, LayoutConstraint, ExpandMode } from 'arkui.FrameNode';
  * Export FrameNode. FrameNode defines a basic type of node which contains a RenderNode.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 24 static
- */
-export { UIState } from 'arkui.FrameNode';
-/**
- * Export FrameNode. FrameNode defines a basic type of node which contains a RenderNode.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 23 static
  */
 export { typeNode, NodeAdapter } from 'arkui.FrameNode';
