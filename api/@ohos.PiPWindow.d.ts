@@ -221,7 +221,6 @@ declare namespace PiPWindow {
     /**
      * Describes the width of content to be displayed in PiP window. For adjusting PiP window aspect ratio.
      *
-     * Default Value: 1920.
      * @type { ?int }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -286,7 +285,6 @@ declare namespace PiPWindow {
      * Describes the default picture-in-picture window size as it is started.
      * 0: not set. 1: small size. 2: large size.
      *
-     * Default Value: 0.
      * @type { ?int }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -414,7 +412,7 @@ declare namespace PiPWindow {
      * @since 12 dynamic
      * @since 24 static
      */
-    VIDEO_PLAY = 0,
+    VIDEO_PLAY,
 
     /**
      * Indicates the content to show in picture-in-picture window is video call
@@ -428,7 +426,7 @@ declare namespace PiPWindow {
      * @since 12 dynamic
      * @since 24 static
      */
-    VIDEO_CALL = 1,
+    VIDEO_CALL,
 
     /**
      * Indicates the content to show in picture-in-picture window is video meeting
@@ -442,7 +440,7 @@ declare namespace PiPWindow {
      * @since 12 dynamic
      * @since 24 static
      */
-    VIDEO_MEETING = 2,
+    VIDEO_MEETING,
 
     /**
      * Indicates the content to show in picture-in-picture window is video live
@@ -456,7 +454,7 @@ declare namespace PiPWindow {
      * @since 12 dynamic
      * @since 24 static
      */
-    VIDEO_LIVE = 3
+    VIDEO_LIVE,
   }
 
   /**
@@ -557,24 +555,24 @@ declare namespace PiPWindow {
     ABOUT_TO_RESTORE = 5,
 
     /**
-     * Error message during start/stop.
+     * Error occurs during the lifecycle of PiP window.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
     /**
-     * Error message during start/stop.
+     * Error occurs during the lifecycle of PiP window.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
      * @since 24 static
      */
-    ERROR = 6
+    ERROR = 6,
   }
 
   /**
-   * Describe PiP window custom controls.
+   * Describe optional component groups of PiP window.
    *
    * @typedef { VideoPlayControlGroup | VideoCallControlGroup | VideoMeetingControlGroup | VideoLiveControlGroup }
    * @syscap SystemCapability.Window.SessionManager
@@ -582,11 +580,10 @@ declare namespace PiPWindow {
    * @since 12 dynamic
    * @since 24 static
    */
-  type PiPControlGroup = VideoPlayControlGroup | VideoCallControlGroup | VideoMeetingControlGroup
-    | VideoLiveControlGroup;
+  type PiPControlGroup = VideoPlayControlGroup | VideoCallControlGroup | VideoMeetingControlGroup | VideoLiveControlGroup;
 
   /**
-   * Enum for video play PiP window custom controls.
+   * Enum for video play component groups of PiP window.
    *
    * @enum { number }.
    * @syscap SystemCapability.Window.SessionManager
@@ -613,11 +610,11 @@ declare namespace PiPWindow {
      * @since 12 dynamic
      * @since 24 static
      */
-    FAST_FORWARD_BACKWARD = 102
+    FAST_FORWARD_BACKWARD = 102,
   }
 
   /**
-   * Enum for video call PiP window custom controls.
+   * Enum for video call component groups of PiP window.
    *
    * @enum { number }.
    * @syscap SystemCapability.Window.SessionManager
@@ -664,11 +661,11 @@ declare namespace PiPWindow {
      * @since 12 dynamic
      * @since 24 static
      */
-    MUTE_SWITCH = 204
+    MUTE_SWITCH = 204,
   }
 
   /**
-   * Enum for video meeting PiP window custom controls.
+   * Enum for video meeting component groups of PiP window.
    *
    * @enum { number }.
    * @syscap SystemCapability.Window.SessionManager
@@ -715,11 +712,11 @@ declare namespace PiPWindow {
      * @since 12 dynamic
      * @since 24 static
      */
-    MICROPHONE_SWITCH = 304
+    MICROPHONE_SWITCH = 304,
   }
 
   /**
-   * Enum for video Live PiP window custom controls.
+   * Enum for video Live component groups of PiP window.
    *
    * @enum { number }.
    * @syscap SystemCapability.Window.SessionManager
@@ -746,7 +743,7 @@ declare namespace PiPWindow {
      * @since 12 dynamic
      * @since 24 static
      */
-    MUTE_SWITCH = 402
+    MUTE_SWITCH = 402,
   }
 
   /**
@@ -797,7 +794,7 @@ declare namespace PiPWindow {
      * @since 12 dynamic
      * @since 24 static
      */
-    CLOSE = 0
+    CLOSE = 0,
   }
 
   /**
@@ -898,7 +895,7 @@ declare namespace PiPWindow {
      * @since 12 dynamic
      * @since 24 static
      */
-    MUTE_SWITCH = 8
+    MUTE_SWITCH = 8,
   }
 
 
