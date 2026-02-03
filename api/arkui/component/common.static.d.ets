@@ -39,7 +39,7 @@ import { ComponentContent } from '../../arkui/ComponentContent';
 import { ResizableOptions } from "./image";
 import intl from '../../@ohos.intl';
 import { ButtonType, ButtonStyleMode, ButtonRole } from "./button";
-import { Area, ResourceColor, Dimension, ResourceStr, Font, Length, EdgeColors, LocalizedEdgeColors, BorderRadiuses, EdgeWidths, LocalizedEdgeWidths, SizeOptions, Bias, EdgeStyles, Position, LocalizedBorderRadiuses, Margin, ChainWeightOptions, Padding, LocalizedPadding, LocalizedMargin, BorderOptions, OutlineOptions, EdgeOutlineStyles, EdgeOutlineWidths, OutlineRadiuses, Edges, LocalizedEdges, LocalizedPosition, AccessibilityOptions, ConstraintSizeOptions, EdgeWidth, DirectionalEdgesT, VoidCallback, ColorMetrics, AccessibilityActionOptions, ScrollBarMargin } from "./units";
+import { Area, ResourceColor, Dimension, ResourceStr, Font, Length, EdgeColors, LocalizedEdgeColors, BorderRadiuses, EdgeWidths, LocalizedEdgeWidths, SizeOptions, Bias, EdgeStyles, Position, LocalizedBorderRadiuses, Margin, ChainWeightOptions, Padding, LocalizedPadding, LocalizedMargin, BorderOptions, OutlineOptions, EdgeOutlineStyles, EdgeOutlineWidths, OutlineRadiuses, Edges, LocalizedEdges, LocalizedPosition, AccessibilityOptions, ConstraintSizeOptions, EdgeWidth, DirectionalEdgesT, VoidCallback, ColorMetrics, AccessibilityActionOptions } from "./units";
 import { BaseGestureEvent, GestureRecognizer, TouchRecognizer, GestureJudgeResult, GestureType, GestureMask, GestureHandler, GesturePriority, GestureInfo } from "./gesture";
 import { ScrollState } from "./list";
 import { AccessibilityHoverType, Curve, PlayMode, SharedTransitionEffectType, KeySource, BorderStyle, HorizontalAlign, LocalizedAlignment, RenderStrategy, VerticalAlign, MouseButton, MouseAction, FontWeight, TouchType, FontStyle, Color, ColoringStrategy, Placement, ArrowPointPosition, ClickEffectLevel, NestedScrollMode, HitTestMode, Alignment, ImageRepeat, ImageSize, HoverEffect, Visibility, ItemAlign, Direction, Axis, GradientDirection, FunctionKey, ModifierKey, ObscuredReasons, RenderFit, LineCapStyle, LineJoinStyle, PixelRoundCalcPolicy, TextDecorationType, TextDecorationStyle, KeyType, ResponseType, BarState, EdgeEffect, ScrollSource, InteractionHand, AxisAction, AxisType, AxisModel, CrownAction, FocusDrawLevel, CrownSensitivity, IlluminatedType, ResponseRegionSupportedTool, TipsAnchorType } from "./enums";
@@ -50,7 +50,6 @@ import curves from '../../@ohos.curves';
 import matrix4 from '../../@ohos.matrix4';
 import { AvoidanceMode } from './select';
 import uiMaterial from '../../@ohos.arkui.uiMaterial';
-import { OnScrollFrameBeginCallback } from "./scroll";
 import dragController from '../../@ohos.arkui.dragController';
 /**
  * Define the ratio of characters entered by the the percentage of InputCounterOptions.
@@ -12786,18 +12785,6 @@ export declare interface ScrollableCommonMethod extends CommonMethod {
      */
     default scrollBarWidth(value: double | string | undefined): this;
     /**
-     * Margin of the scrollbar.
-     *
-     * @param { ScrollBarMargin | undefined } margin - Margin of the scrollbar.
-     *     <br>Default value: {start: LengthMetrics.vp(0), end: LengthMetrics.vp(0)}.
-     *     Passing undefined will restore the default value.
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 24 static
-     */
-    default scrollBarMargin(margin: ScrollBarMargin | undefined): this;
-    /**
      * Sets the effect used when the scroll boundary is reached.
      *
      * @param { EdgeEffect | undefined } edgeEffect - Effect used when the scroll boundary is
@@ -12858,80 +12845,6 @@ export declare interface ScrollableCommonMethod extends CommonMethod {
      * @since 23 static
      */
     default friction(value: double | Resource | undefined): this;
-    /**
-     * Sets the offset from the start of the content to the boundary of the scrollable display area.
-     *
-     * @param { double | Resource | undefined } offset - Offset from the start of the content to the boundary of
-     *     the scrollable display area.
-     *     <br>Unit: vp
-     *     <br>Unit:Default value: <em>0</em>. Passing undefined will restore the default value.
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 24 static
-     */
-    default contentStartOffset(offset: double | Resource | undefined): this;
-    /**
-     * Sets the offset from the end of the content to the boundary of the scrollable display area.
-     *
-     * @param { double | Resource | undefined } offset - Offset from the end of the content to the boundary of
-     *     the scrollable display area.
-     *     <br>Unit: vp
-     *     <br>Default value: <em>0</em>. Passing undefined will restore the default value.
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 24 static
-     */
-    default contentEndOffset(offset: double | Resource | undefined): this;
-    /**
-     * Called when the scrollable will start dragging.
-     *
-     * @param { VoidCallback | undefined } handler - callback of start dragging.
-     *     <br>Passing undefined will unregister the callback.
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 24 static
-     */
-    default onWillStartDragging(handler: VoidCallback | undefined): this;
-    /**
-     * Called when the scrollable will end dragging.
-     *
-     * @param { OnWillStopDraggingCallback | undefined } handler - callback of end dragging.
-     *     <br>Passing undefined will unregister the callback.
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 24 static
-     */
-    default onWillStopDragging(handler: OnWillStopDraggingCallback | undefined): this;
-    /**
-     * Called when the scrollable did end dragging.
-     *
-     * @param { OnDidStopDraggingCallback | undefined } handler - callback of end dragging.
-     *     <br>Passing undefined will unregister the callback.
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 24 static
-     */
-    default onDidStopDragging(handler: OnDidStopDraggingCallback | undefined): this;
-    /**
-     * Called when the scrollable will start fling.
-     *
-     * @param { VoidCallback | undefined } handler - callback of start fling.
-     *     <br>Passing undefined will unregister the callback.
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 24 static
-     */
-    default onWillStartFling(handler: VoidCallback | undefined): this;
-    /**
-     * Called when the scrollable did stop fling.
-     *
-     * @param { VoidCallback | undefined } handler - callback of stop fling.
-     *     <br>Passing undefined will unregister the callback.
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 24 static
-     */
-    default onDidStopFling(handler: VoidCallback | undefined): this;
     /**
      * Triggered when the scrollable component reaches the start position.
      *
@@ -13064,25 +12977,6 @@ export type OnWillScrollCallback = (scrollOffset: double, scrollState: ScrollSta
   * @since 23 static
   */
 export type OnScrollCallback = (scrollOffset: double, scrollState: ScrollState) => void;
-/**
- * On scroll callback using in scrollable onWillStopDragging.
- *
- * @typedef { function } OnWillStopDraggingCallback
- * @param { double } velocity - The veolicity of the scroll view at the moment the touch was released.
- *     <br>Unit: vp/s.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 24 static
- */
-export type OnWillStopDraggingCallback = (velocity: double) => void;
-/**
- * On scroll callback using in scrollable onDidStopDragging.
- *
- * @typedef { function } OnDidStopDraggingCallback
- * @param { boolean } willFling - whether start fling animation.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 24 static
- */
-export type OnDidStopDraggingCallback = (willFling: boolean) => void;
 /**
   * Defines the callback type used in onItemDragStart.
   *
@@ -13724,68 +13618,6 @@ export declare interface UICommonEvent {
      * @since 23 static
      */
     setOnVisibleAreaApproximateChange(options: VisibleAreaEventOptions, event: VisibleAreaChangeCallback | undefined): void;
-}
-/**
- * Defines a UIScrollableCommonEvent which is used to set event to target component.
- *
- * @extends UICommonEvent
- * @interface UIScrollableCommonEvent
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 24 static
- */
-export declare interface UIScrollableCommonEvent extends UICommonEvent {
-  /**
-   * Set or reset the callback which is triggered when the scrolling reaches the start position.
-   *
-   * @param { VoidCallback | undefined } callback - callback function, triggered when the scrolling reaches
-   *     the start position.
-   *     <br>Passing undefined will unregister the callback.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 24 static
-   */
-  setOnReachStart(callback: VoidCallback | undefined): void;
-  /**
-   * Set or reset the callback which is triggered when the scrolling reaches the end position.
-   *
-   * @param { VoidCallback | undefined } callback - callback function, triggered when the
-   *     scrolling reaches the end position.
-   *     <br>Passing undefined will unregister the callback.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 24 static
-   */
-  setOnReachEnd(callback: VoidCallback | undefined): void;
-  /**
-   * Set or reset the callback which is triggered when the scrolling started.
-   *
-   * @param { VoidCallback | undefined } callback - callback function, triggered when the scrolling started.
-   *     <br>Passing undefined will unregister the callback.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 24 static
-   */
-  setOnScrollStart(callback: VoidCallback | undefined): void;
-  /**
-   * Set or reset the callback which is triggered when the scrolling stopped.
-   *
-   * @param { VoidCallback | undefined } callback - callback function, triggered when the scrolling stopped.
-   *     <br>Passing undefined will unregister the callback.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 24 static
-   */
-  setOnScrollStop(callback: VoidCallback | undefined): void;
-  /**
-   * Set or reset the callback which is triggered when scrolling begin each frame.
-   *
-   * @param { OnScrollFrameBeginCallback | undefined } callback - callback function, triggered when the
-   *     scrolling begin each frame.
-   *     <br>Passing undefined will unregister the callback.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 24 static
-   */
-  setOnScrollFrameBegin(callback: OnScrollFrameBeginCallback | undefined): void;
 }
 /**
  * Defines a UIGestureEvent which is used to set different gestures to target component.

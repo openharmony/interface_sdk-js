@@ -26,7 +26,6 @@ import { Callback } from './@ohos.base';
 import { NavDestinationMode } from '@ohos.arkui.component';
 import { HeightBreakpoint, WidthBreakpoint } from '@ohos.arkui.component';
 import { Size } from '@ohos.arkui.node';
-import { Axis } from '@ohos.arkui.component';
 /**
  * Register callbacks to observe ArkUI behavior.
  *
@@ -381,14 +380,6 @@ declare namespace uiObserver {
          * @since 23 static
          */
         offset: double;
-        /**
-         * Scroll axis.
-         *
-         * @type { ?Axis }
-         * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 24 static
-         */
-        axis?: Axis;
     }
     /**
      * TabContent info.

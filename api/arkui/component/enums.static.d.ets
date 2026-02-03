@@ -4079,18 +4079,17 @@ export declare enum TipsAnchorType {
 
 /**
  * Focus wrap mode of a list or grid when moving focus using the arrow keys.
- *
+
  * @enum { number } FocusWrapMode
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 24 static
+ * @since 23 static
  */
-export declare enum FocusWrapMode {
+declare enum FocusWrapMode {
   /**
    * No wrap when moving focus using the arrow keys.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 24 static
+   * @since 23 static
    */
   DEFAULT = 0,
 
@@ -4098,7 +4097,7 @@ export declare enum FocusWrapMode {
    * Auto wrap when moving focus using the arrow keys.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 24 static
+   * @since 23 static
    */
   WRAP_WITH_ARROW = 1
 }
