@@ -10621,22 +10621,6 @@ export declare interface CommonMethod {
      */
     default renderGroup(value: boolean | undefined): this;
     /**
-     * Set the component and its child components not to render off the screen following the parent component.
-     * Must be used in conjunction with renderGroup.
-     *
-     * @param { boolean | undefined } exclude - Whether the component and its child components are not
-     *     rendered off the screen following the parent component.
-     *     True means to not follow the parent component.
-     *     Default value: false.
-     *     Undefined means to default value.
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 24 static
-     */
-    default excludeFromRenderGroup(exclude: boolean | undefined): this;
-    /**
      * Sets whether to freeze the component. When frozen, the component and its children are cached for
      * repeated drawing after offscreen rendering, without updating internal attributes.
      *
@@ -10950,22 +10934,6 @@ export declare interface CommonMethod {
      * @since 23 static
      */
     default clickEffect(value: ClickEffect | null | undefined): this;
-    /**
-     * Set whether this component should have sound effects enabled for clicking.
-     *
-     * Sound effects playback is affected by the audio-related settings in the device system settings.
-     * When the user sets the device to silent mode, sound effects cannot be played.
-     *
-     * @param { boolean | undefined } enabled - indicates whether this component should have sound effects
-     *     enabled for clicking.
-     *     <br>Pass in undefined to reset the default value, default value is true, but
-     *     even it's true, the sound effect is only supported in some specific devices.
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 24 static
-     */
-    default enableClickSoundEffect(enabled: boolean | undefined): this
     /**
      * After a listener is bound, the component can be dragged. After the drag occurs, a callback is triggered.
      * (To be triggered, press and hold for 170 milliseconds (ms))
