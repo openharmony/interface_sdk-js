@@ -239,7 +239,6 @@ declare namespace PiPWindow {
     /**
      * Describes the height of content to be displayed in PiP window. For adjusting PiP window aspect ratio.
      *
-     * Default Value: 1080.
      * @type { ?int }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
