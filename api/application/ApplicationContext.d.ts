@@ -33,7 +33,6 @@ import type ApplicationStateChangeCallback from '../@ohos.app.ability.Applicatio
 /*** if arkts static */
 import ApplicationStateChangeCallback from '../@ohos.app.ability.ApplicationStateChangeCallback';
 /*** endif */
-import systemConfiguration from '../@ohos.app.ability.systemConfiguration';
 
 /**
  * The context of an application. It allows access to application-specific resources.
@@ -974,38 +973,6 @@ declare class ApplicationContext extends Context {
    * @since 23 dynamic&static
    */
   getAllWindowStages(): Promise<Array<window.WindowStage>>;
-
-  /**
-   * Registers a listener for system configuration updated.
-   *
-   * <p>**NOTE**:
-   * <br>It can be called only by the main thread.
-   * </p>
-   *
-   * @param { systemConfiguration.UpdatedCallback } callback - The system configuration updated callback.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @atomicservice
-   * @since 24 dynamic&static
-   */
-  onSystemConfigurationUpdated(callback: systemConfiguration.UpdatedCallback): void;
-
-  /**
-   * unregisters a listener for system configuration updated.
-   *
-   * <p>**NOTE**:
-   * <br>It can be called only by the main thread.
-   * </p>
-   *
-   * @param { systemConfiguration.UpdatedCallback } [callback] - The system configuration updated callback.
-   *     If a defined callback is passed in, the listener for that callback is unregistered.
-   *     If no value is passed in, all the listeners for the corresponding event are unregistered.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @atomicservice
-   * @since 24 dynamic&static
-   */
-  offSystemConfigurationUpdated(callback?: systemConfiguration.UpdatedCallback): void;
 }
 
 export default ApplicationContext;
