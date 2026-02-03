@@ -11190,6 +11190,7 @@ declare enum CrownAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamic
+   * @deprecated since 24 dynamic
    */
   BEGIN = 0,
 
