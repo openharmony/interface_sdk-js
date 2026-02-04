@@ -5039,6 +5039,17 @@ export type TransitionFinishCallback = (transitionIn: boolean) => void;
  */
 export type TouchTestDoneCallback = (event: BaseGestureEvent, recognizers: Array<GestureRecognizer>) => void;
 /**
+ * Defines the callback type used in onNeedSoftkeyboard.
+ * Called when component is focused, the return value indicates whether keyboard is needed.
+ *
+ * @typedef { function } OnNeedSoftkeyboardCallback
+ * @returns { boolean } True means keyboard is needed, false means keyboard is not needed.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 24 static
+ */
+export type OnNeedSoftkeyboardCallback = () => boolean;
+/**
  * Defines the PixelMap type object for ui component.
  *
  * @typedef { image.PixelMap } PixelMap
@@ -11919,6 +11930,16 @@ export declare interface CommonMethod {
      * @since 23 static
      */
     default systemMaterial(material: SystemUiMaterial | undefined): this;
+    /**
+     * Called when component is focused, the return value indicates whether keyboard is needed.
+     *
+     * @param { OnNeedSoftkeyboardCallback | undefined } onNeedSoftkeyboardCallback
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 24 static
+     */
+    default onNeedSoftkeyboard(onNeedSoftkeyboardCallback: OnNeedSoftkeyboardCallback | undefined): this;
     /**
      * Sets the state anouncement text of the component under accessibility.
      *
