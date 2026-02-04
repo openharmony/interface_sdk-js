@@ -4122,8 +4122,8 @@ declare namespace webview {
          * If the UserAgentMetadata is not found according to the overridden User-Agent and the overridden User-Agent
          * contains the system default User-Agent, the system default value will be used.
          *
-         * If the UserAgentMetadata is null but the overridden User-Agent doesn't contain the system default user-agent,
-         * only the low-entry User-Agent client hints will be generated.
+         * If the UserAgentMetadata is not found according to the overridden User-Agent but the overridden User-Agent
+         * does not contain the system default User-Agent, only the low-entry User-Agent client hints will be generated.
          * </p>
          *
          * @param { string } userAgent - The User-Agent string.
