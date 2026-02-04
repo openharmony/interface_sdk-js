@@ -13536,6 +13536,20 @@ declare type ShouldBuiltInRecognizerParallelWithCallback = (current: GestureReco
 declare type TransitionFinishCallback = (transitionIn: boolean) => void;
 
 /**
+ * Defines the callback type used in onNeedSoftkeyboard.
+ * Called when component is focused, the return value indicates whether keyboard is needed.
+ *
+ * @typedef { function } OnNeedSoftkeyboardCallback
+ * @returns { boolean } True means keyboard is needed, false means keyboard is not needed.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 24 dynamic
+ */
+declare type OnNeedSoftkeyboardCallback = () => boolean;
+
+/**
  * Defines the callback type used in onTouchTestDone.
  * When the user touch down, the system performs hit test process to collect all gesture recognizers
  * based on the press location, when the collection is completed, and before gesture begin to be recognizing,
@@ -29480,6 +29494,19 @@ declare class CommonMethod<T> {
    * @since 23 dynamic
    */
   systemMaterial(material: SystemUiMaterial | undefined): T;
+
+  /**
+   * Called when component is focused, the return value indicates whether keyboard is needed.
+   *
+   * @param { OnNeedSoftkeyboardCallback | undefined } onNeedSoftkeyboardCallback
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 24 dynamic
+   */
+  onNeedSoftkeyboard(onNeedSoftkeyboardCallback: OnNeedSoftkeyboardCallback | undefined): T;
   
   /**
    * Sets the state anouncement text of the component under accessibility.
