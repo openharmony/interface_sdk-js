@@ -769,6 +769,22 @@ parameters are left unspecified;
   * @since 23 dynamic&static
   */
  function listUserdataDirInfo(): Promise<Array<UserdataDirInfo>>;
+
+ /**
+  * Get the system data size.
+  *
+  * @permission ohos.permission.STORAGE_MANAGER
+  * @returns { Promise<long> } return Promise
+  * @throws { BusinessError } 201 - Permission verification failed.
+  * @throws { BusinessError } 202 - The caller is not a system application.
+  * @throws { BusinessError } 13600001 - IPC error.
+  * @throws { BusinessError } 13600018 - Failed to query the system data size.
+  * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
+  * @systemapi
+  * @stagemodelonly
+  * @since 24 dynamic&static
+  */
+ function getSystemDataSize(): Promise<long>;
 }
 
 export default storageStatistics;
