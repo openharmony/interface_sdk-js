@@ -4031,6 +4031,25 @@ export declare enum DividerMode {
 }
 
 /**
+ * Event query type.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 24 static
+ */
+export declare enum EventQueryType {
+  /**
+   * Type of onClick event.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  ON_CLICK = 0
+}
+
+/**
  * Tips show position type.
  *
  * @enum { number }
