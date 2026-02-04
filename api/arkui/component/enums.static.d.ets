@@ -3299,23 +3299,7 @@ export declare enum EllipsisMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
-  END = 2,
-
-  /**
-   * The ellipsis is in the head. It is valid for multiline and single line.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 24 static
-   */
-  MULTILINE_START = 3,
-
-  /**
-   * The ellipsis is in the middle. It is valid for multiline and single line.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 24 static
-   */
-  MULTILINE_CENTER = 4,
+  END = 2
 }
 
 /**
