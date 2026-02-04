@@ -7957,8 +7957,8 @@ declare namespace window {
     /**
      * Unregister the callback of keyboard height change
      *
-     * @param { Callback<int> } [callback] - Unregister the callback function. If not provided,
-     *     all callbacks for the given event type will be removed.
+     * @param { Callback } [callback] - Callback used to return the current keyboard height,
+     *     which is an integer, in px. If not provided, all callbacks for the given event type will be removed.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 23 static
      */
