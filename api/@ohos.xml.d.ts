@@ -1374,6 +1374,7 @@ declare namespace xml {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
+     * @since 24 static
      */
     attributeWithTagCallbackFunction?: AttributeWithTagCb;
 
@@ -1429,6 +1430,7 @@ declare namespace xml {
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
+   * @since 24 static
    */
   type AttributeWithTagCb = (tagName: string, key: string, value: string) => boolean;
 
