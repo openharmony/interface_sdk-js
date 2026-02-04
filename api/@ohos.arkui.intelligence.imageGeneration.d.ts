@@ -816,7 +816,7 @@ declare namespace imageGeneration {
    * Close the AI image generation task popup.
    *
    * @param { UIContext } uiContext - the context of dialog for ui display.
-   * @returns { Promise<void> } - Returns the result of generated image.
+   * @returns { Promise<void> } - Returns the result of close operation.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
