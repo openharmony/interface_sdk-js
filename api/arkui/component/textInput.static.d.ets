@@ -21,8 +21,8 @@ import { CancelButtonSymbolOptions, CancelButtonOptions } from "./search";
 import { Callback, CommonMethod, TextContentControllerBase, SelectionOptions, InputCounterOptions, TextDecorationOptions, Bindable, AttributeModifier } from "./common";
 import { CustomBuilder } from './builder';
 import { BarState, LineBreakStrategy, TextAlign, FontStyle, FontWeight, WordBreak, TextOverflow, CopyOptions, TextHeightAdaptivePolicy, TextContentStyle, EllipsisMode } from "./enums";
-import { Resource, ResourceStr, ResourceColor, Dimension, Font, Length, LengthMetrics } from "./units";
-import { InsertValue, DeleteValue, CaretStyle, EditableTextOnChangeCallback, EditMenuOptions, AutoCapitalizationMode, EditableTextChangeValue, KeyboardAppearance, SelectedDragPreviewStyle, VoiceButtonOptions, TextDirection, IMEClient } from "./textCommon";
+import { Resource, ResourceStr, ResourceColor, Dimension, Font, Length } from "./units";
+import { InsertValue, DeleteValue, CaretStyle, EditableTextOnChangeCallback, EditMenuOptions, AutoCapitalizationMode, EditableTextChangeValue, KeyboardAppearance, SelectedDragPreviewStyle, VoiceButtonOptions, TextDirection } from "./textCommon";
 import { KeyboardOptions, PasteEvent } from "./richEditor";
 import { ComponentBuilder } from './builder';
 import { ComponentContentBase } from '../ComponentContent';
@@ -147,15 +147,7 @@ export declare enum InputType {
      * @stagemodelonly
      * @since 23 static
      */
-    URL = 13,
-    /**
-     * One time code mode.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 24 static
-     */
-    ONE_TIME_CODE = 14
+    URL = 13
 }
 /**
  * Declare the type of input content
@@ -1364,7 +1356,7 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 23 static
      */
     default customKeyboard(value: CustomBuilder | ComponentContentBase | undefined,
                            options?: KeyboardOptions): this;
@@ -1780,71 +1772,6 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @since 23 static
      */
     default fallbackLineSpacing(enabled: boolean | undefined): this;
-    /**
-     * Sets whether enable auto fill animation effect or not.
-     *
-     * @param { boolean | undefined } enabled - Indicates the flag whether auto fill animation effect is enabled.
-     *     Passing `undefined` resets it to the default value.
-     * @returns { TextInputAttribute } Returns the instance of the TextInputAttribute.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 24 static
-     */
-    default enableAutoFillAnimation(enabled: boolean | undefined): this;
-
-    /**
-     * Called before the text input component attach the InputMethod.
-     *
-     * @param { Callback<IMEClient> | undefined } callback - The triggered function before attach the InputMethod.
-     *     If `undefined` is passed, the existing registered event will be removed.
-     * @returns { TextInputAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 24 static
-     */
-    default onWillAttachIME(callback: Callback<IMEClient> | undefined): this;
-
-    /**
-     * Set the stroke color.
-     *
-     * @param { ResourceColor | undefined } color - indicates the stroke color.
-     *     Passing `undefined` resets it to the default value.
-     * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 24 static
-     */
-    default strokeColor(color: ResourceColor | undefined): this;
-
-    /**
-     * Whether to enable automatic spacing between Chinese and Latin characters.
-     *
-     * @param { boolean | undefined } enabled - The default value is false,
-     *     indicates the flag whether to enable automatic spacing.
-     *     Passing `undefined` resets it to the default value.
-     * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 24 static
-     */
-    default enableAutoSpacing(enabled: boolean | undefined): this;
-
-    /**
-     * Set the stroke width.
-     *
-     * @param { LengthMetrics | undefined } width - indicates the stroke width.
-     *     Passing `undefined` resets it to the default value.
-     * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 24 static
-     */
-    default strokeWidth(width: LengthMetrics | undefined): this;
-
-    /**
-     * Enable selected data detector.
-     *
-     * @param { boolean | undefined } enable - whether to enable the selected data detector.
-     * @returns { TextInputAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 24 static
-     */
-    default enableSelectedDataDetector(enable: boolean | undefined): this;
 
     /**
      * Sets the attribute modifier.

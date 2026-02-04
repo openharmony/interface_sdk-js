@@ -18,7 +18,7 @@
  * @file
  * @kit ArkUI
  */
-import { ResourceColor, Length, Position, Resource, ResourceStr, LengthMetrics } from "./units";
+import { ResourceColor, Length, Position, Resource, ResourceStr } from "./units";
 import { FontWeight } from "./enums";
 import { CommonMethod } from './common';
 import { ComponentBuilder, CustomBuilder } from './builder';
@@ -124,35 +124,6 @@ export declare interface BadgeStyle {
      * @since 23 static
      */
     fontWeight?: int | FontWeight | ResourceStr;
-    /**
-     * Outer border color of the background.
-     *
-     * @type { ?ResourceColor }
-     * @default Color.White
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 24 static
-     */
-    outerBorderColor?: ResourceColor;
-
-    /**
-     * Outer border width of the background.
-     *
-     * @type { ?LengthMetrics }
-     * @default 0
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 24 static
-     */
-    outerBorderWidth?: LengthMetrics;
-
-    /**
-     * Enable auto-avoidance for text in badge.
-     *
-     * @type { ?boolean }
-     * @default false
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 24 static
-     */
-    enableAutoAvoidance?: boolean;
 }
 /**
  * Provides basic parameters for creating a badge.
