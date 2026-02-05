@@ -1964,4 +1964,3 @@ declare namespace pointer {
    */
   function getMouseScrollDirection(): Promise<boolean>;
 }
-export default pointer;
