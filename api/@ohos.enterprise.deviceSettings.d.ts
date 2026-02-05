@@ -425,7 +425,7 @@ declare namespace deviceSettings {
    * @param { Want } admin - admin indicates the enterprise admin extension ability information.
    *                         The admin must have the corresponding permission.
    * @param { string } item - item indicates the device properties that need to be set, including screenOff, powerPolicy and dateTime,
-   *                          dateTime, eyeComfort, defaultInputMethod, deviceName.
+   *                          dateTime, eyeComfort, defaultInputMethod, deviceName, floatingNavigation.
    *                          screenOff means the device screen off time, powerPolicy means the device power policy
    *                          and dataTime means the device system time.
    * @param { string } value - device settings policy.
@@ -470,7 +470,7 @@ declare namespace deviceSettings {
    * @param { Want } admin - admin indicates the enterprise admin extension ability information.
    *                         The admin must have the corresponding permission.
    * @param { string } item - item indicates the device properties that need to be get, including screenOff and powerPolicy, eyeComfort,
-   *                          deviceName.
+   *                          deviceName, floatingNavigation.
    *                          screenOff means the device screen off time, powerPolicy means the device power policy.
    * @returns { string } device settings policy.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.

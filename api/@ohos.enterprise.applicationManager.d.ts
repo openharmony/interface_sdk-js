@@ -55,7 +55,25 @@ declare namespace applicationManager {
      * @stagemodelonly
      * @since 20
      */
-    ALLOW_CONTROL_CENTER = 2
+    ALLOW_CONTROL_CENTER = 2,
+
+    /**
+     * Allow gesture control.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 23
+     */
+    ALLOW_GESTURE_CONTROL = 3,
+
+    /**
+     * Allow side dock.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 23
+     */
+    ALLOW_SIDE_DOCK = 4
   }
 
   /**
