@@ -460,6 +460,12 @@ declare namespace print {
    * @since 10 dynamic
    * @since 23 static
    */
+  /**
+   * defines print margin.
+   * @typedef PrintMargin
+   * @syscap SystemCapability.Print.PrintFramework
+   * @since 24 dynamic&static
+   */
   interface PrintMargin {
     /**
      * Top margin.
@@ -468,6 +474,12 @@ declare namespace print {
      * @systemapi
      * @since 10 dynamic
      * @since 23 static
+     */
+    /**
+     * Top margin.
+     * @type { ?int }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 24 dynamic&static
      */
     top?: int;
 
@@ -479,6 +491,12 @@ declare namespace print {
      * @since 10 dynamic
      * @since 23 static
      */
+    /**
+     * Bottom margin.
+     * @type { ?int }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 24 dynamic&static
+     */
     bottom?: int;
 
     /**
@@ -489,6 +507,12 @@ declare namespace print {
      * @since 10 dynamic
      * @since 23 static
      */
+    /**
+     * Left margin.
+     * @type { ?int }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 24 dynamic&static
+     */
     left?: int;
 
     /**
@@ -498,6 +522,12 @@ declare namespace print {
      * @systemapi
      * @since 10 dynamic
      * @since 23 static
+     */
+    /**
+     * Right margin.
+     * @type { ?int }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 24 dynamic&static
      */
     right?: int;
   }
@@ -510,6 +540,12 @@ declare namespace print {
    * @since 10 dynamic
    * @since 23 static
    */
+  /**
+   * defines print range.
+   * @typedef PrinterRange
+   * @syscap SystemCapability.Print.PrintFramework
+   * @since 24 dynamic&static
+   */
   interface PrinterRange {
     /**
      * Start page of sequence.
@@ -518,6 +554,12 @@ declare namespace print {
      * @systemapi
      * @since 10 dynamic
      * @since 23 static
+     */
+    /**
+     * Start page of sequence.
+     * @type { ?int }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 24 dynamic&static
      */
     startPage?: int;
 
@@ -529,6 +571,12 @@ declare namespace print {
      * @since 10 dynamic
      * @since 23 static
      */
+    /**
+     * End page of sequence.
+     * @type { ?int }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 24 dynamic&static
+     */
     endPage?: int;
 
     /**
@@ -538,6 +586,12 @@ declare namespace print {
      * @systemapi
      * @since 10 dynamic
      * @since 23 static
+     */
+    /**
+     * Discrete page of sequence.
+     * @type { ?Array<int> }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 24 dynamic&static
      */
     pages?: Array<int>;
   }
@@ -550,6 +604,12 @@ declare namespace print {
    * @since 10 dynamic
    * @since 23 static
    */
+  /**
+   * defines print preview attribute.
+   * @typedef PreviewAttribute
+   * @syscap SystemCapability.Print.PrintFramework
+   * @since 24 dynamic&static
+   */
   interface PreviewAttribute {
     /**
      * Preview page range.
@@ -558,6 +618,12 @@ declare namespace print {
      * @systemapi
      * @since 10 dynamic
      * @since 23 static
+     */
+    /**
+     * Preview page range.
+     * @type { PrinterRange }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 24 dynamic&static
      */
     previewRange: PrinterRange;
 
@@ -568,6 +634,12 @@ declare namespace print {
      * @systemapi
      * @since 10 dynamic
      * @since 23 static
+     */
+    /**
+     * Preview file result.
+     * @type { ?int }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 24 dynamic&static
      */
     result?: int;
   }
@@ -580,6 +652,12 @@ declare namespace print {
    * @since 10 dynamic
    * @since 23 static
    */
+  /**
+   * defines print resolution.
+   * @typedef PrintResolution
+   * @syscap SystemCapability.Print.PrintFramework
+   * @since 24 dynamic&static
+   */
   interface PrintResolution {
     /**
      * Resolution id.
@@ -588,6 +666,12 @@ declare namespace print {
      * @systemapi
      * @since 10 dynamic
      * @since 23 static
+     */
+    /**
+     * Resolution id.
+     * @type { string }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 24 dynamic&static
      */
     id: string;
 
@@ -599,6 +683,12 @@ declare namespace print {
      * @since 10 dynamic
      * @since 23 static
      */
+    /**
+     * Horizontal DPI.
+     * @type { int }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 24 dynamic&static
+     */
     horizontalDpi: int;
 
     /**
@@ -608,6 +698,12 @@ declare namespace print {
      * @systemapi
      * @since 10 dynamic
      * @since 23 static
+     */
+    /**
+     * Vertical DPI.
+     * @type { int }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 24 dynamic&static
      */
     verticalDpi: int;
   }
@@ -665,6 +761,12 @@ declare namespace print {
    * @since 10 dynamic
    * @since 23 static
    */
+  /**
+   * defines print capability.
+   * @typedef PrinterCapability
+   * @syscap SystemCapability.Print.PrintFramework
+   * @since 24 dynamic&static
+   */
   interface PrinterCapability {
     /**
      * Color mode.
@@ -673,6 +775,12 @@ declare namespace print {
      * @systemapi
      * @since 10 dynamic
      * @since 23 static
+     */
+    /**
+     * Color mode.
+     * @type { int }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 24 dynamic&static
      */
     colorMode: int;
 
@@ -684,6 +792,12 @@ declare namespace print {
      * @since 10 dynamic
      * @since 23 static
      */
+    /**
+     * Duplex mode.
+     * @type { int }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 24 dynamic&static
+     */
     duplexMode: int;
 
     /**
@@ -693,6 +807,12 @@ declare namespace print {
      * @systemapi
      * @since 10 dynamic
      * @since 23 static
+     */
+    /**
+     * The page size list supported by the printer.
+     * @type { Array<PrintPageSize> }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 24 dynamic&static
      */
     pageSize: Array<PrintPageSize>;
 
@@ -704,6 +824,12 @@ declare namespace print {
      * @since 10 dynamic
      * @since 23 static
      */
+    /**
+     * The resolution list supported by the printer.
+     * @type { ?Array<PrintResolution> }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 24 dynamic&static
+     */
     resolution?: Array<PrintResolution>;
 
     /**
@@ -714,6 +840,12 @@ declare namespace print {
      * @since 10 dynamic
      * @since 23 static
      */
+    /**
+     * Min margin of printer.
+     * @type { ?PrintMargin }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 24 dynamic&static
+     */
     minMargin?: PrintMargin;
 
     /**
@@ -723,6 +855,12 @@ declare namespace print {
      * @systemapi
      * @since 11 dynamic
      * @since 23 static
+     */
+    /**
+     * JSON object string.
+     * @type { ?Object }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 24 dynamic&static
      */
     options?: Object;
   }
@@ -735,6 +873,12 @@ declare namespace print {
    * @since 10 dynamic
    * @since 23 static
    */
+  /**
+   * defines print info.
+   * @typedef PrinterInfo
+   * @syscap SystemCapability.Print.PrintFramework
+   * @since 24 dynamic&static
+   */
   interface PrinterInfo {
     /**
      * Printer id.
@@ -743,6 +887,12 @@ declare namespace print {
      * @systemapi
      * @since 10 dynamic
      * @since 23 static
+     */
+    /**
+     * Printer id.
+     * @type { string }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 24 dynamic&static
      */
     printerId: string;
 
@@ -754,6 +904,12 @@ declare namespace print {
      * @since 10 dynamic
      * @since 23 static
      */
+    /**
+     * Printer name.
+     * @type { string }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 24 dynamic&static
+     */
     printerName: string;
 
     /**
@@ -763,6 +919,12 @@ declare namespace print {
      * @systemapi
      * @since 10 dynamic
      * @since 23 static
+     */
+    /**
+     * Current printer state.
+     * @type { PrinterState }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 24 dynamic&static
      */
     printerState: PrinterState;
 
@@ -774,6 +936,12 @@ declare namespace print {
      * @since 10 dynamic
      * @since 23 static
      */
+    /**
+     * Resource id of printer icon.
+     * @type { ?int }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 24 dynamic&static
+     */
     printerIcon?: int;
 
     /**
@@ -783,6 +951,12 @@ declare namespace print {
      * @systemapi
      * @since 10 dynamic
      * @since 23 static
+     */
+    /**
+     * Printer description.
+     * @type { ?string }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 24 dynamic&static
      */
     description?: string;
 
@@ -794,6 +968,12 @@ declare namespace print {
      * @since 10 dynamic
      * @since 23 static
      */
+    /**
+     * Printer capability.
+     * @type { ?PrinterCapability }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 24 dynamic&static
+     */
     capability?: PrinterCapability;
 
     /**
@@ -803,6 +983,12 @@ declare namespace print {
      * @systemapi
      * @since 10 dynamic
      * @since 23 static
+     */
+    /**
+     * JSON object string.
+     * @type { ?Object }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 24 dynamic&static
      */
     options?: Object;
   }
@@ -815,6 +1001,12 @@ declare namespace print {
    * @since 10 dynamic
    * @since 23 static
    */
+  /**
+   * defines print job.
+   * @typedef PrintJob
+   * @syscap SystemCapability.Print.PrintFramework
+   * @since 24 dynamic&static
+   */
   interface PrintJob {
     /**
      * Document fd list to be printed.
@@ -823,6 +1015,12 @@ declare namespace print {
      * @systemapi
      * @since 10 dynamic
      * @since 23 static
+     */
+    /**
+     * Document fd list to be printed.
+     * @type { Array<int> }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 24 dynamic&static
      */
     fdList: Array<int>;
 
@@ -834,6 +1032,12 @@ declare namespace print {
      * @since 10 dynamic
      * @since 23 static
      */
+    /**
+     * Job id.
+     * @type { string }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 24 dynamic&static
+     */
     jobId: string;
 
     /**
@@ -843,6 +1047,12 @@ declare namespace print {
      * @systemapi
      * @since 10 dynamic
      * @since 23 static
+     */
+    /**
+     * Printer id to take charge of printing.
+     * @type { string }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 24 dynamic&static
      */
     printerId: string;
 
@@ -854,6 +1064,12 @@ declare namespace print {
      * @since 10 dynamic
      * @since 23 static
      */
+    /**
+     * Current print job state.
+     * @type { PrintJobState }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 24 dynamic&static
+     */
     jobState: PrintJobState;
 
     /**
@@ -863,6 +1079,12 @@ declare namespace print {
      * @systemapi
      * @since 11 dynamic
      * @since 23 static
+     */
+    /**
+     * Current print job sub state.
+     * @type { PrintJobSubState }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 24 dynamic&static
      */
     jobSubstate: PrintJobSubState;
 
@@ -874,6 +1096,12 @@ declare namespace print {
      * @since 10 dynamic
      * @since 23 static
      */
+    /**
+     * Copies of document list.
+     * @type { int }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 24 dynamic&static
+     */
     copyNumber: int;
 
     /**
@@ -883,6 +1111,12 @@ declare namespace print {
      * @systemapi
      * @since 10 dynamic
      * @since 23 static
+     */
+    /**
+     * Range size to be printed.
+     * @type { PrinterRange }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 24 dynamic&static
      */
     pageRange: PrinterRange;
 
@@ -894,6 +1128,12 @@ declare namespace print {
      * @since 10 dynamic
      * @since 23 static
      */
+    /**
+     * Sequential print.
+     * @type { boolean }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 24 dynamic&static
+     */
     isSequential: boolean;
 
     /**
@@ -903,6 +1143,12 @@ declare namespace print {
      * @systemapi
      * @since 10 dynamic
      * @since 23 static
+     */
+    /**
+     * The selected page size.
+     * @type { PrintPageSize }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 24 dynamic&static
      */
     pageSize: PrintPageSize;
 
@@ -914,6 +1160,12 @@ declare namespace print {
      * @since 10 dynamic
      * @since 23 static
      */
+    /**
+     * Vertical printing.
+     * @type { boolean }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 24 dynamic&static
+     */
     isLandscape: boolean;
 
     /**
@@ -923,6 +1175,12 @@ declare namespace print {
      * @systemapi
      * @since 10 dynamic
      * @since 23 static
+     */
+    /**
+     * Color mode.
+     * @type { int }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 24 dynamic&static
      */
     colorMode: int;
 
@@ -934,6 +1192,12 @@ declare namespace print {
      * @since 10 dynamic
      * @since 23 static
      */
+    /**
+     * Duplex mode.
+     * @type { int }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 24 dynamic&static
+     */
     duplexMode: int;
 
     /**
@@ -943,6 +1207,12 @@ declare namespace print {
      * @systemapi
      * @since 10 dynamic
      * @since 23 static
+     */
+    /**
+     * Current margin setting.
+     * @type { ?PrintMargin }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 24 dynamic&static
      */
     margin?: PrintMargin;
 
@@ -954,6 +1224,12 @@ declare namespace print {
      * @since 10 dynamic
      * @since 23 static
      */
+    /**
+     * Preview setting.
+     * @type { ?PreviewAttribute }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 24 dynamic&static
+     */
     preview?: PreviewAttribute;
 
     /**
@@ -963,6 +1239,12 @@ declare namespace print {
      * @systemapi
      * @since 10 dynamic
      * @since 23 static
+     */
+    /**
+     * JSON object string.
+     * @type { ?Object }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 24 dynamic&static
      */
     options?: Object;
   }
@@ -2815,6 +3097,20 @@ declare namespace print {
    * @since 10 dynamic
    * @since 23 static
    */
+  /**
+   * Notify Print SA the state of print job has been changed.
+   * @permission ohos.permission.MANAGE_PRINT_JOB or ohos.permission.ENTERPRISE_MANAGE_PRINT
+   * @param { string} jobId - Indicates id of the print job.
+   * @param { PrintJobState } state - Indicates new state of print job.
+   * @param { PrintJobSubState } subState - Indicates sub state of print job.
+   * @param { AsyncCallback<void> } callback - The callback function for indcating the result of API execution.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @syscap SystemCapability.Print.PrintFramework
+   * @since 24 dynamic&static
+   */
   function updatePrintJobState(jobId: string, state: PrintJobState, subState: PrintJobSubState, callback: AsyncCallback<void>): void;
 
   /**
@@ -2831,6 +3127,20 @@ declare namespace print {
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
    * @since 23 static
+   */
+  /**
+   * Notify Print SA the state of print job has been changed.
+   * @permission ohos.permission.MANAGE_PRINT_JOB or ohos.permission.ENTERPRISE_MANAGE_PRINT
+   * @param { string} jobId - Indicates id of the print job.
+   * @param { PrintJobState } state - Indicates new state of print job.
+   * @param { PrintJobSubState } subState - Indicates sub state of print job.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @syscap SystemCapability.Print.PrintFramework
+   * @since 24 dynamic&static
    */
   function updatePrintJobState(jobId: string, state: PrintJobState, subState: PrintJobSubState): Promise<void>;
 
@@ -3621,6 +3931,18 @@ declare namespace print {
    * @systemapi Hide this for inner system use.
    * @since 18 dynamic
    * @since 23 static
+   */
+  /**
+   * Update the information of the specific added printer.
+   * @permission ohos.permission.MANAGE_PRINT_JOB or ohos.permission.ENTERPRISE_MANAGE_PRINT
+   * @param { PrinterInformation } printerInformation - Indicates the printer to be updated.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @syscap SystemCapability.Print.PrintFramework
+   * @since 24 dynamic&static
    */
   function updatePrinterInformation(printerInformation: PrinterInformation): Promise<void>;
 
