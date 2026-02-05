@@ -62,7 +62,7 @@ declare namespace applicationManager {
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
-     * @since 23
+     * @since 24
      */
     ALLOW_GESTURE_CONTROL = 3,
 
@@ -71,7 +71,7 @@ declare namespace applicationManager {
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
-     * @since 23
+     * @since 24
      */
     ALLOW_SIDE_DOCK = 4
   }
