@@ -23,6 +23,11 @@ import type { Callback } from './@ohos.base';
 import { NodeController } from './arkui/NodeController';
 import { typeNode } from './arkui/FrameNode';
 
+/*** if arkts static */
+import { XComponentController } from './arkui/component/xcomponent';
+import { LocalStorage } from './arkui/stateManagement/storage/localStorage';
+/*** endif */
+
 /**
  * Picture In Picture Window Manager
  *
