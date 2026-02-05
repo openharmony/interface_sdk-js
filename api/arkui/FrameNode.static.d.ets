@@ -2498,8 +2498,7 @@ export declare namespace typeNode {
      * Initialize XComponent FrameNode.
      *
      * @param { NativeXComponentParameters } params - Indicates the constructor parameters of the
-     *    xcomponent for native developing.
-     *
+     *     xcomponent for native developing.
      * @returns { XComponentAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly

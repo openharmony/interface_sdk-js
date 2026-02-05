@@ -21,7 +21,7 @@
 
 import { Resource as _Resource } from '../../global/resource';
 import { Color, BorderStyle, FontWeight, FontStyle, DividerMode, PresetFillType } from './enums';
-import { OutlineStyle, AttributeModifier, CommonMethod, AccessibilityRoleType} from './common';
+import { OutlineStyle, AttributeModifier, CommonMethod, AccessibilityRoleType } from './common';
 import { LengthMetricsUnit as _LengthMetricsUnit, LengthMetrics as _LengthMetrics, ColorMetrics as _ColorMetrics } from '../Graphics';
 import _drawing from '../../../api/@ohos.graphics.drawing'
 /**
