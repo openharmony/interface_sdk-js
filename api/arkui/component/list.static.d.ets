@@ -633,6 +633,7 @@ export declare interface ListAttribute extends ScrollableCommonMethod {
      *     <br>Unit: vp
      * @returns { this } the attribute of the list.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default contentStartOffset(offset: double | Resource | undefined): this;
@@ -645,6 +646,7 @@ export declare interface ListAttribute extends ScrollableCommonMethod {
      *     <br>Unit: vp
      * @returns { this } the attribute of the list.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default contentEndOffset(offset: double | Resource | undefined): this;
