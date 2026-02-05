@@ -823,6 +823,73 @@ declare namespace imageGeneration {
    * @since 23 dynamic
    */
   function closeGeneratorDialog(uiContext: UIContext): Promise<void>;
+
+  /**
+   * Parameters used to open the NodeGraphComponent.
+   *
+   * @interface GeneratorNodeGraphOptions
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic
+   */
+  interface GeneratorNodeGraphOptions {
+    /**
+     * Custom icons used on the AI generated image results page.
+     *
+     * @type { ?Array<GeneratorResultPageIcon> }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic
+     */
+    customIcons?: Array<GeneratorResultPageIcon>;
+    /**
+     * Model used for AI generate image tasks.
+     *
+     * @type { ?ImageGenerationModel }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic
+     */
+    imageGenerationModel?: ImageGenerationModel;
+    /**
+     * Text polishing model used in AI generate image tasks.
+     *
+     * @type { ?TextGenerationModel }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic
+     */
+    textGenerationModel?: TextGenerationModel;
+  }
+
+  /**
+   * Open the AI node graph Sheet.
+   *
+   * @param { UIContext } uiContext - the context of dialog for ui display.
+   * @param { GeneratorNodeGraphOptions } [options] - node graph task parameters.
+   * @returns { Promise<void> } - Returns the result.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic
+   */
+  function openGeneratorNodeGraph(uiContext: UIContext, options?: GeneratorNodeGraphOptions): Promise<void>;
+
+  /**
+   * Close the AI node graph Sheet.
+   *
+   * @param { UIContext } uiContext - the context of dialog for ui display.
+   * @returns { Promise<void> } - Returns the result.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic
+   */
+  function closeGeneratorNodeGraph(uiContext: UIContext): Promise<void>;
 }
 
 export default imageGeneration;
