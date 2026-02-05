@@ -26,7 +26,7 @@ import { SymbolGlyphModifier } from '../SymbolGlyphModifier';
 import { TextModifier } from '../TextModifier';
 import { OptionWidthMode } from './enums';
 import { ComponentBuilder,  CustomBuilder } from './builder';
-import { AttributeModifier, CommonMethod, SystemUiMaterial } from './common';
+import { AttributeModifier, CommonMethod } from './common';
 /**
  * The declare of selectOption.
  *
