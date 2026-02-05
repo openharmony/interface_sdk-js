@@ -28,7 +28,7 @@ import { LeadingMarginPlaceholder } from './richEditor';
 import image from '../../@ohos.multimedia.image';
 import drawing from '../../@ohos.graphics.drawing';
 import { DrawContext } from '../../arkui/Graphics';
-import { TextDirection, TextVerticalAlign } from './textCommon';
+import { TextDirection, TextVerticalAlign, FontConfigs } from './textCommon';
 
 /**
  * Defines the StyledStringMarshallingValue Type.
@@ -362,6 +362,16 @@ export declare class TextStyle {
      * @since 23 static
      */
     readonly fontStyle?: FontStyle;
+    /**
+     * Get the fontConfigs of the StyledString.
+     *
+     * @type { ?FontConfigs } - the set fontConfigs of the StyledString or undefined
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 24 static
+     */
+    readonly fontConfigs?: FontConfigs;
 }
 /**
  * TextStyleInterface
@@ -411,6 +421,15 @@ export declare interface TextStyleInterface {
      * @since 23 static
      */
     fontStyle?: FontStyle;
+    /**
+     * The fontConfigs value of the font property object.
+     *
+     * @type { ?FontConfigs }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 24 static
+     */
+    fontConfigs?: FontConfigs;
 }
 /**
  * Defines DecorationStyle.

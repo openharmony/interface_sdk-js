@@ -1893,3 +1893,56 @@ export interface VoiceButtonOptions {
      */
     enabled?: boolean;
 }
+
+/**
+ * Defines the configuration of font.
+ *
+ * @interface FontConfigs
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 24 static
+ */
+export declare interface FontConfigs {
+    /**
+     * Defines font weight configurations.
+     *
+     * @type { ?FontWeightConfigs }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 24 static
+     */
+    fontWeightConfigs?: FontWeightConfigs;
+}
+
+/**
+ * Defines the configuration of font weight.
+ *
+ * @interface FontWeightConfigs
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 24 static
+ */
+declare interface FontWeightConfigs {
+    /**
+     * Defines whether VariableFontWeight is supported. The default value is false.
+     * True means enable VariableFontWeight, false means disable VariableFontWeight.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 24 static
+     */
+    enableVariableFontWeight?: boolean;
+    /**
+     * Defines whether font weight will be automatically updated when the device's font weight category changes.
+     * The default value is true.
+     * True means font weight will be automatically updated when the device's font weight category changes.
+     * False means font weight will not be automatically updated when the device's font weight category changes.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 24 static
+     */
+    enableDeviceFontWeightCategory?: boolean;
+}
