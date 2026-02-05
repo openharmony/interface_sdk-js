@@ -602,22 +602,9 @@ export declare interface ListAttribute extends ScrollableCommonMethod {
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
-     */
-    default lanes(value: int | LengthConstrain | ItemFillPolicy | undefined, gutter?: Dimension | undefined): this;
-    /**
-     * Sets the number of columns or rows in the list. If the value is set to the gutter type, it indicates the gap
-     * between columns. It takes effect when the number of columns is greater than 1.
-     *
-     * @param { int | LengthConstrain | undefined } value - Number of columns or rows in the list.
-     *     <br>Default value: <em>1</em>
-     * @param { Dimension | undefined } [gutter] - Gap between columns.<br>Default value: <em>0</em>
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
      * @since 23 static
      */
-    default lanes(value: int | LengthConstrain | undefined, gutter?: Dimension | undefined): this;
+    default lanes(value: int | LengthConstrain | ItemFillPolicy | undefined, gutter?: Dimension | undefined): this;
     /**
      * Alignment mode of list items along the cross axis when the cross-axis width of the list is greater
      * than the cross-axis width of list items multiplied by the value of lanes.
@@ -646,22 +633,9 @@ export declare interface ListAttribute extends ScrollableCommonMethod {
      *     <br>Unit: vp
      * @returns { this } the attribute of the list.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 24 static
-     */
-    default contentStartOffset(offset: double | Resource | undefined): this;
-    /**
-     * Sets the offset from the start of the list content to the boundary of the list display area.
-     *
-     * @param { double | undefined } offset - Offset from the start of the list content to the boundary of
-     *     the list display area.
-     *     <br>Default value: <em>0</em>
-     *     <br>Unit: vp
-     * @returns { this } the attribute of the list.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
      * @since 23 static
      */
-    default contentStartOffset(offset: double | undefined): this;
+    default contentStartOffset(offset: double | Resource | undefined): this;
     /**
      * Sets the offset from the end of the list content to the boundary of the list display area.
      *
@@ -671,22 +645,9 @@ export declare interface ListAttribute extends ScrollableCommonMethod {
      *     <br>Unit: vp
      * @returns { this } the attribute of the list.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 24 static
-     */
-    default contentEndOffset(offset: double | Resource | undefined): this;
-    /**
-     * Sets the offset from the end of the list content to the boundary of the list display area.
-     *
-     * @param { double | undefined } offset - Offset from the end of the list content to the boundary of
-     *     the list display area.
-     *     <br>Default value: <em>0</em>
-     *     <br>Unit: vp
-     * @returns { this } the attribute of the list.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
      * @since 23 static
      */
-    default contentEndOffset(offset: double | undefined): this;
+    default contentEndOffset(offset: double | Resource | undefined): this;
     /**
      * Sets the style of the divider for the list items. By default, there is no divider.
      * Anonymous Object Rectification.
@@ -733,24 +694,9 @@ export declare interface ListAttribute extends ScrollableCommonMethod {
      * @returns { this } the attribute of the list.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
-     */
-    default cachedCount(count: int | CacheCountInfo | undefined, show: boolean | undefined): this;
-    /**
-     * Sets the number of list items or list item groups to be cached (preloaded) and specifies whether to display
-     * the preloaded nodes.
-     *
-     * @param { int | undefined } count - Number of list items to be preloaded.
-     *     <br>Default value: number of nodes visible on the screen, with the maximum value of 16
-     *     <br>Value range: [0, +∞)
-     * @param { boolean | undefined } show - Whether to display the preloaded list items.
-     *     <br> Default value: <em>false</em>. Passing undefined will restore the default value.
-     * @returns { this } the attribute of the list.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
      * @since 23 static
      */
-    default cachedCount(count: int | undefined, show: boolean | undefined): this;
+    default cachedCount(count: int | CacheCountInfo | undefined, show: boolean | undefined): this;
     /**
      * Sets whether to enable chained animations, which provide a visually connected,
      * or "chained," effect when the list is scrolled or its top or bottom edge is dragged.

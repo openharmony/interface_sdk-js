@@ -285,20 +285,9 @@ export declare interface GridAttribute extends ScrollableCommonMethod {
      *     <br>Default value: <em>'1fr'</em>. Passing undefined will restore the default value.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 24 static
-     */
-    default columnsTemplate(value: string | ItemFillPolicy | undefined): this;
-    /**
-     * This parameter specifies the number of columns in the current grid layout.
-     *
-     * @param { string | undefined } value - Number of columns in the layout.
-     *     <br>Default value: <em>'1fr'</em>. Passing undefined will restore the default value.
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
      * @since 23 static
      */
-    default columnsTemplate(value: string | undefined): this;
+    default columnsTemplate(value: string | ItemFillPolicy | undefined): this;
     /**
      * Lets you set the number of rows in the current grid layout,
      *

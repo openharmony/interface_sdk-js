@@ -4256,7 +4256,7 @@ export enum AttributeModifierState {
  *
  * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 24 static
+ * @since 23 static
  */
 export declare enum PresetFillType {
     /**
@@ -4265,21 +4265,21 @@ export declare enum PresetFillType {
      * (and larger) devices.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 24 static
+     * @since 23 static
      */
     BREAKPOINT_DEFAULT = 0,
     /**
      * For SM (and smaller), MD, and LG (and larger) devices, one, two, and three columns are displayed respectively.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 24 static
+     * @since 23 static
      */
     BREAKPOINT_SM1MD2LG3 = 1,
     /**
      * For SM (and smaller), MD, and LG (and larger) devices, two, three, and five columns are displayed respectively.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 24 static
+     * @since 23 static
      */
     BREAKPOINT_SM2MD3LG5 = 2
 }
