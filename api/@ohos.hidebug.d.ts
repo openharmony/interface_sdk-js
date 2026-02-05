@@ -1174,6 +1174,14 @@ declare namespace hidebug {
    */
   function setProcDumpInSharedOOM(enable: boolean): void;
 
+  /**
+   * Describes Rss information of the application process.
+   *
+   * @interface RssInfo
+   * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+   * @since 24 dynamic
+   * @since 24 static
+   */
   interface RssInfo {
     /**
      * Size of the occupied physical memory (including the memory occupied by the shared library), in KB.
@@ -1182,8 +1190,8 @@ declare namespace hidebug {
      * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @atomicservice
-     * @since 21 dynamic
-     * @since 23 static
+     * @since 24 dynamic
+     * @since 24 static
      */
     rss: bigint;
     
@@ -1193,8 +1201,8 @@ declare namespace hidebug {
      * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @atomicservice
-     * @since 21 dynamic
-     * @since 23 static
+     * @since 24 dynamic
+     * @since 24 static
      */
     swapRss: bigint;
     }
@@ -1204,8 +1212,8 @@ declare namespace hidebug {
    *
    * @returns { RssInfo } Returns the Rss information.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 21 dynamic
-   * @since 23 static
+   * @since 24 dynamic
+   * @since 24 static
    */
   function getRssInfo(): RssInfo;
 }
