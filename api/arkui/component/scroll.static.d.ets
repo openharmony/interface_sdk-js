@@ -686,6 +686,7 @@ export declare interface ScrollAttribute extends ScrollableCommonMethod {
      *     A string value indicates a color in RGB or ARGB format, for example,<em>'#ffffff'</em>.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default scrollBarColor(color: Color | int | string | Resource | undefined): this;

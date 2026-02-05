@@ -298,6 +298,7 @@ export declare interface WaterFlowAttribute extends ScrollableCommonMethod {
      *     <br>Default value: <em>'1fr'</em>. Passing undefined will restore the default value.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default columnsTemplate(value: string | ItemFillPolicy | undefined): this;
