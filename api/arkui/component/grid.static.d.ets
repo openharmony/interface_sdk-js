@@ -331,20 +331,10 @@ export declare interface GridAttribute extends ScrollableCommonMethod {
      *     <br>Default value: <em>'1fr'</em>. Passing undefined will restore the default value.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 24 static
-     */
-    default columnsTemplate(value: string | ItemFillPolicy | undefined): this;
-    /**
-     * This parameter specifies the number of columns in the current grid layout.
-     *
-     * @param { string | undefined } value - Number of columns in the layout.
-     *     <br>Default value: <em>'1fr'</em>. Passing undefined will restore the default value.
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
      */
-    default columnsTemplate(value: string | undefined): this;
+    default columnsTemplate(value: string | ItemFillPolicy | undefined): this;
     /**
      * Lets you set the number of rows in the current grid layout,
      *
@@ -390,22 +380,10 @@ export declare interface GridAttribute extends ScrollableCommonMethod {
      *     A string value indicates a color in RGB or ARGB format, for example, <em>'#ffffff'</em>.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 24 static
-     */
-    default scrollBarColor(color: Color | int | string | Resource | undefined): this;
-    /**
-     * Sets the scrollbar color.
-     *
-     * @param { Color | int | string | undefined } color - Scrollbar color.
-     *     <br>Default value: <em>'\#182431'</em> (40% opacity)
-     *     <br>A number value indicates a HEX color in RGB or ARGB format, for example, <em>0xffffff</em>.
-     *     A string value indicates a color in RGB or ARGB format, for example, <em>'#ffffff'</em>.
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
      */
-    default scrollBarColor(color: Color | int | string | undefined): this;
+    default scrollBarColor(color: Color | int | string | Resource | undefined): this;
     /**
      * Lets you set the spacing between rows.
      *
