@@ -12402,22 +12402,9 @@ export declare interface ScrollableCommonMethod extends CommonMethod {
      *     A string value indicates a color in RGB or ARGB format, for example, <em>'#ffffff'</em>.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 24 static
-     */
-    default scrollBarColor(color: Color | int | string | Resource | undefined): this;
-    /**
-     * Sets the scrollbar color.
-     *
-     * @param { Color | int | string | undefined } color - Scrollbar color.<br>Default value:
-     *     <em>'\#182431'</em> (40% opacity). A number value indicates a HEX color in RGB or ARGB
-     *     format, for example, <em>0xffffff</em>. A string value indicates a color in RGB or ARGB
-     *     format, for example, <em>'#ffffff'</em>.
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
      * @since 23 static
      */
-    default scrollBarColor(color: Color | int | string | undefined): this;
+    default scrollBarColor(color: Color | int | string | Resource | undefined): this;
     /**
      * Sets the scrollbar width.
      *

@@ -298,20 +298,9 @@ export declare interface WaterFlowAttribute extends ScrollableCommonMethod {
      *     <br>Default value: <em>'1fr'</em>. Passing undefined will restore the default value.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 24 static
-     */
-    default columnsTemplate(value: string | ItemFillPolicy | undefined): this;
-    /**
-     * Sets the number of columns in the layout. If this attribute is not set, one column is used by default.
-     *
-     * @param { string | undefined } value - Number of columns in the layout.
-     *     <br>Default value: <em>'1fr'</em>. Passing undefined will restore the default value.
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
      * @since 23 static
      */
-    default columnsTemplate(value: string | undefined): this;
+    default columnsTemplate(value: string | ItemFillPolicy | undefined): this;
     /**
      * Sets the size constraints of the child components during layout.
      *
