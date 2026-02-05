@@ -1898,5 +1898,70 @@ declare namespace pointer {
    */
   function getTouchpadDoubleTapAndDragState(): Promise<boolean>;
 
+  /**
+   * Sets the scroll direction of the mouse. This API uses an asynchronous callback to return the result.
+   *
+   * @param { boolean } state - Scroll direction of the mouse. 
+   * The value true indicates that the scroll direction is the same as the mouse wheel direction, and the value false indicates the opposite.
+   * The default value is true.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 24 dynamic
+   * @since 24 static
+   */
+  function setMouseScrollDirection(state: boolean, callback: AsyncCallback<void>): void;
+
+  /**
+   * Sets the scroll direction of the mouse. This API uses a promise to return the result.
+   *
+   * @param { boolean } state - Scroll direction of the mouse. 
+   * The value true indicates that the scroll direction is the same as the mouse wheel direction, and the value false indicates the opposite.
+   * The default value is true.
+   * @returns { Promise<void> } Promise used to return the result.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 24 dynamic
+   * @since 24 static
+   */
+  function setMouseScrollDirection(state: boolean): Promise<void>;
+
+  /**
+   * Obtains the scroll direction of the mouse. This API uses an asynchronous callback to return the result.
+   *
+   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. 
+   * The value true indicates that the scroll direction is the same as the mouse wheel direction, and the value false indicates the opposite. 
+   * The default value is true.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 24 dynamic
+   * @since 24 static
+   */
+  function getMouseScrollDirection(callback: AsyncCallback<boolean>): void;
+
+  /**
+   * Obtains the scroll direction of the mouse. This API uses a promise to return the result.
+   *
+   * @returns { Promise<boolean> } Promise used to return the result. 
+   * The value true indicates that the scroll direction is the same as the mouse wheel direction, and the value false indicates the opposite. 
+   * The default value is true.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 24 dynamic
+   * @since 24 static
+   */
+  function getMouseScrollDirection(): Promise<boolean>;
 }
 export default pointer;
