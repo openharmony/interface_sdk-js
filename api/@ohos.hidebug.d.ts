@@ -1179,8 +1179,7 @@ declare namespace hidebug {
    *
    * @interface RssInfo
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 24 dynamic
-   * @since 24 static
+   * @since 24 dynamic&static
    */
   interface RssInfo {
     /**
@@ -1189,9 +1188,7 @@ declare namespace hidebug {
      *
      * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @atomicservice
-     * @since 24 dynamic
-     * @since 24 static
+     * @since 24 dynamic&static
      */
     rss: bigint;
     
@@ -1200,9 +1197,7 @@ declare namespace hidebug {
        * The value of this parameter is obtained by reading the value of VmSwap in the /proc/{pid}/status node.
      * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @atomicservice
-     * @since 24 dynamic
-     * @since 24 static
+     * @since 24 dynamic&static
      */
     swapRss: bigint;
     }
@@ -1212,8 +1207,7 @@ declare namespace hidebug {
    *
    * @returns { RssInfo } Returns the Rss information.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 24 dynamic
-   * @since 24 static
+   * @since 24 dynamic&static
    */
   function getRssInfo(): RssInfo;
 }
