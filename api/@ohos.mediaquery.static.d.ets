@@ -89,16 +89,6 @@ declare namespace mediaquery {
      */
     offChange(callback?: Callback<MediaQueryResult>): void
   }
-
-  /**
-   * Sets the media query criteria and returns the corresponding listening handle
-   *
-   * @param { string } condition
-   * @returns { MediaQueryListener }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  export function matchMediaSync(condition: string): MediaQueryListener;
 }
 
 export default mediaquery;
