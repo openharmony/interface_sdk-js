@@ -1413,33 +1413,6 @@ export declare interface DividerStyleOptions {
 }
 
 /**
- * Define scrollbar margin options.
- *
- * @interface ScrollBarMargin
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 23 static
- */
-declare interface ScrollBarMargin {
-  /**
-   * Start margin of the scroll bar.
-   *
-   * @type { ?LengthMetrics }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  start?: LengthMetrics;
-
-  /**
-   * End margin of the scroll bar.
-   *
-   * @type { ?LengthMetrics }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  end?: LengthMetrics;
-}
-
-/**
  * Defines the ChainWeightOptions interface.
  *
  * @interface ChainWeightOptions

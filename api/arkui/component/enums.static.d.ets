@@ -4062,31 +4062,6 @@ export declare enum TipsAnchorType {
 }
 
 /**
- * Focus wrap mode of a list or grid when moving focus using the arrow keys.
-
- * @enum { number } FocusWrapMode
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 23 static
- */
-declare enum FocusWrapMode {
-  /**
-   * No wrap when moving focus using the arrow keys.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  DEFAULT = 0,
-
-  /**
-   * Auto wrap when moving focus using the arrow keys.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  WRAP_WITH_ARROW = 1
-}
-
-/**
  * Define the property type enumeration used in animation.
  *
  * @enum { number }
