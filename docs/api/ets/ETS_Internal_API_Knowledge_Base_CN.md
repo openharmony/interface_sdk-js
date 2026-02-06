@@ -1,6 +1,6 @@
-# ETS 内部 API 知识库
+# ETS 全局 API 知识库
 
-> 本文档为 `api/@internal/ets/` 目录下 ETS（Extended TypeScript）内部 API 的完整知识库。
+> 本文档为 `api/@internal/ets/` 目录下 ETS（Extended TypeScript）全局公开 API 的完整知识库。
 
 ## 目录
 
@@ -16,9 +16,9 @@
 
 ### 1.1 简介
 
-`api/@internal/ets/` 目录包含 ETS 内部 API 的 TypeScript 声明文件（`.d.ts`）。这些 API 提供了 ArkUI 开发框架中的核心系统级功能，无需显式导入即可在应用程序中使用。
+`api/@internal/ets/` 目录包含 ETS 全局公开 API 的 TypeScript 声明文件（`.d.ts`）。这些 API 提供了 ArkUI 开发框架中的核心系统级功能，无需显式导入即可在应用程序中使用。
 
-> **重要提示**：这些是内部 API，标记为 `@internal`，仅供系统内部使用，不保证向后兼容性。应用开发应使用公开的 API（如 `@ohos.*` 模块）。
+> **重要提示**：这些是全局公开 API，无需显式导入即可在应用程序中使用。这些 API 提供了 ArkUI 开发框架中的核心系统级功能（如 console、定时器等），保证向后兼容性。
 
 ### 1.2 目录结构
 
@@ -939,7 +939,7 @@ export default class MyDataAbility implements LifecycleData {
 |------|---------|-----------|
 | 状态 | 已废弃 | 推荐 |
 | 生命周期接口 | LifecycleApp, LifecycleForm, LifecycleService, LifecycleData | UIAbility, ExtensionAbility |
-| 标签 | `@FAModelOnly` | 无特殊标签 |
+| 标签 | `@FAModelOnly` | `@stagemodelonly` |
 | 灵活性 | 较低 | 高 |
 | 多实例支持 | 有限 | 完善 |
 

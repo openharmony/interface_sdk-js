@@ -1,8 +1,8 @@
-# ETS Internal APIs
+# ETS Global Public APIs
 
 ## Overview
 
-This directory contains TypeScript declaration files (`.d.ts`) for internal ETS (Extended TypeScript) APIs used in ArkUI development framework. These APIs provide core functionality for application lifecycle management, global utilities, and system capabilities.
+This directory contains TypeScript declaration files (`.d.ts`) for global public ETS (Extended TypeScript) APIs used in ArkUI development framework. These APIs provide core functionality for application lifecycle management, global utilities, and system capabilities.
 
 ## Directory Structure
 
