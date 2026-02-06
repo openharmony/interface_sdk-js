@@ -474,6 +474,19 @@ declare class TextStyle {
      * @since 20 dynamic
      */
     readonly superscript?: SuperscriptStyle;
+
+    /**
+     * Get the fontConfigs of the StyledString.
+     *
+     * @type { ?FontConfigs } - the fontConfigs of the StyledString or undefined
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 24 dynamic
+     */
+    readonly fontConfigs?: FontConfigs;
 }
 
 /**
@@ -573,6 +586,18 @@ declare interface TextStyleInterface {
      * @since 20 dynamic
      */
     superscript?: SuperscriptStyle;
+
+    /**
+     * The fontConfigs value of the text.
+     *
+     * @type { ?FontConfigs }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 24 dynamic
+     */
+    fontConfigs?: FontConfigs;
 }
 
 /**
