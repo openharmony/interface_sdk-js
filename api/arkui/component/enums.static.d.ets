@@ -3299,7 +3299,23 @@ export declare enum EllipsisMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
-  END = 2
+  END = 2,
+
+  /**
+   * The ellipsis is in the head. It is valid for multiline and single line.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 24 static
+   */
+  MULTILINE_START = 3,
+
+  /**
+   * The ellipsis is in the middle. It is valid for multiline and single line.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 24 static
+   */
+  MULTILINE_CENTER = 4,
 }
 
 /**
@@ -4019,14 +4035,16 @@ export declare enum DividerMode {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 23 static
+ * @stagemodelonly
+ * @since 24 static
  */
-declare enum EventQueryType {
+export declare enum EventQueryType {
   /**
    * Type of onClick event.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @stagemodelonly
+   * @since 24 static
    */
   ON_CLICK = 0
 }
@@ -4064,24 +4082,26 @@ export declare enum TipsAnchorType {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 23 static
+ * @stagemodelonly
+ * @since 24 static
  */
 declare enum DialogDisplayMode {
   /**
-   * dialog display in center of app window.
+   * The dialog displayed based on screen.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @stagemodelonly
+   * @since 24 static
    */
-  CENTER_IN_WINDOW = 1,
-
+  SCREEN_BASED = 0,
   /**
-   * dialog display in center of screen.
+   * The dialog displayed based on application window.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @stagemodelonly
+   * @since 24 static
    */
-  CENTER_IN_SCREEN = 0
+  WINDOW_BASED = 1
 }
 
 /**
@@ -4090,14 +4110,14 @@ declare enum DialogDisplayMode {
  * @enum { number } FocusWrapMode
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 23 static
+ * @since 24 static
  */
 export declare enum FocusWrapMode {
   /**
    * No wrap when moving focus using the arrow keys.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   DEFAULT = 0,
 
@@ -4105,7 +4125,7 @@ export declare enum FocusWrapMode {
    * Auto wrap when moving focus using the arrow keys.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   WRAP_WITH_ARROW = 1
 }

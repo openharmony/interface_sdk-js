@@ -41,6 +41,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12 dynamic
+ * @noninterop
  */
 interface RichTextInterface {
   /**
@@ -105,6 +106,7 @@ interface RichTextInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12 dynamic
+ * @noninterop
  */
 declare class RichTextAttribute extends CommonMethod<RichTextAttribute> {
   /**

@@ -17,7 +17,7 @@
  * @file
  * @kit ArkUI
  */
-import { ResourceColor, Length, LengthMetrics } from "./units";
+import { ResourceColor, Length, LengthMetrics, ResourceStr } from "./units";
 import { CommonMethod, AttributeModifier } from "./common";
 import { FontWeight, MarqueeUpdateStrategy } from "./enums";
 import { Resource } from './../../../api/global/resource';
@@ -112,6 +112,16 @@ export interface MarqueeOptions {
      * @since 23 static
      */
     spacing?: LengthMetrics;
+
+    /**
+     * The waiting time between each round of the marquee.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    delay?: int;
 }
 
 /**
@@ -176,7 +186,25 @@ export declare interface MarqueeAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
      */
-    default fontWeight(value: int | FontWeight | string | undefined): this;
+    /**
+     * Set marquee font weight.
+     *
+     * <p><strong>NOTE</strong>:
+     * <br>If the value is too large, the text may be clipped depending on the font.
+     * <br>For the number type, the value range is [100, 900], at an interval of 100.
+     * <br>The default value is 400.
+     * <br>A larger value indicates a heavier font weight.
+     * <br>For the string type, only strings that represent a number, for example, "400",
+     * and the following enumerated values of FontWeight are supported: "bold", "bolder", "lighter", "regular", and "medium".
+     * </p>
+     *
+     * @param { int | FontWeight | ResourceStr | undefined } value - Default value is FontWeight.Normal.
+     *     Passing `undefined` resets it to the default value.
+     * @returns { MarqueeAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 24 static
+     */
+    default fontWeight(value: int | FontWeight | ResourceStr | undefined): this;
     /**
      * Set marquee font family.
      *

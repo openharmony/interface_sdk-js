@@ -245,7 +245,7 @@ declare namespace adminManager {
      */
     TRUST_LIST = 1
   }
-  
+
   /**
    * Enables the given ability as a administrator of the device.
    * Only apps with the ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN permission or the shell uid can call this method.
@@ -881,7 +881,7 @@ declare namespace adminManager {
    */
   function isByodAdmin(admin: Want): boolean;
 
-/**
+  /**
    * Administrator gets the delegated applications which access to the policy.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_DELEGATED_POLICY
@@ -898,6 +898,25 @@ declare namespace adminManager {
    * @since 14
    */
   function getDelegatedBundleNames(admin: Want, policy: string): Array<string>;
+
+  /**
+   * replace old admin with new admin.
+   *
+   * @permission ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN
+   * @param { Want } oldAdmin - oldAdmin indicates the old administrator ability information.
+   * @param { Want } newAdmin - newAdmin indicates the new administrator ability information.
+   * @param { boolean } isKeepPolicy - true indicates whether keep admin policy.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200003 - The administrator ability component is invalid.
+   * @throws { BusinessError } 9200011 - Failed to replace the administrator application of the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 18
+   */
+  function replaceSuperAdmin(oldAdmin: Want, newAdmin: Want, isKeepPolicy: boolean): void;
 
   /**
    * Starts an ability of admin provision application.
@@ -927,25 +946,6 @@ declare namespace adminManager {
    * @since 15
    */
   function getAdmins(): Promise<Array<Want>>;
-
-  /**
-   * replace old admin with new admin.
-   *
-   * @permission ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN
-   * @param { Want } oldAdmin - oldAdmin indicates the old administrator ability information.
-   * @param { Want } newAdmin - newAdmin indicates the new administrator ability information.
-   * @param { boolean } isKeepPolicy - true indicates whether keep admin policy.
-   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200003 - The administrator ability component is invalid.
-   * @throws { BusinessError } 9200011 - Failed to replace the administrator application of the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
-   * @stagemodelonly
-   * @since 18
-   */
-  function replaceSuperAdmin(oldAdmin: Want, newAdmin: Want, isKeepPolicy: boolean): void;
 
   /**
    * Administrator delegates access to policies to another application.

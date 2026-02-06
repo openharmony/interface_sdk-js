@@ -140,14 +140,13 @@ export declare interface IndicatorComponentAttribute extends CommonMethod {
  * Defines IndicatorComponent Component
  *
  * @param { IndicatorComponentController } [controller] - IndicatorComponent constructor options
- * @param { CustomBuilder } [content_] - container
  * @returns { IndicatorComponentAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
 @ComponentBuilder
 export declare function IndicatorComponent(
-  controller?: IndicatorComponentController,
-  content_?: CustomBuilder
+  controller?: IndicatorComponentController
 ): IndicatorComponentAttribute

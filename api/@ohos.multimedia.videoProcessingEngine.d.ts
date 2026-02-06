@@ -112,7 +112,7 @@ declare namespace videoProcessingEngine {
      * @since 18 dynamic
      * @since 23 static
      */
-    enhanceDetail(sourceImage: image.PixelMap, width: number, height: number, level?: QualityLevel): Promise<image.PixelMap>;
+    enhanceDetail(sourceImage: image.PixelMap, width: int, height: int, level?: QualityLevel): Promise<image.PixelMap>;
 
     /**
      * The function generate the destinationImage from sourceImage with necessary scaling operation
@@ -140,7 +140,7 @@ declare namespace videoProcessingEngine {
      * @since 18 dynamic
      * @since 23 static
      */
-    enhanceDetailSync(sourceImage: image.PixelMap, width: number, height: number, level?: QualityLevel): image.PixelMap;
+    enhanceDetailSync(sourceImage: image.PixelMap, width: int, height: int, level?: QualityLevel): image.PixelMap;
 
     /**
      * The function generate the destinationImage from sourceImage with necessary scaling operation
@@ -165,7 +165,7 @@ declare namespace videoProcessingEngine {
      * @since 18 dynamic
      * @since 23 static
      */
-    enhanceDetail(sourceImage: image.PixelMap, scale: number, level?: QualityLevel): Promise<image.PixelMap>;
+    enhanceDetail(sourceImage: image.PixelMap, scale: double, level?: QualityLevel): Promise<image.PixelMap>;
 
     /**
      * The function generate the destinationImage from sourceImage with necessary scaling operation
@@ -192,7 +192,7 @@ declare namespace videoProcessingEngine {
      * @since 18 dynamic
      * @since 23 static
      */
-    enhanceDetailSync(sourceImage: image.PixelMap, scale: number, level?: QualityLevel): image.PixelMap;
+    enhanceDetailSync(sourceImage: image.PixelMap, scale: double, level?: QualityLevel): image.PixelMap;
   }
 
   /**

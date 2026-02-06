@@ -20,6 +20,7 @@
 
 import type distributedAccount from './@ohos.account.distributedAccount';
 import type { AsyncCallback, Callback } from './@ohos.base';
+import type Context from './application/Context';
 /*** if arkts static */
 import type { RecordData } from './@ohos.base';
 /*** endif */
@@ -42,6 +43,18 @@ declare namespace osAccount {
    * @since 23 static
    */
   function getAccountManager(): AccountManager;
+
+  /**
+   * Gets the OS account authorization manager.
+   *
+   * @returns { AuthorizationManager } Returns the instance of the AuthorizationManager.
+   * @throws { BusinessError } 202 - Not system application.
+   * @syscap SystemCapability.Account.OsAccount
+   * @systemapi
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  function getAuthorizationManager(): AuthorizationManager;
 
   /**
    * Provides abilities for you to manage and perform operations on your OS accounts.
@@ -2873,6 +2886,262 @@ declare namespace osAccount {
      */
     PRIVATE = 1024
   }
+
+  /**
+   * Provides abilities to manage OS account authorizations.
+   *
+   * @interface AuthorizationManager
+   * @syscap SystemCapability.Account.OsAccount
+   * @systemapi
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  interface AuthorizationManager {
+    /**
+     * Acquires an authorization for the current process.
+     *
+     * @permission ohos.permission.ACQUIRE_LOCAL_ACCOUNT_AUTHORIZATION
+     * @param { string } privilege - Indicates the target privilege.
+     * @param { AcquireAuthorizationOptions } [options] - Indicates the options for acquiring an authorization.
+     * @returns { Promise<AcquireAuthorizationResult> } Returns the result of acquiring authorization.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300002 - Invalid privilege or options.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    acquireAuthorization(privilege: string, options?: AcquireAuthorizationOptions): Promise<AcquireAuthorizationResult>;
+
+    /**
+     * Releases the specified authorization owned by the current process.
+     *
+     * @param { string } privilege - Indicates the privilege associated with the specified authorization.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300002 - Invalid privilege.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    releaseAuthorization(privilege: string): Promise<void>;
+
+    /**
+     * Checks whether the current process has the specified authorization.
+     *
+     * @param { string } privilege - Indicates the privilege associated with the specified authorization.
+     * @returns { Promise<boolean> } Returns whether the current process has the specified authorization.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300002 - Invalid privilege.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    hasAuthorization(privilege: string): Promise<boolean>;
+  }
+
+  /**
+   * Options for acquiring the authorization.
+   *
+   * @interface AcquireAuthorizationOptions
+   * @syscap SystemCapability.Account.OsAccount
+   * @systemapi
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  interface AcquireAuthorizationOptions {
+    /**
+     * Indicates the random challenge value, which can be used to prevent replay attacks
+     * and must not exceed 32 bytes.
+     *
+     * @type { ?Uint8Array }
+     * @default undefined
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    challenge?: Uint8Array;
+
+    /**
+     * Indicates whether reuse of the previous authorization is needed.
+     * If true specified and a valid authorization result exists, the result will be reused.
+     * Otherwise, a new authorization will be performed.
+     *
+     * @type { ?boolean }
+     * @default true
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    isReuseNeeded?: boolean;
+
+    /**
+     * Indicates whether user interaction is allowed.
+     * This option only works when the caller is in foreground.
+     * If the caller is in background, user interaction is not allowed.
+     * 
+     * If true, the authorization dialog is allowed to be displayed in the interaction context.
+     * If false, the authorization dialog is not allowed to be displayed.
+     *
+     * @type { ?boolean }
+     * @default true
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    isInteractionAllowed?: boolean;
+
+    /**
+     * Indicates the context for user interaction.
+     * This option only works when user interaction is allowed, i.e., isInteractionAllowed is true.
+     * 
+     * If nothing specified, the authorization dialog will be displayed in modal system mode.
+     * If UIAbilityContext or UIExtensionContext specified,
+     * the authorization dialog will be displayed in modal application mode.
+     * Otherwise, the authorization dialog can not be displayed.
+     *
+     * @type { ?Context }
+     * @default undefined, which means the authorization dialog will be displayed in modal system mode.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    interactionContext?: Context;
+  }
+
+  /**
+   * Enumerates the authorization result code.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Account.OsAccount
+   * @systemapi
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  enum AuthorizationResultCode {
+    /**
+     * Indicates that the authorization is successful.
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    AUTHORIZATION_SUCCESS = 0,
+
+    /**
+     * Indicates the authorization is canceled.
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    AUTHORIZATION_CANCELED = 12300301,
+
+    /**
+     * Indicates the service denied authorization because user interaction is not allowed.
+     * Possible causes:
+     *     1. The caller is in background;
+     *     2. The value of the interactionAllowed option is false;
+     *     3. The specified interaction context is invalid;
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    AUTHORIZATION_INTERACTION_NOT_ALLOWED = 12300302,
+
+    /**
+     * Indicates the authorization is denied because it does not meet the authorization rules.
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    AUTHORIZATION_DENIED = 12300303,
+
+    /**
+     * Indicates the service is busy.
+     * Possible causes: Other authorization is being processed.
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    AUTHORIZATION_SERVICE_BUSY = 12300304
+  }
+
+  /**
+   * Indicates the result of acquiring authorization.
+   *
+   * @interface AcquireAuthorizationResult
+   * @syscap SystemCapability.Account.OsAccount
+   * @systemapi
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  interface AcquireAuthorizationResult {
+    /**
+     * Indicates the authorization result code.
+     * If the authorization is successful, AuthorizationResultCode#AUTHORIZATION_SUCCESS is returned.
+     * Otherwise, an error code is returned. For details, see AuthorizationResultCode.
+     *
+     * @type { AuthorizationResultCode }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    resultCode: AuthorizationResultCode;
+
+    /**
+     * Indicates the privilege associated with the authorization.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    privilege: string;
+
+    /**
+     * Indicates whether it is a reused authorization result.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    isReused?: boolean;
+
+    /**
+     * Indicates the authorization token.
+     *
+     * @type { ?Uint8Array }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    token?: Uint8Array;
+  }
+
 
   /**
    * Provides the abilities for user authentication.

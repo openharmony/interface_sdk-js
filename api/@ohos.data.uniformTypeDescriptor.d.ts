@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023-2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -204,7 +204,7 @@ declare namespace uniformTypeDescriptor {
 
     /**
      * Xhtml data type.
-     * 
+     *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
      * @since 23 static
@@ -213,7 +213,7 @@ declare namespace uniformTypeDescriptor {
 
     /**
      * Rss data type.
-     * 
+     *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
      * @since 23 static
@@ -321,7 +321,7 @@ declare namespace uniformTypeDescriptor {
 
     /**
      * Css data type.
-     * 
+     *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
      * @since 23 static
@@ -375,7 +375,7 @@ declare namespace uniformTypeDescriptor {
 
     /**
      * Tex source code data type.
-     * 
+     *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
      * @since 23 static
@@ -393,7 +393,7 @@ declare namespace uniformTypeDescriptor {
 
     /**
      * Asc text data type.
-     * 
+     *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
      * @since 23 static
@@ -402,7 +402,7 @@ declare namespace uniformTypeDescriptor {
 
     /**
      * Rich text data type.
-     * 
+     *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
      * @since 23 static
@@ -411,7 +411,7 @@ declare namespace uniformTypeDescriptor {
 
     /**
      * Delimited values text data type.
-     * 
+     *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
      * @since 23 static
@@ -420,7 +420,7 @@ declare namespace uniformTypeDescriptor {
 
     /**
      * Comma separated values text data type.
-     * 
+     *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
      * @since 23 static
@@ -429,7 +429,7 @@ declare namespace uniformTypeDescriptor {
 
     /**
      * Tab separated values text data type.
-     * 
+     *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
      * @since 23 static
@@ -633,7 +633,7 @@ declare namespace uniformTypeDescriptor {
 
     /**
      * Gif image format data type.
-     * 
+     *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
      * @since 23 static
@@ -705,7 +705,7 @@ declare namespace uniformTypeDescriptor {
 
     /**
      * Microsoft Word dot data type.
-     * 
+     *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
      * @since 23 static
@@ -714,7 +714,7 @@ declare namespace uniformTypeDescriptor {
 
     /**
      * Microsoft Powerpoint pps data type.
-     * 
+     *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
      * @since 23 static
@@ -723,7 +723,7 @@ declare namespace uniformTypeDescriptor {
 
     /**
      * Microsoft Powerpoint pot data type.
-     * 
+     *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
      * @since 23 static
@@ -732,7 +732,7 @@ declare namespace uniformTypeDescriptor {
 
     /**
      * Microsoft Excel xlt data type.
-     * 
+     *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
      * @since 23 static
@@ -741,7 +741,7 @@ declare namespace uniformTypeDescriptor {
 
     /**
      * Microsoft Visio vsd data type.
-     * 
+     *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
      * @since 23 static
@@ -846,7 +846,7 @@ declare namespace uniformTypeDescriptor {
 
     /**
      * Ts video format data type.
-     * 
+     *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
      * @since 23 static
@@ -855,7 +855,7 @@ declare namespace uniformTypeDescriptor {
 
     /**
      * Mpegurl video format data type.
-     * 
+     *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
      * @since 23 static
@@ -918,7 +918,7 @@ declare namespace uniformTypeDescriptor {
 
     /**
      * Matroska video format data type.
-     * 
+     *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
      * @since 23 static
@@ -927,7 +927,7 @@ declare namespace uniformTypeDescriptor {
 
     /**
      * Flash data type.
-     * 
+     *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
      * @since 23 static
@@ -1068,7 +1068,7 @@ declare namespace uniformTypeDescriptor {
 
     /**
      * Mpegurl audio format data type.
-     * 
+     *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
      * @since 23 static
@@ -1077,7 +1077,7 @@ declare namespace uniformTypeDescriptor {
 
     /**
      * Mpeg-4 audio format data type.
-     * 
+     *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
      * @since 23 static
@@ -1131,7 +1131,7 @@ declare namespace uniformTypeDescriptor {
 
     /**
      * Matroska audio format data type.
-     * 
+     *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
      * @since 23 static
@@ -1224,7 +1224,7 @@ declare namespace uniformTypeDescriptor {
 
     /**
      * Opg archive data type.
-     * 
+     *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
      * @since 23 static
@@ -1233,7 +1233,7 @@ declare namespace uniformTypeDescriptor {
 
     /**
      * Taz archive data type.
-     * 
+     *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
      * @since 23 static
@@ -1242,7 +1242,7 @@ declare namespace uniformTypeDescriptor {
 
     /**
      * Web archive data type.
-     * 
+     *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
      * @since 23 static
@@ -1260,7 +1260,7 @@ declare namespace uniformTypeDescriptor {
 
     /**
      * Iso data type.
-     * 
+     *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
      * @since 23 static
@@ -1359,7 +1359,7 @@ declare namespace uniformTypeDescriptor {
 
     /**
      * Office Open XML Drawingml visio.
-     * 
+     *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
      * @since 23 static
@@ -1368,7 +1368,7 @@ declare namespace uniformTypeDescriptor {
 
     /**
      * Office Open XML Drawingml template.
-     * 
+     *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
      * @since 23 static
@@ -1377,7 +1377,7 @@ declare namespace uniformTypeDescriptor {
 
     /**
      * Office Open XML Wordprocessingml template.
-     * 
+     *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
      * @since 23 static
@@ -1386,7 +1386,7 @@ declare namespace uniformTypeDescriptor {
 
     /**
      * Office Open XML Presentationml template.
-     * 
+     *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
      * @since 23 static
@@ -1395,7 +1395,7 @@ declare namespace uniformTypeDescriptor {
 
     /**
      * Office Open XML Presentationml slideshow.
-     * 
+     *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
      * @since 23 static
@@ -1404,7 +1404,7 @@ declare namespace uniformTypeDescriptor {
 
     /**
      * Office Open XML Spreadsheetml template.
-     * 
+     *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
      * @since 23 static
@@ -1476,7 +1476,7 @@ declare namespace uniformTypeDescriptor {
 
     /**
      * Rar archive.
-     * 
+     *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
      * @since 23 static
@@ -1485,7 +1485,7 @@ declare namespace uniformTypeDescriptor {
 
     /**
      * 7-zip archive.
-     * 
+     *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
      * @since 23 static
@@ -1820,7 +1820,7 @@ declare namespace uniformTypeDescriptor {
     FILE_URI = 'general.file-uri',
 
     /**
-     * Content widget type. This type belongs to OBJECT.
+     * Content form data type.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 15 dynamic
@@ -2536,8 +2536,8 @@ declare namespace uniformTypeDescriptor {
    *
    * @param { string } filenameExtension - Filename extension.
    * @param { string } [belongsTo] - A uniform data type ID it belongs to.
-   * @returns { Array<string> } Returns the uniform data type ID list corresponding to the given filename extension and
-   * the uniform data type it belongs to(If the 'belongsTo' parameter is set) or flexible type if the uniform data type
+   * @returns { Array<string> } Returns the uniform data type ID list corresponding to the given filename extension and the
+   * <br>uniform data type it belongs to(If the 'belongsTo' parameter is set) or flexible type if the uniform data type
    * does not exist.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
    * <br>2.Incorrect parameters types.
@@ -2550,8 +2550,8 @@ declare namespace uniformTypeDescriptor {
    *
    * @param { string } filenameExtension - Filename extension.
    * @param { string } [belongsTo] - A uniform data type ID it belongs to.
-   * @returns { Array<string> } Returns the uniform data type ID list corresponding to the given filename extension and
-   * the uniform data type it belongs to(If the 'belongsTo' parameter is set) or flexible type if the uniform data type
+   * @returns { Array<string> } Returns the uniform data type ID list corresponding to the given filename extension and the
+   * <br>uniform data type it belongs to(If the 'belongsTo' parameter is set) or flexible type if the uniform data type
    * does not exist.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
    * <br>2.Incorrect parameters types.
@@ -2568,23 +2568,20 @@ declare namespace uniformTypeDescriptor {
    *
    * @param { string } mimeType - MIME type.
    * @param { string } [belongsTo] - A uniform data type ID it belongs to.
-   * @returns { Array<string> } Returns the uniform data type ID list corresponding to the given MIME type and the
-   * uniform data type it belongs to(If the 'belongsTo' parameter is set) or flexible type if the uniform data type does
-   * not exist.
+   * @returns { Array<string> } Returns the uniform data type ID list corresponding to the given MIME type and the uniform data type
+   * <br>it belongs to(If the 'belongsTo' parameter is set) or flexible type if the uniform data type does not exist.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
    * <br>2.Incorrect parameters types.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 13
    */
   /**
-   * Queries and returns the uniform type descriptor list by the given MIME type and the uniform data type it belongs
-   * to.
+   * Queries and returns the uniform type descriptor list by the given MIME type and the uniform data type it belongs to.
    *
    * @param { string } mimeType - MIME type.
    * @param { string } [belongsTo] - A uniform data type ID it belongs to.
-   * @returns { Array<string> } Returns the uniform data type ID list corresponding to the given MIME type and the
-   * uniform data type it belongs to(If the 'belongsTo' parameter is set) or flexible type if the uniform data type does
-   * not exist.
+   * @returns { Array<string> } Returns the uniform data type ID list corresponding to the given MIME type and the uniform data type
+   * <br>it belongs to(If the 'belongsTo' parameter is set) or flexible type if the uniform data type does not exist.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
    * <br>2.Incorrect parameters types.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -2614,7 +2611,7 @@ declare namespace uniformTypeDescriptor {
   function registerTypeDescriptors(typeDescriptors: Array<TypeDescriptor>): Promise<void>;
 
   /**
-   * Unregisters one or more type descriptors from the system by the given type IDs.
+   * Unregister one or more type descriptors from the system by the given type IDs.
    *
    * @permission ohos.permission.MANAGE_DYNAMIC_UTD_TYPE
    * @param { Array<string> } typeIds - The list of type IDs to be unregistered.

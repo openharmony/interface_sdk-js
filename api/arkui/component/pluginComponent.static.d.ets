@@ -1,3 +1,4 @@
+'use static';
 /*
  * Copyright (c) 2021-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -20,6 +21,8 @@
 import { VoidCallback } from './units';
 import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
+import { RecordData } from '../../@ohos.base';
+
 /**
  * PluginComponentTemplate
  *
@@ -48,16 +51,6 @@ export interface PluginComponentTemplate {
      */
     bundleName: string | undefined;
 }
-
-/**
- * Defines RecordData.
- *
- * @typedef { undefined | null | Object | Record<string, RecordData> | Array<RecordData> } RecordData
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @systemapi
- * @since 23 static
- */
-export type RecordData = undefined | null | Object | Record<string, RecordData> | Array<RecordData>;
 
 /**
  * Define options used to construct a plugin component.
@@ -136,6 +129,7 @@ export type PluginErrorCallback = (info: PluginErrorData) => void;
  * @typedef PluginComponentAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @noninterop
  * @since 23 static
  */
 export declare interface PluginComponentAttribute extends CommonMethod {

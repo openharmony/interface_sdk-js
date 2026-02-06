@@ -239,12 +239,12 @@ export interface ArcSliderStyleOptionsConstructorOptions {
   /**
    * Set the track blur of the component, unit is vp.
    *
-   * @type { ?number }
+   * @type { ?double }
    * @default 20
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @since 23 static
    */
-  trackBlur?: number;
+  trackBlur?: double;
 }
 
 /**

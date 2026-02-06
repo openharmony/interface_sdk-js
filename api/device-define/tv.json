@@ -9,6 +9,7 @@
     "SystemCapability.Ability.AppExtension.PhotoEditorExtension",
     "SystemCapability.Ability.AppStartup",
     "SystemCapability.Security.AccessToken",
+    "SystemCapability.ArkUI.ArkUI.Circle",
     "SystemCapability.ArkUI.ArkUI.Full",
     "SystemCapability.FileManagement.AppFileService",
     "SystemCapability.FileManagement.File.Environment",
@@ -173,12 +174,12 @@
     "SystemCapability.Update.UpdateService",
     "SystemCapability.Test.UiTest",
     "SystemCapability.Base",
-    "SystemCapability.Multimedia.Camera.Core",
     "SystemCapability.Startup.SystemInfo",
     "SystemCapability.USB.USBManager",
     "SystemCapability.ResourceSchedule.SystemLoad",
     "SystemCapability.FileManagement.UserFileManager.DistributedCore",  
     "SystemCapability.Notification.NotificationSettings",
+    "SystemCapability.PowerManager.PowerManager.Core",
     "SystemCapability.ArkUI.ArkUI.Lite"
   ]
 }

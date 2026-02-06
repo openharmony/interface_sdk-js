@@ -696,7 +696,7 @@ declare namespace systemManager {
    * @param { Want } admin - admin indicates the enterprise admin extension ability information.
    *     The admin must have the corresponding permission.
    * @param { Array<KeyEventPolicy> } keyPolicies - The policies of key.
-   *     The maximum value of the list does not exceed the number of supported key types.
+   *     <br>The maximum value of the list does not exceed the number of supported key types.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9200010 - A conflict policy has been configured.
@@ -718,7 +718,7 @@ declare namespace systemManager {
    * @param { Want } admin - admin indicates the enterprise admin extension ability information.
    *     The admin must have the corresponding permission.
    * @param { Array<KeyCode> } keyCodes - The codes of key which policy need remove.
-   *     The maximum value of the list does not exceed the number of supported key types.
+   *     <br>The maximum value of the list does not exceed the number of supported key types.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9200012 - Parameter verification failed.
@@ -933,7 +933,7 @@ declare namespace systemManager {
    */
   enum KeyAction {
     /**
-     * UnKnown action.
+     * Unknown action.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly

@@ -1,5 +1,6 @@
 {
   "SysCaps": [
+    "SystemCapability.ArkUI.ArkUI.Circle",
     "SystemCapability.ArkUI.ArkUI.Full",
     "SystemCapability.ArkUI.ArkUI.Napi",
     "SystemCapability.ArkUI.ArkUI.Libuv",
@@ -163,6 +164,7 @@
     "SystemCapability.Ability.DistributedAbilityManager",
     "SystemCapability.Applications.CalendarData",
     "SystemCapability.Applications.Settings.Core",
+    "SystemCapability.Applications.IntelligentScene",    
     "SystemCapability.Test.UiTest",
     "SystemCapability.Web.Webview.Core",
     "SystemCapability.Advertising.OAID",

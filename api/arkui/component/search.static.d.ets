@@ -172,7 +172,7 @@ export declare enum SearchType {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     ONE_TIME_CODE = 14
 }
@@ -802,15 +802,39 @@ export declare interface SearchAttribute extends CommonMethod {
      * <br>When setting a custom keyboard, you can bind the onKeyPrelme event to prevent input from the physical keyboard.
      * </p>
      *
+     * @param { CustomBuilder | undefined } value - Set up a custom keyboard of Search
+     * @param { KeyboardOptions } [options] - Indicates the custom keyboard options of Search
+     * @returns { SearchAttribute } returns the instance of the SearchAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    /**
+     * Define custom keyboard.
+     *
+     * <p><strong>NOTE</strong>:
+     * <br>When a custom keyboard is set, activating the text box opens the specified custom component,
+     * instead of the system input method.
+     * <br>The custom keyboard's height can be set through the height attribute of the custom component's root node,
+     * and its width is fixed at the default value.
+     * <br>The custom keyboard is presented by overlaying the original screen.
+     * <br>It is not compressed or lifted if avoid mode is not enabled or avoidance is not needed for the text box.
+     * <br>The custom keyboard cannot obtain the focus, but it blocks gesture events.
+     * <br>By default, the custom keyboard is closed when the input component loses the focus.
+     * <br>You can also use the stopEditing API to close the keyboard.
+     * <br>When a custom keyboard is set, the text box does not support camera input, even when the device supports.
+     * <br>When setting a custom keyboard,
+     * you can bind the onKeyPrelme event to prevent input from the physical keyboard.
+     * </p>
+     *
      * @param { CustomBuilder | ComponentContentBase | undefined } value - Set up a custom keyboard of Search
      * @param { KeyboardOptions } [options] - Indicates the custom keyboard options of Search
      * @returns { SearchAttribute } returns the instance of the SearchAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
-    default customKeyboard(value: CustomBuilder | ComponentContentBase | undefined,
-                           options?: KeyboardOptions): this;
+    default customKeyboard(
+      value: CustomBuilder | ComponentContentBase | undefined, options?: KeyboardOptions): this;
     /**
      * Called when the text decoration of the text is set.
      *
@@ -1031,7 +1055,7 @@ export declare interface SearchAttribute extends CommonMethod {
      *     Passing `undefined` resets it to the default value.
      * @returns { SearchAttribute } returns the instance of the SearchAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
     default strokeWidth(width: LengthMetrics | undefined): this;
     /**
@@ -1041,7 +1065,7 @@ export declare interface SearchAttribute extends CommonMethod {
      *     If `undefined` is passed, the existing registered event will be removed.
      * @returns { SearchAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
     default onWillAttachIME(callback: Callback<IMEClient> | undefined): this;
     /**
@@ -1051,7 +1075,7 @@ export declare interface SearchAttribute extends CommonMethod {
      *     Passing `undefined` resets it to the default value.
      * @returns { SearchAttribute } returns the instance of the SearchAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
     default strokeColor(color: ResourceColor | undefined): this;
     /**
@@ -1062,16 +1086,16 @@ export declare interface SearchAttribute extends CommonMethod {
      *     Passing `undefined` resets it to the default value.
      * @returns { SearchAttribute } returns the instance of the SearchAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
     default enableAutoSpacing(enabled: boolean | undefined): this;
     /**
      * Enable selected data detector.
-     * 
+     *
      * @param { boolean | undefined } enable - whether to enable the selected data detector.
      * @returns { SearchAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
     default enableSelectedDataDetector(enable: boolean | undefined): this;
 

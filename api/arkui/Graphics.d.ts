@@ -219,7 +219,7 @@ interface Vector2 {
   y: number
 }
 
- /**
+/**
   * Defined a vector with two T type values.
   *
   * @interface Vector2T
@@ -228,7 +228,7 @@ interface Vector2 {
   * @atomicservice
   * @since 12 dynamic
   */
- interface Vector2T<T> {
+interface Vector2T<T> {
 
   /**
    * Value for x-axis of the vector.
@@ -391,7 +391,6 @@ export type Matrix4 = [
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
- * @since 23 static
  */
 export type Offset = Vector2;
 
@@ -917,7 +916,7 @@ declare class LengthMetrics {
    * @since 12 dynamic
    */
   static resource(value: Resource): LengthMetrics;
-  
+
   /**
    * The unit of the LengthMetrics. The default value is VP.
    *
@@ -1064,7 +1063,6 @@ declare class ColorMetrics {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 23 static
    */
   get green(): number;
 
@@ -1284,7 +1282,7 @@ export interface CommandPath {
 }
 
 /**
- * Defines ShapeMask. 
+ * Defines ShapeMask.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform

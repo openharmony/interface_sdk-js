@@ -919,7 +919,7 @@ declare namespace webview {
      * The horizontal scroll offset of the web page. The value is the difference between
      * the x-coordinate of the left border of the web page and the x-coordinate of the
      * left border of the Web component. When the web page scrolls to the right,
-     * the value range is negative.
+     * the value range is negative. 
      * When the web page is not over-scrolled or the web page is over-scrolled to the left,
      * the value is 0 or a positive value. Unit: vp.
      *
@@ -931,8 +931,8 @@ declare namespace webview {
     x: number;
 
     /**
-     * The vertical scroll offset of the web page. The value is the difference between
-     * the y-coordinate of the upper border of the web page and the y-coordinate of the
+     * The vertical scroll offset of the web page. The value is the difference between 
+     * the y-coordinate of the upper border of the web page and the y-coordinate of the 
      * upper boundary of the Web component. When the web page is scrolled down,
      * the value range is negative.
      * When the web page is not over-scrolled or the web page is over-scrolled to the up,
@@ -3782,7 +3782,7 @@ declare namespace webview {
      * @since 22 dynamic
      */
     DEFAULT = 0,
-
+ 
     /**
      * Soft keyboard will not be hidden or shown automatically when web comes into pause/continue state
      * @syscap SystemCapability.Web.Webview.Core
@@ -5970,8 +5970,8 @@ declare namespace webview {
      * Preresolve or Preconnect the url. This API can be called before loading the url to make loading faster.
      * @param { string } url - Which url to preresolve/preconnect.
      * @param { boolean } preconnectable - Indicates whether to preconnect.
-     * @param { number } numSockets - If preconnectable is true, this parameter indicates the number of sockets to be 
-     * preconnected.
+     * @param { number } numSockets - If preconnectable is true, this parameter indicates the number of sockets to be
+     *     preconnected.
      * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid, or the URL
      *     length exceeds 2048.
      * @throws { BusinessError } 17100013 - The number of preconnect sockets is invalid.
@@ -5982,8 +5982,8 @@ declare namespace webview {
      * Preresolve or Preconnect the url. This API can be called before loading the url to make loading faster.
      * @param { string } url - Which url to preresolve/preconnect.
      * @param { boolean } preconnectable - Indicates whether to preconnect.
-     * @param { number } numSockets - If preconnectable is true, this parameter indicates the number of sockets to be 
-     * preconnected.
+     * @param { number } numSockets - If preconnectable is true, this parameter indicates the number of sockets to be
+     *     preconnected.
      * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid, or the URL
      *     length exceeds 2048.
      * @throws { BusinessError } 17100013 - The number of preconnect sockets is invalid.
@@ -6887,6 +6887,55 @@ declare namespace webview {
     setUrlTrustList(urlTrustList: string): void;
 
     /**
+     * Sets the URL trust list for the ArkWeb.
+     *
+     * <p><strong>API Note</strong>:<br>
+     * When the URL trust list is set, only the URLs in the list can be accessed.
+     *
+     * Example of the urlTrustList:
+     *
+     * {
+     *   "UrlPermissionList": [
+     *     {
+     *       "scheme": "https",
+     *       "host": "www.example1.com",
+     *       "port": 443,
+     *       "path": "pathA/pathB"
+     *     },
+     *     {
+     *       "scheme": "http",
+     *       "host": "*.example2.com",
+     *       "port": 80,
+     *       "path": "test1/test2/test3"
+     *     }
+     *   ]
+     * }
+     * </p>
+     *
+     * @param { string } urlTrustList - The URL trust list in JSON format.
+     *     An empty string means all URLs are allowed.
+     * @param { boolean } allowOpaqueOrigin - If true, loading of opaque origin URLs (e.g., javascript, data) is
+     *     allowed. If false, it is not allowed.
+     * @param { boolean } supportWildcard - If true, wildcard matching is supported (e.g., *.example.com matches all
+     *     subdomains). If false, wildcard matching is not supported.
+     * @throws { BusinessError } 401 Parameter error, possible causes:
+     *     1. Mandatory parameters are left unspecified
+     *     2. JSON string exceeds 10MB limit
+     *     3. JSON parsing failed (syntax errors, etc.)
+     *     4. UrlPermissionList field is missing
+     *     5. URL rule validation failed:
+     *        - scheme must be http or https
+     *        - host cannot be empty
+     *        - port must be between 0-65535
+     *        - path length cannot exceed 65536 characters
+     * @throws { BusinessError } 17100001 - Initialization error.
+     *     The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 24 dynamic
+     */
+    setUrlTrustList(urlTrustList: string, allowOpaqueOrigin: boolean, supportWildcard: boolean): void
+
+    /**
      * Sets a path list. When a file protocol accesses resources in the path list, it can access the local files across
      * domains. In addition, when a path list is set, the file protocol can access only the resources in the path list.
      * The behavior of {@link fileAccess} will be overwritten by that of this API.
@@ -7068,8 +7117,8 @@ declare namespace webview {
      * If the UserAgentMetadata is not found according to the overridden User-Agent and the overridden User-Agent
      * contains the system default User-Agent, the system default value will be used.
      *
-     * If the UserAgentMetadata is null but the overridden User-Agent doesn't contain the system default user-agent,
-     * only the low-entry User-Agent client hints will be generated.
+     * If the UserAgentMetadata is not found according to the overridden User-Agent but the overridden User-Agent
+     * does not contain the system default User-Agent, only the low-entry User-Agent client hints will be generated.
      * </p>
      * 
      * @param { string } userAgent - The User-Agent string.
@@ -7382,7 +7431,7 @@ declare namespace webview {
     /**
      * Set the WebSoftKeyboardBehaviorMode to decide whether the keyboard will be shown/hidden automatically
      * in particular situation, for example, when web is inactive or active.
-     *
+     * 
      * @param { WebSoftKeyboardBehaviorMode } mode - The WebSoftKeyboardBehaviorMode of this web.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.

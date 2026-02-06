@@ -102,7 +102,8 @@ declare namespace display {
 
   /**
    * Obtain the primary display. For devices other than 2in1 devices, the Display object obtained is the built-in screen. 
-   * For 2in1 devices with an external screen, the Display object obtained is the primary screen. For 2in1 devices without an external screen, the Display object obtained is the built-in screen.
+   * For 2in1 devices with an external screen, the Display object obtained is the primary screen.
+   * For 2in1 devices without an external screen, the Display object obtained is the built-in screen.
    *
    * @returns { Display } the result of primary display
    * @throws { BusinessError } 1400001 - Invalid display or screen. Possible cause: Invalid display id.
@@ -1062,7 +1063,7 @@ declare namespace display {
   function getBrightnessInfo(displayId: long): BrightnessInfo;
 
   /**
-   * Defines the Brightness callback.
+   * Defines the brightness callback.
    *
    * @typedef {function}
    * @param { T1 } data1 - the data will be used in the callback.
@@ -1822,7 +1823,7 @@ declare namespace display {
     readonly type: CornerType;
 
     /**
-     * The cneter coordinates of round corner.
+     * The center coordinates of round corner.
      *
      * @type { Position }
      * @readonly

@@ -657,7 +657,7 @@ declare namespace backup {
      * @stagemodelonly
      * @since 12 dynamic
      */
-    onResultReport(bundleName: string, result: string);
+    onResultReport(bundleName: string, result: string): void;
 
     /**
      * Callback called when the backup service return result information.
@@ -704,7 +704,7 @@ declare namespace backup {
      * @stagemodelonly
      * @since 12 dynamic
      */
-    onProcess(bundleName: string, process: string);
+    onProcess(bundleName: string, process: string): void;
 
     /**
      * Callback called when the backup_sa service return result information.

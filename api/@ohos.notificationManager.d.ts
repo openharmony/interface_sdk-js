@@ -4381,6 +4381,117 @@ declare namespace notificationManager {
   function getBundlePriorityConfig(bundle: BundleOption): Promise<string>;
 
   /**
+   * Checks whether the intelligent priority notification service is enabled.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @returns { Promise<boolean> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600012 - No memory space.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function isPriorityIntelligentEnabled(): Promise<boolean>;
+
+  /**
+   * Sets the enabling status of the priority notification.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { boolean } enable - Set enable or not.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600012 - No memory space.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function setPriorityIntelligentEnabled(enable: boolean): Promise<void>;
+
+  /**
+   * Sets the enabling status of the priority notification for applications.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { Map<BundleOption, boolean> } switches - The map of bundleOption to set priority for applications enabled.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600012 - No memory space.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function setPriorityEnabledByBundles(switches: Map<BundleOption, boolean>): Promise<void>;
+
+  /**
+   * Gets whether the priority notification for applications is enabled.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { Array<BundleOption> } bundles - The array of bundleOption.
+   * @returns { Promise<Map<BundleOption, boolean>> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600012 - No memory space.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function getPriorityEnabledByBundles(bundles: Array<BundleOption>): Promise<Map<BundleOption, boolean>>;
+
+  /**
+   * Sets the strategy of the priority notification for applications.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { Map<BundleOption, long> } strategies - The map of bundleOption to set strategy for applications.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600012 - No memory space.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function setPriorityStrategyByBundles(strategies: Map<BundleOption, long>): Promise<void>;
+
+  /**
+   * Gets the strategy of the priority notification for applications.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { Array<BundleOption> } bundles - The array of bundleOption.
+   * @returns { Promise<Map<BundleOption, long>> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600012 - No memory space.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function getPriorityStrategyByBundles(bundles: Array<BundleOption>): Promise<Map<BundleOption, long>>;
+
+  /**
    * Opens the notification settings page of the application, which is displayed in semi-modal mode and can be used to set
    * the notification enabling and notification mode. This API uses a promise to return the result.
    *
@@ -4841,37 +4952,6 @@ declare namespace notificationManager {
   function getBadgeDisplayStatusByBundles(bundles: Array<BundleOption>) : Promise<Map<BundleOption, boolean>>;
 
   /**
-   * Set geofence switch.
-   *
-   * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { boolean } enabled - Set enable or not.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not system application to call the interface.
-   * @throws { BusinessError } 1600001 - Internal error.
-   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect to the service.
-   * @throws { BusinessError } 1600012 - No memory space.
-   * @syscap SystemCapability.Notification.Notification
-   * @systemapi
-   * @since 23 dynamic&static
-   */
-  function setGeofenceEnabled(enabled: boolean): Promise<void>;
-
-  /**
-   * Checks if the geofence is enabled.
-   *
-   * @returns { Promise<boolean> } whether the geofence is enabled.
-   * @throws { BusinessError } 1600001 - Internal error.
-   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect to the service.
-   * @throws { BusinessError } 1600012 - No memory space.
-   * @syscap SystemCapability.Notification.Notification
-   * @since 23 dynamic&static
-   */
-  function isGeofenceEnabled(): Promise<boolean>;
-
-  /**
    * Subscribe the callback for getting the badge number.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
@@ -4916,6 +4996,37 @@ declare namespace notificationManager {
    * @since 23 static
    */
   function getBadgeNumber(): Promise<long>;
+
+  /**
+   * Set geofence switch.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { boolean } enabled - Set enable or not.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600012 - No memory space.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  function setGeofenceEnabled(enabled: boolean): Promise<void>;
+
+  /**
+   * Checks if the geofence is enabled.
+   *
+   * @returns { Promise<boolean> } whether the geofence is enabled.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600012 - No memory space.
+   * @syscap SystemCapability.Notification.Notification
+   * @since 23 dynamic&static
+   */
+  function isGeofenceEnabled(): Promise<boolean>;
 
   /**
    * Represents the state of a switch,
@@ -5709,50 +5820,6 @@ declare namespace notificationManager {
   }
 
   /**
-   * Describes reminder info.
-   *
-   * @typedef NotificationReminderInfo
-   * @syscap SystemCapability.Notification.Notification
-   * @systemapi
-   * @since 21 dynamic
-   * @since 23 static
-   */
-  export interface NotificationReminderInfo {
-    /**
-     * The application bundle option.
-     *
-     * @type { BundleOption }
-     * @syscap SystemCapability.Notification.Notification
-     * @systemapi
-     * @since 21 dynamic
-     * @since 23 static
-     */
-    bundle: BundleOption;
-
-    /**
-     * Obtains the notification reminder flags.
-     *
-     * @type { long }
-     * @syscap SystemCapability.Notification.Notification
-     * @systemapi
-     * @since 21 dynamic
-     * @since 23 static
-     */
-    reminderFlags: long;
-
-    /**
-     * The application silent reminder enable status.
-     *
-     * @type { boolean }
-     * @syscap SystemCapability.Notification.Notification
-     * @systemapi
-     * @since 21 dynamic
-     * @since 23 static
-     */
-    silentReminderEnabled: boolean;
-  }
-
-  /**
    * Describes the ringtone information.
    *
    * @typedef RingtoneInfo
@@ -5805,6 +5872,50 @@ declare namespace notificationManager {
      * @since 23 static
      */
     ringtoneUri?: string;
+  }
+
+  /**
+   * Describes reminder info.
+   *
+   * @typedef NotificationReminderInfo
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 21 dynamic
+   * @since 23 static
+   */
+  export interface NotificationReminderInfo {
+    /**
+     * The application bundle option.
+     *
+     * @type { BundleOption }
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 21 dynamic
+     * @since 23 static
+     */
+    bundle: BundleOption;
+
+    /**
+     * Obtains the notification reminder flags.
+     *
+     * @type { long }
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 21 dynamic
+     * @since 23 static
+     */
+    reminderFlags: long;
+
+    /**
+     * The application silent reminder enable status.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 21 dynamic
+     * @since 23 static
+     */
+    silentReminderEnabled: boolean;
   }
 
   /**
@@ -6134,6 +6245,77 @@ declare namespace notificationManager {
      * @since 23 dynamic&static
      */
     ENABLE = 2,
+  }
+
+  /**
+   * Priority strategy status for bundle
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  export enum PriorityStrategyStatus {  
+    /**
+     * Default priority strategy status
+     *
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    STATUS_SYSTEM_DEFAULT = 1 << 0,
+
+    /**
+     * Priority rules only
+     *
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    STATUS_SYSTEM_RULE = 1 << 1,
+
+    /**
+     * Intelligent recognition only
+     *
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    STATUS_INTELLIGENT = 1 << 2,
+
+    /**
+     * User-defined only
+     *
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    STATUS_USER_DEFINED = 1 << 3,
+
+    /**
+     * Application-defined only
+     *
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    STATUS_APPLICATION_DEFINED = 1 << 4,
+
+    /**
+     * All notifications are priority state
+     *
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    STATUS_ALL_PRIORITY = 1 << 5
   }
 
   /**

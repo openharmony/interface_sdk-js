@@ -28,10 +28,8 @@ export { WebNativeMessagingExtensionAbility, webNativeMessagingExtensionManager,
 
 /*** if arkts dynamic&static */
 import webview from '@ohos.web.webview';
-
-export { webview };
-
 import WebNativeMessagingExtensionContext from '@ohos.web.WebNativeMessagingExtensionContext';
 
+export { webview };
 export { WebNativeMessagingExtensionContext };
 /*** endif */

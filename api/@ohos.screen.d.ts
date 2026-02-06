@@ -170,7 +170,7 @@ declare namespace screen {
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    * @deprecated since 20
    */
   function makeExpand(options: Array<ExpandOption>, callback: AsyncCallback<long>): void;
@@ -187,7 +187,7 @@ declare namespace screen {
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    * @deprecated since 20
    */
   function makeExpand(options: Array<ExpandOption>): Promise<long>;
@@ -204,7 +204,7 @@ declare namespace screen {
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 10 dynamic
+   * @since 10 dynamiconly
    * @deprecated since 20
    */
   function stopExpand(expandScreen: Array<long>, callback: AsyncCallback<void>): void;
@@ -221,7 +221,7 @@ declare namespace screen {
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 10 dynamic
+   * @since 10 dynamiconly
    * @deprecated since 20
    */
   function stopExpand(expandScreen: Array<long>): Promise<void>;
@@ -529,7 +529,7 @@ declare namespace screen {
   function setMultiScreenMode(primaryScreenId: long, secondaryScreenId: long,
     secondaryScreenMode: MultiScreenMode): Promise<void>;
 
-    /**
+  /**
    * Set multi screen relative position.
    *
    * @param { MultiScreenPositionOptions } mainScreenOptions - main screen position.
@@ -547,6 +547,25 @@ declare namespace screen {
    */
   function setMultiScreenRelativePosition(mainScreenOptions: MultiScreenPositionOptions,
     secondaryScreenOptions: MultiScreenPositionOptions): Promise<void>;
+
+  /**
+   * Resize virtual screen.
+   *
+   * @param { long } screenId The id of virtual screen to be resized, Value Range: [1000, 2147483647].
+   * @param { long } width The new width, Value Range: [1, 65536].
+   * @param { long } height The new height, Value Range: [1, 65536].
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 801 - Capability not supported. Function can not work because the current device does
+   * not support this ability.
+   * @throws { BusinessError } 1400001 - Invalid display or screen.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @throws { BusinessError } 1400004 - Parameter error. Possible cause: 1. Invalid parameter range.
+   * @syscap SystemCapability.Window.SessionManager
+   * @systemapi Hide this for inner system use.
+   * @since 24 dynamic&static
+   */
+  function resizeVirtualScreen(screenId: long, width: long, height: long): Promise<void>;
 
   /**
    * Indicate the screen mode

@@ -1424,7 +1424,7 @@ declare class UIAbilityContext extends Context {
    *
    * @permission ohos.permission.ABILITY_BACKGROUND_COMMUNICATION and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
    * @param { Want } want - Indicates the ability to start.
-   * @param { number } accountId - Indicates the account to start.
+   * @param { int } accountId - Indicates the account to start.
    * @returns { Promise<Caller> } Returns the Caller interface.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
@@ -1454,7 +1454,7 @@ declare class UIAbilityContext extends Context {
    * @since 14 dynamic
    * @since 23 static
    */
-  startAbilityByCallWithAccount(want: Want, accountId: number): Promise<Caller>;
+  startAbilityByCallWithAccount(want: Want, accountId: int): Promise<Caller>;
 
   /**
    * Starts a new ability with account. If the caller application is in foreground,

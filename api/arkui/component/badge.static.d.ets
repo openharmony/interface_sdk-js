@@ -130,7 +130,7 @@ export declare interface BadgeStyle {
      * @type { ?ResourceColor }
      * @default Color.White
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
     outerBorderColor?: ResourceColor;
 
@@ -140,17 +140,17 @@ export declare interface BadgeStyle {
      * @type { ?LengthMetrics }
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
     outerBorderWidth?: LengthMetrics;
 
     /**
-     * Enable auto avoidance for text in badge.
+     * Enable auto-avoidance for text in badge.
      *
      * @type { ?boolean }
      * @default false
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
     enableAutoAvoidance?: boolean;
 }

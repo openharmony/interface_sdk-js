@@ -26,6 +26,7 @@ import { Builder } from '@ohos.arkui.component';
  * Declare component SwipeRefresher
  * @struct { SwipeRefresher }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
@@ -36,6 +37,7 @@ export declare struct SwipeRefresher {
      *
      * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     @PropRef
@@ -45,6 +47,7 @@ export declare struct SwipeRefresher {
      *
      * @type { boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     @PropRef
@@ -52,6 +55,7 @@ export declare struct SwipeRefresher {
     /**
      * The method to build component.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 staticonly
      */
     @Builder

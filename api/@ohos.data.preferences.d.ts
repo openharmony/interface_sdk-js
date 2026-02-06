@@ -171,8 +171,9 @@ declare namespace preferences {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
+   * @since 23 static
    */
-  const MAX_VALUE_LENGTH: number;
+  const MAX_VALUE_LENGTH: int;
 
   /**
    * the storage type

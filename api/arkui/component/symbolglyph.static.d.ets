@@ -158,7 +158,7 @@ export declare enum EffectFillStyle {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 23 static
+ * @since 24 static
  */
 export declare enum ReplaceEffectType {
     /**
@@ -166,7 +166,7 @@ export declare enum ReplaceEffectType {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     SEQUENTIAL = 0,
     /**
@@ -175,7 +175,7 @@ export declare enum ReplaceEffectType {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     CROSS_FADE = 1,
     /**
@@ -185,7 +185,7 @@ export declare enum ReplaceEffectType {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     SLASH_OVERLAY = 2
 }
@@ -352,10 +352,17 @@ export declare class ReplaceSymbolEffect extends SymbolEffect {
      * constructor.
      *
      * @param { EffectScope } [scope] - The scope type of symbol effect.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    /**
+     * constructor.
+     *
+     * @param { EffectScope } [scope] - The scope type of symbol effect.
      * @param { ReplaceEffectType } [replaceType] - The replace effect type of symbol effect.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     constructor(scope?: EffectScope, replaceType?: ReplaceEffectType);
     /**
@@ -372,7 +379,7 @@ export declare class ReplaceSymbolEffect extends SymbolEffect {
      * @type { ?ReplaceEffectType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     replaceType?: ReplaceEffectType;
 }
@@ -502,7 +509,7 @@ export declare interface SymbolGlyphAttribute extends CommonMethod {
      * @returns { SymbolGlyphAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     default shaderStyle(shader: Array<ShaderStyle | undefined> | ShaderStyle | undefined): this;
     /**
@@ -515,7 +522,7 @@ export declare interface SymbolGlyphAttribute extends CommonMethod {
      * @param { ShadowOptions | undefined } shadow - The shadow options. Passing `undefined` will reset to default.
      * @returns { SymbolGlyphAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
     default symbolShadow(shadow: ShadowOptions | undefined): this;
 

@@ -326,7 +326,7 @@ export declare interface ChainAnimationOptions {
  * @extends UIScrollableCommonEvent
  * @interface UIListEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 23 static
+ * @since 24 static
  */
 export declare interface UIListEvent extends UIScrollableCommonEvent {
   /**
@@ -335,7 +335,7 @@ export declare interface UIListEvent extends UIScrollableCommonEvent {
    * @param { OnWillScrollCallback | undefined } callback - The callback will be triggered when the List will scroll.
    *     Passing undefined will unregister the callback.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   setOnWillScroll(callback: OnWillScrollCallback | undefined): void;
   /**
@@ -344,7 +344,7 @@ export declare interface UIListEvent extends UIScrollableCommonEvent {
    * @param { OnScrollCallback | undefined } callback - callback function, triggered when the List view did scroll.
    *     Passing undefined will unregister the callback.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   setOnDidScroll(callback: OnScrollCallback | undefined): void;
   /**
@@ -353,7 +353,7 @@ export declare interface UIListEvent extends UIScrollableCommonEvent {
    * @param { OnListScrollIndexCallback | undefined } callback - callback function, triggered when the
    *     start, end, or center positions of the display change. Passing undefined will unregister the callback.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   setOnScrollIndex(callback: OnListScrollIndexCallback | undefined): void;
   /**
@@ -362,7 +362,7 @@ export declare interface UIListEvent extends UIScrollableCommonEvent {
    * @param { OnScrollVisibleContentChangeCallback | undefined } callback - callback function, triggered when
    *     the list visible content changes. Passing undefined will unregister the callback.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   setOnScrollVisibleContentChange(callback: OnScrollVisibleContentChangeCallback | undefined): void;
 }
@@ -436,10 +436,12 @@ export type OnScrollVisibleContentChangeCallback = (start: VisibleListContentInf
  * @param { int } end - the last index in visible content.
  * @param { int } center - the center index in visible content.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 23 static
+ * @since 24 static
  */
 export type OnListScrollIndexCallback = (start: int, end: int, center: int) => void;
 /**
+ * Scroll controller for list component.
+ *
  * @extends Scroller
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 23 static
@@ -595,21 +597,21 @@ export interface ListOptions {
  * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 23 static
+ * @since 24 static
  */
 export declare enum ScrollSnapAnimationSpeed {
   /**
    * The speed of scroll snap animation is normal.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   NORMAL = 0,
   /**
    * The speed of scroll snap animation slow.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   SLOW = 1
 }
@@ -712,6 +714,7 @@ export declare interface ListAttribute extends ScrollableCommonMethod {
      *     <br>Unit: vp
      * @returns { this } the attribute of the list.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default contentStartOffset(offset: double | Resource | undefined): this;
@@ -724,6 +727,7 @@ export declare interface ListAttribute extends ScrollableCommonMethod {
      *     <br>Unit: vp
      * @returns { this } the attribute of the list.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default contentEndOffset(offset: double | Resource | undefined): this;
@@ -903,7 +907,7 @@ export declare interface ListAttribute extends ScrollableCommonMethod {
      *     <br>Default value: **FocusWrapMode.DEFAULT**. Passing undefined will restore the default value.
      * @returns { this } the attribute of the list.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
     default focusWrapMode(mode: FocusWrapMode | undefined): this;
     /**
@@ -913,7 +917,7 @@ export declare interface ListAttribute extends ScrollableCommonMethod {
      *     <br>Default value: true. Passing undefined will restore the default value.
      * @returns { this } The attribute of the list.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
     default syncLoad(enable: boolean | undefined): this;
     /**
@@ -923,7 +927,7 @@ export declare interface ListAttribute extends ScrollableCommonMethod {
      *     <br>Default value: <em>ScrollSnapAnimationSpeed.NORMAL</em> Passing undefined will restore the default value.
      * @returns { this } The attribute of the list.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
     default scrollSnapAnimationSpeed(speed: ScrollSnapAnimationSpeed | undefined): this;
     /**

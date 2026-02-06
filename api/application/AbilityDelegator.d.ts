@@ -1340,7 +1340,7 @@ export interface AbilityDelegator {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11 dynamiconly
    */
   setMockList(mockList: Record<string, string>): void;
 }

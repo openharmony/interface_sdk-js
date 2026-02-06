@@ -49,7 +49,6 @@
     "SystemCapability.BundleManager.BundleFramework.Resource",
     "SystemCapability.BundleManager.Zlib",
     "SystemCapability.Applications.CalendarData",
-    "SystemCapability.Applications.Contacts",
     "SystemCapability.Telephony.CallManager",
     "SystemCapability.Telephony.CellularData",
     "SystemCapability.Security.Cert",
@@ -194,7 +193,6 @@
     "SystemCapability.Multimedia.Media.Core",
     "SystemCapability.Security.CertificateManager",
     "SystemCapability.MiscServices.Pasteboard",
-    "SystemCapability.FileManagement.PhotoAccessHelper.Core",
-    "SystemCapability.Multimedia.Camera.Core"
+    "SystemCapability.FileManagement.PhotoAccessHelper.Core"
   ]
 }

@@ -332,7 +332,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 10 dynamic
    */
   /**
    * Register notifications of network traffic updates.
@@ -376,7 +376,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 10 dynamic
    */
   /**
    * Unregister notifications of network traffic updates.

@@ -589,7 +589,21 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 23 static
+   */
+  /**
+   * Answers the incoming call without callId.
+   *
+   * @permission ohos.permission.ANSWER_CALL or ohos.permission.MANAGE_CALL_FOR_DEVICES
+   * @param { AsyncCallback<void> } callback - The callback of answerCall.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+   * 2. Incorrect parameters types;
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CallManager
+   * @since 23 dynamic&static
    */
   function answerCall(callback: AsyncCallback<void>): void;
 
@@ -695,7 +709,22 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 23 static
+   */
+  /**
+   * Hang up the foreground call without callId.
+   *
+   * @permission ohos.permission.ANSWER_CALL or ohos.permission.SET_TELEPHONY_STATE or
+   * ohos.permission.MANAGE_CALL_FOR_DEVICES
+   * @param { AsyncCallback<void> } callback - The callback of hangUpCall.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+   * 2. Incorrect parameters types;
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CallManager
+   * @since 23 dynamic&static
    */
   function hangUpCall(callback: AsyncCallback<void>): void;
 
@@ -780,7 +809,21 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 23 static
+   */
+  /**
+   * Reject the incoming call without callId.
+   *
+   * @permission ohos.permission.ANSWER_CALL or ohos.permission.MANAGE_CALL_FOR_DEVICES
+   * @param { AsyncCallback<void> } callback - The callback of rejectCall.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+   * 2. Incorrect parameters types;
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CallManager
+   * @since 23 dynamic&static
    */
   function rejectCall(callback: AsyncCallback<void>): void;
 
@@ -4676,6 +4719,103 @@ declare namespace call {
   }
 
   /**
+   * Indicates the states of Carrier Call.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Telephony.CallManager
+   * @since 23 dynamic&static
+   */
+  export enum CCallState {
+    /**
+     * Indicates the call is unknown.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @since 23 dynamic&static
+     */
+    CCALL_STATE_UNKNOWN = -1,
+
+    /**
+     * Indicates the call is active.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @since 23 dynamic&static
+     */
+    CCALL_STATE_ACTIVE = 0,
+
+    /**
+     * Indicates the call is holding.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @since 23 dynamic&static
+     */
+    CCALL_STATE_HOLDING = 1,
+
+    /**
+     * Indicates the call is dialing.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @since 23 dynamic&static
+     */
+    CCALL_STATE_DIALING = 2,
+
+    /**
+     * Indicates the call is alerting.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @since 23 dynamic&static
+     */
+    CCALL_STATE_ALERTING = 3,
+
+    /**
+     * Indicates the call is incoming.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @since 23 dynamic&static
+     */
+    CCALL_STATE_INCOMING = 4,
+
+    /**
+     * Indicates the call is waiting.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @since 23 dynamic&static
+     */
+    CCALL_STATE_WAITING = 5,
+
+    /**
+     * Indicates the call is disconnected.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @since 23 dynamic&static
+     */
+    CCALL_STATE_DISCONNECTED = 6,
+
+    /**
+     * Indicates the call is disconnecting.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @since 23 dynamic&static
+     */
+    CCALL_STATE_DISCONNECTING = 7,
+
+    /**
+     * Indicates the call is idle.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @since 23 dynamic&static
+     */
+    CCALL_STATE_IDLE = 8,
+
+    /**
+     * Indicates the call is answered.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @since 23 dynamic&static
+     */
+    CCALL_STATE_ANSWERED = 9
+  }
+
+  /**
    * Indicates the options of placing a call.
    *
    * @interface DialOptions
@@ -4705,7 +4845,7 @@ declare namespace call {
      * @since 8 dynamic
      * @since 23 static
      */
-    accountId?: number;
+    accountId?: int;
 
     /**
      * Indicates the type of Video state.

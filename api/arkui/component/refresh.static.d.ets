@@ -189,7 +189,7 @@ export declare interface RefreshAttribute extends CommonMethod {
      *     value range is [0, +∞), default value is { undefined }, Unlimited maximum pull-down distance.
      * @returns { this } The attribute of the Refresh.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
     default maxPullDownDistance(distance: double | undefined): this;
     /**

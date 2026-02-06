@@ -20,7 +20,7 @@
 
 import { AsyncCallback, Callback } from './@ohos.base';
 import Context from './application/Context';
-import window  from './@ohos.window';
+import window from './@ohos.window';
 import type { CustomColors } from './@ohos.arkui.theme';
 /**
  * The Picker module encapsulates APIs of DocumentViewPicker, AudioViewPicker, and PhotoViewPicker
@@ -889,7 +889,7 @@ declare namespace picker {
     themeColor?: CustomColors;
 
     /**
-     * Whether to create empty files, The default value is true, indicating that empty files will be created.
+     * Whether to create empty files. The default value is true, indicating that empty files will be created.
      *
      * @type { ?boolean }
      * @default true

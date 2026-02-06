@@ -54,8 +54,9 @@ import distributedDataObject from '@ohos.data.distributedDataObject';
 import unifiedDataChannel from '@ohos.data.unifiedDataChannel';
 import uniformTypeDescriptor from '@ohos.data.uniformTypeDescriptor';
 import uniformDataStruct from '@ohos.data.uniformDataStruct';
+import { ContentFormCard, FormType } from '@ohos.data.UdmfComponents';
 export {
   cloudData, cloudExtension, commonType, distributedDataObject, unifiedDataChannel, uniformTypeDescriptor,
-  uniformDataStruct
+  uniformDataStruct, ContentFormCard, FormType
 };
 /*** endif */

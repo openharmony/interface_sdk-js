@@ -59,6 +59,7 @@ export { SceneResourceType, SceneResource, Shader, MaterialType, Material, Shade
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @systemapi
  * @stagemodelonly
+ * @since 23 dynamic&static
  */
 export { UnlitShadowAlphaMaterial } from './graphics3d/SceneResources';
 

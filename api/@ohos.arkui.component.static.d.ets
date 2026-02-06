@@ -123,8 +123,6 @@ export * from './arkui/component/sidebar';
 export * from './arkui/component/slider';
 export * from './arkui/component/span';
 export * from './arkui/component/stack';
-export * from './arkui/component/stepper';
-export * from './arkui/component/stepperItem';
 export * from './arkui/component/styledString';
 export * from './arkui/component/swiper';
 export * from './arkui/component/symbolSpan';
@@ -154,3 +152,8 @@ export * from './arkui/component/pageTransition';
 export * from './arkui/component/component3d';
 export * from './arkui/component/unionEffectContainer';
 export * from './arkui/component/uiPickerComponent';
+
+// Many xts-acts tests rely on the following bindings from 'component': 
+export * from './arkui/ComponentContent';
+export * from './arkui/FrameNode';
+export * from './arkui/SymbolGlyphModifier';

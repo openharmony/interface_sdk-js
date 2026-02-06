@@ -167,14 +167,14 @@ declare namespace image {
     RGB_565 = 2,
 
     /**
-     * Indicates that each pixel is stored on 32 bits. Each pixel contains 4 components：B(8bits), G(8bits), R(8bits), A(8bits)
+     * Indicates that each pixel is stored on 32 bits. Each pixel contains 4 components：R(8bits), G(8bits), B(8bits), A(8bits)
      * and are stored from the higher-order to the lower-order bits.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 7
      */
     /**
-     * Indicates that each pixel is stored on 32 bits. Each pixel contains 4 components：B(8bits), G(8bits), R(8bits), A(8bits)
+     * Indicates that each pixel is stored on 32 bits. Each pixel contains 4 components：R(8bits), G(8bits), B(8bits), A(8bits)
      * and are stored from the higher-order to the lower-order bits.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -182,7 +182,7 @@ declare namespace image {
      * @since 10
      */
     /**
-     * Indicates that each pixel is stored on 32 bits. Each pixel contains 4 components：B(8bits), G(8bits), R(8bits), A(8bits)
+     * Indicates that each pixel is stored on 32 bits. Each pixel contains 4 components：R(8bits), G(8bits), B(8bits), A(8bits)
      * and are stored from the higher-order to the lower-order bits.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -191,7 +191,7 @@ declare namespace image {
      * @since 11
      */
     /**
-     * Indicates that each pixel is stored on 32 bits. Each pixel contains 4 components：B(8bits), G(8bits), R(8bits), A(8bits)
+     * Indicates that each pixel is stored on 32 bits. Each pixel contains 4 components：R(8bits), G(8bits), B(8bits), A(8bits)
      * and are stored from the higher-order to the lower-order bits.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -7429,9 +7429,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Get color space of pixel map.
      *
      * @returns { colorSpaceManager.ColorSpaceManager } If the operation fails, an error message is returned.
-     * @throws { BusinessError } 62980101 - If the image data abnormal.
-     * @throws { BusinessError } 62980103 - If the image data unsupport.
-     * @throws { BusinessError } 62980115 - If the image parameter invalid.
+     * @throws { BusinessError } 62980101 - The image data is abnormal.
+     * @throws { BusinessError } 62980103 - The image data is not supported.
+     * @throws { BusinessError } 62980115 - Invalid image parameter.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform  
      * @since 11 dynamic
@@ -8447,7 +8447,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     WIDTH = 'FragmentImageWidth',
 
     /**
-     * Mark cut map width.
+     * Mark cut map height.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 13 dynamic
@@ -11692,7 +11692,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 62980111 - The image source data is incomplete.
      * @throws { BusinessError } 62980112 - The image format does not match.
      * @throws { BusinessError } 62980113 - Unknown image format.
-     * The image data provided is not in a recognized or supported format, or it may be occorrupted.
+     * The image data provided is not in a recognized or supported format, or it may be corrupted.
      * @throws { BusinessError } 62980115 - Invalid image parameter.
      * @throws { BusinessError } 62980116 - Failed to decode the image.
      * @throws { BusinessError } 62980118 - Failed to create the image plugin.
@@ -11711,7 +11711,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 62980111 - The image source data is incomplete.
      * @throws { BusinessError } 62980112 - The image format does not match.
      * @throws { BusinessError } 62980113 - Unknown image format.
-     * The image data provided is not in a recognized or supported format, or it may be occorrupted.
+     * The image data provided is not in a recognized or supported format, or it may be corrupted.
      * @throws { BusinessError } 62980115 - Invalid image parameter.
      * @throws { BusinessError } 62980116 - Failed to decode the image.
      * @throws { BusinessError } 62980118 - Failed to create the image plugin.
@@ -11733,7 +11733,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 62980111 - The image source data is incomplete.
      * @throws { BusinessError } 62980112 - The image format does not match.
      * @throws { BusinessError } 62980113 - Unknown image format.
-     * The image data provided is not in a recognized or supported format, or it may be occorrupted.
+     * The image data provided is not in a recognized or supported format, or it may be corrupted.
      * @throws { BusinessError } 62980115 - Invalid image parameter.
      * @throws { BusinessError } 62980116 - Failed to decode the image.
      * @throws { BusinessError } 62980118 - Failed to create the image plugin.
@@ -11752,7 +11752,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 62980111 - The image source data is incomplete.
      * @throws { BusinessError } 62980112 - The image format does not match.
      * @throws { BusinessError } 62980113 - Unknown image format.
-     * The image data provided is not in a recognized or supported format, or it may be occorrupted.
+     * The image data provided is not in a recognized or supported format, or it may be corrupted.
      * @throws { BusinessError } 62980115 - Invalid image parameter.
      * @throws { BusinessError } 62980116 - Failed to decode the image.
      * @throws { BusinessError } 62980118 - Failed to create the image plugin.
@@ -11780,7 +11780,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 62980111 - The image source data is incomplete.
      * @throws { BusinessError } 62980112 - The image format does not match.
      * @throws { BusinessError } 62980113 - Unknown image format.
-     * The image data provided is not in a recognized or supported format, or it may be occorrupted.
+     * The image data provided is not in a recognized or supported format, or it may be corrupted.
      * @throws { BusinessError } 62980115 - Invalid image parameter.
      * @throws { BusinessError } 62980118 - Failed to create the image plugin.
      * @throws { BusinessError } 62980122 - Failed to decode the image header.
@@ -11805,7 +11805,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 62980111 - The image source data is incomplete.
      * @throws { BusinessError } 62980112 - The image format does not match.
      * @throws { BusinessError } 62980113 - Unknown image format.
-     * The image data provided is not in a recognized or supported format, or it may be occorrupted.
+     * The image data provided is not in a recognized or supported format, or it may be corrupted.
      * @throws { BusinessError } 62980115 - Invalid image parameter.
      * @throws { BusinessError } 62980118 - Failed to create the image plugin.
      * @throws { BusinessError } 62980122 - Failed to decode the image header.
@@ -11909,6 +11909,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * 2. Decoding process exception. 3. Insufficient memory.
      * @throws { BusinessError } 62980110 - The image source data is incorrect.
      * @throws { BusinessError } 62980113 - Unknown image format.
+     *     The image data provided is not in a recognized or supported format, or it may be corrupted.
      * @throws { BusinessError } 62980116 - Failed to decode the image.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
@@ -11927,6 +11928,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *     2. Decoding process exception. 3. Insufficient memory.
      * @throws { BusinessError } 62980110 - The image source data is incorrect.
      * @throws { BusinessError } 62980113 - Unknown image format.
+     *     The image data provided is not in a recognized or supported format, or it may be corrupted.
      * @throws { BusinessError } 62980116 - Failed to decode the image.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
@@ -12494,7 +12496,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 62980101 - The image data is abnormal.
      * @throws { BusinessError } 62980106 - The image data is too large. This status code is thrown when an error occurs during the process of checking size.
      * @throws { BusinessError } 62980113 - Unknown image format.
-     * The image data provided is not in a recognized or supported format, or it may be occorrupted.
+     * The image data provided is not in a recognized or supported format, or it may be corrupted.
      * @throws { BusinessError } 62980119 - Failed to encode the image.
      * @throws { BusinessError } 62980120 - Add pixelmap out of range.
      * @throws { BusinessError } 62980172 - Failed to encode icc.
@@ -12595,7 +12597,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 62980101 - The image data is abnormal.
      * @throws { BusinessError } 62980106 - The image data is too large. This status code is thrown when an error occurs during the process of checking size.
      * @throws { BusinessError } 62980113 - Unknown image format.
-     * The image data provided is not in a recognized or supported format, or it may be occorrupted.
+     * The image data provided is not in a recognized or supported format, or it may be corrupted.
      * @throws { BusinessError } 62980119 - Failed to encode the image.
      * @throws { BusinessError } 62980120 - Add pixelmap out of range.
      * @throws { BusinessError } 62980172 - Failed to encode icc.
@@ -12635,7 +12637,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 62980101 - The image data is abnormal.
      * @throws { BusinessError } 62980106 - The image data is too large. This status code is thrown when an error occurs during the process of checking size.
      * @throws { BusinessError } 62980113 - Unknown image format.
-     * The image data provided is not in a recognized or supported format, or it may be occorrupted.
+     * The image data provided is not in a recognized or supported format, or it may be corrupted.
      * @throws { BusinessError } 62980115 - Invalid input parameter.
      * @throws { BusinessError } 62980119 - Failed to encode the image.
      * @throws { BusinessError } 62980120 - Add pixelmap out of range.
@@ -12660,7 +12662,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 62980101 - The image data is abnormal.
      * @throws { BusinessError } 62980106 - The image data is too large. This status code is thrown when an error occurs during the process of checking size.
      * @throws { BusinessError } 62980113 - Unknown image format.
-     * The image data provided is not in a recognized or supported format, or it may be occorrupted.
+     * The image data provided is not in a recognized or supported format, or it may be corrupted.
      * @throws { BusinessError } 62980115 - Invalid input parameter.
      * @throws { BusinessError } 62980119 - Failed to encode the image.
      * @throws { BusinessError } 62980120 - Add pixelmap out of range.
@@ -12685,7 +12687,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 62980101 - The image data is abnormal.
      * @throws { BusinessError } 62980106 - The image data is too large. This status code is thrown when an error occurs during the process of checking size.
      * @throws { BusinessError } 62980113 - Unknown image format.
-     * The image data provided is not in a recognized or supported format, or it may be occorrupted.
+     * The image data provided is not in a recognized or supported format, or it may be corrupted.
      * @throws { BusinessError } 62980115 - Invalid input parameter.
      * @throws { BusinessError } 62980119 - Failed to encode the image.
      * @throws { BusinessError } 62980120 - Add pixelmap out of range.
@@ -12710,7 +12712,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 62980101 - The image data is abnormal.
      * @throws { BusinessError } 62980106 - The image data is too large. This status code is thrown when an error occurs during the process of checking size.
      * @throws { BusinessError } 62980113 - Unknown image format.
-     * The image data provided is not in a recognized or supported format, or it may be occorrupted.
+     * The image data provided is not in a recognized or supported format, or it may be corrupted.
      * @throws { BusinessError } 62980115 - Invalid input parameter.
      * @throws { BusinessError } 62980119 - Failed to encode the image.
      * @throws { BusinessError } 62980120 - Add pixelmap out of range.
@@ -12837,7 +12839,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    */
   interface Image {
     /**
-     * Sets or gets the image area to crop, default is size.
+     * Gets the image area, which always covers the entire image and can not be modified.
+     * clipRect.size equals to the size of the image.
+     * clipRect.x and clipRect.y are always 0, indicating the top-left corner of the image.
      *
      * @type { Region }
      * @syscap SystemCapability.Multimedia.Image.Core

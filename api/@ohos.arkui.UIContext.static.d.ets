@@ -299,6 +299,7 @@ export declare class Router {
    * @param { int } index - index of page.
    * @param { Object } [params] - params of page.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   back(index: int, params?: Object): void;
@@ -386,6 +387,7 @@ export declare class Router {
    *
    * @returns { Object } Page params.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   getParams(): Object;
@@ -1023,14 +1025,15 @@ export interface OverlayManagerOptions {
 
 /**
  * Defines the type can be used for identiting the node, for the string type, it's the inspector id
- * set through .id attribute, and for the number type, it's the unique ID got from the FrameNode by
+ * set through .id attribute, and for the int type, it's the unique ID got from the FrameNode by
  * getUniqueID method.
  *
- * @typedef { string | number } NodeIdentity
+ * @typedef { string | int } NodeIdentity
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 23 static
+ * @stagemodelonly
+ * @since 24 static
  */
-export declare type NodeIdentity = string | number;
+export declare type NodeIdentity = string | int;
 
 /**
  * An enumeration type that identifies the current node's rendering state. The UI components used in
@@ -1043,7 +1046,8 @@ export declare type NodeIdentity = string | number;
  *
  * @enum { number } NodeRenderState
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 23 static
+ * @stagemodelonly
+ * @since 24 static
  */
 export const enum NodeRenderState {
   /**
@@ -1054,7 +1058,8 @@ export const enum NodeRenderState {
    * trigger the callback once, and the state notified at this time typically represents the current state.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @stagemodelonly
+   * @since 24 static
    */
   ABOUT_TO_RENDER_IN = 0,
 
@@ -1065,7 +1070,8 @@ export const enum NodeRenderState {
    * trigger the callback once, and the state notified at this time typically represents the current state.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @stagemodelonly
+   * @since 24 static
    */
   ABOUT_TO_RENDER_OUT = 1
 }
@@ -1077,7 +1083,8 @@ export const enum NodeRenderState {
  * @param { NodeRenderState } state - the node's render state
  * @param { FrameNode } [node] - the information of frameNode
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 23 static
+ * @stagemodelonly
+ * @since 24 static
  */
 export declare type NodeRenderStateChangeCallback = (state: NodeRenderState, node?: FrameNode) => void;
 
@@ -1089,7 +1096,8 @@ export declare type NodeRenderStateChangeCallback = (state: NodeRenderState, nod
  *
  * @enum { number } GestureActionPhase
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 23 static
+ * @stagemodelonly
+ * @since 24 static
  */
 export const enum GestureActionPhase {
   /**
@@ -1097,7 +1105,8 @@ export const enum GestureActionPhase {
    * executed immediately.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @stagemodelonly
+   * @since 24 static
    */
   WILL_START = 0,
 
@@ -1106,7 +1115,8 @@ export const enum GestureActionPhase {
    * fingers, ending the entire interaction, and the action-end callback will be executed immediately.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @stagemodelonly
+   * @since 24 static
    */
   WILL_END = 1
 }
@@ -1116,14 +1126,16 @@ export const enum GestureActionPhase {
  *
  * @enum { number } GestureListenerType
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 23 static
+ * @stagemodelonly
+ * @since 24 static
  */
 export const enum GestureListenerType {
   /**
    * The tap gesture.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @stagemodelonly
+   * @since 24 static
    */
   TAP = 0,
 
@@ -1131,7 +1143,8 @@ export const enum GestureListenerType {
    * The long press gesture.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @stagemodelonly
+   * @since 24 static
    */
   LONG_PRESS = 1,
 
@@ -1139,7 +1152,8 @@ export const enum GestureListenerType {
    * The pan gesture.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @stagemodelonly
+   * @since 24 static
    */
   PAN = 2,
 
@@ -1147,7 +1161,8 @@ export const enum GestureListenerType {
    * The pinch gesture.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @stagemodelonly
+   * @since 24 static
    */
   PINCH = 3,
 
@@ -1155,7 +1170,8 @@ export const enum GestureListenerType {
    * The swipe gesture.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @stagemodelonly
+   * @since 24 static
    */
   SWIPE = 4,
 
@@ -1163,7 +1179,8 @@ export const enum GestureListenerType {
    * The rotation gesture.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @stagemodelonly
+   * @since 24 static
    */
   ROTATION = 5
 }
@@ -1173,7 +1190,8 @@ export const enum GestureListenerType {
  *
  * @interface GestureTriggerInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 23 static
+ * @stagemodelonly
+ * @since 24 static
  */
 export interface GestureTriggerInfo {
   /**
@@ -1181,7 +1199,8 @@ export interface GestureTriggerInfo {
    *
    * @type { GestureEvent }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @stagemodelonly
+   * @since 24 static
    */
   event: GestureEvent;
 
@@ -1191,7 +1210,8 @@ export interface GestureTriggerInfo {
    *
    * @type { GestureRecognizer }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @stagemodelonly
+   * @since 24 static
    */
   current: GestureRecognizer;
 
@@ -1200,7 +1220,8 @@ export interface GestureTriggerInfo {
    *
    * @type { GestureActionPhase }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @stagemodelonly
+   * @since 24 static
    */
   currentPhase: GestureActionPhase;
 
@@ -1209,7 +1230,8 @@ export interface GestureTriggerInfo {
    *
    * @type { ?FrameNode }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @stagemodelonly
+   * @since 24 static
    */
   node?: FrameNode;
 }
@@ -1219,17 +1241,18 @@ export interface GestureTriggerInfo {
  *
  * @interface GestureObserverConfigs
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 23 static
+ * @stagemodelonly
+ * @since 24 static
  */
 export interface GestureObserverConfigs {
   /**
-   * The gesture callback phases want to monitor. Only the specific action phases can be notified when the gesture is
-   * triggered.
-   * If empty array provided, the register will has no any effect.
+   * The gesture callback phases want to monitor. Only the specific action phases can be notified when the
+   * gesture is triggered. If empty array provided, the register will has no any effect.
    *
    * @type { Array<GestureActionPhase> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @stagemodelonly
+   * @since 24 static
    */
   actionPhases: Array<GestureActionPhase>;
 }
@@ -1239,9 +1262,9 @@ export interface GestureObserverConfigs {
  *
  * @typedef { function } GestureListenerCallback
  * @param { GestureTriggerInfo } info - the gesture details triggered with user interaction
- *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 23 static
+ * @stagemodelonly
+ * @since 24 static
  */
 export declare type GestureListenerCallback = (info: GestureTriggerInfo) => void;
 
@@ -1492,227 +1515,6 @@ export declare class UIObserver {
   ): void;
 
   /**
-   * Registers a callback function to be called before clickEvent is called.
-   *
-   * @param { 'willClick' } type - The type of event to listen for.
-   * @param { ClickEventListenerCallback } callback - The callback function to be called
-   *                                                  when the clickEvent will be trigger or after.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  on(type: 'willClick', callback: ClickEventListenerCallback): void;
-
-  /**
-   * Removes a callback function to be called before clickEvent is called.
-   *
-   * @param { 'willClick' } type - The type of event to remove the listener for.
-   * @param { ClickEventListenerCallback } [callback] - The callback function to remove. If not provided,
-   *                                                    all callbacks for the given event type will be removed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  off(type: 'willClick', callback?: ClickEventListenerCallback): void;
-
-  /**
-   * Registers a callback function to be called after clickEvent is called.
-   *
-   * @param { 'didClick' } type - The type of event to listen for.
-   * @param { ClickEventListenerCallback } callback - The callback function to be called
-   *                                                  when the clickEvent will be trigger or after.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  on(type: 'didClick', callback: ClickEventListenerCallback): void;
-
-  /**
-   * Removes a callback function to be called after clickEvent is called.
-   *
-   * @param { 'didClick' } type - The type of event to remove the listener for.
-   * @param { ClickEventListenerCallback } [callback] - The callback function to remove. If not provided,
-   *                                                    all callbacks for the given event type will be removed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  off(type: 'didClick', callback?: ClickEventListenerCallback): void;
-
-  /**
-   * Registers a callback function to be called before tapGesture is called.
-   *
-   * @param { 'willClick' } type - The type of event to listen for.
-   * @param { GestureEventListenerCallback } callback - The callback function to be called
-   *                                                    when the clickEvent will be trigger or after.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  on(type: 'willClick', callback: GestureEventListenerCallback): void;
-
-  /**
-   * Removes a callback function to be called before tapGesture is called.
-   *
-   * @param { 'willClick' } type - The type of event to remove the listener for.
-   * @param { GestureEventListenerCallback } [callback] - The callback function to remove. If not provided,
-   *                                                      all callbacks for the given event type will be removed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  off(type: 'willClick', callback?: GestureEventListenerCallback): void;
-
-  /**
-   * Registers a callback function to be called after tapGesture is called.
-   *
-   * @param { 'didClick' } type - The type of event to listen for.
-   * @param { GestureEventListenerCallback } callback - The callback function to be called
-   *                                                    when the clickEvent will be trigger or after.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  on(type: 'didClick', callback: GestureEventListenerCallback): void;
-
-  /**
-   * Removes a callback function to be called after tapGesture is called.
-   *
-   * @param { 'didClick' } type - The type of event to remove the listener for.
-   * @param { GestureEventListenerCallback } [callback] - The callback function to remove. If not provided,
-   *                                                      all callbacks for the given event type will be removed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  off(type: 'didClick', callback?: GestureEventListenerCallback): void;
-
-  /**
-   * Registers a callback function to be called before panGesture onActionStart is called.
-   *
-   * @param { 'beforePanStart' } type - The type of event to listen for.
-   * @param { PanListenerCallback } callback - The callback function to be called
-   *                                                when the panGesture will be trigger or after.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  on(type: 'beforePanStart', callback: PanListenerCallback): void;
-
-  /**
-   * Removes a callback function to be called before panGesture onActionStart is called.
-   *
-   * @param { 'beforePanStart' } type - The type of event to remove the listener for.
-   * @param { PanListenerCallback } [callback] - The callback function to remove. If not provided,
-   *                                                      all callbacks for the given event type will be removed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  off(type: 'beforePanStart', callback?: PanListenerCallback): void;
-
-  /**
-   * Registers a callback function to be called before panGesture onActionEnd is called.
-   *
-   * @param { 'beforePanEnd' } type - The type of event to listen for.
-   * @param { PanListenerCallback } callback - The callback function to be called
-   *                                                when the panGesture will be trigger or after.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  on(type: 'beforePanEnd', callback: PanListenerCallback): void;
-
-  /**
-   * Removes a callback function to be called before panGesture onActionEnd is called.
-   *
-   * @param { 'beforePanEnd' } type - The type of event to remove the listener for.
-   * @param { PanListenerCallback } [callback] - The callback function to remove. If not provided,
-   *                                                      all callbacks for the given event type will be removed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  off(type: 'beforePanEnd', callback?: PanListenerCallback): void;
-
-  /**
-   * Registers a callback function to be called after panGesture onActionStart is called.
-   *
-   * @param { 'afterPanStart' } type - The type of event to listen for.
-   * @param { PanListenerCallback } callback - The callback function to be called
-   *                                                when the panGesture will be trigger or after.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  on(type: 'afterPanStart', callback: PanListenerCallback): void;
-
-  /**
-   * Removes a callback function to be called after panGesture onActionStart is called.
-   *
-   * @param { 'afterPanStart' } type - The type of event to remove the listener for.
-   * @param { PanListenerCallback } [callback] - The callback function to remove. If not provided,
-   *                                                      all callbacks for the given event type will be removed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  off(type: 'afterPanStart', callback?: PanListenerCallback): void;
-
-  /**
-   * Registers a callback function to be called after panGesture onActionEnd is called.
-   *
-   * @param { 'afterPanEnd' } type - The type of event to listen for.
-   * @param { PanListenerCallback } callback - The callback function to be called
-   *                                                when the panGesture will be trigger or after.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  on(type: 'afterPanEnd', callback: PanListenerCallback): void;
-
-  /**
-   * Removes a callback function to be called after panGesture onActionEnd is called.
-   *
-   * @param { 'afterPanEnd' } type - The type of event to remove the listener for.
-   * @param { PanListenerCallback } [callback] - The callback function to remove. If not provided,
-   *                                                      all callbacks for the given event type will be removed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  off(type: 'afterPanEnd', callback?: PanListenerCallback): void;
-
-  /**
-   * Registers a callback function to be called when the specific node's render state changed.
-   * This callback will be executed once immediately when the register is successful.
-   * [Notes]:
-   *  1. Be aware of the limit on the number of nodes:
-   *     For performance considerations, the system has imposed a limit on the number of
-   *     nodes that can be registered for monitoring in a single UI instance, exception will be thrown
-   *     if overmuch. Please use this interface with caution.
-   *  2. Understanding scenarios where notifications may not occur:
-   *     In general, within container components that have view or page switching functionality,
-   *     when a view or page within the screen is moved outside the screen, the components previously
-   *     within the screen should be removed from the render tree and should receive a RENDER_OUT
-   *     notification. However, this is not always the case, as some scenarios involve views or components
-   *     being moved outside the screen's display range without triggering a RENDER_OUT notification.
-   *     For example, some components with caching capabilities may affect this behavior, and swiper is one
-   *     such component. The cacheCount property of the swiper component allows you to force, via its second
-   *     parameter isShow, that even if the current page is moved outside the display range, it remains in the
-   *     render tree. This can be useful in scenarios where multiple pages are displayed on the screen simultaneously.
-   *     Another example is scrolling components like list or scroll, where their internal content remains in the
-   *     render tree even if it is scrolled outside the screen's display range, provided that lazyForEach/Repeat is
-   *     not used. As a result, there will be no changes to the render state. Once you understand the principles
-   *     behind the triggers for render state changes, these scenarios will become easier to comprehend.
-   *
-   * @param { 'nodeRenderState' } type - The type of event to listen for.
-   * @param { NodeIdentity } nodeIdentity - The identity of the target node
-   * @param { NodeRenderStateChangeCallback } callback - The callback function to be called
-   *                                                    when the clickEvent will be trigger or after.
-   * @throws { BusinessError } 161001 - The count of nodes monitoring render state is over the limitation.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  on(type: 'nodeRenderState', nodeIdentity: NodeIdentity, callback: NodeRenderStateChangeCallback): void;
-
-  /**
-   * Removes a callback function to be called before tapGesture is called.
-   *
-   * @param { 'nodeRenderState' } type - The type of event to remove the listener for.
-   * @param { NodeIdentity } nodeIdentity - The identity of the target node
-   * @param { NodeRenderStateChangeCallback } [callback] - The callback function to remove. If not provided,
-   *                                                      all callbacks for the given event type will be removed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  off(type: 'nodeRenderState', nodeIdentity: NodeIdentity, callback?: NodeRenderStateChangeCallback): void;
-
-  /**
    * Registers a callback function to be called when the window size layout breakpoint changes.
    * This method allows observing changes in window size breakpoints which can be used to
    * adapt UI layouts responsively based on window dimensions.
@@ -1722,7 +1524,7 @@ export declare class UIObserver {
    *     {@link WindowSizeLayoutBreakpointInfo} object containing the current width and height
    *     breakpoint classifications.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   onWindowSizeLayoutBreakpointChange(callback: Callback<observer.WindowSizeLayoutBreakpointInfo>): void;
 
@@ -1733,7 +1535,7 @@ export declare class UIObserver {
    * @param { Callback<observer.WindowSizeLayoutBreakpointInfo> } [callback] - The specific callback function to remove.
    *     If not provided, all callbacks for the given event type and context will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   offWindowSizeLayoutBreakpointChange(callback?: Callback<observer.WindowSizeLayoutBreakpointInfo>): void;
 
@@ -1785,7 +1587,7 @@ export declare class UIObserver {
    * @param { Callback<observer.TextChangeEventInfo> } callback - The callback function to be called when
    *     text field's content is changed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   onTextChange(callback: Callback<observer.TextChangeEventInfo>): void;
 
@@ -1795,7 +1597,7 @@ export declare class UIObserver {
    * @param { Callback<observer.TextChangeEventInfo> } [callback] - The callback function to remove. If not provided,
    *     all callbacks for the given event type will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   offTextChange(callback?: Callback<observer.TextChangeEventInfo>): void;
 
@@ -1806,7 +1608,7 @@ export declare class UIObserver {
    * @param { Callback<observer.TextChangeEventInfo> } callback - The callback function to be called when the
    *     text field's content is changed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   onTextChange(identity: observer.ObserverOptions, callback: Callback<observer.TextChangeEventInfo>): void;
 
@@ -1817,7 +1619,7 @@ export declare class UIObserver {
    * @param { Callback<observer.TextChangeEventInfo> } [callback] - The callback function to remove. If not provided,
    *     all callbacks for the given event type will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   offTextChange(identity: observer.ObserverOptions, callback?: Callback<observer.TextChangeEventInfo>): void;
 
@@ -1827,9 +1629,9 @@ export declare class UIObserver {
    * @param { GestureListenerType } type - The type of gesture to monitor.
    * @param { GestureObserverConfigs } option - The options when bind the global listener.
    * @param { GestureListenerCallback } callback - The callback function to be called when any gesture's state
-   *                                               is updated.
+   *     is updated.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   addGlobalGestureListener(type: GestureListenerType,
       option: GestureObserverConfigs, callback: GestureListenerCallback): void;
@@ -1839,9 +1641,9 @@ export declare class UIObserver {
    *
    * @param { GestureListenerType } type - The type of event to remove the listener for.
    * @param { GestureListenerCallback } [callback] - The callback function to be removed. If not provided,
-   *                                                      all callbacks for the given gesture type will be removed.
+   *     all callbacks for the given gesture type will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   removeGlobalGestureListener(type: GestureListenerType, callback?: GestureListenerCallback): void;
 
@@ -1980,6 +1782,51 @@ export declare class UIObserver {
    * @since 23 static
    */
   onNavDestinationSizeChangeByUniqueId(navigationUniqueId: int, callback: Callback<observer.NavDestinationInfo>): void;
+
+  /**
+   * Registers a callback function to be called when the specific node's render state changed.
+   * This callback will be executed once immediately when the register is successful.
+   * [Notes]:
+   *  1. Be aware of the limit on the number of nodes:
+   *     For performance considerations, the system has imposed a limit on the number of
+   *     nodes that can be registered for monitoring in a single UI instance, exception will be thrown
+   *     if overmuch. Please use this interface with caution.
+   *  2. Understanding scenarios where notifications may not occur:
+   *     In general, within container components that have view or page switching functionality,
+   *     when a view or page within the screen is moved outside the screen, the components previously
+   *     within the screen should be removed from the render tree and should receive a RENDER_OUT
+   *     notification. However, this is not always the case, as some scenarios involve views or components
+   *     being moved outside the screen's display range without triggering a RENDER_OUT notification.
+   *     For example, some components with caching capabilities may affect this behavior, and swiper is one
+   *     such component. The cacheCount property of the swiper component allows you to force, via its second
+   *     parameter isShow, that even if the current page is moved outside the display range, it remains in the
+   *     render tree. This can be useful in scenarios where multiple pages are displayed on the screen simultaneously.
+   *     Another example is scrolling components like list or scroll, where their internal content remains in the
+   *     render tree even if it is scrolled outside the screen's display range, provided that lazyForEach/Repeat is
+   *     not used. As a result, there will be no changes to the render state. Once you understand the principles
+   *     behind the triggers for render state changes, these scenarios will become easier to comprehend.
+   *
+   * @param { NodeIdentity } nodeIdentity - The identity of the target node
+   * @param { NodeRenderStateChangeCallback } callback - The callback function executed when the rendering state
+   *     of the component node changes.
+   * @throws { BusinessError } 161001 - The count of nodes monitoring render state is over the limitation.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  onNodeRenderState(nodeIdentity: NodeIdentity, callback: NodeRenderStateChangeCallback): void;
+
+  /**
+   * Removes a callback function for node render state monitoring.
+   *
+   * @param { NodeIdentity } nodeIdentity - The identity of the target node
+   * @param { NodeRenderStateChangeCallback } [callback] - The callback function to remove. If not provided,
+   *     all callbacks will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  offNodeRenderState(nodeIdentity: NodeIdentity, callback?: NodeRenderStateChangeCallback): void;
 
   /**
    * Removes a callback function that was previously registered with 'onNavDestinationSizeChangeByUniqueId()'.
@@ -2321,6 +2168,42 @@ export declare class OverlayManager {
 }
 
 /**
+ * Provides the method for magnifier capabilities.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 23 static
+ */
+export declare class Magnifier {
+  /**
+   * Bind magnifier to a component.
+   *
+   * @param { string } id - component id.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @StageModelOnly
+   * @since 23 static
+   */
+  bind(id: string): void;
+  /**
+   * Set the position of the magnified content.
+   *
+   * @param { double } x - the x position of the magnified content relative to the component.
+   *     The unit of x is vp.
+   * @param { double } y - the y position of the magnified content relative to the component.
+   *     The unit of y is vp.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  show(x: double,y: double): void;
+  /** 
+   * Unbind the magnifier from its associated component.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  unbind(): void;
+}
+
+/**
  * interface AtomicServiceBar
  * @interface AtomicServiceBar
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2339,11 +2222,11 @@ export interface AtomicServiceBar {
   /**
    * Set the background color of the bar.
    *
-   * @param { Nullable< Color | number | string> } color - the color to set, undefined indicates using default.
+   * @param { Nullable< Color | int | string> } color - the color to set, undefined indicates using default.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
-  setBackgroundColor(color: Nullable< Color | number | string>): void;
+  setBackgroundColor(color: Nullable< Color | int | string>): void;
 
   /**
    * Set the title of the bar.
@@ -2366,11 +2249,11 @@ export interface AtomicServiceBar {
   /**
    * Set the color of the icon on the bar.
    *
-   * @param { Nullable< Color | number | string> } color - the color to set to icon, undefined indicates using default.
+   * @param { Nullable< Color | int | string> } color - the color to set to icon, undefined indicates using default.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
-  setIconColor(color: Nullable< Color | number | string>): void;
+  setIconColor(color: Nullable< Color | int | string>): void;
 
   /**
    * Get size and position of the bar.
@@ -2602,7 +2485,7 @@ export declare class MeasureUtils {
    * @param { TextLayoutOptions } [options] - The layout options.
    * @returns { Array<Paragraph> } paragraph result
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   getParagraphs(styledString: StyledString, options?: TextLayoutOptions): Array<Paragraph>;
 }
@@ -2713,40 +2596,6 @@ export declare class ContextMenuController {
    * @since 23 static
    */
   close(): void;
-}
-/**
- * Provides the method for magnifier capabilities.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 23 static
- */
-export declare class Magnifier {
-   /**
-    * Bind magnifier to a component.
-    *
-    * @param { string } id - component id.
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 23 static
-    */
-    bind(id: string);
-   /**
-    * Set the position of the magnified content.
-    *
-    * @param { double } x - the x position of the magnified content relative to the component.
-    *     The unit of x is vp.
-    * @param { double } y - the y position of the magnified content relative to the component.
-    *     The unit of y is vp.
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 23 static
-    */
-    show(x: double,y: double): void;
-   /** 
-    * Unbind the magnifier from its associated component.
-    *
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 23 static
-    */
-    unbind(): void;
 }
 
 /**
@@ -3069,7 +2918,7 @@ export declare class UIContext {
    *     or undefined if no context can be determined from the call stack.
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   static getCallingScopeUIContext(): UIContext | undefined;
 
@@ -3078,7 +2927,7 @@ export declare class UIContext {
    * @returns { UIContext | undefined } - The UIContext of the last focused UI instance or undefined if no one exists.
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   static getLastFocusedUIContext(): UIContext | undefined;
 
@@ -3088,7 +2937,7 @@ export declare class UIContext {
    *     exists
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   static getLastForegroundUIContext(): UIContext | undefined;
 
@@ -3098,7 +2947,7 @@ export declare class UIContext {
    *     returns an empty array if no contexts are available.
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   static getAllUIContexts(): UIContext[];
 
@@ -3389,12 +3238,12 @@ export declare class UIContext {
   /**
    * Dispach keyboard event to the frameNode with inspector key.
    *
-   * @param { number | string } node - The uniqueId or inspector key of the target FrameNode.
+   * @param { int | string } node - The uniqueId or inspector key of the target FrameNode.
    * @returns { boolean } Returns whether the key event is consumed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
-  dispatchKeyEvent(node: number | string, event: KeyEvent): boolean;
+  dispatchKeyEvent(node: int | string, event: KeyEvent): boolean;
 
   /**
    * Get AtomicServiceBar.
@@ -3830,28 +3679,6 @@ export declare class UIContext {
   enableSwipeBack(enabled: boolean | undefined): void;
 
   /**
-   * Open the BindContentCover.
-   *
-   * @param { ComponentContent<T> } content - The content of BindContentCover.
-   * @param { ContentCoverController } controller - ContentCover controller.
-   * @param { ContentCoverOptions } [contentCoverOptions] - The options of contentCover.
-   * @param { number } [targetId] - The uniqueId of the FrameNode to which BindContentCover is attached.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 120301 - The BindContentCover is incorrect.
-   * @throws { BusinessError } 120302 - The BindContentCover already exists.
-   * @throws { BusinessError } 120304 - The targetId does not exist.
-   * @throws { BusinessError } 120305 - The node of targetId is not in the component tree.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  openBindContentCover<T extends Object>(content: ComponentContent<T>, controller: ContentCoverController,
-    contentCoverOptions?: ContentCoverOptions, targetId?: number): Promise<void>;
-
-  /**
    * Sets the component freezing flag based on the component id to prevent the
    * UI component from marking and updating dirty areas.
    * @param { string } id - Id of the frame node.
@@ -3914,20 +3741,10 @@ export declare class UIContext {
    *
    * @param { VoidCallback } callback - The callback function to be executed in the UI thread.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @stagemodelonly
+   * @since 23 staticonly
    */
   setUIStates(callback: VoidCallback): void;
-
-  /**
-   * Retrieves the UIContext corresponding to the UI instance of the currently focused window.
-   * Returns undefined if it does not exist.
-   *
-   * @returns { UIContext | undefined } The focused UIContext, or undefined if it does not exist.
-   * @static
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  static getFocusedUIContext(): UIContext | undefined;
 
   /**
    * Get id of the UI instance.
@@ -3959,6 +3776,18 @@ export declare class UIContext {
    * @since 23 static
    */
   setCustomKeyboardContinueFeature(feature: CustomKeyboardContinueFeature): void;
+
+  /**
+   * Retrieve the root node of the corresponding page of the UIContext.
+   *
+   * @returns { FrameNode | null } The root node of the corresponding page of the UIContext,
+   *     or null if no root node exists.
+   * @throws { BusinessError } 120007 - The UIContext is not available.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  getPageRootNode(): FrameNode | null;
 }
 
 /**
@@ -4076,42 +3905,6 @@ export declare class TextMenuController {
 }
 
 /**
- * The class used to control ContentConver
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 23 static
- */
-export declare class ContentCoverController {
-  /**
-   * The constructor.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  constructor();
-
-  /**
-   * Update cotentCoverOptions.
-   *
-   * @param { ContentCoverOptions } contentCoverOptions - The options of contentCover.
-   * @param { boolean } [partialUpdate] - If true, only the specified properties in the sheetOptions are updated,
-   *     otherwise the rest of the properties are overwritten with the default values.
-   *     Default value is false.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  update(contentCoverOptions: ContentCoverOptions, partialUpdate?: boolean): void;
-
-  /**
-   * Close contentConver.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  close(): void;
-}
-
-/**
  * Enum of CustomKeyboardContinueFeature
  * 
  * @enum { int } CustomKeyboardContinueFeature
@@ -4120,7 +3913,7 @@ export declare class ContentCoverController {
  * @since 23 static
  */
  export const enum CustomKeyboardContinueFeature {
-
+ 
   /**
    * Enable custom keyboard continuation.
    * 
@@ -4129,7 +3922,7 @@ export declare class ContentCoverController {
    * @since 23 static
    */
   ENABLED = 0,
-
+ 
   /**
    * Disable custom keyboard continuation.
    * 

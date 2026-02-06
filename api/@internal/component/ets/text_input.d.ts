@@ -2777,7 +2777,6 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @atomicservice
    * @since 11
    */
-
   /**
    * Define custom keyboard of the text input.
    *
@@ -2801,12 +2800,12 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * Define custom keyboard of the text input.
    *
-   * * <p><strong>NOTE</strong>:
+   * <p><strong>NOTE</strong>:
    * <br>When a custom keyboard is set, activating the text box opens the specified custom component,
    * instead of the system input method.
    * <br>The custom keyboard's height can be set through the height attribute of the custom component's root node,
@@ -3359,7 +3358,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @since 18 dynamic
    */
   halfLeading(halfLeading: Optional<boolean>): TextInputAttribute;
-  
+
   /**
    * Set the ellipsis mode.
    *
@@ -3417,7 +3416,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    */
   keyboardAppearance(appearance: Optional<KeyboardAppearance>): TextInputAttribute;
 
-   /**
+  /**
    * Set the stroke width.
    *
    * @param { Optional<LengthMetrics> } width - indicates the stroke width.
@@ -3525,6 +3524,19 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @since 23 dynamic
    */
   textDirection(direction: TextDirection | undefined): TextInputAttribute;
+  
+  /**
+   * Set voice button options.
+   *
+   * @param { Optional<VoiceButtonOptions> } options - Indicates the options of the voice button.
+   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  voiceButton(options: Optional<VoiceButtonOptions>): TextInputAttribute;
 }
 
 /**

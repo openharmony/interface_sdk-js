@@ -288,7 +288,7 @@ export declare interface WaterFlowOptions {
  * @extends UIScrollableCommonEvent
  * @interface UIWaterFlowEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 23 static
+ * @since 24 static
  */
 export declare interface UIWaterFlowEvent extends UIScrollableCommonEvent {
   /**
@@ -297,7 +297,7 @@ export declare interface UIWaterFlowEvent extends UIScrollableCommonEvent {
    * @param { OnWillScrollCallback | undefined } callback - callback function, triggered when the WaterFlow will scroll.
    *     Passing undefined will unregister the callback.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   setOnWillScroll(callback: OnWillScrollCallback | undefined): void;
   /**
@@ -306,7 +306,7 @@ export declare interface UIWaterFlowEvent extends UIScrollableCommonEvent {
    * @param { OnScrollCallback | undefined } callback - callback function, triggered when the WaterFlow did scroll.
    *     Passing undefined will unregister the callback.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   setOnDidScroll(callback: OnScrollCallback | undefined): void;
   /**
@@ -315,7 +315,7 @@ export declare interface UIWaterFlowEvent extends UIScrollableCommonEvent {
    * @param { OnWaterFlowScrollIndexCallback | undefined } callback - callback function, triggered when start or
    *     end positions of the display change. Passing undefined will unregister the callback.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   setOnScrollIndex(callback: OnWaterFlowScrollIndexCallback | undefined): void;
 }
@@ -326,7 +326,7 @@ export declare interface UIWaterFlowEvent extends UIScrollableCommonEvent {
  * @param { int } first - the first index in visible content.
  * @param { int } last - the last index in visible content.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 23 static
+ * @since 24 static
  */
 export declare type OnWaterFlowScrollIndexCallback = (first: int, last: int) => void;
 
@@ -346,6 +346,7 @@ export declare interface WaterFlowAttribute extends ScrollableCommonMethod {
      *     <br>Default value: <em>'1fr'</em>. Passing undefined will restore the default value.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default columnsTemplate(value: string | ItemFillPolicy | undefined): this;
@@ -428,7 +429,7 @@ export declare interface WaterFlowAttribute extends ScrollableCommonMethod {
      *     <br>Default value: true. Passing undefined will restore the default value.
      * @returns { this } The attribute of the WaterFlow.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
     default syncLoad(enable: boolean | undefined): this;
     /**

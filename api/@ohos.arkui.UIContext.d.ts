@@ -2783,6 +2783,7 @@ export class ComponentUtils {
    * @returns { componentUtils.ComponentInfo } the object of ComponentInfo.
    * @throws { BusinessError } 100001 - UI execution context not found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 11 dynamic
    */
@@ -3376,8 +3377,10 @@ export class DragController {
    * Please be noted, the default value of the flag is false, it means, for the same situation, the
    * parent will not receive the leave notification, just the child can get the enter event, which is
    * not fully strict.
+   * 
    * @param { boolean } enable - Indicating enable drag event strict reporting or not.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
@@ -3421,6 +3424,7 @@ export class DragController {
    *
    * @param { boolean } enabled - Indicating enable the disallow status showing or not.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 20 dynamic
    */
@@ -5511,6 +5515,20 @@ export class UIContext {
    * @since 23 dynamic
    */
   setCustomKeyboardContinueFeature(feature: CustomKeyboardContinueFeature): void;
+
+  /**
+   * Retrieve the root node of the corresponding page of the UIContext.
+   *
+   * @returns { FrameNode | null } The root node of the corresponding page of the UIContext,
+   *     or null if no root node exists.
+   * @throws { BusinessError } 120007 - The UIContext is not available.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
+   * @crossplatform
+   * @atomicservice
+   * @since 24 dynamic
+   */
+  getPageRootNode(): FrameNode | null;
 }
 
 /**

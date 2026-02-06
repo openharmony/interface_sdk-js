@@ -22,7 +22,7 @@ import { Callback, CommonMethod, TextContentControllerBase, SelectionOptions, In
 import { CustomBuilder } from './builder';
 import { BarState, LineBreakStrategy, TextAlign, FontStyle, FontWeight, WordBreak, TextOverflow, CopyOptions, TextHeightAdaptivePolicy, TextContentStyle, EllipsisMode } from "./enums";
 import { Resource, ResourceStr, ResourceColor, Dimension, Font, Length, LengthMetrics } from "./units";
-import { InsertValue, DeleteValue, CaretStyle, EditableTextOnChangeCallback, EditMenuOptions, AutoCapitalizationMode, EditableTextChangeValue, KeyboardAppearance, SelectedDragPreviewStyle, TextDirection, IMEClient } from "./textCommon";
+import { InsertValue, DeleteValue, CaretStyle, EditableTextOnChangeCallback, EditMenuOptions, AutoCapitalizationMode, EditableTextChangeValue, KeyboardAppearance, SelectedDragPreviewStyle, VoiceButtonOptions, TextDirection, IMEClient } from "./textCommon";
 import { KeyboardOptions, PasteEvent } from "./richEditor";
 import { ComponentBuilder } from './builder';
 import { ComponentContentBase } from '../ComponentContent';
@@ -144,6 +144,7 @@ export declare enum InputType {
      * URL entry mode.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     URL = 13,
@@ -152,7 +153,7 @@ export declare enum InputType {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     ONE_TIME_CODE = 14
 }
@@ -1014,14 +1015,23 @@ export declare interface TextInputAttribute extends CommonMethod {
      */
     default fontStyle(value: FontStyle | undefined): this;
     /**
-    * Called when the font weight is set.
-    *
-    * @param { int | FontWeight | string | undefined } value
-    * @returns { TextInputAttribute }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 23 static
-    */
-    default fontWeight(value: int | FontWeight | string | undefined): this;
+     * Called when the font weight is set.
+     *
+     * @param { int | FontWeight | string | undefined } value
+     * @returns { TextInputAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    /**
+     * Called when the font weight is set.
+     *
+     * @param { int | FontWeight | ResourceStr | undefined } value - The default value is FontWeight.Normal.
+     *     Passing `undefined` resets it to the default value.
+     * @returns { TextInputAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 24 static
+     */
+    default fontWeight(value: int | FontWeight | ResourceStr | undefined): this;
     /**
      * Called when the font list of text is set.
      *
@@ -1358,15 +1368,38 @@ export declare interface TextInputAttribute extends CommonMethod {
      * <br>When setting a custom keyboard, you can bind the onKeyPrelme event to prevent input from the physical keyboard.
      * </p>
      *
+     * @param { CustomBuilder | undefined } value - Set up a custom keyboard of TextInput
+     * @param { KeyboardOptions | undefined } [options] - Indicates the custom keyboard options of TextInput
+     * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    /**
+     * Define custom keyboard of the text input.
+     *
+     * <p><strong>NOTE</strong>:
+     * <br>When a custom keyboard is set, activating the text box opens the specified custom component,
+     * instead of the system input method.
+     * <br>The custom keyboard's height can be set through the height attribute of the custom component's root node,
+     * and its width is fixed at the default value.
+     * <br>The custom keyboard is presented by overlaying the original screen,
+     * which is not compressed or lifted if avoid mode is not enabled or avoidance is not needed for the text box.
+     * <br>The custom keyboard cannot obtain the focus, but it blocks gesture events.
+     * <br>By default, the custom keyboard is closed when the input component loses the focus.
+     * <br>You can also use the TextInputController.stopEditing API to close the keyboard.
+     * <br>When a custom keyboard is set, the text box does not support camera input, even when the device supports.
+     * <br>When setting a custom keyboard,
+     * you can bind the onKeyPrelme event to prevent input from the physical keyboard.
+     * </p>
+     *
      * @param { CustomBuilder | ComponentContentBase | undefined } value - Set up a custom keyboard of TextInput
      * @param { KeyboardOptions } [options] - Indicates the custom keyboard options of TextInput
      * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
-    default customKeyboard(value: CustomBuilder | ComponentContentBase | undefined,
-                           options?: KeyboardOptions): this;
+    default customKeyboard(value: CustomBuilder | ComponentContentBase | undefined, options?: KeyboardOptions): this;
     /**
      * Show the counter when the number of characters entered exceeds the threshold through InputCounterOptions.
      *
@@ -1786,7 +1819,7 @@ export declare interface TextInputAttribute extends CommonMethod {
      *     Passing `undefined` resets it to the default value.
      * @returns { TextInputAttribute } Returns the instance of the TextInputAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
     default enableAutoFillAnimation(enabled: boolean | undefined): this;
 
@@ -1797,7 +1830,7 @@ export declare interface TextInputAttribute extends CommonMethod {
      *     If `undefined` is passed, the existing registered event will be removed.
      * @returns { TextInputAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
     default onWillAttachIME(callback: Callback<IMEClient> | undefined): this;
 
@@ -1808,7 +1841,7 @@ export declare interface TextInputAttribute extends CommonMethod {
      *     Passing `undefined` resets it to the default value.
      * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
     default strokeColor(color: ResourceColor | undefined): this;
 
@@ -1820,7 +1853,7 @@ export declare interface TextInputAttribute extends CommonMethod {
      *     Passing `undefined` resets it to the default value.
      * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
     default enableAutoSpacing(enabled: boolean | undefined): this;
 
@@ -1831,19 +1864,19 @@ export declare interface TextInputAttribute extends CommonMethod {
      *     Passing `undefined` resets it to the default value.
      * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
     default strokeWidth(width: LengthMetrics | undefined): this;
 
     /**
      * Enable selected data detector.
-     * 
+     *
      * @param { boolean | undefined } enable - whether to enable the selected data detector.
      * @returns { TextInputAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
-    default enableSelectedDataDetector(enable: boolean | undefined): this
+    default enableSelectedDataDetector(enable: boolean | undefined): this;
 
     /**
      * Sets the attribute modifier.
@@ -1855,7 +1888,6 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<TextInputAttribute> | AttributeModifier<CommonMethod> | undefined): this;
-    
     /**
      * Whether to compress punctuation at the beginning of line.
      *
@@ -1866,7 +1898,6 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @since 23 static
      */
     default compressLeadingPunctuation(enabled: boolean | undefined): this;
-
     /**
      * Used to set the selected drag preview style.
      *
@@ -1888,6 +1919,18 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @since 23 static
      */
     default textDirection(direction: TextDirection | undefined): this;
+
+    /**
+     * Set voice button options.
+     *
+     * @param { VoiceButtonOptions | undefined } options - Indicates the options of the voice button.
+     * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static
+     */
+    default voiceButton(options: VoiceButtonOptions | undefined): this;
 }
 
 /**

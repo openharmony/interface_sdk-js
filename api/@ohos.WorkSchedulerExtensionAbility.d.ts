@@ -29,6 +29,7 @@ import _WorkSchedulerExtensionContext from './application/WorkSchedulerExtension
  * @syscap SystemCapability.ResourceSchedule.WorkScheduler
  * @StageModelOnly
  * @since 10 dynamic
+ * @since 23 static
  */
 export type WorkSchedulerExtensionContext = _WorkSchedulerExtensionContext;
 
@@ -38,6 +39,7 @@ export type WorkSchedulerExtensionContext = _WorkSchedulerExtensionContext;
  * @syscap SystemCapability.ResourceSchedule.WorkScheduler
  * @StageModelOnly
  * @since 9 dynamic
+ * @since 23 static
  */
 declare class WorkSchedulerExtensionAbility {
   /**
@@ -47,6 +49,7 @@ declare class WorkSchedulerExtensionAbility {
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @StageModelOnly
    * @since 10 dynamic
+   * @since 23 static
    */
   context: WorkSchedulerExtensionContext;
 
@@ -57,6 +60,7 @@ declare class WorkSchedulerExtensionAbility {
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @StageModelOnly
    * @since 9 dynamic
+   * @since 23 static
    */
   onWorkStart(work: workScheduler.WorkInfo): void;
 
@@ -67,6 +71,7 @@ declare class WorkSchedulerExtensionAbility {
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @StageModelOnly
    * @since 9 dynamic
+   * @since 23 static
    */
   onWorkStop(work: workScheduler.WorkInfo): void;
 }
@@ -77,5 +82,6 @@ declare class WorkSchedulerExtensionAbility {
  * @syscap SystemCapability.ResourceSchedule.WorkScheduler
  * @StageModelOnly
  * @since 9 dynamic
+ * @since 23 static
  */
 export default WorkSchedulerExtensionAbility;

@@ -1,6 +1,6 @@
 /*
  * Copyright (c) 2025 Huawei Device Co., Ltd.
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
@@ -34,7 +34,7 @@ import { CustomBuilder } from '@ohos.arkui.component';
 export declare enum EffectLayer {
   /**
    * No layer.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 23 static
@@ -93,7 +93,9 @@ export declare interface EffectComponentAttribute extends CommonMethod {
     /**
      * Use snapshot when Effect Component have no visual effect.
      *
-     * @param { boolean } enable
+     * @param { boolean | undefined } enable - <br>true indicates using the snapshot method,
+     *     false indicates not using the snapshot method.
+     *     undefined means the default value false.
      * @returns { EffectComponentAttribute }
      * @throws { BusinessError } 202 - Permission verification failed. A nonsystem application calls a system API.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -101,7 +103,7 @@ export declare interface EffectComponentAttribute extends CommonMethod {
      * @stagemodelonly
      * @since 23 static
      */
-    default alwaysSnapshot(enable: boolean): this;
+    alwaysSnapshot(enable: boolean | undefined): this;
     /**
      * Set the attribute modifier for EffectComponent.
      *

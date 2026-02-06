@@ -1,5 +1,6 @@
 {
   "SysCaps": [
+    "SystemCapability.ArkUI.ArkUI.Circle",
     "SystemCapability.ArkUI.ArkUI.Full",
     "SystemCapability.ArkUI.ArkUI.Napi",
     "SystemCapability.ArkUI.ArkUI.Libuv",
@@ -171,6 +172,7 @@
     "SystemCapability.Applications.ContactsData",
     "SystemCapability.Applications.Contacts",
     "SystemCapability.Applications.Settings.Core",
+    "SystemCapability.Applications.IntelligentScene",
     "SystemCapability.Test.UiTest",
     "SystemCapability.Web.Webview.Core",
     "SystemCapability.Advertising.OAID",

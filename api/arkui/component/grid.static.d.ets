@@ -1,6 +1,6 @@
 'use static'
 /*
- * Copyright (c) 2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2025-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -23,6 +23,88 @@ import { Scroller, OnScrollFrameBeginCallback } from './scroll';
 import { BarState, Color, EdgeEffect, FocusWrapMode } from './enums';
 import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod, UIScrollableCommonEvent } from "./common";
+
+/**
+ * Define start line info used in GridLayoutOptions.
+ *
+ * @interface StartLineInfo
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @stagemodelonly
+ * @since 23 static
+ */
+export declare interface StartLineInfo {
+    /**
+     * Define the start index of the row where the target index or offset is located. 
+     *
+     * @type { int }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static
+     */
+    startIndex: int;
+  
+    /**
+     * Define the start row of the item with startIndex.
+     *
+     * @type { int }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static
+     */
+    startLine: int;
+  
+    /**
+     * Define the offset between the top of the item with startIndex and the top of the grid.
+     *
+     * @type { double }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static
+     */
+    startOffset: double;
+  
+    /**
+     * Define the offset between the top of the first item and the top of the grid.
+     *
+     * @type { double }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static
+     */
+    totalOffset: double;
+}
+  
+/**
+ * Defines the callback type used in onGetStartIndexByOffset of GridLayoutOptions.
+ *
+ * @typedef { function } OnGetStartIndexByOffsetCallback
+ * @param { double } totalOffset - The total offset to scroll to.
+ * @returns { StartLineInfo }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @stagemodelonly
+ * @since 23 static
+ */
+export type OnGetStartIndexByOffsetCallback = (totalOffset: double) => StartLineInfo;
+
+/**
+ * Defines the callback type used in onGetStartIndexByIndex of GridLayoutOptions.
+ *
+ * @typedef { function } OnGetStartIndexByIndexCallback
+ * @param { int } targetIndex - The target index to scroll to.
+ * @returns { StartLineInfo }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @stagemodelonly
+ * @since 23 static
+ */
+export type OnGetStartIndexByIndexCallback = (targetIndex: int) => StartLineInfo;
+
 /**
  * The options to help grid layout
  *
@@ -77,6 +159,28 @@ export declare interface GridLayoutOptions {
         int,
         int
     ];
+
+    /**
+ 	 * Called to return the StartLineInfo based on total offset for the fast or reverse sliding.
+ 	 *
+ 	 * @type { ?OnGetStartIndexByOffsetCallback } onGetStartIndexByOffset
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static
+     */
+    onGetStartIndexByOffset?: OnGetStartIndexByOffsetCallback;
+ 	 
+    /**
+     * Called to return the StartLineInfo based on target index for the scrollToIndex operation.
+     *
+     * @type { ?OnGetStartIndexByIndexCallback } onGetStartIndexByIndex
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static
+     */
+    onGetStartIndexByIndex?: OnGetStartIndexByIndexCallback;
 }
 /**
  * The enum of property layoutDirection
@@ -170,7 +274,7 @@ export declare interface ComputedBarAttribute {
  * @extends UIScrollableCommonEvent
  * @interface UIGridEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 23 static
+ * @since 24 static
  */
 export declare interface UIGridEvent extends UIScrollableCommonEvent {
   /**
@@ -179,7 +283,7 @@ export declare interface UIGridEvent extends UIScrollableCommonEvent {
    * @param { OnWillScrollCallback | undefined } callback - callback function, triggered when the Grid will scroll.
    *      Passing undefined will unregister the callback.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   setOnWillScroll(callback: OnWillScrollCallback | undefined): void;
   /**
@@ -188,7 +292,7 @@ export declare interface UIGridEvent extends UIScrollableCommonEvent {
    * @param { OnScrollCallback | undefined } callback - callback function, triggered when the Grid did scroll.
    *     Passing undefined will unregister the callback.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   setOnDidScroll(callback: OnScrollCallback | undefined): void;
   /**
@@ -197,7 +301,7 @@ export declare interface UIGridEvent extends UIScrollableCommonEvent {
    * @param { OnGridScrollIndexCallback | undefined } callback - callback function, triggered when start or
    *     end positions of the display change. Passing undefined will unregister the callback.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
   setOnScrollIndex(callback: OnGridScrollIndexCallback | undefined): void;
 }
@@ -208,7 +312,7 @@ export declare interface UIGridEvent extends UIScrollableCommonEvent {
  * @param { int } first - the first index in visible content.
  * @param { int } last - the last index in visible content.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 23 static
+ * @since 24 static
  */
 export type OnGridScrollIndexCallback = (first: int, last: int) => void;
 /**
@@ -227,6 +331,7 @@ export declare interface GridAttribute extends ScrollableCommonMethod {
      *     <br>Default value: <em>'1fr'</em>. Passing undefined will restore the default value.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default columnsTemplate(value: string | ItemFillPolicy | undefined): this;
@@ -275,6 +380,7 @@ export declare interface GridAttribute extends ScrollableCommonMethod {
      *     A string value indicates a color in RGB or ARGB format, for example, <em>'#ffffff'</em>.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default scrollBarColor(color: Color | int | string | Resource | undefined): this;
@@ -514,7 +620,7 @@ export declare interface GridAttribute extends ScrollableCommonMethod {
      *     <br>Default value: **FocusWrapMode.DEFAULT**. Passing undefined will restore the default value.
      * @returns { this } the attribute of the Grid.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
     default focusWrapMode(mode: FocusWrapMode | undefined): this;
     /**
@@ -524,7 +630,7 @@ export declare interface GridAttribute extends ScrollableCommonMethod {
      *     <br>Default value: true. Passing undefined will restore the default value.
      * @returns { this } The attribute of the Grid.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @since 24 static
      */
     default syncLoad(enable: boolean | undefined): this;
     /**

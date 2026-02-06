@@ -492,6 +492,7 @@ declare namespace abilityManager {
    * @StageModelOnly
    * @since 10 dynamic
    * @since 23 static
+   * @deprecated since 24
    */
   function notifySaveAsResult(parameter: AbilityResult, requestCode: int, callback: AsyncCallback<void>): void;
 
@@ -510,6 +511,7 @@ declare namespace abilityManager {
    * @StageModelOnly
    * @since 10 dynamic
    * @since 23 static
+   * @deprecated since 24
    */
   function notifySaveAsResult(parameter: AbilityResult, requestCode: int): Promise<void>;
 

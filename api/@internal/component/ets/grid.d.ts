@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -18,6 +18,86 @@
  * @kit ArkUI
  */
 
+/**
+ * Define start line info used in GridLayoutOptions.
+ *
+ * @interface StartLineInfo
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @stagemodelonly
+ * @since 23 dynamic
+ */
+declare interface StartLineInfo {
+  /**
+   * Define the start index of the row where the target index or offset is located. 
+   *
+   * @type { int }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic
+   */
+  startIndex: int;
+
+  /**
+   * Define the start row of the item with startIndex.
+   *
+   * @type { int }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic
+   */
+  startLine: int;
+
+  /**
+   * Define the offset between the top of the item with startIndex and the top of the grid.
+   *
+   * @type { double }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic
+   */
+  startOffset: double;
+
+  /**
+   * Define the offset between the top of the first item and the top of the grid.
+   *
+   * @type { double }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic
+   */
+  totalOffset: double;
+}
+
+/**
+ * Defines the callback type used in onGetStartIndexByOffset of GridLayoutOptions.
+ *
+ * @typedef { function } OnGetStartIndexByOffsetCallback
+ * @param { double } totalOffset - The total offset to scroll to.
+ * @returns { StartLineInfo }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @stagemodelonly
+ * @since 23 dynamic
+ */
+declare type OnGetStartIndexByOffsetCallback = (totalOffset: double) => StartLineInfo;
+
+/**
+ * Defines the callback type used in onGetStartIndexByIndex of GridLayoutOptions.
+ *
+ * @typedef { function } OnGetStartIndexByIndexCallback
+ * @param { int } targetIndex - The target index to scroll to.
+ * @returns { StartLineInfo }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @stagemodelonly
+ * @since 23 dynamic
+ */
+declare type OnGetStartIndexByIndexCallback = (targetIndex: int) => StartLineInfo;
 
 /**
  * The options to help grid layout
@@ -118,6 +198,28 @@ declare interface GridLayoutOptions {
    * @since 12 dynamic
    */
   onGetRectByIndex?: (index: number) => [number, number, number, number]
+
+  /**
+ 	 * Called to return the StartLineInfo based on total offset for the fast or reverse sliding.
+ 	 *
+ 	 * @type { ?OnGetStartIndexByOffsetCallback } onGetStartIndexByOffset
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic
+   */
+  onGetStartIndexByOffset?: OnGetStartIndexByOffsetCallback;
+ 	 
+  /**
+   * Called to return the StartLineInfo based on target index for the scrollToIndex operation.
+   *
+   * @type { ?OnGetStartIndexByIndexCallback } onGetStartIndexByIndex
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic
+   */
+  onGetStartIndexByIndex?: OnGetStartIndexByIndexCallback;
 }
 
 /**
