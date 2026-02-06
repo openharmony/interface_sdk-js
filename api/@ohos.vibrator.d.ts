@@ -861,7 +861,7 @@ declare namespace vibrator {
      * @since 22 dynamic
      * @since 23 static
      */
-    deviceId?: number;
+    deviceId?: int;
 
     /**
      * The use of vibration.
