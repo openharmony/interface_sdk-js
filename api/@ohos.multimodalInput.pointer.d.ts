@@ -1899,68 +1899,32 @@ declare namespace pointer {
   function getTouchpadDoubleTapAndDragState(): Promise<boolean>;
 
   /**
-   * Sets the scroll direction of the mouse. This API uses an asynchronous callback to return the result.
-   *
-   * @param { boolean } state - Scroll direction of the mouse. 
-   * The value true indicates that the scroll direction is the same as the mouse wheel direction, and the value false indicates the opposite.
-   * The default value is true.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
-   * @throws { BusinessError } 202 - SystemAPI permission error.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.MultimodalInput.Input.Pointer
-   * @systemapi hide for inner use.
-   * @since 24 dynamic
-   * @since 24 static
-   */
-  function setMouseScrollDirection(state: boolean, callback: AsyncCallback<void>): void;
-
-  /**
-   * Sets the scroll direction of the mouse. This API uses a promise to return the result.
-   *
-   * @param { boolean } state - Scroll direction of the mouse. 
-   * The value true indicates that the scroll direction is the same as the mouse wheel direction, and the value false indicates the opposite.
-   * The default value is true.
+   * Set whether to invert the scroll value of the events reported during mouse wheel scrolling.
+   *     {@code true} means consistent with the value reported by the mouse device, {@code false} means inverted.
+   * 
+   * @permission ohos.permission.INPUT_DEVICE_CONTROLLER
+   * @param { boolean } inverted - Indicates whether to invert. 
    * @returns { Promise<void> } Promise used to return the result.
+   * @throws { BusinessError } 201 - permission denied.
    * @throws { BusinessError } 202 - SystemAPI permission error.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 3800001 - Input service exception.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
-   * @since 24 dynamic
-   * @since 24 static
+   * @since 24 dynamic&static
    */
-  function setMouseScrollDirection(state: boolean): Promise<void>;
+  function setMouseScrollDirection(inverted: boolean): Promise<void>;
 
   /**
-   * Obtains the scroll direction of the mouse. This API uses an asynchronous callback to return the result.
-   *
-   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. 
-   * The value true indicates that the scroll direction is the same as the mouse wheel direction, and the value false indicates the opposite. 
-   * The default value is true.
+   * Query whether to invert the scroll value of the events reported during mouse wheel scrolling.
+   * 
+   * @permission ohos.permission.INPUT_DEVICE_CONTROLLER 
+   * @returns { Promise<boolean> } Promise used to return the result.
+   * @throws { BusinessError } 201 - permission denied.
    * @throws { BusinessError } 202 - SystemAPI permission error.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 3800001 - Input service exception.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
-   * @since 24 dynamic
-   * @since 24 static
-   */
-  function getMouseScrollDirection(callback: AsyncCallback<boolean>): void;
-
-  /**
-   * Obtains the scroll direction of the mouse. This API uses a promise to return the result.
-   *
-   * @returns { Promise<boolean> } Promise used to return the result. 
-   * The value true indicates that the scroll direction is the same as the mouse wheel direction, and the value false indicates the opposite. 
-   * The default value is true.
-   * @throws { BusinessError } 202 - SystemAPI permission error.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.MultimodalInput.Input.Pointer
-   * @systemapi hide for inner use.
-   * @since 24 dynamic
-   * @since 24 static
+   * @since 24 dynamic&static
    */
   function getMouseScrollDirection(): Promise<boolean>;
 }
