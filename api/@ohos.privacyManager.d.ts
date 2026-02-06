@@ -491,6 +491,25 @@ declare namespace privacyManager {
   function getPermissionUsedRecordToggleStatus(): Promise<boolean>;
 
   /**
+   * Checks whether the specified permission is in use.
+   *
+   * @permission ohos.permission.PERMISSION_USED_STATS
+   * @param { Permissions } permissionName - Name of the permission to be queried.
+   * @returns { boolean } Returns true if the permission is in use; returns false otherwise.
+   * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission
+   *     "ohos.permission.PERMISSION_USED_STATS".
+   * @throws { BusinessError } 202 - Not system application. Interface caller is not a system application.
+   * @throws { BusinessError } 12100001 - Invalid parameter. The permissionName is empty or exceeds 256 characters.
+   * @throws { BusinessError } 12100003 - The specified permission does not exist or is not a user_grant permission.
+   * @throws { BusinessError } 12100007 - The service is abnormal.
+   * @syscap SystemCapability.Security.AccessToken
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function checkPermissionInUse(permissionName: Permissions): boolean;
+
+  /**
    * Enum for permission for status.
    *
    * @enum { int } PermissionActiveStatus
