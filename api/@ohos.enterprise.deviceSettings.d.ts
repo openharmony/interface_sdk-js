@@ -159,6 +159,15 @@ declare namespace deviceSettings {
        * @since 24
        */
       DEVICE_NAME = 0
+
+      /**
+       * floating navigation.
+       *
+       * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+       * @stagemodelonly
+       * @since 24
+       */
+      FLOATING_NAVIGATION  = 1
   }
 
   /**
@@ -425,7 +434,7 @@ declare namespace deviceSettings {
    * @param { Want } admin - admin indicates the enterprise admin extension ability information.
    *                         The admin must have the corresponding permission.
    * @param { string } item - item indicates the device properties that need to be set, including screenOff, powerPolicy and dateTime,
-   *                          dateTime, eyeComfort, defaultInputMethod, deviceName, floatingNavigation.
+   *                          dateTime, eyeComfort, defaultInputMethod, deviceName.
    *                          screenOff means the device screen off time, powerPolicy means the device power policy
    *                          and dataTime means the device system time.
    * @param { string } value - device settings policy.
@@ -470,7 +479,7 @@ declare namespace deviceSettings {
    * @param { Want } admin - admin indicates the enterprise admin extension ability information.
    *                         The admin must have the corresponding permission.
    * @param { string } item - item indicates the device properties that need to be get, including screenOff and powerPolicy, eyeComfort,
-   *                          deviceName, floatingNavigation.
+   *                          deviceName.
    *                          screenOff means the device screen off time, powerPolicy means the device power policy.
    * @returns { string } device settings policy.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
