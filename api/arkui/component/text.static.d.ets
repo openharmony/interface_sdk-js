@@ -20,7 +20,7 @@
 import { CommonMethod, ShadowOptions, Callback, AttributeModifier, SelectionOptions } from "./common";
 import { CustomBuilder } from './builder';
 import { EllipsisMode, TextCase, LineBreakStrategy, TextAlign, FontStyle, FontWeight, WordBreak, TextOverflow, CopyOptions, TextHeightAdaptivePolicy, TextSelectableMode } from "./enums";
-import { Resource, ResourceColor, Font, Length, LengthMetrics } from "./units";
+import { Resource, ResourceColor, Font, Length, LengthMetrics, ResourceStr } from "./units";
 import { TextDataDetectorConfig, LayoutManager, FontSettingOptions, EditMenuOptions, SelectedDragPreviewStyle, TextDirection, ShaderStyle, LineSpacingOptions, TextVerticalAlign, ContentTransition, TextContentAlign } from "./textCommon";
 import { DecorationStyleInterface, StyledString } from "./styledString";
 import { SelectionMenuOptions } from "./richEditor";
@@ -180,7 +180,16 @@ export declare interface TextAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
      */
-    default fontWeight(weight: int | FontWeight | string | undefined, options?: FontSettingOptions | undefined): this;
+    /**
+     * Called when the font weight is set.
+     *
+     * @param { int | FontWeight | ResourceStr | undefined } weight
+     * @param { FontSettingOptions | undefined } [options] - font setting options.
+     * @returns { TextAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 24 static
+     */
+    default fontWeight(weight: int | FontWeight | ResourceStr | undefined, options?: FontSettingOptions | undefined): this;
     /**
      * Set font line spacing.
      *

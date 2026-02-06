@@ -1022,7 +1022,16 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
      */
-    default fontWeight(value: int | FontWeight | string | undefined): this;
+    /**
+     * Called when the font weight is set.
+     *
+     * @param { int | FontWeight | ResourceStr | undefined } value - The default value is FontWeight.Normal.
+     *     Passing `undefined` resets it to the default value.
+     * @returns { TextInputAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 24 static
+     */
+    default fontWeight(value: int | FontWeight | ResourceStr | undefined): this;
     /**
      * Called when the font list of text is set.
      *
@@ -1360,7 +1369,7 @@ export declare interface TextInputAttribute extends CommonMethod {
      * </p>
      *
      * @param { CustomBuilder | undefined } value - Set up a custom keyboard of TextInput
-     * @param { KeyboardOptions } [options] - Indicates the custom keyboard options of TextInput
+     * @param { KeyboardOptions | undefined } [options] - Indicates the custom keyboard options of TextInput
      * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
@@ -1379,7 +1388,8 @@ export declare interface TextInputAttribute extends CommonMethod {
      * <br>By default, the custom keyboard is closed when the input component loses the focus.
      * <br>You can also use the TextInputController.stopEditing API to close the keyboard.
      * <br>When a custom keyboard is set, the text box does not support camera input, even when the device supports.
-     * <br>When setting a custom keyboard, you can bind the onKeyPrelme event to prevent input from the physical keyboard.
+     * <br>When setting a custom keyboard,
+     * you can bind the onKeyPrelme event to prevent input from the physical keyboard.
      * </p>
      *
      * @param { CustomBuilder | ComponentContentBase | undefined } value - Set up a custom keyboard of TextInput
