@@ -6406,17 +6406,6 @@ export declare interface SheetOptions extends BindOptions {
     */
     radiusRenderStrategy?: RenderStrategy;
     /**
-     * Set system-styled materials for sheet. Different materials have different effects, which can influence
-     * the backgroundColor, border, shadow, and other visual attributes of sheet.
-     *
-     * @type { ?SystemUiMaterial }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 24 static
-     */
-    systemMaterial?: SystemUiMaterial;
-    /**
      * Mask color of the sheet.
      *
      * @type { ?ResourceColor }
