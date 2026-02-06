@@ -1554,7 +1554,7 @@ export declare interface AccessibilityActionOptions {
  * @typedef { PresetFillType } ResponsiveFillType
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 24 static
+ * @since 23 static
  */
 export type ResponsiveFillType = PresetFillType;
 
@@ -1564,7 +1564,7 @@ export type ResponsiveFillType = PresetFillType;
  * @interface ItemFillPolicy
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 24 static
+ * @since 23 static
  */
 export declare interface ItemFillPolicy {
   /**
@@ -1574,7 +1574,7 @@ export declare interface ItemFillPolicy {
    * @default ResponsiveFillType.BREAKPOINT_DEFAULT
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 23 static
    */
   fillType?: ResponsiveFillType;
 }
@@ -1585,7 +1585,7 @@ export declare interface ItemFillPolicy {
  * @interface CacheCountInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 24 static
+ * @since 23 static
  */
 export declare interface CacheCountInfo {
   /**
@@ -1594,7 +1594,7 @@ export declare interface CacheCountInfo {
    * @type { int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 23 static
    */
   minCount: int;
   /**
@@ -1603,7 +1603,7 @@ export declare interface CacheCountInfo {
    * @type { int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 23 static
    */
   maxCount: int;
 }
