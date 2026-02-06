@@ -1519,6 +1519,90 @@ declare namespace window {
   }
 
   /**
+   * Describes the parameters of window anchor used to maintain the relative position to the target window.
+   *
+   * @interface WindowAnchorInfo
+   * @syscap SystemCapability.Window.SessionManager
+   * @systemapi Hide this for inner system use.
+   * @since 24 dynamic&static
+   */
+  interface WindowAnchorInfo {
+    /**
+     * Type of anchor point used to maintain the relative position.
+     *
+     * @type { WindowAnchor }
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @since 24 dynamic&static
+     */
+    anchorType: WindowAnchor;
+
+    /**
+     * The x-axis offset between the anchor points of two windows that are in a layout attachment, measured in px.
+     * The default value is 0.
+     * 
+     * @type { ?int }
+     * @default 0
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @since 24 dynamic&static
+     */
+    offsetX?: int;
+
+    /**
+     * The y-axis offset between the anchor points of two windows that are in a layout attachment, measured in px.
+     * The default value is 0.
+     * 
+     * @type { ?int }
+     * @default 0
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @since 24 dynamic&static
+     */
+    offsetY?: int;
+  }
+
+  /**
+   * Describes the parameters of subwindow layout attach operation.
+   * 
+   * @interface SubWindowAttachOptions
+   * @syscap SystemCapability.Window.SessionManager
+   * @systemapi Hide this for inner system use.
+   * @since 24 dynamic&static
+   */
+  interface SubWindowAttachOptions {
+    /**
+     * Current layout mode of the sub window.
+     * 
+     * @type { ?string }
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @since 24 dynamic&static
+     */
+    currentLayoutMode?: string;
+
+    /**
+     * The callback of windowSizeChange event of the parent window.
+     * 
+     * @type { ?Callback<Size> }
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @since 24 dynamic&static
+     */
+    parentWindowSizeChangeCallBack?: Callback<Size>;
+
+    /**
+     * The callback of windowStatusChange event of the parent window.
+     * 
+     * @type { ?Callback<WindowStatusType> }
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @since 24 dynamic&static
+     */
+    parentWindowStatusChangeCallBack?: Callback<WindowStatusType>;
+  }
+
+  /**
    * Avoid area
    *
    * @interface AvoidArea
@@ -6319,6 +6403,57 @@ declare namespace window {
      */
     setRelativePositionToParentWindowEnabled(enabled: boolean, anchor?: WindowAnchor,
         offsetX?: int, offsetY?: int): Promise<void>;
+
+    /**
+     * Attach to the target window.
+     * The current window's position will follow the target window.
+     *
+     * @param { WindowAnchorInfo } [anchorInfo] - Defines the window anchor point
+     *      used to maintain a fixed relative position between the current subwindow and the target main window.
+     *      If undefined, the anchor point defaults to the top-left corner of the target window with no offset.
+     * @param { SubWindowAttachOptions } [attachOptions] - Defines optional behaviors for the layout attachment.
+     *      If undefined, no extra behaviors will be applied.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *      Function attachLayoutToParentWindow can not work correctly due to limited device capabilities.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     *      Possible cause: 1. The window is not created or destroyed;
+     *                      2. Internal task error.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     *      Possible cause: 1. Invalid window type. Only sub windows are supported;
+     *                      2. Only level-1 sub windows are supported.
+     * @throws { BusinessError } 1300010 - The operation in the current window status is invalid.
+     *      Possible cause: 1. The sub window is following its parent window's layout;
+     *                      2. The sub window is maximized.
+     * @syscap SystemCapability.Window.SessionManager
+     * @Systemapi Hide this for inner system use.
+     * @since 24 dynamic&static
+     */
+    attachLayoutToParentWindow(anchorInfo?: WindowAnchorInfo, attachOptions?: SubWindowAttachOptions): Promise<void>;
+
+    /**
+     * Detach from the target window.
+     * After detachment, the current window's position will no longer follow the target window.
+     *
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *      Function detachLayoutToParentWindow can not work correctly due to limited device capabilities.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 1300001 - Repeated operation.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     *      Possible cause: 1. The window is not created or destroyed;
+     *                      2. Internal task error.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     *      Possible cause: 1. Invalid window type. Only sub windows are supported;
+     *                      2. Only level-1 sub windows are supported.
+     * @syscap SystemCapability.Window.SessionManager
+     * @Systemapi Hide this for inner system use.
+     * @since 24 dynamic&static
+     */
+    detachLayoutToParentWindow(): Promise<void>;
 
     /**
      * Set the type of a window.
