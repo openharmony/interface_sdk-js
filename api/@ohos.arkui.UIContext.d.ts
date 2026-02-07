@@ -25,7 +25,7 @@ import type inspector from './@ohos.arkui.inspector';
 import promptAction, { LevelOrder } from './@ohos.promptAction';
 import router from './@ohos.router';
 import type componentUtils from './@ohos.arkui.componentUtils';
-import { ComponentContent, FrameNode, Frame } from './@ohos.arkui.node';
+import { ComponentContent, FrameNode, Frame, LengthMetrics, Edges } from './@ohos.arkui.node';
 import type { AnimatorOptions, AnimatorResult } from './@ohos.animator';
 import type observer from './@ohos.arkui.observer';
 import { SimpleAnimatorOptions } from './@ohos.animator';
@@ -1002,6 +1002,109 @@ export interface TargetInfo {
    * @since 18 dynamic
    */
   componentId?: number;
+}
+
+/**
+ * Configuration parameters for background luminance sampling.
+ *
+ * @interface BackgroundLuminanceSamplingConfigs
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @stagemodelonly
+ * @since 23 dynamic
+ */
+export interface BackgroundLuminanceSamplingConfigs {
+  /**
+   * Sampling interval, in milliseconds. The minimum interval is 180 milliseconds.
+   *
+   * @type { ?number }
+   * @default 500
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic
+   */
+  samplingInterval?: number;
+  /**
+   * Brightness threshold. If the value is greater than this threshold, the background is bright.
+   * The value range is [0, 255]. The value of brightThreshold must be greater than or equal to that of darkThreshold.
+   * Values that are not within the range will result in exceptions when setting parameters.
+   *
+   * @type { ?number }
+   * @default 220
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic
+   */
+  brightThreshold?: number;
+  /**
+   * Darkness threshold. If the value is less than this threshold, the background is dark.
+   * The value range is [0, 255]. The value of brightThreshold must be greater than or equal to that of darkThreshold.
+   * Values that are not within the range will result in exceptions when setting parameters.
+   *
+   * @type { ?number }
+   * @default 150
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic
+   */
+  darkThreshold?: number;
+  /**
+   * Sampling region. if not specified, the region is the node area.
+   *
+   * @type { ?Edges<LengthMetrics> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic
+   */
+  region?: Edges<LengthMetrics>;
+}
+
+/**
+ * class Background luminance sampler.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @stagemodelonly
+ * @since 23 dynamic
+ */
+export class LuminanceSampler {
+  /**
+   * Set background luminance sampling configs.
+   *
+   * @param { BackgroundLuminanceSamplingConfigs } configs - Sampling configs.
+   * @throws { BusinessError } 100001 - Internal error.
+   *     <br> 1. Incorrect parameter values.
+   *     <br> 2. Incorrect parameters types.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic
+   */
+  setBackgroundLuminanceSamplingConfigs(configs: BackgroundLuminanceSamplingConfigs): void;
+  /**
+   * Register a callback for background luminance changes.
+   *
+   * @param { Callback<number> } samplingCallback - Luminance Sampling Callback.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic
+   */
+  onBackgroundLuminanceChange(samplingCallback: Callback<number>): void;
+  /**
+   * Unregister a callback for background luminance changes.
+   *
+   * @param { Callback<number> } [samplingCallback] - Luminance Sampling Callback.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic
+   */
+  offBackgroundLuminanceChange(samplingCallback?: Callback<number>): void;
 }
 
 /**
@@ -4301,6 +4404,18 @@ export class UIContext {
    * @since 11 dynamic
    */
   getUIInspector(): UIInspector;
+
+  /**
+   * get the luminance sampler of the specified node. If the node cannot be found, return undefined.
+   *
+   * @param { TargetInfo } target - ID of target node.
+   * @returns { LuminanceSampler | undefined } the luminance sampler or undefined.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic
+   */
+  getLuminanceSampler(target: TargetInfo): LuminanceSampler | undefined;
 
   /**
    * get the filtered attributes of the component tree.
