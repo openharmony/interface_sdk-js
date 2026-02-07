@@ -105,7 +105,7 @@ export declare class SwiperController {
    *     If the Swiper is not ready to start the fake drag, or a real or fake drag is already in progress, return false.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 23 static
    */
   startFakeDrag(): boolean;
 
@@ -118,7 +118,7 @@ export declare class SwiperController {
    *     If any offset is consumed, return true.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 23 static
    */
   fakeDragBy(offset: float): boolean;
 
@@ -129,7 +129,7 @@ export declare class SwiperController {
    *     If the Swiper is not ready to stop a fake drag, or no fake drag is in progress, return false.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 23 static
    */
   stopFakeDrag(): boolean;
 
@@ -139,7 +139,7 @@ export declare class SwiperController {
    * @returns { boolean } If a fake drag is in progress return true, otherwise return false.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 23 static
    */
   isFakeDragging(): boolean;
 }
