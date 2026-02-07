@@ -183,6 +183,7 @@
     "SystemCapability.Ability.AbilityRuntime.AbilityCore",
     "SystemCapability.Ability.AbilityRuntime.FAModel",
     "SystemCapability.Ability.AbilityRuntime.Core",
+    "SystemCapability.Ability.AgentRuntime.Core",
     "SystemCapability.Global.ResourceManager",
     "SystemCapability.Multimedia.AVSession.AVCast",
     "SystemCapability.MiscServices.Wallpaper",

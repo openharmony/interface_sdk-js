@@ -225,6 +225,7 @@
     "SystemCapability.Ability.Form",
     "SystemCapability.Ability.DistributedAbilityManager",
     "SystemCapability.Ability.AbilityRuntime.QuickFix",
+    "SystemCapability.Ability.AgentRuntime.Core",
     "SystemCapability.Applications.ContactsData",
     "SystemCapability.Applications.Contacts",
     "SystemCapability.Applications.Settings.Core",
