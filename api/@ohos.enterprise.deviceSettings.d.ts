@@ -406,7 +406,7 @@ declare namespace deviceSettings {
    * @param { Want } admin - admin indicates the enterprise admin extension ability information.
    *                         The admin must have the corresponding permission.
    * @param { string } item - item indicates the device properties that need to be set, including screenOff, powerPolicy and dateTime,
-   *                          dateTime, eyeComfort, defaultInputMethod, deviceName.
+   *                          dateTime, eyeComfort, defaultInputMethod.
    *                          screenOff means the device screen off time, powerPolicy means the device power policy
    *                          and dataTime means the device system time.
    * @param { string } value - device settings policy.
