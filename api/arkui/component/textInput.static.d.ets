@@ -1009,12 +1009,13 @@ export declare interface TextInputAttribute extends CommonMethod {
     /**
      * Called when the font weight is set.
      *
-     * @param { int | FontWeight | string | undefined } value
+     * @param { int | FontWeight | ResourceStr | undefined } value - The default value is FontWeight.Normal.
+     *     Passing `undefined` resets it to the default value.
      * @returns { TextInputAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
      */
-    default fontWeight(value: int | FontWeight | string | undefined): this;
+    default fontWeight(value: int | FontWeight | ResourceStr | undefined): this;
     /**
      * Called when the font list of text is set.
      *
@@ -1348,7 +1349,8 @@ export declare interface TextInputAttribute extends CommonMethod {
      * <br>By default, the custom keyboard is closed when the input component loses the focus.
      * <br>You can also use the TextInputController.stopEditing API to close the keyboard.
      * <br>When a custom keyboard is set, the text box does not support camera input, even when the device supports.
-     * <br>When setting a custom keyboard, you can bind the onKeyPrelme event to prevent input from the physical keyboard.
+     * <br>When setting a custom keyboard,
+     * you can bind the onKeyPrelme event to prevent input from the physical keyboard.
      * </p>
      *
      * @param { CustomBuilder | ComponentContentBase | undefined } value - Set up a custom keyboard of TextInput
@@ -1358,8 +1360,7 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @stagemodelonly
      * @since 23 static
      */
-    default customKeyboard(value: CustomBuilder | ComponentContentBase | undefined,
-                           options?: KeyboardOptions): this;
+    default customKeyboard(value: CustomBuilder | ComponentContentBase | undefined, options?: KeyboardOptions): this;
     /**
      * Show the counter when the number of characters entered exceeds the threshold through InputCounterOptions.
      *
@@ -1772,7 +1773,6 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @since 23 static
      */
     default fallbackLineSpacing(enabled: boolean | undefined): this;
-
     /**
      * Sets the attribute modifier.
      *

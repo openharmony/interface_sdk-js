@@ -791,7 +791,8 @@ export declare interface SearchAttribute extends CommonMethod {
      * <br>By default, the custom keyboard is closed when the input component loses the focus.
      * <br>You can also use the stopEditing API to close the keyboard.
      * <br>When a custom keyboard is set, the text box does not support camera input, even when the device supports.
-     * <br>When setting a custom keyboard, you can bind the onKeyPrelme event to prevent input from the physical keyboard.
+     * <br>When setting a custom keyboard,
+     * you can bind the onKeyPrelme event to prevent input from the physical keyboard.
      * </p>
      *
      * @param { CustomBuilder | ComponentContentBase | undefined } value - Set up a custom keyboard of Search
@@ -802,7 +803,7 @@ export declare interface SearchAttribute extends CommonMethod {
      * @since 23 static
      */
     default customKeyboard(
-        value: CustomBuilder | ComponentContentBase | undefined, options?: KeyboardOptions): this;
+      value: CustomBuilder | ComponentContentBase | undefined, options?: KeyboardOptions): this;
     /**
      * Called when the text decoration of the text is set.
      *
@@ -1016,7 +1017,6 @@ export declare interface SearchAttribute extends CommonMethod {
      * @since 23 static
      */
     default keyboardAppearance(appearance: KeyboardAppearance | undefined): this;
-
     /**
      * Whether to compress punctuation at the beginning of line.
      *

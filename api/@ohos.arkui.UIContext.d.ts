@@ -79,19 +79,21 @@ export class Font {
 
   /**
    * Gets a list of fonts supported by system.
+   *
    * @returns { Array<string> } A list of font names
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * Gets a list of fonts supported by system.
-   * 
+   *
    * <p><strong>NOTE</strong>:
    * <br>This API takes effect only on 2-in-1 devices.
    * </p>
-   * 
+   *
    * @returns { Array<string> } A list of font names
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 11 dynamic
    */
@@ -99,6 +101,7 @@ export class Font {
 
   /**
    * Get font details according to the font name.
+   *
    * @param { string } fontName - font name
    * @returns { font.FontInfo } Returns the font info
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -106,9 +109,11 @@ export class Font {
    */
   /**
    * Get font details according to the font name.
+   *
    * @param { string } fontName - font name
    * @returns { font.FontInfo } Returns the font info
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 11 dynamic
    */
@@ -5820,7 +5825,7 @@ export const enum GestureActionPhase {
   /**
    * Enable custom keyboard continuation.
    * 
-   * @syscap SystemCapability. ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -5831,7 +5836,7 @@ export const enum GestureActionPhase {
   /**
    * Disable custom keyboard continuation.
    * 
-   * @syscap SystemCapability. ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice

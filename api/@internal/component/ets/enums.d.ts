@@ -10321,7 +10321,7 @@ declare enum EllipsisMode {
    * @atomicservice
    * @since 12 dynamic
    */
-  END = 2
+  END = 2,
 }
 
 /**

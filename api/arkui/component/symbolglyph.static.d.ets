@@ -414,7 +414,8 @@ export declare interface SymbolGlyphAttribute extends CommonMethod {
     /**
      * Called when the font symbolGlyph weight is set.
      *
-     * @param { int | FontWeight | string } value
+     * @param { int | FontWeight | string | undefined } value - The weight of the font,
+     *     the default is normal. Passing `undefined` resets it to the default value. 
      * @returns { SymbolGlyphAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
@@ -485,7 +486,6 @@ export declare interface SymbolGlyphAttribute extends CommonMethod {
      * @since 23 static
      */
     default maxFontScale(scale: double | Resource | undefined): this;
-
     /**
      * Sets the attribute modifier.
      *

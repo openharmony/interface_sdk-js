@@ -608,7 +608,6 @@ declare type RectHeightStyle = text.RectHeightStyle;
  * @since 23 static
  */
 declare type TextBox = text.TextBox;
-
 /**
  * Defines the cursor style
  *
