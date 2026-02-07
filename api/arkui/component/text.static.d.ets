@@ -174,20 +174,11 @@ export declare interface TextAttribute extends CommonMethod {
     /**
      * Called when the font weight is set.
      *
-     * @param { int | FontWeight | string } weight
-     * @param { FontSettingOptions } options - font setting options.
-     * @returns { TextAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
-     */
-    /**
-     * Called when the font weight is set.
-     *
      * @param { int | FontWeight | ResourceStr | undefined } weight
      * @param { FontSettingOptions | undefined } [options] - font setting options.
      * @returns { TextAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 24 static
+     * @since 23 static
      */
     default fontWeight(weight: int | FontWeight | ResourceStr | undefined, options?: FontSettingOptions | undefined): this;
     /**
@@ -213,7 +204,7 @@ export declare interface TextAttribute extends CommonMethod {
      * @param { LineSpacingOptions } [options]
      * @returns { TextAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 24 static
+     * @since 23 static
      */
     default lineSpacing(value: LengthMetrics | undefined, options?: LineSpacingOptions): this;
     /**

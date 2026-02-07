@@ -2179,7 +2179,7 @@ export declare class Magnifier {
    *
    * @param { string } id - component id.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 23 static
    */
   bind(id: string): void;

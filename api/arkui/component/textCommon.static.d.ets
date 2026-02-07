@@ -1394,7 +1394,7 @@ export declare enum SuperscriptStyle {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 24 static
+ * @since 23 static
  */
 export declare enum MaxLinesMode {
   /**
@@ -1402,7 +1402,7 @@ export declare enum MaxLinesMode {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 23 static
    */
   CLIP = 0,
 
@@ -1411,7 +1411,7 @@ export declare enum MaxLinesMode {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 23 static
    */
   SCROLL = 1
 }
@@ -1743,7 +1743,7 @@ export declare class RadialGradientStyle extends ShaderStyle {
  * @interface MaxLinesOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 24 static
+ * @since 23 static
  */
 export declare interface MaxLinesOptions {
   /**
@@ -1752,7 +1752,7 @@ export declare interface MaxLinesOptions {
    * @type { ?MaxLinesMode }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 23 static
    */
   overflowMode?: MaxLinesMode;
 }
@@ -1790,7 +1790,7 @@ export declare interface IMEClient {
  * @interface LineSpacingOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 24 static
+ * @since 23 static
  */
 export declare interface LineSpacingOptions {
     /**
@@ -1799,7 +1799,7 @@ export declare interface LineSpacingOptions {
      * @type { ?boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 23 static
      */
     onlyBetweenLines?: boolean;
 }
