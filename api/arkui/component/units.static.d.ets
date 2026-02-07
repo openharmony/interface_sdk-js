@@ -21,7 +21,7 @@
 
 import { Resource as _Resource } from '../../global/resource';
 import { Color, BorderStyle, FontWeight, FontStyle, DividerMode, PresetFillType } from './enums';
-import { OutlineStyle, AttributeModifier, CommonMethod, AccessibilityRoleType} from './common';
+import { OutlineStyle, AttributeModifier, CommonMethod, AccessibilityRoleType } from './common';
 import { LengthMetricsUnit as _LengthMetricsUnit, LengthMetrics as _LengthMetrics, ColorMetrics as _ColorMetrics } from '../Graphics';
 import _drawing from '../../../api/@ohos.graphics.drawing'
 /**
@@ -1413,36 +1413,6 @@ export declare interface DividerStyleOptions {
 }
 
 /**
- * Define scrollbar margin options.
- *
- * @interface ScrollBarMargin
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 24 static
- */
-export declare interface ScrollBarMargin {
-  /**
-   * Start margin of the scroll bar.
-   *
-   * @type { ?LengthMetrics }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 24 static
-   */
-  start?: LengthMetrics;
-
-  /**
-   * End margin of the scroll bar.
-   *
-   * @type { ?LengthMetrics }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 24 static
-   */
-  end?: LengthMetrics;
-}
-
-/**
  * Defines the ChainWeightOptions interface.
  *
  * @interface ChainWeightOptions
@@ -1554,7 +1524,7 @@ export declare interface AccessibilityActionOptions {
  * @typedef { PresetFillType } ResponsiveFillType
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 24 static
+ * @since 23 static
  */
 export type ResponsiveFillType = PresetFillType;
 
@@ -1564,7 +1534,7 @@ export type ResponsiveFillType = PresetFillType;
  * @interface ItemFillPolicy
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 24 static
+ * @since 23 static
  */
 export declare interface ItemFillPolicy {
   /**
@@ -1574,7 +1544,7 @@ export declare interface ItemFillPolicy {
    * @default ResponsiveFillType.BREAKPOINT_DEFAULT
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 23 static
    */
   fillType?: ResponsiveFillType;
 }
@@ -1585,7 +1555,7 @@ export declare interface ItemFillPolicy {
  * @interface CacheCountInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 24 static
+ * @since 23 static
  */
 export declare interface CacheCountInfo {
   /**
@@ -1594,7 +1564,7 @@ export declare interface CacheCountInfo {
    * @type { int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 23 static
    */
   minCount: int;
   /**
@@ -1603,7 +1573,7 @@ export declare interface CacheCountInfo {
    * @type { int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 23 static
    */
   maxCount: int;
 }

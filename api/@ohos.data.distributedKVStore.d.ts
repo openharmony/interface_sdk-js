@@ -647,46 +647,6 @@ declare namespace distributedKVStore {
      * @since 23 static
      */
     schema?: Schema;
-
-    /**
-     * Specifies the root directory relative to the database
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
-     * @stagemodelonly[staticonly]
-     * @since 24 dynamic&static
-     */
-    rootDir?: string;
-  }
-
-  /**
-   * Provides backup config to backup or restore KVStore.
-   *
-   * @interface BackupConfig
-   * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-   * @stagemodelonly[staticonly]
-   * @since 24 dynamic&static
-   */
-  interface BackupConfig {
-    /**
-     * Specifies the file name to the backup database
-     *
-     * @type { string }
-     * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
-     * @stagemodelonly[staticonly]
-     * @since 24 dynamic&static
-     */
-    fileName: string;
-
-    /**
-     * Specifies the root directory relative to the backup database
-     *
-     * @type { string }
-     * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
-     * @stagemodelonly[staticonly]
-     * @since 24 dynamic&static
-     */
-    filePath: string;
   }
 
   /**
@@ -2308,20 +2268,6 @@ declare namespace distributedKVStore {
     backup(file: string): Promise<void>;
 
     /**
-     * Backs up a database by specifying {@code BackupConfig}.
-     *
-     * @param { BackupConfig } backupConfig - Indicates the {@code BackupConfig} object for backup database.
-     * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 15100000 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *     <br>2.Parameter verification failed.
-     * @throws { BusinessError } 15100005 - Database or result set already closed.
-     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @stagemodelonly[staticonly]
-     * @since 24 dynamic&static
-     */
-    backupEx(backupConfig: BackupConfig): Promise<void>;
-
-    /**
      * Restores a database from a specified database file.
      *
      * @param { string } file - Indicates the database backup filename, It can not be empty and
@@ -2350,20 +2296,6 @@ declare namespace distributedKVStore {
      * @since 23 static
      */
     restore(file: string): Promise<void>;
-
-    /**
-     * Restores a database by specifying {@code BackupConfig}.
-     *
-     * @param { BackupConfig } backupConfig - Indicates the {@code BackupConfig} object for restore database.
-     * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 15100000 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *     <br>2.Parameter verification failed.
-     * @throws { BusinessError } 15100005 - Database or result set already closed.
-     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @stagemodelonly[staticonly]
-     * @since 24 dynamic&static
-     */
-    restoreEx(backupConfig: BackupConfig): Promise<void>;
 
     /**
      * Delete database backup files based on the specified filenames.
@@ -2395,19 +2327,6 @@ declare namespace distributedKVStore {
      * @since 23 static
      */
     deleteBackup(files: Array<string>): Promise<Array<[string, int]>>;
-
-    /**
-     * Delete database backup file by specifying {@code BackupConfig}.
-     *
-     * @param { BackupConfig } backupConfig - Indicates the {@code BackupConfig} object for delete backup file.
-     * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 15100000 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *     <br>2.Parameter verification failed.
-     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @stagemodelonly[staticonly]
-     * @since 24 dynamic&static
-     */
-    deleteBackupEx(backupConfig: BackupConfig): Promise<void>;
 
     /**
      * Starts a transaction operation in the {@code SingleKVStore} database.
@@ -3635,28 +3554,6 @@ declare namespace distributedKVStore {
     closeKVStore(appId: string, storeId: string): Promise<void>;
 
     /**
-     * Closes the KVStore database identified by storeId and {@code Options}.
-     * <p>Warning: This method is not thread-safe. If you call this method to stop a KVStore database that is running,
-     *     your thread may crash.
-     * <p>The KVStore database to close must be an object created by using the {@code getKVStore} method. Before using
-     *     this method, release the resources created for the database, for example,
-     *     {@code KVStoreResultSet} for KVStore, otherwise closing the database will fail.
-     *
-     * @param { string } appId - Identifies the application that the database belong to, and cannot exceed 256
-     *     characters.
-     * @param { string } storeId - Identifies the KVStore database to close. The storeId can consist of only letters,
-     *     digits, and underscores (_), and cannot exceed 128 characters.
-     * @param { Options } [kvConfig] - Indicates the {@code Options} object used for close the KVStore database.
-     * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 15100000 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *     <br>2.Parameter verification failed.
-     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @stagemodelonly[staticonly]
-     * @since 24 dynamic&static
-     */
-    closeKVStore(appId: string, storeId: string, kvConfig?: Options): Promise<void>;
-
-    /**
      * Deletes the KVStore database identified by storeId.
      * <p>Before using this method, close all KVStore instances in use that are identified by the same storeId.
      * <p>You can use this method to delete a KVStore database not in use. After the database is deleted, all its data will be
@@ -3694,27 +3591,6 @@ declare namespace distributedKVStore {
      * @since 23 static
      */
     deleteKVStore(appId: string, storeId: string): Promise<void>;
-
-    /**
-     * Deletes the KVStore database identified by storeId and {@code Options}.
-     * <p>Before using this method, close all KVStore instances in use that are identified by the same storeId.
-     * <p>You can use this method to delete a KVStore database not in use. After the database is deleted, all its data
-     *     will be lost.
-     *
-     * @param { string } appId - Identifies the application that the database belong to, and cannot exceed 256
-     *     characters.
-     * @param { string } storeId - Identifies the KVStore database to delete. The storeId can consist of only letters,
-     *     digits, and underscores (_), and cannot exceed 128 characters.
-     * @param { Options } [kvConfig] - Indicates the {@code Options} object used for delete the KVStore database.
-     * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 15100000 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *     <br>2.Parameter verification failed.
-     * @throws { BusinessError } 15100004 - Not found.
-     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @stagemodelonly[staticonly]
-     * @since 24 dynamic&static
-     */
-    deleteKVStore(appId: string, storeId: string, kvConfig?: Options): Promise<void>;
 
     /**
      * Obtains the storeId of all KVStore databases that are created by using the {@code getKVStore} method and not deleted by

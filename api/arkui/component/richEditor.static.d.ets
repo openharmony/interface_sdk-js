@@ -24,7 +24,7 @@ import { FontStyle, FontWeight, TextAlign, WordBreak, LineBreakStrategy, ImageSp
 import { DecorationStyleInterface, StyledString, MutableStyledString } from './styledString';
 import { Resource } from './../../../api/global/resource';
 import { SymbolEffectStrategy, SymbolRenderingStrategy } from './symbolglyph';
-import { DecorationStyleResult, TextRange, MenuType, TextEditControllerEx, LayoutManager, PreviewText, StyledStringController, StyledStringChangedListener, TextDataDetectorConfig, OnDidChangeCallback, EditMenuOptions, KeyboardAppearance, AccessibilitySpanOptions, TextDirection, SelectedDragPreviewStyle, TextVerticalAlign, TextChangeReason } from './textCommon';
+import { DecorationStyleResult, TextRange, MenuType, TextEditControllerEx, LayoutManager, PreviewText, StyledStringController, StyledStringChangedListener, TextDataDetectorConfig, OnDidChangeCallback, EditMenuOptions, KeyboardAppearance, AccessibilitySpanOptions, TextDirection, SelectedDragPreviewStyle } from './textCommon';
 import { GestureEvent } from './gesture';
 import { EnterKeyType, SubmitEvent } from './textInput';
 import { LengthMetrics, ColorMetrics } from '../Graphics';
@@ -98,29 +98,6 @@ export declare enum RichEditorSpanType {
      * @since 23 static
      */
     DEFAULT = 4
-}
-/**
- * Defines undo style.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 24 static
- */
-export declare enum UndoStyle {
-    /**
-     * Undo without style.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 24 static
-     */
-    CLEAR_STYLE = 0,
-    /**
-     * Undo keep style.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 24 static
-     */
-    KEEP_STYLE = 1
 }
 /**
  * ResponseType for contextMenu
@@ -358,15 +335,6 @@ export declare interface RichEditorParagraphStyle {
      * @since 23 static
      */
     textAlign?: TextAlign;
-    /**
-     * Vertical alignment of text.
-     *
-     * @type { ?TextVerticalAlign }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 24 static
-     */
-    textVerticalAlign?: TextVerticalAlign;
     /**
      * Leading margin.
      *
@@ -1487,16 +1455,6 @@ export declare interface RichEditorChangeValue {
      * @since 23 static
      */
     replacedSymbolSpans: Array<RichEditorTextSpanResult>;
-    /**
-     * The reason for text changes.
-     *
-     * @type { ?TextChangeReason }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 24 static
-     */
-    changeReason?: TextChangeReason;
 }
 /**
  * Defines the options of RichEditor.
@@ -1655,15 +1613,6 @@ export declare class RichEditorBaseController implements TextEditControllerEx {
      * @since 23 static
      */
     setTypingStyle(value: RichEditorTextStyle): void;
-    /**
-     * Set the typing paragraph style.
-     *
-     * @param { RichEditorParagraphStyle | undefined } style - set the typing paragraph style.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 24 static
-     */
-    setTypingParagraphStyle(style: RichEditorParagraphStyle | undefined): void;
     /**
      * Specify the start and end positions to select a range of content.
      *
@@ -2056,15 +2005,6 @@ export declare interface RichEditorAttribute extends CommonMethod {
      */
     default dataDetectorConfig(config: TextDataDetectorConfig | undefined): this;
     /**
-     * Enable selected data detector.
-     *
-     * @param { boolean | undefined } enable - whether to enable the selected data detector.
-     * @returns { RichEditorAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 24 static
-     */
-    default enableSelectedDataDetector(enable: boolean | undefined): this;
-    /**
      * Set richEditor placeholder.
      *
      * @param { ResourceStr | undefined } value - The value of placeholder.
@@ -2211,15 +2151,6 @@ export declare interface RichEditorAttribute extends CommonMethod {
      */
     default maxLines(maxLines: int | undefined): this;
     /**
-     * Whether to enable automatic spacing between Chinese and Latin characters.
-     *
-     * @param { boolean | undefined } enable - The default value is false, indicates the flag whether to enable automatic spacing.
-     * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 24 static
-     */
-    default enableAutoSpacing(enable: boolean | undefined): this;
-    /**
      * Set the keyboard appearance.
      *
      * @param { Optional<KeyboardAppearance> } appearance - Default value is KeyboardAppearance.NONE_IMMERSIVE
@@ -2228,24 +2159,6 @@ export declare interface RichEditorAttribute extends CommonMethod {
      * @since 23 static
      */
     default keyboardAppearance(appearance: KeyboardAppearance | undefined): this;
-    /**
-     * Set undo style.
-     *
-     * @param { UndoStyle | undefined } style - Default value is UndoStyle.CLEAR_STYLE.
-     * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 24 static
-     */
-    default undoStyle(style: UndoStyle | undefined): this;
-    /**
-     * Set scrollbar color of rich editor.
-     *
-     * @param { ColorMetrics | undefined } color  - Color of the rich editor scrollbar.
-     * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 24 static
-     */
-    default scrollBarColor(color: ColorMetrics | undefined): this;
     /**
      * Set whether stop backPressed callback event or not.
      *

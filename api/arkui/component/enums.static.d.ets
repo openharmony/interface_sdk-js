@@ -3299,23 +3299,7 @@ export declare enum EllipsisMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
-  END = 2,
-
-  /**
-   * The ellipsis is in the head. It is valid for multiline and single line.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 24 static
-   */
-  MULTILINE_START = 3,
-
-  /**
-   * The ellipsis is in the middle. It is valid for multiline and single line.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 24 static
-   */
-  MULTILINE_CENTER = 4,
+  END = 2
 }
 
 /**
@@ -4078,59 +4062,6 @@ export declare enum TipsAnchorType {
 }
 
 /**
- * Dialog display mode.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 24 static
- */
-declare enum DialogDisplayMode {
-  /**
-   * The dialog displayed based on screen.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 24 static
-   */
-  SCREEN_BASED = 0,
-  /**
-   * The dialog displayed based on application window.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 24 static
-   */
-  WINDOW_BASED = 1
-}
-
-/**
- * Focus wrap mode of a list or grid when moving focus using the arrow keys.
- *
- * @enum { number } FocusWrapMode
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 24 static
- */
-export declare enum FocusWrapMode {
-  /**
-   * No wrap when moving focus using the arrow keys.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 24 static
-   */
-  DEFAULT = 0,
-
-  /**
-   * Auto wrap when moving focus using the arrow keys.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 24 static
-   */
-  WRAP_WITH_ARROW = 1
-}
-
-/**
  * Define the property type enumeration used in animation.
  *
  * @enum { number }
@@ -4300,7 +4231,7 @@ export enum AttributeModifierState {
  *
  * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 24 static
+ * @since 23 static
  */
 export declare enum PresetFillType {
     /**
@@ -4309,21 +4240,21 @@ export declare enum PresetFillType {
      * (and larger) devices.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 24 static
+     * @since 23 static
      */
     BREAKPOINT_DEFAULT = 0,
     /**
      * For SM (and smaller), MD, and LG (and larger) devices, one, two, and three columns are displayed respectively.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 24 static
+     * @since 23 static
      */
     BREAKPOINT_SM1MD2LG3 = 1,
     /**
      * For SM (and smaller), MD, and LG (and larger) devices, two, three, and five columns are displayed respectively.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 24 static
+     * @since 23 static
      */
     BREAKPOINT_SM2MD3LG5 = 2
 }

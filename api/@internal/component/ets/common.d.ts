@@ -16191,18 +16191,6 @@ declare interface SheetOptions extends BindOptions {
   radiusRenderStrategy?: RenderStrategy;
 
   /**
-   * Set system-styled materials for sheet. Different materials have different effects, which can influence
-   * the backgroundColor, border, shadow, and other visual attributes of sheet.
-   *
-   * @type { ?SystemUiMaterial }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @stagemodelonly
-   * @since 24 dynamic
-   */
-  systemMaterial?: SystemUiMaterial;
-
-  /**
    * Defines transition type when preferType is SheetType.CONTENT_COVER.
    *
    * @type { ?ModalTransition }
@@ -17542,19 +17530,6 @@ declare interface PopupCommonOptions {
    * @since 20 dynamic
    */
   borderLinearGradient?: PopupBorderLinearGradient;
-
-  /**
-   * Set system-styled materials for popup. Different materials have different effects, which can influence
-   * the backgroundColor, border, shadow, and other visual attributes of popup.
-   *
-   * @type { ?SystemUiMaterial }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @stagemodelonly
-   * @atomicservice
-   * @since 24 dynamic
-   */
-  systemMaterial?: SystemUiMaterial;
 }
 
 /**
@@ -18406,19 +18381,6 @@ declare interface PopupOptions {
    * @since 20 dynamic
    */
   borderLinearGradient?: PopupBorderLinearGradient;
-
-  /**
-   * Set system-styled materials for popup. Different materials have different effects, which can influence
-   * the backgroundColor, border, shadow, and other visual attributes of popup.
-   *
-   * @type { ?SystemUiMaterial }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @stagemodelonly
-   * @atomicservice
-   * @since 24 dynamic
-   */
-  systemMaterial?: SystemUiMaterial;
 }
 
 /**
@@ -19072,19 +19034,6 @@ declare interface CustomPopupOptions {
    * @since 20 dynamic
    */
   borderLinearGradient?: PopupBorderLinearGradient;
-
-  /**
-   * Set system-styled materials for popup. Different materials have different effects, which can influence
-   * the backgroundColor, border, shadow, and other visual attributes of popup.
-   *
-   * @type { ?SystemUiMaterial }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @stagemodelonly
-   * @atomicservice
-   * @since 24 dynamic
-   */
-  systemMaterial?: SystemUiMaterial;
 }
 
 /**
@@ -26802,24 +26751,6 @@ declare class CommonMethod<T> {
    * @since 18 dynamic
    */
   clickEffect(effect: Optional<ClickEffect | null>): T;
-
-  /**
-   * Set whether this component should have sound effects enabled for clicking.
-   *
-   * Prerequisite: Sound effects playback is affected by the audio-related settings
-   * in the device system settings. When the user sets the device to silent mode, sound effects cannot be played.
-   *
-   * @param { boolean | undefined } enabled - indicates whether this component should have sound effects
-   *     enabled for clicking.
-   *     <br>Pass in undefined to reset the default value, default value is true, but
-   *     even it's true, the sound effect is only supported in some specific devices.
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 24 dynamic
-   */
-  enableClickSoundEffect(enabled: boolean | undefined): T
 
   /**
    * After a listener is bound, the component can be dragged. After the drag occurs, a callback is triggered.
