@@ -14071,6 +14071,20 @@ declare namespace window {
     loadContentByName(name: string, storage?: LocalStorage): Promise<void>;
 
     /**
+     * Release the content of this window in the current project.
+     * This API uses a promise to return the result.
+     * 
+     * @returns { Promise<void> } Promise that returns no value, indicating successful completion.
+     *     Throws exception if window state is abnormal.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     *     Possible cause: The window is not created or destroyed.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    releaseUIContent(): Promise<void>;
+
+    /**
      * Window stage event callback on.
      *
      * @param { 'windowStageEvent' } eventType The value is fixed at 'windowStageEvent', indicating the window stage lifecycle change event.
