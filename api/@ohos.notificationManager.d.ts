@@ -4398,7 +4398,7 @@ declare namespace notificationManager {
   function isPriorityIntelligentEnabled(): Promise<boolean>;
 
   /**
-   * Sets the enabling status of the priority notification.
+   * Sets the intelligent service enabling status of the priority notification.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { boolean } enable - Set enable or not.
