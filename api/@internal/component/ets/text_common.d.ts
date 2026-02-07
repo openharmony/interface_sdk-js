@@ -943,6 +943,7 @@ declare type TextBox = import('../api/@ohos.graphics.text').default.TextBox;
  * 
  * @typedef { import('../api/@ohos.graphics.text').default.Paragraph } Paragraph
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 20 dynamic
  */
 declare type Paragraph = import('../api/@ohos.graphics.text').default.Paragraph;
@@ -1055,6 +1056,7 @@ declare class TextMenuItemId {
    * @readonly
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
@@ -1067,6 +1069,7 @@ declare class TextMenuItemId {
    * @readonly
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
@@ -1079,6 +1082,7 @@ declare class TextMenuItemId {
    * @readonly
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
@@ -1091,6 +1095,7 @@ declare class TextMenuItemId {
    * @readonly
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
@@ -1774,6 +1779,7 @@ declare class ColorShaderStyle extends ShaderStyle {
  * Defines the text content transition class.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @atomicservice
  * @since 20 dynamic
  */
@@ -1821,6 +1827,7 @@ declare class NumericTextTransition extends ContentTransition {
    *
    * @type { ?FlipDirection }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 20 dynamic
    */
@@ -1831,6 +1838,7 @@ declare class NumericTextTransition extends ContentTransition {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 20 dynamic
    */
@@ -1842,6 +1850,7 @@ declare class NumericTextTransition extends ContentTransition {
  *
  * @interface NumericTextTransitionOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @atomicservice
  * @since 20 dynamic
  */
@@ -1851,6 +1860,7 @@ declare interface NumericTextTransitionOptions {
    *
    * @type { ?FlipDirection }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 20 dynamic
    */
@@ -1861,6 +1871,7 @@ declare interface NumericTextTransitionOptions {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 20 dynamic
    */
@@ -1872,6 +1883,7 @@ declare interface NumericTextTransitionOptions {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @atomicservice
  * @since 20 dynamic
  */
@@ -1880,6 +1892,7 @@ declare enum FlipDirection {
    * The flip direction is down.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 20 dynamic
    */
@@ -1889,6 +1902,7 @@ declare enum FlipDirection {
    * The flip direction is up.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 20 dynamic
    */
@@ -2358,6 +2372,7 @@ declare enum TextContentAlign {
  *
  * @interface TextLayoutOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 20 dynamic
  */
 declare interface TextLayoutOptions {
@@ -2366,6 +2381,7 @@ declare interface TextLayoutOptions {
    *
    * @type { ?LengthMetrics } constraintWidth
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 20 dynamic
    */
   constraintWidth?: LengthMetrics;
