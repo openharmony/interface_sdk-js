@@ -1148,6 +1148,19 @@ export declare interface TextAreaAttribute extends CommonMethod {
      * @since 23 static
      */
     default voiceButton(options: VoiceButtonOptions | undefined): this;
+
+    /**
+     * Whether to enable horizontal scrolling when text is wider than the view.
+     * The default value is false, and text will be wrapped by the view.
+     *
+     * @param { boolean | undefined } enabled - whether to enable horizontal scrolling.
+     * True means enable this feature, false means disable this feature.
+     * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 24 static
+     */
+    default horizontalScrolling(enabled: boolean | undefined): this;
 }
 
 /**
