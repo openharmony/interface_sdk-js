@@ -118,6 +118,9 @@ import kioskManager from '@ohos.app.ability.kioskManager';
 import CompletionHandlerForAtomicService, { FailureCode } from '@ohos.app.ability.CompletionHandlerForAtomicService';
 import { CompletionHandlerForAbilityStartCallback, AbilityStartFailureCode } from '@ohos.app.ability.CompletionHandlerForAbilityStartCallback';
 import systemConfiguration from '@ohos.app.ability.systemConfiguration';
+import AgentExtensionAbility from '@ohos.app.agent.AgentExtensionAbility';
+import AgentUIExtensionAbility from '@ohos.app.agent.AgentUIExtensionAbility';
+import agentManager from '@ohos.app.agent.agentManager';
 
 export {
   Ability, AbilityConstant, AbilityLifecycleCallback, AbilityStage, ActionExtensionAbility,
@@ -139,7 +142,7 @@ export {
   InsightIntentLink, InsightIntentPage, InsightIntentFunctionMethod, InsightIntentFunction, InsightIntentEntryExecutor,
   InsightIntentEntry, LinkParamCategory, CompletionHandler, AppServiceExtensionAbility, InsightIntentForm, InsightIntentEntity, kioskManager,
   CompletionHandlerForAtomicService, CompletionHandlerForAbilityStartCallback, AbilityStartFailureCode, FailureCode, InteropAbilityLifecycleCallback,
-  systemConfiguration
+  systemConfiguration, AgentExtensionAbility, AgentUIExtensionAbility, agentManager
 };
 
 /*** if arkts static */
