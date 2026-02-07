@@ -1582,20 +1582,21 @@ export declare class Magnifier {
     *
     * @param { string } id - component id.
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @since 23 static
     */
     bind(id: string);
    /**
     * Set the position of the magnified content.
     *
-    * @param { double } x - the x position of the magnified content relative to the component.
+    * @param { number } x - the x position of the magnified content relative to the component.
     *     The unit of x is vp.
-    * @param { double } y - the y position of the magnified content relative to the component.
+    * @param { number } y - the y position of the magnified content relative to the component.
     *     The unit of y is vp.
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @since 23 static
     */
-    show(x: double,y: double): void;
+    show(x: number,y: number): void;
    /** 
     * Unbind the magnifier from its associated component.
     *

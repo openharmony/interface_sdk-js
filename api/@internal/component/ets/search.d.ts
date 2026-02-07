@@ -372,6 +372,7 @@ declare interface SearchOptions {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 20 dynamic
    */
@@ -403,8 +404,10 @@ declare interface SearchOptions {
    * Text displayed when there is no input.
    *
    * Anonymous Object Rectification.
+   *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 18 dynamic
    */
@@ -442,6 +445,7 @@ declare interface SearchOptions {
    * 
    * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 18 dynamic
    */
@@ -466,8 +470,10 @@ declare interface SearchOptions {
    * Controller of the <Search> component.
    *
    * Anonymous Object Rectification.
+   *
    * @type { ?SearchController }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 18 dynamic
    */
@@ -758,6 +764,7 @@ interface CancelButtonSymbolOptions {
    * 
    * @type { ?CancelButtonStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */

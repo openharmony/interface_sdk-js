@@ -3038,6 +3038,7 @@ declare interface SelectionMenuOptions {
    * 
    * @type { ?PreviewMenuOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 18 dynamic
    */
@@ -3049,6 +3050,7 @@ declare interface SelectionMenuOptions {
  * 
  * @interface PreviewMenuOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @atomicservice
  * @since 18 dynamic
  */
