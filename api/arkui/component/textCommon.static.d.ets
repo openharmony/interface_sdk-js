@@ -1963,7 +1963,7 @@ export declare interface FontConfigs {
  * @stagemodelonly
  * @since 24 static
  */
-declare interface FontWeightConfigs {
+export declare interface FontWeightConfigs {
     /**
      * Defines whether VariableFontWeight is supported. The default value is false.
      * True means enable VariableFontWeight, false means disable VariableFontWeight.
