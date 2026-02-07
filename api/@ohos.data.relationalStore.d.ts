@@ -11061,6 +11061,34 @@ declare namespace relationalStore {
   function getRdbStore(context: Context, config: StoreConfig): Promise<RdbStore>;
 
   /**
+   * Obtains a RDB store.
+   * You can set parameters of the RDB store as required. This is a synchronous method
+   * that blocks the thread until the RDB store is obtained.
+   *
+   * @param { Context } context - Indicates the context of an application or ability.
+   * @param { StoreConfig } config - Indicates the {@link StoreConfig} configuration of the database related to
+   *     this RDB store.
+   * @returns { RdbStore } The RDB store {@link RdbStore}.
+   * @throws { BusinessError } 14800001 - Invalid args.
+   * @throws { BusinessError } 14800010 - Invalid database path.
+   * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
+   * @throws { BusinessError } 14801001 - The operation is supported in the stage model only.
+   * @throws { BusinessError } 14801002 - Invalid data group ID.
+   * @throws { BusinessError } 14800017 - Config changed.
+   * @throws { BusinessError } 14800020 - The secret key is corrupted or lost.
+   * @throws { BusinessError } 14800021 - SQLite: Generic error.
+   * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
+   * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+   * @throws { BusinessError } 14800029 - SQLite: The database is full.
+   * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @stagemodelonly
+   * @crossplatform
+   * @since 24 dynamic&static
+   */
+  function getRdbStoreSync(context: Context, config: StoreConfig): RdbStore;
+
+  /**
    * Deletes the database with a specified name.
    * When specify custom directory, this function should not be called.
    *
