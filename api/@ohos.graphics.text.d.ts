@@ -5471,7 +5471,6 @@ declare namespace text {
   interface TextLayoutResult {
    /**
     * The character range of the string that fits in the paragraph's rectangle.
-    * If ellipsis is triggered, character range will equal to original string range.
     *
     * @type { Array<Range> }
     * @syscap SystemCapability.Graphics.Drawing
