@@ -800,7 +800,7 @@ export declare interface SwiperAttribute extends CommonMethod {
    * 4、Placeholder items do not display any content and are only used as placeholders.
    * 5、When turning pages, turn pages by group.
    *
-   * @param { int | string | SwiperAutoFill | undefined } value - the number of elements
+   * @param { int | string | SwiperAutoFill | undefined } value
    * @param { boolean | undefined } [swipeByGroup] - if swipe by group.
    * @returns { SwiperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
