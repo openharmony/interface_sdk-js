@@ -28,7 +28,7 @@ import { LeadingMarginPlaceholder } from './richEditor';
 import image from '../../@ohos.multimedia.image';
 import drawing from '../../@ohos.graphics.drawing';
 import { DrawContext } from '../../arkui/Graphics';
-import { TextDirection, TextVerticalAlign, FontConfigs } from './textCommon';
+import { TextDirection, SuperscriptStyle, TextVerticalAlign, FontConfigs } from './textCommon';
 
 /**
  * Defines the StyledStringMarshallingValue Type.
@@ -372,6 +372,36 @@ export declare class TextStyle {
      * @since 24 static
      */
     readonly fontConfigs?: FontConfigs;
+    /**
+ 	 * Get the superscript style of the StyledString.
+ 	 *
+ 	 * @type { ?SuperscriptStyle } - the set superscriptStyle of the StyledString
+ 	 * @readonly
+ 	 * @syscap SystemCapability.ArkUI.ArkUI.Full
+ 	 * @stagemodelonly
+ 	 * @since 24 static
+ 	 */
+ 	readonly superscript?: SuperscriptStyle;
+ 	/**
+ 	 * Get the stroke width of the StyledString with the unit 'vp'.
+ 	 *
+ 	 * @readonly
+ 	 * @type { ?double } - the stroke width of the StyledString or undefined
+ 	 * @syscap SystemCapability.ArkUI.ArkUI.Full
+ 	 * @stagemodelonly
+ 	 * @since 24 static
+ 	 */
+ 	readonly strokeWidth?: double;
+ 	/**
+ 	 * Get the stroke color of the StyledString.
+ 	 *
+ 	 * @type { ?ResourceColor } - the stroke color of the StyledString or undefined
+ 	 * @readonly
+ 	 * @syscap SystemCapability.ArkUI.ArkUI.Full
+ 	 * @stagemodelonly
+ 	 * @since 24 static
+ 	 */
+ 	readonly strokeColor?: ResourceColor;
 }
 /**
  * TextStyleInterface
@@ -430,6 +460,33 @@ export declare interface TextStyleInterface {
      * @since 24 static
      */
     fontConfigs?: FontConfigs;
+    /**
+ 	 * The superscript value of the font property object.
+ 	 *
+ 	 * @type { ?SuperscriptStyle }
+ 	 * @syscap SystemCapability.ArkUI.ArkUI.Full
+ 	 * @stagemodelonly
+ 	 * @since 24 static
+ 	 */
+ 	superscript?: SuperscriptStyle;
+ 	/**
+ 	 * The stroke width of the text.
+ 	 *
+ 	 * @type { ?LengthMetrics }
+ 	 * @syscap SystemCapability.ArkUI.ArkUI.Full
+ 	 * @stagemodelonly
+ 	 * @since 24 static
+ 	 */
+ 	strokeWidth?: LengthMetrics;
+ 	/**
+ 	 * The stroke color of the text.
+ 	 *
+ 	 * @type { ?ResourceColor }
+ 	 * @syscap SystemCapability.ArkUI.ArkUI.Full
+ 	 * @stagemodelonly
+ 	 * @since 24 static
+ 	 */
+ 	strokeColor?: ResourceColor;
 }
 /**
  * Defines DecorationStyle.
