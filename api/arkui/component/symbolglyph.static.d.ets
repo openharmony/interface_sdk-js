@@ -416,7 +416,7 @@ export declare interface SymbolGlyphAttribute extends CommonMethod {
      * Called when the font symbolGlyph weight is set.
      *
      * @param { int | FontWeight | string | undefined } value - The weight of the font,
-     *     the default is normal. Passing `undefined` resets it to the default value. 
+     *     the default is Normal. Passing `undefined` resets it to the default value.
      * @returns { SymbolGlyphAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
