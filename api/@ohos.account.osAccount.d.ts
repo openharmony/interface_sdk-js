@@ -3131,6 +3131,17 @@ declare namespace osAccount {
     isReused?: boolean;
 
     /**
+     * Indicates the validity period of the authorization.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    validityPeriod?: int;
+
+    /**
      * Indicates the authorization token.
      *
      * @type { ?Uint8Array }
