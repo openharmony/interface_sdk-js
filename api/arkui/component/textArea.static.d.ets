@@ -763,7 +763,7 @@ export declare interface TextAreaAttribute extends CommonMethod {
      * <br>If the value specified is less than or equal to 0, the default value 0 is used.
      * </p>
      *
-     * @param { LengthMetrics | undefined } value - Default value is 0.
+     * @param { LengthMetrics | undefined } value - The default value is 0.
      *     Passing `undefined` resets it to the default value.
      * @param { LineSpacingOptions } [options]
      * @returns { TextAreaAttribute }
