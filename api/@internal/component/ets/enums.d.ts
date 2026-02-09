@@ -8586,7 +8586,7 @@ declare enum HitTestMode {
 
   /**
    * Self not respond to the hit test for touch events,
-   * and all descebdants (children, grandchildren, etc.) not respond to the hit test for touch events too.
+   * and all descendants (children, grandchildren, etc.) not respond to the hit test for touch events too.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
