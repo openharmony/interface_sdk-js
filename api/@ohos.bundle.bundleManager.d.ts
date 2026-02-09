@@ -3875,7 +3875,7 @@ declare namespace bundleManager {
   /**
    * Obtains the install information of all apps.
    *
-   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @permission ohos.permission.GET_INSTALLED_BUNDLE_LIST
    * @returns { Promise<Array<Record<string, Object>>> } The install information.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
