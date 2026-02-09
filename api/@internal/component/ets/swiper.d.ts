@@ -215,7 +215,7 @@ declare class SwiperController {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 24 dynamic
+   * @since 23 dynamic
    */
   startFakeDrag(): boolean;
 
@@ -231,7 +231,7 @@ declare class SwiperController {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 24 dynamic
+   * @since 23 dynamic
    */
   fakeDragBy(offset: number): boolean;
 
@@ -245,7 +245,7 @@ declare class SwiperController {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 24 dynamic
+   * @since 23 dynamic
    */
   stopFakeDrag(): boolean;
 
@@ -258,7 +258,7 @@ declare class SwiperController {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 24 dynamic
+   * @since 23 dynamic
    */
   isFakeDragging(): boolean;
 }
