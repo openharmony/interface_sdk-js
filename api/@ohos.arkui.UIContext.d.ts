@@ -3481,6 +3481,7 @@ export class MeasureUtils {
    * @param { TextLayoutOptions } [options] - The layout options.
    * @returns { Array<Paragraph> } paragraph result
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 20 dynamic
    */
   getParagraphs(styledString: StyledString, options?: TextLayoutOptions): Array<Paragraph>;
@@ -5651,6 +5652,7 @@ export class TextMenuController {
    * True means disable, false means enable.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 20 dynamic
    */
@@ -5660,6 +5662,7 @@ export class TextMenuController {
    * Disable menu action by action id.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 20 dynamic
    */

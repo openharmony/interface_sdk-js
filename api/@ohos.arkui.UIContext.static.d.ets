@@ -53,7 +53,7 @@ import { DatePickerDialogOptions } from '@ohos.arkui.component';
 import { TabsController } from '@ohos.arkui.component';
 import { Scroller } from '@ohos.arkui.component';
 import { KeyProcessingMode } from '@ohos.arkui.component';
-import { TextMenuOptions, StyledString } from '@ohos.arkui.component';
+import { TextMenuOptions } from '@ohos.arkui.component';
 /**
  * class Font
  *
