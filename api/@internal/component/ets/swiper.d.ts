@@ -201,6 +201,66 @@ declare class SwiperController {
    * @since 18 dynamic
    */
   preloadItems(indices: Optional<Array<number>>): Promise<void>;
+
+  /**
+   * Start a fake drag.
+   * Call 'fakeDragBy' to simulate the drag motion. Call 'stopFakeDrag' to complete the fake drag.
+   * A fake drag can be interrupted by a real drag. If you need to ignore touch events and other
+   *     user input during a fake drag, use 'disableSwipe(true)'.
+   *
+   * @returns { boolean } If the fake drag started successfully, return true.
+   *     If the Swiper is not ready to start the fake drag, or a real or fake drag is already in progress, return false.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  startFakeDrag(): boolean;
+
+  /**
+   * Fake drag by an offset.
+   * The 'startFakeDrag' must be called first.
+   *
+   * @param { number } offset - Indicate the offset that needs to be scrolled. The unit is vp.
+   * @returns { boolean } If not in a fake drag progress, or no offset is consumed, return false.
+   *     If any offset is consumed, return true.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  fakeDragBy(offset: number): boolean;
+
+  /**
+   * Stop a fake drag.
+   *
+   * @returns { boolean } If the fake drag stopped successfully, return true.
+   *     If the Swiper is not ready to stop a fake drag, or no fake drag is in progress, return false.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  stopFakeDrag(): boolean;
+
+  /**
+   * Get the fake drag state.
+   *
+   * @returns { boolean } If a fake drag is in progress return true, otherwise return false.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  isFakeDragging(): boolean;
 }
 
 /**
