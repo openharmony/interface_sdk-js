@@ -2169,7 +2169,7 @@ export declare class OverlayManager {
 
 /**
  * Provides the method for magnifier capabilities.
- *
+ * 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 23 static
  */
@@ -2183,6 +2183,7 @@ export declare class Magnifier {
    * @since 23 static
    */
   bind(id: string): void;
+
   /**
    * Set the position of the magnified content.
    *
@@ -2191,10 +2192,11 @@ export declare class Magnifier {
    * @param { double } y - the y position of the magnified content relative to the component.
    *     The unit of y is vp.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @since 24 static
    */
-  show(x: double,y: double): void;
-  /** 
+  show(x: double, y: double): void;
+
+  /**
    * Unbind the magnifier from its associated component.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
