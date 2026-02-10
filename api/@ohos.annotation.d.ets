@@ -66,7 +66,7 @@ export const enum SuppressWarningsType {
    * @atomicservice
    * @since 23 dynamic
    */
-  COMPATIBILITY = 'compatibility';
+  COMPATIBILITY = 'compatibility',
   /**
    * Support for suppressing generated syscap warnings.
    * 
@@ -77,7 +77,7 @@ export const enum SuppressWarningsType {
    * @atomicservice
    * @since 23 dynamic
    */
-  SYSCAP = 'syscap';
+  SYSCAP = 'syscap'
 }
 
 /**
