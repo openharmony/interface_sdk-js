@@ -3314,9 +3314,11 @@ declare namespace text {
   class Paragraph {
     /**
      * Performs layout and calculates the positions of all glyphs with constrained height and width.
-     * @param { TextRectSize } size - The constrainted height and width, in px.
+     *
+     * @param { TextRectSize } size - The constrainted height and width, in units of px.
      * @returns { TextLayoutResult } The rectangle size needed and the character range that actually fits the paragraph.
      * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
      * @atomicservice
      * @since 24 dynamic&static
      */
@@ -5435,6 +5437,7 @@ declare namespace text {
    *
    * @typedef TextRectSize
    * @syscap SystemCapability.Graphics.Drawing
+   * @stagemodelonly
    * @atomicservice
    * @since 24 dynamic&static
    */
@@ -5444,6 +5447,7 @@ declare namespace text {
     *
     * @type { double }
     * @syscap SystemCapability.Graphics.Drawing
+    * @stagemodelonly
     * @atomicservice
     * @since 24 dynamic&static
     */
@@ -5454,6 +5458,7 @@ declare namespace text {
     *
     * @type { double }
     * @syscap SystemCapability.Graphics.Drawing
+    * @stagemodelonly
     * @atomicservice
     * @since 24 dynamic&static
     */
@@ -5463,8 +5468,9 @@ declare namespace text {
   /**
    * The text layout result.
    *
-   * @typedef TextRectSize
+   * @typedef TextLayoutResult
    * @syscap SystemCapability.Graphics.Drawing
+   * @stagemodelonly
    * @atomicservice
    * @since 24 dynamic&static
    */
@@ -5475,6 +5481,7 @@ declare namespace text {
     * @type { Array<Range> }
     * @syscap SystemCapability.Graphics.Drawing
     * @atomicservice
+    * @stagemodelonly
     * @since 24 dynamic&static
     */
     fitStrRange: Array<Range>;
@@ -5485,6 +5492,7 @@ declare namespace text {
     * @type { TextRectSize }
     * @syscap SystemCapability.Graphics.Drawing
     * @atomicservice
+    * @stagemodelonly
     * @since 24 dynamic&static
     */
     correctRect: TextRectSize;
