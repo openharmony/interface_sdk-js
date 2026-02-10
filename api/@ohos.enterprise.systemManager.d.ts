@@ -1149,7 +1149,7 @@ declare namespace systemManager {
    * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
    * @param { Want } admin - admin indicates the enterprise admin extension ability information.
    *                         The admin must have the corresponding permission.
-   * @returns { Promise<boolean> } the promise returned by the setActivationLockDisabled.
+   * @returns { Promise<boolean> } the promise returned by the isActivationLockDisabled.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9200016 - Execution time out.
