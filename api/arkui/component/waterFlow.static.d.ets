@@ -25,7 +25,7 @@ import { ScrollState } from "./list";
 import { FlexDirection } from './enums';
 import { ComponentContentBase } from '../../arkui/ComponentContent';
 import { ComponentBuilder } from './builder';
-import { AttributeModifier, CommonMethod, UIScrollableCommonEvent } from "./common";
+import { AttributeModifier, CommonMethod } from "./common";
 /**
  * function that returns item main size by index.
  *
@@ -283,54 +283,6 @@ export declare interface WaterFlowOptions {
 }
 
 /**
- * Defines a UIWaterFlowEvent which is used to set event to target component.
- *
- * @extends UIScrollableCommonEvent
- * @interface UIWaterFlowEvent
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 24 static
- */
-export declare interface UIWaterFlowEvent extends UIScrollableCommonEvent {
-  /**
-   * Set or reset the callback which is triggered when the WaterFlow will scroll.
-   *
-   * @param { OnWillScrollCallback | undefined } callback - callback function, triggered when the WaterFlow will scroll.
-   *     Passing undefined will unregister the callback.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 24 static
-   */
-  setOnWillScroll(callback: OnWillScrollCallback | undefined): void;
-  /**
-   * Set or reset the callback which is triggered when WaterFlow view did scroll.
-   *
-   * @param { OnScrollCallback | undefined } callback - callback function, triggered when the WaterFlow did scroll.
-   *     Passing undefined will unregister the callback.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 24 static
-   */
-  setOnDidScroll(callback: OnScrollCallback | undefined): void;
-  /**
-   * Set or reset the callback which is triggered when the start and end positions of the display change.
-   *
-   * @param { OnWaterFlowScrollIndexCallback | undefined } callback - callback function, triggered when start or
-   *     end positions of the display change. Passing undefined will unregister the callback.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 24 static
-   */
-  setOnScrollIndex(callback: OnWaterFlowScrollIndexCallback | undefined): void;
-}
-/**
- * Defines the callback type used in onScrollIndex.
- *
- * @typedef {function} OnWaterFlowScrollIndexCallback
- * @param { int } first - the first index in visible content.
- * @param { int } last - the last index in visible content.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 23 static
- */
-export declare type OnWaterFlowScrollIndexCallback = (first: int, last: int) => void;
-
-/**
  * The WaterFlowAttribute.
  * 
  * @extends ScrollableCommonMethod
@@ -346,20 +298,10 @@ export declare interface WaterFlowAttribute extends ScrollableCommonMethod {
      *     <br>Default value: <em>'1fr'</em>. Passing undefined will restore the default value.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 24 static
-     */
-    default columnsTemplate(value: string | ItemFillPolicy | undefined): this;
-    /**
-     * Sets the number of columns in the layout. If this attribute is not set, one column is used by default.
-     *
-     * @param { string | undefined } value - Number of columns in the layout.
-     *     <br>Default value: <em>'1fr'</em>. Passing undefined will restore the default value.
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
      */
-    default columnsTemplate(value: string | undefined): this;
+    default columnsTemplate(value: string | ItemFillPolicy | undefined): this;
     /**
      * Sets the size constraints of the child components during layout.
      *
@@ -432,16 +374,6 @@ export declare interface WaterFlowAttribute extends ScrollableCommonMethod {
      * @since 23 static
      */
     default cachedCount(count: int | undefined, show: boolean | undefined): this;
-    /**
-     * Sets whether to synchronously load all child components in the WaterFlow.
-     *
-     * @param { boolean | undefined } enable - Whether to synchronously load all child components in the WaterFlow.
-     *     <br>Default value: true. Passing undefined will restore the default value.
-     * @returns { this } The attribute of the WaterFlow.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 24 static
-     */
-    default syncLoad(enable: boolean | undefined): this;
     /**
      * Called when scrolling begin each frame.
      * Anonymous Object Rectification.

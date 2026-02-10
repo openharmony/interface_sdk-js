@@ -896,12 +896,13 @@ declare type TextBox = import('../api/@ohos.graphics.text').default.TextBox;
  * 
  * @typedef { import('../api/@ohos.graphics.text').default.Paragraph } Paragraph
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 20 dynamic
  */
 declare type Paragraph = import('../api/@ohos.graphics.text').default.Paragraph;
 
 /**
- * The type for input method extra config, see the detailed description in ExtraConfig.
+ * The type for input method extra config, see the detailed description in InputMethodExtraConfig.
  *
  * @typedef { import('../api/@ohos.inputMethod.ExtraConfig').InputMethodExtraConfig } InputMethodExtraConfig
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1008,6 +1009,7 @@ declare class TextMenuItemId {
    * @readonly
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
@@ -1020,6 +1022,7 @@ declare class TextMenuItemId {
    * @readonly
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
@@ -1032,6 +1035,7 @@ declare class TextMenuItemId {
    * @readonly
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
@@ -1044,6 +1048,7 @@ declare class TextMenuItemId {
    * @readonly
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
@@ -1205,7 +1210,7 @@ declare class TextMenuItemId {
    * @since 23 dynamic
    */
   static readonly autoFill: TextMenuItemId;
-
+ 
   /**
    * Indicates the TextMenuItemId for password vault.
    *
@@ -1727,6 +1732,7 @@ declare class ColorShaderStyle extends ShaderStyle {
  * Defines the text content transition class.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @atomicservice
  * @since 20 dynamic
  */
@@ -1774,6 +1780,7 @@ declare class NumericTextTransition extends ContentTransition {
    *
    * @type { ?FlipDirection }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 20 dynamic
    */
@@ -1784,6 +1791,7 @@ declare class NumericTextTransition extends ContentTransition {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 20 dynamic
    */
@@ -1795,6 +1803,7 @@ declare class NumericTextTransition extends ContentTransition {
  *
  * @interface NumericTextTransitionOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @atomicservice
  * @since 20 dynamic
  */
@@ -1804,6 +1813,7 @@ declare interface NumericTextTransitionOptions {
    *
    * @type { ?FlipDirection }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 20 dynamic
    */
@@ -1814,6 +1824,7 @@ declare interface NumericTextTransitionOptions {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 20 dynamic
    */
@@ -1825,6 +1836,7 @@ declare interface NumericTextTransitionOptions {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @atomicservice
  * @since 20 dynamic
  */
@@ -1833,6 +1845,7 @@ declare enum FlipDirection {
    * The flip direction is down.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 20 dynamic
    */
@@ -1842,6 +1855,7 @@ declare enum FlipDirection {
    * The flip direction is up.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 20 dynamic
    */
@@ -2183,6 +2197,38 @@ declare interface KeyboardAppearanceConfig {
 }
 
 /**
+ * Defines the input method client.
+ *
+ * @interface IMEClient
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20 dynamic
+ */
+declare interface IMEClient {
+  /**
+   * The unique ID of this input component node.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20 dynamic
+   */
+  nodeId: number;
+
+  /**
+   * Called when the extra config is set.
+   *
+   * @param { InputMethodExtraConfig } config - The extra config object.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  setExtraConfig(config: InputMethodExtraConfig): void;
+}
+
+/**
  * Vertical Alignment of text.
  *
  * @enum { number }
@@ -2275,42 +2321,11 @@ declare enum TextContentAlign {
 }
 
 /**
- * Defines the input method client.
- *
- * @interface IMEClient
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20 dynamic
- */
-declare interface IMEClient {
-  /**
-   * The unique ID of this input component node.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
-   */
-  nodeId: number;
-
-  /**
-   * Called when the extra config is set.
-   *
-   * @param { InputMethodExtraConfig } config - The extra config object.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 22 dynamic
-   */
-  setExtraConfig(config: InputMethodExtraConfig): void;
-}
-
-/**
  * Defines text layout options. Use this to set constraints for measure text.
  *
  * @interface TextLayoutOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 20 dynamic
  */
 declare interface TextLayoutOptions {
@@ -2319,6 +2334,7 @@ declare interface TextLayoutOptions {
    *
    * @type { ?LengthMetrics } constraintWidth
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 20 dynamic
    */
   constraintWidth?: LengthMetrics;
@@ -2396,4 +2412,29 @@ declare interface SelectedDragPreviewStyle {
      * @since 23 dynamic
      */
     color?: ResourceColor;
+}
+
+/**
+ * Defines the voice button options.
+ *
+ * @interface VoiceButtonOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @stagemodelonly
+ * @atomicservice
+ * @since 23 dynamic
+ */
+interface VoiceButtonOptions {
+    /**
+     * Enable or disable voice button.
+     * True means enable voice button, false means disable voice button.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic
+     */
+    enabled?: boolean;
 }

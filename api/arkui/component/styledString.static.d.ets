@@ -18,7 +18,7 @@
  * @kit ArkUI
  */
 
-import { Callback, ShadowOptions, ClickEvent, TouchEvent, PixelMap, AttributeModifier, CommonMethod } from './common';
+import { Callback, ShadowOptions, ClickEvent, PixelMap, AttributeModifier, CommonMethod } from './common';
 import { TextAlign, FontStyle, FontWeight, TextDecorationType, TextDecorationStyle, WordBreak, TextOverflow, ImageFit, ImageSpanAlignment } from './enums';
 import { ResourceStr, ResourceColor, LengthMetrics, SizeOptions, Margin, Padding, BorderRadiuses, ColorFilter } from './units';
 import { TextBackgroundStyle } from './span';
@@ -28,7 +28,7 @@ import { LeadingMarginPlaceholder } from './richEditor';
 import image from '../../@ohos.multimedia.image';
 import drawing from '../../@ohos.graphics.drawing';
 import { DrawContext } from '../../arkui/Graphics';
-import { TextDirection, TextVerticalAlign } from './textCommon';
+import { TextDirection } from './textCommon';
 
 /**
  * Defines the StyledStringMarshallingValue Type.
@@ -630,15 +630,6 @@ export declare interface GestureStyleInterface {
      * @since 23 static
      */
     onLongPress?: Callback<GestureEvent>;
-    /**
-     * Trigger a touch event when touched.
-     *
-     * @type { ?Callback<TouchEvent> }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    onTouch?: Callback<TouchEvent>;
 }
 /**
  * Defines ParagraphStyle.
@@ -664,16 +655,6 @@ export declare class ParagraphStyle {
      * @since 23 static
      */
     readonly textAlign?: TextAlign;
-    /**
-     * Get the text vertical alignment of the StyledString.
-     *
-     * @type { ?TextVerticalAlign } - the text vertical alignment of the StyledString or undefined
-     * @readonly
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    readonly textVerticalAlign?: TextVerticalAlign;
     /**
      * Get the first line indentation of the StyledString.
      * The unit is vp.
@@ -739,15 +720,6 @@ export declare class ParagraphStyle {
      * @since 23 static
      */
     readonly textDirection?: TextDirection;
-    /**
-     * Get the leading margin span of the StyledString.
-     *
-     * @type { ?LeadingMarginSpan } - the leading margin span of the StyledString or undefined
-     * @readonly
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
-     */
-    readonly leadingMarginSpan?: LeadingMarginSpan;
 }
 /**
  * ParagraphStyleInterface
@@ -765,15 +737,6 @@ export declare interface ParagraphStyleInterface {
      * @since 23 static
      */
     textAlign?: TextAlign;
-    /**
-     * Vertical alignment of text.
-     *
-     * @type { ?TextVerticalAlign }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    textVerticalAlign?: TextVerticalAlign;
     /**
      * Set the first line indentation.
      *
@@ -830,14 +793,6 @@ export declare interface ParagraphStyleInterface {
      * @since 23 static
      */
     textDirection?: TextDirection;
-    /**
-     * Leading margin span.
-     *
-     * @type { ?LeadingMarginSpan }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
-     */
-    leadingMarginSpan?: LeadingMarginSpan;
 }
 /**
  * Defines LineHeightStyle.
@@ -1231,25 +1186,6 @@ export declare class ImageAttachment {
      * @since 23 static
      */
     readonly colorFilter?: ColorFilterType;
-    /**
-     * Gets the svg support state.
-     *
-     * @type { ?boolean } - Whether color filter support svg.
-     * @readonly
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
-     */
-    readonly supportSvg2?: boolean;
-    /**
-     * Get the imageSize of the StyledString in vp unit.
-     *
-     * @type { ?SizeOptions } - the imageSize of the StyledString in vp unit or undefined
-     * @readonly
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    readonly sizeInVp?: SizeOptions;
 }
 /**
  * Defines the ResourceImageAttachmentOptions.
@@ -1316,15 +1252,6 @@ export declare interface ResourceImageAttachmentOptions {
      * @since 23 static
      */
     syncLoad?: boolean;
-    /**
-     * Set the range of SVG parsing capabilities supported through enable switch.
-     * The default value is false.
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
-     */
-    supportSvg2?: boolean;
 }
 /**
  * Defines the ImageAttachmentInterface.
@@ -1382,91 +1309,6 @@ export declare interface ImageAttachmentInterface {
      * @since 23 static
      */
     colorFilter?: ColorFilterType;
-}
-
-/**
- * Defines the LeadingMarginSpanDrawInfo interface.
- *
- * @interface LeadingMarginSpanDrawInfo
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 23 static
- */
-declare interface LeadingMarginSpanDrawInfo {
-  /**
-   * The x offset of the line.
-   * The unit is px.
-   *
-   * @type { double }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-	x: double;
-
-  /**
-   * The top position of the line.
-   * The unit is px.
-   *
-   * @type { double }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-	top: double;
-
-  /**
-   * The bottom position of the line.
-   * The unit is px.
-   *
-   * @type { double }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-	bottom: double;
-
-  /**
-   * The baseline offset of the line.
-   * The unit is px.
-   *
-   * @type { double }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-	baseline: double;
-
-  /**
-   * The direction of text.
-   *
-   * @type { TextDirection }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-	direction: TextDirection;
-
-  /**
-   * The start index of the first character in the current line relative to the component text content.
-   *
-   * @type { int }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-	start: int;
-
-  /**
-   * The end index of the first character in the current line relative to the component text content.
-   *
-   * @type { int }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-	end: int;
-
-  /**
-   * Whether current line is first line of a paragraph.
-   *
-   * @type { boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-	first: boolean;
 }
 
 /**
@@ -1649,29 +1491,4 @@ export declare abstract class CustomSpan {
  * @since 23 static
  */
 export declare abstract class UserDataSpan {
-}
-/**
- * Defines LeadingMarginSpan.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 23 static
- */
-export declare abstract class LeadingMarginSpan {
-    /**
-     * Draw the leading margin span.
-     *
-     * @param { DrawContext } context
-     * @param { LeadingMarginSpanDrawInfo } drawInfo
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
-     */
-    abstract onDraw(context: DrawContext, drawInfo: LeadingMarginSpanDrawInfo): void;
-    /**
-     * Get the amount by which to adjust the leading margin.
-     *
-     * @returns { LengthMetrics } - the literal content of the StyledString
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
-     */
-    abstract getLeadingMargin(): LengthMetrics;
 }

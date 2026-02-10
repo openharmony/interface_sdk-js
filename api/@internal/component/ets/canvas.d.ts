@@ -6878,7 +6878,8 @@ declare class CanvasAttribute extends CommonMethod<CanvasAttribute> {
   /**
    * Event notification after the canvas component is constructed. You can draw the canvas at this time.
    *
-   * @param { Callback<DrawingRenderingContext | undefined> | undefined } event - Returns a { @link DrawingRenderingContext } object
+   * @param { Callback<DrawingRenderingContext | undefined> | undefined } event - Passing undefined
+   *     means unbinding the callback.Returns a { @link DrawingRenderingContext } object
    *     if the canvas is constructed by { @link CanvasParams },
    *     otherwise returns undefined.
    * @returns { CanvasAttribute }

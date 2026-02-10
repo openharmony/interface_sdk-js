@@ -22,6 +22,7 @@
  * Control margin status of  ExceptionPrompt.
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 11
  */
@@ -29,6 +30,7 @@
  * Control margin status of  ExceptionPrompt.
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -37,12 +39,14 @@ export declare enum MarginType {
   /**
    * Default margin of MarginType，Margin 1: references ohos_id_card_margin_start, margin 2: references ohos_id_card_margin_end.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
    /**
    * Default margin of MarginType，Margin 1: references ohos_id_card_margin_start, margin 2: references ohos_id_card_margin_end.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -52,12 +56,14 @@ export declare enum MarginType {
   /**
    * Margins can be adapted of MarginType，Margin 1: references ohos_id_max_padding_start, margin 2: references ohos_id_max_padding_end.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
    /**
    * Margins can be adapted of MarginType，Margin 1: references ohos_id_max_padding_start, margin 2: references ohos_id_max_padding_end.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -69,6 +75,7 @@ export declare enum MarginType {
  * Configuration parameter of ExceptionPrompt.
  * @interface PromptOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 11
  */
@@ -76,6 +83,7 @@ export declare enum MarginType {
  * Configuration parameter of ExceptionPrompt.
  * @interface PromptOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -85,6 +93,7 @@ export interface PromptOptions {
    * Icon of PromptOptions.
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -92,6 +101,7 @@ export interface PromptOptions {
    * Icon of PromptOptions.
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -102,6 +112,7 @@ export interface PromptOptions {
    * SymbolGlyphModifier of PromptOptions.
    * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 18 dynamic
    */
@@ -109,6 +120,7 @@ export interface PromptOptions {
    * SymbolGlyphModifier of PromptOptions.
    * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
@@ -119,6 +131,7 @@ export interface PromptOptions {
    * Tip text of PromptOptions.
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -126,6 +139,7 @@ export interface PromptOptions {
    * Tip text of PromptOptions.
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -136,6 +150,7 @@ export interface PromptOptions {
    * Margin Type  of ExceptionPrompt.
    * @type { MarginType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -143,6 +158,7 @@ export interface PromptOptions {
    * Margin Type  of ExceptionPrompt.
    * @type { MarginType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -153,6 +169,7 @@ export interface PromptOptions {
    * Right icon button text of PromptOptions.
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -160,6 +177,7 @@ export interface PromptOptions {
    * Right icon button text of PromptOptions.
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -170,6 +188,7 @@ export interface PromptOptions {
    * Distance from the top of PromptOptions.
    * @type { Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -177,6 +196,7 @@ export interface PromptOptions {
    * Distance from the top of PromptOptions.
    * @type { Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -187,6 +207,7 @@ export interface PromptOptions {
    * Control concealment of PromptOptions.
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -194,6 +215,7 @@ export interface PromptOptions {
    * Control concealment of PromptOptions.
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -204,12 +226,14 @@ export interface PromptOptions {
 /**
  * Declare struct ExceptionPrompt higher-order component.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 11
  */
  /**
  * Declare struct ExceptionPrompt higher-order component.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -221,6 +245,7 @@ export declare struct ExceptionPrompt {
    * Configuration information of ExceptionPrompt.
    * @type { PromptOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -228,6 +253,7 @@ export declare struct ExceptionPrompt {
    * Configuration information of ExceptionPrompt.
    * @type { PromptOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -238,6 +264,7 @@ export declare struct ExceptionPrompt {
    * Callback when clicking the text on the left.
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -245,6 +272,7 @@ export declare struct ExceptionPrompt {
    * Callback when clicking the text on the left.
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -255,6 +283,7 @@ export declare struct ExceptionPrompt {
    * Callback when click the icon button.
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -262,6 +291,7 @@ export declare struct ExceptionPrompt {
    * Callback when click the icon button.
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -272,6 +302,7 @@ export declare struct ExceptionPrompt {
    * The build function is a member function that must return an ArkTS component type (Element) to represent the component to be rendered as a user interface.
    * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -279,6 +310,7 @@ export declare struct ExceptionPrompt {
    * The build function is a member function that must return an ArkTS component type (Element) to represent the component to be rendered as a user interface.
    * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic

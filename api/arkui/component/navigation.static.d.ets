@@ -926,15 +926,6 @@ export declare interface NavigationInterception {
      * @since 23 static
      */
     modeChange?: InterceptionModeCallback;
-
-    /**
-     * Called before destination is created.For details, see { @Link InterceptionCallback}.
-     *
-     * @type { ?InterceptionCallback }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
-     */
-    interception?: InterceptionCallback;
 }
 
 /**
@@ -1670,31 +1661,6 @@ export declare interface NavigationAttribute extends CommonMethod {
      * @since 23 static
      */
     default enableModeChangeAnimation(isEnabled: boolean | undefined): this;
-
-    /**
-     * Set placeholder in split mode.
-     *
-     * @param { ComponentContent<T> } placeholder - Set placeholder in split mode.
-     * @returns { NavigationAttribute } - Returns the instance of the NavigationAttribute.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    default splitPlaceholder<T extends Object>(placeholder: ComponentContent<T>): this;
-
-    /**
-     * Whether to enable the show or hide lifecycle with bindContentCover.
-     * The true means that bindContentCover can affect the show or hide lifecycle of Navigation, and the false not.
-     *
-     * @param { boolean | undefined } isEnabled - enable the show or hide lifecycle with bindContentCover.
-     *                                          Default value: **true**.
-     *                                          **true**: The bindContentCover can affect the show or hide lifecycle of Navigation.
-     *                                          **false**: The bindContentCover can not affect the show or hide lifecycle of Navigation.
-     * @returns { NavigationAttribute } Returns the instance of the NavigationAttribute.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
-     */
-    default enableVisibilityLifecycleWithContentCover(isEnabled: boolean | undefined): this;
 
     /**
      * Set the attribute modifier of navigation.

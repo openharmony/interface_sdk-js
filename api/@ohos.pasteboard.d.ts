@@ -1430,15 +1430,15 @@ declare namespace pasteboard {
      */
     off(type: 'update', callback?: () => void): void;
 
-    /**	
-     * Remove a callback invoked when remote pasteboard content changes.	
-     * @param { UpdateCallback } [callback] - the callback to remove. If this parameter is not filled in, it indicates	
+    /**
+     * Remove a callback invoked when remote pasteboard content changes.
+     * @param { UpdateCallback } [callback] - the callback to remove. If this parameter is not filled in, it indicates
      * that all callbacks for this application will be cleared. Otherwise, it indicates that the specified callback
      * will be cleared.
-     * @syscap SystemCapability.MiscServices.Pasteboard	
+     * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 22 dynamic
      * @since 23 static
-     */	
+     */
     offRemoteUpdate(callback?: UpdateCallback): void;
 
     /**
@@ -1692,15 +1692,6 @@ declare namespace pasteboard {
      * @useinstead ohos.pasteboard.pasteboard#hasData
      */
     hasPasteData(): Promise<boolean>;
-
-    /**
-     * Checks whether the paste data is in a remote device.
-     * @returns { boolean } True is in a remote device, else false.
-     * @syscap SystemCapability.MiscServices.Pasteboard
-     * @atomicservice
-     * @since 24 dynamic&static
-     */
-    hasRemoteData(): boolean;
 
     /**
      * Checks whether there is content in the system pasteboard.

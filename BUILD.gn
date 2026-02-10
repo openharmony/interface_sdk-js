@@ -445,7 +445,7 @@ action("build_static_sdk_interop") {
   script = "//interface/sdk-js/compile_ets_ts.py"
   if (host_os == "mac") {
     if (host_cpu == "arm64") {
-      node_path = "//prebuilts/build-tools/common/nodejs/node-v16.20.2-darwin-arm64/bin/node"
+      node_path = "//prebuilts/build-tools/common/nodejs/node-v18.20.1-darwin-arm64/bin/node"
     } else {
       node_path = "//prebuilts/build-tools/common/nodejs/node-v14.21.1-darwin-x64/bin/node"
     }

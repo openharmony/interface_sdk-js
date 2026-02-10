@@ -25,7 +25,7 @@ import type inspector from './@ohos.arkui.inspector';
 import promptAction, { LevelOrder } from './@ohos.promptAction';
 import router from './@ohos.router';
 import type componentUtils from './@ohos.arkui.componentUtils';
-import { ComponentContent, FrameNode, Frame } from './@ohos.arkui.node';
+import { ComponentContent, FrameNode, Frame, LengthMetrics, Edges } from './@ohos.arkui.node';
 import type { AnimatorOptions, AnimatorResult } from './@ohos.animator';
 import type observer from './@ohos.arkui.observer';
 import { SimpleAnimatorOptions } from './@ohos.animator';
@@ -79,19 +79,21 @@ export class Font {
 
   /**
    * Gets a list of fonts supported by system.
+   *
    * @returns { Array<string> } A list of font names
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * Gets a list of fonts supported by system.
-   * 
+   *
    * <p><strong>NOTE</strong>:
    * <br>This API takes effect only on 2-in-1 devices.
    * </p>
-   * 
+   *
    * @returns { Array<string> } A list of font names
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 11 dynamic
    */
@@ -99,6 +101,7 @@ export class Font {
 
   /**
    * Get font details according to the font name.
+   *
    * @param { string } fontName - font name
    * @returns { font.FontInfo } Returns the font info
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -106,9 +109,11 @@ export class Font {
    */
   /**
    * Get font details according to the font name.
+   *
    * @param { string } fontName - font name
    * @returns { font.FontInfo } Returns the font info
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 11 dynamic
    */
@@ -1002,6 +1007,109 @@ export interface TargetInfo {
    * @since 18 dynamic
    */
   componentId?: number;
+}
+
+/**
+ * Configuration parameters for background luminance sampling.
+ *
+ * @interface BackgroundLuminanceSamplingConfigs
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @stagemodelonly
+ * @since 23 dynamic
+ */
+export interface BackgroundLuminanceSamplingConfigs {
+  /**
+   * Sampling interval, in milliseconds. The minimum interval is 180 milliseconds.
+   *
+   * @type { ?number }
+   * @default 500
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic
+   */
+  samplingInterval?: number;
+  /**
+   * Brightness threshold. If the value is greater than this threshold, the background is bright.
+   * The value range is [0, 255]. The value of brightThreshold must be greater than or equal to that of darkThreshold.
+   * Values that are not within the range will result in exceptions when setting parameters.
+   *
+   * @type { ?number }
+   * @default 220
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic
+   */
+  brightThreshold?: number;
+  /**
+   * Darkness threshold. If the value is less than this threshold, the background is dark.
+   * The value range is [0, 255]. The value of brightThreshold must be greater than or equal to that of darkThreshold.
+   * Values that are not within the range will result in exceptions when setting parameters.
+   *
+   * @type { ?number }
+   * @default 150
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic
+   */
+  darkThreshold?: number;
+  /**
+   * Sampling region. if not specified, the region is the node area.
+   *
+   * @type { ?Edges<LengthMetrics> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic
+   */
+  region?: Edges<LengthMetrics>;
+}
+
+/**
+ * class Background luminance sampler.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @stagemodelonly
+ * @since 23 dynamic
+ */
+export class LuminanceSampler {
+  /**
+   * Set background luminance sampling configs.
+   *
+   * @param { BackgroundLuminanceSamplingConfigs } configs - Sampling configs.
+   * @throws { BusinessError } 100001 - Internal error.
+   *     <br> 1. Incorrect parameter values.
+   *     <br> 2. Incorrect parameters types.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic
+   */
+  setBackgroundLuminanceSamplingConfigs(configs: BackgroundLuminanceSamplingConfigs): void;
+  /**
+   * Register a callback for background luminance changes.
+   *
+   * @param { Callback<number> } samplingCallback - Luminance Sampling Callback.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic
+   */
+  onBackgroundLuminanceChange(samplingCallback: Callback<number>): void;
+  /**
+   * Unregister a callback for background luminance changes.
+   *
+   * @param { Callback<number> } [samplingCallback] - Luminance Sampling Callback.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic
+   */
+  offBackgroundLuminanceChange(samplingCallback?: Callback<number>): void;
 }
 
 /**
@@ -2783,6 +2891,7 @@ export class ComponentUtils {
    * @returns { componentUtils.ComponentInfo } the object of ComponentInfo.
    * @throws { BusinessError } 100001 - UI execution context not found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 11 dynamic
    */
@@ -3376,8 +3485,10 @@ export class DragController {
    * Please be noted, the default value of the flag is false, it means, for the same situation, the
    * parent will not receive the leave notification, just the child can get the enter event, which is
    * not fully strict.
+   * 
    * @param { boolean } enable - Indicating enable drag event strict reporting or not.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
@@ -3421,6 +3532,7 @@ export class DragController {
    *
    * @param { boolean } enabled - Indicating enable the disallow status showing or not.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 20 dynamic
    */
@@ -3472,6 +3584,7 @@ export class MeasureUtils {
    * @param { TextLayoutOptions } [options] - The layout options.
    * @returns { Array<Paragraph> } paragraph result
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 20 dynamic
    */
   getParagraphs(styledString: StyledString, options?: TextLayoutOptions): Array<Paragraph>;
@@ -4297,6 +4410,18 @@ export class UIContext {
    * @since 11 dynamic
    */
   getUIInspector(): UIInspector;
+
+  /**
+   * get the luminance sampler of the specified node. If the node cannot be found, return undefined.
+   *
+   * @param { TargetInfo } target - ID of target node.
+   * @returns { LuminanceSampler | undefined } the luminance sampler or undefined.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic
+   */
+  getLuminanceSampler(target: TargetInfo): LuminanceSampler | undefined;
 
   /**
    * get the filtered attributes of the component tree.
@@ -5642,6 +5767,7 @@ export class TextMenuController {
    * True means disable, false means enable.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 20 dynamic
    */
@@ -5651,6 +5777,7 @@ export class TextMenuController {
    * Disable menu action by action id.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 20 dynamic
    */
@@ -5817,7 +5944,7 @@ export const enum GestureActionPhase {
   /**
    * Enable custom keyboard continuation.
    * 
-   * @syscap SystemCapability. ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -5828,7 +5955,7 @@ export const enum GestureActionPhase {
   /**
    * Disable custom keyboard continuation.
    * 
-   * @syscap SystemCapability. ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice

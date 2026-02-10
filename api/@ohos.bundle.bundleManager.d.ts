@@ -992,15 +992,6 @@ declare namespace bundleManager {
     LIVE_FORM = 30,
 
     /**
-     * Indicates extension info with type of the selection
-     *
-     * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @stagemodelonly
-     * @since 24 dynamic&static
-     */
-    SELECTION = 31,
-
-    /**
      * Indicates extension info with type of the web native messaging
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -3880,6 +3871,20 @@ declare namespace bundleManager {
    * @since 23 static
    */
   function getSpecifiedDistributionType(bundleName: string): string;
+
+  /**
+   * Obtains the install information of all apps.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @returns { Promise<Array<Record<string, Object>>> } The install information.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamiconly
+   */
+  function getAllBundleInstallInfo(): Promise<Array<Record<string, Object>>>;
 
   /**
    * Obtains the additional information during bundle installation.

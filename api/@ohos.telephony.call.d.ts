@@ -4845,7 +4845,7 @@ declare namespace call {
      * @since 8 dynamic
      * @since 23 static
      */
-    accountId?: number;
+    accountId?: int;
 
     /**
      * Indicates the type of Video state.

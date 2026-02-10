@@ -4835,14 +4835,14 @@ declare namespace drawing {
     /**
      * Adds variation axis for the TypefaceArguments.
      * @param { string } axis  - Indicates the axis tag, which must contain four ASCII characters.
-     * @param { double } value  - Indicates the value of the axis field.
+     * @param { number } value  - Indicates the value of the axis field.
      * @throws { BusinessError } 25900001 - Parameter error. Possible causes: Incorrect parameter range.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @atomicservice
      * @since 22 dynamic
      */
-    addVariation(axis: string, value: double);
+    addVariation(axis: string, value: number);
   }
 
   /**

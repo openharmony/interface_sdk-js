@@ -105,7 +105,7 @@ export declare class SwiperController {
    *     If the Swiper is not ready to start the fake drag, or a real or fake drag is already in progress, return false.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 23 static
    */
   startFakeDrag(): boolean;
 
@@ -118,7 +118,7 @@ export declare class SwiperController {
    *     If any offset is consumed, return true.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 23 static
    */
   fakeDragBy(offset: float): boolean;
 
@@ -129,7 +129,7 @@ export declare class SwiperController {
    *     If the Swiper is not ready to stop a fake drag, or no fake drag is in progress, return false.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 23 static
    */
   stopFakeDrag(): boolean;
 
@@ -139,7 +139,7 @@ export declare class SwiperController {
    * @returns { boolean } If a fake drag is in progress return true, otherwise return false.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 23 static
    */
   isFakeDragging(): boolean;
 }
@@ -943,16 +943,6 @@ export declare interface SwiperAttribute extends CommonMethod {
   default onUnselected(event: Callback<int> | undefined): this;
 
   /**
-   * Called when the scroll state of the swiper changed.
-   *
-   * @param { Callback<ScrollState> } event - callback to notify the change of the scroll state.
-   * @returns { SwiperAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  default onScrollStateChanged(event: Callback<ScrollState>): this;
-
-  /**
    * Called when the swiper animation start.
    *
    * @param { OnSwiperAnimationStartCallback | undefined } event
@@ -1045,17 +1035,6 @@ export declare interface SwiperAttribute extends CommonMethod {
    * @since 23 static
    */
   default onContentWillScroll(handler: ContentWillScrollCallback | undefined): this;
-
-  /**
-   * Set maintain visible content position.
-   *
-   * @param { boolean } enabled - maintain visible content position.
-   * Default value is false.
-   * @returns { SwiperAttribute } the attribute of swiper.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  default maintainVisibleContentPosition(enabled: boolean): this;
 
   /**
    * Set the attribute modifier of swiper.

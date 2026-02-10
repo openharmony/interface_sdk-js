@@ -17,7 +17,7 @@
  * @file
  * @kit ArkUI
  */
-import { ResourceColor, Length, LengthMetrics } from "./units";
+import { ResourceColor, Length, LengthMetrics, ResourceStr } from "./units";
 import { CommonMethod, AttributeModifier } from "./common";
 import { FontWeight, MarqueeUpdateStrategy } from "./enums";
 import { Resource } from './../../../api/global/resource';
@@ -181,12 +181,13 @@ export declare interface MarqueeAttribute extends CommonMethod {
      * and the following enumerated values of FontWeight are supported: "bold", "bolder", "lighter", "regular", and "medium".
      * </p>
      *
-     * @param { int | FontWeight | string | undefined } value - Default value is FontWeight.Normal.
+     * @param { int | FontWeight | ResourceStr | undefined } value - Default value is FontWeight.Normal.
+     *     Passing `undefined` resets it to the default value.
      * @returns { MarqueeAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
      */
-    default fontWeight(value: int | FontWeight | string | undefined): this;
+    default fontWeight(value: int | FontWeight | ResourceStr | undefined): this;
     /**
      * Set marquee font family.
      *

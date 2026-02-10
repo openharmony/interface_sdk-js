@@ -8586,7 +8586,7 @@ declare enum HitTestMode {
 
   /**
    * Self not respond to the hit test for touch events,
-   * and all descebdants (children, grandchildren, etc.) not respond to the hit test for touch events too.
+   * and all descendants (children, grandchildren, etc.) not respond to the hit test for touch events too.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -10322,24 +10322,6 @@ declare enum EllipsisMode {
    * @since 12 dynamic
    */
   END = 2,
-  /**
-   * The ellipsis is in the head. It is valid for multiline and single line.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 24 dynamic
-   */
-  MULTILINE_START = 3,
-  /**
-   * The ellipsis is in the middle. It is valid for multiline and single line.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 24 dynamic
-   */
-  MULTILINE_CENTER = 4,
 }
 
 /**

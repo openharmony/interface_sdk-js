@@ -25,6 +25,7 @@ import { AsyncCallback } from './@ohos.base';
  * including the methods for querying standby status and exemption list.
  *
  * @namespace deviceStandby
+ * @syscap SystemCapability.ResourceSchedule.DeviceStandby
  * @since 10 dynamic
  * @since 23 static
  */

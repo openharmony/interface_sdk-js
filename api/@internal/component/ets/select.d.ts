@@ -1301,7 +1301,7 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @systemapi
    * @stagemodelonly
    * @atomicservice
-   * @since 24 dynamic
+   * @since 23 dynamic
    */
   menuSystemMaterial(material: Optional<SystemUiMaterial>): SelectAttribute;
 }

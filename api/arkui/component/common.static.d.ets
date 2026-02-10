@@ -39,19 +39,18 @@ import { ComponentContent } from '../../arkui/ComponentContent';
 import { ResizableOptions } from "./image";
 import intl from '../../@ohos.intl';
 import { ButtonType, ButtonStyleMode, ButtonRole } from "./button";
-import { Area, ResourceColor, Dimension, ResourceStr, Font, Length, EdgeColors, LocalizedEdgeColors, BorderRadiuses, EdgeWidths, LocalizedEdgeWidths, SizeOptions, Bias, EdgeStyles, Position, LocalizedBorderRadiuses, Margin, ChainWeightOptions, Padding, LocalizedPadding, LocalizedMargin, BorderOptions, OutlineOptions, EdgeOutlineStyles, EdgeOutlineWidths, OutlineRadiuses, Edges, LocalizedEdges, LocalizedPosition, AccessibilityOptions, ConstraintSizeOptions, EdgeWidth, DirectionalEdgesT, VoidCallback, ColorMetrics, AccessibilityActionOptions, ScrollBarMargin } from "./units";
-import { BaseGestureEvent, GestureRecognizer, TouchRecognizer, GestureJudgeResult, GestureType, GestureMask, GestureHandler, GesturePriority, GestureInfo } from "./gesture";
+import { Area, ResourceColor, Dimension, ResourceStr, Font, Length, EdgeColors, LocalizedEdgeColors, BorderRadiuses, EdgeWidths, LocalizedEdgeWidths, SizeOptions, Bias, EdgeStyles, Position, LocalizedBorderRadiuses, Margin, ChainWeightOptions, Padding, LocalizedPadding, LocalizedMargin, BorderOptions, OutlineOptions, EdgeOutlineStyles, EdgeOutlineWidths, OutlineRadiuses, Edges, LocalizedEdges, LocalizedPosition, AccessibilityOptions, ConstraintSizeOptions, EdgeWidth, DirectionalEdgesT, VoidCallback, ColorMetrics, AccessibilityActionOptions } from "./units";
+import { BaseGestureEvent, GestureRecognizer, GestureJudgeResult, GestureType, GestureMask, GestureHandler, GesturePriority, GestureInfo } from "./gesture";
 import { ScrollState } from "./list";
 import { AccessibilityHoverType, Curve, PlayMode, SharedTransitionEffectType, KeySource, BorderStyle, HorizontalAlign, LocalizedAlignment, RenderStrategy, VerticalAlign, MouseButton, MouseAction, FontWeight, TouchType, FontStyle, Color, ColoringStrategy, Placement, ArrowPointPosition, ClickEffectLevel, NestedScrollMode, HitTestMode, Alignment, ImageRepeat, ImageSize, HoverEffect, Visibility, ItemAlign, Direction, Axis, GradientDirection, FunctionKey, ModifierKey, ObscuredReasons, RenderFit, LineCapStyle, LineJoinStyle, PixelRoundCalcPolicy, TextDecorationType, TextDecorationStyle, KeyType, ResponseType, BarState, EdgeEffect, ScrollSource, InteractionHand, AxisAction, AxisType, AxisModel, CrownAction, FocusDrawLevel, CrownSensitivity, IlluminatedType, ResponseRegionSupportedTool, TipsAnchorType } from "./enums";
 import { TextRange } from "./textCommon";
 import { StyledString } from "./styledString";
 import { CustomBuilder, WrappedBuilder, CustomBuilderT } from './builder';
+import { RecordData } from '../../@ohos.base';
 import curves from '../../@ohos.curves';
 import matrix4 from '../../@ohos.matrix4';
 import { AvoidanceMode } from './select';
 import uiMaterial from '../../@ohos.arkui.uiMaterial';
-import { OnScrollFrameBeginCallback } from "./scroll";
-import dragController from '../../@ohos.arkui.dragController';
 /**
  * Define the ratio of characters entered by the the percentage of InputCounterOptions.
  *
@@ -102,23 +101,6 @@ export declare interface InputCounterOptions {
      * @since 23 static
      */
     highlightBorder?: boolean;
-    /**
-     * It is the color of counter when textField hasn't wanted to exceed the maximum character count.
-     * 
-     * @type { ?ColorMetrics }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
-     */
-    counterTextColor?: ColorMetrics
-
-    /**
-     * It is the color of counter when textField wants to exceed the maximum character count.
-     * 
-     * @type { ?ColorMetrics }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
-     */
-    counterTextOverflowColor?: ColorMetrics
 }
 /**
  * Defines the options of decoration.
@@ -458,12 +440,12 @@ export declare interface ExpectedFrameRateRange {
  * global $r function
  *
  * @param { string } value
- * @param { (Object | null | undefined)[] } params
+ * @param { RecordData[] } params
  * @returns { Resource }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 23 static
  */
-export declare function $r(value: string, ...params: (Object | null | undefined)[]): Resource;
+export declare function $r(value: string, ...params: RecordData[]): Resource;
 /**
  * global $rawfile function
  *
@@ -4300,24 +4282,6 @@ export declare interface ClickEvent extends BaseEvent {
      * @since 23 static
      */
     preventDefault(): void;
-    /**
-     * X coordinate of the point relative to the global display.
-     *
-     * @type { ?double }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 24 static
-     */
-    globalDisplayX?: double;
-    /**
-     * Y coordinate of the point relative to the global display.
-     *
-     * @type { ?double }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 24 static
-     */
-    globalDisplayY?: double;
 }
 /**
  * The hover action triggers this method invocation.
@@ -4384,24 +4348,6 @@ export declare interface HoverEvent extends BaseEvent {
      * @since 23 static
      */
     stopPropagation(): void;
-    /**
-     * X coordinate of the point relative to the global display.
-     *
-     * @type { ?double }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 24 static
-     */
-    globalDisplayX?: double;
-    /**
-     * Y coordinate of the point relative to the global display.
-     *
-     * @type { ?double }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 24 static
-     */
-    globalDisplayY?: double;
 }
 /**
  * The mouse click action triggers this method invocation.
@@ -4510,25 +4456,6 @@ export declare interface MouseEvent extends BaseEvent {
      * @since 23 static
      */
     pressedButtons?: MouseButton[];
-    /**
-     * X coordinate of the point relative to the global display.
-     *
-     * @type { ?double }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 24 static
-     */
-    globalDisplayX?: double;
-
-    /**
-     * Y coordinate of the point relative to the global display.
-     *
-     * @type { ?double }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 24 static
-     */
-    globalDisplayY?: double;    
 }
 /**
  * The accessibility hover action triggers this method invocation.
@@ -4595,25 +4522,6 @@ export declare interface AccessibilityHoverEvent extends BaseEvent {
      * @since 23 static
      */
     windowY: double;
-    /**
-     * X coordinate of the point relative to the global display.
-     *
-     * @type { ?double }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 24 static
-     */
-    globalDisplayX?: double;
-
-    /**
-     * Y coordinate of the point relative to the global display.
-     *
-     * @type { ?double }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 24 static
-     */
-    globalDisplayY?: double;
 }
 /**
  * Type of the touch event.
@@ -4727,25 +4635,6 @@ export declare interface TouchObject {
      * @since 23 static
      */
     height?: double;
-    /**
-     * X coordinate of the point relative to the global display.
-     *
-     * @type { ?double }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 24 static
-     */
-    globalDisplayX?: double;
-
-    /**
-     * Y coordinate of the point relative to the global display.
-     *
-     * @type { ?double }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 24 static
-     */
-    globalDisplayY?: double;
 }
 /**
  * TouchObject getHistoricalPoints Function Parameters
@@ -4959,25 +4848,6 @@ export declare interface AxisEvent extends BaseEvent {
      * @since 23 static
      */
     hasAxis(axisType: AxisType): boolean;
-    /**
-     * X coordinate of the point relative to the global display.
-     *
-     * @type { ?double }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 24 static
-     */
-    globalDisplayX?: double;
-
-    /**
-     * Y coordinate of the point relative to the global display.
-     *
-     * @type { ?double }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 24 static
-     */
-    globalDisplayY?: double;
 }
 /**
  * Defines the callback type used in onSizeChange.
@@ -4989,20 +4859,6 @@ export declare interface AxisEvent extends BaseEvent {
  * @since 23 static
  */
 export type SizeChangeCallback = (oldValue: SizeOptions, newValue: SizeOptions) => void;
-/**
- * Defines the callback type used in onGestureRecognizerJudgeBegin.
- *
- * @typedef { function } GestureRecognizerJudgeBeginCallback
- * @param { BaseGestureEvent } event - the event information
- * @param { GestureRecognizer } current - the current gesture recognizer of the component
- * @param { Array<GestureRecognizer> } recognizers - the gesture recognizers of the component on the response chain
- * @param { Array<TouchRecognizer> } [touchRecognizers] - the touch recognizers of the component on the response chain
- * @returns { GestureJudgeResult } the gesture judge result
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 24 static
- */
-export type GestureRecognizerJudgeBeginCallback = (event: BaseGestureEvent, current: GestureRecognizer, recognizers: Array<GestureRecognizer>, touchRecognizers?: Array<TouchRecognizer>) => GestureJudgeResult;
 /**
  * Defines the callback type used in shouldBuiltInRecognizerParallelWith.
  *
@@ -5125,33 +4981,6 @@ export type UniformDataType = uniformTypeDescriptor.UniformDataType;
  * @since 23 static
  */
 export type DataSyncOptions = unifiedDataChannel.GetDataParams;
-/**
- * Import the DataLoadParams type object for ui component.
- *
- * @typedef { unifiedDataChannel.DataLoadParams } DataLoadParams
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 24 static
- */
-export type DataLoadParams = unifiedDataChannel.DataLoadParams;
-/**
- * The type for SpringLoadingContext, see the detailed description in dragController.
- *
- * @typedef { dragController.SpringLoadingContext } SpringLoadingContext
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 24 static
- */
-export type SpringLoadingContext = dragController.SpringLoadingContext;
-/**
- * The type for DragSpringLoadingConfiguration, see the detailed description in dragController.
- *
- * @typedef { dragController.DragSpringLoadingConfiguration } DragSpringLoadingConfiguration
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 24 static
- */
-export type DragSpringLoadingConfiguration = dragController.DragSpringLoadingConfiguration;
 /**
  * Enum for Drag Result.
  *
@@ -5638,74 +5467,6 @@ export declare interface DragEvent {
      * @since 23 static
      */
      getDisplayId(): int;
-    /**
-     * Retrieve the bundle information of the drag source application.
-     *
-     * @returns { string }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 24 static
-     */
-     getDragSource(): string;
-    /**
-     * Call this method to determine whether the current drag operation is a cross-device drag.
-     *
-     * @returns { boolean }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 24 static
-     */
-     isRemote(): boolean;
-    /**
-     * Use this method to provide a data representation to the system instead of directly providing a complete data
-     * object. When the user releases the drag over the target application, the system will use this data
-     * representation to request the actual data from drag source. This approach significantly improves the
-     * efficiency of initiating drag operations for large volumes of data and enhances the effectiveness of data
-     * reception. It is recommended to use this method instead of the setData method.
-     *
-     * @param { DataLoadParams } dataLoadParams - The data backend representation.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 24 static
-     */
-     setDataLoadParams(dataLoadParams: DataLoadParams): void;
-    /**
-     * Enable the internal drop animation, which is only avaiable for system applications.
-     *
-     * The animations' configuration need to be provided through the input paramerter, and it is a string in json format.
-     *
-     * This method can only be called in onDrop, and please do not use custom drop animation after this method,
-     * as it will reset the calling result, and use custom drop animation insteadly.
-     *
-     * @param { string } configuration - the internal drop animation's configuration.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 190003 - Operation not allowed for current phase.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 24 static
-     */
-    enableInternalDropAnimation(configuration: string): void;
-    /**
-     * X coordinate of the point relative to the global display.
-     *
-     * @returns { double }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 24 static
-     */
-    getGlobalDisplayX(): double;
-
-    /**
-     * Y coordinate of the point relative to the global display.
-     *
-     * @returns { double }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 24 static
-     */
-    getGlobalDisplayY(): double;
 }
 /**
  * The event callback function for drag and drop common interfaces.
@@ -5838,33 +5599,6 @@ export declare interface KeyEvent {
      * @since 23 static
      */
     unicode?: long;
-    /**
-     * Whether Num Lock is on
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 24 static
-     */
-    isNumLockOn?: boolean;
-    /**
-     * Whether Caps Lock is on
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 24 static
-     */
-    isCapsLockOn?: boolean;
-    /**
-     * Whether Scroll Lock is on
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 24 static
-     */
-    isScrollLockOn?: boolean;
 }
 /**
  * Focus axis event object description.
@@ -5998,22 +5732,24 @@ export declare interface BindOptions {
  *
  * @interface DismissContentCoverAction
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare interface DismissContentCoverAction {
     /**
      * Defines content cover dismiss function
      *
-     * @type { VoidCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
-    dismiss: VoidCallback;
+    dismiss(): void;
     /**
      * Defines content cover dismiss reason
      *
      * @type { DismissReason }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     reason: DismissReason;
@@ -6233,44 +5969,48 @@ export declare enum SheetKeyboardAvoidMode {
      */
     POPUP_SHEET = 4
 }
+
 /**
  * Component sheet dismiss
  *
  * @interface SheetDismiss
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare interface SheetDismiss {
     /**
      * Defines sheet dismiss function
      *
-     * @type { VoidCallback  }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
-    dismiss: VoidCallback;
+    dismiss(): void;
 }
 /**
  * Component sheet dismiss
  *
  * @interface DismissSheetAction
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare interface DismissSheetAction {
     /**
      * Defines sheet dismiss function
      *
-     * @type { VoidCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
-    dismiss: VoidCallback;
+    dismiss(): void;
     /**
      * Dismiss reason type.
      *
      * @type { DismissReason }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     reason: DismissReason;
@@ -6387,17 +6127,6 @@ export declare interface SheetOptions extends BindOptions {
     * @since 23 static
     */
     radiusRenderStrategy?: RenderStrategy;
-    /**
-     * Set system-styled materials for sheet. Different materials have different effects, which can influence
-     * the backgroundColor, border, shadow, and other visual attributes of sheet.
-     *
-     * @type { ?SystemUiMaterial }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 24 static
-     */
-    systemMaterial?: SystemUiMaterial;
     /**
      * Mask color of the sheet.
      *
@@ -7209,17 +6938,6 @@ export declare interface PopupCommonOptions {
      * @since 23 static
      */
     borderLinearGradient?: PopupBorderLinearGradient;
-    /**
-     * Set system-styled materials for popup. Different materials have different effects, which can influence
-     * the backgroundColor, border, shadow, and other visual attributes of popup.
-     *
-     * @type { ?SystemUiMaterial }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 24 static
-     */
-    systemMaterial?: SystemUiMaterial;
 
   /**
    * Callback function when the popup disappears.
@@ -7640,18 +7358,6 @@ export declare interface PopupOptions {
      */
     borderLinearGradient?: PopupBorderLinearGradient;
 
-    /**
-     * Set system-styled materials for popup. Different materials have different effects, which can influence
-     * the backgroundColor, border, shadow, and other visual attributes of popup.
-     *
-     * @type { ?SystemUiMaterial }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 24 static
-     */
-    systemMaterial?: SystemUiMaterial;
-
   /**
    * Callback function before the popup closeAnimation starts.
    *
@@ -7984,18 +7690,6 @@ export declare interface CustomPopupOptions {
      * @since 23 static
      */
     borderLinearGradient?: PopupBorderLinearGradient;
-
-    /**
-     * Set system-styled materials for popup. Different materials have different effects, which can influence
-     * the backgroundColor, border, shadow, and other visual attributes of popup.
-     *
-     * @type { ?SystemUiMaterial }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 24 static
-     */
-    systemMaterial?: SystemUiMaterial;
 
   /**
    * Callback function when the popup appears.
@@ -9518,18 +9212,6 @@ export declare interface BackgroundOptions {
      * @since 23 static
      */
     align?: Alignment;
-    /**
-     * The set of edges for which to ignore layout safe area. To respect safe area insets on all edges,
-     * explicitly pass empty edge set.
-     *
-     * @type { ?Array<LayoutSafeAreaEdge> }
-     * @default The default value is LayoutSafeAreaEdge.ALL when background is ResourceColor, otherwise
-     *     it is an empty array [].
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 24 static
-    */
-    ignoresLayoutSafeAreaEdges?: Array<LayoutSafeAreaEdge>;
 }
 /**
  * Defines the value of the custom property..
@@ -9737,17 +9419,6 @@ export declare interface CommonMethod {
      * @since 23 static
      */
     default margin(value: Margin | Length | LocalizedMargin | undefined): this;
-    /**
-     * Set the background to a given CustomBuilder, or set it to a specific ResourceColor.
-     *
-     * @param { CustomBuilder | ResourceColor | undefined } content
-     * @param { BackgroundOptions } [options]
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 24 static
-     */
-    default background(content: CustomBuilder | ResourceColor | undefined, options?: BackgroundOptions): this;
     /**
      * Background color
      *
@@ -10638,22 +10309,6 @@ export declare interface CommonMethod {
      */
     default renderGroup(value: boolean | undefined): this;
     /**
-     * Set the component and its child components not to render off the screen following the parent component.
-     * Must be used in conjunction with renderGroup.
-     *
-     * @param { boolean | undefined } exclude - Whether the component and its child components are not
-     *     rendered off the screen following the parent component.
-     *     True means to not follow the parent component.
-     *     Default value: false.
-     *     Undefined means to default value.
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 24 static
-     */
-    default excludeFromRenderGroup(exclude: boolean | undefined): this;
-    /**
      * Sets whether to freeze the component. When frozen, the component and its children are cached for
      * repeated drawing after offscreen rendering, without updating internal attributes.
      *
@@ -10968,22 +10623,6 @@ export declare interface CommonMethod {
      */
     default clickEffect(value: ClickEffect | null | undefined): this;
     /**
-     * Set whether this component should have sound effects enabled for clicking.
-     *
-     * Sound effects playback is affected by the audio-related settings in the device system settings.
-     * When the user sets the device to silent mode, sound effects cannot be played.
-     *
-     * @param { boolean | undefined } enabled - indicates whether this component should have sound effects
-     *     enabled for clicking.
-     *     <br>Pass in undefined to reset the default value, default value is true, but
-     *     even it's true, the sound effect is only supported in some specific devices.
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 24 static
-     */
-    default enableClickSoundEffect(enabled: boolean | undefined): this
-    /**
      * After a listener is bound, the component can be dragged. After the drag occurs, a callback is triggered.
      * (To be triggered, press and hold for 170 milliseconds (ms))
      *
@@ -11044,28 +10683,6 @@ export declare interface CommonMethod {
      * @since 23 static
      */
     default onDrop(eventCallback: OnDragEventCallback | undefined, dropOptions: DropOptions): this;
-    /**
-     * Enables the component as a drag-and-drop target with spring loading functionality.
-     *
-     * When a dragged object hovers over the target, it triggers a callback notification. Spring Loading is an enhanced
-     * feature for drag-and-drop operations, allowing users to automatically trigger view transitions during dragging
-     * by hovering (hover) without needing to use another hand.
-     * This feature is primarily designed to enhance the smoothness and efficiency of drag-and-drop operations. Below are
-     * some common scenarios suitable for supporting this feature:
-     *  - In a file manager, when dragging a file and hovering over a folder, the folder is automatically opened.
-     *  - On a desktop launcher, when dragging a file and hovering over an application icon, the application is
-     *  automatically opened.
-     *
-     * @param { Callback<SpringLoadingContext> | null | undefined } callback Registers the callback for spring loading response, or
-     *    sets it to null to disable the support for spring loading.
-     * @param { DragSpringLoadingConfiguration } [configuration] The initialized spring loading configuration which is
-     *    only used when the entire spring detecting.
-     * @returns { this } - return the component attribute.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 24 static
-     */
-    default onDragSpringLoading(callback: Callback<SpringLoadingContext> | null | undefined, configuration?: DragSpringLoadingConfiguration): this;
     /**
      * This function is called when the drag event is end.
      *
@@ -11477,6 +11094,7 @@ export declare interface CommonMethod {
      * @param { VisibleAreaChangeCallback | undefined } event - Callback for visible area changes of the component.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default onVisibleAreaChange(ratios: Array<double> | undefined, event: VisibleAreaChangeCallback | undefined): this;
@@ -11802,37 +11420,6 @@ export declare interface CommonMethod {
      * @since 23 static
      */
     default onGestureJudgeBegin(callback: ((gestureInfo: GestureInfo, event: BaseGestureEvent) => GestureJudgeResult) | undefined): this;
-    /**
-     * Binds a custom gesture recognizer judgment callback to the component.
-     *
-     * @param { GestureRecognizerJudgeBeginCallback | undefined } callback - A callback instance used when
-     *     a gesture bound to this component will be accepted.
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
-     */
-    default onGestureRecognizerJudgeBegin(callback: GestureRecognizerJudgeBeginCallback | undefined): this;
-    /**
-     * Binds a custom gesture recognizer judgment callback to the component.
-     *
-     * <p><strong>NOTE</strong>:
-     * <br> For a composite component, setting exposeInnerGesture to true exposes the internal gesture recognizer of the
-     * <br> composite component in the current parameter callback. Currently, only the Tabs component is supported.
-     *
-     * <br> Do not set exposeInnerGesture for other components. When exposeInnerGesture is set to false, this API
-     * provides the same functionality
-     * <br> as the onGestureRecognizerJudgeBegin API.
-     * </p>
-     * @param { GestureRecognizerJudgeBeginCallback | undefined } callback - A callback instance used when a gesture
-     *     bound to this component will be accepted.
-     * @param { boolean | undefined } exposeInnerGesture - This parameter is a flag. This flag determines whether to
-     *     expose internal gestures.
-     * @default false
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
-     */
-    default onGestureRecognizerJudgeBegin(callback: GestureRecognizerJudgeBeginCallback | undefined, exposeInnerGesture: boolean | undefined): this;
     /**
      * Provides a callback to set the parallel relationship between built-in gestures and gestures of other components in the response chain.
      *
@@ -12339,11 +11926,12 @@ export declare interface Layoutable {
     /**
      * Applies the specified position information to the child component.
      *
-     * @param { Position } position
+     * @param { Position | undefined } position
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
-    layout(position: Position): void;
+    layout(position: Position | undefined): void;
     /**
      * Obtains the margin of the child component.
      *
@@ -12392,13 +11980,14 @@ export declare interface Measurable {
     /**
      * Applies the size constraint to the child component.
      *
-     * @param { ConstraintSizeOptions } constraint
+     * @param { ConstraintSizeOptions | undefined } constraint
      * @returns { MeasureResult | undefined } Provides the measurement result of the component. If some errors
-     * occur in the internal runtime environment, returns undefined.
+     *     occur in the internal runtime environment, returns undefined.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
-    measure(constraint: ConstraintSizeOptions): MeasureResult | undefined;
+    measure(constraint: ConstraintSizeOptions | undefined): MeasureResult | undefined;
     /**
      * Obtains the margin of the child component.
      *
@@ -12699,6 +12288,15 @@ export declare abstract class TextContentControllerBase {
      */
     addText(text: string, textOperationOptions?: TextContentControllerOptions): int | undefined;
     /**
+     * Set the styled placeholder.
+     *
+     * @param { StyledString } styledString - The styledString for placeholder.
+     *     If the parameter is invalid, this method will have no effect.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    setStyledPlaceholder(styledString: StyledString): void;
+    /**
      * Delete text in TextRange.
      *
      * @param { TextRange } [range] - range for deleting.
@@ -12748,15 +12346,6 @@ export declare abstract class TextContentControllerBase {
      * @since 23 static
      */
     scrollToVisible(range?: TextRange): void
-    /**
-     * Set the styled placeholder
-     *
-     * @param { StyledString } styledString - The styledString for placeholder.
-     *     If the parameter is invalid, this method will have no effect.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
-     */
-    setStyledPlaceholder(styledString: StyledString): void;
 }
 /**
  * Enum of scrollable containers' content clip mode.
@@ -12820,22 +12409,10 @@ export declare interface ScrollableCommonMethod extends CommonMethod {
      *     A string value indicates a color in RGB or ARGB format, for example, <em>'#ffffff'</em>.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 24 static
-     */
-    default scrollBarColor(color: Color | int | string | Resource | undefined): this;
-    /**
-     * Sets the scrollbar color.
-     *
-     * @param { Color | int | string | undefined } color - Scrollbar color.<br>Default value:
-     *     <em>'\#182431'</em> (40% opacity). A number value indicates a HEX color in RGB or ARGB
-     *     format, for example, <em>0xffffff</em>. A string value indicates a color in RGB or ARGB
-     *     format, for example, <em>'#ffffff'</em>.
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
      */
-    default scrollBarColor(color: Color | int | string | undefined): this;
+    default scrollBarColor(color: Color | int | string | Resource | undefined): this;
     /**
      * Sets the scrollbar width.
      *
@@ -12849,18 +12426,6 @@ export declare interface ScrollableCommonMethod extends CommonMethod {
      * @since 23 static
      */
     default scrollBarWidth(value: double | string | undefined): this;
-    /**
-     * Margin of the scrollbar.
-     *
-     * @param { ScrollBarMargin | undefined } margin - Margin of the scrollbar.
-     *     <br>Default value: {start: LengthMetrics.vp(0), end: LengthMetrics.vp(0)}.
-     *     Passing undefined will restore the default value.
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 24 static
-     */
-    default scrollBarMargin(margin: ScrollBarMargin | undefined): this;
     /**
      * Sets the effect used when the scroll boundary is reached.
      *
@@ -12922,80 +12487,6 @@ export declare interface ScrollableCommonMethod extends CommonMethod {
      * @since 23 static
      */
     default friction(value: double | Resource | undefined): this;
-    /**
-     * Sets the offset from the start of the content to the boundary of the scrollable display area.
-     *
-     * @param { double | Resource | undefined } offset - Offset from the start of the content to the boundary of
-     *     the scrollable display area.
-     *     <br>Unit: vp
-     *     <br>Unit:Default value: <em>0</em>. Passing undefined will restore the default value.
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 24 static
-     */
-    default contentStartOffset(offset: double | Resource | undefined): this;
-    /**
-     * Sets the offset from the end of the content to the boundary of the scrollable display area.
-     *
-     * @param { double | Resource | undefined } offset - Offset from the end of the content to the boundary of
-     *     the scrollable display area.
-     *     <br>Unit: vp
-     *     <br>Default value: <em>0</em>. Passing undefined will restore the default value.
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 24 static
-     */
-    default contentEndOffset(offset: double | Resource | undefined): this;
-    /**
-     * Called when the scrollable will start dragging.
-     *
-     * @param { VoidCallback | undefined } handler - callback of start dragging.
-     *     <br>Passing undefined will unregister the callback.
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 24 static
-     */
-    default onWillStartDragging(handler: VoidCallback | undefined): this;
-    /**
-     * Called when the scrollable will end dragging.
-     *
-     * @param { OnWillStopDraggingCallback | undefined } handler - callback of end dragging.
-     *     <br>Passing undefined will unregister the callback.
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 24 static
-     */
-    default onWillStopDragging(handler: OnWillStopDraggingCallback | undefined): this;
-    /**
-     * Called when the scrollable did end dragging.
-     *
-     * @param { OnDidStopDraggingCallback | undefined } handler - callback of end dragging.
-     *     <br>Passing undefined will unregister the callback.
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 24 static
-     */
-    default onDidStopDragging(handler: OnDidStopDraggingCallback | undefined): this;
-    /**
-     * Called when the scrollable will start fling.
-     *
-     * @param { VoidCallback | undefined } handler - callback of start fling.
-     *     <br>Passing undefined will unregister the callback.
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 24 static
-     */
-    default onWillStartFling(handler: VoidCallback | undefined): this;
-    /**
-     * Called when the scrollable did stop fling.
-     *
-     * @param { VoidCallback | undefined } handler - callback of stop fling.
-     *     <br>Passing undefined will unregister the callback.
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 24 static
-     */
-    default onDidStopFling(handler: VoidCallback | undefined): this;
     /**
      * Triggered when the scrollable component reaches the start position.
      *
@@ -13128,25 +12619,6 @@ export type OnWillScrollCallback = (scrollOffset: double, scrollState: ScrollSta
   * @since 23 static
   */
 export type OnScrollCallback = (scrollOffset: double, scrollState: ScrollState) => void;
-/**
- * On scroll callback using in scrollable onWillStopDragging.
- *
- * @typedef { function } OnWillStopDraggingCallback
- * @param { double } velocity - The veolicity of the scroll view at the moment the touch was released.
- *     <br>Unit: vp/s.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 24 static
- */
-export type OnWillStopDraggingCallback = (velocity: double) => void;
-/**
- * On scroll callback using in scrollable onDidStopDragging.
- *
- * @typedef { function } OnDidStopDraggingCallback
- * @param { boolean } willFling - whether start fling animation.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 24 static
- */
-export type OnDidStopDraggingCallback = (willFling: boolean) => void;
 /**
   * Defines the callback type used in onItemDragStart.
   *
@@ -13790,68 +13262,6 @@ export declare interface UICommonEvent {
     setOnVisibleAreaApproximateChange(options: VisibleAreaEventOptions, event: VisibleAreaChangeCallback | undefined): void;
 }
 /**
- * Defines a UIScrollableCommonEvent which is used to set event to target component.
- *
- * @extends UICommonEvent
- * @interface UIScrollableCommonEvent
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 24 static
- */
-export declare interface UIScrollableCommonEvent extends UICommonEvent {
-  /**
-   * Set or reset the callback which is triggered when the scrolling reaches the start position.
-   *
-   * @param { VoidCallback | undefined } callback - callback function, triggered when the scrolling reaches
-   *     the start position.
-   *     <br>Passing undefined will unregister the callback.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 24 static
-   */
-  setOnReachStart(callback: VoidCallback | undefined): void;
-  /**
-   * Set or reset the callback which is triggered when the scrolling reaches the end position.
-   *
-   * @param { VoidCallback | undefined } callback - callback function, triggered when the
-   *     scrolling reaches the end position.
-   *     <br>Passing undefined will unregister the callback.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 24 static
-   */
-  setOnReachEnd(callback: VoidCallback | undefined): void;
-  /**
-   * Set or reset the callback which is triggered when the scrolling started.
-   *
-   * @param { VoidCallback | undefined } callback - callback function, triggered when the scrolling started.
-   *     <br>Passing undefined will unregister the callback.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 24 static
-   */
-  setOnScrollStart(callback: VoidCallback | undefined): void;
-  /**
-   * Set or reset the callback which is triggered when the scrolling stopped.
-   *
-   * @param { VoidCallback | undefined } callback - callback function, triggered when the scrolling stopped.
-   *     <br>Passing undefined will unregister the callback.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 24 static
-   */
-  setOnScrollStop(callback: VoidCallback | undefined): void;
-  /**
-   * Set or reset the callback which is triggered when scrolling begin each frame.
-   *
-   * @param { OnScrollFrameBeginCallback | undefined } callback - callback function, triggered when the
-   *     scrolling begin each frame.
-   *     <br>Passing undefined will unregister the callback.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 24 static
-   */
-  setOnScrollFrameBegin(callback: OnScrollFrameBeginCallback | undefined): void;
-}
-/**
  * Defines a UIGestureEvent which is used to set different gestures to target component.
  *
  * @interface UIGestureEvent
@@ -14164,3 +13574,4 @@ export declare function $$<T>(value: T): Bindable<T>;
  * @since 23 static
  */
 export declare function applyStyles<T extends CommonMethod>(this: T, customStyles: CustomStyles): T;
+ 

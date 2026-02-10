@@ -20,8 +20,8 @@
 import { CommonMethod, ShadowOptions, Callback, AttributeModifier, SelectionOptions } from "./common";
 import { CustomBuilder } from './builder';
 import { EllipsisMode, TextCase, LineBreakStrategy, TextAlign, FontStyle, FontWeight, WordBreak, TextOverflow, CopyOptions, TextHeightAdaptivePolicy, TextSelectableMode } from "./enums";
-import { Resource, ResourceColor, Font, Length, LengthMetrics } from "./units";
-import { TextDataDetectorConfig, LayoutManager, FontSettingOptions, EditMenuOptions, SelectedDragPreviewStyle, TextDirection, ShaderStyle, LineSpacingOptions, TextVerticalAlign, ContentTransition, TextContentAlign } from "./textCommon";
+import { Resource, ResourceColor, Font, Length, LengthMetrics, ResourceStr } from "./units";
+import { TextDataDetectorConfig, LayoutManager, FontSettingOptions, EditMenuOptions, SelectedDragPreviewStyle, TextDirection, LineSpacingOptions } from "./textCommon";
 import { DecorationStyleInterface, StyledString } from "./styledString";
 import { SelectionMenuOptions } from "./richEditor";
 import { ComponentBuilder } from './builder';
@@ -174,13 +174,13 @@ export declare interface TextAttribute extends CommonMethod {
     /**
      * Called when the font weight is set.
      *
-     * @param { int | FontWeight | string } weight
-     * @param { FontSettingOptions } options - font setting options.
+     * @param { int | FontWeight | ResourceStr | undefined } weight
+     * @param { FontSettingOptions | undefined } [options] - font setting options.
      * @returns { TextAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
      */
-    default fontWeight(weight: int | FontWeight | string | undefined, options?: FontSettingOptions | undefined): this;
+    default fontWeight(weight: int | FontWeight | ResourceStr | undefined, options?: FontSettingOptions | undefined): this;
     /**
      * Set font line spacing with options.
      *
@@ -692,135 +692,6 @@ export declare interface TextAttribute extends CommonMethod {
      */
     default fallbackLineSpacing(enabled: boolean | undefined): this;
     /**
-     * Set whether to optimize the trailing spaces at the end of each line during text layout.
-     *
-     * @param { boolean | undefined } optimize - The default value is false.
-     *     Passing `undefined` resets it to the default value.
-     * @returns { TextAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
-     */
-    default optimizeTrailingSpace(optimize: boolean | undefined): this;
-
-    /**
-     * Set the shader style of the text, such as lineargradient or radialgradient.
-     *
-     * @param { ShaderStyle | undefined } shader - The shader style of the text. 
-     *     Passing `undefined` resets it to the default value.
-     * @returns { TextAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
-     */
-    default shaderStyle(shader: ShaderStyle | undefined): this;
-
-    /**
-     * Whether to enable automatic spacing between Chinese and Latin characters.
-     *
-     * @param { boolean | undefined } enabled - The default value is false, indicates the flag whether
-     *     to enable automatic spacing. Passing `undefined` resets it to the default value.
-     * @returns { TextAttribute } returns the instance of the TextAttribute.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
-     */
-    default enableAutoSpacing(enabled: boolean | undefined): this;
-
-    /**
-     * Set the vertical align of the text.
-     *
-     * @param { TextVerticalAlign | undefined } textVerticalAlign - The default value is BASELINE.
-     *     Use default value when undefined.
-     * @returns { TextAttribute } returns the instance of the TextAttribute.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
-     */
-    default textVerticalAlign(textVerticalAlign: TextVerticalAlign | undefined): this;
-
-    /**
-     * Set text transition.
-     *
-     * @param { ContentTransition | undefined } transition - The transition of text.
-     *     Passing `undefined` resets it to the default value.
-     * @returns { TextAttribute } returns the instance of the TextAttribute.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
-     */
-    default contentTransition(transition: ContentTransition | undefined): this;
-
-    /**
-     * Set the vertical align of the whole text content.
-     *
-     * @param { TextContentAlign | undefined } textContentAlign - The default value is TOP.
-     * @returns { TextAttribute } returns the instance of the TextAttribute.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    default textContentAlign(textContentAlign: TextContentAlign | undefined): this;
-
-    /**
-     * Called when the minimum number of lines of text is set.
-     *
-     * @param { int | undefined } minLines - Set the minimum lines of text.
-     *     Passing `undefined` resets it to the default value.
-     * @returns { TextAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
-     */
-    default minLines(minLines: int | undefined): this;
-
-    /**
-     * Set the minimum line height
-     *
-     * <p><strong>NOTE</strong>:
-     * <br>If the value is set to undefined, this property does not limit the text line height.
-     * </p>
-     * 
-     * @param { LengthMetrics | undefined } value
-     * @returns { TextAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
-     */
-    default minLineHeight(value: LengthMetrics | undefined): this;
-
-    /**
-     * Set the maximum line height
-     * 
-     * <p><strong>NOTE</strong>:
-     * <br>If the value is set to undefined, this property does not limit the text line height.
-     * </p>
-     *
-     * @param { LengthMetrics | undefined } value
-     * @returns { TextAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
-     */
-    default maxLineHeight(value: LengthMetrics | undefined): this;
-
-    /**
-     * Set the line height multiple value of text.
-     * 
-     * <p><strong>NOTE</strong>:
-     * <br>If the value is set to undefined, this property is set to 0 and has no effect.
-     * </p>
-     *
-     * @param { double | undefined } value
-     * @returns { TextAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
-     */
-    default lineHeightMultiple(value: double | undefined): this;
-  
-    /**
-     * Enable selected data detector.
-     * 
-     * @param { boolean | undefined } enable - Whether to enable the selected data detector.
-     * @returns { TextAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
-     */
-    default enableSelectedDataDetector(enable: boolean | undefined): this
-
-    /**
      * Sets the attribute modifier.
      *
      * @param { AttributeModifier<TextAttribute> | AttributeModifier<CommonMethod> | undefined } modifier.
@@ -829,7 +700,6 @@ export declare interface TextAttribute extends CommonMethod {
      * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<TextAttribute> | AttributeModifier<CommonMethod> | undefined): this;
-    
     /**
      * Whether to compress punctuation at the beginning of line.
      *
@@ -840,7 +710,6 @@ export declare interface TextAttribute extends CommonMethod {
      * @since 23 static
      */
     default compressLeadingPunctuation(enabled: boolean | undefined): this;
-
     /**
      * Used to set the selected drag preview style.
      *

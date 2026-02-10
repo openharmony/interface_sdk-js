@@ -1162,16 +1162,5 @@ declare namespace hidebug {
    * @since 20 dynamic
    */
   function setJsRawHeapTrimLevel(level: JsRawHeapTrimLevel): void;
-
-  /**
-   * Transform the raw heap snapshot from thread-level to process-level when shared-memory OOM occurs.
-   *
-   * @param { boolean } enable - Whether dump processlevel raw heap snapshot.
-   * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @stagemodelonly
-   * @atomicservice
-   * @since 24 dynamiconly
-   */
-  function setProcDumpInSharedOOM(enable: boolean): void;
 }
 export default hidebug;

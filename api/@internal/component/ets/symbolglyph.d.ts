@@ -979,6 +979,7 @@ declare class ReplaceSymbolEffect extends SymbolEffect {
  *
  * @extends SymbolEffect
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @form
  * @atomicservice
  * @since 12 dynamic
@@ -1084,8 +1085,8 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
    * - Any layers beyond the length of the array will also use their default color.
    *
    * @param { Array<ShaderStyle | undefined> | ShaderStyle } shader - The shader style(s) to apply.
-   *     - `ShaderStyle`: Apply the same shader style to all symbol layers.
-   *     - `Array<ShaderStyle | undefined>`: Specify shader styles per layer; `undefined` means default
+   *     `ShaderStyle`: Apply the same shader style to all symbol layers.
+   *     `Array<ShaderStyle | undefined>`: Specify shader styles per layer; `undefined` means default
    *     color for that layer.
    * @returns { SymbolGlyphAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full

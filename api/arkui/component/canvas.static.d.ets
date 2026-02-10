@@ -255,6 +255,23 @@ export declare class CanvasPath {
    * @since 23 static
    */
   rect(x: double, y: double, w: double, h: double): void;
+
+  /**
+   * Draw rounded Rectangular Paths
+   *
+   * @param { double } x - The x-axis coordinate of the start point of the rectangle.
+   * @param { double } y - The y-axis coordinate of the start point of the rectangle.
+   * @param { double } w - Width of the rectangle.
+   * @param { double } h - Height of the rectangle.
+   * @param { double | Array<double> } [radii] - A number or list specifying the radii of the circular arc
+   *     to be used for the corners of the rectangle. The default value is 0.
+   * @throws { BusinessError } 103701 - Parameter error. Possible causes: 
+   * <br> 1. The param radii is a list that has zero or more than four elements.
+   * <br> 2. The param radii contains negative value.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  roundRect(x: double, y: double, w: double, h: double, radii?: double | Array<double>): void;
 }
 
 /**
@@ -533,11 +550,11 @@ export declare class ImageData {
   /**
    * Array containing image pixel data
    *
-   * @returns { Uint8ClampedArray }
+   * @returns { Uint8ClampedArray | undefined }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
-  get data(): Uint8ClampedArray;
+  get data(): Uint8ClampedArray | undefined;
   /**
    * Height of the image.
    *
@@ -1013,11 +1030,11 @@ export declare class CanvasRenderer extends CanvasPath {
    *     to be extracted.
    * @param { double } sw - The width of the rectangular area of the PixelMap to be extracted.
    * @param { double } sh - The height of the rectangular area of the PixelMap to be extracted.
-   * @returns { PixelMap }
+   * @returns { PixelMap | undefined }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
-  getPixelMap(sx: double, sy: double, sw: double, sh: double): PixelMap;
+  getPixelMap(sx: double, sy: double, sw: double, sh: double): PixelMap | undefined;
   /**
    * Draws the specified ImageData object onto the canvas
    *
@@ -1535,11 +1552,11 @@ export declare class CanvasRenderingContext2D extends CanvasRenderer {
   /**
    * Frame node of the canvas. The default value is null.
    *
-   * @returns { FrameNode }
+   * @returns { FrameNode | null }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
-  get canvas(): FrameNode;
+  get canvas(): FrameNode | null;
   /**
    * Generate a character string in the data url format.
    *

@@ -166,41 +166,6 @@ declare namespace common {
     }
 
     /**
-     * Enum for start up scene.
-     *
-     * @enum { number }
-     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @stagemodelonly
-     * @since 24
-     */
-    export enum StartupScene {
-      /**
-       * Indicates the startup scene of user setup.
-       *
-       * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-       * @stagemodelonly
-       * @since 24
-       */
-      USER_SETUP = 0,
-      /**
-       * Indicates the startup scene of ota.
-       *
-       * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-       * @stagemodelonly
-       * @since 24
-       */
-      OTA = 1,
-      /**
-       * Indicates the startup scene of device provision.
-       *
-       * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-       * @stagemodelonly
-       * @since 24
-       */
-      DEVICE_PROVISION = 2,
-    }
-
-    /**
      * The context of enterprise admin extension context. It allows access to ability-specific resources.
      *
      * @typedef { _EnterpriseAdminExtensionContext.default }

@@ -372,6 +372,7 @@ declare interface SearchOptions {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 20 dynamic
    */
@@ -403,8 +404,10 @@ declare interface SearchOptions {
    * Text displayed when there is no input.
    *
    * Anonymous Object Rectification.
+   *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 18 dynamic
    */
@@ -442,6 +445,7 @@ declare interface SearchOptions {
    * 
    * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 18 dynamic
    */
@@ -466,8 +470,10 @@ declare interface SearchOptions {
    * Controller of the <Search> component.
    *
    * Anonymous Object Rectification.
+   *
    * @type { ?SearchController }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 18 dynamic
    */
@@ -758,6 +764,7 @@ interface CancelButtonSymbolOptions {
    * 
    * @type { ?CancelButtonStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
@@ -1792,7 +1799,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * <br>The custom keyboard cannot obtain the focus, but it blocks gesture events.
    * <br>By default, the custom keyboard is closed when the input component loses the focus.
    * <br>You can also use the stopEditing API to close the keyboard.
-   * <br>When a custom keyboard is set, the text box does not support camera input, even when the device supports.
+   *  <br>When a custom keyboard is set, the text box does not support camera input, even when the device supports.
    * <br>When setting a custom keyboard, you can bind the onKeyPrelme event to prevent input from the physical keyboard.
    * </p>
    * 
@@ -1802,7 +1809,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * Define custom keyboard.

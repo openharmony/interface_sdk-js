@@ -345,15 +345,6 @@ export declare interface NavDestinationContext {
     navDestinationId?: string;
 
     /**
-     * The mode of NavDestination.
-     *
-     * @type { ?NavDestinationMode }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
-     */
-    mode?: NavDestinationMode;
-
-    /**
      * Get configuration of current Destination in module.json
      *
      * @returns { RouteMapConfig | undefined }

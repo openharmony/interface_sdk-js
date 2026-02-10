@@ -235,8 +235,8 @@ export declare interface UIExtensionProxy {
  * @typedef UIExtensionComponentAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 23 static
  * @noninterop
+ * @since 23 static
  */
 export declare interface UIExtensionComponentAttribute extends CommonMethod {
     /**

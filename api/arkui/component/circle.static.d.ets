@@ -18,6 +18,7 @@
  */
 import { CommonShapeMethod, CommonMethod, AttributeModifier } from "./common";
 import { ComponentBuilder, CustomBuilder } from './builder';
+import { Length } from './units';
 
 /**
  * Defines circle options for Circle component.
@@ -30,19 +31,19 @@ export declare interface CircleOptions {
     /**
      * Defines the width property.
      *
-     * @type { ?(string | double) }
+     * @type { ?Length }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
      */
-    width?: string | double;
+    width?: Length;
     /**
      * Defines the height property.
      *
-     * @type { ?(string | double) }
+     * @type { ?Length }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
      */
-    height?: string | double;
+    height?: Length;
 }
 
 /**

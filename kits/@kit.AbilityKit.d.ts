@@ -233,6 +233,7 @@ export {
   ability, ActionExtensionAbility, AutoFillExtensionAbility, autoStartupManager, ChildProcess, childProcessManager,
   ChildProcessArgs, ChildProcessOptions, quickFixManager, businessAbilityRouter, EmbeddedUIExtensionAbility,
   UIServiceExtensionAbility, CompletionHandler, AppServiceExtensionAbility, kioskManager,
-  StartupConfig, StartupConfigEntry, StartupListener, StartupTask, startupManager, PhotoEditorExtensionAbility
+  StartupConfig, StartupConfigEntry, StartupListener, StartupTask, startupManager,
+  PhotoEditorExtensionAbility
 };
 /*** endif */

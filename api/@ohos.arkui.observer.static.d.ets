@@ -24,7 +24,6 @@ import { UIContext } from '@ohos.arkui.UIContext';
 import UIAbilityContext from './application/UIAbilityContext';
 import { Callback } from './@ohos.base';
 import { NavDestinationMode } from '@ohos.arkui.component';
-import { HeightBreakpoint, WidthBreakpoint } from '@ohos.arkui.component';
 import { Size } from '@ohos.arkui.node';
 /**
  * Register callbacks to observe ArkUI behavior.
@@ -447,41 +446,7 @@ declare namespace uiObserver {
          */
         lastIndex?: int;
     }
-  /**
-   * Text change event info
-   *
-   * @interface TextChangeEventInfo
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  export interface TextChangeEventInfo {
-    /**
-     * The id of text field component.
-     *
-     * @type { string }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
-     */
-    id: string;
 
-    /**
-     * The uniqueId of the text field component.
-     *
-     * @type { int }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
-     */
-    uniqueId: int;
-
-    /**
-     * Current content of text field component.
-     *
-     * @type { string }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
-     */
-    content: string;
-  }
     /**
      * observer options.
      *
@@ -635,38 +600,7 @@ declare namespace uiObserver {
          */
         operation: NavigationOperation;
     }
-    /**
-     * Defines the window size layout breakpoint information.
-     * This class provides the current breakpoint classification of the window's width and height
-     * based on the configured breakpoint thresholds.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 24 static
-     */
-    export class WindowSizeLayoutBreakpointInfo {
-        /**
-         * The width breakpoint classification of the current window.
-         * This value indicates which width category the window currently falls into based on
-         * the configured width breakpoint thresholds.
-         *
-         * @type { WidthBreakpoint }
-         * @readonly
-         * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 24 static
-         */
-        readonly widthBreakpoint: WidthBreakpoint;
-        /**
-         * The height breakpoint classification of the current window.
-         * This value indicates which height category the window currently falls into based on
-         * the configured height breakpoint thresholds and aspect ratio.
-         *
-         * @type { HeightBreakpoint }
-         * @readonly
-         * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 24 static
-         */
-        readonly heightBreakpoint: HeightBreakpoint;
-    }
+
     /**
      * Indicates the options of NavDestination switch.
      *

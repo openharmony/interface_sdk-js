@@ -18,6 +18,7 @@
  */
 import { CommonShapeMethod, AttributeModifier, CommonMethod } from "./common";
 import { ComponentBuilder, CustomBuilder } from './builder';
+import { Length, ResourceStr } from './units';
 
 /**
  * Define options used to construct a path.
@@ -29,25 +30,25 @@ import { ComponentBuilder, CustomBuilder } from './builder';
 export declare interface PathOptions {
     /**
      * Width option.
-     * @type { ?(double | string) }
+     * @type { ?Length }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
      */
-    width?: double | string;
+    width?: Length;
     /**
      * Height option.
-     * @type { ?(double | string) }
+     * @type { ?Length }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
      */
-    height?: double | string;
+    height?: Length;
     /**
      * Commands option.
-     * @type { ?string }
+     * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
      */
-    commands?: string;
+    commands?: ResourceStr;
 }
 
 /**
@@ -60,14 +61,14 @@ export declare interface PathOptions {
  */
 export declare interface PathAttribute extends CommonShapeMethod {
     /**
-     * Called when the command string drawn by the path is set.
+     * Set a series of path commands that define the path to be drawn
      *
-     * @param { string | undefined } value
+     * @param { ResourceStr | undefined } value
      * @returns { PathAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
      */
-    default commands(value: string | undefined): this;
+    default commands(value: ResourceStr | undefined): this;
     /**
      * Call attributeModifier.
      *

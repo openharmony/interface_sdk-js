@@ -27,6 +27,7 @@ import { ComponentContentBase } from '../ComponentContent';
 import { SymbolGlyphModifier } from '../SymbolGlyphModifier';
 import { ComponentBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
+import { DrawableDescriptor } from '../../@ohos.arkui.drawableDescriptor';
 
 /**
  * Enum for the mode of the tab bar when selected.
@@ -131,6 +132,76 @@ export declare interface SubTabBarIndicatorStyle {
    * @type { ?Length }
    * @default 8
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  marginTop?: Length;
+}
+/**
+ * Provide an interface for the style of a drawable indicator including margin top.
+ *
+ * @interface DrawableTabBarIndicator
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 23 static
+ */
+declare interface DrawableTabBarIndicator {
+  /**
+   * Define the drawable object for the indicator.
+   *
+   * @type { ?DrawableDescriptor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 static
+   */
+  drawable?: DrawableDescriptor;
+
+  /**
+   * Width of the indicator. It cannot be set in percentage.
+   * If it is 0, the width will be equal to the width of the content
+   *
+   * @type { ?Length }
+   * @default 0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 static
+   */
+  width?: Length;
+
+  /**
+   * Height of the indicator. It cannot be set in percentage.
+   *
+   * @type { ?Length }
+   * @default 2vp
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 static
+   */
+  height?: Length;
+
+  /**
+   * Rounded corner radius of the indicator. It cannot be set in percentage.
+   *
+   * @type { ?Length }
+   * @default 0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 static
+   */
+  borderRadius?: Length;
+
+  /**
+   * Spacing between the indicator and text.It cannot be set in percentage.
+   *
+   * @type { ?Length }
+   * @default 8vp
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
    * @since 23 static
    */
   marginTop?: Length;
@@ -367,6 +438,15 @@ export declare class SubTabBarStyle {
    * @since 23 static
    */
   indicator(style: SubTabBarIndicatorStyle): SubTabBarStyle;
+  /**
+   * Sets the indicator style of the selected subtab. Use DrawableTabBarIndicator to set image for the indicator.
+   *
+   * @param { SubTabBarIndicatorStyle | DrawableTabBarIndicator } value - indicator style object for the selected subtab.
+   * @returns { SubTabBarStyle } the style of the sub tab bar
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  indicator(value: SubTabBarIndicatorStyle | DrawableTabBarIndicator): SubTabBarStyle;
   /**
    * Sets the display mode of the selected subtab.
    *

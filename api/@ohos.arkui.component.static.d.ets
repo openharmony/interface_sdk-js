@@ -67,7 +67,6 @@ export * from './arkui/component/gridCol';
 export * from './arkui/component/gridRow';
 export * from './arkui/component/gridItem';
 export * from './arkui/component/hyperlink';
-export * from './arkui/component/if';
 export * from './arkui/component/inspector';
 export * from './arkui/component/image';
 export * from './arkui/component/imageAnimator';
@@ -152,3 +151,8 @@ export * from './arkui/component/pageTransition';
 export * from './arkui/component/component3d';
 export * from './arkui/component/unionEffectContainer';
 export * from './arkui/component/uiPickerComponent';
+
+// Many xts-acts tests rely on the following bindings from 'component': 
+export * from './arkui/ComponentContent';
+export * from './arkui/FrameNode';
+export * from './arkui/SymbolGlyphModifier';

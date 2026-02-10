@@ -181,7 +181,6 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 22 dynamic
-     * @since 23 static
      */
     handleId?: number;
 
@@ -285,7 +284,6 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 22 dynamic
-     * @since 23 static
      */
     cornerAdsorptionEnabled?: boolean;
   }
@@ -1045,13 +1043,12 @@ declare namespace PiPWindow {
      */
     /**
      * Update source content size to adjust PiP window aspect ratio.
-     * @param { int } width - Indicate the width of the content. The width can consist of only digits and above 0.
-     * @param { int } height - Indicate the height of the content. The height can consist of only digits and above 0.
+     * @param { number } width - Indicate the width of the content. The width can consist of only digits and above 0.
+     * @param { number } height - Indicate the height of the content. The height can consist of only digits and above 0.
      * @throws { BusinessError } 401 - Params error. Possible causes: The PiPController is not created or destroyed.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 23 static
      */
     updateContentSize(width: number, height: number): void;
 
@@ -1063,7 +1060,6 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 23 static
      */
     updatePiPControlStatus(controlType: PiPControlType, status: PiPControlStatus): void;
 
@@ -1090,7 +1086,6 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 23 static
      */
     setPiPControlEnabled(controlType: PiPControlType, enabled: boolean): void;
 
@@ -1128,7 +1123,6 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 23 dynamic
-     * @since 23 static
      */
     isPiPActive(): Promise<boolean>;
 
@@ -1257,7 +1251,7 @@ declare namespace PiPWindow {
      *     True indicates that the pip is onscreen, and vice verse.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 22
+     * @since 22 dynamic
      */
     on(type: 'activeStatusChange', callback: Callback<boolean>): void;
 
@@ -1269,7 +1263,7 @@ declare namespace PiPWindow {
      *     all callbacks for the given event type will be removed.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 22
+     * @since 22 dynamic
      */
     off(type: 'activeStatusChange', callback?: Callback<boolean>): void;
 
