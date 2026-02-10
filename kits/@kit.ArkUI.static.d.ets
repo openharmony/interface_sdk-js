@@ -20,7 +20,6 @@
  */
 
 import promptAction from '@ohos.promptAction';
-import { LevelOrder } from '@ohos.promptAction';
 import window from '@ohos.window';
 import display from '@ohos.display';
 import screen from '@ohos.screen';
@@ -33,7 +32,7 @@ import dragController from '@ohos.arkui.dragController';
 import floatingBall from '@ohos.window.floatingBall';
 import { sendTouchEvent, sendKeyEvent, sendMouseEvent } from '@ohos.arkui.Test';
 import uiMaterial from '@ohos.arkui.uiMaterial';
-export { promptAction, LevelOrder, ComponentContent };
+export { promptAction, ComponentContent };
 
 export * from '@ohos.arkui.component';
 export * from '@ohos.arkui.stateManagement';
