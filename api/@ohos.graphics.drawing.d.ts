@@ -1255,6 +1255,7 @@ declare namespace drawing {
      * @crossplatform
      * @atomicservice
      * @since 22 dynamic
+     * @since 24 static
      */
     set(src: Path): void;
 
@@ -2170,6 +2171,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20 dynamic
+     * @since 24 static
      */
     setLastPoint(x: double, y: double): void;
 
@@ -2207,6 +2209,15 @@ declare namespace drawing {
      * @since 20 dynamic
      */
     getFillType(): PathFillType;
+
+    /**
+     * Gets fill type, the rule used to fill path.
+     * @returns { PathFillType | undefined } Returns the pathFillType.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 24 static
+     */
+    getFillType(): PathFillType | undefined;
+
 
     /**
      * Obtains the minimum bounding rectangle that encloses this path.
@@ -2319,6 +2330,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20 dynamic
+     * @since 24 static
      */
     rewind(): void;
 
@@ -2329,6 +2341,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20 dynamic
+     * @since 24 static
      */
     isEmpty(): boolean;
 
@@ -2586,6 +2599,21 @@ declare namespace drawing {
     approximate(acceptableError: number): Array<number>;
 
     /**
+     * Approximates the path with a series of line segments.
+     *
+     * @param { double } acceptableError - Indicates the acceptable error for a line on the path. Should be no less than 0.
+     * @returns { Array<double> | undefined } - Returns with the array containing point components.
+     *     <br>There are three components for each point:
+     *     <br>1. Fraction along the length of the path that the point resides [0.0, 1.0].
+     *     <br>2. The x coordinate of the point.
+     *     <br>3. The y coordinate of the point.
+     * @throws { BusinessError } 25900001 - Parameter error. Possible causes: Incorrect parameter range.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 24 static
+     */
+    approximate(acceptableError: double): Array<double> | undefined;
+
+    /**
      * Performs interpolation between the current path and another path based on a given weight, and stores the result in the target path object.
      *
      * @param { Path } other - Indicates the other path to be interpolated with the current path.
@@ -2599,6 +2627,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20 dynamic
+     * @since 24 static
      */
     interpolate(other: Path, weight: double, interpolatedPath: Path): boolean;
 
@@ -2612,6 +2641,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20 dynamic
+     * @since 24 static
      */
     isInterpolate(other: Path): boolean;
 
@@ -2866,6 +2896,7 @@ declare namespace drawing {
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
+   * @since 24 static
    */
   interface FontFeature {
     /**
@@ -2882,24 +2913,26 @@ declare namespace drawing {
      * @crossplatform
      * @atomicservice
      * @since 22 dynamic
+     * @since 24 static
      */
     name: string;
     /**
      * The value of font feature.
-     * @type { number } feature value
+     * @type { double } feature value
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
      */
     /**
      * The value of font feature.
-     * @type { number } feature value
+     * @type { double } feature value
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @atomicservice
      * @since 22 dynamic
+     * @since 24 static
      */
-    value: number;
+    value: double;
   }
 
   /**
@@ -3658,15 +3691,16 @@ declare namespace drawing {
      * Draws a single character with font feature.
      * @param { string } text - A string containing only a single character.
      * @param { Font } font - Font object.
-     * @param { number } x - X coordinate of the single character start point.
-     * @param { number } y - Y coordinate of the single character start point.
+     * @param { double } x - X coordinate of the single character start point.
+     * @param { double } y - Y coordinate of the single character start point.
      * @param { Array<FontFeature> } features - Font Feature Array.
      * @throws { BusinessError } 25900001 - Parameter error. Possible causes: Incorrect parameter range.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20 dynamic
+     * @since 24 static
      */
-    drawSingleCharacterWithFeatures(text: string, font: Font, x: number, y: number, features: Array<FontFeature>): void;
+    drawSingleCharacterWithFeatures(text: string, font: Font, x: double, y: double, features: Array<FontFeature>): void;
 
     /**
      * Draws a text blob. If the typeface used to construct blob does not support a character,
@@ -4843,6 +4877,18 @@ declare namespace drawing {
      * @since 22 dynamic
      */
     addVariation(axis: string, value: number);
+
+    /**
+     * Adds variation axis for the TypefaceArguments.
+     * @param { string } axis  - Indicates the axis tag, which must contain four ASCII characters.
+     * @param { double } value  - Indicates the value of the axis field.
+     * @throws { BusinessError } 25900001 - Parameter error. Possible causes: Incorrect parameter range.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 24 static
+     */
+    addVariation(axis: string, value: double) : void;
   }
 
   /**
@@ -4900,6 +4946,15 @@ declare namespace drawing {
      * @since 20 dynamic
      */
     makeFromCurrent(typefaceArguments: TypefaceArguments): Typeface;
+
+    /**
+     * Generate typeface from current typeface and TypefaceArguments.
+     * @param { TypefaceArguments } typefaceArguments - TypefaceArguments for typeface.
+     * @returns { Typeface | undefined } Typeface.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 24 static
+     */
+    makeFromCurrent(typefaceArguments: TypefaceArguments): Typeface | undefined;
 
     /**
      * Generate typeface from file.
@@ -5037,6 +5092,17 @@ declare namespace drawing {
     static makeFromFileWithArguments(filePath: string, typefaceArguments: TypefaceArguments): Typeface;
 
     /**
+     * Generate typeface from file and TypefaceArguments.
+     * @param { string } filePath - file path for typeface.
+     * @param { TypefaceArguments } typefaceArguments - TypefaceArguments for typeface.
+     * @returns { Typeface | undefined } Typeface.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 24 static
+     */
+    static makeFromFileWithArguments(filePath: string, typefaceArguments: TypefaceArguments): Typeface | undefined;
+
+    /**
      * Generate typeface from Rawfile and TypefaceArguments.
      * @param { Resource } rawfile - RawFile for typeface.
      * @param { TypefaceArguments } typefaceArguments - TypefaceArguments for typeface.
@@ -5058,6 +5124,17 @@ declare namespace drawing {
      * @since 22 dynamic
      */
     static makeFromRawFileWithArguments(rawfile: Resource, typefaceArguments: TypefaceArguments): Typeface;
+
+    /**
+     * Generate typeface from Rawfile and TypefaceArguments.
+     * @param { Resource } rawfile - RawFile for typeface.
+     * @param { TypefaceArguments } typefaceArguments - TypefaceArguments for typeface.
+     * @returns { Typeface | undefined } Typeface.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 24 static
+     */
+    static makeFromRawFileWithArguments(rawfile: Resource, typefaceArguments: TypefaceArguments): Typeface | undefined;
 
     /**
      * Checks if the typeface is bold.
@@ -5601,14 +5678,15 @@ declare namespace drawing {
      * Measure a single character with font feature.
      * @param { string } text - A string containing only a single character.
      * @param { Array<FontFeature> } features - Font Feature Array.
-     * @returns { number } The width of the single character, in px.
+     * @returns { double } The width of the single character, in px.
      * @throws { BusinessError } 25900001 - Parameter error. Possible causes: Incorrect parameter range.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @atomicservice
      * @since 22 dynamic
+     * @since 24 static
      */
-    measureSingleCharacterWithFeatures(text: string, features: Array<FontFeature>): number;
+    measureSingleCharacterWithFeatures(text: string, features: Array<FontFeature>): double;
 
     /**
      * Measures the text width.
@@ -8054,6 +8132,22 @@ declare namespace drawing {
      */
     static createImageShader(pixelmap: image.PixelMap, tileX: TileMode, tileY: TileMode,
         samplingOptions: SamplingOptions, matrix?: Matrix | null): ShaderEffect;
+
+    /**
+     * Creates an ShaderEffect object that generates a shader with single image.
+     * @param { image.PixelMap } pixelmap - PixelMap.
+     * @param { TileMode } tileX - Indicates the type of tile mode for horizontal shader effect.
+     * @param { TileMode } tileY - Indicates the type of tile mode for vertical shader effect.
+     * @param { SamplingOptions } samplingOptions - SamplingOptions used to describe the sampling mode.
+     * @param { Matrix | null } [matrix] - Indicates the Matrix object. The default value is null.
+     * @returns { ShaderEffect } Returns the shader with single image ShaderEffect object.
+     * @throws { BusinessError } 25900001 - Parameter error. Possible causes: Incorrect parameter range.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 24 static
+     */
+    static createImageShader(pixelmap: image.PixelMap, tileX: TileMode, tileY: TileMode,
+        samplingOptions: SamplingOptions, matrix?: Matrix | null): ShaderEffect | undefined;
     
     /**
      * Creates an ShaderEffect object that generates a blend ShaderEffect object by two shaders.
@@ -8069,6 +8163,20 @@ declare namespace drawing {
      */
     static createComposeShader(dstShaderEffect: ShaderEffect, srcShaderEffect: ShaderEffect,
         blendMode: BlendMode): ShaderEffect;
+
+    /**
+     * Creates an ShaderEffect object that generates a blend ShaderEffect object by two shaders.
+     * @param { ShaderEffect } dstShaderEffect - Indicates a destination ShaderEffect pointer.
+     * @param { ShaderEffect } srcShaderEffect - Indicates a source ShaderEffect pointer.
+     * @param { BlendMode } blendMode - BlendMode.
+     * @returns { ShaderEffect | undefined } Returns a blend ShaderEffect object.
+     * @throws { BusinessError } 25900001 - Parameter error. Possible causes: Incorrect parameter range.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 24 static
+     */
+    static createComposeShader(dstShaderEffect: ShaderEffect, srcShaderEffect: ShaderEffect,
+        blendMode: BlendMode): ShaderEffect | undefined;
   }
 
   /**
@@ -8518,6 +8626,19 @@ declare namespace drawing {
      */
     static createLightingColorFilter(mutColor: common2D.Color | number, addColor: common2D.Color | number): ColorFilter;
 
+    /**
+     * Makes a color filter with the given mutColor and addColor.
+     * @param { common2D.Color | int } mutColor - The range of color channels must be [0, 255],
+     *     used to multiply source color.
+     * @param { common2D.Color | int } addColor - The range of color channels must be [0, 255],
+     *     used to add to source color.
+     * @returns { ColorFilter | undefined } Colorfilter object.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 24 static
+     */
+    static createLightingColorFilter(mutColor: common2D.Color | int, addColor: common2D.Color | int): ColorFilter | undefined;
+
   }
 
   /**
@@ -8644,6 +8765,19 @@ declare namespace drawing {
      * @since 20 dynamic
      */
     static createOffsetImageFilter(dx: number, dy: number, input?: ImageFilter | null): ImageFilter;
+
+    /**
+     * Makes an ImageFilter object that instance with the provided x and y offset.
+     * @param { double } dx - Indicates the offset in the X direction.
+     * @param { double } dy - Indicates the offset in the Y direction.
+     * @param { ImageFilter | null } [input] - Indicates the input image filter used to generate offset effects, or uses
+     *     the source bitmap if this is null.
+     * @returns { ImageFilter | undefined } ImageFilter object.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 24 static
+     */
+    static createOffsetImageFilter(dx: double, dy: double, input?: ImageFilter | null): ImageFilter | undefined;
     
     /**
      * Makes an ImageFilter object that applies the bitmap to the input.
@@ -8657,6 +8791,18 @@ declare namespace drawing {
      * @since 20 dynamic
      */
     static createFromImage(pixelmap: image.PixelMap, srcRect?: common2D.Rect | null, dstRect?: common2D.Rect | null): ImageFilter;
+
+    /**
+     * Makes an ImageFilter object that applies the bitmap to the input.
+     * @param { image.PixelMap } pixelmap - The source input image.
+     * @param { common2D.Rect | null } [srcRect] - Indicates the input srcRect, or uses the source bitmap if this is null.
+     * @param { common2D.Rect | null } [dstRect] - Indicates the input dstRect, or uses the source bitmap if this is null.
+     * @returns { ImageFilter | undefined } ImageFilter object.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 24 static
+     */
+    static createFromImage(pixelmap: image.PixelMap, srcRect?: common2D.Rect | null, dstRect?: common2D.Rect | null): ImageFilter | undefined;
   
     /**
      * Makes an ImageFilter object that applies the blend to the input.
@@ -8673,6 +8819,19 @@ declare namespace drawing {
     static createBlendImageFilter(mode: BlendMode, background: ImageFilter, foreground: ImageFilter): ImageFilter;
 
     /**
+     * Makes an ImageFilter object that applies the blend to the input.
+     * @param { BlendMode } mode - Blendmode.
+     * @param { ImageFilter } background - Indicates the input background filter.
+     * @param { ImageFilter } foreground - Indicates the input foreground filter.
+     * @returns { ImageFilter | undefined } ImageFilter object.
+     * @throws { BusinessError } 25900001 - Parameter error. Possible causes: Incorrect parameter range.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 24 static
+     */
+    static createBlendImageFilter(mode: BlendMode, background: ImageFilter, foreground: ImageFilter): ImageFilter | undefined;
+
+    /**
      * Makes an ImageFilter object that combines the "inner" and "outer" filters, allowing the output of the "inner"
      * filter to serve as the input source bitmap for the "outer" filter.
      * @param { ImageFilter } cOuter - Indicates the instance to apply its effects to the output of the 'inner'
@@ -8687,6 +8846,19 @@ declare namespace drawing {
     static createComposeImageFilter(cOuter: ImageFilter, cInner: ImageFilter): ImageFilter;
 
     /**
+     * Makes an ImageFilter object that combines the "inner" and "outer" filters, allowing the output of the "inner"
+     * filter to serve as the input source bitmap for the "outer" filter.
+     * @param { ImageFilter } cOuter - Indicates the instance to apply its effects to the output of the 'inner'
+     *     filter.
+     * @param { ImageFilter } cInner - Indicates the output as input for "outer" filters.
+     * @returns { ImageFilter | undefined } ImageFilter object.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 24 static
+     */
+    static createComposeImageFilter(cOuter: ImageFilter, cInner: ImageFilter): ImageFilter | undefined;
+
+    /**
      * Makes an ImageFilter object that renders the contents of the input Shader.
      *
      * @param { ShaderEffect } shader - Indicates the shader effect to be applied to the image.
@@ -8697,6 +8869,17 @@ declare namespace drawing {
      * @since 20 dynamic
      */
     static createFromShaderEffect(shader: ShaderEffect): ImageFilter;
+
+    /**
+     * Makes an ImageFilter object that renders the contents of the input Shader.
+     *
+     * @param { ShaderEffect } shader - Indicates the shader effect to be applied to the image.
+     * @returns { ImageFilter | undefined } ImageFilter object.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 24 static
+     */
+    static createFromShaderEffect(shader: ShaderEffect): ImageFilter | undefined;
   }
   /**
    * Enumerates the join styles of a pen.
@@ -9098,6 +9281,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20 dynamic
+     * @since 24 static
      */
     setColor4f(color4f: common2D.Color4f, colorSpace: colorSpaceManager.ColorSpaceManager | null): void;
 
@@ -9132,6 +9316,14 @@ declare namespace drawing {
      * @since 20 dynamic
      */
     getColor4f(): common2D.Color4f;
+
+    /**
+     * Obtains the color of a pen. The color is used by the pen to outline a shape.
+     * @returns { common2D.Color4f } Returns four floating point values that describes the color.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 24 static
+     */
+    getColor4f(): common2D.Color4f | undefined;
 
     /**
      * Obtains the color of this pen.
@@ -9713,6 +9905,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20 dynamic
+     * @since 24 static
      */
     setColor4f(color4f: common2D.Color4f, colorSpace: colorSpaceManager.ColorSpaceManager | null): void;
 
@@ -9747,6 +9940,14 @@ declare namespace drawing {
      * @since 20 dynamic
      */
     getColor4f(): common2D.Color4f;
+
+    /**
+     * Obtains the color of a brush. The color is used by the brush to outline a shape.
+     * @returns { common2D.Color4f } Returns four floating point values that describes the color.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 24 static
+     */
+    getColor4f(): common2D.Color4f | undefined;
 
     /**
      * Obtains the color of this brush.
@@ -10050,6 +10251,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20 dynamic
+     * @since 24 static
      */
     isAffine(): boolean;
 
@@ -10059,6 +10261,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20 dynamic
+     * @since 24 static
      */
     rectStaysRect(): boolean;
 
@@ -10161,6 +10364,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20 dynamic
+     * @since 24 static
      */
     setSkew(kx: double, ky: double, px: double, py: double): void;
 
@@ -10173,6 +10377,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20 dynamic
+     * @since 24 static
      */
     setSinCos(sinValue: double, cosValue: double, px: double, py: double): void;
 
@@ -10220,6 +10425,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20 dynamic
+     * @since 24 static
      */
     setMatrix(matrix: Array<double> | Matrix): void;
 
@@ -10230,6 +10436,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20 dynamic
+     * @since 24 static
      */
     setConcat(matrixA: Matrix, matrixB: Matrix): void;
 
@@ -10239,6 +10446,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20 dynamic
+     * @since 24 static
      */
     postConcat(matrix: Matrix): void;
 
@@ -10581,6 +10789,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20 dynamic
+     * @since 24 static
      */
     preSkew(kx: double, ky: double, px: double, py: double): void;
 
@@ -10638,6 +10847,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20 dynamic
+     * @since 24 static
      */
     mapRadius(radius: double): double;
 
@@ -10894,6 +11104,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20 dynamic
+     * @since 24 static
      */
     isEqual(other: Region): boolean;
 
@@ -10904,6 +11115,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20 dynamic
+     * @since 24 static
      */
     isComplex(): boolean;
 
@@ -10913,6 +11125,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20 dynamic
+     * @since 24 static
      */
     isEmpty(): boolean;
 
@@ -10925,6 +11138,14 @@ declare namespace drawing {
      */
     getBounds(): common2D.Rect;
 
+    /**
+     * Gets the bounds of the region.
+     * @returns { common2D.Rect | undefined } Returns Rect object.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 24 static
+     */
+    getBounds(): common2D.Rect | undefined;
+
     /** Gets the boundary of the region, which represents by a path.
      * Gets the bounds of the region.
      * @returns { Path } Returns Path object.
@@ -10933,6 +11154,14 @@ declare namespace drawing {
      * @since 20 dynamic
      */
     getBoundaryPath(): Path;
+
+    /** Gets the boundary of the region, which represents by a path.
+     * Gets the bounds of the region.
+     * @returns { Path | undefined } Returns Path object.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 24 static
+     */
+    getBoundaryPath(): Path | undefined;
 
     /**
      * Checks whether a point is contained in this region.
@@ -11017,7 +11246,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20 dynamic
-     * @since 23 static
+     * @since 24 static
      */
     offset(dx: int, dy: int): void;
 
@@ -11069,6 +11298,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20 dynamic
+     * @since 24 static
      */
     quickRejectRegion(region: Region): boolean;
 
@@ -11138,6 +11368,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20 dynamic
+     * @since 24 static
      */
     setRegion(region: Region): void;
 
@@ -11493,6 +11724,17 @@ declare namespace drawing {
     static makeEmpty(): common2D.Rect;
 
     /**
+     * Makes an uninitialized 2D rectangular object with zero dimensions and origin at (0, 0).
+     *
+     * @returns { common2D.Rect | undefined} - Returns an empty Rect object with all
+     *     coordinates (left, top, right, bottom) set to 0.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 24 static
+     */
+    static makeEmpty(): common2D.Rect | undefined;
+
+    /**
      * Makes a 2D rectangular object from boundary coordinates.
      * @param { number } left - Indicates the X-coordinate of the left edge.
      * @param { number } top - Indicates the Y-coordinate of the top edge.
@@ -11507,6 +11749,19 @@ declare namespace drawing {
     static makeLtrb(left: number, top: number, right: number, bottom: number): common2D.Rect;
 
     /**
+     * Makes a 2D rectangular object from boundary coordinates.
+     * @param { double } left - Indicates the X-coordinate of the left edge.
+     * @param { double } top - Indicates the Y-coordinate of the top edge.
+     * @param { double } right - Indicates the X-coordinate of the right edge.
+     * @param { double } bottom - Indicates the Y-coordinate of the bottom edge.
+     * @returns { common2D.Rect } - Returns an Rect object with the specific coordinates (left, top, right, bottom).
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 24 static
+     */
+    static makeLtrb(left: double, top: double, right: double, bottom: double): common2D.Rect | undefined;
+
+    /**
      * Makes a deep copy of a 2D rectangular object.
      * @param { common2D.Rect } src - Indicates the source rectangle to copy.
      * @returns { common2D.Rect } - Returns an Rect object has the same boundary coordinates with the source.
@@ -11516,6 +11771,16 @@ declare namespace drawing {
      * @since 20 dynamic
      */
     static makeCopy(src: common2D.Rect): common2D.Rect;
+
+    /**
+     * Makes a deep copy of a 2D rectangular object.
+     * @param { common2D.Rect } src - Indicates the source rectangle to copy.
+     * @returns { common2D.Rect | undefined } - Returns an Rect object has the same boundary coordinates with the source.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 24 static
+     */
+    static makeCopy(src: common2D.Rect): common2D.Rect | undefined;
 
     /**
      * Gets the width of a 2D rectangular object.
@@ -11552,6 +11817,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20 dynamic
+     * @since 24 static
      */
     static centerX(rect: common2D.Rect): double;
 
@@ -11564,6 +11830,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20 dynamic
+     * @since 24 static
      */
     static centerY(rect: common2D.Rect): double;
 
@@ -11594,6 +11861,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20 dynamic
+     * @since 24 static
      */
     static contains(rect: common2D.Rect, left: double, top: double, right: double, bottom: double): boolean;
 
@@ -11608,6 +11876,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20 dynamic
+     * @since 24 static
      */
     static contains(rect: common2D.Rect, x: double, y: double): boolean;
 
@@ -11653,6 +11922,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20 dynamic
+     * @since 24 static
      */
     static isIntersect(rect: common2D.Rect, other: common2D.Rect): boolean;
 
@@ -11665,6 +11935,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20 dynamic
+     * @since 24 static
      */
     static union(rect: common2D.Rect, other: common2D.Rect): void;
 
@@ -11707,6 +11978,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20 dynamic
+     * @since 24 static
      */
     static offsetTo(rect: common2D.Rect, newLeft: double, newTop: double): void;
 
@@ -11718,6 +11990,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20 dynamic
+     * @since 24 static
      */
     static setRect(rect: common2D.Rect, other: common2D.Rect): void;
 
@@ -11732,6 +12005,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20 dynamic
+     * @since 24 static
      */
     static setLtrb(rect: common2D.Rect, left: double, top: double, right: double, bottom: double): void;
 
@@ -11742,6 +12016,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20 dynamic
+     * @since 24 static
      */
     static setEmpty(rect: common2D.Rect): void;
 
