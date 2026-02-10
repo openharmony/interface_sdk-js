@@ -26,7 +26,7 @@ import { AttributeModifier } from "./common";
 
 /**
  * The type of alignment between entry and calendar.
- * @enum {int}
+ * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 23 static
  */
