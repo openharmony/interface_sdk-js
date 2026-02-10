@@ -26,7 +26,7 @@ import { AttributeModifier } from "./common";
 
 /**
  * The type of alignment between entry and calendar.
- * @enum {number}
+ * @enum {int}
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 23 static
  */
@@ -324,14 +324,13 @@ export declare class CalendarPickerDialog {
  * Defines CalendarPicker Component.
  *
  * @param { CalendarOptions } [options] - calendar options.
- * @param { CustomBuilder } [content_]
  * @returns { CalendarPickerAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
 @ComponentBuilder
 export declare function CalendarPicker(
-    options?: CalendarOptions, 
-    content_?: CustomBuilder
+    options?: CalendarOptions
 ): CalendarPickerAttribute;
