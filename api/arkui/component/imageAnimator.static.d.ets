@@ -239,13 +239,11 @@ export declare interface ImageAnimatorAttribute extends CommonMethod {
 /**
  * Defines the ImageAnimator component.
  *
- * @param { CustomBuilder } [content_]
  * @returns { ImageAnimatorAttribute } The attribute of the ImageAnimator.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
 @ComponentBuilder
-export declare function ImageAnimator(
-    content_?: CustomBuilder
-): ImageAnimatorAttribute;
+export declare function ImageAnimator(): ImageAnimatorAttribute;
