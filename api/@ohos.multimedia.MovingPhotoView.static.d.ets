@@ -28,7 +28,7 @@ import { CommonMethod, ComponentBuilder, CustomBuilder, ImageFit, ImageAIOptions
  * @interface MovingPhotoViewOptions
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @stagemodelonly
- * @since 23 static
+ * @since 24 static
  */
 export declare interface MovingPhotoViewOptions {
     /**
