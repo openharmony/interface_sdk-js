@@ -515,7 +515,7 @@ export declare interface SelectAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
-     * @since 24 static
+     * @since 23 static
      */
     default menuSystemMaterial(material: SystemUiMaterial | undefined): this;
 }
