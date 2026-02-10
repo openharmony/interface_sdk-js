@@ -158,7 +158,7 @@ declare namespace deviceSettings {
        * @stagemodelonly
        * @since 24
        */
-      DEVICE_NAME = 0
+      DEVICE_NAME = 0,
 
       /**
        * floating navigation.
