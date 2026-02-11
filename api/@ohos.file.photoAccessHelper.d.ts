@@ -7910,6 +7910,27 @@ declare namespace photoAccessHelper {
      * @since 24 dynamic&static
      */
     isMediaDataReady(mediaDataKey: string): Promise<boolean>;
+
+    /**
+     * Converts ValuesBucket records into PhotoAsset objects.
+     *
+     * @param { ValuesBucket[] } assetsData - Array of asset records. Each element in the array contains the asset
+     *     column names and their values. The array size cannot exceed 500. Each element in the array must contain
+     *     the following asset column information: file_id, data, display_name, media_type, and subtype.
+     * @returns { Promise<PhotoAsset[]> } Returns an array of PhotoAsset objects (may be empty).
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 23800151 - The scenario parameter verification fails. Possible causes:
+     *     <br>1. Invalid value type in ValuesBucket;
+     *     <br>2. Missing required column in ValuesBucket;
+     *     <br>3. Array size exceeds 500.
+     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
+     *     <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    getPhotoAssets(assetsData: ValuesBucket[]): Promise<PhotoAsset[]>;
   }
 
   /**
