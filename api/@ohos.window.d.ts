@@ -4571,46 +4571,6 @@ declare namespace window {
   function offApplicationFocusStateChange(callback?: Callback<boolean>): void;
 
   /**
-   * Register the callback for application focus state changes.
-   *
-   * @param { 'applicationFocusStateChange' } type the event of application process focus state changes.
-   * @param { Callback<boolean> } callback Callback used to return the result whether application process focused or not.
-   * @syscap SystemCapability.Window.SessionManager
-   * @since 26 dynamic
-   */
-  function on(type: 'applicationFocusStateChange', callback: Callback<boolean>): void;
-
-  /**
-   * Register the callback for application focus state changes.
-   *
-   * @param { Callback<boolean> } callback Callback used to return the result whether application process focused or not.
-   * @syscap SystemCapability.Window.SessionManager
-   * @since 26 static
-   */
-  function onApplicationFocusStateChange(callback: Callback<boolean>): void;
-
-  /**
-   * Unregister the callback for application focus state changes.
-   *
-   * @param { 'applicationFocusStateChange' } type the event of application process focus state changes.
-   * @param { Callback<boolean> } [callback] Callback used to return the result whether application process focused or not.
-   *    If not provided, all callbacks for the given event type will be removed.
-   * @syscap SystemCapability.Window.SessionManager
-   * @since 26 dynamic
-   */
-  function off(type: 'applicationFocusStateChange', callback?: Callback<boolean>): void;
-
-  /**
-   * Unregister the callback for application focus state changes.
-   *
-   * @param { Callback<boolean> } [callback] Callback used to return the result whether application process focused or not.
-   *    If not provided, all callbacks for the given event type will be removed.
-   * @syscap SystemCapability.Window.SessionManager
-   * @since 26 static
-   */
-  function offApplicationFocusStateChange(callback?: Callback<boolean>): void;
-
-  /**
    * Sets starting window background color
    *
    * @param { string } moduleName - module Name that needs to be set.
