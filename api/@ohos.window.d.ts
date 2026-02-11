@@ -4541,7 +4541,7 @@ declare namespace window {
   function on(type: 'applicationFocusStateChange', callback: Callback<boolean>): void;
 
   /**
-   * Register the callback for application focus state changes.
+   * Register the callback for application process focus state changes.
    *
    * @param { Callback<boolean> } callback Callback used to return the result whether application process focused or not.
    * @syscap SystemCapability.Window.SessionManager
