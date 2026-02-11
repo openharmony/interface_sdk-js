@@ -114,6 +114,33 @@ export declare interface SurfaceConfig {
 }
 
 /**
+ * Sets the HDR type of the XComponent.
+ *
+ * @enum { int }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 24 static
+ */
+export declare enum HdrType {
+  /**
+   * Default type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  DEFAULT = 0,
+  /**
+   * AIHDR type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  AIHDR = 1,
+}
+
+/**
  * Defines XComponentController
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -374,6 +401,17 @@ export declare interface XComponentAttribute extends CommonMethod {
      * @since 23 static
      */
     default hdrBrightness(brightness: double | undefined): this;
+    /**
+     * Set hdrBrightness for XComponent.
+     *
+     * @param { double | undefined } brightness - control the brightness of HDR video
+     * @param { HdrType } [type] - the HDR type of the XComponent
+     * @returns { XComponentAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 24 static
+     */
+    default hdrBrightness(brightness: double | undefined, type?: HdrType): this;
     /**
      * Call attributeModifier.
      *
