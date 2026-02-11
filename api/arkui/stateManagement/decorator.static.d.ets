@@ -875,6 +875,17 @@ export declare interface IStateMgmtFactory {
    */
   makeMutableStateMeta(): IMutableStateMeta;
   /**
+   * get mutable state meta
+   *
+   * @param { IObservedObject | undefined } observedObject - owner of this meta.
+   * @param { string } propertyName - meta name.
+   * @returns { IMutableStateMeta }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  makeMutableStateMeta(observedObject: IObservedObject | undefined, propertyName: string): IMutableStateMeta;
+  /**
    * get subscribed watches
    *
    * @returns { ISubscribedWatches }
