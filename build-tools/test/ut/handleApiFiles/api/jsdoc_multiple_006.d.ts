@@ -20,10 +20,10 @@
  * Defines error codes used when starting an ability, for example, featureAbility.ErrorCode.NO_ERROR.
  *
  * @enum { number }
- * @syscap SystemCapability.Ability.AbilityRuntime.Core.dynamic [dynamiconly]
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core.dynamic
  * use multiple description syscap [dynamiconly]
- * @syscap SystemCapability.Ability.AbilityRuntime.Core.static [staticonly]
- * use multiple description syscap  [staticonly]
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core.static
+ * use multiple description syscap [staticonly]
  * @since 20 dynamic&static
  */
 export enum ErrorCode {
@@ -31,7 +31,9 @@ export enum ErrorCode {
    * Permission denied.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core.dynamic
-   * use multiple description syscap
+   * use multiple description syscap[ dynamiconly]
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core.dynamic
+   * use multiple description syscap[ staticonly]
    * @since 20 dynamic&static
    */
   PERMISSION_DENY = -3,
@@ -39,7 +41,9 @@ export enum ErrorCode {
    * Ability not found.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core.dynamic
-   * use multiple description syscap
+   * use multiple description syscap [dynamiconly]
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core.static
+   * use multiple description syscap [staticonly]
    * @since 20 dynamic&static
    */
   ABILITY_NOT_FOUND = -2,

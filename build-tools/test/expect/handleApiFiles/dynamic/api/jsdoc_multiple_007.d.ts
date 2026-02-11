@@ -1,4 +1,3 @@
-'use static'
 /*
  * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -21,35 +20,35 @@
  * Defines error codes used when starting an ability, for example, featureAbility.ErrorCode.NO_ERROR.
  *
  * @enum { number }
- * @syscap SystemCapability.Ability.AbilityRuntime.Core.static
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core.dynamic
  * @since 20
  */
 export enum ErrorCode {
     /**
      * Permission denied.
      *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core.dynamic
      * @since 20
      */
     PERMISSION_DENY = -3,
     /**
      * Ability not found.
      *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core.dynamic
      * @since 20
      */
     ABILITY_NOT_FOUND = -2,
     /**
      * Invalid parameter.
      *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core.dynamic
      * @since 20
      */
     INVALID_PARAMETER = -1,
     /**
      * No error.
      *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core.dynamic
      * @since 20
      */
     NO_ERROR = 0

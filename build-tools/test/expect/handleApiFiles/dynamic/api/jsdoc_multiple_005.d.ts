@@ -20,37 +20,41 @@
  * Defines error codes used when starting an ability, for example, featureAbility.ErrorCode.NO_ERROR.
  *
  * @enum { number }
- * @syscap SystemCapability.Ability.AbilityRuntime.Core.dynamic
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core.dynamic [dynamiconly]
  * use multiple description syscap
  * @since 20
  */
 export enum ErrorCode {
-    /**
-     * Permission denied.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 20
-     */
-    PERMISSION_DENY = -3,
-    /**
-     * Ability not found.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 20
-     */
-    ABILITY_NOT_FOUND = -2,
-    /**
-     * Invalid parameter.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 20
-     */
-    INVALID_PARAMETER = -1,
-    /**
-     * No error.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 20
-     */
-    NO_ERROR = 0
+  /**
+   * Permission denied.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core.dynamic
+   * use multiple description syscap
+   * @since 20
+   */
+  PERMISSION_DENY = -3,
+  /**
+   * Ability not found.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core.dynamic
+   * use multiple description syscap
+   * @since 20
+   */
+  ABILITY_NOT_FOUND = -2,
+  /**
+   * Invalid parameter.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core.dynamic
+   * use multiple description syscap
+   * @since 20
+   */
+  INVALID_PARAMETER = -1,
+  /**
+   * No error.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core.dynamic
+   * use multiple description syscap
+   * @since 20
+   */
+  NO_ERROR = 0
 }
