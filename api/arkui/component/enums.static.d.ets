@@ -4327,3 +4327,54 @@ export declare enum PresetFillType {
      */
     BREAKPOINT_SM2MD3LG5 = 2
 }
+
+/**
+ * Defining Environment variable enumeration value.
+ *
+ * @enum { string }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 24 static
+ */
+export enum SystemProperties {
+  /**
+   * System environment breakpoint key that is used to obtain the width and height breakpoing value of the window.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  BREAK_POINT = 'system.arkui.breakpoint',
+  /**
+   * System environment avoidarea key that is used to obtain the avoid area of the window, measured in vp.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  WINDOW_AVOID_AREA = 'system.window.avoidarea',
+  /**
+   * System environment avoidarea key that is used to obtain the void area of the window, measured in px.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  WINDOW_AVOID_AREA_PX = 'system.window.avoidarea.px',
+  /**
+   * System environment windowsize key that is used to obtain the size of the window, measured in vp.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  WINDOW_SIZE = 'system.window.size',
+  /**
+   * System environment windowsize key that is used to obtain the size of the window, measured in px.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  WINDOW_SIZE_PX = 'system.window.size.px'
+}
