@@ -1897,5 +1897,35 @@ declare namespace pointer {
    * @since 23 static
    */
   function getTouchpadDoubleTapAndDragState(): Promise<boolean>;
+
+  /**
+   * Set whether to invert the scroll value of the events reported during mouse wheel scrolling.
+   *     {@code true} means consistent with the value reported by the mouse device, {@code false} means inverted.
+   * 
+   * @permission ohos.permission.INPUT_DEVICE_CONTROLLER
+   * @param { boolean } inverted - Indicates whether to invert. 
+   * @returns { Promise<void> } Promise used to return the result.
+   * @throws { BusinessError } 201 - permission denied.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 3800001 - Input service exception.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 24 dynamic&static
+   */
+  function setMouseScrollDirection(inverted: boolean): Promise<void>;
+
+  /**
+   * Query whether to invert the scroll value of the events reported during mouse wheel scrolling.
+   * 
+   * @permission ohos.permission.INPUT_DEVICE_CONTROLLER 
+   * @returns { Promise<boolean> } Promise used to return the result.
+   * @throws { BusinessError } 201 - permission denied.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 3800001 - Input service exception.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 24 dynamic&static
+   */
+  function getMouseScrollDirection(): Promise<boolean>;
 }
 export default pointer;
