@@ -1627,7 +1627,6 @@ declare namespace webSocket {
      * @throws { BusinessError } 2302999 - Websocket other unknown error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 19 dynamic
-     * @since 23 static
      */
     /**
      * Start the WebSocket Server, and listen to a given port.
@@ -1638,10 +1637,12 @@ declare namespace webSocket {
      * @throws { BusinessError } 2302002 - Websocket certificate file does not exist.
      * @throws { BusinessError } 2302004 - Can't listen on the given NIC.
      * @throws { BusinessError } 2302005 - Can't listen on the given Port.
+     * @throws { BusinessError } 2302007 - Websocket port already occupied.
      * @throws { BusinessError } 2302999 - Websocket other unknown error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since 24 dynamic&static
+     * @since 24 dynamic
+     * @since 26 static
      */
     start(config: WebSocketServerConfig): Promise<boolean>;
 
