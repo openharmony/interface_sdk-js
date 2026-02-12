@@ -1109,8 +1109,6 @@ interface ActionSheetOptions
  * @crossplatform
  * @atomicservice
  * @since 11 dynamiconly
- * @deprecated since 26
- * @useinstead ohos.arkui.UIContext.UIContext#showActionSheet
  */
 declare class ActionSheet {
   /**
