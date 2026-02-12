@@ -113,6 +113,17 @@ export declare class UIUtils {
    * @since 23 static
    */
   static clearMonitor(monitor: IMonitorDecoratedVariable): void;
+  /**
+   * Determine whether the data object is observable and return the observation result.
+   *
+   * @param { T } source - input source object data.
+   * @returns { ObservedResult } return result of whether a class is observable.
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  static canBeObserved<T extends object>(source: T): ObservedResult;
 }
 
 /**
@@ -211,4 +222,161 @@ export declare interface MonitorOptions {
    * @since 23 static
    */
   path?: string | string[];
+}
+
+/**
+ * The return result that defines whether the object data is observable.
+ *
+ * @interface ObservedResult
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 24 static
+ */
+export interface ObservedResult {
+  /**
+   * Whether the object data of class/Array/Map/Set/Date type is observable.
+   * if true, the object data can be observed.
+   * if false, the object data can not be not observed.
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  isObserved: boolean;
+
+  /**
+   * Reasons why the object data of class/Array/Map/Set/Date type can be observed or not.
+   * 1 The object data is not an observable object.
+   * 2 The object data is observed data for the following reasons:
+   * 2.1 The object data is decorated with @Observed.
+   * 2.2 The object data is decorated with V2 @ObservedV2 and @Trace.
+   * 2.3 The object data is object literal decorated with V1 decorators or wrapped by makeObserved.
+   * 2.4 The object data is built-in type data (Array/Map/Set/Date)
+   *     decorated with V1/V2 decorators or wrapped by makeObserved.
+   * 2.5 The object data is decorated with @Observed, but not used in UI.
+   * 2.6 The object data is decorated with V2 @ObservedV2 and @Trace, but not used in UI.
+   * 2.7 The object data is object literal decorated with V1 decorators or wrapped by makeObserved, but not used in UI.
+   * 2.8 The object data is built-in type data (Array/Map/Set/Date)
+   *     decorated with V1/V2 decorators or wrapped by makeObserved, but not used in UI.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  reason: string;
+
+  /**
+   * The UI component information associated with the object data.
+   * If the data object can not be observed, will return empty array.
+   *
+   * @type { DecoratorInfo[] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  decoratorInfo: DecoratorInfo[];
+}
+
+/**
+ * The UI component information associated with the object data.
+ *
+ * @interface DecoratorInfo
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 24 static
+ */
+export interface DecoratorInfo {
+  /**
+   * Decorator name of the object data.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  decoratorName: string;
+
+  /**
+   * State Variable name of the object data.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  stateVariableName: string;
+
+  /**
+   * The custom component name that the object data belongs to.
+   * In the V1 scenario, return the custom component name, in the V2 @ObservedV2 scenario, return class name.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  owningComponentOrClassName: string;
+
+  /**
+   * The custom component id that the object data belongs to.
+   * In the V1 scenario, return the custom component id, in the V2 @ObservedV2 scenario, return -1.
+   *
+   * @type { int }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  owningComponentId: int;
+
+  /**
+   * Dependent component information including custom component and UI component (Text, Image)
+   * for the object data.
+   * For the V2 @Monitor or @Computed scenario, will return the id and decorated function name by @Monitor or @Computed.
+   * For V2 scenario, if it is not used in the UI, nor on @Monitor or @Computed, return an empty array.
+   * For V1 scenario, if it is not used in the UI, will return an empty array.
+   *
+   * @type { ElementInfo[] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  dependentInfo: ElementInfo[];
+}
+
+/**
+ * The custom component and UI component information.
+ * For the V2 @Monitor or @Computed scenario, The id and decorated function name by @Monitor
+ * or @Computed will be returned.
+ *
+ * @interface ElementInfo
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 24 static
+ */
+export interface ElementInfo {
+  /**
+   * Dependent custom component and UI component name.
+   * For the V2 @Monitor or @Computed scenario, elementName refers to the name of the decorator and
+   * the function name decorated with @Monitor or @Computed.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  elementName: string;
+
+  /**
+   * Dependent custom component and UI component id.
+   * For the V2 @Monitor or @Computed scenario, elementId refers to the id of
+   * the @Monitor or @Computed.
+   *
+   * @type { int }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  elementId: int;
 }
