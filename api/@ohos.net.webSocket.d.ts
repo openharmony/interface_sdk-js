@@ -1627,6 +1627,7 @@ declare namespace webSocket {
      * @throws { BusinessError } 2302999 - Websocket other unknown error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 19 dynamic
+     * @since 23 static 
      */
     /**
      * Start the WebSocket Server, and listen to a given port.
