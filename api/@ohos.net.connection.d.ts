@@ -1242,6 +1242,271 @@ declare namespace connection {
   function getDnsUnicode(host: string, flag?: ConversionProcess): string;
 
   /**
+ 	 * Obtains the port states of system network.
+   * To invoke this method, you must have the {@code ohos.permission.GET_IP_MAC_INFO} permission.
+   *
+   * @permission ohos.permission.GET_IP_MAC_INFO
+   * @returns { Promise<NetPortStatesInfo> } Returns the port status of system network.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  function getSystemNetPortStates(): Promise<NetPortStatesInfo>;
+ 
+  /**
+   * Defines port states of system network.
+   *
+   * @interface NetPortStatesInfo
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  export interface NetPortStatesInfo {  
+    /**
+     * Port information of the TCP network.
+     *
+     * @type { ?Array<TcpNetPortStatesInfo> }
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    tcpPortStatesInfo?: Array<TcpNetPortStatesInfo>;
+
+    /**
+     * Port information of the UDP network.
+     *
+     * @type { ?Array<UdpNetPortStatesInfo> }
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    udpPortStatesInfo?: Array<UdpNetPortStatesInfo>;
+  }
+
+  /**
+   * Defines TCP port states of system network.
+   *
+   * @interface TcpNetPortStatesInfo
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  export interface TcpNetPortStatesInfo {  
+    /**
+     * Local IP of the TCP network.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    tcpLocalIp: string;
+    /**
+     * Local port of the TCP network.
+     *
+     * @type { int }
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    tcpLocalPort: int;
+    /**
+     * Remote IP of the TCP network.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    tcpRemoteIp: string;
+    /**
+     * Remote port of the TCP network.
+     *
+     * @type { int }
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    tcpRemotePort: int;
+    /**
+     * UID of the TCP network.
+     *
+     * @type { int }
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    tcpUid: int;
+    /**
+     * PID of the TCP network.
+     *
+     * @type { int }
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    tcpPid: int;
+    /**
+     * Port state of the TCP network.
+     *
+     * @type { TcpState }
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    tcpState: TcpState;
+  }
+
+  /**
+   * Defines UDP port states of system network.
+   *
+   * @interface UdpNetPortStatesInfo
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  export interface UdpNetPortStatesInfo {  
+    /**
+     * Local IP of the UDP network.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    udpLocalIp: string;
+    /**
+     * Local port of the UDP network.
+     *
+     * @type { int }
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    udpLocalPort: int;
+    /**
+     * UID of the UDP network.
+     *
+     * @type { int }
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    udpUid: int;
+    /**
+     * PID of the UDP network.
+     *
+     * @type { int }
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    udpPid: int;
+  }
+
+  /**
+   * State of the TCP network port.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  export enum TcpState {  
+    /**
+     * The TCP connection is in the ESTABLISHED state.
+     *
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    TCP_ESTABLISHED = 1,
+    /**
+     * The TCP connection is in the SYN_SENT state.
+     *
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    TCP_SYN_SENT = 2,
+    /**
+     * The TCP connection is in the SYN_RECV state.
+     *
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    TCP_SYN_RECV = 3,
+    /**
+     * The TCP connection is in the FIN_WAIT1 state.
+     *
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    TCP_FIN_WAIT1 = 4,
+    /**
+     * The TCP connection is in the FIN_WAIT2 state.
+     *
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    TCP_FIN_WAIT2 = 5,
+    /**
+     * The TCP connection is in the TIME_WAIT state.
+     *
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    TCP_TIME_WAIT = 6,
+    /**
+     * The TCP connection is in the CLOSE state.
+     *
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    TCP_CLOSE = 7,
+    /**
+     * The TCP connection is in the CLOSE_WAIT state.
+     *
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    TCP_CLOSE_WAIT = 8,
+    /**
+     * The TCP connection is in the LAST_ACK state.
+     *
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    TCP_LAST_ACK = 9,
+    /**
+     * The TCP connection is in the LISTEN state.
+     *
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    TCP_LISTEN = 10,
+    /**
+     * The TCP connection is in the CLOSING state.
+     *
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    TCP_CLOSING = 11
+  }
+
+  /**
    * Create vlan interface by vlanId.
    * To invoke this method, you must have the {@code ohos.permission.CONNECTIVITY_INTERNAL} permission.
    *
