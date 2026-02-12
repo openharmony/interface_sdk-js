@@ -918,6 +918,7 @@
     { "filePath": "application/VpnExtensionContext.d.ts", "kitName": "NetworkKit", "subSystem": "元能力" },
     { "filePath": "application/WindowExtensionContext.d.ts", "kitName": "ArkUI", "subSystem": "窗口管理" },
     { "filePath": "arkui/AttributeUpdater.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },
+    { "filePath": "arkui/ModifierUtils.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },
     { "filePath": "data/rdb/resultSet.d.ts", "kitName": "ArkData", "subSystem": "分布式数据管理" },
     { "filePath": "multimedia/ringtonePlayer.d.ts", "kitName": "AudioKit", "subSystem": "OS媒体软件" },
     { "filePath": "multimedia/systemTonePlayer.d.ts", "kitName": "AudioKit", "subSystem": "OS媒体软件" },

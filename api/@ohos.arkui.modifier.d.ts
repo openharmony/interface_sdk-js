@@ -641,3 +641,12 @@ export { StepperModifier } from './arkui/StepperModifier';
  * @since 22 dynamic
  */
 export { UIPickerComponentModifier } from './arkui/UIPickerComponentModifier';
+
+/**
+ * Export ModifierUtils, which provides utility methods for modifier and attribute operations.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @atomicservice
+ * @since 26.0.0 dynamiconly
+ */
+export { ModifierUtils } from './arkui/ModifierUtils';
