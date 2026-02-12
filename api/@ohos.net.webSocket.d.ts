@@ -1642,7 +1642,6 @@ declare namespace webSocket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 24 dynamic
-     * @since 26 static
      */
     start(config: WebSocketServerConfig): Promise<boolean>;
 
