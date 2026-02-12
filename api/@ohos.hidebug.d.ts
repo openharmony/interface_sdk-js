@@ -1175,7 +1175,7 @@ declare namespace hidebug {
   function setProcDumpInSharedOOM(enable: boolean): void;
 
   /**
-   * Describes Rss information of the application process.
+   * Describes the physical memory information of the application process.
    *
    * @interface RssInfo
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
@@ -1202,7 +1202,7 @@ declare namespace hidebug {
     swapRss: bigint;
     }
   /**
-   * Obtains the Rss information of the application process. This API is implemented by reading data from the
+   * Obtains the physical memory information of application process. This API is implemented by reading data from the
    * /proc/{pid}/status
    *
    * @returns { RssInfo } Returns the Rss information.
