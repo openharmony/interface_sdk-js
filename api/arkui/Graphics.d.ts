@@ -1082,7 +1082,7 @@ declare class ColorMetrics {
    * Get opacity value of the ColorMetrics.
    *
    * @returns { number } The opacity value of the ColorMetrics.
-   * The value is an integer ranging from 0 to 1.
+   * The value is an integer ranging from 0 to 255.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
