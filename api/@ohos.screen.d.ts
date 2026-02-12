@@ -762,6 +762,17 @@ declare namespace screen {
      * @since 23 static
      */
     supportsFocus?: boolean;
+
+    /**
+     * Indicates the user identification.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    userId?: int;
   }
 
   /**
