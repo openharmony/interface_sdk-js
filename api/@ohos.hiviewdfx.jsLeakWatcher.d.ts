@@ -105,7 +105,7 @@ declare namespace jsLeakWatcher {
    *  2.Incorrect parameter types;
    *  3.Parameter verification failed.
    * @syscap SystemCapability.HiviewDFX.HiChecker
-   * @since 20 dynamic
+   * @since 24 dynamic
    */
   function enableLeakWatcher(isEnabled: boolean, configs: LeakWatcherConfig, callback: Callback<Array<string>>): void
 }
