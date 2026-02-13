@@ -446,6 +446,66 @@ export declare interface IMonitorValue<T> {
 }
 
 /**
+ * Define ComponentInit Method Decorator.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 24 static
+ */
+@Retention({policy: "SOURCE"})
+export declare @interface ComponentInit {}
+
+/**
+ * Define ComponentAppear Method Decorator.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 24 static
+ */
+@Retention({policy: "SOURCE"})
+export declare @interface ComponentAppear {}
+
+/**
+ * Define ComponentBuilt Method Decorator.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 24 static
+ */
+@Retention({policy: "SOURCE"})
+export declare @interface ComponentBuilt {}
+
+/**
+ * Define ComponentReuse Method Decorator.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 24 static
+ */
+@Retention({policy: "SOURCE"})
+export declare @interface ComponentReuse {}
+
+/**
+ * Define ComponentRecycle Method Decorator.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 24 static
+ */
+@Retention({policy: "SOURCE"})
+export declare @interface ComponentRecycle {}
+
+/**
+ * Define ComponentDisappear Method Decorator.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 24 static
+ */
+@Retention({policy: "SOURCE"})
+export declare @interface ComponentDisappear {}
+
+/**
  * Define decorated variable interface.
  *
  * @interface IDecoratedVariable
