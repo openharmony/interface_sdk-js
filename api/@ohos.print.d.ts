@@ -4492,6 +4492,74 @@ declare namespace print {
    * @since 24 dynamic&static
    */
   function addPrinter(printerName: string, uri: string, ppdName?: string, options?: string): Promise<void>;
+
+  /**
+   * Watermark handling result.
+   * @enum { int } WatermarkHandleResult
+   * @syscap SystemCapability.Print.PrintFramework
+   * @since 24 dynamic&static
+   */
+  enum WatermarkHandleResult {
+    /**
+     * Watermark handling success.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 24 dynamic&static
+     */
+    WATERMARK_HANDLE_SUCCESS = 0,
+
+    /**
+     * Watermark handling failure.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 24 dynamic&static
+     */
+    WATERMARK_HANDLE_FAILURE = 1,
+  }
+
+  /**
+   * Defines the callback type used in registering to listen for watermark handling.
+   * The value of jobId indicates the print job ID.
+   * The value of fd indicates the fd.
+   *
+   * @typedef { function } WatermarkCallback
+   * @param { string } jobId - the print job ID
+   * @param { int } fd - the fd
+   * @syscap SystemCapability.Print.PrintFramework
+   * @since 24 dynamic&static
+   */
+  type WatermarkCallback = (jobId: string, fd: int) => void;
+
+  /**
+   * Register to listen for watermark handling.
+   * @permission ohos.permission.ENTERPRISE_MANAGE_PRINT
+   * @param { WatermarkCallback } callback - Indicates the callback type used in registering to listen for watermark handling.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @syscap SystemCapability.Print.PrintFramework
+   * @since 24 dynamic&static
+   */
+  function registerWatermarkCallback(callback: WatermarkCallback): void;
+
+  /**
+   * Unregister to listen for watermark handling.
+   * @permission ohos.permission.ENTERPRISE_MANAGE_PRINT
+   * @param { ?WatermarkCallback } callback - Indicates the callback type used in registering to listen for watermark handling.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @syscap SystemCapability.Print.PrintFramework
+   * @since 24 dynamic&static
+   */
+  function unregisterWatermarkCallback(callback?: WatermarkCallback): void;
+
+  /**
+   * Notify watermark complete.
+   * @permission ohos.permission.ENTERPRISE_MANAGE_PRINT
+   * @param { string } jobId - Indicates the job ID.
+   * @param { int } result - Indicates the result.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *   1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @syscap SystemCapability.Print.PrintFramework
+   * @since 24 dynamic&static
+   */
+  function notifyWatermarkComplete(jobId: string, result: int): void;
 }
 
 export default print;
