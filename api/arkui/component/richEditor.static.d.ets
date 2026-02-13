@@ -1722,6 +1722,16 @@ export declare class RichEditorBaseController implements TextEditControllerEx {
     * @since 23 static
     */
     deleteBackward(): void;
+
+    /**
+    * Set the styledString placeholder.
+    *
+    * @param { StyledString } styledString - The styledString for placeholder.
+    *     If the parameter is invalid, this method will have no effect.
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @since 24 static
+    */
+    setStyledPlaceholder(styledString: StyledString): void;
 }
 /**
  * Provides Controller for RichEditor.
