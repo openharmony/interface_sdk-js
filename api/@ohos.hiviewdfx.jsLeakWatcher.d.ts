@@ -85,6 +85,6 @@ declare namespace jsLeakWatcher {
    * @syscap SystemCapability.HiviewDFX.HiChecker
    * @since 20 dynamic
    */
-  function enableLeakWatcher(isEnabled: boolean, configs: Array<string>, callback: Callback<Array<string>>): void
+  function enableLeakWatcher(isEnabled: boolean, configs: Array<string> | LeakWatcherConfig, callback: Callback<Array<string>>): void
 }
 export default jsLeakWatcher;
