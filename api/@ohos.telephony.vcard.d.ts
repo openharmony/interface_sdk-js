@@ -303,13 +303,12 @@ declare namespace vcard {
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
-     * @since 23 static
      */
     /**
      * Indicates the VCard version 2.1.
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 24 dynamic&static
+     * @since 23 dynamic&static
      */
     VERSION_21 = 0,
 
