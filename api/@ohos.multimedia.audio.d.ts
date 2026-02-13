@@ -5684,6 +5684,22 @@ declare namespace audio {
     setDefaultOutputDevice(deviceType: DeviceType): Promise<void>;
 
     /**
+     * Forces the audio output device to the built-in speaker, when other audio peripherals
+     * are connected, such as bluetooth headphones or wired headsets. It should be noted
+     * that this interface only applies to media streams.
+     * @param { DeviceType } deviceType - the available deviceTypes are
+     *                                    SPEAKER: Built-in speaker
+     *                                    DEFAULT: Restore to system default output device
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 6800101 - Parameter verification failed, for example,
+     *     the selected device type is not supported.
+     * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 26 dynamic&static
+     */
+    overrideOutputDeviceToSpeaker(deviceType: DeviceType): Promise<void>;
+
+    /**
      * Subscribes output device change event callback.
      * The event is triggered when device change.
      * @param { 'currentOutputDeviceChanged' } type - Type of the event to listen for.
