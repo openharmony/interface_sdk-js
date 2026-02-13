@@ -137,7 +137,7 @@ declare class PrintExtensionAbility {
    * @since 23 static
    */
   /**
-   * Called once to request the capability of the printer.
+   * Called once to request the printer's capabilities.
    * @param { int } printerId - Indicates the information of printer.
    * @returns { print.PrinterCapability } printer capability.
    * @syscap SystemCapability.Print.PrintFramework
