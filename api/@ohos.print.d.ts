@@ -3127,7 +3127,6 @@ declare namespace print {
    * @param { PrintJobSubState } subState - Indicates sub-state of print job.
    * @param { AsyncCallback<void> } callback - The callback function for indcating the result of API execution.
    * @throws { BusinessError } 201 - The application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
@@ -3160,7 +3159,6 @@ declare namespace print {
    * @param { PrintJobSubState } subState - Indicates sub state of print job.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
@@ -3987,7 +3985,6 @@ declare namespace print {
    * @param { PrinterInformation } printerInformation - Indicates the printer to be updated.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
