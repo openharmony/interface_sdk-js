@@ -4566,6 +4566,36 @@ declare namespace audio {
     offPreferredInputDeviceChangeForCapturerInfo(callback?: Callback<AudioDeviceDescriptors>): void;
 
     /**
+     * Subscribes to preferred input device change events. When the preferred device for target audio
+     * capturer filter changes, registered clients will receive a callback.
+     * @param { 'preferredInputDeviceChangeByFilter' } type - Type of event to listen for. Only the
+     *     preferredInputDeviceChangeByFilter event is supported.
+     * @param { AudioCapturerFilter } filter - Filter for capturer.
+     * @param { Callback<AudioDeviceDescriptors> } callback - Callback to receive information about
+     *     the changed preferred devices.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     * @since 26 dynamic&static
+     */
+    on(type: 'preferredInputDeviceChangeByFilter', filter: AudioCapturerFilter, callback: Callback<AudioDeviceDescriptors>): void;
+
+    /**
+     * Unsubscribes to preferred input device change events.
+     * @param { 'preferredInputDeviceChangeByFilter' } type - Type of event to listen for. Only the
+     *     preferredInputDeviceChangeByFilter event is supported.
+     * @param { Callback<AudioDeviceDescriptors> } [callback] - Callback used in subscribe.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     * @since 26 dynamic&static
+     */
+    off(type: 'preferredInputDeviceChangeByFilter', callback?: Callback<AudioDeviceDescriptors>): void;
+
+    /**
      * Gets preferred input device for target audio capturer info.
      * @param { AudioCapturerInfo } capturerInfo - Audio capturer information.
      * @returns { AudioDeviceDescriptors } The preferred devices.
