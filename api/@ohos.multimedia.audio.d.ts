@@ -13783,6 +13783,66 @@ declare namespace audio {
      */
     getEqualizerPreset(): AudioLoopbackEqualizerPreset;
   }
+
+  /**
+   * Implements extended management of audio input/output (IO) routing.
+   * 
+   * @typedef AudioIoExManager
+   * @syscap SystemCapability.Multimedia.Audio.IoRoutingEx
+   * @stagemodelonly
+   * @since 26 dynamic&static
+   */
+  interface AudioIoExManager {
+    /**
+     * Selects the output device for application.
+     * @param { AudioDeviceDescriptor } outputDevice - Audio device description.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 6800101 - Parameter verification failed, for example,
+     *     the selected device does not exist.
+     * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
+     * @syscap SystemCapability.Multimedia.Audio.IoRoutingEx
+     * @since 26 dynamic&static
+     */
+    selectOutputDevice(outputDevice: AudioDeviceDescriptor): Promise<void>;
+
+    /**
+     * Selects the input device for application..
+     * @param { AudioDeviceDescriptor } inputDevice - Audio device description.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 6800101 - Parameter verification failed, for example,
+     *     the selected device does not exist.
+     * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
+     * @syscap SystemCapability.Multimedia.Audio.IoRoutingEx
+     * @since 26 dynamic&static
+     */
+    selectInputDevice(inputDevice: AudioDeviceDescriptor): Promise<void>;
+
+    /**
+     * Selects the output device for AudioRenderer.
+     * @param { long } streamId - The stream id of AudioRenderer.
+     * @param { AudioDeviceDescriptor } outputDevice - Audio device description.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 6800101 - Parameter verification failed, for example,
+     *     the selected device does not exist.
+     * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
+     * @syscap SystemCapability.Multimedia.Audio.IoRoutingEx
+     * @since 21 dynamic
+     */
+    selectOutputDeviceForStream(streamId: long, outputDevice: AudioDeviceDescriptor): Promise<void>;
+
+    /**
+     * Selects the input device for AudioCapturer.
+     * @param { long } streamId - The stream id of AudioCapturer.
+     * @param { AudioDeviceDescriptor } inputDevice - Audio device description.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 6800101 - Parameter verification failed, for example,
+     *     the selected device does not exist.
+     * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
+     * @syscap SystemCapability.Multimedia.Audio.IoRoutingEx
+     * @since 21 dynamic
+     */
+    selectInputDeviceForStream(streamId: long, inputDevice: AudioDeviceDescriptor): Promise<void>;
+  }
 }
 
 export default audio;
