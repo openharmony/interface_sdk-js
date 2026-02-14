@@ -5699,7 +5699,8 @@ declare namespace audio {
      *     the selected device type is not supported.
      * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
      * @syscap SystemCapability.Multimedia.Audio.Device
-     * @since 26 dynamic&static
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
      */
     overrideMediaOutputDeviceToSpeaker(deviceType: DeviceType): Promise<void>;
 
