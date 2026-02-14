@@ -5686,7 +5686,11 @@ declare namespace audio {
     /**
      * Forces the audio output device to the built-in speaker, when other audio peripherals
      * are connected, such as bluetooth headphones or wired headsets. It should be noted
-     * that this interface only applies to media streams.
+     * that this interface only applies to media streams. 
+     * In scenarios where there are concurrent playback streams with higher priority or user
+     * selects the output device through system UI, the actual output device used by
+     * the application may differ from the selected one. The application can obtain currently
+     * active output device by subscribing to the currentOutputDeviceChanged event.
      * @param { DeviceType } deviceType - the available deviceTypes are
      *                                    SPEAKER: Built-in speaker
      *                                    DEFAULT: Restore to system default output device
@@ -5697,7 +5701,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 26 dynamic&static
      */
-    overrideOutputDeviceToSpeaker(deviceType: DeviceType): Promise<void>;
+    overrideMediaOutputDeviceToSpeaker(deviceType: DeviceType): Promise<void>;
 
     /**
      * Subscribes output device change event callback.
