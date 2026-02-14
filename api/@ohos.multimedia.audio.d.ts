@@ -8852,7 +8852,7 @@ declare namespace audio {
    * @typedef SystemVolumeFilter
    * @syscap SystemCapability.Multimedia.Audio.Volume
    * @systemapi
-     * @since 26 dynamic&static
+   * @since 26 dynamic&static
    */
   interface SystemVolumeFilter {
     /**
