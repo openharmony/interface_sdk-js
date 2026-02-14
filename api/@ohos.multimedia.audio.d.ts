@@ -5410,11 +5410,11 @@ declare namespace audio {
   interface CurrentOutputDeviceChangedEvent {
     /**
      * Audio device descriptors before change.
-     * @type { AudioDeviceDescriptors }
+     * @type { ?AudioDeviceDescriptors }
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 26.0.0 dynamic&static
      */
-    preDevices: AudioDeviceDescriptors;
+    preDevices?: AudioDeviceDescriptors;
     /**
      * Audio device descriptors after change.
      * @type { AudioDeviceDescriptors }
@@ -9152,11 +9152,11 @@ declare namespace audio {
   interface AudioStreamDeviceChangeInfo {
     /**
      * Audio device descriptors before change.
-     * @type { AudioDeviceDescriptors }
+     * @type { ?AudioDeviceDescriptors }
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 26.0.0 dynamic&static
      */
-    preDevices: AudioDeviceDescriptors;
+    preDevices?: AudioDeviceDescriptors;
     /**
      * Audio device descriptors after change.
      * @type { AudioDeviceDescriptors }
