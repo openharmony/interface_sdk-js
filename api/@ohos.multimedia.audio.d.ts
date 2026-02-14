@@ -6407,6 +6407,35 @@ declare namespace audio {
     offSystemVolumeChange(callback?: Callback<VolumeEvent>): void;
 
     /**
+     * Subscribes to system volume change events. When system volume for target
+     * system volume filter changes, registered clients will receive a callback.
+     * @param { 'systemVolumeChangeByFilter' } type - Type of event to listen for.
+     *     Only the systemVolumeChangeByFilter event is supported.
+     * @param { SystemVolumeFilter } filter - Filter for system volume change.
+     * @param { Callback<VolumeEvent> } callback - Callback to receive information about
+ 	   *     the system volume.
+     * @throws { BusinessError } 202 - Not system app.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @since 26 dynamic&static
+    */
+    on(type: 'systemVolumeChangeByFilter', filter: SystemVolumeFilter, callback: Callback<VolumeEvent>): void;
+
+    /**
+     * Unsubscribes to the system volume change events.
+     * @param { 'systemVolumeChangeByFilter' } type - Type of event to listen for. Only the
+ 	   *     systemVolumeChangeByFilter event is supported.
+     * @param { Callback<VolumeEvent> } [callback] - Callback used in subscribe.
+     * @throws { BusinessError } 202 - Not system app.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @since 26 dynamic&static
+    */
+    off(type: 'systemVolumeChangeByFilter', callback?: Callback<VolumeEvent>): void;
+
+    /**
      * Obtains the volume of a stream.
      * @param { StreamUsage } streamUsage - Audio stream type.
      * @returns { int } Current system volume level.
@@ -8814,6 +8843,24 @@ declare namespace audio {
      * @since 22 static
      */
     updateUi: boolean;
+  }
+
+  /**
+   * Describe system volume filter.
+   * @typedef SystemVolumeFilter
+   * @syscap SystemCapability.Multimedia.Audio.Volume
+   * @systemapi
+     * @since 26 dynamic&static
+   */
+  interface SystemVolumeFilter {
+    /**
+     * Application uid.
+     * @type { int }
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @since 26 dynamic&static
+     */
+    uid: int;
   }
 
   /**
