@@ -6417,8 +6417,9 @@ declare namespace audio {
      * @throws { BusinessError } 202 - Not system app.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @stagemodelonly
      * @systemapi
-     * @since 26 dynamic&static
+     * @since 26.0.0 dynamic&static
     */
     on(type: 'systemVolumeChangeByFilter', filter: SystemVolumeFilter, callback: Callback<VolumeEvent>): void;
 
@@ -6430,8 +6431,9 @@ declare namespace audio {
      * @throws { BusinessError } 202 - Not system app.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @stagemodelonly
      * @systemapi
-     * @since 26 dynamic&static
+     * @since 26.0.0 dynamic&static
     */
     off(type: 'systemVolumeChangeByFilter', callback?: Callback<VolumeEvent>): void;
 
