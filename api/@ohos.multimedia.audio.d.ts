@@ -6413,7 +6413,7 @@ declare namespace audio {
      *     Only the systemVolumeChangeByFilter event is supported.
      * @param { SystemVolumeFilter } filter - Filter for system volume change.
      * @param { Callback<VolumeEvent> } callback - Callback to receive information about
- 	   *     the system volume.
+     *     the system volume.
      * @throws { BusinessError } 202 - Not system app.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
@@ -6426,7 +6426,7 @@ declare namespace audio {
     /**
      * Unsubscribes to the system volume change events.
      * @param { 'systemVolumeChangeByFilter' } type - Type of event to listen for. Only the
- 	   *     systemVolumeChangeByFilter event is supported.
+     *     systemVolumeChangeByFilter event is supported.
      * @param { Callback<VolumeEvent> } [callback] - Callback used in subscribe.
      * @throws { BusinessError } 202 - Not system app.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
