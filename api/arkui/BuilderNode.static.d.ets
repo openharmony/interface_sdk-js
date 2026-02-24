@@ -25,6 +25,7 @@ import { Size } from 'arkui.Graphics';
 import { TouchEvent, MouseEvent, AxisEvent } from '@ohos.arkui.component';
 import { WrappedBuilder, CustomBuilder, CustomBuilderT } from '@ohos.arkui.component';
 import { RecordData } from '@ohos.base';
+import { CompetitionStrategy } from '@ohos.arkui.component';
 
 /**
  * Render type of the node using for indicating that
@@ -231,6 +232,19 @@ export declare class BuilderNode<T = undefined> {
    * @since 23 static
    */
   postInputEvent(event: InputEventType): boolean;
+
+  /**
+   * Dispatch event to targetNode with competition strategy.
+   *
+   * @param { InputEventType  } event - The event which will be sent to the targetNode.
+   * @param { CompetitionStrategy  } competitionStrategy - The competition strategy.
+   * @returns { boolean } - Returns true if the eventhas been successfully posted to the targetNode,
+   *    false otherwise.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  postInputEventWithStrategy(event: InputEventType, competitionStrategy?: CompetitionStrategy): boolean;
 
   /**
    * Set if the BuilderNode inherits the freezing policy of the parent CustomComponent, ComponentContent,

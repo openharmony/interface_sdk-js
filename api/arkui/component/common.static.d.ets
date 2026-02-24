@@ -4503,7 +4503,17 @@ export declare interface MouseEvent extends BaseEvent {
      * @stagemodelonly
      * @since 23 static
      */
-    globalDisplayY?: double;    
+    globalDisplayY?: double;
+    /**
+     * The unique handle for the event processing session. This handle must be used for any further operations on the
+     * event. The system ensures that for a given finger, only one event with this handle can be active at a time.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 24 static
+     */
+    eventHandleId?: int;
 }
 /**
  * The accessibility hover action triggers this method invocation.
@@ -4820,6 +4830,16 @@ export declare interface TouchEvent extends BaseEvent {
      * @since 23 static
      */
     preventDefault(): void;
+    /**
+     * The unique handle for the event processing session. This handle must be used for any further operations on the
+     * event. The system ensures that for a given finger, only one event with this handle can be active at a time.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 24 static
+     */
+    eventHandleId?: int;
 }
 /**
  * The axis event triggers this method invocation.
@@ -4894,6 +4914,16 @@ export declare interface AxisEvent extends BaseEvent {
      * @since 23 static
      */
     scrollStep?: int;
+    /**
+     * The unique handle for the event processing session. This handle must be used for any further operations on the
+     * event. The system ensures that for a given finger, only one event with this handle can be active at a time.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 24 static
+     */
+    eventHandleId?: int;
     /**
      * Active event bubbling.
      *
