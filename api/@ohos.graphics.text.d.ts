@@ -2931,8 +2931,10 @@ declare namespace text {
     fontWidth?: FontWidth;
     /**
      * Font edging. The default value is ANTI_ALIAS.
-     * @type { ?FontEdging } The type of font edging.
+     *
+     * @type { ?drawing.FontEdging } The type of font edging.
      * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
      * @atomicservice
      * @since 24 dynamic&static
      */
