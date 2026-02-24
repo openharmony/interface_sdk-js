@@ -5684,7 +5684,7 @@ declare namespace audio {
     setDefaultOutputDevice(deviceType: DeviceType): Promise<void>;
 
     /**
-     * Forces the audio output device to the built-in speaker, when other audio peripherals
+     * Set the audio output device to the built-in speaker, when other audio peripherals
      * are connected, such as bluetooth headphones or wired headsets. It should be noted
      * that this interface only applies to media streams. 
      * In scenarios where there are concurrent playback streams with higher priority or user
@@ -5702,7 +5702,7 @@ declare namespace audio {
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    overrideMediaOutputDeviceToSpeaker(deviceType: DeviceType): Promise<void>;
+    setMediaOutputDevice(deviceType: DeviceType): Promise<void>;
 
     /**
      * Subscribes output device change event callback.
