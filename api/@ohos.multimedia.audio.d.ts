@@ -5412,6 +5412,7 @@ declare namespace audio {
      * Audio device descriptors before change.
      * @type { ?AudioDeviceDescriptors }
      * @syscap SystemCapability.Multimedia.Audio.Core
+     * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
     preDevices?: AudioDeviceDescriptors;
@@ -9154,6 +9155,7 @@ declare namespace audio {
      * Audio device descriptors before change.
      * @type { ?AudioDeviceDescriptors }
      * @syscap SystemCapability.Multimedia.Audio.Device
+     * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
     preDevices?: AudioDeviceDescriptors;
