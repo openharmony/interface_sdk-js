@@ -4577,8 +4577,8 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
      * @syscap SystemCapability.Multimedia.Audio.Device
-     * @stagemodelonly
      * @systemapi
+     * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
     on(type: 'preferredInputDeviceChangeByFilter', filter: AudioCapturerFilter, callback: Callback<AudioDeviceDescriptors>): void;
@@ -4591,8 +4591,8 @@ declare namespace audio {
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
      * @syscap SystemCapability.Multimedia.Audio.Device
-     * @stagemodelonly
      * @systemapi
+     * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
     off(type: 'preferredInputDeviceChangeByFilter', callback?: Callback<AudioDeviceDescriptors>): void;
