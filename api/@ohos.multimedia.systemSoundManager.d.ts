@@ -1203,25 +1203,11 @@ declare namespace systemSoundManager {
      *                                 1.Mandatory parameters are left unspecified;
      *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 5400102 - Operation is not allowed, e.g. ringtone to add is not customized.
-     * @throws { BusinessError } 5400103 - I/O error.
-     * @syscap SystemCapability.Multimedia.SystemSound.Core
-     * @systemapi
-     * @since 12 dynamic
-     */
-    /**
-     * Add customized tone into ringtone library.
-     * @permission ohos.permission.WRITE_RINGTONE
-     * @param { BaseContext } context - Current application context.
-     * @param { ToneAttrs } toneAttr - Tone attributes created by {@link createCustomizedToneAttrs}.
-     * @param { string } externalUri - Tone uri in external storage.
-     * @returns { Promise<string> } Tone uri after adding into ringtone library.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 202 - Caller is not a system application.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *                                 1.Mandatory parameters are left unspecified;
-     *                                 2.Incorrect parameter types.
-     * @throws { BusinessError } 5400102 - Operation is not allowed, e.g. ringtone to add is not customized.
-     * @throws { BusinessError } 5400103 - I/O error.
+     * @throws { BusinessError } 5400103 - I/O error. Possible causes:
+     *     1. The target file exceeds the int32 upper limit (this error is returned instead of 20700004);
+     *     2. Failed to find the specified file;
+     *     3. Duplicate file name;
+     *     4. System sound manager service error.
      * @throws { BusinessError } 20700004 - Data size exceeds the limit.
      * @throws { BusinessError } 20700005 - The number of files exceeds the limit.
      * @throws { BusinessError } 20700006 - Insufficient ROM space.
@@ -1271,7 +1257,11 @@ declare namespace systemSoundManager {
      *     1.Mandatory parameters are left unspecified;
      *     2.Incorrect parameter types.
      * @throws { BusinessError } 5400102 - Operation is not allowed, e.g. ringtone to add is not customized.
-     * @throws { BusinessError } 5400103 - I/O error.
+     * @throws { BusinessError } 5400103 - I/O error. Possible causes:
+     *     1. The target file exceeds the int32 upper limit (this error is returned instead of 20700004);
+     *     2. Failed to find the specified file;
+     *     3. Duplicate file name;
+     *     4. System sound manager service error.
      * @throws { BusinessError } 20700004 - Data size exceeds the limit.
      * @throws { BusinessError } 20700005 - The number of files exceeds the limit.
      * @throws { BusinessError } 20700006 - Insufficient ROM space.
