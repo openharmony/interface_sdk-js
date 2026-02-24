@@ -28,7 +28,6 @@ import abilityAccessCtrl, {
 import Ability from '@ohos.app.ability.Ability';
 import AbilityConstant from '@ohos.app.ability.AbilityConstant';
 import AbilityLifecycleCallback from '@ohos.app.ability.AbilityLifecycleCallback';
-import InteropAbilityLifecycleCallback from '@ohos.app.ability.InteropAbilityLifecycleCallback';
 import abilityManager from '@ohos.app.ability.abilityManager';
 import AbilityStage from '@ohos.app.ability.AbilityStage';
 import ActionExtensionAbility from '@ohos.app.ability.ActionExtensionAbility';
@@ -137,7 +136,7 @@ export {
   sendableContextManager, PhotoEditorExtensionAbility, UIServiceExtensionAbility, shortcutManager, application, appDomainVerify,
   InsightIntentLink, InsightIntentPage, InsightIntentFunctionMethod, InsightIntentFunction, InsightIntentEntryExecutor,
   InsightIntentEntry, LinkParamCategory, CompletionHandler, AppServiceExtensionAbility, InsightIntentForm, InsightIntentEntity, kioskManager,
-  CompletionHandlerForAtomicService, CompletionHandlerForAbilityStartCallback, AbilityStartFailureCode, FailureCode, InteropAbilityLifecycleCallback
+  CompletionHandlerForAtomicService, CompletionHandlerForAbilityStartCallback, AbilityStartFailureCode, FailureCode
 };
 
 /*** if arkts static */
@@ -169,6 +168,7 @@ import ServiceExtensionAbility from '@ohos.app.ability.ServiceExtensionAbility';
 import AtomicServiceOptions from '@ohos.app.ability.AtomicServiceOptions';
 import InsightIntentContext from '@ohos.app.ability.InsightIntentContext';
 import InsightIntentExecutor from '@ohos.app.ability.InsightIntentExecutor';
+import InteropAbilityLifecycleCallback from '@ohos.app.ability.InteropAbilityLifecycleCallback';
 import OpenLinkOptions from '@ohos.app.ability.OpenLinkOptions';
 import UIAbility, {
   Callee, CalleeCallback, Caller, OnReleaseCallback, OnRemoteStateChangeCallback
@@ -234,6 +234,6 @@ export {
   ChildProcessArgs, ChildProcessOptions, quickFixManager, businessAbilityRouter, EmbeddedUIExtensionAbility,
   UIServiceExtensionAbility, CompletionHandler, AppServiceExtensionAbility, kioskManager,
   StartupConfig, StartupConfigEntry, StartupListener, StartupTask, startupManager,
-  PhotoEditorExtensionAbility
+  PhotoEditorExtensionAbility, InteropAbilityLifecycleCallback
 };
 /*** endif */
