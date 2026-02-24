@@ -844,6 +844,19 @@ declare namespace abilityManager {
    * @since 23 dynamic&static
    */
   export type PreloadedUIExtensionAbilityLoadedFn = (preloadId: int) => void;
+
+  /**
+   * Indicates whether the current device supports EmbeddedUIExtensionAbility.
+   *
+   * @returns { Promise<boolean> } Returns {@code true} if EmbeddedUIExtensionAbility is supported.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @StageModelOnly
+   * @since 12 dynamic
+   * @since 23 static
+   */
+  function IsEmbeddedUIExtensionSupported(): Promise<boolean>;
 }
 
 export default abilityManager;
