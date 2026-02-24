@@ -87,6 +87,14 @@ export declare interface BaseSpan extends CommonMethod {
  */
 export declare interface SpanAttribute {
     /**
+     * Called when the font is set.
+     *
+     * @param { Font | undefined } value - the span font size and weight and family and style.
+     * @returns { SpanAttribute } The attribute of the span.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    /**
      * Used to set the font of span.
      *
      * @param { Font | undefined } value - the span font size, font weight, font family and font style.
@@ -124,6 +132,15 @@ export declare interface SpanAttribute {
      * @since 23 static
      */
     default fontStyle(value: FontStyle | undefined): this;
+    /**
+     * Called when the font weight is set.
+     *
+     * @param { int | FontWeight | ResourceStr | undefined } value
+     * @returns { SpanAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     /**
      * Used to set the font weight of span.
      *
