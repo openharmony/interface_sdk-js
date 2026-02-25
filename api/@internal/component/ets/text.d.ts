@@ -1857,6 +1857,19 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @since 23 dynamic
    */
   textDirection(direction: TextDirection | undefined): TextAttribute;
+
+  /**
+   * Whether to avoid an orphan word on the last line of the paragraph.
+   *
+   * @param { Optional<boolean> } enabled - The default value is false,
+   *     indicates the flag whether to enable this feature.
+   * @returns { TextAttribute } returns the instance of the TextAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  orphanCharOptimization(enabled: Optional<boolean>): TextAttribute;
 }
 
 /**

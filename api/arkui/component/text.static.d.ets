@@ -872,6 +872,17 @@ export declare interface TextAttribute extends CommonMethod {
      * @since 23 static
      */
     default textDirection(direction: TextDirection | undefined): this;
+
+    /**
+     * Whether to avoid an orphan word on the last line of the paragraph.
+     *
+     * @param { boolean | undefined } enabled - The default value is false,
+     *     indicates the flag whether to enable this feature.
+     * @returns { TextAttribute } returns the instance of the TextAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 26.0.0 static
+     */
+    default orphanCharOptimization(enabled: boolean | undefined): this;
 }
 /**
  * Defines span type.
