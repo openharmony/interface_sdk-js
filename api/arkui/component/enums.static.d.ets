@@ -1,6 +1,6 @@
 'use static'
 /*
- * Copyright (c) 2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2025-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -4338,7 +4338,7 @@ export declare enum PresetFillType {
  */
 export enum SystemProperties {
   /**
-   * System environment breakpoint key that is used to obtain the width and height breakpoing value of the window.
+   * System environment breakpoint key that is used to obtain the width and height breakpoint value of the window.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4354,7 +4354,7 @@ export enum SystemProperties {
    */
   WINDOW_AVOID_AREA = 'system.window.avoidarea',
   /**
-   * System environment avoidarea key that is used to obtain the void area of the window, measured in px.
+   * System environment avoidarea key that is used to obtain the avoid area of the window, measured in px.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
