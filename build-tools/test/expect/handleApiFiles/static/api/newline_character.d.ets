@@ -42,20 +42,20 @@ type OnRunFn = () => void;
  * @since 23
  */
 interface TestRunner {
-  /**
-   * Prepare the unit testing environment for running test cases.
-   *
-   * @type { OnPrepareFn }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 23
-   */
-  onPrepare: OnPrepareFn;
-  /**
-   * Run all test cases.
-   *
-   * @typedef { OnRunFn }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 23
-   */
-  onRun: OnRunFn;
+    /**
+     * Prepare the unit testing environment for running test cases.
+     *
+     * @type { OnPrepareFn }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @since 23
+     */
+    onPrepare: OnPrepareFn;
+    /**
+     * Run all test cases.
+     *
+     * @typedef { OnRunFn }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @since 23
+     */
+    onRun: OnRunFn;
 }
