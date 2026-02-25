@@ -49,6 +49,7 @@ import { HapModuleInfo as _HapModuleInfo, PreloadItem as _PreloadItem, Dependenc
   RouterItem as _RouterItem, DataItem as _DataItem } from './bundleManager/HapModuleInfo';
 import { ExtensionAbilityInfo as _ExtensionAbilityInfo } from './bundleManager/ExtensionAbilityInfo';
 import { Skill as _Skill, SkillUri as _SkillUri } from './bundleManager/Skill';
+import type { RecordData } from './@ohos.base';
 /*** endif */
 /**
  * This module is used to obtain package information of various applications installed on the current device.
@@ -3926,6 +3927,20 @@ declare namespace bundleManager {
    * @since 23 dynamiconly
    */
   function getAllBundleInstallInfo(): Promise<Array<Record<string, Object>>>;
+
+  /**
+   * Obtains the install information of all apps.
+   *
+   * @permission ohos.permission.GET_INSTALLED_BUNDLE_LIST
+   * @returns { Promise<Array<Record<string, RecordData>>> } The install information.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 24 static
+   */
+  function getAllBundleInstallInfo(): Promise<Array<Record<string, RecordData>>>;
 
   /**
    * Obtains the additional information during bundle installation.
