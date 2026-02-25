@@ -4536,6 +4536,7 @@ declare namespace window {
    * @param { 'applicationFocusStateChange' } type the event of application process focus state changes.
    * @param { Callback<boolean> } callback Callback used to return the result whether application process focused or not.
    * @syscap SystemCapability.Window.SessionManager
+   * @stagemodelonly
    * @since 26 dynamic
    */
   function on(type: 'applicationFocusStateChange', callback: Callback<boolean>): void;
@@ -4545,6 +4546,7 @@ declare namespace window {
    *
    * @param { Callback<boolean> } callback Callback used to return the result whether application process focused or not.
    * @syscap SystemCapability.Window.SessionManager
+   * @stagemodelonly
    * @since 26 static
    */
   function onApplicationFocusStateChange(callback: Callback<boolean>): void;
@@ -4556,6 +4558,7 @@ declare namespace window {
    * @param { Callback<boolean> } [callback] Callback used to return the result whether application process focused or not.
    *    If not provided, all callbacks for the given event type will be removed.
    * @syscap SystemCapability.Window.SessionManager
+   * @stagemodelonly
    * @since 26 dynamic
    */
   function off(type: 'applicationFocusStateChange', callback?: Callback<boolean>): void;
@@ -4566,6 +4569,7 @@ declare namespace window {
    * @param { Callback<boolean> } [callback] Callback used to return the result whether application process focused or not.
    *    If not provided, all callbacks for the given event type will be removed.
    * @syscap SystemCapability.Window.SessionManager
+   * @stagemodelonly
    * @since 26 static
    */
   function offApplicationFocusStateChange(callback?: Callback<boolean>): void;
