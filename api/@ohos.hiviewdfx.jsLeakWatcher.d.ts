@@ -89,11 +89,12 @@ declare namespace jsLeakWatcher {
 
   interface LeakWatcherConfig {
     /**
-     * Monitored object type. default: value is an empty string.
+     * Array of types of objects to watch. default: value is an empty string.
      *
      * @type { string }
      * @syscap SystemCapability.HiviewDFX.HiChecker
-     * @since 24
+     * @FaAndStageModel
+     * @since 24 dynamic&static
      */
     objectWatcher: string;
     /**
@@ -101,7 +102,8 @@ declare namespace jsLeakWatcher {
      *
      * @type { Array<number> }
      * @syscap SystemCapability.HiviewDFX.HiChecker
-     * @since 24
+     * @FaAndStageModel
+     * @since 24 dynamic&static
      */
     objectUniqueIDs: Array<number>;
     /**
@@ -109,7 +111,8 @@ declare namespace jsLeakWatcher {
      *
      * @type { number }
      * @syscap SystemCapability.HiviewDFX.HiChecker
-     * @since 24
+     * @FaAndStageModel
+     * @since 24 dynamic&static
      */
     checkInterval: number;
     /**
@@ -117,7 +120,8 @@ declare namespace jsLeakWatcher {
      *
      * @type { number }
      * @syscap SystemCapability.HiviewDFX.HiChecker
-     * @since 24
+     * @FaAndStageModel
+     * @since 24 dynamic&static
      */
     retainedVisibleThreshold: number;
     /**
@@ -125,7 +129,8 @@ declare namespace jsLeakWatcher {
      *
      * @type { number }
      * @syscap SystemCapability.HiviewDFX.HiChecker
-     * @since 24
+     * @FaAndStageModel
+     * @since 24 dynamic&static
      */
     retainedInvisibleThreshold: number;
     /**
@@ -133,7 +138,8 @@ declare namespace jsLeakWatcher {
      *
      * @type { number }
      * @syscap SystemCapability.HiviewDFX.HiChecker
-     * @since 24
+     * @FaAndStageModel
+     * @since 24 dynamic&static
      */
     maxStoredHeapDumps: number;
     /**
@@ -141,7 +147,8 @@ declare namespace jsLeakWatcher {
      *
      * @type { number }
      * @syscap SystemCapability.HiviewDFX.HiChecker
-     * @since 24
+     * @FaAndStageModel
+     * @since 24 dynamic&static
      */
     dumpHeapWaitTimeMs: number;
     /**
@@ -149,7 +156,8 @@ declare namespace jsLeakWatcher {
      *
      * @type { Array<string> }
      * @syscap SystemCapability.HiviewDFX.HiChecker
-     * @since 24
+     * @FaAndStageModel
+     * @since 24 dynamic&static
      */
     whiteList: Array<string>;
   }
@@ -172,7 +180,8 @@ declare namespace jsLeakWatcher {
    *  2.Incorrect parameter types;
    *  3.Parameter verification failed.
    * @syscap SystemCapability.HiviewDFX.HiChecker
-   * @since 24 dynamic
+   * @FaAndStageModel
+   * @since 24 dynamic&static
    */
   function enableLeakWatcher(isEnabled: boolean, configs: LeakWatcherConfig, callback: Callback<Array<string>>): void
 }
