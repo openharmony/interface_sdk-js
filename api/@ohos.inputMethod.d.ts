@@ -19,7 +19,7 @@
  */
 import type { Callback, AsyncCallback } from './@ohos.base';
 import InputMethodSubtype from './@ohos.InputMethodSubtype';
-import { UIContext } from "./@ohos.arkui.UIContext";
+import { UIContext } from './@ohos.arkui.UIContext';
 /*** if arkts dynamic */
 import type { ElementName } from './bundleManager/ElementName';
 import type { PanelInfo } from './@ohos.inputMethod.Panel';
