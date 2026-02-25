@@ -21,7 +21,7 @@
 import { RenderNode } from 'arkui.RenderNode';
 import { Size, NodePosition, NodeEdges, LengthMetrics, SizeT } from 'arkui.Graphics';
 import { DrawContext } from 'arkui.Graphics';
-import { ComponentContent } from 'arkui.ComponentContent';
+import { ComponentContent, ReactiveComponentContent } from 'arkui.ComponentContent';
 import { BusinessError } from '@ohos.base';
 import { UIContext } from '@ohos.arkui.UIContext';
 import { UICommonEvent, UIGestureEvent, CommonAttribute, CustomProperty } from '@ohos.arkui.component';
@@ -896,7 +896,16 @@ export declare class FrameNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
-  addComponentContent<T>(content: ComponentContent<T>): void;
+  /**
+   * Mount ComponentContent and ReactiveComponentContent to FrameNode.
+   * 
+   * @param { ComponentContent<T> | ReactiveComponentContent } content - Newly added ComponentContent or
+   *     ReactiveComponentContent.
+   * @throws { BusinessError } 100021 - The FrameNode is not modifiable.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 24 static
+   */
+  addComponentContent<T>(content: ComponentContent<T> | ReactiveComponentContent): void;
 
   /**
    * Set the cross-language options of the target FrameNode.
