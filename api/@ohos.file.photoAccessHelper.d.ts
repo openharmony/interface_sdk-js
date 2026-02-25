@@ -9112,6 +9112,17 @@ declare namespace photoAccessHelper {
      * @since 23 dynamic&static
      */
     globalMovingPhotoState?: MovingPhotoBadgeStateType;
+
+    /**
+     * Display date information when dragging the scrollbar.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    showDateOnScrollbar?: boolean;
   }
 
   /**
