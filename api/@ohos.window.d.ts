@@ -4556,7 +4556,7 @@ declare namespace window {
    *
    * @param { 'applicationFocusStateChange' } type the event of application process focus state changes.
    * @param { Callback<boolean> } [callback] Callback used to return the result whether application process focused or not.
-   *     If not provided, all callbacks for the given event type will be removed.
+   *      If not provided, all callbacks for the given event type will be removed.
    * @syscap SystemCapability.Window.SessionManager
    * @stagemodelonly
    * @since 26.0.0 dynamic
@@ -4567,7 +4567,7 @@ declare namespace window {
    * Unregister the callback for application process focus state changes.
    *
    * @param { Callback<boolean> } [callback] Callback used to return the result whether application process focused or not.
-   *     If not provided, all callbacks for the given event type will be removed.
+   *      If not provided, all callbacks for the given event type will be removed.
    * @syscap SystemCapability.Window.SessionManager
    * @stagemodelonly
    * @since 26.0.0 static
