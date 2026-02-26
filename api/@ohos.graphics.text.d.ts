@@ -2221,6 +2221,14 @@ declare namespace text {
      * @since 24 dynamic&static
      */
     value: double;
+    /**
+     * Data normalized.
+     * @type { ?boolean }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    isNormalized?: boolean;
   }
 
   /**
