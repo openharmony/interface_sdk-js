@@ -6505,6 +6505,28 @@ declare namespace avSession {
      * @since 23 static
      */
     displayTags?: int;
+
+    /**
+     * The supported skipIntervals when doing rewind operation, the default is {@link SECONDS_15}.
+     * The system will use this value for rewind skip intervals instead of {@link skipIntervals}.
+     * If not set, the rewind skip intervals still use {@link skipIntervals}.
+     * See {@link SkipIntervals}
+     * @type { ?SkipIntervals }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 26.0.0 dynamic&static
+     */
+    rewindSkipIntervals?: SkipIntervals;
+
+    /**
+     * The supported skipIntervals when doing fast forward operation, the default is {@link SECONDS_15}.
+     * The system will use this value for fastforward skip intervals instead of {@link skipIntervals}.
+     * If not set, the fast forward skip intervals still use {@link skipIntervals}.
+     * See {@link SkipIntervals}
+     * @type { ?SkipIntervals }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 26.0.0 dynamic&static
+     */
+    fastForwardSkipIntervals?: SkipIntervals;
   }
 
   /**
