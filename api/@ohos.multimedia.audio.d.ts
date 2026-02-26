@@ -13844,7 +13844,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.EnhanceRouting
      * @since 26.0.0 dynamic&static
      */
-    selectOutputDeviceForStream(renderer: AudioRenderer, outputDevice: AudioDeviceDescriptor): Promise<void>;
+    selectOutputDeviceForAudioRenderer(renderer: AudioRenderer, outputDevice: AudioDeviceDescriptor): Promise<void>;
 
     /**
      * Selects the input device for the target AudioCapturer. The application must ensure that the specified
@@ -13862,7 +13862,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.EnhanceRouting
      * @since 26.0.0 dynamic&static
      */
-    selectInputDeviceForStream(capturer: AudioCapturer, inputDevice: AudioDeviceDescriptor): Promise<void>;
+    selectInputDeviceForAudioCapturer(capturer: AudioCapturer, inputDevice: AudioDeviceDescriptor): Promise<void>;
   }
 }
 
