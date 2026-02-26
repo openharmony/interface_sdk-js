@@ -72,6 +72,9 @@ group("build_ohos_ets_es2panda") {
     ohos_ets_koala_wrapper_deps,
     ohos_ets_stdlib_deps,
   ]
+  if (is_linux || is_win) {
+    external_deps += [ ohos_ets_libarkts_deps ]
+  }
   deps = [
     ohos_ets_ark_link_deps,
     ohos_ets_es2panda_deps,
@@ -480,6 +483,9 @@ group("build_ohos_ets") {
     ohos_ets_koala_wrapper_deps,
     ohos_ets_stdlib_deps,
   ]
+  if (is_linux || is_win) {
+    external_deps += [ ohos_ets_libarkts_deps ]
+  }
   deps = [
     ":ohos_base_split",
     ":ohos_ets_api",
