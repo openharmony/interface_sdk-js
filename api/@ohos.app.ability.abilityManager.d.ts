@@ -848,15 +848,15 @@ declare namespace abilityManager {
   /**
    * Indicates whether the current device supports EmbeddedUIExtensionAbility.
    *
-   * @returns { Promise<boolean> } Returns {@code true} if EmbeddedUIExtensionAbility is supported.
-   * @throws { BusinessError } 16000050 - Internal error.
+   * @returns { Promise } Returns {@code true} if EmbeddedUIExtensionAbility is supported,
+   *     returns {@code false} otherwise.
+   * @throws { BusinessError } 16000050 - Internal error. Possible causes: 1. Connect to system service failed;
+   *     2. Send restart message to system service failed; 3. System service failed to communicate with dependency module.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @StageModelOnly
-   * @since 12 dynamic
-   * @since 23 static
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
    */
-  function IsEmbeddedUIExtensionSupported(): Promise<boolean>;
+  function isEmbeddedUIExtensionSupported(): Promise<boolean>;
 }
 
 export default abilityManager;
