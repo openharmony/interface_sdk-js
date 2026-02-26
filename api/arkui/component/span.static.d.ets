@@ -270,6 +270,16 @@ export declare interface SpanAttribute {
      * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<SpanAttribute> | undefined): this;
+    /**
+     * Set the component's source code redirection information. 
+     * @param { string } sourceLine - the source code line.
+     * @param { string } [moduleName] - module to which the component belongs.
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 24 staticonly
+     */
+    default debugLine(sourceLine: string, moduleName?: string): this;
 }
 
 /**
