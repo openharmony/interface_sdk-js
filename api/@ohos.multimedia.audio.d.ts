@@ -14476,6 +14476,83 @@ declare namespace audio {
      */
     getEqualizerPreset(): AudioLoopbackEqualizerPreset;
   }
+
+  /**
+ * Provides APIs for audio personalized spatialization management.
+ * Includes operations to check enabled state, set enabled state, and register state change callbacks.
+ *
+ * @typedef AudioPersonalizedSpatialization
+ * @syscap SystemCapability.Multimedia.Audio.Spatialization
+ * @since 26 dynamic
+ * @since 26 static
+ */
+interface AudioPersonalizedSpatialization {
+    /**
+     * Check whether the Personalized spatialization is enabled by the specified device.
+     * @param { AudioDeviceDescriptor } selectedAudioDevice - Descriptor of the target audio device.
+     * @returns { Promise<boolean> } Promise used to return the check result.
+     *                              Returns <b>true</b> if enabled; <b>false</b> otherwise.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @since 26 dynamic
+     * @since 26 static
+     */
+    isPersonalizedSpatializationEnabled(selectedAudioDevice: AudioDeviceDescriptor): Promise<boolean>;
+  
+    /**
+     * Set the Personalized spatialization enabled or disabled by the specified device.
+     * @param { AudioDeviceDescriptor } selectedAudioDevice - Descriptor of the target audio device.
+     * @param { boolean } enable - Whether to enable or disable personalized spatialization.
+     * @returns { Promise<number> } Promise used to return the operation result code.
+     *                              Returns {@link AudioErrorCode#SUCCESS} if successful; other values indicate error.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @since 26 dynamic
+     * @since 26 static
+     */
+    setPersonalizedSpatializationEnabled(
+      selectedAudioDevice: AudioDeviceDescriptor,
+      enable: boolean
+    ): Promise<number>;
+  
+    /**
+     * Register the Personalized spatialization enabled change callback listener.
+     * @param { AudioPersonalizedSpatializationEnabledChangeCallback } callback - Callback to register.
+     * @returns { Promise<number> } Promise used to return the registration result code.
+     *                              Returns {@link AudioErrorCode#SUCCESS} if successful; other values indicate error.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @since 11 dynamic
+     * @since 26 static
+     */
+    registerPersonalizedSpatializationEnabledEventListener(
+      callback: AudioPersonalizedSpatializationEnabledChangeCallback
+    ): Promise<number>;
+  }
+  
+  /**
+   * Callback interface for personalized spatialization enabled state changes.
+   *
+   * @typedef AudioPersonalizedSpatializationEnabledChangeCallback
+   * @syscap SystemCapability.Multimedia.Audio.Spatialization
+   * @since 26 dynamic
+   * @since 26 static
+   */
+  interface AudioPersonalizedSpatializationEnabledChangeCallback {
+    /**
+     * Callback when Personalized spatialization enabled state changes.
+     * @param { boolean } enabled - Current enabled state.
+     */
+    onPersonalizedSpatializationEnabledChange(enabled: boolean): void;
+  
+    /**
+     * Callback when Personalized spatialization enabled state changes for any device.
+     * @param { AudioDeviceDescriptor } deviceDescriptor - Audio device descriptor.
+     * @param { boolean } enabled - Current enabled state.
+     */
+    onPersonalizedSpatializationEnabledChangeForAnyDevice(
+      deviceDescriptor: AudioDeviceDescriptor,
+      enabled: boolean
+    ): void;
+  }
+
 }
 
 export default audio;
