@@ -4439,7 +4439,7 @@ declare namespace text {
   }
 
   /**
-   * Font variation axis
+   * Font variation axis.
    * 
    * @typedef FontVariationAxis
    * @syscap SystemCapability.Graphics.Drawing
@@ -4448,7 +4448,7 @@ declare namespace text {
    */
   interface FontVariationAxis {
     /**
-     * Font variation axis keyword
+     * Font variation axis keyword.
      * 
      * @type { string }
      * @syscap SystemCapability.Graphics.Drawing
@@ -4458,7 +4458,7 @@ declare namespace text {
     key: string;
 
     /**
-     * Font variation axis min value
+     * Font variation axis min value.
      * 
      * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
@@ -4468,7 +4468,7 @@ declare namespace text {
     minValue: double;
 
     /**
-     * Font variation axis max value
+     * Font variation axis max value.
      * 
      * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
@@ -4478,7 +4478,7 @@ declare namespace text {
     maxValue: double;
 
     /**
-     * Font variation axis default value
+     * Font variation axis default value.
      * 
      * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
@@ -4488,7 +4488,7 @@ declare namespace text {
     defaultValue: double;
 
     /**
-     * Font variation axis flags
+     * Font variation axis flags.
      * 
      * @type { int }
      * @syscap SystemCapability.Graphics.Drawing
@@ -4498,7 +4498,7 @@ declare namespace text {
     flags: int;
 
     /**
-     * Font variation axis english name
+     * Font variation axis english name.
      * 
      * @type { string }
      * @syscap SystemCapability.Graphics.Drawing
@@ -4508,7 +4508,7 @@ declare namespace text {
     name: string;
 
     /**
-     * Font variation axis local name, maybe empty
+     * Font variation axis local name, maybe empty.
      * 
      * @type { string }
      * @syscap SystemCapability.Graphics.Drawing
@@ -4519,7 +4519,7 @@ declare namespace text {
   }
 
   /**
-   * Font variation instance
+   * Font variation instance.
    * 
    * @typedef FontVariationInstance
    * @syscap SystemCapability.Graphics.Drawing
@@ -4528,7 +4528,7 @@ declare namespace text {
    */
   interface FontVariationInstance {
     /**
-     * Font variation instance english name
+     * Font variation instance english name.
      * 
      * @type { string }
      * @syscap SystemCapability.Graphics.Drawing
@@ -4538,7 +4538,7 @@ declare namespace text {
     name: string;
 
     /**
-     * Font variation instance local name, maybe empty
+     * Font variation instance local name, maybe empty.
      * 
      * @type { string }
      * @syscap SystemCapability.Graphics.Drawing
