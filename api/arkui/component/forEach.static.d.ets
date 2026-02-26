@@ -17,7 +17,7 @@
  * @kit ArkUI
  */
 
-import { Builder } from './builder';
+import { Builder, CustomBuilderT } from './builder';
 import { ComponentBuilder } from './builder';
 import { DynamicNode } from './common'
 
@@ -67,6 +67,28 @@ export interface ForEachAttribute extends DynamicNode {
      * @since 24 staticonly
      */
     debugLine(sourceLine: string, moduleName?: string): this;
+    /**
+     * Sets ForEach options.
+     *
+     * @param { function } arr - Function that returns array collection to be used in UI.
+     * @param { ItemGeneratorFunc<T> } itemGenerator - Item generator function.
+     * @param { KeyGeneratorFunc<T> } [keyGenerator] - Key generator function.
+     * @returns { this } ForEachAttribute instance
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    setForEachOptions<T>(arr: () => Array<T>,
+        itemGenerator: ItemGeneratorFunc<T>,
+        keyGenerator?: KeyGeneratorFunc<T>): this;
+    /**
+     * Notify ForEach has finished setting up its attributes.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    applyAttributesFinish(): void;
 }
 
 /**
@@ -95,4 +117,19 @@ export interface ForEachAttribute extends DynamicNode {
 export declare function ForEach<T = Any>(arr: Array<T>,
     itemGenerator: ItemGeneratorFunc<T>,
     keyGenerator?: KeyGeneratorFunc<T>,
+): ForEachAttribute;
+
+/**
+ * Defines ForEachEach Component. It requires call setForEachOptions at start of component attribute set-up,
+ * and it requires call applyAttributeFinish at end of component attribute set-up.
+ *
+ * @param { CustomBuilderT<ForEachAttribute> } style - callback to set up ForEach's attributes.
+ * @returns { ForEachAttribute } The attribute of ForEach.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ */
+@Builder
+export declare function ForEach(
+    style: CustomBuilderT<ForEachAttribute>
 ): ForEachAttribute;
