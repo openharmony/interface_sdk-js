@@ -11710,9 +11710,6 @@ declare namespace window {
      * Restore the main window of a float window to foreground.
      * This interface can only be used by a float window after it has been clicked once.
      * The interface cannot be invoked when the main window is in PAUSED lifecycle or is in background during recent.
-     * 
-     * Device Behavior Differences:This function can be normally invoked on phone, tablet, and 2-in-1 devices.
-     *     On other devices, error code 801 will be returned.
      *
      * @param { Record<string, Object> } [wantParameters] - Want parameters.
      *     Custom want parameter delivered when restoring the main window.
