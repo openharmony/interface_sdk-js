@@ -4523,7 +4523,7 @@ declare namespace text {
    * 
    * @typedef FontVariationInstance
    * @syscap SystemCapability.Graphics.Drawing
-   * atomicservice
+   * @atomicservice
    * @since 24 dynamic&static
    */
   interface FontVariationInstance {
@@ -4548,7 +4548,7 @@ declare namespace text {
     localName: string;
 
     /**
-     * Returns the array of font variation
+     * Returns the array of font variation.
      * 
      * @type { Array<FontVariation> }
      * @syscap SystemCapability.Graphics.Drawing
