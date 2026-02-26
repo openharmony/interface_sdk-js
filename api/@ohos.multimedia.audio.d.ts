@@ -13784,64 +13784,85 @@ declare namespace audio {
     getEqualizerPreset(): AudioLoopbackEqualizerPreset;
   }
 
-  /**
-   * Implements extended management of audio input/output (IO) routing.
+  /** 
+   * Proivde enhanced audio routing management capabilities.
    * 
-   * @typedef AudioIoExManager
-   * @syscap SystemCapability.Multimedia.Audio.IoRoutingEx
+   * @typedef AudioRoutingEnhanceManager
+   * @syscap SystemCapability.Multimedia.Audio.EnhanceRouting
    * @stagemodelonly
-   * @since 26 dynamic&static
+   * @since 26.0.0 dynamic&static
    */
-  interface AudioIoExManager {
+  interface AudioRoutingEnhanceManager {
     /**
-     * Selects the output device for application.
+     * Selects the output device for the application. This setting applies to all playback streams created
+     * under the application, unless a specific output device is designated for a particular stream.
+     * The application can obtain currently active output device by subscribing to the
+     * currentOutputDeviceChanged event. The selection will become invalid when the application exits or
+     * the selected device goes offline. After the application restarts or the device comes back online,
+     * the application must re-issue the selection for it to take effect.
      * @param { AudioDeviceDescriptor } outputDevice - Audio device description.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 6800101 - Parameter verification failed, for example,
      *     the selected device does not exist.
      * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
-     * @syscap SystemCapability.Multimedia.Audio.IoRoutingEx
-     * @since 26 dynamic&static
+     * @syscap SystemCapability.Multimedia.Audio.EnhanceRouting
+     * @since 26.0.0 dynamic&static
      */
     selectOutputDevice(outputDevice: AudioDeviceDescriptor): Promise<void>;
 
     /**
-     * Selects the input device for application..
+     * Selects the input device for the application. This setting applies to all recording streams created
+     * under the application, unless a specific input device is designated for a particular stream.
+     * The application can obtain currently active input device by subscribing to the
+     * currentInputDeviceChanged event. The selection will become invalid when the application exits or
+     * the selected device goes offline. After the application restarts or the device comes back online,
+     * the application must re-issue the selection for it to take effect.
      * @param { AudioDeviceDescriptor } inputDevice - Audio device description.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 6800101 - Parameter verification failed, for example,
      *     the selected device does not exist.
      * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
-     * @syscap SystemCapability.Multimedia.Audio.IoRoutingEx
-     * @since 26 dynamic&static
+     * @syscap SystemCapability.Multimedia.Audio.EnhanceRouting
+     * @since 26.0.0 dynamic&static
      */
     selectInputDevice(inputDevice: AudioDeviceDescriptor): Promise<void>;
 
     /**
-     * Selects the output device for AudioRenderer.
+     * Selects the output device for the target AudioRenderer. The application must ensure that the specified
+     * AudioRenderer is valid. This selection only applies to the designated stream; other playback streams in
+     * the application will use the application's forced selection or the system's default output device.
+     * The selection will become invalid when the application exits or the selected device goes offline.
+     * After the application restarts or the device comes back online, the application must re-issue the
+     * selection for it to take effect.
+     * @param { AudioDeviceDescriptor } outputDevice - Audio device description.
      * @param { long } streamId - The stream id of AudioRenderer.
      * @param { AudioDeviceDescriptor } outputDevice - Audio device description.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 6800101 - Parameter verification failed, for example,
      *     the selected device does not exist.
      * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
-     * @syscap SystemCapability.Multimedia.Audio.IoRoutingEx
-     * @since 21 dynamic
+     * @syscap SystemCapability.Multimedia.Audio.EnhanceRouting
+     * @since 26.0.0 dynamic&static
      */
-    selectOutputDeviceForStream(streamId: long, outputDevice: AudioDeviceDescriptor): Promise<void>;
+    selectOutputDeviceForStream(renderer: AudioRenderer, outputDevice: AudioDeviceDescriptor): Promise<void>;
 
     /**
-     * Selects the input device for AudioCapturer.
+     * Selects the input device for the target AudioCapturer. The application must ensure that the specified
+     * AudioCapturer is valid. This selection only applies to the designated stream; other recording streams in
+     * the application will use the application's forced selection or the system's default input device.
+     * The selection will become invalid when the application exits or the selected device goes offline.
+     * After the application restarts or the device comes back online, the application must re-issue the
+     * selection for it to take effect.
      * @param { long } streamId - The stream id of AudioCapturer.
      * @param { AudioDeviceDescriptor } inputDevice - Audio device description.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 6800101 - Parameter verification failed, for example,
      *     the selected device does not exist.
      * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
-     * @syscap SystemCapability.Multimedia.Audio.IoRoutingEx
-     * @since 21 dynamic
+     * @syscap SystemCapability.Multimedia.Audio.EnhanceRouting
+     * @since 26.0.0 dynamic&static
      */
-    selectInputDeviceForStream(streamId: long, inputDevice: AudioDeviceDescriptor): Promise<void>;
+    selectInputDeviceForStream(capturer: AudioCapturer, inputDevice: AudioDeviceDescriptor): Promise<void>;
   }
 }
 
