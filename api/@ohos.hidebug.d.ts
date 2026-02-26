@@ -208,6 +208,22 @@ declare namespace hidebug {
   function dumpJsHeapData(filename: string): void;
 
   /**
+   * Exports the heap data.
+   * The input parameter is a user-defined file name, excluding the file suffix.
+   * The generated file is in the files folder under the application directory.
+   *
+   * @param { string } filename - User-defined file name of the sampling data. The .heapsnapshot file is generated
+   * in the files directory of the application based on the specified file name.
+   * @param { boolean } [needClean] - Whether to release the snapshot cache before dumping the heap snapshot.
+   * The default value is false.
+   * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+   * @stagemodelonly
+   * @atomicservice
+   * @since 24 dynamic&static
+   */
+  function dumpJsHeapData(filename: string, needClean: boolean): void;
+
+  /**
    * Obtains system service information.
    * It need dump permission.
    * This API can be called only by system application.
@@ -1057,6 +1073,35 @@ declare namespace hidebug {
    * @since 18 dynamic
    */
   function dumpJsRawHeapData(needGC?: boolean): Promise<string>;
+
+  /**
+   * Dumps the original heap snapshot of the VM for the current thread. The API uses a promise to return the path of the
+   * .rawheap file. You can use rawheap-translator to convert the generated file into a .heapsnapshot file for parsing.
+   * The generated file will be stored in a folder within the application directory. However, since this file is usually
+   * large, the system imposes restrictions on the frequency and number of calls to this function. Consequently, you
+   * might fail to obtain the dump file due to quota limitations. These failures will persist until the quota is
+   * regularly refreshed by the system. Therefore, it is advisable to delete the file immediately after you have
+   * finished processing it. Moreover, it is recommended that you use this function in the gray - release version.
+   *
+   * @param { boolean } needGC - Whether GC is required when a heap snapshot is dumped. The default value is true.
+   * If this parameter is not specified, GC is triggered before dumping.
+   * @param { boolean } [needClean] - Whether to release the snapshot cache before dumping the heap snapshot.
+   * The default value is false.
+   * @returns { Promise<string> } Returns the path of the generated snapshot file.
+   * @throws { BusinessError } 11400106 - Quota exceeded.
+   * @throws { BusinessError } 11400107 - Fork operation failed.
+   * @throws { BusinessError } 11400108 - Failed to wait for the child process to finish.
+   * @throws { BusinessError } 11400109 - Timeout while waiting for the child process to finish.
+   * @throws { BusinessError } 11400110 - Disk remaining space too low.
+   * @throws { BusinessError } 11400111 - Napi interface call exception.
+   * @throws { BusinessError } 11400112 - Repeated data dump.
+   * @throws { BusinessError } 11400113 - Failed to create dump file.
+   * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+   * @stagemodelonly
+   * @atomicservice
+   * @since 24 dynamic&static
+   */
+  function dumpJsRawHeapData(needGC: boolean, needClean: boolean): Promise<string>;
 
   /**
    * GwpAsan Options.
