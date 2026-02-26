@@ -624,14 +624,7 @@ declare namespace http {
      * @since 23 dynamic&static
      */
     customMethod?: string;
-  
-	/**
-     * Support specifying the configuration of maximum redirect count
-     * @type {?int}
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 23 dynamic&static
-     */
-    maxRedirects?: int;
+
   /**
      * Support specifying a preferred network when making HTTP requests.
      * If the specified network is unavailable, the default network will be selected to send the request.
@@ -641,6 +634,14 @@ declare namespace http {
      * @since 23 dynamic&static
      */
     pathPreference?: PathPreference;
+
+	  /**
+     * Support specifying the configuration of maximum redirect count
+     * @type {?int}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 23 dynamic&static
+     */
+    maxRedirects?: int;
 	
     /**
      * Support specifying an SNI domain name to include the SNI field during the TLS connection process
