@@ -848,7 +848,7 @@ declare namespace abilityManager {
   /**
    * Indicates whether the current device supports EmbeddedUIExtensionAbility.
    *
-   * @returns { Promise } Returns {@code true} if EmbeddedUIExtensionAbility is supported,
+   * @returns { Promise<boolean> } Returns {@code true} if EmbeddedUIExtensionAbility is supported,
    *     returns {@code false} otherwise.
    * @throws { BusinessError } 16000050 - Internal error. Possible causes: 1. Connect to system service failed;
    *     2. Send restart message to system service failed; 3. System service failed to communicate with dependency module.
