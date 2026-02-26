@@ -3753,7 +3753,7 @@ declare namespace socket {
      * @crossplatform
      * @since 10 dynamic
      */
-    cert?: string | Array<string>;
+    cert?: string;
 
     /**
      * Private key of client certificate
