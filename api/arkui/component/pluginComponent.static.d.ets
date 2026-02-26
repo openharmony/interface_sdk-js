@@ -19,9 +19,10 @@
  */
 
 import { VoidCallback } from './units';
-import { ComponentBuilder, CustomBuilder } from './builder';
+import { ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
 import { RecordData } from '../../@ohos.base';
+import { Builder } from '@ohos.arkui.component';
 
 /**
  * PluginComponentTemplate
@@ -145,6 +146,18 @@ export type PluginErrorCallback = (info: PluginErrorData) => void;
  */
 export declare interface PluginComponentAttribute extends CommonMethod {
     /**
+     * Sets plugin component options.
+     *
+     * @param { PluginComponentOptions } options - The options
+     * @returns { this } PluginComponentAttribute instance
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @systemapi
+     * @since 26.0.0 staticonly
+     */
+    setPluginComponentOptions(options: PluginComponentOptions): this;
+
+    /**
      * PluginComponent onComplete callback
      * AnonyMous Object Rectification
      *
@@ -193,4 +206,20 @@ export declare interface PluginComponentAttribute extends CommonMethod {
 @ComponentBuilder
 export declare function PluginComponent(
     options: PluginComponentOptions
+): PluginComponentAttribute
+
+/**
+ * Defines PluginComponent Component.It requires call setPluginComponentOptions at start of the component attribute set-up,
+ * and it requires call applyAttributeFinish at the end of the component attribute set-up.
+ *
+ * @param { CustomBuilderT<PluginComponentAttribute> } style - the callback to set up plugincomponent's attributes.
+ * @returns { PluginComponentAttribute } The attribute of the PluginComponent.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @systemapi
+ * @since 26.0.0 staticonly
+ */
+@Builder
+export declare function PluginComponent(
+    style: CustomBuilderT<PluginComponentAttribute>
 ): PluginComponentAttribute

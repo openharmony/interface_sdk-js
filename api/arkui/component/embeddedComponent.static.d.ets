@@ -20,10 +20,11 @@
  */
 
 import Want from '../../@ohos.app.ability.Want'
-import { ComponentBuilder, CustomBuilder } from './builder';
+import { ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
 import { Callback, ErrorCallback ,BusinessError} from '../../@ohos.base'
 import { AttributeModifier, CommonMethod, TerminationInfo } from './common'
 import { EmbeddedType } from './enums'
+import { Builder } from '@ohos.arkui.component';
 
 /**
  * Define the attribute functions of EmbeddedComponent.
@@ -36,6 +37,18 @@ import { EmbeddedType } from './enums'
  * @since 23 static
  */
 export declare interface EmbeddedComponentAttribute extends CommonMethod {
+  /**
+   * Sets embedded component options.
+   *
+   * @param { Want } loader - indicates initialization parameter.
+   * @param { EmbeddedType } [type] - indicates type of the EmbeddedComponent.
+   * @returns { this } EmbeddedComponentAttribute instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  setEmbeddedComponentOptions(loader: Want, type?: EmbeddedType): this;
+
   /**
    * Called when the provider of the embedded UI is terminated.
    *
@@ -78,11 +91,25 @@ export declare interface EmbeddedComponentAttribute extends CommonMethod {
  * @param { EmbeddedType } [type] - indicates type of the EmbeddedComponent.
  * @returns { EmbeddedComponentAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @systemapi
  * @stagemodelonly
  * @since 23 static
  */
 @ComponentBuilder
 export declare function EmbeddedComponent(
     loader: Want, type?: EmbeddedType
+): EmbeddedComponentAttribute
+
+/**
+ * Defines EmbeddedComponent Component.It requires call setEmbeddedComponentOptions at start of the component attribute set-up,
+ * and it requires call applyAttributeFinish at the end of the component attribute set-up.
+ *
+ * @param { CustomBuilderT<EmbeddedComponentAttribute> } style - the callback to set up embeddedcomponent's attributes.
+ * @returns { EmbeddedComponentAttribute } The attribute of the EmbeddedComponent.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ */
+@Builder
+export declare function EmbeddedComponent(
+    style: CustomBuilderT<EmbeddedComponentAttribute>
 ): EmbeddedComponentAttribute
