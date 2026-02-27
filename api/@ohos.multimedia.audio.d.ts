@@ -7978,7 +7978,7 @@ declare namespace audio {
     * @interface AudioPersonalizedSpatialEnabledChangeForAnyDevice
     * @syscap SystemCapability.Multimedia.Audio.Spatialization
     * @systemapi
-    * @since 26 dynamic&static
+    * @since 26.0.0 dynamic&static
     */
   interface AudioPersonalizedSpatialEnabledChangeForAnyDevice {
      /**
@@ -7987,7 +7987,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @stagemodelonly
-     * @since 26 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
      deviceDescriptor: AudioDeviceDescriptor;
 
@@ -7997,7 +7997,7 @@ declare namespace audio {
       * @syscap SystemCapability.Multimedia.Audio.Spatialization
       * @systemapi
       * @stagemodelonly
-      * @since 26 dynamic&static
+      * @since 26.0.0 dynamic&static
       */
      enabled: boolean;
   }
@@ -8506,11 +8506,10 @@ declare namespace audio {
      * @returns { boolean } Returns <b>true</b> if the Personalized spatialization is successfully enabled;
      *     returns <b>false</b> otherwise.
      * @throws { BusinessError } 202 - Not system App.
- 	 * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @stagemodelonly
-     * @since 26 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     isPersonalizedSpatializationEnabled(selectedAudioDevice: AudioDeviceDescriptor): boolean;
 
@@ -8519,20 +8518,19 @@ declare namespace audio {
      * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
      * @param { AudioDeviceDescriptor } selectedAudioDevice - Audio device description.
      * @param { boolean } enable - Whether to enable personalized spatialization.
-     * @returns { number } Returns success or not (0 for success, non-zero for error).
+     * @returns { int } Returns success or not (0 for success, non-zero for error).
      * @throws { BusinessError } 201 - Permission denied. Return by promise.
  	 * @throws { BusinessError } 202 - Not system App.
  	 * @throws { BusinessError } 801 - Capability not supported on the device.
- 	 * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @stagemodelonly
-     * @since 26 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     setPersonalizedSpatializationEnabled(
         selectedAudioDevice: AudioDeviceDescriptor,
         enable: boolean
-    ): number;
+    ): int;
 
     /**
      * Subscribes to the personalized spatialization enable state change events by the specified device.
@@ -8540,29 +8538,26 @@ declare namespace audio {
      * @param { AudioPersonalizedSpatialEnabledChangeForAnyDevice } callback - Callback used to get the personalized
      *     spatialization enable state by the specified device.
      * @throws { BusinessError } 202 - Not system App.
-     * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @stagemodelonly
-     * @since 26 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     onPersonalizedSpatializationEnabledChangeForAnyDevice(
         callback: Callback<AudioPersonalizedSpatialEnabledChangeForAnyDevice>): void;
 
     /**
      * Unsubscribes to the personalized spatialization enable state change events by the specified device.
-     * @param { 'personalizedSpatializationEnabledChangeForAnyDevice' } type - Type of the event to listen for.
      * @param { AudioPersonalizedSpatialEnabledChangeForAnyDevice } [callback] - Callback used to get the personalized
      *     spatialization enable state by the specified device.
      * @throws { BusinessError } 202 - Not system App.
-     * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @stagemodelonly
-     * @since 26 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
-    off(type: 'personalizedSpatializationEnabledChangeForAnyDevice',
-        callback?: Callback<AudioPersonalizedSpatialEnabledChangeForAnyDevice>): void;
+    offPersonalizedSpatializationEnabledChangeForAnyDevice(
+        callback: Callback<AudioPersonalizedSpatialEnabledChangeForAnyDevice>): void;
   }
 
   /**
