@@ -696,7 +696,7 @@ declare namespace relationalStore {
     kdfAlgo?: KdfAlgo;
 
     /**
-     * Specifies the page size used when opening an encrypted database.
+     * Specifies the page size used when opening an encrypted database, in bytes.
      * Default crypto page size is 1024.
      *
      * @type { ?number }
@@ -704,7 +704,7 @@ declare namespace relationalStore {
      * @since 14
      */
     /**
-     * Specifies the page size used when opening an encrypted database.
+     * Specifies the page size used when opening an encrypted database, in bytes.
      * Default crypto page size is 1024.
      *
      * @type { ?int }
@@ -9661,7 +9661,7 @@ declare namespace relationalStore {
      *
      * @param { string } fullPath - Indicates the path of the database file to attach.
      * @param { string } attachName - Indicates the alias of the database.
-     * @param { int } [waitTime] - Indicates the maximum time allowed for attaching the database file.
+     * @param { int } [waitTime] - Indicates the maximum time allowed for attaching the database file, in seconds.
      * @returns { Promise<int> } Promise used to return the number of attached databases.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -9700,7 +9700,7 @@ declare namespace relationalStore {
      * @param { StoreConfig } config -
      *     Indicates the {@link StoreConfig} configuration of the database related to this RDB store.
      * @param { string } attachName - Indicates the alias of the database.
-     * @param { int } [waitTime] - Indicates the maximum time allowed for attaching the database file.
+     * @param { int } [waitTime] - Indicates the maximum time allowed for attaching the database file, in seconds.
      * @returns { Promise<int> } Promise used to return the number of attached databases.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -9738,7 +9738,7 @@ declare namespace relationalStore {
      * Detaches a database from this database.
      *
      * @param { string } attachName - Indicates the alias of the database.
-     * @param { int } [waitTime] - Indicates the maximum time allowed for detaching the database.
+     * @param { int } [waitTime] - Indicates the maximum time allowed for detaching the database, in seconds.
      * @returns { Promise<int> } Return the current number of attached databases.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -9872,7 +9872,7 @@ declare namespace relationalStore {
     /**
      * Lock cloud container before non-auto cloud sync.
      *
-     * @returns { Promise<int> } The expired time of the lock.
+     * @returns { Promise<int> } The expired time of the lock, in ms.
      * @throws { BusinessError } 202 - Permission verification failed,
      *     application which is not a system application uses system API.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
