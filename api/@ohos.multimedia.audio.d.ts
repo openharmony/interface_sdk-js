@@ -7975,13 +7975,13 @@ declare namespace audio {
 
   /**
     * This interface is used to notify the listener of personalized spatialization enable state change of any device.
-    * @interface PersonalizedSpatialEnabledChangeForAnyDevice
+    * @interface AudioPersonalizedSpatialEnabledChangeForAnyDevice
     * @syscap SystemCapability.Multimedia.Audio.Spatialization
     * @systemapi
     * @since 26 dynamic
     * @since 26 static
     */
-  interface PersonalizedSpatialEnabledChangeForAnyDevice {
+  interface AudioPersonalizedSpatialEnabledChangeForAnyDevice {
      /**
      * Audio device description.
      * @type { AudioDeviceDescriptor }
@@ -8531,31 +8531,24 @@ declare namespace audio {
     /**
      * Subscribes to the personalized spatialization enable state change events by the specified device.
      * When the state changes, registered clients will receive the callback.
-     * @param { PersonalizedSpatialEnabledChangeForAnyDeviceCallback } callback - Callback used to get the personalized spatialization enable state by the specified device.
-     * @throws { BusinessError } 202 - Not system App.
-     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @param { AudioPersonalizedSpatialEnabledChangeForAnyDevice } callback - Callback used to get the personalized spatialization enable state by the specified device.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 26 dynamic
      * @since 26 static
      */
-    onPersonalizedSpatializationEnabledChangeForAnyDevice(callback: PersonalizedSpatialEnabledChangeForAnyDevice): void;
+    onPersonalizedSpatializationEnabledChangeForAnyDevice(callback: Callback<AudioPersonalizedSpatialEnabledChangeForAnyDevice>): void;
 
     /**
      * Unsubscribes to the personalized spatialization enable state change events by the specified device.
      * @param { 'personalizedSpatializationEnabledChangeForAnyDevice' } type - Type of the event to listen for.
-     * @param { PersonalizedSpatialEnabledChangeForAnyDevice } [callback] - Callback used to get the personalized spatialization enable state by the specified device.
-     * @throws { BusinessError } 202 - Not system App.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *                                 1.Mandatory parameters are left unspecified;
-     *                                 2.Incorrect parameter types.
-     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @param { AudioPersonalizedSpatialEnabledChangeForAnyDevice } [callback] - Callback used to get the personalized spatialization enable state by the specified device.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 26 dynamic
      * @since 26 static
      */
-    off(type: 'personalizedSpatializationEnabledChangeForAnyDevice', callback?: PersonalizedSpatialEnabledChangeForAnyDevice): void;
+    off(type: 'personalizedSpatializationEnabledChangeForAnyDevice', callback?: Callback<AudioPersonalizedSpatialEnabledChangeForAnyDevice>): void;
   }
 
   /**
