@@ -13785,44 +13785,50 @@ declare namespace audio {
   }
 
   /** 
-   * Proivde enhanced audio routing management capabilities.
+   * Provide enhanced audio device management capabilities.
    * 
-   * @typedef AudioRoutingEnhanceManager
-   * @syscap SystemCapability.Multimedia.Audio.EnhanceRouting
+   * @typedef AudioDeviceEnhanceManager
+   * @syscap SystemCapability.Multimedia.Audio.DeviceEnhance
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
-  interface AudioRoutingEnhanceManager {
+  interface AudioDeviceEnhanceManager {
     /**
      * Selects the output device for the application. This setting applies to all playback streams created
-     * under the application, unless a specific output device is designated for a particular stream.
-     * The application can obtain currently active output device by subscribing to the
-     * currentOutputDeviceChanged event. The selection will become invalid when the application exits or
-     * the selected device goes offline. After the application restarts or the device comes back online,
-     * the application must re-issue the selection for it to take effect.
+     * under the application, unless a specific output device is designated for a particular stream by
+     * {@link AudioDeviceEnhanceManager.selectOutputDeviceForAudioRenderer}.
+     * The application can obtain currently active output device by
+     * {@link AudioDeviceEnhanceManager.onCurrentOutputDeviceChanged}.
+     * The selection will become invalid when the application exits or the selected device goes offline.
+     * After the application restarts or the device comes back online, the application must re-issue the
+     * selection for it to take effect.
      * @param { AudioDeviceDescriptor } outputDevice - Audio device description.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 6800101 - Parameter verification failed, for example,
      *     the selected device does not exist.
      * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
-     * @syscap SystemCapability.Multimedia.Audio.EnhanceRouting
+     * @syscap SystemCapability.Multimedia.Audio.DeviceEnhance
+     * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
     selectOutputDevice(outputDevice: AudioDeviceDescriptor): Promise<void>;
 
     /**
      * Selects the input device for the application. This setting applies to all recording streams created
-     * under the application, unless a specific input device is designated for a particular stream.
-     * The application can obtain currently active input device by subscribing to the
-     * currentInputDeviceChanged event. The selection will become invalid when the application exits or
-     * the selected device goes offline. After the application restarts or the device comes back online,
-     * the application must re-issue the selection for it to take effect.
+     * under the application, unless a specific input device is designated for a particular stream by
+     * {@link AudioDeviceEnhanceManager.selectInputDeviceForAudioCapturer}.
+     * The application can obtain currently active input device by
+     * {@link AudioDeviceEnhanceManager.onCurrentInputDeviceChanged}.
+     * The selection will become invalid when the application exits or the selected device goes offline.
+     * After the application restarts or the device comes back online, the application must re-issue the
+     * selection for it to take effect.
      * @param { AudioDeviceDescriptor } inputDevice - Audio device description.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 6800101 - Parameter verification failed, for example,
      *     the selected device does not exist.
      * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
-     * @syscap SystemCapability.Multimedia.Audio.EnhanceRouting
+     * @syscap SystemCapability.Multimedia.Audio.DeviceEnhance
+     * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
     selectInputDevice(inputDevice: AudioDeviceDescriptor): Promise<void>;
@@ -13834,14 +13840,14 @@ declare namespace audio {
      * The selection will become invalid when the application exits or the selected device goes offline.
      * After the application restarts or the device comes back online, the application must re-issue the
      * selection for it to take effect.
-     * @param { AudioDeviceDescriptor } outputDevice - Audio device description.
-     * @param { long } streamId - The stream id of AudioRenderer.
+     * @param { AudioRenderer } renderer - The instance of AudioRenderer.
      * @param { AudioDeviceDescriptor } outputDevice - Audio device description.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 6800101 - Parameter verification failed, for example,
      *     the selected device does not exist.
      * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
-     * @syscap SystemCapability.Multimedia.Audio.EnhanceRouting
+     * @syscap SystemCapability.Multimedia.Audio.DeviceEnhance
+     * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
     selectOutputDeviceForAudioRenderer(renderer: AudioRenderer, outputDevice: AudioDeviceDescriptor): Promise<void>;
@@ -13853,16 +13859,67 @@ declare namespace audio {
      * The selection will become invalid when the application exits or the selected device goes offline.
      * After the application restarts or the device comes back online, the application must re-issue the
      * selection for it to take effect.
-     * @param { long } streamId - The stream id of AudioCapturer.
+     * @param { AudioCapturer } capturer - The instance of AudioCapturer.
      * @param { AudioDeviceDescriptor } inputDevice - Audio device description.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 6800101 - Parameter verification failed, for example,
      *     the selected device does not exist.
      * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
-     * @syscap SystemCapability.Multimedia.Audio.EnhanceRouting
+     * @syscap SystemCapability.Multimedia.Audio.DeviceEnhance
+     * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
     selectInputDeviceForAudioCapturer(capturer: AudioCapturer, inputDevice: AudioDeviceDescriptor): Promise<void>;
+
+    /**
+     * Subscribes output device change event callback. The event is triggered when the current output device
+     * of the application itself changes.
+     *
+     * @param { Callback<CurrentOutputDeviceChangedEvent> } callback - Callback used to listen for
+     *     output device change event.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
+     * @syscap SystemCapability.Multimedia.Audio.DeviceEnhance
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    onCurrentOutputDeviceChanged(callback: Callback<CurrentOutputDeviceChangedEvent>): void;
+
+    /**
+     * Unsubscribes current output device change events.
+     *
+     * @param { Callback<CurrentOutputDeviceChangedEvent> } [callback] - Callback used in subscribe.
+     * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
+     * @syscap SystemCapability.Multimedia.Audio.DeviceEnhance
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    offCurrentOutputDeviceChanged(callback?: Callback<CurrentOutputDeviceChangedEvent>): void;
+
+    /**
+     * Subscribes input device change event callback. The event is triggered when the current input device
+     * of the application itself changes.
+     *
+     * @param { Callback<CurrentInputDeviceChangedEvent> } callback - Callback used to listen for
+     *     input device change event.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
+     * @syscap SystemCapability.Multimedia.Audio.DeviceEnhance
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    onCurrentInputDeviceChanged(callback: Callback<CurrentInputDeviceChangedEvent>): void;
+
+    /**
+     * Unsubscribes current input device change events.
+     *
+     * @param { Callback<CurrentInputDeviceChangedEvent> } [callback] - Callback used in subscribe.
+     * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
+     * @syscap SystemCapability.Multimedia.Audio.DeviceEnhance
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    offCurrentInputDeviceChanged(callback?: Callback<CurrentInputDeviceChangedEvent>): void;
   }
 }
 
