@@ -7462,7 +7462,7 @@ declare namespace text {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @atomicservice
-     * @since 25 dynamic&static
+     * @since 26 dynamic&static
      */
     getTextStyle(): TextStyle;
   }
