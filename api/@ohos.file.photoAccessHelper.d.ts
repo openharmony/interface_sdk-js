@@ -7935,9 +7935,9 @@ declare namespace photoAccessHelper {
     isMediaDataReady(mediaDataKey: string): Promise<boolean>;
 
     /**
-     * Converts ValuesBucket records into PhotoAsset objects.
+     * Get PhotoAsset objects from ValuesBucket record info.
      *
-     * @param { ValuesBucket[] } assetsData - Array of asset records. Each element in the array contains the asset
+     * @param { ValuesBucket[] } assetsData - Array of asset records. Each element in the array contains the asset's
      *     column names and their values. The array size cannot exceed 500. Each element in the array must contain
      *     the following asset column information: file_id, data, display_name, media_type, and subtype.
      * @returns { Promise<PhotoAsset[]> } Returns an array of PhotoAsset objects (may be empty).
