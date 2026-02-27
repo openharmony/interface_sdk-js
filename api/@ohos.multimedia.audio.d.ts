@@ -8548,7 +8548,8 @@ declare namespace audio {
 
     /**
      * Unsubscribes to the personalized spatialization enable state change events by the specified device.
-     * @param { AudioPersonalizedSpatialEnabledChangeForAnyDevice } [callback] - Callback used to get the personalized
+     * When the state changes, registered clients will receive the callback.
+     * @param { AudioPersonalizedSpatialEnabledChangeForAnyDevice } callback - Callback used to get the personalized
      *     spatialization enable state by the specified device.
      * @throws { BusinessError } 202 - Not system App.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
