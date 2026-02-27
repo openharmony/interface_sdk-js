@@ -7978,8 +7978,7 @@ declare namespace audio {
     * @interface AudioPersonalizedSpatialEnabledChangeForAnyDevice
     * @syscap SystemCapability.Multimedia.Audio.Spatialization
     * @systemapi
-    * @since 26 dynamic
-    * @since 26 static
+    * @since 26 dynamic&static
     */
   interface AudioPersonalizedSpatialEnabledChangeForAnyDevice {
      /**
@@ -7987,8 +7986,7 @@ declare namespace audio {
      * @type { AudioDeviceDescriptor }
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
-     * @since 26 dynamic
-     * @since 26 static
+     * @since 26 dynamic&static
      */
      deviceDescriptor: AudioDeviceDescriptor;
 
@@ -7997,8 +7995,7 @@ declare namespace audio {
       * @type { boolean }
       * @syscap SystemCapability.Multimedia.Audio.Spatialization
       * @systemapi
-      * @since 26 dynamic
-      * @since 26 static
+      * @since 26 dynamic&static
       */
      enabled: boolean;
   }
@@ -8507,8 +8504,7 @@ declare namespace audio {
      * @returns { boolean } Returns <b>true</b> if the Personalized spatialization is successfully enabled; returns <b>false</b> otherwise.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
-     * @since 26 dynamic
-     * @since 26 static
+     * @since 26 dynamic&static
      */
     isPersonalizedSpatializationEnabled(selectedAudioDevice: AudioDeviceDescriptor): boolean;
 
@@ -8520,8 +8516,7 @@ declare namespace audio {
      * @returns { number } Returns success or not (0 for success, non-zero for error).
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
-     * @since 26 dynamic
-     * @since 26 static
+     * @since 26 dynamic&static
      */
     setPersonalizedSpatializationEnabled(
         selectedAudioDevice: AudioDeviceDescriptor,
@@ -8534,8 +8529,7 @@ declare namespace audio {
      * @param { AudioPersonalizedSpatialEnabledChangeForAnyDevice } callback - Callback used to get the personalized spatialization enable state by the specified device.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
-     * @since 26 dynamic
-     * @since 26 static
+     * @since 26 dynamic&static
      */
     onPersonalizedSpatializationEnabledChangeForAnyDevice(callback: Callback<AudioPersonalizedSpatialEnabledChangeForAnyDevice>): void;
 
@@ -8545,8 +8539,7 @@ declare namespace audio {
      * @param { AudioPersonalizedSpatialEnabledChangeForAnyDevice } [callback] - Callback used to get the personalized spatialization enable state by the specified device.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
-     * @since 26 dynamic
-     * @since 26 static
+     * @since 26 dynamic&static
      */
     off(type: 'personalizedSpatializationEnabledChangeForAnyDevice', callback?: Callback<AudioPersonalizedSpatialEnabledChangeForAnyDevice>): void;
   }
