@@ -41,6 +41,7 @@ export declare interface LayoutAlgorithm {}
  * @stagemodelonly
  * @since 24 static
  */
+@ObservedV2
 export declare class CustomLayoutAlgorithm implements LayoutAlgorithm {
     /**
      * Method to measure the DynamicLayout FrameNode and its content to determine the measured size.
@@ -126,6 +127,7 @@ interface ColumnLayoutAlgorithmOptions {
  * @stagemodelonly
  * @since 24 static
  */
+@ObservedV2
 export declare class ColumnLayoutAlgorithm implements LayoutAlgorithm {
     /**
      * Constructor.
@@ -139,39 +141,39 @@ export declare class ColumnLayoutAlgorithm implements LayoutAlgorithm {
     /**
      * Vertical layout element spacing.
      *
-     * @type { LengthMetrics }
+     * @type { ?LengthMetrics }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 24 static
      */
-    public space: LengthMetrics;
+    @Trace public space?: LengthMetrics;
     /**
      * Alignment format of the subassembly in the horizontal direction.
      *
-     * @type { HorizontalAlign }
+     * @type { ?HorizontalAlign }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 24 static
      */
-    public alignItems: HorizontalAlign;
+    @Trace public alignItems?: HorizontalAlign;
     /**
      * Alignment mode of the child components along the vertical axis.
      *
-     * @type { FlexAlign }
+     * @type { ?FlexAlign }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 24 static
      */
-    public justifyContent: FlexAlign;
+    @Trace public justifyContent?: FlexAlign;
     /**
      * Whether the main axis is reversed.
      *
-     * @type { boolean }
+     * @type { ?boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 24 static
      */
-    public isReverse: boolean;
+    @Trace public isReverse?: boolean;
 }
 
 /**
@@ -233,6 +235,7 @@ interface RowLayoutAlgorithmOptions {
  * @stagemodelonly
  * @since 24 static
  */
+@ObservedV2
 export declare class RowLayoutAlgorithm implements LayoutAlgorithm {
     /**
      * constructor.
@@ -246,39 +249,39 @@ export declare class RowLayoutAlgorithm implements LayoutAlgorithm {
     /**
      * Horizontal layout element spacing.
      *
-     * @type { LengthMetrics }
+     * @type { ?LengthMetrics }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 24 static
      */
-    public space: LengthMetrics;
+    @Trace public space?: LengthMetrics;
     /**
      * Sets the alignment format of the subassembly in the vertical direction.
      *
-     * @type { VerticalAlign }
+     * @type { ?VerticalAlign }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 24 static
      */
-    public alignItems: VerticalAlign;
+    @Trace public alignItems?: VerticalAlign;
     /**
      * Alignment mode of the child components along the horizontal axis.
      *
-     * @type { FlexAlign }
+     * @type { ?FlexAlign }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 24 static
      */
-    public justifyContent: FlexAlign;
+    @Trace public justifyContent?: FlexAlign;
     /**
      * Whether the main axis is reversed.
      *
-     * @type { boolean }
+     * @type { ?boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 24 static
      */
-    public isReverse: boolean;
+    @Trace public isReverse?: boolean;
 }
 
 /**
@@ -310,6 +313,7 @@ interface StackLayoutAlgorithmOptions {
  * @stagemodelonly
  * @since 24 static
  */
+@ObservedV2
 export declare class StackLayoutAlgorithm implements LayoutAlgorithm {
     /**
      * Constructor.
@@ -323,10 +327,10 @@ export declare class StackLayoutAlgorithm implements LayoutAlgorithm {
     /**
      * The align rules of child components in stack layout algorithm.
      *
-     * @type { LocalizedAlignment }
+     * @type { ?LocalizedAlignment }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 24 static
      */
-    public alignContent: LocalizedAlignment;
+    @Trace public alignContent?: LocalizedAlignment;
 }
