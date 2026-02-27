@@ -130,7 +130,7 @@ declare namespace distributedKVStore {
    */
   interface Constants {
     /**
-     * Max key length is 1024.
+     * Max key length is 1024 bytes.
      *
      * @type { number }
      * @readonly
@@ -138,7 +138,7 @@ declare namespace distributedKVStore {
      * @since 9 dynamic
      */
     /**
-     * Max key length is 1024.
+     * Max key length is 1024 bytes.
      *
      * @type { number }
      * @readonly
@@ -149,7 +149,7 @@ declare namespace distributedKVStore {
     readonly MAX_KEY_LENGTH: number;
 
     /**
-     * Max value length is 4194303.
+     * Max value length is 4194303 bytes.
      *
      * @type { number }
      * @readonly
@@ -157,7 +157,7 @@ declare namespace distributedKVStore {
      * @since 9 dynamic
      */
     /**
-     * Max value length is 4194303.
+     * Max value length is 4194303 bytes.
      *
      * @type { number }
      * @readonly
@@ -168,7 +168,7 @@ declare namespace distributedKVStore {
     readonly MAX_VALUE_LENGTH: number;
 
     /**
-     * Max device coordinate key length is 896.
+     * Max device coordinate key length is 896 bytes.
      *
      * @type { number }
      * @readonly
@@ -176,7 +176,7 @@ declare namespace distributedKVStore {
      * @since 9 dynamic
      */
     /**
-     * Max device coordinate key length is 896.
+     * Max device coordinate key length is 896 bytes.
      *
      * @type { number }
      * @readonly
@@ -187,7 +187,7 @@ declare namespace distributedKVStore {
     readonly MAX_KEY_LENGTH_DEVICE: number;
 
     /**
-     * Max store id length is 128.
+     * Max store id length is 128 bytes.
      *
      * @type { number }
      * @readonly
@@ -195,7 +195,7 @@ declare namespace distributedKVStore {
      * @since 9 dynamic
      */
     /**
-     * Max store id length is 128.
+     * Max store id length is 128 bytes.
      *
      * @type { number }
      * @readonly
@@ -206,7 +206,7 @@ declare namespace distributedKVStore {
     readonly MAX_STORE_ID_LENGTH: number;
 
     /**
-     * Max query length is 512000.
+     * Max query length is 512000 bytes.
      *
      * @type { number }
      * @readonly
@@ -214,7 +214,7 @@ declare namespace distributedKVStore {
      * @since 9 dynamic
      */
     /**
-     * Max query length is 512000.
+     * Max query length is 512000 bytes.
      *
      * @type { number }
      * @readonly
@@ -263,7 +263,7 @@ declare namespace distributedKVStore {
     MAX_BATCH_SIZE = 128,
 
     /**
-     * Max store id length is 128.
+     * Max store id length is 128 bytes.
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @stagemodelonly
@@ -272,7 +272,7 @@ declare namespace distributedKVStore {
     MAX_STORE_ID_LENGTH = 128,
 
     /**
-     * Max device coordinate key length is 896.
+     * Max device coordinate key length is 896 bytes.
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @stagemodelonly
@@ -281,7 +281,7 @@ declare namespace distributedKVStore {
     MAX_KEY_LENGTH_DEVICE = 896,
 
     /**
-     * Max key length is 1024.
+     * Max key length is 1024 bytes.
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @stagemodelonly
@@ -290,7 +290,7 @@ declare namespace distributedKVStore {
     MAX_KEY_LENGTH = 1024,
 
     /**
-     * Max query length is 512000.
+     * Max query length is 512000 bytes.
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @stagemodelonly
@@ -299,7 +299,7 @@ declare namespace distributedKVStore {
     MAX_QUERY_LENGTH = 512000,
 
     /**
-     * Max value length is 4194303.
+     * Max value length is 4194303 bytes.
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @stagemodelonly
