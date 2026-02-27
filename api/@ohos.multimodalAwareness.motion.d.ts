@@ -26,6 +26,7 @@ import type { Callback } from "./@ohos.base";
  * @since 15 dynamic
  * @since 23 static
  */
+
 declare namespace motion {
   /**
    * Enum for operating hand status.
@@ -61,6 +62,7 @@ declare namespace motion {
      */
     RIGHT_HAND_OPERATED = 2
   }
+
   /**
    * Enum for holding hand status
    *
@@ -71,7 +73,7 @@ declare namespace motion {
    */
   export enum HoldingHandStatus {
     /**
-     * indicates not held has been detected.
+     * indicates no holding has been detected.
      *
      * @syscap SystemCapability.MultimodalAwareness.Motion
      * @since 20 dynamic
@@ -79,7 +81,7 @@ declare namespace motion {
      */
     NOT_HELD = 0,
     /**
-     * indicates the holding hand is left hand.
+     * indicates the holding with the left hand.
      *
      * @syscap SystemCapability.MultimodalAwareness.Motion
      * @since 20 dynamic
@@ -87,7 +89,7 @@ declare namespace motion {
      */
     LEFT_HAND_HELD = 1,
     /**
-     * indicates the holding hand is right hand.
+     * indicates the holding with the right hand.
      *
      * @syscap SystemCapability.MultimodalAwareness.Motion
      * @since 20 dynamic
@@ -95,7 +97,7 @@ declare namespace motion {
      */
     RIGHT_HAND_HELD = 2,
     /**
-     * indicates the holding hands are both hands.
+     * indicates the holding with both hands.
      *
      * @syscap SystemCapability.MultimodalAwareness.Motion
      * @since 20 dynamic
@@ -103,7 +105,7 @@ declare namespace motion {
      */
     BOTH_HANDS_HELD = 3,
     /**
-     * indicates unknown status.
+     * indicates nothing has been detected.
      *
      * @syscap SystemCapability.MultimodalAwareness.Motion
      * @since 20 dynamic
@@ -111,6 +113,7 @@ declare namespace motion {
      */
     UNKNOWN_STATUS = 16
   }
+
   /**
    * Subscribe to detect the operating hand changed event.
    * @permission ohos.permission.ACTIVITY_MOTION or ohos.permission.DETECT_GESTURE
@@ -129,6 +132,7 @@ declare namespace motion {
    * @since 15 dynamic
    */
   function on(type: 'operatingHandChanged', callback: Callback<OperatingHandStatus>): void;
+
   /**
    * Unsubscribe from the operating hand changed event.
    * @permission ohos.permission.ACTIVITY_MOTION or ohos.permission.DETECT_GESTURE
@@ -147,6 +151,7 @@ declare namespace motion {
    * @since 15 dynamic
    */
   function off(type: 'operatingHandChanged', callback?: Callback<OperatingHandStatus>): void;
+
   /**
    * Get the recent operating hand status.
    * @permission ohos.permission.ACTIVITY_MOTION or ohos.permission.DETECT_GESTURE
@@ -162,8 +167,9 @@ declare namespace motion {
    * @since 23 static
    */
   function getRecentOperatingHandStatus(): OperatingHandStatus;
+
   /**
-   * Subscribe to detect the holding hand changed event.
+   * Subscribe to detect the holding hand changed event
    * @permission ohos.permission.DETECT_GESTURE
    * @param { 'holdingHandChanged' } type - Indicates the event type.
    * @param { Callback<HoldingHandStatus> } callback - Indicates the callback for getting the event data.
@@ -179,6 +185,7 @@ declare namespace motion {
    * @since 20 dynamic
    */
   function on(type: 'holdingHandChanged', callback: Callback<HoldingHandStatus>): void;
+
   /**
    * Unsubscribe from the holding hand changed event.
    * @permission ohos.permission.DETECT_GESTURE
@@ -196,6 +203,7 @@ declare namespace motion {
    * @since 20 dynamic
    */
   function off(type: 'holdingHandChanged', callback?: Callback<HoldingHandStatus>): void;
+
   /**
    * Subscribe to detect the operating hand changed event.
    * @permission ohos.permission.ACTIVITY_MOTION or ohos.permission.DETECT_GESTURE
