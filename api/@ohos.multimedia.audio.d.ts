@@ -7974,6 +7974,36 @@ declare namespace audio {
   }
 
   /**
+    * This interface is used to notify the listener of personalized spatialization enable state change of any device.
+    * @interface PersonalizedSpatialEnabledChangeForAnyDevice
+    * @syscap SystemCapability.Multimedia.Audio.Spatialization
+    * @systemapi
+    * @since 26 dynamic
+    * @since 26 static
+    */
+  interface PersonalizedSpatialEnabledChangeForAnyDevice {
+     /**
+     * Audio device description.
+     * @type { AudioDeviceDescriptor }
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @systemapi
+     * @since 26 dynamic
+     * @since 26 static
+     */
+     deviceDescriptor: AudioDeviceDescriptor;
+
+     /**
+      * Personalized spatialization enable state.
+      * @type { boolean }
+      * @syscap SystemCapability.Multimedia.Audio.Spatialization
+      * @systemapi
+      * @since 26 dynamic
+      * @since 26 static
+      */
+     enabled: boolean;
+  }
+
+  /**
    * Implements audio spatialization management.
    * @typedef AudioSpatializationManager
    * @syscap SystemCapability.Multimedia.Audio.Spatialization
@@ -8494,29 +8524,38 @@ declare namespace audio {
      * @since 26 static
      */
     setPersonalizedSpatializationEnabled(
-        selectedAudioDevice: AudioDeviceDescriptor, 
+        selectedAudioDevice: AudioDeviceDescriptor,
         enable: boolean
     ): number;
 
     /**
-     * Register the Personalized spatialization enabled change callback listener
-     * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
-     * @param { {
-     *   onPersonalizedSpatializationEnabledChange: (enabled: boolean) => void;
-     *   onPersonalizedSpatializationEnabledChangeForAnyDevice: (deviceDescriptor: AudioDeviceDescriptor, enabled: boolean) => void;
-     * } } callback - Callback object containing two state change methods.
-     * @returns { number } Returns {@link SUCCESS} if callback registration is successful; returns an error code defined in {@link audio_errors.h} otherwise.
+     * Subscribes to the personalized spatialization enable state change events by the specified device.
+     * When the state changes, registered clients will receive the callback.
+     * @param { PersonalizedSpatialEnabledChangeForAnyDeviceCallback } callback - Callback used to get the personalized spatialization enable state by the specified device.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
-     * @since 11 dynamic
+     * @since 26 dynamic
      * @since 26 static
      */
-    registerPersonalizedSpatializationEnabledEventListener(
-        callback: {
-        onPersonalizedSpatializationEnabledChange: (enabled: boolean) => void;
-        onPersonalizedSpatializationEnabledChangeForAnyDevice: (deviceDescriptor: AudioDeviceDescriptor, enabled: boolean) => void;
-        }
-    ): number;
+    onPersonalizedSpatializationEnabledChangeForAnyDevice(callback: PersonalizedSpatialEnabledChangeForAnyDevice): void;
+
+    /**
+     * Unsubscribes to the personalized spatialization enable state change events by the specified device.
+     * @param { 'personalizedSpatializationEnabledChangeForAnyDevice' } type - Type of the event to listen for.
+     * @param { PersonalizedSpatialEnabledChangeForAnyDevice } [callback] - Callback used to get the personalized spatialization enable state by the specified device.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @systemapi
+     * @since 26 dynamic
+     * @since 26 static
+     */
+    off(type: 'personalizedSpatializationEnabledChangeForAnyDevice', callback?: PersonalizedSpatialEnabledChangeForAnyDevice): void;
   }
 
   /**
