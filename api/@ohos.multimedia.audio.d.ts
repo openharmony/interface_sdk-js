@@ -7986,6 +7986,7 @@ declare namespace audio {
      * @type { AudioDeviceDescriptor }
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
+     * @stagemodelonly
      * @since 26 dynamic&static
      */
      deviceDescriptor: AudioDeviceDescriptor;
@@ -7995,6 +7996,7 @@ declare namespace audio {
       * @type { boolean }
       * @syscap SystemCapability.Multimedia.Audio.Spatialization
       * @systemapi
+      * @stagemodelonly
       * @since 26 dynamic&static
       */
      enabled: boolean;
@@ -8507,6 +8509,7 @@ declare namespace audio {
  	 * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
+     * @stagemodelonly
      * @since 26 dynamic&static
      */
     isPersonalizedSpatializationEnabled(selectedAudioDevice: AudioDeviceDescriptor): boolean;
@@ -8523,6 +8526,7 @@ declare namespace audio {
  	 * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
+     * @stagemodelonly
      * @since 26 dynamic&static
      */
     setPersonalizedSpatializationEnabled(
@@ -8539,6 +8543,7 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
+     * @stagemodelonly
      * @since 26 dynamic&static
      */
     onPersonalizedSpatializationEnabledChangeForAnyDevice(
@@ -8553,6 +8558,7 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
+     * @stagemodelonly
      * @since 26 dynamic&static
      */
     off(type: 'personalizedSpatializationEnabledChangeForAnyDevice',
