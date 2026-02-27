@@ -1198,7 +1198,7 @@ declare namespace hidebug {
     
     /**
      * Size of the memory occupied by the process in swap space, in KB.
-       * The value of this parameter is obtained by reading the value of VmSwap in the /proc/{pid}/status node.
+     * The value of this parameter is obtained by reading the value of VmSwap in the /proc/{pid}/status node.
      * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @FaAndStageModel
@@ -1209,7 +1209,7 @@ declare namespace hidebug {
     }
   /**
    * Obtains the physical memory information of application process. This API is implemented by reading data from the
-   * /proc/{pid}/status
+   * /proc/{pid}/status node.
    *
    * @returns { RssInfo } Returns the Rss information.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
