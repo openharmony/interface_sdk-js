@@ -939,6 +939,53 @@ declare namespace abilityAccessCtrl {
      * @since 23 static
      */
     openPermissionOnSetting(context: Context, permission: Permissions): Promise<SelectedResult>;
+
+    /**
+      * Queries all applications that have requested the specified permissions and their permission status.
+      *
+      * @permission ohos.permission.GET_SENSITIVE_PERMISSIONS
+      * @param { Array<Permissions> } permissionList - List of permissions to be queried. This parameter cannot be
+      *     null or empty.
+      * @returns { Promise<Array<PermissionStatusInfo>> } Returns the list of applications and their
+      *     permission status.
+      * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission
+      *     "ohos.permission.GET_SENSITIVE_PERMISSIONS".
+      * @throws { BusinessError } 202 - Not system application. Interface caller is not a system application.
+      * @throws { BusinessError } 12100001 - Invalid parameter. The permissionList is empty or exceeds the size
+      *     limit.
+      * @throws { BusinessError } 12100003 - The specified permission does not exist.
+      * @throws { BusinessError } 12100007 - The service is abnormal.
+      * @throws { BusinessError } 12100015 - The queried data exceeds the upper limit.
+      * @syscap SystemCapability.Security.AccessToken
+      * @systemapi
+      * @FaAndStageModel
+      * @since 26.0.0 dynamic&static
+      */
+      queryStatusByPermission(
+          permissionList: Array<Permissions>): Promise<Array<PermissionStatusInfo>>;
+
+      /**
+      * Queries the status of all permissions for the specified applications.
+      *
+      * @permission ohos.permission.GET_SENSITIVE_PERMISSIONS
+      * @param { Array<int> } tokenIDList - List of token IDs to be queried. This parameter cannot be null or
+      *     empty.
+      * @returns { Promise<Array<PermissionStatusInfo>> } Returns the list of permission
+      *     status for the specified applications.
+      * @throws { BusinessError } 201 - Permission denied. Interface caller does not have
+      *     permission "ohos.permission.GET_SENSITIVE_PERMISSIONS".
+      * @throws { BusinessError } 202 - Not system application. Interface caller is not a system application.
+      * @throws { BusinessError } 12100001 - Invalid parameter. The tokenIDList is empty
+      *     or exceeds the size limit.
+      * @throws { BusinessError } 12100002 - The specified tokenID does not exist.
+      * @throws { BusinessError } 12100007 - The service is abnormal.
+      * @throws { BusinessError } 12100015 - The queried data exceeds the upper limit.
+      * @syscap SystemCapability.Security.AccessToken
+      * @systemapi
+      * @FaAndStageModel
+      * @since 26.0.0 dynamic&static
+      */
+      queryStatusByTokenID(tokenIDList: Array<int>): Promise<Array<PermissionStatusInfo>>;
   }
 
   /**
@@ -1249,6 +1296,60 @@ declare namespace abilityAccessCtrl {
      * @since 23 static
      */
     GRANTED = 1
+  }
+  /**
+  * Permission status information.
+  *
+  * @interface PermissionStatusInfo
+  * @syscap SystemCapability.Security.AccessToken
+  * @systemapi
+  * @stagemodelonly
+  * @since 26.0.0 dynamic&static
+  */
+  interface PermissionStatusInfo {
+    /**
+    * Token ID of the application.
+    *
+    * @type { int }
+    * @syscap SystemCapability.Security.AccessToken
+    * @systemapi
+    * @stagemodelonly
+    * @since 26.0.0 dynamic&static
+    */
+    tokenID: int;
+  
+    /**
+    * Permission name.
+    *
+    * @type { Permissions }
+    * @syscap SystemCapability.Security.AccessToken
+    * @systemapi
+    * @stagemodelonly
+    * @since 26.0.0 dynamic&static
+    */
+    permissionName: Permissions;
+
+    /**
+    * Permission grant status.
+    *
+    * @type { GrantStatus }
+    * @syscap SystemCapability.Security.AccessToken
+    * @systemapi
+    * @stagemodelonly
+    * @since 26.0.0 dynamic&static
+    */
+    grantStatus: GrantStatus;
+
+    /**
+    * Permission grant flag.
+    *
+    * @type { int }
+    * @syscap SystemCapability.Security.AccessToken
+    * @systemapi
+    * @stagemodelonly
+    * @since 26.0.0 dynamic&static
+    */
+    grantFlags: int;
   }
 }
 
