@@ -13787,7 +13787,6 @@ declare namespace audio {
   /** 
    * Provide enhanced audio device management capabilities.
    * 
-   * @typedef AudioDeviceEnhanceManager
    * @syscap SystemCapability.Multimedia.Audio.DeviceEnhance
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
