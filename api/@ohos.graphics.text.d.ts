@@ -5811,6 +5811,17 @@ declare namespace text {
      * @since 26.0.0 dynamic&static
      */
     getParagraphStyle(): ParagraphStyle;
+
+    /**
+     * Obtains the visible text ranges of the paragraph.
+     *
+     * @returns { Array<Range> } The visible text ranges of the paragraph.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    getVisibleTextRanges(): Array<Range>;
   }
 
   /**
