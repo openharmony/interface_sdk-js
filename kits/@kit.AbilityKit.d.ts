@@ -223,6 +223,9 @@ import StartupTask from '@ohos.app.appstartup.StartupTask';
 import startupManager from '@ohos.app.appstartup.startupManager';
 import PhotoEditorExtensionAbility from '@ohos.app.ability.PhotoEditorExtensionAbility';
 import systemConfiguration from '@ohos.app.ability.systemConfiguration';
+import AgentExtensionAbility from '@ohos.app.agent.AgentExtensionAbility';
+import AgentUIExtensionAbility from '@ohos.app.agent.AgentUIExtensionAbility';
+import agentManager from '@ohos.app.agent.agentManager';
 
 export {
   appControl, bundleManager, bundleMonitor, bundleResourceManager, defaultAppManager, distributedBundleManager,
@@ -240,6 +243,6 @@ export {
   ChildProcessArgs, ChildProcessOptions, quickFixManager, businessAbilityRouter, EmbeddedUIExtensionAbility,
   UIServiceExtensionAbility, CompletionHandler, AppServiceExtensionAbility, kioskManager,
   StartupConfig, StartupConfigEntry, StartupListener, StartupTask, startupManager, systemConfiguration,
-  PhotoEditorExtensionAbility
+  PhotoEditorExtensionAbility, AgentExtensionAbility, AgentUIExtensionAbility, agentManager
 };
 /*** endif */
