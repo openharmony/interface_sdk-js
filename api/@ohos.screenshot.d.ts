@@ -197,7 +197,7 @@ declare namespace screenshot {
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified.
    *     2.Incorrect parameter types.
-   *     3.The window IDs passed in the options are invalid.
+   *     3.Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported on this device.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -215,7 +215,7 @@ declare namespace screenshot {
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified.
    *     2.Incorrect parameter types.
-   *     3.The window IDs passed in the options are invalid.
+   *     3.Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported on this device.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
