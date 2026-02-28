@@ -10709,6 +10709,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20 dynamic
+     * @since 24 static
      */
     postSkew(kx: double, ky: double, px: double, py: double): void;
 
