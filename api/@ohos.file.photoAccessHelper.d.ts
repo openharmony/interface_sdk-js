@@ -12831,6 +12831,22 @@ declare namespace photoAccessHelper {
       name: string,
       subtype: AlbumSubtype
     ): MediaAnalysisAlbumChangeRequest;
+
+    /**
+     * Sets the default analysis album cover.
+     *
+     * @param { string } coverUri - URI of the file to be set as the default analysis album cover.
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 23800151 - The scenario parameter verification fails.
+     *     <br>Possible causes: 1. The input parameter is not within the valid range.
+     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
+     *     <br>Possible causes: 1. Database corrupted; 2.The file system is abnormal; 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    setDefaultCoverUri(coverUri: string): void;
   }
 
   /**
