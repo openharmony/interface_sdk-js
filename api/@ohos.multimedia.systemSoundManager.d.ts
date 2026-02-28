@@ -1278,7 +1278,7 @@ declare namespace systemSoundManager {
      * @throws { BusinessError } 5400103 - I/O error. Possible causes:
      *     1. The target file size exceeds 2 GB;
      *     2. Failed to find the specified file;
-     *     3. Duplicate file name: Due to a previous call to this method, a file with the same name already exists in the ringtone library, but with a different URI.
+     *     3. Ringtone library error.
      *     4. System sound manager service error.
      * @throws { BusinessError } 20700004 - Data size exceeds the limit. Note:
      *     This error is returned when the file size is between 200MB and 2GB.
