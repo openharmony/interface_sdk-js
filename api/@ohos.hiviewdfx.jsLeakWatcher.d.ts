@@ -87,6 +87,81 @@ declare namespace jsLeakWatcher {
    */
   function enableLeakWatcher(isEnabled: boolean, configs: Array<string>, callback: Callback<Array<string>>): void
 
+  interface LeakWatcherConfig {
+    /**
+     * Array of types of objects to watch. default: value is an empty string.
+     *
+     * @type { string }
+     * @syscap SystemCapability.HiviewDFX.HiChecker
+     * @FaAndStageModel
+     * @since 24 dynamic
+     */
+    objectWatcher: string;
+    /**
+     * List of monitored object IDs. default: value is an empty array.
+     *
+     * @type { Array<number> }
+     * @syscap SystemCapability.HiviewDFX.HiChecker
+     * @FaAndStageModel
+     * @since 24 dynamic
+     */
+    objectUniqueIDs: Array<number>;
+    /**
+     * Interval between each leak detection cycle. default: value is 30 seconds.
+     *
+     * @type { number }
+     * @syscap SystemCapability.HiviewDFX.HiChecker
+     * @FaAndStageModel
+     * @since 24 dynamic
+     */
+    checkInterval: number;
+    /**
+     * Triggering dump when the number of leaked applications in the foreground reaches the specified value. default: value is 5.
+     *
+     * @type { number }
+     * @syscap SystemCapability.HiviewDFX.HiChecker
+     * @FaAndStageModel
+     * @since 24 dynamic
+     */
+    retainedVisibleThreshold: number;
+    /**
+     * Triggering dump when the number of leaked apps in the background reaches the specified value. default: value is 1.
+     *
+     * @type { number }
+     * @syscap SystemCapability.HiviewDFX.HiChecker
+     * @FaAndStageModel
+     * @since 24 dynamic
+     */
+    retainedInvisibleThreshold: number;
+    /**
+     * Maximum number of dump files that can be saved to prevent the disk space from being used up. default: value is 10.
+     *
+     * @type { number }
+     * @syscap SystemCapability.HiviewDFX.HiChecker
+     * @FaAndStageModel
+     * @since 24 dynamic
+     */
+    maxStoredHeapDumps: number;
+    /**
+     * Delay the dump execution to ensure that the GC can be scheduled and executed before the dump is performed. default: value is 5 seconds.
+     *
+     * @type { number }
+     * @syscap SystemCapability.HiviewDFX.HiChecker
+     * @FaAndStageModel
+     * @since 24 dynamic
+     */
+    dumpHeapWaitTimeMs: number;
+    /**
+     * Filter out the class names of objects you do not want to monitor. default: value is an empty array.
+     *
+     * @type { Array<string> }
+     * @syscap SystemCapability.HiviewDFX.HiChecker
+     * @FaAndStageModel
+     * @since 24 dynamic
+     */
+    whiteList: Array<string>;
+  }
+
   /**
    * Enables or disables jsLeakWatcher.
    *
@@ -107,7 +182,7 @@ declare namespace jsLeakWatcher {
    *     3.Parameter verification failed.
    * @syscap SystemCapability.HiviewDFX.HiChecker
    * @FaAndStageModel
-   * @since 24 dynamic
+   * @since 24 dynamic&static
    */
   function enableLeakWatcher(isEnabled: boolean, configs: LeakWatcherConfig, callback: Callback<Array<string>>): void;
 }
