@@ -81,7 +81,7 @@ declare namespace motion {
      */
     NOT_HELD = 0,
     /**
-     * indicates the holding with the left hand.
+     * indicates holding with the left hand.
      *
      * @syscap SystemCapability.MultimodalAwareness.Motion
      * @since 20 dynamic
@@ -89,7 +89,7 @@ declare namespace motion {
      */
     LEFT_HAND_HELD = 1,
     /**
-     * indicates the holding with the right hand.
+     * indicates holding with the right hand.
      *
      * @syscap SystemCapability.MultimodalAwareness.Motion
      * @since 20 dynamic
@@ -97,7 +97,7 @@ declare namespace motion {
      */
     RIGHT_HAND_HELD = 2,
     /**
-     * indicates the holding with both hands.
+     * indicates holding with both hands.
      *
      * @syscap SystemCapability.MultimodalAwareness.Motion
      * @since 20 dynamic
