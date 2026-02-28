@@ -22,6 +22,7 @@
 import { FrameNode, LayoutConstraint } from 'arkui.FrameNode';
 import { LengthMetrics, NodePosition } from 'arkui.Graphics';
 import { HorizontalAlign, FlexAlign, VerticalAlign, LocalizedAlignment } from './component/enums';
+import { ItemFillPolicy } from './component/units';
 
 /**
  * Defines layout algorithm.
@@ -329,4 +330,95 @@ export declare class StackLayoutAlgorithm implements LayoutAlgorithm {
      * @since 24 static
      */
     public alignContent: LocalizedAlignment;
+}
+
+/**
+ * GridLayoutAlgorithm constructor options.
+ *
+ * @interface GridLayoutAlgorithmOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 24 static
+ */
+interface GridLayoutAlgorithmOptions {
+    /**
+     * This parameter specifies the number of columns in the current grid layout.
+     *
+     * @type { ?(string | ItemFillPolicy) }
+     * @default '1fr'
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 24 static
+     */
+    columnsTemplate?: string | ItemFillPolicy;
+    /**
+     * The spacing between columns.
+     *
+     * @type { ?LengthMetrics }
+     * @default LengthMetrics.vp(0)
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 24 static
+     */
+    columnsGap?: LengthMetrics;
+    /**
+     * The spacing between rows.
+     *
+     * @type { ?LengthMetrics }
+     * @default LengthMetrics.vp(0)
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 24 static
+     */
+    rowsGap?: LengthMetrics;
+}
+
+/**
+ * Defines the grid layout algorithm.
+ *
+ * @implements LayoutAlgorithm
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 24 static
+ */
+export declare class GridLayoutAlgorithm implements LayoutAlgorithm {
+    /**
+     * Constructor.
+     *
+     * @param { GridLayoutAlgorithmOptions } [option] - set properties of grid layout algorithm.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 24 static
+     */
+    constructor(option?: GridLayoutAlgorithmOptions);
+    /**
+     * This parameter specifies the number of columns in the current grid layout.
+     *
+     * @type { ?(string | ItemFillPolicy) }
+     * @default '1fr'
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 24 static
+     */
+    public columnsTemplate?: string | ItemFillPolicy;
+    /**
+     * The spacing between columns.
+     *
+     * @type { ?LengthMetrics }
+     * @default LengthMetrics.vp(0)
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 24 static
+     */
+    public columnsGap?: LengthMetrics;
+    /**
+     * The spacing between rows.
+     *
+     * @type { ?LengthMetrics }
+     * @default LengthMetrics.vp(0)
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 24 static
+     */
+    public rowsGap?: LengthMetrics;
 }
