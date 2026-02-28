@@ -4708,6 +4708,36 @@ declare namespace osAccount {
   }
 
   /**
+   * Options for domain account authentication.
+   *
+   * @interface DomainAccountAuthOptions
+   * @syscap SystemCapability.Account.OsAccount
+   * @systemapi
+   * @since 24 dynamic&static
+   */
+  interface DomainAccountAuthOptions {
+    /**
+     * Indicates the server parameters.
+     *
+     * @type { ?Record<string, Object> }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 24 dynamic
+     */
+    serverParams?: Record<string, Object>;
+
+    /**
+     * Indicates the server parameters.
+     *
+     * @type { ?Record<string, RecordData> }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 24 static
+     */
+    serverParams?: Record<string, RecordData>;
+  }
+
+  /**
    * Provides abilities for the management of domain account.
    *
    * @syscap SystemCapability.Account.OsAccount
@@ -4805,6 +4835,40 @@ declare namespace osAccount {
      * @since 23 static
      */
     static auth(domainAccountInfo: DomainAccountInfo, credential: Uint8Array, callback: IUserAuthCallback): void;
+
+    /**
+     * Authenticates the specified domain account with a credential and options.
+     *
+     * @permission ohos.permission.ACCESS_USER_AUTH_INTERNAL
+     * @param { DomainAccountInfo } domainAccountInfo - Indicates the domain account information.
+     * @param { Uint8Array } credential - Indicates the credential for authentication.
+     * @param { DomainAccountAuthOptions } options - Indicates the options for domain account authentication.
+     * @param { IUserAuthCallback } callback - Indicates the callback for getting the authentication result.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300002 - Invalid domainAccountInfo or credential.
+     * @throws { BusinessError } 12300003 - Domain account does not exist.
+     * @throws { BusinessError } 12300013 - Network exception.
+     * @throws { BusinessError } 12300101 - Authentication failed.
+     * @throws { BusinessError } 12300109 - The authentication, enrollment, or update operation is canceled.
+     * @throws { BusinessError } 12300110 - The authentication is locked.
+     * @throws { BusinessError } 12300111 - The authentication time out.
+     * @throws { BusinessError } 12300112 - The authentication service is busy.
+     * @throws { BusinessError } 12300113 - The account authentication service does not exist.
+     * @throws { BusinessError } 12300114 - The account authentication service works abnormally.
+     * @throws { BusinessError } 12300211 - Server unreachable.
+     * @static
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 24 dynamic&static
+     */
+    static auth(
+      domainAccountInfo: DomainAccountInfo,
+      credential: Uint8Array,
+      options: DomainAccountAuthOptions,
+      callback: IUserAuthCallback): void;
 
     /**
      * Authenticates the domain account bound to the current OS account with a popup.
