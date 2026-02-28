@@ -35,7 +35,6 @@ import unifiedDataChannel from './@ohos.data.unifiedDataChannel';
  * @syscap SystemCapability.MiscServices.Pasteboard
  * @atomicservice
  * @since 11 dynamic
- * @since 23 static
  */
 /**
  * systemPasteboard
@@ -43,7 +42,8 @@ import unifiedDataChannel from './@ohos.data.unifiedDataChannel';
  * @syscap SystemCapability.MiscServices.Pasteboard
  * @crossplatform
  * @atomicservice
- * @since 24 dynamic&static
+ * @since 24 dynamic
+ * @since 23 static
  */
 declare namespace pasteboard {
   /**
@@ -81,7 +81,6 @@ declare namespace pasteboard {
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice
    * @since 11 dynamic
-   * @since 23 static
    */
   /**
    * Indicates MIME types of HTML text.
@@ -89,7 +88,8 @@ declare namespace pasteboard {
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @crossplatform
    * @atomicservice
-   * @since 24 dynamic&static
+   * @since 24 dynamic
+   * @since 23 static
    */
   const MIMETYPE_TEXT_HTML = 'text/html';
   /**
@@ -104,7 +104,6 @@ declare namespace pasteboard {
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice
    * @since 11 dynamic
-   * @since 23 static
    */
   /**
    * Indicates MIME types of wants.
@@ -112,7 +111,8 @@ declare namespace pasteboard {
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @crossplatform
    * @atomicservice
-   * @since 24 dynamic&static
+   * @since 24 dynamic
+   * @since 23 static
    */
   const MIMETYPE_TEXT_WANT = 'text/want';
   /**
@@ -127,7 +127,6 @@ declare namespace pasteboard {
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice
    * @since 11 dynamic
-   * @since 23 static
    */
   /**
    * Indicates MIME types of plain text.
@@ -135,7 +134,8 @@ declare namespace pasteboard {
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @crossplatform
    * @atomicservice
-   * @since 24 dynamic&static
+   * @since 24 dynamic
+   * @since 23 static
    */
   const MIMETYPE_TEXT_PLAIN = 'text/plain';
   /**
@@ -150,7 +150,6 @@ declare namespace pasteboard {
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice
    * @since 11 dynamic
-   * @since 23 static
    */
   /**
    * Indicates MIME types of URIs.
@@ -158,7 +157,8 @@ declare namespace pasteboard {
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @crossplatform
    * @atomicservice
-   * @since 24 dynamic&static
+   * @since 24 dynamic
+   * @since 23 static
    */
   const MIMETYPE_TEXT_URI = 'text/uri';
   /**
@@ -173,7 +173,6 @@ declare namespace pasteboard {
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice
    * @since 11 dynamic
-   * @since 23 static
    */
   /**
    * Indicates MIME type of PixelMap.
@@ -181,7 +180,8 @@ declare namespace pasteboard {
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @crossplatform
    * @atomicservice
-   * @since 24 dynamic&static
+   * @since 24 dynamic
+   * @since 23 static
    */
   const MIMETYPE_PIXELMAP = 'pixelMap';
 
@@ -197,7 +197,6 @@ declare namespace pasteboard {
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice
    * @since 11 dynamic
-   * @since 23 static
    */
   /**
    * Indicates type of value.
@@ -205,7 +204,8 @@ declare namespace pasteboard {
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @crossplatform
    * @atomicservice
-   * @since 24 dynamic&static
+   * @since 24 dynamic
+   * @since 23 static
    */
   type ValueType = string | image.PixelMap | Want | ArrayBuffer;
 
@@ -214,14 +214,14 @@ declare namespace pasteboard {
    * @typedef { function } UpdateCallback
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @since 22 dynamic
-   * @since 23 static
    */
   /**
    * Indicates the callback for pasteboard content changes.
    * @typedef { function } UpdateCallback
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @crossplatform
-   * @since 24 dynamic&static
+   * @since 24 dynamic
+   * @since 23 static
    */
   type UpdateCallback = () => void;
 
@@ -291,7 +291,6 @@ declare namespace pasteboard {
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice
    * @since 11 dynamic
-   * @since 23 static
    */
   /**
    * Creates a PasteData object of the specified type.
@@ -304,7 +303,8 @@ declare namespace pasteboard {
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @crossplatform
    * @atomicservice
-   * @since 24 dynamic&static
+   * @since 24 dynamic
+   * @since 23 static
    */
   function createData(mimeType: string, value: ValueType): PasteData;
 
@@ -317,7 +317,6 @@ declare namespace pasteboard {
    *     3. Parameter verification failed.
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @since 14 dynamic
-   * @since 23 static
    */
   /**
    * Creates a PasteData object with the specified MIME types and values.
@@ -328,7 +327,8 @@ declare namespace pasteboard {
    *     3. Parameter verification failed.
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @crossplatform
-   * @since 24 dynamic&static
+   * @since 24 dynamic
+   * @since 23 static
    */
   function createData(data: Record<string, ValueType>): PasteData;
 
@@ -398,7 +398,6 @@ declare namespace pasteboard {
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice
    * @since 11 dynamic
-   * @since 23 static
    */
   /**
    * Creates a PasteDataRecord object of the specified type.
@@ -411,7 +410,8 @@ declare namespace pasteboard {
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @crossplatform
    * @atomicservice
-   * @since 24 dynamic&static
+   * @since 24 dynamic
+   * @since 23 static
    */
   function createRecord(mimeType: string, value: ValueType): PasteDataRecord;
 
@@ -427,7 +427,6 @@ declare namespace pasteboard {
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice
    * @since 11 dynamic
-   * @since 23 static
    */
   /**
    * get SystemPasteboard
@@ -435,7 +434,8 @@ declare namespace pasteboard {
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @crossplatform
    * @atomicservice
-   * @since 24 dynamic&static
+   * @since 24 dynamic
+   * @since 23 static
    */
   function getSystemPasteboard(): SystemPasteboard;
 
@@ -540,7 +540,6 @@ declare namespace pasteboard {
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice
    * @since 11 dynamic
-   * @since 23 static
    */
   /**
    * Defines the properties of all data records on the pasteboard, including the timestamp, data type, pasteable range, 
@@ -549,7 +548,8 @@ declare namespace pasteboard {
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @crossplatform
    * @atomicservice
-   * @since 24 dynamic&static
+   * @since 24 dynamic
+   * @since 23 static
    */
   interface PasteDataProperty {
     /**
@@ -602,7 +602,6 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
-     * @since 23 static
      */
     /**
      * non-repeating MIME types of all records in PasteData.
@@ -611,7 +610,8 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @crossplatform
      * @atomicservice
-     * @since 24 dynamic&static
+     * @since 24 dynamic
+     * @since 23 static
      */
     readonly mimeTypes: Array<string>;
     /**
@@ -626,7 +626,6 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
-     * @since 23 static
      */
     /**
      * the user-defined tag of a PasteData object.
@@ -634,7 +633,8 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @crossplatform
      * @atomicservice
-     * @since 24 dynamic&static
+     * @since 24 dynamic
+     * @since 23 static
      */
     tag: string;
     /**
@@ -651,7 +651,6 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
-     * @since 23 static
      */
     /**
      * a timestamp, which indicates when data is written to the system pasteboard.
@@ -660,7 +659,8 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @crossplatform
      * @atomicservice
-     * @since 24 dynamic&static
+     * @since 24 dynamic
+     * @since 23 static
      */
     readonly timestamp: long;
     /**
@@ -709,7 +709,6 @@ declare namespace pasteboard {
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice
    * @since 11 dynamic
-   * @since 23 static
    */
   /**
    * Paste data record.
@@ -717,7 +716,8 @@ declare namespace pasteboard {
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @crossplatform
    * @atomicservice
-   * @since 24 dynamic&static
+   * @since 24 dynamic
+   * @since 23 static
    */
   interface PasteDataRecord {
     /**
@@ -734,7 +734,6 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
-     * @since 23 static
      */
     /**
      * HTML text in a record.
@@ -744,7 +743,8 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @crossplatform
      * @atomicservice
-     * @since 24 dynamic&static
+     * @since 24 dynamic
+     * @since 23 static
      */
     htmlText: string;
     /**
@@ -761,7 +761,6 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
-     * @since 23 static
      */
     /**
      * Want in a record.
@@ -771,7 +770,8 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @crossplatform
      * @atomicservice
-     * @since 24 dynamic&static
+     * @since 24 dynamic
+     * @since 23 static
      */
     want: Want;
     /**
@@ -788,7 +788,6 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
-     * @since 23 static
      */
     /**
      * Default MIME type of a record.
@@ -798,7 +797,8 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @crossplatform
      * @atomicservice
-     * @since 24 dynamic&static
+     * @since 24 dynamic
+     * @since 23 static
      */
     mimeType: string;
     /**
@@ -815,7 +815,6 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
-     * @since 23 static
      */
     /**
      * Plain text in a record.
@@ -825,7 +824,8 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @crossplatform
      * @atomicservice
-     * @since 24 dynamic&static
+     * @since 24 dynamic
+     * @since 23 static
      */
     plainText: string;
     /**
@@ -842,7 +842,6 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
-     * @since 23 static
      */
     /**
      * URI in a record.
@@ -852,7 +851,8 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @crossplatform
      * @atomicservice
-     * @since 24 dynamic&static
+     * @since 24 dynamic
+     * @since 23 static
      */
     uri: string;
     /**
@@ -869,7 +869,6 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
-     * @since 23 static
      */
     /**
      * PixelMap in a record.
@@ -879,7 +878,8 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @crossplatform
      * @atomicservice
-     * @since 24 dynamic&static
+     * @since 24 dynamic
+     * @since 23 static
      */
     pixelMap: image.PixelMap;
     /**
@@ -902,7 +902,7 @@ declare namespace pasteboard {
      * @type { Record<string, ArrayBuffer> }
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since 23 dynamic&static
+     * @since 23 dynamic
      */
     /**
      * Custom data in a record, string indicates the MIME type of custom data, ArrayBuffer indicates the value of custom data.
@@ -912,7 +912,8 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @crossplatform
      * @atomicservice
-     * @since 24 dynamic&static
+     * @since 24 dynamic
+     * @since 23 static
      */
     data: Record<string, ArrayBuffer>;
 
@@ -949,7 +950,6 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
-     * @since 23 static
      */
     /**
      * Converts data in PasteData to text format.
@@ -957,7 +957,8 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @crossplatform
      * @atomicservice
-     * @since 24 dynamic&static
+     * @since 24 dynamic
+     * @since 23 static
      */
     toPlainText(): string;
 
@@ -970,7 +971,6 @@ declare namespace pasteboard {
      *     3. Parameter verification failed.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 14 dynamic
-     * @since 23 static
      */
     /**
      * Adds data to the PasteDataRecord object.
@@ -981,7 +981,8 @@ declare namespace pasteboard {
      *     3. Parameter verification failed.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @crossplatform
-     * @since 24 dynamic&static
+     * @since 24 dynamic
+     * @since 23 static
      */
     addEntry(type: string, value: ValueType): void;
 
@@ -994,7 +995,6 @@ declare namespace pasteboard {
      *     3. Parameter verification failed.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 14 dynamic
-     * @since 23 static
      */
     /**
      * Obtains the valid types in the PasteDataRecord object.
@@ -1005,7 +1005,8 @@ declare namespace pasteboard {
      *     3. Parameter verification failed.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @crossplatform
-     * @since 24 dynamic&static
+     * @since 24 dynamic
+     * @since 23 static
      */
     getValidTypes(types: Array<string>): Array<string>;
 
@@ -1018,7 +1019,6 @@ declare namespace pasteboard {
      *     3. Parameter verification failed.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 14 dynamic
-     * @since 23 static
      */
     /**
      * Obtains data of the specified type.
@@ -1029,7 +1029,8 @@ declare namespace pasteboard {
      *     3. Parameter verification failed.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @crossplatform
-     * @since 24 dynamic&static
+     * @since 24 dynamic
+     * @since 23 static
      */
     getData(type: string): Promise<ValueType>;
   }
@@ -1046,7 +1047,6 @@ declare namespace pasteboard {
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice
    * @since 11 dynamic
-   * @since 23 static
    */
   /**
    * Classes for paste data.
@@ -1054,7 +1054,8 @@ declare namespace pasteboard {
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @crossplatform
    * @atomicservice
-   * @since 24 dynamic&static
+   * @since 24 dynamic
+   * @since 23 static
    */
   interface PasteData {
     /**
@@ -1089,7 +1090,6 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
-     * @since 23 static
      */
     /**
      * Adds a PasteRecord to a PasteData object and updates MIME types in DataProperty.
@@ -1097,7 +1097,8 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @crossplatform
      * @atomicservice
-     * @since 24 dynamic&static
+     * @since 24 dynamic
+     * @since 23 static
      */
     addRecord(record: PasteDataRecord): void;
 
@@ -1152,7 +1153,6 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
-     * @since 23 static
      */
     /**
      * Adds a record with mimeType and value to a PasteData object.
@@ -1164,7 +1164,8 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @crossplatform
      * @atomicservice
-     * @since 24 dynamic&static
+     * @since 24 dynamic
+     * @since 23 static
      */
     addRecord(mimeType: string, value: ValueType): void;
 
@@ -1180,7 +1181,6 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
-     * @since 23 static
      */
     /**
      * MIME types of all content on the pasteboard.
@@ -1188,7 +1188,8 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @crossplatform
      * @atomicservice
-     * @since 24 dynamic&static
+     * @since 24 dynamic
+     * @since 23 static
      */
     getMimeTypes(): Array<string>;
 
@@ -1204,7 +1205,6 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
-     * @since 23 static
      */
     /**
      * HTML text of the primary record in a PasteData object.
@@ -1212,7 +1212,8 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @crossplatform
      * @atomicservice
-     * @since 24 dynamic&static
+     * @since 24 dynamic
+     * @since 23 static
      */
     getPrimaryHtml(): string;
 
@@ -1228,7 +1229,6 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
-     * @since 23 static
      */
     /**
      * the want of the primary record in a PasteData object.
@@ -1236,7 +1236,8 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @crossplatform
      * @atomicservice
-     * @since 24 dynamic&static
+     * @since 24 dynamic
+     * @since 23 static
      */
     getPrimaryWant(): Want;
 
@@ -1252,7 +1253,6 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
-     * @since 23 static
      */
     /**
      * the MIME type of the primary record in a PasteData object.
@@ -1260,7 +1260,8 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @crossplatform
      * @atomicservice
-     * @since 24 dynamic&static
+     * @since 24 dynamic
+     * @since 23 static
      */
     getPrimaryMimeType(): string;
 
@@ -1276,7 +1277,6 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
-     * @since 23 static
      */
     /**
      * the plain text of the primary record in a PasteData object.
@@ -1284,7 +1284,8 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @crossplatform
      * @atomicservice
-     * @since 24 dynamic&static
+     * @since 24 dynamic
+     * @since 23 static
      */
     getPrimaryText(): string;
 
@@ -1300,7 +1301,6 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
-     * @since 23 static
      */
     /**
      * the URI of the primary record in a PasteData object.
@@ -1308,7 +1308,8 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @crossplatform
      * @atomicservice
-     * @since 24 dynamic&static
+     * @since 24 dynamic
+     * @since 23 static
      */
     getPrimaryUri(): string;
 
@@ -1324,7 +1325,6 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
-     * @since 23 static
      */
     /**
      * Gets the primary PixelMap record in a PasteData object.
@@ -1332,7 +1332,8 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @crossplatform
      * @atomicservice
-     * @since 24 dynamic&static
+     * @since 24 dynamic
+     * @since 23 static
      */
     getPrimaryPixelMap(): image.PixelMap;
 
@@ -1348,7 +1349,6 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
-     * @since 23 static
      */
     /**
      * DataProperty of a PasteData object.
@@ -1356,7 +1356,8 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @crossplatform
      * @atomicservice
-     * @since 24 dynamic&static
+     * @since 24 dynamic
+     * @since 23 static
      */
     getProperty(): PasteDataProperty;
 
@@ -1376,7 +1377,6 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
-     * @since 23 static
      */
     /**
      * Sets PasteDataProperty to a PasteData object, Modifying shareOption is supported only.
@@ -1386,7 +1386,8 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @crossplatform
      * @atomicservice
-     * @since 24 dynamic&static
+     * @since 24 dynamic
+     * @since 23 static
      */
     setProperty(property: PasteDataProperty): void;
 
@@ -1425,7 +1426,6 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
-     * @since 23 static
      */
     /**
      * Gets record by index in PasteData.
@@ -1439,7 +1439,8 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @crossplatform
      * @atomicservice
-     * @since 24 dynamic&static
+     * @since 24 dynamic
+     * @since 23 static
      */
     getRecord(index: int): PasteDataRecord;
 
@@ -1455,7 +1456,6 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
-     * @since 23 static
      */
     /**
      * the number of records in a PasteData object.
@@ -1463,7 +1463,8 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @crossplatform
      * @atomicservice
-     * @since 24 dynamic&static
+     * @since 24 dynamic
+     * @since 23 static
      */
     getRecordCount(): int;
 
@@ -1479,7 +1480,6 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
-     * @since 23 static
      */
     /**
      * the user-defined tag of a PasteData object.
@@ -1487,7 +1487,8 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @crossplatform
      * @atomicservice
-     * @since 24 dynamic&static
+     * @since 24 dynamic
+     * @since 23 static
      */
     getTag(): string;
 
@@ -1522,7 +1523,6 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
-     * @since 23 static
      */
     /**
      * Checks whether there is a specified MIME type of data in DataProperty.
@@ -1534,7 +1534,8 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @crossplatform
      * @atomicservice
-     * @since 24 dynamic&static
+     * @since 24 dynamic
+     * @since 23 static
      */
     hasType(mimeType: string): boolean;
 
@@ -1571,7 +1572,6 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
-     * @since 23 static
      */
     /**
      * Removes a Record based on a specified index.
@@ -1584,7 +1584,8 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @crossplatform
      * @atomicservice
-     * @since 24 dynamic&static
+     * @since 24 dynamic
+     * @since 23 static
      */
     removeRecord(index: int): void;
 
@@ -1622,7 +1623,6 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
-     * @since 23 static
      */
     /**
      * Replaces a specified record with a new one.
@@ -1636,7 +1636,8 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @crossplatform
      * @atomicservice
-     * @since 24 dynamic&static
+     * @since 24 dynamic
+     * @since 23 static
      */
     replaceRecord(index: int, record: PasteDataRecord): void;
 
@@ -1838,7 +1839,6 @@ declare namespace pasteboard {
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice
    * @since 11 dynamic
-   * @since 23 static
    */
   /**
    * Classes for system pasteboard.
@@ -1846,7 +1846,8 @@ declare namespace pasteboard {
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @crossplatform
    * @atomicservice
-   * @since 24 dynamic&static
+   * @since 24 dynamic
+   * @since 23 static
    */
   interface SystemPasteboard {
     /**
@@ -1965,7 +1966,6 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
-     * @since 23 static
      */
     /**
      * Checks whether there is a specified MIME type of data in Data.
@@ -1977,7 +1977,8 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @crossplatform
      * @atomicservice
-     * @since 24 dynamic&static
+     * @since 24 dynamic
+     * @since 23 static
      */
     hasDataType(mimeType: string): boolean;
 
@@ -2019,7 +2020,6 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
-     * @since 23 static
      */
     /**
      * Clears the pasteboard.
@@ -2029,7 +2029,8 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @crossplatform
      * @atomicservice
-     * @since 24 dynamic&static
+     * @since 24 dynamic
+     * @since 23 static
      */
     clearData(callback: AsyncCallback<void>): void;
 
@@ -2045,7 +2046,6 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
-     * @since 23 static
      */
     /**
      * Clears the pasteboard.
@@ -2053,7 +2053,8 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @crossplatform
      * @atomicservice
-     * @since 24 dynamic&static
+     * @since 24 dynamic
+     * @since 23 static
      */
     clearData(): Promise<void>;
 
@@ -2063,7 +2064,6 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
-     * @since 23 static
      */
     /**
      * Clears the pasteboard.
@@ -2071,7 +2071,8 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @crossplatform
      * @atomicservice
-     * @since 24 dynamic&static
+     * @since 24 dynamic
+     * @since 23 static
      */
     clearDataSync(): void;
 
@@ -2128,7 +2129,6 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 12 dynamic
-     * @since 23 static
      */
     /**
      * Gets pastedata from the system pasteboard.
@@ -2142,7 +2142,8 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @crossplatform
      * @atomicservice
-     * @since 24 dynamic&static
+     * @since 24 dynamic
+     * @since 23 static
      */
     getData(callback: AsyncCallback<PasteData>): void;
 
@@ -2171,7 +2172,6 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 12 dynamic
-     * @since 23 static
      */
     /**
      * Gets pastedata from the system pasteboard.
@@ -2183,7 +2183,8 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @crossplatform
      * @atomicservice
-     * @since 24 dynamic&static
+     * @since 24 dynamic
+     * @since 23 static
      */
     getData(): Promise<PasteData>;
 
@@ -2205,7 +2206,6 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 12 dynamic
-     * @since 23 static
      */
     /**
      * Gets pasteData from the system pasteboard.
@@ -2217,7 +2217,8 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @crossplatform
      * @atomicservice
-     * @since 24 dynamic&static
+     * @since 24 dynamic
+     * @since 23 static
      */
     getDataSync(): PasteData;
 
@@ -2268,7 +2269,6 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
-     * @since 23 static
      */
     /**
      * Checks whether there is content in the system pasteboard.
@@ -2278,7 +2278,8 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @crossplatform
      * @atomicservice
-     * @since 24 dynamic&static
+     * @since 24 dynamic
+     * @since 23 static
      */
     hasData(callback: AsyncCallback<boolean>): void;
 
@@ -2294,7 +2295,6 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
-     * @since 23 static
      */
     /**
      * Checks whether there is content in the system pasteboard.
@@ -2302,7 +2302,8 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @crossplatform
      * @atomicservice
-     * @since 24 dynamic&static
+     * @since 24 dynamic
+     * @since 23 static
      */
     hasData(): Promise<boolean>;
 
@@ -2313,7 +2314,6 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
-     * @since 23 static
      */
     /**
      * Checks whether there is content in the system pasteboard.
@@ -2322,7 +2322,8 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @crossplatform
      * @atomicservice
-     * @since 24 dynamic&static
+     * @since 24 dynamic
+     * @since 23 static
      */
     hasDataSync(): boolean;
 
@@ -2372,7 +2373,6 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
-     * @since 23 static
      */
     /**
      * Writes PasteData to the system pasteboard.
@@ -2385,7 +2385,8 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @crossplatform
      * @atomicservice
-     * @since 24 dynamic&static
+     * @since 24 dynamic
+     * @since 23 static
      */
     setData(data: PasteData, callback: AsyncCallback<void>): void;
 
@@ -2411,7 +2412,6 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
-     * @since 23 static
      */
     /**
      * Writes PasteData to the system pasteboard.
@@ -2424,7 +2424,8 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @crossplatform
      * @atomicservice
-     * @since 24 dynamic&static
+     * @since 24 dynamic
+     * @since 23 static
      */
     setData(data: PasteData): Promise<void>;
 
@@ -2437,7 +2438,6 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
-     * @since 23 static
      */
     /**
      * Writes PasteData to the system pasteboard.
@@ -2448,7 +2448,8 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @crossplatform
      * @atomicservice
-     * @since 24 dynamic&static
+     * @since 24 dynamic
+     * @since 23 static
      */
     setDataSync(data: PasteData): void;
 
@@ -2462,7 +2463,6 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 12 dynamic
-     * @since 23 static
      */
     /**
      * Gets unified data from the system pasteboard.
@@ -2474,7 +2474,8 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @crossplatform
      * @atomicservice
-     * @since 24 dynamic&static
+     * @since 24 dynamic
+     * @since 23 static
      */
     getUnifiedData(): Promise<unifiedDataChannel.UnifiedData>;
 
@@ -2488,7 +2489,6 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 12 dynamic
-     * @since 23 static
      */
     /**
      * Gets unified data from the system pasteboard.
@@ -2500,7 +2500,8 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @crossplatform
      * @atomicservice
-     * @since 24 dynamic&static
+     * @since 24 dynamic
+     * @since 23 static
      */
     getUnifiedDataSync(): unifiedDataChannel.UnifiedData;
 
@@ -2515,7 +2516,6 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 12 dynamic
-     * @since 23 static
      */
     /**
      * Writes unified data to the system pasteboard.
@@ -2528,7 +2528,8 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @crossplatform
      * @atomicservice
-     * @since 24 dynamic&static
+     * @since 24 dynamic
+     * @since 23 static
      */
     setUnifiedData(data: unifiedDataChannel.UnifiedData): Promise<void>;
 
@@ -2541,7 +2542,6 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 12 dynamic
-     * @since 23 static
      */
     /**
      * Writes unified data to the system pasteboard.
@@ -2552,7 +2552,8 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @crossplatform
      * @atomicservice
-     * @since 24 dynamic&static
+     * @since 24 dynamic
+     * @since 23 static
      */
     setUnifiedDataSync(data: unifiedDataChannel.UnifiedData): void;
 
@@ -2627,7 +2628,6 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 14 dynamic
-     * @since 23 static
      */
     /**
      * Get the MIME types in the pasteboard.
@@ -2636,7 +2636,8 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @crossplatform
      * @atomicservice
-     * @since 24 dynamic&static
+     * @since 24 dynamic
+     * @since 23 static
      */
     getMimeTypes(): Promise<Array<string>>;
 
@@ -2647,7 +2648,6 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 18 dynamic
-     * @since 23 static
      */
     /**
      * Gets the number of Pasteboard data changes.
@@ -2656,7 +2656,8 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @crossplatform
      * @atomicservice
-     * @since 24 dynamic&static
+     * @since 24 dynamic
+     * @since 23 static
      */
     getChangeCount(): long;
 
