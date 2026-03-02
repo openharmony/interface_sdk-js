@@ -1,6 +1,6 @@
 'use static'
 /*
- * Copyright (c) 2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2025-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -4300,7 +4300,7 @@ export enum AttributeModifierState {
  *
  * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 24 static
+ * @since 23 static
  */
 export declare enum PresetFillType {
     /**
@@ -4309,21 +4309,72 @@ export declare enum PresetFillType {
      * (and larger) devices.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 24 static
+     * @since 23 static
      */
     BREAKPOINT_DEFAULT = 0,
     /**
      * For SM (and smaller), MD, and LG (and larger) devices, one, two, and three columns are displayed respectively.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 24 static
+     * @since 23 static
      */
     BREAKPOINT_SM1MD2LG3 = 1,
     /**
      * For SM (and smaller), MD, and LG (and larger) devices, two, three, and five columns are displayed respectively.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 24 static
+     * @since 23 static
      */
     BREAKPOINT_SM2MD3LG5 = 2
+}
+
+/**
+ * Defining Environment variable enumeration value.
+ *
+ * @enum { string }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 24 static
+ */
+export enum SystemProperties {
+  /**
+   * System environment breakpoint key that is used to obtain the width and height breakpoint value of the window.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  BREAK_POINT = 'system.arkui.breakpoint',
+  /**
+   * System environment avoidarea key that is used to obtain the avoid area of the window, measured in vp.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  WINDOW_AVOID_AREA = 'system.window.avoidarea',
+  /**
+   * System environment avoidarea key that is used to obtain the avoid area of the window, measured in px.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  WINDOW_AVOID_AREA_PX = 'system.window.avoidarea.px',
+  /**
+   * System environment windowsize key that is used to obtain the size of the window, measured in vp.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  WINDOW_SIZE = 'system.window.size',
+  /**
+   * System environment windowsize key that is used to obtain the size of the window, measured in px.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  WINDOW_SIZE_PX = 'system.window.size.px'
 }

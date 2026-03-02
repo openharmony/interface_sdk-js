@@ -36,32 +36,32 @@
  * @since 11
  */
 interface TestRunner {
-  /**
-   * Prepare the unit testing environment for running test cases.
-   *
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 8
-   */
-  /**
-   * Prepare the unit testing environment for running test cases.
-   *
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @atomicservice
-   * @since 11
-   */
-  onPrepare(): void;
-  /**
-   * Run all test cases.
-   *
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 8
-   */
-  /**
-   * Run all test cases.
-   *
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @atomicservice
-   * @since 11
-   */
-  onRun(): void;
+    /**
+     * Prepare the unit testing environment for running test cases.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @since 8
+     */
+    /**
+     * Prepare the unit testing environment for running test cases.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @atomicservice
+     * @since 11
+     */
+    onPrepare(): void;
+    /**
+     * Run all test cases.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @since 8
+     */
+    /**
+     * Run all test cases.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @atomicservice
+     * @since 11
+     */
+    onRun(): void;
 }

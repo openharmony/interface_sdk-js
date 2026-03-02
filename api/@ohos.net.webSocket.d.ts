@@ -905,7 +905,7 @@ declare namespace webSocket {
      * @param { 'open' } type - event indicating that a WebSocket connection has been opened.
      * @param { AsyncCallback<Object> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 6
+     * @since 6 dynamic
      */
     /**
      * Enables listening for the open events of a WebSocket connection.
@@ -913,7 +913,7 @@ declare namespace webSocket {
      * @param { AsyncCallback<Object> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since 10
+     * @since 10 dynamic
      */
     /**
      * Enables listening for the open events of a WebSocket connection.
@@ -941,7 +941,7 @@ declare namespace webSocket {
      * @param { 'open' } type - event indicating that a WebSocket connection has been opened.
      * @param { AsyncCallback<Object> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 6
+     * @since 6 dynamic
      */
     /**
      * Cancels listening for the open events of a WebSocket connection.
@@ -949,7 +949,7 @@ declare namespace webSocket {
      * @param { AsyncCallback<Object> } callback the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since 10
+     * @since 10 dynamic
      */
     /**
      * Cancels listening for the open events of a WebSocket connection.
@@ -978,7 +978,7 @@ declare namespace webSocket {
      * @param { 'message' } type - event indicating that a message has been received from the server.
      * @param { AsyncCallback<string | ArrayBuffer> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 6
+     * @since 6 dynamic
      */
     /**
      * Enables listening for the message events of a WebSocket connection.
@@ -987,7 +987,7 @@ declare namespace webSocket {
      * @param { AsyncCallback<string | ArrayBuffer> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since 10
+     * @since 10 dynamic
      */
     /**
      * Enables listening for the message events of a WebSocket connection.
@@ -1018,7 +1018,7 @@ declare namespace webSocket {
      * @param { 'message' } type - event indicating that a message has been received from the server.
      * @param { AsyncCallback<string | ArrayBuffer> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 6
+     * @since 6 dynamic
      */
     /**
      * Cancels listening for the message events of a WebSocket connection.
@@ -1027,7 +1027,7 @@ declare namespace webSocket {
      * @param { AsyncCallback<string | ArrayBuffer> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since 10
+     * @since 10 dynamic
      */
     /**
      * Cancels listening for the message events of a WebSocket connection.
@@ -1058,7 +1058,7 @@ declare namespace webSocket {
      * @param { AsyncCallback<CloseResult> } callback - the callback used to return the result.
      * <br>close indicates the close error code and reason indicates the error code description.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 6
+     * @since 6 dynamic
      */
     /**
      * Enables listening for the close events of a WebSocket connection.
@@ -1067,7 +1067,7 @@ declare namespace webSocket {
      * <br>close indicates the close error code and reason indicates the error code description.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since 10
+     * @since 10 dynamic
      */
     /**
      * Enables listening for the close events of a WebSocket connection.
@@ -1097,7 +1097,7 @@ declare namespace webSocket {
      * @param { AsyncCallback<CloseResult> } callback - the callback used to return the result.
      * <br>close indicates the close error code and reason indicates the error code description.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 6
+     * @since 6 dynamic
      */
     /**
      * Cancels listening for the close events of a WebSocket connection.
@@ -1106,7 +1106,7 @@ declare namespace webSocket {
      * <br>close indicates the close error code and reason indicates the error code description.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since 10
+     * @since 10 dynamic
      */
     /**
      * Cancels listening for the close events of a WebSocket connection.
@@ -1135,7 +1135,7 @@ declare namespace webSocket {
      * @param { 'error' } type - event indicating the WebSocket connection has encountered an error.
      * @param { ErrorCallback } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 6
+     * @since 6 dynamic
      */
     /**
      * Enables listening for the error events of a WebSocket connection.
@@ -1143,7 +1143,7 @@ declare namespace webSocket {
      * @param { ErrorCallback } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since 10
+     * @since 10 dynamic
      */
     /**
      * Enables listening for the error events of a WebSocket connection.
@@ -1170,7 +1170,7 @@ declare namespace webSocket {
      * @param { 'error' } type - event indicating the WebSocket connection has encountered an error.
      * @param { ErrorCallback } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 6
+     * @since 6 dynamic
      */
     /**
      * Cancels listening for the error events of a WebSocket connection.
@@ -1178,7 +1178,7 @@ declare namespace webSocket {
      * @param { ErrorCallback } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since 10
+     * @since 10 dynamic
      */
     /**
      * Cancels listening for the error events of a WebSocket connection.

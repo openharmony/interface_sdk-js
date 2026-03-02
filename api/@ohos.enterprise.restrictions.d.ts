@@ -324,7 +324,8 @@ declare namespace restrictions {
    /**
    * Disallows the specific feature of the device.
    *
-   * @permission ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS or ohos.permission.PERSONAL_MANAGE_RESTRICTIONS
+   * @permission ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS or ohos.permission.PERSONAL_MANAGE_RESTRICTIONS or
+   *     ohos.permission.ENTERPRISE_MANAGE_NETWORK
    * @param { Want } admin - admin indicates the enterprise admin extension ability information.
    *     The admin must have the corresponding permission.
    * @param { string } feature - feature indicates the specific feature to be disallowed or allowed,
@@ -344,7 +345,8 @@ declare namespace restrictions {
   /**
    * Disallows the specific feature of the device.
    *
-   * @permission ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS or ohos.permission.PERSONAL_MANAGE_RESTRICTIONS
+   * @permission ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS or ohos.permission.PERSONAL_MANAGE_RESTRICTIONS or
+   *     ohos.permission.ENTERPRISE_MANAGE_NETWORK
    * @param { Want } admin - admin indicates the enterprise admin extension ability information.
    *     The admin must have the corresponding permission.
    * @param { string } feature - feature indicates the specific feature to be disallowed or allowed,
@@ -367,7 +369,8 @@ declare namespace restrictions {
   /**
    * Disallows the specific feature of the device.
    *
-   * @permission ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS or ohos.permission.PERSONAL_MANAGE_RESTRICTIONS
+   * @permission ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS or ohos.permission.PERSONAL_MANAGE_RESTRICTIONS or
+   *     ohos.permission.ENTERPRISE_MANAGE_NETWORK
    * @param { Want } admin - admin indicates the enterprise admin extension ability information.
    *     The admin must have the corresponding permission.
    * @param { string } feature - feature indicates the specific feature to be disallowed or allowed,
@@ -390,7 +393,8 @@ declare namespace restrictions {
   /**
    * Disallows the specific feature of the device.
    *
-   * @permission ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS or ohos.permission.PERSONAL_MANAGE_RESTRICTIONS
+   * @permission ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS or ohos.permission.PERSONAL_MANAGE_RESTRICTIONS or
+   *     ohos.permission.ENTERPRISE_MANAGE_NETWORK
    * @param { Want } admin - admin indicates the enterprise admin extension ability information.
    *     The admin must have the corresponding permission.
    * @param { string } feature - feature indicates the specific feature to be disallowed or allowed,
@@ -413,7 +417,8 @@ declare namespace restrictions {
   /**
    * Disallows the specific feature of the device.
    *
-   * @permission ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS or ohos.permission.PERSONAL_MANAGE_RESTRICTIONS
+   * @permission ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS or ohos.permission.PERSONAL_MANAGE_RESTRICTIONS or
+   *     ohos.permission.ENTERPRISE_MANAGE_NETWORK
    * @param { Want } admin - admin indicates the enterprise admin extension ability information.
    *     The admin must have the corresponding permission.
    * @param { string } feature - feature indicates the specific feature to be disallowed or allowed,
@@ -478,7 +483,8 @@ declare namespace restrictions {
    /**
    * Queries whether the specific feature of the device is disallowed.
    *
-   * @permission ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS or ohos.permission.PERSONAL_MANAGE_RESTRICTIONS
+   * @permission ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS or ohos.permission.PERSONAL_MANAGE_RESTRICTIONS or
+   *     ohos.permission.ENTERPRISE_MANAGE_NETWORK
    * @param { Want | null } admin - admin indicates the enterprise admin extension ability information.
    *     If the admin is not empty, it must have the corresponding permission.
    * @param { string } feature - feature indicates the specific feature to be queried,
@@ -498,7 +504,8 @@ declare namespace restrictions {
   /**
    * Queries whether the specific feature of the device is disallowed.
    *
-   * @permission ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS or ohos.permission.PERSONAL_MANAGE_RESTRICTIONS
+   * @permission ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS or ohos.permission.PERSONAL_MANAGE_RESTRICTIONS or
+   *     ohos.permission.ENTERPRISE_MANAGE_NETWORK
    * @param { Want | null } admin - admin indicates the enterprise admin extension ability information.
    *     If the admin is not empty, it must have the corresponding permission.
    * @param { string } feature - feature indicates the specific feature to be queried,
@@ -519,7 +526,8 @@ declare namespace restrictions {
   /**
    * Queries whether the specific feature of the device is disallowed.
    *
-   * @permission ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS or ohos.permission.PERSONAL_MANAGE_RESTRICTIONS
+   * @permission ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS or ohos.permission.PERSONAL_MANAGE_RESTRICTIONS or
+   *     ohos.permission.ENTERPRISE_MANAGE_NETWORK
    * @param { Want | null } admin - admin indicates the enterprise admin extension ability information.
    *     If the admin is not empty, it must have the corresponding permission.
    * @param { string } feature - feature indicates the specific feature to be queried,
@@ -540,7 +548,8 @@ declare namespace restrictions {
   /**
    * Queries whether the specific feature of the device is disallowed.
    *
-   * @permission ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS or ohos.permission.PERSONAL_MANAGE_RESTRICTIONS
+   * @permission ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS or ohos.permission.PERSONAL_MANAGE_RESTRICTIONS or
+   *     ohos.permission.ENTERPRISE_MANAGE_NETWORK
    * @param { Want | null } admin - admin indicates the enterprise admin extension ability information.
    *     If the admin is not empty, it must have the corresponding permission.
    * @param { string } feature - feature indicates the specific feature to be queried,
@@ -561,7 +570,8 @@ declare namespace restrictions {
   /**
    * Queries whether the specific feature of the device is disallowed.
    *
-   * @permission ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS or ohos.permission.PERSONAL_MANAGE_RESTRICTIONS
+   * @permission ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS or ohos.permission.PERSONAL_MANAGE_RESTRICTIONS or
+   *     ohos.permission.ENTERPRISE_MANAGE_NETWORK
    * @param { Want | null } admin - admin indicates the enterprise admin extension ability information.
    *     If the admin is not empty, it must have the corresponding permission.
    * @param { string } feature - feature indicates the specific feature to be queried,

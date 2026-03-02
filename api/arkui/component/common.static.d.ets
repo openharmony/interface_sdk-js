@@ -46,6 +46,7 @@ import { AccessibilityHoverType, Curve, PlayMode, SharedTransitionEffectType, Ke
 import { TextRange } from "./textCommon";
 import { StyledString } from "./styledString";
 import { CustomBuilder, WrappedBuilder, CustomBuilderT } from './builder';
+import { RecordData } from '../../@ohos.base';
 import curves from '../../@ohos.curves';
 import matrix4 from '../../@ohos.matrix4';
 import { AvoidanceMode } from './select';
@@ -458,12 +459,12 @@ export declare interface ExpectedFrameRateRange {
  * global $r function
  *
  * @param { string } value
- * @param { (Object | null | undefined)[] } params
+ * @param { RecordData[] } params
  * @returns { Resource }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 23 static
  */
-export declare function $r(value: string, ...params: (Object | null | undefined)[]): Resource;
+export declare function $r(value: string, ...params: RecordData[]): Resource;
 /**
  * global $rawfile function
  *
@@ -5038,6 +5039,17 @@ export type TransitionFinishCallback = (transitionIn: boolean) => void;
  */
 export type TouchTestDoneCallback = (event: BaseGestureEvent, recognizers: Array<GestureRecognizer>) => void;
 /**
+ * Defines the callback type used in onNeedSoftkeyboard.
+ * Called when component is focused, the return value indicates whether keyboard is needed.
+ *
+ * @typedef { function } OnNeedSoftkeyboardCallback
+ * @returns { boolean } True means keyboard is needed, false means keyboard is not needed.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 24 static
+ */
+export type OnNeedSoftkeyboardCallback = () => boolean;
+/**
  * Defines the PixelMap type object for ui component.
  *
  * @typedef { image.PixelMap } PixelMap
@@ -5998,22 +6010,24 @@ export declare interface BindOptions {
  *
  * @interface DismissContentCoverAction
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare interface DismissContentCoverAction {
     /**
      * Defines content cover dismiss function
      *
-     * @type { VoidCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
-    dismiss: VoidCallback;
+    dismiss(): void;
     /**
      * Defines content cover dismiss reason
      *
      * @type { DismissReason }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     reason: DismissReason;
@@ -6233,44 +6247,48 @@ export declare enum SheetKeyboardAvoidMode {
      */
     POPUP_SHEET = 4
 }
+
 /**
  * Component sheet dismiss
  *
  * @interface SheetDismiss
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare interface SheetDismiss {
     /**
      * Defines sheet dismiss function
      *
-     * @type { VoidCallback  }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
-    dismiss: VoidCallback;
+    dismiss(): void;
 }
 /**
  * Component sheet dismiss
  *
  * @interface DismissSheetAction
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare interface DismissSheetAction {
     /**
      * Defines sheet dismiss function
      *
-     * @type { VoidCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
-    dismiss: VoidCallback;
+    dismiss(): void;
     /**
      * Dismiss reason type.
      *
      * @type { DismissReason }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     reason: DismissReason;
@@ -6387,17 +6405,6 @@ export declare interface SheetOptions extends BindOptions {
     * @since 23 static
     */
     radiusRenderStrategy?: RenderStrategy;
-    /**
-     * Set system-styled materials for sheet. Different materials have different effects, which can influence
-     * the backgroundColor, border, shadow, and other visual attributes of sheet.
-     *
-     * @type { ?SystemUiMaterial }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 24 static
-     */
-    systemMaterial?: SystemUiMaterial;
     /**
      * Mask color of the sheet.
      *
@@ -11913,6 +11920,16 @@ export declare interface CommonMethod {
      */
     default systemMaterial(material: SystemUiMaterial | undefined): this;
     /**
+     * Called when component is focused, the return value indicates whether keyboard is needed.
+     *
+     * @param { OnNeedSoftkeyboardCallback | undefined } onNeedSoftkeyboardCallback
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 24 static
+     */
+    default onNeedSoftkeyboard(onNeedSoftkeyboardCallback: OnNeedSoftkeyboardCallback | undefined): this;
+    /**
      * Sets the state anouncement text of the component under accessibility.
      *
      * @param { string | Resource | undefined } description the state anouncement text of the component under accessibility.
@@ -12702,7 +12719,7 @@ export declare abstract class TextContentControllerBase {
      */
     addText(text: string, textOperationOptions?: TextContentControllerOptions): int | undefined;
     /**
-     * Set the styled placeholder
+     * Set the styled placeholder.
      *
      * @param { StyledString } styledString - The styledString for placeholder.
      *     If the parameter is invalid, this method will have no effect.
@@ -12823,22 +12840,10 @@ export declare interface ScrollableCommonMethod extends CommonMethod {
      *     A string value indicates a color in RGB or ARGB format, for example, <em>'#ffffff'</em>.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 24 static
-     */
-    default scrollBarColor(color: Color | int | string | Resource | undefined): this;
-    /**
-     * Sets the scrollbar color.
-     *
-     * @param { Color | int | string | undefined } color - Scrollbar color.<br>Default value:
-     *     <em>'\#182431'</em> (40% opacity). A number value indicates a HEX color in RGB or ARGB
-     *     format, for example, <em>0xffffff</em>. A string value indicates a color in RGB or ARGB
-     *     format, for example, <em>'#ffffff'</em>.
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
      */
-    default scrollBarColor(color: Color | int | string | undefined): this;
+    default scrollBarColor(color: Color | int | string | Resource | undefined): this;
     /**
      * Sets the scrollbar width.
      *
@@ -14167,3 +14172,4 @@ export declare function $$<T>(value: T): Bindable<T>;
  * @since 23 static
  */
 export declare function applyStyles<T extends CommonMethod>(this: T, customStyles: CustomStyles): T;
+ 

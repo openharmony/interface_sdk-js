@@ -5121,7 +5121,7 @@ declare class EventResult {
    *    {@code false} Indicates the non-consumption of the mouse event.
    *    Default value: true.
    * @param { boolean } stopPropagation - Whether to stop propagation.
-   *    This parameter is valid only when result is set to true. 
+   *    This parameter is valid only when result is set to true.
    *    {@code true} Indicates stops the propagation of events farther along.
    *    {@code false} Indicates the propagation of events farther along.
    *    Default value: true.
@@ -10252,15 +10252,15 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * If the {@link setWebController} interface is not called, the render process will be blocked.
    * If no new window is created, it is set to null when calling the {@link setWebController} interface,
    * informing the Web that no new window is created.
-   * New windows must not be placed to directly cover the original Web component. Additionally, 
-   * their URLs—specifically the content shown in the address bar—should follow the same display 
-   * format as the main page, ensuring clarity for users and avoiding confusion. In cases where 
-   * reliable visual management of URLs is not feasible, restricting the creation of new windows 
-   * should be considered. It is also important to note that the origin of new window requests 
-   * cannot be tracked with certainty; such requests may even be triggered by third-party iframes. 
-   * For this reason, applications must implement default defensive measures like sandbox isolation 
+   * New windows must not be placed to directly cover the original Web component. Additionally,
+   * their URLs—specifically the content shown in the address bar—should follow the same display
+   * format as the main page, ensuring clarity for users and avoiding confusion. In cases where
+   * reliable visual management of URLs is not feasible, restricting the creation of new windows
+   * should be considered. It is also important to note that the origin of new window requests
+   * cannot be tracked with certainty; such requests may even be triggered by third-party iframes.
+   * For this reason, applications must implement default defensive measures like sandbox isolation
    * and permission controls to safeguard security.
-   * @param {  Callback<OnWindowNewExtEvent> } callback The triggered callback when web page requires the user 
+   * @param {  Callback<OnWindowNewExtEvent> } callback The triggered callback when web page requires the user
    *     to create a window.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
@@ -11739,7 +11739,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * However, if the user scrolls or inputs before the first screen has been painted,
    * the callback will be triggered immediately.
    *
-   * @param { OnFirstScreenPaintCallback } callback - callback triggered to 
+   * @param { OnFirstScreenPaintCallback } callback - callback triggered to
    *     report the info for the first screen painting of the current web page.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
@@ -11801,6 +11801,19 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 23 dynamic
    */
   onMicrophoneCaptureStateChange(callback: OnMicrophoneCaptureStateChangeCallback): WebAttribute;
+
+  /**
+   * Set whether to enable the default right-click context menu.
+   *
+   * @param { boolean } enable - {@code true} means the Web enable the default right-click context menu,
+   *    {@code false} otherwise.
+   *    The default value is false.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @stagemodelonly
+   * @since 24 dynamic
+   */
+  enableDefaultContextMenu(enable: boolean): WebAttribute;
 }
 
 /**

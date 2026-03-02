@@ -6,6 +6,7 @@
     "SystemCapability.Ability.AbilityRuntime.FAModel",
     "SystemCapability.Ability.AbilityRuntime.Mission",
     "SystemCapability.Ability.AppStartup",
+    "SystemCapability.Ability.AgentRuntime.Core",
     "SystemCapability.Security.AccessToken",
     "SystemCapability.BarrierFree.Accessibility.Core",
     "SystemCapability.BarrierFree.Accessibility.Hearing",

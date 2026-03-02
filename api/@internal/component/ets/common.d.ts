@@ -13536,6 +13536,20 @@ declare type ShouldBuiltInRecognizerParallelWithCallback = (current: GestureReco
 declare type TransitionFinishCallback = (transitionIn: boolean) => void;
 
 /**
+ * Defines the callback type used in onNeedSoftkeyboard.
+ * Called when component is focused, the return value indicates whether keyboard is needed.
+ *
+ * @typedef { function } OnNeedSoftkeyboardCallback
+ * @returns { boolean } True means keyboard is needed, false means keyboard is not needed.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 24 dynamic
+ */
+declare type OnNeedSoftkeyboardCallback = () => boolean;
+
+/**
  * Defines the callback type used in onTouchTestDone.
  * When the user touch down, the system performs hit test process to collect all gesture recognizers
  * based on the press location, when the collection is completed, and before gesture begin to be recognizing,
@@ -16189,18 +16203,6 @@ declare interface SheetOptions extends BindOptions {
     * @since 23 dynamic
     */
   radiusRenderStrategy?: RenderStrategy;
-
-  /**
-   * Set system-styled materials for sheet. Different materials have different effects, which can influence
-   * the backgroundColor, border, shadow, and other visual attributes of sheet.
-   *
-   * @type { ?SystemUiMaterial }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @stagemodelonly
-   * @since 24 dynamic
-   */
-  systemMaterial?: SystemUiMaterial;
 
   /**
    * Defines transition type when preferType is SheetType.CONTENT_COVER.
@@ -29480,6 +29482,19 @@ declare class CommonMethod<T> {
    * @since 23 dynamic
    */
   systemMaterial(material: SystemUiMaterial | undefined): T;
+
+  /**
+   * Called when component is focused, the return value indicates whether keyboard is needed.
+   *
+   * @param { OnNeedSoftkeyboardCallback | undefined } onNeedSoftkeyboardCallback
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 24 dynamic
+   */
+  onNeedSoftkeyboard(onNeedSoftkeyboardCallback: OnNeedSoftkeyboardCallback | undefined): T;
   
   /**
    * Sets the state anouncement text of the component under accessibility.
@@ -32531,6 +32546,7 @@ declare interface CaretOffset {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
@@ -32548,6 +32564,7 @@ declare interface CaretOffset {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
@@ -32565,6 +32582,7 @@ declare interface CaretOffset {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */

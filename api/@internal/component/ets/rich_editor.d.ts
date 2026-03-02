@@ -3038,6 +3038,7 @@ declare interface SelectionMenuOptions {
    * 
    * @type { ?PreviewMenuOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 18 dynamic
    */
@@ -3049,6 +3050,7 @@ declare interface SelectionMenuOptions {
  * 
  * @interface PreviewMenuOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @atomicservice
  * @since 18 dynamic
  */
@@ -3263,6 +3265,18 @@ declare class RichEditorBaseController implements TextEditControllerEx {
    * @since 23 dynamic
    */
   deleteBackward(): void;
+
+  /**
+   * Set the styledString placeholder.
+   *
+   * @param { StyledString } styledString - The styledString for placeholder.
+   *     If the parameter is invalid, this method will have no effect.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 24 dynamic
+   */
+  setStyledPlaceholder(styledString: StyledString): void;
 }
 
 /**

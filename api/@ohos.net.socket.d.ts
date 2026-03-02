@@ -121,7 +121,6 @@ declare namespace socket {
    * @throws { BusinessError } 2303602 - Socket is not connected.
    * @syscap SystemCapability.Communication.NetStack
    * @since 12 dynamic
-   * @since 23 static
    */
   /**
    * Creates a TLSSocket object with a TCPSocket object.
@@ -142,7 +141,6 @@ declare namespace socket {
    * @returns { TCPSocketServer } the TCPSocketServer of the constructTCPSocketServerInstance.
    * @syscap SystemCapability.Communication.NetStack
    * @since 10 dynamic
-   * @since 23 static
    */
   /**
    * Creates a TCPSocketServer object.
@@ -158,7 +156,6 @@ declare namespace socket {
    * @returns { TLSSocketServer } the TLSSocketServer of the constructTLSSocketServerInstance.
    * @syscap SystemCapability.Communication.NetStack
    * @since 10 dynamic
-   * @since 23 static
    */
   /**
    * Creates a TLSSocketServer object.
@@ -810,7 +807,6 @@ declare namespace socket {
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
      * @syscap SystemCapability.Communication.NetStack
      * @since 12 dynamic
-     * @since 23 static
      */
     /**
      * Obtains the local address of a UDPSocket connection.
@@ -1085,7 +1081,7 @@ declare namespace socket {
      * @param { 'listening' | 'close' } type - Indicates Event name.
      * @param { Callback<void> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 7
+     * @since 7 dynamic
      */
     /**
      * Listens for data packet message events or close events of the UDPSocket connection.
@@ -1102,7 +1098,7 @@ declare namespace socket {
      * @param { 'listening' | 'close' } type - Indicates Event name.
      * @param { Callback<void> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 7
+     * @since 7 dynamic
      */
     /**
      * Cancels listening for data packet message events or close events of the UDPSocket connection.
@@ -1119,7 +1115,7 @@ declare namespace socket {
      * @param { 'error' } type - Indicates Event name.
      * @param { ErrorCallback } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 7
+     * @since 7 dynamic
      */
     /**
      * Listens for error events of the UDPSocket connection.
@@ -1136,7 +1132,7 @@ declare namespace socket {
      * @param { 'error' } type - Indicates Event name.
      * @param { ErrorCallback } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 7
+     * @since 7 dynamic
      */
     /**
      * Cancels listening for error events of the UDPSocket connection.
@@ -1154,7 +1150,7 @@ declare namespace socket {
      * @returns { Promise<int> } The promise returns the file descriptor of the UDP socket.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 23 dynamic&static
+     * @since 23 dynamic
      */
     /**
      * Obtains the file descriptor of the UDPSocket.
@@ -1466,7 +1462,7 @@ declare namespace socket {
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
      * @stagemodelonly
-     * @since 23 dynamic&static
+     * @since 23 dynamic
      */
     /**
      * Obtains the file descriptor of the MulticastSocket.
@@ -1681,7 +1677,7 @@ declare namespace socket {
      * @param { Callback<LocalSocketMessageInfo> } callback - the callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
+     * @since 11 dynamic
      */
     /**
      * Listens for message receiving events of the LocalSocket connection.
@@ -1700,7 +1696,7 @@ declare namespace socket {
      * @param { Callback<LocalSocketMessageInfo> } callback - the callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
+     * @since 11 dynamic
      */
     /**
      * Cancels listening for message receiving events of the LocalSocket connection.
@@ -1719,7 +1715,7 @@ declare namespace socket {
      * @param { Callback<void> } callback - the callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
+     * @since 11 dynamic
      */
     /**
      * Listens for connection events of the LocalSocket connection.
@@ -1738,7 +1734,7 @@ declare namespace socket {
      * @param { Callback<void> } callback - the callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
+     * @since 11 dynamic
      */
     /**
      * Cancels listening for connection events of the LocalSocket connection.
@@ -1757,7 +1753,7 @@ declare namespace socket {
      * @param { Callback<void> } callback - the callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
+     * @since 11 dynamic
      */
     /**
      * Listens for close events of the LocalSocket connection.
@@ -1776,7 +1772,7 @@ declare namespace socket {
      * @param { Callback<void> } callback - the callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
+     * @since 11 dynamic
      */
     /**
      * Cancels listening for close events of the LocalSocket connection.
@@ -1795,7 +1791,7 @@ declare namespace socket {
      * @param { ErrorCallback } callback - the callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
+     * @since 11 dynamic
      */
     /**
      * Listens for error events of the LocalSocket connection.
@@ -1814,7 +1810,7 @@ declare namespace socket {
      * @param { ErrorCallback } callback - the callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
+     * @since 11 dynamic
      */
     /**
      * Cancels listening for error events of the LocalSocket connection.
@@ -1903,7 +1899,6 @@ declare namespace socket {
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
      * @syscap SystemCapability.Communication.NetStack
      * @since 12 dynamic
-     * @since 23 static
      */
     /**
      * Obtains the local address of a LocalSocket client connection.
@@ -1923,7 +1918,7 @@ declare namespace socket {
      * @param { Callback<LocalSocketMessageInfo> } callback - The callback of on.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
+     * @since 11 dynamic
      */
     /**
      * Listens for message receiving events of the LocalSocketConnection.
@@ -1942,7 +1937,7 @@ declare namespace socket {
      * @param { Callback<LocalSocketMessageInfo> } callback - The callback of off.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
+     * @since 11 dynamic
      */
     /**
      * Cancels listening for message receiving events of the LocalSocketConnection.
@@ -1961,7 +1956,7 @@ declare namespace socket {
      * @param { Callback<void> } callback - The callback of on.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
+     * @since 11 dynamic
      */
     /**
      * Listens for close events of the LocalSocketConnection.
@@ -1980,7 +1975,7 @@ declare namespace socket {
      * @param { Callback<void> } callback - The callback of off.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
+     * @since 11 dynamic
      */
     /**
      * Cancels listening for close events of the LocalSocketConnection.
@@ -1999,7 +1994,7 @@ declare namespace socket {
      * @param { ErrorCallback } callback - The callback of on.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
+     * @since 11 dynamic
      */
     /**
      * Listens for error events of the LocalSocketConnection.
@@ -2018,7 +2013,7 @@ declare namespace socket {
      * @param { ErrorCallback } callback - The callback of off.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
+     * @since 11 dynamic
      */
     /**
      * Cancels listening for error events of the LocalSocketConnection.
@@ -2035,7 +2030,7 @@ declare namespace socket {
      * Obtains the file descriptor of the LocalSocketConnection.
      * @returns { Promise<int> } The promise returns the file descriptor of the local socket connection.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 23 dynamic&static
+     * @since 23 dynamic
      */
     /**
      * Obtains the file descriptor of the LocalSocketConnection.
@@ -2154,7 +2149,6 @@ declare namespace socket {
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
      * @syscap SystemCapability.Communication.NetStack
      * @since 12 dynamic
-     * @since 23 static
      */
     /**
      * Obtains the local address of the LocalSocketServer connection.
@@ -2174,7 +2168,6 @@ declare namespace socket {
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 20 dynamic
-     * @since 23 static
      */
     /**
      * Close the LocalSocketServer. Close the LocalSocketServer listening port.
@@ -2192,7 +2185,7 @@ declare namespace socket {
      * @param { Callback<LocalSocketConnection> } callback - The callback of on.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
+     * @since 11 dynamic
      */
     /**
      * Listens for connect events of the LocalSocketServer connection.
@@ -2211,7 +2204,7 @@ declare namespace socket {
      * @param { Callback<LocalSocketConnection> } callback - The callback of off.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
+     * @since 11 dynamic
      */
     /**
      * Cancels listening for connect events of the LocalSocketServer connection.
@@ -2230,7 +2223,7 @@ declare namespace socket {
      * @param { ErrorCallback } callback - The callback of on.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
+     * @since 11 dynamic
      */
     /**
      * Listens for error events of the LocalSocketServer connection.
@@ -2249,7 +2242,7 @@ declare namespace socket {
      * @param { ErrorCallback } callback - The callback of off.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
+     * @since 11 dynamic
      */
     /**
      * Cancels listening for error events of the LocalSocketServer connection.
@@ -2266,7 +2259,7 @@ declare namespace socket {
      * Obtains the file descriptor of the LocalSocketServer.
      * @returns { Promise<int> } The promise returns the file descriptor of the local socket server.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 23 dynamic&static
+     * @since 23 dynamic
      */
     /**
      * Obtains the file descriptor of the LocalSocketServer.
@@ -2844,7 +2837,6 @@ declare namespace socket {
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
      * @syscap SystemCapability.Communication.NetStack
      * @since 12 dynamic
-     * @since 23 static
      */
     /**
      * Obtains the local address of a TCPSocket connection.
@@ -2863,7 +2855,7 @@ declare namespace socket {
      * @param { 'message' } type - Indicates Event name.
      * @param { Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 7
+     * @since 7 dynamic
      */
     /**
      * Listens for message receiving events of the TCPSocket connection.
@@ -2871,7 +2863,7 @@ declare namespace socket {
      * @param { Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since 10
+     * @since 10 dynamic
      */
     /**
      * Listens for message receiving events of the TCPSocket connection.
@@ -2888,7 +2880,7 @@ declare namespace socket {
      * @param { 'message' } type Indicates Event name.
      * @param { Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 7
+     * @since 7 dynamic
      */
     /**
      * Cancels listening for message receiving events of the TCPSocket connection.
@@ -2896,7 +2888,7 @@ declare namespace socket {
      * @param { Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since 10
+     * @since 10 dynamic
      */
     /**
      * Cancels listening for message receiving events of the TCPSocket connection.
@@ -2914,7 +2906,7 @@ declare namespace socket {
      * @param { 'connect' | 'close' } type - Indicates Event name.
      * @param { Callback<void> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 7
+     * @since 7 dynamic
      */
     /**
      * Listens for connection or close events of the TCPSocket connection.
@@ -2931,7 +2923,7 @@ declare namespace socket {
      * @param { 'connect' | 'close' } type - Indicates Event name.
      * @param { Callback<void> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 7
+     * @since 7 dynamic
      */
     /**
      * Cancels listening for connection or close events of the TCPSocket connection.
@@ -2948,7 +2940,7 @@ declare namespace socket {
      * @param { 'error' } type - Indicates Event name.
      * @param { ErrorCallback } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 7
+     * @since 7 dynamic
      */
     /**
      * Listens for error events of the TCPSocket connection.
@@ -2965,7 +2957,7 @@ declare namespace socket {
      * @param { 'error' } type - Indicates Event name.
      * @param { ErrorCallback } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 7
+     * @since 7 dynamic
      */
     /**
      * Cancels listening for error events of the TCPSocket connection.
@@ -3176,7 +3168,6 @@ declare namespace socket {
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
      * @syscap SystemCapability.Communication.NetStack
      * @since 12 dynamic
-     * @since 23 static
      */
     /**
      * Obtains the local address of a TLSSocket connection.
@@ -3196,7 +3187,7 @@ declare namespace socket {
      * @param { Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }> } callback - the callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 9
+     * @since 9 dynamic
      */
     /**
      * Listens for message receiving events of the TLSSocket connection.
@@ -3205,7 +3196,7 @@ declare namespace socket {
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since 10
+     * @since 10 dynamic
      */
     /**
      * Listens for message receiving events of the TLSSocket connection.
@@ -3224,7 +3215,7 @@ declare namespace socket {
      * @param { Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }> } callback - the callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 9
+     * @since 9 dynamic
      */
     /**
      * Cancels listening for message receiving events of the TLSSocket connection.
@@ -3233,7 +3224,7 @@ declare namespace socket {
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since 10
+     * @since 10 dynamic
      */
     /**
      * Cancels listening for message receiving events of the TLSSocket connection.
@@ -3252,7 +3243,7 @@ declare namespace socket {
      * @param {Callback<void> } callback - the callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 9
+     * @since 9 dynamic
      */
     /**
      * Listens for connection or close events of the TLSSocket connection.
@@ -3271,7 +3262,7 @@ declare namespace socket {
      * @param {Callback<void> } callback - the callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 9
+     * @since 9 dynamic
      */
     /**
      * Cancels listening for connection or close events of the TLSSocket connection.
@@ -3290,7 +3281,7 @@ declare namespace socket {
      * @param { ErrorCallback } callback - the callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 9
+     * @since 9 dynamic
      */
     /**
      * Listens for error events of the TLSSocket connection.
@@ -3309,7 +3300,7 @@ declare namespace socket {
      * @param { ErrorCallback } callback - the callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 9
+     * @since 9 dynamic
      */
     /**
      * Cancels listening for error events of the TLSSocket connection.
@@ -3557,7 +3548,6 @@ declare namespace socket {
      * @returns { Promise<int> } The promise returns the file descriptor of the TLSSocket connection.
      * @syscap SystemCapability.Communication.NetStack
      * @since 16 dynamic
-     * @since 23 static
      */
     /**
      * Obtains the file descriptor of the TLSSocket connection.
@@ -4022,7 +4012,6 @@ declare namespace socket {
      * @type {?boolean}
      * @syscap SystemCapability.Communication.NetStack
      * @since 12 dynamic
-     * @since 23 static
      */
     /**
      * Used to set up bidirectional authentication. The default value is false.
@@ -4098,7 +4087,6 @@ declare namespace socket {
      * @type {?boolean}
      * @syscap SystemCapability.Communication.NetStack
      * @since 12 dynamic
-     * @since 23 static
      */
     /**
      * Skip identity verification for remote servers. The default value is false.
@@ -4175,7 +4163,6 @@ declare namespace socket {
    * @interface TCPSocketConnection
    * @syscap SystemCapability.Communication.NetStack
    * @since 10 dynamic
-   * @since 23 static
    */
   /**
    * Defines the connection of the TCPSocket client and server.
@@ -4211,7 +4198,6 @@ declare namespace socket {
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
-     * @since 23 static
      */
     /**
      * Sends data over a TCPSocketServer connection to client.
@@ -4261,7 +4247,6 @@ declare namespace socket {
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
-     * @since 23 static
      */
     /**
      * Closes a TCPSocket client connection.
@@ -4284,7 +4269,6 @@ declare namespace socket {
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
-     * @since 23 static
      */
     /**
      * Closes a TCPSocket client connection.
@@ -4308,7 +4292,6 @@ declare namespace socket {
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
-     * @since 23 static
      */
     /**
      * Obtains the peer address of a TCPSocketServer connection.
@@ -4333,7 +4316,6 @@ declare namespace socket {
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
-     * @since 23 static
      */
     /**
      * Obtains the peer address of a TCPSocketServer connection.
@@ -4356,7 +4338,6 @@ declare namespace socket {
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
      * @syscap SystemCapability.Communication.NetStack
      * @since 12 dynamic
-     * @since 23 static
      */
     /**
      * Obtains the local address of a TCPSocketServer connection.
@@ -4488,7 +4469,7 @@ declare namespace socket {
      * @returns { Promise<int> } The promise returns the file descriptor of the TCP socket connection.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 23 dynamic&static
+     * @since 23 dynamic
      */
     /**
      * Obtains the file descriptor of the TCPSocketConnection.
@@ -4508,7 +4489,6 @@ declare namespace socket {
    * @interface TCPSocketServer
    * @syscap SystemCapability.Communication.NetStack
    * @since 10 dynamic
-   * @since 23 static
    */
   /**
    * Defines a TCPSocket server connection.
@@ -4534,7 +4514,6 @@ declare namespace socket {
      * @throws { BusinessError } 2303199 - Cannot assign requested address.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
-     * @since 23 static
      */
     /**
      * Binds the IP address and port number, the port number can be specified or randomly allocated by the system.
@@ -4572,7 +4551,6 @@ declare namespace socket {
      * @throws { BusinessError } 2303199 - Cannot assign requested address.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
-     * @since 23 static
      */
     /**
      * Binds the IP address and port number, the port number can be specified or randomly allocated by the system.
@@ -4602,7 +4580,6 @@ declare namespace socket {
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 20 dynamic
-     * @since 23 static
      */
     /**
      * Close the TCPSocketServer. Close the TCPSocketServer listening port.
@@ -4626,7 +4603,6 @@ declare namespace socket {
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
-     * @since 23 static
      */
     /**
      * Obtains the status of the TCPSocketServer connection.
@@ -4651,7 +4627,6 @@ declare namespace socket {
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
-     * @since 23 static
      */
     /**
      * Obtains the status of the TCPSocketServer connection.
@@ -4677,7 +4652,6 @@ declare namespace socket {
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
-     * @since 23 static
      */
     /**
      * Sets other attributes of the TCPSocketServer connection.
@@ -4705,7 +4679,6 @@ declare namespace socket {
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
-     * @since 23 static
      */
     /**
      * Sets other attributes of the TCPSocketServer connection.
@@ -4730,7 +4703,6 @@ declare namespace socket {
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
      * @syscap SystemCapability.Communication.NetStack
      * @since 12 dynamic
-     * @since 23 static
      */
     /**
      * Obtains the local address of a TCPSocketServer connection.
@@ -4808,7 +4780,7 @@ declare namespace socket {
      * @returns { Promise<int> } The promise returns the file descriptor of the TCP socket server.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 23 dynamic&static
+     * @since 23 dynamic
      */
     /**
      * Obtains the file descriptor of the TCPSocketServer.
@@ -4828,7 +4800,6 @@ declare namespace socket {
    * @interface TLSSocketConnection
    * @syscap SystemCapability.Communication.NetStack
    * @since 10 dynamic
-   * @since 23 static
    */
   /**
    * Defines the connection of the TLSSocket client and server.
@@ -4879,7 +4850,6 @@ declare namespace socket {
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 12 dynamic
-     * @since 23 static
      */
     /**
      * Sends data over a TLSSocketServer connection to client.
@@ -4949,7 +4919,6 @@ declare namespace socket {
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
-     * @since 23 static
      */
     /**
      * Closes a TLSSocket client connection.
@@ -4974,7 +4943,6 @@ declare namespace socket {
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
-     * @since 23 static
      */
     /**
      * Closes a TLSSocket client connection.
@@ -4997,7 +4965,6 @@ declare namespace socket {
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
-     * @since 23 static
      */
     /**
      * Obtains the peer address of a TLSSocketServer connection.
@@ -5018,7 +4985,6 @@ declare namespace socket {
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
-     * @since 23 static
      */
     /**
      * Obtains the peer address of a TLSSocketServer connection.
@@ -5041,7 +5007,6 @@ declare namespace socket {
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
-     * @since 23 static
      */
     /**
      * <p>Returns an object representing the peer certificate. If the peer does not provide a certificate,
@@ -5066,7 +5031,6 @@ declare namespace socket {
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
-     * @since 23 static
      */
     /**
      * <p>Returns an object representing the peer certificate. If the peer does not provide a certificate,
@@ -5092,7 +5056,6 @@ declare namespace socket {
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
-     * @since 23 static
      */
     /**
      * Returns a list containing the negotiated cipher suite information.
@@ -5119,7 +5082,6 @@ declare namespace socket {
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
-     * @since 23 static
      */
     /**
      * Returns a list containing the negotiated cipher suite information.
@@ -5144,7 +5106,6 @@ declare namespace socket {
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
-     * @since 23 static
      */
     /**
      * <p>The list of signature algorithms shared between the server and the client,
@@ -5167,7 +5128,6 @@ declare namespace socket {
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
-     * @since 23 static
      */
     /**
      * <p>The list of signature algorithms shared between the server and the client,
@@ -5189,7 +5149,6 @@ declare namespace socket {
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
      * @syscap SystemCapability.Communication.NetStack
      * @since 12 dynamic
-     * @since 23 static
      */
     /**
      * Obtains the local address of a TLSSocketServer connection.
@@ -5321,7 +5280,7 @@ declare namespace socket {
      * @returns { Promise<int> } The promise returns the file descriptor of the TLS socket connection.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 23 dynamic&static
+     * @since 23 dynamic
      */
     /**
      * Obtains the file descriptor of the TLSSocketConnection.
@@ -5367,7 +5326,6 @@ declare namespace socket {
    * @interface TLSSocketServer
    * @syscap SystemCapability.Communication.NetStack
    * @since 10 dynamic
-   * @since 23 static
    */
   /**
    * Defines a TLSSocketServer server connection.
@@ -5398,7 +5356,6 @@ declare namespace socket {
      * @throws { BusinessError } 2303506 - Failed to close the TLS connection.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
-     * @since 23 static
      */
     /**
      * Binds the IP address and port number, the port number can be specified or randomly allocated by the system.
@@ -5446,7 +5403,6 @@ declare namespace socket {
      * @throws { BusinessError } 2303506 - Failed to close the TLS connection.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
-     * @since 23 static
      */
     /**
      * Binds the IP address and port number, the port number can be specified or randomly allocated by the system.
@@ -5481,7 +5437,6 @@ declare namespace socket {
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 20 dynamic
-     * @since 23 static
      */
     /**
      * Close the TLSSocketServer. Close the TLSSocketServer listening port.
@@ -5503,7 +5458,6 @@ declare namespace socket {
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
-     * @since 23 static
      */
     /**
      * Obtains the status of the TLSSocketServer connection.
@@ -5524,7 +5478,6 @@ declare namespace socket {
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
-     * @since 23 static
      */
     /**
      * Obtains the status of the TLSSocketServer connection.
@@ -5546,7 +5499,6 @@ declare namespace socket {
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
-     * @since 23 static
      */
     /**
      * Sets other attributes of the TLSSocketServer connection.
@@ -5570,7 +5522,6 @@ declare namespace socket {
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
-     * @since 23 static
      */
     /**
      * Sets other attributes of the TLSSocketServer connection.
@@ -5594,7 +5545,6 @@ declare namespace socket {
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
-     * @since 23 static
      */
     /**
      * Returns an object representing a local certificate.
@@ -5617,7 +5567,6 @@ declare namespace socket {
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
-     * @since 23 static
      */
     /**
      * Returns an object representing a local certificate.
@@ -5642,7 +5591,6 @@ declare namespace socket {
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
-     * @since 23 static
      */
     /**
      * Returns a string containing the negotiated SSL/TLS protocol version of the current connection.
@@ -5669,7 +5617,6 @@ declare namespace socket {
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
-     * @since 23 static
      */
     /**
      * Returns a string containing the negotiated SSL/TLS protocol version of the current connection.
@@ -5693,7 +5640,6 @@ declare namespace socket {
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
      * @syscap SystemCapability.Communication.NetStack
      * @since 12 dynamic
-     * @since 23 static
      */
     /**
      * Obtains the local address of the TLSSocketServer connection.
@@ -5789,7 +5735,7 @@ declare namespace socket {
      * @returns { Promise<int> } The promise returns the file descriptor of the TLS socket server.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 23 dynamic&static
+     * @since 23 dynamic
      */
     /**
      * Obtains the file descriptor of the TLSSocketServer.

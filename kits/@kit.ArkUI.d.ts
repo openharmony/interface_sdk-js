@@ -102,7 +102,7 @@ import componentSnapshot from '@ohos.arkui.componentSnapshot';
 import componentUtils from '@ohos.arkui.componentUtils';
 import dragController from '@ohos.arkui.dragController';
 import { DrawableDescriptor, LayeredDrawableDescriptor, PixelMapDrawableDescriptor, AnimationOptions,
-  AnimatedDrawableDescriptor, AnimationController, DrawableDescriptorLoadedResult
+  AnimatedDrawableDescriptor, AnimationController, DrawableDescriptorLoadedResult, AnimationStopMode
 } from '@ohos.arkui.drawableDescriptor';
 import inspector from '@ohos.arkui.inspector';
 import {
@@ -242,6 +242,8 @@ import { GestureListenerType, GestureActionPhase, GestureTriggerInfo, GestureObs
 import { SwiperContentInfo, SwiperItemInfo } from '@ohos.arkui.UIContext';
 import imageGeneration from '@ohos.arkui.intelligence.imageGeneration';
 import uiMaterial from '@ohos.arkui.uiMaterial';
+import { RowLayoutAlgorithm, ColumnLayoutAlgorithm, StackLayoutAlgorithm, GridLayoutAlgorithm, CustomLayoutAlgorithm, LayoutAlgorithm } from '@ohos.arkui.layoutAlgorithm';
+import { DynamicLayout, DynamicLayoutAttribute } from '@ohos.arkui.components.ArkDynamicLayout';
 export {
   AtomicServiceSearch, InputFilterParams, SearchButtonParams, MenuAlignParams, SearchParams, SelectParams, OperationParams,
   AddFormMenuItem, AddFormOptions, AlertDialog, Animator, AnimatorOptions, AnimatorResult, SimpleAnimatorOptions, App, AppResponse, AtomicServiceBar,
@@ -298,7 +300,7 @@ export {
   MarqueeModifier, ProgressModifier, QRCodeModifier, TextClockModifier, TextTimerModifier, LineModifier, PathModifier,
   PolygonModifier, PolylineModifier, RectModifier, ShapeModifier, AlphabetIndexerModifier,
   HyperlinkModifier, MenuModifier, MenuItemModifier, PanelModifier, SymbolGlyphModifier, AttributeUpdater, SymbolSpanModifier,
-  ContainerSpanModifier, PixelMapDrawableDescriptor, AnimationOptions, AnimatedDrawableDescriptor, AnimationController, DrawableDescriptorLoadedResult,
+  ContainerSpanModifier, PixelMapDrawableDescriptor, AnimationOptions, AnimatedDrawableDescriptor, AnimationController, AnimationStopMode, DrawableDescriptorLoadedResult,
   IDataSourcePrefetching, IPrefetcher, BasicPrefetcher,
   SegmentButtonTextItem, SegmentButtonIconItem, SegmentButtonIconTextItem, DimensionNoPercentage,
   CommonSegmentButtonOptions, ItemRestriction, SegmentButtonItemTuple, SegmentButtonItemArray,
@@ -322,5 +324,6 @@ export {
   GestureListenerCallback, NodeIdentity, NodeRenderState, NodeRenderStateChangeCallback, UIPickerComponentModifier, SwiperContentInfo, SwiperItemInfo, 
   ResolvedUIContext, imageGeneration, CustomComponentLifecycle, CustomComponentLifecycleObserver, CustomComponentLifecycleState, 
   ComponentInit, ComponentAppear, ComponentBuilt, ComponentReuse, ComponentRecycle, ComponentDisappear,
-  CollectionType, ConnectOptionsCollections, uiMaterial
+  CollectionType, ConnectOptionsCollections, uiMaterial,
+  RowLayoutAlgorithm, ColumnLayoutAlgorithm, StackLayoutAlgorithm, GridLayoutAlgorithm, CustomLayoutAlgorithm, LayoutAlgorithm, DynamicLayout, DynamicLayoutAttribute
 };

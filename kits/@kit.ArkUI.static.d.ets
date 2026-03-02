@@ -20,6 +20,7 @@
  */
 
 import promptAction from '@ohos.promptAction';
+import { LevelOrder } from '@ohos.promptAction';
 import window from '@ohos.window';
 import display from '@ohos.display';
 import screen from '@ohos.screen';
@@ -30,9 +31,10 @@ import componentSnapshot from '@ohos.arkui.componentSnapshot';
 import componentUtils from '@ohos.arkui.componentUtils';
 import dragController from '@ohos.arkui.dragController';
 import floatingBall from '@ohos.window.floatingBall';
+import PiPWindow from '@ohos.PiPWindow';
 import { sendTouchEvent, sendKeyEvent, sendMouseEvent } from '@ohos.arkui.Test';
 import uiMaterial from '@ohos.arkui.uiMaterial';
-export { promptAction, ComponentContent };
+export { promptAction, LevelOrder, ComponentContent };
 
 export * from '@ohos.arkui.component';
 export * from '@ohos.arkui.stateManagement';
@@ -47,4 +49,4 @@ export { window, display, screen, screenshot, uiExtensionHost };
 
 export { componentSnapshot, componentUtils, dragController, sendTouchEvent, sendKeyEvent, sendMouseEvent };
 
-export { floatingBall, uiMaterial };
+export { floatingBall, uiMaterial, PiPWindow };

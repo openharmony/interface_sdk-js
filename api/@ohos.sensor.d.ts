@@ -4298,6 +4298,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @atomicservice
      * @since 19 dynamic
+     * @since 23 static
      */
     sensorInfoParam?: SensorInfoParam;
   }

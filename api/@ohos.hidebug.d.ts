@@ -1173,5 +1173,50 @@ declare namespace hidebug {
    * @since 24 dynamiconly
    */
   function setProcDumpInSharedOOM(enable: boolean): void;
+
+  /**
+   * Describes the physical memory information of the application process.
+   *
+   * @interface RssInfo
+   * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+   * @FaAndStageModel
+   * @atomicservice
+   * @since 24 dynamic&static
+   */
+  interface RssInfo {
+    /**
+     * Size of the occupied physical memory (including the memory occupied by the shared library), in KB.
+     * The value of this parameter is obtained by reading the value of VmRSS in the /proc/{pid}/status node.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @FaAndStageModel
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    rss: bigint;
+    
+    /**
+     * Size of the memory occupied by the process in swap space, in KB.
+     * The value of this parameter is obtained by reading the value of VmSwap in the /proc/{pid}/status node.
+     * @type { bigint }
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @FaAndStageModel
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    swapRss: bigint;
+    }
+  /**
+   * Obtains the physical memory information of application process. This API is implemented by reading data from the
+   * /proc/{pid}/status node.
+   *
+   * @returns { RssInfo } Returns the Rss information.
+   * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+   * @FaAndStageModel
+   * @atomicservice
+   * @since 24 dynamic&static
+   */
+  function getRssInfo(): RssInfo;
 }
 export default hidebug;

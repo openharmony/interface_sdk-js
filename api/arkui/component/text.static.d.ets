@@ -20,7 +20,7 @@
 import { CommonMethod, ShadowOptions, Callback, AttributeModifier, SelectionOptions } from "./common";
 import { CustomBuilder } from './builder';
 import { EllipsisMode, TextCase, LineBreakStrategy, TextAlign, FontStyle, FontWeight, WordBreak, TextOverflow, CopyOptions, TextHeightAdaptivePolicy, TextSelectableMode } from "./enums";
-import { Resource, ResourceColor, Font, Length, LengthMetrics } from "./units";
+import { Resource, ResourceColor, Font, Length, LengthMetrics, ResourceStr } from "./units";
 import { TextDataDetectorConfig, LayoutManager, FontSettingOptions, EditMenuOptions, SelectedDragPreviewStyle, TextDirection, ShaderStyle, LineSpacingOptions, TextVerticalAlign, ContentTransition, TextContentAlign } from "./textCommon";
 import { DecorationStyleInterface, StyledString } from "./styledString";
 import { SelectionMenuOptions } from "./richEditor";
@@ -174,13 +174,25 @@ export declare interface TextAttribute extends CommonMethod {
     /**
      * Called when the font weight is set.
      *
-     * @param { int | FontWeight | string } weight
-     * @param { FontSettingOptions } options - font setting options.
+     * @param { int | FontWeight | ResourceStr | undefined } weight
+     * @param { FontSettingOptions | undefined } [options] - font setting options.
      * @returns { TextAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
      */
-    default fontWeight(weight: int | FontWeight | string | undefined, options?: FontSettingOptions | undefined): this;
+    default fontWeight(weight: int | FontWeight | ResourceStr | undefined, options?: FontSettingOptions | undefined): this;
+    /**
+     * Set font line spacing.
+     *
+     * <p><strong>NOTE</strong>:
+     * <br>If the value specified is less than or equal to 0, the default value 0 is used.
+     * </p>
+     *
+     * @param { LengthMetrics | undefined } value - Default value is 0.
+     * @returns { TextAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
     /**
      * Set font line spacing with options.
      *
@@ -192,7 +204,7 @@ export declare interface TextAttribute extends CommonMethod {
      * @param { LineSpacingOptions } [options]
      * @returns { TextAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 24 static
+     * @since 23 static
      */
     default lineSpacing(value: LengthMetrics | undefined, options?: LineSpacingOptions): this;
     /**

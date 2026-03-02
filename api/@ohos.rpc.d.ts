@@ -4400,7 +4400,7 @@ declare namespace rpc {
      * @returns { Ashmem } Ashmem object created.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The number of parameters is incorrect;
-     *     2.The passed parameter is not an Ahmem object;
+     *     2.The passed parameter is not an Ashmem object;
      *     3.The ashmem instance for obtaining packaging is empty.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic

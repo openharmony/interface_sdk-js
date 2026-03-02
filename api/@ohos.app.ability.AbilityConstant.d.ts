@@ -902,7 +902,47 @@ declare namespace AbilityConstant {
      * @since 11 dynamic
      * @since 23 static
      */
-    MEMORY_LEVEL_CRITICAL = 2
+    MEMORY_LEVEL_CRITICAL = 2,
+
+    /**
+     * All UI elements of the process are hidden.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    MEMORY_LEVEL_UI_HIDDEN = 3,
+
+    /**
+     * The process is in the background and the available memory of the entire device is moderate.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    MEMORY_LEVEL_BACKGROUND_MODERATE = 4,
+
+    /**
+     * The process is in the background and the available memory of the entire device is low.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    MEMORY_LEVEL_BACKGROUND_LOW = 5,
+
+    /**
+     * The process is in the background and the available memory of the entire device is extremely low.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static 
+     */
+    MEMORY_LEVEL_BACKGROUND_CRITICAL = 6
   }
 
   /**

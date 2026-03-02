@@ -11710,9 +11710,6 @@ declare namespace window {
      * Restore the main window of a float window to foreground.
      * This interface can only be used by a float window after it has been clicked once.
      * The interface cannot be invoked when the main window is in PAUSED lifecycle or is in background during recent.
-     * 
-     * Device Behavior Differences:This function can be normally invoked on phone, tablet, and 2-in-1 devices.
-     *     On other devices, error code 801 will be returned.
      *
      * @param { Record<string, Object> } [wantParameters] - Want parameters.
      *     Custom want parameter delivered when restoring the main window.
@@ -12082,6 +12079,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
+     * @since 24 static
      */
     enableLandscapeMultiWindow(): Promise<void>;
 
@@ -12183,6 +12181,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
+     * @since 24 static
      */
     disableLandscapeMultiWindow(): Promise<void>;
 
@@ -12347,8 +12346,8 @@ declare namespace window {
      *     2. Internal task error.
      *     3. The window has not set window mask yet.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
-     * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause:
-     *     1. The window is not a subwindow or floating window.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     *     Possible cause: Invalid window type. Only subwindows and float windows are supported.
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
      * @since 24 dynamic&static
@@ -14069,6 +14068,20 @@ declare namespace window {
      * @since 23 static
      */
     loadContentByName(name: string, storage?: LocalStorage): Promise<void>;
+
+    /**
+     * Release the content of this window in the current project.
+     * This API uses a promise to return the result.
+     * 
+     * @returns { Promise<void> } Promise that returns no value, indicating successful completion.
+     *     Throws exception if window state is abnormal.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     *     Possible cause: The window is not created or destroyed.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    releaseUIContent(): Promise<void>;
 
     /**
      * Window stage event callback on.

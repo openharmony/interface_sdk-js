@@ -7386,6 +7386,67 @@ declare namespace camera {
      * @since 23 static
      */
     getCameraOutputCapabilities(camera: CameraDevice): Array<CameraOutputCapability>;
+
+    /**
+     * Sets key-value pairs parameters for the session.
+     *
+     * @param { Record<string, string> } kvpairs - The pairs of tag name and value in camera metadata.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400102 - Operation not allowed.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    setParameters(kvpairs: Record<string, string>): void
+ 
+    /**
+     * Gets the values of the given key in camera metadata.
+     *
+     * @param { string } key - Tag name in camera metadata.
+     * @returns { Array<string> } The values of the key in camera metadata.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400102 - Operation not allowed.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    getParameters(key: string): Array<string>
+ 
+    /**
+     * Gets the supported keys in camera metadata.
+     *
+     * @returns { Array<string> } The supported keys in camera metadata.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    getSupportedKeys(): Array<string>
+ 
+    /**
+     * Gets the active value of the given key in camera metadata.
+     *
+     * @param { string } key - Tag name in camera metadata.
+     * @returns { string } The active value of the key in camera metadata.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400102 - Operation not allowed.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    getActiveParameter(key: string): string    
   }
 
   /**

@@ -20,6 +20,7 @@
 
 import type distributedAccount from './@ohos.account.distributedAccount';
 import type { AsyncCallback, Callback } from './@ohos.base';
+import type Context from './application/Context';
 /*** if arkts static */
 import type { RecordData } from './@ohos.base';
 /*** endif */
@@ -42,6 +43,18 @@ declare namespace osAccount {
    * @since 23 static
    */
   function getAccountManager(): AccountManager;
+
+  /**
+   * Gets the OS account authorization manager.
+   *
+   * @returns { AuthorizationManager } Returns the instance of the AuthorizationManager.
+   * @throws { BusinessError } 202 - Not system application.
+   * @syscap SystemCapability.Account.OsAccount
+   * @systemapi
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  function getAuthorizationManager(): AuthorizationManager;
 
   /**
    * Provides abilities for you to manage and perform operations on your OS accounts.
@@ -649,8 +662,9 @@ declare namespace osAccount {
      * @param { AsyncCallback<void> } callback - Indicates the callback for removing the specified OS account.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1. Mandatory parameters are left unspecified.
+     *     2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid localId.
      * @throws { BusinessError } 12300003 - Account not found.
@@ -660,6 +674,26 @@ declare namespace osAccount {
      * @systemapi Hide this for inner system use.
      * @since 7 dynamic
      * @since 23 static
+     */
+    /**
+     * Removes an OS account based on its local ID.
+     *
+     * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
+     * @param { int } localId - Indicates the local ID of the OS account.
+     * @param { AsyncCallback<void> } callback - Indicates the callback for removing the specified OS account.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 204 - Access denied due to user access control policy. Possible causes:
+     *     1. The operation is restricted by the OS-account constraint.
+     *     2. The required privilege for the operation has not been granted.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300002 - Invalid localId.
+     * @throws { BusinessError } 12300003 - Account not found.
+     * @throws { BusinessError } 12300008 - Restricted Account.
+     * @throws { BusinessError } 12300010 - Service busy. Possible causes: The target account is being operated on.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 24 dynamic&static
      */
     removeOsAccount(localId: int, callback: AsyncCallback<void>): void;
 
@@ -671,8 +705,9 @@ declare namespace osAccount {
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1. Mandatory parameters are left unspecified.
+     *     2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid localId.
      * @throws { BusinessError } 12300003 - Account not found.
@@ -683,7 +718,50 @@ declare namespace osAccount {
      * @since 7 dynamic
      * @since 23 static
      */
+    /**
+     * Removes an OS account based on its local ID.
+     *
+     * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
+     * @param { int } localId - Indicates the local ID of the OS account.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 204 - Access denied due to user access control policy. Possible causes:
+     *     1. The operation is restricted by the OS-account constraint.
+     *     2. The required privilege for the operation has not been granted.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300002 - Invalid localId.
+     * @throws { BusinessError } 12300003 - Account not found.
+     * @throws { BusinessError } 12300008 - Restricted Account.
+     * @throws { BusinessError } 12300010 - Service busy. Possible causes: The target account is being operated.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 24 dynamic&static
+     */
     removeOsAccount(localId: int): Promise<void>;
+
+    /**
+     * Removes an OS account based on its local ID.
+     *
+     * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
+     * @param { int } localId - Indicates the local ID of the OS account.
+     * @param { RemoveOsAccountOptions } options - Indicates the options for removing the OS account.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 204 - Access denied due to user access control policy. Possible causes:
+     *     1. The operation is restricted by the OS-account constraint.
+     *     2. The required privilege for the operation has not been granted.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300002 - Invalid localId or options.
+     * @throws { BusinessError } 12300003 - Account not found.
+     * @throws { BusinessError } 12300008 - Restricted Account.
+     * @throws { BusinessError } 12300010 - Service busy. Possible causes: The target account is being operated on.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 24 dynamic&static
+     */
+    removeOsAccount(localId: int, options: RemoveOsAccountOptions): Promise<void>;
 
     /**
      * Sets constraints for an OS account based on its local ID.
@@ -1282,11 +1360,13 @@ declare namespace osAccount {
      * @param { string } localName - Indicates the local name of the OS account to create.
      * @param { OsAccountType } type - Indicates the type of the OS account to create.
      *        {@link OsAccountType} specifies the account types available in the system.
-     * @param { AsyncCallback<OsAccountInfo> } callback - Returns information about the created OS account; returns {@code null} if the creation fails.
+     * @param { AsyncCallback<OsAccountInfo> } callback - Returns information about the created OS account;
+     *     returns {@code null} if the creation fails.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1. Mandatory parameters are left unspecified.
+     *     2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid localName or type.
      * @throws { BusinessError } 12300005 - Multi-user not supported.
@@ -1303,11 +1383,13 @@ declare namespace osAccount {
      * @param { string } localName - Indicates the local name of the OS account to create.
      * @param { OsAccountType } type - Indicates the type of the OS account to create.
      *        {@link OsAccountType} specifies the account types available in the system.
-     * @param { AsyncCallback<OsAccountInfo> } callback - Returns information about the created OS account; returns {@code null} if the creation fails.
+     * @param { AsyncCallback<OsAccountInfo> } callback - Returns information about the created OS account;
+     *     returns {@code null} if the creation fails.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     *     1. Mandatory parameters are left unspecified.
+     *     2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid localName or type.
      * @throws { BusinessError } 12300004 - Local name already exists.
@@ -1319,6 +1401,31 @@ declare namespace osAccount {
      * @since 12 dynamic
      * @since 23 static
      */
+    /**
+     * Creates an OS account with the specified local name and type.
+     *
+     * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
+     * @param { string } localName - Indicates the local name of the OS account to create.
+     * @param { OsAccountType } type - Indicates the type of the OS account to create.
+     *        {@link OsAccountType} specifies the account types available in the system.
+     * @param { AsyncCallback<OsAccountInfo> } callback - Returns information about the created OS account;
+     *     returns {@code null} if the creation fails.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 204 - Access denied due to user access control policy. Possible causes:
+     *     1. The operation is restricted by the OS-account constraint.
+     *     2. The required privilege for the operation has not been granted.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300002 - Invalid localName or type.
+     * @throws { BusinessError } 12300004 - Local name already exists.
+     * @throws { BusinessError } 12300005 - Multi-user not supported.
+     * @throws { BusinessError } 12300006 - Unsupported account type.
+     * @throws { BusinessError } 12300007 - The number of accounts has reached the upper limit.
+     * @throws { BusinessError } 12300023 - The number of accounts of the specified type has reached the upper limit.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 24 dynamic&static
+     */
     createOsAccount(localName: string, type: OsAccountType, callback: AsyncCallback<OsAccountInfo>): void;
 
     /**
@@ -1328,11 +1435,13 @@ declare namespace osAccount {
      * @param { string } localName - Indicates the local name of the OS account to create.
      * @param { OsAccountType } type - Indicates the type of the OS account to create.
      *        {@link OsAccountType} specifies the account types available in the system.
-     * @returns { Promise<OsAccountInfo> } Returns information about the created OS account; returns {@code null} if the creation fails.
+     * @returns { Promise<OsAccountInfo> } Returns information about the created OS account;
+     *     returns {@code null} if the creation fails.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1. Mandatory parameters are left unspecified.
+     *     2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid localName or type.
      * @throws { BusinessError } 12300005 - Multi-user not supported.
@@ -1350,11 +1459,13 @@ declare namespace osAccount {
      * @param { OsAccountType } type - Indicates the type of the OS account to create.
      *        {@link OsAccountType} specifies the account types available in the system.
      * @param { CreateOsAccountOptions } [options] - Indicates the options for creating an OS account.
-     * @returns { Promise<OsAccountInfo> } Returns information about the created OS account; returns {@code null} if the creation fails.
+     * @returns { Promise<OsAccountInfo> } Returns information about the created OS account; 
+     *     returns {@code null} if the creation fails.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     *     1. Mandatory parameters are left unspecified.
+     *     2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid localName, type or options.
      * @throws { BusinessError } 12300004 - Local name already exists.
@@ -1367,6 +1478,33 @@ declare namespace osAccount {
      * @since 12 dynamic
      * @since 23 static
      */
+    /**
+     * Creates an OS account with the specified local name, type and options.
+     *
+     * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
+     * @param { string } localName - Indicates the local name of the OS account to create.
+     * @param { OsAccountType } type - Indicates the type of the OS account to create.
+     *        {@link OsAccountType} specifies the account types available in the system.
+     * @param { CreateOsAccountOptions } [options] - Indicates the options for creating an OS account.
+     * @returns { Promise<OsAccountInfo> } Returns information about the created OS account; 
+     *     returns {@code null} if the creation fails.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 204 - Access denied due to user access control policy. Possible causes:
+     *     1. The operation is restricted by the OS-account constraint.
+     *     2. The required privilege for the operation has not been granted.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300002 - Invalid localName, type or options.
+     * @throws { BusinessError } 12300004 - Local name already exists.
+     * @throws { BusinessError } 12300005 - Multi-user not supported.
+     * @throws { BusinessError } 12300006 - Unsupported account type.
+     * @throws { BusinessError } 12300007 - The number of accounts has reached the upper limit.
+     * @throws { BusinessError } 12300015 - The short name already exists.
+     * @throws { BusinessError } 12300023 - The number of accounts of the specified type has reached the upper limit.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 24 dynamic&static
+     */
     createOsAccount(localName: string, type: OsAccountType, options?: CreateOsAccountOptions): Promise<OsAccountInfo>;
 
     /**
@@ -1376,11 +1514,13 @@ declare namespace osAccount {
      * @param { OsAccountType } type - Indicates the type of the OS account to create.
      *        {@link OsAccountType} specifies the account types available in the system.
      * @param { DomainAccountInfo } domainInfo - Indicates the domain account info.
-     * @param { AsyncCallback<OsAccountInfo> } callback - Returns information about the created OS account; returns {@code null} if the creation fails.
+     * @param { AsyncCallback<OsAccountInfo> } callback - Returns information about the created OS account;
+     *     returns {@code null} if the creation fails.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     *     1. Mandatory parameters are left unspecified.
+     *     2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid type or domainInfo.
      * @throws { BusinessError } 12300004 - Account already exists.
@@ -1398,11 +1538,13 @@ declare namespace osAccount {
      * @param { OsAccountType } type - Indicates the type of the OS account to create.
      *        {@link OsAccountType} specifies the account types available in the system.
      * @param { DomainAccountInfo } domainInfo - Indicates the domain account info.
-     * @param { AsyncCallback<OsAccountInfo> } callback - Returns information about the created OS account; returns {@code null} if the creation fails.
+     * @param { AsyncCallback<OsAccountInfo> } callback - Returns information about the created OS account;
+     *     returns {@code null} if the creation fails.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1. Mandatory parameters are left unspecified.
+     *     2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid type or domainInfo.
@@ -1414,6 +1556,32 @@ declare namespace osAccount {
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
      * @since 23 static
+     */
+    /**
+     * Creates an OS account using the account type and domain account info.
+     *
+     * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
+     * @param { OsAccountType } type - Indicates the type of the OS account to create.
+     *        {@link OsAccountType} specifies the account types available in the system.
+     * @param { DomainAccountInfo } domainInfo - Indicates the domain account info.
+     * @param { AsyncCallback<OsAccountInfo> } callback - Returns information about the created OS account;
+     *     returns {@code null} if the creation fails.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 204 - Access denied due to user access control policy. Possible causes:
+     *     1. The operation is restricted by the OS-account constraint.
+     *     2. The required privilege for the operation has not been granted.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300002 - Invalid type or domainInfo.
+     * @throws { BusinessError } 12300004 - Account already exists.
+     * @throws { BusinessError } 12300005 - Multi-user not supported.
+     * @throws { BusinessError } 12300006 - Unsupported account type.
+     * @throws { BusinessError } 12300007 - The number of accounts has reached the upper limit.
+     * @throws { BusinessError } 12300023 - The number of accounts of the specified type has reached the upper limit.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 24 dynamic&static
      */
     createOsAccountForDomain(
       type: OsAccountType,
@@ -1428,11 +1596,13 @@ declare namespace osAccount {
      * @param { OsAccountType } type - Indicates the type of the OS account to create.
      *        {@link OsAccountType} specifies the account types available in the system.
      * @param { DomainAccountInfo } domainInfo - Indicates the domain account info.
-     * @returns { Promise<OsAccountInfo> } Returns information about the created OS account; returns {@code null} if the creation fails.
+     * @returns { Promise<OsAccountInfo> } Returns information about the created OS account;
+     *     returns {@code null} if the creation fails.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1. Mandatory parameters are left unspecified.
+     *     2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid type or domainInfo.
      * @throws { BusinessError } 12300004 - Account already exists.
@@ -1451,11 +1621,13 @@ declare namespace osAccount {
      *        {@link OsAccountType} specifies the account types available in the system.
      * @param { DomainAccountInfo } domainInfo - Indicates the domain account info.
      * @param { CreateOsAccountForDomainOptions } [options] - Indicates the options to create an OS account for domain.
-     * @returns { Promise<OsAccountInfo> } Returns information about the created OS account; returns {@code null} if the creation fails.
+     * @returns { Promise<OsAccountInfo> } Returns information about the created OS account;
+     *     returns {@code null} if the creation fails.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1. Mandatory parameters are left unspecified.
+     *     2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid type, domainInfo or options.
@@ -1468,6 +1640,34 @@ declare namespace osAccount {
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
      * @since 23 static
+     */
+    /**
+     * Creates an OS account using the account type, domain account info and options.
+     *
+     * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
+     * @param { OsAccountType } type - Indicates the type of the OS account to create.
+     *        {@link OsAccountType} specifies the account types available in the system.
+     * @param { DomainAccountInfo } domainInfo - Indicates the domain account info.
+     * @param { CreateOsAccountForDomainOptions } [options] - Indicates the options to create an OS account for domain.
+     * @returns { Promise<OsAccountInfo> } Returns information about the created OS account;
+     *     returns {@code null} if the creation fails.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 204 - Access denied due to user access control policy. Possible causes:
+     *     1. The operation is restricted by the OS-account constraint.
+     *     2. The required privilege for the operation has not been granted.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300002 - Invalid type, domainInfo or options.
+     * @throws { BusinessError } 12300004 - Account already exists.
+     * @throws { BusinessError } 12300005 - Multi-user not supported.
+     * @throws { BusinessError } 12300006 - Unsupported account type.
+     * @throws { BusinessError } 12300007 - The number of accounts has reached the upper limit.
+     * @throws { BusinessError } 12300015 - The short name already exists.
+     * @throws { BusinessError } 12300023 - The number of accounts of the specified type has reached the upper limit.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 24 dynamic&static
      */
     createOsAccountForDomain(type: OsAccountType, domainInfo: DomainAccountInfo, options?: CreateOsAccountForDomainOptions): Promise<OsAccountInfo>;
 
@@ -1700,6 +1900,31 @@ declare namespace osAccount {
      * @since 23 static
      */
     getOsAccountType(localId: int): Promise<OsAccountType>;
+
+    /**
+     * Sets the type of the specified OS account.
+     *
+     * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
+     * @param { int } localId - Indicates the local ID of the OS account.
+     * @param { OsAccountType } type - Indicates the OS account type.
+     * @param { SetOsAccountTypeOptions } [options] - Indicates the options for setting the OS account type.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 204 - Access denied due to user access control policy. Possible causes:
+     *     1. The operation is restricted by the OS-account constraint.
+     *     2. The required privilege for the operation has not been granted.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300002 - Invalid type or options.
+     * @throws { BusinessError } 12300003 - Account not found.
+     * @throws { BusinessError } 12300008 - Restricted OS account.
+     * @throws { BusinessError } 12300010 - Service busy. Possible causes: The target account is being operated.
+     * @throws { BusinessError } 12300023 - The number of accounts of the specified type has reached the upper limit.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 24 dynamic&static
+     */
+    setOsAccountType(localId: int, type: OsAccountType, options?: SetOsAccountTypeOptions): Promise<void>;
 
     /**
      * Obtains the distributed virtual device ID (DVID).
@@ -2751,6 +2976,16 @@ declare namespace osAccount {
      * @since 23 static
      */
     allowedPreinstalledBundles?: Array<string>;
+
+    /**
+     * Indicates the token acquired from the authorization manager.
+     *
+     * @type { ?Uint8Array }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 24 dynamic&static
+     */
+    token?: Uint8Array;
   }
 
   /**
@@ -2764,6 +2999,46 @@ declare namespace osAccount {
    * @since 23 static
    */
   interface CreateOsAccountForDomainOptions extends CreateOsAccountOptions {}
+
+  /**
+   * Options for removing the OS account type.
+   *
+   * @interface RemoveOsAccountOptions
+   * @syscap SystemCapability.Account.OsAccount
+   * @systemapi
+   * @since 24 dynamic&static
+   */
+  interface RemoveOsAccountOptions {
+    /**
+     * Indicates the token acquired from the authorization manager.
+     *
+     * @type { ?Uint8Array }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 24 dynamic&static
+     */
+    token?: Uint8Array;
+  }
+
+  /**
+   * Options for setting the OS account type.
+   *
+   * @interface SetOsAccountTypeOptions
+   * @syscap SystemCapability.Account.OsAccount
+   * @systemapi
+   * @since 24 dynamic&static
+   */
+  interface SetOsAccountTypeOptions {
+    /**
+     * Indicates the token acquired from the authorization manager.
+     *
+     * @type { ?Uint8Array }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 24 dynamic&static
+     */
+    token?: Uint8Array;
+  }
 
   /**
    * Provides information about domain accounts.
@@ -2873,6 +3148,273 @@ declare namespace osAccount {
      */
     PRIVATE = 1024
   }
+
+  /**
+   * Provides abilities to manage OS account authorizations.
+   *
+   * @interface AuthorizationManager
+   * @syscap SystemCapability.Account.OsAccount
+   * @systemapi
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  interface AuthorizationManager {
+    /**
+     * Acquires an authorization for the current process.
+     *
+     * @permission ohos.permission.ACQUIRE_LOCAL_ACCOUNT_AUTHORIZATION
+     * @param { string } privilege - Indicates the target privilege.
+     * @param { AcquireAuthorizationOptions } [options] - Indicates the options for acquiring an authorization.
+     * @returns { Promise<AcquireAuthorizationResult> } Returns the result of acquiring authorization.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300002 - Invalid privilege or options.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    acquireAuthorization(privilege: string, options?: AcquireAuthorizationOptions): Promise<AcquireAuthorizationResult>;
+
+    /**
+     * Releases the specified authorization owned by the current process.
+     *
+     * @param { string } privilege - Indicates the privilege associated with the specified authorization.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300002 - Invalid privilege.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    releaseAuthorization(privilege: string): Promise<void>;
+
+    /**
+     * Checks whether the current process has the specified authorization.
+     *
+     * @param { string } privilege - Indicates the privilege associated with the specified authorization.
+     * @returns { Promise<boolean> } Returns whether the current process has the specified authorization.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300002 - Invalid privilege.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    hasAuthorization(privilege: string): Promise<boolean>;
+  }
+
+  /**
+   * Options for acquiring the authorization.
+   *
+   * @interface AcquireAuthorizationOptions
+   * @syscap SystemCapability.Account.OsAccount
+   * @systemapi
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  interface AcquireAuthorizationOptions {
+    /**
+     * Indicates the random challenge value, which can be used to prevent replay attacks
+     * and must not exceed 32 bytes.
+     *
+     * @type { ?Uint8Array }
+     * @default undefined
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    challenge?: Uint8Array;
+
+    /**
+     * Indicates whether reuse of the previous authorization is needed.
+     * If true specified and a valid authorization result exists, the result will be reused.
+     * Otherwise, a new authorization will be performed.
+     *
+     * @type { ?boolean }
+     * @default true
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    isReuseNeeded?: boolean;
+
+    /**
+     * Indicates whether user interaction is allowed.
+     * This option only works when the caller is in foreground.
+     * If the caller is in background, user interaction is not allowed.
+     * 
+     * If true, the authorization dialog is allowed to be displayed in the interaction context.
+     * If false, the authorization dialog is not allowed to be displayed.
+     *
+     * @type { ?boolean }
+     * @default true
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    isInteractionAllowed?: boolean;
+
+    /**
+     * Indicates the context for user interaction.
+     * This option only works when user interaction is allowed, i.e., isInteractionAllowed is true.
+     * 
+     * If nothing specified, the authorization dialog will be displayed in modal system mode.
+     * If UIAbilityContext or UIExtensionContext specified,
+     * the authorization dialog will be displayed in modal application mode.
+     * Otherwise, the authorization dialog can not be displayed.
+     *
+     * @type { ?Context }
+     * @default undefined, which means the authorization dialog will be displayed in modal system mode.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    interactionContext?: Context;
+  }
+
+  /**
+   * Enumerates the authorization result code.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Account.OsAccount
+   * @systemapi
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  enum AuthorizationResultCode {
+    /**
+     * Indicates that the authorization is successful.
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    AUTHORIZATION_SUCCESS = 0,
+
+    /**
+     * Indicates the authorization is canceled.
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    AUTHORIZATION_CANCELED = 12300301,
+
+    /**
+     * Indicates the service denied authorization because user interaction is not allowed.
+     * Possible causes:
+     *     1. The caller is in background;
+     *     2. The value of the interactionAllowed option is false;
+     *     3. The specified interaction context is invalid;
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    AUTHORIZATION_INTERACTION_NOT_ALLOWED = 12300302,
+
+    /**
+     * Indicates the authorization is denied because it does not meet the authorization rules.
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    AUTHORIZATION_DENIED = 12300303,
+
+    /**
+     * Indicates the service is busy.
+     * Possible causes: Other authorization is being processed.
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    AUTHORIZATION_SERVICE_BUSY = 12300304
+  }
+
+  /**
+   * Indicates the result of acquiring authorization.
+   *
+   * @interface AcquireAuthorizationResult
+   * @syscap SystemCapability.Account.OsAccount
+   * @systemapi
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  interface AcquireAuthorizationResult {
+    /**
+     * Indicates the authorization result code.
+     * If the authorization is successful, AuthorizationResultCode#AUTHORIZATION_SUCCESS is returned.
+     * Otherwise, an error code is returned. For details, see AuthorizationResultCode.
+     *
+     * @type { AuthorizationResultCode }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    resultCode: AuthorizationResultCode;
+
+    /**
+     * Indicates the privilege associated with the authorization.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    privilege: string;
+
+    /**
+     * Indicates whether it is a reused authorization result.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    isReused?: boolean;
+
+    /**
+     * Indicates the validity period of the authorization.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    validityPeriod?: int;
+
+    /**
+     * Indicates the authorization token.
+     *
+     * @type { ?Uint8Array }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    token?: Uint8Array;
+  }
+
 
   /**
    * Provides the abilities for user authentication.
@@ -4166,6 +4708,36 @@ declare namespace osAccount {
   }
 
   /**
+   * Options for domain account authentication.
+   *
+   * @interface DomainAccountAuthOptions
+   * @syscap SystemCapability.Account.OsAccount
+   * @systemapi
+   * @since 24 dynamic&static
+   */
+  interface DomainAccountAuthOptions {
+    /**
+     * Indicates the server parameters.
+     *
+     * @type { ?Record<string, Object> }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 24 dynamic
+     */
+    serverParams?: Record<string, Object>;
+
+    /**
+     * Indicates the server parameters.
+     *
+     * @type { ?Record<string, RecordData> }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 24 static
+     */
+    serverParams?: Record<string, RecordData>;
+  }
+
+  /**
    * Provides abilities for the management of domain account.
    *
    * @syscap SystemCapability.Account.OsAccount
@@ -4263,6 +4835,40 @@ declare namespace osAccount {
      * @since 23 static
      */
     static auth(domainAccountInfo: DomainAccountInfo, credential: Uint8Array, callback: IUserAuthCallback): void;
+
+    /**
+     * Authenticates the specified domain account with a credential and options.
+     *
+     * @permission ohos.permission.ACCESS_USER_AUTH_INTERNAL
+     * @param { DomainAccountInfo } domainAccountInfo - Indicates the domain account information.
+     * @param { Uint8Array } credential - Indicates the credential for authentication.
+     * @param { DomainAccountAuthOptions } options - Indicates the options for domain account authentication.
+     * @param { IUserAuthCallback } callback - Indicates the callback for getting the authentication result.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300002 - Invalid domainAccountInfo or credential.
+     * @throws { BusinessError } 12300003 - Domain account does not exist.
+     * @throws { BusinessError } 12300013 - Network exception.
+     * @throws { BusinessError } 12300101 - Authentication failed.
+     * @throws { BusinessError } 12300109 - The authentication, enrollment, or update operation is canceled.
+     * @throws { BusinessError } 12300110 - The authentication is locked.
+     * @throws { BusinessError } 12300111 - The authentication time out.
+     * @throws { BusinessError } 12300112 - The authentication service is busy.
+     * @throws { BusinessError } 12300113 - The account authentication service does not exist.
+     * @throws { BusinessError } 12300114 - The account authentication service works abnormally.
+     * @throws { BusinessError } 12300211 - Server unreachable.
+     * @static
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 24 dynamic&static
+     */
+    static auth(
+      domainAccountInfo: DomainAccountInfo,
+      credential: Uint8Array,
+      options: DomainAccountAuthOptions,
+      callback: IUserAuthCallback): void;
 
     /**
      * Authenticates the domain account bound to the current OS account with a popup.

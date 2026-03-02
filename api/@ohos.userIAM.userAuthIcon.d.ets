@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 Huawei Device Co., Ltd.
+ * Copyright (c) 2024-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -19,13 +19,6 @@
  */
 
 import userAuth from '@ohos.userIAM.userAuth';
-/*** if arkts static */
-import {
-    ResourceColor,
-    Dimension,
-    Component
-} from '@ohos.arkui.component';
-/*** endif */
 
 /**
  * Declare UserAuthIcon, used for user authentication.
@@ -33,7 +26,6 @@ import {
  * @syscap SystemCapability.UserIAM.UserAuth.Core
  * @atomicservice
  * @since 12 dynamic
- * @since 23 static
  */
 @Component
 export default struct UserAuthIcon {
@@ -44,7 +36,6 @@ export default struct UserAuthIcon {
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 23 static
      */
     authParam: userAuth.AuthParam;
 
@@ -55,7 +46,6 @@ export default struct UserAuthIcon {
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 23 static
      */
     widgetParam: userAuth.WidgetParam;
 
@@ -67,7 +57,6 @@ export default struct UserAuthIcon {
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 23 static
      */
     iconHeight?: Dimension;
 
@@ -79,7 +68,6 @@ export default struct UserAuthIcon {
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 23 static
      */
     iconColor?: ResourceColor;
 
@@ -92,7 +80,6 @@ export default struct UserAuthIcon {
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 23 static
      */
     onAuthResult: (result: userAuth.UserAuthResult) => void;
 
@@ -102,7 +89,6 @@ export default struct UserAuthIcon {
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 23 static
      */
     onIconClick?: () => void;
 }

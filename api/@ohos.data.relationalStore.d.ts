@@ -696,7 +696,7 @@ declare namespace relationalStore {
     kdfAlgo?: KdfAlgo;
 
     /**
-     * Specifies the page size used when opening an encrypted database.
+     * Specifies the page size used when opening an encrypted database, in bytes.
      * Default crypto page size is 1024.
      *
      * @type { ?number }
@@ -704,7 +704,7 @@ declare namespace relationalStore {
      * @since 14
      */
     /**
-     * Specifies the page size used when opening an encrypted database.
+     * Specifies the page size used when opening an encrypted database, in bytes.
      * Default crypto page size is 1024.
      *
      * @type { ?int }
@@ -3453,7 +3453,6 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800014 - The target instance is already closed.
      * @throws { BusinessError } 14800019 - The SQL must be a query statement.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
-     *     Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
      * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
      * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
@@ -4589,7 +4588,6 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800014 - The target instance is already closed.
      * @throws { BusinessError } 14800019 - The SQL must be a query statement.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
-     *     Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
      * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
      * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
@@ -4613,7 +4611,6 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800014 - The target instance is already closed.
      * @throws { BusinessError } 14800019 - The SQL must be a query statement.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
-     *     Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
      * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
      * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
@@ -4735,7 +4732,6 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800014 - The target instance is already closed.
      * @throws { BusinessError } 14800019 - The SQL must be a query statement.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
-     *     Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
      * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
      * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
@@ -4757,7 +4753,6 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800014 - The target instance is already closed.
      * @throws { BusinessError } 14800019 - The SQL must be a query statement.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
-     *     Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
      * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
      * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
@@ -4780,7 +4775,6 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800014 - The target instance is already closed.
      * @throws { BusinessError } 14800019 - The SQL must be a query statement.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
-     *     Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
      * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
      * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
@@ -4805,7 +4799,6 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800014 - The target instance is already closed.
      * @throws { BusinessError } 14800019 - The SQL must be a query statement.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
-     *     Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
      * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
      * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
@@ -4828,7 +4821,6 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800014 - The target instance is already closed.
      * @throws { BusinessError } 14800019 - The SQL must be a query statement.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
-     *     Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
      * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
      * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
@@ -4850,7 +4842,6 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800014 - The target instance is already closed.
      * @throws { BusinessError } 14800019 - The SQL must be a query statement.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
-     *     Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
      * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
      * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
@@ -5020,7 +5011,6 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800014 - The target instance is already closed.
      * @throws { BusinessError } 14800019 - The SQL must be a query statement.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
-     *     Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
      * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
      * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
@@ -5044,7 +5034,6 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800014 - The target instance is already closed.
      * @throws { BusinessError } 14800019 - The SQL must be a query statement.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
-     *     Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
      * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
      * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
@@ -5066,7 +5055,6 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800014 - The target instance is already closed.
      * @throws { BusinessError } 14800019 - The SQL must be a query statement.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
-     *     Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
      * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
      * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
@@ -5090,7 +5078,6 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800014 - The target instance is already closed.
      * @throws { BusinessError } 14800019 - The SQL must be a query statement.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
-     *     Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
      * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
      * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
@@ -5115,7 +5102,6 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800014 - The target instance is already closed.
      * @throws { BusinessError } 14800019 - The SQL must be a query statement.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
-     *     Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
      * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
      * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file
@@ -9675,7 +9661,7 @@ declare namespace relationalStore {
      *
      * @param { string } fullPath - Indicates the path of the database file to attach.
      * @param { string } attachName - Indicates the alias of the database.
-     * @param { int } [waitTime] - Indicates the maximum time allowed for attaching the database file.
+     * @param { int } [waitTime] - Indicates the maximum time allowed for attaching the database file, in seconds.
      * @returns { Promise<int> } Promise used to return the number of attached databases.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -9714,7 +9700,7 @@ declare namespace relationalStore {
      * @param { StoreConfig } config -
      *     Indicates the {@link StoreConfig} configuration of the database related to this RDB store.
      * @param { string } attachName - Indicates the alias of the database.
-     * @param { int } [waitTime] - Indicates the maximum time allowed for attaching the database file.
+     * @param { int } [waitTime] - Indicates the maximum time allowed for attaching the database file, in seconds.
      * @returns { Promise<int> } Promise used to return the number of attached databases.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -9752,7 +9738,7 @@ declare namespace relationalStore {
      * Detaches a database from this database.
      *
      * @param { string } attachName - Indicates the alias of the database.
-     * @param { int } [waitTime] - Indicates the maximum time allowed for detaching the database.
+     * @param { int } [waitTime] - Indicates the maximum time allowed for detaching the database, in seconds.
      * @returns { Promise<int> } Return the current number of attached databases.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -9886,7 +9872,7 @@ declare namespace relationalStore {
     /**
      * Lock cloud container before non-auto cloud sync.
      *
-     * @returns { Promise<int> } The expired time of the lock.
+     * @returns { Promise<int> } The expired time of the lock, in ms.
      * @throws { BusinessError } 202 - Permission verification failed,
      *     application which is not a system application uses system API.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -11073,6 +11059,34 @@ declare namespace relationalStore {
    * @since 23 static
    */
   function getRdbStore(context: Context, config: StoreConfig): Promise<RdbStore>;
+
+  /**
+   * Obtains a RDB store.
+   * You can set parameters of the RDB store as required. This is a synchronous method
+   * that blocks the thread until the RDB store is obtained.
+   *
+   * @param { Context } context - Indicates the context of an application or ability.
+   * @param { StoreConfig } config - Indicates the {@link StoreConfig} configuration of the database related to
+   *     this RDB store.
+   * @returns { RdbStore } The RDB store {@link RdbStore}.
+   * @throws { BusinessError } 14800001 - Invalid args.
+   * @throws { BusinessError } 14800010 - Invalid database path.
+   * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
+   * @throws { BusinessError } 14801001 - The operation is supported in the stage model only.
+   * @throws { BusinessError } 14801002 - Invalid data group ID.
+   * @throws { BusinessError } 14800017 - Config changed.
+   * @throws { BusinessError } 14800020 - The secret key is corrupted or lost.
+   * @throws { BusinessError } 14800021 - SQLite: Generic error.
+   * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
+   * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+   * @throws { BusinessError } 14800029 - SQLite: The database is full.
+   * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @stagemodelonly
+   * @crossplatform
+   * @since 24 dynamic&static
+   */
+  function getRdbStoreSync(context: Context, config: StoreConfig): RdbStore;
 
   /**
    * Deletes the database with a specified name.

@@ -649,7 +649,7 @@ declare namespace policy {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 10 dynamic
    */
   /**
    * Register uid policy change listener.
@@ -681,7 +681,7 @@ declare namespace policy {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 10 dynamic
    */
   /**
    * Unregister uid policy change listener.
@@ -713,7 +713,7 @@ declare namespace policy {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 10 dynamic
    */
   /**
    * Register uid rule change listener.
@@ -745,7 +745,7 @@ declare namespace policy {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 10 dynamic
    */
   /**
    * Unregister uid rule change listener.

@@ -1,6 +1,6 @@
 'use static'
 /*
- * Copyright (c) 2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -21,25 +21,23 @@
  * Defines error codes used when starting an ability, for example, featureAbility.ErrorCode.NO_ERROR.
  *
  * @enum { number }
- * @syscap SystemCapability.Ability.AbilityRuntime.Core.static
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core.static [staticonly]
  * use multiple description syscap
  * @since 20
  */
 export enum ErrorCode {
-    // test[dynamiconly]
     /**
      * Permission denied.
      *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core.static
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core.dynamic
      * use multiple description syscap
      * @since 20
      */
     PERMISSION_DENY = -3,
-    // test[staticonly]
     /**
      * Ability not found.
      *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core.static
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core.dynamic
      * use multiple description syscap
      * @since 20
      */

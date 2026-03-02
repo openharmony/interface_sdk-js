@@ -24,6 +24,7 @@ import { Resource } from './../../../api/global/resource';
 import { FontStyle, FontWeight, TextCase } from "./enums";
 import { DecorationStyleInterface } from "./styledString";
 import { ComponentBuilder, CustomBuilder } from './builder';
+import { FontConfigs, FontWeightConfigs } from "./textCommon"
 /**
  * Define the background style of span.
  *
@@ -93,7 +94,17 @@ export declare interface SpanAttribute {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
      */
-    default font(value: Font | undefined): this;
+    /**
+     * Used to set the font of span.
+     *
+     * @param { Font | undefined } value - the span font size, font weight, font family and font style.
+     * @param { FontConfigs } [fontConfigs] - the configuration of font.
+     * @returns { SpanAttribute } The attribute of the span.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 24 static
+     */
+    default font(value: Font | undefined, fontConfigs?: FontConfigs): this;
     /**
      * Called when the font color is set.
      *
@@ -128,9 +139,19 @@ export declare interface SpanAttribute {
      * @returns { SpanAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
+     * @since 23 static
+     */
+    /**
+     * Used to set the font weight of span.
+     *
+     * @param { int | FontWeight | ResourceStr | undefined } weight - the span font weight.
+     * @param { FontWeightConfigs } [fontWeightConfigs] - the configuration of font weight.
+     * @returns { SpanAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 24 static
      */
-    default fontWeight(value: int | FontWeight | ResourceStr | undefined): this;
+    default fontWeight(weight: int | FontWeight | ResourceStr | undefined, fontWeightConfigs?: FontWeightConfigs): this;
     /**
      * Called when the font list of text is set.
      *

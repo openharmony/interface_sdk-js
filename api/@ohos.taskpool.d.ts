@@ -1545,6 +1545,22 @@ declare namespace taskpool {
    * @atomicservice
    * @since 11 dynamiconly
    */
+  /**
+   * Places a task group in the internal queue of the task pool.
+   * The tasks in the task group are not executed immediately.
+   * They wait to be distributed to the worker thread for execution. After all tasks in the task group are executed,
+   * a result array is returned. This API applies when you want to execute a group of associated tasks.
+   *
+   * @param { TaskGroup } group - Task group to be executed.
+   * @param { Priority } [priority] - Priority of the task group. The default value is taskpool.Priority.MEDIUM.
+   * @returns { Promise<Object[]> }
+   * @throws { BusinessError } 10200006 - An exception occurred during serialization.
+   * @throws { BusinessError } 10200059 - TaskGroup cannot be re-executed.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 24 dynamiconly
+   */
   function execute(group: TaskGroup, priority?: Priority): Promise<Object[]>;
 
   /**
@@ -2085,6 +2101,91 @@ declare namespace taskpool {
    * @since 22 dynamiconly
    */
   function getTask(taskId: number, taskName?: string): Task | undefined;
+
+  /**
+   * Defines the task configs interface
+   *
+   * @interface Configs
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 24 dynamiconly
+   */
+  interface Configs {
+    /**
+    * The priority of the task. The default value is taskpool.Priority.MEDIUM.
+    *
+    * @type { ?Priority }
+    * @syscap SystemCapability.Utils.Lang
+    * @crossplatform
+    * @atomicservice
+    * @since 24 dynamiconly
+    */
+    priority?: Priority;
+
+    /**
+    * The timeout for the task in ms. The default value is Infinity.
+    *
+    * @type { ?number }
+    * @syscap SystemCapability.Utils.Lang
+    * @crossplatform
+    * @atomicservice
+    * @since 24 dynamiconly
+    */
+    timeout?: number;
+  }
+
+  /**
+   * Execute a concurrent task with Configs.
+   *
+   * @param { Task } task - Task to be executed.
+   * @param { Configs } configs - Configs of the task.
+   * @returns { Promise<Object> }
+   * @throws { BusinessError } 10200006 - An exception occurred during serialization.
+   * @throws { BusinessError } 10200014 - The function is not marked as concurrent.
+   * @throws { BusinessError } 10200051 - The periodic task cannot be executed again.
+   * @throws { BusinessError } 10200057 - The task cannot be executed by two APIs.
+   * @throws { BusinessError } 10200058 - Task timed out.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 24 dynamiconly
+   */
+  function execute(task: Task, configs: Configs): Promise<Object>;
+
+  /**
+   * Execute a concurrent generics task with Configs.
+   *
+   * @param { GenericsTask<A, R> } task - Generic task to be executed.
+   * @param { Configs } configs - Configs of the task.
+   * @returns { Promise<R> }
+   * @throws { BusinessError } 10200006 - An exception occurred during serialization.
+   * @throws { BusinessError } 10200014 - The function is not marked as concurrent.
+   * @throws { BusinessError } 10200051 - The periodic task cannot be executed again.
+   * @throws { BusinessError } 10200057 - The task cannot be executed by two APIs.
+   * @throws { BusinessError } 10200058 - Task timed out.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 24 dynamiconly
+   */
+  function execute<A extends Array<Object>, R>(task: GenericsTask<A, R>, configs: Configs): Promise<R>;
+
+  /**
+   * Execute a concurrent task group with Configs.
+   *
+   * @param { TaskGroup } group - Task group to be executed.
+   * @param { Configs } configs - Configs of each task in the TaskGroup.
+   * @returns { Promise<Object[]> }
+   * @throws { BusinessError } 10200006 - An exception occurred during serialization.
+   * @throws { BusinessError } 10200059 - TaskGroup cannot be re-executed.
+   * @throws { BusinessError } 10200070 - TaskGroup timed out.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 24 dynamiconly
+   */
+  function execute(group: TaskGroup, configs: Configs): Promise<Object[]>;
 }
 
 export default taskpool;

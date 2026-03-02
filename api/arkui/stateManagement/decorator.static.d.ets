@@ -17,6 +17,7 @@
  * @file
  * @kit ArkUI
  */
+import { SystemProperties } from '../component/enums';
 
 /**
  * Define a custom component API that provides variables-related functionality.
@@ -363,6 +364,26 @@ export declare @interface Monitor {
 };
 
 /**
+ * Defining Env PropertyDecorator.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 24 static
+ */
+@Retention({policy: "SOURCE"})
+export declare @interface Env {
+  /**
+   * Key value input by the user.
+   *
+   * @type { SystemProperties }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  value: SystemProperties;
+};
+
+/**
  * Define IMonitor interface
  *
  * @interface IMonitor
@@ -423,6 +444,66 @@ export declare interface IMonitorValue<T> {
    */
    path: string;
 }
+
+/**
+ * Define ComponentInit Method Decorator.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 24 static
+ */
+@Retention({policy: "SOURCE"})
+export declare @interface ComponentInit {}
+
+/**
+ * Define ComponentAppear Method Decorator.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 24 static
+ */
+@Retention({policy: "SOURCE"})
+export declare @interface ComponentAppear {}
+
+/**
+ * Define ComponentBuilt Method Decorator.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 24 static
+ */
+@Retention({policy: "SOURCE"})
+export declare @interface ComponentBuilt {}
+
+/**
+ * Define ComponentReuse Method Decorator.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 24 static
+ */
+@Retention({policy: "SOURCE"})
+export declare @interface ComponentReuse {}
+
+/**
+ * Define ComponentRecycle Method Decorator.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 24 static
+ */
+@Retention({policy: "SOURCE"})
+export declare @interface ComponentRecycle {}
+
+/**
+ * Define ComponentDisappear Method Decorator.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 24 static
+ */
+@Retention({policy: "SOURCE"})
+export declare @interface ComponentDisappear {}
 
 /**
  * Define decorated variable interface.
@@ -854,6 +935,17 @@ export declare interface IStateMgmtFactory {
    */
   makeMutableStateMeta(): IMutableStateMeta;
   /**
+   * get mutable state meta
+   *
+   * @param { IObservedObject | undefined } observedObject - owner of this meta.
+   * @param { string } propertyName - meta name.
+   * @returns { IMutableStateMeta }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  makeMutableStateMeta(observedObject: IObservedObject | undefined, propertyName: string): IMutableStateMeta;
+  /**
    * get subscribed watches
    *
    * @returns { ISubscribedWatches }
@@ -1116,6 +1208,20 @@ export declare interface IStateMgmtFactory {
    * @since 23 static
    */
   makeMonitor(pathInfos: Array<IMonitorPathInfo>, monitorCallback: MonitorCallback, owner?: IVariableOwner): IMonitorDecoratedVariable;
+
+    /**
+   * Create a Env variable instance.
+   *
+   * @param { IVariableOwner } owner - custom component owner
+   * @param { string } envValue - type of environment value to obtain
+   * @param { string } varName - variable name that is decorated by @Env
+   * @param { EnvOptions<T> } [envOptions] - additional options for makeEnv
+   * @returns { IEnvDecoratedVariable<T> } Env variable instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  makeEnv<T>(owner: IVariableOwner, envValue: string, varName: string, envOptions?: EnvOptions<T>): IEnvDecoratedVariable<T>;
 }
 
 
@@ -1149,6 +1255,17 @@ export interface IDecoratedV2Variable<T> extends IDecoratedVariable {
  * @since 23 static
  */
 export declare interface IProviderDecoratedVariable<T>  extends IDecoratedMutableVariable<T>, IDecoratedV2Variable<T> {}
+
+/**
+ * Define Env decoration variable interface.
+ *
+ * @extends IDecoratedImmutableVariable<T>,IDecoratedV2Variable<T>
+ * @interface IEnvDecoratedVariable<T>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 24 static
+ */
+export declare interface IEnvDecoratedVariable<T> extends IDecoratedImmutableVariable<T>, IDecoratedV2Variable<T> {}
 
 /**
  * Define Consumer decoration variable interface.
@@ -1330,4 +1447,24 @@ export declare interface IMonitorPathInfo {
      * @since 23 static
      */
     valueCallback: MonitorValueCallback;
+}
+
+/**
+ * Defines Env options to create Env variables.
+ *
+ * @interface EnvOptions<T>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 24 static
+ */
+export declare interface EnvOptions<T> {
+  /**
+   * Init value for user defined Env.
+   *
+   * @type { ?T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  initValue?: T;
 }

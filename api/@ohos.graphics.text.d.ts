@@ -2221,6 +2221,14 @@ declare namespace text {
      * @since 24 dynamic&static
      */
     value: double;
+    /**
+     * Data normalized.
+     * @type { ?boolean }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    isNormalized?: boolean;
   }
 
   /**
@@ -2929,6 +2937,16 @@ declare namespace text {
      * @since 23 static
      */
     fontWidth?: FontWidth;
+    /**
+     * Font edging. The default value is ANTI_ALIAS.
+     *
+     * @type { ?drawing.FontEdging } The type of font edging.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    fontEdging?: drawing.FontEdging;
   }
 
   /**
@@ -4829,6 +4847,18 @@ declare namespace text {
    */
   class Paragraph {
     /**
+     * Performs layout and calculates the positions of all glyphs with constrained height and width.
+     *
+     * @param { TextRectSize } size - The constrainted height and width, in units of px.
+     * @returns { TextLayoutResult } The rectangle size needed and the character range that actually fits the paragraph.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    layoutWithConstraints(size: TextRectSize): TextLayoutResult;
+
+    /**
      * Performs layout and calculates the positions of all glyphs.
      * @param { double } width - Maximum width of a single line, in units of px. The value is a floating point number.
      * @syscap SystemCapability.Graphics.Drawing
@@ -5544,6 +5574,60 @@ declare namespace text {
      * @since 24 dynamic&static
      */
     updateDecoration(decoration: Decoration): void;
+
+    /**
+     * Obtains the character ranges corresponding to the specified glyph range.
+     *
+     * @param { Range } glyphRange - The glyph range.
+     * @param { drawing.TextEncoding } encoding - The text encoding type.
+     *     Currently only UTF-8 and UTF-16 encoding types are supported.
+     *     For UTF-8 encoding, the returned character range represents byte ranges.
+     *     For UTF-16 encoding, the returned character range represents UTF-16 code unit ranges.
+     * @returns { Array<Range> } The character ranges.
+     *     It contains two elements, the first is the character range and the second is the actual glyph range.
+     * @throws { BusinessError } 25900001 - Parameter error. Possible causes: Incorrect parameter range.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    getCharacterRangeForGlyphRange(glyphRange: Range, encoding: drawing.TextEncoding): Array<Range>;
+
+    /**
+     * Obtains the glyph ranges corresponding to the specified character range.
+     *
+     * @param { Range } characterRange - The character range.
+     * @param { drawing.TextEncoding } encoding - The text encoding type.
+     *     Currently only UTF-8 and UTF-16 encoding types are supported.
+     *     For UTF-8 encoding, the input character range should be interpreted as byte ranges.
+     *     For UTF-16 encoding, the input character range should be interpreted as UTF-16 code unit ranges.
+     * @returns { Array<Range> } The glyph ranges.
+     *     It contains two elements, the first is the glyph range and the second is the actual character range.
+     * @throws { BusinessError } 25900001 - Parameter error. Possible causes: Incorrect parameter range.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    getGlyphRangeForCharacterRange(characterRange: Range, encoding: drawing.TextEncoding): Array<Range>;
+
+    /**
+     * Obtains the character position and affinity at the specified coordinate.
+     *
+     * @param { double } x - The x-coordinate. Unit: px
+     * @param { double } y - The y-coordinate. Unit: px
+     * @param { drawing.TextEncoding } encoding - The text encoding type.
+     *     Currently only UTF-8 and UTF-16 encoding types are supported.
+     *     For UTF-8 encoding, the returned position represents a byte offset.
+     *     For UTF-16 encoding, the returned position represents a UTF-16 code unit offset.
+     * @returns { PositionWithAffinity } The position with affinity.
+     * @throws { BusinessError } 25900001 - Parameter error. Possible causes: Incorrect parameter range.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    getCharacterPositionAtCoordinate(x: double, y: double, encoding: drawing.TextEncoding): PositionWithAffinity;
   }
 
   /**
@@ -7959,6 +8043,72 @@ declare namespace text {
      * @since 24 dynamic&static
      */
     location: double;
+  }
+
+  /**
+   * The text's rectangle after layout. The value is a floating point number, in px.
+   *
+   * @typedef TextRectSize
+   * @syscap SystemCapability.Graphics.Drawing
+   * @stagemodelonly
+   * @atomicservice
+   * @since 24 dynamic&static
+   */
+  interface TextRectSize {
+   /**
+    * The width of the text's rectangle.
+    *
+    * @type { double }
+    * @syscap SystemCapability.Graphics.Drawing
+    * @stagemodelonly
+    * @atomicservice
+    * @since 24 dynamic&static
+    */
+    width: double;
+
+   /**
+    * The height of the text's rectangle.
+    *
+    * @type { double }
+    * @syscap SystemCapability.Graphics.Drawing
+    * @stagemodelonly
+    * @atomicservice
+    * @since 24 dynamic&static
+    */
+    height: double;
+  }
+
+  /**
+   * The text layout result.
+   *
+   * @typedef TextLayoutResult
+   * @syscap SystemCapability.Graphics.Drawing
+   * @stagemodelonly
+   * @atomicservice
+   * @since 24 dynamic&static
+   */
+  interface TextLayoutResult {
+   /**
+    * The character range of the string that fits in the paragraph's rectangle.
+    *
+    * @type { Array<Range> }
+    * @syscap SystemCapability.Graphics.Drawing
+    * @atomicservice
+    * @stagemodelonly
+    * @since 24 dynamic&static
+    */
+    fitStrRange: Array<Range>;
+
+   /**
+    * The size of the paragraph's rectangle after layout.
+    *
+    * @type { TextRectSize }
+    * @syscap SystemCapability.Graphics.Drawing
+    * @atomicservice
+    * @stagemodelonly
+    * @since 24 dynamic&static
+    */
+    correctRect: TextRectSize;
   }
 
   /**

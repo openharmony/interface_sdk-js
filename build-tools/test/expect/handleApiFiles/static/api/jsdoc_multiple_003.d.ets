@@ -1,6 +1,6 @@
 'use static'
 /*
- * Copyright (c) 2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -29,34 +29,28 @@ export enum ErrorCode {
     /**
      * Permission denied.
      *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core.dynamic
-     * use multiple description syscap[ dynamiconly]
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core.dynamic
-     * use multiple description syscap[ staticonly]
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 20
      */
     PERMISSION_DENY = -3,
     /**
      * Ability not found.
      *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core.static
-     * use multiple description syscap
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 20
      */
     ABILITY_NOT_FOUND = -2,
     /**
      * Invalid parameter.
      *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core.dynamic
-     * use multiple description syscap
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 20
      */
     INVALID_PARAMETER = -1,
     /**
      * No error.
      *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core.dynamic
-     * use multiple description syscap
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 20
      */
     NO_ERROR = 0

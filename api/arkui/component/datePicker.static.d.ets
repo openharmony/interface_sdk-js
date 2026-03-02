@@ -649,14 +649,13 @@ export declare interface DatePickerDialogOptions extends DatePickerOptions {
  * Defines the DatePicker component.
  * 
  * @param { DatePickerOptions } [options] - date picker options.
- * @param { CustomBuilder } [content_]
  * @returns { DatePickerAttribute } The attribute of the DatePicker.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
 @ComponentBuilder
 export declare function DatePicker(
-    options?: DatePickerOptions, 
-    content_?: CustomBuilder
+    options?: DatePickerOptions
 ): DatePickerAttribute;

@@ -49,6 +49,7 @@ import { HapModuleInfo as _HapModuleInfo, PreloadItem as _PreloadItem, Dependenc
   RouterItem as _RouterItem, DataItem as _DataItem } from './bundleManager/HapModuleInfo';
 import { ExtensionAbilityInfo as _ExtensionAbilityInfo } from './bundleManager/ExtensionAbilityInfo';
 import { Skill as _Skill, SkillUri as _SkillUri } from './bundleManager/Skill';
+import type { RecordData } from './@ohos.base';
 /*** endif */
 /**
  * This module is used to obtain package information of various applications installed on the current device.
@@ -1015,7 +1016,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 21 dynamic
      * @since 23 static
-    */
+     */
     FAULT_LOG = 33,
 
     /**
@@ -2220,7 +2221,8 @@ declare namespace bundleManager {
   function getBundleInfoForSelfSync(bundleFlags: int): BundleInfo;
 
   /**
-   * Obtains bundleInfo based on bundleName, bundleFlags. The application requires to be a system application when requesting the permission of ohos.permission.GET_BUNDLE_INFO.
+   * Obtains bundleInfo based on bundleName, bundleFlags.
+   * The application requires to be a system application when requesting the permission of ohos.permission.GET_BUNDLE_INFO.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { string } bundleName - Indicates the application bundle name to be queried.
@@ -2237,7 +2239,8 @@ declare namespace bundleManager {
   function getBundleInfo(bundleName: string, bundleFlags: int, callback: AsyncCallback<BundleInfo>): void;
 
   /**
-   * Obtains bundleInfo based on bundleName, bundleFlags and userId. The application requires to be a system application when requesting the permission of ohos.permission.GET_BUNDLE_INFO.
+   * Obtains bundleInfo based on bundleName, bundleFlags and userId.
+   * The application requires to be a system application when requesting the permission of ohos.permission.GET_BUNDLE_INFO.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { string } bundleName - Indicates the application bundle name to be queried.
@@ -2257,7 +2260,8 @@ declare namespace bundleManager {
     bundleFlags: int, userId: int, callback: AsyncCallback<BundleInfo>): void;
 
   /**
-   * Obtains bundleInfo based on bundleName, bundleFlags and userId. The application requires to be a system application when requesting the permission of ohos.permission.GET_BUNDLE_INFO.
+   * Obtains bundleInfo based on bundleName, bundleFlags and userId.
+   * The application requires to be a system application when requesting the permission of ohos.permission.GET_BUNDLE_INFO.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { string } bundleName - Indicates the application bundle name to be queried.
@@ -2729,7 +2733,8 @@ declare namespace bundleManager {
     userId?: int): Array<ExtensionAbilityInfo>;
 
   /**
-   * Obtains bundle name by the given uid. The application requires to be a system application when requesting the permission of ohos.permission.GET_BUNDLE_INFO.
+   * Obtains bundle name by the given uid.
+   * The application requires to be a system application when requesting the permission of ohos.permission.GET_BUNDLE_INFO.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { int } uid - Indicates the UID of an application.
@@ -2744,7 +2749,8 @@ declare namespace bundleManager {
   function getBundleNameByUid(uid: int, callback: AsyncCallback<string>): void;
 
   /**
-   * Obtains bundle name by the given uid. The application requires to be a system application when requesting the permission of ohos.permission.GET_BUNDLE_INFO.
+   * Obtains bundle name by the given uid.
+   * The application requires to be a system application when requesting the permission of ohos.permission.GET_BUNDLE_INFO.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { int } uid - Indicates the UID of an application.
@@ -2759,7 +2765,8 @@ declare namespace bundleManager {
   function getBundleNameByUid(uid: int): Promise<string>;
 
   /**
-   * Obtains bundle name by the given uid. The application requires to be a system application when requesting the permission of ohos.permission.GET_BUNDLE_INFO.
+   * Obtains bundle name by the given uid.
+   * The application requires to be a system application when requesting the permission of ohos.permission.GET_BUNDLE_INFO.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { int } uid - Indicates the UID of an application.
@@ -3278,7 +3285,8 @@ declare namespace bundleManager {
    * @returns { Want } the Want for starting the application's main ability.
    * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.GET_BUNDLE_INFO_PRIVILEGED'.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *    1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @throws { BusinessError } 17700026 - The specified bundle is disabled.
@@ -3286,6 +3294,37 @@ declare namespace bundleManager {
    * @systemapi
    * @since 10 dynamic
    * @since 23 static
+   */
+  /**
+   * Obtains the Want for starting the main ability of an application based on the
+   * given bundle name. The main ability of an application is the ability that has the
+   * #ACTION_HOME and #ENTITY_HOME Want filters set in the application's <b>config.json</b> or <b>module.json</b> file.
+   * 
+   * Permission requirements for obtaining a Want:
+   *
+   * - To obtain a Want for the current user:
+   *   - The permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required.
+   *
+   * - To obtain a Want for other users:
+   *   - If the caller is a system app:
+   *       - ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required.
+   *   - If the caller is a third app:
+   *       - Both ohos.permission.GET_BUNDLE_INFO_PRIVILEGED and
+   *         ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS are required.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or
+   *     (ohos.permission.GET_BUNDLE_INFO_PRIVILEGED and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS)
+   * @param { string } bundleName - Indicates the bundle name of the application.
+   * @param { int } userId - Indicates the user ID or do not pass user ID.
+   * @returns { Want } the Want for starting the application's main ability.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *    1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @throws { BusinessError } 17700001 - The specified bundle is not found.
+   * @throws { BusinessError } 17700004 - The specified user id is not found.
+   * @throws { BusinessError } 17700026 - The specified bundle is disabled.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 24 dynamic&static
    */
   function getLaunchWantForBundleSync(bundleName: string, userId?: int): Want;
 
@@ -3665,7 +3704,8 @@ declare namespace bundleManager {
   function getApplicationInfoSync(bundleName: string, applicationFlags: int): ApplicationInfo;
 
   /**
-   * Obtains bundleInfo based on bundleName, bundleFlags and userId. The application requires to be a system application when requesting the permission of ohos.permission.GET_BUNDLE_INFO.
+   * Obtains bundleInfo based on bundleName, bundleFlags and userId.
+   * The application requires to be a system application when requesting the permission of ohos.permission.GET_BUNDLE_INFO.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { string } bundleName - Indicates the application bundle name to be queried.
@@ -3684,7 +3724,8 @@ declare namespace bundleManager {
   function getBundleInfoSync(bundleName: string, bundleFlags: int, userId: int): BundleInfo;
 
   /**
-   * Obtains bundleInfo based on bundleName, bundleFlags. The application requires to be a system application when requesting the permission of ohos.permission.GET_BUNDLE_INFO.
+   * Obtains bundleInfo based on bundleName, bundleFlags.
+   * The application requires to be a system application when requesting the permission of ohos.permission.GET_BUNDLE_INFO.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { string } bundleName - Indicates the application bundle name to be queried.
@@ -3884,7 +3925,7 @@ declare namespace bundleManager {
   /**
    * Obtains the install information of all apps.
    *
-   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @permission ohos.permission.GET_INSTALLED_BUNDLE_LIST
    * @returns { Promise<Array<Record<string, Object>>> } The install information.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -3894,6 +3935,20 @@ declare namespace bundleManager {
    * @since 23 dynamiconly
    */
   function getAllBundleInstallInfo(): Promise<Array<Record<string, Object>>>;
+
+  /**
+   * Obtains the install information of all apps.
+   *
+   * @permission ohos.permission.GET_INSTALLED_BUNDLE_LIST
+   * @returns { Promise<Array<Record<string, RecordData>>> } The install information.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 24 static
+   */
+  function getAllBundleInstallInfo(): Promise<Array<Record<string, RecordData>>>;
 
   /**
    * Obtains the additional information during bundle installation.
@@ -4413,7 +4468,8 @@ declare namespace bundleManager {
   function getAllAppCloneBundleInfo(bundleName: string, bundleFlags: int, userId?: int): Promise<Array<BundleInfo>>;
 
   /**
-   * Obtains AppCloneIdentity contains bundleName and appIndex by the given uid. The application requires to be a system application when requesting the permission of ohos.permission.GET_BUNDLE_INFO.
+   * Obtains AppCloneIdentity contains bundleName and appIndex by the given uid.
+   * The application requires to be a system application when requesting the permission of ohos.permission.GET_BUNDLE_INFO.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { int } uid - Indicates the UID of an application.
@@ -4499,30 +4555,6 @@ declare namespace bundleManager {
   function getAppCloneIdentityBySandboxDataDir(sandboxDataDir: string): AppCloneIdentity;
 
   /**
-   * Set the file types for a specific ability.
-   *
-   * @permission ohos.permission.MANAGE_SELF_SKILLS
-   * @param { string } moduleName - Indicates the module name.
-   * @param { string } abilityName - Indicates the ability name.
-   * @param { Array<string> } fileTypes - Indicates the file types to associate with the ability.
-   *     Each item must be a Uniform Type Descriptor.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 17700002 - The specified moduleName is not found.
-   * @throws { BusinessError } 17700003 - The specified abilityName is not found.
-   * @throws { BusinessError } 17700351 - Invalid fileTypes. Possible causes:
-   *     1. The array length exceeds 1024;
-   *     2. The array contains an empty item;
-   *     3. An item exceeds 512 characters;
-   *     4. The array contains wildcard or general.object.
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @systemapi
-   * @since 22 dynamic
-   * @since 23 static
-   */
-  function setAbilityFileTypesForSelf(moduleName: string, abilityName: string, fileTypes: Array<string>): void;
-
-  /**
    * Get the bundle path of the specified plugin.
    *
    * @param { string } pluginBundleName - Indicates the plugin bundle name.
@@ -4575,6 +4607,30 @@ declare namespace bundleManager {
   function removeBackupBundleData(bundleName: string, userId: int, appIndex: int): Promise<void>;
 
   /**
+   * Set the file types for a specific ability.
+   *
+   * @permission ohos.permission.MANAGE_SELF_SKILLS
+   * @param { string } moduleName - Indicates the module name.
+   * @param { string } abilityName - Indicates the ability name.
+   * @param { Array<string> } fileTypes - Indicates the file types to associate with the ability.
+   *     Each item must be a Uniform Type Descriptor.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 17700002 - The specified moduleName is not found.
+   * @throws { BusinessError } 17700003 - The specified abilityName is not found.
+   * @throws { BusinessError } 17700351 - Invalid fileTypes. Possible causes:
+   *     1. The array length exceeds 1024;
+   *     2. The array contains an empty item;
+   *     3. An item exceeds 512 characters;
+   *     4. The array contains wildcard or general.object.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 22 dynamic
+   * @since 23 static
+   */
+  function setAbilityFileTypesForSelf(moduleName: string, abilityName: string, fileTypes: Array<string>): void;
+
+  /**
    * Get the bundle install status.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
@@ -4587,6 +4643,30 @@ declare namespace bundleManager {
    * @since 23 dynamic&static
    */
   function getBundleInstallStatus(bundleName: string): BundleInstallStatus;
+
+  /**
+   * Check whether a specified application is forbidden to be disabled.
+   * If you need to check whether an application is forbidden to be disabled under the current user,
+   * ohos.permission.GET_BUNDLE_INFO_PRIVILEGED needs to be applied for.
+   * If you need to check whether an application is forbidden to be disabled under other users,
+   * ohos.permission.GET_BUNDLE_INFO_PRIVILEGED and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS need to be applied for.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or (ohos.permission.GET_BUNDLE_INFO_PRIVILEGED and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS)
+   * @param { string } bundleName - Indicates the bundle name.
+   * @param { int } userId - Indicates the user ID.
+   * @param { int } appIndex - Indicates the index of clone app.
+   * @returns { boolean } Returns true if the application is forbidden to be disabled; returns false otherwise.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied. Non-system APP calling system API.
+   * @throws { BusinessError } 17700001 - The specified bundle is not found.
+   * @throws { BusinessError } 17700004 - The specified user ID is not found.
+   * @throws { BusinessError } 17700061 - The specified app index is invalid.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  function isApplicationDisableForbidden(bundleName: string, userId: int, appIndex: int): boolean;
 
   /**
    * Obtains configuration information about an application.

@@ -158,7 +158,7 @@ export declare enum EffectFillStyle {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 24 static
+ * @since 23 static
  */
 export declare enum ReplaceEffectType {
     /**
@@ -166,7 +166,7 @@ export declare enum ReplaceEffectType {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 23 static
      */
     SEQUENTIAL = 0,
     /**
@@ -175,7 +175,7 @@ export declare enum ReplaceEffectType {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 23 static
      */
     CROSS_FADE = 1,
     /**
@@ -185,7 +185,7 @@ export declare enum ReplaceEffectType {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 23 static
      */
     SLASH_OVERLAY = 2
 }
@@ -345,7 +345,7 @@ export declare class BounceSymbolEffect extends SymbolEffect {
  *
  * @extends SymbolEffect
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 24 static
+ * @since 23 static
  */
 export declare class ReplaceSymbolEffect extends SymbolEffect {
     /**
@@ -355,7 +355,7 @@ export declare class ReplaceSymbolEffect extends SymbolEffect {
      * @param { ReplaceEffectType } [replaceType] - The replace effect type of symbol effect.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 23 static
      */
     constructor(scope?: EffectScope, replaceType?: ReplaceEffectType);
     /**
@@ -363,7 +363,7 @@ export declare class ReplaceSymbolEffect extends SymbolEffect {
      *
      * @type { ?EffectScope }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 24 static
+     * @since 23 static
      */
     scope?: EffectScope;
     /**
@@ -372,7 +372,7 @@ export declare class ReplaceSymbolEffect extends SymbolEffect {
      * @type { ?ReplaceEffectType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 23 static
      */
     replaceType?: ReplaceEffectType;
 }
@@ -415,7 +415,8 @@ export declare interface SymbolGlyphAttribute extends CommonMethod {
     /**
      * Called when the font symbolGlyph weight is set.
      *
-     * @param { int | FontWeight | string } value
+     * @param { int | FontWeight | string | undefined } value - The weight of the font,
+     *     the default is Normal. Passing `undefined` resets it to the default value.
      * @returns { SymbolGlyphAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static

@@ -6204,7 +6204,7 @@ declare namespace audio {
      * This function only supports audio session with {@link #AudioSessionScene} set and activated with
      * {@link #CONCURRENCY_MIX_WITH_OTHERS} mode. And it takes effect only once during activation, so application
      * need to enable it every time before activation.
-     * 
+     *
      * @param { boolean } enable - Sets true to enable mute suggestion while registering session state
      *     change event callback.
      * @throws { BusinessError } 6800103 - Function is called without setting {@link #AudioSessionScene} or

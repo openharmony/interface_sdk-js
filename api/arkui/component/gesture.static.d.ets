@@ -468,6 +468,22 @@ export declare interface EventLocationInfo {
      * @since 23 static
      */
     displayY: double;
+    /**
+     * X position of the point relative to the global display coordinate.
+     *
+     * @type { ?double }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 24 static
+     */
+    globalDisplayX?: double;
+    /**
+     * Y position of the point relative to the global display coordinate.
+     *
+     * @type { ?double }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 24 static
+     */
+    globalDisplayY?: double;
 }
 /**
  * Type of the finger information.

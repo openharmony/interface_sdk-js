@@ -3528,11 +3528,10 @@ declare namespace unifiedDataChannel {
    *
    * @param { Intention } intention - Describe the sharing channel that UDMF support.
    * @param { ShareOptions } shareOptions - Types of scope that UnifiedData can be used.
-   * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses
-   * system API.
+   * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *                                                                   2. Incorrect parameter types.
-   * @throws { BusinessError } 20400001 - Settings already exist. To reconfigure, remove the existing sharing options.
+   * @throws { BusinessError } 20400001 - Settings already exist.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @systemapi
    * @StageModelOnly
@@ -3542,15 +3541,13 @@ declare namespace unifiedDataChannel {
    * Sets the ShareOptions for the application data. Currently, only the drag-and-drop data channel is supported.
    *
    * @permission ohos.permission.MANAGE_UDMF_APP_SHARE_OPTION
-   * @param { Intention } intention - Describe the sharing channel that UDMF support. Currently only supports DRAG
-   * intention.
+   * @param { Intention } intention - Describe the sharing channel that UDMF support. Currently only supports DRAG intention.
    * @param { ShareOptions } shareOptions - Types of scope that UnifiedData can be used.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
-   * required to call the API.
+   * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.MANAGE_UDMF_APP_SHARE_OPTION".
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *                                                                   2. Incorrect parameter types;
    *                                                                   3. Parameter verification failed.
-   * @throws { BusinessError } 20400001 - Settings already exist. To reconfigure, remove the existing sharing options.
+   * @throws { BusinessError } 20400001 - Settings already exist.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @stagemodelonly
    * @since 14 dynamic
@@ -3575,10 +3572,8 @@ declare namespace unifiedDataChannel {
    * Remove app sharing options.
    *
    * @permission ohos.permission.MANAGE_UDMF_APP_SHARE_OPTION
-   * @param { Intention } intention - Describe the sharing channel that UDMF support. Currently only supports DRAG
-   * intention.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
-   * required to call the API.
+   * @param { Intention } intention - Describe the sharing channel that UDMF support. Currently only supports DRAG intention.
+   * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.MANAGE_UDMF_APP_SHARE_OPTION".
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *                                                                   2. Incorrect parameter types;
    *                                                                   3. Parameter verification failed.

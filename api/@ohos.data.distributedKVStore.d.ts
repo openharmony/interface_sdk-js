@@ -130,7 +130,7 @@ declare namespace distributedKVStore {
    */
   interface Constants {
     /**
-     * Max key length is 1024.
+     * Max key length is 1024 bytes.
      *
      * @type { number }
      * @readonly
@@ -138,7 +138,7 @@ declare namespace distributedKVStore {
      * @since 9 dynamic
      */
     /**
-     * Max key length is 1024.
+     * Max key length is 1024 bytes.
      *
      * @type { number }
      * @readonly
@@ -149,7 +149,7 @@ declare namespace distributedKVStore {
     readonly MAX_KEY_LENGTH: number;
 
     /**
-     * Max value length is 4194303.
+     * Max value length is 4194303 bytes.
      *
      * @type { number }
      * @readonly
@@ -157,7 +157,7 @@ declare namespace distributedKVStore {
      * @since 9 dynamic
      */
     /**
-     * Max value length is 4194303.
+     * Max value length is 4194303 bytes.
      *
      * @type { number }
      * @readonly
@@ -168,7 +168,7 @@ declare namespace distributedKVStore {
     readonly MAX_VALUE_LENGTH: number;
 
     /**
-     * Max device coordinate key length is 896.
+     * Max device coordinate key length is 896 bytes.
      *
      * @type { number }
      * @readonly
@@ -176,7 +176,7 @@ declare namespace distributedKVStore {
      * @since 9 dynamic
      */
     /**
-     * Max device coordinate key length is 896.
+     * Max device coordinate key length is 896 bytes.
      *
      * @type { number }
      * @readonly
@@ -187,7 +187,7 @@ declare namespace distributedKVStore {
     readonly MAX_KEY_LENGTH_DEVICE: number;
 
     /**
-     * Max store id length is 128.
+     * Max store id length is 128 bytes.
      *
      * @type { number }
      * @readonly
@@ -195,7 +195,7 @@ declare namespace distributedKVStore {
      * @since 9 dynamic
      */
     /**
-     * Max store id length is 128.
+     * Max store id length is 128 bytes.
      *
      * @type { number }
      * @readonly
@@ -206,7 +206,7 @@ declare namespace distributedKVStore {
     readonly MAX_STORE_ID_LENGTH: number;
 
     /**
-     * Max query length is 512000.
+     * Max query length is 512000 bytes.
      *
      * @type { number }
      * @readonly
@@ -214,7 +214,7 @@ declare namespace distributedKVStore {
      * @since 9 dynamic
      */
     /**
-     * Max query length is 512000.
+     * Max query length is 512000 bytes.
      *
      * @type { number }
      * @readonly
@@ -263,7 +263,7 @@ declare namespace distributedKVStore {
     MAX_BATCH_SIZE = 128,
 
     /**
-     * Max store id length is 128.
+     * Max store id length is 128 bytes.
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @stagemodelonly
@@ -272,7 +272,7 @@ declare namespace distributedKVStore {
     MAX_STORE_ID_LENGTH = 128,
 
     /**
-     * Max device coordinate key length is 896.
+     * Max device coordinate key length is 896 bytes.
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @stagemodelonly
@@ -281,7 +281,7 @@ declare namespace distributedKVStore {
     MAX_KEY_LENGTH_DEVICE = 896,
 
     /**
-     * Max key length is 1024.
+     * Max key length is 1024 bytes.
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @stagemodelonly
@@ -290,7 +290,7 @@ declare namespace distributedKVStore {
     MAX_KEY_LENGTH = 1024,
 
     /**
-     * Max query length is 512000.
+     * Max query length is 512000 bytes.
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @stagemodelonly
@@ -299,7 +299,7 @@ declare namespace distributedKVStore {
     MAX_QUERY_LENGTH = 512000,
 
     /**
-     * Max value length is 4194303.
+     * Max value length is 4194303 bytes.
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @stagemodelonly
@@ -3750,8 +3750,8 @@ declare namespace distributedKVStore {
      *
      * @param { BackupConfig } backupConfig - Indicates the {@code BackupConfig} object for backup database.
      * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 15100000 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *     <br>2.Parameter verification failed.
+     * @throws { BusinessError } 15100000 - Input parameters do not meet the API requirements, such as invalid value
+     *     ranges, length limits, or incorrect formats.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @stagemodelonly[staticonly]
@@ -3824,8 +3824,8 @@ declare namespace distributedKVStore {
      *
      * @param { BackupConfig } backupConfig - Indicates the {@code BackupConfig} object for restore database.
      * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 15100000 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *     <br>2.Parameter verification failed.
+     * @throws { BusinessError } 15100000 - Input parameters do not meet the API requirements, such as invalid value
+     *     ranges, length limits, or incorrect formats.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @stagemodelonly[staticonly]
@@ -3900,8 +3900,8 @@ declare namespace distributedKVStore {
      *
      * @param { BackupConfig } backupConfig - Indicates the {@code BackupConfig} object for delete backup file.
      * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 15100000 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *     <br>2.Parameter verification failed.
+     * @throws { BusinessError } 15100000 - Input parameters do not meet the API requirements, such as invalid value
+     *     ranges, length limits, or incorrect formats.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @stagemodelonly[staticonly]
      * @since 24 dynamic&static
@@ -5301,34 +5301,13 @@ declare namespace distributedKVStore {
      * @param { string } appId - Identifies the application that the database belong to, and cannot exceed 256 characters.
      * @param { string } storeId - Identifies the KVStore database to close. The storeId can consist of only letters, digits,
      *     and underscores (_), and cannot exceed 128 characters.
+     * @param { Options } [kvConfig] - Indicates the {@code Options} object used for close the KVStore database.
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      *     <br>2.Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @stagemodelonly[staticonly]
      * @crossplatform
-     * @since 24 dynamic&static
-     */
-    closeKVStore(appId: string, storeId: string): Promise<void>;
-
-    /**
-     * Closes the KVStore database identified by storeId and {@code Options}.
-     * <p>Warning: This method is not thread-safe. If you call this method to stop a KVStore database that is running,
-     *     your thread may crash.
-     * <p>The KVStore database to close must be an object created by using the {@code getKVStore} method. Before using
-     *     this method, release the resources created for the database, for example,
-     *     {@code KVStoreResultSet} for KVStore, otherwise closing the database will fail.
-     *
-     * @param { string } appId - Identifies the application that the database belong to, and cannot exceed 256
-     *     characters.
-     * @param { string } storeId - Identifies the KVStore database to close. The storeId can consist of only letters,
-     *     digits, and underscores (_), and cannot exceed 128 characters.
-     * @param { Options } [kvConfig] - Indicates the {@code Options} object used for close the KVStore database.
-     * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 15100000 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *     <br>2.Parameter verification failed.
-     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @stagemodelonly[staticonly]
      * @since 24 dynamic&static
      */
     closeKVStore(appId: string, storeId: string, kvConfig?: Options): Promise<void>;
@@ -5401,6 +5380,7 @@ declare namespace distributedKVStore {
      *     characters.
      * @param { string } storeId - Identifies the KVStore database to delete. The storeId can consist of only letters,
      *     digits, and underscores (_), and cannot exceed 128 characters.
+     * @param { Options } [kvConfig] - Indicates the {@code Options} object used for delete the KVStore database.
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      *     <br>2.Parameter verification failed.
@@ -5408,27 +5388,6 @@ declare namespace distributedKVStore {
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @stagemodelonly[staticonly]
      * @crossplatform
-     * @since 24 dynamic&static
-     */
-    deleteKVStore(appId: string, storeId: string): Promise<void>;
-
-    /**
-     * Deletes the KVStore database identified by storeId and {@code Options}.
-     * <p>Before using this method, close all KVStore instances in use that are identified by the same storeId.
-     * <p>You can use this method to delete a KVStore database not in use. After the database is deleted, all its data
-     *     will be lost.
-     *
-     * @param { string } appId - Identifies the application that the database belong to, and cannot exceed 256
-     *     characters.
-     * @param { string } storeId - Identifies the KVStore database to delete. The storeId can consist of only letters,
-     *     digits, and underscores (_), and cannot exceed 128 characters.
-     * @param { Options } [kvConfig] - Indicates the {@code Options} object used for delete the KVStore database.
-     * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 15100000 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     *     <br>2.Parameter verification failed.
-     * @throws { BusinessError } 15100004 - Not found.
-     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @stagemodelonly[staticonly]
      * @since 24 dynamic&static
      */
     deleteKVStore(appId: string, storeId: string, kvConfig?: Options): Promise<void>;
