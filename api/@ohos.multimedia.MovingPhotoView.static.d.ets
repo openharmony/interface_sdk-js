@@ -1,3 +1,4 @@
+'use static'
 /*
  * Copyright (c) 2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -12,15 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
  * @file A component which support applications to show moving photo data 
  * @kit MediaLibraryKit
  */
-
 import photoAccessHelper from './@ohos.file.photoAccessHelper';
 import media from './@ohos.multimedia.media';
-import { CommonMethod, ComponentBuilder, CustomBuilder, ImageFit, ImageAIOptions } from 'ohos.arkui.component';
+import { CommonMethod, ComponentBuilder, CustomBuilder, ImageFit, ImageAIOptions } from '@ohos.arkui.component';
 
 /**
  * Defines the moving photo view options.
@@ -58,7 +57,6 @@ export declare interface MovingPhotoViewOptions {
      * @since 24 static
      */
     imageAIOptions?: ImageAIOptions;
-
     /**
      * format of MovingPhotoView.
      *
@@ -90,7 +88,6 @@ export declare interface MovingPhotoViewOptions {
      */
     playWithMask?: boolean;
 }
-
 /**
  * function that moving photo view media events callback.
  *
@@ -100,7 +97,6 @@ export declare interface MovingPhotoViewOptions {
  * @since 24 static
  */
 declare type MovingPhotoViewEventCallback = () => void;
-
 /**
  * Defines the moving photo view attribute functions.
  *
@@ -205,8 +201,8 @@ export declare interface MovingPhotoViewAttribute extends CommonMethod {
      * Sets automatic play period, If not set, the moving photo plays in the full video duration.
      * If set, the moving photo plays in the automatic play period.
      *
-     * @param { double } startTime video plays start time
-     * @param { double } endTime   video plays end time
+     * @param { double } startTime - video plays start time
+     * @param { double } endTime - video plays end time
      * @returns { MovingPhotoViewAttribute }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @stagemodelonly
@@ -217,7 +213,7 @@ export declare interface MovingPhotoViewAttribute extends CommonMethod {
      * Sets whether to allow automatic play. If the value is true, the moving photo starts 
      * automatic after the resource is loaded.
      *
-     * @param { boolean } isAutoPlay  Whether to automatic play
+     * @param { boolean } isAutoPlay - Whether to automatic play
      * @returns { MovingPhotoViewAttribute }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @stagemodelonly
@@ -228,14 +224,13 @@ export declare interface MovingPhotoViewAttribute extends CommonMethod {
      * Sets whether to allow repeat play. If the value is true, the moving photo plays 
      * repeat after the resource is loaded.
      *
-     * @param { boolean } isRepeatPlay  Whether to repeat play
+     * @param { boolean } isRepeatPlay - Whether to repeat play
      * @returns { MovingPhotoViewAttribute }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @stagemodelonly
      * @since 24 static
      */
     repeatPlay(isRepeatPlay: boolean): MovingPhotoViewAttribute;
-
     /**
      * Sets whether to enable moving photo analyzer. If the value is true, the moving photo can
      * be analyzed by AI.
@@ -247,7 +242,6 @@ export declare interface MovingPhotoViewAttribute extends CommonMethod {
      * @since 24 static
      */
     enableAnalyzer(enabled: boolean): MovingPhotoViewAttribute;
-
     /**
      * Sets playback strategy.
      * 
@@ -378,7 +372,6 @@ export declare class MovingPhotoViewController {
      */
     notifyMovingPhotoTransition(): void;
 }
-
 /**
  * Dynamic range mode of moving photo.
  *
@@ -415,9 +408,8 @@ export declare enum DynamicRangeMode {
      * @stagemodelonly
      * @since 24 static
      */
-    HIGH = 0,
+    HIGH = 0
 }
-
 /**
  * Enumerates pixel map formats.
  *
@@ -438,7 +430,6 @@ export declare enum PixelMapFormat {
      * @since 24 static
      */
     NV21 = 2,
-
     /**
      * Indicates that the storage order is to store Y first and then U V alternately each occupies 10 bits
      * and are stored from the higher-order to the lower-order bits.
@@ -449,7 +440,6 @@ export declare enum PixelMapFormat {
      * @since 24 static
      */
     YCBCR_P010 = 4,
-
     /**
      * Indicates that each pixel is stored on 32 bits. Each pixel contains 4 components：
      * R(10bits), G(10bits), B(10bits), A(2bits) and are stored from the higher-order to the lower-order bits.
@@ -460,9 +450,9 @@ export declare enum PixelMapFormat {
      * @since 24 static
      */
     RGBA_1010102 = 3,
-
     /**
-     * Indicates that each pixel is stored on 32 bits. Each pixel contains 4 components：B(8bits), G(8bits), R(8bits), A(8bits)
+     * Indicates that each pixel is stored on 32 bits.
+     * Each pixel contains 4 components：B(8bits), G(8bits), R(8bits), A(8bits)
      * and are stored from the higher-order to the lower-order bits.
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -471,7 +461,6 @@ export declare enum PixelMapFormat {
      * @since 24 static
      */
     RGBA_8888 = 1,
-
     /**
      * Indicates that the storage order is to store Y first and then V U alternately each occupies 10 bits
      * and are stored from the higher-order to the lower-order bits.
@@ -482,7 +471,6 @@ export declare enum PixelMapFormat {
      * @since 24 static
      */
     YCRCB_P010 = 5,
-
     /**
      * Indicates an unknown format.
      *
@@ -496,9 +484,9 @@ export declare enum PixelMapFormat {
 /**
  * Defines the MovingPhotoView component.
  *
- * @param { MovingPhotoViewOptions } [options] - MovingPhotoView option.
+ * @param { MovingPhotoViewOptions } options - MovingPhotoView option.
  * @param { CustomBuilder } [content_] - container
- * @returns { MovingPhotoViewAttribute } this attribute of the movingPhotoView
+ * @returns { MovingPhotoViewAttribute } The attribute of the movingPhotoView.
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @stagemodelonly
  * @since 24 staticonly
@@ -507,4 +495,4 @@ export declare enum PixelMapFormat {
 export declare function MovingPhotoView(
     options: MovingPhotoViewOptions, 
     content_?: CustomBuilder,
-): MovingPhotoViewAttribute
+): MovingPhotoViewAttribute;
