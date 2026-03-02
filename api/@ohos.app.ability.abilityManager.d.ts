@@ -762,18 +762,16 @@ declare namespace abilityManager {
    */
   function offPreloadedUIExtensionAbilityDestroyed(callback?: PreloadedUIExtensionAbilityDestroyedFn): void;
 
-  /**
-   * Indicates whether the current device supports EmbeddedUIExtensionAbility.
-   *
-   * @returns { Promise<boolean> } Returns {@code true} if EmbeddedUIExtensionAbility is supported,
-   *     returns {@code false} otherwise.
-   * @throws { BusinessError } 16000050 - Internal error. Possible causes: 1. Connect to system service failed;
-   *     2. Send restart message to system service failed; 3. System service failed to communicate with dependency module.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @since 26.0.0 dynamic&static
-   */
-  function isEmbeddedUIExtensionSupported(): Promise<boolean>;
+    /**
+     * Indicates whether the current device supports EmbeddedUIExtensionAbility.
+     *
+     * @returns { boolean } Returns {@code true} if EmbeddedUIExtensionAbility is supported,
+     *     returns {@code false} otherwise.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    function isEmbeddedUIExtensionSupported(): boolean;
 
   /**
    * The class of an ability running information.
