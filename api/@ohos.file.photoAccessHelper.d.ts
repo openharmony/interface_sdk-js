@@ -185,13 +185,13 @@ declare namespace photoAccessHelper {
      * Timestamp of the first fully visible photo in the last selection interface.
      * The default value is 0.
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 21 dynamic
      * @since 24 static
      */
-    time: number;
+    time: long;
 
     /**
      * Filename of the first fully visible photo in the last selection interface.
