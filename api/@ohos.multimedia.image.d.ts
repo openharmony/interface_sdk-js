@@ -10879,6 +10879,27 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 23 static
      */
     desiredAuxiliaryPictures: Array<AuxiliaryPictureType>;
+
+    /**
+     * Desired size of the main pixel map. The value (0, 0) indicates that the pixels are decoded
+     * based on the original image size.
+     *
+     * @type { ?Size }
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    desiredSizeForMainPixelMap?: Size;
+
+    /**
+     * Desired Pixel format, RGBA_8888\BGRA_8888\RGB_565\NV12\NV21 are supported.
+     *
+     * @type { ?PixelMapFormat }
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    desiredPixelFormat?: PixelMapFormat;
   }
 
    /**
@@ -12227,13 +12248,27 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Creates a Picture object based on image decoding parameters. This method uses a promise to
      * return the object.
      *
-     * @param { DecodingOptionsForPicture } options Image decoding parameters.
+     * @param { DecodingOptionsForPicture } options - Image decoding parameters.
      * @returns { Promise<Picture> } A Promise instance used to return the Picture object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified.
      * 2.Incorrect parameter types; 3.Parameter verification failed.
-     * @throws { BusinessError } 7700301 - Failed to decode image.
+     * @throws { BusinessError } 7700301 - Decode failed.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @since 13 dynamic
+     */
+    /**
+     * Creates a Picture object based on image decoding parameters. This method uses a promise to
+     * return the object.
+     *
+     * @param { DecodingOptionsForPicture } options - Image decoding parameters.
+     * @returns { Promise<Picture> } A Promise instance used to return the Picture object.
+     * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types; 3.Parameter verification failed.
+     * @throws { BusinessError } 7700203 - Unsupported options. For example, unsupported desiredPixelFormat causes
+     * a failure in converting an image into the desired pixel format.
+     * @throws { BusinessError } 7700301 - Decode failed.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @since 24 dynamic
      */
     createPicture(options?: DecodingOptionsForPicture): Promise<Picture>
 
