@@ -7885,33 +7885,6 @@ declare namespace window {
     offAvoidAreaChange(callback?: Callback<AvoidAreaOptions>): void;
 
     /**
-     * Register the callback of keyboardHeightChange
-     *
-     * @param { 'keyboardHeightChange' } type - The value is fixed at 'keyboardHeightChange',
-     *     indicating the keyboard height change event.
-     * @param { Callback<int> } callback - Callback used to return the current keyboard height,
-     *     which is an integer, in px.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-     *                                                                  2. Incorrect parameter types;
-     *                                                                  3. Parameter verification failed.
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since 7
-     */
-    /**
-     * Register the callback of keyboardHeightChange
-     *
-     * @param { 'keyboardHeightChange' } type - The value is fixed at 'keyboardHeightChange',
-     *     indicating the keyboard height change event.
-     * @param { Callback<int> } callback - Callback used to return the current keyboard height,
-     *     which is an integer, in px.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-     *                                                                  2. Incorrect parameter types;
-     *                                                                  3. Parameter verification failed.
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    /**
      * Register the callback of keyboard height change. This API only takes effect
      *     when the soft keyboard is invoked from this window and overlaps with it.
      *
