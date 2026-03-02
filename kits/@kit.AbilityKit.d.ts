@@ -216,6 +216,7 @@ import UIServiceExtensionAbility from '@ohos.app.ability.UIServiceExtensionAbili
 import CompletionHandler from '@ohos.app.ability.CompletionHandler';
 import AppServiceExtensionAbility from '@ohos.app.ability.AppServiceExtensionAbility';
 import kioskManager from '@ohos.app.ability.kioskManager';
+import { CompletionHandlerForAbilityStartCallback, AbilityStartFailureCode } from '@ohos.app.ability.CompletionHandlerForAbilityStartCallback';
 import StartupConfig from '@ohos.app.appstartup.StartupConfig';
 import StartupConfigEntry from '@ohos.app.appstartup.StartupConfigEntry';
 import StartupListener from '@ohos.app.appstartup.StartupListener';
@@ -242,7 +243,8 @@ export {
   ability, ActionExtensionAbility, AutoFillExtensionAbility, autoStartupManager, ChildProcess, childProcessManager,
   ChildProcessArgs, ChildProcessOptions, quickFixManager, businessAbilityRouter, EmbeddedUIExtensionAbility,
   UIServiceExtensionAbility, CompletionHandler, AppServiceExtensionAbility, kioskManager,
-  StartupConfig, StartupConfigEntry, StartupListener, StartupTask, startupManager, systemConfiguration,
-  PhotoEditorExtensionAbility, AgentExtensionAbility, AgentUIExtensionAbility, agentManager
+  CompletionHandlerForAbilityStartCallback, AbilityStartFailureCode, StartupConfig, StartupConfigEntry, StartupListener, 
+  StartupTask, startupManager, systemConfiguration, PhotoEditorExtensionAbility, AgentExtensionAbility, 
+  AgentUIExtensionAbility, agentManager
 };
 /*** endif */
