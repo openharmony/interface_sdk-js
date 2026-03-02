@@ -8501,11 +8501,12 @@ declare namespace audio {
     offSpatializationEnabledChangeForCurrentDevice(callback?: Callback<boolean>): void;
 
     /**
-     * Checks whether the Personalized spatialization is enabled by the specified device.
+     * Checks whether the personalized spatialization is enabled by the specified device.
      * @param { AudioDeviceDescriptor } selectedAudioDevice - Audio device description.
      * @returns { boolean } Returns <b>true</b> if the Personalized spatialization is successfully enabled;
      *     returns <b>false</b> otherwise.
      * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 801 - Capability not supported on the device.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @stagemodelonly
@@ -8514,11 +8515,11 @@ declare namespace audio {
     isPersonalizedSpatializationEnabled(selectedAudioDevice: AudioDeviceDescriptor): boolean;
 
     /**
-     * Set the Personalized spatialization enabled or disabled by the specified device.
+     * Set the personalized spatialization enabled or disabled by the specified device.
      * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
      * @param { AudioDeviceDescriptor } selectedAudioDevice - Audio device description.
      * @param { boolean } enable - Whether to enable personalized spatialization.
-     * @returns { int } Returns success or not (0 for success, non-zero for error).
+     * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied. Return by promise.
  	 * @throws { BusinessError } 202 - Not system App.
  	 * @throws { BusinessError } 801 - Capability not supported on the device.
@@ -8527,10 +8528,7 @@ declare namespace audio {
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    setPersonalizedSpatializationEnabled(
-        selectedAudioDevice: AudioDeviceDescriptor,
-        enable: boolean
-    ): int;
+    setPersonalizedSpatializationEnabled(selectedAudioDevice: AudioDeviceDescriptor, enable: boolean): Promise<void>;
 
     /**
      * Subscribes to the personalized spatialization enable state change events by the specified device.
@@ -8538,6 +8536,7 @@ declare namespace audio {
      * @param { AudioPersonalizedSpatialEnabledChangeForAnyDevice } callback - Callback used to get the personalized
      *     spatialization enable state by the specified device.
      * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 801 - Capability not supported on the device.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @stagemodelonly
@@ -8548,17 +8547,17 @@ declare namespace audio {
 
     /**
      * Unsubscribes to the personalized spatialization enable state change events by the specified device.
-     * When the state changes, registered clients will receive the callback.
      * @param { AudioPersonalizedSpatialEnabledChangeForAnyDevice } callback - Callback used to get the personalized
      *     spatialization enable state by the specified device.
      * @throws { BusinessError } 202 - Not system App.
+ 	 * @throws { BusinessError } 801 - Capability not supported on the device.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
     offPersonalizedSpatializationEnabledChangeForAnyDevice(
-        callback: Callback<AudioPersonalizedSpatialEnabledChangeForAnyDevice>): void;
+        callback?: Callback<AudioPersonalizedSpatialEnabledChangeForAnyDevice>): void;
   }
 
   /**
