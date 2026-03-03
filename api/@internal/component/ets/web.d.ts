@@ -3959,6 +3959,15 @@ declare class WebContextMenuResult {
    * @since 23 dynamic
    */
   requestPasswordAutoFill(): void;
+
+  /**
+   * Performing the "Save As Image" operation associated with this context menu will trigger the download process.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @stagemodelonly
+   * @since 24 dynamic
+   */
+  saveImage(): void;
 }
 
 /**
