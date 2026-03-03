@@ -3971,7 +3971,8 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @stagemodelonly
      * @atomicservice
-     * @since 24 dynamic&static
+     * @since 24 dynamic
+     * @since 24 static
      */
     EXPOSURE_MODE_UNSPECIFIED = -1,
     
