@@ -8977,7 +8977,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 18 dynamic
-          */
+     */
   export enum SingleSelectionMode {
     /**
      * browser mode
