@@ -1045,8 +1045,10 @@ declare namespace pasteboard {
      * Gets record by index in PasteData.
      * @param { int } index - indicates the record index in PasteData.
      * @returns { PasteDataRecord } the record in PasteData with index.
-     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
-     *    2. Incorrect parameters types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1. Mandatory parameters are left unspecified.
+     *     2. Incorrect parameter types.
+     *     3. Parameter verification failed.
      * @throws { BusinessError } 12900001 - The index is out of the record.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
