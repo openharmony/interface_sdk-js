@@ -1255,6 +1255,64 @@ declare namespace applicationManager {
    * @since 24
    */
   function getDockApps(admin: Want): Array<DockInfo>;
+
+  /**
+   * Adds applications that are allowed to send notifications.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   * @param { Array<string> } bundleNames - bundleName indicates the list of bundle names of the applications.
+   * @param { number } accountId - accountId indicates the ID of OS account.
+   *   <br>Value range:[0, +∞]
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200010 - A conflict policy has been configured.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function addAllowedNotificationBundles(admin: Want, bundleNames: Array<string>, accountId: number): void;
+
+  /**
+   * Removes applications that are allowed to send notifications.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   * @param { Array<string> } bundleNames - bundleName indicates the list of bundle names of the applications.
+   * @param { number } accountId - accountId indicates the ID of OS account.
+   *   <br>Value range:[0, +∞]
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function removeAllowedNotificationBundles(admin: Want, bundleNames: Array<string>, accountId: number): void;
+
+  /**
+   * Gets applications that are allowed to send notifications.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   * @param { number } accountId - accountId indicates the ID of OS account.
+   *   <br>Value range:[0, +∞]
+   * @returns { Array<string> } return the list of bundle names of the applications.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function getAllowedNotificationBundles(admin: Want | null, accountId: number): Array<string>;
 }
 
 export default applicationManager;
