@@ -3989,6 +3989,16 @@ declare namespace camera {
    */
   enum ExposureMode {
     /**
+     * Unspecified exposure mode.
+     * 
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    EXPOSURE_MODE_UNSPECIFIED = -1,
+    
+    /**
      * Lock exposure mode.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
