@@ -45,6 +45,7 @@ import { Trigger as _Trigger } from './notification/notificationRequest';
 import { Geofence as _Geofence } from './notification/notificationRequest';
 import { CoordinateSystemType as _CoordinateSystemType } from './notification/notificationRequest';
 import { MonitorEvent as _MonitorEvent } from './notification/notificationRequest';
+import { GroupInfo as _GroupInfo } from './notification/notificationRequest';
 
 /*** if arkts dynamic */
 import { AsyncCallback } from './@ohos.base';
@@ -6737,6 +6738,16 @@ declare namespace notificationManager {
    * @since 23 dynamic&static
    */
   export type MonitorEvent = _MonitorEvent;
+
+  /**
+   * Describes the group info type of the notification.
+   *
+   * @typedef { _GroupInfo } GroupInfo
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 26.0.0 dynamic&static
+   */
+  export type GroupInfo = _GroupInfo;
 }
 
 export default notificationManager;
