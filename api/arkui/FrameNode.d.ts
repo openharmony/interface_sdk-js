@@ -211,8 +211,71 @@ export enum ExpandMode {
    * @atomicservice
    * @since 15 dynamic
    */
-  LAZY_EXPAND = 2
+  LAZY_EXPAND = 2,
+
+  /**
+   * Do not expand children of node.
+   * If the FrameNode contains LazyForEach child nodes, child nodes can be obtained directly when nodes in main tree.
+   * When nodes are not in main tree, only a node at corresponding position will be created,
+   * rather than expanding all child nodes.
+   * The child node sequence numbers are calculated based on all child nodes.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  LAZY_NOT_EXPAND = 3
 }
+
+/**
+ * Enum for children count mode.
+ * Specifies how to count children when querying number of child nodes.
+ * 
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+export enum ChildrenCountMode {
+  /**
+   * Expand mode. When encountering lazy-loaded nodes (e.g., LazyForEach),
+   * the nodes are expanded and the count includes all child nodes.
+   * This is the default behavior.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  ALL_EXPAND = 0,
+
+  /**
+   * Count expanded mode. Does not expand lazy-loaded nodes.
+   * Returns the count of only currently expanded child nodes. Unexpanded lazy-loaded nodes
+   * are not included in the count.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  ONLY_EXPANDED = 1,
+
+  /**
+   * Count all mode. Does not expand lazy-loaded nodes,
+   * but returns the count including all potential children (both expanded and unexpanded lazy-loaded nodes).
+   * This provides the total potential child count without triggering expansion.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  ALL_NOT_EXPAND = 2
+}
+
 
 /**
  * Enum for the UI state of one component, which is used for handling of state style.
@@ -575,6 +638,18 @@ export class FrameNode {
    * @since 12 dynamic
    */
   getChildrenCount(): number;
+
+  /**
+   * Get the children count of the current FrameNode with specified count mode.
+   *
+   * @param { ChildrenCountMode } [countMode] - The children count mode. Default value is ChildrenCountMode.ALL_EXPAND.
+   * @returns { int } - Returns the number of children of the current FrameNode based on the count mode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  getChildrenCount(countMode?: ChildrenCountMode): int;
 
   /**
    * Move node to the target Framenode as child.
