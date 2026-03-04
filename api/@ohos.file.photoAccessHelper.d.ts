@@ -11410,6 +11410,21 @@ declare namespace photoAccessHelper {
     setHasAppLink(hasAppLink: int): void;
 
     /**
+     * Set the AppLink state of this asset.
+     *
+     * @param { AppLinkState } appLinkState - Boomerang status of assets
+     * @throws { BusinessError } 202 - Invoked by non-system applications
+     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
+     * @throws { BusinessError } 23800151 - The scenario parameter verification fails. Possible causes:
+     *     The input parameter is not within the valid range.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    setAppLinkState(appLinkState: AppLinkState): void;
+
+    /**
      * Set the AppLink info of this asset.
      *
      * @param { string } appLink - AppLink info of the asset to set.
@@ -14936,6 +14951,47 @@ declare namespace photoAccessHelper {
      * @since 23 dynamic&static
      */
     RANDOM_VOTE = 0
+  }
+ 
+  /**
+   * App link state of an asset
+   *
+   * @enum { int } AppLinkState
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  enum AppLinkState {  
+    /**
+     * Unknow whether an asset has app link or not
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    DEFAULT = 0,
+    
+    /**
+     * An asset has no app link
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    HAS_NO_LINK = 1,
+
+    /**
+     * An asset has app link
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    HAS_LINK = 2
   }
  
   /**
