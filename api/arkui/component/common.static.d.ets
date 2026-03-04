@@ -12870,6 +12870,18 @@ export declare interface ScrollableCommonMethod extends CommonMethod {
      */
     default scrollBarMargin(margin: ScrollBarMargin | undefined): this;
     /**
+     * Set the scroll bar auto adjust the margin to avoid the padding, safeAreaPadding, and
+     * contentStartOffset/contentEndOffset of the component.
+     *
+     * @param { boolean | undefined } enable - Whether to enable automatic adjustment of scroll bar margin.
+     *     <br>Default value: false.
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default autoAdjustScrollBarMargin(enable: boolean | undefined): this;
+    /**
      * Sets the effect used when the scroll boundary is reached.
      *
      * @param { EdgeEffect | undefined } edgeEffect - Effect used when the scroll boundary is
