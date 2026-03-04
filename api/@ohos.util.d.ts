@@ -5009,6 +5009,68 @@ declare namespace util {
     * @since 23 dynamiconly
     */
     static setMultithreadingDetectionEnabled(enabled: boolean):void;
+
+    /**
+     * Get all heap memory information from ArkTS-VMs and the shared heap.
+     * 
+     * @returns { Promise<HeapMemoryInfo[]> } Returns a promise containing all the heap memory information
+     *     from ArkTS-VMs' local heap and the shared heap.
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 24 dynamiconly
+     */
+    static getAllVMHeapMemoryInfo(): Promise<HeapMemoryInfo[]>;
+  }
+
+  /**
+   * Describes heap memory information of either an ArkTS-VM, or the shared heap memory of current process.
+   * 
+   * @syscap SystemCapability.Utils.Lang
+   * @stagemodelonly
+   * @since 24 dynamiconly
+   */
+  interface HeapMemoryInfo {
+    /**
+     * If this memory information describes an ArkTS-VM local heap,
+     * the value is a number representing the running thread;
+     * If this memory information describes the shared heap, the value is undefined.
+     * 
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 24 dynamiconly
+     */
+    threadId?: number;
+
+    /**
+     * If this memory information describes an ArkTS-VM local heap,
+     * the value is a string representing the name of the running thread;
+     * If this memory information describes the shared heap, the value is undefined.
+     * 
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 24 dynamiconly
+     */
+    threadName?: string;
+
+    /**
+     * The value is a string representing whether this memory information is from an ArkTS-VM local heap,
+     * or the shared heap.
+     * 
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 24 dynamiconly
+     */
+    heapType: string;
+
+    /**
+     * The value is a number representing the total size of all heap objects in KB, from either an ArkTS-VM local heap
+     * or the shared heap.
+     * 
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 24 dynamiconly
+     */
+    heapObjectSize: number;
   }
 }
 export default util;
