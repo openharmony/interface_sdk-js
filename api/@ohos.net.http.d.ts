@@ -445,6 +445,21 @@ declare namespace http {
     clientEncCert?: ClientCert;
 
     /**
+     * Indicates whether to enable partial chain verification.
+     * Default value is false, meaning the certificate chain must verify up to a trusted root CA.
+     * If set to true, the verification succeeds if the chain builds to a trusted intermediate CA,
+     * without requiring a path to a trusted root CA.
+     * Security Warning: Enabling this reduces security posture. It should only be used in controlled
+     * environments (e.g., enterprise internal PKI) where specific intermediate CAs are explicitly trusted.
+     * Misuse may expose the application to Man-in-the-Middle (MITM) attacks.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    enablePartialChain?: boolean;
+
+    /**
      * Used to set to uploading or downloading the start bytes. The default value is 0.
      * HTTP standard (RFC 7233 section 3.1) allows servers to ignore range requests.
      * For HTTP PUT uploads this option should not be used, since it may conflict with other options.
