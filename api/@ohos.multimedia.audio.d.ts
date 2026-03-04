@@ -13793,15 +13793,16 @@ declare namespace audio {
    */
   interface AudioDeviceEnhanceManager {
     /**
-     * Selects the output device for the application. This setting applies to all playback streams created
-     * under the application, unless a specific output device is designated for a particular stream by
+     * Selects the output device for your application. This setting applies to all playback streams created
+     * under your application, unless a specific output device is designated for a particular stream by
      * {@link AudioDeviceEnhanceManager.selectOutputDeviceForAudioRenderer}.
-     * The application can obtain currently active output device by
+     * Your application can obtain currently active output device by
      * {@link AudioDeviceEnhanceManager.onCurrentOutputDeviceChanged}.
-     * The selection will become invalid when the application exits or the selected device goes offline.
-     * After the application restarts or the device comes back online, the application must re-issue the
+     * The selection will become invalid when your application exits or the selected device goes offline.
+     * After your application restarts or the device comes back online, your application must re-issue the
      * selection for it to take effect.
-     * @param { AudioDeviceDescriptor } outputDevice - Audio device description.
+     * @param { AudioDeviceDescriptor } outputDevice - Audio device description returned by
+     *     {@link AudioRoutingManager.getAvailableDevices}.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 6800101 - Parameter verification failed, for example,
      *     the selected device does not exist.
@@ -13813,15 +13814,16 @@ declare namespace audio {
     selectOutputDevice(outputDevice: AudioDeviceDescriptor): Promise<void>;
 
     /**
-     * Selects the input device for the application. This setting applies to all recording streams created
-     * under the application, unless a specific input device is designated for a particular stream by
+     * Selects the input device for your application. This setting applies to all recording streams created
+     * under your application, unless a specific input device is designated for a particular stream by
      * {@link AudioDeviceEnhanceManager.selectInputDeviceForAudioCapturer}.
-     * The application can obtain currently active input device by
+     * Your application can obtain currently active input device by
      * {@link AudioDeviceEnhanceManager.onCurrentInputDeviceChanged}.
-     * The selection will become invalid when the application exits or the selected device goes offline.
-     * After the application restarts or the device comes back online, the application must re-issue the
+     * The selection will become invalid when your application exits or the selected device goes offline.
+     * After your application restarts or the device comes back online, your application must re-issue the
      * selection for it to take effect.
-     * @param { AudioDeviceDescriptor } inputDevice - Audio device description.
+     * @param { AudioDeviceDescriptor } inputDevice - Audio device description returned by
+     *     {@link AudioRoutingManager.getAvailableDevices}.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 6800101 - Parameter verification failed, for example,
      *     the selected device does not exist.
@@ -13833,14 +13835,15 @@ declare namespace audio {
     selectInputDevice(inputDevice: AudioDeviceDescriptor): Promise<void>;
 
     /**
-     * Selects the output device for the target AudioRenderer. The application must ensure that the specified
+     * Selects the output device for the target AudioRenderer. Your application must ensure that the specified
      * AudioRenderer is valid. This selection only applies to the designated stream; other playback streams in
-     * the application will use the application's forced selection or the system's default output device.
-     * The selection will become invalid when the application exits or the selected device goes offline.
-     * After the application restarts or the device comes back online, the application must re-issue the
+     * your application will use your application's forced selection or the system's default output device.
+     * The selection will become invalid when your application exits or the selected device goes offline.
+     * After your application restarts or the device comes back online, your application must re-issue the
      * selection for it to take effect.
      * @param { AudioRenderer } renderer - The instance of AudioRenderer.
-     * @param { AudioDeviceDescriptor } outputDevice - Audio device description.
+     * @param { AudioDeviceDescriptor } outputDevice - Audio device description returned by
+     *     {@link AudioRoutingManager.getAvailableDevices}.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 6800101 - Parameter verification failed, for example,
      *     the selected device does not exist.
@@ -13852,14 +13855,15 @@ declare namespace audio {
     selectOutputDeviceForAudioRenderer(renderer: AudioRenderer, outputDevice: AudioDeviceDescriptor): Promise<void>;
 
     /**
-     * Selects the input device for the target AudioCapturer. The application must ensure that the specified
+     * Selects the input device for the target AudioCapturer. Your application must ensure that the specified
      * AudioCapturer is valid. This selection only applies to the designated stream; other recording streams in
-     * the application will use the application's forced selection or the system's default input device.
-     * The selection will become invalid when the application exits or the selected device goes offline.
-     * After the application restarts or the device comes back online, the application must re-issue the
+     * your application will use your application's forced selection or the system's default input device.
+     * The selection will become invalid when your application exits or the selected device goes offline.
+     * After your application restarts or the device comes back online, your application must re-issue the
      * selection for it to take effect.
      * @param { AudioCapturer } capturer - The instance of AudioCapturer.
-     * @param { AudioDeviceDescriptor } inputDevice - Audio device description.
+     * @param { AudioDeviceDescriptor } inputDevice - Audio device description returned by
+     *     {@link AudioRoutingManager.getAvailableDevices}.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 6800101 - Parameter verification failed, for example,
      *     the selected device does not exist.
@@ -13872,7 +13876,8 @@ declare namespace audio {
 
     /**
      * Subscribes output device change event callback. The event is triggered when the current output device
-     * of the application itself changes.
+     * of your application itself changes. When the callback is registered for the first time, it will immediately
+     * receive a callback notification that returns the current output device of your application.
      *
      * @param { Callback<CurrentOutputDeviceChangedEvent> } callback - Callback used to listen for
      *     output device change event.
@@ -13897,7 +13902,8 @@ declare namespace audio {
 
     /**
      * Subscribes input device change event callback. The event is triggered when the current input device
-     * of the application itself changes.
+     * of your application itself changes. When the callback is registered for the first time, it will immediately
+     * receive a callback notification that returns the current input device of your application.
      *
      * @param { Callback<CurrentInputDeviceChangedEvent> } callback - Callback used to listen for
      *     input device change event.
