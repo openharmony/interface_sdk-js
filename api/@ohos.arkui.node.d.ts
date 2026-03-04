@@ -98,6 +98,16 @@ export { NodeController } from './arkui/NodeController';
 export { FrameNode, LayoutConstraint, ExpandMode, UIState } from './arkui/FrameNode';
 
 /**
+ * Export ChildrenCountMode.
+ * Specifies how to count children when querying number of child nodes.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+export { ChildrenCountMode } from './arkui/FrameNode';
+
+/**
  * Export FrameNode. FrameNode defines a basic type of node which contains a RenderNode.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -133,6 +143,16 @@ export { DrawContext, Size, Offset, Position, Pivot, Scale, Translation, Matrix4
  * @since 12 dynamic
  */
 export { LengthUnit, SizeT, LengthMetrics, ColorMetrics } from './arkui/Graphics';
+
+/**
+ * Export Graphics. Defines the blur effect to the Graphics.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+export { BackgroundBlur, ContentBlur, ForegroundBlur } from './arkui/Graphics';
 
 /**
  * Export RenderNode. RenderNode contains node tree operations and render property operations on node.
