@@ -13793,6 +13793,23 @@ declare namespace audio {
    */
   interface AudioDeviceEnhanceManager {
     /**
+     * Queries whether the system supports the enhanced routing functions provided by this manager,
+     * including selecting input and output devices for the application or audio streams.
+     * Your application is advised to call this API first to confirm system support before using
+     * these enhanced routing APIs. Even for the same type of host device, some models may support
+     * these functions while others may not due to hardware limitations. If the system does not support
+     * these enhanced routing functions, calling them will have no effect, and the system will select
+     * default input/output devices for the application or audio streams instead.
+     * @returns { Promise<boolean> } Promise used to return the result. The value true means the system
+     *     supports enhanced routing functions, and false means the system does not support them.
+     * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
+     * @syscap SystemCapability.Multimedia.Audio.DeviceEnhance
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    isEnhancedRoutingSupported(): Promise<boolean>;
+
+    /**
      * Selects the output device for your application. This setting applies to all playback streams created
      * under your application, unless a specific output device is designated for a particular stream by
      * {@link AudioDeviceEnhanceManager.selectOutputDeviceForAudioRenderer}.
@@ -13800,7 +13817,8 @@ declare namespace audio {
      * {@link AudioDeviceEnhanceManager.onCurrentOutputDeviceChanged}.
      * The selection will become invalid when your application exits or the selected device goes offline.
      * After your application restarts or the device comes back online, your application must re-issue the
-     * selection for it to take effect.
+     * selection for it to take effect. If the system does not support this function, the system will
+     * select a default output device for your application.
      * @param { AudioDeviceDescriptor } outputDevice - Audio device description in the array returned by
      *     {@link AudioRoutingManager.getAvailableDevices}.
      * @returns { Promise<void> } Promise used to return the result.
@@ -13821,8 +13839,8 @@ declare namespace audio {
      * {@link AudioDeviceEnhanceManager.onCurrentInputDeviceChanged}.
      * The selection will become invalid when your application exits or the selected device goes offline.
      * After your application restarts or the device comes back online, your application must re-issue the
-     * selection for it to take effect.
- *     by {@link OH_AudioRoutingManager_GetAvailableDevices}.
+     * selection for it to take effect. If the system does not support this function, the system will
+     * select a default input device for your application.
      * @param { AudioDeviceDescriptor } inputDevice - Audio device description in the array returned by
      *     {@link AudioRoutingManager.getAvailableDevices}.
      * @returns { Promise<void> } Promise used to return the result.
@@ -13841,7 +13859,8 @@ declare namespace audio {
      * your application will use your application's forced selection or the system's default output device.
      * The selection will become invalid when your application exits or the selected device goes offline.
      * After your application restarts or the device comes back online, your application must re-issue the
-     * selection for it to take effect.
+     * selection for it to take effect. If the system does not support this function, the system will select
+     * a default output device for the renderer.
      * @param { AudioRenderer } renderer - The instance of AudioRenderer.
      * @param { AudioDeviceDescriptor } outputDevice - Audio device description in the array returned by
      *     {@link AudioRoutingManager.getAvailableDevices}.
@@ -13861,7 +13880,8 @@ declare namespace audio {
      * your application will use your application's forced selection or the system's default input device.
      * The selection will become invalid when your application exits or the selected device goes offline.
      * After your application restarts or the device comes back online, your application must re-issue the
-     * selection for it to take effect.
+     * selection for it to take effect. If the system does not support this function, the system will select
+     * a default input device for the capturer.
      * @param { AudioCapturer } capturer - The instance of AudioCapturer.
      * @param { AudioDeviceDescriptor } inputDevice - Audio device description in the array returned by
      *     {@link AudioRoutingManager.getAvailableDevices}.
