@@ -13801,7 +13801,7 @@ declare namespace audio {
      * The selection will become invalid when your application exits or the selected device goes offline.
      * After your application restarts or the device comes back online, your application must re-issue the
      * selection for it to take effect.
-     * @param { AudioDeviceDescriptor } outputDevice - Audio device description returned by
+     * @param { AudioDeviceDescriptor } outputDevice - Audio device description in the array returned by
      *     {@link AudioRoutingManager.getAvailableDevices}.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 6800101 - Parameter verification failed, for example,
@@ -13822,7 +13822,8 @@ declare namespace audio {
      * The selection will become invalid when your application exits or the selected device goes offline.
      * After your application restarts or the device comes back online, your application must re-issue the
      * selection for it to take effect.
-     * @param { AudioDeviceDescriptor } inputDevice - Audio device description returned by
+ *     by {@link OH_AudioRoutingManager_GetAvailableDevices}.
+     * @param { AudioDeviceDescriptor } inputDevice - Audio device description in the array returned by
      *     {@link AudioRoutingManager.getAvailableDevices}.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 6800101 - Parameter verification failed, for example,
@@ -13842,7 +13843,7 @@ declare namespace audio {
      * After your application restarts or the device comes back online, your application must re-issue the
      * selection for it to take effect.
      * @param { AudioRenderer } renderer - The instance of AudioRenderer.
-     * @param { AudioDeviceDescriptor } outputDevice - Audio device description returned by
+     * @param { AudioDeviceDescriptor } outputDevice - Audio device description in the array returned by
      *     {@link AudioRoutingManager.getAvailableDevices}.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 6800101 - Parameter verification failed, for example,
@@ -13862,7 +13863,7 @@ declare namespace audio {
      * After your application restarts or the device comes back online, your application must re-issue the
      * selection for it to take effect.
      * @param { AudioCapturer } capturer - The instance of AudioCapturer.
-     * @param { AudioDeviceDescriptor } inputDevice - Audio device description returned by
+     * @param { AudioDeviceDescriptor } inputDevice - Audio device description in the array returned by
      *     {@link AudioRoutingManager.getAvailableDevices}.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 6800101 - Parameter verification failed, for example,
