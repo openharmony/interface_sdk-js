@@ -8506,7 +8506,6 @@ declare namespace audio {
      * @returns { boolean } Returns <b>true</b> if the Personalized spatialization is successfully enabled;
      *     returns <b>false</b> otherwise.
      * @throws { BusinessError } 202 - Not system App.
-     * @throws { BusinessError } 801 - Capability not supported on the device.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @stagemodelonly
@@ -8536,7 +8535,6 @@ declare namespace audio {
      * @param { AudioPersonalizedSpatialEnabledChangeForAnyDevice } callback - Callback used to get the personalized
      *     spatialization enable state by the specified device.
      * @throws { BusinessError } 202 - Not system App.
-     * @throws { BusinessError } 801 - Capability not supported on the device.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @stagemodelonly
@@ -8550,7 +8548,6 @@ declare namespace audio {
      * @param { AudioPersonalizedSpatialEnabledChangeForAnyDevice } callback - Callback used to get the personalized
      *     spatialization enable state by the specified device.
      * @throws { BusinessError } 202 - Not system App.
- 	 * @throws { BusinessError } 801 - Capability not supported on the device.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @stagemodelonly
