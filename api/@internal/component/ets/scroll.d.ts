@@ -1785,6 +1785,23 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
   scrollBarWidth(value: number | string): ScrollAttribute;
 
   /**
+   * Sets the scrollbar width.
+   *
+   * @param { number | string | Resource } value  - Scrollbar width.
+   *     <br>Unit: vp
+   *     <br>Default value: <em>4</em>
+   *     <br>If this parameter is set to a value less than or equal to 0, the default value is used.
+   *     The value <em>0</em> means not to show the scrollbar.
+   * @returns { ScrollAttribute  }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  scrollBarWidth(value: number | string | Resource): ScrollAttribute;
+
+  /**
    * Called when the sliding effect is set.
    *
    * @param { EdgeEffect } edgeEffect
