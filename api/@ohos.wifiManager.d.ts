@@ -863,6 +863,23 @@ declare namespace wifiManager {
   function getDeviceConfigs(): Array<WifiDeviceConfig>;
 
   /**
+   * Obtain the single Wi-Fi configuration with Network ID.
+   *
+   * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.GET_WIFI_CONFIG
+   * @param { int } networkId - The network ID of the Wi-Fi configuration to retrieve.
+   * @returns { WifiDeviceConfig } Returns the Wi-Fi configuration corresponding to the network ID.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - System API is not allowed called by Non-system application.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2501000 - Operation failed.
+   * @syscap SystemCapability.Communication.WiFi.STA
+   * @systemapi Hide this for inner system use.
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  function getDeviceConfig(networkId: int): WifiDeviceConfig;
+
+  /**
    * Update the specified Wi-Fi configuration.
    * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.SET_WIFI_CONFIG
    * @param { WifiDeviceConfig } config Indicates the Wi-Fi configuration to update.
