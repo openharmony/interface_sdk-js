@@ -37,6 +37,7 @@
  *
  * @interface MenuItemGroupOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -62,6 +63,7 @@ declare interface MenuItemGroupOptions {
      *
      * @type { ?(ResourceStr | CustomBuilder) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @FaAndStageModel
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
@@ -87,6 +89,7 @@ declare interface MenuItemGroupOptions {
      *
      * @type { ?(ResourceStr | CustomBuilder) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @FaAndStageModel
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
@@ -114,9 +117,11 @@ declare interface MenuItemGroupOptions {
  *
  * @interface MenuItemGroupInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
+ * @noninterop
  */
 interface MenuItemGroupInterface {
     /**
@@ -142,6 +147,7 @@ interface MenuItemGroupInterface {
      * @param { MenuItemGroupOptions } value
      * @returns { MenuItemGroupAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @FaAndStageModel
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
@@ -169,9 +175,11 @@ interface MenuItemGroupInterface {
  *
  * @extends CommonMethod<MenuItemGroupAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
+ * @noninterop
  */
 declare class MenuItemGroupAttribute extends CommonMethod<MenuItemGroupAttribute> {}
 
@@ -192,9 +200,11 @@ declare class MenuItemGroupAttribute extends CommonMethod<MenuItemGroupAttribute
  * Defines MenuItemGroup Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
+ * @noninterop
  */
 declare const MenuItemGroup: MenuItemGroupInterface;
 
@@ -215,8 +225,10 @@ declare const MenuItemGroup: MenuItemGroupInterface;
  * Defines MenuItemGroup Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
+ * @noninterop
  */
 declare const MenuItemGroupInstance: MenuItemGroupAttribute;

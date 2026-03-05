@@ -784,6 +784,41 @@ declare namespace distributedDeviceManager {
   }
 
   /**
+   * Struct for distributed device identification.
+   *
+   * @interface DeviceIdentification
+   * @syscap SystemCapability.DistributedHardware.DeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  interface DeviceIdentification {
+    /**
+     * Anonymized device ID for application.
+     *
+     * @type { string }
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    deviceId: string;
+
+    /**
+     * Unique device ID (UDID).
+     *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC and ohos.permission.ACCESS_SERVICE_DM and
+     *     ohos.permission.sec.ACCESS_UDID
+     * @type { string }
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    udid: string;
+  }
+
+  /**
    * Creates an {@code DeviceManager} instance.
    *
    * To manage devices, you must first call this method to obtain a {@code DeviceManager} instance and then
@@ -1709,6 +1744,28 @@ declare namespace distributedDeviceManager {
      * @since 23 static
      */
     getDeviceNetworkIdList(filterOptions: NetworkIdQueryFilter): Promise<Array<string>>;
+
+    /**
+     * Query device identification by device IDs.
+     *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC and ohos.permission.ACCESS_SERVICE_DM and
+     *     ohos.permission.sec.ACCESS_UDID
+     * @param { Array<string> } deviceIds - A list of device IDs that could be obtained by the application,
+     *                                      with a maximum list size of 50.
+     * @returns { Array<DeviceIdentification> } - Returns a list of DeviceIdentification.
+     * @throws { BusinessError } 201 - User permission verify failed.
+     * @throws { BusinessError } 202 - The caller is not a system application.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameter types;
+     *     3. Parameter verification failed.
+     * @throws { BusinessError } 11600101 - Failed to execute the function.
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    getIdentificationByDeviceIds(deviceIds: Array<string>): Array<DeviceIdentification>;
   }
 }
 

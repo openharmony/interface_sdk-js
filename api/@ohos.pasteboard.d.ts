@@ -35,6 +35,14 @@ import unifiedDataChannel from './@ohos.data.unifiedDataChannel';
  * @syscap SystemCapability.MiscServices.Pasteboard
  * @atomicservice
  * @since 11 dynamic
+ */
+/**
+ * systemPasteboard
+ * @namespace pasteboard
+ * @syscap SystemCapability.MiscServices.Pasteboard
+ * @crossplatform
+ * @atomicservice
+ * @since 24 dynamic
  * @since 23 static
  */
 declare namespace pasteboard {
@@ -73,6 +81,14 @@ declare namespace pasteboard {
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice
    * @since 11 dynamic
+   */
+  /**
+   * Indicates MIME types of HTML text.
+   * @constant
+   * @syscap SystemCapability.MiscServices.Pasteboard
+   * @crossplatform
+   * @atomicservice
+   * @since 24 dynamic
    * @since 23 static
    */
   const MIMETYPE_TEXT_HTML = 'text/html';
@@ -88,6 +104,14 @@ declare namespace pasteboard {
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice
    * @since 11 dynamic
+   */
+  /**
+   * Indicates MIME types of wants.
+   * @constant
+   * @syscap SystemCapability.MiscServices.Pasteboard
+   * @crossplatform
+   * @atomicservice
+   * @since 24 dynamic
    * @since 23 static
    */
   const MIMETYPE_TEXT_WANT = 'text/want';
@@ -103,6 +127,14 @@ declare namespace pasteboard {
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice
    * @since 11 dynamic
+   */
+  /**
+   * Indicates MIME types of plain text.
+   * @constant
+   * @syscap SystemCapability.MiscServices.Pasteboard
+   * @crossplatform
+   * @atomicservice
+   * @since 24 dynamic
    * @since 23 static
    */
   const MIMETYPE_TEXT_PLAIN = 'text/plain';
@@ -118,6 +150,14 @@ declare namespace pasteboard {
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice
    * @since 11 dynamic
+   */
+  /**
+   * Indicates MIME types of URIs.
+   * @constant
+   * @syscap SystemCapability.MiscServices.Pasteboard
+   * @crossplatform
+   * @atomicservice
+   * @since 24 dynamic
    * @since 23 static
    */
   const MIMETYPE_TEXT_URI = 'text/uri';
@@ -133,6 +173,14 @@ declare namespace pasteboard {
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice
    * @since 11 dynamic
+   */
+  /**
+   * Indicates MIME type of PixelMap.
+   * @constant
+   * @syscap SystemCapability.MiscServices.Pasteboard
+   * @crossplatform
+   * @atomicservice
+   * @since 24 dynamic
    * @since 23 static
    */
   const MIMETYPE_PIXELMAP = 'pixelMap';
@@ -149,6 +197,14 @@ declare namespace pasteboard {
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice
    * @since 11 dynamic
+   */
+  /**
+   * Indicates type of value.
+   * @typedef { string | image.PixelMap | Want | ArrayBuffer }
+   * @syscap SystemCapability.MiscServices.Pasteboard
+   * @crossplatform
+   * @atomicservice
+   * @since 24 dynamic
    * @since 23 static
    */
   type ValueType = string | image.PixelMap | Want | ArrayBuffer;
@@ -158,6 +214,13 @@ declare namespace pasteboard {
    * @typedef { function } UpdateCallback
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @since 22 dynamic
+   */
+  /**
+   * Indicates the callback for pasteboard content changes.
+   * @typedef { function } UpdateCallback
+   * @syscap SystemCapability.MiscServices.Pasteboard
+   * @crossplatform
+   * @since 24 dynamic
    * @since 23 static
    */
   type UpdateCallback = () => void;
@@ -211,23 +274,36 @@ declare namespace pasteboard {
    * @param { string } mimeType - indicates MIME type of value, its size cannot be greater than 1024 bytes.
    * @param { ValueType } value - indicates the content that is set to PasteData.
    * @returns { PasteData } a new PasteData object which contains mimeType and value.
-   * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified; 
-   *    2. Incorrect parameters types;
-   *    3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameters types;
+   *     3. Parameter verification failed.
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @since 9
    */
   /**
    * Creates a PasteData object of the specified type.
-   * @param { string } mimeType - indicates MIME type of value, its size cannot be greater than 1024 bytes.
+   * @param { string } mimeType - indicates type of the value, its size cannot exceed 1024 bytes.
    * @param { ValueType } value - indicates the content that is set to PasteData.
    * @returns { PasteData } a new PasteData object which contains mimeType and value.
-   * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified; 
-   *    2. Incorrect parameters types;
-   *    3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameters types;
+   *     3. Parameter verification failed.
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice
    * @since 11 dynamic
+   */
+  /**
+   * Creates a PasteData object of the specified type.
+   * @param { string } mimeType - indicates type of the value, its size cannot exceed 1024 bytes.
+   * @param { ValueType } value - indicates the content that is set to PasteData.
+   * @returns { PasteData } a new PasteData object which contains mimeType and value.
+   * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameters types;
+   *     3. Parameter verification failed.
+   * @syscap SystemCapability.MiscServices.Pasteboard
+   * @crossplatform
+   * @atomicservice
+   * @since 24 dynamic
    * @since 23 static
    */
   function createData(mimeType: string, value: ValueType): PasteData;
@@ -237,10 +313,21 @@ declare namespace pasteboard {
    * @param { Record<string, ValueType> } data - indicates the MEME types and values of the PasteData object to create.
    * @returns { PasteData } Returns the PasteData object created.
    * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
-   *    2. Incorrect parameters types;
-   *    3. Parameter verification failed.
+   *     2. Incorrect parameters types;
+   *     3. Parameter verification failed.
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @since 14 dynamic
+   */
+  /**
+   * Creates a PasteData object with the specified MIME types and values.
+   * @param { Record<string, ValueType> } data - indicates the MEME types and values of the PasteData object to create.
+   * @returns { PasteData } Returns the PasteData object created.
+   * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameters types;
+   *     3. Parameter verification failed.
+   * @syscap SystemCapability.MiscServices.Pasteboard
+   * @crossplatform
+   * @since 24 dynamic
    * @since 23 static
    */
   function createData(data: Record<string, ValueType>): PasteData;
@@ -295,22 +382,35 @@ declare namespace pasteboard {
    * @param { ValueType } value - content to be saved.
    * @returns { PasteDataRecord } a new PasteDataRecord object which contains mimeType and value.
    * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
-   *    2. Incorrect parameters types;
-   *    3. Parameter verification failed.
+   *     2. Incorrect parameters types;
+   *     3. Parameter verification failed.
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @since 9
    */
   /**
    * Creates a PasteDataRecord object of the specified type.
-   * @param { string } mimeType - indicates MIME type of value, its size cannot be greater than 1024 bytes.
-   * @param { ValueType } value - Data content of the specified type. 
+   * @param { string } mimeType - indicates type of the value, its size cannot exceed 1024 bytes.
+   * @param { ValueType } value - Data content of the specified type.
    * @returns { PasteDataRecord } A new paste data record of a specified type.
    * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
-   *    2. Incorrect parameters types;
-   *    3. Parameter verification failed.
+   *     2. Incorrect parameters types;
+   *     3. Parameter verification failed.
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice
    * @since 11 dynamic
+   */
+  /**
+   * Creates a PasteDataRecord object of the specified type.
+   * @param { string } mimeType - indicates type of the value, its size cannot exceed 1024 bytes.
+   * @param { ValueType } value - Data content of the specified type.
+   * @returns { PasteDataRecord } A new paste data record of a specified type.
+   * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameters types;
+   *     3. Parameter verification failed.
+   * @syscap SystemCapability.MiscServices.Pasteboard
+   * @crossplatform
+   * @atomicservice
+   * @since 24 dynamic
    * @since 23 static
    */
   function createRecord(mimeType: string, value: ValueType): PasteDataRecord;
@@ -327,6 +427,14 @@ declare namespace pasteboard {
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice
    * @since 11 dynamic
+   */
+  /**
+   * get SystemPasteboard
+   * @returns { SystemPasteboard } The system clipboard object
+   * @syscap SystemCapability.MiscServices.Pasteboard
+   * @crossplatform
+   * @atomicservice
+   * @since 24 dynamic
    * @since 23 static
    */
   function getSystemPasteboard(): SystemPasteboard;
@@ -339,7 +447,7 @@ declare namespace pasteboard {
    */
   /**
    * Types of scope that PasteData can be pasted.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice
    * @since 11 dynamic
@@ -389,7 +497,7 @@ declare namespace pasteboard {
 
   /**
    * Enumerates the patterns allowed in the system pasteboard.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @since 13 dynamic
    * @since 23 static
@@ -432,6 +540,15 @@ declare namespace pasteboard {
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice
    * @since 11 dynamic
+   */
+  /**
+   * Defines the properties of all data records on the pasteboard, including the timestamp, data type, pasteable range, 
+   * and additional data. The defined properties can be applied to the pasteboard only with the setProperty method.
+   * @interface PasteDataProperty
+   * @syscap SystemCapability.MiscServices.Pasteboard
+   * @crossplatform
+   * @atomicservice
+   * @since 24 dynamic
    * @since 23 static
    */
   interface PasteDataProperty {
@@ -446,11 +563,24 @@ declare namespace pasteboard {
      * @type { object }
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since 11 dynamic
+     * @since 11
      */
-    additions: {
-      [key: string]: object
-    }
+    /**
+     * additional property data. key-value pairs.
+     * @type { Record<string, object> }
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 23 dynamic
+     */
+    /**
+     * additional property data. key-value pairs.
+     * @type { Record<string, object> }
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @crossplatform
+     * @atomicservice
+     * @since 24 dynamic
+     */
+    additions: Record<string, object>;
     /**
      * additional property data. key-value pairs.
      * @type { Record<string, RecordData> }
@@ -472,6 +602,15 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
+     */
+    /**
+     * non-repeating MIME types of all records in PasteData.
+     * @type { Array<string> }
+     * @readonly
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @crossplatform
+     * @atomicservice
+     * @since 24 dynamic
      * @since 23 static
      */
     readonly mimeTypes: Array<string>;
@@ -487,6 +626,14 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
+     */
+    /**
+     * the user-defined tag of a PasteData object.
+     * @type { string }
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @crossplatform
+     * @atomicservice
+     * @since 24 dynamic
      * @since 23 static
      */
     tag: string;
@@ -504,6 +651,15 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
+     */
+    /**
+     * a timestamp, which indicates when data is written to the system pasteboard.
+     * @type { long }
+     * @readonly
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @crossplatform
+     * @atomicservice
+     * @since 24 dynamic
      * @since 23 static
      */
     readonly timestamp: long;
@@ -553,6 +709,14 @@ declare namespace pasteboard {
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice
    * @since 11 dynamic
+   */
+  /**
+   * Paste data record.
+   * @interface PasteDataRecord
+   * @syscap SystemCapability.MiscServices.Pasteboard
+   * @crossplatform
+   * @atomicservice
+   * @since 24 dynamic
    * @since 23 static
    */
   interface PasteDataRecord {
@@ -564,10 +728,22 @@ declare namespace pasteboard {
      */
     /**
      * HTML text in a record.
+     * This parameter is read-only and does not support assignment operations. 
+     * To assign a value, please use ohos.pasteboard.pasteboard#createData or ohos.pasteboard.pasteboard#addEntry.
      * @type { string }
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
+     */
+    /**
+     * HTML text in a record.
+     * This parameter is read-only and does not support assignment operations. 
+     * To assign a value, please use ohos.pasteboard.pasteboard#createData or ohos.pasteboard.pasteboard#addEntry.
+     * @type { string }
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @crossplatform
+     * @atomicservice
+     * @since 24 dynamic
      * @since 23 static
      */
     htmlText: string;
@@ -578,11 +754,23 @@ declare namespace pasteboard {
      * @since 7
      */
     /**
-     * an want in a record.
+     * Want in a record.
+     * This parameter is read-only and does not support assignment operations. 
+     * To assign a value, please use ohos.pasteboard.pasteboard#createData or ohos.pasteboard.pasteboard#addEntry.
      * @type { Want }
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
+     */
+    /**
+     * Want in a record.
+     * This parameter is read-only and does not support assignment operations. 
+     * To assign a value, please use ohos.pasteboard.pasteboard#createData or ohos.pasteboard.pasteboard#addEntry.
+     * @type { Want }
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @crossplatform
+     * @atomicservice
+     * @since 24 dynamic
      * @since 23 static
      */
     want: Want;
@@ -593,11 +781,23 @@ declare namespace pasteboard {
      * @since 7
      */
     /**
-     * MIME types of a record.
+     * Default MIME type of a record.
+     * This parameter is read-only and does not support assignment operations. 
+     * To assign a value, please use ohos.pasteboard.pasteboard#createData or ohos.pasteboard.pasteboard#addEntry.
      * @type { string }
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
+     */
+    /**
+     * Default MIME type of a record.
+     * This parameter is read-only and does not support assignment operations. 
+     * To assign a value, please use ohos.pasteboard.pasteboard#createData or ohos.pasteboard.pasteboard#addEntry.
+     * @type { string }
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @crossplatform
+     * @atomicservice
+     * @since 24 dynamic
      * @since 23 static
      */
     mimeType: string;
@@ -608,11 +808,23 @@ declare namespace pasteboard {
      * @since 7
      */
     /**
-     * plain text in a record.
+     * Plain text in a record.
+     * This parameter is read-only and does not support assignment operations. 
+     * To assign a value, please use ohos.pasteboard.pasteboard#createData or ohos.pasteboard.pasteboard#addEntry.
      * @type { string }
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
+     */
+    /**
+     * Plain text in a record.
+     * This parameter is read-only and does not support assignment operations. 
+     * To assign a value, please use ohos.pasteboard.pasteboard#createData or ohos.pasteboard.pasteboard#addEntry.
+     * @type { string }
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @crossplatform
+     * @atomicservice
+     * @since 24 dynamic
      * @since 23 static
      */
     plainText: string;
@@ -623,11 +835,23 @@ declare namespace pasteboard {
      * @since 7
      */
     /**
-     * an URI in a record.
+     * URI in a record.
+     * This parameter is read-only and does not support assignment operations. 
+     * To assign a value, please use ohos.pasteboard.pasteboard#createData or ohos.pasteboard.pasteboard#addEntry.
      * @type { string }
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
+     */
+    /**
+     * URI in a record.
+     * This parameter is read-only and does not support assignment operations. 
+     * To assign a value, please use ohos.pasteboard.pasteboard#createData or ohos.pasteboard.pasteboard#addEntry.
+     * @type { string }
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @crossplatform
+     * @atomicservice
+     * @since 24 dynamic
      * @since 23 static
      */
     uri: string;
@@ -639,10 +863,22 @@ declare namespace pasteboard {
      */
     /**
      * PixelMap in a record.
+     * This parameter is read-only and does not support assignment operations. 
+     * To assign a value, please use ohos.pasteboard.pasteboard#createData or ohos.pasteboard.pasteboard#addEntry.
      * @type { image.PixelMap }
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
+     */
+    /**
+     * PixelMap in a record.
+     * This parameter is read-only and does not support assignment operations. 
+     * To assign a value, please use ohos.pasteboard.pasteboard#createData or ohos.pasteboard.pasteboard#addEntry.
+     * @type { image.PixelMap }
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @crossplatform
+     * @atomicservice
+     * @since 24 dynamic
      * @since 23 static
      */
     pixelMap: image.PixelMap;
@@ -661,10 +897,22 @@ declare namespace pasteboard {
      */
     /**
      * Custom data in a record, string indicates the MIME type of custom data, ArrayBuffer indicates the value of custom data.
+     * This parameter is read-only and does not support assignment operations.
+     * To assign a value, please use ohos.pasteboard.pasteboard#createData or ohos.pasteboard.pasteboard#addEntry.
      * @type { Record<string, ArrayBuffer> }
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since 20 dynamic
+     * @since 23 dynamic
+     */
+    /**
+     * Custom data in a record, string indicates the MIME type of custom data, ArrayBuffer indicates the value of custom data.
+     * This parameter is read-only and does not support assignment operations.
+     * To assign a value, please use ohos.pasteboard.pasteboard#createData or ohos.pasteboard.pasteboard#addEntry.
+     * @type { Record<string, ArrayBuffer> }
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @crossplatform
+     * @atomicservice
+     * @since 24 dynamic
      * @since 23 static
      */
     data: Record<string, ArrayBuffer>;
@@ -702,19 +950,38 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
+     */
+    /**
+     * Converts data in PasteData to text format.
+     * @returns { string } the string returned by the function.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @crossplatform
+     * @atomicservice
+     * @since 24 dynamic
      * @since 23 static
      */
     toPlainText(): string;
 
     /**
      * Adds data to the PasteDataRecord object.
-     * @param { string } type - indicates MIME type of the value to add. It cannot exceed 1024 bytes.
+     * @param { string } type - indicates type of the value, its size cannot exceed 1024 bytes.
      * @param { ValueType } value - indicates the value of the data to add.
      * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
-     *    2. Incorrect parameters types;
-     *    3. Parameter verification failed.
+     *     2. Incorrect parameters types;
+     *     3. Parameter verification failed.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 14 dynamic
+     */
+    /**
+     * Adds data to the PasteDataRecord object.
+     * @param { string } type - indicates type of the value, its size cannot exceed 1024 bytes.
+     * @param { ValueType } value - indicates the value of the data to add.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameters types;
+     *     3. Parameter verification failed.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @crossplatform
+     * @since 24 dynamic
      * @since 23 static
      */
     addEntry(type: string, value: ValueType): void;
@@ -724,23 +991,45 @@ declare namespace pasteboard {
      * @param { Array<string> } types - indicates an array of types from which the valid types are obtained.
      * @returns { Array<string> } Returns the valid types obtained.
      * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
-     *    2. Incorrect parameters types;
-     *    3. Parameter verification failed.
+     *     2. Incorrect parameters types;
+     *     3. Parameter verification failed.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 14 dynamic
+     */
+    /**
+     * Obtains the valid types in the PasteDataRecord object.
+     * @param { Array<string> } types - indicates an array of types from which the valid types are obtained.
+     * @returns { Array<string> } Returns the valid types obtained.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameters types;
+     *     3. Parameter verification failed.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @crossplatform
+     * @since 24 dynamic
      * @since 23 static
      */
     getValidTypes(types: Array<string>): Array<string>;
 
     /**
      * Obtains data of the specified type.
-     * @param { string } type - indicates the type of the data to obtain.
+     * @param { string } type - indicates type of the data to obtain, its size cannot exceed 1024 bytes.
      * @returns { Promise<ValueType> } Promise used to return the data obtained.
      * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
-     *    2. Incorrect parameters types;
-     *    3. Parameter verification failed.
+     *     2. Incorrect parameters types;
+     *     3. Parameter verification failed.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 14 dynamic
+     */
+    /**
+     * Obtains data of the specified type.
+     * @param { string } type - indicates type of the data to obtain, its size cannot exceed 1024 bytes.
+     * @returns { Promise<ValueType> } Promise used to return the data obtained.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameters types;
+     *     3. Parameter verification failed.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @crossplatform
+     * @since 24 dynamic
      * @since 23 static
      */
     getData(type: string): Promise<ValueType>;
@@ -758,6 +1047,14 @@ declare namespace pasteboard {
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice
    * @since 11 dynamic
+   */
+  /**
+   * Classes for paste data.
+   * @interface PasteData
+   * @syscap SystemCapability.MiscServices.Pasteboard
+   * @crossplatform
+   * @atomicservice
+   * @since 24 dynamic
    * @since 23 static
    */
   interface PasteData {
@@ -793,6 +1090,14 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
+     */
+    /**
+     * Adds a PasteRecord to a PasteData object and updates MIME types in DataProperty.
+     * @param { PasteDataRecord } record - The content of a new record.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @crossplatform
+     * @atomicservice
+     * @since 24 dynamic
      * @since 23 static
      */
     addRecord(record: PasteDataRecord): void;
@@ -822,8 +1127,8 @@ declare namespace pasteboard {
      * @param { string } mimeType - indicates the MIME type of value, its size cannot be greater than 1024 bytes.
      * @param { ValueType } value - content to be saved.
      * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
-     *    2. Incorrect parameters types;
-     *    3. Parameter verification failed.
+     *     2. Incorrect parameters types;
+     *     3. Parameter verification failed.
      * @throws { BusinessError } 12900002 - The number of records exceeds the upper limit.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 9
@@ -833,8 +1138,8 @@ declare namespace pasteboard {
      * @param { string } mimeType - indicates the MIME type of value, its size cannot be greater than 1024 bytes.
      * @param { ValueType } value - content to be saved.
      * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
-     *    2. Incorrect parameters types;
-     *    3. Parameter verification failed.
+     *     2. Incorrect parameters types;
+     *     3. Parameter verification failed.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 10
      */
@@ -843,11 +1148,23 @@ declare namespace pasteboard {
      * @param { string } mimeType - indicates the MIME type of value, its size cannot be greater than 1024 bytes.
      * @param { ValueType } value - content to be saved.
      * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
-     *    2. Incorrect parameters types;
-     *    3. Parameter verification failed.
+     *     2. Incorrect parameters types;
+     *     3. Parameter verification failed.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
+     */
+    /**
+     * Adds a record with mimeType and value to a PasteData object.
+     * @param { string } mimeType - indicates the MIME type of value, its size cannot be greater than 1024 bytes.
+     * @param { ValueType } value - content to be saved.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameters types;
+     *     3. Parameter verification failed.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @crossplatform
+     * @atomicservice
+     * @since 24 dynamic
      * @since 23 static
      */
     addRecord(mimeType: string, value: ValueType): void;
@@ -864,6 +1181,14 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
+     */
+    /**
+     * MIME types of all content on the pasteboard.
+     * @returns { Array<string> } type of array
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @crossplatform
+     * @atomicservice
+     * @since 24 dynamic
      * @since 23 static
      */
     getMimeTypes(): Array<string>;
@@ -880,6 +1205,14 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
+     */
+    /**
+     * HTML text of the primary record in a PasteData object.
+     * @returns { string } type of htmltext
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @crossplatform
+     * @atomicservice
+     * @since 24 dynamic
      * @since 23 static
      */
     getPrimaryHtml(): string;
@@ -896,6 +1229,14 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
+     */
+    /**
+     * the want of the primary record in a PasteData object.
+     * @returns { Want } type of want
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @crossplatform
+     * @atomicservice
+     * @since 24 dynamic
      * @since 23 static
      */
     getPrimaryWant(): Want;
@@ -912,6 +1253,14 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
+     */
+    /**
+     * the MIME type of the primary record in a PasteData object.
+     * @returns { string } type of mimetype
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @crossplatform
+     * @atomicservice
+     * @since 24 dynamic
      * @since 23 static
      */
     getPrimaryMimeType(): string;
@@ -928,6 +1277,14 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
+     */
+    /**
+     * the plain text of the primary record in a PasteData object.
+     * @returns { string } type of text
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @crossplatform
+     * @atomicservice
+     * @since 24 dynamic
      * @since 23 static
      */
     getPrimaryText(): string;
@@ -944,6 +1301,14 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
+     */
+    /**
+     * the URI of the primary record in a PasteData object.
+     * @returns { string } type of uri
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @crossplatform
+     * @atomicservice
+     * @since 24 dynamic
      * @since 23 static
      */
     getPrimaryUri(): string;
@@ -960,6 +1325,14 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
+     */
+    /**
+     * Gets the primary PixelMap record in a PasteData object.
+     * @returns { image.PixelMap } pixelMap
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @crossplatform
+     * @atomicservice
+     * @since 24 dynamic
      * @since 23 static
      */
     getPrimaryPixelMap(): image.PixelMap;
@@ -976,6 +1349,14 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
+     */
+    /**
+     * DataProperty of a PasteData object.
+     * @returns { PasteDataProperty } PasteDataProperty type of PasteDataProperty
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @crossplatform
+     * @atomicservice
+     * @since 24 dynamic
      * @since 23 static
      */
     getProperty(): PasteDataProperty;
@@ -984,7 +1365,7 @@ declare namespace pasteboard {
      * Sets PasteDataProperty to a PasteData object, Modifying shareOption is supported only.
      * @param { PasteDataProperty } property - save property to PasteData object.
      * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
-     *    2. Incorrect parameters types.
+     *     2. Incorrect parameters types.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 9
      */
@@ -992,10 +1373,20 @@ declare namespace pasteboard {
      * Sets PasteDataProperty to a PasteData object, Modifying shareOption is supported only.
      * @param { PasteDataProperty } property - save property to PasteData object.
      * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
-     *    2. Incorrect parameters types.
+     *     2. Incorrect parameters types.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
+     */
+    /**
+     * Sets PasteDataProperty to a PasteData object, Modifying shareOption is supported only.
+     * @param { PasteDataProperty } property - save property to PasteData object.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameters types.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @crossplatform
+     * @atomicservice
+     * @since 24 dynamic
      * @since 23 static
      */
     setProperty(property: PasteDataProperty): void;
@@ -1005,7 +1396,7 @@ declare namespace pasteboard {
      * @param { number } index - indicates the record index in PasteData.
      * @returns { PasteDataRecord } the record in PasteData with index.
      * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
-     *    2. Incorrect parameters types.
+     *     2. Incorrect parameters types.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -1018,7 +1409,7 @@ declare namespace pasteboard {
      * @param { number } index - indicates the record index in PasteData.
      * @returns { PasteDataRecord } the record in PasteData with index.
      * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
-     *    2. Incorrect parameters types.
+     *     2. Incorrect parameters types.
      * @throws { BusinessError } 12900001 - The index is out of the record.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 9
@@ -1027,12 +1418,28 @@ declare namespace pasteboard {
      * Gets record by index in PasteData.
      * @param { int } index - indicates the record index in PasteData.
      * @returns { PasteDataRecord } the record in PasteData with index.
-     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
-     *    2. Incorrect parameters types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1. Mandatory parameters are left unspecified.
+     *     2. Incorrect parameter types.
+     *     3. Parameter verification failed.
      * @throws { BusinessError } 12900001 - The index is out of the record.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
+     */
+    /**
+     * Gets record by index in PasteData.
+     * @param { int } index - indicates the record index in PasteData.
+     * @returns { PasteDataRecord } the record in PasteData with index.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1. Mandatory parameters are left unspecified.
+     *     2. Incorrect parameter types.
+     *     3. Parameter verification failed.
+     * @throws { BusinessError } 12900001 - The index is out of the record.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @crossplatform
+     * @atomicservice
+     * @since 24 dynamic
      * @since 23 static
      */
     getRecord(index: int): PasteDataRecord;
@@ -1049,6 +1456,14 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
+     */
+    /**
+     * the number of records in a PasteData object.
+     * @returns { int } The number of the clipboard contents
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @crossplatform
+     * @atomicservice
+     * @since 24 dynamic
      * @since 23 static
      */
     getRecordCount(): int;
@@ -1065,6 +1480,14 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
+     */
+    /**
+     * the user-defined tag of a PasteData object.
+     * @returns { string } type of tag
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @crossplatform
+     * @atomicservice
+     * @since 24 dynamic
      * @since 23 static
      */
     getTag(): string;
@@ -1087,7 +1510,7 @@ declare namespace pasteboard {
      * @param { string } mimeType - indicates to query data type.
      * @returns { boolean } if having mimeType in PasteData returns true, else returns false.
      * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
-     *    2. Incorrect parameters types.
+     *     2. Incorrect parameters types.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 9
      */
@@ -1096,10 +1519,22 @@ declare namespace pasteboard {
      * @param { string } mimeType - indicates to query data type.
      * @returns { boolean } if having mimeType in PasteData returns true, else returns false.
      * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
-     *    2. Incorrect parameters types.
+     *     2. Incorrect parameters types.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
+     */
+    /**
+     * Checks whether there is a specified MIME type of data in DataProperty.
+     * @param { string } mimeType - indicates to query data type.
+     * @returns { boolean } if having mimeType in PasteData returns true, else returns false.
+     * @throws { BusinessError } 401 - Possible causes:
+     *     1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameters types.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @crossplatform
+     * @atomicservice
+     * @since 24 dynamic
      * @since 23 static
      */
     hasType(mimeType: string): boolean;
@@ -1121,7 +1556,7 @@ declare namespace pasteboard {
      * Removes a Record based on a specified index.
      * @param { number } index - indicates the record index in PasteData.
      * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
-     *    2. Incorrect parameters types.
+     *     2. Incorrect parameters types.
      * @throws { BusinessError } 12900001 - The index is out of the record.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 9
@@ -1130,13 +1565,26 @@ declare namespace pasteboard {
      * Removes a Record based on a specified index.
      * @param { int } index - indicates the record index in PasteData.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1. Mandatory parameters are left unspecified.
-     * 2. Incorrect parameter types.
-     * 3. Parameter verification failed.
+     *     1. Mandatory parameters are left unspecified.
+     *     2. Incorrect parameter types.
+     *     3. Parameter verification failed.
      * @throws { BusinessError } 12900001 - The index is out of the record.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
+     */
+    /**
+     * Removes a Record based on a specified index.
+     * @param { int } index - indicates the record index in PasteData.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1. Mandatory parameters are left unspecified.
+     *     2. Incorrect parameter types.
+     *     3. Parameter verification failed.
+     * @throws { BusinessError } 12900001 - The index is out of the record.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @crossplatform
+     * @atomicservice
+     * @since 24 dynamic
      * @since 23 static
      */
     removeRecord(index: int): void;
@@ -1158,7 +1606,7 @@ declare namespace pasteboard {
      * @param { number } index - indicates the record index in PasteData.
      * @param { PasteDataRecord } record - the content of a new record.
      * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
-     *    2. Incorrect parameters types.
+     *     2. Incorrect parameters types.
      * @throws { BusinessError } 12900001 - The index is out of the record.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 9
@@ -1168,13 +1616,27 @@ declare namespace pasteboard {
      * @param { int } index - indicates the record index in PasteData.
      * @param { PasteDataRecord } record - the content of the replaced record.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1. Mandatory parameters are left unspecified.
-     * 2. Incorrect parameter types.
-     * 3. Parameter verification failed.
+     *     1. Mandatory parameters are left unspecified.
+     *     2. Incorrect parameter types.
+     *     3. Parameter verification failed.
      * @throws { BusinessError } 12900001 - The index is out of the record.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
+     */
+    /**
+     * Replaces a specified record with a new one.
+     * @param { int } index - indicates the record index in PasteData.
+     * @param { PasteDataRecord } record - the content of the replaced record.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1. Mandatory parameters are left unspecified.
+     *     2. Incorrect parameter types.
+     *     3. Parameter verification failed.
+     * @throws { BusinessError } 12900001 - The index is out of the record.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @crossplatform
+     * @atomicservice
+     * @since 24 dynamic
      * @since 23 static
      */
     replaceRecord(index: int, record: PasteDataRecord): void;
@@ -1198,7 +1660,7 @@ declare namespace pasteboard {
 
   /**
    * Enumerates the types of file conflict options when getting data from the Pastedboard.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice
    * @since 15 dynamic
@@ -1226,7 +1688,7 @@ declare namespace pasteboard {
 
   /**
    * Enumerates the types of progress indicator when getting data from the Pastedboard.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice
    * @since 15 dynamic
@@ -1377,6 +1839,14 @@ declare namespace pasteboard {
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice
    * @since 11 dynamic
+   */
+  /**
+   * Classes for system pasteboard.
+   * @interface SystemPasteboard
+   * @syscap SystemCapability.MiscServices.Pasteboard
+   * @crossplatform
+   * @atomicservice
+   * @since 24 dynamic
    * @since 23 static
    */
   interface SystemPasteboard {
@@ -1385,9 +1855,19 @@ declare namespace pasteboard {
      * @param { 'update' } type - indicates pasteboard content changed.
      * @param { function } callback - the callback to add.
      * @throws { BusinessError }  401 - Possible causes: 1. Mandatory parameters are left unspecified;
-     *    2. Incorrect parameters types.
+     *     2. Incorrect parameters types.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 7 dynamic
+     */
+    /**
+     * Callback invoked when pasteboard content changes.
+     * @param { 'update' } type - indicates pasteboard content changed.
+     * @param { function } callback - the callback to add.
+     * @throws { BusinessError }  401 - Possible causes: 1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameters types.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @crossplatform
+     * @since 24 dynamic
      */
     on(type: 'update', callback: () => void): void;
 
@@ -1403,24 +1883,37 @@ declare namespace pasteboard {
     /**
      * Remove a callback invoked when pasteboard content changes.
      * @param { 'update' } type - indicates pasteboard content changed.
-     * @param { function } [callback] - the callback to remove. If this parameter is not filled in, it indicates that all
-     * callbacks for this application will be cleared. Otherwise, it indicates that the specified callback will be cleared.
+     * @param { function } [callback] - the callback to remove.
+     *     If this parameter is not filled in, it indicates that all callbacks for this application will be cleared.
+     *     Otherwise, it indicates that the specified callback will be cleared.
      * @throws { BusinessError }  401 - Possible causes: 1. Mandatory parameters are left unspecified;
-     *    2. Incorrect parameters types.
+     *     2. Incorrect parameters types.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 7 dynamic
      */
+    /**
+     * Remove a callback invoked when pasteboard content changes.
+     * @param { 'update' } type - indicates pasteboard content changed.
+     * @param { function } [callback] - the callback to remove.
+     *     If this parameter is not filled in, it indicates that all callbacks for this application will be cleared.
+     *     Otherwise, it indicates that the specified callback will be cleared.
+     * @throws { BusinessError }  401 - Possible causes: 1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameters types.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @crossplatform
+     * @since 24 dynamic
+     */
     off(type: 'update', callback?: () => void): void;
 
-    /**	
-     * Remove a callback invoked when remote pasteboard content changes.	
-     * @param { UpdateCallback } [callback] - the callback to remove. If this parameter is not filled in, it indicates	
+    /**
+     * Remove a callback invoked when remote pasteboard content changes.
+     * @param { UpdateCallback } [callback] - the callback to remove. If this parameter is not filled in, it indicates
      * that all callbacks for this application will be cleared. Otherwise, it indicates that the specified callback
      * will be cleared.
-     * @syscap SystemCapability.MiscServices.Pasteboard	
+     * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 22 dynamic
      * @since 23 static
-     */	
+     */
     offRemoteUpdate(callback?: UpdateCallback): void;
 
     /**
@@ -1468,11 +1961,23 @@ declare namespace pasteboard {
      * @param { string } mimeType - indicates to query data type.
      * @returns { boolean } if having mimeType in PasteData returns true, else returns false.
      * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
-     *    2. Incorrect parameters types.
+     *     2. Incorrect parameters types.
      * @throws { BusinessError } 12900005 - Excessive processing time for internal data.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
+     */
+    /**
+     * Checks whether there is a specified MIME type of data in Data.
+     * @param { string } mimeType - indicates to query data type.
+     * @returns { boolean } if having mimeType in PasteData returns true, else returns false.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameters types.
+     * @throws { BusinessError } 12900005 - Excessive processing time for internal data.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @crossplatform
+     * @atomicservice
+     * @since 24 dynamic
      * @since 23 static
      */
     hasDataType(mimeType: string): boolean;
@@ -1503,7 +2008,7 @@ declare namespace pasteboard {
      * Clears the pasteboard.
      * @param { AsyncCallback<void> } callback - the callback of clearData.
      * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
-     *    2. Incorrect parameters types.
+     *     2. Incorrect parameters types.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 9
      */
@@ -1511,10 +2016,20 @@ declare namespace pasteboard {
      * Clears the pasteboard.
      * @param { AsyncCallback<void> } callback - the callback of clearData.
      * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
-     *    2. Incorrect parameters types.
+     *     2. Incorrect parameters types.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
+     */
+    /**
+     * Clears the pasteboard.
+     * @param { AsyncCallback<void> } callback - the callback of clearData.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameters types.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @crossplatform
+     * @atomicservice
+     * @since 24 dynamic
      * @since 23 static
      */
     clearData(callback: AsyncCallback<void>): void;
@@ -1531,6 +2046,14 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
+     */
+    /**
+     * Clears the pasteboard.
+     * @returns { Promise<void> } the promise returned by the clearData.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @crossplatform
+     * @atomicservice
+     * @since 24 dynamic
      * @since 23 static
      */
     clearData(): Promise<void>;
@@ -1541,6 +2064,14 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
+     */
+    /**
+     * Clears the pasteboard.
+     * @throws { BusinessError } 12900005 - Excessive processing time for internal data.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @crossplatform
+     * @atomicservice
+     * @since 24 dynamic
      * @since 23 static
      */
     clearDataSync(): void;
@@ -1571,7 +2102,7 @@ declare namespace pasteboard {
      * Gets pastedata from the system pasteboard.
      * @param { AsyncCallback<PasteData> } callback - the callback of getData.
      * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
-     *    2. Incorrect  parameters types.
+     *     2. Incorrect  parameters types.
      * @throws { BusinessError } 27787277 - Another copy or paste operation is in progress.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 9
@@ -1580,7 +2111,7 @@ declare namespace pasteboard {
      * Gets pastedata from the system pasteboard.
      * @param { AsyncCallback<PasteData> } callback - the callback of getData.
      * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
-     *    2. Incorrect  parameters types.
+     *     2. Incorrect  parameters types.
      * @throws { BusinessError } 27787277 - Another copy or paste operation is in progress.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
@@ -1591,13 +2122,27 @@ declare namespace pasteboard {
      * @permission ohos.permission.READ_PASTEBOARD
      * @param { AsyncCallback<PasteData> } callback - the callback of getData.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the
-     *    permission required to call the API.
+     *     permission required to call the API.
      * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
-     *    2. Incorrect  parameters types.
+     *     2. Incorrect  parameters types.
      * @throws { BusinessError } 27787277 - Another copy or paste operation is in progress.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 12 dynamic
+     */
+    /**
+     * Gets pastedata from the system pasteboard.
+     * @permission ohos.permission.READ_PASTEBOARD
+     * @param { AsyncCallback<PasteData> } callback - the callback of getData.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the
+     *     permission required to call the API.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
+     *     2. Incorrect  parameters types.
+     * @throws { BusinessError } 27787277 - Another copy or paste operation is in progress.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @crossplatform
+     * @atomicservice
+     * @since 24 dynamic
      * @since 23 static
      */
     getData(callback: AsyncCallback<PasteData>): void;
@@ -1622,11 +2167,23 @@ declare namespace pasteboard {
      * @permission ohos.permission.READ_PASTEBOARD
      * @returns { Promise<PasteData> } the promise returned by the getData.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the
-     *    permission required to call the API.
+     *     permission required to call the API.
      * @throws { BusinessError } 27787277 - Another copy or paste operation is in progress.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 12 dynamic
+     */
+    /**
+     * Gets pastedata from the system pasteboard.
+     * @permission ohos.permission.READ_PASTEBOARD
+     * @returns { Promise<PasteData> } the promise returned by the getData.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the
+     *     permission required to call the API.
+     * @throws { BusinessError } 27787277 - Another copy or paste operation is in progress.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @crossplatform
+     * @atomicservice
+     * @since 24 dynamic
      * @since 23 static
      */
     getData(): Promise<PasteData>;
@@ -1644,11 +2201,23 @@ declare namespace pasteboard {
      * @permission ohos.permission.READ_PASTEBOARD
      * @returns { PasteData }  a new PasteData.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the
-     *    permission required to call the API.
+     *     permission required to call the API.
      * @throws { BusinessError } 12900005 - Excessive processing time for internal data.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 12 dynamic
+     */
+    /**
+     * Gets pasteData from the system pasteboard.
+     * @permission ohos.permission.READ_PASTEBOARD
+     * @returns { PasteData }  a new PasteData.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the
+     *     permission required to call the API.
+     * @throws { BusinessError } 12900005 - Excessive processing time for internal data.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @crossplatform
+     * @atomicservice
+     * @since 24 dynamic
      * @since 23 static
      */
     getDataSync(): PasteData;
@@ -1676,10 +2245,19 @@ declare namespace pasteboard {
     hasPasteData(): Promise<boolean>;
 
     /**
+     * Checks whether the paste data is in a remote device.
+     * @returns { boolean } True is in a remote device, else false.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    hasRemoteData(): boolean;
+
+    /**
      * Checks whether there is content in the system pasteboard.
      * @param { AsyncCallback<boolean> } callback - the callback of hasData.
      * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
-     *    2. Incorrect  parameters types.
+     *     2. Incorrect  parameters types.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 9
      */
@@ -1687,10 +2265,20 @@ declare namespace pasteboard {
      * Checks whether there is content in the system pasteboard.
      * @param { AsyncCallback<boolean> } callback - the callback of hasData.
      * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
-     *    2. Incorrect  parameters types.
+     *     2. Incorrect  parameters types.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
+     */
+    /**
+     * Checks whether there is content in the system pasteboard.
+     * @param { AsyncCallback<boolean> } callback - the callback of hasData.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
+     *     2. Incorrect  parameters types.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @crossplatform
+     * @atomicservice
+     * @since 24 dynamic
      * @since 23 static
      */
     hasData(callback: AsyncCallback<boolean>): void;
@@ -1707,6 +2295,14 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
+     */
+    /**
+     * Checks whether there is content in the system pasteboard.
+     * @returns { Promise<boolean> } the promise returned by the function.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @crossplatform
+     * @atomicservice
+     * @since 24 dynamic
      * @since 23 static
      */
     hasData(): Promise<boolean>;
@@ -1718,6 +2314,15 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
+     */
+    /**
+     * Checks whether there is content in the system pasteboard.
+     * @returns { boolean } True exists, false does not exist.
+     * @throws { BusinessError } 12900005 - Excessive processing time for internal data.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @crossplatform
+     * @atomicservice
+     * @since 24 dynamic
      * @since 23 static
      */
     hasDataSync(): boolean;
@@ -1751,7 +2356,7 @@ declare namespace pasteboard {
      * @param { PasteData } data - PasteData will be written to the clipboard
      * @param { AsyncCallback<void> } callback - the callback of setData.
      * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified.
-     *    2. Incorrect parameters types.
+     *     2. Incorrect parameters types.
      * @throws { BusinessError } 27787277 - Another copy or paste operation is in progress.
      * @throws { BusinessError } 27787278 - Replication is prohibited.
      * @syscap SystemCapability.MiscServices.Pasteboard
@@ -1762,12 +2367,25 @@ declare namespace pasteboard {
      * @param { PasteData } data - PasteData will be written to the clipboard
      * @param { AsyncCallback<void> } callback - the callback of setData.
      * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
-     *    2. Incorrect parameters types.
+     *     2. Incorrect parameters types.
      * @throws { BusinessError } 27787277 - Another copy or paste operation is in progress.
      * @throws { BusinessError } 27787278 - Replication is prohibited.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
+     */
+    /**
+     * Writes PasteData to the system pasteboard.
+     * @param { PasteData } data - PasteData will be written to the clipboard
+     * @param { AsyncCallback<void> } callback - the callback of setData.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameters types.
+     * @throws { BusinessError } 27787277 - Another copy or paste operation is in progress.
+     * @throws { BusinessError } 27787278 - Replication is prohibited.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @crossplatform
+     * @atomicservice
+     * @since 24 dynamic
      * @since 23 static
      */
     setData(data: PasteData, callback: AsyncCallback<void>): void;
@@ -1777,7 +2395,7 @@ declare namespace pasteboard {
      * @param { PasteData } data - PasteData will be written to the clipboard.
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
-     *    2. Incorrect  parameters types.
+     *     2. Incorrect  parameters types.
      * @throws { BusinessError } 27787277 - Another copy or paste operation is in progress.
      * @throws { BusinessError } 27787278 - Replication is prohibited.
      * @syscap SystemCapability.MiscServices.Pasteboard
@@ -1788,12 +2406,25 @@ declare namespace pasteboard {
      * @param { PasteData } data - PasteData will be written to the clipboard.
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
-     *    2. Incorrect  parameters types.
+     *     2. Incorrect  parameters types.
      * @throws { BusinessError } 27787277 - Another copy or paste operation is in progress.
      * @throws { BusinessError } 27787278 - Replication is prohibited.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
+     */
+    /**
+     * Writes PasteData to the system pasteboard.
+     * @param { PasteData } data - PasteData will be written to the clipboard.
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
+     *     2. Incorrect  parameters types.
+     * @throws { BusinessError } 27787277 - Another copy or paste operation is in progress.
+     * @throws { BusinessError } 27787278 - Replication is prohibited.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @crossplatform
+     * @atomicservice
+     * @since 24 dynamic
      * @since 23 static
      */
     setData(data: PasteData): Promise<void>;
@@ -1802,11 +2433,22 @@ declare namespace pasteboard {
      * Writes PasteData to the system pasteboard.
      * @param { PasteData } data - PasteData will be written to the clipboard.
      * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
-     *    2. Incorrect parameters types.
+     *     2. Incorrect parameters types.
      * @throws { BusinessError } 12900005 - Excessive processing time for internal data.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
+     */
+    /**
+     * Writes PasteData to the system pasteboard.
+     * @param { PasteData } data - PasteData will be written to the clipboard.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameters types.
+     * @throws { BusinessError } 12900005 - Excessive processing time for internal data.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @crossplatform
+     * @atomicservice
+     * @since 24 dynamic
      * @since 23 static
      */
     setDataSync(data: PasteData): void;
@@ -1816,11 +2458,23 @@ declare namespace pasteboard {
      * @permission ohos.permission.READ_PASTEBOARD
      * @returns { Promise<unifiedDataChannel.UnifiedData> } the promise returned by the getData.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the
-     *    permission required to call the API.
+     *     permission required to call the API.
      * @throws { BusinessError } 27787277 - Another copy or paste operation is in progress.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 12 dynamic
+     */
+    /**
+     * Gets unified data from the system pasteboard.
+     * @permission ohos.permission.READ_PASTEBOARD
+     * @returns { Promise<unifiedDataChannel.UnifiedData> } the promise returned by the getData.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the
+     *     permission required to call the API.
+     * @throws { BusinessError } 27787277 - Another copy or paste operation is in progress.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @crossplatform
+     * @atomicservice
+     * @since 24 dynamic
      * @since 23 static
      */
     getUnifiedData(): Promise<unifiedDataChannel.UnifiedData>;
@@ -1830,11 +2484,23 @@ declare namespace pasteboard {
      * @permission ohos.permission.READ_PASTEBOARD
      * @returns { unifiedDataChannel.UnifiedData }  a new UnifiedData.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the
-     *    permission required to call the API.
+     *     permission required to call the API.
      * @throws { BusinessError } 12900005 - Excessive processing time for internal data.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 12 dynamic
+     */
+    /**
+     * Gets unified data from the system pasteboard.
+     * @permission ohos.permission.READ_PASTEBOARD
+     * @returns { unifiedDataChannel.UnifiedData }  a new UnifiedData.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the
+     *     permission required to call the API.
+     * @throws { BusinessError } 12900005 - Excessive processing time for internal data.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @crossplatform
+     * @atomicservice
+     * @since 24 dynamic
      * @since 23 static
      */
     getUnifiedDataSync(): unifiedDataChannel.UnifiedData;
@@ -1844,12 +2510,25 @@ declare namespace pasteboard {
      * @param { unifiedDataChannel.UnifiedData } data - Unified data will be written to the pasteboard.
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
-     *    2. Incorrect  parameters types.
+     *     2. Incorrect  parameters types.
      * @throws { BusinessError } 27787277 - Another copy or paste operation is in progress.
      * @throws { BusinessError } 27787278 - Replication is prohibited.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 12 dynamic
+     */
+    /**
+     * Writes unified data to the system pasteboard.
+     * @param { unifiedDataChannel.UnifiedData } data - Unified data will be written to the pasteboard.
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
+     *     2. Incorrect  parameters types.
+     * @throws { BusinessError } 27787277 - Another copy or paste operation is in progress.
+     * @throws { BusinessError } 27787278 - Replication is prohibited.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @crossplatform
+     * @atomicservice
+     * @since 24 dynamic
      * @since 23 static
      */
     setUnifiedData(data: unifiedDataChannel.UnifiedData): Promise<void>;
@@ -1858,11 +2537,22 @@ declare namespace pasteboard {
      * Writes unified data to the system pasteboard.
      * @param { unifiedDataChannel.UnifiedData } data - Unified data will be written to the pasteboard.
      * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
-     *    2. Incorrect  parameters types.
+     *     2. Incorrect  parameters types.
      * @throws { BusinessError } 12900005 - Excessive processing time for internal data.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 12 dynamic
+     */
+    /**
+     * Writes unified data to the system pasteboard.
+     * @param { unifiedDataChannel.UnifiedData } data - Unified data will be written to the pasteboard.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
+     *     2. Incorrect  parameters types.
+     * @throws { BusinessError } 12900005 - Excessive processing time for internal data.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @crossplatform
+     * @atomicservice
+     * @since 24 dynamic
      * @since 23 static
      */
     setUnifiedDataSync(data: unifiedDataChannel.UnifiedData): void;
@@ -1933,26 +2623,44 @@ declare namespace pasteboard {
 
     /**
      * Get the MIME types in the pasteboard.
-     * 
+     *
      * @returns { Promise<Array<string>> } Promise used to return the MIME types.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 14 dynamic
+     */
+    /**
+     * Get the MIME types in the pasteboard.
+     *
+     * @returns { Promise<Array<string>> } Promise used to return the MIME types.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @crossplatform
+     * @atomicservice
+     * @since 24 dynamic
      * @since 23 static
      */
     getMimeTypes(): Promise<Array<string>>;
 
     /**
      * Gets the number of Pasteboard data changes.
-     * 
+     *
      * @returns { long } The number of Pasteboard data changes.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 18 dynamic
+     */
+    /**
+     * Gets the number of Pasteboard data changes.
+     *
+     * @returns { long } The number of Pasteboard data changes.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @crossplatform
+     * @atomicservice
+     * @since 24 dynamic
      * @since 23 static
      */
     getChangeCount(): long;
-    
+
     /**
      * Gets pastedata from the system pasteboard with system progress.
      *

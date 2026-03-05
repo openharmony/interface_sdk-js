@@ -30,7 +30,7 @@ import colorSpaceManager from './@ohos.graphics.colorSpaceManager';
  */
 declare namespace componentSnapshot {
     /**
-     * Defines the extra options for snapshot taking.
+     * Defines the target region information for snapshot taking.
      *
      * @typedef SnapshotRegion
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -80,7 +80,7 @@ declare namespace componentSnapshot {
      */
     export interface LocalizedSnapshotRegion {
         /**
-         * Left/Right side position of rectangle, in PX
+         * Start side position of rectangle, in PX
          *
          * @type { double }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -96,7 +96,7 @@ declare namespace componentSnapshot {
          */
         end: double;
         /**
-         * Left/Right side position of rectangle, in PX
+         * Top side position of rectangle, in PX
          *
          * @type { double }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -259,6 +259,7 @@ declare namespace componentSnapshot {
      * @returns { image.PixelMap | null } - The snapshot result in PixelMap format.
      * @throws { BusinessError } 100001 - Invalid ID.
      * @throws { BusinessError } 160002 - Timeout.
+     * @throws { BusinessError } 160003 - Unsupported color space or dynamic range mode in snapshot options.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
      */

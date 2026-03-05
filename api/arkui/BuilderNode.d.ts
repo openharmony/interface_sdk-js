@@ -172,14 +172,16 @@ export interface BuildOptions {
 
   /**
    * Build type of the Builder.
+   * 
    * @type { ?boolean } nestingBuilderSupported - Build type of the Builder.
    * Indicates whether support the type that WrappedBuilder contains builder used different params.
    * The value false means that the input arguments for @Builder are consistent, and true means the opposite.
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12 dynamic
+   * @since 12 dynamiconly
    */
   nestingBuilderSupported?: boolean;
 
@@ -541,6 +543,21 @@ export class BuilderNode<Args extends Object[]> {
    * @since 20 dynamic
    */
   postInputEvent(event: InputEventType): boolean;
+
+  /**
+   * Dispatch event to targetNode with competition strategy.
+   *
+   * @param { InputEventType  } event - The event which will be sent to the targetNode.
+   * @param { CompetitionStrategy  } competitionStrategy - The competition strategy.
+   * @returns { boolean } - Returns true if the eventhas been successfully posted to the targetNode,
+   *    false otherwise.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 24 dynamic
+   */
+  postInputEventWithStrategy(event: InputEventType, competitionStrategy?: CompetitionStrategy): boolean;
 
   /**
    * Set if the BuilderNode inherits the freezing policy of the parent CustomComponent, ComponentContent, or BuilderNode.

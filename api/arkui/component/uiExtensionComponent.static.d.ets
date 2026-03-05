@@ -18,21 +18,12 @@
  * @kit ArkUI
  */
 import Want from '../../@ohos.app.ability.Want';
-import { Callback, ErrorCallback, BusinessError } from '../../@ohos.base';
+import { Callback, ErrorCallback, BusinessError, RecordData } from '../../@ohos.base';
 import { CommonMethod, TerminationInfo } from './common';
-import { ComponentContent } from '../ComponentContent';
+import { ComponentContentBase } from '../ComponentContent';
 import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
-
-/**
- * Defines RecordData.
- * 
- * @typedef { undefined | null | Object | Record<string, RecordData> | Array<RecordData> } RecordData
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @systemapi
- * @since 23 static
- */
-export type RecordData = undefined | null | Object | Record<string, RecordData> | Array<RecordData>;
+import { VoidCallback } from './units';
 
 /**
  * Enumeration of different types of DpiFollowStrategy.
@@ -105,25 +96,27 @@ export declare interface UIExtensionOptions {
     isTransferringCaller?: boolean;
     /**
      * Set placeholder.
-     * If set placeholder ComponentContent, show placeholder node when connection is not established.
+     * If set placeholder ComponentContentBase, show placeholder node when connection is not established.
      *
-     * @type { ?ComponentContent }
+     * @type { ?ComponentContentBase }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
+     * @stagemodelonly
      * @since 23 static
      */
-    placeholder?: ComponentContent;
+    placeholder?: ComponentContentBase;
     /**
      * Set Areachange placeholder.
-     * If the Areachange placeholder ComponentContent is set, the placeholder node is displayed until
+     * If the Areachange placeholder ComponentContentBase is set, the placeholder node is displayed until
      * the UIExtensionComponent size change is complete.
      *
-     * @type { ?Record<string, ComponentContent> }
+     * @type { ?Record<string, ComponentContentBase> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
+     * @stagemodelonly
      * @since 23 static
      */
-    areaChangePlaceholder?: Record<string, ComponentContent>;
+    areaChangePlaceholder?: Record<string, ComponentContentBase>;
     /**
      * Set UIExtensionComponent Content Dpi Follow Strategy.
      *
@@ -242,6 +235,7 @@ export declare interface UIExtensionProxy {
  * @typedef UIExtensionComponentAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @noninterop
  * @since 23 static
  */
 export declare interface UIExtensionComponentAttribute extends CommonMethod {
@@ -289,13 +283,13 @@ export declare interface UIExtensionComponentAttribute extends CommonMethod {
     onTerminated(callback: Callback<TerminationInfo> | undefined): this;
     /**
      * Callback called when the UIExtensionAbility draw the first frame.
-     * @param { Callback<void> | undefined } callback
+     * @param { VoidCallback | undefined } callback
      * @returns { UIExtensionComponentAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 23 static
      */
-    onDrawReady(callback: Callback<void> | undefined): this;
+    onDrawReady(callback: VoidCallback | undefined): this;
 
     /**
      * Set the attribute modifier of UIExtensionComponent Component.
@@ -313,14 +307,13 @@ export declare interface UIExtensionComponentAttribute extends CommonMethod {
  * Defines UIExtensionComponent Component.
  * @param { Want } want - The want
  * @param { UIExtensionOptions } [options] - The options
- * @param { CustomBuilder } [content_] - container
  * @returns { UIExtensionComponentAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @systemapi
  * @since 23 static
  */
 @ComponentBuilder
 export declare function UIExtensionComponent(
-    want: Want, options?: UIExtensionOptions, 
-    content_?: CustomBuilder,
+    want: Want, options?: UIExtensionOptions
 ): UIExtensionComponentAttribute

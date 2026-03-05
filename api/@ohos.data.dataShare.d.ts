@@ -2267,7 +2267,6 @@ declare namespace dataShare {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
      * @since 20 dynamic
-     * @since 23 static
      */
     on(
       event: 'dataChange',
@@ -2275,6 +2274,26 @@ declare namespace dataShare {
       config: DataProxyConfig,
       callback: AsyncCallback<DataProxyChangeInfo[]>
     ): DataProxyResult[];
+
+    /**
+ 	   * Registers observers to observe proxy data change specified by the given URIs.
+ 	   *
+ 	   * @param { string[] } uris - Indicates the uris of the data to operate.
+ 	   * @param { DataProxyConfig } config - Indicates the configuration of the data proxy operation.
+ 	   * @param { Callback<DataProxyChangeInfo[]> } callback - The callback function when data changes.
+ 	   * @returns { DataProxyResult[] } : The operation result.
+ 	   * @throws { BusinessError } 15700000 - Inner error. Possible causes: The service is not ready or is being
+ 	   *     restarted abnormally.
+ 	   * @throws { BusinessError } 15700014 - The parameter format is incorrect or the value range is invalid.
+ 	   * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+ 	   * @stagemodelonly
+ 	   * @since 23 static
+ 	   */
+ 	  onDataChange(
+ 	    uris: string[],
+ 	    config: DataProxyConfig,
+ 	    callback: Callback<DataProxyChangeInfo[]>
+ 	  ): DataProxyResult[];
 
     /**
      * Deregisters observers to observe proxy data change specified by the given URIs.
@@ -2290,7 +2309,6 @@ declare namespace dataShare {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
      * @since 20 dynamic
-     * @since 23 static
      */
     off(
       event: 'dataChange',
@@ -2298,6 +2316,26 @@ declare namespace dataShare {
       config: DataProxyConfig,
       callback?: AsyncCallback<DataProxyChangeInfo[]>
     ): DataProxyResult[];
+
+    /**
+ 	   * Deregisters observers to observe proxy data change specified by the given URIs.
+ 	   *
+ 	   * @param { string[] } uris - Indicates the uris of the data to operate.
+ 	   * @param { DataProxyConfig } config - Indicates the configuration of the data proxy operation.
+ 	   * @param { Callback<DataProxyChangeInfo[]> } [callback] - The callback function when data changes.
+ 	   * @returns { DataProxyResult[] } : The operation result.
+ 	   * @throws { BusinessError } 15700000 - Inner error. Possible causes: The service is not ready or is being
+ 	   *     restarted abnormally.
+ 	   * @throws { BusinessError } 15700014 - The parameter format is incorrect or the value range is invalid.
+ 	   * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+ 	   * @stagemodelonly
+ 	   * @since 23 static
+ 	   */
+ 	  offDataChange(
+ 	    uris: string[],
+ 	    config: DataProxyConfig,
+ 	    callback?: Callback<DataProxyChangeInfo[]>
+ 	  ): DataProxyResult[];
 
     /**
      * Publishes proxy data. The data that is published can be accessed by the publisher and the applications

@@ -21,30 +21,33 @@
 import { Builder, CustomBuilder, CustomBuilderT } from './arkui/component/builder';
 
 /**
-* Describe the options for the ParallelizeUI.
-*
-* @interface ParallelOption
-* @syscap SystemCapability.ArkUI.ArkUI.Full
-* @since 23 static
-*/
+ * Describe the options for the ParallelizeUI.
+ *
+ * @interface ParallelOption
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 23 staticonly
+ */
 export interface ParallelOption {
-	/**
-	* Whether ParallelizeUI create is enabled.
-	*
-	* @type { ?boolean }
-	* @syscap SystemCapability.ArkUI.ArkUI.Full
-	* @since 23 static
-	*/
+  /**
+   * Whether ParallelizeUI create is enabled.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 staticonly
+   */
 	enable?: boolean,
 }
 
 /**
  * Define the constructor of ParallelizeUI.
- * 
+ *
  * @param { ParallelOption | undefined } options - ParallelizeUI Option
  * @param { CustomBuilder } content_ - Parallel creation of content
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 23 static
+ * @stagemodelonly
+ * @since 23 staticonly
  */
 @Builder
 export declare function ParallelizeUI(
@@ -57,9 +60,10 @@ export declare function ParallelizeUI(
  *
  * @param { ParallelOption | undefined } options - ParallelizeUI Option
  * @param { () => T } param - ParallelizeUI parameter
- * @param { (param: T) => void } content_ - Parallel creation of content
+ * @param { CustomBuilderT<T> } content_ - Parallel creation of content
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 23 static
+ * @stagemodelonly
+ * @since 23 staticonly
  */
 @Builder
 export declare function ParallelizeUI<T>(
@@ -71,11 +75,12 @@ export declare function ParallelizeUI<T>(
 /**
  * On-demand parallel item creation for List and Grid.
  *
- * @param { ParallelOption | undefined } [options] - ParallelizeUI Option
- * @param { Array<V> } [arr] - The array collection to be used in UI
- * @param { (item: V, index: int) => T } [param] - Define item generator function
- * @param { CustomBuilderT<T> } [content_] - Parallel creation of content
+ * @param { ParallelOption | undefined } options - ParallelizeUI Option
+ * @param { Array<V> } arr - The array collection to be used in UI
+ * @param { (item: V, index: int) => T } param - Define item generator function
+ * @param { CustomBuilderT<T> } content_ - Parallel creation of content
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 staticonly
  */
 @Builder

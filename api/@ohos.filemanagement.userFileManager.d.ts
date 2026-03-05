@@ -27,7 +27,7 @@ import dataSharePredicates from './@ohos.data.dataSharePredicates';
  * @namespace userFileManager
  * @syscap SystemCapability.FileManagement.UserFileManager.Core
  * @systemapi
- * @since 9 dynamic
+ * @since 9 dynamiconly
  */
 declare namespace userFileManager {
   /**
@@ -38,7 +38,7 @@ declare namespace userFileManager {
    * @syscap SystemCapability.FileManagement.UserFileManager.Core
    * @systemapi
    * @StageModelOnly
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    */
   function getUserFileMgr(context: Context): UserFileManager;
 
@@ -48,7 +48,7 @@ declare namespace userFileManager {
    * @enum { number } FileType
    * @syscap SystemCapability.FileManagement.UserFileManager.Core
    * @systemapi
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    */
   enum FileType {
     /**
@@ -56,7 +56,7 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     IMAGE = 1,
     /**
@@ -64,7 +64,7 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     VIDEO,
     /**
@@ -72,7 +72,7 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     AUDIO
   }
@@ -83,7 +83,7 @@ declare namespace userFileManager {
    * @enum { number } PhotoSubType
    * @syscap SystemCapability.FileManagement.UserFileManager.Core
    * @systemapi
-   * @since 10 dynamic
+   * @since 10 dynamiconly
    */
   enum PhotoSubType {
     /**
@@ -91,7 +91,7 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
      */
     DEFAULT,
     /**
@@ -99,7 +99,7 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
      */
     SCREENSHOT,
     /**
@@ -107,7 +107,7 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
      */
     CAMERA
   }
@@ -118,7 +118,7 @@ declare namespace userFileManager {
    * @enum { number } File position, which indicates the file is on local device or cloud
    * @syscap SystemCapability.FileManagement.UserFileManager.Core
    * @systemapi
-   * @since 10 dynamic
+   * @since 10 dynamiconly
    */
   enum PositionType {
     /**
@@ -126,7 +126,7 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
      */
     LOCAL = 1,
     /**
@@ -134,7 +134,7 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
      */
     CLOUD,
     /**
@@ -142,7 +142,7 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
      */
     BOTH
   }
@@ -153,7 +153,7 @@ declare namespace userFileManager {
    * @typedef { number | string | boolean } MemberType
    * @syscap SystemCapability.FileManagement.UserFileManager.Core
    * @systemapi
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    */
   type MemberType = number | string | boolean;
 
@@ -163,7 +163,7 @@ declare namespace userFileManager {
    * @typedef { 'deviceChange' | 'albumChange' | 'imageChange' | 'audioChange' | 'videoChange' | 'remoteFileChange' } ChangeEvent
    * @syscap SystemCapability.FileManagement.UserFileManager.Core
    * @systemapi
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    */
   type ChangeEvent =
     'deviceChange'
@@ -179,7 +179,7 @@ declare namespace userFileManager {
    * @interface FileAsset
    * @syscap SystemCapability.FileManagement.UserFileManager.Core
    * @systemapi
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    */
   interface FileAsset {
     /**
@@ -188,7 +188,7 @@ declare namespace userFileManager {
      * @type { string }
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     readonly uri: string;
     /**
@@ -197,7 +197,7 @@ declare namespace userFileManager {
      * @type { FileType }
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     readonly fileType: FileType;
     /**
@@ -206,7 +206,7 @@ declare namespace userFileManager {
      * @type { string }
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     displayName: string;
     /**
@@ -216,7 +216,7 @@ declare namespace userFileManager {
      * @returns { MemberType }
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     get(member: string): MemberType;
     /**
@@ -226,7 +226,7 @@ declare namespace userFileManager {
      * @param { string } value - The value of the parameter.
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      * @example : Set(ImageVideoKey.TITLE, "newTitle"), call commitModify after set value
      */
     set(member: string, value: string): void;
@@ -237,7 +237,7 @@ declare namespace userFileManager {
      * @param { AsyncCallback<void> } callback - No value will be returned.
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     commitModify(callback: AsyncCallback<void>): void;
     /**
@@ -247,7 +247,7 @@ declare namespace userFileManager {
      * @returns { Promise<void> } Return promise
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     commitModify(): Promise<void>;
     /**
@@ -258,7 +258,7 @@ declare namespace userFileManager {
      * @param { AsyncCallback<number> } callback - Callback return the fd of the file.
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     open(mode: string, callback: AsyncCallback<number>): void;
     /**
@@ -269,7 +269,7 @@ declare namespace userFileManager {
      * @returns { Promise<number> } Return promise
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     open(mode: string): Promise<number>;
     /**
@@ -279,7 +279,7 @@ declare namespace userFileManager {
      * @param { AsyncCallback<void> } callback - No value will be returned.
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     close(fd: number, callback: AsyncCallback<void>): void;
     /**
@@ -289,7 +289,7 @@ declare namespace userFileManager {
      * @returns { Promise<void> } Return promise
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     close(fd: number): Promise<void>;
     /**
@@ -299,7 +299,7 @@ declare namespace userFileManager {
      * @param { AsyncCallback<image.PixelMap> } callback - Callback used to return the thumbnail's pixelMap.
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     getThumbnail(callback: AsyncCallback<image.PixelMap>): void;
     /**
@@ -310,7 +310,7 @@ declare namespace userFileManager {
      * @param { AsyncCallback<image.PixelMap> } callback - Callback used to return the thumbnail's pixelMap.
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     getThumbnail(size: image.Size, callback: AsyncCallback<image.PixelMap>): void;
     /**
@@ -321,7 +321,7 @@ declare namespace userFileManager {
      * @returns { Promise<image.PixelMap> } Return promise
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     getThumbnail(size?: image.Size): Promise<image.PixelMap>;
     /**
@@ -332,7 +332,7 @@ declare namespace userFileManager {
      * @param { AsyncCallback<void> } callback - Callback used to return, No value is returned.
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     favorite(isFavorite: boolean, callback: AsyncCallback<void>): void;
     /**
@@ -343,7 +343,7 @@ declare namespace userFileManager {
      * @returns { Promise<void> } Return promise
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     favorite(isFavorite: boolean): Promise<void>;
     /**
@@ -356,7 +356,7 @@ declare namespace userFileManager {
      * @throws { BusinessError } 13900020 - if parameter is invalid
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
      */
     setHidden(hiddenState: boolean, callback: AsyncCallback<void>): void;
     /**
@@ -369,7 +369,7 @@ declare namespace userFileManager {
      * @throws { BusinessError } 13900020 - if parameter is invalid
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
      */
     setHidden(hiddenState: boolean): Promise<void>;
     /**
@@ -383,7 +383,7 @@ declare namespace userFileManager {
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
      */
     setUserComment(userComment: string, callback: AsyncCallback<void>): void;
     /**
@@ -397,7 +397,7 @@ declare namespace userFileManager {
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
      */
     setUserComment(userComment: string): Promise<void>;
     /**
@@ -408,7 +408,7 @@ declare namespace userFileManager {
      * @throws { BusinessError } 202 - Called by non-system application.
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
      */
     getExif(callback: AsyncCallback<string>): void;
     /**
@@ -419,7 +419,7 @@ declare namespace userFileManager {
      * @throws { BusinessError } 202 - Called by non-system application.
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
      */
     getExif(): Promise<string>;
   }
@@ -430,7 +430,7 @@ declare namespace userFileManager {
    * @enum { string } AudioKey
    * @syscap SystemCapability.FileManagement.UserFileManager.Core
    * @systemapi
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    */
   enum AudioKey {
     /**
@@ -438,7 +438,7 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     URI,
     /**
@@ -446,7 +446,7 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     DISPLAY_NAME,
     /**
@@ -454,7 +454,7 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     DATE_ADDED,
     /**
@@ -462,7 +462,7 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     DATE_MODIFIED,
     /**
@@ -470,7 +470,7 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     TITLE,
     /**
@@ -478,7 +478,7 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     ARTIST,
     /**
@@ -486,7 +486,7 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     AUDIOALBUM,
     /**
@@ -494,7 +494,7 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     DURATION,
     /**
@@ -502,7 +502,7 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     FAVORITE
   }
@@ -513,7 +513,7 @@ declare namespace userFileManager {
    * @enum { string } ImageVideoKey
    * @syscap SystemCapability.FileManagement.UserFileManager.Core
    * @systemapi
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    */
   enum ImageVideoKey {
     /**
@@ -521,7 +521,7 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     URI,
     /**
@@ -529,7 +529,7 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     FILE_TYPE,
     /**
@@ -537,7 +537,7 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     DISPLAY_NAME,
     /**
@@ -545,7 +545,7 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     DATE_ADDED,
     /**
@@ -553,7 +553,7 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     DATE_MODIFIED,
     /**
@@ -561,7 +561,7 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     TITLE,
     /**
@@ -569,7 +569,7 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     DURATION,
     /**
@@ -577,7 +577,7 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     WIDTH,
     /**
@@ -585,7 +585,7 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     HEIGHT,
     /**
@@ -593,7 +593,7 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     DATE_TAKEN,
     /**
@@ -601,7 +601,7 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     ORIENTATION,
     /**
@@ -609,7 +609,7 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     FAVORITE,
     /**
@@ -617,7 +617,7 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
      */
     POSITION,
     /**
@@ -625,7 +625,7 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
      */
     DATE_TRASHED,
     /**
@@ -633,7 +633,7 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
      */
     HIDDEN,
     /**
@@ -641,7 +641,7 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
      */
     USER_COMMENT,
     /**
@@ -649,7 +649,7 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
      */
     CAMERA_SHOT_KEY
   }
@@ -660,7 +660,7 @@ declare namespace userFileManager {
    * @enum { string } AlbumKey
    * @syscap SystemCapability.FileManagement.UserFileManager.Core
    * @systemapi
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    */
   enum AlbumKey {
     /**
@@ -668,7 +668,7 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     URI,
     /**
@@ -676,7 +676,7 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     FILE_TYPE,
     /**
@@ -684,7 +684,7 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     ALBUM_NAME,
     /**
@@ -692,7 +692,7 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     DATE_ADDED,
     /**
@@ -700,7 +700,7 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     DATE_MODIFIED
   }
@@ -711,7 +711,7 @@ declare namespace userFileManager {
    * @interface FetchOptions
    * @syscap SystemCapability.FileManagement.UserFileManager.Core
    * @systemapi
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    */
   interface FetchOptions {
     /**
@@ -720,7 +720,7 @@ declare namespace userFileManager {
      * @type { Array<string> }
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     fetchColumns: Array<string>;
     /**
@@ -729,7 +729,7 @@ declare namespace userFileManager {
      * @type { dataSharePredicates.DataSharePredicates }
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     predicates: dataSharePredicates.DataSharePredicates;
   }
@@ -740,7 +740,7 @@ declare namespace userFileManager {
    * @interface AlbumFetchOptions
    * @syscap SystemCapability.FileManagement.UserFileManager.Core
    * @systemapi
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    */
   interface AlbumFetchOptions {
     /**
@@ -749,7 +749,7 @@ declare namespace userFileManager {
      * @type { dataSharePredicates.DataSharePredicates }
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     predicates: dataSharePredicates.DataSharePredicates;
   }
@@ -760,7 +760,7 @@ declare namespace userFileManager {
    * @interface PhotoCreateOptions
    * @syscap SystemCapability.FileManagement.UserFileManager.Core
    * @systemapi
-   * @since 10 dynamic
+   * @since 10 dynamiconly
    */
   interface PhotoCreateOptions {
     /**
@@ -769,7 +769,7 @@ declare namespace userFileManager {
      * @type { ?PhotoSubType }
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
      */
     subType?: PhotoSubType;
     /**
@@ -778,7 +778,7 @@ declare namespace userFileManager {
      * @type { ?string }
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
      */
     cameraShotKey?: string;
   }
@@ -789,7 +789,7 @@ declare namespace userFileManager {
    * @interface FetchResult
    * @syscap SystemCapability.FileManagement.UserFileManager.Core
    * @systemapi
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    */
   interface FetchResult<T> {
     /**
@@ -798,7 +798,7 @@ declare namespace userFileManager {
      * @returns { number } Total number of files.
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     getCount(): number;
     /**
@@ -809,7 +809,7 @@ declare namespace userFileManager {
      * which returns the next file only when False is returned for this method.
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     isAfterLast(): boolean;
     /**
@@ -817,7 +817,7 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     close(): void;
     /**
@@ -826,7 +826,7 @@ declare namespace userFileManager {
      * @param { AsyncCallback<T> } callback - Callback used to return the file in the format of a FileAsset instance.
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     getFirstObject(callback: AsyncCallback<T>): void;
     /**
@@ -835,7 +835,7 @@ declare namespace userFileManager {
      * @returns { Promise<T> } A Promise instance used to return the file in the format of a T instance.
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     getFirstObject(): Promise<T>;
     /**
@@ -847,7 +847,7 @@ declare namespace userFileManager {
      * @param { AsyncCallback<T> } callback - Callback used to return the file in the format of a T instance.
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     getNextObject(callback: AsyncCallback<T>): void;
     /**
@@ -859,7 +859,7 @@ declare namespace userFileManager {
      * @returns { Promise<T> } A Promise instance used to return the file in the format of a T instance.
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     getNextObject(): Promise<T>;
     /**
@@ -868,7 +868,7 @@ declare namespace userFileManager {
      * @param { AsyncCallback<T> } callback - Callback used to return the file in the format of a T instance.
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     getLastObject(callback: AsyncCallback<T>): void;
     /**
@@ -877,7 +877,7 @@ declare namespace userFileManager {
      * @returns { Promise<T> } A Promise instance used to return the file in the format of a T instance.
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     getLastObject(): Promise<T>;
     /**
@@ -889,7 +889,7 @@ declare namespace userFileManager {
      * @throws { BusinessError } 13900020 - if type index is not number
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     getPositionObject(index: number, callback: AsyncCallback<T>): void;
     /**
@@ -901,7 +901,7 @@ declare namespace userFileManager {
      * @throws { BusinessError } 13900020 - if type index is not number
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     getPositionObject(index: number): Promise<T>;
     /**
@@ -911,7 +911,7 @@ declare namespace userFileManager {
      * @param { AsyncCallback<Array<T>> } callback - Callback used to return a T array.
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
      */
     getAllObject(callback: AsyncCallback<Array<T>>): void;
     /**
@@ -921,7 +921,7 @@ declare namespace userFileManager {
      * @returns { Promise<Array<T>> } A Promise instance used to return a T array.
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
      */
     getAllObject(): Promise<Array<T>>;
   }
@@ -932,7 +932,7 @@ declare namespace userFileManager {
    * @enum { number } AlbumType
    * @syscap SystemCapability.FileManagement.UserFileManager.Core
    * @systemapi
-   * @since 10 dynamic
+   * @since 10 dynamiconly
    */
   enum AlbumType {
     /**
@@ -940,7 +940,7 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
      */
     USER = 0,
     /**
@@ -948,7 +948,7 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
      */
     SYSTEM = 1024
   }
@@ -959,7 +959,7 @@ declare namespace userFileManager {
    * @enum { number } AlbumSubType
    * @syscap SystemCapability.FileManagement.UserFileManager.Core
    * @systemapi
-   * @since 10 dynamic
+   * @since 10 dynamiconly
    */
   enum AlbumSubType {
     /**
@@ -967,7 +967,7 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
      */
     USER_GENERIC = 1,
     /**
@@ -975,7 +975,7 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
      */
     FAVORITE = 1025,
     /**
@@ -983,7 +983,7 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
      */
     VIDEO,
     /**
@@ -991,7 +991,7 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
      */
     HIDDEN,
     /**
@@ -999,7 +999,7 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
      */
     TRASH,
     /**
@@ -1007,7 +1007,7 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
      */
     SCREENSHOT,
     /**
@@ -1015,7 +1015,7 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
      */
     CAMERA,
     /**
@@ -1023,7 +1023,7 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
      */
     ANY = 2147483647
   }
@@ -1034,7 +1034,7 @@ declare namespace userFileManager {
    * @interface AbsAlbum
    * @syscap SystemCapability.FileManagement.UserFileManager.Core
    * @systemapi
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    */
   interface AbsAlbum {
     /**
@@ -1043,7 +1043,7 @@ declare namespace userFileManager {
      * @type { AlbumType }
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
      */
     readonly albumType: AlbumType;
     /**
@@ -1052,7 +1052,7 @@ declare namespace userFileManager {
      * @type { AlbumSubType }
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
      */
     readonly albumSubType: AlbumSubType;
     /**
@@ -1061,7 +1061,7 @@ declare namespace userFileManager {
      * @type { string }
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     albumName: string;
     /**
@@ -1070,7 +1070,7 @@ declare namespace userFileManager {
      * @type { string }
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     readonly albumUri: string;
     /**
@@ -1079,7 +1079,7 @@ declare namespace userFileManager {
      * @type { number }
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     readonly dateModified: number;
     /**
@@ -1088,7 +1088,7 @@ declare namespace userFileManager {
      * @type { number }
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     readonly count: number;
     /**
@@ -1097,7 +1097,7 @@ declare namespace userFileManager {
      * @type { string }
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     coverUri: string;
     /**
@@ -1109,7 +1109,7 @@ declare namespace userFileManager {
      * @throws { BusinessError } 13900020 - if type options is not FetchOptions
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     getPhotoAssets(options: FetchOptions, callback: AsyncCallback<FetchResult<FileAsset>>): void;
     /**
@@ -1121,7 +1121,7 @@ declare namespace userFileManager {
      * @throws { BusinessError } 13900020 - if type options is not FetchOptions
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     getPhotoAssets(options: FetchOptions): Promise<FetchResult<FileAsset>>;
   }
@@ -1132,7 +1132,7 @@ declare namespace userFileManager {
    * @interface Album
    * @syscap SystemCapability.FileManagement.UserFileManager.Core
    * @systemapi
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    */
   interface Album extends AbsAlbum {
     /**
@@ -1142,7 +1142,7 @@ declare namespace userFileManager {
      * @param { AsyncCallback<void> } callback - No value will be returned.
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     commitModify(callback: AsyncCallback<void>): void;
     /**
@@ -1152,7 +1152,7 @@ declare namespace userFileManager {
      * @returns { Promise<void> } Return promise
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     commitModify(): Promise<void>;
     /**
@@ -1164,7 +1164,7 @@ declare namespace userFileManager {
      * @throws { BusinessError } 13900020 - if PhotoAssets is invalid
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
      */
     addPhotoAssets(assets: Array<FileAsset>, callback: AsyncCallback<void>): void;
     /**
@@ -1176,7 +1176,7 @@ declare namespace userFileManager {
      * @throws { BusinessError } 13900020 - if PhotoAssets is invalid
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
      */
     addPhotoAssets(assets: Array<FileAsset>): Promise<void>;
     /**
@@ -1188,7 +1188,7 @@ declare namespace userFileManager {
      * @throws { BusinessError } 13900020 - if PhotoAssets is invalid
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
      */
     removePhotoAssets(assets: Array<FileAsset>, callback: AsyncCallback<void>): void;
     /**
@@ -1200,7 +1200,7 @@ declare namespace userFileManager {
      * @throws { BusinessError } 13900020 - if PhotoAssets is invalid
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
      */
     removePhotoAssets(assets: Array<FileAsset>): Promise<void>;
     /**
@@ -1212,7 +1212,7 @@ declare namespace userFileManager {
      * @throws { BusinessError } 13900020 - if PhotoAssets is invalid
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
      */
     recoverPhotoAssets(assets: Array<FileAsset>, callback: AsyncCallback<void>): void;
     /**
@@ -1224,7 +1224,7 @@ declare namespace userFileManager {
      * @throws { BusinessError } 13900020 - if PhotoAssets is invalid
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
      */
     recoverPhotoAssets(assets: Array<FileAsset>): Promise<void>;
     /**
@@ -1236,7 +1236,7 @@ declare namespace userFileManager {
      * @throws { BusinessError } 13900020 - if PhotoAssets is invalid
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
      */
     deletePhotoAssets(assets: Array<FileAsset>, callback: AsyncCallback<void>): void;
     /**
@@ -1248,7 +1248,7 @@ declare namespace userFileManager {
      * @throws { BusinessError } 13900020 - if PhotoAssets is invalid
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
      */
     deletePhotoAssets(assets: Array<FileAsset>): Promise<void>;
   }
@@ -1259,7 +1259,7 @@ declare namespace userFileManager {
    * @interface UserFileManager
    * @syscap SystemCapability.FileManagement.UserFileManager.Core
    * @systemapi
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    */
   interface UserFileManager {
     /**
@@ -1271,7 +1271,7 @@ declare namespace userFileManager {
      * @throws { BusinessError } 13900020 - if type options is not FetchOptions
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     getPhotoAssets(options: FetchOptions, callback: AsyncCallback<FetchResult<FileAsset>>): void;
     /**
@@ -1283,7 +1283,7 @@ declare namespace userFileManager {
      * @throws { BusinessError } 13900020 - if type options is not FetchOptions
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     getPhotoAssets(options: FetchOptions): Promise<FetchResult<FileAsset>>;
     /**
@@ -1297,7 +1297,7 @@ declare namespace userFileManager {
      * @throws { BusinessError } 14000001 - if type displayName invalid
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     createPhotoAsset(displayName: string, albumUri: string, callback: AsyncCallback<FileAsset>): void;
     /**
@@ -1310,7 +1310,7 @@ declare namespace userFileManager {
      * @throws { BusinessError } 14000001 - if type displayName invalid
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     createPhotoAsset(displayName: string, callback: AsyncCallback<FileAsset>): void;
     /**
@@ -1323,7 +1323,7 @@ declare namespace userFileManager {
      * @throws { BusinessError } 13900020 - if type displayName or albumUri is not string
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     createPhotoAsset(displayName: string, albumUri?: string): Promise<FileAsset>;
     /**
@@ -1336,7 +1336,7 @@ declare namespace userFileManager {
      * @throws { BusinessError } 13900020 - if type displayName is not string
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     createPhotoAsset(displayName: string, createOption: PhotoCreateOptions): Promise<FileAsset>;
     /**
@@ -1350,7 +1350,7 @@ declare namespace userFileManager {
      * @throws { BusinessError } 14000001 - if type displayName invalid
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     createPhotoAsset(displayName: string, createOption: PhotoCreateOptions, callback: AsyncCallback<FileAsset>): void;
     /**
@@ -1363,7 +1363,7 @@ declare namespace userFileManager {
      * @throws { BusinessError } 14000001 - if type displayName invalid
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
      */
     createAudioAsset(displayName: string, callback: AsyncCallback<FileAsset>): void;
     /**
@@ -1375,7 +1375,7 @@ declare namespace userFileManager {
      * @throws { BusinessError } 13900020 - if type displayName is not string
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
      */
     createAudioAsset(displayName: string): Promise<FileAsset>;
     /**
@@ -1387,7 +1387,7 @@ declare namespace userFileManager {
      * @throws { BusinessError } 13900020 - if type options is not AlbumFetchOptions
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     getPhotoAlbums(options: AlbumFetchOptions, callback: AsyncCallback<FetchResult<Album>>): void;
     /**
@@ -1399,7 +1399,7 @@ declare namespace userFileManager {
      * @throws { BusinessError } 13900020 - if type options is not AlbumFetchOptions
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     getPhotoAlbums(options: AlbumFetchOptions): Promise<FetchResult<Album>>;
     /**
@@ -1410,7 +1410,7 @@ declare namespace userFileManager {
      * @param { AsyncCallback<Album> } callback - Returns the instance of newly created Album
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
      */
     createAlbum(name: string, callback: AsyncCallback<Album>): void;
     /**
@@ -1421,7 +1421,7 @@ declare namespace userFileManager {
      * @returns { Promise<Album> } Returns the instance of newly created Album
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
      */
     createAlbum(name: string): Promise<Album>;
     /**
@@ -1432,7 +1432,7 @@ declare namespace userFileManager {
      * @param { AsyncCallback<void> } callback - Returns void
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
      */
     deleteAlbums(albums: Array<Album>, callback: AsyncCallback<void>): void;
     /**
@@ -1443,7 +1443,7 @@ declare namespace userFileManager {
      * @returns { Promise<void> } Returns the promise
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
      */
     deleteAlbums(albums: Array<Album>): Promise<void>;
     /**
@@ -1457,7 +1457,7 @@ declare namespace userFileManager {
      * @throws { BusinessError } 13900020 - if type options is not FetchOption
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
      */
     getAlbums(
       type: AlbumType,
@@ -1475,7 +1475,7 @@ declare namespace userFileManager {
      * @throws { BusinessError } 13900020 - if type options is not FetchOption
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
      */
     getAlbums(type: AlbumType, subType: AlbumSubType, callback: AsyncCallback<FetchResult<Album>>): void;
     /**
@@ -1489,7 +1489,7 @@ declare namespace userFileManager {
      * @throws { BusinessError } 13900020 - if type options is not FetchOption
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
      */
     getAlbums(type: AlbumType, subType: AlbumSubType, options?: FetchOptions): Promise<FetchResult<Album>>;
     /**
@@ -1501,7 +1501,7 @@ declare namespace userFileManager {
      * @throws { BusinessError } 13900020 - if type type is not PrivateAlbumType
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     getPrivateAlbum(type: PrivateAlbumType, callback: AsyncCallback<FetchResult<PrivateAlbum>>): void;
     /**
@@ -1513,7 +1513,7 @@ declare namespace userFileManager {
      * @throws { BusinessError } 13900020 - if type type is not PrivateAlbumType
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     getPrivateAlbum(type: PrivateAlbumType): Promise<FetchResult<PrivateAlbum>>;
     /**
@@ -1525,7 +1525,7 @@ declare namespace userFileManager {
      * @throws { BusinessError } 13900020 - if type options is not FetchOptions
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     getAudioAssets(options: FetchOptions, callback: AsyncCallback<FetchResult<FileAsset>>): void;
     /**
@@ -1537,7 +1537,7 @@ declare namespace userFileManager {
      * @throws { BusinessError } 13900020 - if type options is not FetchOptions
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     getAudioAssets(options: FetchOptions): Promise<FetchResult<FileAsset>>;
     /**
@@ -1549,7 +1549,7 @@ declare namespace userFileManager {
      * @throws { BusinessError } 13900020 - if type uri is not string
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     delete(uri: string, callback: AsyncCallback<void>): void;
     /**
@@ -1561,7 +1561,7 @@ declare namespace userFileManager {
      * @throws { BusinessError } 13900020 - if type uri is not string
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     delete(uri: string): Promise<void>;
     /**
@@ -1576,7 +1576,7 @@ declare namespace userFileManager {
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
      */
     getPhotoIndex(photoUri: string, albumUri: string, options: FetchOptions, callback: AsyncCallback<number>): void;
     /**
@@ -1591,7 +1591,7 @@ declare namespace userFileManager {
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
      */
     getPhotoIndex(photoUri: string, albumUri: string, options: FetchOptions): Promise<number>;
     /**
@@ -1601,7 +1601,7 @@ declare namespace userFileManager {
      * @param { Callback<void> } callback - No value returned
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     on(type: ChangeEvent, callback: Callback<void>): void;
     /**
@@ -1611,7 +1611,7 @@ declare namespace userFileManager {
      * @param { Callback<void> } callback - No value returned
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     off(type: ChangeEvent, callback?: Callback<void>): void;
     /**
@@ -1623,7 +1623,7 @@ declare namespace userFileManager {
      * @throws { BusinessError } 13900020 - if parameter is invalid
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
      */
     on(uri: string, forSubUri: boolean, callback: Callback<ChangeData>): void;
     /**
@@ -1634,7 +1634,7 @@ declare namespace userFileManager {
      * @throws { BusinessError } 13900020 - if parameter is invalid
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
      */
     off(uri: string, callback?: Callback<ChangeData>): void;
     /**
@@ -1643,7 +1643,7 @@ declare namespace userFileManager {
      * @param { AsyncCallback<Array<PeerInfo>> } callback - Callback return the list of the active peer devices' information
      * @syscap SystemCapability.FileManagement.UserFileManager.DistributedCore
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     getActivePeers(callback: AsyncCallback<Array<PeerInfo>>): void;
     /**
@@ -1652,7 +1652,7 @@ declare namespace userFileManager {
      * @returns { Promise<Array<PeerInfo>> } Promise used to return the list of the active peer devices' information
      * @syscap SystemCapability.FileManagement.UserFileManager.DistributedCore
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     getActivePeers(): Promise<Array<PeerInfo>>;
     /**
@@ -1661,7 +1661,7 @@ declare namespace userFileManager {
      * @param { AsyncCallback<Array<PeerInfo>> } callback - Callback return the list of the all the peer devices' information
      * @syscap SystemCapability.FileManagement.UserFileManager.DistributedCore
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     getAllPeers(callback: AsyncCallback<Array<PeerInfo>>): void;
     /**
@@ -1670,7 +1670,7 @@ declare namespace userFileManager {
      * @returns { Promise<Array<PeerInfo>> } Promise used to return the list of the all the peer devices' information
      * @syscap SystemCapability.FileManagement.UserFileManager.DistributedCore
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     getAllPeers(): Promise<Array<PeerInfo>>;
     /**
@@ -1679,7 +1679,7 @@ declare namespace userFileManager {
      * @param { AsyncCallback<void> } callback - No value returned
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     release(callback: AsyncCallback<void>): void;
     /**
@@ -1688,7 +1688,7 @@ declare namespace userFileManager {
      * @returns { Promise<void> } Return promise
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     release(): Promise<void>;
   }
@@ -1699,7 +1699,7 @@ declare namespace userFileManager {
    * @enum { number } NotifyType subtype
    * @syscap SystemCapability.FileManagement.UserFileManager.Core
    * @systemapi
-   * @since 10 dynamic
+   * @since 10 dynamiconly
    */
   enum NotifyType {
     /**
@@ -1707,7 +1707,7 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
      */
     NOTIFY_ADD,
     /**
@@ -1715,7 +1715,7 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
      */
     NOTIFY_UPDATE,
     /**
@@ -1723,7 +1723,7 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
      */
     NOTIFY_REMOVE,
     /**
@@ -1731,7 +1731,7 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
      */
     NOTIFY_ALBUM_ADD_ASSET,
     /**
@@ -1739,7 +1739,7 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
      */
     NOTIFY_ALBUM_REMOVE_ASSET
   }
@@ -1750,7 +1750,7 @@ declare namespace userFileManager {
    * @enum { string } DefaultChangeUri subtype
    * @syscap SystemCapability.FileManagement.UserFileManager.Core
    * @systemapi
-   * @since 10 dynamic
+   * @since 10 dynamiconly
    */
   enum DefaultChangeUri {
     /**
@@ -1758,7 +1758,7 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
      */
     DEFAULT_PHOTO_URI,
     /**
@@ -1766,7 +1766,7 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
      */
     DEFAULT_ALBUM_URI,
     /**
@@ -1774,7 +1774,7 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
      */
     DEFAULT_AUDIO_URI
   }
@@ -1785,7 +1785,7 @@ declare namespace userFileManager {
    * @interface ChangeData
    * @syscap SystemCapability.FileManagement.UserFileManager.Core
    * @systemapi
-   * @since 10 dynamic
+   * @since 10 dynamiconly
    */
   interface ChangeData {
     /**
@@ -1794,7 +1794,7 @@ declare namespace userFileManager {
      * @type { NotifyType }
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
      */
     type: NotifyType;
     /**
@@ -1803,7 +1803,7 @@ declare namespace userFileManager {
      * @type { Array<string> }
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
      */
     uris: Array<string>;
     /**
@@ -1812,7 +1812,7 @@ declare namespace userFileManager {
      * @type { Array<string> }
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
      */
     subUris: Array<string>;
   }
@@ -1823,7 +1823,7 @@ declare namespace userFileManager {
    * @interface PeerInfo
    * @syscap SystemCapability.FileManagement.UserFileManager.DistributedCore
    * @systemapi
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    */
   interface PeerInfo {
     /**
@@ -1832,7 +1832,7 @@ declare namespace userFileManager {
      * @type { string }
      * @syscap SystemCapability.FileManagement.UserFileManager.DistributedCore
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     readonly deviceName: string;
     /**
@@ -1841,7 +1841,7 @@ declare namespace userFileManager {
      * @type { string }
      * @syscap SystemCapability.FileManagement.UserFileManager.DistributedCore
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     readonly networkId: string;
     /**
@@ -1850,7 +1850,7 @@ declare namespace userFileManager {
      * @type { boolean }
      * @syscap SystemCapability.FileManagement.UserFileManager.DistributedCore
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     readonly isOnline: boolean;
   }
@@ -1861,7 +1861,7 @@ declare namespace userFileManager {
    * @enum { string } PrivateAlbumType
    * @syscap SystemCapability.FileManagement.UserFileManager.Core
    * @systemapi
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    */
   enum PrivateAlbumType {
     /**
@@ -1869,7 +1869,7 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     TYPE_FAVORITE,
     /**
@@ -1877,7 +1877,7 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     TYPE_TRASH
   }
@@ -1888,7 +1888,7 @@ declare namespace userFileManager {
    * @interface PrivateAlbum
    * @syscap SystemCapability.FileManagement.UserFileManager.Core
    * @systemapi
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    */
   interface PrivateAlbum extends AbsAlbum {
     /**
@@ -1899,7 +1899,7 @@ declare namespace userFileManager {
      * @param { AsyncCallback<void> } callback - No value returned
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     delete(uri: string, callback: AsyncCallback<void>): void;
     /**
@@ -1910,7 +1910,7 @@ declare namespace userFileManager {
      * @returns { Promise<void> } A Promise instance, no value returned
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     delete(uri: string): Promise<void>;
     /**
@@ -1921,7 +1921,7 @@ declare namespace userFileManager {
      * @param { AsyncCallback<void> } callback - No value returned
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     recover(uri: string, callback: AsyncCallback<void>): void;
     /**
@@ -1932,7 +1932,7 @@ declare namespace userFileManager {
      * @returns { Promise<void> } A Promise instance, no value returned
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      */
     recover(uri: string): Promise<void>;
   }

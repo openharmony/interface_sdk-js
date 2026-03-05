@@ -1122,14 +1122,13 @@ export declare interface TextPickerDialogOptionsExt extends TextPickerOptions {
  * Defines the TextPicker component.
  *
  * @param { TextPickerOptions } [options] - text picker options.
- * @param { CustomBuilder } [content_]
  * @returns { TextPickerAttribute } The attribute of the TextPicker.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
 @ComponentBuilder
 export declare function TextPicker(
-    options?: TextPickerOptions, 
-    content_?: CustomBuilder
+    options?: TextPickerOptions
 ): TextPickerAttribute;

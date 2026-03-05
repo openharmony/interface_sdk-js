@@ -143,6 +143,34 @@ declare namespace deviceSettings {
   }
 
   /**
+   * The item of settings.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 24
+   */
+  enum SettingsItem {
+      /**
+       * device name.
+       *
+       * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+       * @stagemodelonly
+       * @since 24
+       */
+      DEVICE_NAME = 0,
+
+      /**
+       * floating navigation.
+       *
+       * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+       * @stagemodelonly
+       * @since 24
+       */
+      FLOATING_NAVIGATION  = 1
+  }
+
+  /**
    * User certificate data.
    *
    * @typedef CertBlob
@@ -382,16 +410,18 @@ declare namespace deviceSettings {
    * @permission ohos.permission.ENTERPRISE_MANAGE_SETTINGS
    * @param { Want } admin - admin indicates the enterprise admin extension ability information.
    *                         The admin must have the corresponding permission.
-   * @param { string } item - item indicates the device properties that need to be set, including screenOff, powerPolicy and dateTime.
-   *                          screenOff means the device screen off time, powerPolicy means the device power policy
-   *                          and dataTime means the device system time.
+   * @param { string } item - item indicates the device properties that need to be set,
+   *     including screenOff, powerPolicy and dateTime.
+   *     screenOff means the device screen off time, powerPolicy means the device power policy
+   *     and dateTime means the device system time.
    * @param { string } value - device settings policy.
    *                           When the power policy is set, only timeout scenario is available now.
    *                           When the screen off time is set, the minimum value is 15000. It is recommended that
    *                           the time is consistent with the optional screen-off time of the device.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
@@ -405,19 +435,20 @@ declare namespace deviceSettings {
    * @permission ohos.permission.ENTERPRISE_MANAGE_SETTINGS
    * @param { Want } admin - admin indicates the enterprise admin extension ability information.
    *                         The admin must have the corresponding permission.
-   * @param { string } item - item indicates the device properties that need to be set, including screenOff, powerPolicy and dateTime,
-   *                          dateTime, eyeComfort, defaultInputMethod, deviceName.
-   *                          screenOff means the device screen off time, powerPolicy means the device power policy
-   *                          and dataTime means the device system time.
+   * @param { string } item - item indicates the device properties that need to be set,
+   *     including screenOff, powerPolicy, dateTime, eyeComfort, defaultInputMethod.
+   *     screenOff means the device screen off time, powerPolicy means the device power policy
+   *     and dateTime means the device system time.
    * @param { string } value - device settings policy.
-   *                           When the power policy is set, only timeout scenario is available now.
-   *                           When the screen off time is set, the minimum value is 15000. It is recommended that
-   *                           the time is consistent with the optional screen-off time of the device.
+   *     When the power policy is set, only timeout scenario is available now.
+   *     When the screen off time is set, the minimum value is 15000. It is recommended that
+   *     the time is consistent with the optional screen-off time of the device.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 23
@@ -431,12 +462,14 @@ declare namespace deviceSettings {
    * @permission ohos.permission.ENTERPRISE_MANAGE_SETTINGS
    * @param { Want } admin - admin indicates the enterprise admin extension ability information.
    *                         The admin must have the corresponding permission.
-   * @param { string } item - item indicates the device properties that need to be get, including screenOff and powerPolicy.
-   *                          screenOff means the device screen off time, powerPolicy means the device power policy.
+   * @param { string } item - item indicates the device properties that need to be get,
+   *     including screenOff and powerPolicy.
+   *     screenOff means the device screen off time, powerPolicy means the device power policy.
    * @returns { string } device settings policy.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
@@ -449,16 +482,17 @@ declare namespace deviceSettings {
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SETTINGS
    * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { string } item - item indicates the device properties that need to be get, including screenOff and powerPolicy, eyeComfort,
-   *                          deviceName.
-   *                          screenOff means the device screen off time, powerPolicy means the device power policy.
+   *     The admin must have the corresponding permission.
+   * @param { string } item - item indicates the device properties that need to be get,
+   *     including screenOff, powerPolicy, eyeComfort.
+   *     screenOff means the device screen off time, powerPolicy means the device power policy.
    * @returns { string } device settings policy.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 23
@@ -502,6 +536,51 @@ declare namespace deviceSettings {
    * @since 20
    */
   function setUnlockWallpaper(admin: Want, fd: number): Promise<void>;
+
+  /**
+   * Sets the device settings value for account.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SETTINGS
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *     The admin must have the corresponding permission.
+   * @param { SettingsItem } item - item indicates the settings item that need to be set.
+   * @param { number } accountId - accountId indicates the account ID to be queried.
+   *     <br>Value range:[0, ∞)
+   * @param { string } value - device settings policy.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *     Failed to call the API due to limited device capabilities.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 24
+   */
+  function setValueForAccount(admin: Want, item: SettingsItem, accountId: number, value: string): void;
+  /**
+   * Gets the device settings value for account.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SETTINGS
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *     The admin must have the corresponding permission.
+   * @param { SettingsItem } item - item indicates the device properties that need to be get.
+   * @param { number } accountId - accountId indicates the account ID to be queried.
+   *     <br>Value range:[0, ∞)
+   * @returns { string } device settings policy.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *     Failed to call the API due to limited device capabilities.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 24
+   */
+  function getValueForAccount(admin: Want, item: SettingsItem, accountId: number): string;
 }
 
 export default deviceSettings;

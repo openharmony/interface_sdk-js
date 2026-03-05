@@ -47,10 +47,17 @@ export {
 };
 
 /*** if arkts static */
+import cloudData from '@ohos.data.cloudData';
+import cloudExtension from '@ohos.data.cloudExtension';
+import commonType from '@ohos.data.commonType';
+import distributedDataObject from '@ohos.data.distributedDataObject';
 import unifiedDataChannel from '@ohos.data.unifiedDataChannel';
 import uniformTypeDescriptor from '@ohos.data.uniformTypeDescriptor';
 import uniformDataStruct from '@ohos.data.uniformDataStruct';
+import { ContentFormCard, FormType } from '@ohos.data.UdmfComponents';
+import relationalStore from '@ohos.data.relationalStore';
 export {
-  unifiedDataChannel, uniformTypeDescriptor, uniformDataStruct
+  cloudData, cloudExtension, commonType, distributedDataObject, unifiedDataChannel, uniformTypeDescriptor,
+  uniformDataStruct, ContentFormCard, FormType, relationalStore
 };
 /*** endif */

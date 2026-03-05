@@ -21,7 +21,7 @@
 
 import { RecordData } from '@ohos.base';
 
- /**
+/**
  * The util module provides common utility functions,
  * such as TextEncoder and TextDecoder for string encoding and decoding,
  * RationalNumber8+ for rational number operations, LRUCache9+ for cache management, 
@@ -34,6 +34,7 @@ import { RecordData } from '@ohos.base';
  * @since 23 static
  */
 declare namespace util {
+
   /**
    * %s: String will be used to convert all values except BigInt, Object and -0. BigInt values will be represented
    * with an n and Objects that have no user defined toString function are inspected using util.inspect() with
@@ -156,8 +157,8 @@ declare namespace util {
     decodeSync(src: Uint8Array | string, options?: Type): Uint8Array;
 
     /**
-     * Asynchronously encodes all bytes in the specified u8 array into the newly allocated u8 array using
-     * the Base64 encoding scheme.
+     * Asynchronously encodes all bytes in the specified u8 array into the newly allocated u8 array
+     * using the Base64 encoding scheme.
      *
      * @param { Uint8Array } src - A Uint8Array value
      * @param { Type } [options] - Enumerating input parameters includes two encoding formats: BASIC and BASIC_URL_SAFE
@@ -292,7 +293,7 @@ declare namespace util {
      * @param { T } lowerObj - A ScopeType value
      * @param { T } upperObj - A ScopeType value
      * @returns { ScopeHelper<T> } Returns the smallest range that includes
-     *    the current range and the given lower and upper bounds.
+     *     the current range and the given lower and upper bounds.
      * @syscap SystemCapability.Utils.Lang
      * @since 23 static
      */
@@ -362,20 +363,20 @@ declare namespace util {
     /**
      * Default constructor used to create a new LruBuffer instance with the default capacity of 64.
      *
-     * @param { number } [capacity] - Indicates the capacity to customize for the buffer.
+     * @param { int } [capacity] - Indicates the capacity to customize for the buffer.
      * @syscap SystemCapability.Utils.Lang
      * @since 23 static
      */
-    constructor(capacity?: number);
+    constructor(capacity?: int);
 
     /**
      * Updates the buffer capacity to a specified capacity.
      *
-     * @param { number } newCapacity - Indicates the new capacity to set.
+     * @param { int } newCapacity - Indicates the new capacity to set.
      * @syscap SystemCapability.Utils.Lang
      * @since 23 static
      */
-    updateCapacity(newCapacity: number): void;
+    updateCapacity(newCapacity: int): void;
 
     /**
      * Returns a string representation of the object.
@@ -390,20 +391,20 @@ declare namespace util {
     /**
      * Obtains a list of all values in the current buffer.
      *
-     * @returns { number } The length of LRUCache
+     * @returns { int } The length of LRUCache
      * @syscap SystemCapability.Utils.Lang
      * @since 23 static
      */
-    get length(): number;
+    get length(): int;
 
     /**
      * Obtains the capacity of the current buffer.
      *
-     * @returns { number } Returns the capacity of the current buffer.
+     * @returns { int } Returns the capacity of the current buffer.
      * @syscap SystemCapability.Utils.Lang
      * @since 23 static
      */
-    getCapacity(): number;
+    getCapacity(): int;
 
     /**
      * Clears key-value pairs from the current buffer.
@@ -416,47 +417,47 @@ declare namespace util {
     /**
      * Obtains the number of times createDefault(Object) returned a value.
      *
-     * @returns { number } Returns the number of times createDefault(java.lang.Object) returned a value.
+     * @returns { long } Returns the number of times createDefault(java.lang.Object) returned a value.
      * @syscap SystemCapability.Utils.Lang
      * @since 23 static
      */
-    getCreateCount(): number;
+    getCreateCount(): long;
 
     /**
      * Obtains the number of times that the queried values are not matched.
      *
-     * @returns { number } Returns the number of times that the queried values are not matched.
+     * @returns { long } Returns the number of times that the queried values are not matched.
      * @syscap SystemCapability.Utils.Lang
      * @since 23 static
      */
-    getMissCount(): number;
+    getMissCount(): long;
 
     /**
      * Obtains the number of times that values are evicted from the buffer.
      *
-     * @returns { number } Returns the number of times that values are evicted from the buffer.
+     * @returns { long } Returns the number of times that values are evicted from the buffer.
      * @syscap SystemCapability.Utils.Lang
      * @since 23 static
      */
-    getRemovalCount(): number;
+    getRemovalCount(): long;
 
     /**
      * Obtains the number of times that the queried values are successfully matched.
      *
-     * @returns { number } Returns the number of times that the queried values are successfully matched.
+     * @returns { long } Returns the number of times that the queried values are successfully matched.
      * @syscap SystemCapability.Utils.Lang
      * @since 23 static
      */
-    getMatchCount(): number;
+    getMatchCount(): long;
 
     /**
      * Obtains the number of times that values are added to the buffer.
      *
-     * @returns { number } Returns the number of times that values are added to the buffer.
+     * @returns { long } Returns the number of times that values are added to the buffer.
      * @syscap SystemCapability.Utils.Lang
      * @since 23 static
      */
-    getPutCount(): number;
+    getPutCount(): long;
 
     /**
      * Checks whether the current buffer is empty.
@@ -772,14 +773,14 @@ declare namespace util {
     /**
      * Used to create a RationalNumber instance with a given numerator and denominator.
      *
-     * @param { number } numerator - An integer number
-     * @param { number } denominator - An integer number
+     * @param { long } numerator - An integer number
+     * @param { long } denominator - An integer number
      * @returns { RationalNumber }
      * @static
      * @syscap SystemCapability.Utils.Lang
      * @since 23 static
      */
-    static parseRationalNumber(numerator: number, denominator: number): RationalNumber;
+    static parseRationalNumber(numerator: long, denominator: long): RationalNumber;
 
     /**
      * Creates a RationalNumber object based on a given string.
@@ -796,11 +797,11 @@ declare namespace util {
      * Compares the current RationalNumber object to the given object.
      *
      * @param { RationalNumber } another - An object of other rational numbers
-     * @returns { number } Returns 0 or 1, or -1, depending on the comparison.
+     * @returns { int } Returns 0 or 1, or -1, depending on the comparison.
      * @syscap SystemCapability.Utils.Lang
      * @since 23 static
      */
-    compare(another: RationalNumber): number;
+    compare(another: RationalNumber): int;
 
     /**
      * Compares two objects for equality.
@@ -816,41 +817,41 @@ declare namespace util {
     /**
      * Gets integer and floating-point values of a rational number object.
      *
-     * @returns { number } Returns the integer and floating-point values of a rational number object.
+     * @returns { double } Returns the integer and floating-point values of a rational number object.
      * @syscap SystemCapability.Utils.Lang
      * @since 23 static
      */
-    valueOf(): number;
+    valueOf(): double;
 
     /**
      * Get the greatest common factor of two integers.
      *
-     * @param { number } number1 - Is an integer.
-     * @param { number } number2 - Is an integer.
-     * @returns { number } Returns the greatest common factor of two integers, integer type.
+     * @param { long } number1 - Is an integer.
+     * @param { long } number2 - Is an integer.
+     * @returns { long } Returns the greatest common factor of two integers, integer type.
      * @static
      * @syscap SystemCapability.Utils.Lang
      * @since 23 static
      */
-    static getCommonFactor(number1: number, number2: number): number;
+    static getCommonFactor(number1: long, number2: long): long;
 
     /**
      * Gets the denominator of the current object.
      *
-     * @returns { number } Returns the denominator of the current object.
+     * @returns { long } Returns the denominator of the current object.
      * @syscap SystemCapability.Utils.Lang
      * @since 23 static
      */
-    getDenominator(): number;
+    getDenominator(): long;
 
     /**
      * Gets the numerator of the current object.
      *
-     * @returns { number } Returns the numerator of the current object.
+     * @returns { long } Returns the numerator of the current object.
      * @syscap SystemCapability.Utils.Lang
      * @since 23 static
      */
-    getNumerator(): number;
+    getNumerator(): long;
 
     /**
      * Checks whether the current RationalNumber object represents an infinite value.
@@ -960,6 +961,14 @@ declare namespace util {
   class types {
 
     /**
+     * The types constructor
+     * 
+     * @syscap SystemCapability.Utils.Lang
+     * @since 23 static
+     */
+    constructor();
+
+    /**
      * Check whether the entered value is of arraybuffer or sharedarraybuffer type.
      *
      * @param { Object } value - A ArrayBuffer or SharedArrayBuffer value
@@ -989,6 +998,18 @@ declare namespace util {
      * @since 23 static
      */
     isArrayBuffer(value: Object): boolean;
+    /**
+     * Check whether the value entered is an asynchronous function type.
+     *
+     * @param { Object } value - A async function value
+     * @returns { boolean } Returns true if the value is an async function.
+     *     This only reports back what the JavaScript engine is seeing;
+     *     in particular, the return value may not match the original source code
+     *     if a transpilation tool was used.
+     * @syscap SystemCapability.Utils.Lang
+     * @since 23 static
+     */
+    isAsyncFunction(value: Object): boolean;
     /**
      * Check whether the entered value is of bigint64array array type.
      *
@@ -1224,11 +1245,11 @@ declare namespace util {
    * Get the hash code of an object.
    *
    * @param { RecordData } obj - The object that need to get hash code.
-   * @returns { number } Return a hash code of an object.
+   * @returns { long } Return a hash code of an object.
    * @syscap SystemCapability.Utils.Lang
    * @since 23 static
    */
-  function getHash(obj: RecordData): number;
+  function getHash(obj: RecordData): long;
 
   /**
    * Generate a random RFC 4122 version 4 binary UUID using a cryptographically secure random number generator.
@@ -1250,5 +1271,27 @@ declare namespace util {
    * @since 23 static
    */
   function parseUUID(uuid: string): Uint8Array;
+
+  /**
+   * Takes an async function (or a function that returns a Promise) and returns a function following the
+   * error-first callback style.
+   * 
+   * @param { Function } original - Asynchronous function
+   * @returns { Function } Return a Asynchronous function
+   * @syscap SystemCapability.Utils.Lang
+   * @since 23 static
+   */
+  function callbackWrapper(original: Function): Function;
+
+  /**
+   * Get the string name of the system errno.
+   * 
+   * @param { int } errno - The error code generated by an error in the system
+   * @returns { string } Return the string name of a system errno
+   * @syscap SystemCapability.Utils.Lang
+   * @since 23 static
+   */
+  function errnoToString(errno: int): string;
+
 }
 export default util;

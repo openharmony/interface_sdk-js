@@ -414,15 +414,6 @@ export declare enum ProgressStyle {
     Capsule
 }
 /**
- * Defines the map for progress type and style.
- *
- * @interface ProgressStyleMap
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 23 static
- */
-export declare interface ProgressStyleMap {}
-/**
  * Defines the Progress component attributes.
  *
  * @extends CommonMethod
@@ -518,14 +509,13 @@ export declare interface ProgressConfiguration extends CommonConfiguration<Progr
  * Defines the Progress component.
  *
  * @param { ProgressOptions } options - progress options.
- * @param { CustomBuilder } [content_]
  * @returns { ProgressAttribute } The attribute of the Progress.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
 @ComponentBuilder
 export declare function Progress(
-    options: ProgressOptions, 
-    content_?: CustomBuilder
+    options: ProgressOptions
 ): ProgressAttribute;

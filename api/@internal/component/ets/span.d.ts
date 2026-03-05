@@ -251,6 +251,20 @@ declare class SpanAttribute extends BaseSpan<SpanAttribute> {
   font(value: Font): SpanAttribute;
 
   /**
+   * Used to set the font of span.
+   *
+   * @param { Font } value - the span font size, font weight, font family and font style.
+   * @param { FontConfigs } [fontConfigs] - the configuration of font.
+   * @returns { SpanAttribute } The attribute of the span.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 24 dynamic
+   */
+  font(value: Font, fontConfigs?: FontConfigs): SpanAttribute;
+
+  /**
    * Called when the font color is set.
    *
    * @param { ResourceColor } value
@@ -420,6 +434,21 @@ declare class SpanAttribute extends BaseSpan<SpanAttribute> {
    * @since 20 dynamic
    */
   fontWeight(value: number | FontWeight | ResourceStr): SpanAttribute;
+
+  /**
+   * Called when the font weight is set.
+   *
+   * @param { number | FontWeight | ResourceStr } weight - the span font weight.
+   * @param { FontWeightConfigs } [fontWeightConfigs] - the configuration of font weight.
+   * @returns { SpanAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 24 dynamic
+   */
+  fontWeight(weight: number | FontWeight | ResourceStr, fontWeightConfigs?: FontWeightConfigs): SpanAttribute;
 
   /**
    * Called when the font list of text is set.

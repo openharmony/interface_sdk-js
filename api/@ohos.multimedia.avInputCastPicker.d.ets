@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -21,32 +21,31 @@
 import { AVCastPickerState } from './@ohos.multimedia.avCastPickerParam';
 
 /**
- * A picker view to show availale input device list.
+ * Picker used to show available input devices.
  * @struct { AVInputCastPicker }
  * @syscap SystemCapability.Multimedia.AVSession.AVInputCast
  * @atomicservice
- * @since 20 dynamiconly
+ * @since 20 dynamic
  */
 @Component
 export declare struct AVInputCastPicker {
 
   /**
-   * Set the custom builder for the picker appearance.
-   * If not set, system will show the default appearance for different device type.
+   * Custom picker.
    * @type { ? CustomBuilder }
    * @syscap SystemCapability.Multimedia.AVSession.AVInputCast
    * @atomicservice
-   * @since 20 dynamiconly
+   * @since 20 dynamic
    */
   @Prop
   customPicker?: CustomBuilder;
 
   /**
-   * Picker state change callback.
+   * Called when the compoent state changes.
    * @type { ?OnPickerStateCallback }
    * @syscap SystemCapability.Multimedia.AVSession.AVInputCast
    * @atomicservice
-   * @since 20 dynamiconly
+   * @since 20 dynamic
    */
   onStateChange?: OnPickerStateCallback;
 }
@@ -59,6 +58,6 @@ export declare struct AVInputCastPicker {
  * @returns { void }
  * @syscap SystemCapability.Multimedia.AVSession.AVInputCast
  * @atomicservice
- * @since 20 dynamiconly
+ * @since 20 dynamic
  */
 export type OnPickerStateCallback = (state: AVCastPickerState) => void;

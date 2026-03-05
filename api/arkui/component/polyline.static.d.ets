@@ -19,6 +19,7 @@
 import { CommonShapeMethod, AttributeModifier, CommonMethod } from "./common";
 import { ShapePoint } from "./line";
 import { ComponentBuilder, CustomBuilder } from './builder';
+import { Length } from './units';
 
 /**
  * Define options used to construct a polyline.
@@ -31,19 +32,19 @@ export declare interface PolylineOptions {
     /**
      * Polyline width.
      *
-     * @type { ?(string | double) }
+     * @type { ?Length }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
      */
-    width?: string | double;
+    width?: Length;
     /**
      * Polyline height.
      *
-     * @type { ?(string | double) }
+     * @type { ?Length }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
      */
-    height?: string | double;
+    height?: Length;
 }
 
 /**
@@ -78,13 +79,13 @@ export declare interface PolylineAttribute extends CommonShapeMethod {
  * Polyline is returned when the parameter is transferred.
  *
  * @param { PolylineOptions } [options] - The options to create a Polyline
- * @param { CustomBuilder } [content_]
  * @returns { PolylineAttribute } The attribute of the Polyline.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
+ * @noninterop
  */
 @ComponentBuilder
 export declare function Polyline(
-    options?: PolylineOptions, 
-    content_?: CustomBuilder,
+    options?: PolylineOptions
 ): PolylineAttribute

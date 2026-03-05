@@ -25,7 +25,8 @@
  * @syscap SystemCapability.FileManagement.UserFileService
  * @systemapi
  * @StageModelOnly
- * @since 10 dynamic
+ * @since 10 dynamiconly
+ * @deprecated since 23
  */
 declare namespace recent {
   /**
@@ -35,7 +36,8 @@ declare namespace recent {
    * @syscap SystemCapability.FileManagement.UserFileService
    * @systemapi
    * @StageModelOnly
-   * @since 10 dynamic
+   * @since 10 dynamiconly
+   * @deprecated since 23
    */
   interface FileInfo {
     /**
@@ -46,7 +48,8 @@ declare namespace recent {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
-     * @since 10 dynamic
+     * @since 10 dynamiconly
+     * @deprecated since 23
      */
     readonly uri: string;
 
@@ -58,7 +61,8 @@ declare namespace recent {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
-     * @since 10 dynamic
+     * @since 10 dynamiconly
+     * @deprecated since 23
      */
     readonly srcPath: string;
 
@@ -70,7 +74,8 @@ declare namespace recent {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
-     * @since 10 dynamic
+     * @since 10 dynamiconly
+     * @deprecated since 23
      */
     readonly fileName: string;
 
@@ -82,7 +87,8 @@ declare namespace recent {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
-     * @since 10 dynamic
+     * @since 10 dynamiconly
+     * @deprecated since 23
      */
     readonly mode: number;
 
@@ -94,7 +100,8 @@ declare namespace recent {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
-     * @since 10 dynamic
+     * @since 10 dynamiconly
+     * @deprecated since 23
      */
     readonly size: number;
     
@@ -106,7 +113,8 @@ declare namespace recent {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
-     * @since 10 dynamic
+     * @since 10 dynamiconly
+     * @deprecated since 23
      */
     readonly mtime: number;
 
@@ -118,7 +126,8 @@ declare namespace recent {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
-     * @since 10 dynamic
+     * @since 10 dynamiconly
+     * @deprecated since 23
      */
     readonly ctime: number;
   }
@@ -134,7 +143,8 @@ declare namespace recent {
    * @syscap SystemCapability.FileManagement.UserFileService
    * @systemapi
    * @StageModelOnly
-   * @since 10 dynamic
+   * @since 10 dynamiconly
+   * @deprecated since 23
    */
   function listFile(): Array<FileInfo>;
 
@@ -149,7 +159,8 @@ declare namespace recent {
    * @syscap SystemCapability.FileManagement.UserFileService
    * @systemapi
    * @StageModelOnly
-   * @since 10 dynamic
+   * @since 10 dynamiconly
+   * @deprecated since 23
    */
   function add(uri: string): void;
 
@@ -164,7 +175,8 @@ declare namespace recent {
    * @syscap SystemCapability.FileManagement.UserFileService
    * @systemapi
    * @StageModelOnly
-   * @since 10 dynamic
+   * @since 10 dynamiconly
+   * @deprecated since 23
    */
   function remove(uri: string): void;
 }

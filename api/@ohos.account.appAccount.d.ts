@@ -2823,7 +2823,7 @@ declare namespace appAccount {
     SUCCESS = 0,
 
     /**
-    * Indicates the result of account not exist.
+    * Indicates the account does not exist.
     *
     * @syscap SystemCapability.Account.AppAccount
     * @since 8 dynamiconly
@@ -2832,7 +2832,7 @@ declare namespace appAccount {
     ERROR_ACCOUNT_NOT_EXIST = 10001,
 
     /**
-    * Indicates the result of account service exception.
+    * Indicates the account service exception.
     *
     * @syscap SystemCapability.Account.AppAccount
     * @since 8 dynamiconly
@@ -2841,7 +2841,7 @@ declare namespace appAccount {
     ERROR_APP_ACCOUNT_SERVICE_EXCEPTION = 10002,
 
     /**
-    * Indicates the result of password is invalid.
+    * Indicates the password is invalid.
     *
     * @syscap SystemCapability.Account.AppAccount
     * @since 8 dynamiconly
@@ -2850,7 +2850,7 @@ declare namespace appAccount {
     ERROR_INVALID_PASSWORD = 10003,
 
     /**
-    * Indicates the result of request is invalid.
+    * Indicates the request is invalid.
     *
     * @syscap SystemCapability.Account.AppAccount
     * @since 8 dynamiconly
@@ -2859,7 +2859,7 @@ declare namespace appAccount {
     ERROR_INVALID_REQUEST = 10004,
 
     /**
-    * Indicates the result of response is invalid.
+    * Indicates the response is invalid.
     *
     * @syscap SystemCapability.Account.AppAccount
     * @since 8 dynamiconly
@@ -2868,7 +2868,7 @@ declare namespace appAccount {
     ERROR_INVALID_RESPONSE = 10005,
 
     /**
-    * Indicates the result of network exception.
+    * Indicates the network exception.
     *
     * @syscap SystemCapability.Account.AppAccount
     * @since 8 dynamiconly
@@ -2877,7 +2877,7 @@ declare namespace appAccount {
     ERROR_NETWORK_EXCEPTION = 10006,
 
     /**
-    * Indicates the result of network exception.
+    * Indicates the authenticator does not exist.
     *
     * @syscap SystemCapability.Account.AppAccount
     * @since 8 dynamiconly
@@ -2886,7 +2886,7 @@ declare namespace appAccount {
     ERROR_OAUTH_AUTHENTICATOR_NOT_EXIST = 10007,
 
     /**
-    * Indicates the result of auth has been canceled.
+    * Indicates the authentication has been canceled.
     *
     * @syscap SystemCapability.Account.AppAccount
     * @since 8 dynamiconly
@@ -2895,7 +2895,7 @@ declare namespace appAccount {
     ERROR_OAUTH_CANCELED = 10008,
 
     /**
-    * Indicates the result of auth list is too large.
+    * Indicates the authorization list is too large.
     *
     * @syscap SystemCapability.Account.AppAccount
     * @since 8 dynamiconly
@@ -2904,7 +2904,7 @@ declare namespace appAccount {
     ERROR_OAUTH_LIST_TOO_LARGE = 10009,
 
     /**
-    * Indicates the result of auth service is busy.
+    * Indicates the authentication service is busy.
     *
     * @syscap SystemCapability.Account.AppAccount
     * @since 8 dynamiconly
@@ -2913,7 +2913,7 @@ declare namespace appAccount {
     ERROR_OAUTH_SERVICE_BUSY = 10010,
 
     /**
-    * Indicates the result of auth service exception.
+    * Indicates the authentication service exception.
     *
     * @syscap SystemCapability.Account.AppAccount
     * @since 8 dynamiconly
@@ -2922,7 +2922,7 @@ declare namespace appAccount {
     ERROR_OAUTH_SERVICE_EXCEPTION = 10011,
 
     /**
-    * Indicates the result of auth session is not exist.
+    * Indicates the authentication session does not exist.
     *
     * @syscap SystemCapability.Account.AppAccount
     * @since 8 dynamiconly
@@ -2931,7 +2931,7 @@ declare namespace appAccount {
     ERROR_OAUTH_SESSION_NOT_EXIST = 10012,
 
     /**
-    * Indicates the result of auth timeout.
+    * Indicates the authentication timeout.
     *
     * @syscap SystemCapability.Account.AppAccount
     * @since 8 dynamiconly
@@ -2940,7 +2940,7 @@ declare namespace appAccount {
     ERROR_OAUTH_TIMEOUT = 10013,
 
     /**
-    * Indicates the result of token is not exist.
+    * Indicates the token does not exist.
     *
     * @syscap SystemCapability.Account.AppAccount
     * @since 8 dynamiconly
@@ -2949,7 +2949,7 @@ declare namespace appAccount {
     ERROR_OAUTH_TOKEN_NOT_EXIST = 10014,
 
     /**
-    * Indicates the result of token is too many.
+    * Indicates the number of token is too many.
     *
     * @syscap SystemCapability.Account.AppAccount
     * @since 8 dynamiconly
@@ -2958,7 +2958,7 @@ declare namespace appAccount {
     ERROR_OAUTH_TOKEN_TOO_MANY = 10015,
 
     /**
-    * Indicates the result of not supported action.
+    * Indicates the action is not supported.
     *
     * @syscap SystemCapability.Account.AppAccount
     * @since 8 dynamiconly
@@ -2967,7 +2967,7 @@ declare namespace appAccount {
     ERROR_OAUTH_UNSUPPORT_ACTION = 10016,
 
     /**
-    * Indicates the result of not supported auth type.
+    * Indicates the authentication type is not supported.
     *
     * @syscap SystemCapability.Account.AppAccount
     * @since 8 dynamiconly
@@ -2976,7 +2976,7 @@ declare namespace appAccount {
     ERROR_OAUTH_UNSUPPORT_AUTH_TYPE = 10017,
 
     /**
-    * Indicates the result of permission denied.
+    * Indicates the permission is denied.
     *
     * @syscap SystemCapability.Account.AppAccount
     * @since 8 dynamiconly

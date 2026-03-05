@@ -19,17 +19,9 @@
  */
 
 import AtomicServiceOptions from '@ohos.app.ability.AtomicServiceOptions';
-import { Callback, ErrorCallback } from '@ohos.base';
+import { Callback, ErrorCallback, RecordData } from '@ohos.base';
 import { Component, BuilderParam, TerminationInfo, Builder } from '@ohos.arkui.component'
 
-/**
- * Defines RecordData.
- * 
- * @typedef { undefined | null | Object | Record<string, RecordData> | Array<RecordData> } RecordData
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 23 static
- */
-export type RecordData = undefined | null | Object | Record<string, RecordData> | Array<RecordData>;
 /**
  * Defines ContentBuilder.
  * 

@@ -158,9 +158,75 @@ export declare struct PhotoPickerComponent {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 22 dynamic
-   * @since 23 static
    */
   onMovingPhotoBadgeStateChanged?: MovingPhotoBadgeStateChangedCallback;
+
+  /**
+   * Callback when photo browser change start (upon user swipe release), will return targetPhotoInfo
+   *
+   * @type { ?PhotoBrowserChangeStartCallback }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  onPhotoBrowserChangeStart?: PhotoBrowserChangeStartCallback;
+
+  /**
+   * Callback when click item. Includes camera items and thumbnail items. Returns itemInfo in the callback.
+   * Must be used in conjunction with the addData method.
+   *
+   * @type { ?ItemClickedNotifyCallback }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  onItemClickedNotify?: ItemClickedNotifyCallback;
+
+  /**
+   * Callback when the grid stops scrolling at the starting position.
+   *
+   * @type { ?ScrollStopAtStartCallback }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  onScrollStopAtStart?: ScrollStopAtStartCallback;
+
+  /**
+   * Callback when the grid stops scrolling at the ending position.
+   *
+   * @type { ?ScrollStopAtEndCallback }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  onScrollStopAtEnd?: ScrollStopAtEndCallback;
+
+  /**
+   * Callback when the grid's level is switched via pinch gesture.
+   *
+   * @type { ?PinchGridSwitchedCallback }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  onPinchGridSwitched?: PinchGridSwitchedCallback;
+
+  /**
+   * Callback when an error occurs in the PhotoPickerComponent.
+   *
+   * @type { ?ErrorCallback }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  onError?: ErrorCallback;
 
   /**
    * PickerController
@@ -174,94 +240,15 @@ export declare struct PhotoPickerComponent {
   pickerController: PickerController;
 
   /**
-   * Callback when the grid stops scrolling at the starting position
-   *
-   * @type { ?ScrollStopAtStartCallback }
-   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @stagemodelonly
-   * @atomicservice
-   * @since 23 dynamic&static
-   */
-  onScrollStopAtStart?: ScrollStopAtStartCallback;
-
-  /**
-   * Callback when the grid stops scrolling at the ending position
-   *
-   * @type { ?ScrollStopAtEndCallback }
-   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @stagemodelonly
-   * @atomicservice
-   * @since 23 dynamic&static
-   */
-  onScrollStopAtEnd?: ScrollStopAtEndCallback;
-
-  /**
    * Build function of PhotoPickerComponent
    *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 12 dynamic
    */
+  @Builder
   build(): void;
 }
-
-
-/**
- * The callback of onSelectedItemsDeleted event
- *
- * @typedef { function } ItemsDeletedCallback
- * @param { Array<BaseItemInfo> }
- * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
- * @atomicservice
- * @since 13 dynamic
- */
-export type ItemsDeletedCallback = (baseItemInfos: Array<BaseItemInfo>) => void;
-
-/**
- * The callback of onExceedMaxSelected event
- *
- * @typedef { function } ItemsDeletedCallback
- * @param { MaxCountType }
- * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
- * @atomicservice
- * @since 13 dynamic
- */
-export type ExceedMaxSelectedCallback = (exceedMaxCountType: MaxCountType) => void;
-
-/**
- * The callback of onCurrentAlbumDeleted event
- *
- * @typedef { function } CurrentAlbumDeletedCallback
- * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
- * @atomicservice
- * @since 13 dynamic
- */
-export type CurrentAlbumDeletedCallback = () => void;
-
-/**
- * The callback of onVideoPlayStateChanged event
- *
- * @typedef { function } videoPlayStateChangedCallback
- * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
- * @atomicservice
- * @since 14 dynamic
- */
-export type videoPlayStateChangedCallback = (state: VideoPlayerState) => void;
-
-/**
- * The callback of onMovingPhotoBadgeStateChanged event
- *
- * @typedef { function } MovingPhotoBadgeStateChangedCallback
- * @param { string } uri
- * @param { photoAccessHelper.MovingPhotoBadgeStateType } state
- * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
- * @atomicservice
- * @since 22 dynamic
- * @since 23 static
- */
-export type MovingPhotoBadgeStateChangedCallback =
-  (uri: string, state: photoAccessHelper.MovingPhotoBadgeStateType) => void;
-
 
 /**
  * The class for PickerController
@@ -349,7 +336,7 @@ export declare class PickerController {
   /**
    * Display the photo after edit.
    *
-   * @param { string } originalUri - Original uri 
+   * @param { string } originalUri - Original uri
    * @param { string } newUri - New uri after replacement
    * @param { AsyncCallback<void> } callback - Returns void
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -373,6 +360,22 @@ export declare class PickerController {
     configs?: Array<photoAccessHelper.PhotoCreationConfig>, saveMode?: SaveMode): void;
 
   /**
+   * Save the photo assets of uris.
+   *
+   * @param { Array<string> } trustedUris - Uris need to be saved
+   * @param { Array<photoAccessHelper.CreationSetting> } [settings] - Photo asset creation settings
+   * @param { SaveMode } [saveMode] - Mode of save
+   * @returns { Promise<Array<string>> } - Returns the media library file uri list to application
+   *     which has been authorized
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  saveTrustedPhotoAssetsEx(trustedUris: Array<string>,settings?: Array<photoAccessHelper.CreationSetting>,
+    saveMode?: SaveMode): Promise<Array<string>>;
+
+  /**
    * Update options of the PhotoPicker component.
    *
    * @param { UpdatablePickerConfigs } updateConfig - Subset of PickerOptions
@@ -380,9 +383,28 @@ export declare class PickerController {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 22 dynamic
-   * @since 23 static
    */
   updatePickerOptions(updateConfig: UpdatablePickerConfigs): Promise<void>;
+
+  /**
+   * Sets the moving photo effect in the photo browser view.
+   * This configuration only takes effect for moving photo when viewed in the photo browser.
+   * Note: Only MOVING_PHOTO_ENABLE and MOVING_PHOTO_DISABLE are supported as values.
+   *
+   * @param { photoAccessHelper.MovingPhotoBadgeStateType } movingPhotoState - State of moving photo.
+   * @returns { Promise<void> } Promise<void>
+   * @throws { BusinessError } 23800151 - Scene parameters validate failed, possible causes:
+   *     1. An invalid enumeration value was passed. Only MOVING_PHOTO_ENABLE and
+   *     MOVING_PHOTO_DISABLE are supported for configuration;
+   * @throws { BusinessError } 23800202 - Invalid call context. Possible causes:
+   *     1. The API is called outside the photo browsing scenario.
+   *     2. The API is called when isMovingPhotoBadgeShown is already set to true.
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  setMovingPhotoState(movingPhotoState: photoAccessHelper.MovingPhotoBadgeStateType): Promise<void>;
 }
 
 /**
@@ -412,46 +434,6 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
    * @since 12 dynamic
    */
   backgroundColor?: string;
-
-  /**
-   * Support set gridMargin
-   *
-   * @type { ?Margin }
-   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @atomicservice
-   * @since 14 dynamic
-   */
-  gridMargin?: Margin;
-
-  /**
-   * Support set photoBrowserMargin
-   *
-   * @type { ?Margin }
-   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @atomicservice
-   * @since 14 dynamic
-   */
-  photoBrowserMargin?: Margin;
-
-  /**
-   * Support to set offset between first grid item and the top of the grid
-   *
-   * @type { ?number }
-   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @atomicservice
-   * @since 20 dynamic
-   */
-  gridStartOffset?: number;
-
-  /**
-   * Support to set offset between last grid item and the bottom of the grid
-   *
-   * @type { ?number }
-   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @atomicservice
-   * @since 20 dynamic
-   */
-  gridEndOffset?: number;
 
   /**
    * Support repeat select
@@ -516,22 +498,24 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
   /**
    * Support to set max photo select number
    *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
    */
-  maxPhotoSelectNumber?: number;
+  maxPhotoSelectNumber?: int;
 
   /**
    * Support to set max video select number
    *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
    */
-  maxVideoSelectNumber?: number;
+  maxVideoSelectNumber?: int;
 
   /**
    * Support to set sliding selection
@@ -546,12 +530,32 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
   /**
    * Support to set photo browser checkbox position
    *
-   * @type { ?[number, number] }
+   * @type { ?[double, double] }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 13 dynamic
    */
-  photoBrowserCheckboxPosition?: [number, number];
+  photoBrowserCheckboxPosition?: [double, double];
+
+  /**
+   * Support set photoBrowserMargin
+   *
+   * @type { ?Margin }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 14 dynamic
+   */
+  photoBrowserMargin?: Margin;
+
+  /**
+   * Support set gridMargin
+   *
+   * @type { ?Margin }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 14 dynamic
+   */
+  gridMargin?: Margin;
 
   /**
    * Single-line display mode for the PhotoPickerComponent.
@@ -566,7 +570,7 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
   /**
    * Support to set UIComponent color mode.
    *
-   * @type { ?PickerColorMode }
+   * @type { ?PickerColorMode  }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 20 dynamic
@@ -574,14 +578,34 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
   uiComponentColorMode?: PickerColorMode;
 
   /**
+   * Support to set offset between first grid item and the top of grid
+   *
+   * @type { ?int  }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 20 dynamic
+   */
+  gridStartOffset?: int;
+
+  /**
+   * Support to set offset between last grid item and the bottom of grid
+   *
+   * @type { ?int  }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 20 dynamic
+   */
+  gridEndOffset?: int;
+
+  /**
    * Support to set a serial number to distinguish different picker components. Default value is -1.
    *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 21 dynamic
    */
-  pickerIndex?: number;
+  pickerIndex?: int;
 
   /**
    * Support automatically selecting the user-selected image/video on the PhotoPickerComponent
@@ -595,225 +619,49 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
   preselectedInfos?: Array<PreselectedInfo>;
 
   /**
-  *
-  * Support to config special badge display.
-  * The picker component supports only one type of badge
-  *
-  * @type { ?BadgeConfig }
-  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-  * @atomicservice
-  * @since 21 dynamic
-  */
+   * Support to config special badge display.
+   * The picker component supports only one type of badge
+   *
+   * @type { ?BadgeConfig }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 21 dynamic
+   */
   badgeConfig?: BadgeConfig;
 
   /**
    * Support setting grid sliding.
    *
-   * @type { ?boolean  }
+   * @type { ?boolean }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 23 dynamic&static
+   * @since 23 dynamic
    */
-   isSlidingSupported?: boolean;
+  isSlidingSupported?: boolean;
 
   /**
    * Grid edge slide effect.
    *
-   * @type { ?EdgeEffect  }
+   * @type { ?EdgeEffect }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 23 dynamic&static
+   * @since 23 dynamic
    */
-   edgeEffect?: EdgeEffect;
-}
-
-/**
- * UpdatablePickerConfigs
- *
- * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
- * @atomicservice
- * @since 22 dynamic
- * @since 23 static
- */
-export declare class UpdatablePickerConfigs {
+  edgeEffect?: EdgeEffect;
 
   /**
-   * The type of the file in the recent photo window.
-   *
-   * @type { ?photoAccessHelper.PhotoViewMIMETypes }
-   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @atomicservice
-   * @since 22 dynamic
-   * @since 23 static
-   */
-  mimeType?: photoAccessHelper.PhotoViewMIMETypes;
-
-  /**
-   * Media file filtering configuration.
-   *
-   * @type { ?photoAccessHelper.MimeTypeFilter }
-   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @atomicservice
-   * @since 22 dynamic
-   * @since 23 static
-   */
-  mimeTypeFilter?: photoAccessHelper.MimeTypeFilter;
-
-  /**
-   * Maximum number of assets for a single selection.
-   *
-   * @type { ?number }
-   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @atomicservice
-   * @since 22 dynamic
-   * @since 23 static
-   */
-  maxSelectNumber?: number;
-
-  /**
-   * Maximum number of photos for a single selection.
-   *
-   * @type { ?number }
-   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @atomicservice
-   * @since 22 dynamic
-   * @since 23 static
-   */
-  maxPhotoSelectNumber?: number;
-
-  /**
-   * Maximum number of videos for a single selection.
-   *
-   * @type { ?number }
-   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @atomicservice
-   * @since 22 dynamic
-   * @since 23 static
-   */
-  maxVideoSelectNumber?: number;
-
-  /**
-   * Select mode of the picker.
-   *
-   * @type { ?SelectMode }
-   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @atomicservice
-   * @since 22 dynamic
-   * @since 23 static
-   */
-  selectMode?: SelectMode;
-
-  /**
-   * The mode of single selection.
-   *
-   * @type { ?photoAccessHelper.SingleSelectionMode }
-   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @atomicservice
-   * @since 22 dynamic
-   * @since 23 static
-   */
-  singleSelectionMode?: photoAccessHelper.SingleSelectionMode;
-
-  /**
-   * Support repeat select.
-   *
-   * @type { ?boolean }
-   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @atomicservice
-   * @since 22 dynamic
-   * @since 23 static
-   */
-  isRepeatSelectSupported?: boolean;
-
-  /**
-   * The uri for the preselected files.
+   * Only display album contents corresponding to the specified applications.
+   * Use the bundle name to identify the application.
    *
    * @type { ?Array<string> }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @atomicservice
-   * @since 22 dynamic
-   * @since 23 static
-   */
-  preselectedUris?: Array<string>;
-
-  /**
-   * The checkbox color of the picker.
-   *
-   * @type { ?string }
-   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @atomicservice
-   * @since 22 dynamic
-   * @since 23 static
-   */
-  checkBoxColor?: string;
-
-  /**
-   * The checkbox text color of the picker.
-   *
-   * @type { ?string }
-   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @atomicservice
-   * @since 22 dynamic
-   * @since 23 static
-   */
-  checkboxTextColor?: string;
-
-  /**
-   * The background color of the picker.
-   *
-   * @type { ?string }
-   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @atomicservice
-   * @since 22 dynamic
-   * @since 23 static
-   */
-  backgroundColor?: string;
-
-  /**
-   * Support to set photo browser background color mode.
-   *
-   * @type { ?PickerColorMode }
-   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @atomicservice
-   * @since 22 dynamic
-   * @since 23 static
-   */
-  photoBrowserBackgroundColorMode?: PickerColorMode;
-
-  /**
-   * Support to set UIComponent color mode.
-   *
-   * @type { ?PickerColorMode  }
-   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @atomicservice
-   * @since 22 dynamic
-   * @since 23 static
-   */
-   uiComponentColorMode?: PickerColorMode;
-
-  /**
-   * Support setting grid sliding.
-   *
-   * @type { ?boolean  }
-   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 23 dynamic&static
+   * @since 23 dynamic
    */
-   isSlidingSupported?: boolean;
-
-  /**
-   * Grid edge slide effect.
-   *
-   * @type { ?EdgeEffect  }
-   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @stagemodelonly
-   * @atomicservice
-   * @since 23 dynamic&static
-   */
-   edgeEffect?: EdgeEffect;
+  appAlbumFilters?: Array<string>;
 }
 
 /**
@@ -847,42 +695,43 @@ export declare class BaseItemInfo {
   /**
    * Width. if the itemType is CAMERA, it will be null
    *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 12 dynamic
    */
-  width?: number;
+  width?: int;
 
   /**
    * Height. if the itemType is CAMERA, it will be null
    *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 12 dynamic
    */
-  height?: number;
+  height?: int;
 
   /**
    * Size. if the itemType is CAMERA, it will be null
    *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
    */
-  size?: number;
+  size?: int;
 
   /**
    * Duration. if the itemType is CAMERA, it will be null; if photos, return -1
    *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 12 dynamic
    */
-  duration?: number;
+  duration?: int;
 
   /**
    * PhotoSubtype. Asset subtype, non-special type images default to DEFAULT(0).
@@ -908,12 +757,12 @@ export declare class BaseItemInfo {
   /**
    * Orientation. Image/Video orientation information.
    *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 21 dynamic
    */
-  orientation?: number;
+  orientation?: int;
 
   /**
    * MovingPhotoBadgeState. Badge state of moving photo.
@@ -922,7 +771,6 @@ export declare class BaseItemInfo {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 22 dynamic
-   * @since 23 static
    */
   movingPhotoBadgeState?: photoAccessHelper.MovingPhotoBadgeStateType;
 
@@ -933,7 +781,6 @@ export declare class BaseItemInfo {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 22 dynamic
-   * @since 23 static
    */
   videoMode?: photoAccessHelper.VideoMode;
 }
@@ -988,12 +835,12 @@ export declare class AnimatorParams {
   /**
    * Animate duration
    *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 12 dynamic
    */
-  duration?: number;
+  duration?: int;
 
   /**
    * Animate curve
@@ -1017,17 +864,16 @@ export declare class MaxSelected {
   /**
    * data. support to set max_total_count, max_photo_count and max_video_count.
    *
-   * @type { ?Map<MaxCountType, number> }
+   * @type { ?Map<MaxCountType, int> }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 12 dynamic
    */
-  data?: Map<MaxCountType, number>;
+  data?: Map<MaxCountType, int>;
 }
 
-
 /**
- * Single-Line display mode.
+ * Single-line display mode.
  *
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @atomicservice
@@ -1062,7 +908,7 @@ export declare class SingleLineConfig {
    * @atomicservice
    * @since 20 dynamic
    */
-  itemGap?: Length;  
+  itemGap?: Length;
 }
 
 /**
@@ -1086,12 +932,12 @@ export declare class PreselectedInfo {
   /**
    * PreselectablePickerIndex. Serial number of the picker component that will automatically select this media file.
    *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 21 dynamic
    */
-  preselectablePickerIndex?: number;
+  preselectablePickerIndex?: int;
 }
 
 /**
@@ -1103,30 +949,299 @@ export declare class PreselectedInfo {
  */
 export declare class BadgeConfig {
   /**
-  * The type of the special badge.
-  *
-  * @type { ?BadgeConfig }
-  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-  * @atomicservice
-  * @since 21 dynamic
-  */
+   * The type of the special badge.
+   *
+   * @type { ?BadgeType }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 21 dynamic
+   */
   badgeType?: BadgeType;
 
   /**
-  * The uri data of the asset that displays the badge.
-  *
-  * @type { ?Array<string> }
-  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-  * @atomicservice
-  * @since 21 dynamic
-  */
+   * The uri data of the asset that displays the badge.
+   *
+   * @type { ?Array<string> }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 21 dynamic
+   */
   uris?: Array<string>;
+}
+
+/**
+ * UpdatablePickerConfigs
+ *
+ * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+ * @atomicservice
+ * @since 22 dynamic
+ */
+export declare class UpdatablePickerConfigs {
+  /**
+   * The type of the file in the recent photo window.
+   *
+   * @type { ?photoAccessHelper.PhotoViewMIMETypes }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  mimeType?: photoAccessHelper.PhotoViewMIMETypes;
+
+  /**
+   * Media file filtering configuration.
+   *
+   * @type { ?photoAccessHelper.MimeTypeFilter }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  mimeTypeFilter?: photoAccessHelper.MimeTypeFilter;
+
+  /**
+   * Maximum number of assets for a single selection.
+   *
+   * @type { ?int }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  maxSelectNumber?: int;
+
+  /**
+   * Maximum number of photos for a single selection.
+   *
+   * @type { ?int }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  maxPhotoSelectNumber?: int;
+
+  /**
+   * Maximum number of videos for a single selection.
+   *
+   * @type { ?int }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  maxVideoSelectNumber?: int;
+
+  /**
+   * Select mode of the picker.
+   *
+   * @type { ?SelectMode }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  selectMode?: SelectMode;
+
+  /**
+   * The mode of single selection.
+   *
+   * @type { ?photoAccessHelper.SingleSelectionMode }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  singleSelectionMode?: photoAccessHelper.SingleSelectionMode;
+
+  /**
+   * Support repeat select.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  isRepeatSelectSupported?: boolean;
+
+  /**
+   * The uri for the preselected files.
+   *
+   * @type { ?Array<string> }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  preselectedUris?: Array<string>;
+
+  /**
+   * The checkbox color of the picker.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  checkBoxColor?: string;
+
+  /**
+   * The checkbox text color of the picker.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  checkboxTextColor?: string;
+
+  /**
+   * The background color of the picker.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  backgroundColor?: string;
+
+  /**
+   * Support to set photo browser background color mode.
+   *
+   * @type { ?PickerColorMode }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  photoBrowserBackgroundColorMode?: PickerColorMode;
+
+  /**
+   * Support to set UIComponent color mode.
+   *
+   * @type { ?PickerColorMode  }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  uiComponentColorMode?: PickerColorMode;
+
+  /**
+   * Support setting grid sliding.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  isSlidingSupported?: boolean;
+
+  /**
+   * Grid edge slide effect.
+   *
+   * @type { ?EdgeEffect }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  edgeEffect?: EdgeEffect;
+
+  /**
+   * Moving photo playback mode. Supports up to two modes.
+   *
+   * @type { ?Array<photoAccessHelper.AutoPlayScene> }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  autoPlayScenes?: Array<photoAccessHelper.AutoPlayScene>;
+
+  /**
+   * Only display album contents corresponding to the specified applications.
+   * Use the bundle name to identify the application.
+   *
+   * @type { ?Array<string> }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  appAlbumFilters?: Array<string>;
+}
+
+/**
+ * ClickResult
+ *
+ * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+ * @stagemodelonly
+ * @atomicservice
+ * @since 23 dynamic
+ */
+export declare class ClickResult {
+  /**
+   * Uri of the media file.
+   *
+   * @type { string }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  uri: string;
+
+  /**
+   * Indicates whether the media file is selected.
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  isSelected: boolean;
+}
+
+/**
+ * PickerError
+ *
+ * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+ * @stagemodelonly
+ * @atomicservice
+ * @since 23 dynamic
+ */
+export declare class PickerError {
+  /**
+   * Name of function.
+   *
+   * @type { string }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  functionName: string;
+
+  /**
+   * Code of the error.
+   *
+   * @type { int }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  errorCode: int;
+
+  /**
+   * Message of the error.
+   *
+   * @type { string }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  message: string;
 }
 
 /**
  * DataType represents the type of the data set to picker component
  *
- * @enum { number } DataType
+ * @enum { int } DataType
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @atomicservice
  * @since 12 dynamic
@@ -1158,7 +1273,7 @@ export declare enum DataType {
    * @since 21 dynamic
    */
   SET_SELECTED_INFO = 3,
-  
+
   /**
    * SET_BADGE_CONFIGS. Set badge configs to picker component.
    *
@@ -1166,13 +1281,23 @@ export declare enum DataType {
    * @atomicservice
    * @since 21 dynamic
    */
-  SET_BADGE_CONFIGS = 4
+  SET_BADGE_CONFIGS = 4,
+
+  /**
+   * SET_ITEM_CLICK_RESULT. Set click result to picker component.
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  SET_ITEM_CLICK_RESULT = 5
 }
 
 /**
  * ItemType. include CAMERA and THUMBNAIL
  *
- * @enum { number } ItemType
+ * @enum { int } ItemType
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @atomicservice
  * @since 12 dynamic
@@ -1200,7 +1325,7 @@ export declare enum ItemType {
 /**
  * ClickType. include SELECTED and DESELECTED
  *
- * @enum { number } ClickType
+ * @enum { int } ClickType
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @atomicservice
  * @since 12 dynamic
@@ -1228,7 +1353,7 @@ export declare enum ClickType {
 /**
  * PickerOrientation. include VERTICAL and HORIZONTAL
  *
- * @enum { number } PickerOrientation
+ * @enum { int } PickerOrientation
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @atomicservice
  * @since 12 dynamic
@@ -1256,7 +1381,7 @@ export declare enum PickerOrientation {
 /**
  * SelectMode. include SINGLE_SELECT and MULTI_SELECT
  *
- * @enum { number } SelectMode
+ * @enum { int } SelectMode
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @atomicservice
  * @since 12 dynamic
@@ -1284,7 +1409,7 @@ export declare enum SelectMode {
 /**
  * PickerColorMode. include AUTO, LIGHT and DARK
  *
- * @enum { number } PickerColorMode
+ * @enum { int } PickerColorMode
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @atomicservice
  * @since 12 dynamic
@@ -1321,7 +1446,7 @@ export declare enum PickerColorMode {
 /**
  * ReminderMode, include NONE, TOAST and MASK
  *
- * @enum { number } ReminderMode
+ * @enum { int } ReminderMode
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @atomicservice
  * @since 12 dynamic
@@ -1358,7 +1483,7 @@ export declare enum ReminderMode {
 /**
  * MaxCountType. include TOTAL_MAX_COUNT, PHOTO_MAX_COUNT and VIDEO_MAX_COUNT
  *
- * @enum { number } MaxCountType
+ * @enum { int } MaxCountType
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @atomicservice
  * @since 12 dynamic
@@ -1395,7 +1520,7 @@ export declare enum MaxCountType {
 /**
  * PhotoBrowserRange. include ALL and SELECTED_ONLY
  *
- * @enum { number } PhotoBrowserRange
+ * @enum { int } PhotoBrowserRange
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @atomicservice
  * @since 12 dynamic
@@ -1417,13 +1542,13 @@ export declare enum PhotoBrowserRange {
    * @atomicservice
    * @since 12 dynamic
    */
-  SELECTED_ONLY = 1,
+  SELECTED_ONLY = 1
 }
 
 /**
  * PhotoBrowserUIElement. include CHECKBOX and BACK_BUTTON
  *
- * @enum { number } PhotoBrowserUIElement
+ * @enum { int } PhotoBrowserUIElement
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @atomicservice
  * @since 13 dynamic
@@ -1449,56 +1574,9 @@ export declare enum PhotoBrowserUIElement {
 }
 
 /**
- * Enumeration type of save mode.
- *
- * @enum { number } SaveMode
- * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
- * @atomicservice
- * @since 15 dynamic
- */
-export declare enum SaveMode {
-  /**
-   * Save as a new photo/video.
-   *
-   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @atomicservice
-   * @since 15 dynamic
-   */
-  SAVE_AS = 0,
-
-  /**
-   * Overwrite and save.
-   *
-   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @atomicservice
-   * @since 15 dynamic
-   */
-  OVERWRITE = 1
-}
-
-/**
- * BadgeType.
- *
- * @enum { int } BadgeType
- * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
- * @atomicservice
- * @since 21 dynamic
- */
-export declare enum BadgeType {
-  /**
-   * BADGE_UPLOADED. Asset uploaded.
-   *
-   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @atomicservice
-   * @since 21 dynamic
-   */
-  BADGE_UPLOADED = 0
-}
-
-/**
  * VideoPlayerState. include PLAYING, PAUSED, STOPPED, SEEK_START and SEEK_FINISH
  *
- * @enum { number } VideoPlayerState
+ * @enum { int } VideoPlayerState
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @atomicservice
  * @since 14 dynamic
@@ -1522,7 +1600,7 @@ export declare enum VideoPlayerState {
    */
   PAUSED = 1,
 
-   /**
+  /**
    * STOPPED. video is stopped
    *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -1531,7 +1609,7 @@ export declare enum VideoPlayerState {
    */
   STOPPED = 2,
 
-   /**
+  /**
    * SEEK_START. seek drag is start
    *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -1540,7 +1618,7 @@ export declare enum VideoPlayerState {
    */
   SEEK_START = 3,
 
-   /**
+  /**
    * SEEK_FINISH. seek drag is finish
    *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -1551,9 +1629,38 @@ export declare enum VideoPlayerState {
 }
 
 /**
+ * Enumeration type of save mode.
+ *
+ * @enum { int } SaveMode
+ * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+ * @atomicservice
+ * @since 15 dynamic
+ */
+export declare enum SaveMode {
+
+  /**
+   * Save as a new photo/video.
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 15 dynamic
+   */
+  SAVE_AS = 0,
+
+  /**
+   * Overwrite and save.
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 15 dynamic
+   */
+  OVERWRITE = 1
+}
+
+/**
  * Enumerates the aspect ratios of the grid item display, including 1:1 and the original image's aspect ratio.
  *
- * @enum { number } Grid item display aspect ratio.
+ * @enum { int } Grid item display aspect ratio.
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @atomicservice
  * @since 20 dynamic
@@ -1577,24 +1684,148 @@ export declare enum ItemDisplayRatio {
    */
   ORIGINAL_SIZE_RATIO = 1
 }
+
 /**
-  * The callback of onScrollStopAtStart event
-  *
-  * @typedef { function } ScrollStopAtStartCallback
-  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-  * @stagemodelonly
-  * @atomicservice
-  * @since 23 dynamic&static
-  */
+ * BadgeType.
+ *
+ * @enum { int } BadgeType
+ * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+ * @atomicservice
+ * @since 21 dynamic
+ */
+export declare enum BadgeType {
+  /**
+   * BADGE_UPLOADED. Asset uploaded.
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 21 dynamic
+   */
+  BADGE_UPLOADED = 0
+}
+
+/**
+ * The callback of onSelectedItemsDeleted event
+ *
+ * @typedef { function } ItemsDeletedCallback
+ * @param { Array<BaseItemInfo> }
+ * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+ * @atomicservice
+ * @since 13 dynamic
+ */
+export type ItemsDeletedCallback = (baseItemInfos: Array<BaseItemInfo>) => void;
+
+/**
+ * The callback of onExceedMaxSelected event
+ *
+ * @typedef { function } ItemsDeletedCallback
+ * @param { MaxCountType }
+ * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+ * @atomicservice
+ * @since 13 dynamic
+ */
+export type ExceedMaxSelectedCallback = (exceedMaxCountType: MaxCountType) => void;
+
+/**
+ * The callback of onCurrentAlbumDeleted event
+ *
+ * @typedef { function } CurrentAlbumDeletedCallback
+ * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+ * @atomicservice
+ * @since 13 dynamic
+ */
+export type CurrentAlbumDeletedCallback = () => void;
+
+/**
+ * The callback of onVideoPlayStateChanged event
+ *
+ * @typedef { function } videoPlayStateChangedCallback
+ * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+ * @atomicservice
+ * @since 14 dynamic
+ */
+export type videoPlayStateChangedCallback = (state: VideoPlayerState) => void;
+
+/**
+ * The callback of onMovingPhotoBadgeStateChanged event
+ *
+ * @typedef { function } MovingPhotoBadgeStateChangedCallback
+ * @param { string } uri
+ * @param { photoAccessHelper.MovingPhotoBadgeStateType } state
+ * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+ * @atomicservice
+ * @since 22 dynamic
+ */
+export type MovingPhotoBadgeStateChangedCallback = 
+  (uri: string, state: photoAccessHelper.MovingPhotoBadgeStateType) => void;
+
+/**
+ * The callback of onScrollStopAtStart event
+ *
+ * @typedef { function } ScrollStopAtStartCallback
+ * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+ * @stagemodelonly
+ * @atomicservice
+ * @since 23 dynamic
+ */
 export type ScrollStopAtStartCallback = () => void;
 
 /**
-  * The callback of onScrollStopAtEnd event
-  *
-  * @typedef { function } ScrollStopAtEndCallback
-  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-  * @stagemodelonly
-  * @atomicservice
-  * @since 23 dynamic&static
-  */
+ * The callback of onScrollStopAtEnd event
+ *
+ * @typedef { function } ScrollStopAtEndCallback
+ * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+ * @stagemodelonly
+ * @atomicservice
+ * @since 23 dynamic
+ */
 export type ScrollStopAtEndCallback = () => void;
+
+/**
+ * The callback of onItemClickedNotify event
+ *
+ * @typedef { function } ItemClickedNotifyCallback
+ * @param { ItemInfo } itemInfo
+ * @param { ClickType } clickType
+ * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+ * @stagemodelonly
+ * @atomicservice
+ * @since 23 dynamic
+ */
+export type ItemClickedNotifyCallback = (itemInfo: ItemInfo, clickType: ClickType) => void;
+
+/**
+ * The callback of onPinchGridSwitched event
+ *
+ * @typedef { function } PinchGridSwitchedCallback
+ * @param { photoAccessHelper.GridLevel } gridLevel
+ * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+ * @stagemodelonly
+ * @atomicservice
+ * @since 23 dynamic
+ */
+export type PinchGridSwitchedCallback = (gridLevel: photoAccessHelper.GridLevel) => void;
+
+/**
+ * The callback of onPhotoBrowserChangeStart event
+ *
+ * @typedef { function } PhotoBrowserChangeStartCallback
+ * @param { BaseItemInfo } targetPhotoInfo
+ * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+ * @stagemodelonly
+ * @atomicservice
+ * @since 23 dynamic
+ */
+export type PhotoBrowserChangeStartCallback = (targetPhotoInfo: BaseItemInfo) => void;
+
+/**
+ * The callback of onError event
+ *
+ * @typedef { function } ErrorCallback
+ * @param { PickerError } pickerError
+ * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+ * @stagemodelonly
+ * @atomicservice
+ * @since 23 dynamic
+ */
+export type ErrorCallback = (pickerError: PickerError) => void;

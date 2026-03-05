@@ -25,7 +25,7 @@ import { AsyncCallback } from './@ohos.base';
  *
  * @namespace workScheduler
  * @syscap SystemCapability.ResourceSchedule.WorkScheduler
- * @StageModelOnly
+ * @stagemodelonly
  * @since 9 dynamic
  * @since 23 static
  */
@@ -35,7 +35,7 @@ declare namespace workScheduler {
    *
    * @interface WorkInfo
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9 dynamic
    * @since 23 static
    */
@@ -45,7 +45,7 @@ declare namespace workScheduler {
      *
      * @type { int }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9 dynamic
      * @since 23 static
      */
@@ -55,7 +55,7 @@ declare namespace workScheduler {
      *
      * @type { string }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9 dynamic
      * @since 23 static
      */
@@ -65,7 +65,7 @@ declare namespace workScheduler {
      *
      * @type { string }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9 dynamic
      * @since 23 static
      */
@@ -75,7 +75,7 @@ declare namespace workScheduler {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9 dynamic
      * @since 23 static
      */
@@ -85,7 +85,7 @@ declare namespace workScheduler {
      *
      * @type { ?NetworkType }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9 dynamic
      * @since 23 static
      */
@@ -95,7 +95,7 @@ declare namespace workScheduler {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9 dynamic
      * @since 23 static
      */
@@ -105,7 +105,7 @@ declare namespace workScheduler {
      *
      * @type { ?ChargingType }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9 dynamic
      * @since 23 static
      */
@@ -115,7 +115,7 @@ declare namespace workScheduler {
      *
      * @type { ?int }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9 dynamic
      * @since 23 static
      */
@@ -125,7 +125,7 @@ declare namespace workScheduler {
      *
      * @type { ?BatteryStatus }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9 dynamic
      * @since 23 static
      */
@@ -135,7 +135,7 @@ declare namespace workScheduler {
      *
      * @type { ?StorageRequest }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9 dynamic
      * @since 23 static
      */
@@ -145,7 +145,7 @@ declare namespace workScheduler {
      *
      * @type { ?int }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9 dynamic
      * @since 23 static
      */
@@ -155,7 +155,7 @@ declare namespace workScheduler {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9 dynamic
      * @since 23 static
      */
@@ -165,7 +165,7 @@ declare namespace workScheduler {
      *
      * @type { ?int }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9 dynamic
      * @since 23 static
      */
@@ -175,7 +175,7 @@ declare namespace workScheduler {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9 dynamic
      * @since 23 static
      */
@@ -185,7 +185,7 @@ declare namespace workScheduler {
      *
      * @type { ?int }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9 dynamic
      * @since 23 static
      */
@@ -195,7 +195,7 @@ declare namespace workScheduler {
      *
      * @type { ?Record<string, int | double | string | boolean> }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9 dynamic
      * @since 23 static
      */
@@ -205,8 +205,9 @@ declare namespace workScheduler {
      *
      * @type { ?int }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 22 dynamic
+     * @since 23 static
      */
     earliestStartTime?: int;
   }
@@ -225,7 +226,7 @@ declare namespace workScheduler {
    * @throws { BusinessError } 9700004 - Check on workInfo failed.
    * @throws { BusinessError } 9700005 - Calling startWork failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9 dynamic
    * @since 23 static
    */
@@ -244,7 +245,7 @@ declare namespace workScheduler {
    * @throws { BusinessError } 9700003 - System service operation failed.
    * @throws { BusinessError } 9700004 - Check on workInfo failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9 dynamic
    * @since 23 static
    */
@@ -262,7 +263,7 @@ declare namespace workScheduler {
    * @throws { BusinessError } 9700003 - System service operation failed.
    * @throws { BusinessError } 9700004 - Check on workInfo failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9 dynamic
    * @since 23 static
    */
@@ -280,7 +281,7 @@ declare namespace workScheduler {
    * @throws { BusinessError } 9700003 - System service operation failed.
    * @throws { BusinessError } 9700004 - Check on workInfo failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9 dynamic
    * @since 23 static
    */
@@ -298,7 +299,7 @@ declare namespace workScheduler {
    * <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 9700003 - System service operation failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9 dynamiconly
    * @deprecated since 10
    * @useinstead ohos.resourceschedule.workScheduler#obtainAllWorks
@@ -316,7 +317,7 @@ declare namespace workScheduler {
    * <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 9700003 - System service operation failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10 dynamic
    * @since 23 static
    */
@@ -333,7 +334,7 @@ declare namespace workScheduler {
    * <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 9700003 - System service operation failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9 dynamic
    * @since 23 static
    */
@@ -349,7 +350,7 @@ declare namespace workScheduler {
    * <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 9700003 - System service operation failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9 dynamic
    * @since 23 static
    */
@@ -368,7 +369,7 @@ declare namespace workScheduler {
    * @throws { BusinessError } 9700003 - System service operation failed.
    * @throws { BusinessError } 9700004 - Check on workInfo failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9 dynamiconly
    * @deprecated since 10
    * @useinstead ohos.resourceschedule.workScheduler#isLastWorkTimeOut
@@ -387,7 +388,7 @@ declare namespace workScheduler {
    * @throws { BusinessError } 9700003 - System service operation failed.
    * @throws { BusinessError } 9700004 - Check on workInfo failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10 dynamic
    * @since 23 static
    */
@@ -405,7 +406,7 @@ declare namespace workScheduler {
    * @throws { BusinessError } 9700003 - System service operation failed.
    * @throws { BusinessError } 9700004 - Check on workInfo failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9 dynamic
    * @since 23 static
    */
@@ -416,7 +417,7 @@ declare namespace workScheduler {
    *
    * @enum { int }
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9 dynamic
    * @since 23 static
    * @name NetworkType
@@ -426,7 +427,7 @@ declare namespace workScheduler {
      * Describes any network connection.
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9 dynamic
      * @since 23 static
      */
@@ -435,7 +436,7 @@ declare namespace workScheduler {
      * Describes a mobile network connection.
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9 dynamic
      * @since 23 static
      */
@@ -444,7 +445,7 @@ declare namespace workScheduler {
      * Describes a wifi network connection.
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9 dynamic
      * @since 23 static
      */
@@ -453,7 +454,7 @@ declare namespace workScheduler {
      * Describes a bluetooth network connection.
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9 dynamic
      * @since 23 static
      */
@@ -462,7 +463,7 @@ declare namespace workScheduler {
      * Describes a wifi p2p network connection.
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9 dynamic
      * @since 23 static
      */
@@ -471,7 +472,7 @@ declare namespace workScheduler {
      * Describes a wifi wire network connection.
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9 dynamic
      * @since 23 static
      */
@@ -483,7 +484,7 @@ declare namespace workScheduler {
    *
    * @enum { int }
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9 dynamic
    * @since 23 static
    * @name ChargingType
@@ -493,7 +494,7 @@ declare namespace workScheduler {
      * Describes any charger is connected.
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9 dynamic
      * @since 23 static
      */
@@ -502,7 +503,7 @@ declare namespace workScheduler {
      * Describes ac charger is connected.
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9 dynamic
      * @since 23 static
      */
@@ -511,7 +512,7 @@ declare namespace workScheduler {
      * Describes usb charger is connected.
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9 dynamic
      * @since 23 static
      */
@@ -520,7 +521,7 @@ declare namespace workScheduler {
      * Describes wireless charger is connected.
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9 dynamic
      * @since 23 static
      */
@@ -532,7 +533,7 @@ declare namespace workScheduler {
    *
    * @enum { int }
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9 dynamic
    * @since 23 static
    * @name BatteryStatus
@@ -542,7 +543,7 @@ declare namespace workScheduler {
      * Describes battery status is to low.
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9 dynamic
      * @since 23 static
      */
@@ -551,7 +552,7 @@ declare namespace workScheduler {
      * Describes battery status is to ok.
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9 dynamic
      * @since 23 static
      */
@@ -560,7 +561,7 @@ declare namespace workScheduler {
      * Describes battery status is to low or ok.
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9 dynamic
      * @since 23 static
      */
@@ -572,7 +573,7 @@ declare namespace workScheduler {
    *
    * @enum { int }
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9 dynamic
    * @since 23 static
    * @name StorageRequest
@@ -582,7 +583,7 @@ declare namespace workScheduler {
      * Describes storage is to low.
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9 dynamic
      * @since 23 static
      */
@@ -591,7 +592,7 @@ declare namespace workScheduler {
      * Describes storage is to ok.
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9 dynamic
      * @since 23 static
      */
@@ -600,7 +601,7 @@ declare namespace workScheduler {
      * Describes storage is to low or ok.
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9 dynamic
      * @since 23 static
      */

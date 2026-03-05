@@ -26,6 +26,7 @@
  * @param { any[] } arguments - Indicates additional arguments to pass to "handler" when the timer goes off.
  * @returns { number } Returns the timer ID.
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
+ * @famodelonly
  * @since 5 dynamiconly
  */
 export declare function setInterval(
@@ -43,6 +44,7 @@ export declare function setInterval(
  * @param { any[] } arguments - Indicates additional arguments to pass to "handler" when the timer goes off.
  * @returns { number } Returns the timer ID.
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
+ * @famodelonly
  * @since 5 dynamiconly
  */
 export declare function setTimeout(
@@ -56,6 +58,7 @@ export declare function setTimeout(
  *
  * @param { number } [intervalID] - Indicates the timer ID returned by "setInterval()".
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
+ * @famodelonly
  * @since 5 dynamiconly
  */
 export declare function clearInterval(intervalID?: number): void;
@@ -65,6 +68,7 @@ export declare function clearInterval(intervalID?: number): void;
  *
  * @param { number } [timeoutID] - Indicates the timer ID returned by "setTimeout()".
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
+ * @famodelonly
  * @since 5 dynamiconly
  */
 export declare function clearTimeout(timeoutID?: number): void;
@@ -77,7 +81,8 @@ export declare function clearTimeout(timeoutID?: number): void;
  * @returns { any } A promise object is returned. The resolve callback is the object of PA.
  * The reject callback returns the object containing code and error data.
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
- * @since 5 dynamic
+ * @famodelonly
+ * @since 5 dynamiconly
  * @deprecated since 8
  */
 export declare function createLocalParticleAbility(name?: string): any;
@@ -86,6 +91,7 @@ export declare function createLocalParticleAbility(name?: string): any;
  * Conditional compilation for rich equipment
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
+ * @famodelonly
  * @since 5 dynamiconly
  */
 export declare const STANDARD: string;
@@ -94,6 +100,7 @@ export declare const STANDARD: string;
  * Conditional compilation for lite equipment
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
+ * @famodelonly
  * @since 5 dynamiconly
  */
 export declare const LITE: string;
@@ -104,6 +111,7 @@ export declare const LITE: string;
  * @param { string } syscap
  * @returns { boolean }
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
+ * @famodelonly
  * @since 8 dynamiconly
  */
 export declare function canIUse(syscap: string): boolean;
@@ -113,6 +121,31 @@ export declare function canIUse(syscap: string): boolean;
  *
  * @returns { object }
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
+ * @famodelonly
  * @since 10 dynamiconly
  */
 export declare function getApp(): object;
+
+/**
+ * Sets a digital crown events listener for current page, only be supported on the devices supporting digital crown.
+ * Please be awared, the listener will be removed automaticlly if the current page is pushed back or
+ * replaced, so it's recommaned to call this function in the onShow lifecycle callback of the page.
+ * And only one listener can be set for current page, the system will use the listener passed in through the
+ * latest calling of this function.
+ * Do not use this function in app.js, the behavior is undefined.
+ *
+ * @param { Function } handler - Indicates the function to be called when the crown event trigger.
+ * @syscap SystemCapability.ArkUI.ArkUI.Lite
+ * @famodelonly
+ * @since 24 dynamiconly
+ */
+export declare function setMonitorForCrownEvents(handler: Function): void;
+
+/**
+ * Removes the digital crown events monitor function.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Lite
+ * @famodelonly
+ * @since 24 dynamiconly
+ */
+export declare function clearMonitorForCrownEvents(): void;

@@ -324,7 +324,7 @@ declare class TreeSet<T> {
    * Gets the first elements in a set
    *
    * @returns { T } value or undefined
-   * @throws { BusinessError } 10200010 - Container is empty.
+   * @throws { BusinessError } 10200010 - Container is empty.[staticonly]
    * @throws { BusinessError } 10200011 - The getFirstValue method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
@@ -354,7 +354,7 @@ declare class TreeSet<T> {
    * Gets the last elements in a set
    *
    * @returns { T } value or undefined
-   * @throws { BusinessError } 10200010 - Container is empty.
+   * @throws { BusinessError } 10200010 - Container is empty.[staticonly]
    * @throws { BusinessError } 10200011 - The getLastValue method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
@@ -476,7 +476,7 @@ declare class TreeSet<T> {
    * Return and delete the first element, returns undefined if tree set is empty
    *
    * @returns { T } first value or undefined
-   * @throws { BusinessError } 10200010 - Container is empty.
+   * @throws { BusinessError } 10200010 - Container is empty.[staticonly]
    * @throws { BusinessError } 10200011 - The popFirst method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
@@ -506,7 +506,7 @@ declare class TreeSet<T> {
    * Return and delete the last element, returns undefined if tree set is empty
    *
    * @returns { T } last value or undefined
-   * @throws { BusinessError } 10200010 - Container is empty.
+   * @throws { BusinessError } 10200010 - Container is empty.[staticonly]
    * @throws { BusinessError } 10200011 - The popLast method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform

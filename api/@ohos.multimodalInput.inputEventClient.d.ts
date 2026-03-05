@@ -219,9 +219,9 @@ declare namespace inputEventClient {
   function injectKeyEvent(keyEvent: KeyEventData): void;
 
    /**
-   * Inject system keys.
+   * Injects keys (including single keys and combination keys).
    *
-   * @param { { KeyEvent } } KeyEvent - the key event to be injected.
+   * @param { { KeyEvent } } KeyEvent - Key event to inject.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
@@ -229,18 +229,20 @@ declare namespace inputEventClient {
    * @since 8
    */
   /**
-   * Inject system keys.
+   * Injects keys (including single keys and combination keys).
    *
    * @permission ohos.permission.INJECT_INPUT_EVENT
-   * @param { { KeyEvent } } KeyEvent - the key event to be injected.
+   * @param { { KeyEvent } } KeyEvent - Key event to inject.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
    * @systemapi hide for inner use
-   * @since 12
+   * @since 12 dynamic
    */
+  function injectEvent({ KeyEvent: KeyEvent }): void;
+
   /**
    * Inject system keys.
    *
@@ -249,10 +251,10 @@ declare namespace inputEventClient {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
    * @systemapi hide for inner use
-   * @since 23 dynamic&static
+   * @since 23 static
    */
   function injectEvent(keyEvent: KeyEventInfo): void;
 

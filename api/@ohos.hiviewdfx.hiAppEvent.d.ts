@@ -2711,6 +2711,98 @@ declare namespace hiAppEvent {
   }
 
   /**
+   * Definition of application crash event policy
+   *
+   * @interface AppCrashPolicy
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @FaAndStageModel
+   * @atomicservice
+   * @since 24 dynamic&static
+   */
+  interface AppCrashPolicy {
+    /**
+     * The policy for APP_CRASH event
+     * Enable page switch log. Default value is false.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @FaAndStageModel
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    pageSwitchLogEnable?: boolean;
+  }
+
+  /**
+   * Definition of application freeze event policy
+   *
+   * @interface AppFreezePolicy
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @FaAndStageModel
+   * @atomicservice
+   * @since 24 dynamic&static
+   */
+  interface AppFreezePolicy {
+    /**
+     * The policy for APP_FREEZE event
+     * Enable page switch log. Default value is false.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @FaAndStageModel
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    pageSwitchLogEnable?: boolean;
+  }
+
+  /**
+   * Definition of application resource leakage event policy
+   *
+   * @interface ResourceOverlimitPolicy
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @FaAndStageModel
+   * @atomicservice
+   * @since 24 dynamic&static
+   */
+  interface ResourceOverlimitPolicy {
+    /**
+     * The policy for RESOURCE_OVERLIMIT event
+     * Enable page switch log. Default value is false.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @FaAndStageModel
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    pageSwitchLogEnable?: boolean;
+  }
+
+  /**
+   * Definition of address sanitizer event policy
+   *
+   * @interface AddressSanitizerPolicy
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @FaAndStageModel
+   * @atomicservice
+   * @since 24 dynamic&static
+   */
+  interface AddressSanitizerPolicy {
+    /**
+     * The policy for ADDRESS_SANITIZER event
+     * Enable page switch log. Default value is false.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @FaAndStageModel
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    pageSwitchLogEnable?: boolean;
+  }
+
+  /**
    * Definition of event policy
    *
    * @interface EventPolicy
@@ -2741,6 +2833,50 @@ declare namespace hiAppEvent {
      * @since 23 static
      */
     cpuUsageHighPolicy?: CpuUsageHighPolicy;
+
+    /**
+     * The policy for APP_CRASH event
+     *
+     * @type { ?AppCrashPolicy }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @FaAndStageModel
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    appCrashPolicy?: AppCrashPolicy;
+
+    /**
+     * The policy for APP_FREEZE event
+     *
+     * @type { ?AppFreezePolicy }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @FaAndStageModel
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    appFreezePolicy?: AppFreezePolicy;
+
+    /**
+     * The policy for RESOURCE_OVERLIMIT event
+     *
+     * @type { ?ResourceOverlimitPolicy }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @FaAndStageModel
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    resourceOverlimitPolicy?: ResourceOverlimitPolicy;
+
+    /**
+     * The policy for ADDRESS_SANITIZER event
+     *
+     * @type { ?AddressSanitizerPolicy }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @FaAndStageModel
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    addressSanitizerPolicy?: AddressSanitizerPolicy;
   }
 
   /**

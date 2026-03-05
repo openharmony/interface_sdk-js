@@ -379,7 +379,6 @@ declare namespace connection {
    * If both p192Data and p256Data are used simultaneously, p256Data takes effect.
    *
    * @permission ohos.permission.ACCESS_BLUETOOTH
-   * @param { BluetoothAddress } deviceId - Indicates address of remote Bluetooth device.
    * @param { BluetoothTransport } transport - Indicates the transport of a remote Bluetooth device.
    * @param { OobData | null } p192Data - The out-of-band data (P192), or null if not available.
    * @param { OobData | null } p256Data - The out-of-band data (P256), or null if not available.
@@ -391,10 +390,11 @@ declare namespace connection {
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
+   * @stagemodelonly
    * @since 23 dynamic&static
    */
-  function pairDeviceOutOfBand(deviceId: BluetoothAddress, transport: BluetoothTransport,
-    p192Data: OobData | null, p256Data: OobData | null): Promise<void>;
+  function pairDeviceOutOfBand(transport: BluetoothTransport, p192Data: OobData | null,
+    p256Data: OobData | null): Promise<void>;
 
   /**
    * Remove a paired remote device.
@@ -820,6 +820,7 @@ declare namespace connection {
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 10 dynamic
+   * @since 23 static
    * @deprecated since 12
    */
   function setLocalName(name: string): void;
@@ -1430,6 +1431,23 @@ declare namespace connection {
    */
   function updateCloudBluetoothDevice(trustedPairedDevices: TrustedPairedDevices): Promise<void>;
 
+  /**
+   * Generate out-of-band data of the local device.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @param { BluetoothTransport } transport - Indicates the transport of a remote Bluetooth device.
+   * @returns { Promise<OobData> } Returns the out-of-band data.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900003 - Bluetooth disabled.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function generateLocalOobData(transport: BluetoothTransport): Promise<OobData>;
 
   /**
    * Subscribe the event reported when a remote Bluetooth device is discovered.
@@ -3096,15 +3114,27 @@ declare namespace connection {
    * @typedef OobData
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
+   * @stagemodelonly
    * @since 23 dynamic&static
    */
   interface OobData {
+    /**
+     * The address of remote Bluetooth device.
+     *
+     * @type { BluetoothAddress }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    deviceId: BluetoothAddress;
     /**
      * Confirmation data in OOB pairing, with a size of 16 octets.
      *
      * @type { Uint8Array }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 23 dynamic&static
      */
     confirmationHash: Uint8Array;
@@ -3114,6 +3144,7 @@ declare namespace connection {
      * @type { ?Uint8Array }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 23 dynamic&static
      */
     randomizerHash?: Uint8Array;
@@ -3123,9 +3154,67 @@ declare namespace connection {
      * @type { ?string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 23 dynamic&static
      */
     deviceName?: string;
+    /**
+     * The role of the remote Bluetooth device.
+     *
+     * @type { ?DeviceRole }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    deviceRole?: DeviceRole;
+  }
+  /**
+   * Enum for the role of device.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  enum DeviceRole {
+    /**
+     * Only peripheral supported.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    DEVICE_ROLE_PERIPHERAL_ONLY = 0,
+    /**
+     * Only central supported.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    DEVICE_ROLE_CENTRAL_ONLY = 1,
+    /**
+     * Central & peripheral supported, peripheral preferred.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    DEVICE_ROLE_BOTH_PREFER_PERIPHERAL = 2,
+    /**
+     * Central & peripheral supported, central preferred.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    DEVICE_ROLE_BOTH_PREFER_CENTRAL = 3
   }
 }
 export default connection;

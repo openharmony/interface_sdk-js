@@ -208,7 +208,7 @@ declare namespace serialManager {
   /**
    * Writes data to a serial port device. This API uses a promise to return the result.
    * @param { int} portId ID of the target device. For details, see <b>SerialPort.portId</b>.
-   * @param { Uint8Array } buffer Buffer for storing the data written, with a maximum length of 128 KB.
+   * @param { Uint8Array } buffer Buffer for storing the data written, with a maximum length of 4 KB.
    * @param { int } timeout Timeout duration for writing data. The value is a non-negative number.
    * The default value <b class="+ topic/ph hi-d/b " id="b2661577365">0</b> indicates that there is no time limit for data writing.
    * @returns { Promise<int> } Promise used to return the length of the data written.
@@ -230,7 +230,7 @@ declare namespace serialManager {
   /**
    * Writes data to a serial port device. This API returns the result synchronously.
    * @param { int} portId ID of the target device. For details, see <b>SerialPort.portId</b>.
-   * @param { Uint8Array } buffer Buffer for storing the data written, with a maximum length of 128 KB.
+   * @param { Uint8Array } buffer Buffer for storing the data written, with a maximum length of 4 KB.
    * @param { int } timeout Timeout duration for writing data. The value is a non-negative number.
    * The default value <b class="+ topic/ph hi-d/b " id="b45639213380">0</b> indicates that there is no time limit for data writing.
    * @returns { int } Length of the data written.

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 Huawei Device Co., Ltd.
+ * Copyright (c) 2024-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -40,7 +40,7 @@ declare namespace uniformDataStruct {
   interface PlainText {
     /**
      * Indicates the uniform data type of this data struct.
-     * 
+     *
      * @type { 'general.plain-text' }
      * @readonly
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -89,7 +89,7 @@ declare namespace uniformDataStruct {
      * @since 12 dynamic
      * @since 23 static
      */
-     details?: Record<string, string>;
+    details?: Record<string, string>;
   }
 
   /**
@@ -103,7 +103,7 @@ declare namespace uniformDataStruct {
   interface Hyperlink {
     /**
      * Indicates the uniform data type of this data struct.
-     * 
+     *
      * @type { 'general.hyperlink' }
      * @readonly
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -143,7 +143,7 @@ declare namespace uniformDataStruct {
      * @since 12 dynamic
      * @since 23 static
      */
-     details?: Record<string, string>;
+    details?: Record<string, string>;
   }
 
   /**
@@ -157,7 +157,7 @@ declare namespace uniformDataStruct {
   interface HTML {
     /**
      * Indicates the uniform data type of this data struct.
-     * 
+     *
      * @type { 'general.html' }
      * @readonly
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -199,7 +199,7 @@ declare namespace uniformDataStruct {
      * @since 12 dynamic
      * @since 23 static
      */
-     details?: Record<string, string>;
+    details?: Record<string, string>;
   }
 
   /**
@@ -213,7 +213,7 @@ declare namespace uniformDataStruct {
   interface OpenHarmonyAppItem {
     /**
      * Uniform data type, which has a fixed value of openharmony.app-item. For details, see UniformDataType.
-     * 
+     *
      * @type { 'openharmony.app-item' }
      * @readonly
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core

@@ -117,6 +117,10 @@ import AppServiceExtensionAbility from '@ohos.app.ability.AppServiceExtensionAbi
 import kioskManager from '@ohos.app.ability.kioskManager';
 import CompletionHandlerForAtomicService, { FailureCode } from '@ohos.app.ability.CompletionHandlerForAtomicService';
 import { CompletionHandlerForAbilityStartCallback, AbilityStartFailureCode } from '@ohos.app.ability.CompletionHandlerForAbilityStartCallback';
+import systemConfiguration from '@ohos.app.ability.systemConfiguration';
+import AgentExtensionAbility from '@ohos.app.agent.AgentExtensionAbility';
+import AgentUIExtensionAbility from '@ohos.app.agent.AgentUIExtensionAbility';
+import agentManager from '@ohos.app.agent.agentManager';
 
 export {
   Ability, AbilityConstant, AbilityLifecycleCallback, AbilityStage, ActionExtensionAbility,
@@ -137,7 +141,8 @@ export {
   sendableContextManager, PhotoEditorExtensionAbility, UIServiceExtensionAbility, shortcutManager, application, appDomainVerify,
   InsightIntentLink, InsightIntentPage, InsightIntentFunctionMethod, InsightIntentFunction, InsightIntentEntryExecutor,
   InsightIntentEntry, LinkParamCategory, CompletionHandler, AppServiceExtensionAbility, InsightIntentForm, InsightIntentEntity, kioskManager,
-  CompletionHandlerForAtomicService, CompletionHandlerForAbilityStartCallback, AbilityStartFailureCode, FailureCode, InteropAbilityLifecycleCallback
+  CompletionHandlerForAtomicService, CompletionHandlerForAbilityStartCallback, AbilityStartFailureCode, FailureCode, InteropAbilityLifecycleCallback,
+  systemConfiguration, AgentExtensionAbility, AgentUIExtensionAbility, agentManager
 };
 
 /*** if arkts static */
@@ -189,8 +194,6 @@ import Ability from '@ohos.app.ability.Ability';
 import AbilityLifecycleCallback from '@ohos.app.ability.AbilityLifecycleCallback';
 import ApplicationStateChangeCallback from '@ohos.app.ability.ApplicationStateChangeCallback';
 import EnvironmentCallback from '@ohos.app.ability.EnvironmentCallback';
-import abilityDelegatorRegistry from '@ohos.app.ability.abilityDelegatorRegistry';
-import TestRunner from '@ohos.application.testRunner';
 import abilityAccessCtrl, {
   Context, PermissionRequestResult, Permissions
 } from '@ohos.abilityAccessCtrl';
@@ -213,12 +216,17 @@ import UIServiceExtensionAbility from '@ohos.app.ability.UIServiceExtensionAbili
 import CompletionHandler from '@ohos.app.ability.CompletionHandler';
 import AppServiceExtensionAbility from '@ohos.app.ability.AppServiceExtensionAbility';
 import kioskManager from '@ohos.app.ability.kioskManager';
+import { CompletionHandlerForAbilityStartCallback, AbilityStartFailureCode } from '@ohos.app.ability.CompletionHandlerForAbilityStartCallback';
 import StartupConfig from '@ohos.app.appstartup.StartupConfig';
 import StartupConfigEntry from '@ohos.app.appstartup.StartupConfigEntry';
 import StartupListener from '@ohos.app.appstartup.StartupListener';
 import StartupTask from '@ohos.app.appstartup.StartupTask';
 import startupManager from '@ohos.app.appstartup.startupManager';
 import PhotoEditorExtensionAbility from '@ohos.app.ability.PhotoEditorExtensionAbility';
+import systemConfiguration from '@ohos.app.ability.systemConfiguration';
+import AgentExtensionAbility from '@ohos.app.agent.AgentExtensionAbility';
+import AgentUIExtensionAbility from '@ohos.app.agent.AgentUIExtensionAbility';
+import agentManager from '@ohos.app.agent.agentManager';
 
 export {
   appControl, bundleManager, bundleMonitor, bundleResourceManager, defaultAppManager, distributedBundleManager,
@@ -230,11 +238,13 @@ export {
   application, appRecovery, autoFillManager, dataUriUtils, dialogSession, insightIntent, insightIntentDriver, insightIntentProvider,
   missionManager, wantAgent, WantAgent, UIAbility, Callee, CalleeCallback, Caller,
   OnReleaseCallback, OnRemoteStateChangeCallback, Ability, AbilityLifecycleCallback, ApplicationStateChangeCallback,
-  EnvironmentCallback, abilityDelegatorRegistry, TestRunner, ExtensionAbility, ShareExtensionAbility, dialogRequest,
+  EnvironmentCallback, ExtensionAbility, ShareExtensionAbility, dialogRequest,
   Context, abilityAccessCtrl, PermissionRequestResult, Permissions, privacyManager,
   ability, ActionExtensionAbility, AutoFillExtensionAbility, autoStartupManager, ChildProcess, childProcessManager,
   ChildProcessArgs, ChildProcessOptions, quickFixManager, businessAbilityRouter, EmbeddedUIExtensionAbility,
   UIServiceExtensionAbility, CompletionHandler, AppServiceExtensionAbility, kioskManager,
-  StartupConfig, StartupConfigEntry, StartupListener, StartupTask, startupManager, PhotoEditorExtensionAbility
+  CompletionHandlerForAbilityStartCallback, AbilityStartFailureCode, StartupConfig, StartupConfigEntry, StartupListener, 
+  StartupTask, startupManager, systemConfiguration, PhotoEditorExtensionAbility, AgentExtensionAbility, 
+  AgentUIExtensionAbility, agentManager
 };
 /*** endif */

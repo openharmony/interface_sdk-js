@@ -522,7 +522,8 @@ declare namespace rdb {
   }
 
   /**
-   * Manages relational database configurations.
+   * Defines the predicates for a Relational Database.
+   * This class determines whether the conditional expression for the Relational Database is true or false.
    *
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 7 dynamiconly
@@ -949,7 +950,7 @@ declare namespace rdb {
    * Configure RdbPredicates to match the specified field whose data type is ValueType array and values
    * are out of a given range.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   export type ResultSet = _ResultSet;
@@ -958,7 +959,7 @@ declare namespace rdb {
 /**
  * Provides methods for rdbStore create and delete.
  * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
- * @since 7 dynamic
+ * @since 7 dynamiconly
  * @deprecated since 9
  */
 export default rdb;

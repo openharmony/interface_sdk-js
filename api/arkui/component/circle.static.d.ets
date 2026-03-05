@@ -18,6 +18,7 @@
  */
 import { CommonShapeMethod, CommonMethod, AttributeModifier } from "./common";
 import { ComponentBuilder, CustomBuilder } from './builder';
+import { Length } from './units';
 
 /**
  * Defines circle options for Circle component.
@@ -30,19 +31,19 @@ export declare interface CircleOptions {
     /**
      * Defines the width property.
      *
-     * @type { ?(string | double) }
+     * @type { ?Length }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
      */
-    width?: string | double;
+    width?: Length;
     /**
      * Defines the height property.
      *
-     * @type { ?(string | double) }
+     * @type { ?Length }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
      */
-    height?: string | double;
+    height?: Length;
 }
 
 /**
@@ -68,14 +69,14 @@ export declare interface CircleAttribute extends CommonShapeMethod {
 /**
  * Circle is returned when the parameter is transferred.
  *
- * @param { CircleOptions } [options] - The options to create a Circle
- * @param { CustomBuilder } [content_]
+ * @param { CircleOptions } [options] - The options to create a Circle.
  * @returns { CircleAttribute } The attribute of the Circle.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
+ * @noninterop
  */
 @ComponentBuilder
 export declare function Circle(
-    options?: CircleOptions, 
-    content_?: CustomBuilder,
-): CircleAttribute
+    options?: CircleOptions
+): CircleAttribute;

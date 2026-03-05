@@ -35,14 +35,19 @@ export {
 };
 
 /*** if arkts static */
+import formAgent from '@ohos.app.form.formAgent';
 import formBindingData from '@ohos.app.form.formBindingData';
 import FormExtensionAbility from '@ohos.app.form.FormExtensionAbility';
 import formInfo from '@ohos.app.form.formInfo';
 import formProvider from '@ohos.app.form.formProvider';
 import formError from '@ohos.application.formError';
 import FormEditExtensionAbility from '@ohos.app.form.FormEditExtensionAbility';
+import LiveFormExtensionAbility, { LiveFormInfo } from '@ohos.app.form.LiveFormExtensionAbility';
+import formObserver from '@ohos.app.form.formObserver';
+import formHost from '@ohos.app.form.formHost';
 
 export {
-  FormExtensionAbility, formBindingData, formError, formInfo, formProvider, FormEditExtensionAbility
+  FormExtensionAbility, formAgent, formBindingData, formError, formInfo, formProvider, FormEditExtensionAbility,
+   LiveFormExtensionAbility, LiveFormInfo, formObserver, formHost
 };
 /*** endif */

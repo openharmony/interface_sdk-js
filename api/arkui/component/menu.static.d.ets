@@ -121,7 +121,6 @@ export declare interface MenuAttribute extends CommonMethod {
     /**
      * Set the expand symbol of sub-menu.
      *
-     * @param { SymbolGlyphModifier | undefined } symbol
      * @param { SymbolGlyphModifier | undefined } symbol - Use SymbolGlyphModifier to display symbol.
      *     Use undefined to display default symbol.
      * @returns { MenuAttribute }

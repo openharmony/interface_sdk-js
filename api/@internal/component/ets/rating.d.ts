@@ -69,6 +69,7 @@ declare interface RatingOptions {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -115,6 +116,7 @@ declare interface RatingOptions {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -174,6 +176,7 @@ declare interface StarStyleOptions {
    *
    * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -221,6 +224,7 @@ declare interface StarStyleOptions {
    *
    * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -268,6 +272,7 @@ declare interface StarStyleOptions {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -305,10 +310,12 @@ declare interface StarStyleOptions {
  *
  * @interface RatingInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
  * @since 11 dynamic
+ * @noninterop
  */
 interface RatingInterface {
   /**
@@ -356,6 +363,7 @@ interface RatingInterface {
    * @param { RatingOptions } [options] - rating options
    * @returns { RatingAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -472,10 +480,12 @@ declare interface RatingConfiguration extends CommonConfiguration<RatingConfigur
  *
  * @extends CommonMethod<RatingAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
  * @since 11 dynamic
+ * @noninterop
  */
 declare class RatingAttribute extends CommonMethod<RatingAttribute> {
   /**
@@ -511,6 +521,7 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
    * @param { number } value
    * @returns { RatingAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -564,6 +575,7 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
    * @param { number } value
    * @returns { RatingAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -629,6 +641,7 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
    * @param { StarStyleOptions } options - star style options
    * @returns { RatingAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -682,6 +695,7 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
    * @param { function } callback
    * @returns { RatingAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -752,6 +766,7 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
  * Defines Rating Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
@@ -784,6 +799,7 @@ declare const Rating: RatingInterface;
  * Defines Rating Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice

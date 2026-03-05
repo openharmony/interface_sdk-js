@@ -34,13 +34,13 @@ export declare interface ContentSlotAttribute {
  * ContentSlot is returned when the parameter is transferred.
  *
  * @param { Content } content - Indicates the class object of NodeContent.
- * @param { CustomBuilder } [content_]
  * @returns { ContentSlotAttribute } The attribute of the ContentSlot.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
+ * @noninterop
  */
 @ComponentBuilder
 export declare function ContentSlot(
-    content: Content, 
-    content_?: CustomBuilder,
+    content: Content
 ): ContentSlotAttribute

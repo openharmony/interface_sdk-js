@@ -447,28 +447,29 @@ declare namespace imageGeneration {
     /**
      * Request AI text generation task to get the generated text.
      *
-     * @param { number } sessionId - The session id for requesting an AI text generation task.
-     *     <br>Value: range: [0, +∞]
+     * @param { int } sessionId - The session id for requesting an AI text generation task.
+     *     <br>Value range: [0, +∞]
      * @param { string } value - Parameters for requesting an AI text generation task.
-     * @param { Callback<GenerateTextTaskPartialResult> } callback - the callback used to return the GenerateTextTaskPartialResult.
+     * @param { Callback<GenerateTextTaskPartialResult> } callback - the callback
+     *     used to return the GenerateTextTaskPartialResult.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
      * @since 23 dynamic
      */
-    requestTextGeneration(sessionId: number, value: string,
+    requestTextGeneration(sessionId: int, value: string,
       callback: Callback<GenerateTextTaskPartialResult>): void;
     /**
      * Cancel AI text generation task.
      *
-     * @param { number } sessionId - The session id for cancel an AI text generation task.
-     *     <br>Value: range: [0, +∞]
+     * @param { int } sessionId - The session id for canceling an AI text generation task.
+     *     <br>Value range:[0, +∞]
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
      * @since 23 dynamic
      */
-    cancelTextGeneration(sessionId: number): void;
+    cancelTextGeneration(sessionId: int): void;
     /**
      * User use complaint menu to complain the result of an AI-generated text task.
      *
@@ -810,6 +811,85 @@ declare namespace imageGeneration {
    * @since 23 dynamic
    */
   function showGeneratorDialog(uiContext: UIContext, options?: GeneratorDialogOptions): Promise<Array<GeneratorResult>>;
+
+  /**
+   * Close the AI image generation task popup.
+   *
+   * @param { UIContext } uiContext - the context of dialog for ui display.
+   * @returns { Promise<void> } - Returns the result of close operation.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic
+   */
+  function closeGeneratorDialog(uiContext: UIContext): Promise<void>;
+
+  /**
+   * Parameters used to open the NodeGraphComponent.
+   *
+   * @interface GeneratorNodeGraphOptions
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic
+   */
+  interface GeneratorNodeGraphOptions {
+    /**
+     * Custom icons used on the AI generated image results page.
+     *
+     * @type { ?Array<GeneratorResultPageIcon> }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic
+     */
+    customIcons?: Array<GeneratorResultPageIcon>;
+    /**
+     * Model used for AI generate image tasks.
+     *
+     * @type { ?ImageGenerationModel }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic
+     */
+    imageGenerationModel?: ImageGenerationModel;
+    /**
+     * Text polishing model used in AI generate image tasks.
+     *
+     * @type { ?TextGenerationModel }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic
+     */
+    textGenerationModel?: TextGenerationModel;
+  }
+
+  /**
+   * Open the AI node graph Sheet.
+   *
+   * @param { UIContext } uiContext - the context of dialog for ui display.
+   * @param { GeneratorNodeGraphOptions } [options] - node graph task parameters.
+   * @returns { Promise<void> } - Returns the result.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic
+   */
+  function openGeneratorNodeGraph(uiContext: UIContext, options?: GeneratorNodeGraphOptions): Promise<void>;
+
+  /**
+   * Close the AI node graph Sheet.
+   *
+   * @param { UIContext } uiContext - the context of dialog for ui display.
+   * @returns { Promise<void> } - Returns the result.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic
+   */
+  function closeGeneratorNodeGraph(uiContext: UIContext): Promise<void>;
 }
 
 export default imageGeneration;

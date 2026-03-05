@@ -55,7 +55,7 @@ declare namespace calendarManager {
    * @since 11
    */
   function getCalendarManager(context: Context) : CalendarManager;
-  
+
   /**
    * Defines the CalendarManager class and provides functions to access the calendar data.
    *
@@ -78,10 +78,28 @@ declare namespace calendarManager {
      * @param { CalendarAccount } calendarAccount - calendar account to create calendar
      * @returns { Promise<Calendar> } the promise with calendar corresponding to account
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1. Mandatory parameters are left unspecified;
+     *                                 2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
+     */
+    /**
+     * Create calendar instance.
+     * @permission ohos.permission.WRITE_CALENDAR or ohos.permission.WRITE_WHOLE_CALENDAR
+     * @param { CalendarAccount } calendarAccount - calendar account to create calendar
+     * @returns { Promise<Calendar> } the promise with calendar corresponding to account
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1. Mandatory parameters are left unspecified;
+     *                                 2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 23900004 - Internal program errors. Possible causes:
+     *                                      1. dataShare database execution error; 2. null pointer error;
+     *                                      3. Data parsing error.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @since 23
      */
     createCalendar(calendarAccount: CalendarAccount): Promise<Calendar>;
 
@@ -92,10 +110,29 @@ declare namespace calendarManager {
      * @param { CalendarAccount } calendarAccount - calendar account to create calendar
      * @param { AsyncCallback<Calendar> } callback - the callback of createCalendar
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1. Mandatory parameters are left unspecified;
+     *                                 2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
+     */
+    /**
+     * Create calendar instance.
+     *
+     * @permission ohos.permission.WRITE_CALENDAR or ohos.permission.WRITE_WHOLE_CALENDAR
+     * @param { CalendarAccount } calendarAccount - calendar account to create calendar
+     * @param { AsyncCallback<Calendar> } callback - the callback of createCalendar
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1. Mandatory parameters are left unspecified;
+     *                                 2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 23900004 - Internal program errors. Possible causes:
+     *                                      1. dataShare database execution error; 2. null pointer error;
+     *                                      3. Data parsing error.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @since 23
      */
     createCalendar(calendarAccount: CalendarAccount, callback: AsyncCallback<Calendar>): void;
 
@@ -106,10 +143,29 @@ declare namespace calendarManager {
      * @param { Calendar } calendar - calendar to be deleted
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1. Mandatory parameters are left unspecified;
+     *                                 2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
+     */
+    /**
+     * Delete calendar instance.
+     *
+     * @permission ohos.permission.WRITE_CALENDAR or ohos.permission.WRITE_WHOLE_CALENDAR
+     * @param { Calendar } calendar - calendar to be deleted
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1. Mandatory parameters are left unspecified;
+     *                                 2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 23900004 - Internal program errors. Possible causes:
+     *                                      1. dataShare database execution error; 2. null pointer error;
+     *                                      3. Data parsing error.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @since 23
      */
     deleteCalendar(calendar: Calendar): Promise<void>;
 
@@ -120,10 +176,29 @@ declare namespace calendarManager {
      * @param { Calendar } calendar - calendar to be deleted
      * @param { AsyncCallback<void> } callback - the callback of deleteCalendar
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1. Mandatory parameters are left unspecified;
+     *                                 2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
+     */
+    /**
+     * Delete calendar instance.
+     *
+     * @permission ohos.permission.WRITE_CALENDAR or ohos.permission.WRITE_WHOLE_CALENDAR
+     * @param { Calendar } calendar - calendar to be deleted
+     * @param { AsyncCallback<void> } callback - the callback of deleteCalendar
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1. Mandatory parameters are left unspecified;
+     *                                 2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 23900004 - Internal program errors. Possible causes:
+     *                                      1. dataShare database execution error; 2. null pointer error;
+     *                                      3. Data parsing error.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @since 23
      */
     deleteCalendar(calendar: Calendar, callback: AsyncCallback<void>): void;
 
@@ -131,7 +206,7 @@ declare namespace calendarManager {
      * Get calendar instance from database.
      *
      * @permission ohos.permission.READ_CALENDAR or ohos.permission.READ_WHOLE_CALENDAR
-     * @param { CalendarAccount } [calendarAccount] - specify calendar account to retrieve
+     * @param { [CalendarAccount] } [calendarAccount] - specify calendar account to retrieve
      * @returns { Promise<Calendar> } the promise returned by the function.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
@@ -151,6 +226,23 @@ declare namespace calendarManager {
      * @syscap SystemCapability.Applications.CalendarData
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Get calendar instance from database.
+     *
+     * @permission ohos.permission.READ_CALENDAR or ohos.permission.READ_WHOLE_CALENDAR
+     * @param { CalendarAccount } [calendarAccount] - specify calendar account to retrieve
+     * @returns { Promise<Calendar> } the promise returned by the function.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 23900003 - The specified account was not found.
+     * @throws { BusinessError } 23900004 - Internal program errors. Possible causes:
+     *                                      1. dataShare database execution error; 2. null pointer error;
+     *                                      3. Data parsing error.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 23
      */
     getCalendar(calendarAccount?: CalendarAccount): Promise<Calendar>;
 
@@ -161,7 +253,9 @@ declare namespace calendarManager {
      * @param { CalendarAccount } calendarAccount - specify calendar account to retrieve
      * @param { AsyncCallback<Calendar> } callback - the callback of getCalendar
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1. Mandatory parameters are left unspecified;
+     *                                 2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
@@ -173,11 +267,32 @@ declare namespace calendarManager {
      * @param { CalendarAccount } calendarAccount - specify calendar account to retrieve
      * @param { AsyncCallback<Calendar> } callback - the callback of getCalendar
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1. Mandatory parameters are left unspecified;
+     *                                 2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Applications.CalendarData
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Get calendar instance from database by specified account.
+     *
+     * @permission ohos.permission.READ_CALENDAR or ohos.permission.READ_WHOLE_CALENDAR
+     * @param { CalendarAccount } calendarAccount - specify calendar account to retrieve
+     * @param { AsyncCallback<Calendar> } callback - the callback of getCalendar
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1. Mandatory parameters are left unspecified;
+     *                                 2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 23900003 - The specified account was not found.
+     * @throws { BusinessError } 23900004 - Internal program errors. Possible causes:
+     *                                      1. dataShare database execution error; 2. null pointer error;
+     *                                      3. Data parsing error.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 23
      */
     getCalendar(calendarAccount: CalendarAccount, callback: AsyncCallback<Calendar>): void;
 
@@ -187,7 +302,9 @@ declare namespace calendarManager {
      * @permission ohos.permission.READ_CALENDAR or ohos.permission.READ_WHOLE_CALENDAR
      * @param { AsyncCallback<Calendar> } callback - the callback of getCalendar with default calendar instance
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1. Mandatory parameters are left unspecified;
+     *                                 2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
@@ -198,11 +315,30 @@ declare namespace calendarManager {
      * @permission ohos.permission.READ_CALENDAR or ohos.permission.READ_WHOLE_CALENDAR
      * @param { AsyncCallback<Calendar> } callback - the callback of getCalendar with default calendar instance
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1. Mandatory parameters are left unspecified;
+     *                                 2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Applications.CalendarData
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Get default calendar instance from database.
+     *
+     * @permission ohos.permission.READ_CALENDAR or ohos.permission.READ_WHOLE_CALENDAR
+     * @param { AsyncCallback<Calendar> } callback - the callback of getCalendar with default calendar instance
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1. Mandatory parameters are left unspecified;
+     *                                 2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 23900004 - Internal program errors. Possible causes:
+     *                                      1. dataShare database execution error; 2. null pointer error;
+     *                                      3. Data parsing error.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 23
      */
     getCalendar(callback: AsyncCallback<Calendar>): void;
 
@@ -217,6 +353,20 @@ declare namespace calendarManager {
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
      */
+    /**
+     * Get all calendar instance.
+     *
+     * @permission ohos.permission.READ_CALENDAR or ohos.permission.READ_WHOLE_CALENDAR
+     * @returns { Promise<Calendar[]> } the promise returned by the function.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 23900004 - Internal program errors. Possible causes:
+     *                                      1. dataShare database execution error; 2. null pointer error;
+     *                                      3. Data parsing error.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @since 23
+     */
     getAllCalendars(): Promise<Calendar[]>;
 
     /**
@@ -225,10 +375,28 @@ declare namespace calendarManager {
      * @permission ohos.permission.READ_CALENDAR or ohos.permission.READ_WHOLE_CALENDAR
      * @param {AsyncCallback<Calendar[]>} callback - the callback of getAllCalendars
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1. Mandatory parameters are left unspecified;
+     *                                 2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
+     */
+    /**
+     * Get all calendar instance.
+     *
+     * @permission ohos.permission.READ_CALENDAR or ohos.permission.READ_WHOLE_CALENDAR
+     * @param {AsyncCallback<Calendar[]>} callback - the callback of getAllCalendars
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1. Mandatory parameters are left unspecified;
+     *                                 2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 23900004 - Internal program errors. Possible causes:
+     *                                      1. dataShare database execution error; 2. null pointer error;
+     *                                      3. Data parsing error.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @since 23
      */
     getAllCalendars(callback: AsyncCallback<Calendar[]>): void;
 
@@ -273,7 +441,7 @@ declare namespace calendarManager {
      * @atomicservice
      * @since 11
      */
-    readonly id: number
+    readonly id: number;
 
     /**
      * Add a single event.
@@ -289,6 +457,19 @@ declare namespace calendarManager {
      * @syscap SystemCapability.Applications.CalendarData
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Add a single event.
+     * @permission ohos.permission.WRITE_CALENDAR or ohos.permission.WRITE_WHOLE_CALENDAR
+     * @param { Event } event - Indicates the information about a single event.
+     * @returns { Promise<number> } The event ID.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 23900004 - Internal program errors. Possible causes:
+     *                                      1. dataShare database execution error; 2. null pointer error;
+     *                                      3. Data parsing error.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 23
      */
     addEvent(event: Event): Promise<number>;
 
@@ -307,6 +488,19 @@ declare namespace calendarManager {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Add a single event.
+     * @permission ohos.permission.WRITE_CALENDAR or ohos.permission.WRITE_WHOLE_CALENDAR
+     * @param { Event } event - a single event to add.
+     * @param { AsyncCallback<number> } callback - callback of addEvent.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 23900004 - Internal program errors. Possible causes:
+     *                                      1. dataShare database execution error; 2. null pointer error;
+     *                                      3. Data parsing error.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 23
+     */
     addEvent(event: Event, callback: AsyncCallback<number>): void;
 
     /**
@@ -316,6 +510,18 @@ declare namespace calendarManager {
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
      */
+    /**
+     * Add multiple events.
+     * @permission ohos.permission.WRITE_CALENDAR or ohos.permission.WRITE_WHOLE_CALENDAR
+     * @param { Event[] } events - multiple events to add.
+     * @returns { Promise<void> } The promise returned by function.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 23900004 - Internal program errors. Possible causes:
+     *                                      1. dataShare database execution error; 2. null pointer error;
+     *                                      3. Data parsing error.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @since 23
+     */
     addEvents(events: Event[]): Promise<void>;
 
     /**
@@ -324,6 +530,18 @@ declare namespace calendarManager {
      * @param { AsyncCallback<void> } callback - The callback of addEvents
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
+     */
+    /**
+     * Add multiple events.
+     * @permission ohos.permission.WRITE_CALENDAR or ohos.permission.WRITE_WHOLE_CALENDAR
+     * @param { Event[] } events - Indicates the information about multiple events.
+     * @param { AsyncCallback<void> } callback - The callback of addEvents
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 23900004 - Internal program errors. Possible causes:
+     *                                      1. dataShare database execution error; 2. null pointer error;
+     *                                      3. Data parsing error.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @since 23
      */
     addEvents(events: Event[], callback: AsyncCallback<void>): void;
 
@@ -400,10 +618,27 @@ declare namespace calendarManager {
     /**
      * Query events based on filter conditions.
      * @param { EventFilter } [eventFilter] - Indicates the filtering conditions of events.
-     * @param { (keyof Event)[] } [eventKey] - Expected column to be returned.
+     * @param { (keyof Event)[] } [eventKey] - Expected column to be returned. Default columns are id、
+     *                                         type、title、startTime、endTime、isAllDay、description、timeZone、
+     *                                         location、service、attendee、reminderTime、identifier.
      * @returns { Promise<Event[]> } Information about events that match the filter conditions.
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
+     */
+    /**
+     * Query events based on filter conditions.
+     * @permission ohos.permission.READ_CALENDAR or ohos.permission.READ_WHOLE_CALENDAR
+     * @param { EventFilter } [eventFilter] - Indicates the filtering conditions of events.
+     * @param { (keyof Event)[] } [eventKey] - Expected column to be returned. Default columns are id、
+     *                                         type、title、startTime、endTime、isAllDay、description、timeZone、
+     *                                         location、service、attendee、reminderTime、identifier.
+     * @returns { Promise<Event[]> } Information about events that match the filter conditions.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 23900004 - Internal program errors. Possible causes:
+     *                                      1. dataShare database execution error; 2. null pointer error;
+     *                                      3. Data parsing error.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @since 23
      */
     getEvents(eventFilter?: EventFilter, eventKey?: (keyof Event)[]): Promise<Event[]>;
 
@@ -415,13 +650,39 @@ declare namespace calendarManager {
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
      */
+    /**
+     * Query events based on filter conditions.
+     * @permission ohos.permission.READ_CALENDAR or ohos.permission.READ_WHOLE_CALENDAR
+     * @param { EventFilter } eventFilter - Indicates the filtering conditions of events.
+     * @param { (keyof Event)[] } eventKey - Expected column to be returned.
+     * @param { AsyncCallback<Event[]> } callback - The callback of getEvents.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 23900004 - Internal program errors. Possible causes:
+     *                                      1. dataShare database execution error; 2. null pointer error;
+     *                                      3. Data parsing error.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @since 23
+     */
     getEvents(eventFilter: EventFilter, eventKey: (keyof Event)[], callback: AsyncCallback<Event[]>):void;
 
     /**
-     * Query all events with all column from current calendar instance.
+     * Query all events with id、type、title、startTime、endTime、isAllDay、description、
+     *   timeZone、location、service、attendee、reminderTime、identifier from current calendar instance.
      * @param { AsyncCallback<Event[]> } callback - The callback of getEvents with all events.
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
+     */
+    /**
+     * Query all events with id、type、title、startTime、endTime、isAllDay、description、
+     *   timeZone、location、service、attendee、reminderTime、identifier from current calendar instance.
+     * @permission ohos.permission.READ_CALENDAR or ohos.permission.READ_WHOLE_CALENDAR
+     * @param { AsyncCallback<Event[]> } callback - The callback of getEvents with all events.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 23900004 - Internal program errors. Possible causes:
+     *                                      1. dataShare database execution error; 2. null pointer error;
+     *                                      3. Data parsing error.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @since 23
      */
     getEvents(callback: AsyncCallback<Event[]>):void;
 
@@ -440,6 +701,14 @@ declare namespace calendarManager {
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
      */
+    /**
+     * Set calendar configure.
+     * @param { CalendarConfig } config - calendar config to set
+     * @returns { Promise<void> } The promise returned by function.
+     * @throws { BusinessError } 23900001 – Parameter value error.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @since 23
+     */
     setConfig(config: CalendarConfig): Promise<void>;
 
     /**
@@ -448,6 +717,14 @@ declare namespace calendarManager {
      * @param { AsyncCallback<void> } callback - callback of setConfig
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
+     */
+    /**
+     * Set calendar configure.
+     * @param { CalendarConfig } config - calendar config to set
+     * @param { AsyncCallback<void> } callback - callback of setConfig
+     * @throws { BusinessError } 23900001 – Parameter value error.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @since 23
      */
     setConfig(config: CalendarConfig, callback: AsyncCallback<void>): void;
 
@@ -469,6 +746,22 @@ declare namespace calendarManager {
      * @syscap SystemCapability.Applications.CalendarData
      * @atomicservice
      * @since 18
+     */
+    /**
+     * Query event instances based on the conditions.
+     * @permission ohos.permission.READ_CALENDAR or ohos.permission.READ_WHOLE_CALENDAR
+     * @param { number } start - start time of query range
+     * @param { number } end - end time of query range
+     * @param { number[] } [ids] - Indicates the IDs of multiple events
+     * @param { (keyof Event)[] } [eventKey] - Expected column to be returned
+     * @returns { Promise<Event[]> } Information about events that match the condition
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 23900004 - Internal program errors. Possible causes:
+     *                                      1. dataShare database execution error; 2. null pointer error;
+     *                                      3. Data parsing error.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 23
      */
     queryEventInstances(start: number, end: number, ids?: number[], eventKey?: (keyof Event)[]): Promise<Event[]>;
   }
@@ -532,7 +825,7 @@ declare namespace calendarManager {
      * @atomicservice
      * @since 11
      */
-    displayName?: string
+    displayName?: string;
   }
 
   /**
@@ -1018,7 +1311,7 @@ declare namespace calendarManager {
      * @atomicservice
      * @since 11
      */
-    IMPORTANT = 1,
+    IMPORTANT = 1
   }
 
   /**
@@ -1211,7 +1504,7 @@ declare namespace calendarManager {
      * @atomicservice
      * @since 11
      */
-    DAILY = 3,
+    DAILY = 3
   }
 
   /**
@@ -1390,7 +1683,7 @@ declare namespace calendarManager {
      * @atomicservice
      * @since 18
      */
-    UNRESPONSIVE = 4,
+    UNRESPONSIVE = 4
   }
 
   /**
@@ -1582,7 +1875,7 @@ declare namespace calendarManager {
      * @atomicservice
      * @since 11
      */
-    SPORTS_EXERCISE = 'SportsExercise',
+    SPORTS_EXERCISE = 'SportsExercise'
   }
 }
 

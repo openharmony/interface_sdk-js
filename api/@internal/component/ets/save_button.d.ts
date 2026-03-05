@@ -31,7 +31,7 @@
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11 dynamiconly
+ * @since 11 dynamic
  */
 declare enum SaveIconStyle {
   /**
@@ -45,7 +45,7 @@ declare enum SaveIconStyle {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11 dynamiconly
+   * @since 11 dynamic
    */
   FULL_FILLED = 0,
 
@@ -60,7 +60,7 @@ declare enum SaveIconStyle {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11 dynamiconly
+   * @since 11 dynamic
    */
   LINES = 1,
 
@@ -69,7 +69,7 @@ declare enum SaveIconStyle {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 12 dynamiconly
+   * @since 12 dynamic
    */
   PICTURE = 2
 }
@@ -87,7 +87,7 @@ declare enum SaveIconStyle {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11 dynamiconly
+ * @since 11 dynamic
  */
 declare enum SaveDescription {
   /**
@@ -101,7 +101,7 @@ declare enum SaveDescription {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11 dynamiconly
+   * @since 11 dynamic
    */
   DOWNLOAD = 0,
 
@@ -116,7 +116,7 @@ declare enum SaveDescription {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11 dynamiconly
+   * @since 11 dynamic
    */
   DOWNLOAD_FILE = 1,
 
@@ -131,7 +131,7 @@ declare enum SaveDescription {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11 dynamiconly
+   * @since 11 dynamic
    */
   SAVE = 2,
 
@@ -146,7 +146,7 @@ declare enum SaveDescription {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11 dynamiconly
+   * @since 11 dynamic
    */
   SAVE_IMAGE = 3,
 
@@ -161,7 +161,7 @@ declare enum SaveDescription {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11 dynamiconly
+   * @since 11 dynamic
    */
   SAVE_FILE = 4,
 
@@ -176,7 +176,7 @@ declare enum SaveDescription {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11 dynamiconly
+   * @since 11 dynamic
    */
   DOWNLOAD_AND_SHARE = 5,
 
@@ -191,7 +191,7 @@ declare enum SaveDescription {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11 dynamiconly
+   * @since 11 dynamic
    */
   RECEIVE = 6,
 
@@ -206,7 +206,7 @@ declare enum SaveDescription {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11 dynamiconly
+   * @since 11 dynamic
    */
   CONTINUE_TO_RECEIVE = 7,
 
@@ -215,7 +215,7 @@ declare enum SaveDescription {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12 dynamiconly
+   * @since 12 dynamic
    */
   SAVE_TO_GALLERY = 8,
 
@@ -224,7 +224,7 @@ declare enum SaveDescription {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12 dynamiconly
+   * @since 12 dynamic
    */
   EXPORT_TO_GALLERY = 9,
 
@@ -233,7 +233,7 @@ declare enum SaveDescription {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12 dynamiconly
+   * @since 12 dynamic
    */
   QUICK_SAVE_TO_GALLERY = 10,
 
@@ -242,7 +242,7 @@ declare enum SaveDescription {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12 dynamiconly
+   * @since 12 dynamic
    */
   RESAVE_TO_GALLERY = 11,
 
@@ -251,7 +251,7 @@ declare enum SaveDescription {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamiconly
+   * @since 18 dynamic
    */
   SAVE_ALL = 12
 }
@@ -269,7 +269,7 @@ declare enum SaveDescription {
  * @interface SaveButtonOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11 dynamiconly
+ * @since 11 dynamic
  */
 declare interface SaveButtonOptions {
   /**
@@ -285,7 +285,7 @@ declare interface SaveButtonOptions {
    * @type { ?SaveIconStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11 dynamiconly
+   * @since 11 dynamic
    */
   icon?: SaveIconStyle;
 
@@ -302,7 +302,7 @@ declare interface SaveButtonOptions {
    * @type { ?SaveDescription }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11 dynamiconly
+   * @since 11 dynamic
    */
   text?: SaveDescription;
 
@@ -319,7 +319,7 @@ declare interface SaveButtonOptions {
    * @type { ?ButtonType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11 dynamiconly
+   * @since 11 dynamic
    */
   buttonType?: ButtonType;
 }
@@ -337,7 +337,7 @@ declare interface SaveButtonOptions {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11 dynamiconly
+ * @since 11 dynamic
  */
 declare enum SaveButtonOnClickResult {
   /**
@@ -351,7 +351,7 @@ declare enum SaveButtonOnClickResult {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11 dynamiconly
+   * @since 11 dynamic
    */
   SUCCESS = 0,
 
@@ -366,7 +366,7 @@ declare enum SaveButtonOnClickResult {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11 dynamiconly
+   * @since 11 dynamic
    */
   TEMPORARY_AUTHORIZATION_FAILED = 1,
 
@@ -375,7 +375,7 @@ declare enum SaveButtonOnClickResult {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 21 dynamiconly
+   * @since 21 dynamic
    */
   CANCELED_BY_USER = 2,
 }
@@ -393,7 +393,7 @@ declare enum SaveButtonOnClickResult {
  * @interface SaveButtonInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11 dynamiconly
+ * @since 11 dynamic
  */
 interface SaveButtonInterface {
   /**
@@ -409,7 +409,7 @@ interface SaveButtonInterface {
    * @returns { SaveButtonAttribute } Returns the attribute of the save button.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11 dynamiconly
+   * @since 11 dynamic
    */
   (): SaveButtonAttribute;
 
@@ -430,7 +430,7 @@ interface SaveButtonInterface {
    * @returns { SaveButtonAttribute } Returns the attribute of the save button.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11 dynamiconly
+   * @since 11 dynamic
    */
   (options: SaveButtonOptions): SaveButtonAttribute;
 }
@@ -444,7 +444,7 @@ interface SaveButtonInterface {
  * @param { BusinessError<void> } [error] - The error code and message of click event.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 18 dynamiconly
+ * @since 18 dynamic
  */
 type SaveButtonCallback = (event: ClickEvent, result: SaveButtonOnClickResult, error?: BusinessError<void>) => void;
 
@@ -461,7 +461,7 @@ type SaveButtonCallback = (event: ClickEvent, result: SaveButtonOnClickResult, e
  * @extends SecurityComponentMethod<SaveButtonAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11 dynamiconly
+ * @since 11 dynamic
  */
 declare class SaveButtonAttribute extends SecurityComponentMethod<SaveButtonAttribute> {
   /**
@@ -488,7 +488,7 @@ declare class SaveButtonAttribute extends SecurityComponentMethod<SaveButtonAttr
    * @returns { SaveButtonAttribute } Returns the attribute of the save button.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamiconly
+   * @since 18 dynamic
    */
   onClick(event: SaveButtonCallback): SaveButtonAttribute;
 
@@ -500,7 +500,7 @@ declare class SaveButtonAttribute extends SecurityComponentMethod<SaveButtonAttr
    * @returns { SaveButtonAttribute } Returns the attributes of the save button.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 20 dynamiconly
+   * @since 20 dynamic
    */
   setIcon(icon: Resource): SaveButtonAttribute;
 
@@ -512,7 +512,7 @@ declare class SaveButtonAttribute extends SecurityComponentMethod<SaveButtonAttr
    * @returns { SaveButtonAttribute } Returns the attributes of the save button.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 20 dynamiconly
+   * @since 20 dynamic
    */
   setText(text: string | Resource): SaveButtonAttribute;
 
@@ -523,7 +523,7 @@ declare class SaveButtonAttribute extends SecurityComponentMethod<SaveButtonAttr
    * @returns { SaveButtonAttribute } Returns the attributes of the save button.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 20 dynamiconly
+   * @since 20 dynamic
    */
   iconSize(size: Dimension | SizeOptions): SaveButtonAttribute;
 
@@ -535,7 +535,7 @@ declare class SaveButtonAttribute extends SecurityComponentMethod<SaveButtonAttr
    * @returns { SaveButtonAttribute } Returns the attributes of the save button.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 20 dynamiconly
+   * @since 20 dynamic
    */
   iconBorderRadius(radius: Dimension | BorderRadiuses): SaveButtonAttribute;
 
@@ -548,7 +548,7 @@ declare class SaveButtonAttribute extends SecurityComponentMethod<SaveButtonAttr
    * @returns { SaveButtonAttribute} Returns the attributes of the save button.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 20 dynamiconly
+   * @since 20 dynamic
    */
   stateEffect(enabled: boolean): SaveButtonAttribute;
 
@@ -559,7 +559,7 @@ declare class SaveButtonAttribute extends SecurityComponentMethod<SaveButtonAttr
    * @returns { SaveButtonAttribute } Returns the attributes of the save button.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 21 dynamiconly
+   * @since 21 dynamic
    */
   userCancelEvent(enabled: boolean): SaveButtonAttribute;
 }
@@ -577,7 +577,7 @@ declare class SaveButtonAttribute extends SecurityComponentMethod<SaveButtonAttr
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11 dynamiconly
+ * @since 11 dynamic
  */
 declare const SaveButton: SaveButtonInterface;
 
@@ -592,6 +592,6 @@ declare const SaveButton: SaveButtonInterface;
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11 dynamiconly
+ * @since 11 dynamic
  */
 declare const SaveButtonInstance: SaveButtonAttribute;

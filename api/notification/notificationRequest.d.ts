@@ -285,12 +285,11 @@ export interface NotificationRequest {
   id?: int;
 
   /**
-   * Priority notification type, used to determine whether to highlight notifications.
-   * The specific highlighting behavior (such as display position, style, sound, vibration, etc.)
-   * depends on the system implementation and user settings.
+   * Notification priority type, which is used to determine whether the notification needs to be prioritized.
    *
    * @type { ?notificationManager.PriorityNotificationType }
    * @syscap SystemCapability.Notification.Notification
+   * @stagemodelonly
    * @since 23 dynamic&static
    */
   priorityNotificationType?: notificationManager.PriorityNotificationType;
@@ -1153,10 +1152,10 @@ export interface UnifiedGroupInfo {
   /**
    * Other information is aggregated across applications.
    *
-   * @type { ?object }
+   * @type { ?Record<string, RecordData> }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 23 static
    */
-  extraInfo?: Record<string, Object>;
+  extraInfo?: Record<string, RecordData>;
 }

@@ -1,5 +1,6 @@
 {
   "SysCaps": [
+    "SystemCapability.ArkUI.ArkUI.Circle",
     "SystemCapability.ArkUI.ArkUI.Full",
     "SystemCapability.ArkUI.ArkUI.Napi",
     "SystemCapability.ArkUI.ArkUI.Libuv",
@@ -85,8 +86,6 @@
     "SystemCapability.Multimedia.Image.ImageSource",
     "SystemCapability.Multimedia.Image.ImagePacker",
     "SystemCapability.Multimedia.Image.ImageReceiver",
-    "SystemCapability.Multimedia.MediaLibrary.Core",
-    "SystemCapability.Multimedia.MediaLibrary.DistributedCore",
     "SystemCapability.Multimedia.SystemSound.Core",
     "SystemCapability.Telephony.CoreService",
     "SystemCapability.Telephony.CallManager",
@@ -167,13 +166,13 @@
     "SystemCapability.Ability.AbilityRuntime.FAModel",
     "SystemCapability.Ability.AbilityRuntime.AbilityCore",
     "SystemCapability.Ability.AbilityRuntime.Mission",
-    "SystemCapability.Ability.AbilityTools.AbilityAssistant",
     "SystemCapability.Ability.Form",
     "SystemCapability.Ability.DistributedAbilityManager",
     "SystemCapability.Applications.CalendarData",
     "SystemCapability.Applications.ContactsData",
     "SystemCapability.Applications.Contacts",
     "SystemCapability.Applications.Settings.Core",
+    "SystemCapability.Applications.IntelligentScene",
     "SystemCapability.Test.UiTest",
     "SystemCapability.Web.Webview.Core",
     "SystemCapability.Advertising.OAID",
@@ -200,6 +199,7 @@
     "SystemCapability.BundleManager.BundleFramework.AppControl",
     "SystemCapability.BundleManager.AppDomainVerify",
     "SystemCapability.Ability.AbilityRuntime.QuickFix",
+    "SystemCapability.Ability.AgentRuntime.Core",
     "SystemCapability.Graphic.Graphic2D.ColorManager.Core",
     "SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply",
     "SystemCapability.XTS.DeviceAttest",
@@ -226,6 +226,7 @@
     "SystemCapability.Ability.AppExtension.PhotoEditorExtension",
     "SystemCapability.Resourceschedule.BackgroundProcessManager",
     "SystemCapability.Test.PerfTest",
-    "SystemCapability.ResourceSchedule.SystemLoad"
+    "SystemCapability.ResourceSchedule.SystemLoad",
+    "SystemCapability.Communication.FusionConnectivity.Core"
   ]
 }

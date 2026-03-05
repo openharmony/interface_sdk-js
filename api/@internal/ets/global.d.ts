@@ -659,6 +659,7 @@ export declare function setInterval(handler: Function | string, delay: number, .
  * NOTE
  * 1. In either case, the actual delay may be longer than expected.
  * 2. If a value less than 1 is passed, the default value 0 is used.
+ * 3. The value of delay is subject to system limitations. If it exceeds 2^31 - 1, an overflow will occur and the delay value will be set to 0.
  * @param { any[] } [arguments] - Additional parameters to pass to the handler after the timer goes off.
  * @returns { number } ID of the timer. The timer ID is shared by processes and is an integer starting from 0 in ascending order.
  * @syscap SystemCapability.ArkUI.ArkUI.Full

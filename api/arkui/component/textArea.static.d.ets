@@ -18,14 +18,15 @@
  * @kit ArkUI
  */
 import { KeyboardOptions, PasteEvent } from "./richEditor";
-import { CaretStyle, DeleteValue, EditMenuOptions, EditableTextOnChangeCallback, InsertValue, AutoCapitalizationMode, EditableTextChangeValue, KeyboardAppearance, SelectedDragPreviewStyle, TextDirection } from "./textCommon";
+import { CaretStyle, DeleteValue, EditMenuOptions, EditableTextOnChangeCallback, InsertValue, AutoCapitalizationMode, EditableTextChangeValue, KeyboardAppearance, SelectedDragPreviewStyle, VoiceButtonOptions, TextDirection, LineSpacingOptions, MaxLinesOptions, IMEClient } from "./textCommon";
 import { BarState, CopyOptions, FontStyle, FontWeight, LineBreakStrategy, TextContentStyle, TextAlign, TextOverflow, TextHeightAdaptivePolicy, WordBreak, EllipsisMode } from "./enums";
 import { EnterKeyType, SubmitEvent, ContentType } from "./textInput";
-import { Dimension, Font, Length, LengthMetrics, ResourceColor, ResourceStr } from "./units";
+import { Dimension, Font, Length, LengthMetrics, ResourceColor, ResourceStr, ColorMetrics } from "./units";
 import { InputCounterOptions, TextContentControllerBase, SelectionOptions, TextDecorationOptions, CommonMethod, Callback, Bindable, AttributeModifier } from "./common";
 import { CustomBuilder } from './builder';
 import { Resource } from '../../global/resource';
 import { ComponentBuilder } from './builder';
+import { ComponentContentBase } from '../ComponentContent';
 /**
  * Provides the method of switching the cursor position.
  *
@@ -170,7 +171,15 @@ export declare enum TextAreaType {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
      */
-    URL = 13
+    URL = 13,
+    /**
+     * One time code mode.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 24 static
+     */
+    ONE_TIME_CODE = 14
 }
 /**
  * Declare the event listener callback of the enter key.
@@ -283,14 +292,15 @@ export declare interface TextAreaAttribute extends CommonMethod {
      */
     default fontStyle(value: FontStyle | undefined): this;
     /**
-    * Called when the font weight is set.
-    *
-    * @param { int | FontWeight | string | undefined } value
-    * @returns { TextAreaAttribute }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 23 static
-    */
-    default fontWeight(value: int | FontWeight | string | undefined): this;
+     * Called when the font weight is set.
+     *
+     * @param { int | FontWeight | ResourceStr | undefined } value - The default value is FontWeight.Normal.
+     *     Passing `undefined` resets it to the default value.
+     * @returns { TextAreaAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    default fontWeight(value: int | FontWeight | ResourceStr | undefined): this;
     /**
      * Called when the font list of text is set.
      *
@@ -666,12 +676,14 @@ export declare interface TextAreaAttribute extends CommonMethod {
      * indicating that there is no maximum number of lines.
      * </p>
      *
-     * @param { int | undefined } value
+     * @param { int | undefined } value - Max lines of the node
+     * @param { MaxLinesOptions } [options] - max lines of setting options.
+     *     Passing `undefined` resets it to the default value.
      * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
      */
-    default maxLines(value: int | undefined): this;
+    default maxLines(value: int | undefined, options?: MaxLinesOptions): this;
     /**
      * Set the word break type.
      *
@@ -714,16 +726,19 @@ export declare interface TextAreaAttribute extends CommonMethod {
      * <br>By default, the custom keyboard is closed when the input component loses the focus.
      * <br>You can also use the TextAreaController.stopEditing API to close the keyboard.
      * <br>When a custom keyboard is set, the text box does not support camera input, even when the device supports.
-     * <br>When setting a custom keyboard, you can bind the onKeyPrelme event to prevent input from the physical keyboard.
+     * <br>When setting a custom keyboard,
+     * you can bind the onKeyPrelme event to prevent input from the physical keyboard.
      * </p>
      *
-     * @param { CustomBuilder | undefined } value - Set up a custom keyboard of TextArea
+     * @param { CustomBuilder | ComponentContentBase | undefined } value - Set up a custom keyboard of TextArea.
+     *     Passing `undefined` resets it to the default keyboard.
      * @param { KeyboardOptions } [options] - Indicates the custom keyboard options of TextArea
      * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
-    default customKeyboard(value: CustomBuilder | undefined, options?: KeyboardOptions): this;
+    default customKeyboard(value: CustomBuilder | ComponentContentBase | undefined, options?: KeyboardOptions): this;
     /**
      * Called when the text decoration of the text is set.
      *
@@ -756,12 +771,14 @@ export declare interface TextAreaAttribute extends CommonMethod {
      * <br>If the value specified is less than or equal to 0, the default value 0 is used.
      * </p>
      *
-     * @param { LengthMetrics | undefined } value - Default value is 0.
+     * @param { LengthMetrics | undefined } value - The default value is 0.
+     *     Passing `undefined` resets it to the default value.
+     * @param { LineSpacingOptions } [options]
      * @returns { TextAreaAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
      */
-    default lineSpacing(value: LengthMetrics | undefined): this;
+    default lineSpacing(value: LengthMetrics | undefined, options?: LineSpacingOptions): this;
     /**
      * Called when the line height of the font is set.
      *
@@ -1004,6 +1021,82 @@ export declare interface TextAreaAttribute extends CommonMethod {
      */
     default fallbackLineSpacing(enabled: boolean | undefined): this;
     /**
+     * Define min lines of the text area.
+     *
+     * @param { int | undefined } lines - Min lines of the node
+     *     Passing `undefined` resets it to the default value.
+     * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 24 static
+     */
+    default minLines(lines: int | undefined): this;
+
+    /**
+     * Whether to enable automatic spacing between Chinese and Latin characters.
+     *
+     * @param { boolean | undefined } enabled - The default value is false,
+     *     indicates the flag whether to enable automatic spacing.
+     *     Passing `undefined` resets it to the default value.
+     * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 24 static
+     */
+    default enableAutoSpacing(enabled: boolean | undefined): this;
+
+    /**
+     * Set the stroke width.
+     *
+     * @param { LengthMetrics | undefined } width - indicates the stroke width.
+     *     Passing `undefined` resets it to the default value.
+     * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 24 static
+     */
+    default strokeWidth(width: LengthMetrics | undefined): this;
+
+    /**
+     * Set the stroke color.
+     *
+     * @param { ResourceColor | undefined } color - indicates the stroke color.
+     *     Passing `undefined` resets it to the default value.
+     * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 24 static
+     */
+    default strokeColor(color: ResourceColor | undefined): this;
+
+    /**
+     * Called before the text area component attach the InputMethod.
+     *
+     * @param { Callback<IMEClient> | undefined } callback - The triggered function before attach the InputMethod.
+     *     If `undefined` is passed, the existing registered event will be removed.
+     * @returns { TextAreaAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 24 static
+     */
+    default onWillAttachIME(callback: Callback<IMEClient> | undefined): this;
+
+    /**
+     * Color of the scrollbar.
+     *
+     * @param { ColorMetrics | undefined } thumbColor - scroll bar thumb Color of the TextArea.
+     * @returns { TextAreaAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 24 static
+     */
+    default scrollBarColor(thumbColor: ColorMetrics | undefined): this;
+
+    /**
+     * Enable selected data detector.
+     *
+     * @param { boolean | undefined } enable - whether to enable the selected data detector.
+     * @returns { TextAreaAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 24 static
+     */
+    default enableSelectedDataDetector(enable: boolean | undefined): this;
+
+    /**
      * Sets the attribute modifier.
      *
      * @param { AttributeModifier<TextAreaAttribute> | AttributeModifier<CommonMethod> | undefined } modifier.
@@ -1012,7 +1105,6 @@ export declare interface TextAreaAttribute extends CommonMethod {
      * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<TextAreaAttribute> | AttributeModifier<CommonMethod> | undefined): this;
-    
     /**
      * Whether to compress punctuation at the beginning of line.
      *
@@ -1023,7 +1115,6 @@ export declare interface TextAreaAttribute extends CommonMethod {
      * @since 23 static
      */
     default compressLeadingPunctuation(enabled: boolean | undefined): this;
-
     /**
      * Used to set the selected drag preview style.
      *
@@ -1045,19 +1136,43 @@ export declare interface TextAreaAttribute extends CommonMethod {
      * @since 23 static
      */
     default textDirection(direction: TextDirection | undefined): this;
+
+    /**
+     * Set voice button options.
+     *
+     * @param { VoiceButtonOptions | undefined } options - Indicates the options of the voice button.
+     * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static
+     */
+    default voiceButton(options: VoiceButtonOptions | undefined): this;
+
+    /**
+     * Whether to enable horizontal scrolling when text is wider than the view.
+     * The default value is false, and text will be wrapped by the view.
+     *
+     * @param { boolean | undefined } enabled - whether to enable horizontal scrolling.
+     * True means enable this feature, false means disable this feature.
+     * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 24 static
+     */
+    default horizontalScrolling(enabled: boolean | undefined): this;
 }
 
 /**
  * Defines TextArea Component.
  *
  * @param { TextAreaOptions } [value]
- * @param { CustomBuilder } [content_]
  * @returns { TextAreaAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 @ComponentBuilder
 export declare function TextArea(
-    value?: TextAreaOptions, 
-    content_?: CustomBuilder,
+    value?: TextAreaOptions
 ): TextAreaAttribute

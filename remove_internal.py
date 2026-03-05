@@ -17,6 +17,7 @@ import os
 import sys
 import optparse
 import shutil
+import time
 
 # d.ts directories to be deleted 需要排除的目录名称的列表
 remove_list = ["@internal", "common", "form", "liteWearable", "config", "syscapCheck"]
@@ -47,6 +48,10 @@ def main(argv):
     options = parse_args(argv)
     if not os.path.exists(options.output):
         os.makedirs(options.output)
+
+    # 更新目录时间戳，适配增量构建
+    current_time = time.time()
+    os.utime(options.output, (current_time, current_time))
     copy_files(options.input, options.output)
 
 

@@ -183,6 +183,33 @@ export declare class PixelMapDrawableDescriptor extends DrawableDescriptor {
 }
 
 /**
+ * Animation stop mode.
+ * 
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 24 static
+ */
+export enum AnimationStopMode {
+  /**
+   * First frame.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  FIRST_FRAME = 0,
+  /**
+   * Last frame.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  LAST_FRAME = 1
+}
+
+/**
  * Animation control options
  *
  * @interface AnimationOptions
@@ -222,6 +249,16 @@ export interface AnimationOptions {
    * @since 23 static
    */
   autoPlay?: boolean;
+  /**
+   * Mode in which animation stops
+   * 
+   * @type { ?AnimationStopMode }
+   * @default AnimationStopMode.FIRST_FRAME
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  stopMode?: AnimationStopMode;
 }
 
 /**

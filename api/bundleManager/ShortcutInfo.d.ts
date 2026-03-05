@@ -443,7 +443,7 @@ export interface ShortcutWant {
 }
 
 /**
- * Obtains information about the ability that a shortcut will start.
+ * Obtains information about the parameters of the shortcut that a shortcut will start.
  *
  * @typedef ParameterItem
  * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
@@ -451,7 +451,7 @@ export interface ShortcutWant {
  * @since 12
  */
 /**
- * Obtains information about the ability that a shortcut will start.
+ * Obtains information about the parameters of the shortcut that a shortcut will start.
  *
  * @typedef ParameterItem
  * @syscap SystemCapability.BundleManager.BundleFramework.Launcher

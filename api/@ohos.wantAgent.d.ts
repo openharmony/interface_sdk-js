@@ -15,7 +15,8 @@
 
 /**
  * @file
- */
+ * @kit API10LessDeprecatedModules
+*/
 
 import { AsyncCallback, Callback } from './@ohos.base';
 import Want from './@ohos.app.ability.Want';
@@ -808,7 +809,9 @@ declare namespace wantAgent {
  * @typedef { object }
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @atomicservice
- * @since 12
+ * @since 12 dynamiconly
+ * @deprecated since 23
+ * @useinstead ohos.app.ability.wantAgent/wantAgent.WantAgent
  */
 export type WantAgent = object;
 

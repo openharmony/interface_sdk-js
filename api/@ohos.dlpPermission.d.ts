@@ -683,13 +683,13 @@ declare namespace dlpPermission {
     tokenID: number;
     
     /**
-     * Index of DLP sandbox applications that have been installed and need to be launched.
+     * Index of the DLP sandbox application that has been installed and needs to be started.
      *
      * @type { ?number }
      * @syscap SystemCapability.Security.DataLossPrevention
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
-     * @since 23
+     * @since 24
      */
     bindAppIndex?: number;
   }
@@ -1206,7 +1206,6 @@ declare namespace dlpPermission {
 
     /**
      * Defines the extended fields of the DLP file.
-     * @type { ?Record<string, Object> }
      * @syscap SystemCapability.Security.DataLossPrevention
      * @stagemodelonly
      * @since 24

@@ -932,7 +932,8 @@ export declare interface NavigationInterception {
      *
      * @type { ?InterceptionCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @stagemodelonly
+     * @since 24 static
      */
     interception?: InterceptionCallback;
 }
@@ -1315,7 +1316,7 @@ export declare interface NavigationToolbarOptions {
 }
 
 /**
- * Indicates the options of Navigation's Menu.
+ * The more button options of Navigation's menu or toolbar.
  *
  * @interface NavigationMenuOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1674,12 +1675,13 @@ export declare interface NavigationAttribute extends CommonMethod {
     /**
      * Set placeholder in split mode.
      *
-     * @param { ComponentContent } placeholder - Set placeholder in split mode.
-     * @returns { NavigationAttribute } Returns the instance of the NavigationAttribute.
+     * @param { ComponentContent<T> } placeholder - Set placeholder in split mode.
+     * @returns { NavigationAttribute } - Returns the instance of the NavigationAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @stagemodelonly
+     * @since 24 static
      */
-    default splitPlaceholder(placeholder: ComponentContent): this;
+    default splitPlaceholder<T extends Object>(placeholder: ComponentContent<T>): this;
 
     /**
      * Whether to enable the show or hide lifecycle with bindContentCover.
@@ -1691,7 +1693,8 @@ export declare interface NavigationAttribute extends CommonMethod {
      *                                          **false**: The bindContentCover can not affect the show or hide lifecycle of Navigation.
      * @returns { NavigationAttribute } Returns the instance of the NavigationAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @stagemodelonly
+     * @since 24 static
      */
     default enableVisibilityLifecycleWithContentCover(isEnabled: boolean | undefined): this;
 
@@ -1929,5 +1932,24 @@ export declare interface NavigationDividerStyle {
 @ComponentBuilder
 export declare function Navigation(
     pathInfos?: NavPathStack, 
+    content_?: CustomBuilder
+): NavigationAttribute
+
+/**
+ * Defines Navigation Component
+ *
+ * @param { NavPathStack } [pathInfos] - Navigation constructor options
+ * @param { HomePathInfo } [homeDestination] - The custom home destination info.
+ * @param { CustomBuilder } [content_] - container
+ * @returns { NavigationAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 24 static
+ * @noninterop
+ */
+@ComponentBuilder
+export declare function Navigation(
+    pathInfos?: NavPathStack, 
+    homeDestination?: HomePathInfo,
     content_?: CustomBuilder
 ): NavigationAttribute

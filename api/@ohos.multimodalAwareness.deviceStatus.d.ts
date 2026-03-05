@@ -62,33 +62,37 @@ declare namespace deviceStatus {
    * @interface DeviceRotationRadian
    * @syscap SystemCapability.MultimodalAwareness.DeviceStatus
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
+   * @since 23 static
    */
   export interface DeviceRotationRadian {
     /**
      * indicates X-RotationRadian
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.MultimodalAwareness.DeviceStatus
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
+     * @since 23 static
      */
-    x: number;
+    x: double;
     /**
      * indicates Y-RotationRadian
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.MultimodalAwareness.DeviceStatus
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
+     * @since 23 static
      */
-    y: number;
+    y: double;
     /**
      * indicates Z-RotationRadian
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.MultimodalAwareness.DeviceStatus
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
+     * @since 23 static
      */
-    z: number;
+    z: double;
   }
 
   /**
@@ -126,7 +130,8 @@ declare namespace deviceStatus {
    * @throws { BusinessError } 32500001 - Service exception.
    * @syscap SystemCapability.MultimodalAwareness.DeviceStatus
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
+   * @since 23 static
    */
   function getDeviceRotationRadian(): Promise<DeviceRotationRadian>;
 

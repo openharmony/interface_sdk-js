@@ -543,6 +543,8 @@ declare namespace config {
      * Getting configuration value.
      *
      * @returns { Promise<T> }
+     * @throws { BusinessError } 201 - Permission verification failed.
+     *     The application does not have the permission required to call the API.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @systemapi

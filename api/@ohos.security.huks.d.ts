@@ -340,7 +340,10 @@ declare namespace huks {
    *     2. Incorrect parameter types.
    *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
-   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000001 - Feature is not supported. Possible causes:
+   *     1. The algorithm mode is not supported.
+   *     2. The group key is not supported.
+   *     3. The crypto extension key is not supported.
    * @throws { BusinessError } 12000002 - algorithm param is missing
    * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
@@ -437,7 +440,7 @@ declare namespace huks {
    *     was generated.
    * @param { HuksOptions } options - Properties of the key to delete. For example, you can pass in HuksAuthStorageLevel
    *     to specify the security level of the key to delete. HuksAuthStorageLevel can be left empty, which means the
-   *     default value HUKS_AUTH_STORAGE_LEVEL_DE is used.
+   *     default value HUKS_AUTH_STORAGE_LEVEL_CE is used.
    * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
    *     no err value is returned; otherwise, an error code is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -462,8 +465,8 @@ declare namespace huks {
    *
    * @param { string } keyAlias - Alias of the key to delete. It must be the key alias passed in when the key
    *     was generated.
-   * @param { HuksOptions } options - Properties of the key to delete. For example, you can pass in HuksAuthStorageLevel
-   *     to specify the security level of the key to delete. HuksAuthStorageLevel can be left empty, which means the
+   * @param { HuksOptions } options - Options for deleting the key. For example, you can pass in HuksAuthStorageLevel to
+   *     specify the security level of the key to delete. HuksAuthStorageLevel can be left empty, which means the
    *     default value HUKS_AUTH_STORAGE_LEVEL_DE is used.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -484,8 +487,8 @@ declare namespace huks {
    *
    * @param { string } keyAlias - Alias of the key to delete. It must be the key alias passed in when the key
    *     was generated.
-   * @param { HuksOptions } options - Properties of the key to delete. For example, you can pass in HuksAuthStorageLevel
-   *     to specify the security level of the key to delete. HuksAuthStorageLevel can be left empty, which means the
+   * @param { HuksOptions } options - Options for deleting the key. For example, you can pass in HuksAuthStorageLevel to
+   *     specify the security level of the key to delete. HuksAuthStorageLevel can be left empty, which means the
    *     default value HUKS_AUTH_STORAGE_LEVEL_DE is used.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -507,9 +510,9 @@ declare namespace huks {
    *
    * @param { string } keyAlias - Alias of the key to delete. It must be the key alias passed in when the key
    *     was generated.
-   * @param { HuksOptions } options - Properties of the key to delete. For example, you can pass in HuksAuthStorageLevel
-   *     to specify the security level of the key to delete. HuksAuthStorageLevel can be left empty, which means the
-   *     default value HUKS_AUTH_STORAGE_LEVEL_DE is used.
+   * @param { HuksOptions } options - Options for deleting the key. For example, you can pass in HuksAuthStorageLevel to
+   *     specify the security level of the key to delete. HuksAuthStorageLevel can be left empty, which means the
+   *     default value HUKS_AUTH_STORAGE_LEVEL_CE is used.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
@@ -552,6 +555,34 @@ declare namespace huks {
    * @syscap SystemCapability.Security.Huks.Extension
    * @systemapi this method can be used only by system applications.
    * @since 12
+   */
+  /**
+   * Delete Key As User.
+   *
+   * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+   * @param { number } userId - userId indicates the userId of the owner of the key.
+   * @param { string } keyAlias - keyAlias indicates the key's name.
+   * @param { HuksOptions } huksOptions - huksOptions indicates the properties of the key.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 201 - the application permission is not sufficient, which may be caused by lack of
+   *     <br>cross-account permission, or the system has not been unlocked by user, or the user does not exist.
+   * @throws { BusinessError } 202 - non-system applications are not allowed to use system APIs.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - Feature is not supported. Possible causes:
+   *     1. The group key is not supported.
+   *     2. The crypto extension key is not supported.
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @systemapi this method can be used only by system applications.
+   * @since 23
    */
   function deleteKeyItemAsUser(userId: number, keyAlias: string, huksOptions: HuksOptions): Promise<void>;
 
@@ -880,7 +911,10 @@ declare namespace huks {
    *     2. Incorrect parameter types.
    *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
-   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000001 - Feature is not supported. Possible causes:
+   *     1. The algorithm mode is not supported.
+   *     2. The group key is not supported.
+   *     3. The crypto extension key is not supported.
    * @throws { BusinessError } 12000002 - algorithm param is missing
    * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
@@ -1074,7 +1108,10 @@ declare namespace huks {
    *     2. Incorrect parameter types.
    *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
-   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000001 - Feature is not supported. Possible causes:
+   *     1. The algorithm mode is not supported.
+   *     2. The group key is not supported.
+   *     3. The crypto extension key is not supported.
    * @throws { BusinessError } 12000002 - algorithm param is missing
    * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
@@ -1330,7 +1367,10 @@ declare namespace huks {
    *     2. Incorrect parameter types.
    *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
-   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000001 - Feature is not supported. Possible causes:
+   *     1. The algorithm mode is not supported.
+   *     2. The group key is not supported.
+   *     3. The crypto extension key is not supported.
    * @throws { BusinessError } 12000002 - algorithm param is missing
    * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
@@ -1540,7 +1580,10 @@ declare namespace huks {
    *     2. Incorrect parameter types.
    *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
-   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000001 - Feature is not supported. Possible causes:
+   *     1. The algorithm mode is not supported.
+   *     2. The group key is not supported.
+   *     3. The crypto extension key is not supported.
    * @throws { BusinessError } 12000002 - algorithm param is missing
    * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
@@ -1687,7 +1730,7 @@ declare namespace huks {
    * @param { string } keyAlias - Alias of the key to check.
    * @param { HuksOptions } options - Options for checking the key. For example, you can pass in HuksAuthStorageLevel to
    *     specify the security level of the key to check. HuksAuthStorageLevel can be left empty, which means the default
-   *     value HUKS_AUTH_STORAGE_LEVEL_DE is used.
+   *     value HUKS_AUTH_STORAGE_LEVEL_CE is used.
    * @param { AsyncCallback<boolean> } callback - Callback used to return the result. If the key exists, data is true.
    * If the key does not exist, error is the error code.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -1735,7 +1778,7 @@ declare namespace huks {
    * @param { string } keyAlias - Alias of the key to check.
    * @param { HuksOptions } options - Options for checking the key. For example, you can pass in HuksAuthStorageLevel to
    *     specify the security level of the key to check. HuksAuthStorageLevel can be left empty, which means the default
-   *     value HUKS_AUTH_STORAGE_LEVEL_DE is used.
+   *     value HUKS_AUTH_STORAGE_LEVEL_CE is used.
    * @returns { Promise<boolean> } Promise used to return the result. If the key exists, then() performs subsequent
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
@@ -1783,7 +1826,7 @@ declare namespace huks {
    * @param { string } keyAlias - Alias of the key to check.
    * @param { HuksOptions } options - Options for checking the key. For example, you can pass in HuksAuthStorageLevel to
    *     specify the security level of the key to check. HuksAuthStorageLevel can be left empty, which means the default
-   *     value HUKS_AUTH_STORAGE_LEVEL_DE is used.
+   *     value HUKS_AUTH_STORAGE_LEVEL_CE is used.
    * @param { AsyncCallback<boolean> } callback - Callback used to return the result. If the key exists, data is true.
    * Otherwise, data is false.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -1830,6 +1873,36 @@ declare namespace huks {
    * @systemapi this method can be used only by system applications.
    * @since 12
    */
+  /**
+   * Check whether the key exists as user.
+   *
+   * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+   * @param { number } userId - userId indicates the userId of the owner of the key.
+   * @param { string } keyAlias - keyAlias indicates the key's name.
+   * @param { HuksOptions } huksOptions - huksOptions indicates the properties of the key.
+   * @returns { Promise<boolean> } the promise returned by the function.
+   * @throws { BusinessError } 201 - the application permission is not sufficient, which may be caused by lack of
+   *     <br>cross-account permission, or the system has not been unlocked by user, or the user does not exist.
+   * @throws { BusinessError } 202 - non-system applications are not allowed to use system APIs.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - Feature is not supported. Possible causes:
+   *     1. The group key is not supported.
+   *     2. The crypto extension key is not supported.
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @systemapi this method can be used only by system applications.
+   * @since 23
+   */
   function hasKeyItemAsUser(userId: number, keyAlias: string, huksOptions: HuksOptions): Promise<boolean>;
 
   /**
@@ -1861,7 +1934,7 @@ declare namespace huks {
    * @param { string } keyAlias - Alias of the key to check.
    * @param { HuksOptions } options - Options for checking the key. For example, you can pass in HuksAuthStorageLevel to
    *     specify the security level of the key to check. HuksAuthStorageLevel can be left empty, which means the default 
-   *     value HUKS_AUTH_STORAGE_LEVEL_DE is used.
+   *     value HUKS_AUTH_STORAGE_LEVEL_CE is used.
    * @returns { Promise<boolean> } Promise used to return the result. If the key exists, true is returned. If the key
    * does not exist, false is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -2098,7 +2171,10 @@ declare namespace huks {
    *     2. Incorrect parameter types.
    *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
-   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000001 - Feature is not supported. Possible causes:
+   *     1. The algorithm mode is not supported.
+   *     2. The group key is not supported.
+   *     3. The crypto extension key is not supported.
    * @throws { BusinessError } 12000002 - algorithm param is missing
    * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
@@ -2253,11 +2329,11 @@ declare namespace huks {
    * @throws { BusinessError } 12000011 - queried entity does not exist
    * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid
    * @throws { BusinessError } 12000020 - the provider operation failed
    * @throws { BusinessError } 12000021 - the Ukey PIN is locked
    * @throws { BusinessError } 12000023 - the Ukey PIN not authenticated
    * @throws { BusinessError } 12000024 - the provider or Ukey is busy
-   * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
    * @since 23
@@ -2477,11 +2553,11 @@ declare namespace huks {
    * @throws { BusinessError } 12000011 - queried entity does not exist
    * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid
    * @throws { BusinessError } 12000020 - the provider operation failed
    * @throws { BusinessError } 12000021 - the Ukey PIN is locked
    * @throws { BusinessError } 12000023 - the Ukey PIN not authenticated
    * @throws { BusinessError } 12000024 - the provider or Ukey is busy
-   * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
    * @since 23
@@ -2656,11 +2732,11 @@ declare namespace huks {
    * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @throws { BusinessError } 12000017 - The key with same alias is already exist
+   * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid
    * @throws { BusinessError } 12000020 - the provider operation failed
    * @throws { BusinessError } 12000021 - the Ukey PIN is locked
    * @throws { BusinessError } 12000023 - the Ukey PIN not authenticated
    * @throws { BusinessError } 12000024 - the provider or Ukey is busy
-   * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
    * @since 23
@@ -2944,11 +3020,11 @@ declare namespace huks {
    * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @throws { BusinessError } 12000017 - The key with same alias is already exist
+   * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid
    * @throws { BusinessError } 12000020 - the provider operation failed
    * @throws { BusinessError } 12000021 - the Ukey PIN is locked
    * @throws { BusinessError } 12000023 - the Ukey PIN not authenticated
    * @throws { BusinessError } 12000024 - the provider or Ukey is busy
-   * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
    * @since 23
@@ -3058,9 +3134,9 @@ declare namespace huks {
    * @throws { BusinessError } 12000006 - error occurred in crypto engine or Ukey driver
    * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid
    * @throws { BusinessError } 12000020 - the provider operation failed
    * @throws { BusinessError } 12000024 - the provider or Ukey is busy
-   * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
    * @since 23
@@ -3143,9 +3219,9 @@ declare namespace huks {
    * @throws { BusinessError } 12000006 - error occurred in crypto engine or Ukey driver
    * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid
    * @throws { BusinessError } 12000020 - the provider operation failed
    * @throws { BusinessError } 12000024 - the provider or Ukey is busy
-   * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
    * @since 23
@@ -3219,7 +3295,10 @@ declare namespace huks {
    *     2. Incorrect parameter types.
    *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
-   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000001 - Feature is not supported. Possible causes:
+   *     1. The algorithm mode is not supported.
+   *     2. The group key is not supported.
+   *     3. The crypto extension key is not supported.
    * @throws { BusinessError } 12000002 - algorithm param is missing
    * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
@@ -3381,7 +3460,10 @@ declare namespace huks {
    *     2. Incorrect parameter types.
    *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
-   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000001 - Feature is not supported. Possible causes:
+   *     1. The algorithm mode is not supported.
+   *     2. The group key is not supported.
+   *     3. The crypto extension key is not supported.
    * @throws { BusinessError } 12000002 - algorithm param is missing
    * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
@@ -6675,13 +6757,13 @@ declare namespace huks {
      */
     HUKS_TAG_PURPOSE = HuksTagType.HUKS_TAG_TYPE_UINT | 2,
     /**
-     * Key size.
+     * Key bit length.
      *
      * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      */
     /**
-     * Key size.
+     * Key bit length.
      *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
@@ -6942,13 +7024,13 @@ declare namespace huks {
      */
     HUKS_TAG_KEY_ALIAS = HuksTagType.HUKS_TAG_TYPE_BYTES | 23,
     /**
-     * Size of the derived key.
+     * Byte length of the derived key.
      *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
-     * Size of the derived key.
+     * Byte length of the derived key.
      *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
@@ -7118,13 +7200,13 @@ declare namespace huks {
      */
     HUKS_TAG_USER_AUTH_TYPE = HuksTagType.HUKS_TAG_TYPE_UINT | 304,
     /**
-     * One-time validity period of the authentication token.
+     * One-time validity duration of the authentication token in seconds.
      *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
-     * One-time validity period of the authentication token.
+     * One-time validity duration of the authentication token in seconds.
      *
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
@@ -7388,7 +7470,7 @@ declare namespace huks {
      */
     HUKS_TAG_KEY_OVERRIDE = HuksTagType.HUKS_TAG_TYPE_BOOL | 520,
     /**
-     * The tag indicates the length of AEAD for CCM mode.
+     * The tag indicates the byte length of AEAD for CCM mode.
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 22

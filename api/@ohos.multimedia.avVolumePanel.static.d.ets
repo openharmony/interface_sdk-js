@@ -74,7 +74,7 @@ export declare struct AVVolumePanel {
   /**
    * The method to build component.
    * @syscap SystemCapability.Multimedia.Audio.Volume
-   * @since 23 static
+   * @since 23 staticonly
    */
   @Builder
   build(): void;

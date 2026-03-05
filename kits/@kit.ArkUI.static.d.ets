@@ -20,6 +20,7 @@
  */
 
 import promptAction from '@ohos.promptAction';
+import { LevelOrder } from '@ohos.promptAction';
 import window from '@ohos.window';
 import display from '@ohos.display';
 import screen from '@ohos.screen';
@@ -30,20 +31,22 @@ import componentSnapshot from '@ohos.arkui.componentSnapshot';
 import componentUtils from '@ohos.arkui.componentUtils';
 import dragController from '@ohos.arkui.dragController';
 import floatingBall from '@ohos.window.floatingBall';
+import PiPWindow from '@ohos.PiPWindow';
 import { sendTouchEvent, sendKeyEvent, sendMouseEvent } from '@ohos.arkui.Test';
-export { promptAction, ComponentContent };
+import uiMaterial from '@ohos.arkui.uiMaterial';
+export { promptAction, LevelOrder, ComponentContent };
 
 export * from '@ohos.arkui.component';
 export * from '@ohos.arkui.stateManagement';
 export * from '@ohos.arkui.advanced.Counter';
 export * from '@ohos.arkui.advanced.SegmentButton';
-export * from '@ohos.arkui.advanced.SegmentButtonV2';
 export * from '@ohos.arkui.advanced.Chip';
 export * from '@ohos.arkui.advanced.ChipGroup';
+export * from '@ohos.arkui.advanced.SegmentButtonV2';
 export { GETINSPECTORBYKEY as getInspectorByKey, GETINSPECTORTREE as getInspectorTree , SENDEVENTBYKEY as sendEventByKey } from '@ohos.arkui.inspector';
 
 export { window, display, screen, screenshot, uiExtensionHost };
 
 export { componentSnapshot, componentUtils, dragController, sendTouchEvent, sendKeyEvent, sendMouseEvent };
 
-export { floatingBall };
+export { floatingBall, uiMaterial, PiPWindow };

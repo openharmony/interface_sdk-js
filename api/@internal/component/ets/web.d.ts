@@ -70,7 +70,7 @@ type OnNavigationEntryCommittedCallback = (loadCommittedDetails: LoadCommittedDe
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform
  * @atomicservice
- * @since 22 dynamic
+ * @since 23 dynamic
  */
 type OnSslErrorEventCallback = (sslErrorEvent: SslErrorEvent) => void;
 
@@ -140,7 +140,7 @@ type OnFirstMeaningfulPaintCallback = (firstMeaningfulPaint: FirstMeaningfulPain
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform
  * @atomicservice
- * @since 22 dynamic
+ * @since 23 dynamic
  */
 type OnOverrideUrlLoadingCallback = (webResourceRequest: WebResourceRequest) => boolean;
 
@@ -1797,7 +1797,7 @@ type OnContextMenuHideCallback = () => void;
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform
  * @atomicservice
- * @since 22 dynamic
+ * @since 23 dynamic
  */
 declare enum SslError {
   /**
@@ -1834,7 +1834,7 @@ declare enum SslError {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   HostMismatch = 1,
 
@@ -1857,7 +1857,7 @@ declare enum SslError {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   DateInvalid = 2,
 
@@ -1880,7 +1880,7 @@ declare enum SslError {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   Untrusted = 3
 }
@@ -2410,7 +2410,7 @@ declare class HttpAuthHandler {
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform
  * @atomicservice
- * @since 22 dynamic
+ * @since 23 dynamic
  */
 declare class SslErrorHandler {
   /**
@@ -2432,7 +2432,7 @@ declare class SslErrorHandler {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   constructor();
 
@@ -2455,7 +2455,7 @@ declare class SslErrorHandler {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   handleConfirm(): void;
 
@@ -2478,7 +2478,7 @@ declare class SslErrorHandler {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   handleCancel(): void;
 
@@ -3959,6 +3959,15 @@ declare class WebContextMenuResult {
    * @since 23 dynamic
    */
   requestPasswordAutoFill(): void;
+
+  /**
+   * Performing the "Save As Image" operation associated with this context menu will trigger the download process.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @stagemodelonly
+   * @since 24 dynamic
+   */
+  saveImage(): void;
 }
 
 /**
@@ -4539,7 +4548,7 @@ declare class WebResourceResponse {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   setResponseData(data: string | number | Resource | ArrayBuffer): void;
 
@@ -4573,7 +4582,7 @@ declare class WebResourceResponse {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   setResponseEncoding(encoding: string): void;
 
@@ -4607,7 +4616,7 @@ declare class WebResourceResponse {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   setResponseMimeType(mimeType: string): void;
 
@@ -4641,7 +4650,7 @@ declare class WebResourceResponse {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   setReasonMessage(reason: string): void;
 
@@ -4675,7 +4684,7 @@ declare class WebResourceResponse {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   setResponseHeader(header: Array<Header>): void;
 
@@ -4709,7 +4718,7 @@ declare class WebResourceResponse {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   setResponseCode(code: number): void;
 
@@ -4743,7 +4752,7 @@ declare class WebResourceResponse {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   setResponseIsReady(IsReady: boolean): void;
 
@@ -5019,13 +5028,6 @@ declare class JsGeolocation {
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
- * @since 11 dynamic
- */
-/**
- * Defines the Web cookie.
- *
- * @syscap SystemCapability.Web.Webview.Core
- * @atomicservice
  * @since 11 dynamiconly
  * @deprecated since 23
  * @useinstead ohos.web.webview.webview.WebCookieManager
@@ -5036,13 +5038,6 @@ declare class WebCookie {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8
-   */
-  /**
-   * Constructor.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
    */
   /**
    * Constructor.
@@ -5134,7 +5129,7 @@ declare class EventResult {
    *    {@code true} Indicates the consumption of the mouse event.
    *    {@code false} Indicates the non-consumption of the mouse event.
    *    Default value: true.
-   * @param { boolean } [stopPropagation] - Whether to stop propagation.
+   * @param { boolean } stopPropagation - Whether to stop propagation.
    *    This parameter is valid only when result is set to true.
    *    {@code true} Indicates stops the propagation of events farther along.
    *    {@code false} Indicates the propagation of events farther along.
@@ -5158,8 +5153,9 @@ declare class WebController {
    * Constructor.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.web.webview.webview.WebviewController#constructor
    */
   constructor();
 
@@ -6982,7 +6978,7 @@ declare interface OnHttpAuthRequestEvent {
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform
  * @atomicservice
- * @since 22 dynamic
+ * @since 23 dynamic
  */
 declare interface OnInterceptRequestEvent {
   /**
@@ -7000,7 +6996,7 @@ declare interface OnInterceptRequestEvent {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   request: WebResourceRequest;
 }
@@ -7167,7 +7163,7 @@ declare interface OnScrollEvent {
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform
  * @atomicservice
- * @since 22 dynamic
+ * @since 23 dynamic
  */
 declare interface OnSslErrorEventReceiveEvent {
   /**
@@ -7185,7 +7181,7 @@ declare interface OnSslErrorEventReceiveEvent {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   handler: SslErrorHandler;
 
@@ -7204,7 +7200,7 @@ declare interface OnSslErrorEventReceiveEvent {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   error: SslError;
 
@@ -7221,7 +7217,7 @@ declare interface OnSslErrorEventReceiveEvent {
    * @type { ?Array<Uint8Array> }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   certChainData?: Array<Uint8Array>;
 }
@@ -8421,7 +8417,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Sets whether enable local file system access in web.
    *
    * @param { boolean } fileAccess - {@code true} means enable local file system access in Web; {@code false} otherwise.
-   *    The default value is true.
+   *     The default value is true.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8
@@ -8430,14 +8426,14 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Sets whether enable local file system access in web.
    *
    * @param { boolean } fileAccess - {@code true} means enable local file system access in Web; {@code false} otherwise.
-   *    The default value is true.
+   *     The default value is true.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11
    */
   /**
-   * Sets whether to enable access to the file system in the application.
+   * Sets whether to enable Access to the file system in the application.
    * This setting dose not affect the access to the files specified though $rawfile(filepath/filename).
    * <p><strong>API Note</strong>:<br>
    * fileAccess is disabled by default since API version 12.
@@ -8446,7 +8442,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * </p>
    *
    * @param { boolean } fileAccess - {@code true} means enable local file system access in Web; {@code false} otherwise.
-   *    The default value is false.
+   *     The default value is false.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -8462,12 +8458,12 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * </p>
    *
    * @param { boolean } fileAccess - {@code true} means enable local file system access in Web; {@code false} otherwise.
-   *    The default value is false.
+   *     The default value is false.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   fileAccess(fileAccess: boolean): WebAttribute;
 
@@ -8949,7 +8945,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   textZoomRatio(textZoomRatio: number): WebAttribute;
 
@@ -9232,7 +9228,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Called to notify the user that the request for obtaining the geolocation information received
    * when {@link onGeolocationShow} is called has been canceled.
    *
-   * @param { function } callback - Callback invoked when the request for obtaining geolocation information has been canceled.
+   * @param { function } callback Callback invoked when the request for obtaining geolocation information has been canceled.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
@@ -9900,7 +9896,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   onInterceptRequest(callback: Callback<OnInterceptRequestEvent, WebResourceResponse>): WebAttribute;
 
@@ -10123,8 +10119,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onScroll(callback: Callback<OnScrollEvent>): WebAttribute;
 
   /**
-   * Called to notify users when an SSL error occurs with a request for the main frame.
-   * To include errors with requests for subframes, use the OnSslErrorEvent API.
+   * Triggered when the Web page receives an ssl Error.
    *
    * @param { function } callback The triggered callback when the Web page receives an ssl Error.
    * @returns { WebAttribute }
@@ -10132,8 +10127,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 9
    */
   /**
-   * Called to notify users when an SSL error occurs with a request for the main frame.
-   * To include errors with requests for subframes, use the OnSslErrorEvent API.
+   * Triggered when the Web page receives an ssl Error.
    *
    * @param { function } callback The triggered callback when the Web page receives an ssl Error.
    * @returns { WebAttribute }
@@ -10142,10 +10136,10 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 11
    */
   /**
-   * Called to notify users when an SSL error occurs with a request for the main frame.
-   * To include errors with requests for subframes, use the OnSslErrorEvent API.
+   * Triggered when the Web page receives an ssl Error.
    *
-   * @param { Callback<OnSslErrorEventReceiveEvent> } callback The triggered callback when the Web page receives an ssl Error.
+   * @param { Callback<OnSslErrorEventReceiveEvent> } callback The triggered callback
+   *     when the Web page receives an ssl Error.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -10155,18 +10149,18 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Called to notify users when an SSL error occurs with a request for the main frame.
    * To include errors with requests for subframes, use the OnSslErrorEvent API.
    *
-   * @param { Callback<OnSslErrorEventReceiveEvent> } callback The triggered callback when the Web page receives an ssl Error.
+   * @param { Callback<OnSslErrorEventReceiveEvent> } callback The triggered callback
+   *     when the Web page receives an ssl Error.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   onSslErrorEventReceive(callback: Callback<OnSslErrorEventReceiveEvent>): WebAttribute;
 
   /**
-   * Called to notify users when an SSL error occurs during the loading of resources (for the main frame and subframes).
-   * To handle SSL errors for requests for the main frame, use the isMainFrame field to distinguish.
+   * Triggered when the Web page receives an ssl Error.
    *
    * @param { OnSslErrorEventCallback } callback The triggered callback when the Web page receives an ssl Error.
    * @returns { WebAttribute }
@@ -10183,7 +10177,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   onSslErrorEvent(callback: OnSslErrorEventCallback): WebAttribute;
 
@@ -10267,15 +10261,15 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * If the {@link setWebController} interface is not called, the render process will be blocked.
    * If no new window is created, it is set to null when calling the {@link setWebController} interface,
    * informing the Web that no new window is created.
-   * New windows must not be placed to directly cover the original Web component. Additionally, 
-   * their URLs—specifically the content shown in the address bar—should follow the same display 
-   * format as the main page, ensuring clarity for users and avoiding confusion. In cases where 
-   * reliable visual management of URLs is not feasible, restricting the creation of new windows 
-   * should be considered. It is also important to note that the origin of new window requests 
-   * cannot be tracked with certainty; such requests may even be triggered by third-party iframes. 
-   * For this reason, applications must implement default defensive measures like sandbox isolation 
+   * New windows must not be placed to directly cover the original Web component. Additionally,
+   * their URLs—specifically the content shown in the address bar—should follow the same display
+   * format as the main page, ensuring clarity for users and avoiding confusion. In cases where
+   * reliable visual management of URLs is not feasible, restricting the creation of new windows
+   * should be considered. It is also important to note that the origin of new window requests
+   * cannot be tracked with certainty; such requests may even be triggered by third-party iframes.
+   * For this reason, applications must implement default defensive measures like sandbox isolation
    * and permission controls to safeguard security.
-   * @param {  Callback<OnWindowNewExtEvent> } callback The triggered callback when web page requires the user 
+   * @param {  Callback<OnWindowNewExtEvent> } callback The triggered callback when web page requires the user
    *     to create a window.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
@@ -10905,7 +10899,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Triggered when the first meaningful paint occurs on the web page.
    *
-   * @param { OnFirstMeaningfulPaintCallback } callback Callback invoked when the first meaningful paint occurs on the web page.
+   * @param { OnFirstMeaningfulPaintCallback } callback - Callback invoked when the first meaningful paint occurs on the web page.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -11191,7 +11185,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   nestedScroll(value: NestedScrollOptions | NestedScrollOptionsExt): WebAttribute;
 
@@ -11204,14 +11198,14 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * see [Rendering Native Components on the Web Using Same-Layer Rendering]{@link https://developer.huawei.com/consumer/en/doc/best-practices/bpta-render-web-using-same-layer-render}
    * </p>
    *
-   * @param { boolean } mode - Whether to enable the same-layer rendering feature.
+   * @param { boolean } enabled - Whether to enable the same-layer rendering feature.
    *    The value true means to enable the same-layer rendering feature, and false means the opposite.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
    */
-  enableNativeEmbedMode(mode: boolean): WebAttribute;
+  enableNativeEmbedMode(enabled: boolean): WebAttribute;
 
   /**
    * Registers the HTML tag name and type for same-layer rendering.
@@ -11321,7 +11315,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   onOverrideUrlLoading(callback: OnOverrideUrlLoadingCallback): WebAttribute;
 
@@ -11332,7 +11326,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * </p>
    *
    * @param { OnOverrideErrorPageCallback } callback The triggered function when the
-   * web page's document resource error.
+   *                                        web page's document resource error.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20 dynamic
@@ -11754,7 +11748,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * However, if the user scrolls or inputs before the first screen has been painted,
    * the callback will be triggered immediately.
    *
-   * @param { OnFirstScreenPaintCallback } callback - callback triggered to 
+   * @param { OnFirstScreenPaintCallback } callback - callback triggered to
    *     report the info for the first screen painting of the current web page.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
@@ -11816,6 +11810,19 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 23 dynamic
    */
   onMicrophoneCaptureStateChange(callback: OnMicrophoneCaptureStateChangeCallback): WebAttribute;
+
+  /**
+   * Set whether to enable the default right-click context menu.
+   *
+   * @param { boolean } enable - {@code true} means the Web enable the default right-click context menu,
+   *    {@code false} otherwise.
+   *    The default value is false.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @stagemodelonly
+   * @since 24 dynamic
+   */
+  enableDefaultContextMenu(enable: boolean): WebAttribute;
 }
 
 /**
@@ -11881,7 +11888,7 @@ declare const WebInstance: WebAttribute;
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform
  * @atomicservice
- * @since 22 dynamic
+ * @since 23 dynamic
  */
 declare interface SslErrorEvent {
   /**
@@ -11899,7 +11906,7 @@ declare interface SslErrorEvent {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   handler: SslErrorHandler;
 
@@ -11918,7 +11925,7 @@ declare interface SslErrorEvent {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   error: SslError;
 
@@ -11937,7 +11944,7 @@ declare interface SslErrorEvent {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   url: string;
 
@@ -11956,7 +11963,7 @@ declare interface SslErrorEvent {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   originalUrl: string;
 
@@ -11975,7 +11982,7 @@ declare interface SslErrorEvent {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   referrer: string;
 
@@ -12004,7 +12011,7 @@ declare interface SslErrorEvent {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   isMainFrame: boolean;
 
@@ -12021,7 +12028,7 @@ declare interface SslErrorEvent {
    * @type { ?Array<Uint8Array> }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   certChainData?: Array<Uint8Array>;
 }
@@ -12110,7 +12117,7 @@ declare interface ExpandedMenuItemOptions {
  * @interface NestedScrollOptionsExt
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform
- * @since 22 dynamic
+ * @since 23 dynamic
  */
 declare interface NestedScrollOptionsExt {
   /**
@@ -12126,7 +12133,7 @@ declare interface NestedScrollOptionsExt {
    * @type { ?NestedScrollMode }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   scrollUp?: NestedScrollMode;
 
@@ -12143,7 +12150,7 @@ declare interface NestedScrollOptionsExt {
    * @type { ?NestedScrollMode }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   scrollDown?: NestedScrollMode;
 
@@ -12160,7 +12167,7 @@ declare interface NestedScrollOptionsExt {
    * @type { ?NestedScrollMode }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   scrollRight?: NestedScrollMode;
 
@@ -12177,7 +12184,7 @@ declare interface NestedScrollOptionsExt {
    * @type { ?NestedScrollMode }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   scrollLeft?: NestedScrollMode;
 }

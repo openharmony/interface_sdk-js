@@ -328,7 +328,7 @@ declare namespace uiObserver {
    */
   export enum TabContentState {
     /**
-     * When the TabContent hidden.
+     * When the TabContent is shown.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
@@ -338,7 +338,7 @@ declare namespace uiObserver {
     ON_SHOW = 0,
 
     /**
-     * When the TabContent hidden.
+     * When the TabContent is hidden.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
@@ -878,6 +878,43 @@ declare namespace uiObserver {
   }
 
   /**
+   * Defines the window size layout breakpoint information.
+   * This class provides the current breakpoint classification of the window's width and height
+   * based on the configured breakpoint thresholds.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  export class WindowSizeLayoutBreakpointInfo {
+    /**
+     * The width breakpoint classification of the current window.
+     * This value indicates which width category the window currently falls into based on
+     * the configured width breakpoint thresholds.
+     *
+     * @type { WidthBreakpoint }
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 22 dynamic
+     */
+    readonly widthBreakpoint: WidthBreakpoint;
+
+    /**
+     * The height breakpoint classification of the current window.
+     * This value indicates which height category the window currently falls into based on
+     * the configured height breakpoint thresholds and aspect ratio.
+     *
+     * @type { HeightBreakpoint }
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 22 dynamic
+     */
+    readonly heightBreakpoint: HeightBreakpoint;
+  }
+
+  /**
    * NavDestination switch info
    *
    * @interface NavDestinationSwitchInfo
@@ -930,43 +967,6 @@ declare namespace uiObserver {
      * @since 12 dynamic
      */
     operation: NavigationOperation;
-  }
-
-  /**
-   * Defines the window size layout breakpoint information.
-   * This class provides the current breakpoint classification of the window's width and height
-   * based on the configured breakpoint thresholds.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 22 dynamic
-   */
-  export class WindowSizeLayoutBreakpointInfo {
-    /**
-     * The width breakpoint classification of the current window.
-     * This value indicates which width category the window currently falls into based on
-     * the configured width breakpoint thresholds.
-     *
-     * @type { WidthBreakpoint }
-     * @readonly
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
-     * @since 22 dynamic
-     */
-    readonly widthBreakpoint: WidthBreakpoint;
-
-    /**
-     * The height breakpoint classification of the current window.
-     * This value indicates which height category the window currently falls into based on
-     * the configured height breakpoint thresholds and aspect ratio.
-     *
-     * @type { HeightBreakpoint }
-     * @readonly
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
-     * @since 22 dynamic
-     */
-    readonly heightBreakpoint: HeightBreakpoint;
   }
 
   /**

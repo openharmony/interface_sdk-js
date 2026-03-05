@@ -597,6 +597,7 @@ declare class AbilityLifecycleCallback {
    * @StageModelOnly
    * @atomicservice
    * @since 11 dynamic
+   * @since 23 static
    */
   onAbilityContinue(ability: UIAbility): void;
 
@@ -610,6 +611,16 @@ declare class AbilityLifecycleCallback {
    * @since 12 dynamic
    */
   onAbilityWillContinue?(ability: UIAbility): void;
+
+  /**
+   * Called back when the ability prepares to call onContinue.
+   *
+   * @type { ?OnAbilityWillContinueFn }
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @since 23 static
+   */
+  onAbilityWillContinue?: OnAbilityWillContinueFn;
 
   /**
    * Called back when the ability prepares to call onWindowStageRestore.

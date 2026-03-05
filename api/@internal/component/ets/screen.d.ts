@@ -31,13 +31,13 @@ interface ScreenInterface {
   /**
    * Called when the Screen is used.
    *
-   * @param { number } screenId - indicates the identifier of a screen.
+   * @param { long } screenId - indicates the identifier of a screen.
    * @returns { ScreenAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 10 dynamic
    */
-  (screenId: number): ScreenAttribute;
+  (screenId: long): ScreenAttribute;
 }
 
 /**

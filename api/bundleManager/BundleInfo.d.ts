@@ -472,6 +472,18 @@ export interface BundleInfo {
    * @since 23 static
    */
   readonly firstInstallTime?: long;
+
+  /**
+   * Indicates the build version of the bundle
+   *
+   * @type { ?string }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  readonly buildVersion?: string;
 }
 
 /**
