@@ -4522,6 +4522,22 @@ declare namespace notificationManager {
   function openNotificationSettings(context: UIAbilityContext): Promise<void>;
 
   /**
+   * Opens the notification settings page of the application, which is displayed in semi-modal mode and can be used to set
+   * the notification enabling and notification mode. This API uses a promise to return the result.
+   *
+   * @param { UIAbilityContext } context - Ability context bound to the notification settings page.
+   * @returns { Promise<NotificationSetting> } Returns notificationsetting of this application.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600018 - The notification settings window is already displayed.
+   * @syscap SystemCapability.Notification.NotificationSettings
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function openNotificationSettingsWithResult(context: UIAbilityContext): Promise<NotificationSetting>;
+
+  /**
    * Get do not disturb profile by id.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
