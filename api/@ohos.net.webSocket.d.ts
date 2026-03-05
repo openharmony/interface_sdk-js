@@ -1641,7 +1641,7 @@ declare namespace webSocket {
      * @throws { BusinessError } 2302999 - Websocket other unknown error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since 24 dynamic
+     * @since 24 dynamic&static
      */
     start(config: WebSocketServerConfig): Promise<boolean>;
 
