@@ -649,6 +649,15 @@ declare namespace http {
      * @since 23 dynamic&static
      */
     sniHostName?: string;
+    
+    /**
+     * Supports forbidding reuse of HTTP/HTTPS connections
+     * @type { ?boolean }
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    reuseConnections?: boolean;
   }
 
    /**
