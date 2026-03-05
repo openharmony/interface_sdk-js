@@ -112,11 +112,12 @@ export enum TriggerType {
 }
 
 /**
- * Defines a GroupInfo.
+ * The type of group notification customization information
  *
  * @typedef GroupInfo
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
+ * @stagemodelonly
  * @since 26.0.0 dynamic&static
  */
 export interface GroupInfo {
@@ -126,6 +127,7 @@ export interface GroupInfo {
    * @type { boolean }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
+   * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
   isGroupIcon?: boolean;
@@ -137,6 +139,7 @@ export interface GroupInfo {
    * @type { string }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
+   * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
   groupTitle?: string;
@@ -980,6 +983,7 @@ export interface NotificationRequest {
    * @type { ?GroupInfo }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
+   * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
   groupInfo?: GroupInfo;

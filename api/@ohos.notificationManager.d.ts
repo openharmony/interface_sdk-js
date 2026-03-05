@@ -6740,11 +6740,12 @@ declare namespace notificationManager {
   export type MonitorEvent = _MonitorEvent;
 
   /**
-   * Describes the group info type of the notification.
+   * The type of group notification customization information
    *
    * @typedef { _GroupInfo } GroupInfo
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
+   * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
   export type GroupInfo = _GroupInfo;
