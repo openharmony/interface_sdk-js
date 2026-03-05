@@ -13812,13 +13812,16 @@ declare namespace audio {
     /**
      * Selects the output device for your application. This setting applies to all playback streams created
      * under your application, unless a specific output device is designated for a particular stream by
-     * {@link AudioDeviceEnhanceManager.selectOutputDeviceForAudioRenderer}.
-     * Your application can obtain currently active output device by
+     * {@link AudioDeviceEnhanceManager.selectOutputDeviceForAudioRenderer}. When application implements
+     * its own UX for output device selection, it can obtain the list of available output devices through
+     * {@link AudioRoutingManager.getAvailableDevices}, and use the
+     * {@link AudioRoutingManager.getPreferOutputDeviceForRendererInfo} API to obtain the currently
+     * selected output device. Your application can obtain the currently active output device by
      * {@link AudioDeviceEnhanceManager.onCurrentOutputDeviceChanged}.
      * The selection will become invalid when your application exits or the selected device goes offline.
      * After your application restarts or the device comes back online, your application must re-issue the
-     * selection for it to take effect. If the system does not support this function, the system will
-     * select a default output device for your application.
+     * selection for it to take effect. If the system does not support this function, it will select a default
+     * output device for your application.
      * @param { AudioDeviceDescriptor } outputDevice - Audio device description in the array returned by
      *     {@link AudioRoutingManager.getAvailableDevices}.
      * @returns { Promise<void> } Promise used to return the result.
@@ -13834,13 +13837,16 @@ declare namespace audio {
     /**
      * Selects the input device for your application. This setting applies to all recording streams created
      * under your application, unless a specific input device is designated for a particular stream by
-     * {@link AudioDeviceEnhanceManager.selectInputDeviceForAudioCapturer}.
-     * Your application can obtain currently active input device by
+     * {@link AudioDeviceEnhanceManager.selectInputDeviceForAudioCapturer}. When application implements
+     * its own UX for input device selection, it can obtain the list of available input devices through
+     * {@link AudioRoutingManager.getAvailableDevices}, and use the
+     * {@link AudioRoutingManager.getPreferredInputDeviceForCapturerInfo} API to obtain the currently
+     * selected input device. Your application can obtain the currently active input device by
      * {@link AudioDeviceEnhanceManager.onCurrentInputDeviceChanged}.
      * The selection will become invalid when your application exits or the selected device goes offline.
      * After your application restarts or the device comes back online, your application must re-issue the
-     * selection for it to take effect. If the system does not support this function, the system will
-     * select a default input device for your application.
+     * selection for it to take effect. If the system does not support this function, it will select a default
+     * input device for your application.
      * @param { AudioDeviceDescriptor } inputDevice - Audio device description in the array returned by
      *     {@link AudioRoutingManager.getAvailableDevices}.
      * @returns { Promise<void> } Promise used to return the result.
