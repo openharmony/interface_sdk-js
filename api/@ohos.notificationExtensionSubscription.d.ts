@@ -20,7 +20,8 @@
 
 import type UIAbilityContext from './application/UIAbilityContext';
 import { BundleOption as _BundleOption,
-  GrantedBundleInfo as _GrantedBundleInfo } from './notification/NotificationCommonDef';
+  GrantedBundleInfo as _GrantedBundleInfo,
+  UserGrantSetting as _UserGrantSetting } from './notification/NotificationCommonDef';
 import {
   NotificationExtensionSubscriptionInfo as _NotificationExtensionSubscriptionInfo
 } from './notification/NotificationExtensionSubscriptionInfo';
@@ -53,6 +54,24 @@ declare namespace notificationExtensionSubscription {
    * @since 23 static
    */
   function openSubscriptionSettings(context: UIAbilityContext): Promise<void>;
+
+  /**
+   * Opens the notification extension subscription settings page of the application, which is displayed in
+   * semi-modal mode and can be used to set the notification enabling and notification mode.
+   * This API uses a promise to return the result.
+   *
+   * @permission ohos.permission.SUBSCRIBE_NOTIFICATION
+   * @param { UIAbilityContext } context - Ability context bound to the notification settings page.
+   * @returns { Promise<UserGrantSetting> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied or current device not supported.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600018 - The notification settings window is already displayed.
+   * @throws { BusinessError } 1600023 - The application does not implement the NotificationSubscriberExtensionAbility.
+   * @syscap SystemCapability.Notification.Notification
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function openSubscriptionSettingsWithResult(context: UIAbilityContext): Promise<UserGrantSetting>;
 
   /**
    * Subscribe the notification extension when the bluetooth addr is connected.
@@ -256,6 +275,16 @@ declare namespace notificationExtensionSubscription {
    * @since 23 static
    */
   export type GrantedBundleInfo = _GrantedBundleInfo;
+
+  /**
+   * Describes a userGrantSetting.
+   *
+   * @typedef { _UserGrantSetting }
+   * @syscap SystemCapability.Notification.Notification
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export type UserGrantSetting = _UserGrantSetting;
 
   /**
    * the notification extension subscription info.
