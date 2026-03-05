@@ -1976,6 +1976,24 @@ declare namespace window {
      * @since 23 static
      */
     isFocused?: boolean;
+
+    /**
+     * Indicates the ID of the display where the window is located.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    displayId?: int;
+
+    /**
+     * Indicates the actual display size and position of the window.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    globalRect?: Rect;
   }
 
   /**
