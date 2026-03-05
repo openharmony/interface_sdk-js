@@ -8622,6 +8622,32 @@ declare namespace relationalStore {
     setDistributedTables(tables: Array<string>, type?: DistributedType, config?: DistributedConfig): Promise<void>;
 
     /**
+     * Remove distributed table remote data.
+     *
+     * @param { Record<string, Array<string>> } [retainDevices] -
+     *     key is the name of the table where the data is to be deleted,
+     *     <br>value is the device ID list of cross device end needs to be retained.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 202 - Permission verification failed,
+     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of valid range.
+     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+     * @throws { BusinessError } 14800042 - The database does not exist. Possible causes: 1. The database is deleted;
+     *     <br>2. The database is not created.
+     * @throws { BusinessError } 14800043 - The database does not support this scenario.
+     *     Possible causes: 1. The database type is not supported;2. The table type is not supported;
+     *     <br>3. This is a read-only database.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    retainDeviceData(retainDevices?: Record<string, Array<string>>): Promise<void>;
+
+    /**
      * Obtain distributed table name of specified remote device according to local table name.
      * When query remote device database, distributed table name is needed.
      *
