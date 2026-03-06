@@ -1151,3 +1151,80 @@ export declare function borderStyles(all: BorderStyle): NodeEdges<BorderStyle>;
  * @since 23 static
  */
 export declare function borderRadiuses(all: double): NodeBorderRadiuses;
+
+/**
+ * Defines the background blur effect.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export interface BackgroundBlur {
+  /**
+   * Blur radius for background blur.
+   * Value range: [0, +∞). The larger the value, the more blurred the background.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  radius: double;
+
+  /**
+   * Grayscale parameters for the blur effect.
+   * Value range for each parameter: [0, 127].
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  grayscale?: [int, int];
+}
+
+/**
+ * Defines the content blur effect.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export interface ContentBlur {
+  /**
+   * Blur radius for content blur.
+   * Value range: [0, +∞). The larger the value, the more blurred the content.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  radius: double;
+
+  /**
+   * Grayscale parameters for the blur effect.
+   * Value range for each parameter: [0, 127].
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  grayscale?: [int, int];
+}
+
+/**
+ * Defines the foreground blur effect.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export interface ForegroundBlur {
+  /**
+   * Blur radius for foreground blur.
+   * Value range: [0, +∞). The larger the value, the more blurred the foreground.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  radius: double;
+}
