@@ -4006,6 +4006,15 @@ declare namespace http {
      * @since 23 static
      */
     performanceTiming: PerformanceTiming;
+
+    /**
+     * Information details of HTTP request.
+     *
+     * @type { ?ConnectionExtraInfo }
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 24 dynamic&static
+     */
+    connectionExtraInfo?: ConnectionExtraInfo;
   }
 
   /**
@@ -4653,6 +4662,115 @@ declare namespace http {
      * @since 23 static
      */
     public apply(httpRequest: HttpRequest): boolean;
+  }
+
+  /**
+   * Information details of the HTTP request
+   *
+   * @interface ConnectionExtraInfo
+   * @syscap SystemCapability.Communication.NetStack
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  export interface ConnectionExtraInfo {
+    /**
+     * The network protocol used to fetch the resource.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    networkProtocolName: string;
+
+    /**
+     * The tls version used to fetch the resource.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    tlsVersion?: TlsVersion;
+
+    /**
+     * The cipher suite used to fetch the resource.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    cipherSuite?: CipherSuite;
+
+    /**
+     * localAddress of the HTTP request.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    localAddress: string;
+
+    /**
+     * remoteAddress of the HTTP request.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    remoteAddress: string;
+
+    /**
+     * localPort of the HTTP request. -1 for unknown.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    localPort: int;
+
+    /**
+     * remotePort of the HTTP request. -1 for unknown.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    remotePort: int;
+
+    /**
+     * The HTTP request is a reused connection or not.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    isReusedConnection: boolean;
+
+    /**
+     * A Boolean value that indicastes whether the task used a proxy connection to fetch the resource.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    isProxyConnection: boolean;
+
+    /**
+     * A Boolean value that indicates whether the http request hit cache.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    isCacheHit: boolean;
+
+    /**
+     * The HTTP request redirect count.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    redirectCount: int;
   }
 }
 
