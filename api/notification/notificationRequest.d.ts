@@ -112,9 +112,8 @@ export enum TriggerType {
 }
 
 /**
- * The type of group notification customization information
+ * The type of group notification customization information.
  *
- * @typedef GroupInfo
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
  * @stagemodelonly
@@ -122,21 +121,18 @@ export enum TriggerType {
  */
 export interface GroupInfo {
   /**
-   * The icon of the notification shall be used as the group icon.
+   * Replaces the group notification icon with the notification icon.
    *
-   * @type { boolean }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
   isGroupIcon?: boolean;
-
+ 	 
   /**
-   * The title of group notification.
-   * When a notification is grouped, the group title shall be set to the title of the most recent notification within the group.
+   * The title of the group notification.
    *
-   * @type { string }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @stagemodelonly
@@ -980,7 +976,6 @@ export interface NotificationRequest {
   /**
    * Group notification customization information.
    *
-   * @type { ?GroupInfo }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @stagemodelonly

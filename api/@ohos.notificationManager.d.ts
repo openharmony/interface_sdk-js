@@ -6742,7 +6742,6 @@ declare namespace notificationManager {
   /**
    * The type of group notification customization information
    *
-   * @typedef { _GroupInfo } GroupInfo
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @stagemodelonly
