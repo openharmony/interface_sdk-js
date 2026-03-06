@@ -3755,7 +3755,7 @@ declare namespace drawing {
      *     The value is a floating-point array and the size must be ((meshWidth+1) * (meshHeight+1) + vertOffset) * 2.
      * @param { int } vertOffset - Number of vert elements to skip before drawing.
      *     The value is an integer greater than or equal to 0.
-     * @param { Array<int> } colors - Array of colors, which specify the color at each vertex.
+     * @param { Array<int> | null } colors - Array of colors, which specify the color at each vertex.
      *     The value is an integer array and can be null. The size must be (meshWidth+1) * (meshHeight+1) + colorOffset.
      * @param { int } colorOffset - Number of color elements to skip before drawing.
      *     The value is an integer greater than or equal to 0.
@@ -3767,7 +3767,7 @@ declare namespace drawing {
      * @since 23 static
      */
     drawPixelMapMesh(pixelmap: image.PixelMap, meshWidth: int, meshHeight: int,
-      vertices: Array<double>, vertOffset: int, colors: Array<int>, colorOffset: int): void;
+      vertices: Array<double>, vertOffset: int, colors: Array<int> | null, colorOffset: int): void;
 
     /**
      * Used to draw a triangle mesh defined by an array of vertices.
