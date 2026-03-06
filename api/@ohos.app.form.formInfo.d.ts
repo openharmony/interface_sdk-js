@@ -1,6 +1,6 @@
 /*
- * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Copyright (c) 2026 Huawei Device Co., Ltd.
+ * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
@@ -851,6 +851,36 @@ declare namespace formInfo {
   }
 
   /**
+   * Form update reason.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Ability.Form
+   * @stagemodelonly
+   * @atomicservice
+   * @since 24 dynamic&static
+   */
+  enum FormUpdateReason {
+    /**
+     * The reason for the form update is unknown.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    UNKNOWN = -1,
+    /**
+     * The reason for the form update is node reuse.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    FORM_NODE_REUSE = 0
+  }
+
+  /**
    * Parameter of form.
    *
    * @enum { string }
@@ -1381,7 +1411,23 @@ declare namespace formInfo {
      * @systemapi
      * @since 23 dynamic&static
      */
-    TEMPLATE_FORM_DESCRIPTION = 'ohos.extra.param.key.template_form_description'
+    TEMPLATE_FORM_DESCRIPTION = 'ohos.extra.param.key.template_form_description',
+
+    /**
+     * Indicates the key specifying the reason for the form update.
+     * which is represented as
+     * want: {
+     *   "parameters": {
+     *       UPDATE_FORM_REASON_KEY: FormUpdateReason.FORM_NODE_REUSE
+     *    }
+     * }
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    UPDATE_FORM_REASON_KEY = 'ohos.extra.param.key.update_form_reason'
   }
 
   /**
