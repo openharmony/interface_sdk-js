@@ -1114,7 +1114,7 @@ declare namespace socket {
      * @returns { Promise<int> } The promise returns the file descriptor of the UDP socket.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 23 dynamic&static
+     * @since 23 dynamic
      */
     getSocketFd(): Promise<int>;
   }
@@ -1416,7 +1416,7 @@ declare namespace socket {
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
      * @stagemodelonly
-     * @since 23 dynamic&static
+     * @since 23 dynamic
      */
     getSocketFd(): Promise<int>;
   }
@@ -1953,7 +1953,7 @@ declare namespace socket {
      * Obtains the file descriptor of the LocalSocketConnection.
      * @returns { Promise<int> } The promise returns the file descriptor of the local socket connection.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 23 dynamic&static
+     * @since 23 dynamic
      */
     getSocketFd(): Promise<int>;
   }
@@ -2156,7 +2156,7 @@ declare namespace socket {
      * Obtains the file descriptor of the LocalSocketServer.
      * @returns { Promise<int> } The promise returns the file descriptor of the local socket server.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 23 dynamic&static
+     * @since 23 dynamic
      */
     getSocketFd(): Promise<int>;
   }
@@ -4184,7 +4184,7 @@ declare namespace socket {
      * @returns { Promise<int> } The promise returns the file descriptor of the TCP socket connection.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 23 dynamic&static
+     * @since 23 dynamic
      */
     getSocketFd(): Promise<int>;
   }
@@ -4355,7 +4355,7 @@ declare namespace socket {
      * @returns { Promise<int> } The promise returns the file descriptor of the TCP socket server.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 23 dynamic&static
+     * @since 23 dynamic
      */
     getSocketFd(): Promise<int>;
   }
@@ -4663,7 +4663,7 @@ declare namespace socket {
      * @returns { Promise<int> } The promise returns the file descriptor of the TLS socket connection.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 23 dynamic&static
+     * @since 23 dynamic
      */
     getSocketFd(): Promise<int>;
   }
@@ -4912,7 +4912,7 @@ declare namespace socket {
      * @returns { Promise<int> } The promise returns the file descriptor of the TLS socket server.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 23 dynamic&static
+     * @since 23 dynamic
      */
     getSocketFd(): Promise<int>;
   }
