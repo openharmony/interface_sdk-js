@@ -62,7 +62,6 @@ declare namespace jsLeakWatcher {
    *
    * @param { string } filePath - Directory for exporting files.
    * @returns { Array<string> } The array of exported results, index 0 is leakListFileName, index 1 is heapSnapShotFileName.
-   * @throws { BusinessError } 401 - Parameter error. The filepath is invalid.
    * @syscap SystemCapability.HiviewDFX.HiChecker
    * @since 12 dynamic
    * @since 26.0.0 static
@@ -76,7 +75,7 @@ declare namespace jsLeakWatcher {
    * requiring four function (enable,watch,check dump) calls.If there is a memory leak, the leak file will be
    * returned to the developer through the callback function.
    *
-   * @param { boolean } isEnabled - Whether to enable or disable jsLeakWatcher. 
+   * @param { boolean } isEnabled - Whether to enable or disable jsLeakWatcher.
    *     The value true means to enable the feature, and false means the opposite.
    * @param { Array<string> } configs - Array of types of objects to watch.
    * @param { Callback<Array<string>> } callback - Callback invoked when an object-related memory leak is detected.
@@ -101,7 +100,7 @@ declare namespace jsLeakWatcher {
    * @since 24 dynamic
    * @since 26.0.0 static
    */
-  export declare enum MonitorObjectType {  
+  export declare enum MonitorObjectType {
     /**
      * Monitor all object types.
      *
@@ -110,7 +109,7 @@ declare namespace jsLeakWatcher {
      * @since 24 dynamic
      * @since 26.0.0 static
      */
-    ALL = 1 << 0,
+    ALL = -1,
     /**
      * Monitor CustomComponent object types.
      *
@@ -119,7 +118,7 @@ declare namespace jsLeakWatcher {
      * @since 24 dynamic
      * @since 26.0.0 static
      */
-    CUSTOM_COMPONENT = 1 << 1,
+    CUSTOM_COMPONENT = 1 << 0,
     /**
      * Monitor Window object types.
      *
@@ -128,7 +127,7 @@ declare namespace jsLeakWatcher {
      * @since 24 dynamic
      * @since 26.0.0 static
      */
-    WINDOW = 1 << 2,
+    WINDOW = 1 << 1,
     /**
      * Monitor NodeContainer object types.
      *
@@ -137,7 +136,7 @@ declare namespace jsLeakWatcher {
      * @since 24 dynamic
      * @since 26.0.0 static
      */
-    NODE_CONTAINER = 1 << 3,
+    NODE_CONTAINER = 1 << 2,
     /**
      * Monitor XComponent object types.
      *
@@ -146,7 +145,7 @@ declare namespace jsLeakWatcher {
      * @since 24 dynamic
      * @since 26.0.0 static
      */
-    X_COMPONENT = 1 << 4,
+    X_COMPONENT = 1 << 3,
     /**
      * Monitor Ability object types.
      *
@@ -155,7 +154,7 @@ declare namespace jsLeakWatcher {
      * @since 24 dynamic
      * @since 26.0.0 static
      */
-    ABILITY = 1 << 5
+    ABILITY = 1 << 4
   }
 
   /**
@@ -166,7 +165,7 @@ declare namespace jsLeakWatcher {
    * @since 24 dynamic
    * @since 26.0.0 static
    */
-  interface LeakWatcherConfig {  
+  interface LeakWatcherConfig {
     /**
      * The types of component objects to be monitored.
      *
@@ -186,7 +185,7 @@ declare namespace jsLeakWatcher {
      */
     objectUniqueIDs?: Array<int>;
     /**
-     * Interval between each leak detection cycle. Default: value is 30 seconds.
+     * Interval between each leak detection cycle. Default: value is 30000 ms.
      *
      * @syscap SystemCapability.HiviewDFX.HiChecker
      * @FaAndStageModel
@@ -228,7 +227,7 @@ declare namespace jsLeakWatcher {
     maxStoredHeapDumps?: int;
     /**
      * Delay the dump execution to ensure that the GC can be scheduled and executed before the dump is performed.
-     * Default: value is 5 seconds.
+     * Default: value is 5000 ms.
      *
      * @syscap SystemCapability.HiviewDFX.HiChecker
      * @FaAndStageModel
@@ -245,7 +244,7 @@ declare namespace jsLeakWatcher {
      * @since 24 dynamic
      * @since 26.0.0 static
      */
-    filterNames?: Array<string>;
+    exclusionList?: Array<string>;
   }
 
   /**
