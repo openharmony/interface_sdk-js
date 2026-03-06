@@ -736,7 +736,8 @@ declare namespace connection {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @stagemodelonly
-   * @since 23 dynamic&static
+   * @since 23 dynamic
+   * @since 24 static
    */
   function getAddressesByNameWithOptions(host: string, option?: QueryOptions): Promise<Array<NetAddress>>;
 
@@ -1174,7 +1175,8 @@ declare namespace connection {
    * @throws { BusinessError } 2100301 - Incorrect usage in non-VPN application.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since 23 dynamic&static
+   * @since 23 dynamic
+   * @since 24 static
    */
   function getConnectOwnerUid(protocol: ProtocolType, local: NetAddress, remote: NetAddress): Promise<int>;
 
@@ -1194,7 +1196,8 @@ declare namespace connection {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @stagemodelonly
-   * @since 23 dynamic&static
+   * @since 23 dynamic
+   * @since 24 static
    */
   function getConnectOwnerUidSync(protocol: ProtocolType, local: NetAddress, remote: NetAddress): int;
 
@@ -1207,7 +1210,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 22 dynamic
-   * @since 23 static
+   * @since 24 static
    */
   function getIpNeighTable(): Promise<Array<NetIpMacInfo>>;
 
@@ -1222,7 +1225,8 @@ declare namespace connection {
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since 23 dynamic&static
+   * @since 23 dynamic
+   * @since 24 static
    */
   function getDnsAscii(host: string, flag?: ConversionProcess): string;
 
@@ -1237,7 +1241,8 @@ declare namespace connection {
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since 23 dynamic&static
+   * @since 23 dynamic
+   * @since 24 static
    */
   function getDnsUnicode(host: string, flag?: ConversionProcess): string;
 
@@ -1522,7 +1527,8 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use. Only used for system app.
    * @stagemodelonly
-   * @since 23 dynamic&static
+   * @since 23 dynamic
+   * @since 24 static
    */
   function createVlanInterface(ifName: string, vlanId: int): Promise<void>;
 
@@ -1542,7 +1548,8 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use. Only used for system app.
    * @stagemodelonly
-   * @since 23 dynamic&static
+   * @since 23 dynamic
+   * @since 24 static
    */
   function destroyVlanInterface(ifName: string, vlanId: int): Promise<void>;
 
@@ -1563,7 +1570,8 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use. Only used for system app.
    * @stagemodelonly
-   * @since 23 dynamic&static
+   * @since 23 dynamic
+   * @since 24 static
    */
   function addVlanIp(ifName: string, vlanId: int, address: LinkAddress): Promise<void>;
 
@@ -1585,7 +1593,8 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use. Only used for system app.
    * @stagemodelonly
-   * @since 23 dynamic&static
+   * @since 23 dynamic
+   * @since 24 static
    */
   function deleteVlanIp(ifName: string, vlanId: int, address: LinkAddress): Promise<void>;
 
@@ -1928,14 +1937,16 @@ declare namespace connection {
    * Defines options of DNS query.
    * @interface QueryOptions
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since 23 dynamic&static
+   * @since 23 dynamic
+   * @since 24 static
    */
   export interface QueryOptions {
     /**
      * Specify family type of DNS query.
      * @type {?FamilyType}
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @since 23 dynamic&static
+     * @since 23 dynamic
+     * @since 24 static
      */
     family?: FamilyType;
   }
@@ -1944,25 +1955,29 @@ declare namespace connection {
    * Defines the address family type.
    * @enum {int}
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since 23 dynamic&static
+   * @since 23 dynamic
+   * @since 24 static
    */
   export enum FamilyType {
     /**
      * Indicates that no ip type is specified, all address types can be use.
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @since 23 dynamic&static
+     * @since 23 dynamic
+     * @since 24 static
      */
     FAMILY_TYPE_ALL = 0,
     /**
      * Indicates that the family type is ipv4.
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @since 23 dynamic&static
+     * @since 23 dynamic
+     * @since 24 static
      */
     FAMILY_TYPE_IPV4 = 1,
     /**
      * Indicates that the family type is ipv6.
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @since 23 dynamic&static
+     * @since 23 dynamic
+     * @since 24 static
      */
     FAMILY_TYPE_IPV6 = 2,
   }
@@ -2169,7 +2184,8 @@ declare namespace connection {
      * @throws { BusinessError } 2100003 - System internal error.
      * @syscap SystemCapability.Communication.NetManager.Core
      * @stagemodelonly
-     * @since 23 dynamic&static
+     * @since 23 dynamic
+     * @since 24 static
      */
     getAddressesByNameWithOptions(host: string, option?: QueryOptions): Promise<Array<NetAddress>>;
 
@@ -2568,25 +2584,29 @@ declare namespace connection {
    * Defines the flag of conversion operations.
    * @enum {number}
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since 23 dynamic&static
+   * @since 23 dynamic
+   * @since 24 static
    */
   export enum ConversionProcess {
     /**
      * Indicates that no flag are configured.
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @since 23 dynamic&static
+     * @since 23 dynamic
+     * @since 24 static
      */
     NO_CONFIGURATION = 0,
     /**
      * Indicates that the conversion allow unassigned code points.
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @since 23 dynamic&static
+     * @since 23 dynamic
+     * @since 24 static
      */
     ALLOW_UNASSIGNED = 1,
     /**
      * Indicates that the conversion turn on the check against STD-3 ASCII rules.
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @since 23 dynamic&static
+     * @since 23 dynamic
+     * @since 24 static
      */
     USE_STD3_ASCII_RULES = 2,
   }
@@ -2954,7 +2974,7 @@ declare namespace connection {
    * @interface NetIpMacInfo
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 22 dynamic
-   * @since 23 static
+   * @since 24 static
    */
   export interface NetIpMacInfo {
     /**
@@ -2962,7 +2982,7 @@ declare namespace connection {
      * @type {NetAddress}
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 22 dynamic
-     * @since 23 static
+     * @since 24 static
      */
     ipAddress: NetAddress;
 
@@ -2971,7 +2991,7 @@ declare namespace connection {
      * @type {string}
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 22 dynamic
-     * @since 23 static
+     * @since 24 static
      */
     macAddress: string;
 
@@ -2980,7 +3000,7 @@ declare namespace connection {
      * @type {string}
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 22 dynamic
-     * @since 23 static
+     * @since 24 static
      */
     iface: string;
   }
@@ -2989,19 +3009,22 @@ declare namespace connection {
    * Defines the protocol type.
    * @enum { int }
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since 23 dynamic&static
+   * @since 23 dynamic
+   * @since 24 static
    */
   export enum ProtocolType {
     /**
      * Indicates that protocol type is TCP.
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @since 23 dynamic&static
+     * @since 23 dynamic
+     * @since 24 static
      */
     PROTO_TYPE_TCP = 6,
     /**
      * Indicates that protocol type is UDP.
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @since 23 dynamic&static
+     * @since 23 dynamic
+     * @since 24 static
      */
     PROTO_TYPE_UDP = 17
   }
