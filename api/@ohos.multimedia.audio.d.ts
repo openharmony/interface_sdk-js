@@ -13825,12 +13825,10 @@ declare namespace audio {
      * its own UX for output device selection, it can obtain the list of available output devices through
      * {@link AudioRoutingManager.getAvailableDevices}, and use the
      * {@link AudioRoutingManager.getPreferOutputDeviceForRendererInfo} API to obtain the currently
-     * selected output device. Your application can obtain the currently active output device by
-     * {@link AudioDeviceEnhanceManager.onCurrentOutputDeviceChanged}.
-     * The selection will become invalid when your application exits or the selected device goes offline.
-     * After your application restarts or the device comes back online, your application must re-issue the
-     * selection for it to take effect. If the system does not support this function, it will select a default
-     * output device for your application.
+     * selected output device. The selection will become invalid when your application exits or the selected
+     * device goes offline. After your application restarts or the device comes back online, your application
+     * must re-issue the selection for it to take effect. If the system does not support this function, it will
+     * select a default output device for your application.
      * @param { AudioDeviceDescriptor } outputDevice - Audio device description in the array returned by
      *     {@link AudioRoutingManager.getAvailableDevices}.
      * @returns { Promise<void> } Promise used to return the result.
@@ -13850,12 +13848,10 @@ declare namespace audio {
      * its own UX for input device selection, it can obtain the list of available input devices through
      * {@link AudioRoutingManager.getAvailableDevices}, and use the
      * {@link AudioRoutingManager.getPreferredInputDeviceForCapturerInfo} API to obtain the currently
-     * selected input device. Your application can obtain the currently active input device by
-     * {@link AudioDeviceEnhanceManager.onCurrentInputDeviceChanged}.
-     * The selection will become invalid when your application exits or the selected device goes offline.
-     * After your application restarts or the device comes back online, your application must re-issue the
-     * selection for it to take effect. If the system does not support this function, it will select a default
-     * input device for your application.
+     * selected input device. The selection will become invalid when your application exits or the selected
+     * device goes offline. After your application restarts or the device comes back online, your application
+     * must re-issue the selection for it to take effect. If the system does not support this function,
+     * it will select a default input device for your application.
      * @param { AudioDeviceDescriptor } inputDevice - Audio device description in the array returned by
      *     {@link AudioRoutingManager.getAvailableDevices}.
      * @returns { Promise<void> } Promise used to return the result.
@@ -13909,58 +13905,6 @@ declare namespace audio {
      * @since 26.0.0 dynamic&static
      */
     selectInputDeviceForAudioCapturer(capturer: AudioCapturer, inputDevice: AudioDeviceDescriptor): Promise<void>;
-
-    /**
-     * Subscribes output device change event callback. The event is triggered when the current output device
-     * of your application itself changes. When the callback is registered for the first time, it will immediately
-     * receive a callback notification that returns the current output device of your application.
-     *
-     * @param { Callback<CurrentOutputDeviceChangedEvent> } callback - Callback used to listen for
-     *     output device change event.
-     * @throws { BusinessError } 6800101 - Parameter verification failed.
-     * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
-     * @syscap SystemCapability.Multimedia.Audio.DeviceEnhance
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    onCurrentOutputDeviceChanged(callback: Callback<CurrentOutputDeviceChangedEvent>): void;
-
-    /**
-     * Unsubscribes current output device change events.
-     *
-     * @param { Callback<CurrentOutputDeviceChangedEvent> } [callback] - Callback used in subscribe.
-     * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
-     * @syscap SystemCapability.Multimedia.Audio.DeviceEnhance
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    offCurrentOutputDeviceChanged(callback?: Callback<CurrentOutputDeviceChangedEvent>): void;
-
-    /**
-     * Subscribes input device change event callback. The event is triggered when the current input device
-     * of your application itself changes. When the callback is registered for the first time, it will immediately
-     * receive a callback notification that returns the current input device of your application.
-     *
-     * @param { Callback<CurrentInputDeviceChangedEvent> } callback - Callback used to listen for
-     *     input device change event.
-     * @throws { BusinessError } 6800101 - Parameter verification failed.
-     * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
-     * @syscap SystemCapability.Multimedia.Audio.DeviceEnhance
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    onCurrentInputDeviceChanged(callback: Callback<CurrentInputDeviceChangedEvent>): void;
-
-    /**
-     * Unsubscribes current input device change events.
-     *
-     * @param { Callback<CurrentInputDeviceChangedEvent> } [callback] - Callback used in subscribe.
-     * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
-     * @syscap SystemCapability.Multimedia.Audio.DeviceEnhance
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    offCurrentInputDeviceChanged(callback?: Callback<CurrentInputDeviceChangedEvent>): void;
   }
 }
 
