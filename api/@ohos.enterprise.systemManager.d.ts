@@ -1122,19 +1122,19 @@ declare namespace systemManager {
   function finishLogCollected(admin: Want): void;
 
   /**
-   * Set activation lock disabled.
+   * Sets activation lock disabled or enable.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
    * @param { Want } admin - admin indicates the enterprise admin extension ability information.
    *                         The admin must have the corresponding permission.
-   * @param { boolean } isDisabled - Set to true to disable, set to false to open and clear credentials.
-   * @param { string } credential - Disabling the activation lock credential.
+   * @param { boolean } isDisabled - The value true means to disable it, and the value false means to enable it.
+   * @param { string } [credential] - credential indicates the credential for disabling activation lock.
    * @returns { Promise<void> } the promise returned by the setActivationLockDisabled.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 9200016 - Execution time out.
-   * @throws { BusinessError } 9201011 - Invalid activation lock credentials.
-   * @throws { BusinessError } 9201012 - Failed to set the activation lock status.
+   * @throws { BusinessError } 9200016 - Service timeout.
+   * @throws { BusinessError } 9201011 - The credential of the activation lock is invalid.
+   * @throws { BusinessError } 9201012 - Failed to enable or disable the activation lock.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
@@ -1144,16 +1144,15 @@ declare namespace systemManager {
   function setActivationLockDisabled(admin: Want, isDisabled: boolean, credential?: string): Promise<void>;
 
   /**
-   * Get the device activation lock status.
+   * Gets whether activation lock enabled.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
    * @param { Want } admin - admin indicates the enterprise admin extension ability information.
    *                         The admin must have the corresponding permission.
-   * @returns { Promise<boolean> } the promise returned by the isActivationLockDisabled.
+   * @returns { Promise<boolean> } returns true if the activate lock is disabled; returns false otherwise.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 9200016 - Execution time out.
-   * @throws { BusinessError } 9201012 - Failed to set the activation lock status.
+   * @throws { BusinessError } 9200016 - Service timeout.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
