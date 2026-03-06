@@ -1522,3 +1522,88 @@ export function borderStyles(all: BorderStyle): Edges<BorderStyle>;
  * @since 12 dynamic
  */
 export function borderRadiuses(all: number): BorderRadiuses;
+
+/**
+ * Defines the background blur effect.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+export interface BackgroundBlur {
+  /**
+   * Blur radius for background blur.
+   * Value range: [0, +∞). The larger the value, the more blurred the background.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  radius: double;
+
+  /**
+   * Grayscale parameters for the blur effect.
+   * Value range for each parameter: [0, 127].
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  grayscale?: [int, int];
+}
+
+/**
+ * Defines the content blur effect.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+export interface ContentBlur {
+  /**
+   * Blur radius for content blur.
+   * Value range: [0, +∞). The larger the value, the more blurred the content.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  radius: double;
+
+  /**
+   * Grayscale parameters for the blur effect.
+   * Value range for each parameter: [0, 127].
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  grayscale?: [int, int];
+}
+
+/**
+ * Defines the foreground blur effect.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+export interface ForegroundBlur {
+  /**
+   * Blur radius for foreground blur.
+   * Value range: [0, +∞). The larger the value, the more blurred the foreground.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  radius: double;
+}

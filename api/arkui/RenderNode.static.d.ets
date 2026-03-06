@@ -18,7 +18,7 @@
  * @file
  * @kit ArkUI
  */
-import { DrawContext, Size, NodeOffset, NodePosition, Pivot, Scale, Translation, Matrix4, Rotation, Frame, NodeBorderRadiuses, ShapeMask, ShapeClip, NodeEdges, LengthMetricsUnit } from 'arkui.Graphics';
+import { DrawContext, Size, NodeOffset, NodePosition, Pivot, Scale, Translation, Matrix4, Rotation, Frame, NodeBorderRadiuses, ShapeMask, ShapeClip, NodeEdges, LengthMetricsUnit, BackgroundBlur, ContentBlur, ForegroundBlur } from 'arkui.Graphics';
 import { BorderStyle } from '@ohos.arkui.component';
 
 /**
@@ -599,4 +599,67 @@ export declare class RenderNode {
    * @since 23 static
    */
   get lengthMetricsUnit(): LengthMetricsUnit;
+
+  /**
+   * Set the background blur effect.
+   *
+   * @param { BackgroundBlur | undefined } blurValue - The background blur effect.
+   *     If undefined, the background blur effect will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  set backgroundBlur(blurValue: BackgroundBlur | undefined);
+
+  /**
+   * Get the background blur effect.
+   *
+   * @returns { BackgroundBlur } - Returns the background blur effect.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  get backgroundBlur(): BackgroundBlur;
+
+  /**
+   * Set the content blur effect.
+   *
+   * @param { ContentBlur | undefined } blurValue - The content blur effect.
+   *     If undefined, the content blur effect will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  set contentBlur(blurValue: ContentBlur | undefined);
+
+  /**
+   * Get the content blur effect.
+   *
+   * @returns { ContentBlur } - Returns the content blur effect.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  get contentBlur(): ContentBlur;
+
+  /**
+   * Set the foreground blur effect.
+   *
+   * @param { ForegroundBlur | undefined } blurValue - The foreground blur effect.
+   *     If undefined, the foreground blur effect will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  set foregroundBlur(blurValue: ForegroundBlur | undefined);
+
+  /**
+   * Get the foreground blur effect.
+   *
+   * @returns { ForegroundBlur } - Returns the foreground blur effect.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  get foregroundBlur(): ForegroundBlur;
 }
