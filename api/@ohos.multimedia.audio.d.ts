@@ -3688,6 +3688,15 @@ declare namespace audio {
     getCollaborativeManager(): AudioCollaborativeManager;
 
     /**
+     * Obtains a device enhancement management instance.
+     * @returns { AudioDeviceEnhanceManager } Returns a instance of AudioCollaborativeManager.
+     * @syscap SystemCapability.Multimedia.Audio.DeviceEnhance
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    getDeviceEnhanceManager(): AudioDeviceEnhanceManager;
+
+    /**
      * user disable the safe media volume state.
      * @permission ohos.permission.MODIFY_AUDIO_SETTINGS
      * @returns { Promise<void> } Promise used to return the result.
