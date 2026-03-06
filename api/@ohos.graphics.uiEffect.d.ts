@@ -1092,6 +1092,13 @@ declare namespace uiEffect {
    * @since 12 dynamic
    * @since 23 static
    */
+  /**
+   * Create a VisualEffect to add multiple effects to the component.
+   * @returns { VisualEffect } Returns the head node of visualEffect.
+   * @syscap SystemCapability.Graphics.Drawing
+   * @form
+   * @since 24 dynamic&static
+   */
   function createEffect(): VisualEffect;
 
   /**
