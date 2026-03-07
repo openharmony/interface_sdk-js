@@ -3877,7 +3877,7 @@ declare namespace print {
     defaultColorMode?: PrintColorMode;
 
     /**
-     * @type { ?boolean }
+     * Default collate.
      * @syscap SystemCapability.Print.PrintFramework
      * @stagemodelonly
      * @since 24 dynamic&static
@@ -4516,9 +4516,9 @@ declare namespace print {
    *     <br>Name of the printer to be added.
    * @param { string } uri - Indicates the printer uri.
    *     <br>Uri of the printer to be added.
-   * @param { ?string } ppdName - Indicates the ppd name.
+   * @param { string } [ppdName] - Indicates the ppd name.
    *     <br>Ppd name of the printer to be added.
-   * @param { ?string } options - Indicates the options.
+   * @param { string } [options] - Indicates the options.
    *     <br>Optional parameters when adding a printer.
    * @returns { Promise<boolean> } the promise returned by the function.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
