@@ -881,6 +881,68 @@ declare namespace hidebug {
   function stopAppTraceCapture(): void;
 
   /**
+   * Describes the trace request configuration.
+   *
+   * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+   * @stagemodelonly
+   * @atomicservice
+   * @since 24 dynamic&static
+   */
+  interface RequestTraceConfig {
+    /**
+     * Identifier used as the prefix of the output trace file name.
+     *
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    identifier: string;
+    /**
+     * Buffer size of the trace file, in KB.
+     *
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    bufferSizeKb: int;
+    /**
+     * Duration of the trace, in ms.
+     *
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    durationMs: int;
+    /**
+     * Reserved field for future use. Set to 0.
+     *
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    reserved: int;
+  }
+
+  /**
+   * Requests trace collection with the specified configuration.
+   *
+   * @param { RequestTraceConfig } config - Trace request configuration.
+   * @returns { Promise<string> } Returns the path of the trace file.
+   * @throws { BusinessError } 11400104 - Remote service exception.
+   * @throws { BusinessError } 11400120 - Trace storage limit reached.
+   * @throws { BusinessError } 11400302 - Resource unavailable.
+   * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+   * @stagemodelonly
+   * @atomicservice
+   * @since 24 dynamic&static
+   */
+  function requestTrace(config: RequestTraceConfig): Promise<string>;
+
+  /**
    * Describes the key-value pair used to store GC statistics. This type does not support multi-thread operations.
    * If this type is operated by multiple threads at the same time in an application, use a lock for it.
    *
