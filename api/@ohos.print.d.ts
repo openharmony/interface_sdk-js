@@ -1105,7 +1105,7 @@ declare namespace print {
     copyNumber: int;
 
     /**
-     * Page range to be printed.
+     * Range size to be printed.
      * @type { PrinterRange }
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi
@@ -2315,22 +2315,25 @@ declare namespace print {
     E_PRINT_TOO_MANY_FILES = 13100010,
 
     /**
-     * SMB account is locked due to multiple failed login attempts.
+     * The SMB account is locked due to multiple failed login attempts.
      * @syscap SystemCapability.Print.PrintFramework
+     * @stagemodelonly
      * @since 24 dynamic&static
      */
     E_PRINT_SMB_LOGIN_LOCKOUT = 13100012,
 
     /**
-     * SMB connection failed (network error, host unreachable, or port blocked).
+     * SMB Connection Failure (A network error occurs, the host is unreachable, or the port is blocked.)
      * @syscap SystemCapability.Print.PrintFramework
+     * @stagemodelonly
      * @since 24 dynamic&static
      */
     E_PRINT_SMB_CONNECTION_FAILURE = 13100013,
 
     /**
-     * Invalid login account or password.
+     * The login account or password is invalid.
      * @syscap SystemCapability.Print.PrintFramework
+     * @stagemodelonly
      * @since 24 dynamic&static
      */
     E_PRINT_SMB_INVALID_CREDENTIALS = 13100014,
@@ -2769,7 +2772,7 @@ declare namespace print {
    * Register event callback for the state change of printer.
    * @permission ohos.permission.MANAGE_PRINT_JOB
    * @param { 'printerStateChange' } type - Indicates state change of printer.
-   * @param { PrinterStateChangeCallback } callback - The callback function for state change of printer.
+   * @param { function } callback - The callback function for state change of printer.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -2778,7 +2781,7 @@ declare namespace print {
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
    */
-  function on(type: 'printerStateChange', callback: PrinterStateChangeCallback): void;
+  function on(type: 'printerStateChange', callback: (state: PrinterState, info: PrinterInfo) => void): void;
 
   /**
    * Defines the callback type used in registering to listen for PrinterState.
@@ -2790,7 +2793,6 @@ declare namespace print {
    * @param { PrinterInfo } info - the information of the latest printer
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
-   * @since 10 dynamic
    * @since 23 static
    */
   type PrinterStateChangeCallback = (state: PrinterState, info: PrinterInfo) => void;
@@ -2842,7 +2844,7 @@ declare namespace print {
    * Register event callback for the state change of print job.
    * @permission ohos.permission.MANAGE_PRINT_JOB
    * @param { 'jobStateChange' } type - Indicates state change of printer.
-   * @param { PrintJobStateChangeCallback } callback - The callback function for state change of printer.
+   * @param { function } callback - The callback function for state change of printer.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -2851,7 +2853,7 @@ declare namespace print {
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
    */
-  function on(type: 'jobStateChange', callback: PrintJobStateChangeCallback): void;
+  function on(type: 'jobStateChange', callback: (state: PrintJobState, job: PrintJob) => void): void;
 
   /**
    * Defines the callback type used in registering to listen for PrintJobState.
@@ -2863,7 +2865,6 @@ declare namespace print {
    * @param { PrintJob } job - the information of the print job
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
-   * @since 10 dynamic
    * @since 23 static
    */
   type PrintJobStateChangeCallback = (state: PrintJobState, job: PrintJob) => void;
@@ -2915,7 +2916,7 @@ declare namespace print {
    * Register event callback for the information change of print extension.
    * @permission ohos.permission.MANAGE_PRINT_JOB
    * @param { 'extInfoChange' } type - Indicates information change of print extension.
-   * @param { ExtInfoChangeCallback } callback - The callback function for information change of print extension.
+   * @param { function } callback - The callback function for information change of print extension.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -2924,7 +2925,7 @@ declare namespace print {
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
    */
-  function on(type: 'extInfoChange', callback: ExtInfoChangeCallback): void;
+  function on(type: 'extInfoChange', callback: (extensionId: string, info: string) => void): void;
 
   /**
    * Defines the callback type used in registering to listen for extension change.
@@ -2936,7 +2937,6 @@ declare namespace print {
    * @param { string } info - the information of printer
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
-   * @since 10 dynamic
    * @since 23 static
    */
   type ExtInfoChangeCallback = (extensionId: string, info: string) => void;
@@ -3128,7 +3128,7 @@ declare namespace print {
    * @param { string} jobId - Indicates id of the print job.
    * @param { PrintJobState } state - Indicates the new state of the print job.
    * @param { PrintJobSubState } subState - Indicates sub-state of print job.
-   * @param { AsyncCallback<void> } callback - The callback function for indcating the result of API execution.
+   * @param { AsyncCallback<void> } callback - The callback function for indicating the result of API execution.
    * @throws { BusinessError } 201 - The application does not have permission to call this function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
@@ -3594,6 +3594,22 @@ declare namespace print {
     alias?: string;
 
     /**
+     * Information about the selected driver when adding the printer.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    selectedDriver?: PpdInfo;
+
+    /**
+     * Protocol used when adding the printer.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    selectedProtocol?: string;
+
+    /**
      * Detail information in json format.
      * @type { ?string }
      * @syscap SystemCapability.Print.PrintFramework
@@ -3854,24 +3870,24 @@ declare namespace print {
 
     /**
      * Default color mode.
-     * @type { ?PrintColorMode }
      * @syscap SystemCapability.Print.PrintFramework
+     * @stagemodelonly
      * @since 24 dynamic&static
      */
     defaultColorMode?: PrintColorMode;
 
     /**
-     * Default collate.
      * @type { ?boolean }
      * @syscap SystemCapability.Print.PrintFramework
+     * @stagemodelonly
      * @since 24 dynamic&static
      */
     defaultCollate?: boolean;
 
     /**
      * Default reverse.
-     * @type { ?boolean }
      * @syscap SystemCapability.Print.PrintFramework
+     * @stagemodelonly
      * @since 24 dynamic&static
      */
     defaultReverse?: boolean;
@@ -4123,30 +4139,30 @@ declare namespace print {
   /**
    * Interface defining shared device information
    * @syscap SystemCapability.Print.PrintFramework
-   * @systemapi Hide this for inner system use.
+   * @stagemodelonly
    * @since 24 dynamic&static
    */
   interface SharedHost {
     /**
      * IP address of the shared device.
-     * @type { string }
      * @syscap SystemCapability.Print.PrintFramework
+     * @stagemodelonly
      * @since 24 dynamic&static
      */
     ip: string;
   
     /**
      * Share name of the shared device.
-     * @type { string }
      * @syscap SystemCapability.Print.PrintFramework
+     * @stagemodelonly
      * @since 24 dynamic&static
      */
     shareName: string;
     
     /**
      * Workgroup name of the shared device.
-     * @type { string }
      * @syscap SystemCapability.Print.PrintFramework
+     * @stagemodelonly
      * @since 24 dynamic&static
      */
     workgroupName: string;
@@ -4160,6 +4176,7 @@ declare namespace print {
    * @throws { BusinessError } 202 - not system application.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
+   * @stagemodelonly
    * @since 24 dynamic&static
    */
   function getSharedHosts(): Promise<SharedHost[]>;
@@ -4168,8 +4185,11 @@ declare namespace print {
    * Authenticate SMB device as registered user and get available printers.
    * @permission ohos.permission.MANAGE_PRINT_JOB
    * @param { SharedHost } host - The SMB host to authenticate.
+   *     <br>The SMB host to authenticate.
    * @param { string } username - The username for authentication.
+   *     <br>User name used for authentication.
    * @param { string } password - The password for authentication.
+   *     <br>Password used for authentication.
    * @returns { Promise<PrinterInformation[]> } Promise that resolves with the list of available printers.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application.
@@ -4178,6 +4198,7 @@ declare namespace print {
    * @throws { BusinessError } 13100014 - Invalid login account or password.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
+   * @stagemodelonly
    * @since 24 dynamic&static
    */
   function authSmbDeviceAsRegisteredUser(host: SharedHost, username: string, password: string): Promise<PrinterInformation[]>;
@@ -4186,14 +4207,18 @@ declare namespace print {
    * Check preferences conflicts.
    * @permission ohos.permission.MANAGE_PRINT_JOB
    * @param { string } printerId - Indicates the printer ID.
+   *     <br>Added printer ID in the system.
    * @param { string } changedType - Indicates the field name that was modified on the printing interface.
+   *     <br>Field names set in the print preview or preferences interface.
    * @param { PrinterPreferences } preferences - Indicates the selected value on the printing interface.
+   *     <br>The selected value on the printinginterface.
    * @returns { Promise<string[]> } Promise that resolves with the conflicting field names.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application.
    * @throws { BusinessError } 13100005 - Can not find the printer or printer's ppd file in system.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
+   * @stagemodelonly
    * @since 24 dynamic&static
    */
   function checkPreferencesConflicts(printerId: string, changedType: string, preferences: PrinterPreferences): Promise<string[]>;
@@ -4202,12 +4227,14 @@ declare namespace print {
    * Get default preferences by printer ID.
    * @permission ohos.permission.MANAGE_PRINT_JOB
    * @param { string } printerId - Indicates the printer ID.
+   *     <br>Added printer ID in the system.
    * @returns { Promise<PrinterPreferences> } - Promise that resolves with the default preferences of the printer.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application.
    * @throws { BusinessError } 13100005 - Can not find the printer or printer's ppd file in system.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
+   * @stagemodelonly
    * @since 24 dynamic&static
    */
   function getPrinterDefaultPreferences(printerId: string): Promise<PrinterPreferences>;
@@ -4216,13 +4243,16 @@ declare namespace print {
    * Query printer capabilityies by printer uri.
    * @permission ohos.permission.MANAGE_PRINT_JOB
    * @param { string } printerUri - Indicates the printer uri.
+   *     <br>Printer URI in the process of connecting.
    * @param { string } printerId - Indicates the printer ID.
+   *     <br>Printer ID in the process of connecting.
    * @returns { Promise<PrinterCapabilities> } - Promise that resolves with the printer capabilityies.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application.
    * @throws { BusinessError } 13100005 - Can not find the printer in system.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
+   * @stagemodelonly
    * @since 24 dynamic&static
    */
   function queryPrinterCapabilityByUri(printerUri: string, printerId: string): Promise<PrinterCapabilities>;
@@ -4231,27 +4261,33 @@ declare namespace print {
    * Add a printer to cups.
    * @permission ohos.permission.MANAGE_PRINT_JOB
    * @param { string } printerUri - Indicates the printer uri.
+   *     <br>Printer URI in the process of connecting.
    * @param { string } printerName - Indicates the printer name.
+   *     <br>Printer name in the process of connecting.
    * @param { string } printerMake - Indicates the printer make.
-   * @returns { Promise<void> } the promise returned by the function.
+   *     <br>Printer make in the process of connecting.
+   * @returns { Promise<boolean> } the promise returned by the function.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application.
    * @throws { BusinessError } 13100003 - Add a printer to cups failed.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
+   * @stagemodelonly
    * @since 24 dynamic&static
    */
-  function addPrinterToCups(printerUri: string, printerName: string, printerMake: string): Promise<void>;
+  function addPrinterToCups(printerUri: string, printerName: string, printerMake: string): Promise<boolean>;
 
   /**
    * Delete a printer from cups.
    * @permission ohos.permission.MANAGE_PRINT_JOB
    * @param { string } printerName - Indicates the printer name.
+   *     <br>Printer name to be deleted.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
+   * @stagemodelonly
    * @since 24 dynamic&static
    */
   function deletePrinterFromCups(printerName: string): Promise<void>;
@@ -4260,59 +4296,66 @@ declare namespace print {
    * Authenticate a print job.
    * @permission ohos.permission.MANAGE_PRINT_JOB
    * @param { string } jobId - Indicates the print job ID.
+   *     <br>Job ID to be printed.
    * @param { string } userName - Indicates the user name.
+   *     <br>Indicates the user name.
    * @param { string } password - Indicates the user password.
-   * @returns { Promise<void> } the promise returned by the function.
+   *     <br>Indicates the user password.
+   * @returns { Promise<boolean> } the promise returned by the function.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application.
    * @throws { BusinessError } 13100006 - Can not find the print job.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
+   * @stagemodelonly
    * @since 24 dynamic&static
    */
-  function authPrintJob(jobId: string, userName: string, password: string): Promise<void>;
+  function authPrintJob(jobId: string, userName: string, password: string): Promise<boolean>;
 
   /**
    * Analyze print events.
    * @permission ohos.permission.MANAGE_PRINT_JOB
    * @param { string } printerId - Indicates the printer ID.
+   *     <br>Printer ID to be analyzed.
    * @param { string } eventType - Indicates the avant type.
-   * @returns { Promise<void> } the promise returned by the function.
+   *     <br>Event types to be analyzed.
+   * @returns { Promise<string> } the promise returned by the function.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
+   * @stagemodelonly
    * @since 24 dynamic&static
    */
-  function analyzePrintEvents(printerId: string, eventType: string): Promise<void>;
+  function analyzePrintEvents(printerId: string, eventType: string): Promise<string>;
 
   /**
    * defines ppd info.
-   * @typedef PpdInfo
    * @syscap SystemCapability.Print.PrintFramework
+   * @stagemodelonly
    * @since 24 dynamic&static
    */
   interface PpdInfo {
     /**
      * Manufacturer.
-     * @type { string }
      * @syscap SystemCapability.Print.PrintFramework
+     * @stagemodelonly
      * @since 24 dynamic&static
      */
     manufacturer: string;
 
     /**
      * Nick name.
-     * @type { string }
      * @syscap SystemCapability.Print.PrintFramework
+     * @stagemodelonly
      * @since 24 dynamic&static
      */
     nickName: string;
 
     /**
      * Ppd name.
-     * @type { string }
      * @syscap SystemCapability.Print.PrintFramework
+     * @stagemodelonly
      * @since 24 dynamic&static
      */
     ppdName: string;
@@ -4326,6 +4369,7 @@ declare namespace print {
    * @throws { BusinessError } 202 - not system application.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
+   * @stagemodelonly
    * @since 24 dynamic&static
    */
   function queryAllPrinterPpds(): Promise<PpdInfo[]>;
@@ -4335,11 +4379,13 @@ declare namespace print {
    * The value of printerInfo indicates the printer info.
    * The value of ppdInfo indicates all the printer ppd info.
    *
-   * @typedef { function } PrinterInfoQueryCallback
    * @param { PrinterInformation } printerInfo - the printer info
+   *     <br>Printer Information.
    * @param { PpdInfo[] } ppdInfo - all the printer ppd info
+   *     <br>All the printer ppd info.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
+   * @stagemodelonly
    * @since 24 dynamic&static
    */
   type PrinterInfoQueryCallback = (printerInfo: PrinterInformation, ppdInfo: PpdInfo[]) => void;
@@ -4347,58 +4393,28 @@ declare namespace print {
   /**
    * Register event callback for the printer info queried.
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { 'printerInfoQuery' } type - Indicates the event of the printer info queried.
    * @param { PrinterInfoQueryCallback } callback - The callback function for the printer info queried.
+   *     <br>The callback function for the printer info queried.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *   1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
-   * @since 24 dynamic
-   */
-  function on(type: 'printerInfoQuery', callback: PrinterInfoQueryCallback): void;
-
-  /**
-   * Register event callback for the printer info queried.
-   * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { PrinterInfoQueryCallback } callback - The callback function for the printer info queried.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-   * @syscap SystemCapability.Print.PrintFramework
-   * @systemapi Hide this for inner system use.
-   * @since 24 static
+   * @stagemodelonly
+   * @since 24 dynamic&static
    */
   function onPrinterInfoQuery(callback: PrinterInfoQueryCallback): void;
 
   /**
    * Unregister event callback for the printer info queried.
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { 'printerInfoQuery' } type - Indicates the event of the printer info queried.
-   * @param { PrinterInfoQueryCallback } [callback] - The callback function for the printer info querie.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *   1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-   * @syscap SystemCapability.Print.PrintFramework
-   * @systemapi Hide this for inner system use.
-   * @since 24 dynamic
-   */
-  function off(type: 'printerInfoQuery', callback?: PrinterInfoQueryCallback): void;
-
-  /**
-   * Unregister event callback for the printer info queried.
-   * @permission ohos.permission.MANAGE_PRINT_JOB
    * @param { PrinterInfoQueryCallback } [callback] - The callback function for the printer info queried.
+   *     <br>The callback function for the printer info queried.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
-   * @since 24 static
+   * @stagemodelonly
+   * @since 24 dynamic&static
    */
   function offPrinterInfoQuery(callback?: PrinterInfoQueryCallback): void;
 
@@ -4406,12 +4422,14 @@ declare namespace print {
    * Query printer info by ip.
    * @permission ohos.permission.MANAGE_PRINT_JOB
    * @param { string } printerIp - Indicates the printer IP.
+   *     <br>Indicates the printer IP.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application.
    * @throws { BusinessError } 13100005 - Invalid printer IP.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
+   * @stagemodelonly
    * @since 24 dynamic&static
    */
   function queryPrinterInfoByIp(printerIp: string): Promise<void>;
@@ -4420,14 +4438,18 @@ declare namespace print {
    * Connect a printer by the printer IP and ppd.
    * @permission ohos.permission.MANAGE_PRINT_JOB
    * @param { string } printerIp - Indicates the printer IP.
+   *     <br>IP of the printer to be connected.
    * @param { string } protocol - Indicates the protocol.
+   *     <br>Protocol of the printer to be connected.
    * @param { string } ppdName - Indicates the ppd name.
+   *     <br>Ppd name of the printer to be connected.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application.
    * @throws { BusinessError } 13100005 - Invalid printer IP.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
+   * @stagemodelonly
    * @since 24 dynamic&static
    */
   function connectPrinterByIpAndPpd(printerIp: string, protocol: string, ppdName: string): Promise<void>;
@@ -4436,7 +4458,9 @@ declare namespace print {
    * Save the pdf file for a print job.
    * @permission ohos.permission.MANAGE_PRINT_JOB
    * @param { string } jobId - Indicates the print job ID.
+   *     <br>The print job ID to which the file to be saved belongs.
    * @param { int } fd - Indicates the fd.
+   *     <br>Fd of the file to be saved.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application.
@@ -4444,6 +4468,7 @@ declare namespace print {
    * @throws { BusinessError } 13100007 - Save file failed.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
+   * @stagemodelonly
    * @since 24 dynamic&static
    */
   function savePdfFileJob(jobId: string, fd: int): Promise<void>;
@@ -4452,12 +4477,14 @@ declare namespace print {
    * Query recommend printer drivers by printer ID.
    * @permission ohos.permission.MANAGE_PRINT_JOB
    * @param { string } printerId - Indicates the printer ID.
+   *     <br>Indicates the printer ID.
    * @returns { Promise<PpdInfo[]> } - Promise that resolves with all ppd info of the printer.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application.
    * @throws { BusinessError } 13100005 - Can not find the printer in system.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
+   * @stagemodelonly
    * @since 24 dynamic&static
    */
   function queryRecommendDriversById(printerId: string): Promise<PpdInfo[]>;
@@ -4466,14 +4493,18 @@ declare namespace print {
    * Query recommend printer drivers by printer ID.
    * @permission ohos.permission.MANAGE_PRINT_JOB
    * @param { string } printerId - Indicates the printer ID.
+   *     <br>Printer ID of the printer to be connected.
    * @param { string } protocol - Indicates the protocol.
+   *     <br>Protocol of the printer to be connected.
    * @param { string } ppdName - Indicates the ppd name.
+   *     <br>Ppd name of the printer to be connected.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application.
    * @throws { BusinessError } 13100003 - Add the printer to system failed.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
+   * @stagemodelonly
    * @since 24 dynamic&static
    */
   function connectPrinterByIdAndPpd(printerId: string, protocol: string, ppdName: string): Promise<void>;
@@ -4482,27 +4513,33 @@ declare namespace print {
    * Add a printer to system.
    * @permission ohos.permission.MANAGE_PRINT_JOB
    * @param { string } printerName - Indicates the printer name.
+   *     <br>Name of the printer to be added.
    * @param { string } uri - Indicates the printer uri.
+   *     <br>Uri of the printer to be added.
    * @param { ?string } ppdName - Indicates the ppd name.
+   *     <br>Ppd name of the printer to be added.
    * @param { ?string } options - Indicates the options.
-   * @returns { Promise<void> } the promise returned by the function.
+   *     <br>Optional parameters when adding a printer.
+   * @returns { Promise<boolean> } the promise returned by the function.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 13100003 - Add the printer to system failed.
    * @syscap SystemCapability.Print.PrintFramework
+   * @stagemodelonly
    * @since 24 dynamic&static
    */
-  function addPrinter(printerName: string, uri: string, ppdName?: string, options?: string): Promise<void>;
+  function addPrinter(printerName: string, uri: string, ppdName?: string, options?: string): Promise<boolean>;
 
   /**
    * Watermark handling result.
-   * @enum { int } WatermarkHandleResult
    * @syscap SystemCapability.Print.PrintFramework
+   * @stagemodelonly
    * @since 24 dynamic&static
    */
   enum WatermarkHandleResult {
     /**
      * Watermark handling success.
      * @syscap SystemCapability.Print.PrintFramework
+     * @stagemodelonly
      * @since 24 dynamic&static
      */
     WATERMARK_HANDLE_SUCCESS = 0,
@@ -4510,6 +4547,7 @@ declare namespace print {
     /**
      * Watermark handling failure.
      * @syscap SystemCapability.Print.PrintFramework
+     * @stagemodelonly
      * @since 24 dynamic&static
      */
     WATERMARK_HANDLE_FAILURE = 1,
@@ -4520,10 +4558,12 @@ declare namespace print {
    * The value of jobId indicates the print job ID.
    * The value of fd indicates the fd.
    *
-   * @typedef { function } WatermarkCallback
    * @param { string } jobId - the print job ID
-   * @param { int } fd - the fd
+   *     <br>Print job ID in preview.
+   * @param { int } fd - File Descriptor
+   *     <br>File descriptor in preview.
    * @syscap SystemCapability.Print.PrintFramework
+   * @stagemodelonly
    * @since 24 dynamic&static
    */
   type WatermarkCallback = (jobId: string, fd: int) => void;
@@ -4531,9 +4571,12 @@ declare namespace print {
   /**
    * Register to listen for watermark handling.
    * @permission ohos.permission.ENTERPRISE_MANAGE_PRINT
-   * @param { WatermarkCallback } callback - Indicates the callback type used in registering to listen for watermark handling.
+   * @param { WatermarkCallback } callback - Indicates the callback type used in registering to 
+   *     listen for watermark handling.
+   *     <br>Indicates the callback type used in registering to listen for watermark handling.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @syscap SystemCapability.Print.PrintFramework
+   * @stagemodelonly
    * @since 24 dynamic&static
    */
   function registerWatermarkCallback(callback: WatermarkCallback): void;
@@ -4541,9 +4584,12 @@ declare namespace print {
   /**
    * Unregister to listen for watermark handling.
    * @permission ohos.permission.ENTERPRISE_MANAGE_PRINT
-   * @param { ?WatermarkCallback } callback - Indicates the callback type used in registering to listen for watermark handling.
+   * @param { WatermarkCallback } [callback] - Indicates the callback type used in registering to 
+   *     listen for watermark handling.
+   *     <br>Indicates the callback type used in registering to listen for watermark handling.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @syscap SystemCapability.Print.PrintFramework
+   * @stagemodelonly
    * @since 24 dynamic&static
    */
   function unregisterWatermarkCallback(callback?: WatermarkCallback): void;
@@ -4552,14 +4598,15 @@ declare namespace print {
    * Notify watermark complete.
    * @permission ohos.permission.ENTERPRISE_MANAGE_PRINT
    * @param { string } jobId - Indicates the job ID.
-   * @param { int } result - Indicates the result.
+   *     <br>Print job ID in preview.
+   * @param { WatermarkHandleResult } result - Indicates the result.
+   *     <br>Watermark processing results.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *   1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
+   * @stagemodelonly
    * @since 24 dynamic&static
    */
-  function notifyWatermarkComplete(jobId: string, result: int): void;
+  function notifyWatermarkComplete(jobId: string, result: WatermarkHandleResult): void;
 }
 
 export default print;
