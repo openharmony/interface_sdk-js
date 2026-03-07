@@ -541,7 +541,9 @@ declare namespace selectionManager {
      * @throws { BusinessError } 33600002 This selection window has been destroyed.
      * @syscap SystemCapability.SelectionInput.Selection
      * @systemapi
-     * @since 20 dynamic
+     * @since 20 dynamiconly
+     * @deprecated since 24
+     * @useinstead selectionManager.Panel#moveToGlobalDisplay
      */
     moveTo(x: int, y: int): Promise<void>;
 
