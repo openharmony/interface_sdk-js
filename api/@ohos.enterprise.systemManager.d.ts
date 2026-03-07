@@ -1122,7 +1122,7 @@ declare namespace systemManager {
   function finishLogCollected(admin: Want): void;
 
   /**
-   * Sets activation lock disabled or enable.
+   * Sets activation lock disabled or enabled.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
    * @param { Want } admin - admin indicates the enterprise admin extension ability information.
@@ -1132,6 +1132,7 @@ declare namespace systemManager {
    * @returns { Promise<void> } the promise returned by the setActivationLockDisabled.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
    * @throws { BusinessError } 9200016 - Service timeout.
    * @throws { BusinessError } 9201011 - The credential of the activation lock is invalid.
    * @throws { BusinessError } 9201012 - Failed to enable or disable the activation lock.
@@ -1149,7 +1150,7 @@ declare namespace systemManager {
    * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
    * @param { Want } admin - admin indicates the enterprise admin extension ability information.
    *                         The admin must have the corresponding permission.
-   * @returns { Promise<boolean> } returns true if the activate lock is disabled; returns false otherwise.
+   * @returns { Promise<boolean> } returns true if the the activate lock is disabled; returns false otherwise.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9200016 - Service timeout.
