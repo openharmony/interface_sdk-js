@@ -8054,6 +8054,27 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   function createAuxiliaryPicture(buffer: ArrayBuffer, size: Size, type: AuxiliaryPictureType): AuxiliaryPicture;
 
   /**
+   * Create an <b>AuxiliaryPicture</b> object, the memory type used by the AuxiliaryPicture can be specified by
+   * allocatorType {@link IMAGE_ALLOCATOR_TYPE}. By default, the system selects the memory type based on the image type,
+   * image size, platform capability, etc. When processing the AuxiliaryPicture returned by this interface, please
+   * always consider the impact of stride. The created auxiliary picture is initialized with the input pixels.
+   *
+   * @param { AuxiliaryPictureInfo } auxiliaryPictureInfo - The basic information of the auxiliary picture.
+   * @param { AllocatorType } [allocatorType] - Memory type.
+   * @param { ArrayBuffer } [pixels] - Pixel data used to initialize the auxiliary picture.
+   * @returns { AuxiliaryPicture } The AuxiliaryPicture object.
+   * @throws { BusinessError } 7600205 - Unsupported allocator type, e.g., use shared memory to create a gainmap as
+   * only DMA supported hdr metadata.
+   * @throws { BusinessError } 7600206 - Invalid parameter, size.height or size.width is less than or equal to 0.
+   * @throws { BusinessError } 7600301 - Alloc memory failed.
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  function createAuxiliaryPictureUsingAllocator(auxiliaryPictureInfo: AuxiliaryPictureInfo,
+    allocatorType?: AllocatorType, pixels?: ArrayBuffer): AuxiliaryPicture;
+
+  /**
    * AuxiliaryPicture instance.
    *
    * @typedef AuxiliaryPicture
@@ -10879,6 +10900,27 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 23 static
      */
     desiredAuxiliaryPictures: Array<AuxiliaryPictureType>;
+
+    /**
+     * Desired size of the main pixel map. The value (0, 0) indicates that the pixels are decoded
+     * based on the original image size.
+     *
+     * @type { ?Size }
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    desiredSizeForMainPixelMap?: Size;
+
+    /**
+     * Desired Pixel format, RGBA_8888\BGRA_8888\RGB_565\NV12\NV21 are supported.
+     *
+     * @type { ?PixelMapFormat }
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    desiredPixelFormat?: PixelMapFormat;
   }
 
    /**
@@ -12227,13 +12269,27 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Creates a Picture object based on image decoding parameters. This method uses a promise to
      * return the object.
      *
-     * @param { DecodingOptionsForPicture } options Image decoding parameters.
+     * @param { DecodingOptionsForPicture } options - Image decoding parameters.
      * @returns { Promise<Picture> } A Promise instance used to return the Picture object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified.
      * 2.Incorrect parameter types; 3.Parameter verification failed.
-     * @throws { BusinessError } 7700301 - Failed to decode image.
+     * @throws { BusinessError } 7700301 - Decode failed.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @since 13 dynamic
+     */
+    /**
+     * Creates a Picture object based on image decoding parameters. This method uses a promise to
+     * return the object.
+     *
+     * @param { DecodingOptionsForPicture } options - Image decoding parameters.
+     * @returns { Promise<Picture> } A Promise instance used to return the Picture object.
+     * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types; 3.Parameter verification failed.
+     * @throws { BusinessError } 7700203 - Unsupported options. For example, unsupported desiredPixelFormat causes
+     * a failure in converting an image into the desired pixel format.
+     * @throws { BusinessError } 7700301 - Decode failed.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @since 24 dynamic
      */
     createPicture(options?: DecodingOptionsForPicture): Promise<Picture>
 
@@ -12380,6 +12436,23 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 23 static
      */
     isJpegProgressive(): Promise<boolean>;
+
+    /**
+     * Read metadata of the image source, use metadataType to specify metadata of interest. If metadataType
+     * is not specified, all supported metadata will be returned.
+     *
+     * @param { MetadataType[] } [metadataTypes] - Metadata of interest.
+     * @param { int }[index] - Index of interest, default is 0.
+     * @returns { Promise<ImageMetadata> } Promise that returns the metadata of the image source.
+     * @throws { BusinessError } 7700102 - Unsupported MIME type.
+     * @throws { BusinessError } 7700202 - Unsupported metadata.
+     * @throws { BusinessError } 7700204 - Invalid parameter. Possible causes: 1.The index is negative.
+     * 2. The index is greater than or equal to the number of frames in the image.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readImageMetadataByType(metadataTypes?: MetadataType[], index?: int): Promise<ImageMetadata>;
   }
 
   /**

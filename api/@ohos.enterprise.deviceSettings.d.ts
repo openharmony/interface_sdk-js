@@ -158,7 +158,16 @@ declare namespace deviceSettings {
        * @stagemodelonly
        * @since 24
        */
-      DEVICE_NAME = 0
+      DEVICE_NAME = 0,
+
+      /**
+       * floating navigation.
+       *
+       * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+       * @stagemodelonly
+       * @since 24
+       */
+      FLOATING_NAVIGATION  = 1
   }
 
   /**

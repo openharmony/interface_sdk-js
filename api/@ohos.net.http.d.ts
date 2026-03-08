@@ -2384,7 +2384,7 @@ declare namespace http {
      * @param { AsyncCallback<Object> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
      * @since 6 dynamiconly
-     * @deprecated since 8 dynamic
+     * @deprecated since 8
      * @useinstead on_headersReceive
      */
     on(type: "headerReceive", callback: AsyncCallback<Object>): void;
@@ -2395,7 +2395,7 @@ declare namespace http {
      * @param { AsyncCallback<Object> } [callback] - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
      * @since 6 dynamiconly
-     * @deprecated since 8 dynamic
+     * @deprecated since 8
      * @useinstead off_headersReceive
      */
     off(type: "headerReceive", callback?: AsyncCallback<Object>): void;

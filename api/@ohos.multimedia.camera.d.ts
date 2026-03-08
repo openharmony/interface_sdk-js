@@ -1123,6 +1123,29 @@ declare namespace camera {
     createCameraInput(position: CameraPosition, type: CameraType): CameraInput;
 
     /**
+     * Creates a CameraInput instance by camera and calling token.
+     * 
+     * Before using this interface, first through the getSupportedCameras interface to query the current list of camera
+     * devices supported by the device, the developer needs to be based on specific scenarios to choose the camera device
+     * that meets the needs of the developer, and then use this interface to create a CameraInput instance.
+     *
+     * @permission ohos.permission.CAMERA
+     * @param { CameraDevice } camera - Camera device used to create the instance.
+     * @param { int } tokenId - The calling token id.
+     * @returns { CameraInput } Returns a CameraInput instance. Failure of an interface call returns the corresponding
+     * error code, which is of type CameraErrorCode.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400102 - Operation not allowed.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    createCameraInputWithTokenId(camera: CameraDevice, tokenId: int): CameraInput;
+
+    /**
      * Creates a PreviewOutput instance.
      *
      * @param { Profile } profile - Preview output profile.
@@ -3965,6 +3988,16 @@ declare namespace camera {
    * @since 23 static
    */
   enum ExposureMode {
+    /**
+     * Unspecified exposure mode.
+     * 
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    EXPOSURE_MODE_UNSPECIFIED = -1,
+    
     /**
      * Lock exposure mode.
      *

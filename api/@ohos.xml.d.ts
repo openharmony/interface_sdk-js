@@ -18,6 +18,8 @@
  * @kit ArkTS
  */
 
+import stream from './@ohos.util.stream'
+
 /**
  * The xml module provides utilities for converting XML text to Javascript object, XML generation and parsing.
  *
@@ -1556,6 +1558,117 @@ declare namespace xml {
      * @since 23 static
      */
     parseXml(option: ParseOptions): void;
+  }
+
+  /**
+   * The XmlSAXParser provides the capability of parsing XML in a streaming manner.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 24 dynamic&static
+   * @name XmlSAXParser
+   */
+  class XmlSAXParser {
+    /**
+     * Creates and returns an XmlSAXParser instance.
+     *
+     * @param { stream.Readable } inputStream - An instance, of stream.Readable for the new XmlSAXParser.
+     * @param { string } [encoding] - [encoding='utf8']  this is its encoding.
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    constructor(inputStream: stream.Readable, encoding?: string);
+
+    /**
+     * Creates and returns an XmlSAXParser instance.
+     *
+     * @param { XmlSAXHandler } xmlSAXHandler - The simple API for XML handler.
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    parse(xmlSAXHandler: XmlSAXHandler): void;
+  }
+
+  /**
+   * A simple API for XML handling
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 24 dynamic&static
+   */
+  interface XmlSAXHandler {
+    /**
+     * CallBack function triggered at the beginning of the document
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    startDocument(): void;
+
+    /**
+     * CallBack function triggered at the end of the document
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    endDocument(): void;
+
+    /**
+     * CallBack function triggered at the beginning of the element
+     *
+     * @param { string } elementName - Name of the element
+     * @param { string | undefined } namespaceURI - URI of the namespace
+     * @param { string | undefined } qName - Fully qualified name with namespace
+     * @param { Map<string,string> } attributes - attributes mapping
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    startElement(elementName: string, namespaceURI: string | undefined, qName: string | undefined, attributes: Map<string,string>): void;
+
+    /**
+     * CallBack function triggered at the end of the element
+     *
+     * @param { string } elementName - Name of the element
+     * @param { string | undefined } namespaceURI - URI of the namespace
+     * @param { string | undefined } qName - Fully qualified name with namespace
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    endElement(elementName: string, namespaceURI: string | undefined, qName: string | undefined): void;
+
+    /**
+     * CallBack function triggered by the text content
+     *
+     * @param { string } content - literal content
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    characters(content: string): void;
   }
 }
 export default xml;

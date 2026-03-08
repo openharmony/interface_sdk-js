@@ -7935,9 +7935,9 @@ declare namespace photoAccessHelper {
     isMediaDataReady(mediaDataKey: string): Promise<boolean>;
 
     /**
-     * Converts ValuesBucket records into PhotoAsset objects.
+     * Get PhotoAsset objects from ValuesBucket record info.
      *
-     * @param { ValuesBucket[] } assetsData - Array of asset records. Each element in the array contains the asset
+     * @param { ValuesBucket[] } assetsData - Array of asset records. Each element in the array contains the asset's
      *     column names and their values. The array size cannot exceed 500. Each element in the array must contain
      *     the following asset column information: file_id, data, display_name, media_type, and subtype.
      * @returns { Promise<PhotoAsset[]> } Returns an array of PhotoAsset objects (may be empty).
@@ -11408,6 +11408,21 @@ declare namespace photoAccessHelper {
      * @since 23 static
      */
     setHasAppLink(hasAppLink: int): void;
+
+    /**
+     * Set the AppLink state of this asset.
+     *
+     * @param { AppLinkState } appLinkState - Boomerang status of assets
+     * @throws { BusinessError } 202 - Invoked by non-system applications
+     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
+     * @throws { BusinessError } 23800151 - The scenario parameter verification fails. Possible causes:
+     *     The input parameter is not within the valid range.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    setAppLinkState(appLinkState: AppLinkState): void;
 
     /**
      * Set the AppLink info of this asset.
@@ -14936,6 +14951,47 @@ declare namespace photoAccessHelper {
      * @since 23 dynamic&static
      */
     RANDOM_VOTE = 0
+  }
+ 
+  /**
+   * App link state of an asset
+   *
+   * @enum { int } AppLinkState
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  enum AppLinkState {  
+    /**
+     * Unknow whether an asset has app link or not
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    DEFAULT = 0,
+    
+    /**
+     * An asset has no app link
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    HAS_NO_LINK = 1,
+
+    /**
+     * An asset has app link
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    HAS_LINK = 2
   }
  
   /**

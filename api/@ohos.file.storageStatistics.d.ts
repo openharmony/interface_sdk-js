@@ -771,6 +771,44 @@ parameters are left unspecified;
  function listUserdataDirInfo(): Promise<Array<UserdataDirInfo>>;
 
  /**
+  * Get the total inodes.
+  *
+  * @returns { Promise<long> } return Promise
+  * @throws { BusinessError } 13600001 - IPC error.
+  * @throws { BusinessError } 13600016 - Failed to query the inode information of the data partition.
+  * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
+  * @stagemodelonly
+  * @since 24 dynamic&static
+   */
+ function getTotalInodes(): Promise<long>;
+
+ /**
+  * Get the free inodes.
+  *
+  * @returns { Promise<long> } return Promise
+  * @throws { BusinessError } 13600001 - IPC error.
+  * @throws { BusinessError } 13600016 - Failed to query the inode information of the data partition.
+  * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
+  * @stagemodelonly
+  * @since 24 dynamic&static
+  */
+ function getFreeInodes(): Promise<long>;
+
+ /**
+  * Get the current bundle inodes.
+  *
+  * @returns { Promise<long> } return Promise
+  * @throws { BusinessError } 13600001 - IPC error.
+  * @throws { BusinessError } 13600002 - File system not supported.
+  * @throws { BusinessError } 13600010 - The input parameter is invalid.
+  * @throws { BusinessError } 13600017 - Failed to query the inode information of the application.
+  * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
+  * @stagemodelonly
+  * @since 24 dynamic&static
+  */
+ function getCurrentBundleInodes(): Promise<long>;
+
+ /**
   * Get the system data size.
   *
   * @permission ohos.permission.STORAGE_MANAGER

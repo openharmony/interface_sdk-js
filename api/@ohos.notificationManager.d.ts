@@ -42,6 +42,7 @@ import { NotificationTemplate as _NotificationTemplate } from './notification/no
 import { NotificationUserInput as _NotificationUserInput } from './notification/notificationUserInput';
 import { TriggerType as _TriggerType } from './notification/notificationRequest';
 import { Trigger as _Trigger } from './notification/notificationRequest';
+import { NotificationParameters as _NotificationParameters } from './notification/notificationRequest';
 import { Geofence as _Geofence } from './notification/notificationRequest';
 import { CoordinateSystemType as _CoordinateSystemType } from './notification/notificationRequest';
 import { MonitorEvent as _MonitorEvent } from './notification/notificationRequest';
@@ -2060,6 +2061,40 @@ declare namespace notificationManager {
    * @since 23 static
    */
   function getActiveNotificationByFilter(filter: NotificationFilter): Promise<NotificationRequest|null>;
+
+  /**
+   * Get information that cannot be directly obtained through NotificationRequest, which is passed in
+   * by the user when creating the notification.
+   *
+   * @param { number } id - ID of the notification to query, which must be unique in the application.
+   * @param { string } [label] - Label of the notification to query.
+   * @returns { Promise<NotificationParameters> } The promise returned by the function.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600007 - The notification does not exist.
+   * @syscap SystemCapability.Notification.Notification
+   * @stagemodelonly
+   * @since 24 dynamic
+   */
+  function getNotificationParameters(id: number, label?: string): Promise<NotificationParameters>;
+
+  /**
+   * Get information that cannot be directly obtained through NotificationRequest, which is passed in
+   * by the user when creating the notification.
+   *
+   * @param { int } id - ID of the notification to query, which must be unique in the application.
+   * @param { string } [label] - Label of the notification to query.
+   * @returns { Promise<NotificationParameters | null> } The promise returned by the function.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600007 - The notification does not exist.
+   * @syscap SystemCapability.Notification.Notification
+   * @stagemodelonly
+   * @since 24 static
+   */
+  function getNotificationParameters(id: int, label?: string): Promise<NotificationParameters | null>;
 
   /**
    * Cancels notifications under a notification group of this application. This API uses an asynchronous callback to return the result.
@@ -6704,6 +6739,15 @@ declare namespace notificationManager {
    * @since 23 dynamic&static
    */
   export type Trigger = _Trigger;
+
+  /**
+   * Defines Notification Parameters to describe the key information of wantAgent in the notification.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  export type NotificationParameters = _NotificationParameters;
 
   /**
    * Describes a geofence.
