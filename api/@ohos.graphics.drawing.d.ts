@@ -4381,6 +4381,15 @@ declare namespace drawing {
     resetMatrix(): void;
 
     /**
+     * Resets the clip status.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    resetClip(): void;
+
+    /**
      * Checks whether the path is not intersecting with the canvas area. The canvas area includes its boundaries.
      * @param { Path } path - Path to draw.
      * @returns { boolean } Returns true if path is not intersect; returns false otherwise.
