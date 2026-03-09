@@ -11430,7 +11430,7 @@ declare namespace photoAccessHelper {
      */
     setHasAppLink(hasAppLink: int): void;
 
-    /** 
+    /**
      * Set the AppLink state of this asset.
      *
      * @param { AppLinkState } appLinkState - Boomerang status of assets
@@ -14983,7 +14983,7 @@ declare namespace photoAccessHelper {
    * @stagemodelonly
    * @since 24 dynamic&static
    */
-  enum AppLinkState {
+  enum AppLinkState {  
     /**
      * Unknow whether an asset has app link or not
      *
