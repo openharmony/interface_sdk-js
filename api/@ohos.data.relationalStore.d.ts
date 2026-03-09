@@ -1815,6 +1815,112 @@ declare namespace relationalStore {
   }
 
   /**
+   * Manages the distributed info of the table.
+   *
+   * @interface DistributedInfo
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  interface DistributedInfo {  
+    /**
+     * Specifies the data origin sources.
+     *
+     * @type { ?DistributedOrigin }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    flag?: DistributedOrigin;
+        
+    /**
+     * Specifies the data origin sources device ID.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    oriDevice?: string;
+  }
+
+  /**
+   * Enumerates the DistributedField.
+   *
+   * @enum { string }
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  enum DistributedField {  
+    /**
+     * Origin field. For details, see {@link DistributedOrigin}.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    ORIGIN = '#_origin',
+    /**
+     * Origin device field.
+     * Indicates the data origin sources device ID.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    ORIGIN_ORIDEVICE = '#_ori_device'
+  }
+  
+  
+  /**
+   * Describes the data origin sources.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  enum DistributedOrigin {  
+    /**
+     * Indicates the data source is local.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    ORI_LOCAL = 0,
+
+    /**
+     * Indicates the data source is cloud.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    ORI_CLOUD = 1,
+
+    /**
+     * Indicates the data source is remote.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    ORI_REMOTE = 2
+  }
+
+  /**
    * Describes the conflict resolutions to insert data into the table.
    *
    * @enum { int }
@@ -8646,6 +8752,31 @@ declare namespace relationalStore {
      * @since 24 dynamic&static
      */
     retainDeviceData(retainDevices?: Record<string, Array<string>>): Promise<void>;
+
+    /**
+     * Update distributed table log.
+     *
+     * @param { DistributedInfo } info - Indicates the table log needs to be updated.
+     * @param { RdbPredicates } predicates -
+     *     The specified query condition by the instance object of {@link RdbPredicates}.
+     * @returns { Promise<long> } Returns the number of updated logs.
+     * @throws { BusinessError } 202 - Permission verification failed,
+     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of valid range.
+     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @throws { BusinessError } 14800015 - The database does not respond.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+     * @throws { BusinessError } 14800043 - The database does not support this scenario.
+     *     Possible causes: 1. The database type is not supported;2. The table type is not supported;
+     *     <br>3. This is a read-only database.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    updateDistributedInfo(info: DistributedInfo, predicates: RdbPredicates): Promise<long>;
 
     /**
      * Obtain distributed table name of specified remote device according to local table name.
