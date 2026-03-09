@@ -204,6 +204,34 @@ declare namespace childProcessManager {
    * @since 23 static
    */
   function startNativeChildProcess(entryPoint: string, args: ChildProcessArgs, options?: ChildProcessOptions): Promise<int>;
+
+  /**
+   * Checks whether the caller is allowed to create ark child processes on this device.
+   * Some devices may not support creating ark child processes, so it is recommended to use this interface to
+   * verify support beforehand.
+   *
+   * @returns { boolean }
+   *     - `true`: The caller is allowed to create ark child processes.
+   *     - `false`: The caller is not allowed to create ark child processes.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function isArkChildProcessSupported(): boolean;
+  
+  /**
+   * Checks whether the caller is allowed to create native child processes on this device.
+   * Some devices may not support creating native child processes, so it is recommended to use this interface to
+   * verify support beforehand.
+   *
+   * @returns { boolean }
+   *     - `true`: The caller is allowed to create native child processes.
+   *     - `false`: The caller is not allowed to create native child processes.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function isNativeChildProcessSupported(): boolean;
 }
 
 export default childProcessManager;
