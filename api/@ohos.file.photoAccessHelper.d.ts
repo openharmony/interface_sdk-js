@@ -14974,48 +14974,48 @@ declare namespace photoAccessHelper {
     RANDOM_VOTE = 0
   }
  
-  /** 
-   * App link state of an asset 
+  /**
+   * App link state of an asset
    * 
-   * @enum { int } AppLinkState 
-   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core 
-   * @systemapi 
-   * @stagemodelonly 
-   * @since 24 dynamic&static 
+   * @enum { int } AppLinkState
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 24 dynamic&static
    */ 
-  enum AppLinkState {   
-    /** 
-     * Unknow whether an asset has app link or not 
-     * 
-     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core 
-     * @systemapi 
-     * @stagemodelonly 
-     * @since 24 dynamic&static 
-     */ 
-    DEFAULT = 0, 
+  enum AppLinkState { 
+    /**
+     * Unknow whether an asset has app link or not
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    DEFAULT = 0,
     
-    /** 
-     * An asset has no app link 
-     * 
-     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core 
-     * @systemapi 
-     * @stagemodelonly 
-     * @since 24 dynamic&static 
-     */ 
-    HAS_NO_LINK = 1, 
+    /**
+     * An asset has no app link
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    HAS_NO_LINK = 1,
 
 
-    /** 
-     * An asset has app link 
-     * 
-     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core 
-     *  @systemapi 
-     * @stagemodelonly 
-     * @since 24 dynamic&static 
-     */ 
-    HAS_LINK = 2 
+    /**
+     * An asset has app link
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    HAS_LINK = 2
   }
-
+ 
   /**
    * Provides APIs for input Context Map.
    *
