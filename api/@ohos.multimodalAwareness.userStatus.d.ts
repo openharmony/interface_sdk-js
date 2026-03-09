@@ -27,7 +27,7 @@ import type { Callback } from './@ohos.base';
  * @syscap SystemCapability.MultimodalAwareness.UserStatus
  * @since 20 dynamic
  * @since 23 static
- * @deprecated since 24
+ * @deprecated since 24 dynamic&static
  */
 declare namespace userStatus {
   /**
@@ -38,7 +38,7 @@ declare namespace userStatus {
    * @syscap SystemCapability.MultimodalAwareness.UserStatus
    * @since 20 dynamic
    * @since 23 static
-   * @deprecated since 24
+   * @deprecated since 24 dynamic&static
    */
   export interface UserClassification {
     /**
@@ -48,7 +48,7 @@ declare namespace userStatus {
      * @syscap SystemCapability.MultimodalAwareness.UserStatus
      * @since 20 dynamic
      * @since 23 static
-     * @deprecated since 24
+     * @deprecated since 24 dynamic&static
      */
     ageGroup?: UserAgeGroup;
 
@@ -59,7 +59,7 @@ declare namespace userStatus {
      * @syscap SystemCapability.MultimodalAwareness.UserStatus
      * @since 20 dynamic
      * @since 23 static
-     * @deprecated since 24
+     * @deprecated since 24 dynamic&static
      */
     confidence?: float;
   }
@@ -71,7 +71,7 @@ declare namespace userStatus {
    * @syscap SystemCapability.MultimodalAwareness.UserStatus
    * @since 20 dynamic
    * @since 23 static
-   * @deprecated since 24
+   * @deprecated since 24 dynamic&static
    */
   export enum UserAgeGroup {
     /**
@@ -80,7 +80,7 @@ declare namespace userStatus {
      * @syscap SystemCapability.MultimodalAwareness.UserStatus
      * @since 20 dynamic
      * @since 23 static
-     * @deprecated since 24
+     * @deprecated since 24 dynamic&static
      */
     OTHERS = 0,
 
@@ -90,7 +90,7 @@ declare namespace userStatus {
      * @syscap SystemCapability.MultimodalAwareness.UserStatus
      * @since 20 dynamic
      * @since 23 static
-     * @deprecated since 24
+     * @deprecated since 24 dynamic&static
      */
     CHILD = 1
   }
@@ -111,7 +111,7 @@ declare namespace userStatus {
    * <br>4. IPC request exception.
    * @syscap SystemCapability.MultimodalAwareness.UserStatus
    * @since 20 dynamic
-   * @deprecated since 24
+   * @deprecated since 24 dynamic
    */
   function on(type: 'userAgeGroupDetected', callback: Callback<UserClassification>): void;
 
@@ -130,7 +130,7 @@ declare namespace userStatus {
    * <br>3. IPC request exception.
    * @syscap SystemCapability.MultimodalAwareness.UserStatus
    * @since 20 dynamic
-   * @deprecated since 24
+   * @deprecated since 24 dynamic
    */
   function off(type: 'userAgeGroupDetected', callback?: Callback<UserClassification>): void;
 
@@ -149,7 +149,7 @@ declare namespace userStatus {
    *     <br>4. IPC request exception.
    * @syscap SystemCapability.MultimodalAwareness.UserStatus
    * @since 23 static
-   * @deprecated since 24
+   * @deprecated since 24 static
    */
   function onUserAgeGroupDetected(callback: Callback<UserClassification>): void;
 
@@ -167,7 +167,7 @@ declare namespace userStatus {
    *     <br>3. IPC request exception.
    * @syscap SystemCapability.MultimodalAwareness.UserStatus
    * @since 23 static
-   * @deprecated since 24
+   * @deprecated since 24 static
    */
   function offUserAgeGroupDetected(callback?: Callback<UserClassification>): void;
 }
