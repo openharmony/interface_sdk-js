@@ -8655,6 +8655,16 @@ export declare interface ContextMenuOptions {
      * @since 23 static
      */
     systemMaterial?: SystemUiMaterial;
+    /**
+     * Defines the scroll bar state of menu.
+     *
+     * @type { ?BarState }
+     * @default BarState.Auto
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    scrollBar?: BarState;
 }
 /**
  * Defines the menu options.
