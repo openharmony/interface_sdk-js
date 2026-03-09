@@ -18,7 +18,7 @@
  *
  * @enum SType
  * @syscap SystemCapability.ArkTS.ArkTS
- * @since 24 dynamic
+ * @since 24
  */
 export declare enum SType {
     BOOLEAN,
@@ -38,7 +38,7 @@ export declare enum SType {
  *
  * @class STValue
  * @syscap SystemCapability.ArkTS.ArkTS
- * @since 24 dynamic
+ * @since 24
  */
 export declare class STValue {
     /**
@@ -47,7 +47,7 @@ export declare class STValue {
      * @param {string} desc - The fully qualified path of the class.
      * @returns {STValue} The STValue object that encapsulates the class.
      * @syscap SystemCapability.ArkTS.ArkTS
-     * @since 24 dynamic
+     * @since 24
      */
     static findClass(desc: string): STValue
 
@@ -57,7 +57,7 @@ export declare class STValue {
      * @param {string} desc - The fully qualified path to the a namespace.
      * @returns {STValue} The STValue object representing the namespace.
      * @syscap SystemCapability.ArkTS.ArkTS
-     * @since 24 dynamic
+     * @since 24
      */
     static findNamespace(desc: string): STValue
 
@@ -67,7 +67,7 @@ export declare class STValue {
      * @param {string} desc - The fully qualified path of the enumeration.
      * @returns {STValue} The STValue object representing the enumeration.
      * @syscap SystemCapability.ArkTS.ArkTS
-     * @since 24 dynamic
+     * @since 24
      */
     static findEnum(desc: string): STValue
 
@@ -77,7 +77,7 @@ export declare class STValue {
      * @param {number} b - The number value to wrap.
      * @returns {STValue} The wrapped byte type STValue object.
      * @syscap SystemCapability.ArkTS.ArkTS
-     * @since 24 dynamic
+     * @since 24
      */
     static wrapByte(b: number): STValue
 
@@ -87,7 +87,7 @@ export declare class STValue {
      * @param {number} b - The character code to wrap.
      * @returns {STValue} The wrapped character type STValue object.
      * @syscap SystemCapability.ArkTS.ArkTS
-     * @since 24 dynamic
+     * @since 24
      */
     static wrapChar(b: number): STValue
 
@@ -97,7 +97,7 @@ export declare class STValue {
      * @param {number} b - The number value to wrap.
      * @returns {STValue} The wrapped short STValue object.
      * @syscap SystemCapability.ArkTS.ArkTS
-     * @since 24 dynamic
+     * @since 24
      */
     static wrapShort(b: number): STValue
 
@@ -107,7 +107,7 @@ export declare class STValue {
      * @param {number} b - The number value to wrap.
      * @returns {STValue} The wrapped integer STValue object.
      * @syscap SystemCapability.ArkTS.ArkTS
-     * @since 24 dynamic
+     * @since 24
      */
     static wrapInt(b: number): STValue
 
@@ -118,7 +118,7 @@ export declare class STValue {
      * @param {number} l - The number value to wrap.
      * @returns {STValue} The wrapped long STValue object.
      * @syscap SystemCapability.ArkTS.ArkTS
-     * @since 24 dynamic
+     * @since 24
      */
     static wrapLong(l: number): STValue
 
@@ -128,7 +128,7 @@ export declare class STValue {
      * @param {bigint} b - The bigint value to wrap.
      * @returns {STValue} The wrapped long STValue object.
      * @syscap SystemCapability.ArkTS.ArkTS
-     * @since 24 dynamic
+     * @since 24
      */
     static wrapLong(b: bigint): STValue
 
@@ -138,7 +138,7 @@ export declare class STValue {
      * @param {boolean} b - The boolean value to wrap.
      * @returns {STValue} The wrapped boolean STValue object.
      * @syscap SystemCapability.ArkTS.ArkTS
-     * @since 24 dynamic
+     * @since 24
      */
     static wrapBoolean(b: boolean): STValue
 
@@ -148,7 +148,7 @@ export declare class STValue {
      * @param {number} b - The number value to wrap.
      * @returns {STValue} The wrapped single-precision floating-point STValue object.
      * @syscap SystemCapability.ArkTS.ArkTS
-     * @since 24 dynamic
+     * @since 24
      */
     static wrapFloat(b: number): STValue
 
@@ -158,7 +158,7 @@ export declare class STValue {
      * @param {number} b - The number value to wrap.
      * @returns {STValue} The wrapped double-precision floating-point STValue object.
      * @syscap SystemCapability.ArkTS.ArkTS
-     * @since 24 dynamic
+     * @since 24
      */
     static wrapNumber(b: number): STValue
 
@@ -168,7 +168,7 @@ export declare class STValue {
      * @param {bigint} b - The bigint value to wrap.
      * @returns {STValue} The wrapped BigInt type STValue object.
      * @syscap SystemCapability.ArkTS.ArkTS
-     * @since 24 dynamic
+     * @since 24
      */
     static wrapBigInt(b: bigint): STValue
 
@@ -178,7 +178,7 @@ export declare class STValue {
      * @param {string} b - The string value to wrap.
      * @returns {STValue} The wrapped string type STValue object.
      * @syscap SystemCapability.ArkTS.ArkTS
-     * @since 24 dynamic
+     * @since 24
      */
     static wrapString(b: string): STValue
 
@@ -187,7 +187,7 @@ export declare class STValue {
      *
      * @returns {STValue} The STValue object representing null.
      * @syscap SystemCapability.ArkTS.ArkTS
-     * @since 24 dynamic
+     * @since 24
      */
     static getNull(): STValue
 
@@ -196,7 +196,7 @@ export declare class STValue {
      *
      * @returns {STValue} The STValue object representing undefined.
      * @syscap SystemCapability.ArkTS.ArkTS
-     * @since 24 dynamic
+     * @since 24
      */
     static getUndefined(): STValue
 
@@ -207,7 +207,7 @@ export declare class STValue {
      * @param {SType} elementType - The array element type.
      * @returns {STValue} The STValue object of the newly created fixed-length array.
      * @syscap SystemCapability.ArkTS.ArkTS
-     * @since 24 dynamic
+     * @since 24
      */
     static newFixedArrayPrimitive(len: number, elementType: SType): STValue
 
@@ -219,7 +219,7 @@ export declare class STValue {
      * @param {STValue} initialElement - The initial value of the array element.
      * @returns {STValue} The STValue object of the newly created fixed-length reference array.
      * @syscap SystemCapability.ArkTS.ArkTS
-     * @since 24 dynamic
+     * @since 24
      */
     static newFixedArrayReference(len: number, elementType: STValue, initialElement: STValue): STValue
 
@@ -230,7 +230,7 @@ export declare class STValue {
      * @param {STValue} initialElement - The initial element used to populate each position of the array.
      * @returns {STValue} The STValue object encapsulating the newly created array.
      * @syscap SystemCapability.ArkTS.ArkTS
-     * @since 24 dynamic
+     * @since 24
      */
     static newArray(len: number, initialElement: STValue): STValue
 
@@ -241,7 +241,7 @@ export declare class STValue {
      * @param {STValue} to_type - The target type (assigned target type).
      * @returns {boolean} Returns true if from_type can be assigned to to_type, false otherwise.
      * @syscap SystemCapability.ArkTS.ArkTS
-     * @since 24 dynamic
+     * @since 24
      */
     static typeIsAssignableFrom(from_type: STValue, to_type: STValue): boolean
 
@@ -252,7 +252,7 @@ export declare class STValue {
      * @param {Array<STValue>} args - The constructor parameter array.
      * @returns {STValue} The newly created object instance.
      * @syscap SystemCapability.ArkTS.ArkTS
-     * @since 24 dynamic
+     * @since 24
      */
     classInstantiate(ctorSignature: string, args: Array<STValue>): STValue
 
@@ -263,7 +263,7 @@ export declare class STValue {
      * @param {SType} variableType - The variable type enumeration value.
      * @returns {STValue} The STValue object of variable value.
      * @syscap SystemCapability.ArkTS.ArkTS
-     * @since 24 dynamic
+     * @since 24
      */
     namespaceGetVariable(name: string, variableType: SType): STValue
 
@@ -274,7 +274,7 @@ export declare class STValue {
      * @param {STValue} val - The value to set.
      * @param {SType} variableType - The variable type enumeration value.
      * @syscap SystemCapability.ArkTS.ArkTS
-     * @since 24 dynamic
+     * @since 24
      */
     namespaceSetVariable(name: string, val: STValue, variableType: SType): void
 
@@ -283,7 +283,7 @@ export declare class STValue {
      *
      * @returns {STValue} The STValue object representing the parent class.
      * @syscap SystemCapability.ArkTS.ArkTS
-     * @since 24 dynamic
+     * @since 24
      */
     classGetSuperClass(): STValue
 
@@ -294,7 +294,7 @@ export declare class STValue {
      * @param {SType} fieldType - The field type.
      * @returns {STValue} The STValue object of field value.
      * @syscap SystemCapability.ArkTS.ArkTS
-     * @since 24 dynamic
+     * @since 24
      */
     classGetStaticField(name: string, fieldType: SType): STValue
 
@@ -305,7 +305,7 @@ export declare class STValue {
      * @param {STValue} val - The value to set.
      * @param {SType} fieldType - The field type.
      * @syscap SystemCapability.ArkTS.ArkTS
-     * @since 24 dynamic
+     * @since 24
      */
     classSetStaticField(name: string, val: STValue, fieldType: SType): void
 
@@ -316,7 +316,7 @@ export declare class STValue {
      * @param {SType} propType - The property type.
      * @returns {STValue} The STValue object of property value.
      * @syscap SystemCapability.ArkTS.ArkTS
-     * @since 24 dynamic
+     * @since 24
      */
     objectGetProperty(name: string, propType: SType): STValue
 
@@ -327,7 +327,7 @@ export declare class STValue {
      * @param {STValue} val - The value to set.
      * @param {SType} propType - The property type.
      * @syscap SystemCapability.ArkTS.ArkTS
-     * @since 24 dynamic
+     * @since 24
      */
     objectSetProperty(name: string, val: STValue, propType: SType): void
 
@@ -338,7 +338,7 @@ export declare class STValue {
      * @param {SType} elementType - The array element type.
      * @returns {STValue} The STValue object of an element.
      * @syscap SystemCapability.ArkTS.ArkTS
-     * @since 24 dynamic
+     * @since 24
      */
     fixedArrayGet(idx: number, elementType: SType): STValue
 
@@ -349,7 +349,7 @@ export declare class STValue {
      * @param {STValue} val - The value to set.
      * @param {SType} elementType - The array element type.
      * @syscap SystemCapability.ArkTS.ArkTS
-     * @since 24 dynamic
+     * @since 24
      */
     fixedArraySet(idx: number, val: STValue, elementType: SType): void
 
@@ -358,7 +358,7 @@ export declare class STValue {
      *
      * @returns {number} The array length.
      * @syscap SystemCapability.ArkTS.ArkTS
-     * @since 24 dynamic
+     * @since 24
      */
     fixedArrayGetLength(): number
 
@@ -368,7 +368,7 @@ export declare class STValue {
      * @param {number} idx - The index of the array element.
      * @returns {STValue} The STValue object encapsulating the element at the specified position.
      * @syscap SystemCapability.ArkTS.ArkTS
-     * @since 24 dynamic
+     * @since 24
      */
     arrayGet(idx: number): STValue
 
@@ -378,7 +378,7 @@ export declare class STValue {
      * @param {number} idx - The index of the array element to set.
      * @param {STValue} initialElement - The STValue encapsulated object to store.
      * @syscap SystemCapability.ArkTS.ArkTS
-     * @since 24 dynamic
+     * @since 24
      */
     arraySet(idx: number, initialElement: STValue): void
 
@@ -387,7 +387,7 @@ export declare class STValue {
      *
      * @param {STValue} initialElement - The STValue encapsulated object to add.
      * @syscap SystemCapability.ArkTS.ArkTS
-     * @since 24 dynamic
+     * @since 24
      */
     arrayPush(initialElement: STValue): void
 
@@ -396,7 +396,7 @@ export declare class STValue {
      *
      * @returns {STValue} The STValue object of the removed last element.
      * @syscap SystemCapability.ArkTS.ArkTS
-     * @since 24 dynamic
+     * @since 24
      */
     arrayPop(): STValue
 
@@ -405,7 +405,7 @@ export declare class STValue {
      *
      * @returns {number} The current number of elements in the dynamic array.
      * @syscap SystemCapability.ArkTS.ArkTS
-     * @since 24 dynamic
+     * @since 24
      */
     arrayGetLength(): number
 
@@ -415,7 +415,7 @@ export declare class STValue {
      * @param {string} name - The enumeration member name.
      * @returns {number} The enumeration index.
      * @syscap SystemCapability.ArkTS.ArkTS
-     * @since 24 dynamic
+     * @since 24
      */
     enumGetIndexByName(name: string): number
 
@@ -426,7 +426,7 @@ export declare class STValue {
      * @param {SType} valueType - The enumeration value type.
      * @returns {STValue} The STValue object of enumeration value.
      * @syscap SystemCapability.ArkTS.ArkTS
-     * @since 24 dynamic
+     * @since 24
      */
     enumGetValueByName(name: string, valueType: SType): STValue
 
@@ -436,7 +436,7 @@ export declare class STValue {
      * @param {Array<STValue>} args - The function parameter array (must be reference type).
      * * @returns {STValue} The STValue object (reference type) of function call result.
      * @syscap SystemCapability.ArkTS.ArkTS
-     * @since 24 dynamic
+     * @since 24
      */
     functionalObjectInvoke(args: Array<STValue>): STValue
 
@@ -448,7 +448,7 @@ export declare class STValue {
      * @param {STValue[]} args - The function parameter array.
      * @returns {STValue} The STValue object of function call result.
      * @syscap SystemCapability.ArkTS.ArkTS
-     * @since 24 dynamic
+     * @since 24
      */
     namespaceInvokeFunction(name: string, signature: string, args: STValue[]): STValue
 
@@ -460,7 +460,7 @@ export declare class STValue {
      * @param {Array<STValue>} args - The method parameter array.
      * @returns {STValue} The STValue object of method call result.
      * @syscap SystemCapability.ArkTS.ArkTS
-     * @since 24 dynamic
+     * @since 24
      */
     objectInvokeMethod(name: string, signature: string, args: Array<STValue>): STValue
 
@@ -472,7 +472,7 @@ export declare class STValue {
      * @param {Array<STValue>} args - The method parameter array.
      * @returns {STValue} The STValue object of method call result.
      * @syscap SystemCapability.ArkTS.ArkTS
-     * @since 24 dynamic
+     * @since 24
      */
     classInvokeStaticMethod(name: string, signature: string, args: Array<STValue>): STValue
 
@@ -482,7 +482,7 @@ export declare class STValue {
      * @param {STValue} typeArg - The type to check (class or interface).
      * @returns {boolean} Returns true if an instance of this type, false otherwise.
      * @syscap SystemCapability.ArkTS.ArkTS
-     * @since 24 dynamic
+     * @since 24
      */
     objectInstanceOf(typeArg: STValue): boolean
 
@@ -491,7 +491,7 @@ export declare class STValue {
      *
      * @returns {STValue} The STValue object of type information.
      * @syscap SystemCapability.ArkTS.ArkTS
-     * @since 24 dynamic
+     * @since 24
      */
     objectGetType(): STValue
 
@@ -500,7 +500,7 @@ export declare class STValue {
      *
      * @returns {boolean} Returns true if null, false otherwise.
      * @syscap SystemCapability.ArkTS.ArkTS
-     * @since 24 dynamic
+     * @since 24
      */
     isNull(): boolean
 
@@ -509,7 +509,7 @@ export declare class STValue {
      *
      * @returns {boolean} Returns true if undefined, false otherwise.
      * @syscap SystemCapability.ArkTS.ArkTS
-     * @since 24 dynamic
+     * @since 24
      */
     isUndefined(): boolean
 
@@ -519,7 +519,7 @@ export declare class STValue {
      * @param {STValue} other - Another STValue object to compare.
      * @returns {boolean} If two references are equal true, otherwise return false.
      * @syscap SystemCapability.ArkTS.ArkTS
-     * @since 24 dynamic
+     * @since 24
      */
     isEqualTo(other: STValue): boolean
 
@@ -529,7 +529,7 @@ export declare class STValue {
      * @param {STValue} other - Another STValue object to compare.
      * @returns {boolean} Returns true if two objects are strictly equal, false otherwise.
      * @syscap SystemCapability.ArkTS.ArkTS
-     * @since 24 dynamic
+     * @since 24
      */
     isStrictlyEqualTo(other: STValue): boolean
 
@@ -538,7 +538,7 @@ export declare class STValue {
      *
      * @returns {boolean} Returns true if double-precision floating-point type, false otherwise.
      * @syscap SystemCapability.ArkTS.ArkTS
-     * @since 24 dynamic
+     * @since 24
      */
     isNumber(): boolean
 
@@ -547,7 +547,7 @@ export declare class STValue {
      *
      * @returns {boolean} Returns true if it is a single-precision floating-point type, false otherwise.
      * @syscap SystemCapability.ArkTS.ArkTS
-     * @since 24 dynamic
+     * @since 24
      */
     isFloat(): boolean
 
@@ -556,7 +556,7 @@ export declare class STValue {
      *
      * @returns {boolean} Returns true if it is a long integer type, false otherwise.
      * @syscap SystemCapability.ArkTS.ArkTS
-     * @since 24 dynamic
+     * @since 24
      */
     isLong(): boolean
 
@@ -565,7 +565,7 @@ export declare class STValue {
      *
      * @returns {boolean} Returns true if it is an integer type, false otherwise.
      * @syscap SystemCapability.ArkTS.ArkTS
-     * @since 24 dynamic
+     * @since 24
      */
     isInt(): boolean
 
@@ -574,7 +574,7 @@ export declare class STValue {
      *
      * @returns {boolean} Returns true if it is a short integer type, false otherwise.
      * @syscap SystemCapability.ArkTS.ArkTS
-     * @since 24 dynamic
+     * @since 24
      */
     isShort(): boolean
 
@@ -583,7 +583,7 @@ export declare class STValue {
      *
      * @returns {boolean} Returns true if it is a character type, false otherwise.
      * @syscap SystemCapability.ArkTS.ArkTS
-     * @since 24 dynamic
+     * @since 24
      */
     isChar(): boolean
 
@@ -592,7 +592,7 @@ export declare class STValue {
      *
      * @returns {boolean} Returns true if it is a byte type, false otherwise.
      * @syscap SystemCapability.ArkTS.ArkTS
-     * @since 24 dynamic
+     * @since 24
      */
     isByte(): boolean
 
@@ -601,7 +601,7 @@ export declare class STValue {
      *
      * @returns {boolean} Returns true if boolean, false otherwise.
      * @syscap SystemCapability.ArkTS.ArkTS
-     * @since 24 dynamic
+     * @since 24
      */
     isBoolean(): boolean
 
@@ -610,7 +610,7 @@ export declare class STValue {
      *
      * @returns {boolean} Returns true if it is a large integer type, false otherwise.
      * @syscap SystemCapability.ArkTS.ArkTS
-     * @since 24 dynamic
+     * @since 24
      */
     isBigInt(): boolean
 
@@ -619,7 +619,7 @@ export declare class STValue {
      *
      * @returns {boolean} Returns true if it is a string type, false otherwise.
      * @syscap SystemCapability.ArkTS.ArkTS
-     * @since 24 dynamic
+     * @since 24
      */
     isString(): boolean
 
@@ -628,7 +628,7 @@ export declare class STValue {
      *
      * @returns {number} The unpacked number value.
      * @syscap SystemCapability.ArkTS.ArkTS
-     * @since 24 dynamic
+     * @since 24
      */
     unwrapToNumber(): number
 
@@ -637,7 +637,7 @@ export declare class STValue {
      *
      * @returns {string} The unwrapped string value.
      * @syscap SystemCapability.ArkTS.ArkTS
-     * @since 24 dynamic
+     * @since 24
      */
     unwrapToString(): string
 
@@ -646,7 +646,7 @@ export declare class STValue {
      *
      * @returns {bigint} The large integer value after unpacking.
      * @syscap SystemCapability.ArkTS.ArkTS
-     * @since 24 dynamic
+     * @since 24
      */
     unwrapToBigInt(): bigint
 
@@ -655,7 +655,7 @@ export declare class STValue {
      *
      * @returns {boolean} The unwrapped boolean value.
      * @syscap SystemCapability.ArkTS.ArkTS
-     * @since 24 dynamic
+     * @since 24
      */
     unwrapToBoolean(): boolean
 }
