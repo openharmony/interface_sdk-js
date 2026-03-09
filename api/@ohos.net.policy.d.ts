@@ -874,7 +874,6 @@ declare namespace policy {
   * @syscap SystemCapability.Communication.NetManager.Core
   * @stagemodelonly
   * @since 22 dynamic
-  * @since 23 static
   */
   function showAppNetPolicySettings(context: Context): Promise<void>;
 
