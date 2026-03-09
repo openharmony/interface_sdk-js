@@ -117,7 +117,7 @@ declare namespace appRecovery {
      * @atomicservice
      * @since 24 dynamic&static
      */
-    RESTART_WHEN_CPP_CRASH = 0x0004
+    RESTART_WHEN_CPP_CRASH = 0x0008,
 
     /**
      * Do not restart in any scenario.
