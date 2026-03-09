@@ -409,7 +409,6 @@ declare namespace sharing {
    * @syscap SystemCapability.Communication.NetManager.NetSharing
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 23 static
    */
   function on(type: 'sharingStateChange', callback: Callback<boolean>): void;
 
@@ -424,7 +423,6 @@ declare namespace sharing {
    * @syscap SystemCapability.Communication.NetManager.NetSharing
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 23 static
    */
   function off(type: 'sharingStateChange', callback?: Callback<boolean>): void;
 
@@ -451,7 +449,6 @@ declare namespace sharing {
    * @syscap SystemCapability.Communication.NetManager.NetSharing
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
-   * @since 23 static
    */
   function on(type: 'interfaceSharingStateChange', callback: Callback<InterfaceSharingStateInfo>): void;
 
@@ -478,7 +475,6 @@ declare namespace sharing {
    * @syscap SystemCapability.Communication.NetManager.NetSharing
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
-   * @since 23 static
    */
   function off(type: 'interfaceSharingStateChange', callback?: Callback<InterfaceSharingStateInfo>): void;
 
@@ -493,7 +489,6 @@ declare namespace sharing {
    * @syscap SystemCapability.Communication.NetManager.NetSharing
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 23 static
    */
   function on(type: 'sharingUpstreamChange', callback: Callback<NetHandle>): void;
 
@@ -508,7 +503,6 @@ declare namespace sharing {
    * @syscap SystemCapability.Communication.NetManager.NetSharing
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 23 static
    */
   function off(type: 'sharingUpstreamChange', callback?: Callback<NetHandle>): void;
 
