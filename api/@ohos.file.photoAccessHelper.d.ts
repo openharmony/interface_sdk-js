@@ -11431,20 +11431,20 @@ declare namespace photoAccessHelper {
     setHasAppLink(hasAppLink: int): void;
 
     /** 
-     * Set the AppLink state of this asset. 
-     * 
-     * @param { AppLinkState } appLinkState - Boomerang status of assets 
-     * @throws { BusinessError } 202 - Invoked by non-system applications 
-     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs. 
-     * @throws { BusinessError } 23800151 - The scenario parameter verification fails. Possible causes: 
-     *     The input parameter is not within the valid range. 
-     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core 
-     * @systemapi 
-     * @stagemodelonly 
-     * @since 24 dynamic&static 
-     */ 
-    setAppLinkState(appLinkState: AppLinkState): void; 
- 
+     * Set the AppLink state of this asset.
+     *
+     * @param { AppLinkState } appLinkState - Boomerang status of assets
+     * @throws { BusinessError } 202 - Invoked by non-system applications
+     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
+     * @throws { BusinessError } 23800151 - The scenario parameter verification fails. Possible causes:
+     *     The input parameter is not within the valid range.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    setAppLinkState(appLinkState: AppLinkState): void;
+
     /**
      * Set the AppLink info of this asset.
      *
@@ -14976,14 +14976,14 @@ declare namespace photoAccessHelper {
  
   /**
    * App link state of an asset
-   * 
+   *
    * @enum { int } AppLinkState
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
    * @stagemodelonly
    * @since 24 dynamic&static
-   */ 
-  enum AppLinkState { 
+   */
+  enum AppLinkState {
     /**
      * Unknow whether an asset has app link or not
      *
@@ -15003,7 +15003,6 @@ declare namespace photoAccessHelper {
      * @since 24 dynamic&static
      */
     HAS_NO_LINK = 1,
-
 
     /**
      * An asset has app link
