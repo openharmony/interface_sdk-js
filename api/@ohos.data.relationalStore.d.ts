@@ -9238,8 +9238,8 @@ declare namespace relationalStore {
      * @param { Callback<ProgressDetails> } progress -
      *     Callback used to return the {@link ProgressDetails} result.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     *     <br>4. The event must be a not empty string. 5. The progress must be function.
+     *     <br>2. Incorrect parameter types; 3. Parameter verification failed;
+     *     <br>4. The event must be a not empty string; 5. The progress must be function.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800014 - The target instance is already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
