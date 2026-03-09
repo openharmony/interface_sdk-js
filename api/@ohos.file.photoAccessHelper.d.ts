@@ -850,7 +850,17 @@ declare namespace photoAccessHelper {
      * @since 23 dynamic
      * @since 24 static
      */
-    LANDSCAPE = 16
+    LANDSCAPE = 16,
+
+    /**
+     * GAUSSIAN_SPLAT_3D indicates that images generated with 3D Gaussian splatting can be recommended
+     * 
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    GAUSSIAN_SPLAT_3D = 17
   }
 
   /**
@@ -7935,9 +7945,9 @@ declare namespace photoAccessHelper {
     isMediaDataReady(mediaDataKey: string): Promise<boolean>;
 
     /**
-     * Get PhotoAsset objects from ValuesBucket record info.
+     * Converts ValuesBucket records into PhotoAsset objects.
      *
-     * @param { ValuesBucket[] } assetsData - Array of asset records. Each element in the array contains the asset's
+     * @param { ValuesBucket[] } assetsData - Array of asset records. Each element in the array contains the asset
      *     column names and their values. The array size cannot exceed 500. Each element in the array must contain
      *     the following asset column information: file_id, data, display_name, media_type, and subtype.
      * @returns { Promise<PhotoAsset[]> } Returns an array of PhotoAsset objects (may be empty).
@@ -9944,6 +9954,17 @@ declare namespace photoAccessHelper {
      * @since 24 static
      */
     recommendationTypeList?: Array<RecommendationType>;
+
+    /**
+     * This configuration takes effect only when `RecommendationTypeList` is set.
+     * When enabled, the Picker will directly display the corresponding recommended photos upon opening.
+     * 
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    defaultRecommendationType?: RecommendationType;
   }
 
   /**
@@ -11408,21 +11429,6 @@ declare namespace photoAccessHelper {
      * @since 23 static
      */
     setHasAppLink(hasAppLink: int): void;
-
-    /**
-     * Set the AppLink state of this asset.
-     *
-     * @param { AppLinkState } appLinkState - Boomerang status of assets
-     * @throws { BusinessError } 202 - Invoked by non-system applications
-     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
-     * @throws { BusinessError } 23800151 - The scenario parameter verification fails. Possible causes:
-     *     The input parameter is not within the valid range.
-     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @systemapi
-     * @stagemodelonly
-     * @since 24 dynamic&static
-     */
-    setAppLinkState(appLinkState: AppLinkState): void;
 
     /**
      * Set the AppLink info of this asset.
@@ -14951,47 +14957,6 @@ declare namespace photoAccessHelper {
      * @since 23 dynamic&static
      */
     RANDOM_VOTE = 0
-  }
- 
-  /**
-   * App link state of an asset
-   *
-   * @enum { int } AppLinkState
-   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @systemapi
-   * @stagemodelonly
-   * @since 24 dynamic&static
-   */
-  enum AppLinkState {  
-    /**
-     * Unknow whether an asset has app link or not
-     *
-     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @systemapi
-     * @stagemodelonly
-     * @since 24 dynamic&static
-     */
-    DEFAULT = 0,
-    
-    /**
-     * An asset has no app link
-     *
-     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @systemapi
-     * @stagemodelonly
-     * @since 24 dynamic&static
-     */
-    HAS_NO_LINK = 1,
-
-    /**
-     * An asset has app link
-     *
-     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @systemapi
-     * @stagemodelonly
-     * @since 24 dynamic&static
-     */
-    HAS_LINK = 2
   }
  
   /**
