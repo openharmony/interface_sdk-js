@@ -263,19 +263,19 @@ declare namespace photoAccessHelper {
      * @atomicservice
      * @since 24 dynamic&static
      */
-    sortRule?: string;
+    sortRule: string;
 
     /**
      * size of the first fully visible photo in the last selection interface.
      * the default value is 0.
      * 
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @stagemodelonly
      * @atomicservice
      * @since 24 dynamic&static
      */
-    fileSize?: number;
+    fileSize: int;
   }
 
   /**
