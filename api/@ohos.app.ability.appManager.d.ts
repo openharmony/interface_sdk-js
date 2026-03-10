@@ -1989,6 +1989,7 @@ declare namespace appManager {
    * @since 23 static
    */
   export type RunningMultiAppInfo = _RunningMultiAppInfo;
+  
 }
 
 export default appManager;
