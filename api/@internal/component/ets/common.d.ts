@@ -20131,6 +20131,17 @@ declare interface ContextMenuOptions {
    * @since 26.0.0 dynamic
    */
    scrollBar?: BarState;
+   /**
+   * Defines the max height of menu.
+   *
+   * @type { ?LengthMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  maxHeight?: LengthMetrics;
 }
 
 /**

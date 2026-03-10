@@ -8665,6 +8665,15 @@ export declare interface ContextMenuOptions {
      * @since 26.0.0 static
      */
     scrollBar?: BarState;
+    /**
+     * Defines the max height of menu.
+     *
+     * @type { ?LengthMetrics }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    maxHeight?: LengthMetrics;
 }
 /**
  * Defines the menu options.
