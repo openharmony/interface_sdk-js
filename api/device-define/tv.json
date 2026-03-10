@@ -49,6 +49,7 @@
     "SystemCapability.BundleManager.BundleFramework.Launcher",
     "SystemCapability.BundleManager.BundleFramework.Overlay",
     "SystemCapability.BundleManager.BundleFramework.Resource",
+    "SystemCapability.BundleManager.DistributedBundleFramework",
     "SystemCapability.BundleManager.Zlib",
     "SystemCapability.Applications.CalendarData",
     "SystemCapability.Notification.CommonEvent",
