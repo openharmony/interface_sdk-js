@@ -1622,6 +1622,7 @@ declare namespace inputMethodEngine {
      * @param { AsyncCallback<EditorAttribute | null> } callback - the callback of getEditorAttribute.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 23 static
      */
@@ -1645,6 +1646,7 @@ declare namespace inputMethodEngine {
      * @returns { Promise<EditorAttribute | null> } the promise returned by the function.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 23 static
      */
@@ -1668,6 +1670,7 @@ declare namespace inputMethodEngine {
      * @returns { EditorAttribute | null } the attribute of editor.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 23 static
      */
@@ -1934,6 +1937,7 @@ declare namespace inputMethodEngine {
      * @returns { Promise<WindowInfo | null> } the promise returned by the function.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @throws { BusinessError } 12800012 - the input method panel does not exist.
      * @throws { BusinessError } 12800013 - window manager service error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
