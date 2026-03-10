@@ -3150,6 +3150,19 @@ export interface AtomicServiceBar {
    * @since 15 dynamic
    */
   getBarRect(): Frame;
+
+  /**
+   * When size and position of the bar changed, callback will be called.
+   *
+   * @param { Callback<Frame> } callback - Callback that param contains the Frame.
+   *     The parameters of the callback function cannot be undefined or null.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  onBarRectChange(callback: Callback<Frame>): void;
 }
 
 /**
