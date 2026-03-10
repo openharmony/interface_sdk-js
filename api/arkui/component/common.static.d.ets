@@ -13045,6 +13045,17 @@ export declare interface ScrollableCommonMethod extends CommonMethod {
      */
     default onDidStopFling(handler: VoidCallback | undefined): this;
     /**
+     * Enable left mouse button press-and-drag scrolling.
+     *
+     * @param { boolean | undefined } enabled - Enable left mouse button press-and-drag scrolling.
+     *    <br>Default value: false.
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default enableScrollWithMouse(enabled: boolean | undefined): this;
+    /**
      * Triggered when the scrollable component reaches the start position.
      *
      * @param { function | undefined } event - Callback function, triggered when the scrollable reaches
