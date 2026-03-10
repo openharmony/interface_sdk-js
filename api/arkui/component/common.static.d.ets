@@ -5570,11 +5570,11 @@ export declare interface DragEvent {
      * target components before the drag preview window is shown. Developers need to restore component visibility
      * in onDragEnd or onDrop based on service requirements.
      *
-     * @type { number | Array<number> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 24 static
+     * @stagemodelonly
+     * @since 26.0.0 static
      */
-    autoHideComponentUniqueIds?: number | Array<number>;
+    autoHideComponentUniqueIds?: int | int[];
     /**
      * Set dragData into DragEvent.
      *
