@@ -2446,6 +2446,16 @@ declare namespace socket {
      * @since 10 dynamic
      */
     socketLinger?: { on: boolean, linger: number };
+
+    /**
+     * Whether to enable TCP Fast Open (TFO) on the TCPSocket connection. The default value is false.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    tcpFastOpen?: boolean;
   }
 
   /**
