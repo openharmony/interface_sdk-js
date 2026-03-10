@@ -45,6 +45,9 @@ declare namespace systemDateTime {
    * @param { AsyncCallback<void> } callback - The callback of setTime
    * @throws { BusinessError } 201 - Permission denied
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 204 - Access denied due to user access control policy. Possible causes: 
+   *     1. The operation is restricted by the OS-account constraint. 
+   *     2. The required privilege for the operation has not been granted.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
@@ -62,6 +65,9 @@ declare namespace systemDateTime {
    * @returns { Promise<void> } The promise returned by the function
    * @throws { BusinessError } 201 - Permission denied
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 204 - Access denied due to user access control policy. Possible causes: 
+   *     1. The operation is restricted by the OS-account constraint. 
+   *     2. The required privilege for the operation has not been granted.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
@@ -361,6 +367,9 @@ declare namespace systemDateTime {
    * @param { AsyncCallback<void> } callback - The callback of setTimezone
    * @throws { BusinessError } 201 - Permission denied
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 204 - Access denied due to user access control policy. Possible causes: 
+   *     1. The operation is restricted by the OS-account constraint. 
+   *     2. The required privilege for the operation has not been granted.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
@@ -379,6 +388,9 @@ declare namespace systemDateTime {
    * @returns { Promise<void> } The promise returned by the function
    * @throws { BusinessError } 201 - Permission denied
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 204 - Access denied due to user access control policy. Possible causes: 
+   *     1. The operation is restricted by the OS-account constraint. 
+   *     2. The required privilege for the operation has not been granted.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
@@ -507,6 +519,9 @@ declare namespace systemDateTime {
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 204 - Access denied due to user access control policy. Possible causes: 
+   *     1. The operation is restricted by the OS-account constraint. 
+   *     2. The required privilege for the operation has not been granted.
    * @throws { BusinessError } 13000001 - Network connection error or OS error. Possible causes: 1.System memory is
    *     insufficient; 2.Calls the underlying system interface failed.
    * @syscap SystemCapability.MiscServices.Time
