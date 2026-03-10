@@ -2030,7 +2030,7 @@ declare namespace accessibility {
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
-  function isSeniorModeEnabled(): Promise<boolean>
+  function isSeniorModeEnabled(): Promise<boolean>;
 
   /**
    * Register an observer for senior mode state changes.
@@ -2040,7 +2040,7 @@ declare namespace accessibility {
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
-  function onSeniorModeStateChange(callback: Callback<boolean>): void
+  function onSeniorModeStateChange(callback: Callback<boolean>): void;
 
   /**
    * Unregister the observer for senior mode state changes.
@@ -2051,7 +2051,7 @@ declare namespace accessibility {
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
-  function offSeniorModeStateChange(callback?: Callback<boolean>): void
+  function offSeniorModeStateChange(callback?: Callback<boolean>): void;
 
   /**
    * Indicates the captions manager.
@@ -2992,7 +2992,7 @@ export enum FocusMoveResultCode {
   /**
    * The code of check child property and get last.
    *
-   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @syscap SystemCapability.BarrierFree.Accessibility.
    * @systemapi
    * @since 23 dynamic&static
    */
