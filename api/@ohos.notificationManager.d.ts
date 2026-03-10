@@ -5332,6 +5332,46 @@ declare namespace notificationManager {
      * @since 23 static
      */
     soundEnabled: boolean;
+
+    /**
+     * Indicates whether lockScreen is enabled.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Notification.Notification
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    lockScreenEnabled?: boolean;
+ 	 
+    /**
+     * Indicates whether banner is enabled.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Notification.Notification
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    bannerEnabled?: boolean;
+ 	 
+    /**
+     * Indicates whether badgeNumber show is enabled.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Notification.Notification
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    badgeNumberEnabled?: boolean;
+
+    /**
+     * Indicates whether notification is enabled.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Notification.Notification
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    notificationEnabled?: boolean;
   }
 
   /**
