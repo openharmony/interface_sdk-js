@@ -157,6 +157,36 @@ export enum TriggerType {
 }
 
 /**
+ * The type of group notification customization information.
+ *
+ * @syscap SystemCapability.Notification.Notification
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.0.0 dynamic&static
+ */
+export interface GroupInfo {
+  /**
+   * Replaces the group notification icon with the notification icon.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  isGroupIcon?: boolean;
+ 	 
+  /**
+   * The title of the group notification.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  groupTitle?: string;
+}
+
+/**
  * Defines a geofence.
  *
  * @typedef Geofence
@@ -987,6 +1017,16 @@ export interface NotificationRequest {
    * @since 23 static
    */
   notDistributed?: boolean;
+
+  /**
+   * Group notification customization information.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  groupInfo?: GroupInfo;
 }
 
 /**
