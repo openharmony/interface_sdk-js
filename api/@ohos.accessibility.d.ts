@@ -2992,7 +2992,7 @@ export enum FocusMoveResultCode {
   /**
    * The code of check child property and get last.
    *
-   * @syscap SystemCapability.BarrierFree.Accessibility.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 23 dynamic&static
    */
