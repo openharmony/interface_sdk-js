@@ -134,6 +134,15 @@ export declare class OperationOption {
      * @since 23 static
      */
     public defaultFocus?: boolean;
+    /**
+     * Set the id for operation.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 24 static
+     */
+    public id?: string;
 }
 /**
  * Declare type SelectOption
@@ -190,6 +199,15 @@ export declare class SelectOptions {
      * @since 23 static
      */
     public defaultFocus?: boolean;
+    /**
+     * Set the id for select.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 24 static
+     */
+    public id?: string;
 }
 /**
 * Declare type SymbolOptions
@@ -403,4 +421,14 @@ export declare struct SubHeader {
      */
     @PropRef
     titleAccessibilityText?: ResourceStr;
+    /**
+     * Set the id for the title.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 24 static
+     */
+    @PropRef
+    id?: string;
 }

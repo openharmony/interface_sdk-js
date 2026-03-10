@@ -90,6 +90,15 @@ export interface SubHeaderV2TitleOptions {
    * @since 23 static
    */
   titleAccessibilityText?: ResourceStr;
+  /**
+   * Set the id for the title.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  id?: string;
 }
 /**
  * Declare the SubHeaderV2Title
@@ -160,6 +169,16 @@ export declare class SubHeaderV2Title {
    */
   @Trace
   public titleAccessibilityText?: ResourceStr;
+  /**
+   * Set the id for the title.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  @Trace
+  public id?: string;
 }
 /**
  * The callback function that will be invoked when the selectedIndex of the SubHeaderV2Select is selected.
@@ -229,6 +248,15 @@ export interface SubHeaderV2SelectOptions {
    * @since 23 static
    */
   defaultFocus?: boolean;
+  /**
+   * Set the id for the SubHeaderV2SelectOptions.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  id?: string;
 }
 /**
  * Declare the SubHeaderV2Select
@@ -290,6 +318,15 @@ export declare class SubHeaderV2Select {
    */
   @Trace
   public defaultFocus?: boolean;
+  /**
+   * Sets the id for SubHeaderV2SelectOptions.
+   * @type { ?string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  @Trace
+  public id?: string;
   /**
    * The constructor of SubHeaderV2Select
    *
@@ -434,6 +471,15 @@ export interface SubHeaderV2OperationItemOptions {
    * @since 23 static
    */
   defaultFocus?: boolean;
+  /**
+   * Sets the id for operation item.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  id?: string;
 }
 /**
  * Declare the SubHeaderV2OperationItem
@@ -521,6 +567,16 @@ export declare class SubHeaderV2OperationItem {
    */
   @Trace
   public defaultFocus?: boolean;
+  /**
+   * Sets the id for operation item.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  @Trace
+  public id?: string;
 }
 /**
  * The callback function that will be invoked when the title build.
