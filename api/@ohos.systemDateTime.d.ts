@@ -51,6 +51,7 @@ declare namespace systemDateTime {
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use
    * @since 9 dynamic
+   * @since 23 static
    */
   /** 
     * Sets the system time. 
@@ -85,6 +86,7 @@ declare namespace systemDateTime {
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use
    * @since 9 dynamic
+   * @since 23 static
    */
   /** 
     * Sets the system time. 
@@ -401,6 +403,7 @@ declare namespace systemDateTime {
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use
    * @since 9 dynamic
+   * @since 23 static
    */
   /** 
     * Sets the system time zone. 
@@ -436,6 +439,7 @@ declare namespace systemDateTime {
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use
    * @since 9 dynamic
+   * @since 23 static
    */
   /** 
     * Sets the system time zone. 
@@ -580,6 +584,7 @@ declare namespace systemDateTime {
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi
    * @since 21 dynamic
+   * @since 23 static
    */
   /** 
     * Sets the status of automatic system time update switch. 
