@@ -430,5 +430,5 @@ export declare struct SubHeader {
      * @since 24 static
      */
     @PropRef
-    id?: string;
+    titleId?: string;
 }
