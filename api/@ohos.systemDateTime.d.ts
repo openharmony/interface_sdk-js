@@ -68,7 +68,7 @@ declare namespace systemDateTime {
     *     2. Incorrect parameter types; 
     * @syscap SystemCapability.MiscServices.Time 
     * @systemapi Hide this for inner system use 
-    * @since 23 dynamic&static 
+    * @since 24 dynamic&static 
     */
   function setTime(time: long, callback: AsyncCallback<void>): void;
   /**
@@ -102,7 +102,7 @@ declare namespace systemDateTime {
     *     2. Incorrect parameter types; 
     * @syscap SystemCapability.MiscServices.Time 
     * @systemapi Hide this for inner system use 
-    * @since 23 dynamic&static 
+    * @since 24 dynamic&static 
     */
   function setTime(time: long): Promise<void>;
 
@@ -418,7 +418,7 @@ declare namespace systemDateTime {
     *     2. Incorrect parameter types; 
     * @syscap SystemCapability.MiscServices.Time 
     * @systemapi Hide this for inner system use 
-    * @since 23 dynamic&static 
+    * @since 24 dynamic&static 
     */
   function setTimezone(timezone: string, callback: AsyncCallback<void>): void;
 
@@ -453,7 +453,7 @@ declare namespace systemDateTime {
     *     2.Incorrect parameter types; 
     * @syscap SystemCapability.MiscServices.Time 
     * @systemapi Hide this for inner system use 
-    * @since 23 dynamic&static 
+    * @since 24 dynamic&static 
     */
   function setTimezone(timezone: string): Promise<void>;
 
@@ -598,7 +598,7 @@ declare namespace systemDateTime {
     *     2. Calls the underlying system interface failed. 
     * @syscap SystemCapability.MiscServices.Time 
     * @systemapi 
-    * @since 23 dynamic&static 
+    * @since 24 dynamic&static 
     */
   function setAutoTimeStatus(status: boolean): Promise<void>;
 }
