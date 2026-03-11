@@ -51,9 +51,8 @@ declare namespace systemDateTime {
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use
    * @since 9 dynamic
-   * @since 23 static
    */
-   /** 
+  /** 
     * Sets the system time. 
     * 
     * @permission ohos.permission.SET_TIME 
@@ -86,9 +85,8 @@ declare namespace systemDateTime {
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use
    * @since 9 dynamic
-   * @since 23 static
    */
-   /** 
+  /** 
     * Sets the system time. 
     * 
     * @permission ohos.permission.SET_TIME 
@@ -403,9 +401,8 @@ declare namespace systemDateTime {
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use
    * @since 9 dynamic
-   * @since 23 static
    */
-   /** 
+  /** 
     * Sets the system time zone. 
     * 
     * @permission ohos.permission.SET_TIME_ZONE 
@@ -423,7 +420,6 @@ declare namespace systemDateTime {
     * @systemapi Hide this for inner system use 
     * @since 23 dynamic&static 
     */
-  
   function setTimezone(timezone: string, callback: AsyncCallback<void>): void;
 
   /**
@@ -440,9 +436,8 @@ declare namespace systemDateTime {
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use
    * @since 9 dynamic
-   * @since 23 static
    */
-   /** 
+  /** 
     * Sets the system time zone. 
     * 
     * @permission ohos.permission.SET_TIME_ZONE 
@@ -585,9 +580,8 @@ declare namespace systemDateTime {
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi
    * @since 21 dynamic
-   * @since 23 static
    */
-   /** 
+  /** 
     * Sets the status of automatic system time update switch. 
     * 
     * @permission ohos.permission.SET_TIME 
