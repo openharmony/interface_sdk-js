@@ -434,7 +434,8 @@ declare namespace companionDeviceAuth {
      *
      * @typedef { function } ContinuousAuthStatusCallback
      * @param { boolean } isAuthPassed - Whether the continuous authentication passes.
-     * @param { UserAuth.AuthTrustLevel } [authTrustLevel] - Optional trust level when passed.
+     * @param { UserAuth.AuthTrustLevel } [authTrustLevel] - The highest achievable AuthTrustLevel at the time of authentication.
+     * Provided only if isAuthPassed is true.
      * @syscap SystemCapability.UserIAM.UserAuth.CompanionDeviceAuth
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
