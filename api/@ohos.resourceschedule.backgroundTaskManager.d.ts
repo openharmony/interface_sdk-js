@@ -609,6 +609,7 @@ declare namespace backgroundTaskManager {
    * @systemapi
    * @stagemodelonly
    * @since 23 dynamic
+   * @since 24 static
    */
   export interface BackgroundTaskSubscriber {  
     /**
@@ -619,6 +620,7 @@ declare namespace backgroundTaskManager {
      * @systemapi
      * @stagemodelonly
      * @since 23 dynamic
+     * @since 24 static
      */
     onContinuousTaskStart(info: ContinuousTaskInfo): void;
 
@@ -630,6 +632,7 @@ declare namespace backgroundTaskManager {
      * @systemapi
      * @stagemodelonly
      * @since 23 dynamic
+     * @since 24 static
      */
     onContinuousTaskUpdate(info: ContinuousTaskInfo): void;
 
@@ -641,6 +644,7 @@ declare namespace backgroundTaskManager {
      * @systemapi
      * @stagemodelonly
      * @since 23 dynamic
+     * @since 24 static
      */
     onContinuousTaskStop(info: ContinuousTaskInfo): void;
   }
@@ -1255,6 +1259,7 @@ declare namespace backgroundTaskManager {
    * @systemapi
    * @stagemodelonly
    * @since 23 dynamic
+   * @since 24 static
    */
   function subscribeContinuousTaskState(subscriber: BackgroundTaskSubscriber): void;
 
@@ -1271,6 +1276,7 @@ declare namespace backgroundTaskManager {
    * @systemapi
    * @stagemodelonly
    * @since 23 dynamic
+   * @since 24 static
    */
   function unsubscribeContinuousTaskState(subscriber: BackgroundTaskSubscriber): void;
 
