@@ -2670,6 +2670,26 @@ declare namespace connection {
      * @since 23 static
      */
     mtu: int;
+
+    /**
+     * Whether the IPv4 address of the interface is valid.
+     * 
+     * @type { ?boolean }
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    isIPv4LinkValid?: boolean;
+
+    /**
+     * Whether the IPv6 address of the interface is valid.
+     * 
+     * @type { ?boolean }
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    isIPv6LinkValid?: boolean;
   }
 
   /**
