@@ -42,7 +42,7 @@ import { ButtonType, ButtonStyleMode, ButtonRole } from "./button";
 import { Area, ResourceColor, Dimension, ResourceStr, Font, Length, EdgeColors, LocalizedEdgeColors, BorderRadiuses, EdgeWidths, LocalizedEdgeWidths, SizeOptions, Bias, EdgeStyles, Position, LocalizedBorderRadiuses, Margin, ChainWeightOptions, Padding, LocalizedPadding, LocalizedMargin, BorderOptions, OutlineOptions, EdgeOutlineStyles, EdgeOutlineWidths, OutlineRadiuses, Edges, LocalizedEdges, LocalizedPosition, AccessibilityOptions, ConstraintSizeOptions, EdgeWidth, DirectionalEdgesT, VoidCallback, ColorMetrics, AccessibilityActionOptions, ScrollBarMargin } from "./units";
 import { BaseGestureEvent, GestureRecognizer, TouchRecognizer, GestureJudgeResult, GestureType, GestureMask, GestureHandler, GesturePriority, GestureInfo } from "./gesture";
 import { ScrollState } from "./list";
-import { AccessibilityHoverType, Curve, PlayMode, SharedTransitionEffectType, KeySource, BorderStyle, HorizontalAlign, LocalizedAlignment, RenderStrategy, VerticalAlign, MouseButton, MouseAction, FontWeight, TouchType, FontStyle, Color, ColoringStrategy, Placement, ArrowPointPosition, ClickEffectLevel, NestedScrollMode, HitTestMode, Alignment, ImageRepeat, ImageSize, HoverEffect, Visibility, ItemAlign, Direction, Axis, GradientDirection, FunctionKey, ModifierKey, ObscuredReasons, RenderFit, LineCapStyle, LineJoinStyle, PixelRoundCalcPolicy, TextDecorationType, TextDecorationStyle, KeyType, ResponseType, BarState, EdgeEffect, ScrollSource, InteractionHand, AxisAction, AxisType, AxisModel, CrownAction, FocusDrawLevel, CrownSensitivity, IlluminatedType, ResponseRegionSupportedTool, TipsAnchorType } from "./enums";
+import { AccessibilityHoverType, Curve, PlayMode, SharedTransitionEffectType, KeySource, BorderStyle, HorizontalAlign, LocalizedAlignment, RenderStrategy, VerticalAlign, MouseButton, MouseAction, FontWeight, TouchType, FontStyle, Color, ColoringStrategy, Placement, ArrowPointPosition, ClickEffectLevel, NestedScrollMode, HitTestMode, Alignment, ImageRepeat, ImageSize, HoverEffect, Visibility, ItemAlign, Direction, Axis, GradientDirection, FunctionKey, ModifierKey, ObscuredReasons, RenderFit, LineCapStyle, LineJoinStyle, PixelRoundCalcPolicy, TextDecorationType, TextDecorationStyle, KeyType, ResponseType, BarState, EdgeEffect, ScrollSource, InteractionHand, AxisAction, AxisType, AxisModel, CrownAction, FocusDrawLevel, CrownSensitivity, IlluminatedType, ResponseRegionSupportedTool, TipsAnchorType, InputEventInterceptAction } from "./enums";
 import { TextRange } from "./textCommon";
 import { StyledString } from "./styledString";
 import { CustomBuilder, WrappedBuilder, CustomBuilderT } from './builder';
@@ -14212,4 +14212,184 @@ export declare function $$<T>(value: T): Bindable<T>;
  * @since 23 static
  */
 export declare function applyStyles<T extends CommonMethod>(this: T, customStyles: CustomStyles): T;
- 
+
+/**
+ * Defines the input event intercept result.
+ *
+ * @interface InputEventInterceptResult
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare interface InputEventInterceptResult {
+  /**
+   * Event intercept decision.
+   * - CONTINUE: Allows the event to continue to be delivered to the UI framework.
+   * - BLOCK: Blocks the event from being delivered, the event will not enter the UI framework.
+   *
+   * @type { InputEventInterceptAction }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  action: InputEventInterceptAction;
+}
+
+/**
+ * Defines the input event monitor identifier.
+ *
+ * **Important Notes**:
+ * - This object is created and returned by the system as a unique identifier for the listener.
+ * - The object is an empty object with no accessible members.
+ * - Developers cannot actively construct this object, it can only be obtained through the registration interface.
+ * - Used for subsequent unregistration to verify identity.
+ *
+ * **Design Purpose**:
+ * - Prevents accidental deletion of listeners registered by other modules.
+ * - Object references are unique and cannot be forged.
+ * - Avoids abuse issues that may be caused by using number type IDs.
+ *
+ * @interface InputEventMonitor
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare interface InputEventMonitor {
+  // Empty interface, no members
+  // Used only as an identifier
+}
+
+/**
+ * Defines the raw input event wrapper.
+ *
+ * Provides a unified interface to access different types of input events, ensuring type safety and backward compatibility.
+ * This class encapsulates raw MouseEvent, TouchEvent, or KeyEvent objects and provides access through type-safe methods.
+ *
+ * **Important Notes**: This class is an abstract class, developers cannot create instances by themselves.
+ * The system automatically creates instances when triggering listener callbacks.
+ *
+ * @class RawInputEventWrapper
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare abstract class RawInputEventWrapper {
+  /**
+   * Constructor (internal use).
+   *
+   * Since this class is abstract, developers cannot directly call the constructor to create instances.
+   * The system automatically creates instances when input event listeners are triggered.
+   *
+   * @param { MouseEvent | TouchEvent | KeyEvent } event - The raw input event.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  protected constructor(event: MouseEvent | TouchEvent | KeyEvent);
+
+  /**
+   * Checks whether the event is a mouse event.
+   *
+   * @returns { boolean } - Returns true if the event is a mouse event, otherwise returns false.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  isMouseEvent(): boolean;
+
+  /**
+   * Checks whether the event is a touch event.
+   *
+   * @returns { boolean } - Returns true if the event is a touch event, otherwise returns false.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  isTouchEvent(): boolean;
+
+  /**
+   * Checks whether the event is a keyboard event.
+   *
+   * @returns { boolean } - Returns true if the event is a keyboard event, otherwise returns false.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  isKeyEvent(): boolean;
+
+  /**
+   * Attempts to get the mouse event.
+   *
+   * Returns the event object if it is a mouse event, otherwise returns null.
+   *
+   * @returns { MouseEvent | null } - The mouse event object or null.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  asMouseEvent(): MouseEvent | null;
+
+  /**
+   * Attempts to get the touch event.
+   *
+   * Returns the event object if it is a touch event, otherwise returns null.
+   *
+   * @returns { TouchEvent | null } - The touch event object or null.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  asTouchEvent(): TouchEvent | null;
+
+  /**
+   * Attempts to get the keyboard event.
+   *
+   * Returns the event object if it is a keyboard event, otherwise returns null.
+   *
+   * @returns { KeyEvent | null } - The keyboard event object or null.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  asKeyEvent(): KeyEvent | null;
+}
+
+/**
+ * Defines the input event listener callback function type.
+ *
+ * Parameters:
+ * - event: Input event wrapper (automatically created and passed by the system, developers do not need to manually create).
+ *
+ * Returns:
+ * - InputEventInterceptResult: Event intercept result.
+ *
+ * **Abstract Class Notes**: RawInputEventWrapper is an abstract class, developers cannot use the `new` operator to create instances.
+ * The system automatically creates instances and passes them as parameters to callback functions when events are triggered.
+ *
+ * **Type Safety**: RawInputEventWrapper provides type-safe access methods.
+ *
+ * **Compatibility Notes**:
+ * - Currently supports: MouseEvent, TouchEvent, KeyEvent
+ * - Future extensions: AxisEvent, GamepadEvent, etc.
+ * - RawInputEventWrapper will automatically support new types without modifying interface definitions
+ * - Existing code does not need to be modified to be compatible with new types
+ *
+ * **Performance Warning**: Do not perform time-consuming operations in the callback, otherwise it may cause the application to freeze\!
+ *
+ * The listener executes synchronously in the UI thread and will directly block the event processing flow.
+ * It is recommended to only perform simple judgments and calculations, avoiding:
+ * - Synchronous I/O operations
+ * - Complex data processing
+ * - Network requests
+ * - Massive log output
+ *
+ * If you need to perform time-consuming operations, please use asynchronous tasks or worker threads.
+ *
+ * @type { InputEventListener }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare type InputEventListener = (
+  event: RawInputEventWrapper
+) => InputEventInterceptResult;
