@@ -252,6 +252,30 @@ declare namespace photoAccessHelper {
      * @since 24 static
      */
     gridLevel?: GridLevel;
+
+    /**
+     * the sort rule by the user during the last selection.
+     * The default value is empty string.
+     *
+     * @type { string }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    sortRule?: string;
+
+    /**
+     * size of the first fully visible photo in the last selection interface.
+     * the default value is 0.
+     * 
+     * @type { int }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    fileSize?: int;
   }
 
   /**
