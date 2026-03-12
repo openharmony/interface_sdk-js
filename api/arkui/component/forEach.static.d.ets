@@ -76,8 +76,20 @@ export interface ForEachAttribute extends DynamicNode {
  * @since 23 static
  * @noninterop
  */
+/**
+ * Defines ForEach Component.
+ *
+ * @param { Array<T> } arr - the array collection to be used in UI
+ * @param { ItemGeneratorFunc<T> } itemGenerator - item generator function
+ * @param { KeyGeneratorFunc<T> } [keyGenerator] - key generator function
+ * @returns { ForEachAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ * @noninterop
+ */
 @ComponentBuilder
-export declare function ForEach<T>(arr: Array<T>,
+export declare function ForEach<T = Any>(arr: Array<T>,
     itemGenerator: ItemGeneratorFunc<T>,
     keyGenerator?: KeyGeneratorFunc<T>,
 ): ForEachAttribute;
