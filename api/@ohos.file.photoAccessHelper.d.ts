@@ -874,7 +874,17 @@ declare namespace photoAccessHelper {
      * @since 23 dynamic
      * @since 24 static
      */
-    LANDSCAPE = 16
+    LANDSCAPE = 16,
+
+    /**
+     * GAUSSIAN_SPLAT_3D indicates that images generated with 3D Gaussian splatting can be recommended
+     * 
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    GAUSSIAN_SPLAT_3D = 17
   }
 
   /**
@@ -9968,6 +9978,17 @@ declare namespace photoAccessHelper {
      * @since 24 static
      */
     recommendationTypeList?: Array<RecommendationType>;
+
+    /**
+     * This configuration takes effect only when `RecommendationTypeList` is set.
+     * When enabled, the Picker will directly display the corresponding recommended photos upon opening.
+     * 
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    defaultRecommendationType?: RecommendationType;
   }
 
   /**
