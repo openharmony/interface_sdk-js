@@ -617,22 +617,22 @@ declare namespace screenLock {
    * @since 20 dynamic
    * @since 23 static
    */
-      function setUnlockPolicy(policy: UnlockPolicy, userId: int): void;
+  function setUnlockPolicy(policy: UnlockPolicy, userId: int): void;
 
-    /**
-     * Get unlock Mode for screen lock.
-     *
-     * @permission ohos.permission.ACCESS_SCREEN_LOCK
-     * @param { int } userId - Os account local userId.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 13200002 - The screenlock management service is abnormal.
-     * @throws { BusinessError } 13200004 - The userId is not same as the caller, and is not allowed for the caller.
-     * @syscap SystemCapability.MiscServices.ScreenLock
-     * @systemapi Hide this for inner system use.
-     * @since 20 dynamic
-     * @since 23 static
-     */
-    function getUnlockPolicy(userId: int): UnlockPolicy;
+  /**
+   * Get unlock Mode for screen lock.
+   *
+   * @permission ohos.permission.ACCESS_SCREEN_LOCK
+   * @param { int } userId - Os account local userId.
+   * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+   * @throws { BusinessError } 13200002 - The screenlock management service is abnormal.
+   * @throws { BusinessError } 13200004 - The userId is not same as the caller, and is not allowed for the caller.
+   * @syscap SystemCapability.MiscServices.ScreenLock
+   * @systemapi Hide this for inner system use.
+   * @since 20 dynamic
+   * @since 23 static
+   */
+  function getUnlockPolicy(userId: int): UnlockPolicy;
 }
 
 export default screenLock;
