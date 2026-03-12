@@ -4319,7 +4319,7 @@ export enum AttributeModifierState {
    * @FaAndStageModel
    * @since 23 staticonly
    */
-  SELECTED = 1 << 3,
+  SELECTED = 1 << 3
 }
 
 /**
