@@ -263,7 +263,7 @@ declare namespace photoAccessHelper {
      * @atomicservice
      * @since 24 dynamic&static
      */
-    sortRule: string;
+    sortRule?: string;
 
     /**
      * size of the first fully visible photo in the last selection interface.
@@ -275,7 +275,7 @@ declare namespace photoAccessHelper {
      * @atomicservice
      * @since 24 dynamic&static
      */
-    fileSize: int;
+    fileSize?: int;
   }
 
   /**
