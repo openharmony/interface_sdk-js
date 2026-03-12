@@ -3276,7 +3276,7 @@ declare namespace webview {
          * and only allows one prefetch within 500ms.
          * Prefetch behavior can be customized via ‌prefetchOptions‌, including ignoring Cache-Control:
          * no-store and adjusting the throttling interval.
-         * 
+         *
          * @param { string } url - Which url to preresolve/preconnect.
          * @param { Array<WebHeader> } [additionalHeaders] - Additional HTTP request header of the URL.
          * @param { PrefetchOptions } [prefetchOptions] - Prefetch behavior can be customized via ‌prefetchOptions‌,
@@ -6681,7 +6681,16 @@ declare namespace webview {
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
-        FORCE_DISPLAY_SCROLLBAR = 1
+        FORCE_DISPLAY_SCROLLBAR = 1,
+
+        /**
+        * Overlay VisualViewport scrollbars: appear on scroll, hide when idle. Rendered via Visual Viewport, non-draggable.
+        *
+        * @syscap SystemCapability.Web.Webview.Core
+        * @stagemodelonly
+        * @since 26.0.0 static
+        */
+        OVERLAY_VISUAL_SCROLLBAR = 2
     }
 
     /**
@@ -6761,7 +6770,7 @@ declare namespace webview {
          */
         STRICT = 2
     }
-    
+
     /**
      * The form factors for User-Agent metadata.
      *
@@ -6770,7 +6779,7 @@ declare namespace webview {
      * @stagemodelonly
      * @since 24 static
      */
-    enum UserAgentFormFactor {    
+    enum UserAgentFormFactor {
         /**
          * Form factor option: Automotive.
          *
@@ -6838,7 +6847,7 @@ declare namespace webview {
      * @stagemodelonly
      * @since 24 static
      */
-    class UserAgentBrandVersion {    
+    class UserAgentBrandVersion {
       /**
        * Sets the brand. Should not be blank.
        *
@@ -6907,7 +6916,7 @@ declare namespace webview {
      * @stagemodelonly
      * @since 24 static
      */
-    class UserAgentMetadata {    
+    class UserAgentMetadata {
       /**
        * Sets User-Agent metadata brands and their versions.
        *
@@ -7143,7 +7152,7 @@ declare namespace webview {
        */
       getWow64(): boolean;
     }
-    
+
     /**
      * Defines the Web's HTTPCookie.
      * <p><strong>API Note</strong>:<br>
