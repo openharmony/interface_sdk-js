@@ -623,7 +623,7 @@ declare namespace screenLock {
    *
    * @permission ohos.permission.ACCESS_SCREEN_LOCK
    * @param { int } userId - Os account local userId.
-   * @returns { UnlockPolicy } unlock .
+   * @returns { UnlockPolicy } unlock mode.
    * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
    * @throws { BusinessError } 13200002 - The screenlock management service is abnormal.
    * @throws { BusinessError } 13200004 - The userId is not same as the caller, and is not allowed for the caller.
