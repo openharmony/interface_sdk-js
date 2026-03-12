@@ -4320,15 +4320,6 @@ export enum AttributeModifierState {
    * @since 23 staticonly
    */
   SELECTED = 1 << 3,
-
-  /**
-   * All states.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @since 23 staticonly
-   */
-  ALL = (1 << 4) - 1
 }
 
 /**
