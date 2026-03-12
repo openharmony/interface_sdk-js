@@ -6622,6 +6622,16 @@ export declare interface WebAttribute extends CommonMethod {
      */
     default enableDrag(value: boolean | undefined): this;
     /**
+     * Sets the scrollbar layout policy.
+     *
+     * @param { ScrollbarLayoutPolicy | undefined } policy - The layout policy to apply.
+     * @returns { WebAttribute }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default scrollbarLayoutPolicy(policy: ScrollbarLayoutPolicy | undefined): this;
+    /**
      * Enables or disables directional lock for scroll gestures in the WebView component.
      *
      * When directional lock is enabled, the scroll axis is locked based on the initial
@@ -7060,6 +7070,33 @@ export declare enum MicrophoneCaptureState {
    * @since 23 static
    */
   ACTIVE = 2,
+}
+/**
+ * Defines the layout policy for scrollbars, used with {@link scrollbarLayoutPolicy}.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.Web.Webview.Core
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare enum ScrollbarLayoutPolicy {
+    /**
+     * Adheres to W3C standards (CSS/HTML/XHTML) for scrollbar layout.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    CONTENT = 0,
+
+    /**
+     * Follows the system UI conventions for scrollbar layout in the system language.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    SYSTEM = 1
 }
 /**
  * Enum defining the scope of directional lock behavior in the WebView, used with {@link enableScrollDirectionalLock}.
