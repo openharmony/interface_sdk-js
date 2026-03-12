@@ -545,14 +545,14 @@ declare namespace image {
    */
   interface Size {
     /**
-     * Height
+     * Height, in px
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 6
      */
     /**
-     * Height
+     * Height, in px
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -560,7 +560,7 @@ declare namespace image {
      * @since 10
      */
     /**
-     * Height
+     * Height, in px
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -569,7 +569,7 @@ declare namespace image {
      * @since 11
      */
     /**
-     * Height
+     * Height, in px
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -582,14 +582,14 @@ declare namespace image {
     height: int;
 
     /**
-     * Width
+     * Width, in px
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 6
      */
     /**
-     * Width
+     * Width, in px
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -597,7 +597,7 @@ declare namespace image {
      * @since 10
      */
     /**
-     * Width
+     * Width, in px
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -606,7 +606,7 @@ declare namespace image {
      * @since 11
      */
     /**
-     * Width
+     * Width, in px
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -3235,14 +3235,14 @@ declare namespace image {
     size: Size;
 
     /**
-     * x-coordinate at the upper left corner of the image.
+     * x-coordinate at the upper left corner of the image, in px.
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 7
      */
     /**
-     * x-coordinate at the upper left corner of the image.
+     * x-coordinate at the upper left corner of the image, in px.
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -3250,7 +3250,7 @@ declare namespace image {
      * @since 10
      */
     /**
-     * x-coordinate at the upper left corner of the image.
+     * x-coordinate at the upper left corner of the image, in px.
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -3259,7 +3259,7 @@ declare namespace image {
      * @since 11
      */
     /**
-     * x-coordinate at the upper left corner of the image.
+     * x-coordinate at the upper left corner of the image, in px.
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -3272,14 +3272,14 @@ declare namespace image {
     x: int;
 
     /**
-     * y-coordinate at the upper left corner of the image.
+     * y-coordinate at the upper left corner of the image, in px.
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 7
      */
     /**
-     * y-coordinate at the upper left corner of the image.
+     * y-coordinate at the upper left corner of the image, in px.
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -3287,7 +3287,7 @@ declare namespace image {
      * @since 10
      */
     /**
-     * y-coordinate at the upper left corner of the image.
+     * y-coordinate at the upper left corner of the image, in px.
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -3296,7 +3296,7 @@ declare namespace image {
      * @since 11
      */
     /**
-     * y-coordinate at the upper left corner of the image.
+     * y-coordinate at the upper left corner of the image, in px.
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -3383,14 +3383,14 @@ declare namespace image {
     pixels: ArrayBuffer;
 
     /**
-     * Offset for data reading.
+     * Offset for data reading, in bytes.
      *
      * @type { number }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 7
      */
     /**
-     * Offset for data reading.
+     * Offset for data reading, in bytes.
      *
      * @type { number }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -3398,7 +3398,7 @@ declare namespace image {
      * @since 10
      */
     /**
-     * Offset for data reading.
+     * Offset for data reading, in bytes.
      *
      * @type { number }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -3568,14 +3568,14 @@ declare namespace image {
     size: Size;
 
     /**
-     * Indicates image default density.
+     * Indicates image default density, in ppi.
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9
      */
     /**
-     * Indicates image default density.
+     * Indicates image default density, in ppi.
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -3583,7 +3583,7 @@ declare namespace image {
      * @since 10
      */
     /**
-     * Indicates image default density.
+     * Indicates image default density, in ppi.
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -3592,7 +3592,7 @@ declare namespace image {
      * @since 11
      */
     /**
-     * Indicates image default density.
+     * Indicates image default density, in ppi.
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -6618,14 +6618,14 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Obtains the density of the image pixel map.
      *
-     * @returns { number } The number of density.
+     * @returns { number } The number of density, in ppi.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9
      */
     /**
      * Obtains the density of the image pixel map.
      *
-     * @returns { number } The number of density.
+     * @returns { number } The number of density, in ppi.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 10
@@ -6633,7 +6633,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Obtains the density of the image pixel map.
      *
-     * @returns { number } The number of density.
+     * @returns { number } The number of density, in ppi.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @atomicservice
@@ -7012,8 +7012,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Image position transformation. This method uses a callback to return the operation result.
      *
-     * @param { double } x The position value of width.
-     * @param { double } y The position value of height.
+     * @param { double } x The position value of width, in px.
+     * @param { double } y The position value of height, in px.
      * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9
@@ -7021,8 +7021,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Image position transformation. This method uses a callback to return the operation result.
      *
-     * @param { double } x The position value of width.
-     * @param { double } y The position value of height.
+     * @param { double } x The position value of width, in px.
+     * @param { double } y The position value of height, in px.
      * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -7031,8 +7031,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Image position transformation. This method uses a callback to return the operation result.
      *
-     * @param { double } x The position value of width.
-     * @param { double } y The position value of height.
+     * @param { double } x The position value of width, in px.
+     * @param { double } y The position value of height, in px.
      * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -7042,8 +7042,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Image position transformation. This method uses a callback to return the operation result.
      *
-     * @param { double } x The position value of width.
-     * @param { double } y The position value of height.
+     * @param { double } x The position value of width, in px.
+     * @param { double } y The position value of height, in px.
      * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -7057,8 +7057,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Image position transformation. This method uses a promise to return the result.
      *
-     * @param { double } x The position value of width.
-     * @param { double } y The position value of height.
+     * @param { double } x The position value of width, in px.
+     * @param { double } y The position value of height, in px.
      * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9
@@ -7066,8 +7066,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Image position transformation. This method uses a promise to return the result.
      *
-     * @param { double } x The position value of width.
-     * @param { double } y The position value of height.
+     * @param { double } x The position value of width, in px.
+     * @param { double } y The position value of height, in px.
      * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -7076,8 +7076,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Image position transformation. This method uses a promise to return the result.
      *
-     * @param { double } x The position value of width.
-     * @param { double } y The position value of height.
+     * @param { double } x The position value of width, in px.
+     * @param { double } y The position value of height, in px.
      * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -7087,8 +7087,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Image position transformation. This method uses a promise to return the result.
      *
-     * @param { double } x The position value of width.
-     * @param { double } y The position value of height.
+     * @param { double } x The position value of width, in px.
+     * @param { double } y The position value of height, in px.
      * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -7102,8 +7102,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Image position transformation.
      *
-     * @param { double } x The position value of width.
-     * @param { double } y The position value of height.
+     * @param { double } x The position value of width, in px.
+     * @param { double } y The position value of height, in px.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
      * 2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 501 - Resource Unavailable.
@@ -7118,7 +7118,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Image rotation. This method uses a callback to return the operation result.
      *
-     * @param { double } angle The rotation angle.
+     * @param { double } angle The rotation angle, in degrees.
      * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9
@@ -7126,7 +7126,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Image rotation. This method uses a callback to return the operation result.
      *
-     * @param { double } angle The rotation angle.
+     * @param { double } angle The rotation angle, in degrees.
      * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -7135,7 +7135,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Image rotation. This method uses a callback to return the operation result.
      *
-     * @param { double } angle The rotation angle.
+     * @param { double } angle The rotation angle, in degrees.
      * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -7145,7 +7145,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Image rotation. This method uses a callback to return the operation result.
      *
-     * @param { double } angle The rotation angle.
+     * @param { double } angle The rotation angle, in degrees.
      * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -7159,7 +7159,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Image rotation. This method uses a promise to return the result.
      *
-     * @param { double } angle The rotation angle.
+     * @param { double } angle The rotation angle, in degrees.
      * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9
@@ -7167,7 +7167,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Image rotation. This method uses a promise to return the result.
      *
-     * @param { double } angle The rotation angle.
+     * @param { double } angle The rotation angle, in degrees.
      * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -7176,7 +7176,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Image rotation. This method uses a promise to return the result.
      *
-     * @param { double } angle The rotation angle.
+     * @param { double } angle The rotation angle, in degrees.
      * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -7186,7 +7186,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Image rotation. This method uses a promise to return the result.
      *
-     * @param { double } angle The rotation angle.
+     * @param { double } angle The rotation angle, in degrees.
      * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -7200,7 +7200,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Image rotation.
      *
-     * @param { double } angle The rotation angle.
+     * @param { double } angle The rotation angle, in degrees.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
      * 2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 501 - Resource Unavailable.
