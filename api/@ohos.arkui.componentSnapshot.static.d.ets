@@ -172,7 +172,7 @@ declare namespace componentSnapshot {
      * @stagemodelonly
      * @since 23 static
      */
-    export interface DynamicRangeModeOptions {    
+    export interface DynamicRangeModeOptions {
       /**
        * Set one specific dynamic range mode that you want to use.
        *
@@ -197,6 +197,34 @@ declare namespace componentSnapshot {
        * @since 23 static
        */
       isAuto?: boolean;
+    }
+
+    /**
+     * Defines the size limitation for component snapshot taking.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    export interface SnapshotSizeLimitation {
+      /**
+       * Maximum width limitation for component snapshot, in PX.
+       *
+       * @type { int }
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+       * @stagemodelonly
+       * @since 26.0.0 static
+       */
+      maxWidth: int;
+      /**
+       * Maximum height limitation for component snapshot, in PX.
+       *
+       * @type { int }
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+       * @stagemodelonly
+       * @since 26.0.0 static
+       */
+      maxHeight: int;
     }
 
     /**

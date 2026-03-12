@@ -217,7 +217,7 @@ declare namespace componentSnapshot {
    * @atomicservice
    * @since 23 dynamic
    */
-  interface DynamicRangeModeOptions {  
+  interface DynamicRangeModeOptions {
     /**
      * Set one specific dynamic range mode which want to be used.
      *
@@ -244,6 +244,41 @@ declare namespace componentSnapshot {
      * @since 23 dynamic
      */
     isAuto?: boolean;
+  }
+
+  /**
+   * Defines the size limitation for component snapshot taking.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  interface SnapshotSizeLimitation {
+    /**
+     * Maximum width limitation for component snapshot, in PX.
+     *
+     * @type { int }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    maxWidth: int;
+    
+    /**
+     * Maximum height limitation for component snapshot, in PX.
+     *
+     * @type { int }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    maxHeight: int;
   }
 
   /**
