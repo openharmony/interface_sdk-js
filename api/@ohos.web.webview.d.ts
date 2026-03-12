@@ -919,7 +919,7 @@ declare namespace webview {
      * The horizontal scroll offset of the web page. The value is the difference between
      * the x-coordinate of the left border of the web page and the x-coordinate of the
      * left border of the Web component. When the web page scrolls to the right,
-     * the value range is negative. 
+     * the value range is negative.
      * When the web page is not over-scrolled or the web page is over-scrolled to the left,
      * the value is 0 or a positive value. Unit: vp.
      *
@@ -931,8 +931,8 @@ declare namespace webview {
     x: number;
 
     /**
-     * The vertical scroll offset of the web page. The value is the difference between 
-     * the y-coordinate of the upper border of the web page and the y-coordinate of the 
+     * The vertical scroll offset of the web page. The value is the difference between
+     * the y-coordinate of the upper border of the web page and the y-coordinate of the
      * upper boundary of the Web component. When the web page is scrolled down,
      * the value range is negative.
      * When the web page is not over-scrolled or the web page is over-scrolled to the up,
@@ -3782,7 +3782,7 @@ declare namespace webview {
      * @since 22 dynamic
      */
     DEFAULT = 0,
- 
+
     /**
      * Soft keyboard will not be hidden or shown automatically when web comes into pause/continue state
      * @syscap SystemCapability.Web.Webview.Core
@@ -7111,16 +7111,16 @@ declare namespace webview {
      * This User-Agent metadata will be used to populate the User-Agent client hints, They can provide the client's
      * branding and version information, the underlying  operating system's branding and major version, as well as
      * details about the underlying device.
-     * 
+     *
      * The User-Agent can be set with setCustomUserAgent or setAppCustomUserAgent or setUserAgentForHosts.
-     * 
+     *
      * If the UserAgentMetadata is not found according to the overridden User-Agent and the overridden User-Agent
      * contains the system default User-Agent, the system default value will be used.
      *
      * If the UserAgentMetadata is not found according to the overridden User-Agent but the overridden User-Agent
      * does not contain the system default User-Agent, only the low-entry User-Agent client hints will be generated.
      * </p>
-     * 
+     *
      * @param { string } userAgent - The User-Agent string.
      * @param { UserAgentMetadata } metaData - The UserAgentMetadata for the userAgent.
      * @syscap SystemCapability.Web.Webview.Core
@@ -7431,7 +7431,7 @@ declare namespace webview {
     /**
      * Set the WebSoftKeyboardBehaviorMode to decide whether the keyboard will be shown/hidden automatically
      * in particular situation, for example, when web is inactive or active.
-     * 
+     *
      * @param { WebSoftKeyboardBehaviorMode } mode - The WebSoftKeyboardBehaviorMode of this web.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
@@ -10687,7 +10687,16 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 dynamic
      */
-    FORCE_DISPLAY_SCROLLBAR = 1
+    FORCE_DISPLAY_SCROLLBAR = 1,
+
+    /**
+     * Overlay VisualViewport scrollbars: appear on scroll, hide when idle. Rendered via Visual Viewport, non-draggable.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     */
+    OVERLAY_VISUAL_SCROLLBAR = 2
   }
 
   /**
@@ -10706,7 +10715,7 @@ declare namespace webview {
      * @since 23 dynamic
      */
     NONE = 0,
-    
+
     /**
      * Allow specific cross-site requests to carry cookies.
      *
@@ -10714,7 +10723,7 @@ declare namespace webview {
      * @since 23 dynamic
      */
     LAX = 1,
-    
+
     /**
      * Prohibit cross-site requests from carrying cookies.
      *
@@ -10732,7 +10741,7 @@ declare namespace webview {
    * @stagemodelonly
    * @since 24 dynamic
    */
-  enum UserAgentFormFactor {  
+  enum UserAgentFormFactor {
     /**
      * Form factor option: Automotive.
      *
@@ -11105,7 +11114,7 @@ declare namespace webview {
      */
     getWow64(): boolean;
   }
-  
+
   /**
    * Defines the Web's HTTPCookie.
    * <p><strong>API Note</strong>:<br>
@@ -11125,7 +11134,7 @@ declare namespace webview {
      * @since 23 dynamic
      */
     samesitePolicy: WebHttpCookieSameSitePolicy;
-    
+
     /**
      * Gets the cookie's expiration date.
      *
@@ -11134,7 +11143,7 @@ declare namespace webview {
      * @since 23 dynamic
      */
     expiresDate: string;
-    
+
     /**
      * Gets the cookie's name.
      *
@@ -11143,7 +11152,7 @@ declare namespace webview {
      * @since 23 dynamic
      */
     name: string;
-    
+
     /**
      * Gets if the cookie is session cookie.
      *
@@ -11152,7 +11161,7 @@ declare namespace webview {
      * @since 23 dynamic
      */
     isSessionCookie: boolean;
-    
+
     /**
      * Gets the cookie's value.
      *
@@ -11161,7 +11170,7 @@ declare namespace webview {
      * @since 23 dynamic
      */
     value: string;
-    
+
     /**
      * Gets the cookie's path.
      *
@@ -11170,7 +11179,7 @@ declare namespace webview {
      * @since 23 dynamic
      */
     path: string;
-    
+
     /**
      * Gets whether the current cookie is marked as HttpOnly.
      *
@@ -11179,7 +11188,7 @@ declare namespace webview {
      * @since 23 dynamic
      */
     isHttpOnly: boolean;
-    
+
     /**
      * Gets whether the current cookie is marked as Secure.
      *
@@ -11188,7 +11197,7 @@ declare namespace webview {
      * @since 23 dynamic
      */
     isSecure: boolean;
-    
+
     /**
      * Gets the domain of the cookie.
      *
