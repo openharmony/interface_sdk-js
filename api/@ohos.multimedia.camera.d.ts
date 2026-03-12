@@ -6373,7 +6373,16 @@ declare namespace camera {
      * @since 20 dynamic
      * @since 23 static
      */
-    PORTRAIT = 1
+    PORTRAIT = 1,
+
+    /**
+     * Auto-framing type.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    AUTO_FRAMING = 2
   }
 
   /**
@@ -18500,6 +18509,41 @@ declare namespace camera {
      * @since 23 static
      */
     release(): Promise<void>;
+
+    /**
+     * Checks whether auto-framing is supported.
+     *
+     * @returns { boolean } Is auto-framing supported.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 24 dynamic&static
+     */
+    isAutoFramingSupported(): boolean;
+
+    /**
+     * Gets the status of auto-framing effect.
+     *
+     * @returns { boolean } Is auto-framing active.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 24 dynamic&static
+     */
+    getAutoFramingStatus(): boolean;
+
+    /**
+     * Enable auto-framing effect.
+     *
+     * @param { boolean } enabled enable auto-framing effect if TRUE.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400104 - Session not running.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 24 dynamic&static
+     */
+    enableAutoFraming(enabled: boolean): void;
   } 
 
 
