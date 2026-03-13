@@ -8335,6 +8335,15 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 24 dynamic&static
      */
     DNG_METADATA = 16,
+
+    /**
+     * Metadata of a WebP image.
+     * 
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    WEBP_METADATA = 17,
   }
 
   /**
@@ -12472,6 +12481,114 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   }
 
   /**
+   * Enumerates the properties available for the metadata of a WebP image.
+   *
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  enum WebPPropertyKey {
+    /**
+     * Canvas Width.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    CANVAS_WIDTH = 'WebPCanvasWidth',
+
+    /**
+     * Canvas Height.
+     * 
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    CANVAS_HEIGHT = 'WebPCanvasHeight',
+
+    /**
+     * Delay of each frame in milliseconds.
+     * 
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    DELAY_TIME = 'WebPDelayTime',
+
+    /**
+     * Unclamped delay of each frame in milliseconds.
+     * 
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    UNCLAMPED_DELAY_TIME = 'WebPUnclampedDelayTime',
+
+    /**
+     * Loop count.
+     * 
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    LOOP_COUNT = 'WebPLoopCount',
+  }
+
+  /**
+   * WebP metadata.
+   * 
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  class WebPMetadata {
+    /**
+     * Canvas Width.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly canvasWidth?: int;
+
+    /**
+     * Canvas Height.
+     * 
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly canvasHeight?: int;
+
+    /**
+     * Delay of each frame in milliseconds.
+     * 
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly delayTime?: int;
+
+    /**
+     * Unclamped delay of each frame in milliseconds.
+     * 
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly unclampedDelayTime?: int;
+
+    /**
+     * Loop count.
+     * 
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly loopCount?: int;
+  }
+
+  /**
    * Metadata set of an image.
    *
    * @typedef ImageMetadata
@@ -12519,6 +12636,15 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 24 dynamic&static
      */
     dngMetadata?: DngMetadata;
+
+    /**
+     * WebP metadata.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    webPMetadata?: WebPMetadata;
   }
 
   /**
