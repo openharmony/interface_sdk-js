@@ -1450,6 +1450,27 @@ declare namespace connection {
   function generateLocalOobData(transport: BluetoothTransport): Promise<OobData>;
 
   /**
+   * Obtain the virtual address of the corresponding device based on the hash value of the real address.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @param { HashAlgorithmType } algorithmType - Indicate the hash algorithm type.
+   * @param { string } hashValue - Indicate the hash value of the device MAC address.
+   * @returns { string } Returns the virtual mac address. For example, "11:22:33:AA:BB:FF".
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *     Failed to call the API when the short-range chip is not inserted on 2in1 device.
+   * @throws { BusinessError } 2900003 - Bluetooth disabled.
+   * @throws { BusinessError } 2900015 - Parameter format mismatch with specification.
+   * @throws { BusinessError } 2900016 - Device unpaired.
+   * @throws { BusinessError } 2900099 - Internal system error. For example, IPC error.
+   *     Detailed error messages can be used to assist in locating the problem.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  function getVirtualAddressByHash(algorithmType: HashAlgorithmType, hashValue: string): string;
+
+  /**
    * Subscribe the event reported when a remote Bluetooth device is discovered.
    *
    * @permission ohos.permission.ACCESS_BLUETOOTH
@@ -3215,6 +3236,24 @@ declare namespace connection {
      * @since 23 dynamic&static
      */
     DEVICE_ROLE_BOTH_PREFER_CENTRAL = 3
+  }
+
+  /**
+   * Enum for the hash algorithm type.
+   *
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  enum HashAlgorithmType {  
+    /**
+     * SHA256 hash algorithm
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    HASH_ALGORITHM_SHA256 = 0
   }
 }
 export default connection;
