@@ -5048,6 +5048,16 @@ declare namespace util {
      * @since 24 dynamiconly
      */
     static offVMHeapMemoryPressure(): void;
+
+    /**
+    * Enable the local handle detection to avoid memory leakage in the event looper of Libuv or EventHandler.
+    * 
+    * @syscap SystemCapability.Utils.Lang
+    * @stagemodelonly
+    * @crossplatform
+    * @since 24 dynamiconly
+    */
+    static enableLocalHandleDetection(): void;
   }
 
   /**
