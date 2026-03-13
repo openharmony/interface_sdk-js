@@ -1677,7 +1677,6 @@ declare namespace connection {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 23 static
      */
     on(type: 'netAvailable', callback: Callback<NetHandle>): void;
 
@@ -1728,7 +1727,6 @@ declare namespace connection {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 23 static
      */
     on(type: 'netCapabilitiesChange', callback: Callback<NetCapabilityInfo>): void;
 
@@ -1745,7 +1743,6 @@ declare namespace connection {
      * @param { Callback<NetConnectionPropertyInfo> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 11 dynamic
-     * @since 23 static
      */
     on(type: 'netConnectionPropertiesChange', callback: Callback<NetConnectionPropertyInfo>): void;
 
