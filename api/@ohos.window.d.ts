@@ -92,6 +92,17 @@ declare type WindowAnimationCurveParam = Array<double>;
 declare type TransitionControllerCallback = (context: window.TransitionContext) => void;
 
 /**
+ * Callback function for window event
+ * 
+ * @param { int } windowId - The id of the window which triggers the event
+ * @param { window.WindowEventType } evnet - Window callback event type
+ * @syscap SystemCapability.Window.SessionManager
+ * @stagemodelonly
+ * @since 26.0.0 dynamic&static
+ */
+declare type WindowEventListener = (windowId: int, event: window.WindowEventType) => void;
+
+/**
  * Window manager.
  *
  * @namespace window
@@ -4617,6 +4628,30 @@ declare namespace window {
    */
   function getMainWindowSnapshot(windowId: Array<int>, config: WindowSnapshotConfiguration):
     Promise<Array<image.PixelMap | undefined>>;
+
+  /**
+   * Create a subwindow with a specific name and bind parent
+   *
+   * @param { string } name - Indicates window name.
+   * @param { int } parentId - Indicates parent window id. The window id is a non-negative number and exists.
+   * @param { BaseContext } ctx - Indicates the context on which the window depends.
+   * @param { WindowEventListener } parentWindowEventListener - Indicates the event listener of parent window.
+   * @returns { Promise<Window> } The interface for creating a window returns a promise.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *     This can not work correctly due to limited device capabilities.
+   * @throws { BusinessError } 1300001 - Repeated operation.
+   *     Possible cause: The window has been created and can not be created again.
+   * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+   * @throws { BusinessError } 1300009 - The parent window is invalid.
+   *     Possible cause: The parent window does not exist or has been destroyed.
+   * @syscap SystemCapability.Window.SessionManager
+   * @systemapi Hide this for inner system use.
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  function createSubWindowAndBindParent(name: string, parentId: int, ctx: BaseContext,
+    parentWindowEventListener: WindowEventListener): Promise<Window>;
 
   /**
    * Display orientation
