@@ -809,16 +809,17 @@ export declare class ColorMetrics {
 /**
  * Defines the Corner property.
  *
- * @interface Corners
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
-interface Corners<T> {
+export interface Corners<T> {
   /**
    * TopLeft property.
    *
    * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   topLeft: T;
@@ -828,6 +829,7 @@ interface Corners<T> {
    *
    * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   topRight: T;
@@ -837,6 +839,7 @@ interface Corners<T> {
    *
    * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   bottomLeft: T;
@@ -846,6 +849,7 @@ interface Corners<T> {
    *
    * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   bottomRight: T;

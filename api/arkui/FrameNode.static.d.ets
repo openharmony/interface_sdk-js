@@ -131,12 +131,11 @@ export declare interface CrossLanguageOptions {
 /**
  * The interaction event binding status information on the component.
  *
- * @interface InteractionEventBindingInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 24 static
  */
-declare interface InteractionEventBindingInfo {
+export declare interface InteractionEventBindingInfo {
   /**
    * Whether to bind events declaratively.
    *
