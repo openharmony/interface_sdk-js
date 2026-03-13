@@ -204,15 +204,22 @@ declare namespace screenLock {
    * @since 9
    */
   /**
-   * Indicates the system event type related to the screenlock management service. Adding strongAuthChanged and screenLockDisabledChanged.
+   * Indicates the system event type related to the screen lock management service. Added strongAuthChanged and screenLockDisabledChanged.
    *
    * @typedef {('beginWakeUp' | 'endWakeUp' | 'beginScreenOn' | 'endScreenOn' | 'beginScreenOff' | 'endScreenOff' | 'unlockScreen'
    * | 'lockScreen' | 'beginExitAnimation' | 'beginSleep' | 'endSleep' | 'changeUser' | 'screenlockEnabled' | 'serviceRestart'
-   * | 'strongAuthChanged' | 'unlockPolicyChanged' | 'screenLockDisabledChanged')}
+   * | 'strongAuthChanged' | 'screenLockDisabledChanged')}
    * @syscap SystemCapability.MiscServices.ScreenLock
-   * @systemapi Hide this for inner system use.
+   * @systemapi Hide this for internal system use.
    * @since 12 dynamic
    * @since 23 static
+   */
+  /**
+   * Indicates the system event type related to the screen lock management service. Added unlockPolicyChanged.
+   *
+   * @syscap SystemCapability.MiscServices.ScreenLock
+   * @systemapi Hide this for internal system use.
+   * @since 26.0.0 dynamic&static
    */
   type EventType =
     'beginWakeUp'
@@ -230,8 +237,8 @@ declare namespace screenLock {
     | 'screenlockEnabled'
     | 'serviceRestart'
     | 'strongAuthChanged'
-    | 'unlockPolicyChanged'
-    | 'screenLockDisabledChanged';
+    | 'screenLockDisabledChanged'
+    | 'unlockPolicyChanged';
 
   /**
    * Indicates the strong authentication reason flags used to request.
@@ -376,18 +383,43 @@ declare namespace screenLock {
   }
 
   /**
-   * Indicates the screen lock unlock mod.
+   * Indicates the screen lock authentication policy used to unlock the screen.
    *
-   * @enum { int }
    * @syscap SystemCapability.MiscServices.ScreenLock
-   * @systemapi Hide this for inner system use.
-   * @since 12 dynamic
-   * @since 23 static
+   * @systemapi Hide this for internal system use.
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
    */
   enum UnlockPolicy {
-    DEFAULT = 0, 
+    /**
+     * Indicates that the screen lock is unlocked using the default system authentication mode.
+     * 
+     * @syscap SystemCapability.MiscServices.ScreenLock
+     * @systemapi Hide this for internal system use.
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    DEFAULT = 0,
+
+    /**
+     * Indicates that the screen lock is unlocked using only the extended authentication mode.
+     * 
+     * @syscap SystemCapability.MiscServices.ScreenLock
+     * @systemapi Hide this for internal system use.
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
     EXTENDED_AUTH_ONLY = 1,
-    EXTENDED_AUTH_REQUIRED = 2
+
+    /**
+     * Indicates that the screen lock is unlocked using the extended and system authentication modes.
+     * 
+     * @syscap SystemCapability.MiscServices.ScreenLock
+     * @systemapi Hide this for internal system use.
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    EXTENDED_AUTH_AND_SYSTEM = 2,
   }
 
   /**
@@ -604,33 +636,20 @@ declare namespace screenLock {
   function isDeviceLocked(userId: int): boolean;
 
   /**
-   * Set Unlock Mode for MDM.
+   * Obtains the authentication policy used to unlock the screen.
    *
    * @permission ohos.permission.ACCESS_SCREEN_LOCK
-   * @param { int } userId - Os account local userId.
-   * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-   * @throws { BusinessError } 13200002 - The screenlock management service is abnormal.
-   * @throws { BusinessError } 13200004 - The userId is not same as the caller, and is not allowed for the caller.
+   * @param { int } userId - Local user ID of the OS account.
+   * @returns { UnlockPolicy } The unlock policy.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission verification failed: applications that are not system applications
+   *      cannot use system API.
+   * @throws { BusinessError } 13200002 - The screen lock management service is abnormal.
+   * @throws { BusinessError } 13200004 - The userId is not the same as the caller, and the caller is not authorized.
    * @syscap SystemCapability.MiscServices.ScreenLock
-   * @systemapi Hide this for inner system use.
-   * @since 20 dynamic
-   * @since 23 static
-   */
-  function setUnlockPolicy(policy: UnlockPolicy, userId: int): void;
-
-  /**
-   * Get unlock Mode for screen lock.
-   *
-   * @permission ohos.permission.ACCESS_SCREEN_LOCK
-   * @param { int } userId - Os account local userId.
-   * @returns { UnlockPolicy } unlock mode.
-   * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-   * @throws { BusinessError } 13200002 - The screenlock management service is abnormal.
-   * @throws { BusinessError } 13200004 - The userId is not same as the caller, and is not allowed for the caller.
-   * @syscap SystemCapability.MiscServices.ScreenLock
-   * @systemapi Hide this for inner system use.
-   * @since 20 dynamic
-   * @since 23 static
+   * @systemapi Hide this for internal system use.
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
    */
   function getUnlockPolicy(userId: int): UnlockPolicy;
 }
