@@ -430,13 +430,15 @@ export declare interface XComponentParameters {
 /**
  * XComponent is returned when the parameter is transferred.
  *
- * @param { XComponentParameters | XComponentOptions | NativeXComponentParameters } params -
- *     The options to create an XComponent
+ * @param { XComponentParameters | XComponentOptions | NativeXComponentParameters } params - The 
+ *     options to create an XComponent
  * @returns { XComponentAttribute } The attribute of the XComponent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
+ * @noninterop
  */
 @ComponentBuilder
 export declare function XComponent(
-    params: XComponentParameters | XComponentOptions | NativeXComponentParameters
+    params: XComponentParameters | XComponentOptions | NativeXComponentParameters,
 ): XComponentAttribute
