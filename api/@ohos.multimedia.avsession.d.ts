@@ -446,6 +446,16 @@ declare namespace avSession {
      * @since 24 static
      */
     CATEGORY_ALL = 3,
+
+    /**
+     * The session category for HiPlay casting AVSession.
+     * 
+     * @syscap SystemCapability.Multimedia.AVSession.Manager
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    CATEGORY_HIPLAY = 4,
   }
 
   /**
@@ -875,6 +885,25 @@ declare namespace avSession {
    * @since 23 static
    */
   function sendSystemControlCommand(command: AVControlCommand): Promise<void>;
+
+  /**
+   * Send system control command. The system automatically selects the recipient.
+   * 
+   * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
+   * @param { string } command - The command name to be sent.
+   * @param { ExtraInfo } args - The parameters of command info
+   * @returns { Promise<string> } callback info for sync command
+   * @throws { BusinessError } 201 - permission denied
+   * @throws { BusinessError } 202 - Not System App.
+   * @throws { BusinessError } 6600101 - Session service exception.
+   * @throws { BusinessError } 6600105 - Invalid session command.
+   * @throws { BusinessError } 6600107 - Too many commands or events.
+   * @syscap SystemCapability.Multimedia.AVSession.Manager
+   * @systemapi
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  function sendSystemCommonCommand(command: string, args: ExtraInfo): Promise<string>;
 
   /**
    * Defines the basic callback.
@@ -1559,6 +1588,32 @@ declare namespace avSession {
    * @since 23 static
    */
   function offDeviceStateChanged(callback?: Callback<DeviceState>): void;
+
+  /**
+   * Register system common event callback
+   * 
+   * @param { EventProcess } callback - Used to handle event when the common command is received
+   * @throws { BusinessError } 202 - Not System App.
+   * @throws { BusinessError } 6600101 - Session service exception.
+   * @syscap SystemCapability.Multimedia.AVSession.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  function onSystemCommonEvent(callback: EventProcess): void;
+
+  /**
+   * Unregister system common event callback
+   * 
+   * @param { EventProcess } [callback] - Used to handle event when the common command is received
+   * @throws { BusinessError } 202 - Not System App.
+   * @throws { BusinessError } 6600101 - Session service exception.
+   * @syscap SystemCapability.Multimedia.AVSession.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  function offSystemCommonEvent(callback?: EventProcess): void;
 
   /**
    * Session type, support audio & video
@@ -7591,6 +7646,55 @@ declare namespace avSession {
   }
 
   /**
+   * HiPlay Device Information Definition
+   * 
+   * @syscap SystemCapability.Multimedia.AVSession.AVCast
+   * @systemapi
+   * @stagemodelonly
+   * @atomicservice
+   * @since 24 dynamic&static
+   */
+  interface HiPlayDeviceInfo {
+    /**
+     * HiPlay device supports cast mode.
+     * when device both support device level cast and app level cast, support cast mode is DEVICE_LEVEL_CAST|APP_LEVEL_CAST
+     * 1: DEVICE_LEVEL_CAST
+     * 2: APP_LEVEL_CAST
+     * 
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @systemapi
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    supportCastMode?: int;
+
+    /**
+     * HiPlay device cast mode.
+     * 1: DEVICE_LEVEL_CAST
+     * 2: APP_LEVEL_CAST
+     * 
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @systemapi
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    castMode?: int;
+
+    /**
+     * HiPlay device current cast uid.
+     * 
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @systemapi
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    castUid?: int;
+  }
+
+  /**
    * Device Information Definition
    * @interface DeviceInfo
    * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -7801,6 +7905,17 @@ declare namespace avSession {
      * @since 23 static
      */
     audioCapabilities?: AudioCapabilities;
+
+    /**
+     * HiPlayDeviceInfo is used to obtain device-specific information for HiPlay.
+     * transmit info during casting.
+     * 
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    hiPlayDeviceInfo?: HiPlayDeviceInfo;
   }
 
   /**
