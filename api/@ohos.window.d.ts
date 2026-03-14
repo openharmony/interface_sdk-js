@@ -98,7 +98,7 @@ declare type TransitionControllerCallback = (context: window.TransitionContext) 
  * @param { window.WindowEventType } evnet - Window callback event type
  * @syscap SystemCapability.Window.SessionManager
  * @stagemodelonly
- * @since 26.0.0 dynamic&static
+ * @since 24 dynamic&static
  */
 declare type WindowEventListener = (windowId: int, event: window.WindowEventType) => void;
 
