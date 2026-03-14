@@ -2466,10 +2466,11 @@ declare namespace ble {
      * @throws { BusinessError } 2901006 - The connection is not authenticated.
      * @throws { BusinessError } 2901007 - The connection is not authorized.
      * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 23 static
+     * @since 24 static
      */
     readCharacteristicValue(characteristic: BLECharacteristic, callback: AsyncCallback<BLECharacteristic>): void;
 
