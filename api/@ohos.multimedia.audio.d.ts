@@ -5600,6 +5600,30 @@ declare namespace audio {
      * @since 23 dynamic&static
      */
     AUDIO_SESSION_STATE_CHANGE_HINT_UNMUTE_SUGGESTION = 7,
+
+    /**
+     * The hint can be received only after the parameter {@link #AudioSessionBehaviorFlags.MUTE_WHEN_INTERRUPTED}
+     * has been set by the interface {@link #setAudioSessionBehavior}
+     * and {@link #setAudioSessionScene} has been called, and the audio session has been activated.
+     * After the hint is received, the audio stream is muted.
+     *
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    AUDIO_SESSION_STATE_CHANGE_HINT_MUTE = 8,
+
+    /**
+     * The hint can be received only after the parameter {@link #AudioSessionBehaviorFlags.MUTE_WHEN_INTERRUPTED}
+     * has been set by the interface {@link #setAudioSessionBehavior}
+     * and {@link #setAudioSessionScene} has been called, and the audio session has been activated.
+     * When the hint is received, the audio stream is unmuted.
+     *
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    AUDIO_SESSION_STATE_CHANGE_HINT_UNMUTE = 9
   }
 
   /**
@@ -5624,6 +5648,32 @@ declare namespace audio {
      * @since 23 static
      */
     DEVICE_CHANGE_RECOMMEND_TO_STOP = 1,
+  }
+
+  /**
+   * Enumerates audio session behavior flags.
+   *
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  enum AudioSessionBehaviorFlags {
+    /**
+     * Default behavior, used to clear behavior settings.
+     *
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    DEFAULT = 0x00000000,
+    /**
+     * When the audio stream is interrupted by the system, it performs a forced mute instead.
+     *
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    MUTE_WHEN_INTERRUPTED = 0x00000002
   }
 
   /**
@@ -6224,6 +6274,23 @@ declare namespace audio {
      * @since 23 dynamic&static
      */
     isOtherMediaPlaying(): boolean;
+
+    /**
+     * Set audio session behavior parameters (supporting multiple flag combinations)
+     * This interface takes effect only after the interface {@link #setAudioSessionScene} is called.
+     * Each time you call this interface to set parameters,
+     * you need to call the interface {@link #activateAudioSession} again for the settings to take effect.
+     *
+     * @param { int } behavior - Used to adjust the focus behavior.
+     *     <br>Value range: behavior can be a single flag or a bitwise OR combination of multiple flags
+     *     in {@link #AudioSessionBehaviorFlags}.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800103 - Operation not permitted in the current state.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    setAudioSessionBehavior(behavior: int): void;
   }
 
   /**
@@ -11449,6 +11516,23 @@ declare namespace audio {
      * @since 23 dynamic&static
      */
     getLatency(type: AudioLatencyType): int;
+
+    /**
+     * Set a focus policy independent of the audio session.
+     * Each time you call this interface to set parameters,
+     * you need to call the interface {@link #AudioRenderer.start} again for the settings to take effect.
+     *
+     * @param { AudioSessionStrategy } strategy - Audio session strategy.
+     * @param { int } behavior - Used to adjust the focus behavior.
+     *     <br>Value range: behavior can be a single flag or a bitwise OR combination of multiple flags
+     *     in {@link #AudioSessionBehaviorFlags}.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800103 - Operation not permit at current state.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    setIndependentAudioSessionStrategy(strategy: AudioSessionStrategy, behavior: int): void;
   }
 
   /**
@@ -12751,6 +12835,23 @@ declare namespace audio {
      * @since 23 static
      */
     setInputDeviceToAccessory(): void;
+
+    /**
+     * Set focus policy independent of audio session.
+     * Each time you call this interface to set parameters,
+     * you need to call the interface {@link #AudioCapturer.start} again for the settings to take effect.
+     *
+     * @param { AudioSessionStrategy } strategy - Audio session strategy.
+     * @param { int } behavior - Used to adjust the focus behavior.
+     *     <br>Value range: behavior can be a single flag or a bitwise OR combination of multiple flags
+     *     in {@link #AudioSessionBehaviorFlags}.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800103 - Operation not permit at current state.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    setIndependentAudioSessionStrategy(strategy: AudioSessionStrategy, behavior: int): void;
   }
 
   /**
