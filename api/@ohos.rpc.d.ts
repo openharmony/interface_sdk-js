@@ -3118,7 +3118,7 @@ declare namespace rpc {
      * A constructor used to create a MessageOption instance.
      *
      * @param { number } syncFlags - Specifies whether the SendRequest is called synchronously (default) or asynchronously.
-     * @param { number } waitTime - Maximum wait time for a RPC call. The default value is TF_WAIT_TIME.
+     * @param { number } waitTime - Maximum wait time for a RPC call, in seconds. The default value is TF_WAIT_TIME.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7 dynamic
      */
@@ -3163,7 +3163,7 @@ declare namespace rpc {
      * A constructor used to create a MessageOption instance.
      *
      * @param { int } syncFlags - Specifies whether the SendRequest is called synchronously (default) or asynchronously.
-     * @param { int } waitTime - Maximum wait time for a RPC call. The default value is TF_WAIT_TIME.
+     * @param { int } waitTime - Maximum wait time for a RPC call, in seconds. The default value is TF_WAIT_TIME.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 23 static
      */
@@ -3213,7 +3213,7 @@ declare namespace rpc {
     /**
      * Obtains the maximum wait time for this RPC call.
      *
-     * @returns { int } Return maximum wait time obtained.
+     * @returns { int } Return the maximum waiting time obtained by the RPC, in seconds. The default value is TF_WAIT_TIME.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7 dynamic
      * @since 23 static
@@ -3223,7 +3223,7 @@ declare namespace rpc {
     /**
      * Sets the maximum wait time for this RPC call.
      *
-     * @param { int } waitTime - Indicates maximum wait time to set.
+     * @param { int } waitTime - Indicates the maximum waiting time for RPC, in seconds. The upper limit is 3000 seconds.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7 dynamic
      * @since 23 static
