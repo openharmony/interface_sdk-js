@@ -1911,6 +1911,7 @@ declare namespace camera {
      * @stagemodelonly
      * @since 23 dynamic&static
      */
+    111
     isTorchLevelControlSupported(): boolean;
 
     /**
@@ -1925,6 +1926,7 @@ declare namespace camera {
      * @stagemodelonly
      * @since 23 dynamic&static
      */
+    111
     setTorchModeOnWithLevel(torchLevel: double): void;
 
     /**
