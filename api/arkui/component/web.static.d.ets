@@ -160,6 +160,53 @@ export declare enum NativeEmbedParamStatus {
      */
     DELETE = 2
 }
+
+/**
+* Enum type supplied to {@link keyboardAppearance} for setting the web keyboard appearance mode.
+*
+* @enum { number }
+* @syscap SystemCapability.Web.Webview.Core
+* @stagemodelonly
+* @since 26.0.0 static
+*/
+export declare enum WebKeyboardAppearanceMode {
+/**
+* Default skin mode, no immersive style.
+*
+* @syscap SystemCapability.Web.Webview.Core
+* @stagemodelonly
+* @since 26.0.0 static
+*/
+NONE_IMMERSIVE = 0,
+
+/**
+* No immersive style.
+*
+* @syscap SystemCapability.Web.Webview.Core
+* @stagemodelonly
+* @since 26.0.0 static
+*/
+IMMERSIVE = 1,
+
+/**
+*Light immersive style.
+*
+* @syscap SystemCapability.Web.Webview.Core
+* @stagemodelonly
+* @since 26.0.0 static
+*/
+LIGHT_IMMERSIVE = 2,
+
+/**
+*Dark immersive style.
+*
+* @syscap SystemCapability.Web.Webview.Core
+* @stagemodelonly
+* @since 26.0.0 static
+*/
+DARK_IMMERSIVE = 3
+}
+
 /**
  * Defines the information of param element.
  *
@@ -6563,7 +6610,19 @@ export declare interface WebAttribute extends CommonMethod {
      * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<WebAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+
+    /**
+    * Set the WebKeyboardAppearanceMode to determine the immersive mode for the soft keyboard.
+    *
+    * @param { WebKeyboardAppearanceMode | undefined } mode - The WebKeyboardAppearanceMode of this web.
+    * @returns { WebAttribute }
+    * @syscap SystemCapability.Web.Webview.Core
+    * @stagemodelonly
+    * @since 26.0.0 static
+    */
+    default keyboardAppearance(mode: WebKeyboardAppearanceMode | undefined): this;
 }
+
 /**
  * Defines the ssl error event.
  *
