@@ -789,6 +789,20 @@ declare namespace cryptoFramework {
     getEncoded(): DataBlob;
 
     /**
+     * Get the key size, in bits.
+     *
+     * @returns { int } the key size in bits.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Key
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    getKeySize(): int;
+
+    /**
      * Indicates the format of the key object.
      *
      * @type { string }
