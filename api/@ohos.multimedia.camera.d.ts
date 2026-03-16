@@ -4722,6 +4722,7 @@ declare namespace camera {
      * Sets exposure metering mode.
      *
      * @param { ExposureMeteringMode } aeMeteringMode - Exposure metering mode
+     * @throws { BusinessError } 7400102 - Operation not allowed, the inputDevice or the session is abnormal.
      * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
@@ -20035,6 +20036,7 @@ declare namespace camera {
      *
      * @param { OISMode } mode - The OIS mode to check.
      * @returns { boolean } Whether the mode is supported.
+     * @throws { BusinessError } 7400102 - Operation not allowed, the inputDevice or the session is abnormal.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @stagemodelonly
