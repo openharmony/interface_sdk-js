@@ -1915,7 +1915,6 @@ declare namespace camera {
      * Checks whether torch level control is supported.
      *
      * @returns { boolean } Is torch level control supported.
-     * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @stagemodelonly
      * @atomicservice
@@ -1939,7 +1938,6 @@ declare namespace camera {
      * Sets the torch mode to {@link TorchMode.ON} with the specified torch level.
      *
      * @param { double } torchLevel - the specified torch level.
-     * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400102 - Operation not allowed.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
