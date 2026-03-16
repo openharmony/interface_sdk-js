@@ -13925,7 +13925,7 @@ declare namespace photoAccessHelper {
      *     Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 24 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     startDownloadSpecificCloudMedia(assetUris: string[], taskSequence?: int): Promise<Map<string, CloudAssetDownloadCode>>;
 
@@ -13945,7 +13945,7 @@ declare namespace photoAccessHelper {
      *     Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 24 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     setDownloadSpecificCloudMediaNetworkPolicy(assetUris: string[], networkPolicy: CloudDownloadNetworkPolicy): Promise<void>;
 
@@ -14050,10 +14050,12 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 202 - Called by non-system application
      * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
      *     Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
+     * @throws { BusinessError } 23800151 - Scenario parameters fail to pass the verification.
+     *     Possible causes: Predicates null or undefined.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
 	 * @stagemodelonly
      * @systemapi
-     * @since 24 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     queryDownloadSpecificCloudMediaTaskCountAndSize(predicates: dataSharePredicates.DataSharePredicates): Promise<int[]>;
 
@@ -15198,7 +15200,7 @@ declare namespace photoAccessHelper {
    * @enum { int } CloudDownloadNetworkPolicy
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
-   * @since 24 dynamic&static
+   * @since 26.0.0 dynamic&static
    */
   enum CloudDownloadNetworkPolicy {  
     /**
@@ -15206,7 +15208,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 24 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     DEFAULT = 0,
     /**
@@ -15214,7 +15216,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 24 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     CELL = 1,
     /**
@@ -15222,7 +15224,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 24 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     WIFI = 2
   }
