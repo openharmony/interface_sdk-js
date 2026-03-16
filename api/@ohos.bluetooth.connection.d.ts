@@ -1450,6 +1450,39 @@ declare namespace connection {
   function generateLocalOobData(transport: BluetoothTransport): Promise<OobData>;
 
   /**
+   * Set the dfx data of car key.
+   *
+   * @param { string } deviceId - Indicates device ID. For example, "11:22:33:AA:BB:FF".
+   * @param { CarKeyActionType } action - Indicates the action to set the data.
+   * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *     Failed to call the API when the short-range chip is not inserted on 2in1 device.
+   * @throws { BusinessError } 2900003 - Bluetooth disabled.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function setCarKeyDfxData(deviceId: string, action: CarKeyActionType): void;
+
+  /**
+   * Get the dfx data of car key.
+   *
+   * @returns { string } Returns the dfx data in character string format.
+   * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *     Failed to call the API when the short-range chip is not inserted on the 2in1 device.
+   * @throws { BusinessError } 2900003 - Bluetooth disabled.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function getCarKeyDfxData(): string;
+
+  /**
    * Subscribe the event reported when a remote Bluetooth device is discovered.
    *
    * @permission ohos.permission.ACCESS_BLUETOOTH
@@ -3215,6 +3248,35 @@ declare namespace connection {
      * @since 23 dynamic&static
      */
     DEVICE_ROLE_BOTH_PREFER_CENTRAL = 3
+  }
+
+  /**
+   * Enum for the action of car key.
+   *
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  enum CarKeyActionType {
+    /**
+     * Add the data of car key.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    CAR_KEY_ACTION_ADD = 0,
+    /**
+     * Delete the data of car key.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    CAR_KEY_ACTION_DELETE = 1
   }
 }
 export default connection;

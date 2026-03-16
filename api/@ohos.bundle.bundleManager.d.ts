@@ -1045,6 +1045,22 @@ declare namespace bundleManager {
     PARTNER_AGENT = 36,
 
     /**
+     * Indicates extension info with type of the agent.
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    AGENT = 37,
+
+    /**
+     * Indicates extension info with type of the agent UI extension.
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    AGENT_UI = 38,
+
+    /**
      * Indicates extension info with type of unspecified
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core

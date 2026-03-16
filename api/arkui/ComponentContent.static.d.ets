@@ -116,10 +116,30 @@ export declare class ComponentContent<T = undefined> extends ComponentContentBas
   dispose(): void;
 
   /**
+   * Get if the ComponentContent is disposed.
+   *
+   * @returns { boolean } - Returns true if the ComponentContent is disposed, false otherwise.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 24 static
+   */
+  isDisposed(): boolean;
+
+  /**
    * Notify ComponentContent to update the configuration to trigger a reload of the ComponentContent.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
   updateConfiguration(): void;
+
+  /**
+  * Returns a flag indicating whether the current ComponentContent was obtained through dynamic-static conversion,
+  * includes conversions in both directions: dynamic-to-static and static-to-dynamic.
+  *
+  * @returns { boolean } - Returns true if the ComponentContent was converted between dynamic and static states,
+  * otherwise returns false.
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @since 24 static
+  */
+  isTransferred(): boolean;
 }
