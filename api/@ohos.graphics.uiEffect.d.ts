@@ -250,7 +250,7 @@ declare namespace uiEffect {
     * @param { double } ratio - The brightness multiplier ratio (1.0 = original, >1.0 = brighter).
     * @returns { Filter } - Returns hdr brightness Filter.
     * @throws { BusinessError } 201 - Permission verification failed.
-    * The application does not have the permission required to call the API.
+    *     The application does not have the permission required to call the API.
     * @syscap SystemCapability.Graphics.Drawing
     * @since 24 dynamic&static
     */
