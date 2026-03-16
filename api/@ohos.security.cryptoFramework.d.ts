@@ -611,6 +611,58 @@ declare namespace cryptoFramework {
   }
 
   /**
+   * The aead algorithm parameters.
+   * 
+   * Currently, it only supports the AES-CCM algorithm.
+   *
+   * @extends ParamsSpec
+   * @typedef AeadParamsSpec
+   * @syscap SystemCapability.Security.CryptoFramework.Cipher
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  interface AeadParamsSpec extends ParamsSpec {
+    /**
+     * The cryptographic nonce.
+     *
+     * @type { Uint8Array }
+     * @syscap SystemCapability.Security.CryptoFramework.Cipher
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    nonce: Uint8Array;
+
+    /**
+     * The Additional Authenticated Data.
+     *
+     * @type { ?Uint8Array }
+     * @syscap SystemCapability.Security.CryptoFramework.Cipher
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    authenticatedData?: Uint8Array;
+
+    /**
+     * The length of the authentication tag.
+     * 
+     * For encryption, the tag will be added to the end of the ciphertext. 
+     * For decryption, the tag should be at the end of the ciphertext.
+     *
+     * For AES-CCM, the default value is 12.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Security.CryptoFramework.Cipher
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    tagLen?: int;
+  }
+
+  /**
    * Enum for obtain the crypto operation.
    *
    * @enum { int }
