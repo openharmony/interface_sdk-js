@@ -175,13 +175,14 @@ declare namespace hdrCapability {
      */
     IMAGE_HDR_ISO_SINGLE = 7,
     /**
-     * AIHDR supported by video.
+     * AIHDR format supported by video.
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
+     * @stagemodelonly
      * @atomicservice
      * @since 24 dynamic&static
      */
-    VIDEO_AIHDR = 8,
+    VIDEO_AIHDR = 8
   }
 }
 
