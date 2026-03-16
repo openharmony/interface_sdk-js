@@ -3825,6 +3825,38 @@ declare interface CacheCountInfo {
 }
 
 /**
+ * Describes a two-dimension coordinate.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare interface Coordinate2D {
+  /**
+   * Horizontal coordinate.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  x: double;
+  /**
+   * Vertical coordinate.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  y: double;
+}
+
+/**
  * Define a responsive item filling pattern that can be used in WaterFlow,Grid,List, and Swiper components.
  *
  * @typedef { PresetFillType } ResponsiveFillType

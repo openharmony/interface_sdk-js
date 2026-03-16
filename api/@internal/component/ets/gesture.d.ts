@@ -982,6 +982,19 @@ declare interface EventLocationInfo {
    * @since 23 dynamic
    */
   globalDisplayY?: number;
+
+  /**
+   * Gets the coordinates of the top-left corner of the current component based on its real-time position.
+   *
+   * @returns { Coordinate2D } - return the coordinates of the top-left corner of the current component based on its
+   * real-time position.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  getCurrentLocalPosition?(): Coordinate2D;
 }
 
 /**
@@ -1193,6 +1206,19 @@ interface FingerInfo {
    * @since 15 dynamic
    */
   hand?: InteractionHand;
+
+  /**
+   * Gets the coordinates of the top-left corner of the current component based on its real-time position.
+   *
+   * @returns { Coordinate2D } - return the coordinates of the top-left corner of the current component based on its
+   * real-time position.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  getCurrentLocalPosition?(): Coordinate2D;
 }
 
 /**
