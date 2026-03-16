@@ -2148,6 +2148,17 @@ declare enum MarqueeState {
    * @since 18 dynamic
    */
   FINISH = 2,
+
+  /**
+   * The marquee is stoped.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  STOP = 3,
 }
 
 /**

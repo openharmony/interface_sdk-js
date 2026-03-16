@@ -163,6 +163,32 @@ declare namespace inspector {
     off(type: 'drawChildren', callback?: Callback<void>): void;
 
     /**
+      * Registers a callback with the corresponding query condition by using the handle.
+      * This callback is triggered when the child of component draw complete.
+      * 
+      * @param { Callback<int[]> } callback - callback of the listened event.
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @stagemodelonly
+      * @crossplatform
+      * @atomicservice
+      * @since 24 dynamic
+      */
+     onDrawChildren(callback: Callback<int[]>): void;
+     
+     /**
+      * Deregisters a callback with the corresponding query condition by using the handle.
+      * This callback is not triggered when the child of component draw complete.
+      * 
+      * @param { Callback<int[]> } [callback] - callback of the listened event.
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @stagemodelonly
+      * @crossplatform
+      * @atomicservice
+      * @since 24 dynamic
+      */
+     offDrawChildren(callback?: Callback<int[]>): void;
+
+    /**
      * Registers a callback with the corresponding query condition by using the handle.
      * This callback will be triggered when the child of component layout is complete.
      *

@@ -252,6 +252,30 @@ declare namespace photoAccessHelper {
      * @since 24 static
      */
     gridLevel?: GridLevel;
+
+    /**
+     * the sort rule by the user during the last selection.
+     * The default value is empty string.
+     *
+     * @type { string }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    sortRule?: string;
+
+    /**
+     * size of the first fully visible photo in the last selection interface.
+     * the default value is 0.
+     * 
+     * @type { int }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    fileSize?: int;
   }
 
   /**
@@ -850,7 +874,17 @@ declare namespace photoAccessHelper {
      * @since 23 dynamic
      * @since 24 static
      */
-    LANDSCAPE = 16
+    LANDSCAPE = 16,
+
+    /**
+     * GAUSSIAN_SPLAT_3D indicates that images generated with 3D Gaussian splatting can be recommended
+     * 
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    GAUSSIAN_SPLAT_3D = 17
   }
 
   /**
@@ -9944,6 +9978,17 @@ declare namespace photoAccessHelper {
      * @since 24 static
      */
     recommendationTypeList?: Array<RecommendationType>;
+
+    /**
+     * This configuration takes effect only when `RecommendationTypeList` is set.
+     * When enabled, the Picker will directly display the corresponding recommended photos upon opening.
+     * 
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    defaultRecommendationType?: RecommendationType;
   }
 
   /**

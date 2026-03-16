@@ -1523,6 +1523,28 @@ export declare class CanvasRenderer extends CanvasPath {
    * @since 23 static
    */
   reset(): void;
+  /**
+   * Get the status whether anti-aliasing is enabled for canvas. The value true indicates that anti-aliasing is enabled.
+   * The value false indicates that anti-aliasing is disabled. The value undefined indicates that anti-aliasing
+   * is determined by the RenderingContextSettings#antialias property. The default value is undefined.
+   *
+   * @returns { boolean | undefined } Returns the antialias value.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  get antialias(): boolean | undefined;
+  /**
+   * Set the status whether anti-aliasing is enabled for canvas. The value true indicates that anti-aliasing is enabled.
+   * The value false indicates that anti-aliasing is disabled. The value undefined indicates that anti-aliasing
+   * is determined by the RenderingContextSettings#antialias property. The default value is undefined.
+   *
+   * @param { boolean | undefined } antialias - The antialias value.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  set antialias(antialias: boolean | undefined);
 }
 
 /**
