@@ -519,14 +519,14 @@ declare namespace errorManager {
   }
 
   /**
- 	    * Define the resource types of the application.
- 	    *
- 	    * @enum { int }
- 	    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
- 	    * @stagemodelonly
- 	    * @atomicservice
- 	    * @since 24 dynamic&static
- 	    */
+    * Define the resource types of the application.
+    *
+    * @enum { int }
+    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+    * @stagemodelonly
+    * @atomicservice
+    * @since 24 dynamic&static
+    */
   export enum ResourceType {  
  	 
     /**
@@ -589,6 +589,7 @@ declare namespace errorManager {
      */
     THREAD = 6
   }
+
   /**
    * Defines GlobalError.
    *
