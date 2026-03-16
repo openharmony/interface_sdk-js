@@ -4709,7 +4709,6 @@ declare namespace camera {
      * Sets exposure metering mode.
      *
      * @param { ExposureMeteringMode } aeMeteringMode - Exposure metering mode.
-     * @throws { BusinessError } 7400102 - Operation not allowed, the inputDevice or the session is abnormal.
      * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
@@ -4721,7 +4720,7 @@ declare namespace camera {
     /**
      * Sets exposure metering mode.
      *
-     * @param { ExposureMeteringMode } aeMeteringMode - Exposure metering mode
+     * @param { ExposureMeteringMode } aeMeteringMode - Exposure metering mode.
      * @throws { BusinessError } 7400102 - Operation not allowed, the inputDevice or the session is abnormal.
      * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
      * @syscap SystemCapability.Multimedia.Camera.Core
