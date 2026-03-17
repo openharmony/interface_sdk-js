@@ -55,14 +55,13 @@ export declare interface BlankAttribute extends CommonMethod {
  * Defines Blank Component.
  *
  * @param { double | string } [min] - Blank options.
- * @param { CustomBuilder } [content_] - container
  * @returns { BlankAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 23 static
+ * @stagemodelonly
+ * @since 24 static
  * @noninterop
  */
 @ComponentBuilder
 export declare function Blank(
-    min?: double | string, 
-    content_?: CustomBuilder,
-): BlankAttribute
+    min?: double | string,
+): BlankAttribute;
