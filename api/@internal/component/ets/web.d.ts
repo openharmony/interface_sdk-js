@@ -315,6 +315,52 @@ declare enum WebRotateEffect {
 }
 
 /**
+* Enum type supplied to {@link keyboardAppearance} for setting the web keyboard appearance mode.
+*
+* @enum { number }
+* @syscap SystemCapability.Web.Webview.Core
+* @stagemodelonly
+* @since 26.0.0 dynamic
+*/
+declare enum WebKeyboardAppearanceMode {
+  /**
+  * Default skin mode, no immersive style.
+  *
+  * @syscap SystemCapability.Web.Webview.Core
+  * @stagemodelonly
+  * @since 26.0.0 dynamic
+  */
+  NONE_IMMERSIVE = 0,
+
+  /**
+  * No immersive style.
+  *
+  * @syscap SystemCapability.Web.Webview.Core
+  * @stagemodelonly
+  * @since 26.0.0 dynamic
+  */
+  IMMERSIVE = 1,
+
+  /**
+  * Light immersive style.
+  *
+  * @syscap SystemCapability.Web.Webview.Core
+  * @stagemodelonly
+  * @since 26.0.0 dynamic
+  */
+  LIGHT_IMMERSIVE = 2,
+
+  /**
+  * Dark immersive style.
+  *
+  * @syscap SystemCapability.Web.Webview.Core
+  * @stagemodelonly
+  * @since 26.0.0 dynamic
+  */
+  DARK_IMMERSIVE = 3
+}
+
+/**
  * The configuration of native media player.
  *
  * @typedef NativeMediaPlayerConfig
@@ -11823,6 +11869,17 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 24 dynamic
    */
   enableDefaultContextMenu(enable: boolean): WebAttribute;
+
+  /**
+  * Set the WebKeyboardAppearanceMode to determine the immersive mode for the soft keyboard.
+  *
+  * @param { WebKeyboardAppearanceMode } mode - The WebKeyboardAppearanceMode of this web
+  * @returns { WebAttribute }
+  * @syscap SystemCapability.Web.Webview.Core
+  * @stagemodelonly
+  * @since 26.0.0 dynamic
+  */
+  keyboardAppearance(mode: WebKeyboardAppearanceMode): WebAttribute;
 }
 
 /**
