@@ -4511,7 +4511,7 @@ declare namespace print {
 
   /**
    * Add a printer to system.
-   * @permission ohos.permission.MANAGE_PRINT_JOB
+   * @permission ohos.permission.MANAGE_PRINT_JOB or ohos.permission.PRINTER_DRIVER
    * @param { string } printerName - Indicates the printer name.
    *     <br>Name of the printer to be added.
    * @param { string } uri - Indicates the printer uri.
