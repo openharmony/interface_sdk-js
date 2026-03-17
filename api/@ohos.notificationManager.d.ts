@@ -5081,6 +5081,23 @@ declare namespace notificationManager {
   function isGeofenceEnabled(): Promise<boolean>;
 
   /**
+   * Obtains the notification statistics of the bundleOptions.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { BundleOption[] } bundles - The list of bundle option.
+   * @returns { Promise<BundleNotificationStatistics[]> } Returns the list of notificationStatistics.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 26.0.0 dynamic&static
+   */
+  function getNotificationStatisticsByBundle(bundles: BundleOption[]): Promise<BundleNotificationStatistics[]>;
+
+  /**
    * Represents the state of a switch,
    * distinguishing system defaults from user modifications.
    *
@@ -6460,6 +6477,66 @@ declare namespace notificationManager {
      */
     RINGTONE_TYPE_NONE = 3,
   }
+
+  /**
+   * Describes a BundleNotificationStatistics instance.
+   *
+   * @typedef BundleNotificationStatistics
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 26.0.0 dynamic&static
+   */
+ 	export interface BundleNotificationStatistics {
+ 	  /**
+     * Whether the bundleOption.
+     *
+     * @type { BundleOption }
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 26.0.0 dynamic&static
+     */
+    bundle: BundleOption;
+ 	 
+    /**
+     * Whether the last notification sending time of the bundle.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 26.0.0 dynamic
+     */
+    lastTime: number;
+
+    /**
+     * Whether the last notification sending time of the bundle.
+     *
+     * @type { long }
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 26.0.0 static
+     */
+    lastTime: long;
+ 	 
+    /**
+     * Whether the count of notifications which sending by bundle.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 26.0.0 dynamic
+     */
+    recentCount: number;
+
+    /**
+     * Whether the count of notifications which sending by bundle.
+     *
+     * @type { int }
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 26.0.0 static
+     */
+    recentCount: int;
+ 	}
 
   /**
    * Describes a bundleOption in a notification.
