@@ -2913,6 +2913,12 @@ export declare class ResolvedUIContext extends UIContext {
  * @since 23 static
  */
 export declare class UIContext {
+  /**
+   * UIContext constructor
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 24 static
+   */
+  constructor();
 
   /**
    * Gets the UIContext associated with the current calling scope.
