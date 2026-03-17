@@ -153,6 +153,15 @@ export declare interface TextDecorationOptions {
      * @since 23 static
      */
     style?: TextDecorationStyle;
+    /**
+     * The scale value of decoration thickness.
+     *
+     * @type { ?double }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    thicknessScale?: double;
 }
 /**
  * Provides an interface for the style of an divider including stroke width, color, start margin
