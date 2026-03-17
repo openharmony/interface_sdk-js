@@ -20,7 +20,7 @@
  */
 import { Theme, CustomTheme } from './@ohos.arkui.theme';
 import { Component, CustomDialog } from '@ohos.arkui.component';
-import { ResourceStr, ResourceColor, Padding, LocalizedPadding, SizeOptions } from '@ohos.arkui.component';
+import { ResourceStr, ResourceColor, Padding, LocalizedPadding, SizeOptions, TextAlign } from '@ohos.arkui.component';
 import { ButtonStyleMode, ButtonRole } from '@ohos.arkui.component';
 import { PixelMap, ThemeColorMode, CustomPopupOptions } from '@ohos.arkui.component';
 import { PropRef, Link, Require } from '@ohos.arkui.stateManagement';

@@ -19,7 +19,7 @@
  * @kit ArkUI
  */
 import { ComponentV2 } from '@ohos.arkui.component';
-import { ResourceStr, ResourceColor, LocalizedPadding, SizeOptions } from '@ohos.arkui.component';
+import { ResourceStr, ResourceColor, LocalizedPadding, SizeOptions, TextAlign } from '@ohos.arkui.component';
 import { ButtonStyleMode, ButtonRole } from '@ohos.arkui.component';
 import { PixelMap, ThemeColorMode, CustomPopupOptions } from '@ohos.arkui.component';
 import { Local, Param, ObservedV2, Require, Trace, Event } from '@ohos.arkui.stateManagement';
