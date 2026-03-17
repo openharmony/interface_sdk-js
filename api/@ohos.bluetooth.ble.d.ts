@@ -1523,6 +1523,23 @@ declare namespace ble {
     setPhy(deviceId: string, phyValue: PhyValue): Promise<void>;
 
     /**
+     * Removes all services from the list of GATT services offered by this device.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API because the short-range chip is not inserted on the 2in1 device.
+     * @throws { BusinessError } 2900001 - Service stopped.
+     * @throws { BusinessError } 2900003 - Bluetooth disabled.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    removeAllServices(): void;
+
+    /**
      * Subscribe characteristic read event.
      *
      * @permission ohos.permission.ACCESS_BLUETOOTH
