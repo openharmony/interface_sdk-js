@@ -621,7 +621,8 @@ declare namespace http {
      * Supports specifying the user custom defined http request method
      * @type {?string}
      * @syscap SystemCapability.Communication.NetStack
-     * @since 23 dynamic&static
+     * @since 23 dynamic
+     * @since 24 static
      */
     customMethod?: string;
   
@@ -629,7 +630,8 @@ declare namespace http {
      * Support specifying the configuration of maximum redirect count
      * @type {?int}
      * @syscap SystemCapability.Communication.NetStack
-     * @since 23 dynamic&static
+     * @since 23 dynamic
+     * @since 24 static
      */
     maxRedirects?: int;
   /**
@@ -638,7 +640,8 @@ declare namespace http {
      *
      * @type { ?PathPreference }
      * @syscap SystemCapability.Communication.NetStack
-     * @since 23 dynamic&static
+     * @since 23 dynamic
+     * @since 24 static
      */
     pathPreference?: PathPreference;
 	
@@ -646,9 +649,19 @@ declare namespace http {
      * Support specifying an SNI domain name to include the SNI field during the TLS connection process
      * @type {?string}
      * @syscap SystemCapability.Communication.NetStack
-     * @since 23 dynamic&static
+     * @since 23 dynamic
+     * @since 24 static
      */
     sniHostName?: string;
+    
+    /**
+     * Supports forbidding reuse of HTTP/HTTPS connections
+     * @type { ?boolean }
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    reuseConnections?: boolean;
   }
 
    /**
@@ -727,7 +740,8 @@ declare namespace http {
    *
    * @typedef { 'auto' | 'primaryCellular' | 'secondaryCellular' }
    * @syscap SystemCapability.Communication.NetStack
-   * @since 23 dynamic&static
+   * @since 23 dynamic
+   * @since 24 static
    */
   export type PathPreference = 'auto' | 'primaryCellular' | 'secondaryCellular';
   
@@ -2384,7 +2398,7 @@ declare namespace http {
      * @param { AsyncCallback<Object> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
      * @since 6 dynamiconly
-     * @deprecated since 8 dynamic
+     * @deprecated since 8
      * @useinstead on_headersReceive
      */
     on(type: "headerReceive", callback: AsyncCallback<Object>): void;
@@ -2395,7 +2409,7 @@ declare namespace http {
      * @param { AsyncCallback<Object> } [callback] - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
      * @since 6 dynamiconly
-     * @deprecated since 8 dynamic
+     * @deprecated since 8
      * @useinstead off_headersReceive
      */
     off(type: "headerReceive", callback?: AsyncCallback<Object>): void;
@@ -4474,7 +4488,7 @@ declare namespace http {
    * @syscap SystemCapability.Communication.NetStack
    * @atomicservice
    * @since 22 dynamic
-   * @since 23 static
+   * @since 24 static
    */
   export enum InterceptorType {
     /**
@@ -4482,7 +4496,7 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @atomicservice
      * @since 22 dynamic
-     * @since 23 static
+     * @since 24 static
      */
     INITIAL_REQUEST = 'INITIAL_REQUEST',
 
@@ -4491,7 +4505,7 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @atomicservice
      * @since 22 dynamic
-     * @since 23 static
+     * @since 24 static
      */
     REDIRECTION = 'REDIRECTION',
 
@@ -4500,7 +4514,7 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @atomicservice
      * @since 22 dynamic
-     * @since 23 static
+     * @since 24 static
      */
     CACHE_CHECKED = 'READ_CACHE',
 
@@ -4509,7 +4523,7 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @atomicservice
      * @since 22 dynamic
-     * @since 23 static
+     * @since 24 static
      */
     NETWORK_CONNECT = 'CONNECT_NETWORK',
 
@@ -4518,7 +4532,7 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @atomicservice
      * @since 22 dynamic
-     * @since 23 static
+     * @since 24 static
      */
     FINAL_RESPONSE = 'FINAL_RESPONSE',
   }
@@ -4530,7 +4544,7 @@ declare namespace http {
    * @syscap SystemCapability.Communication.NetStack
    * @atomicservice
    * @since 22 dynamic
-   * @since 23 static
+   * @since 24 static
    */
   export interface HttpRequestContext {
     /**
@@ -4539,7 +4553,7 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @atomicservice
      * @since 22 dynamic
-     * @since 23 static
+     * @since 24 static
      */
     url: string;
 
@@ -4549,7 +4563,7 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @atomicservice
      * @since 22 dynamic
-     * @since 23 static
+     * @since 24 static
      */
     header: Object;
 
@@ -4559,7 +4573,7 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @atomicservice
      * @since 22 dynamic
-     * @since 23 static
+     * @since 24 static
      */
     body: Object;
   }
@@ -4571,7 +4585,7 @@ declare namespace http {
    * @syscap SystemCapability.Communication.NetStack
    * @atomicservice
    * @since 22 dynamic
-   * @since 23 static
+   * @since 24 static
    */
   export type ChainContinue = boolean;
 
@@ -4581,7 +4595,7 @@ declare namespace http {
    * @syscap SystemCapability.Communication.NetStack
    * @atomicservice
    * @since 22 dynamic
-   * @since 23 static
+   * @since 24 static
    */
   export interface HttpInterceptor {
     /**
@@ -4590,7 +4604,7 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @atomicservice
      * @since 22 dynamic
-     * @since 23 static
+     * @since 24 static
      */
     interceptorType: InterceptorType;
 
@@ -4602,7 +4616,7 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @atomicservice
      * @since 22 dynamic
-     * @since 23 static
+     * @since 24 static
      */
     interceptorHandle(reqContext: HttpRequestContext, rspContext: HttpResponse): Promise<ChainContinue>;
   }
@@ -4613,7 +4627,7 @@ declare namespace http {
    * @syscap SystemCapability.Communication.NetStack
    * @atomicservice
    * @since 22 dynamic
-   * @since 23 static
+   * @since 24 static
    */
   export class HttpInterceptorChain {
     /**
@@ -4622,7 +4636,7 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @atomicservice
      * @since 22 dynamic
-     * @since 23 static
+     * @since 24 static
      */
     public getChain(): HttpInterceptor[];
 
@@ -4636,7 +4650,7 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @atomicservice
      * @since 22 dynamic
-     * @since 23 static
+     * @since 24 static
      */
     public addChain(chain: HttpInterceptor[]): boolean;
 
@@ -4650,7 +4664,7 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @atomicservice
      * @since 22 dynamic
-     * @since 23 static
+     * @since 24 static
      */
     public apply(httpRequest: HttpRequest): boolean;
   }

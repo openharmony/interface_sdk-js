@@ -483,7 +483,7 @@ declare namespace inputMethodEngine {
    * The callback of 'inputStart' event.
    *
    * @typedef { function } IMAInputStartCallback.
-   * @param { KeyboardController } kbController - key board controller.
+   * @param { KeyboardController } kbController - keyboard controller.
    * @param { InputClient } inputClient - input client.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @stagemodelonly
@@ -880,20 +880,20 @@ declare namespace inputMethodEngine {
     off(type: 'callingDisplayDidChange', callback?: Callback<number>): void;
 
     /** 
-     * Subscribe 'discardTypingText'.
+     * Subscribe 'discardTypingText' event.
      *
-     * @param { 'discardTypingText' } type - the type of subscribe event.
-     * @param { Callback<void> } callback - the callback of on('discardTypingText').
+     * @param { 'discardTypingText' } type - indicates the type of subscribe event.
+     * @param { Callback<void> } callback - indicates the callback of on('discardTypingText').
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 20 dynamic
      */
     on(type: 'discardTypingText', callback: Callback<void>): void;
 
     /**
-     * Unsubscribe 'discardTypingText'.
+     * Unsubscribe 'discardTypingText' event.
      *
-     * @param { 'discardTypingText' } type - the type of unsubscribe event.
-     * @param { Callback<void> } callback - the callback of off('discardTypingText').
+     * @param { 'discardTypingText' } type - indicates the type of unsubscribe event.
+     * @param { Callback<void> } [callback] - optional, indicates the callback of off('discardTypingText').
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 20 dynamic
      */
@@ -988,7 +988,7 @@ declare namespace inputMethodEngine {
     /**
      * Subscribe 'inputStop'.
      *
-     * @param { Callback<void> } callback - the callback of called when the system needs input method application
+     * @param { Callback<void> } callback - the callback called when the system needs input method application
      *     to terminate itself.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 23 static
@@ -997,7 +997,7 @@ declare namespace inputMethodEngine {
     /**
      * Unsubscribe 'inputStop'.
      *
-     * @param { Callback<void> } callback - the callback of called when the system needs input method application
+     * @param { Callback<void> } callback - the callback called when the system needs input method application
      *     to terminate itself.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 23 static
@@ -1005,7 +1005,7 @@ declare namespace inputMethodEngine {
     offInputStop(callback: Callback<void>): void;
 
     /**
-     * Subscribe 'setCalliingWindow'.
+     * Subscribe 'setCallingWindow'.
      *
      * @param { Callback<int> } callback - the callback called when the edit box sets calling window id.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -1013,7 +1013,7 @@ declare namespace inputMethodEngine {
      */
     onSetCallingWindow(callback: Callback<int>): void;
     /**
-     * Unsubscribe 'setCalliingWindow'.
+     * Unsubscribe 'setCallingWindow'.
      *
      * @param { Callback<int> } callback - the callback called when the edit box sets calling window id.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -1075,7 +1075,7 @@ declare namespace inputMethodEngine {
     offSetSubtype(callback?: Callback<InputMethodSubtype>): void;
 
     /**
-     * Subscribe 'securityModeChange'.
+     * Subscribe 'securityModeChange' event.
      *
      * @param { Callback<SecurityMode> } callback - the callback called when the security mode changes.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -1083,7 +1083,7 @@ declare namespace inputMethodEngine {
      */
     onSecurityModeChange(callback: Callback<SecurityMode>): void;
     /**
-     * Unsubscribe 'securityModeChange'.
+     * Unsubscribe 'securityModeChange' event.
      *
      * @param { Callback<SecurityMode> } [callback] - optional, the callback called when the security mode changes.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -1622,6 +1622,7 @@ declare namespace inputMethodEngine {
      * @param { AsyncCallback<EditorAttribute | null> } callback - the callback of getEditorAttribute.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 23 static
      */
@@ -1645,6 +1646,7 @@ declare namespace inputMethodEngine {
      * @returns { Promise<EditorAttribute | null> } the promise returned by the function.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 23 static
      */
@@ -1668,6 +1670,7 @@ declare namespace inputMethodEngine {
      * @returns { EditorAttribute | null } the attribute of editor.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 23 static
      */
@@ -1934,6 +1937,7 @@ declare namespace inputMethodEngine {
      * @returns { Promise<WindowInfo | null> } the promise returned by the function.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @throws { BusinessError } 12800012 - the input method panel does not exist.
      * @throws { BusinessError } 12800013 - window manager service error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -2297,24 +2301,24 @@ declare namespace inputMethodEngine {
     offKeyEvent(callback?: InputKeyEventCallback): void;
 
     /**
-     * Subscribe cursor context change
+     * Subscribe cursor context change.
      *
-     * @param { CursorContextChangeCallback } callback - the callback called when cursor infomation changes.
+     * @param { CursorContextChangeCallback } callback - the callback called when cursor information changes.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 23 static
      */
     onCursorContextChange(callback: CursorContextChangeCallback): void;
     /**
-     * Unsubscribe cursor context change
+     * Unsubscribe cursor context change.
      *
-     * @param { CursorContextChangeCallback } [callback] - optional, the callback called when cursor infomation changes.
+     * @param { CursorContextChangeCallback } [callback] - optional, the callback called when cursor information changes.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 23 static
      */
     offCursorContextChange(callback?: CursorContextChangeCallback): void;
 
     /**
-     * Subscribe selection change
+     * Subscribe selection change.
      *
      * @param { SelectionChangeCallback } callback - the callback called when the text selection changes.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -2322,7 +2326,7 @@ declare namespace inputMethodEngine {
      */
     onSelectionChange(callback: SelectionChangeCallback): void;
     /**
-     * Unsubscribe selection change
+     * Unsubscribe selection change.
      *
      * @param { SelectionChangeCallback } [callback] - optional, the callback called when the text selection changes.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -2331,7 +2335,7 @@ declare namespace inputMethodEngine {
     offSelectionChange(callback?: SelectionChangeCallback): void;
 
     /**
-     * Subscribe text change
+     * Subscribe text change.
      *
      * @param { Callback<string> } callback - the callback called when the text changes.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -2339,7 +2343,7 @@ declare namespace inputMethodEngine {
      */
     onTextChange(callback: Callback<string>): void;
     /**
-     * Unsubscribe text change
+     * Unsubscribe text change.
      *
      * @param { Callback<string> } [callback] - optional, the callback called when the text changes.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -2348,17 +2352,17 @@ declare namespace inputMethodEngine {
     offTextChange(callback?: Callback<string>): void;
 
     /**
-     * Subscribe input text attribute change
+     * Subscribe input text attribute change.
      *
-     * @param { Callback<EditorAttribute> } callback - the callbacck called when editor's attribute changes.
+     * @param { Callback<EditorAttribute> } callback - the callback called when editor's attribute changes.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 23 static
      */
     onEditorAttributeChanged(callback: Callback<EditorAttribute>): void;
     /**
-     * Unsubscribe input text attribute change
+     * Unsubscribe input text attribute change.
      *
-     * @param { Callback<EditorAttribute> } [callback] - optional, the callbacck called when editor's attribute changes.
+     * @param { Callback<EditorAttribute> } [callback] - optional, the callback called when editor's attribute changes.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 23 static
      */

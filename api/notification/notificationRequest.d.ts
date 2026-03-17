@@ -37,6 +37,51 @@ import { RecordData } from '../@ohos.base';
 /*** endif */
 
 /**
+ * Defines Notification Parameters to describe the key information of wantAgent in the notification.
+ *
+ * @syscap SystemCapability.Notification.Notification
+ * @stagemodelonly
+ * @since 24 dynamic&static
+ */
+export interface NotificationParameters {
+  /**
+   * The action field of the corresponding want when the user creates the wantAgent for the NotificationRequest.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  wantAction?:string;
+
+  /**
+   * The uri field of the corresponding want when the user creates the wantAgent for the NotificationRequest.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  wantUri?:string;
+
+  /**
+   * The parameters field of the corresponding want when the user creates the wantAgent for the NotificationRequest.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @stagemodelonly
+   * @since 24 dynamic
+   */
+  wantParameters?:Record<string, Object>;
+
+  /**
+   * The parameters field of the corresponding want when the user creates the wantAgent for the NotificationRequest.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @stagemodelonly
+   * @since 24 static
+   */
+  wantParameters?:Record<string, RecordData>;
+}
+
+/**
  * The monitor event of a geofence.
  *
  * @enum { number }
@@ -109,6 +154,36 @@ export enum TriggerType {
    * @since 23 dynamic&static
    */
   TRIGGER_TYPE_GEOFENCE = 1
+}
+
+/**
+ * The type of group notification customization information.
+ *
+ * @syscap SystemCapability.Notification.Notification
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.0.0 dynamic&static
+ */
+export interface GroupInfo {
+  /**
+   * Replaces the group notification icon with the notification icon.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  isGroupIcon?: boolean;
+ 	 
+  /**
+   * The title of the group notification.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  groupTitle?: string;
 }
 
 /**
@@ -942,6 +1017,16 @@ export interface NotificationRequest {
    * @since 23 static
    */
   notDistributed?: boolean;
+
+  /**
+   * Group notification customization information.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  groupInfo?: GroupInfo;
 }
 
 /**

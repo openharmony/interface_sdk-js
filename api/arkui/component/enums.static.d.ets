@@ -3878,6 +3878,7 @@ export declare enum CrownAction {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
+   * @deprecated since 24 static
    */
   BEGIN = 0,
 
@@ -4228,6 +4229,41 @@ export declare enum AxisType {
    * @since 23 static
    */
   PINCH_AXIS = 2,
+}
+
+/**
+ * Defines whether a competition for gesture recognition results should occur between the event injector and the
+ * gesture recognizers of the target component.
+ * This strategy determines how the injected input event interacts with the target component's own gesture
+ * handling logic.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 24 static
+ */
+export enum CompetitionStrategy {
+  /**
+   * No competition strategy.
+   * The injected event does not compete with any existing gestures.
+   * Both the injected event and existing gestures can be processed independently and in parallel.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  DEFAULT = 0,
+
+  /**
+   * Competition strategy.
+   * The gesture recognition result from the event injector will compete with those from the target component's own
+   * recognizers.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  COMPETITION = 1,
 }
 
 /**

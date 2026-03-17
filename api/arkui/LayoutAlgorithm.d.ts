@@ -45,6 +45,7 @@ export interface LayoutAlgorithm {}
  * @atomicservice
  * @since 24 dynamic
  */
+@ObservedV2
 export class CustomLayoutAlgorithm implements LayoutAlgorithm {
     /**
      * Method to measure the DynamicLayout FrameNode and its content to determine the measured size.
@@ -154,6 +155,7 @@ interface ColumnLayoutAlgorithmOptions {
  * @atomicservice
  * @since 24 dynamic
  */
+@ObservedV2
 export class ColumnLayoutAlgorithm implements LayoutAlgorithm {
     /**
      * Constructor.
@@ -170,7 +172,7 @@ export class ColumnLayoutAlgorithm implements LayoutAlgorithm {
     /**
      * Vertical layout element spacing.
      *
-     * @type { LengthMetrics }
+     * @type { ?LengthMetrics }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
@@ -178,11 +180,11 @@ export class ColumnLayoutAlgorithm implements LayoutAlgorithm {
      * @atomicservice
      * @since 24 dynamic
      */
-    public space: LengthMetrics;
+    @Trace public space?: LengthMetrics;
     /**
      * Alignment format of the subassembly in the horizontal direction.
      *
-     * @type { HorizontalAlign }
+     * @type { ?HorizontalAlign }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
@@ -190,11 +192,11 @@ export class ColumnLayoutAlgorithm implements LayoutAlgorithm {
      * @atomicservice
      * @since 24 dynamic
      */
-    public alignItems: HorizontalAlign;
+    @Trace public alignItems?: HorizontalAlign;
     /**
      * Alignment mode of the child components along the vertical axis.
      *
-     * @type { FlexAlign }
+     * @type { ?FlexAlign }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
@@ -202,11 +204,11 @@ export class ColumnLayoutAlgorithm implements LayoutAlgorithm {
      * @atomicservice
      * @since 24 dynamic
      */
-    public justifyContent: FlexAlign;
+    @Trace public justifyContent?: FlexAlign;
     /**
      * Whether the main axis is reversed.
      *
-     * @type { boolean }
+     * @type { ?boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
@@ -214,7 +216,7 @@ export class ColumnLayoutAlgorithm implements LayoutAlgorithm {
      * @atomicservice
      * @since 24 dynamic
      */
-    public isReverse: boolean;
+    @Trace public isReverse?: boolean;
 }
  
 /**
@@ -294,6 +296,7 @@ interface RowLayoutAlgorithmOptions {
  * @atomicservice
  * @since 24 dynamic
  */
+@ObservedV2
 export class RowLayoutAlgorithm implements LayoutAlgorithm {
     /**
      * constructor.
@@ -310,7 +313,7 @@ export class RowLayoutAlgorithm implements LayoutAlgorithm {
     /**
      * Horizontal layout element spacing.
      *
-     * @type { LengthMetrics }
+     * @type { ?LengthMetrics }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
@@ -318,11 +321,11 @@ export class RowLayoutAlgorithm implements LayoutAlgorithm {
      * @atomicservice
      * @since 24 dynamic
      */
-    public space: LengthMetrics;
+    @Trace public space?: LengthMetrics;
     /**
      * The alignment format of the subassembly in the vertical direction.
      *
-     * @type { VerticalAlign }
+     * @type { ?VerticalAlign }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
@@ -330,11 +333,11 @@ export class RowLayoutAlgorithm implements LayoutAlgorithm {
      * @atomicservice
      * @since 24 dynamic
      */
-    public alignItems: VerticalAlign;
+    @Trace public alignItems?: VerticalAlign;
     /**
      * Alignment mode of the child components along the horizontal axis.
      *
-     * @type { FlexAlign }
+     * @type { ?FlexAlign }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
@@ -342,11 +345,11 @@ export class RowLayoutAlgorithm implements LayoutAlgorithm {
      * @atomicservice
      * @since 24 dynamic
      */
-    public justifyContent: FlexAlign;
+    @Trace public justifyContent?: FlexAlign;
     /**
      * Whether the main axis is reversed.
      *
-     * @type { boolean }
+     * @type { ?boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
@@ -354,7 +357,7 @@ export class RowLayoutAlgorithm implements LayoutAlgorithm {
      * @atomicservice
      * @since 24 dynamic
      */
-    public isReverse: boolean;
+    @Trace public isReverse?: boolean;
 }
  
 /**
@@ -395,6 +398,7 @@ interface StackLayoutAlgorithmOptions {
  * @atomicservice
  * @since 24 dynamic
  */
+@ObservedV2
 export class StackLayoutAlgorithm implements LayoutAlgorithm {
     /**
      * Constructor.
@@ -411,7 +415,7 @@ export class StackLayoutAlgorithm implements LayoutAlgorithm {
     /**
      * The align rules of child components in stack layout algorithm.
      *
-     * @type { LocalizedAlignment }
+     * @type { ?LocalizedAlignment }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
@@ -419,7 +423,7 @@ export class StackLayoutAlgorithm implements LayoutAlgorithm {
      * @atomicservice
      * @since 24 dynamic
      */
-    public alignContent: LocalizedAlignment;
+    @Trace public alignContent?: LocalizedAlignment;
 }
 
 /**

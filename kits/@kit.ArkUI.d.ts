@@ -184,9 +184,9 @@ import {
   RefreshModifier, SearchModifier, TextAreaModifier, TextModifier, TextInputModifier, ImageSpanModifier,
   ImageAnimatorModifier, ImageModifier, VideoModifier, DataPanelModifier, GaugeModifier, LoadingProgressModifier,
   MarqueeModifier, ProgressModifier, QRCodeModifier, TextClockModifier, TextTimerModifier, LineModifier, PathModifier,
-  PolygonModifier, PolylineModifier, RectModifier, ShapeModifier, AlphabetIndexerModifier,
-  HyperlinkModifier, MenuModifier, MenuItemModifier, PanelModifier, SymbolGlyphModifier, AttributeUpdater,
-  ContainerSpanModifier, SymbolSpanModifier, ParticleModifier, StepperModifier, UIPickerComponentModifier
+  PolygonModifier, PolylineModifier, RectModifier, ShapeModifier, AlphabetIndexerModifier, HyperlinkModifier,
+  MenuModifier, MenuItemModifier, PanelModifier, SymbolGlyphModifier, AttributeUpdater, ContainerSpanModifier,
+  SymbolSpanModifier, ParticleModifier, StepperModifier, UIPickerComponentModifier, ModifierUtils
 } from '@ohos.arkui.modifier';
 import { IDataSourcePrefetching, IPrefetcher, BasicPrefetcher } from '@ohos.arkui.Prefetcher';
 import {
@@ -299,7 +299,7 @@ export {
   ImageAnimatorModifier, ImageModifier, VideoModifier, DataPanelModifier, GaugeModifier, LoadingProgressModifier,
   MarqueeModifier, ProgressModifier, QRCodeModifier, TextClockModifier, TextTimerModifier, LineModifier, PathModifier,
   PolygonModifier, PolylineModifier, RectModifier, ShapeModifier, AlphabetIndexerModifier,
-  HyperlinkModifier, MenuModifier, MenuItemModifier, PanelModifier, SymbolGlyphModifier, AttributeUpdater, SymbolSpanModifier,
+  HyperlinkModifier, MenuModifier, MenuItemModifier, PanelModifier, SymbolGlyphModifier, AttributeUpdater, ModifierUtils, SymbolSpanModifier,
   ContainerSpanModifier, PixelMapDrawableDescriptor, AnimationOptions, AnimatedDrawableDescriptor, AnimationController, AnimationStopMode, DrawableDescriptorLoadedResult,
   IDataSourcePrefetching, IPrefetcher, BasicPrefetcher,
   SegmentButtonTextItem, SegmentButtonIconItem, SegmentButtonIconTextItem, DimensionNoPercentage,

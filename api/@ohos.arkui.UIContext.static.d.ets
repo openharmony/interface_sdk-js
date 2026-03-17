@@ -3790,6 +3790,16 @@ export declare class UIContext {
    * @since 24 static
    */
   getPageRootNode(): FrameNode | null;
+
+  /**
+   * Checks whether the current UI instance is in easy split mode.
+   *
+   * @returns { boolean } Returns true if the current UI instance is in easy split mode; returns false otherwise.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  isEasySplit(): boolean;
 }
 
 /**

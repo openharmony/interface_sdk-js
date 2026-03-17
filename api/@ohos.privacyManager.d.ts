@@ -847,6 +847,16 @@ declare namespace privacyManager {
     deviceId: string;
 
     /**
+     * The device name
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Security.AccessToken
+     * @systemapi
+     * @since 24 dynamic&static
+     */
+    deviceName?: string;
+
+    /**
      * The bundle name
      *
      * @type { string }

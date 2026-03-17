@@ -1123,6 +1123,29 @@ declare namespace camera {
     createCameraInput(position: CameraPosition, type: CameraType): CameraInput;
 
     /**
+     * Creates a CameraInput instance by camera and calling token.
+     * 
+     * Before using this interface, first through the getSupportedCameras interface to query the current list of camera
+     * devices supported by the device, the developer needs to be based on specific scenarios to choose the camera device
+     * that meets the needs of the developer, and then use this interface to create a CameraInput instance.
+     *
+     * @permission ohos.permission.CAMERA
+     * @param { CameraDevice } camera - Camera device used to create the instance.
+     * @param { int } tokenId - The calling token id.
+     * @returns { CameraInput } Returns a CameraInput instance. Failure of an interface call returns the corresponding
+     * error code, which is of type CameraErrorCode.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400102 - Operation not allowed.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    createCameraInputWithTokenId(camera: CameraDevice, tokenId: int): CameraInput;
+
+    /**
      * Creates a PreviewOutput instance.
      *
      * @param { Profile } profile - Preview output profile.
@@ -3966,6 +3989,16 @@ declare namespace camera {
    */
   enum ExposureMode {
     /**
+     * Unspecified exposure mode.
+     * 
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    EXPOSURE_MODE_UNSPECIFIED = -1,
+    
+    /**
      * Lock exposure mode.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -6340,7 +6373,16 @@ declare namespace camera {
      * @since 20 dynamic
      * @since 23 static
      */
-    PORTRAIT = 1
+    PORTRAIT = 1,
+
+    /**
+     * Auto-framing type.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    AUTO_FRAMING = 2
   }
 
   /**
@@ -18467,6 +18509,41 @@ declare namespace camera {
      * @since 23 static
      */
     release(): Promise<void>;
+
+    /**
+     * Checks whether auto-framing is supported.
+     *
+     * @returns { boolean } Is auto-framing supported.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 24 dynamic&static
+     */
+    isAutoFramingSupported(): boolean;
+
+    /**
+     * Gets the status of auto-framing effect.
+     *
+     * @returns { boolean } Is auto-framing active.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 24 dynamic&static
+     */
+    getAutoFramingStatus(): boolean;
+
+    /**
+     * Enable auto-framing effect.
+     *
+     * @param { boolean } enabled enable auto-framing effect if TRUE.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400104 - Session not running.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 24 dynamic&static
+     */
+    enableAutoFraming(enabled: boolean): void;
   } 
 
 

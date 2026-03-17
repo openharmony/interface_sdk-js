@@ -235,7 +235,6 @@ declare namespace vpnExtension {
      * @returns { Promise<void>} The promise returned by the function.
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @since 22 dynamic
-     * @since 23 static
      */
     protectProcessNet(): Promise<void>;  
   }

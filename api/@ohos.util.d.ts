@@ -18,6 +18,8 @@
  * @kit ArkTS
  */
 
+import type { Callback } from './@ohos.base';
+
 /**
  * TextDecoder support full encoding in ICU data utf-8 utf-16 iso8859 must support in all device, TextEncoder takes a
  * stream of code points as input and emits a stream of UTF-8 bytes, and system help function.
@@ -5009,6 +5011,147 @@ declare namespace util {
     * @since 23 dynamiconly
     */
     static setMultithreadingDetectionEnabled(enabled: boolean):void;
+
+    /**
+     * Get all heap memory information from ArkTS-VMs and the shared heap.
+     * 
+     * @returns { Promise<HeapMemoryInfo[]> } Returns a promise containing all the heap memory information
+     *     from ArkTS-VMs' local heap and the shared heap.
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 24 dynamiconly
+     */
+    static getAllVMHeapMemoryInfo(): Promise<HeapMemoryInfo[]>;
+
+    /**
+     * Register a callback that is triggered if the heap memory exceeds the critical warning threshold after a GC.
+     *
+     * @param { Callback<string> } callback - This callback is triggered if the memory reaches the threshold after a GC,
+     *     and the string represents the type of this memory pressure event.
+     * @param { HeapMemoryThreshold } heapMemoryThreshold - Indicates
+     *     the percentage threshold of the heap memory to trigger the callback after a GC.
+     * @returns { boolean } Returns {@code true} if the registration succeeds;
+     *     returns {@code false} otherwise.
+     * @static
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 24 dynamiconly
+     */
+    static onVMHeapMemoryPressure(callback: Callback<string>, heapMemoryThreshold: HeapMemoryThreshold): boolean;
+
+    /**
+     * Unregister the callback that is triggered when the heap memory exceeds the critical warning threshold after a GC.
+     *
+     * @static
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 24 dynamiconly
+     */
+    static offVMHeapMemoryPressure(): void;
+
+    /**
+    * Enable the local handle detection to avoid memory leakage in the event looper of Libuv or EventHandler.
+    * 
+    * @syscap SystemCapability.Utils.Lang
+    * @stagemodelonly
+    * @crossplatform
+    * @since 24 dynamiconly
+    */
+    static enableLocalHandleDetection(): void;
+  }
+
+  /**
+   * Describes the heap memory threshold at which the registered callback is triggered after a GC.
+   *
+   * @interface HeapMemoryThreshold
+   * @syscap SystemCapability.Utils.Lang
+   * @stagemodelonly
+   * @since 24 dynamiconly
+   */
+  interface HeapMemoryThreshold {
+    /**
+     * This number is on a scale of 0 to 100, representing the percentage threshold of the local heap memory
+     * at which the callback is triggered after a GC.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 24 dynamiconly
+     */
+    localHeapThreshold?: number;
+
+    /**
+     * This number is on a scale of 0 to 100, representing the percentage threshold of the shared heap memory
+     * at which the callback is triggered after a GC.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 24 dynamiconly
+     */
+    sharedHeapThreshold?: number;
+
+    /**
+     * This number is on a scale of 0 to 100, representing the percentage threshold of the process's total heap memory
+     * at which the callback is triggered after a GC.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 24 dynamiconly
+     */
+    processHeapThreshold?: number;
+  }
+
+  /**
+   * Describes heap memory information of either an ArkTS-VM, or the shared heap memory of current process.
+   * 
+   * @syscap SystemCapability.Utils.Lang
+   * @stagemodelonly
+   * @since 24 dynamiconly
+   */
+  interface HeapMemoryInfo {
+    /**
+     * If this memory information describes an ArkTS-VM local heap,
+     * the value is a number representing the running thread;
+     * If this memory information describes the shared heap, the value is undefined.
+     * 
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 24 dynamiconly
+     */
+    threadId?: number;
+
+    /**
+     * If this memory information describes an ArkTS-VM local heap,
+     * the value is a string representing the name of the running thread;
+     * If this memory information describes the shared heap, the value is undefined.
+     * 
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 24 dynamiconly
+     */
+    threadName?: string;
+
+    /**
+     * The value is a string representing whether this memory information is from an ArkTS-VM local heap,
+     * or the shared heap.
+     * 
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 24 dynamiconly
+     */
+    heapType: string;
+
+    /**
+     * The value is a number representing the total size of all heap objects in KB, from either an ArkTS-VM local heap
+     * or the shared heap.
+     * 
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 24 dynamiconly
+     */
+    heapObjectSize: number;
   }
 }
 export default util;

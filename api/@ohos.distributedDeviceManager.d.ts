@@ -1716,6 +1716,8 @@ declare namespace distributedDeviceManager {
      * @systemapi
      * @since 18 dynamic
      * @since 23 static
+     * @deprecated since 24
+     * @useinstead distributedDeviceManager.DeviceManager#restoreLocalDeviceName
      */
     restoreLocalDeivceName(): void;
 
@@ -1766,6 +1768,21 @@ declare namespace distributedDeviceManager {
      * @since 24 dynamic&static
      */
     getIdentificationByDeviceIds(deviceIds: Array<string>): Array<DeviceIdentification>;
+
+    /**
+     * Restores the local device name.
+     *
+     * @permission ohos.permission.ACCESS_SERVICE_DM
+     * @throws { BusinessError } 201 - Permission verification failed.
+     *     The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 11600102 - Failed to obtain the service.
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    restoreLocalDeviceName(): void;
   }
 }
 

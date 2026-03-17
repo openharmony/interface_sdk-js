@@ -329,6 +329,17 @@ declare namespace AbilityConstant {
      * @since 23 static
      */
     processState?: appManager.ProcessState;
+
+    /**
+     * Indecates kill reason message.
+     * 
+     * @type { ?string }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    killReason?: string;
   }
 
   /**

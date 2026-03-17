@@ -993,7 +993,7 @@ declare namespace abilityAccessCtrl {
       * @throws { BusinessError } 12100015 - The queried data exceeds the upper limit.
       * @syscap SystemCapability.Security.AccessToken
       * @systemapi
-      * @FaAndStageModel
+      * @stagemodelonly
       * @since 26.0.0 dynamic&static
       */
       queryStatusByPermission(
@@ -1017,7 +1017,7 @@ declare namespace abilityAccessCtrl {
       * @throws { BusinessError } 12100015 - The queried data exceeds the upper limit.
       * @syscap SystemCapability.Security.AccessToken
       * @systemapi
-      * @FaAndStageModel
+      * @stagemodelonly
       * @since 26.0.0 dynamic&static
       */
       queryStatusByTokenID(tokenIDList: Array<int>): Promise<Array<PermissionStatusInfo>>;

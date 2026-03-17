@@ -2223,6 +2223,14 @@ export declare class WebContextMenuResult {
      * @since 23 static
      */
     requestPasswordAutoFill(): void;
+    /**
+     * Performing the "Save As Image" operation associated with this context menu will trigger the download process.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 24 static
+     */
+    saveImage(): void;
 }
 /**
  * Encompassed message information as parameters to {@link onConsole} method.

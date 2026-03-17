@@ -1976,6 +1976,24 @@ declare namespace window {
      * @since 23 static
      */
     isFocused?: boolean;
+
+    /**
+     * Indicates the ID of the display where the window is located.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    displayId?: int;
+
+    /**
+     * Indicates the actual display size and position of the window.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    globalRect?: Rect;
   }
 
   /**
@@ -4529,6 +4547,28 @@ declare namespace window {
    * @since 23 static
    */
   function offWaterMarkFlagChange(callback?: Callback<boolean>): void;
+
+  /**
+   * Register the callback for application process focus state changes.
+   *
+   * @param { Callback<boolean> } callback Callback used to return the result whether application process
+   *      focused or not.
+   * @syscap SystemCapability.Window.SessionManager
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function onApplicationFocusStateChange(callback: Callback<boolean>): void;
+
+  /**
+   * Unregister the callback for application process focus state changes.
+   *
+   * @param { Callback<boolean> } [callback] Callback used to return the result whether application process
+   *      focused or not. If not provided, all callbacks for the given event type will be removed.
+   * @syscap SystemCapability.Window.SessionManager
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function offApplicationFocusStateChange(callback?: Callback<boolean>): void;
 
   /**
    * Sets starting window background color
@@ -7885,23 +7925,29 @@ declare namespace window {
     offAvoidAreaChange(callback?: Callback<AvoidAreaOptions>): void;
 
     /**
-     * Register the callback of keyboardHeightChange
+     * Register the callback of keyboard height change. This API only takes effect
+     *     when the soft keyboard is invoked from this window and overlaps with it.
      *
-     * @param { 'keyboardHeightChange' } type - The value is fixed at 'keyboardHeightChange', indicating the keyboard height change event.
-     * @param { Callback<int> } callback - Callback used to return the current keyboard height, which is an integer, in px.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types; 
+     * @param { 'keyboardHeightChange' } type - The value is fixed at 'keyboardHeightChange',
+     *     indicating the keyboard height change event.
+     * @param { Callback<int> } callback - Callback used to return the current keyboard height,
+     *     which is an integer, in px.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
+     *                                                                  2. Incorrect parameter types;
      *                                                                  3. Parameter verification failed.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
     /**
-     * Register the callback of keyboardHeightChange
+     * Register the callback of keyboard height change. This API only takes effect
+     *     when the soft keyboard is invoked from this window and overlaps with it.
      *
-     * @param { 'keyboardHeightChange' } type - The value is fixed at 'keyboardHeightChange', indicating the keyboard height change event.
-     * @param { Callback<int> } callback - Callback used to return the current keyboard height, which is an integer, in px.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types; 
+     * @param { 'keyboardHeightChange' } type - The value is fixed at 'keyboardHeightChange',
+     *     indicating the keyboard height change event.
+     * @param { Callback<int> } callback - Callback used to return the current keyboard height,
+     *     which is an integer, in px.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
+     *                                                                  2. Incorrect parameter types;
      *                                                                  3. Parameter verification failed.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
@@ -7910,34 +7956,40 @@ declare namespace window {
     on(type: 'keyboardHeightChange', callback: Callback<int>): void;
 
     /**
-     * Register the callback of keyboard height change
+     * Register the callback of keyboard height change. This API only takes effect
+     *    when the soft keyboard is invoked from this window and overlaps with it.
      *
-     * @param { Callback<int> } callback - Callback used to return the current keyboard height, which is an integer, in px.
+     * @param { Callback<int> } callback - Callback used to return the current keyboard height,
+     *     which is an integer, in px.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 23 static
      */
     onKeyboardHeightChange(callback: Callback<int>): void;
 
     /**
-     * Unregister the callback of keyboardHeightChange
+     * Unregister the callback of keyboard height change
      *
-     * @param { 'keyboardHeightChange' } type - The value is fixed at 'keyboardHeightChange', indicating the keyboard height change event.
-     * @param { Callback<int> } callback - Callback used to return the current keyboard height, which is an integer, in px. 
-     * If a value is passed in, the corresponding subscription is canceled. 
+     * @param { 'keyboardHeightChange' } type - The value is fixed at 'keyboardHeightChange',
+     *     indicating the keyboard height change event.
+     * @param { Callback<int> } [callback] - Callback used to return the current keyboard height,
+     *     which is an integer, in px. If not provided, all callbacks for the given event type will be removed.
+     * If a value is passed in, the corresponding subscription is canceled.
      * If no value is passed in, all subscriptions to the specified event are canceled.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types; 
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types;
      *                                                                  2. Parameter verification failed.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
     /**
-     * Unregister the callback of keyboardHeightChange
+     * Unregister the callback of keyboard height change
      *
-     * @param { 'keyboardHeightChange' } type - The value is fixed at 'keyboardHeightChange', indicating the keyboard height change event.
-     * @param { Callback<int> } callback - Callback used to return the current keyboard height, which is an integer, in px. 
-     * If a value is passed in, the corresponding subscription is canceled. 
+     * @param { 'keyboardHeightChange' } type - The value is fixed at 'keyboardHeightChange',
+     *     indicating the keyboard height change event.
+     * @param { Callback<int> } [callback] - Callback used to return the current keyboard height,
+     *     which is an integer, in px. If not provided, all callbacks for the given event type will be removed.
+     * If a value is passed in, the corresponding subscription is canceled.
      * If no value is passed in, all subscriptions to the specified event are canceled.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types; 
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types;
      *                                                                  2. Parameter verification failed.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
@@ -7948,8 +8000,8 @@ declare namespace window {
     /**
      * Unregister the callback of keyboard height change
      *
-     * @param { Callback<int> } [callback] - Unregister the callback function. If not provided,
-     *     all callbacks for the given event type will be removed.
+     * @param { Callback<int> } [callback] - Callback used to return the current keyboard height,
+     *     which is an integer, in px. If not provided, all callbacks for the given event type will be removed.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 23 static
      */
@@ -11637,7 +11689,7 @@ declare namespace window {
      * When get focused, keep the keyboard created by other windows, support system window and app subwindow.
      *
      * @param { boolean } keepKeyboardFlag - keep the keyboard if true, otherwise means the opposite.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
      *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.

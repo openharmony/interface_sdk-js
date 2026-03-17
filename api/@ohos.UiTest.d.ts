@@ -1660,7 +1660,7 @@ declare interface UIElementInfo {
    */
   readonly bundleName: string;
   /**
-   * The component type, set it as 'window' if it's a window.
+   * The component type, set it to an empty string if it's a window.
    * @type { string }
    * @readonly 
    * @syscap SystemCapability.Test.UiTest
@@ -1668,7 +1668,7 @@ declare interface UIElementInfo {
    * @test
    */
   /**
-   * The component type, set it as 'window' if it's a window.
+   * The component type, set it to an empty string if it's a window.
    * @type { string }
    * @readonly
    * @syscap SystemCapability.Test.UiTest
@@ -1679,7 +1679,7 @@ declare interface UIElementInfo {
    */
   readonly type: string;
   /**
-   * The text of component, set it as window's title if it's a window.
+   * The text of component, set it to an empty string if it's a window.
    * @type { string }
    * @readonly 
    * @syscap SystemCapability.Test.UiTest
@@ -1687,7 +1687,7 @@ declare interface UIElementInfo {
    * @test
    */
   /**
-   * The text of component, set it as window's title if it's a window.
+   * The text of component, set it to an empty string if it's a window.
    * @type { string }
    * @readonly
    * @syscap SystemCapability.Test.UiTest
@@ -2127,7 +2127,8 @@ declare interface TouchPadSwipeOptions {
   stay?: boolean;
 
   /**
-   * Speed(pixels per second) of touchpad multi-finger swipe, default is 2000, the value ranges from 200 to 40000,set it 2000 if out of range.
+   * The speed ranges from 200 to 40000(pixels per second). Set it default 2000 if out of range or null or undefined.
+   * Throws parameter error if negative.
    * @type { ?int }
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
@@ -3456,7 +3457,9 @@ declare class Component {
   /**
    * Scroll on this {@link Component} to the top,applicable to scrollable one.
    *
-   * @param { int } [speed] - the speed of swipe(pixels per second),ranges from 200 to 40000.Set it default 600 if out of range or null or undefined.
+   * @param { int } [speed] - The speed ranges from 200 to 40000(pixels per second).
+   *                          Set it default 600 if out of range or null or undefined.
+   *                          Throws error code 401 if negative.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types; 2. Parameter verification failed.
    * @throws { BusinessError } 17000002 - The async function is not called with await.
@@ -3498,7 +3501,9 @@ declare class Component {
   /**
    * Scroll on this {@link Component} to the bottom,applicable to scrollable one.
    *
-   * @param { int } [speed] - the speed of swipe(pixels per second),ranges from 200 to 40000. Set it default 600 if out of range or null or undefined.
+   * @param { int } [speed] - The speed ranges from 200 to 40000(pixels per second).
+   *                          Set it default 600 if out of range or null or undefined.
+   *                          Throws error code 401 if negative.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types; 2. Parameter verification failed.
    * @throws { BusinessError } 17000002 - The async function is not called with await.
@@ -4405,7 +4410,9 @@ declare class Driver {
    * @param { int } starty - the y-coordinate of the starting point, not less than 0.
    * @param { int } endx - the x-coordinate of the ending point, not less than 0.
    * @param { int } endy - the y-coordinate of the ending point, not less than 0.
-   * @param { int } [speed] - the speed of swipe(pixels per second),ranges from 200 to 40000. Set it default 600 if out of range or null or undefined.
+   * @param { int } [speed]  The speed ranges from 200 to 40000(pixels per second).
+   *                          Set it default 600 if out of range or null or undefined.
+   *                          Throws error code 401 if negative.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17000002 - The async function is not called with await.
@@ -4440,9 +4447,10 @@ declare class Driver {
    * @param { int } starty - the y-coordinate of the starting point, not less than 0.
    * @param { int } endx - the x-coordinate of the ending point, not less than 0.
    * @param { int } endy - the y-coordinate of the ending point, not less than 0.
-   * @param { int } [speed] the speed of drag(pixels per second),ranges from 200 to 40000. Set it default 600 if out of range or null or undefined.
+   * @param { int } [speed] - The speed ranges from 200 to 40000(pixels per second).
+   *                          Set it default 600 if out of range or null or undefined.
+   *                          Throws error code 401 if negative.
    * @returns { Promise<void> }
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17000002 - The async function is not called with await.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
@@ -4503,8 +4511,9 @@ declare class Driver {
    *
    * @param { Point } from - the coordinate point where the finger touches the screen.
    * @param { Point } to - the coordinate point where the finger leaves the screen.
-   * @param { int } [speed] - speed of swipe(pixels per second),the value ranges from 200 to 40000.
-   *                          Set it default 600 if out out of range or null or undefined.
+   * @param { int } [speed] - The speed ranges from 200 to 40000(pixels per second).
+   *                          Set it default 600 if out of range or null or undefined.
+   *                          Throws error code 17000007 if negative.
    * @returns { Promise<void> }
    * @throws { BusinessError } 17000002 - The async function is not called with await.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
@@ -4521,8 +4530,9 @@ declare class Driver {
    *
    * @param { Point } from - the coordinate point where the finger touches the screen.
    * @param { Point } to - the coordinate point where the finger leaves the screen.
-   * @param { int } [speed] - speed of drag(pixels per second),the value ranges from 200 to 40000.
-   *                          Set it default 600 if out out of range or null or undefined.   
+   * @param { int } [speed] - The speed ranges from 200 to 40000(pixels per second).
+   *                          Set it default 600 if out of range or null or undefined.
+   *                          Throws error code 17000007 if negative.
    * @param { int } [duration] - duration of longClick before drag in millisecond,
    *                             the minimum and default values are 1500.
    * @returns { Promise<void> }
@@ -4863,7 +4873,8 @@ declare class Driver {
    * @param { Point } from - the coordinate point where the finger touches the screen.
    * @param { Point } to - the coordinate point where the finger leaves the screen.
    * @param { int } stepLen - the length of each step, in pixels.
-   * @param { int } [speed] - the speed of fling(pixels per second),ranges from 200 to 40000. Set it default 600 if out of range or null or undefined.
+   * @param { int } speed - The speed ranges from 200 to 40000(pixels per second).
+   *                          Set it default 600 if out of range. Throws error code 401 if negative.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17000002 - The async function is not called with await.
@@ -4892,7 +4903,9 @@ declare class Driver {
    * Inject multi-pointer action on the device display.
    *
    * @param { PointerMatrix } pointers - the two-dimensional array of pointers to inject.
-   * @param { int } [speed] - the speed of swipe(pixels per second),ranges from 200 to 40000. Set it default 600 if out of range or null or undefined.
+   * @param { int } [speed] - The speed ranges from 200 to 40000(pixels per second).
+   *                          Set it default 600 if out of range or null or undefined.
+   *                          Throws error code 401 if negative.
    * @returns { Promise<boolean> } true if the operation finished, false
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17000002 - The async function is not called with await.
@@ -4934,7 +4947,8 @@ declare class Driver {
    * Inject fling on the device display.
    *
    * @param { UiDirection } direction - the direction of this action.
-   * @param { int } speed - the speed of fling (pixels per second),default is 600,the value ranges from 200 to 40000,set it 600 if out of range.
+   * @param { int } speed - The speed ranges from 200 to 40000(pixels per second).
+   *                        Set it default 600 if out of range. Throws error code 401 if negative.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17000002 - The async function is not called with await.
@@ -4951,7 +4965,8 @@ declare class Driver {
    * Inject fling on the specified device display.
    *
    * @param { UiDirection } direction - the direction of this action.
-   * @param { int } speed - the speed of fling (pixels per second),default is 600,the value ranges from 200 to 40000,set it 600 if out of range.
+   * @param { int } speed - The speed ranges from 200 to 40000(pixels per second).
+   *                        Set it default 600 if out of range. Throws error code 401 if negative.
    * @param { int } displayId - the Id of the specified display.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
@@ -5063,7 +5078,9 @@ declare class Driver {
    * @param { int } d - the number of cells that the mouse wheel scrolls, each cell will make the target point shift 120 pixels.
    * @param { int } [key1] - the first keyCode,set it default 0 if null or undefined.
    * @param { int } [key2] - the second keyCode,set it default 0 if null or undefined.
-   * @param { int } [speed] - The Speed of mouse wheel rolls(cells per second),ranges from 1 to 500.Set it default 20 if out of range or null or undefined.
+   * @param { int } [speed] - The speed ranges from 1 to 500(cells per second).
+   *                          Set it default 20 if out of range or null or undefined.
+   *                          Throws error code 401 if negative.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17000002 - The async function is not called with await.
@@ -5184,7 +5201,9 @@ declare class Driver {
    *
    * @param { Point } from - the starting point.
    * @param { Point } to - the ending point.
-   * @param { int } [speed] - speed of swipe (pixels per second),the value ranges from 200 to 40000.Set it default 600 if out of range or null or undefined.
+   * @param { int } [speed] - The speed ranges from 200 to 40000(pixels per second).
+   *                          Set it default 600 if out of range or null or undefined.
+   *                          Throws error code 401 if negative.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17000002 - The async function is not called with await.
@@ -5201,7 +5220,9 @@ declare class Driver {
    *
    * @param { Point } from - the starting point.
    * @param { Point } to - the ending point.
-   * @param { number } [speed] - speed of drag (pixels per second),the value ranges from 200 to 40000,Set it default 600 if out of range or null or undefined.
+   * @param { int } [speed] - The speed ranges from 200 to 40000(pixels per second).
+   *                          Set it default 600 if out of range or null or undefined.
+   *                          Throws error code 401 if negative.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17000002 - The async function is not called with await.
@@ -5217,8 +5238,9 @@ declare class Driver {
    *
    * @param { Point } from - the starting point.
    * @param { Point } to - the ending point.
-   * @param { int } [speed] - speed of drag (pixels per second),the value ranges from 200 to 40000,
+   * @param { int } [speed] - The speed ranges from 200 to 40000(pixels per second).
    *                          Set it default 600 if out of range or null or undefined.
+   *                          Throws error code 401 if negative.
    * @param { int } [duration] - duration of longClick before drag in millisecond, the minimum and default are 1500.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
@@ -5329,7 +5351,9 @@ declare class Driver {
    * Simulate pen swipe operation.
    * @param { Point } startPoint Coordinate of the specified location.
    * @param { Point } endPoint Coordinate of the specified location.
-   * @param { int } [speed] Speed(pixels per second) of pen swipe, default is 600,the value ranges from 200 to 40000,set it 600 if out of range.
+   * @param { int } [speed] - The speed ranges from 200 to 40000(pixels per second).
+   *                          Set it default 600 if out of range or null or undefined.
+   *                          Throws error code 401 if negative.
    * @param { double } [pressure] Pressure of pen swipe operation, default is 1.0, the value ranges from 0.0 to 1.0.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
@@ -5345,7 +5369,9 @@ declare class Driver {
   /**
    * Inject pen multi-pointer action on the device display.
    * @param { PointerMatrix } pointers The two-dimensional array of pointers to inject.
-   * @param { int } [speed] Speed(pixels per second) of inject pen pointer action, default is 600,the value ranges from 200 to 40000,set it 600 if out of range.
+   * @param { int } [speed] - The speed ranges from 200 to 40000(pixels per second).
+   *                          Set it default 600 if out of range or null or undefined.
+   *                          Throws error code 401 if negative.
    * @param { double } [pressure] Pressure of inject pen pointer action operation, default is 1.0, the value ranges from 0.0 to 1.0.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
@@ -5363,8 +5389,9 @@ declare class Driver {
    *
    * @param { int } d The number of cells that watch rotates.Positive value indicate clockwise rotation,
    *                  negative value indicate counterclockwise rotation.
-   * @param { int } [speed] The speed of watch crown rotates(cells per second),ranges from 1 to 500.
-   *                        Set it default 20 if out of range or undefined or null.
+   * @param { int } [speed] - The speed ranges from 1 to 500(cells per second).
+   *                          Set it default 20 if out of range or undefined or null.
+   *                          Throws error code 17000007 if negative.
    * @returns { Promise<void> }
    * @throws { BusinessError } 801 - Capability not support, function can not work correctly due to limited device capabilities.
    * @throws { BusinessError } 17000002 - The async function is not called with await.
@@ -5402,8 +5429,9 @@ declare class Driver {
    * @param { On } on - The attribute requirements of the target {@link Component}.
    * @param { Point } from - The coordinate point where the finger touches the screen.
    * @param { Point } to - The coordinate point where the finger leaves the screen.
-   * @param { int } [speed] - Speed of drag(pixels per second), the value ranges from 200 to 40000.
-   *                          Set it default 600 if out out of range or null or undefined.   
+   * @param { int } [speed] - The speed ranges from 200 to 40000(pixels per second).
+   *                          Set it default 600 if out of range or null or undefined.
+   *                          Throws error code 17000007 if negative.
    * @param { int } [duration] - Duration of longClick before drag in millisecond,
    *                             the minimum and default values are 1500.
    * @returns { Promise<boolean> }
@@ -5423,8 +5451,9 @@ declare class Driver {
    * @param { On } on - The attribute requirements of the target {@link Component}.
    * @param { Point } from - The coordinate point where the finger touches the screen.
    * @param { Point } to - The coordinate point where the finger leaves the screen.
-   * @param { int } [speed] - Speed of swipe(pixels per second), the value ranges from 200 to 40000.
-   *                          Set it default 600 if out out of range or null or undefined.
+   * @param { int } [speed] - The speed ranges from 200 to 40000(pixels per second).
+   *                          Set it default 600 if out of range or null or undefined.
+   *                          Throws error code 17000007 if negative.
    * @returns { Promise<boolean> }
    * @throws { BusinessError } 17000002 - The async function is not called with await.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
@@ -5442,8 +5471,9 @@ declare class Driver {
    * @param { UiDirection } direction - Direction of touchpad two fingers scroll.
    * @param { int } d - The number of cells for two fingers scroll on the touchpad.
    *                    Each cell will make the target point shift 120 pixels.
-   * @param { int } [speed] - The Speed of touchpad two fingers scroll(cells per second), ranges from 1 to 500.
+   * @param { int } [speed] - The speed ranges from 1 to 500(cells per second).
    *                          Set it default 20 if out of range or null or undefined.
+   *                          Throws error code 17000007 if negative.
    * @returns { Promise<void> }
    * @throws { BusinessError } 17000002 - The async function is not called with await.
    * @throws { BusinessError } 17000005 - This operation is not supported.
@@ -5478,8 +5508,9 @@ declare class Driver {
    * Inject multi-pointer knuckle action on the device display.
    * @param { PointerMatrix } pointers - The two-dimensional array of pointers to inject.
    *                                     The number of fingers in this method can only be 1.
-   * @param { int } [speed] - The speed of swipe (pixels per second), ranges from 200 to 40000.
+   * @param { int } [speed] - The speed ranges from 200 to 40000(pixels per second).
    *                          Set it default 600 if out of range or null or undefined.
+   *                          Throws error code 17000007 if negative.
    * @returns { Promise<void> }
    * @throws { BusinessError } 17000002 - The async function is not called with await.
    * @throws { BusinessError } 17000005 - This operation is not supported.

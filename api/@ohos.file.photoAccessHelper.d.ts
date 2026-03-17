@@ -252,6 +252,30 @@ declare namespace photoAccessHelper {
      * @since 24 static
      */
     gridLevel?: GridLevel;
+
+    /**
+     * the sort rule by the user during the last selection.
+     * The default value is empty string.
+     *
+     * @type { string }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    sortRule?: string;
+
+    /**
+     * size of the first fully visible photo in the last selection interface.
+     * the default value is 0.
+     * 
+     * @type { int }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    fileSize?: int;
   }
 
   /**
@@ -850,7 +874,17 @@ declare namespace photoAccessHelper {
      * @since 23 dynamic
      * @since 24 static
      */
-    LANDSCAPE = 16
+    LANDSCAPE = 16,
+
+    /**
+     * GAUSSIAN_SPLAT_3D indicates that images generated with 3D Gaussian splatting can be recommended
+     * 
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    GAUSSIAN_SPLAT_3D = 17
   }
 
   /**
@@ -7935,9 +7969,9 @@ declare namespace photoAccessHelper {
     isMediaDataReady(mediaDataKey: string): Promise<boolean>;
 
     /**
-     * Converts ValuesBucket records into PhotoAsset objects.
+     * Get PhotoAsset objects from ValuesBucket record info.
      *
-     * @param { ValuesBucket[] } assetsData - Array of asset records. Each element in the array contains the asset
+     * @param { ValuesBucket[] } assetsData - Array of asset records. Each element in the array contains the asset's
      *     column names and their values. The array size cannot exceed 500. Each element in the array must contain
      *     the following asset column information: file_id, data, display_name, media_type, and subtype.
      * @returns { Promise<PhotoAsset[]> } Returns an array of PhotoAsset objects (may be empty).
@@ -9944,6 +9978,17 @@ declare namespace photoAccessHelper {
      * @since 24 static
      */
     recommendationTypeList?: Array<RecommendationType>;
+
+    /**
+     * This configuration takes effect only when `RecommendationTypeList` is set.
+     * When enabled, the Picker will directly display the corresponding recommended photos upon opening.
+     * 
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    defaultRecommendationType?: RecommendationType;
   }
 
   /**
@@ -11408,6 +11453,21 @@ declare namespace photoAccessHelper {
      * @since 23 static
      */
     setHasAppLink(hasAppLink: int): void;
+
+    /**
+     * Set the AppLink state of this asset.
+     *
+     * @param { AppLinkState } appLinkState - Boomerang status of assets
+     * @throws { BusinessError } 202 - Invoked by non-system applications
+     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
+     * @throws { BusinessError } 23800151 - The scenario parameter verification fails. Possible causes:
+     *     The input parameter is not within the valid range.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    setAppLinkState(appLinkState: AppLinkState): void;
 
     /**
      * Set the AppLink info of this asset.
@@ -13865,7 +13925,7 @@ declare namespace photoAccessHelper {
      *     Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 24 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     startDownloadSpecificCloudMedia(assetUris: string[], taskSequence?: int): Promise<Map<string, CloudAssetDownloadCode>>;
 
@@ -13885,7 +13945,7 @@ declare namespace photoAccessHelper {
      *     Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 24 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     setDownloadSpecificCloudMediaNetworkPolicy(assetUris: string[], networkPolicy: CloudDownloadNetworkPolicy): Promise<void>;
 
@@ -13990,10 +14050,12 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 202 - Called by non-system application
      * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
      *     Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
+     * @throws { BusinessError } 23800151 - Scenario parameters fail to pass the verification.
+     *     Possible causes: Predicates null or undefined.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
 	 * @stagemodelonly
      * @systemapi
-     * @since 24 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     queryDownloadSpecificCloudMediaTaskCountAndSize(predicates: dataSharePredicates.DataSharePredicates): Promise<int[]>;
 
@@ -14939,6 +15001,47 @@ declare namespace photoAccessHelper {
   }
  
   /**
+   * App link state of an asset
+   *
+   * @enum { int } AppLinkState
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  enum AppLinkState {  
+    /**
+     * Unknow whether an asset has app link or not
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    DEFAULT = 0,
+    
+    /**
+     * An asset has no app link
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    HAS_NO_LINK = 1,
+
+    /**
+     * An asset has app link
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    HAS_LINK = 2
+  }
+ 
+  /**
    * Provides APIs for input Context Map.
    *
    * @interface ContextMap
@@ -15097,7 +15200,7 @@ declare namespace photoAccessHelper {
    * @enum { int } CloudDownloadNetworkPolicy
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
-   * @since 24 dynamic&static
+   * @since 26.0.0 dynamic&static
    */
   enum CloudDownloadNetworkPolicy {  
     /**
@@ -15105,7 +15208,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 24 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     DEFAULT = 0,
     /**
@@ -15113,7 +15216,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 24 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     CELL = 1,
     /**
@@ -15121,7 +15224,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 24 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     WIFI = 2
   }

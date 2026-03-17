@@ -97,7 +97,14 @@ declare class PrintExtensionAbility {
    * @since 10 dynamic
    * @since 23 static
    */
-  onStartPrintJob(jobInfo: print.PrintJob): void;
+  /**
+   * Called once to start print job.
+   * @param { print.PrintJob } jobInfo - Indicates the information of print job.
+   * @syscap SystemCapability.Print.PrintFramework
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  public onStartPrintJob(jobInfo: print.PrintJob): void;
 
   /**
    * Called once to remove the print job has been started.
@@ -109,7 +116,14 @@ declare class PrintExtensionAbility {
    * @since 10 dynamic
    * @since 23 static
    */
-  onCancelPrintJob(jobInfo: print.PrintJob): void;
+  /**
+   * Called once to remove the print job has been started.
+   * @param { print.PrintJob } jobInfo - Indicates the information of print job.
+   * @syscap SystemCapability.Print.PrintFramework
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  public onCancelPrintJob(jobInfo: print.PrintJob): void;
 
   /**
    * Called once to request the capability of the printer.
@@ -122,7 +136,15 @@ declare class PrintExtensionAbility {
    * @since 10 dynamic
    * @since 23 static
    */
-  onRequestPrinterCapability(printerId: int): print.PrinterCapability;
+  /**
+   * Called once to request the printer's capabilities.
+   * @param { int } printerId - Indicates the information of printer.
+   * @returns { print.PrinterCapability } printer capability.
+   * @syscap SystemCapability.Print.PrintFramework
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  public onRequestPrinterCapability(printerId: int): print.PrinterCapability;
 
   /**
    * Called once to request preview and send result to Print SA.

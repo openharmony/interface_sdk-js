@@ -12628,6 +12628,19 @@ declare interface MouseEvent extends BaseEvent {
    * @since 15 dynamic
    */
   pressedButtons?: MouseButton[];
+
+  /**
+   * The unique handle for the event processing session. This handle must be used for any further operations on the
+   * event. The system ensures that for a given finger, only one event with this handle can be active at a time.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 24 dynamic
+   */
+  eventHandleId?: number;
 }
 
 /**
@@ -13300,6 +13313,19 @@ declare interface TouchEvent extends BaseEvent {
    * @since 12 dynamic
    */
   preventDefault: () => void;
+
+  /**
+   * The unique handle for the event processing session. This handle must be used for any further operations on the
+   * event. The system ensures that for a given finger, only one event with this handle can be active at a time.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 24 dynamic
+   */
+  eventHandleId?: number;
 }
 
 /**
@@ -13411,6 +13437,19 @@ declare interface AxisEvent extends BaseEvent {
    * @since 17 dynamic
    */
   scrollStep?: number;
+
+  /**
+   * The unique handle for the event processing session. This handle must be used for any further operations on the
+   * event. The system ensures that for a given finger, only one event with this handle can be active at a time.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 24 dynamic
+   */
+  eventHandleId?: number;
 
   /**
    * Active event bubbling.

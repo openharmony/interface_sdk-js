@@ -345,7 +345,7 @@ declare namespace distributedKVStore {
      * @crossplatform
      * @since 24 dynamic&static
      */
-    STRING,
+    STRING = 0,
 
     /**
      * Indicates that the value type is int.
@@ -360,7 +360,7 @@ declare namespace distributedKVStore {
      * @crossplatform
      * @since 24 dynamic
      */
-    INTEGER,
+    INTEGER = 1,
 
     /**
      * Indicates that the value type is float.
@@ -375,7 +375,7 @@ declare namespace distributedKVStore {
      * @crossplatform
      * @since 24 dynamic
      */
-    FLOAT,
+    FLOAT = 2,
 
     /**
      * Indicates that the value type is byte array.
@@ -393,7 +393,7 @@ declare namespace distributedKVStore {
      * @crossplatform
      * @since 24 dynamic&static
      */
-    BYTE_ARRAY,
+    BYTE_ARRAY = 3,
 
     /**
      * Indicates that the value type is boolean.
@@ -411,7 +411,7 @@ declare namespace distributedKVStore {
      * @crossplatform
      * @since 24 dynamic&static
      */
-    BOOLEAN,
+    BOOLEAN = 4,
 
     /**
      * Indicates that the value type is double.
@@ -429,7 +429,7 @@ declare namespace distributedKVStore {
      * @crossplatform
      * @since 24 dynamic&static
      */
-    DOUBLE,
+    DOUBLE = 5,
 
     /**
      * Indicates that the value type is long.
@@ -438,7 +438,7 @@ declare namespace distributedKVStore {
      * @stagemodelonly
      * @since 23 static
      */
-    LONG
+    LONG = 6
   }
 
   /**

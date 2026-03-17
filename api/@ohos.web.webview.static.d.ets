@@ -2862,6 +2862,7 @@ declare namespace webview {
          * <br>2. Incorrect parameter types. 3.Parameter verification failed.
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
+         * @throws { BusinessError } 17100003 - Calling a JS method that returns an empty ArrayBuffer via runJavaScript.
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
@@ -2883,6 +2884,7 @@ declare namespace webview {
          * <br>2. Incorrect parameter types. 3.Parameter verification failed.
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
+         * @throws { BusinessError } 17100003 - Calling a JS method that returns an empty ArrayBuffer via runJavaScript.
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
