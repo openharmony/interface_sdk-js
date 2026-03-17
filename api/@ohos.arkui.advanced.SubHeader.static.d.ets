@@ -137,7 +137,6 @@ export declare class OperationOption {
     /**
      * Set the id for operation.
      *
-     * @type { ?string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 24 static
@@ -202,7 +201,6 @@ export declare class SelectOptions {
     /**
      * Set the id for select.
      *
-     * @type { ?string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 24 static
@@ -424,7 +422,6 @@ export declare struct SubHeader {
     /**
      * Set the id for the title.
      *
-     * @type { ?string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 24 static

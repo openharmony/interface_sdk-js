@@ -93,7 +93,6 @@ export interface SubHeaderV2TitleOptions {
   /**
    * Set the id for the title.
    *
-   * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 24 static
@@ -172,7 +171,6 @@ export declare class SubHeaderV2Title {
   /**
    * Set the id for the title.
    *
-   * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 24 static
@@ -251,7 +249,6 @@ export interface SubHeaderV2SelectOptions {
   /**
    * Set the id for the SubHeaderV2SelectOptions.
    *
-   * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 24 static
@@ -320,7 +317,7 @@ export declare class SubHeaderV2Select {
   public defaultFocus?: boolean;
   /**
    * Sets the id for SubHeaderV2SelectOptions.
-   * @type { ?string }
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 24 static
@@ -474,7 +471,6 @@ export interface SubHeaderV2OperationItemOptions {
   /**
    * Sets the id for operation item.
    *
-   * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 24 static
@@ -570,7 +566,6 @@ export declare class SubHeaderV2OperationItem {
   /**
    * Sets the id for operation item.
    *
-   * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 24 static
