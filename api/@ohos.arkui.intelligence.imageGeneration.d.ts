@@ -820,7 +820,7 @@ declare namespace imageGeneration {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
-   * @since 23 dynamic
+   * @since 24 dynamic
    */
   function closeGeneratorDialog(uiContext: UIContext): Promise<void>;
 
