@@ -5420,6 +5420,71 @@ declare namespace audio {
      */
     isIntelligentNoiseReductionEnabledForCurrentDevice(sourceType: SourceType): boolean;
 
+    /**
+     * Return if fast playback is supported for the specific audio stream info and usage type
+     *     in current device situation.
+     *
+     * @param { AudioStreamInfo } streamInfo - reference of stream info structure to describe basic audio format.
+     * @param { StreamUsage } usage - stream usage type used to decide the audio device and pipe type selection result.
+     * @returns { boolean } True if fast playback is supported in this situation.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    isFastPlaybackSupported(streamInfo: AudioStreamInfo, usage: StreamUsage): boolean;
+
+    /**
+     * Return if offload playback is supported for the specific audio stream info and usage type
+     *     in current device situation.
+     *
+     * @param { AudioStreamInfo } streamInfo - reference of stream info structure to describe basic audio format.
+     * @param { StreamUsage } usage - stream usage type used to decide the audio device and pipe type selection result.
+     * @returns { boolean } True if offload playback is supported in this situation.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    isOffloadPlaybackSupported(streamInfo: AudioStreamInfo, usage: StreamUsage): boolean;
+
+    /**
+     * Return if direct playback is supported for the specific audio stream info and usage type
+     *     in current device situation.
+     *
+     * @param { AudioStreamInfo } streamInfo - reference of stream info structure to describe basic audio format.
+     * @param { StreamUsage } usage - stream usage type used to decide the audio device and pipe type selection result.
+     * @returns { boolean } True if direct playback is supported in this situation.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    isDirectPlaybackSupported(streamInfo: AudioStreamInfo, usage: StreamUsage): boolean;
+
+    /**
+     * Return if fast recording is supported for the specific audio stream info and usage type
+     *     in current device situation.
+     *
+     * @param { AudioStreamInfo } streamInfo - reference of stream info structure to describe basic audio format.
+     * @param { SourceType } source - stream source type used to decide the audio device and pipe type selection result.
+     * @returns { boolean } True if fast recording is supported in this situation.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    isFastRecordingSupported(streamInfo: AudioStreamInfo, source: SourceType): boolean;
+
+    /**
+     * Return if multichannel playback is supported for the specific audio stream info and usage type
+     *     in current device situation.
+     *
+     * @param { AudioStreamInfo } streamInfo - reference of stream info structure to describe basic audio format.
+     * @param { StreamUsage } usage - stream usage type used to decide the audio device and pipe type selection result.
+     * @returns { boolean } True if multichannel playback is supported in this situation.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    isMultichannelPlaybackSupported(streamInfo: AudioStreamInfo, usage: StreamUsage): boolean;
+
   }
 
   /**
