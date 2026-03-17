@@ -20109,6 +20109,18 @@ declare interface ContextMenuOptions {
    * @since 23 dynamic
    */
   systemMaterial?: SystemUiMaterial;
+  /**
+   * Defines the scroll bar state of menu.
+   *
+   * @type { ?BarState }
+   * @default BarState.Auto
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+   scrollBar?: BarState;
 }
 
 /**
