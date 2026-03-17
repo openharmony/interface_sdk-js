@@ -684,7 +684,6 @@ declare namespace imageGeneration {
      */
     statistic: TaskStatistic;
   }
-
   /**
    * Custom icon object in the generation result page of ImageGeneratorDialog.
    *
@@ -725,6 +724,83 @@ declare namespace imageGeneration {
      * @since 23 dynamic
      */
     callback: Callback<GeneratorResult>;
+  }
+  /**
+   * The result of import operation for custom import icon.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  interface CustomImportResult {
+    /**
+     * Array of image items for import operation.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     */
+    images?: Array<ImageItem>;
+    /**
+     * Text content for import operation.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     */
+    content?: ResourceStr;
+  }
+
+  /**
+   * Async callback type for custom import operation.
+   *
+   * @returns { Promise<CustomImportResult> } Import images and text
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  type CustomImportCallback = () => Promise<CustomImportResult>;
+
+  /**
+   * Customize the import icon, which is used to add images and text from the application side.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  interface CustomImportIcon {
+    /**
+     * Icon image information.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     */
+    image: image.PixelMap | ResourceStr;
+    /**
+     * Icon text description.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     */
+    text: ResourceStr;
+    /**
+     * Async callback function for import operation.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     */
+    callback: CustomImportCallback;
   }
 
   /**
@@ -797,6 +873,15 @@ declare namespace imageGeneration {
      * @since 23 dynamic
      */
     onAreaDidChange?: Callback<common2D.Rect>;
+    /**
+     * The following configuration parameters are used to customize the imported icon.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     */
+    customImportIcon?: CustomImportIcon;
   }
 
   /**
@@ -823,6 +908,28 @@ declare namespace imageGeneration {
    * @since 23 dynamic
    */
   function closeGeneratorDialog(uiContext: UIContext): Promise<void>;
+  /**
+   * Hide the AI image generation task popup.
+   *
+   * @param { UIContext } uiContext The context of dialog for ui display.
+   * @returns { Promise<void> } Returns the result of hide operation.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  function hideGeneratorDialog(uiContext: UIContext): Promise<void>;
+  /**
+   * Restore the AI image generation task popup.
+   *
+   * @param { UIContext } uiContext The context of dialog for ui display.
+   * @returns { Promise<void> } Returns the result of restore operation.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  function restoreGeneratorDialog(uiContext: UIContext): Promise<void>;
 
   /**
    * Parameters used to open the NodeGraphComponent.
@@ -864,6 +971,15 @@ declare namespace imageGeneration {
      * @since 23 dynamic
      */
     textGenerationModel?: TextGenerationModel;
+    /**
+     * The following configuration parameters are used to customize the imported icon.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     */
+    customImportIcon?: CustomImportIcon;
   }
 
   /**
@@ -890,6 +1006,28 @@ declare namespace imageGeneration {
    * @since 23 dynamic
    */
   function closeGeneratorNodeGraph(uiContext: UIContext): Promise<void>;
+  /**
+   * Hide the AI node graph Sheet.
+   *
+   * @param { UIContext } uiContext The context of dialog for ui display.
+   * @returns { Promise<void> } Returns the result of hide operation.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  function hideGeneratorNodeGraph(uiContext: UIContext): Promise<void>;
+  /**
+   * Restore the AI node graph Sheet.
+   *
+   * @param { UIContext } uiContext The context of dialog for ui display.
+   * @returns { Promise<void> } Returns the result of restore operation.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  function restoreGeneratorNodeGraph(uiContext: UIContext): Promise<void>;
 }
 
 export default imageGeneration;
