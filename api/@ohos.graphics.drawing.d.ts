@@ -10473,24 +10473,12 @@ declare namespace drawing {
     /**
      * Checks whether this matrix is equal to another matrix.
      * @param { Matrix } matrix - Matrix to compare.
-     * @returns { Boolean } Returns true if the two matrices are equal; returns false otherwise.
+     * @returns { boolean } Returns true if the two matrices are equal; returns false otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    /**
-     * Checks whether this matrix is equal to another matrix.
-     * @param { Matrix } matrix - Matrix to compare.
-     * @returns { Boolean } Returns true if the two matrices are equal; returns false otherwise.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types.
-     * @syscap SystemCapability.Graphics.Drawing
-     * @crossplatform
-     * @since 20 dynamic
-     */
-    isEqual(matrix: Matrix): Boolean;
-
     /**
      * Checks whether this matrix is equal to another matrix.
      * @param { Matrix } matrix - Matrix to compare.
@@ -10498,34 +10486,11 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic
      * @since 23 static
      */
     isEqual(matrix: Matrix): boolean;
-
-    /**
-     * Inverts this matrix and returns the result.
-     * @param { Matrix } matrix - Matrix object used to store the inverted matrix.
-     * @returns { Boolean } Check result. The value true means that the matrix is revertible
-     *     and the matrix object is set to its inverse,
-     *     and false means that the matrix is not revertible and the matrix object remains unchanged.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types.
-     * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
-     */
-    /**
-     * Inverts this matrix and returns the result.
-     * @param { Matrix } matrix - Matrix object used to store the inverted matrix.
-     * @returns { Boolean } Check result. The value true means that the matrix is revertible
-     *     and the matrix object is set to its inverse,
-     *     and false means that the matrix is not revertible and the matrix object remains unchanged.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types.
-     * @syscap SystemCapability.Graphics.Drawing
-     * @crossplatform
-     * @since 20 dynamic
-     */
-    invert(matrix: Matrix): Boolean;
 
     /**
      * Inverts this matrix and returns the result.
@@ -10536,25 +10501,38 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    /**
+     * Inverts this matrix and returns the result.
+     * @param { Matrix } matrix - Matrix object used to store the inverted matrix.
+     * @returns { boolean } Check result. The value true means that the matrix is revertible
+     *     and the matrix object is set to its inverse,
+     *     and false means that the matrix is not revertible and the matrix object remains unchanged.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic
      * @since 23 static
      */
     invert(matrix: Matrix): boolean;
 
     /**
      * Checks whether this matrix is an identity matrix.
-     * @returns { Boolean } Returns true if matrix is identity; returns false otherwise.
+     * @returns { boolean } Returns true if matrix is identity; returns false otherwise.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     /**
      * Checks whether this matrix is an identity matrix.
-     * @returns { Boolean } Returns true if matrix is identity; returns false otherwise.
+     * @returns { boolean } Returns true if matrix is identity; returns false otherwise.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20 dynamic
      * @since 23 static
      */
-    isIdentity(): Boolean;
+    isIdentity(): boolean;
 
     /**
      * Obtains the value of a given index in this matrix. The index ranges from 0 to 8.
