@@ -261,7 +261,7 @@ export declare class OperationOption {
 
   /**
    * Set the id for the operation.
-   * @type { ?string }
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -420,7 +420,7 @@ export declare class SelectOptions {
 
   /**
    * Set the id for the select.
-   * @type { ?string }
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -880,12 +880,12 @@ export declare struct SubHeader {
   /**
    * Set the titleId for title.
    *
-   * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 24 dynamic
    */
-  @Prop titleId?: string;
+  @Prop
+  titleId?: string;
 }

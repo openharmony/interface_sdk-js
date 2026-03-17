@@ -94,7 +94,7 @@ export interface SubHeaderV2TitleOptions {
   titleAccessibilityText?: ResourceStr;
   /**
    * Set the id of the title.
-   * @type { ?string }
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -168,14 +168,14 @@ export declare class SubHeaderV2Title {
   /**
    * Set the id of the title.
    *
-   * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 24 dynamic
    */
-  @Trace id?: string;
+  @Trace
+  id?: string;
   /**
    * The constructor of SubHeaderV2Title
    *
@@ -281,7 +281,7 @@ export interface SubHeaderV2SelectOptions {
   defaultFocus?: boolean;
   /**
    * Set the id for the SubHeaderV2SelectOptions.
-   * @type { ?string }
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -368,14 +368,15 @@ export declare class SubHeaderV2Select {
   @Trace defaultFocus?: boolean;
   /**
    * Set the id for the SubHeaderV2Select.
-   * @type { ?string }
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 24 dynamic
    */
-  @Trace id?: string;
+  @Trace
+  id?: string;
   /**
    * The constructor of SubHeaderV2Select
    *
@@ -541,7 +542,7 @@ export interface SubHeaderV2OperationItemOptions {
   defaultFocus?: boolean;
   /**
    * Set the id for SubHeaderV2OperationItemOptions.
-   * @type { ?string }
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -641,14 +642,15 @@ export declare class SubHeaderV2OperationItem {
   @Trace defaultFocus?: boolean;
   /**
    * Set the id for SubHeaderV2OperationItem.
-   * @type { ?string }
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 24 dynamic
    */
-  @Trace id?: string;
+  @Trace
+  id?: string;
 }
 
 /**
