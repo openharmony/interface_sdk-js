@@ -2273,13 +2273,13 @@ declare namespace accessibility {
      */
     fontFamily: CaptionsFontFamily;
     /**
-     * Indicates the font scaling of captions.
+     * Indicates the font scaling of captions, in units of %.
      * @type { int }
      * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
      * @since 8 dynamic
      */
     /**
-     * Indicates the font scaling of captions.
+     * Indicates the font scaling of captions, in units of %.
      * @type { int }
      * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
      * @form
