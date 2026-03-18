@@ -11811,6 +11811,16 @@ declare namespace audio {
    */
   interface AudioCapturerMicInConfig {
     /**
+     * Stream information that describes processed audio stream.
+     *
+     * @type { AudioStreamInfo }
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    streamInfo: AudioStreamInfo;
+    /**
      * Stream information that describes Mic-In audio stream.
      *
      * @type { AudioStreamInfo }
@@ -11841,6 +11851,41 @@ declare namespace audio {
      * @since 23 dynamic&static
      */
     capturerInfo: AudioCapturerInfo;
+  }
+
+  /**
+   * Describes audio capturer data that contains processed audio data and
+   * microphone input (mic-in) audio data before any processing.
+   * @syscap SystemCapability.Multimedia.Audio.Capturer
+   * @systemapi
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  interface AudioCapturerMicInData {
+    /**
+     * Processed audio data buffer.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    data: ArrayBuffer;
+    /**
+     * Microphone input audio data buffer.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    micInData: ArrayBuffer;
+    /**
+     * Echo reference audio data buffer.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    ecData?: ArrayBuffer;
   }
 
   /**
@@ -12819,6 +12864,65 @@ declare namespace audio {
      * @since 23 static
      */
     offReadData(callback?: Callback<ArrayBuffer>): void;
+
+    /**
+     * Subscribes micIn audio data callback.
+     * The event is triggered when audio buffer is available for reading more data.
+     * @param { 'readMicInData' } type - Type of the event to listen for.
+     * @param { Callback<AudioCapturerMicInData> } callback - Callback with the buffer to read.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic
+     */
+    on(type: 'readMicInData', callback: Callback<AudioCapturerMicInData>): void;
+
+    /**
+     * Subscribes to micIn audio data callback. This callback has higher priority than 'readData' callback.
+     * If this callback and 'readData' callback are both subscribed, only this callback will be triggered.
+     * See {@link #onReadData} for more details.
+     * The event is triggered when an audio buffer is available for reading more data.
+     * @param { Callback } callback - Callback for the buffers to read.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 6800103 - Operation not permitted at running state.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    onReadMicInData(callback: Callback<AudioCapturerMicInData>): void;
+
+    /**
+     * Unsubscribes micIn audio data callback.
+     * @param { 'readMicInData' } type - Type of the event to listen for.
+     * @param { Callback<AudioCapturerMicInData> } callback - Callback used in subscribe.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic
+     */
+    off(type: 'readMicInData', callback?: Callback<AudioCapturerMicInData>): void;
+
+    /**
+     * Unsubscribes from micIn audio data callback.
+     * @param { Callback } [callback] - Callback for the buffers to read.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800103 - Operation not permitted at running state.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    offReadMicInData(callback: Callback<AudioCapturerMicInData>): void;
 
     /**
      * Sets default input device of this Capturer to DEVICE_TYPE_ACCESSORY.
