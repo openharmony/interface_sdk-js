@@ -519,6 +519,78 @@ declare namespace errorManager {
   }
 
   /**
+    * Define the resource types of the application.
+    *
+    * @enum { int }
+    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+    * @stagemodelonly
+    * @atomicservice
+    * @since 24 dynamic&static
+    */
+  export enum ResourceType {  
+ 	 
+    /**
+     * Indicates that it is an pss resource.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    PSS_MEMORY = 1,
+
+    /**
+     * Indicates that it is a ion resource.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    ION_MEMORY = 2,
+
+    /**
+     * Indicates that it is a ashmem resource.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    ASHMEM_MEMORY = 3,
+
+    /**
+     * Indicates that it is an GPU resource.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    GPU_MEMORY = 4,
+
+    /**
+     * Indicates that it is an FD resource.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    FD = 5,
+
+    /**
+     * Indicates that it is a thread resource.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    THREAD = 6
+  }
+
+  /**
    * Defines GlobalError.
    *
    * @extends Error
@@ -606,6 +678,21 @@ declare namespace errorManager {
   function setDefaultErrorHandler(defaultHandler?: ErrorHandler) : ErrorHandler;
 
   /**
+   * Set the default resource usage observer. You can use it to implement chain calls.
+   * If an empty observer is set for a certain module, it will cause the call chain to be interrupted.
+   * This API must be called on the main thread.
+   *
+   * @param { ResourceUsageObserver } [defaultObserver] - The default resource usage observer.
+   * @returns { ResourceUsageObserver } Returns the original default resource usage observer.
+   * @throws { BusinessError } 16000205 - The API is not called on the main thread.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 24 dynamic&static
+   */
+  function setDefaultResourceUsageObserver(defaultObserver?: ResourceUsageObserver): ResourceUsageObserver;
+
+  /**
    * The ErrorHandler will be called when the ArkTS runtime throws an exception that is not caught by the user.
    *
    * @typedef { function }
@@ -627,6 +714,19 @@ declare namespace errorManager {
    * @since 24 static
    */
   export type FreezeObserver = () => void;
+
+  /**
+   * The observer will be called by the system when resource usage exceed threshold.
+   *
+   * @param { ResourceType } resourceType - The type of resource.
+   * @param { long } resourceSize - The amount of resources occupied.
+   * @param { Record<string, long> } [detailInfo] - Key-value pair of the resource type and its size.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 24 dynamic&static
+   */
+  export type ResourceUsageObserver = (resourceType: ResourceType, resourceSize: long, detailInfo?: Record<string, long>) => void;
 }
 
 export default errorManager;
