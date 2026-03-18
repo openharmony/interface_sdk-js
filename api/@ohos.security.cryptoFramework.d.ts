@@ -5873,8 +5873,10 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob } signatureData - the signature data.
      * @returns { Promise<DataBlob | null> } the promise used to return the recovered data.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -5884,6 +5886,25 @@ declare namespace cryptoFramework {
      * @since 12 dynamic
      * @since 23 static
      */
+    /**
+     * Used to recover signed data.
+     * Currently, only RSA is supported.
+     *
+     * @param { DataBlob } signatureData - the signature data.
+     * @returns { Promise<DataBlob | null> } the promise used to return the recovered data.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17620004 - invalid function call.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Signature
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
     recover(signatureData: DataBlob): Promise<DataBlob | null>;
 
     /**
@@ -5891,9 +5912,11 @@ declare namespace cryptoFramework {
      * Currently, only RSA is supported.
      *
      * @param { DataBlob } signatureData - the signature data.
-     * @returns { DataBlob | null } return the recovered data.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @returns { DataBlob | null } returns the recovered data.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -5902,6 +5925,25 @@ declare namespace cryptoFramework {
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
+     */
+    /**
+     * Used to recover signed data.
+     * Currently, only RSA is supported.
+     *
+     * @param { DataBlob } signatureData - the signature data.
+     * @returns { DataBlob | null } returns the recovered data.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17620004 - invalid function call.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Signature
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
      */
     recoverSync(signatureData: DataBlob): DataBlob | null;
 
