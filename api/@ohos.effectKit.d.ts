@@ -290,6 +290,25 @@ declare namespace effectKit {
 	* @since 23 static
     */
     getEffectPixelMap(useCpuRender : boolean): Promise<image.PixelMap>;
+
+    /**
+    * Gets the PixelMap where all filter effects have been added to the image asynchronously.
+    * @returns { Promise<image.PixelMap> } - returns the PixelMap generated.
+    * @syscap SystemCapability.Multimedia.Image.Core
+    * @form
+    * @since 26 dynamic&static
+    */
+    getPixelMapAsync(): Promise<image.PixelMap>;
+
+    /**
+    * Gets the PixelMap where all filter effects have been added to the image synchronously.
+    * @param { boolean } useCpuRender - Whether to use CPU rendering.
+    * @returns { image.PixelMap } - returns the PixelMap generated.
+    * @syscap SystemCapability.Multimedia.Image.Core
+    * @form
+    * @since 26 dynamic&static
+    */
+    getEffectPixelMapSync(useCpuRender: boolean): image.PixelMap;
   }
 
   /**
@@ -555,6 +574,125 @@ declare namespace effectKit {
      * @since 23 static
      */
     isBlackOrWhiteOrGrayColor(color: long): boolean;
+
+    /**
+    * Gets the Morandi shadow color.
+    * @returns { Color } - returns the Morandi shadow color.
+    * @syscap SystemCapability.Multimedia.Image.Core
+    * @form
+    * @since 26 dynamic&static
+    */
+    getMorandiShadowColor(): Color;
+
+    /**
+    * Gets the deepen immersion color.
+    * @returns { Color } - returns the deepen immersion color.
+    * @syscap SystemCapability.Multimedia.Image.Core
+    * @form
+    * @since 26 dynamic&static
+    */
+    getDeepenImmersionColor(): Color;
+
+    /**
+    * Gets the immersive background color.
+    * @returns { Color } - returns the immersive background color.
+    * @syscap SystemCapability.Multimedia.Image.Core
+    * @form
+    * @since 26 dynamic&static
+    */
+    getImmersiveBackgroundColor(): Color;
+
+    /**
+    * Gets the immersive foreground color.
+    * @returns { Color } - returns the immersive foreground color.
+    * @syscap SystemCapability.Multimedia.Image.Core
+    * @form
+    * @since 26 dynamic&static
+    */
+    getImmersiveForegroundColor(): Color;
+
+    /**
+    * Discriminates the picture light degree.
+    * @returns { PictureLightDegree } - returns the picture light degree.
+    * @syscap SystemCapability.Multimedia.Image.Core
+    * @form
+    * @since 26 dynamic&static
+    */
+    discriminatePictureLightDegree(): PictureLightDegree;
+
+    /**
+    * Gets the reverse color.
+    * @returns { Color } - returns the reverse color.
+    * @syscap SystemCapability.Multimedia.Image.Core
+    * @form
+    * @since 26 dynamic&static
+    */
+    getReverseColor(): Color;
+  }
+
+  /**
+   * The picture light color degree.
+   * @typedef PictureLightDegree
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @form
+   * @since 26 dynamic&static
+   */
+  enum PictureLightDegree {
+    /**
+     * Unknown light color degree picture.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @form
+     * @since 26 dynamic&static
+     */
+    UNKOWN_LIGHT_COLOR_DEGREE_PICTURE = 0,
+
+    /**
+     * Extremely light color picture.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @form
+     * @since 26 dynamic&static
+     */
+    EXTREMELY_LIGHT_COLOR_PICTURE = 1,
+
+    /**
+     * Light color picture.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @form
+     * @since 26 dynamic&static
+     */
+    LIGHT_COLOR_PICTURE = 2,
+
+    /**
+     * Dark color picture.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @form
+     * @since 26 dynamic&static
+     */
+    DARK_COLOR_PICTURE = 3,
+
+    /**
+     * Extremely dark color picture.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @form
+     * @since 26 dynamic&static
+     */
+    EXTREMELY_DARK_COLOR_PICTURE = 4,
+
+    /**
+     * Flowery picture.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @form
+     * @since 26 dynamic&static
+     */
+    FLOWERY_PICTURE = 5,
+
+    /**
+     * Extremely flowery picture.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @form
+     * @since 26 dynamic&static
+     */
+    EXTREMELY_FLOWERY_PICTURE = 6,
   }
 
   /**
