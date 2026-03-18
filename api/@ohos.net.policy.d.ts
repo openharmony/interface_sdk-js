@@ -348,6 +348,25 @@ declare namespace policy {
   function setNetQuotaPolicies(quotaPolicies: Array<NetQuotaPolicy>): Promise<void>;
 
   /**
+   * Reset the specified network management policy.
+   *
+   * @permission ohos.permission.CONNECTIVITY_INTERNAL
+   * @param { string } iccid - Indicates the specified SIM that is valid when netType is cellular.
+   *     <br>Value range:(0, 1024]
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @systemapi Hidethisfor inner system use.
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function restoreAllPolicies(iccid: string): Promise<void>;
+
+  /**
    * Get metered network quota policies.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
    * @param { AsyncCallback<Array<NetQuotaPolicy>> } callback - the callback of getNetQuotaPolicies.
