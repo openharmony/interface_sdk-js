@@ -5730,7 +5730,17 @@ declare namespace audio {
      * @stagemodelonly
      * @since 24 dynamic&static
      */
-    DEFAULT = 0x00000000,
+     DEFAULT_BEHAVIOR = 0x00000000,
+
+      /**
+      * Non-privacy VoIP, allowed to be recorded.
+      *
+      * @syscap SystemCapability.Multimedia.Audio.Core
+      * @stagemodelonly
+      * @since 26.0.0 dynamic&static
+      */
+      VOIP_PRIVACY_TYPE_PUBLIC = 0x00000001,
+
     /**
      * When the audio stream is interrupted by the system, it performs a forced mute instead.
      *
