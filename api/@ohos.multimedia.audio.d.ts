@@ -12877,7 +12877,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @systemapi
      * @stagemodelonly
-     * @since 24 dynamic
+     * @since 24 dynamic&static
      */
     on(type: 'readMicInData', callback: Callback<AudioCapturerMicInData>): void;
 
@@ -12907,7 +12907,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @systemapi
      * @stagemodelonly
-     * @since 24 dynamic
+     * @since 24 dynamic&static
      */
     off(type: 'readMicInData', callback?: Callback<AudioCapturerMicInData>): void;
 
