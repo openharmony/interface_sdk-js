@@ -8065,6 +8065,28 @@ declare namespace audio {
     isHeadTrackingSupportedForDevice(deviceDescriptor: AudioDeviceDescriptor): boolean;
 
     /**
+     * Checks whether personal spatialization is supported by system.
+     * @returns { boolean } Whether spatialization is supported by system.
+     * @throws { BusinessError } 202 - Not system App.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @systemapi
+     * @since 26.0.0 dynamic&static
+     */
+    isPersonalSpatializationSupported(): boolean;
+
+    /**
+     * Checks whether personal spatialization is supported by the specified device.
+     * @param { AudioDeviceDescriptor } deviceDescriptor - Audio device description.
+     * @returns { boolean } Whether spatialization is supported by the specified device.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @systemapi
+     * @since 26.0.0 dynamic&static
+     */
+    isPersonalSpatializationSupportedForDevice(deviceDescriptor: AudioDeviceDescriptor): boolean;
+
+    /**
      * Sets the spatialization enabled or disabled. This method uses an asynchronous callback to return the result.
      * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
      * @param { boolean } enable - Spatialization enable state.
