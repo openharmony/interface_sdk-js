@@ -188,6 +188,7 @@ import dialogSession from '@ohos.app.ability.dialogSession';
 import insightIntent from '@ohos.app.ability.insightIntent';
 import insightIntentDriver from '@ohos.app.ability.insightIntentDriver';
 import insightIntentProvider from '@ohos.app.ability.insightIntentProvider';
+import { InsightIntentLink, InsightIntentPage, InsightIntentFunctionMethod, InsightIntentFunction, InsightIntentEntry, LinkParamCategory, LinkIntentParamMapping, InsightIntentForm } from '@ohos.app.ability.InsightIntentDecorator';
 import missionManager from '@ohos.app.ability.missionManager';
 import wantAgent, { WantAgent } from '@ohos.app.ability.wantAgent';
 import Ability from '@ohos.app.ability.Ability';
@@ -245,6 +246,7 @@ export {
   UIServiceExtensionAbility, CompletionHandler, AppServiceExtensionAbility, kioskManager,
   CompletionHandlerForAbilityStartCallback, AbilityStartFailureCode, StartupConfig, StartupConfigEntry, StartupListener, 
   StartupTask, startupManager, systemConfiguration, PhotoEditorExtensionAbility, AgentExtensionAbility, 
-  AgentUIExtensionAbility, agentManager
+  AgentUIExtensionAbility, agentManager, InsightIntentLink, InsightIntentPage, InsightIntentFunctionMethod, InsightIntentFunction, 
+  InsightIntentEntry, LinkParamCategory, LinkIntentParamMapping, InsightIntentForm 
 };
 /*** endif */
