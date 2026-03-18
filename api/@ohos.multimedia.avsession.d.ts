@@ -6513,6 +6513,7 @@ declare namespace avSession {
      * See {@link SkipIntervals}
      * @type { ?SkipIntervals }
      * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
     rewindSkipIntervals?: SkipIntervals;
@@ -6524,6 +6525,7 @@ declare namespace avSession {
      * See {@link SkipIntervals}
      * @type { ?SkipIntervals }
      * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
     fastForwardSkipIntervals?: SkipIntervals;
