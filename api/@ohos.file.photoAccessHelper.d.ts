@@ -9527,6 +9527,16 @@ declare namespace photoAccessHelper {
      * @since 24 dynamic&static
      */
     showDateOnScrollbar?: boolean;
+
+    /**
+     * Configuration for asset compatibility capabilities.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    assetCompatibleCapability?: AssetCompatibleCapability;
   }
 
   /**
@@ -15215,6 +15225,36 @@ declare namespace photoAccessHelper {
      * @since 23 dynamic&static
      */
     alias: string[];
+  }
+
+  /**
+   * Asset compatibility capabilities.
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 24 dynamic&static
+   */
+  interface AssetCompatibleCapability {  
+    /**
+     * Enable support for high-resolution asset.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    supportedHighResolution: boolean;
+
+    /**
+     * Supported MIME types.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    supportedMimeType: Array<string>;
   }
   
   /**
