@@ -294,7 +294,9 @@ declare namespace effectKit {
     /**
     * Gets the PixelMap where all filter effects have been added to the image asynchronously.
     * @returns { Promise<image.PixelMap> } - returns the PixelMap generated.
+    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
     * @syscap SystemCapability.Multimedia.Image.Core
+    * @systemapi
     * @form
     * @since 26 dynamic&static
     */
@@ -304,7 +306,9 @@ declare namespace effectKit {
     * Gets the PixelMap where all filter effects have been added to the image synchronously.
     * @param { boolean } useCpuRender - Whether to use CPU rendering.
     * @returns { image.PixelMap } - returns the PixelMap generated.
+    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
     * @syscap SystemCapability.Multimedia.Image.Core
+    * @systemapi
     * @form
     * @since 26 dynamic&static
     */
@@ -578,7 +582,9 @@ declare namespace effectKit {
     /**
     * Gets the Morandi shadow color from the dominant color.
     * @returns { Color } - returns the Morandi shadow color converted from the dominant color.
+    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
     * @syscap SystemCapability.Multimedia.Image.Core
+    * @systemapi
     * @form
     * @since 26 dynamic&static
     */
