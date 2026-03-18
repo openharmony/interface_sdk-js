@@ -1096,6 +1096,49 @@ export declare class FrameNode {
   isOnMainTree(): boolean;
 
   /**
+   * Create a specified number of FrameNode objects and return them.
+   *
+   * @param { UIContext } uiContext - uiContext used to create the FrameNode
+   * @param { int } count - the number of FrameNode objects to create.
+   *     Returns an empty array if count <= 0 or is not an integer.
+   * @returns { FrameNode[] } the array of created FrameNode objects.
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  static createFrameNodes(uiContext: UIContext, count: int): FrameNode[];
+
+  /**
+   * Get FrameNode by id.
+   *
+   * @param { string } id - The id of FrameNode.
+   * @returns { FrameNode | null } The first child node with the specified ID, or null if not found.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  getFrameNodeById(id: string): FrameNode | null;
+
+  /**
+   * Get FrameNode by uniqueId.
+   * Obtains the entity node, FrameNode, of a component on the component tree using its uniqueId.
+   * The return value depends on the type of component associated with the uniqueId.
+   * 1. If the uniqueId corresponds to a built-in component, the associated FrameNode is returned.
+   * 2. If the uniqueId corresponds to a custom component: If the component has rendered content, its root node is
+   * returned, with the type __Common__; if the component has no rendered content, the FrameNode of its first child
+   * component is returned.
+   * 3. If the uniqueId does not correspond to any component, null is returned.
+   *
+   * @param { int } id - The uniqueId of the FrameNode.
+   * @returns { FrameNode | null } - The FrameNode with the target uniqueId, or null if the frameNode is not existed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  getFrameNodeByUniqueId(id: int): FrameNode | null;
+
+  /**
    * Triggers node updates in the current frame.
    * 
    * When node attributes are modified after the current frame's build phase,
