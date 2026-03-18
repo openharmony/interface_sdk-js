@@ -11819,7 +11819,7 @@ declare namespace audio {
      * @stagemodelonly
      * @since 24 dynamic&static
      */
-    processStreamInfo: AudioStreamInfo;
+    processedStreamInfo?: AudioStreamInfo;
     /**
      * Stream information that describes Mic-In audio stream.
      *
