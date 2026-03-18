@@ -11819,7 +11819,7 @@ declare namespace audio {
      * @stagemodelonly
      * @since 24 dynamic&static
      */
-    streamInfo: AudioStreamInfo;
+    processStreamInfo: AudioStreamInfo;
     /**
      * Stream information that describes Mic-In audio stream.
      *
@@ -12922,7 +12922,7 @@ declare namespace audio {
      * @stagemodelonly
      * @since 24 dynamic&static
      */
-    offReadMicInData(callback: Callback<AudioCapturerMicInData>): void;
+    offReadMicInData(callback?: Callback<AudioCapturerMicInData>): void;
 
     /**
      * Sets default input device of this Capturer to DEVICE_TYPE_ACCESSORY.
