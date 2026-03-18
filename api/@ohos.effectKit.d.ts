@@ -576,8 +576,8 @@ declare namespace effectKit {
     isBlackOrWhiteOrGrayColor(color: long): boolean;
 
     /**
-    * Gets the Morandi shadow color.
-    * @returns { Color } - returns the Morandi shadow color.
+    * Gets the Morandi shadow color from the dominant color.
+    * @returns { Color } - returns the Morandi shadow color converted from the dominant color.
     * @syscap SystemCapability.Multimedia.Image.Core
     * @form
     * @since 26 dynamic&static
@@ -585,8 +585,8 @@ declare namespace effectKit {
     getMorandiShadowColor(): Color;
 
     /**
-    * Gets the deepen immersion color.
-    * @returns { Color } - returns the deepen immersion color.
+    * Generates a stronger immersion color that merges with the background color and is deeper than the background color.
+    * @returns { Color } - returns the stronger immersion color that both blends with the background and appears deeper than the background.
     * @syscap SystemCapability.Multimedia.Image.Core
     * @form
     * @since 26 dynamic&static
@@ -594,7 +594,7 @@ declare namespace effectKit {
     getDeepenImmersionColor(): Color;
 
     /**
-    * Gets the immersive background color.
+    * Generates an immersive background color that creates an immersive visual effect.
     * @returns { Color } - returns the immersive background color.
     * @syscap SystemCapability.Multimedia.Image.Core
     * @form
@@ -603,7 +603,7 @@ declare namespace effectKit {
     getImmersiveBackgroundColor(): Color;
 
     /**
-    * Gets the immersive foreground color.
+    * Generates an immersive foreground color that creates an immersive visual effect for text and content.
     * @returns { Color } - returns the immersive foreground color.
     * @syscap SystemCapability.Multimedia.Image.Core
     * @form
@@ -612,8 +612,8 @@ declare namespace effectKit {
     getImmersiveForegroundColor(): Color;
 
     /**
-    * Discriminates the picture light degree.
-    * @returns { PictureLightDegree } - returns the picture light degree.
+    * Discriminates the light and dark degree of the picture.
+    * @returns { PictureLightDegree } - returns the picture light and dark degree.
     * @syscap SystemCapability.Multimedia.Image.Core
     * @form
     * @since 26 dynamic&static
@@ -621,8 +621,10 @@ declare namespace effectKit {
     discriminatePictureLightDegree(): PictureLightDegree;
 
     /**
-    * Gets the reverse color.
-    * @returns { Color } - returns the reverse color.
+    * Gets the reverse color based on the discriminatePictureLightDegree result.
+    * When the picture light degree is EXTREMELY_LIGHT_COLOR_PICTURE, returns black color.
+    * For other picture light degree types, returns white color.
+    * @returns { Color } - returns the reverse color for UI themes or contrast calculations.
     * @syscap SystemCapability.Multimedia.Image.Core
     * @form
     * @since 26 dynamic&static
