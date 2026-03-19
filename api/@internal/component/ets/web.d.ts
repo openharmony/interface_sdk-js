@@ -456,6 +456,16 @@ type OnCameraCaptureStateChangeCallback = (event: CameraCaptureStateChangeInfo) 
 type OnMicrophoneCaptureStateChangeCallback = (event: MicrophoneCaptureStateChangeInfo) => void;
 
 /**
+ * The callback will be triggered when inputmethod is attached.
+ *
+ * @typedef { function } OnInputmethodAttachedCallback
+ * @syscap SystemCapability.Web.Webview.Core
+ * @stagemodelonly
+ * @since 26.0.0 dynamic
+ */
+type OnInputmethodAttachedCallback = () => void;
+
+/**
  * Defines the ads block details.
  *
  * @interface AdsBlockedDetails
@@ -11880,6 +11890,18 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   * @since 26.0.0 dynamic
   */
   keyboardAppearance(mode: WebKeyboardAppearanceMode): WebAttribute;
+
+  /**
+   * The callback is triggered when the inputmethod is attached to the IMF.
+   *
+   * @param { OnInputmethodAttachedCallback } callback - The triggered
+   *    callback when the inputmethod is attached to the IMF.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  onInputmethodAttached(callback: OnInputmethodAttachedCallback): WebAttribute;
 }
 
 /**
