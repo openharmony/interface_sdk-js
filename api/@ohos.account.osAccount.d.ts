@@ -2786,7 +2786,7 @@ declare namespace osAccount {
     photo: string;
 
     /**
-     * Os account create time.
+     * OS account create time, given in the form of Unix timestamp. Unit: s.
      *
      * @type { long }
      * @syscap SystemCapability.Account.OsAccount
@@ -2796,7 +2796,7 @@ declare namespace osAccount {
     createTime: long;
 
     /**
-     * The last time to log in.
+     * The last time to log in, given in the form of Unix timestamp. Unit: s.
      *
      * @type { long }
      * @syscap SystemCapability.Account.OsAccount
@@ -3419,7 +3419,7 @@ declare namespace osAccount {
     isReused?: boolean;
 
     /**
-     * Indicates the validity period of the authorization.
+     * Indicates the validity period of the authorization. Unit: s.
      *
      * @type { ?int }
      * @syscap SystemCapability.Account.OsAccount
@@ -4247,7 +4247,7 @@ declare namespace osAccount {
     remainTimes: int;
 
     /**
-     * Indicates the freezing time before performing the next authentication.
+     * Indicates the freezing time before performing the next authentication. Unit: ms.
      *
      * @type { int }
      * @syscap SystemCapability.Account.OsAccount
@@ -6574,7 +6574,7 @@ declare namespace osAccount {
     remainTimes?: int;
 
     /**
-     * Indicates the freezing times.
+     * Indicates the freezing times. Unit: ms.
      *
      * @type { ?int }
      * @syscap SystemCapability.Account.OsAccount
@@ -6585,7 +6585,7 @@ declare namespace osAccount {
     freezingTime?: int;
 
     /**
-     * Indicates next phase freezing time.
+     * Indicates next phase freezing time. Unit: ms.
      *
      * @type { ?int }
      * @syscap SystemCapability.Account.OsAccount
@@ -6662,7 +6662,7 @@ declare namespace osAccount {
     remainTimes?: int;
 
     /**
-     * Indicates the freezing times.
+     * Indicates the freezing times. Unit: ms.
      *
      * @type { ?int }
      * @syscap SystemCapability.Account.OsAccount
@@ -6673,7 +6673,7 @@ declare namespace osAccount {
     freezingTime?: int;
 
     /**
-     * Indicates next phase freezing time.
+     * Indicates next phase freezing time. Unit: ms.
      *
      * @type { ?int }
      * @syscap SystemCapability.Account.OsAccount
@@ -6706,7 +6706,7 @@ declare namespace osAccount {
     accountId?: int;
 
     /**
-     * Indicates the validity period after which the PIN will expire.
+     * Indicates the validity period after which the PIN will expire. Unit: ms.
      *
      * @type { ?long }
      * @syscap SystemCapability.Account.OsAccount
@@ -6869,7 +6869,7 @@ declare namespace osAccount {
     isAbandoned?: boolean;
 
     /**
-     * Indicates the validity period.
+     * Indicates the validity period. Unit: ms.
      *
      * @type { ?long }
      * @syscap SystemCapability.Account.OsAccount
