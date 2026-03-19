@@ -11811,7 +11811,7 @@ declare namespace audio {
    */
   interface AudioCapturerMicInConfig {
     /**
-     * Stream information that describes processed audio stream.
+     * Stream information that describes the processed audio stream.
      *
      * @type { AudioStreamInfo }
      * @syscap SystemCapability.Multimedia.Audio.Capturer
@@ -11856,6 +11856,7 @@ declare namespace audio {
   /**
    * Describes audio capturer data that contains processed audio data and
    * microphone input (mic-in) audio data before any processing.
+   * 
    * @syscap SystemCapability.Multimedia.Audio.Capturer
    * @systemapi
    * @stagemodelonly
@@ -11864,6 +11865,7 @@ declare namespace audio {
   interface AudioCapturerMicInData {
     /**
      * Processed audio data buffer.
+     * 
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @systemapi
      * @stagemodelonly
@@ -11872,6 +11874,7 @@ declare namespace audio {
     data: ArrayBuffer;
     /**
      * Microphone input audio data buffer.
+     * 
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @systemapi
      * @stagemodelonly
@@ -11880,6 +11883,9 @@ declare namespace audio {
     micInData: ArrayBuffer;
     /**
      * Echo reference audio data buffer.
+     * If capturer config does not set ecStreamInfo, this buffer will be null.
+     * See {@link #AudioCapturerMicInConfig} for details.
+     * 
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @systemapi
      * @stagemodelonly
@@ -12870,7 +12876,8 @@ declare namespace audio {
      * If this callback and 'readData' callback are both subscribed, only this callback will be triggered.
      * See {@link #onReadData} for more details.
      * The event is triggered when an audio buffer is available for reading more data.
-     * @param { Callback } callback - Callback for the buffers to read.
+     * 
+     * @param { Callback<AudioCapturerMicInData> } callback - Callback for the buffers to read.
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @throws { BusinessError } 6800103 - Operation not permitted at running state.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
@@ -12882,7 +12889,8 @@ declare namespace audio {
 
     /**
      * Unsubscribes from micIn audio data callback.
-     * @param { Callback } [callback] - Callback for the buffers to read.
+     * 
+     * @param { Callback<AudioCapturerMicInData> } [callback] - Callback for the buffers to read.
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @throws { BusinessError } 6800103 - Operation not permitted at running state.
