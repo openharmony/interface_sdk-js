@@ -809,6 +809,29 @@ declare namespace connection {
   function setAppNet(netHandle: NetHandle): Promise<void>;
 
   /**
+   * Set a specific interface up.
+   *
+   * @permission ohos.permission.CONNECTIVITY_INTERNAL
+   * @param { string } ifaceName - the name of the interface to set up.
+   *     <br>Value range:(0,1024]
+   *     <br>Name of the actual network adapter to be started
+   *     If the network adapter exists, try to up the network adapter.
+   *     If the network adapter does not exist or does not meet the up condition, the network adapter fails to be up.
+   *     The network adapter exists in the kernel, and the network adapter meets the up condition.
+   *     None
+   *     None
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @systemapi Hidethisfor inner system use. Only used for system app.
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function setInterfaceUp(ifaceName: string): Promise<void>;
+
+  /**
    * Obtains the default {@link HttpProxy} proxy settings.
    *
    * If an application level proxy is set, the application level proxy parameters are returned.
