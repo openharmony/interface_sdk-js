@@ -3937,6 +3937,16 @@ declare namespace text {
      * @since 23 dynamic&static
      */
     fallbackLineSpacing?: boolean;
+
+    /**
+     * Whether to enable orphan char optimization.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    orphanCharOptimization?: boolean;
   }
 
   /**
