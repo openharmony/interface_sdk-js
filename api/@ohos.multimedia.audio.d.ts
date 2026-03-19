@@ -12866,22 +12866,6 @@ declare namespace audio {
     offReadData(callback?: Callback<ArrayBuffer>): void;
 
     /**
-     * Subscribes micIn audio data callback.
-     * The event is triggered when audio buffer is available for reading more data.
-     * @param { 'readMicInData' } type - Type of the event to listen for.
-     * @param { Callback<AudioCapturerMicInData> } callback - Callback with the buffer to read.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *                                 1.Mandatory parameters are left unspecified;
-     *                                 2.Incorrect parameter types.
-     * @throws { BusinessError } 6800101 - Parameter verification failed.
-     * @syscap SystemCapability.Multimedia.Audio.Capturer
-     * @systemapi
-     * @stagemodelonly
-     * @since 24 dynamic&static
-     */
-    on(type: 'readMicInData', callback: Callback<AudioCapturerMicInData>): void;
-
-    /**
      * Subscribes to micIn audio data callback. This callback has higher priority than 'readData' callback.
      * If this callback and 'readData' callback are both subscribed, only this callback will be triggered.
      * See {@link #onReadData} for more details.
@@ -12895,21 +12879,6 @@ declare namespace audio {
      * @since 24 dynamic&static
      */
     onReadMicInData(callback: Callback<AudioCapturerMicInData>): void;
-
-    /**
-     * Unsubscribes micIn audio data callback.
-     * @param { 'readMicInData' } type - Type of the event to listen for.
-     * @param { Callback<AudioCapturerMicInData> } callback - Callback used in subscribe.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *                                 1.Mandatory parameters are left unspecified;
-     *                                 2.Incorrect parameter types.
-     * @throws { BusinessError } 6800101 - Parameter verification failed.
-     * @syscap SystemCapability.Multimedia.Audio.Capturer
-     * @systemapi
-     * @stagemodelonly
-     * @since 24 dynamic&static
-     */
-    off(type: 'readMicInData', callback?: Callback<AudioCapturerMicInData>): void;
 
     /**
      * Unsubscribes from micIn audio data callback.
