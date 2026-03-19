@@ -507,6 +507,27 @@ declare namespace deviceInfo {
    */
   const sdkApiVersion: number;
 
+  /** 
+   * Obtains the SDK Minor api version. 
+   * 
+   * @syscap SystemCapability.Startup.SystemInfo 
+   * @crossplatform 
+   * @atomicservice 
+   * @since 20 dynamic
+   */ 
+   const sdkMinorApiVersion: number; 
+ 
+ 
+   /** 
+    * Obtains the SDK Patch api version. 
+    * 
+    * @syscap SystemCapability.Startup.SystemInfo 
+    * @crossplatform 
+    * @atomicservice 
+    * @since 20 dynamic
+    */ 
+   const sdkPatchApiVersion: number;
+
   /**
    * Obtains the first API version number.
    *
@@ -767,6 +788,43 @@ declare namespace deviceInfo {
      * @since 21 dynamic
      */
     const bootCount: number;
+
+    /**
+    * Checks whether the specified API version is available on the current device.
+    *
+    * This function provides compatibility checking across different OpenHarmony/Distribution
+    * OS versions. It automatically selects the appropriate version checking
+    * method based on the input format and API version range.
+    *
+    * @param version - The API version to check. Accepts multiple formats:
+    *     - String format with dots (e.g., "26.0.0", "5.0.1"):
+    *     - For API 26+ (version >= 26.0.0): Represents both OpenHarmony and Distribution OS API versions
+    *     - For API 26- (version < 26.0.0): Represents Distribution OS API version
+    *     - Number format (e.g., 13): Represents OpenHarmony SDK API version (API 26- only)
+    * @returns { boolean } Returns `true` if the specified API version is available on the
+    *     current device, `false` otherwise.
+    * @versionCheckingRules The function uses the following logic:
+    *   - API 26+ (versionCode >= 260000): Calls the implementation via `CheckApiVersionGreaterOrEqual`.
+    *   - API 26- with dot notation (e.g., "5.0.1"): Checks against `deviceInfo.distributionOSApiVersion`
+    *     for HarmonyOS distribution compatibility.
+    *   - API 26- with pure number (e.g., 13): Checks against `deviceInfo.sdkApiVersion`
+    *     for OpenHarmony SDK compatibility.
+    * @syscap SystemCapability.Startup.SystemInfo
+    * @FaAndStageModel
+    * @crossplatform
+    * @atomicservice
+    * @since 26.0.0 dynamiconly
+    * @example
+    * ```typescript
+    * // Check API 26.0.0 (String format for API 26+ represents both OpenHarmony and Distribution OS)
+    * if (apiAvailable("26.0.0"))
+    * // Check API 5.0.1 (Distribution OS version, API 26-)
+    * if (apiAvailable("5.0.1"))
+    * // Check API 13 (OpenHarmony SDK version, API 26-)
+    * if (apiAvailable(13))
+    * ```
+    */
+    function apiAvailable(version: string | number): boolean;
 }
 
 export default deviceInfo;
