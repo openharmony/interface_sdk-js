@@ -8852,8 +8852,6 @@ declare namespace photoAccessHelper {
     uri: string;
   }
 
-  
-
   /**
    * Enumeration types of data change.
    *
