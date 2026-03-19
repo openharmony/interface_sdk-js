@@ -2173,6 +2173,56 @@ declare interface InputTextMode {
 }
 
 /**
+ * Common options for touch operations.
+ *
+ * @typedef TouchOptions
+ * @syscap SystemCapability.Test.UiTest
+ * @FaAndStageModel
+ * @atomicservice
+ * @since 26.0.0 dynamic&static
+ * @test
+ */
+declare interface TouchOptions {
+    /**
+     * Speed of the operation (pixels per second), the value ranges from 200 to 40000.
+     * Set to default 600 if out of range or null or undefined.
+     * Throws 17000007 if negative.
+     * 
+     * @type { ?int }
+     * @syscap SystemCapability.Test.UiTest
+     * @FaAndStageModel
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     * @test
+     */
+    speed?: int;
+    /**
+     * Duration of the operation in milliseconds, the minimum and default values are 1500.
+     * Throws 17000007 if the value is less than 1500. Use the default value when it is null or undefined. 
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Test.UiTest
+     * @FaAndStageModel
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     * @test
+     */
+    duration?: int;
+    /**
+     * The pressure of the touch, the value ranges from 0 to 1, default is 1.
+     * Throws 17000007 if the value is out of range. Use the default value when it is null or undefined. 
+     *
+     * @type { ?double }
+     * @syscap SystemCapability.Test.UiTest
+     * @FaAndStageModel
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     * @test
+     */
+    pressure?: double;
+}
+
+/**
  * Describes the attribute requirements for the target Components.
  *
  * @syscap SystemCapability.Test.UiTest
@@ -4476,6 +4526,25 @@ declare class Driver {
   clickAt(point: Point): Promise<void>;
 
   /**
+   * Click on the specified location on the screen, with optional touch options.
+   *
+   * @param { Point } point - the coordinate point where the finger touches the screen.
+   * @param { TouchOptions } [options] - the options for the click operation.
+   *                                     Only the 'pressure' property is applicable for this method.
+   *                                     Setting other properties will result in a BusinessError 17000007.
+   *                                     Default value: Refer to the default value of TouchOptions.
+   * @returns { Promise<void> }
+   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000007 - Parameter verification failed.
+   * @syscap SystemCapability.Test.UiTest
+   * @FaAndStageModel
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   * @test
+   */
+  clickAt(point: Point, options?: TouchOptions): Promise<void>;
+
+  /**
    * DoubleClick on the specified location on the screen.
    *
    * @param { Point } point - the coordinate point where the finger touches the screen.
@@ -4505,6 +4574,25 @@ declare class Driver {
    * @test
    */
   longClickAt(point: Point, duration?: int): Promise<void>;
+
+  /**
+   * LongClick on the specified location on the screen, with optional touch settings.
+   *
+   * @param { Point } point - the coordinate point where the finger touches the screen.
+   * @param { TouchOptions } [options] - the options for the long click operation. 
+   *                                     Only the 'duration' and 'pressure' properties are applicable for this method.
+   *                                     Setting other properties will result in a BusinessError 17000007.
+   *                                     Default value: Refer to the default value of TouchOptions.
+   * @returns { Promise<void> }
+   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000007 - Parameter verification failed.
+   * @syscap SystemCapability.Test.UiTest
+   * @FaAndStageModel
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   * @test
+   */
+  longClickAt(point: Point, options?: TouchOptions): Promise<void>;
   
   /**
    * Swipe on the screen between the specified points.
@@ -4526,6 +4614,26 @@ declare class Driver {
   swipeBetween(from: Point, to: Point, speed?: int): Promise<void>;
 
   /**
+   * Swipe on the screen between the specified points with optional touch options.
+   *
+   * @param { Point } from - the coordinate point where the finger touches the screen.
+   * @param { Point } to - the coordinate point where the finger leaves the screen.
+   * @param { TouchOptions } [options] - the options for the swipe operation.
+   *                                     Only the 'speed' and 'pressure' properties are applicable for this method.
+   *                                     Setting other properties will result in a BusinessError 17000007.
+   *                                     Default value: Refer to the default value of TouchOptions.
+   * @returns { Promise<void> }
+   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000007 - Parameter verification failed.
+   * @syscap SystemCapability.Test.UiTest
+   * @FaAndStageModel
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   * @test
+   */
+  swipeBetween(from: Point, to: Point, options?: TouchOptions): Promise<void>;
+
+  /**
    * Drag on the screen between the specified points.
    *
    * @param { Point } from - the coordinate point where the finger touches the screen.
@@ -4545,6 +4653,26 @@ declare class Driver {
    * @test
    */
   dragBetween(from: Point, to: Point, speed?: int, duration?: int): Promise<void>;
+
+  /**
+   * Drag on the screen between the specified points with optional touch options.
+   *
+   * @param { Point } from - the coordinate point where the finger touches the screen.
+   * @param { Point } to - the coordinate point where the finger leaves the screen.
+   * @param { TouchOptions } [options] - the options for the drag operation.
+   *                                     Only the 'pressure', 'speed', and 'duration' properties are applicable for this method.
+   *                                     Setting other properties will result in a BusinessError 17000007.
+   *                                     Default value: Refer to the default value of TouchOptions.
+   * @returns { Promise<void> }
+   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000007 - Parameter verification failed.
+   * @syscap SystemCapability.Test.UiTest
+   * @FaAndStageModel
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   * @test
+   */
+  dragBetween(from: Point, to: Point, options?: TouchOptions): Promise<void>;
 
   /**
    * Capture current screen and save as picture which PNG format.
@@ -6320,5 +6448,6 @@ export {
   WindowChangeType,
   ComponentEventType,
   WindowChangeOptions,
-  ComponentEventOptions
+  ComponentEventOptions,
+  TouchOptions
 };
