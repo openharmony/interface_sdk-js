@@ -2659,6 +2659,36 @@ declare namespace drawing {
      * @since 23 dynamic&static
      */
     toggleInverseFillType(): void;
+
+    /**
+     * Gets the last point of the path.
+     * 
+     * @returns { common2D.Point } Returns the last point of the path.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     */
+    getLastPoint(): common2D.Point;
+
+    /**
+     * Gets the last point of the path.
+     * 
+     * @returns { common2D.Point | undefined } Returns the last point of the path, or undefined if the path is empty.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    getLastPoint(): common2D.Point | undefined;
+
+    /**
+     * Checks if two paths are equal.
+     * @param { Path } path - Another Path object to compare.
+     * @returns { boolean } Returns true if the two paths are equal, otherwise returns false.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    isEqual(path: Path): boolean;
   }
 
   /**
