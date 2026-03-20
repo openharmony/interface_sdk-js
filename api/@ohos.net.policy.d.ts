@@ -656,6 +656,19 @@ declare namespace policy {
   function getNetworkAccessPolicy(): Promise<UidNetworkAccessPolicy>;
 
   /**
+   * Query the network access policy of the calling application.
+   *
+   * @returns { Promise<NetAccessPolicy> } Returns the network access policy of the application.
+   *     For details, see {@link NetAccessPolicy}.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
+   * @throws { BusinessError } 2100003 - System internal error, such as nullptr。
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function getNetAccessPolicy(): Promise<NetAccessPolicy>;
+
+  /**
    * Register uid policy change listener.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
    * @param { 'netUidPolicyChange' } type - Indicates Event name.
@@ -1312,6 +1325,32 @@ declare namespace policy {
     * @since 18 dynamic
     */
     alwaysAllowCellular?: boolean;
+  }
+
+  /**
+   * Network policies that limit the specified UID of application to access the network.
+   *
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export interface NetAccessPolicy {  
+    /**
+     * Indicate whether the application can be allowed to access the network by wifi.
+     *
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    allowWiFi: boolean;
+    /**
+     * Indicate whether the application can be allowed to access the network by cellular.
+     *
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    allowCellular: boolean;
   }
 
   /**
