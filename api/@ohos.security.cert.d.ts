@@ -4850,6 +4850,20 @@ declare namespace cert {
      * @since 23 static
      */
     publicKeyAlgID?: string;
+
+    /**
+     * The public key corresponding to the private key must match the public key of the certificate.
+     * [Rule]
+     * null : Do not match.
+     * NOT null : match ok if the public key corresponding to the private key is equal to [publicKey of cert].
+     *
+     * @type { ?(string | Uint8Array) }
+     * @syscap SystemCapability.Security.Cert
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    privateKey?: string | Uint8Array;
   }
 
   /**
