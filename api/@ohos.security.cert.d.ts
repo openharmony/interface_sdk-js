@@ -5789,6 +5789,25 @@ declare namespace cert {
     getName(type: string): Array<string>;
 
     /**
+     * Gets distinguished name strings by type.
+     *
+     * @param { string } type - the specified type name.
+     * @param { EncodingType } encodingType - the specified encoding type.
+     * @returns { Array<string> } distinguished name strings.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
+     * @throws { BusinessError } 19020003 - parameter check failed. Possible causes:
+     * <br>1. The value of encodingType is invalid.
+     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @syscap SystemCapability.Security.Cert
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    getName(type: string, encodingType: EncodingType): Array<string>;
+
+    /**
      * Get distinguished name in der coding format.
      *
      * @returns { EncodingBlob } distinguished name encoded data.
