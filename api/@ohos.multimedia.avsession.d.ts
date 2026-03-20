@@ -2654,7 +2654,7 @@ declare namespace avSession {
      * Each playback command only supports registering one callback,
      * and the new callback will replace the previous one.
      * @param { 'fastForward' } type - Command to register 'fastForward'.
-     * @param { function } callback - Used to handle ('fastForward') command
+     * @param { function } callback - Used to handle ('fastForward') command, described by milliseconds.
      * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
      * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
@@ -2668,7 +2668,7 @@ declare namespace avSession {
     /**
      * Register fastForward command callback.
      * The application will receive forward time and {@link CommandInfo} from a controller.
-     * @param { TwoParamCallback<long, CommandInfo> } callback - Used to handle ('fastForward') command
+     * @param { TwoParamCallback<long, CommandInfo> } callback - Used to handle ('fastForward') command, described by milliseconds.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -2701,7 +2701,7 @@ declare namespace avSession {
      * Each playback command only supports registering one callback,
      * and the new callback will replace the previous one.
      * @param { 'rewind' } type - Command to register 'rewind'.
-     * @param { function } callback - Used to handle ('rewind') command
+     * @param { function } callback - Used to handle ('rewind') command, described by milliseconds.
      * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
      * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
@@ -2715,7 +2715,7 @@ declare namespace avSession {
     /**
      * Register rewind command callback.
      * The application will receive rewind time and {@link CommandInfo} from a controller.
-     * @param { TwoParamCallback<long, CommandInfo> } callback - Used to handle ('rewind') command
+     * @param { TwoParamCallback<long, CommandInfo> } callback - Used to handle ('rewind') command, described by milliseconds.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -5812,7 +5812,7 @@ declare namespace avSession {
    */
   interface MenuPosition {
     /**
-     * Coordinate x of the position of the component.
+     * Coordinate x of the position of the component, uint is vp.
      * @type { int }
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
@@ -5822,7 +5822,7 @@ declare namespace avSession {
     x: int;
 
     /**
-     * Coordinate y of the position of the component.
+     * Coordinate y of the position of the component, uint is vp.
      * @type { int }
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
@@ -5832,7 +5832,7 @@ declare namespace avSession {
     y: int;
 
     /**
-     * Component width.
+     * Component width, uint is vp.
      * @type { int }
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
@@ -5842,7 +5842,7 @@ declare namespace avSession {
     width: int;
 
     /**
-     * Component height.
+     * Component height, uint is vp.
      * @type { int }
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
@@ -6376,13 +6376,13 @@ declare namespace avSession {
     composer?: string;
 
     /**
-     * The duration of this media, used to automatically calculate playback position
+     * The duration of this media, used to automatically calculate playback position, described by milliseconds.
      * @type { ?long }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
     /**
-     * The duration of this media, used to automatically calculate playback position
+     * The duration of this media, used to automatically calculate playback position, described by milliseconds.
      * @type { ?long }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
@@ -6872,13 +6872,13 @@ declare namespace avSession {
     drmScheme?: string;
 
     /**
-     * The duration of this media
+     * The duration of this media, described by milliseconds.
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
     /**
-     * The duration of this media
+     * The duration of this media, described by milliseconds.
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
@@ -7076,13 +7076,13 @@ declare namespace avSession {
     position?: PlaybackPosition;
 
     /**
-     * The current buffered time, the maximum playable position
+     * The current buffered time, the maximum playable position, described by milliseconds.
      * @type { ?long }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
     /**
-     * The current buffered time, the maximum playable position
+     * The current buffered time, the maximum playable position, described by milliseconds.
      * @type { ?long }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
@@ -7188,7 +7188,7 @@ declare namespace avSession {
     muted?: boolean;
 
     /**
-     * The duration of this media asset.
+     * The duration of this media asset, described by milliseconds.
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 11 dynamic
@@ -7270,13 +7270,13 @@ declare namespace avSession {
    */
   interface PlaybackPosition {
     /**
-     * Elapsed time(position) of this media set by the app.
+     * Elapsed time(position) of this media set by the app, described by milliseconds.
      * @type { long }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
     /**
-     * Elapsed time(position) of this media set by the app.
+     * Elapsed time(position) of this media set by the app, described by milliseconds.
      * @type { long }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
@@ -7286,13 +7286,13 @@ declare namespace avSession {
     elapsedTime: long;
 
     /**
-     * Record the system time when elapsedTime is set.
+     * Record the system time when elapsedTime is set, described by milliseconds.
      * @type { long }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
     /**
-     * Record the system time when elapsedTime is set.
+     * Record the system time when elapsedTime is set, described by milliseconds.
      * @type { long }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
