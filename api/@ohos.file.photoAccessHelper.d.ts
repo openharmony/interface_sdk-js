@@ -15233,8 +15233,17 @@ declare namespace photoAccessHelper {
      * @since 24 dynamic&static
      */
     supportedHighResolution: boolean;
+
+    /** 
+      * Supported MIME types. 
+      * 
+      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core 
+      * @stagemodelonly 
+      * @atomicservice 
+      * @since 26.0.0 dynamic&static 
+      */ 
+    supportedMimeType: Array<string>;  
   }
-  
   /**
    * Knowledge Content class, used for geting related entity.
    *
