@@ -28,15 +28,15 @@ export declare class GesturePoint {
   /**
    * A constructor used to create a GesturePoint object.
    *
-   * @param { double } positionX - Indicates the X coordinate of point.
-   * @param { double } positionY - Indicates the Y coordinate of point.
+   * @param { double } positionX - Indicates the X coordinate of point, in units of px.
+   * @param { double } positionY - Indicates the Y coordinate of point, in units of px.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamiconly
    * @deprecated since 12
    */
   constructor(positionX: double, positionY: double);
   /**
-   * Indicates the X coordinate of point.
+   * Indicates the X coordinate of point, in units of px.
    *
    * @type { double }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
@@ -44,7 +44,7 @@ export declare class GesturePoint {
    */
   positionX: double;
   /**
-   * Indicates the Y coordinate of point.
+   * Indicates the Y coordinate of point, in units of px.
    *
    * @type { double }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
