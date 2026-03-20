@@ -328,6 +328,24 @@ declare class AbilityStage {
    * @since 23 static
    */
   onPrepareTerminationAsync(): Promise<AbilityConstant.PrepareTermination>;
+
+  /**
+   * Called when the process is launched from HyperSnap.
+   * 
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  onLaunchFromHyperSnap(): void;
+  
+  /**
+   * Called when the ability stage is about to create the first ability.
+   * 
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  onAboutToCreateAbility(): void;
 }
 
 

@@ -121,6 +121,7 @@ import systemConfiguration from '@ohos.app.ability.systemConfiguration';
 import AgentExtensionAbility from '@ohos.app.agent.AgentExtensionAbility';
 import AgentUIExtensionAbility from '@ohos.app.agent.AgentUIExtensionAbility';
 import agentManager from '@ohos.app.agent.agentManager';
+import hyperSnapManager from '@ohos.app.ability.hyperSnapManager';
 
 export {
   Ability, AbilityConstant, AbilityLifecycleCallback, AbilityStage, ActionExtensionAbility,
@@ -142,7 +143,7 @@ export {
   InsightIntentLink, InsightIntentPage, InsightIntentFunctionMethod, InsightIntentFunction, InsightIntentEntryExecutor,
   InsightIntentEntry, LinkParamCategory, CompletionHandler, AppServiceExtensionAbility, InsightIntentForm, InsightIntentEntity, kioskManager,
   CompletionHandlerForAtomicService, CompletionHandlerForAbilityStartCallback, AbilityStartFailureCode, FailureCode, InteropAbilityLifecycleCallback,
-  systemConfiguration, AgentExtensionAbility, AgentUIExtensionAbility, agentManager
+  systemConfiguration, AgentExtensionAbility, AgentUIExtensionAbility, agentManager,hyperSnapManager
 };
 
 /*** if arkts static */
@@ -228,6 +229,7 @@ import systemConfiguration from '@ohos.app.ability.systemConfiguration';
 import AgentExtensionAbility from '@ohos.app.agent.AgentExtensionAbility';
 import AgentUIExtensionAbility from '@ohos.app.agent.AgentUIExtensionAbility';
 import agentManager from '@ohos.app.agent.agentManager';
+import hyperSnapManager from '@ohos.app.ability.hyperSnapManager';
 
 export {
   appControl, bundleManager, bundleMonitor, bundleResourceManager, defaultAppManager, distributedBundleManager,
@@ -247,6 +249,6 @@ export {
   CompletionHandlerForAbilityStartCallback, AbilityStartFailureCode, StartupConfig, StartupConfigEntry, StartupListener, 
   StartupTask, startupManager, systemConfiguration, PhotoEditorExtensionAbility, AgentExtensionAbility, 
   AgentUIExtensionAbility, agentManager, InsightIntentLink, InsightIntentPage, InsightIntentFunctionMethod, InsightIntentFunction, 
-  InsightIntentEntry, LinkParamCategory, LinkIntentParamMapping, InsightIntentForm 
+  InsightIntentEntry, LinkParamCategory, LinkIntentParamMapping, InsightIntentForm, hyperSnapManager
 };
 /*** endif */
