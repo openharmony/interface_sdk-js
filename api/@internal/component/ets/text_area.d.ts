@@ -2150,6 +2150,18 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @since 24 dynamic
    */
   horizontalScrolling(enabled: Optional<boolean>): TextAreaAttribute;
+  /**
+   * Whether to avoid an orphan word on the last line of the paragraph.
+   *
+   * @param { Optional<boolean> } enabled - The default value is false,
+   *     indicates the flag whether to enable this feature.
+   * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  orphanCharOptimization(enabled: Optional<boolean>): TextAreaAttribute;
 }
 
 /**

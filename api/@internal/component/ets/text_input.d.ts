@@ -3537,6 +3537,19 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @since 23 dynamic
    */
   voiceButton(options: Optional<VoiceButtonOptions>): TextInputAttribute;
+
+  /**
+ 	 * Whether to avoid an orphan word on the last line of the paragraph.
+ 	 *
+ 	 * @param { Optional<boolean> } enabled - The default value is false,
+ 	 *     indicates the flag whether to enable this feature.
+ 	 * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
+ 	 * @syscap SystemCapability.ArkUI.ArkUI.Full
+ 	 * @crossplatform
+ 	 * @atomicservice
+ 	 * @since 26.0.0 dynamic
+ 	 */
+ 	orphanCharOptimization(enabled: Optional<boolean>): TextInputAttribute;
 }
 
 /**
