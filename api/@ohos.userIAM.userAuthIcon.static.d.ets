@@ -53,7 +53,7 @@ export declare struct UserAuthIcon {
     widgetParam: userAuth.WidgetParam;
 
     /**
-     * Set the height of the icon, width and height ratio 1:1.
+     * Set the height of the icon, width and height ratio 1:1. The unit is vp.
      *
      * @type { ?Dimension }
      * @default 64
