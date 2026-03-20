@@ -5691,6 +5691,7 @@ declare namespace audio {
      * selects the output device through system UI, the actual output device used by
      * the application may differ from the selected one. The application can obtain currently
      * active output device by subscribing to the currentOutputDeviceChanged event.
+     *
      * @param { DeviceType } deviceType - the available deviceTypes are
      *                                    SPEAKER: Built-in speaker
      *                                    DEFAULT: Restore to system default output device
