@@ -1902,7 +1902,7 @@ declare type Context = import('../api/application/Context').default;
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11 dynamiconly
+ * @since 11 dynamic
  */
 declare function postCardAction(component: Object, action: Object): void;
 
