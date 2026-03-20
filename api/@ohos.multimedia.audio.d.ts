@@ -3688,8 +3688,8 @@ declare namespace audio {
     getCollaborativeManager(): AudioCollaborativeManager;
 
     /**
-     * Obtains a device enhancement management instance.
-     * @returns { AudioDeviceEnhanceManager } Returns a instance of AudioCollaborativeManager.
+     * Obtains a device enhancement manager instance.
+     * @returns { AudioDeviceEnhanceManager } Returns an instance of audio device enhancement manager.
      * @syscap SystemCapability.Multimedia.Audio.DeviceEnhance
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
@@ -13794,7 +13794,7 @@ declare namespace audio {
   }
 
   /** 
-   * Provide enhanced audio device management capabilities.
+   * Provides enhanced audio device management capabilities.
    * 
    * @syscap SystemCapability.Multimedia.Audio.DeviceEnhance
    * @stagemodelonly
@@ -13809,14 +13809,13 @@ declare namespace audio {
      * these functions while others may not due to hardware limitations. If the system does not support
      * these enhanced routing functions, calling them will have no effect, and the system will select
      * default input/output devices for the application or audio streams instead.
-     * @returns { Promise<boolean> } Promise used to return the result. The value true means the system
-     *     supports enhanced routing functions, and false means the system does not support them.
-     * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
+     *
+     * @returns { boolean } The value true indicates that the system supports enhanced routing functions.
      * @syscap SystemCapability.Multimedia.Audio.DeviceEnhance
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    isEnhancedRoutingSupported(): Promise<boolean>;
+    isEnhancedRoutingSupported(): boolean;
 
     /**
      * Selects the output device for your application. This setting applies to all playback streams created
@@ -13829,12 +13828,13 @@ declare namespace audio {
      * device goes offline. After your application restarts or the device comes back online, your application
      * must re-issue the selection for it to take effect. If the system does not support this function, it will
      * select a default output device for your application.
-     * @param { AudioDeviceDescriptor } outputDevice - Audio device description in the array returned by
+     *
+     * @param { AudioDeviceDescriptor } outputDevice - Audio device descriptor in the array returned by
      *     {@link AudioRoutingManager.getAvailableDevices}.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 6800101 - Parameter verification failed, for example,
      *     the selected device does not exist.
-     * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
+     * @throws { BusinessError } 6800301 - Audio service error occurs, such as the service died.
      * @syscap SystemCapability.Multimedia.Audio.DeviceEnhance
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
@@ -13852,12 +13852,13 @@ declare namespace audio {
      * device goes offline. After your application restarts or the device comes back online, your application
      * must re-issue the selection for it to take effect. If the system does not support this function,
      * it will select a default input device for your application.
-     * @param { AudioDeviceDescriptor } inputDevice - Audio device description in the array returned by
+     *
+     * @param { AudioDeviceDescriptor } inputDevice - Audio device descriptor in the array returned by
      *     {@link AudioRoutingManager.getAvailableDevices}.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 6800101 - Parameter verification failed, for example,
      *     the selected device does not exist.
-     * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
+     * @throws { BusinessError } 6800301 - Audio service error occurs, such as the service died.
      * @syscap SystemCapability.Multimedia.Audio.DeviceEnhance
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
@@ -13872,13 +13873,14 @@ declare namespace audio {
      * After your application restarts or the device comes back online, your application must re-issue the
      * selection for it to take effect. If the system does not support this function, the system will select
      * a default output device for the renderer.
+     *
      * @param { AudioRenderer } renderer - The instance of AudioRenderer.
-     * @param { AudioDeviceDescriptor } outputDevice - Audio device description in the array returned by
+     * @param { AudioDeviceDescriptor } outputDevice - Audio device descriptor in the array returned by
      *     {@link AudioRoutingManager.getAvailableDevices}.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 6800101 - Parameter verification failed, for example,
      *     the selected device does not exist.
-     * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
+     * @throws { BusinessError } 6800301 - Audio service error occurs, such as the service died.
      * @syscap SystemCapability.Multimedia.Audio.DeviceEnhance
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
@@ -13893,13 +13895,14 @@ declare namespace audio {
      * After your application restarts or the device comes back online, your application must re-issue the
      * selection for it to take effect. If the system does not support this function, the system will select
      * a default input device for the capturer.
+     *
      * @param { AudioCapturer } capturer - The instance of AudioCapturer.
-     * @param { AudioDeviceDescriptor } inputDevice - Audio device description in the array returned by
+     * @param { AudioDeviceDescriptor } inputDevice - Audio device descriptor in the array returned by
      *     {@link AudioRoutingManager.getAvailableDevices}.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 6800101 - Parameter verification failed, for example,
      *     the selected device does not exist.
-     * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
+     * @throws { BusinessError } 6800301 - Audio service error occurs, such as the service died.
      * @syscap SystemCapability.Multimedia.Audio.DeviceEnhance
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
