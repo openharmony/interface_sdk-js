@@ -8692,6 +8692,19 @@ declare namespace audio {
     isCollaborativePlaybackSupported(): boolean;
 
     /**
+     * Checks whether the collaborative playback is supported for the specified device.
+     * 
+     * @param { AudioDeviceDescriptor } deviceDescriptor - Audio device descriptor to check.
+     * @returns { boolean } Whether the collaborative playback is supported for the specified device.
+     * @throws { BusinessError } 202 - Not system application.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    isCollaborativePlaybackSupportedForDevice(deviceDescriptor: AudioDeviceDescriptor): boolean;
+
+    /**
      * Enables or disables collaborative playback for the specified device.
      * Currently, only A2DP audio devices support collaborative playback.
      * If the system is using the specified device for audio output,
