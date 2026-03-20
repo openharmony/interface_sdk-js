@@ -8849,7 +8849,6 @@ declare namespace audio {
 
   /**
    * Describe system volume filter.
-   * @typedef SystemVolumeFilter
    * @syscap SystemCapability.Multimedia.Audio.Volume
    * @systemapi
    * @stagemodelonly
@@ -8857,8 +8856,7 @@ declare namespace audio {
    */
   interface SystemVolumeFilter {
     /**
-     * Application uid.
-     * @type { int }
+     * Application UID.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
      * @stagemodelonly
