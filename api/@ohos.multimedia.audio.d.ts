@@ -6015,7 +6015,18 @@ declare namespace audio {
      * @since 20 dynamic
      * @since 23 static
      */
-    setAudioSessionScene(scene: AudioSessionScene): void;
+     setAudioSessionScene(scene: AudioSessionScene): void;
+
+    /**
+     * Set mute hint for all capturer streams in the current audio session. It dose not mute the recording
+     * stream, only affects internal processing strategy.
+     * @param { boolean } mute - Use true if application recording stream muted by application if self.
+     * @throws { BusinessError } 6800103 - Operation not permit at current state, there is no audio capturer running.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    setCapturerMuteHint(mute: boolean): Promise<void>;
 
     /**
      * Listens for audio session state change event. When the audio session state change,
@@ -12459,6 +12470,18 @@ declare namespace audio {
      * @since 23 static
      */
     setWillMuteWhenInterrupted(muteWhenInterrupted: boolean): Promise<void>;
+
+    /**
+     * Set mute hint for this capturer, this method is used as a hint for power optimization
+     * it does not mute the recording stream, only affects internal processing strategy.
+     * @param { boolean } mute - Use true if application recording stream muted by application if self.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 6800103 - Operation not permitted at current state, stream is not running.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    setMuteHint(mute: boolean): Promise<void>;
 
     /**
      * Subscribes to mark reached events. When the number of frames captured reaches the value of the frame parameter,
