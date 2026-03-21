@@ -1411,6 +1411,20 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   onCopy(callback: (value: string) => void): TextAttribute;
 
   /**
+   * Called before using the Clipboard copy menu.
+   * Currently, only text can be copied.
+   *
+   * @param { Callback<string, boolean> } callback - Callback used to check whether copy is allowed.
+   * @returns { TextAttribute } The attribute of the text.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  onWillCopy(callback: Callback<string, boolean>): TextAttribute;
+
+  /**
    * Text selection is achieved by specifying the start and end positions of the text.
    *
    * <p><strong>NOTE</strong>:
