@@ -8010,12 +8010,12 @@ declare namespace photoAccessHelper {
      * You can obtain compatibility capabilities and determine whether to
      * perform compatibility conversion based on the compatibility capabilities.
      *
-     * @param { long } tokenId - TokenId of the application.
+     * @param { string } bundleName - Bundle name of target application.
      * @param { AssetCompatibleCapability } capability - Asset compatible Capability
      *     <br>Asset compatible Capability
      * @returns { Promise<void> } Returns void.
      * @throws { BusinessError } 202 - Called by non-system application.
-     * @throws { BusinessError } 23800151 - The scenario parameter verification fails, Invalid tokenId.
+     * @throws { BusinessError } 23800151 - The bundleName or capability is invalid.
      * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
      *     Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -8023,17 +8023,17 @@ declare namespace photoAccessHelper {
      * @stagemodelonly
      * @since 24 dynamic&static
      */
-    setAssetCompatibleCapability(tokenId: long, capability: AssetCompatibleCapability):Promise<void>;
+    setAssetCompatibleCapability(bundleName: string, capability: AssetCompatibleCapability):Promise<void>;
 
     /**
      * Obtains the asset compatibility capability based on TokenId. When you serve a file to an application,
      * You can obtain compatibility capabilities and determine whether to 
      * perform compatibility conversion based on the compatibility capabilities.
      *
-     * @param { long } tokenId - TokenId of the application.
+     * @param { string } bundleName - Bundle name of target application.
      * @returns { Promise<AssetCompatibleCapability> } Returns the specified asset compatibility capability.
      * @throws { BusinessError } 202 - Called by non-system application.
-     * @throws { BusinessError } 23800151 - The scenario parameter verification fails, Invalid tokenId.
+     * @throws { BusinessError } 23800151 - The bundleName is invalid, such as null, undefined and empty.
      * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
      *     Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -8041,7 +8041,7 @@ declare namespace photoAccessHelper {
      * @stagemodelonly
      * @since 24 dynamic&static
      */
-    getAssetCompatibleCapability(tokenId: long): Promise<AssetCompatibleCapability>
+    getAssetCompatibleCapability(bundleName: string): Promise<AssetCompatibleCapability>
   }
 
   /**
@@ -15223,7 +15223,7 @@ declare namespace photoAccessHelper {
    * @atomicservice
    * @since 24 dynamic&static
    */
-  interface AssetCompatibleCapability {  
+  interface AssetCompatibleCapability {
     /**
      * Enable support for high-resolution asset.
      *
@@ -15234,17 +15234,16 @@ declare namespace photoAccessHelper {
      */
     supportedHighResolution: boolean;
 
-    /**
-     * Supported MIME types.
-     *
-     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @stagemodelonly
-     * @atomicservice
-     * @since 26.0.0 dynamic&static
-     */
-    supportedMimeType: Array<string>;
+    /** 
+      * Supported MIME types. 
+      * 
+      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core 
+      * @stagemodelonly 
+      * @atomicservice 
+      * @since 26.0.0 dynamic&static 
+      */ 
+    supportedMimeType: Array<string>;  
   }
-  
   /**
    * Knowledge Content class, used for geting related entity.
    *
