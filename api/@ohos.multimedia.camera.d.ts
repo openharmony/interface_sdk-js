@@ -1865,7 +1865,18 @@ declare namespace camera {
      * @since 12 dynamic
      * @since 23 static
      */
-    createDeferredPreviewOutput(profile?: Profile): PreviewOutput;
+    /**
+     * Creates a deferred PreviewOutput instance.
+     *
+     * @param { Profile } profile - Preview output profile.
+     * @returns { PreviewOutput } the PreviewOutput instance.
+     * @throws { BusinessError } 7400101 - profile is missing or incorrect.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    createDeferredPreviewOutput(profile: Profile): PreviewOutput;
 
     /**
      * Check if the device has a torch.
@@ -14590,6 +14601,15 @@ declare namespace camera {
      * @since 13 dynamic
      * @since 23 static
      */
+    /**
+     * Adds a deferred surface.
+     *
+     * @param { string } surfaceId - Surface object id used in camera photo output.
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 24 dynamic&static
+     */ 
     addDeferredSurface(surfaceId: string): void;
 
     /**
