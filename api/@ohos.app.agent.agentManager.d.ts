@@ -47,6 +47,8 @@ declare namespace agentManager {
    * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
+   * @throws { BusinessError } 16000012 - The application is controlled.
+   * @throws { BusinessError } 16000013 - The application is controlled by enterprise device management (EDM).
    * @throws { BusinessError } 16000050 - Internal error. Possible causes: 1.Connect to system service failed.
    * 2.System service failed to communicate with dependency module.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
