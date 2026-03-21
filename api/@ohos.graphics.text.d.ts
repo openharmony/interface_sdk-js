@@ -2099,6 +2099,16 @@ declare namespace text {
      * @since 26.0.0 dynamic&static
      */
     orphanCharOptimization?: boolean;
+
+    /**
+     * Whether to enable punctuation overflow.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    punctuationOverflow?: boolean;
   }
 
   /**
