@@ -67,6 +67,15 @@ declare namespace http {
   type HttpProxy = connection.HttpProxy;
 
   /**
+   * Socks5 Proxy Configuration Information.
+   *
+   * @syscap SystemCapability.Communication.NetStack
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  type Socks5Proxy = connection.Socks5Proxy;
+
+  /**
    * Creates an HTTP request task.
    * @returns { HttpRequest } the HttpRequest of the createHttp.
    * @syscap SystemCapability.Communication.NetStack
@@ -672,6 +681,16 @@ declare namespace http {
       * @since 26.0.0 dynamic&static
       */
     inactivityMs?: int;
+
+    /**
+     * Specifies the use of a SOCKS5 proxy. Note that this configuration takes precedence over usingProxy.
+     * It is recommend not to configure both simultaneously.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    usingSocks5Proxy?: Socks5Proxy;
   }
 
    /**
