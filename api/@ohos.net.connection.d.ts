@@ -2655,7 +2655,7 @@ declare namespace connection {
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @stagemodelonly
-     * [@since](https://gitcode.com/since) 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     PROXY_MODE = 1
   }
