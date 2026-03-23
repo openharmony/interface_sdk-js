@@ -2240,6 +2240,22 @@ declare namespace avSession {
     offDesktopLyricStateChanged(callback?: Callback<DesktopLyricState>): void;
 
     /**
+     * Set the background playback mode.
+     * It is recommended that you associate it with the background playback switch in the app.
+     * If not set, the default value for 'audio' session is {@link ENABLE_BACKGROUND_PLAY} and
+     * the default value for 'video' session is {@link DISENABLE_BACKGROUND_PLAY}.
+     *
+     * @param { BackgroundPlayMode } mode - Background play mode
+     * @returns { Promise<void> } void promise when executed successfully.
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    setBackgroundPlayMode(mode: BackgroundPlayMode): Promise<void>;
+
+    /**
      * Get the current session's own controller
      * @param { AsyncCallback<AVSessionController> } callback - async callback for the AVSessionController.
      * @throws { BusinessError } 6600101 - Session service exception.
@@ -8067,6 +8083,34 @@ declare namespace avSession {
      * @since 23 static
      */
     SECONDS_30 = 30,
+  }
+
+  /**
+   * Supported background play mode definitions.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.AVSession.Core
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  enum BackgroundPlayMode {
+    /**
+     * Enable background playback
+     *
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    ENABLE_BACKGROUND_PLAY = 0,
+
+    /**
+     * Disable background playback
+     *
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    DISABLE_BACKGROUND_PLAY = 1
   }
 
   /**
