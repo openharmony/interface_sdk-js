@@ -884,6 +884,22 @@ declare namespace inputMethod {
      * @since 23 static
      */
     offImeHide(callback?: Callback<Array<InputWindowInfo>>): void;
+
+    /**
+     * <p>Get the default input method ability.</p>
+     * <p>To optimize performance, only the 'name' and 'id' properties which can uniquely identify an input method ability
+     *  are included in the returned InputMethodProperty object.</p>
+     *
+     * @returns { InputMethodProperty } property of the default input method.Only contains 'name' and 'id' properties.
+     * @throws { BusinessError } 202 - not system application.
+     * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
+     *     a system error, such as null pointer, IPC exception.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    getDefaultInputMethodAbility(): InputMethodProperty;
   }
 
   /**
