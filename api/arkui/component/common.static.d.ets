@@ -6833,6 +6833,16 @@ export declare interface StateStyles {
      * @since 23 static
      */
     selected?: CustomStyles;
+
+    /**
+     * Defines hovered state styles.
+     *
+     * @type { ?CustomStyles }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    hovered?: CustomStyles;
 }
 /**
  * Defines the options of popup message.
@@ -9071,6 +9081,16 @@ export declare interface AttributeModifier<T> {
    * @since 23 static
    */
   default applySelectedAttribute(instance: T) : void;
+
+  /**
+   * Defines the function that updates the hovered attribute.
+   *
+   * @param { T } instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  default applyHoveredAttribute(instance: T) : void;
 
   /**
    * Specifies the states to be monitored.
