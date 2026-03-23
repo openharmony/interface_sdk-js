@@ -2567,6 +2567,36 @@ declare namespace drawing {
     convertToSvgString(): string;
 
     /**
+     * Gets path point data.
+     *
+     * @returns { Array<common2D.Point> } path points array.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    getPointData(): Array<common2D.Point>;
+
+     /**
+     * Gets path verb data.
+     *
+     * @returns { Array<PathIteratorVerb> } path verbs array.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    getVerbData(): Array<PathIteratorVerb>;
+
+     /**
+     * Gets path conic weight data.
+     *
+     * @returns { Array<double> } path conic weight array.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    getConicWeightData(): Array<double>;
+
+    /**
      * Get pathIterator from path.
      *
      * @returns { PathIterator } Indicates the pointer to an pathIterator object.
