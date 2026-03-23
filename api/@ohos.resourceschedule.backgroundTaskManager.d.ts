@@ -239,6 +239,7 @@ declare namespace backgroundTaskManager {
     requestId: int;
     /**
      * The actual delay duration (ms).
+     * <br>Unit:ms
      *
      * @type { int }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
@@ -671,6 +672,7 @@ declare namespace backgroundTaskManager {
     resourceTypes: int;
     /**
      * The duration that the resource can be used most.
+     * <br>Unit:ms
      *
      * @type { int }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
@@ -763,6 +765,7 @@ declare namespace backgroundTaskManager {
 
   /**
    * Obtains the remaining time before an application enters the suspended state.
+   *    <br>Unit:ms
    *
    * @param { int } requestId - The identifier of the delay request.
    * @param { AsyncCallback<int> } callback - The callback of the remaining delay time.
@@ -783,6 +786,7 @@ declare namespace backgroundTaskManager {
 
   /**
    * Obtains the remaining time before an application enters the suspended state.
+   *    <br>Unit:ms
    *
    * @param { int } requestId - The identifier of the delay request.
    * @returns { Promise<int> } The promise returns the remaining delay time.
@@ -2002,6 +2006,7 @@ declare namespace backgroundTaskManager {
 
     /**
      * The duration that the resource can be used most.
+     * <br>Unit:ms
      *
      * @type { int }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
