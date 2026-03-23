@@ -11188,7 +11188,17 @@ export declare interface CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
      */
-    default overlay<T extends Object>(value: string | CustomBuilder | ComponentContent<T> | undefined, options?: OverlayOptions): this;
+    /**
+     * Add mask text to the current component. The layout is the same as that of the current component.
+     *
+     * @param { string | CustomBuilder | ComponentContent<Object> | undefined } value
+     * @param { OverlayOptions } [options]
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default overlay(value: string | CustomBuilder | ComponentContent<Object> | undefined, options?: OverlayOptions): this;
     /**
      * Linear Gradient
      * angle: Angle of Linear Gradient. The default value is 180;
