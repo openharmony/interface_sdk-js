@@ -7491,6 +7491,15 @@ declare namespace huks {
      * @since 23
      */
     HUKS_TAG_KEY_ACCESS_GROUP = HuksTagType.HUKS_TAG_TYPE_BYTES | 523,
+    /**
+     * The tag indicates the additional authenticated data for GCM or CCM modes.
+     *
+     * @syscap SystemCapability.Security.Huks.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24
+     */
+    HUKS_TAG_AAD = HuksTagType.HUKS_TAG_TYPE_BYTES | 527,
 
     /*
      * Other reserved TAG: 601 - 1000
