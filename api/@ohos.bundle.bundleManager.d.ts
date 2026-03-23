@@ -2921,7 +2921,7 @@ declare namespace bundleManager {
   function cleanBundleCacheFilesForSelf(): Promise<void>;
 
   /**
-   * Get the all bundle cache size of the current user.
+   * Get the all bundle cache size of the current user,the unit is bytes.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @returns { Promise<long> } Returns all bundle cache size.
