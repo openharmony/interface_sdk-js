@@ -675,6 +675,7 @@ declare namespace reminderAgentManager {
 
     /**
      * Ringing duration.
+     * <br> Unit:s
      *
      * @type { ?long }
      * @syscap SystemCapability.Notification.ReminderAgent
@@ -705,6 +706,7 @@ declare namespace reminderAgentManager {
 
     /**
      * Reminder snooze interval.
+     * <br> Unit:s
      *
      * @type { ?long }
      * @syscap SystemCapability.Notification.ReminderAgent
@@ -835,6 +837,7 @@ declare namespace reminderAgentManager {
 
     /**
      * Time when the notification is automatically cleared.
+     * <br> Unit:ms
      *
      * @type { ?long }
      * @syscap SystemCapability.Notification.ReminderAgent
@@ -1012,6 +1015,7 @@ declare namespace reminderAgentManager {
   interface ReminderRequestTimer extends ReminderRequest {
     /**
      * The number of seconds to count down.
+     * <br> Unit:s
      *
      * @type { long }
      * @syscap SystemCapability.Notification.ReminderAgent
