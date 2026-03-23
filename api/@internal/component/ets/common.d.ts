@@ -26044,6 +26044,21 @@ declare class CommonMethod<T> {
    */
   onAreaChange(event: (oldValue: Area, newValue: Area) => void): T;
 
+    /**
+   * This callback is triggered when the size or position of this component has finished changing.
+   * The interval between two area change callbacks will not be less than the expected update interval.
+   *
+   * @param { AreaChangeCallback } event - Callback invoked when the area of the component changes.
+   * @param { AreaChangeOptions } [options] - The options for the area change event.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  onAreaChange(event: AreaChangeCallback, options?: AreaChangeOptions): T;
+
   /**
    * Controls the display or hide of the current component.
    *
@@ -31048,6 +31063,46 @@ declare interface LayoutInfo {
    */
   constraint: ConstraintSizeOptions,
 }
+
+/**
+ * Defines the options for the AreaChangeEvent.
+ * 
+ * @typedef AreaChangeOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare interface AreaChangeOptions {
+
+  /**
+   * The value of expectedUpdateInterval indicates the desired update interval (ms).
+   * 
+   * @type { ?int }
+   * @default 1000
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  expectedUpdateInterval?: int;
+  }
+
+/**
+ * Defines the callback type for area change events.
+ * 
+ * @typedef { function } AreaChangeCallback
+ * @param { Area } oldValue - Component area information before the change.
+ * @param { Area } newValue - Component area information after the change.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare type AreaChangeCallback = (oldValue: Area, newValue: Area) => void;
 
 /**
  * Sub component info passed from framework when layout and measure happens.

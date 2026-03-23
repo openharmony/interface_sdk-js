@@ -10820,6 +10820,18 @@ export declare interface CommonMethod {
      */
     default onAreaChange(event: ((oldValue: Area, newValue: Area) => void) | undefined): this;
     /**
+     * This callback is triggered when the size or position of this component has finished changing.
+     * The interval between two area change callbacks will not be less than the expected update interval.
+     *
+     * @param { AreaChangeCallback } event - Callback invoked when the area of the component changes.
+     * @param { AreaChangeOptions } [options] - The options for the area change event.
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default onAreaChange (event: AreaChangeCallback, options?: AreaChangeOptions): this;
+    /**
      * Controls the display or hide of the current component.
      *
      * @param { Visibility | undefined } value - Whether the component is visible.
@@ -12668,6 +12680,37 @@ export declare interface RectResult {
      */
     height: double;
 }
+/**
+ * Defines the options about AreaChangeEvent.
+ *
+ * @typedef AreaChangeOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare interface AreaChangeOptions {
+    /**
+     * The value of expectedUpdateInterval indicates the desired update interval (ms).
+     *
+     * @type { ?int }
+     * @default 1000
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    expectedUpdateInterval?: int;
+}
+/**
+ * Defines the options for the AreaChangeEvent.
+ *
+ * @typedef { function } AreaChangeCallback
+ * @param { Area } oldValue - Component area information before the change.
+ * @param { Area } newValue - Component area information after the change.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare type AreaChangeCallback = (oldValue: Area, newValue: Area) => void;
 /**
  * CaretOffset info.
  *
