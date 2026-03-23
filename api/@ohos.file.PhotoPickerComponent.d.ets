@@ -671,7 +671,7 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
    * @atomicservice
    * @since 24 dynamic
    */
-  backgroundOpacity?: double;
+  backgroundOpacity?: number;
 }
 
 /**
@@ -1180,7 +1180,7 @@ export declare class UpdatablePickerConfigs {
    * @atomicservice
    * @since 24 dynamic
    */
-  backgroundOpacity?: double;
+  backgroundOpacity?: number;
 }
 
 /**
