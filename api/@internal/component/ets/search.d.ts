@@ -16,7 +16,7 @@
 /**
  * @file
  * @kit ArkUI
- */  onCopy(callback: Callback<string>): SearchAttribute;
+ */
 
 
 /**
