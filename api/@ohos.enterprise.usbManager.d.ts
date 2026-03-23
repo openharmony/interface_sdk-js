@@ -339,6 +339,24 @@ declare namespace usbManager {
    * @stagemodelonly
    * @since 12
    */
+  /**
+   * Sets USB storage device access policy by {@link UsbPolicy}.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_USB or ohos.permission.PERSONAL_MANAGE_RESTRICTIONS
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *     The admin must have the corresponding permission.
+   * @param { UsbPolicy } usbPolicy - USB policy of storage device.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200010 - A conflict policy has been configured.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
   function setUsbStorageDeviceAccessPolicy(admin: Want, usbPolicy: UsbPolicy): void;
 
   /**
@@ -357,6 +375,23 @@ declare namespace usbManager {
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 12
+   */
+  /**
+   * Gets USB storage device access policy.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_USB or ohos.permission.PERSONAL_MANAGE_RESTRICTIONS
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *     The admin must have the corresponding permission.
+   * @returns { UsbPolicy } USB policy of storage device.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
    */
   function getUsbStorageDeviceAccessPolicy(admin: Want): UsbPolicy;
 
