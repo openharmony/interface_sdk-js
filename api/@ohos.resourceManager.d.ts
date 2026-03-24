@@ -5167,7 +5167,6 @@ declare namespace resourceManager {
      * @throws { BusinessError } 9001001 - Invalid resource ID.
      * @syscap SystemCapability.Global.ResourceManager
      * @stagemodelonly
-     * @crossplatform
      * @atomicservice
      * @since 26.0.0 dynamic&static
      */
