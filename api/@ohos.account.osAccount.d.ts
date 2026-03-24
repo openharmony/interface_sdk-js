@@ -931,6 +931,7 @@ declare namespace osAccount {
 
     /**
      * Obtains the number of all OS accounts created on a device.
+     * This API can be called only by system applications.
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
      * @param { AsyncCallback<int> } callback - Returns the number of created OS accounts.
@@ -939,7 +940,6 @@ declare namespace osAccount {
      * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
-     * This API can be called only by system applications.
      * @since 9 dynamic
      * @since 23 static
      */
@@ -947,13 +947,13 @@ declare namespace osAccount {
 
     /**
      * Obtains the number of all OS accounts created on a device.
+     * This API can be called only by system applications.
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
      * @returns { Promise<int> } Returns the number of created OS accounts.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
-     * This API can be called only by system applications.
      * @since 9 dynamic
      * @since 23 static
      */
@@ -1101,6 +1101,7 @@ declare namespace osAccount {
 
     /**
      * Gets the local ID of the OS account associated with the specified domain account.
+     * This API can be called only by system applications.
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
      * @param { DomainAccountInfo } domainInfo - Indicates the domain account info.
@@ -1112,7 +1113,6 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid domainInfo.
      * @syscap SystemCapability.Account.OsAccount
-     * This API can be called only by system applications.
      * @since 9 dynamic
      * @since 23 static
      */
@@ -1120,6 +1120,7 @@ declare namespace osAccount {
 
     /**
      * Gets the local ID of the OS account associated with the specified domain account.
+     * This API can be called only by system applications.
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
      * @param { DomainAccountInfo } domainInfo - Indicates the domain account info.
@@ -1130,7 +1131,6 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid domainInfo.
      * @syscap SystemCapability.Account.OsAccount
-     * This API can be called only by system applications.
      * @since 9 dynamic
      * @since 23 static
      */
