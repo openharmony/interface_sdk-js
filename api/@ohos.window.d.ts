@@ -6180,8 +6180,8 @@ declare namespace window {
     /**
      * Move window to the position.
      *
-     * @param { int } x - Indicates the X-coordinate of the window.
-     * @param { int } y - Indicates the Y-coordinate of the window.
+     * @param { int } x - Indicates the X-coordinate of the window, measured in px.
+     * @param { int } y - Indicates the Y-coordinate of the window, measured in px.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 801 - Capability not supported.
      *     Failed to call the API due to limited device capabilities.
@@ -6201,8 +6201,8 @@ declare namespace window {
     /**
      * Move window to the position.
      *
-     * @param { int } x - Indicates the X-coordinate of the window.
-     * @param { int } y - Indicates the Y-coordinate of the window.
+     * @param { int } x - Indicates the X-coordinate of the window, measured in px.
+     * @param { int } y - Indicates the Y-coordinate of the window, measured in px.
      * @param { MoveConfiguration } [moveConfiguration] - Indicate the window move configuration.
      *     If not provided, the window stays on the current display.
      * @returns { Promise<void> } Promise that returns no value.
@@ -6224,8 +6224,8 @@ declare namespace window {
     /**
      * Move window to the position relative to current screen.
      *
-     * @param { int } x - Indicates the X-coordinate of the window relative to current screen.
-     * @param { int } y - Indicates the Y-coordinate of the window relative to current screen.
+     * @param { int } x - Indicates the X-coordinate of the window relative to current screen, measured in px.
+     * @param { int } y - Indicates the Y-coordinate of the window relative to current screen, measured in px.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 801 - Capability not supported.
      *     Failed to call the API due to limited device capabilities.
@@ -6245,8 +6245,8 @@ declare namespace window {
     /**
      * Move window to the position relative to current screen.
      *
-     * @param { int } x - Indicates the X-coordinate of the window relative to current screen.
-     * @param { int } y - Indicates the Y-coordinate of the window relative to current screen.
+     * @param { int } x - Indicates the X-coordinate of the window relative to current screen, measured in px.
+     * @param { int } y - Indicates the Y-coordinate of the window relative to current screen, measured in px.
      * @param { MoveConfiguration } [moveConfiguration] - Indicate the window move configuration.
      *     If not provided, the window stays on the current display.
      * @returns { Promise<void> } Promise that returns no value.
@@ -6290,8 +6290,8 @@ declare namespace window {
     /**
      * Set the size of a window .
      *
-     * @param { number } width - Indicates the width of the window.
-     * @param { number } height - Indicates the height of the window.
+     * @param { number } width - Indicates the width of the window, measured in px.
+     * @param { number } height - Indicates the height of the window, measured in px.
      * @returns { Promise<void> } Promise that returns no value.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7 dynamiconly
@@ -6303,8 +6303,8 @@ declare namespace window {
     /**
      * Set the size of a window .
      *
-     * @param { number } width - Indicates the width of the window.
-     * @param { number } height - Indicates the height of the window.
+     * @param { number } width - Indicates the width of the window, measured in px.
+     * @param { number } height - Indicates the height of the window, measured in px.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7 dynamiconly
@@ -6316,8 +6316,8 @@ declare namespace window {
     /**
      * Set the size of a window .
      *
-     * @param { int } width - Indicates the width of the window. The width should be greater than 0.
-     * @param { int } height - Indicates the height of the window. The height should be greater than 0.
+     * @param { int } width - Indicates the width of the window, measured in px. The width should be greater than 0.
+     * @param { int } height - Indicates the height of the window, measured in px. The height should be greater than 0.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
@@ -6330,8 +6330,8 @@ declare namespace window {
     /**
      * Set the size of a window .
      *
-     * @param { int } width - Indicates the width of the window. The width should be greater than 0.
-     * @param { int } height - Indicates the height of the window. The height should be greater than 0.
+     * @param { int } width - Indicates the width of the window, measured in px. The width should be greater than 0.
+     * @param { int } height - Indicates the height of the window, measured in px. The height should be greater than 0.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
@@ -6345,8 +6345,8 @@ declare namespace window {
     /**
      * Set the size of a window .
      *
-     * @param { int } width - Indicates the width of the window. The width should be greater than 0.
-     * @param { int } height - Indicates the height of the window. The height should be greater than 0.
+     * @param { int } width - Indicates the width of the window, measured in px. The width should be greater than 0.
+     * @param { int } height - Indicates the height of the window, measured in px. The height should be greater than 0.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
@@ -6364,8 +6364,8 @@ declare namespace window {
     /**
      * Set the size of a window .
      *
-     * @param { int } width - Indicates the width of the window. The width should be greater than 0.
-     * @param { int } height - Indicates the height of the window. The height should be greater than 0.
+     * @param { int } width - Indicates the width of the window, measured in px. The width should be greater than 0.
+     * @param { int } height - Indicates the height of the window, measured in px. The height should be greater than 0.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
@@ -6378,8 +6378,8 @@ declare namespace window {
     /**
      * Set the size of a window .
      *
-     * @param { int } width - Indicates the width of the window. The width should be greater than 0.
-     * @param { int } height - Indicates the height of the window. The height should be greater than 0.
+     * @param { int } width - Indicates the width of the window, measured in px. The width should be greater than 0.
+     * @param { int } height - Indicates the height of the window, measured in px. The height should be greater than 0.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
@@ -6393,8 +6393,8 @@ declare namespace window {
     /**
      * Set the size of a window .
      *
-     * @param { int } width - Indicates the width of the window. The width should be greater than 0.
-     * @param { int } height - Indicates the height of the window. The height should be greater than 0.
+     * @param { int } width - Indicates the width of the window, measured in px. The width should be greater than 0.
+     * @param { int } height - Indicates the height of the window, measured in px. The height should be greater than 0.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
@@ -6412,8 +6412,8 @@ declare namespace window {
     /**
      * Set the size of a window.
      *
-     * @param { int } width - Indicates the width of the window. The width should be greater than 0.
-     * @param { int } height - Indicates the height of the window. The height should be greater than 0.
+     * @param { int } width - Indicates the width of the window, measured in px. The width should be greater than 0.
+     * @param { int } height - Indicates the height of the window, measured in px. The height should be greater than 0.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: Invalid parameter range.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -6465,10 +6465,10 @@ declare namespace window {
      *     when the relative position between the primary sub window and the main window remains unchanged. The
      *     default value is window.WindowAnchor.TOP_Start, meaning the default anchor point is the top-left corner
      *     of the window.
-     * @param { int } [offsetX] - The x-axis offset
+     * @param { int } [offsetX] - The x-axis offset, measured in px,
      *     between the anchor point of the first level sub window and the anchor point of the main window.
      *     The default value is 0.
-     * @param { int } [offsetY] - The y-axis offset
+     * @param { int } [offsetY] - The y-axis offset, measured in px,
      *     between the anchor point of the first level sub window and the anchor point of the main window.
      *     The default value is 0.
      * @returns { Promise<void> } Promise that returns no value.
@@ -11019,7 +11019,7 @@ declare namespace window {
     /**
      * Sets the window blur radius.
      *
-     * @param { double } radius the blur radius.
+     * @param { double } radius the blur radius, measured in px.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
      *                                                                  3. Parameter verification failed.
@@ -11032,7 +11032,7 @@ declare namespace window {
     /**
      * Sets the window blur radius.
      *
-     * @param { double } radius the blur radius.
+     * @param { double } radius the blur radius, measured in px.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
@@ -11049,7 +11049,7 @@ declare namespace window {
     /**
      * Sets the window backdrop blur radius.
      *
-     * @param { double } radius the blur radius.
+     * @param { double } radius the blur radius, measured in px.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
      *                                                                  3. Parameter verification failed.
@@ -11064,7 +11064,7 @@ declare namespace window {
      * The window background refers to the lower-layer area covered by the window, which is the same as the window size.
      * To make the blur effect visible, you must set the window background transparent by calling setWindowBackgroundColor.
      *
-     * @param { double } radius the blur radius.
+     * @param { double } radius the blur radius, measured in px.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
@@ -11111,10 +11111,10 @@ declare namespace window {
     /**
      * Sets shadow.
      *
-     * @param { double } radius the radius of the shadow.
+     * @param { double } radius the radius of the shadow, measured in px.
      * @param { string } color the color of the shadow.
-     * @param { double } offsetX the offset of the shadow on the x-axis.
-     * @param { double } offsetY the offset of the shadow on the y-axis.
+     * @param { double } offsetX the offset of the shadow on the x-axis, measured in px.
+     * @param { double } offsetY the offset of the shadow on the y-axis, measured in px.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
      *                                                                  3. Parameter verification failed.
@@ -11127,10 +11127,10 @@ declare namespace window {
     /**
      * Sets the shadow for the window borders.
      *
-     * @param { double } radius the radius of the shadow.
+     * @param { double } radius the radius of the shadow, measured in px.
      * @param { string } color the color of the shadow.
-     * @param { double } offsetX the offset of the shadow on the x-axis.
-     * @param { double } offsetY the offset of the shadow on the y-axis.
+     * @param { double } offsetX the offset of the shadow on the x-axis, measured in px.
+     * @param { double } offsetY the offset of the shadow on the y-axis, measured in px.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
@@ -11167,7 +11167,7 @@ declare namespace window {
     /**
      * Sets corner radius.
      *
-     * @param { double } cornerRadius the corner radius.
+     * @param { double } cornerRadius the corner radius, measured in px.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
      *                                                                  3. Parameter verification failed.
@@ -11180,7 +11180,7 @@ declare namespace window {
     /**
      * Sets the radius of the rounded corners for this window.
      *
-     * @param { double } cornerRadius the corner radius.
+     * @param { double } cornerRadius the corner radius, measured in px.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
