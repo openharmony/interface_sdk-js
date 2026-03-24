@@ -3174,14 +3174,14 @@ declare namespace window {
   interface TitleButtonRect {
 
     /**
-     * The right of the Rect, measured in px.
+     * The right of the Rect, measured in vp.
      *
      * @type { int }
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
     /**
-     * The right of the Rect, measured in px.
+     * The right of the Rect, measured in vp.
      *
      * @type { int }
      * @syscap SystemCapability.Window.SessionManager
@@ -3192,14 +3192,14 @@ declare namespace window {
     right: int;
 
     /**
-     * The top of the Rect, measured in px.
+     * The top of the Rect, measured in vp.
      *
      * @type { int }
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
     /**
-     * The top of the Rect, measured in px.
+     * The top of the Rect, measured in vp.
      *
      * @type { int }
      * @syscap SystemCapability.Window.SessionManager
@@ -3210,14 +3210,14 @@ declare namespace window {
     top: int;
 
     /**
-     * The width of the Rect, measured in px.
+     * The width of the Rect, measured in vp.
      *
      * @type { int }
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
     /**
-     * The width of the Rect, measured in px.
+     * The width of the Rect, measured in vp.
      *
      * @type { int }
      * @syscap SystemCapability.Window.SessionManager
@@ -3228,14 +3228,14 @@ declare namespace window {
     width: int;
 
     /**
-     * The height of the Rect, measured in px.
+     * The height of the Rect, measured in vp.
      *
      * @type { int }
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
     /**
-     * The height of the Rect, measured in px.
+     * The height of the Rect, measured in vp.
      *
      * @type { int }
      * @syscap SystemCapability.Window.SessionManager
