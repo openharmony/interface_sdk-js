@@ -336,6 +336,65 @@ interface Vector3 {
 }
 
 /**
+ * Defined a vector with four number values.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+interface Vector4 {
+  /**
+   * Value for x-axis of the vector.
+   * Value range:(-∞, +∞).
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  x: double;
+
+  /**
+   * Value for y-axis of the vector.
+   * Value range: (-∞, +∞).
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  y: double;
+
+  /**
+   * Value for z-axis of the vector.
+   * Value range: (-∞, +∞).
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  z: double;
+
+  /**
+   * Value for w-axis of the vector.
+   * Value range: (-∞, +∞).
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  w: double;
+}
+
+/**
  * It's a 4x4 matrix, represent by number[].
  * Value range of each number: (-∞, +∞)
  *
