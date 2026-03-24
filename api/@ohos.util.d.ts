@@ -5025,13 +5025,18 @@ declare namespace util {
 
     /**
      * Register a callback that is triggered if the heap memory exceeds the critical warning threshold after a GC.
+     * It must be called on the main thread and only one callback can be registered.
+     * 
+     * NOTE:
+     * There is no guarantee that the callback will be triggered before OOM.
      *
-     * @param { Callback<string> } callback - This callback is triggered if the memory reaches the threshold after a GC,
-     *     and the string represents the type of this memory pressure event.
+     * @param { Callback<string> } callback - This callback is triggered if the memory reaches the threshold after a GC.
+     *     The string parameter indicates the type of memory pressure event:
+     *     "LocalHeapMemPressure", "SharedHeapMemPressure", or "ProcessHeapMemPressure".
      * @param { HeapMemoryThreshold } heapMemoryThreshold - Indicates
-     *     the percentage threshold of the heap memory to trigger the callback after a GC.
+     *     the percentage threshold of the heap memory to trigger the callback after a GC. The value range is [70, 95].
      * @returns { boolean } Returns {@code true} if the registration succeeds;
-     *     returns {@code false} otherwise.
+     *     returns {@code false} if not called on the main thread or if the callback is already registered.
      * @static
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
@@ -5070,8 +5075,9 @@ declare namespace util {
    */
   interface HeapMemoryThreshold {
     /**
-     * This number is on a scale of 0 to 100, representing the percentage threshold of the local heap memory
-     * at which the callback is triggered after a GC.
+     * This number is on a scale of 70 to 95, representing the percentage threshold of the local heap memory
+     * at which the callback is triggered after a GC. Values outside this range are automatically clamped to the valid range.
+     * If not set, the callback will not be triggered by local heap memory pressure.
      *
      * @type { ?number }
      * @syscap SystemCapability.Utils.Lang
@@ -5081,8 +5087,9 @@ declare namespace util {
     localHeapThreshold?: number;
 
     /**
-     * This number is on a scale of 0 to 100, representing the percentage threshold of the shared heap memory
-     * at which the callback is triggered after a GC.
+     * This number is on a scale of 70 to 95, representing the percentage threshold of the shared heap memory
+     * at which the callback is triggered after a GC. Values outside this range are automatically clamped to the valid range.
+     * If not set, the callback will not be triggered by shared heap memory pressure.
      *
      * @type { ?number }
      * @syscap SystemCapability.Utils.Lang
@@ -5092,8 +5099,9 @@ declare namespace util {
     sharedHeapThreshold?: number;
 
     /**
-     * This number is on a scale of 0 to 100, representing the percentage threshold of the process's total heap memory
-     * at which the callback is triggered after a GC.
+     * This number is on a scale of 70 to 95, representing the percentage threshold of the process's total heap memory
+     * at which the callback is triggered after a GC. Values outside this range are automatically clamped to the valid range.
+     * If not set, the callback will not be triggered by process heap memory pressure.
      *
      * @type { ?number }
      * @syscap SystemCapability.Utils.Lang
