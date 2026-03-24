@@ -23,6 +23,7 @@ import { Dimension, Length, VoidCallback, Resource, LengthMetrics } from './unit
 import { ScrollSnapAlign, ScrollState } from "./list";
 import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod, UIScrollableCommonEvent, SizeResult, Bindable } from "./common";
+import { FrameNode } from '../FrameNode';
 /**
  * Enumerates the scrolling directions.
  *
@@ -422,6 +423,16 @@ export declare class Scroller {
      * @since 24 static
      */
     contentSize() : SizeResult;
+     /**
+      * Obtains the FrameNode corresponding to this scroller.
+      *
+      * @returns { FrameNode | undefined } Returns the FrameNode bound to this scroller.
+      *     If the scroller not bound to a component, the return value is undefined.
+      * @stagemodelonly
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @since 26.0.0 static
+      */
+     getFrameNode(): FrameNode | undefined;
 }
 /**
  * Provides parameters for scrolling to a specific position in a scrollable container.
