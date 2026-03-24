@@ -4914,7 +4914,7 @@ declare namespace contact {
    * @throws { BusinessError } 16700001 - General error.
    * @throws { BusinessError } 16700002 - Invalid parameter value. 
    * @syscap SystemCapability.Applications.ContactsData
-   * @Stagemodelonly
+   * @stagemodelonly
    * @atomicservice
    * @since 24
    */
@@ -4934,7 +4934,7 @@ declare namespace contact {
    * @throws { BusinessError } 16700001 - General error.
    * @throws { BusinessError } 16700002 - Invalid parameter value. 
    * @syscap SystemCapability.Applications.ContactsData
-   * @Stagemodelonly
+   * @stagemodelonly
    * @atomicservice
    * @since 24
    */
