@@ -443,6 +443,16 @@ export declare interface TextAreaAttribute extends CommonMethod {
      */
     default onCopy(callback: ((value: string) => void) | undefined): this;
     /**
+     * Called before using the Clipboard copy menu.
+     *
+     * @param { Callback<string, boolean> | undefined } callback - Callback used to check whether copy is allowed.
+     * @returns { TextAreaAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default onWillCopy(callback: Callback<string, boolean> | undefined): this;
+    /**
      * Called when using the Clipboard menu
      *
      * @param { function | undefined } callback
@@ -451,6 +461,16 @@ export declare interface TextAreaAttribute extends CommonMethod {
      * @since 23 static
      */
     default onCut(callback: ((value: string) => void) | undefined): this;
+    /**
+     * Called before using the Clipboard cut menu.
+     *
+     * @param { Callback<string, boolean> | undefined } callback - Callback used to check whether cut is allowed.
+     * @returns { TextAreaAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default onWillCut(callback: Callback<string, boolean> | undefined): this;
     /**
      * Called when using the Clipboard menu
      *
