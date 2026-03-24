@@ -11881,6 +11881,24 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   enableDefaultContextMenu(enable: boolean): WebAttribute;
 
   /**
+   * Enables or disables directional lock for scroll gestures in the WebView component.
+   *
+   * When directional lock is enabled, the scroll axis is locked based on the initial
+   * swipe vector direction. This behavior helps prevent unintended scroll direction changes
+   * during touch interactions, especially in nested scroll scenarios.
+   *
+   * @param { boolean } value - Whether to enable directional lock.
+   *     - `true`: Enables direction locking for the corresponding type category.
+   *     - `false`: Disables direction locking for the corresponding type category.
+   * @param { ScrollDirectionalLockType } type - Specifies the scenario in which directional lock is applied.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  enableScrollDirectionalLock(value: boolean, type: ScrollDirectionalLockType): WebAttribute;
+
+  /**
   * Set the WebKeyboardAppearanceMode to determine the immersive mode for the soft keyboard.
   *
   * @param { WebKeyboardAppearanceMode } mode - The WebKeyboardAppearanceMode of this web
@@ -12516,4 +12534,34 @@ declare enum MicrophoneCaptureState {
    * @since 23 dynamic
    */
   ACTIVE = 2,
+}
+
+/**
+ * Enum defining the scope of directional lock behavior in the WebView, used with {@link enableScrollDirectionalLock}.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.Web.Webview.Core
+ * @stagemodelonly
+ * @since 26.0.0 dynamic
+ */
+declare enum ScrollDirectionalLockType {
+  /**
+   * Applies directional lock across all scroll contexts.
+   * This includes both nested and flat scroll scenarios.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  ALL = 0,
+
+  /**
+   * Applies directional lock only within nested scroll scenarios.
+   * This is the default behavior in ArkWeb to improve UX in complex scroll hierarchies.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  NESTED_SCROLL = 1
 }
