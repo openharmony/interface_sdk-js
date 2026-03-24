@@ -1,5 +1,7 @@
+
+'use static';
 /*
- * Copyright (C) 2024 Huawei Device Co., Ltd.
+ * Copyright (C) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -19,89 +21,99 @@
  */
 
 import photoAccessHelper from '@ohos.file.photoAccessHelper';
+
 import { BaseItemInfo, PickerColorMode } from '@ohos.file.PhotoPickerComponent';
+
+import { Component, Builder } from '@ohos.arkui.component';
+
+import { PickerColorMode } from '@ohos.file.PhotoPickerComponent';
 
 /**
  * Declare struct RecentPhotoComponent
  *
+ * @struct { RecentPhotoComponent }
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
- * @atomicservice
- * @since 12 dynamic
+ * @stagemodelonly
+ * @since 26.0.0 static
  */
 @Component
 export declare struct RecentPhotoComponent {
   /**
    * recentPhotoOptions
-   *
-   * @type { ?recentPhotoOptions }
+   * @type { ?RecentPhotoOptions }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @stagemodelonly
+   * @since 26.0.0 static
    */
   recentPhotoOptions?: RecentPhotoOptions;
 
   /**
    * Callback when check whether photos or videos exists
-   *
-   * @type { ?function }
+   * @type { ?RecentPhotoCheckResultCallback }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @stagemodelonly
+   * @since 26.0.0 static
    */
   onRecentPhotoCheckResult?: RecentPhotoCheckResultCallback;
 
   /**
    * Callback when select photos or videos
-   *
-   * @type { ?function }
+   * @type { RecentPhotoClickCallback }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @stagemodelonly
+   * @since 26.0.0 static
    */
   onRecentPhotoClick: RecentPhotoClickCallback;
 
   /**
    * Callback when check whether photos or videos exists and return the recent photo info
-   *
-   * @type { ?function }
+   * @type { ?RecentPhotoCheckInfoCallback }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @atomicservice
-   * @since 13 dynamic
+   * @stagemodelonly
+   * @since 26.0.0 static
    */
   onRecentPhotoCheckInfo?: RecentPhotoCheckInfoCallback;
+
+  /**
+   * Build function of RecentPhotoComponent
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  @Builder
+  build(): void;
 }
 
 /**
  * The callback of onRecentPhotoCheckResult event
- *
- * @typedef { function } RecentPhotoCheckResultCallback
+ * @typedef { function }
  * @param { boolean } recentPhotoExists - Does the recent photo exist?
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
- * @atomicservice
- * @since 12 dynamic
+ * @stagemodelonly
+ * @since 26.0.0 static
  */
 export type RecentPhotoCheckResultCallback = (recentPhotoExists: boolean) => void;
 
 /**
  * The callback of onRecentPhotoClick event
- *
- * @typedef { function } RecentPhotoClickCallback
+ * @typedef { function }
  * @param { BaseItemInfo } recentPhotoInfo - The item information of recent photo
+ * @returns { boolean }
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
- * @atomicservice
- * @since 12 dynamic
+ * @stagemodelonly
+ * @since 26.0.0 static
  */
 export type RecentPhotoClickCallback = (recentPhotoInfo: BaseItemInfo) => boolean;
 
 /**
  * The callback of onRecentPhotoCheckInfo event
- *
- * @typedef { function } RecentPhotoCheckInfoCallback
+ * @typedef { function }
  * @param { boolean } recentPhotoExists - Does the recent photo exist?
  * @param { RecentPhotoInfo } info - the recent photo info
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
- * @atomicservice
- * @since 13 dynamic
+ * @stagemodelonly
+ * @since 26.0.0 static
  */
 export type RecentPhotoCheckInfoCallback = (recentPhotoExists: boolean, info: RecentPhotoInfo) => void;
 
@@ -109,105 +121,98 @@ export type RecentPhotoCheckInfoCallback = (recentPhotoExists: boolean, info: Re
  * RecentPhotoOptions Object
  *
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
- * @atomicservice
- * @since 12 dynamic
+ * @stagemodelonly
+ * @since 26.0.0 static
  */
 export declare class RecentPhotoOptions {
   /**
    * Support set period time
-   *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @stagemodelonly
+   * @since 26.0.0 static
    */
-  period?: number;
+  public period?: int;
 
   /**
    * The Type of the file in the recent photo window.
-   *
    * @type { ?photoAccessHelper.PhotoViewMIMETypes }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @stagemodelonly
+   * @since 26.0.0 static
    */
-  MIMEType?: photoAccessHelper.PhotoViewMIMETypes;
+  public MIMEType?: photoAccessHelper.PhotoViewMIMETypes;
 
   /**
    * PhotoSource
-   *
    * @type { ?PhotoSource }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @stagemodelonly
+   * @since 26.0.0 static
    */
-  photoSource?: PhotoSource;
+  public photoSource?: PhotoSource;
 
   /**
    * isSupportAutoRefresh
-   *
    * @type { ?boolean }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @atomicservice
-   * @since 20 dynamic
+   * @stagemodelonly
+   * @since 26.0.0 static
    */
-  isAutoRefreshSupported?: boolean;
+  public isAutoRefreshSupported?: boolean;
 
   /**
    * color mode of recentPhotoComponent placeholder
-   *
    * @type { ?PickerColorMode }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @atomicservice
-   * @since 20 dynamic
+   * @stagemodelonly
+   * @since 26.0.0 static
    */
-  colorMode?: PickerColorMode;
+  public colorMode?: PickerColorMode;
 }
 
 /**
  * Recent photo info
  *
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
- * @atomicservice
- * @since 13 dynamic
+ * @stagemodelonly
+ * @since 26.0.0 static
  */
 export declare class RecentPhotoInfo {
   /**
    * The dateTaken of photos or videos
-   *
-   * @type { ?number }
+   * @type { ?long }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @atomicservice
-   * @since 13 dynamic
+   * @stagemodelonly
+   * @since 26.0.0 static
    */
-  dateTaken?: number;
+  public dateTaken?: long;
 
   /**
    * The identifier of photos or videos
-   *
    * @type { ?string }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @atomicservice
-   * @since 13 dynamic
+   * @stagemodelonly
+   * @since 26.0.0 static
    */
-  identifier?: string;
+  public identifier?: string;
 }
 
 /**
  * Enumeration of PhotoSource type
  *
- * @enum { number } PhotoSource
+ * @enum { int } PhotoSource
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
- * @atomicservice
- * @since 12 dynamic
+ * @stagemodelonly
+ * @since 26.0.0 static
  */
 export declare enum PhotoSource {
   /**
    * all resource
    *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @stagemodelonly
+   * @since 26.0.0 static
    */
   ALL = 0,
 
@@ -215,8 +220,8 @@ export declare enum PhotoSource {
    * camera resource
    *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @stagemodelonly
+   * @since 26.0.0 static
    */
   CAMERA = 1,
 
@@ -224,8 +229,8 @@ export declare enum PhotoSource {
    * screenshot resource
    *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @stagemodelonly
+   * @since 26.0.0 static
    */
   SCREENSHOT = 2
 }
