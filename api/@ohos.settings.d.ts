@@ -1600,7 +1600,7 @@ declare namespace settings {
    * @throws { BusinessError } 16900020 - Failed to open the settings page via redirection.
    * @syscap SystemCapability.Applications.Settings.Core
    * @StageModelOnly
-   * @since 26.0.0 dynamic&static
+   * @since 24 dynamic&static
    */
   function openBiometricsSettingsPage(context: Context): void;
 
@@ -1624,7 +1624,7 @@ declare namespace settings {
    * @throws { BusinessError } 16900020 - Failed to open the settings page via redirection.
    * @syscap SystemCapability.Applications.Settings.Core
    * @StageModelOnly
-   * @since 26.0.0 dynamic&static
+   * @since 24 dynamic&static
    */
   function openNfcSettingsPage(context: Context): void;
 
