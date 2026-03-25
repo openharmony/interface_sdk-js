@@ -69,7 +69,7 @@ declare namespace storage {
    * resides in the memory. You can use removeStorageFromCache to remove the instance from the memory.
    *
    * @param { string } path - Indicates the path of storage file stored.
-   * @returns { Storage } The {@link Storage} instance matching the specified storage file name.
+   * @returns { Promise<Storage> } The {@link Storage} instance matching the specified storage file name.
    * @since 6 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.preferences.preferences.getPreferences
@@ -222,7 +222,7 @@ declare namespace storage {
     *
     * @param { string } key - Indicates the key of the storage. It cannot be {@code null} or empty.
     * @param { ValueType } defValue - Indicates the default value to return.
-    * @returns { ValueType } The value matching the specified key if it is found; returns the default value otherwise.
+    * @returns { Promise<ValueType> } The value matching the specified key if it is found; returns the default value otherwise.
     * @since 6 dynamiconly
     * @deprecated since 9
     * @useinstead ohos.preferences.preferences.get
@@ -258,7 +258,7 @@ declare namespace storage {
      * Checks whether the {@link Storage} object contains a storage matching a specified key.
      *
      * @param { string } key - Indicates the key of the storage to check for.
-     * @returns { boolean } {@code true} if the {@link Storage} object contains a storage with the specified key;
+     * @returns { Promise<boolean> } {@code true} if the {@link Storage} object contains a storage with the specified key;
      * returns {@code false} otherwise.
      * @since 6 dynamiconly
      * @deprecated since 9
@@ -289,7 +289,6 @@ declare namespace storage {
      * @param { string } key - Indicates the key of the storage to modify. It cannot be {@code null} or empty.
      * @param { ValueType } value - Indicates the value of the storage.
      * @param { AsyncCallback<void> } callback - Indicates the callback used to return the result.
-     * @returns { void } Indicates the result is returned.
      * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.preferences.preferences.put
@@ -331,7 +330,6 @@ declare namespace storage {
      *
      * @param { string } key - Indicates the key of the storage to delete. It cannot be {@code null} or empty.
      * @param { AsyncCallback<void> } callback - Indicates the callback used to return the result.
-     * @returns { void } Indicates the result is returned.
      * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.preferences.preferences.delete
@@ -370,7 +368,6 @@ declare namespace storage {
      * file.
      *
      * @param { AsyncCallback<void> } callback - Indicates the callback used to return the result.
-     * @returns { void } Indicates the result is returned.
      * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.preferences.preferences.clear
@@ -402,7 +399,6 @@ declare namespace storage {
      * Asynchronously saves the {@link Storage} object to the file.
      *
      * @param { AsyncCallback<void> } callback - Indicates the callback used to return the result.
-     * @returns { void } Indicates the result is returned.
      * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.preferences.preferences.flush
