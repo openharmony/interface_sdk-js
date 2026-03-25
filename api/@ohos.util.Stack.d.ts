@@ -20,14 +20,14 @@
 
 /**
  * Stack is implemented based on the array data structure. 
- * It follows the principle Last Out First In (LOFI) and supports data insertion and removal at one end.
+ * It follows the principle Last In First Out (LIFO) and supports data insertion and removal at one end.
  *
  * @syscap SystemCapability.Utils.Lang
  * @since 8
  */
 /**
  * Stack is implemented based on the array data structure. 
- * It follows the principle Last Out First In (LOFI) and supports data insertion and removal at one end.
+ * It follows the principle Last In First Out (LIFO) and supports data insertion and removal at one end.
  *
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
@@ -35,7 +35,7 @@
  */
 /**
  * Stack is implemented based on the array data structure. 
- * It follows the principle Last Out First In (LOFI) and supports data insertion and removal at one end.
+ * It follows the principle Last In First Out (LIFO) and supports data insertion and removal at one end.
  *
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
@@ -239,7 +239,7 @@ declare class Stack<T> {
   /**
    * Returns the 1-based position where an object is on this stack
    *
-   * @param { T } element - element element Target to be deleted
+   * @param { T } element - element to be located
    * @returns { number } the T type,If there is no such element, return -1
    * @throws { BusinessError } 10200011 - The locate method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
@@ -248,7 +248,7 @@ declare class Stack<T> {
   /**
    * Returns the 1-based position where an object is on this stack
    *
-   * @param { T } element - element element Target to be deleted
+   * @param { T } element - element to be located
    * @returns { number } the T type,If there is no such element, return -1
    * @throws { BusinessError } 10200011 - The locate method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
@@ -258,7 +258,7 @@ declare class Stack<T> {
   /**
    * Returns the 1-based position where an object is on this stack
    *
-   * @param { T } element - element element Target to be deleted
+   * @param { T } element - element to be located
    * @returns { int } the T type,If there is no such element, return -1
    * @throws { BusinessError } 10200011 - The locate method cannot be bound.
    * @syscap SystemCapability.Utils.Lang

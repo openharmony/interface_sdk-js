@@ -420,7 +420,7 @@ declare class LinkedList<T> {
    */
   getIndexOf(element: T): int;
   /**
-   * Find the corresponding element according to the index.
+   * Removes and returns the element at the specified index in this linkedlist.
    *
    * @param { number } index - index index the index in the linkedlist
    * @returns { T } the T type ,returns undefined if linkedlist is empty,If the index is
@@ -435,7 +435,7 @@ declare class LinkedList<T> {
    * @since 8
    */
   /**
-   * Find the corresponding element according to the index.
+   * Removes and returns the element at the specified index in this linkedlist.
    *
    * @param { number } index - index index the index in the linkedlist
    * @returns { T } the T type ,returns undefined if linkedlist is empty,If the index is
@@ -451,7 +451,7 @@ declare class LinkedList<T> {
    * @since 10
    */
   /**
-   * Find the corresponding element according to the index.
+   * Removes and returns the element at the specified index in this linkedlist.
    *
    * @param { number } index - index index the index in the linkedlist
    * @returns { T } the T type ,returns undefined if linkedlist is empty,If the index is
@@ -470,7 +470,7 @@ declare class LinkedList<T> {
   removeByIndex(index: number): T;
 
   /**
-   * Find the corresponding element according to the index.
+   * Removes and returns the element at the specified index in this linkedlist.
    *
    * @param { int } index - the index in the linkedList
    * @returns { T | undefined } the T type, if the index is
@@ -767,7 +767,7 @@ declare class LinkedList<T> {
   set(index: int, element: T): T;
 
   /**
-   * Replaces each element of this linkedlist with the result of applying the operator to that element.
+   * Executes the provideed callback function for each element in the linkedlist.
    *
    * @param { function } callbackFn - callbackFn
    * callbackFn (required) A function that accepts up to three arguments.
@@ -786,7 +786,7 @@ declare class LinkedList<T> {
    * @since 8
    */
   /**
-   * Replaces each element of this linkedlist with the result of applying the operator to that element.
+   * Executes the provideed callback function for each element in the linkedlist.
    *
    * @param { function } callbackFn - callbackFn
    * callbackFn (required) A function that accepts up to three arguments.
@@ -806,7 +806,7 @@ declare class LinkedList<T> {
    * @since 10
    */
   /**
-   * Replaces each element of this linkedlist with the result of applying the operator to that element.
+   * Executes the provideed callback function for each element in the linkedlist.
    *
    * @param { function } callbackFn - callbackFn
    * callbackFn (required) A function that accepts up to three arguments.
@@ -829,7 +829,7 @@ declare class LinkedList<T> {
   forEach(callbackFn: (value: T, index?: number, LinkedList?: LinkedList<T>) => void, thisArg?: Object): void;
 
   /**
-   * Replaces each element of this linkedList with the result of applying the operator to that element.
+   * Executes the provideed callback function for each element in the linkedlist.
    *
    * @param { LinkedListForEachCb } callbackFn - callbackFn
    * @syscap SystemCapability.Utils.Lang
