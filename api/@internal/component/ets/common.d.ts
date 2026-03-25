@@ -17600,10 +17600,9 @@ declare interface PopupCommonOptions {
    *
    * @type { ?SystemUiMaterial }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
    * @stagemodelonly
    * @atomicservice
-   * @since 24 dynamic
+   * @since 26.0.0 dynamic
    */
   systemMaterial?: SystemUiMaterial;
 }
@@ -18464,10 +18463,9 @@ declare interface PopupOptions {
    *
    * @type { ?SystemUiMaterial }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
    * @stagemodelonly
    * @atomicservice
-   * @since 24 dynamic
+   * @since 26.0.0 dynamic
    */
   systemMaterial?: SystemUiMaterial;
 }
@@ -19130,10 +19128,9 @@ declare interface CustomPopupOptions {
    *
    * @type { ?SystemUiMaterial }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
    * @stagemodelonly
    * @atomicservice
-   * @since 24 dynamic
+   * @since 26.0.0 dynamic
    */
   systemMaterial?: SystemUiMaterial;
 }
