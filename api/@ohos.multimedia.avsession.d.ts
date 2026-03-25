@@ -6245,6 +6245,67 @@ declare namespace avSession {
   }
 
   /**
+    * Define some common extra keys used in different scenarios.
+   *
+   * @syscap SystemCapability.Multimedia.AVSession.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  enum ExtraKey {
+    /**
+     * Set required abilities to the system.
+     *
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    REQUIRE_ABILITY_LIST = 'requireAbilityList',
+
+    /**
+    * Informs the system that the app supports URL casting.
+     *
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    SUPPORT_URL_CASTING = 'url-cast',
+
+    /**
+     * Inform the system that the live view card should be hidden on the keyguard.
+     *
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @systemapi
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    LIVE_VIEW_HIDDEN_WHEN_KEYGUARD = 'hw_live_view_hidden_when_keyguard',
+
+    /**
+     * Key for DLNA CurrentURIMetadata extra parameter.
+     *
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    DLNA_CURRENT_URI_METADATA = 'CurrentURIMetadata',
+
+    /**
+     * Key for DLNA DIDL-Lite extra parameter.
+     *
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    DLNA_DIDL_LITE = 'DIDL-Lite'
+  }
+
+  /**
    * The metadata of the current media.Used to set the properties of the current media file
    * @interface AVMetadata
    * @syscap SystemCapability.Multimedia.AVSession.Core
