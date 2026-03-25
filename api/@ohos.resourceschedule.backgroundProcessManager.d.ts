@@ -56,7 +56,7 @@ declare namespace backgroundProcessManager {
     }
 
     /**
-     * Description the status of the power saving mode.
+     * Describes the status of the power saving mode.
      *
      * @enum { int }
      * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
