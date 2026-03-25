@@ -2336,6 +2336,16 @@ export declare interface RichEditorAttribute extends CommonMethod {
      * @since 23 static
      */
     default selectedDragPreviewStyle(value: SelectedDragPreviewStyle | undefined): this;
+    /**
+     * Whether to avoid an orphan word on the last line of the paragraph.
+     *
+     * @param { boolean | undefined } enabled - The default value is false,
+     *     indicates the flag whether to enable this feature.
+     * @returns { RichEditorAttribute } - returns the instance of the RichEditorAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 26.0.0 static
+     */
+    default orphanCharOptimization(enabled: boolean | undefined): this;
 }
 /**
  * the callback of cut event.
