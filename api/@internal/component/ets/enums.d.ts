@@ -11866,3 +11866,36 @@ declare enum InputEventInterceptAction {
      */
     COMPETITION = 1,
   }
+
+/**
+ * Define the type of raw input event.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare enum RawInputEventType {
+  /**
+   * Touch events.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  TOUCH = 0,
+
+  /**
+   * Mouse events.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  MOUSE = 1
+}

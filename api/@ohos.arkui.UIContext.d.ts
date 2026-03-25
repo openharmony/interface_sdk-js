@@ -5760,6 +5760,18 @@ export class UIContext {
     * @since 24 dynamic
     */
    isEasySplit(): boolean;
+
+  /**
+   * Whether to enable or disable event passthrough.
+   *
+   * @param { boolean } enabled - enable or disable event passthrough. The default value is false.
+   * @param { RawInputEventType } eventType - the type of raw input event.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservicet
+   * @since 26.0.0 dynamic
+   */
+  enableEventPassthrough(enabled: boolean, eventType: RawInputEventType): void;
 }
 
 /**

@@ -44,7 +44,7 @@ import { InputEventMonitor, InputEventListener } from '@ohos.arkui.component';
 import { CustomBuilder, CustomBuilderT } from '@ohos.arkui.component';
 import { GestureEvent, GestureRecognizer } from '@ohos.arkui.component';
 import { ResourceStr, SizeOptions, VoidCallback } from '@ohos.arkui.component';
-import { Nullable, Color, FontStyle, WidthBreakpoint, HeightBreakpoint, PixelRoundMode } from '@ohos.arkui.component';
+import { Nullable, Color, FontStyle, WidthBreakpoint, HeightBreakpoint, PixelRoundMode, RawInputEventType } from '@ohos.arkui.component';
 import { TimePickerDialogOptions } from '@ohos.arkui.component';
 import { AlertDialogParamWithConfirm, AlertDialogParamWithButtons, AlertDialogParamWithOptions } from '@ohos.arkui.component';
 import { ActionSheetOptions } from '@ohos.arkui.component';
@@ -3888,6 +3888,17 @@ export declare class UIContext {
    * @since 24 static
    */
   isEasySplit(): boolean;
+
+  /**
+   * Whether to enable or disable event passthrough.
+   *
+   * @param { boolean | undefined } enabled - enable or disable event passthrough. The default value is false.
+   * @param { RawInputEventType } eventType - the type of raw input event.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  enableEventPassthrough(enabled: boolean | undefined, eventType: RawInputEventType): void;
 }
 
 /**
