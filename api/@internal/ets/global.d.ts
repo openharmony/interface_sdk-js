@@ -654,7 +654,7 @@ export declare function setInterval(handler: Function | string, delay: number, .
  * @param { Function | string } handler - Function to be called after the timer goes off. If the type is string, error information is printed and no other processing is performed.
  * For devices of "tv", "phone, tablet", and "wearable" types, this parameter can be a function or string.
  * For devices of "lite wearable" and "smartVision" types, this parameter must be a function.
- * @param { number } [delay] - Number of milliseconds delayed before the execution. It is recommended that an integer be passed in. A decimal will be rounded down.
+ * @param { number } [delay] - Number of milliseconds delayed before the execution (ms). It is recommended that an integer be passed in. A decimal will be rounded down.
  * If this parameter is not specified, the default value 0 is used, indicating that the function is executed immediately (in the next event loop).
  * NOTE
  * 1. In either case, the actual delay may be longer than expected.

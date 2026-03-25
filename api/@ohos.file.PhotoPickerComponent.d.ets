@@ -662,6 +662,16 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
    * @since 23 dynamic
    */
   appAlbumFilters?: Array<string>;
+  
+  /**
+   * Support setting background opacity.
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 24 dynamic
+   */
+  backgroundOpacity?: number;
 }
 
 /**
@@ -1161,6 +1171,16 @@ export declare class UpdatablePickerConfigs {
    * @since 23 dynamic
    */
   appAlbumFilters?: Array<string>;
+  
+  /**
+   * Support setting background opacity.
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 24 dynamic
+   */
+  backgroundOpacity?: number;
 }
 
 /**
