@@ -107,14 +107,14 @@ declare class TreeMap<K, V> {
   constructor(comparator?: TreeMapComparator<K>);
 
   /**
-   * Gets the element number of the hashmap.
+   * Gets the element number of the TreeMap.
    *
    * @type { number }
    * @syscap SystemCapability.Utils.Lang
    * @since 8
    */
   /**
-   * Gets the element number of the hashmap.
+   * Gets the element number of the TreeMap.
    *
    * @type { number }
    * @syscap SystemCapability.Utils.Lang
@@ -122,7 +122,7 @@ declare class TreeMap<K, V> {
    * @since 10
    */
   /**
-   * Gets the element number of the hashmap.
+   * Gets the element number of the TreeMap.
    *
    * @type { number }
    * @syscap SystemCapability.Utils.Lang

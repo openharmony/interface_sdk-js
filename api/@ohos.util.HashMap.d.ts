@@ -281,7 +281,7 @@ declare class HashMap<K, V> {
    */
   setAll(map: HashMap<K, V>): void;
   /**
-   * Adds or updates a(new) key-value pair with a key and value specified for the Map object
+   * Adds or updates an element in this container.
    *
    * @param { K } key - key key Added or updated targets
    * @param { V } value - value value Added or updated value
@@ -293,7 +293,7 @@ declare class HashMap<K, V> {
    * @since 8
    */
   /**
-   * Adds or updates a(new) key-value pair with a key and value specified for the Map object
+   * Adds or updates an element in this container.
    *
    * @param { K } key - key key Added or updated targets
    * @param { V } value - value value Added or updated value
@@ -322,7 +322,7 @@ declare class HashMap<K, V> {
    */
   set(key: K, value: V): Object;
   /**
-   * Remove a specified element from a Map object
+   * Removes an element with the specified key from this container.
    *
    * @param { K } key - key key Target to be deleted
    * @returns { V } Target mapped value
@@ -331,7 +331,7 @@ declare class HashMap<K, V> {
    * @since 8
    */
   /**
-   * Remove a specified element from a Map object
+   * Removes an element with the specified key from this container.
    *
    * @param { K } key - key key Target to be deleted
    * @returns { V } Target mapped value
