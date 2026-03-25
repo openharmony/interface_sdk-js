@@ -39,9 +39,8 @@ declare namespace storage {
    * <p>The {@link references} instance loads all data of the storage file and
    * resides in the memory. You can use removeStorageFromCache to remove the instance from the memory.
    *
-   * @param path Indicates the path of storage file stored.
-   * @returns Returns the {@link Storage} instance matching the specified storage file name.
-   * @throws BusinessError if invoked failed
+   * @param { string } path - Indicates the path of storage file stored.
+   * @returns { Storage } The {@link Storage} instance matching the specified storage file name.
    * @since 6 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.preferences.preferences.getPreferences
@@ -54,9 +53,9 @@ declare namespace storage {
    * <p>The {@link references} instance loads all data of the storage file and
    * resides in the memory. You can use removeStorageFromCache to remove the instance from the memory.
    *
-   * @param path Indicates the path of storage file stored.
-   * @returns Returns the {@link Storage} instance matching the specified storage file name.
-   * @throws BusinessError if invoked failed
+   * @param { string } path - Indicates the path of storage file stored.
+   * @param { AsyncCallback<Storage> } callback - Indicates the callback used to return the {@link Storage} instance.
+   * @returns { Storage } The {@link Storage} instance matching the specified storage file name.
    * @since 6 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.preferences.preferences.getPreferences
@@ -69,9 +68,8 @@ declare namespace storage {
    * <p>The {@link references} instance loads all data of the storage file and
    * resides in the memory. You can use removeStorageFromCache to remove the instance from the memory.
    *
-   * @param path Indicates the path of storage file stored.
-   * @returns Returns the {@link Storage} instance matching the specified storage file name.
-   * @throws BusinessError if invoked failed
+   * @param { string } path - Indicates the path of storage file stored.
+   * @returns { Storage } The {@link Storage} instance matching the specified storage file name.
    * @since 6 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.preferences.preferences.getPreferences
@@ -87,8 +85,7 @@ declare namespace storage {
    * of the instance. In addition, do not use the instance to perform data operations. Otherwise, inconsistent data
    * will occur.
    *
-   * @param path Indicates the path of storage file
-   * @throws BusinessError if invoked failed
+   * @param { string } path - Indicates the path of storage file.
    * @since 6 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.preferences.preferences.deletePreferences
@@ -104,8 +101,8 @@ declare namespace storage {
    * of the instance. In addition, do not use the instance to perform data operations. Otherwise, inconsistent data
    * will occur.
    *
-   * @param path Indicates the path of storage file
-   * @throws BusinessError if invoked failed
+   * @param { string } path - Indicates the path of storage file.
+   * @param { AsyncCallback<void> } callback - Indicates the callback used to return the result.
    * @since 6 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.preferences.preferences.deletePreferences
@@ -121,8 +118,7 @@ declare namespace storage {
    * of the instance. In addition, do not use the instance to perform data operations. Otherwise, inconsistent data
    * will occur.
    *
-   * @param path Indicates the path of storage file
-   * @throws BusinessError if invoked failed
+   * @param { string } path - Indicates the path of storage file.
    * @since 6 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.preferences.preferences.deletePreferences
@@ -137,8 +133,7 @@ declare namespace storage {
    * of the instance. In addition, do not use the instance to perform data operations. Otherwise, inconsistent data
    * will occur.
    *
-   * @param path Indicates the path of storage file.
-   * @throws BusinessError if invoked failed
+   * @param { string } path - Indicates the path of storage file.
    * @since 6 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.preferences.preferences.removePreferencesFromCache
@@ -153,8 +148,8 @@ declare namespace storage {
    * of the instance. In addition, do not use the instance to perform data operations. Otherwise, inconsistent data
    * will occur.
    *
-   * @param path Indicates the path of storage file.
-   * @throws BusinessError if invoked failed
+   * @param { string } path - Indicates the path of storage file.
+   * @param { AsyncCallback<void> } callback - Indicates the callback used to return the result.
    * @since 6 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.preferences.preferences.removePreferencesFromCache
@@ -169,8 +164,7 @@ declare namespace storage {
    * of the instance. In addition, do not use the instance to perform data operations. Otherwise, inconsistent data
    * will occur.
    *
-   * @param path Indicates the path of storage file.
-   * @throws BusinessError if invoked failed
+   * @param { string } path - Indicates the path of storage file.
    * @since 6 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.preferences.preferences.removePreferencesFromCache
@@ -197,10 +191,9 @@ declare namespace storage {
     *
     * <p>If the value is {@code null} or not in the int format, the default value is returned.
     *
-    * @param key Indicates the key of the storage. It cannot be {@code null} or empty.
-    * @param defValue Indicates the default value to return.
-    * @returns Returns the value matching the specified key if it is found; returns the default value otherwise.
-    * @throws BusinessError if invoked failed
+    * @param { string } key - Indicates the key of the storage. It cannot be {@code null} or empty.
+    * @param { ValueType } defValue - Indicates the default value to return.
+    * @returns { ValueType } The value matching the specified key if it is found; returns the default value otherwise.
     * @since 6 dynamiconly
     * @deprecated since 9
     * @useinstead ohos.preferences.preferences.get
@@ -212,10 +205,10 @@ declare namespace storage {
     *
     * <p>If the value is {@code null} or not in the int format, the default value is returned.
     *
-    * @param key Indicates the key of the storage. It cannot be {@code null} or empty.
-    * @param defValue Indicates the default value to return.
-    * @returns Returns the value matching the specified key if it is found; returns the default value otherwise.
-    * @throws BusinessError if invoked failed
+    * @param { string } key - Indicates the key of the storage. It cannot be {@code null} or empty.
+    * @param { ValueType } defValue - Indicates the default value to return.
+    * @param { AsyncCallback<ValueType> } callback - Indicates the callback used to return the value.
+    * @returns { ValueType } The value matching the specified key if it is found; returns the default value otherwise.
     * @since 6 dynamiconly
     * @deprecated since 9
     * @useinstead ohos.preferences.preferences.get
@@ -227,10 +220,9 @@ declare namespace storage {
     *
     * <p>If the value is {@code null} or not in the int format, the default value is returned.
     *
-    * @param key Indicates the key of the storage. It cannot be {@code null} or empty.
-    * @param defValue Indicates the default value to return.
-    * @returns Returns the value matching the specified key if it is found; returns the default value otherwise.
-    * @throws BusinessError if invoked failed
+    * @param { string } key - Indicates the key of the storage. It cannot be {@code null} or empty.
+    * @param { ValueType } defValue - Indicates the default value to return.
+    * @returns { ValueType } The value matching the specified key if it is found; returns the default value otherwise.
     * @since 6 dynamiconly
     * @deprecated since 9
     * @useinstead ohos.preferences.preferences.get
@@ -240,10 +232,9 @@ declare namespace storage {
     /**
      * Checks whether the {@link Storage} object contains a storage matching a specified key.
      *
-     * @param key Indicates the key of the storage to check for.
-     * @returns Returns {@code true} if the {@link Storage} object contains a storage with the specified key;
+     * @param { string } key - Indicates the key of the storage to check for.
+     * @returns { boolean } {@code true} if the {@link Storage} object contains a storage with the specified key;
      * returns {@code false} otherwise.
-     * @throws BusinessError if invoked failed
      * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.preferences.preferences.has
@@ -253,10 +244,10 @@ declare namespace storage {
     /**
      * Checks whether the {@link Storage} object contains a storage matching a specified key.
      *
-     * @param key Indicates the key of the storage to check for.
-     * @returns Returns {@code true} if the {@link Storage} object contains a storage with the specified key;
+     * @param { string } key - Indicates the key of the storage to check for.
+     * @param { AsyncCallback<boolean> } callback - Indicates the callback used to return the result.
+     * @returns { boolean } {@code true} if the {@link Storage} object contains a storage with the specified key;
      * returns {@code false} otherwise.
-     * @throws BusinessError if invoked failed
      * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.preferences.preferences.has
@@ -266,10 +257,9 @@ declare namespace storage {
     /**
      * Checks whether the {@link Storage} object contains a storage matching a specified key.
      *
-     * @param key Indicates the key of the storage to check for.
-     * @returns Returns {@code true} if the {@link Storage} object contains a storage with the specified key;
+     * @param { string } key - Indicates the key of the storage to check for.
+     * @returns { boolean } {@code true} if the {@link Storage} object contains a storage with the specified key;
      * returns {@code false} otherwise.
-     * @throws BusinessError if invoked failed
      * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.preferences.preferences.has
@@ -282,10 +272,8 @@ declare namespace storage {
      * <p>You can call the {@link #flush} or {@link #flushSync} method to save the {@link Storage} object to the
      * file.
      *
-     * @param key Indicates the key of the storage to modify. It cannot be {@code null} or empty.
-     * @param value Indicates the value of the storage.
-     * <tt>MAX_KEY_LENGTH</tt>.
-     * @throws BusinessError if invoked failed
+     * @param { string } key - Indicates the key of the storage to modify. It cannot be {@code null} or empty.
+     * @param { ValueType } value - Indicates the value of the storage.
      * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.preferences.preferences.put
@@ -298,10 +286,10 @@ declare namespace storage {
      * <p>You can call the {@link #flush} or {@link #flushSync} method to save the {@link Storage} object to the
      * file.
      *
-     * @param key Indicates the key of the storage to modify. It cannot be {@code null} or empty.
-     * @param value Indicates the value of the storage.
-     * <tt>MAX_KEY_LENGTH</tt>.
-     * @throws BusinessError if invoked failed
+     * @param { string } key - Indicates the key of the storage to modify. It cannot be {@code null} or empty.
+     * @param { ValueType } value - Indicates the value of the storage.
+     * @param { AsyncCallback<void> } callback - Indicates the callback used to return the result.
+     * @returns { void } Indicates the result is returned.
      * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.preferences.preferences.put
@@ -314,10 +302,8 @@ declare namespace storage {
      * <p>You can call the {@link #flush} or {@link #flushSync} method to save the {@link Storage} object to the
      * file.
      *
-     * @param key Indicates the key of the storage to modify. It cannot be {@code null} or empty.
-     * @param value Indicates the value of the storage.
-     * <tt>MAX_KEY_LENGTH</tt>.
-     * @throws BusinessError if invoked failed
+     * @param { string } key - Indicates the key of the storage to modify. It cannot be {@code null} or empty.
+     * @param { ValueType } value - Indicates the value of the storage.
      * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.preferences.preferences.put
@@ -330,9 +316,7 @@ declare namespace storage {
      * <p>You can call the {@link #flush} method to save the {@link Storage} object to the
      * file.
      *
-     * @param key Indicates the key of the storage to delete. It cannot be {@code null} or empty.
-     * <tt>MAX_KEY_LENGTH</tt>.
-     * @throws BusinessError if invoked failed
+     * @param { string } key - Indicates the key of the storage to delete. It cannot be {@code null} or empty.
      * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.preferences.preferences.delete
@@ -345,9 +329,9 @@ declare namespace storage {
      * <p>You can call the {@link #flush} method to save the {@link Storage} object to the
      * file.
      *
-     * @param key Indicates the key of the storage to delete. It cannot be {@code null} or empty.
-     * <tt>MAX_KEY_LENGTH</tt>.
-     * @throws BusinessError if invoked failed
+     * @param { string } key - Indicates the key of the storage to delete. It cannot be {@code null} or empty.
+     * @param { AsyncCallback<void> } callback - Indicates the callback used to return the result.
+     * @returns { void } Indicates the result is returned.
      * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.preferences.preferences.delete
@@ -360,9 +344,7 @@ declare namespace storage {
      * <p>You can call the {@link #flush} method to save the {@link Storage} object to the
      * file.
      *
-     * @param key Indicates the key of the storage to delete. It cannot be {@code null} or empty.
-     * <tt>MAX_KEY_LENGTH</tt>.
-     * @throws BusinessError if invoked failed
+     * @param { string } key - Indicates the key of the storage to delete. It cannot be {@code null} or empty.
      * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.preferences.preferences.delete
@@ -375,7 +357,6 @@ declare namespace storage {
      * <p>You can call the {@link #flush} method to save the {@link Storage} object to the
      * file.
      *
-     * @throws BusinessError if invoked failed
      * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.preferences.preferences.clear
@@ -388,7 +369,8 @@ declare namespace storage {
      * <p>You can call the {@link #flush} method to save the {@link Storage} object to the
      * file.
      *
-     * @throws BusinessError if invoked failed
+     * @param { AsyncCallback<void> } callback - Indicates the callback used to return the result.
+     * @returns { void } Indicates the result is returned.
      * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.preferences.preferences.clear
@@ -401,7 +383,6 @@ declare namespace storage {
      * <p>You can call the {@link #flush} method to save the {@link Storage} object to the
      * file.
      *
-     * @throws BusinessError if invoked failed
      * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.preferences.preferences.clear
@@ -409,9 +390,8 @@ declare namespace storage {
     clear(): Promise<void>;
 
     /**
-     * Asynchronously saves the {@link Storage} object to the file.
+     * Synchronously saves the {@link Storage} object to the file.
      *
-     * @throws BusinessError if invoked failed
      * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.preferences.preferences.flush
@@ -421,7 +401,8 @@ declare namespace storage {
     /**
      * Asynchronously saves the {@link Storage} object to the file.
      *
-     * @throws BusinessError if invoked failed
+     * @param { AsyncCallback<void> } callback - Indicates the callback used to return the result.
+     * @returns { void } Indicates the result is returned.
      * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.preferences.preferences.flush
@@ -431,7 +412,6 @@ declare namespace storage {
     /**
      * Asynchronously saves the {@link Storage} object to the file.
      *
-     * @throws BusinessError if invoked failed
      * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.preferences.preferences.flush
@@ -441,8 +421,8 @@ declare namespace storage {
     /**
      * Registers an observer to listen for the change of a {@link Storage} object.
      *
-     * @param callback Indicates the callback when storage changes.
-     * @throws BusinessError if invoked failed
+     * @param { string } type - Indicates the event type. The value is fixed at 'change'.
+     * @param { Callback<StorageObserver> } callback - Indicates the callback when storage changes.
      * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.preferences.preferences.on
@@ -452,8 +432,8 @@ declare namespace storage {
     /**
      * Unregister an existing observer.
      *
-     * @param callback Indicates the registered callback.
-     * @throws BusinessError if invoked failed
+     * @param { string } type - Indicates the event type. The value is fixed at 'change'.
+     * @param { Callback<StorageObserver> } callback - Indicates the registered callback.
      * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.preferences.preferences.off
