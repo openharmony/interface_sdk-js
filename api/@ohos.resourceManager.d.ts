@@ -5158,6 +5158,19 @@ declare namespace resourceManager {
      * @since 23 static
      */
      updateOverrideConfiguration(configuration: Configuration): void;
+
+    /**
+     * Obtains the resource name corresponding to the specified resource ID.
+     *
+     * @param { long } resId - Indicates the resource ID.
+     * @returns { string } The resource name is returned.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+     getResourceName(resId: long): string;
   }
 
   /**

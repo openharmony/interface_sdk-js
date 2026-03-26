@@ -4529,7 +4529,17 @@ export declare interface MouseEvent extends BaseEvent {
      * @stagemodelonly
      * @since 24 static
      */
-    globalDisplayY?: double;    
+    globalDisplayY?: double;
+    /**
+     * The unique handle for the event processing session. This handle must be used for any further operations on the
+     * event. The system ensures that for a given finger, only one event with this handle can be active at a time.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 24 static
+     */
+    eventHandleId?: int;
 }
 /**
  * The accessibility hover action triggers this method invocation.
@@ -4846,6 +4856,16 @@ export declare interface TouchEvent extends BaseEvent {
      * @since 23 static
      */
     preventDefault(): void;
+    /**
+     * The unique handle for the event processing session. This handle must be used for any further operations on the
+     * event. The system ensures that for a given finger, only one event with this handle can be active at a time.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 24 static
+     */
+    eventHandleId?: int;
 }
 /**
  * The axis event triggers this method invocation.
@@ -4920,6 +4940,16 @@ export declare interface AxisEvent extends BaseEvent {
      * @since 23 static
      */
     scrollStep?: int;
+    /**
+     * The unique handle for the event processing session. This handle must be used for any further operations on the
+     * event. The system ensures that for a given finger, only one event with this handle can be active at a time.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 24 static
+     */
+    eventHandleId?: int;
     /**
      * Active event bubbling.
      *
@@ -8625,6 +8655,25 @@ export declare interface ContextMenuOptions {
      * @since 23 static
      */
     systemMaterial?: SystemUiMaterial;
+    /**
+     * Defines the scroll bar state of menu.
+     *
+     * @type { ?BarState }
+     * @default BarState.Auto
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    scrollBar?: BarState;
+    /**
+     * Defines the max height of menu.
+     *
+     * @type { ?LengthMetrics }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    maxHeight?: LengthMetrics;
 }
 /**
  * Defines the menu options.
@@ -11139,7 +11188,17 @@ export declare interface CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
      */
-    default overlay<T extends Object>(value: string | CustomBuilder | ComponentContent<T> | undefined, options?: OverlayOptions): this;
+    /**
+     * Add mask text to the current component. The layout is the same as that of the current component.
+     *
+     * @param { string | CustomBuilder | ComponentContent<Object> | undefined } value
+     * @param { OverlayOptions } [options]
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default overlay(value: string | CustomBuilder | ComponentContent<Object> | undefined, options?: OverlayOptions): this;
     /**
      * Linear Gradient
      * angle: Angle of Linear Gradient. The default value is 180;
@@ -11948,6 +12007,16 @@ export declare interface CommonMethod {
      * @since 23 static
      */
     default accessibilityActionOptions(option: AccessibilityActionOptions | undefined): this;
+    /**
+     * Set the component's source code redirection information. 
+     * @param { string } sourceLine - the source code line.
+     * @param { string } [moduleName] - module to which the component belongs.
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 24 staticonly
+     */
+    default debugLine(sourceLine: string, moduleName?: string): this;
 }
 /**
  * CommonAttribute for ide.
@@ -12869,6 +12938,18 @@ export declare interface ScrollableCommonMethod extends CommonMethod {
      * @since 24 static
      */
     default scrollBarMargin(margin: ScrollBarMargin | undefined): this;
+    /**
+     * Set the scroll bar auto adjust the margin to avoid the padding, safeAreaPadding, and
+     * contentStartOffset/contentEndOffset of the component.
+     *
+     * @param { boolean | undefined } enable - Whether to enable automatic adjustment of scroll bar margin.
+     *     <br>Default value: false.
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default autoAdjustScrollBarMargin(enable: boolean | undefined): this;
     /**
      * Sets the effect used when the scroll boundary is reached.
      *

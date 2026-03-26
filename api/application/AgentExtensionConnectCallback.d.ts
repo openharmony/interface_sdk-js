@@ -23,8 +23,8 @@
  *
  * @interface AgentExtensionConnectCallback
  * @syscap SystemCapability.Ability.AgentRuntime.Core
+ * @systemapi
  * @stagemodelonly
- * @atomicservice
  * @since 24 dynamic&static
  */
 export interface AgentExtensionConnectCallback {
@@ -33,8 +33,8 @@ export interface AgentExtensionConnectCallback {
    *
    * @param { string } data - Indicates the received data.
    * @syscap SystemCapability.Ability.AgentRuntime.Core
+   * @systemapi
    * @stagemodelonly
-   * @atomicservice
    * @since 24 dynamic&static
    */
   onData(data: string): void;
@@ -44,8 +44,8 @@ export interface AgentExtensionConnectCallback {
    *
    * @param { string } handshakeData - Indicates the received handshake data.
    * @syscap SystemCapability.Ability.AgentRuntime.Core
+   * @systemapi
    * @stagemodelonly
-   * @atomicservice
    * @since 24 dynamic&static
    */
   onAuth(handshakeData: string): void;
@@ -54,8 +54,8 @@ export interface AgentExtensionConnectCallback {
    * The callback interface was disconnected successfully.
    *
    * @syscap SystemCapability.Ability.AgentRuntime.Core
+   * @systemapi
    * @stagemodelonly
-   * @atomicservice
    * @since 24 dynamic&static
    */
   onDisconnect(): void;

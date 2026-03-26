@@ -23,8 +23,8 @@
  *
  * @interface AgentProxy
  * @syscap SystemCapability.Ability.AgentRuntime.Core
+ * @systemapi
  * @stagemodelonly
- * @atomicservice
  * @since 24 dynamic&static
  */
 export interface AgentProxy {
@@ -34,8 +34,8 @@ export interface AgentProxy {
    * @param { string } data - Indicates the data to send.
    * @throws { BusinessError } 35600002 - Failed to send the IPC message.
    * @syscap SystemCapability.Ability.AgentRuntime.Core
+   * @systemapi
    * @stagemodelonly
-   * @atomicservice
    * @since 24 dynamic&static
    */
   sendData(data: string): void;
@@ -46,8 +46,8 @@ export interface AgentProxy {
    * @param { string } handshakeData - Indicates the handshake data to send.
    * @throws { BusinessError } 35600002 - Failed to send the IPC message.
    * @syscap SystemCapability.Ability.AgentRuntime.Core
+   * @systemapi
    * @stagemodelonly
-   * @atomicservice
    * @since 24 dynamic&static
    */
   authorize(handshakeData: string): void;

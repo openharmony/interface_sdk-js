@@ -861,6 +861,36 @@ declare class UIExtensionContext extends ExtensionContext {
   startAbilityForResultAsCaller(want: Want, options?: StartOptions): Promise<AbilityResult>;
 
   /**
+   * Connects the current UI extension to an service extension ability with a root host token.
+   * If the target service extension ability is visible, you can connect the target service extension ability;
+   * If the target service extension ability is invisible, you need to apply for
+   *     permission:ohos.permission.START_INVISIBLE_ABILITY to connect target invisible service extension ability.
+   * If the target service extension ability is in cross-device, you need to apply for
+   *     permission:ohos.permission.DISTRIBUTED_DATASYNC.
+   *
+   * @param { Want } want - The element name of the service ability
+   * @param { ConnectOptions } connect - The remote object instance
+   * @returns { long } Returns the number code of the ability connected
+   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
+   * @throws { BusinessError } 202 - Not system application
+   * @throws { BusinessError } 16000001 - The specified ability does not exist.
+   * @throws { BusinessError } 16000002 - Incorrect ability type.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
+   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
+   * @throws { BusinessError } 16000008 - The crowdtesting application expires.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000050 - Internal error. Possible causes: 1. Connect to system service failed;
+   *     2.Send restart message to system service failed; 3.System service failed to commnicate with dependency module.
+   * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
+   * @throws { BusinessError } 16000070 - The extension cannot start the service.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  connectServiceExtensionAbilityWithRootHostToken(want: Want, connect: ConnectOptions): long;
+
+  /**
    * Connects the current ability to an service extension ability.
    * If the target service extension ability is visible, you can connect the target service extension ability;
    * If the target service extension ability is invisible,

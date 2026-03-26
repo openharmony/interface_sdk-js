@@ -1203,6 +1203,14 @@ declare namespace dlpPermission {
      * @since 23
      */
     countdown?: number;
+
+    /**
+     * Defines the extended fields of the DLP file.
+     * @syscap SystemCapability.Security.DataLossPrevention
+     * @stagemodelonly
+     * @since 24
+     */
+    extensionFields?: Record<string, Object>;
   }
 
   /**

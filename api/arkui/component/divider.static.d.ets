@@ -83,14 +83,11 @@ export declare interface DividerAttribute extends CommonMethod {
 /**
  * Defines Divider Component.
  *
- * @param { CustomBuilder } [content_] - container
  * @returns { DividerAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 23 static
+ * @stagemodelonly
+ * @since 24 static
  * @noninterop
  */
 @ComponentBuilder
-export declare function Divider(
-    
-    content_?: CustomBuilder,
-): DividerAttribute
+export declare function Divider(): DividerAttribute;

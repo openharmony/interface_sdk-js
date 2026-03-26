@@ -2446,6 +2446,16 @@ declare namespace socket {
      * @since 10 dynamic
      */
     socketLinger?: { on: boolean, linger: number };
+
+    /**
+     * Whether to enable TCP Fast Open (TFO) on the TCPSocket connection. The default value is false.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    tcpFastOpen?: boolean;
   }
 
   /**
@@ -2757,7 +2767,6 @@ declare namespace socket {
      * @param { AsyncCallback<int> } callback - The callback returns the file descriptor of the TCPSocket connection.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
-     * @since 23 static
      */
     /**
      * Obtains the file descriptor of the TCPSocket connection.
@@ -4112,7 +4121,7 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 22 dynamic
-     * @since 23 static
+     * @since 24 static
      */
     timeout?: int;
   }
@@ -4177,7 +4186,6 @@ declare namespace socket {
      * @type {int}
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
-     * @since 23 static
      */
     /**
      * The id of a client connects to the TCPSocketServer.
@@ -4814,7 +4822,6 @@ declare namespace socket {
      * @type {int}
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
-     * @since 23 static
      */
     /**
      * The id of a client connects to the TLSSocketServer.

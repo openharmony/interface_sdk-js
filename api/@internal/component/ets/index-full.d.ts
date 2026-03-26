@@ -130,6 +130,7 @@
 /// <reference path="./toolbar.d.ts" />
 /// <reference path="./with_theme.d.ts" />
 /// <reference path="./units.d.ts" />
+/// <reference path="./union_effect_container.d.ts" />
 /// <reference path="./video.d.ts" />
 /// <reference path="./web.d.ts" />
 /// <reference path="./window_scene.d.ts" />

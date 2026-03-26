@@ -524,6 +524,22 @@ declare namespace pasteboard {
      * @since 23 static
      */
     EMAIL_ADDRESS = 2,
+    /**
+     * HTTP URL pattern.
+     * 
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    HTTP_URL = 3,
+    /**
+     * Flight number pattern.
+     * 
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    FLIGHT_NUMBER = 4,
   }
 
 

@@ -57,6 +57,17 @@ declare namespace osAccount {
   function getAuthorizationManager(): AuthorizationManager;
 
   /**
+   * Checks whether the domain account feature is supported.
+   *
+   * @returns { Promise<boolean> } Returns true if the domain account feature is supported; otherwise returns false.
+   * @throws { BusinessError } 12300001 - The system service works abnormally.
+   * @syscap SystemCapability.Account.OsAccount
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function isDomainAccountSupported(): Promise<boolean>
+
+  /**
    * Provides abilities for you to manage and perform operations on your OS accounts.
    *
    * @interface AccountManager
@@ -878,6 +889,21 @@ declare namespace osAccount {
      * @since 23 static
      */
     getOsAccountName(): Promise<string>;
+
+    /**
+     * Gets the local IDs of all non-system-level OS accounts.
+     *
+     * Non-system-level OS accounts are visible to users, and are usually used for login and other operations.
+     *
+     * @permission ohos.permission.GET_LOCAL_ACCOUNT_IDENTIFIERS
+     * @returns { Promise<int[]> } Returns the local IDs of all non-system-level OS accounts.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @syscap SystemCapability.Account.OsAccount
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    getOsAccountLocalIds(): Promise<int[]>
 
     /**
      * Obtains the number of all OS accounts created on a device.
@@ -2760,7 +2786,7 @@ declare namespace osAccount {
     photo: string;
 
     /**
-     * Os account create time.
+     * OS account create time, given in the form of Unix timestamp. Unit: s.
      *
      * @type { long }
      * @syscap SystemCapability.Account.OsAccount
@@ -2770,7 +2796,7 @@ declare namespace osAccount {
     createTime: long;
 
     /**
-     * The last time to log in.
+     * The last time to log in, given in the form of Unix timestamp. Unit: s.
      *
      * @type { long }
      * @syscap SystemCapability.Account.OsAccount
@@ -3393,7 +3419,7 @@ declare namespace osAccount {
     isReused?: boolean;
 
     /**
-     * Indicates the validity period of the authorization.
+     * Indicates the validity period of the authorization. Unit: s.
      *
      * @type { ?int }
      * @syscap SystemCapability.Account.OsAccount
@@ -4221,7 +4247,7 @@ declare namespace osAccount {
     remainTimes: int;
 
     /**
-     * Indicates the freezing time before performing the next authentication.
+     * Indicates the freezing time before performing the next authentication. Unit: ms.
      *
      * @type { int }
      * @syscap SystemCapability.Account.OsAccount
@@ -6548,7 +6574,7 @@ declare namespace osAccount {
     remainTimes?: int;
 
     /**
-     * Indicates the freezing times.
+     * Indicates the freezing times. Unit: ms.
      *
      * @type { ?int }
      * @syscap SystemCapability.Account.OsAccount
@@ -6559,7 +6585,7 @@ declare namespace osAccount {
     freezingTime?: int;
 
     /**
-     * Indicates next phase freezing time.
+     * Indicates next phase freezing time. Unit: ms.
      *
      * @type { ?int }
      * @syscap SystemCapability.Account.OsAccount
@@ -6636,7 +6662,7 @@ declare namespace osAccount {
     remainTimes?: int;
 
     /**
-     * Indicates the freezing times.
+     * Indicates the freezing times. Unit: ms.
      *
      * @type { ?int }
      * @syscap SystemCapability.Account.OsAccount
@@ -6647,7 +6673,7 @@ declare namespace osAccount {
     freezingTime?: int;
 
     /**
-     * Indicates next phase freezing time.
+     * Indicates next phase freezing time. Unit: ms.
      *
      * @type { ?int }
      * @syscap SystemCapability.Account.OsAccount
@@ -6680,7 +6706,7 @@ declare namespace osAccount {
     accountId?: int;
 
     /**
-     * Indicates the validity period after which the PIN will expire.
+     * Indicates the validity period after which the PIN will expire. Unit: ms.
      *
      * @type { ?long }
      * @syscap SystemCapability.Account.OsAccount
@@ -6843,7 +6869,7 @@ declare namespace osAccount {
     isAbandoned?: boolean;
 
     /**
-     * Indicates the validity period.
+     * Indicates the validity period. Unit: ms.
      *
      * @type { ?long }
      * @syscap SystemCapability.Account.OsAccount

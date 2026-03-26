@@ -3878,6 +3878,7 @@ export declare enum CrownAction {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
+   * @deprecated since 24 static
    */
   BEGIN = 0,
 
@@ -4231,6 +4232,41 @@ export declare enum AxisType {
 }
 
 /**
+ * Defines whether a competition for gesture recognition results should occur between the event injector and the
+ * gesture recognizers of the target component.
+ * This strategy determines how the injected input event interacts with the target component's own gesture
+ * handling logic.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 24 static
+ */
+export enum CompetitionStrategy {
+  /**
+   * No competition strategy.
+   * The injected event does not compete with any existing gestures.
+   * Both the injected event and existing gestures can be processed independently and in parallel.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  DEFAULT = 0,
+
+  /**
+   * Competition strategy.
+   * The gesture recognition result from the event injector will compete with those from the target component's own
+   * recognizers.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  COMPETITION = 1,
+}
+
+/**
  * Defines the state types that can be monitored by AttributeModifiers.
  *
  * @enum { number }
@@ -4283,16 +4319,7 @@ export enum AttributeModifierState {
    * @FaAndStageModel
    * @since 23 staticonly
    */
-  SELECTED = 1 << 3,
-
-  /**
-   * All states.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @since 23 staticonly
-   */
-  ALL = (1 << 4) - 1
+  SELECTED = 1 << 3
 }
 
 /**

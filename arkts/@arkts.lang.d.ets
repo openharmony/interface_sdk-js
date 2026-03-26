@@ -56,4 +56,49 @@ declare namespace lang {
   interface ISendable {}
 }
 
+
+/**
+ * Enum for Retention annotation field type.
+ *
+ * @syscap SystemCapability.Utils.Lang
+ * @stagemodelonly
+ * @since 24 dynamic
+ */
+export const enum RetentionPolicy {
+  /**
+   * Enumerated value, which is used to identify source annotations.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @stagemodelonly
+   * @since 24 dynamic
+   */
+  SOURCE = 'source',
+  /**
+   * Enumerated value, which is used to identify bytecode annotations.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @stagemodelonly
+   * @since 24 dynamic
+   */
+  BYTECODE = 'bytecode'
+}
+
+/**
+ * An annotation used to annotate the lifecycle of other annotations.
+ *
+ * @syscap SystemCapability.Utils.Lang
+ * @stagemodelonly
+ * @since 24 dynamic
+ */
+export @interface Retention {
+  /**
+   * Indicates the lifecycle of annotated annotations.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @stagemodelonly
+   * @since 24 dynamic
+   */
+  policy: RetentionPolicy;
+}
+
 export default lang;

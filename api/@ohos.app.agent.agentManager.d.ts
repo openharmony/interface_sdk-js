@@ -43,9 +43,19 @@ declare namespace agentManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
+   * @throws { BusinessError } 16000002 - Incorrect ability type.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
+   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
+   * @throws { BusinessError } 16000008 - The crowdtesting application expires.
+   * @throws { BusinessError } 16000012 - The application is controlled.
+   * @throws { BusinessError } 16000013 - The application is controlled by enterprise device management (EDM).
    * @throws { BusinessError } 16000050 - Internal error. Possible causes: 1.Connect to system service failed.
    * 2.System service failed to communicate with dependency module.
+   * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
+   * @throws { BusinessError } 16000073 - The app clone index is invalid.
    * @throws { BusinessError } 35600001 - The specified agentId does not exist.
+   * @throws { BusinessError } 35600003 - Maximum connections from the same caller have been reached.
+   * Please disconnect at least one agent extension beforehand.
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly

@@ -3150,6 +3150,19 @@ export interface AtomicServiceBar {
    * @since 15 dynamic
    */
   getBarRect(): Frame;
+
+  /**
+   * When size and position of the bar changed, callback will be called.
+   *
+   * @param { Callback<Frame> } callback - Callback that param contains the Frame.
+   *     The parameters of the callback function cannot be undefined or null.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  onBarRectChange(callback: Callback<Frame>): void;
 }
 
 /**
@@ -5650,6 +5663,18 @@ export class UIContext {
    * @since 24 dynamic
    */
   getPageRootNode(): FrameNode | null;
+
+   /**
+    * Checks whether the current UI instance is in easy split mode.
+    *
+    * @returns { boolean } Returns true if the current UI instance is in easy split mode; returns false otherwise.
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @crossplatform
+    * @atomicservice
+    * @since 24 dynamic
+    */
+   isEasySplit(): boolean;
 }
 
 /**

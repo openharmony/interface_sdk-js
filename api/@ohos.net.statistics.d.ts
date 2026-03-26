@@ -541,6 +541,64 @@ declare namespace statistics {
   function getSockfdTxBytes(sockfd: int): Promise<long>;
 
   /**
+   * Set calibration traffic data.
+   *
+   * @permission ohos.permission.GET_NETWORK_STATS
+   * @param { int } simId - The ID of the specified sim card.
+   * @param { long } remainTraffic - The remaining traffic data.
+   * @param { long } [totalTraffic] - The total traffic data.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Nonsystem applications use system APIs.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2100001 - Invalid parameter value, such as simId error.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
+   * @throws { BusinessError } 2100003 - System internal error, such as nullptr.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @systemapi Hidethisfor inner system use.
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function setCalibrationTraffic(simId: int, remainTraffic: long, totalTraffic?: long): Promise<void>;
+
+  /**
+   * Updates network statistics data.
+   *
+   * @permission ohos.permission.CONNECTIVITY_INTERNAL
+   * @returns { Promise<void> } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Non-system applications use system APIs.
+   * @throws { BusinessError } 202 - Failed to connect to the service.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @systemapi Hide this for inner system use.
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function updateStatsData(): Promise<void>;
+
+  /**
+   * Updates network interface statistics data.
+   *
+   * @permission ohos.permission.GET_NETWORK_STATS
+   * @param { string } iface - Network interface name.
+   * @param { int } start - Start timestamp for the statistics data to update.
+   * @param { int } end - End timestamp for the statistics data to update.
+   * @param { NetStatsInfo } stats - Network statistics information.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @systemapi Hide this for inner system use.
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function updateIfacesStats(iface: string, start: int, end: int, stats: NetStatsInfo): Promise<void>;
+
+  /**
    * Parameters for obtaining detailed information on network interface traffic usage.
    * @interface IfaceInfo
    * @syscap SystemCapability.Communication.NetManager.Core

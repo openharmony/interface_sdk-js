@@ -17,7 +17,13 @@
  * @kit ArkUI
  */
 
-export { NodeRenderType, RenderOptions, BuilderNode } from 'arkui.BuilderNode';
+/**
+ * Export NodeRenderType, RenderOptions, BuilderNode, ReactiveBuilderNode, which is used to create a node trees by
+ * builder function and manage the update of the tree.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 23 static
+ */
+export { NodeRenderType, RenderOptions, BuilderNode, ReactiveBuilderNode } from 'arkui.BuilderNode';
 /**
  * Export BuildOptions which is used to create a node trees by builder function and manage the update of the tree.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -88,12 +94,12 @@ export { RenderNode } from 'arkui.RenderNode';
  */
 export { Content } from 'arkui.Content';
 /**
- * Export ComponentContent.
+ * Export ComponentContent, ComponentContentBase and ReactiveComponentContent.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 23 static
  */
-export { ComponentContent, ComponentContentBase } from 'arkui.ComponentContent';
+export { ComponentContent, ComponentContentBase, ReactiveComponentContent } from 'arkui.ComponentContent';
 /**
  * Export NodeContent.
  *

@@ -4355,6 +4355,19 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @since 23 dynamic
    */
   compressLeadingPunctuation(enabled: Optional<boolean>): RichEditorAttribute;
+
+  /**
+   * Whether to avoid an orphan word on the last line of the paragraph.
+   *
+   * @param { Optional<boolean> } enabled - The default value is false, 
+   *     indicates the flag whether to enable this feature.
+   * @returns { RichEditorAttribute } - returns the instance of the RichEditorAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  orphanCharOptimization(enabled: Optional<boolean>): RichEditorAttribute;
 }
  
 /**

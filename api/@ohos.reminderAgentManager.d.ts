@@ -68,7 +68,7 @@ declare namespace reminderAgentManager {
   function publishReminder(reminderReq: ReminderRequest): Promise<int>;
 
   /**
-   * Cancel a reminder.
+   * Cancels a reminder.
    *
    * @param { int } reminderId - Indicates the reminder id.
    * @param { AsyncCallback<void> } callback - Indicates the callback function.
@@ -82,7 +82,7 @@ declare namespace reminderAgentManager {
   function cancelReminder(reminderId: int, callback: AsyncCallback<void>): void;
 
   /**
-   * Cancel a reminder.
+   * Cancels a reminder.
    *
    * @param { int } reminderId - Indicates the reminder id.
    * @returns { Promise<void> } The promise returned by the function.
@@ -120,7 +120,7 @@ declare namespace reminderAgentManager {
   function getValidReminders(): Promise<Array<ReminderRequest>>;
 
   /**
-   * Cancel all the reminders of current application.
+   * Cancels all the reminders of current application.
    *
    * @param { AsyncCallback<void> } callback - Indicates the callback function.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
@@ -132,7 +132,7 @@ declare namespace reminderAgentManager {
   function cancelAllReminders(callback: AsyncCallback<void>): void;
 
   /**
-   * Cancel all the reminders of current application.
+   * Cancels all the reminders of current application.
    *
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
@@ -144,7 +144,7 @@ declare namespace reminderAgentManager {
   function cancelAllReminders(): Promise<void>;
 
   /**
-   * Add notification slot.
+   * Adds notification slot.
    *
    * @param { NotificationSlot } slot - Indicates the slot.
    * @param { AsyncCallback<void> } callback - Indicates the callback function.
@@ -156,7 +156,7 @@ declare namespace reminderAgentManager {
   function addNotificationSlot(slot: NotificationSlot, callback: AsyncCallback<void>): void;
 
   /**
-   * Add notification slot.
+   * Adds notification slot.
    *
    * @param { NotificationSlot } slot - Indicates the slot.
    * @returns { Promise<void> } The promise returned by the function.
@@ -192,7 +192,7 @@ declare namespace reminderAgentManager {
   function removeNotificationSlot(slotType: notification.SlotType): Promise<void>;
   
   /**
-   * add exclude date for calendar reminder request.
+   * Adds an exclude date for a calendar reminder request.
    *
    * @param { int } reminderId reminder id
    * @param { Date } date date time
@@ -207,7 +207,7 @@ declare namespace reminderAgentManager {
   function addExcludeDate(reminderId: int, date: Date): Promise<void>;
   
   /**
-   * delete exclude date for calendar reminder request.
+   * Deletes exclude dates for a calendar reminder request.
    *
    * @param { int } reminderId reminder id
    * @returns { Promise<void> } The promise returned by the function.
@@ -220,7 +220,7 @@ declare namespace reminderAgentManager {
   function deleteExcludeDates(reminderId: int): Promise<void>;
   
   /**
-   * get exclude dates
+   * Gets exclude dates
    *
    * @param { int } reminderId reminder id
    * @returns { Promise<Array<Date>> } The promise returned by the function.
@@ -675,6 +675,7 @@ declare namespace reminderAgentManager {
 
     /**
      * Ringing duration.
+     * <br> Unit:s
      *
      * @type { ?long }
      * @syscap SystemCapability.Notification.ReminderAgent
@@ -705,6 +706,7 @@ declare namespace reminderAgentManager {
 
     /**
      * Reminder snooze interval.
+     * <br> Unit:s
      *
      * @type { ?long }
      * @syscap SystemCapability.Notification.ReminderAgent
@@ -835,6 +837,7 @@ declare namespace reminderAgentManager {
 
     /**
      * Time when the notification is automatically cleared.
+     * <br> Unit:ms
      *
      * @type { ?long }
      * @syscap SystemCapability.Notification.ReminderAgent
@@ -1012,6 +1015,7 @@ declare namespace reminderAgentManager {
   interface ReminderRequestTimer extends ReminderRequest {
     /**
      * The number of seconds to count down.
+     * <br> Unit:s
      *
      * @type { long }
      * @syscap SystemCapability.Notification.ReminderAgent
