@@ -22,7 +22,7 @@
 import font from './@ohos.font';
 import mediaQuery from './@ohos.mediaquery';
 import type inspector from './@ohos.arkui.inspector';
-import promptAction, { LevelOrder } from './@ohos.promptAction';
+import promptAction, { LevelOrder, LevelMode } from './@ohos.promptAction';
 import router from './@ohos.router';
 import type componentUtils from './@ohos.arkui.componentUtils';
 import { ComponentContent, FrameNode, Frame, LengthMetrics, Edges } from './@ohos.arkui.node';
@@ -1789,6 +1789,54 @@ export interface OverlayManagerOptions {
 }
 
 /**
+ * Options for opening an overlay with order.
+ *
+ * @interface OrderOverlayOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+export interface OrderOverlayOptions {
+  /**
+   * The display order of the overlay.
+   *
+   * @type { ?LevelOrder }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  levelOrder?: LevelOrder;
+
+  /**
+   * The display mode of the overlay.
+   *
+   * @type { ?LevelMode }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  levelMode?: LevelMode;
+
+  /**
+   * The uniqueId of any node in the router or navigation page.
+   *
+   * @type { ?int }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  levelUniqueId?: int;
+}
+
+/**
  * Register callbacks to observe ArkUI behavior.
  * In the following API examples, you must first use getUIObserver() in UIContext to obtain a UIObserver instance, and
  * then call the APIs using the obtained instance.
@@ -2999,6 +3047,25 @@ export class OverlayManager {
    * @since 12 dynamic
    */
   hideAllComponentContents(): void;
+
+  /**
+   * Opens an overlay with the specified ComponentContent and options.
+   *
+   * @param { ComponentContent } content - Content to add to the new node on the OverlayManager.
+   *     <p><strong>NOTE</strong>:
+   *     <br>By default, the new node is centered on the page and stacked according to its stacking level.
+   *     </p>
+   *
+   * @param { OrderOverlayOptions } [ options ] - Options for the overlay.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 103307 - The overlay cannot be opened due to the system pop-up window.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  openOrderOverlay(content: ComponentContent, options?: OrderOverlayOptions): Promise<void>;
 }
 
 /**
