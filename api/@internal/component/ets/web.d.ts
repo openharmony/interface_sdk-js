@@ -11881,6 +11881,18 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   enableDefaultContextMenu(enable: boolean): WebAttribute;
 
   /**
+   * Enables or disables dragging for this component.
+   *
+   * @param { boolean } value - {@code true} to enable dragging, {@code false} to disable it.
+   *     The default value is true.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  enableDrag(value: boolean): WebAttribute;
+
+  /**
    * Enables or disables directional lock for scroll gestures in the WebView component.
    *
    * When directional lock is enabled, the scroll axis is locked based on the initial
