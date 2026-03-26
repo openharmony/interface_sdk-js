@@ -3626,6 +3626,7 @@ declare class WebContextMenuParam {
    */
   /**
    * Horizontal offset coordinates of the menu within the Web component.
+   * The unit is vp.
    *
    * @returns { number } The context menu x coordinate.
    *                     Returns a non-negative integer if normal, otherwise returns -1.
@@ -3645,6 +3646,7 @@ declare class WebContextMenuParam {
    */
   /**
    * Vertical offset coordinates for the menu within the Web component.
+   * The unit is vp.
    *
    * @returns { number } The context menu y coordinate.
    *                     Returns a non-negative integer if normal, otherwise returns -1.
@@ -3826,7 +3828,7 @@ declare class WebContextMenuParam {
   getEditStateFlags(): number;
 
   /**
-   * Returns the selection menu preview width.
+   * Returns the selection menu preview width. The unit is vp.
    *
    * @returns { number } The preview menu width.
    * @syscap SystemCapability.Web.Webview.Core
@@ -3835,7 +3837,7 @@ declare class WebContextMenuParam {
   getPreviewWidth(): number;
 
   /**
-   * Returns the selection menu preview height.
+   * Returns the selection menu preview height. The unit is vp.
    *
    * @returns { number } The preview menu height.
    * @syscap SystemCapability.Web.Webview.Core
@@ -7182,7 +7184,7 @@ declare interface OnSearchResultReceiveEvent {
  */
 declare interface OnScrollEvent {
   /**
-   * The X offset of the scroll. Unit: vp.
+   * The X offset of the scroll. The unit is vp.
    *
    * @type { number }
    * @syscap SystemCapability.Web.Webview.Core
@@ -7193,7 +7195,7 @@ declare interface OnScrollEvent {
   xOffset: number;
 
   /**
-   * The Y offset of the scroll. Unit: vp.
+   * The Y offset of the scroll. The unit is vp.
    *
    * @type { number }
    * @syscap SystemCapability.Web.Webview.Core
@@ -7720,7 +7722,7 @@ declare interface OnLoadInterceptEvent {
 declare interface OnOverScrollEvent {
   /**
    * Based on the leftmost part of the page, the horizontal scroll offset is over.
-   * Unit: vp.
+   * The unit is vp.
    *
    * @type { number }
    * @syscap SystemCapability.Web.Webview.Core
@@ -7731,7 +7733,7 @@ declare interface OnOverScrollEvent {
 
   /**
    * Based on the top of the page, the vertical scroll offset is over.
-   * Unit: vp.
+   * The unit is vp.
    *
    * @type { number }
    * @syscap SystemCapability.Web.Webview.Core
