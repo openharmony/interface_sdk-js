@@ -14803,6 +14803,20 @@ declare interface DragEvent {
   useCustomDropAnimation: boolean;
 
   /**
+   * Set the uniqueId or uniqueId array of components that need to be automatically hidden during dragging.
+   * This property takes effect only in onDragStart. After the drag starts successfully, the system hides the
+   * target components before the drag preview window is shown. Developers need to restore component visibility
+   * in onDragEnd or onDrop based on service requirements.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  autoHideComponentUniqueIds?: int | int[];
+
+  /**
    * Set dragData into DragEvent.
    *
    * @param { UnifiedData } unifiedData - dragData.
