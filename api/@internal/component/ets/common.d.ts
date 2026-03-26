@@ -234,6 +234,18 @@ declare interface TextDecorationOptions {
    * @since 12 dynamic
    */
   style?: TextDecorationStyle;
+
+  /**
+   * The scale value of decoration thickness.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  thicknessScale?: number;
 }
 
 /**
