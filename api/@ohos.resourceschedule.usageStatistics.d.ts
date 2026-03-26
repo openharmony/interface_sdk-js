@@ -1091,6 +1091,35 @@ declare namespace usageStatistics {
    */
   function queryBundleEvents(begin: long, end: long): Promise<Array<BundleEvents>>;
 
+    /**
+   * Queries state data of all bundles within a specified period identified by the start and end time.
+   *
+   * @permission ohos.permission.BUNDLE_ACTIVE_INFO
+   * @param { long } begin - Indicates the start time of the query period, in milliseconds.
+   * <br> Unit:ms
+   * @param { long } end - Indicates the end time of the query period, in milliseconds.
+   * <br> Unit:ms
+   * @param { int } maxNum - Indicates max record number in result, max value is 1000, default value is 1000.
+   * @returns { Promise<Array<BundleEvents>> } the promise returned by queryBundleEvents.
+   * <p> the list of {@link BundleEvents} objects containing the state data of all bundles.</p>
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not System App.
+   * @throws { BusinessError } 10000001 - Memory operation failed.
+   * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
+   * <br> 2. Failed to apply for memory.
+   * @throws { BusinessError } 10000003 - Failed to get system ability manager.
+   * @throws { BusinessError } 10000004 - Failed to access the device usage service.
+   * @throws { BusinessError } 10000006 - Failed to get the application information.
+   * @throws { BusinessError } 10000007 - Failed to get the system time.
+   * @throws { BusinessError } 10000008 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
+   * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
+   * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
+   * @systemapi Hide this for inner system use.
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+    function queryBundleEvents(begin: long, end: long, maxNum: int): Promise<Array<BundleEvents>>;
+
   /**
    * Queries state data of the current bundle within a specified period.
    *
@@ -1144,6 +1173,33 @@ declare namespace usageStatistics {
    * @since 23 static
    */
   function queryCurrentBundleEvents(begin: long, end: long): Promise<Array<BundleEvents>>;
+
+   /**
+   * Queries state data of the current bundle within a specified period.
+   *
+   * @param { long } begin - Indicates the start time of the query period, in milliseconds.
+   * <br> Unit:ms
+   * @param { long } end - Indicates the end time of the query period, in milliseconds.
+   * <br> Unit:ms
+   * @param { int } maxNum - Indicates max record number in result, max value is 1000, default value is 1000.
+   * @returns { Promise<Array<BundleEvents>> } the promise returned by queryCurrentBundleEvents.
+   * <p> the {@link BundleEvents} object Array containing the state data of the current bundle.</p>
+   * @throws { BusinessError } 202 - Not System App.
+   * @throws { BusinessError } 10000001 - Memory operation failed.
+   * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
+   * <br> 2. Failed to apply for memory.
+   * @throws { BusinessError } 10000003 - Failed to get system ability manager.
+   * @throws { BusinessError } 10000004 - Failed to access the device usage service.
+   * @throws { BusinessError } 10000006 - Failed to get the application information.
+   * @throws { BusinessError } 10000007 - Failed to get the system time.
+   * @throws { BusinessError } 10000008 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
+   * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
+   * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
+   * @systemapi Hide this for inner system use.
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+   function queryCurrentBundleEvents(begin: long, end: long, maxNum: int): Promise<Array<BundleEvents>>;
 
   /**
    * Queries recently module usage records with maxNum.
