@@ -9912,12 +9912,12 @@ declare namespace photoAccessHelper {
     
     /**
      * Support selection order adjustment.
-     *
      * @type { ?boolean }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @stagemodelonly
      * @atomicservice
-     * @since 23 dynamic&static
+     * @since 24 dynamic
+     * @since 26.0.0 static
      */
     isSelectionOrderAdjustable?: boolean;
   }
