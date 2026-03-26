@@ -1855,14 +1855,14 @@ declare namespace window {
    */
   interface Size {
     /**
-     * The width of the window.
+     * The width of the window, measured in px.
      *
      * @type { int }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
     /**
-     * The width of the window.
+     * The width of the window, measured in px.
      *
      * @type { int }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -1870,7 +1870,7 @@ declare namespace window {
      * @since 10
      */
     /**
-     * The width of the window.
+     * The width of the window, measured in px.
      *
      * @type { int }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -8783,161 +8783,6 @@ declare namespace window {
      */
     offSystemDensityChange(callback?: Callback<double>): void;
 
-    /**
-     *  Register Callback for window spans multiple screens and displays in full screen mode changed.
-     *
-     * @param { 'mainWindowFullScreenAcrossDisplaysChanged' } type - The value is fixed at
-     *     'mainWindowFullScreenAcrossDisplaysChanged', indicating the window spans multiple screens and displays in full
-     *     screen mode changed.
-     * @param { Callback<boolean> } callback - Callback used to notify the window spans multiple screens and displays in
-     *     full screen mode changed.
-     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
-     *     capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
-     *     Possible cause: 1. The window is not created or destroyed;
-     *                     2. Internal task error.
-     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
-     * @throws { BusinessError } 1300004 - Unauthorized operation.
-     *     Possible cause: Invalid window type. Only main windows and subwindows are supported.
-     * @syscap SystemCapability.Window.SessionManager
-     * @systemapi Hide this for inner system use.
-     * @since 20 dynamic
-     */
-    on(type: 'mainWindowFullScreenAcrossDisplaysChanged', callback: Callback<boolean>): void;
-
-    /**
-     *  Register Callback for window spans multiple screens and displays in full screen mode changed.
-     *
-     * @param { Callback<boolean> } callback - Callback used to notify the window spans multiple screens and displays in
-     *     full screen mode changed.
-     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
-     *     capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
-     *     Possible cause: 1. The window is not created or destroyed;
-     *                     2. Internal task error.
-     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
-     * @throws { BusinessError } 1300004 - Unauthorized operation.
-     *     Possible cause: Invalid window type. Only main windows and subwindows are supported.
-     * @syscap SystemCapability.Window.SessionManager
-     * @systemapi Hide this for inner system use.
-     * @since 23 static
-     */
-    onMainWindowFullScreenAcrossDisplaysChanged(callback: Callback<boolean>): void;
-
-    /**
-     * Unregister Callback for window spans multiple screens and displays in full screen mode changed.
-     *
-     * @param { 'mainWindowFullScreenAcrossDisplaysChanged' } type - The value is fixed at
-     *     'mainWindowFullScreenAcrossDisplaysChanged', indicating the window spans multiple screens and displays in full
-     *     screen mode changed.
-     * @param { Callback<boolean> } [callback] - Callback used to notify the window spans multiple screens and displays
-     *    in full screen mode changed. If not provided, all callbacks of this type will be unregistered.
-     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
-     *     capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
-     *     Possible cause: 1. The window is not created or destroyed;
-     *                     2. Internal task error.
-     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
-     * @throws { BusinessError } 1300004 - Unauthorized operation.
-     *     Possible cause: Invalid window type. Only main windows and subwindows are supported.
-     * @syscap SystemCapability.Window.SessionManager
-     * @systemapi Hide this for inner system use.
-     * @since 20 dynamic
-     */
-    off(type: 'mainWindowFullScreenAcrossDisplaysChanged', callback?: Callback<boolean>): void;
-
-    /**
-     * Unregister Callback for window spans multiple screens and displays in full screen mode changed.
-     *
-     * @param { Callback<boolean> } [callback] - Callback used to notify the window spans multiple screens and displays
-     *     in full screen mode changed. If not provided, all callbacks of this type will be unregistered.
-     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
-     *     capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
-     *     Possible cause: 1. The window is not created or destroyed;
-     *                     2. Internal task error.
-     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
-     * @throws { BusinessError } 1300004 - Unauthorized operation.
-     *     Possible cause: Invalid window type. Only main windows and subwindows are supported.
-     * @syscap SystemCapability.Window.SessionManager
-     * @systemapi Hide this for inner system use.
-     * @since 23 static
-     */
-    offMainWindowFullScreenAcrossDisplaysChanged(callback?: Callback<boolean>): void;
-
-    /**
-     * Register the callback function that has no interaction for a long time.
-     * Interaction events include physical keyboard input events and screen touch/click events,
-     * but not soft keyboard input events.
-     * @param { 'noInteractionDetected' } type - The value is fixed at 'noInteractionDetected',
-     *     indicating the window has no interaction for a long time.
-     * @param { number } timeout - The timeout(in seconds) of no interaction detection.
-     * @param { Callback<void> } callback - Callback used to notify the window has no interaction for a long time.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-     *                                                                  2. Incorrect parameter types;
-     *                                                                  3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
-     *     Failed to call the API due to limited device capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
-     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    on(type: 'noInteractionDetected', timeout: number, callback: Callback<void>): void;
-
-    /**
-     * Subscribes to non-interaction events in a window within the specified period.
-     *     Interaction events include physical keyboard input events and screen touch/click events,
-     *     but not soft keyboard input events.
-     *
-     * @param { long } timeout - The timeout(in seconds) of no interaction detection.
-     * @param { Callback<void> } callback - Callback used to notify the window has no interaction for a long time.
-     * @throws { BusinessError } 801 - Capability not supported.
-     *     Failed to call the API due to limited device capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
-     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
-     * @syscap SystemCapability.Window.SessionManager
-     * @since 23 static
-     */
-    onNoInteractionDetected(timeout: long, callback: Callback<void>): void;
-
-    /**
-     * Unsubscribes from non-interaction events in a window within the specified period.
-     * Interaction events include physical keyboard input events and screen touch/click events, but not soft keyboard input events.
-     *
-     * @param { 'noInteractionDetected' } type - The value is fixed at 'noInteractionDetected', indicating the window has no interaction for a long time.
-     * @param { Callback<void> } callback - Callback used to notify the window has no interaction for a long time.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types; 
-     *                                                                  2. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
-     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    off(type: 'noInteractionDetected', callback?: Callback<void>): void;
-
-    /**
-     * Unsubscribes from non-interaction events in a window within the specified period.
-     *     Interaction events include physical keyboard input events and screen touch/click events,
-     *     but not soft keyboard input events.
-     *
-     * @param { Callback<void> } [callback] - Unregister the callback function.
-     *     If not provided, all callbacks for the given event type will be removed.
-     * @throws { BusinessError } 801 - Capability not supported.
-     *     Failed to call the API due to limited device capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
-     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
-     * @syscap SystemCapability.Window.SessionManager
-     * @since 23 static
-     */
-    offNoInteractionDetected(callback?: Callback<void>): void;
 
     /**
      * Register the callback of screenshot, only the focused window called back
