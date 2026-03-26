@@ -891,6 +891,22 @@ declare namespace osAccount {
     getOsAccountName(): Promise<string>;
 
     /**
+     * Gets the name of target OS account by its local ID.
+     *
+     * @permission ohos.permission.GET_LOCAL_ACCOUNT_IDENTIFIERS
+     * @param { int } localId - Indicates the local ID of the target OS account.
+     * @returns { Promise<string> } Returns the name of the target OS account.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300003 - Account not found.
+     * @throws { BusinessError } 12300008 - Restricted Account.
+     * @syscap SystemCapability.Account.OsAccount
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    getOsAccountNameByLocalId(localId: int): Promise<string>;
+
+    /**
      * Gets the local IDs of all non-system-level OS accounts.
      *
      * Non-system-level OS accounts are visible to users, and are usually used for login and other operations.
