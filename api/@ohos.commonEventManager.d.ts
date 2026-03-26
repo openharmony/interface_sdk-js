@@ -2719,7 +2719,7 @@ declare namespace commonEventManager {
      * @since 24 dynamic&static
      */
     COMMON_EVENT_BLUETOOTH_A2DPSOURCE_PLAY_STATE_CHANGE =
-        "usual.event.bluetooth.a2dpsource.PLAY_STATE_CHANGE",
+        'usual.event.bluetooth.a2dpsource.PLAY_STATE_CHANGE',
 
     /**
      * Indicates the action of a common event that bluetooth remote device sco state change.
@@ -2730,7 +2730,7 @@ declare namespace commonEventManager {
      * @since 24 dynamic&static
      */
     COMMON_EVENT_BLUETOOTH_SCO_CONNECT_STATE_CHANGE = 
-        "usual.event.bluetooth.SCO_CONNECT_STATE_CHANGE",
+        'usual.event.bluetooth.SCO_CONNECT_STATE_CHANGE',
 
     /**
      * Indicates the action of a common event that bluetooth remote device acl state change.
