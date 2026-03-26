@@ -119,6 +119,7 @@ declare namespace storage {
    * will occur.
    *
    * @param { string } path - Indicates the path of storage file.
+   * @returns { Promise<void> } A promise object.
    * @since 6 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.preferences.preferences.deletePreferences
@@ -165,6 +166,7 @@ declare namespace storage {
    * will occur.
    *
    * @param { string } path - Indicates the path of storage file.
+   * @returns { Promise<void> } A promise object.
    * @since 6 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.preferences.preferences.removePreferencesFromCache
@@ -303,6 +305,7 @@ declare namespace storage {
      *
      * @param { string } key - Indicates the key of the storage to modify. It cannot be {@code null} or empty.
      * @param { ValueType } value - Indicates the value of the storage.
+     * @returns { Promise<void> } A promise object.
      * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.preferences.preferences.put
@@ -343,6 +346,7 @@ declare namespace storage {
      * file.
      *
      * @param { string } key - Indicates the key of the storage to delete. It cannot be {@code null} or empty.
+     * @returns { Promise<void> } A promise object.
      * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.preferences.preferences.delete
@@ -380,6 +384,7 @@ declare namespace storage {
      * <p>You can call the {@link #flush} method to save the {@link Storage} object to the
      * file.
      *
+     * @returns { Promise<void> } A promise object.
      * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.preferences.preferences.clear
@@ -408,6 +413,7 @@ declare namespace storage {
     /**
      * Asynchronously saves the {@link Storage} object to the file.
      *
+     * @returns { Promise<void> } A promise object.
      * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.preferences.preferences.flush
