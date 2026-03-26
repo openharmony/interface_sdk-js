@@ -168,10 +168,10 @@ export interface RenderResourceFactory {
   createShader(params: SceneResourceParameters): Promise<Shader>;
 
   /**
-    * Create a image.
+    * Create an image.
     *
-    * @param { SceneResourceParameters } params - the param of creating a image
-    * @returns { Promise<Image> } promise a image
+    * @param { SceneResourceParameters } params - the param of creating an image
+    * @returns { Promise<Image> } promise an image
     * @syscap SystemCapability.ArkUi.Graphics3D
     * @since 20 dynamic
     * @since 23 static
@@ -191,10 +191,10 @@ export interface RenderResourceFactory {
   createMesh(params: SceneResourceParameters, geometry: GeometryDefinition): Promise<MeshResource>;
 
   /**
-   * create a Sampler
+   * Create a Sampler.
    * 
    * @param { SceneResourceParameters } params - the param of create a sampler
-   * @returns { Promise<Sampler> } - promise a scene
+   * @returns { Promise<Sampler> } - promise a sampler
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
    * @since 23 static
@@ -335,10 +335,10 @@ export interface SceneResourceFactory extends RenderResourceFactory {
   createMaterial(params: SceneResourceParameters, materialType: MaterialType): Promise<Material>;
 
   /**
-   * Create a environment.
+   * Create an environment.
    *
-   * @param { SceneResourceParameters } params - the param of creating a Environment object
-   * @returns { Promise<Environment> } promise a Environment
+   * @param { SceneResourceParameters } params - the param of creating an environment object
+   * @returns { Promise<Environment> } promise an environment
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
    * @since 23 static
