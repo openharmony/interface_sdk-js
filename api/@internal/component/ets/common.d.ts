@@ -33448,20 +33448,6 @@ declare type OnWillStopDraggingCallback = (velocity: number) => void;
 declare type OnDidStopDraggingCallback = (willFling: boolean) => void;
 
 /**
- * Defines the callback type used in OnVisibleIndexesChange.
- *
- * @typedef {function} OnVisibleIndexesChangeCallback
- * @param { int } start - the first index in visible content.
- * @param { int } end - the last index in visible content.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 26.0.0 dynamic
- */
-declare type OnVisibleIndexesChangeCallback = (start: int, end: int) => void;
-
-/**
  * Defines the onMove callback.
  *
  * @typedef { function } OnMoveHandler

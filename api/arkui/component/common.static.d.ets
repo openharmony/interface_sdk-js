@@ -13275,17 +13275,6 @@ export type OnItemDragStartCallback = (event: ItemDragInfo, itemIndex: int) => C
   */
 export type OnGetPreviewBadgeCallback = () => boolean | int;
 /**
- * Defines the callback type used in OnVisibleIndexesChange.
- *
- * @typedef { function } OnVisibleIndexesChangeCallback
- * @param { int } start - the first index in visible content.
- * @param { int } end - the last index in visible content.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 26.0.0 static
- */
-export type OnVisibleIndexesChangeCallback = (start: int, end: int) => void;
-/**
  * Defines the onMove callback.
  *
  * @typedef { function } OnMoveHandler
