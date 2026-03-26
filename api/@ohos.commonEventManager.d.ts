@@ -2143,6 +2143,18 @@ declare namespace commonEventManager {
     COMMON_EVENT_FOUNDATION_READY = 'common.event.FOUNDATION_READY',
 
     /**
+     * Indicates that a common event is published when the application is launched for the first time after installation.
+     * This common event is published when the UIAbility is started for the first time after installation.
+     * This is a protected common event, which can be sent only by the system.
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    COMMON_EVENT_APP_FIRST_LAUNCH = 'usual.event.APP_FIRST_LAUNCH',
+
+    /**
      * Indicates the common event Action indicating that the airplane mode status of the device changes.
      * Users can register this event to listen to the change of the airplane mode status of the device.
      *
