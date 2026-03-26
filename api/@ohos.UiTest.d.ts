@@ -2209,7 +2209,7 @@ declare interface TouchOptions {
      */
     duration?: int;
     /**
-     * The pressure of the touch, the value ranges from 0 to 1, default is 1.
+     * The pressure of the touch, the value ranges from 0 to 1, default is 0.
      * Throws 17000007 if the value is out of range. Use the default value when it is null or undefined. 
      *
      * @type { ?double }
@@ -2220,6 +2220,45 @@ declare interface TouchOptions {
      * @test
      */
     pressure?: double;
+}
+
+/**
+ * Represents the options for key operations.
+ *
+ * @typedef KeyOptions
+ * @syscap SystemCapability.Test.UiTest
+ * @FaAndStageModel
+ * @atomicservice
+ * @since 26.0.0 dynamic&static
+ * @test
+ */
+declare interface KeyOptions {
+    /**
+     * The first keyCode to press during the operation.
+     * If not set, no key event will be injected.
+     * Setting only key2 without key1 will result in a BussinessError 17000007.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Test.UiTest
+     * @FaAndStageModel
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     * @test
+     */
+    key1?: int;
+    /**
+     * The second keyCode to press during the operation.
+     * If not set, no key event will be injected.
+     * Setting only key2 without key1 will result in a BussinessError 17000007.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Test.UiTest
+     * @FaAndStageModel
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     * @test
+     */
+    key2?: int;
 }
 
 /**
@@ -5382,6 +5421,31 @@ declare class Driver {
   mouseDrag(from: Point, to: Point, speed?: int, duration?: int): Promise<void>;
 
   /**
+   * Holds down the left mouse button and drag on the screen between the specified points,
+   * with optional touch and key settings.
+   * 
+   * Note: touchOptions only supports speed and duration properties. Using other properties will result in error 17000007.
+   *
+   * @param { Point } from - the starting point.
+   * @param { Point } to - the ending point.
+   * @param {TouchOptions} [touchOptions] - the touch options for speed and duration settings.
+   *                                        Only 'speed' and 'duration' properties are valid in this method.
+   *                                        Setting other properties will cause BusinessError 17000007.
+   *                                        Default value: Refer to the default value of TouchOptions.
+   * @param {KeyOptions} [keyOptions] - the Key options for key codes to press during drag.
+   *                                    Default value: Refer to the default value of KeyOptions.
+   * @returns { Promise<void> }
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
+   * @throws { BusinessError } 17000007 - Parameter verification failed.
+   * @syscap SystemCapability.Test.UiTest
+   * @FaAndStageModel
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   * @test
+   */
+  mouseDrag(from: Point, to: Point, touchOptions?: TouchOptions, keyOptions?: KeyOptions): Promise<void>;
+
+  /**
    * Inject text on the specified location.
    *
    * @param { Point } p - the coordinate of the specified location.
@@ -6449,5 +6513,6 @@ export {
   ComponentEventType,
   WindowChangeOptions,
   ComponentEventOptions,
-  TouchOptions
+  TouchOptions,
+  KeyOptions
 };
