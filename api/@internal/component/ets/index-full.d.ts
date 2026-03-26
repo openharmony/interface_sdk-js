@@ -152,4 +152,3 @@
 /// <reference path="./embedded_component.d.ts" />
 /// <reference path="./styled_string.d.ts" />
 /// <reference path="./content_slot.d.ts" />
-/// <reference path="./lifecycle.d.ts" />
