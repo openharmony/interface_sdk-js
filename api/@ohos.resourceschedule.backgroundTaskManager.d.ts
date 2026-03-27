@@ -1718,6 +1718,14 @@ declare namespace backgroundTaskManager {
      * @since 24 static
      */
     MODE_SPECIAL_SCENARIO_PROCESSING = 13
+
+    /**
+     * nearlink mode.
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 26.0.0 dynamic&static
+     */
+    MODE_NEARLINK = 14
   }
 
   /**
