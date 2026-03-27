@@ -1,5 +1,6 @@
+"use static"
 /*
- * Copyright (c) 2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -21,333 +22,409 @@
 /**
  * A static class pertaining to the product information.
  *
- * @class deviceInfo
  * @syscap SystemCapability.Startup.SystemInfo
- * @crossplatform
- * @since 23 static
+ * @stagemodelonly
+ * @since 24 static
  */
-declare class deviceInfo {
+declare namespace deviceInfo {
     
+    /**
+     * Enumerates thedevice types.
+     *
+     * @syscap SystemCapability.Startup.SystemInfo
+     * @stagemodelonly
+     * @since 24 static
+     */
+    enum DeviceTypes {
+        /**
+        * Default device for phones
+        * 
+        * @syscap SystemCapability.Startup.SystemInfo
+        * @stagemodelonly
+        * @since 24 static
+        */
+        TYPE_DEFAULT = 'default',
+
+        /**
+        * Phone device
+        * 
+        * @syscap SystemCapability.Startup.SystemInfo
+        * @stagemodelonly
+        * @since 24 static
+        */
+        TYPE_PHONE = 'phone',
+
+        /**
+        * Tablet device
+        * 
+        * @syscap SystemCapability.Startup.SystemInfo
+        * @stagemodelonly
+        * @since 24 static
+        */
+        TYPE_TABLET = 'tablet',
+
+        /**
+        * 2in1 device
+        * 
+        * @syscap SystemCapability.Startup.SystemInfo
+        * @stagemodelonly
+        * @since 24 static
+        */
+        TYPE_2IN1 = '2in1',
+
+        /**
+        * Tv device
+        * 
+        * @syscap SystemCapability.Startup.SystemInfo
+        * @stagemodelonly
+        * @since 24 static
+        */
+        TYPE_TV = 'tv',
+
+        /**
+        * Wearable device
+        * 
+        * @syscap SystemCapability.Startup.SystemInfo
+        * @stagemodelonly
+        * @since 24 static
+        */
+        TYPE_WEARABLE = 'wearable',
+
+        /**
+        * Car device
+        * 
+        * @syscap SystemCapability.Startup.SystemInfo
+        * @stagemodelonly
+        * @since 24 static
+        */
+        TYPE_CAR = 'car'
+    }
+
     /**
      * Obtains the device type represented by a string,
      * which can be {@code phone} (or {@code default} for phones), {@code wearable}, {@code liteWearable},
      * {@code tablet}, {@code tv}, {@code car}, or {@code smartVision}.
      *
-     *
+     * @returns { string }
      * @syscap SystemCapability.Startup.SystemInfo
-     * @crossplatform
-     * @since 23 static
+     * @stagemodelonly
+     * @since 24 static
      */
-    static get deviceType(): string;
+    get deviceType(): string;
     
     /**
      * Obtains the device manufacturer represented by a string.
      *
-     *
+     * @returns { string }
      * @syscap SystemCapability.Startup.SystemInfo
-     * @crossplatform
-     * @since 23 static
+     * @stagemodelonly
+     * @since 24 static
      */
-    static get manufacture(): string;
+    get manufacture(): string;
     
     /**
      * Obtains the external product series represented by a string.
      *
-     *
+     * @returns { string }
      * @syscap SystemCapability.Startup.SystemInfo
-     * @crossplatform
-     * @since 23 static
+     * @stagemodelonly
+     * @since 24 static
      */  
-    static get brand(): string;
+    get brand(): string;
 
     /**
      * Obtains the external product series represented by a string.
      *
-     *
+     * @returns { string }
      * @syscap SystemCapability.Startup.SystemInfo
-     * @crossplatform
-     * @since 23 static
+     * @stagemodelonly
+     * @since 24 static
      */
-    static get marketName(): string;
+    get marketName(): string;
     
     /**
      * Obtains the product series represented by a string.
      *
-     *
+     * @returns { string }
      * @syscap SystemCapability.Startup.SystemInfo
-     * @crossplatform
-     * @since 23 static
+     * @stagemodelonly
+     * @since 24 static
      */
-    static get productSeries(): string;
+    get productSeries(): string;
     
     
     /**
      * Obtains the product model represented by a string.
      *
-     *
+     * @returns { string }
      * @syscap SystemCapability.Startup.SystemInfo
-     * @crossplatform
-     * @since 23 static
+     * @stagemodelonly
+     * @since 24 static
      */
-    static get productModel(): string;
+    get productModel(): string;
 
     /**
      * Obtains the product model alias represented by a string.
      *
+     * @returns { string }
      * @syscap SystemCapability.Startup.SystemInfo
-     * @crossplatform
-     * @since 23 static
+     * @stagemodelonly
+     * @since 24 static
      */
-    static get productModelAlias(): string;
+    get productModelAlias(): string;
     
     /**
      * Obtains the software model represented by a string.
      *
-     *
+     * @returns { string }
      * @syscap SystemCapability.Startup.SystemInfo
-     * @crossplatform
-     * @since 23 static
+     * @stagemodelonly
+     * @since 24 static
      */
-    static get softwareModel(): string;
+    get softwareModel(): string;
     
     /**
      * Obtains the hardware model represented by a string.
      *
-     *
+     * @returns { string }
      * @syscap SystemCapability.Startup.SystemInfo
-     * @crossplatform
-     * @since 23 static
+     * @stagemodelonly
+     * @since 24 static
      */
-    static get hardwareModel(): string;
+    get hardwareModel(): string;
 
     /**
      * Obtains the hardware model represented by a string.
      *
-     *
+     * @returns { string }
      * @syscap SystemCapability.Startup.SystemInfo
-     * @crossplatform
-     * @since 23 static
+     * @stagemodelonly
+     * @since 24 static
      */
-    static get hardwareProfile(): string;
+    get hardwareProfile(): string;
 
     /**
      * Obtains the device serial number represented by a string.
      *
      * @permission ohos.permission.sec.ACCESS_UDID
-     *
+     * @returns { string }
+     * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Startup.SystemInfo
-     * @since 23 static
+     * @stagemodelonly
+     * @since 24 static
      */
-    static get serial(): string;
+    get serial(): string;
     
     /**
      * Obtains the bootloader version number represented by a string.
      *
-     *
+     * @returns { string }
      * @syscap SystemCapability.Startup.SystemInfo
-     * @crossplatform
-     * @since 23 static
+     * @stagemodelonly
+     * @since 24 static
      */
-    static get bootloaderVersion(): string;
+    get bootloaderVersion(): string;
     
     /**
      * Obtains the application binary interface (Abi) list represented by a string.
      *
-     *
+     * @returns { string }
      * @syscap SystemCapability.Startup.SystemInfo
-     * @crossplatform
-     * @since 23 static
+     * @stagemodelonly
+     * @since 24 static
      */
-    static get abiList(): string;
+    get abiList(): string;
     
     /**
      * Obtains the security patch level represented by a string.
      *
-     *
+     * @returns { string }
      * @syscap SystemCapability.Startup.SystemInfo
-     * @crossplatform
-     * @since 23 static
+     * @stagemodelonly
+     * @since 24 static
      */
-    static get securityPatchTag(): string;
+    get securityPatchTag(): string;
     
     /**
      * Obtains the product version represented by a string.
      *
-     *
+     * @returns { string }
      * @syscap SystemCapability.Startup.SystemInfo
-     * @crossplatform
-     * @since 23 static
+     * @stagemodelonly
+     * @since 24 static
      */
-    static get displayVersion(): string;
+    get displayVersion(): string;
     
     /**
      * Obtains the incremental version represented by a string.
      *
-     *
+     * @returns { string }
      * @syscap SystemCapability.Startup.SystemInfo
-     * @crossplatform
-     * @since 23 static
+     * @stagemodelonly
+     * @since 24 static
      */
-    static get incrementalVersion(): string;
+    get incrementalVersion(): string;
     
     /**
      * Obtains the OS release type represented by a string.
      * <p>The OS release category can be {@code Release}, {@code Beta}, or {@code Canary}.
      * The specific release type may be {@code Release}, {@code Beta1}, or others alike.
      *
-     *
+     * @returns { string }
      * @syscap SystemCapability.Startup.SystemInfo
-     * @crossplatform
-     * @since 23 static
+     * @stagemodelonly
+     * @since 24 static
      */
-    static get osReleaseType(): string;
+    get osReleaseType(): string;
     
     
     /**
      * Obtains the OS version represented by a string.
      *
-     *
+     * @returns { string }
      * @syscap SystemCapability.Startup.SystemInfo
-     * @crossplatform
-     * @since 23 static
+     * @stagemodelonly
+     * @since 24 static
      */
-    static get osFullName(): string;
+    get osFullName(): string;
     
     /**
      * Obtains the major (M) version number, which increases with any updates to the overall architecture.
      * <p>The M version number monotonically increases from 1 to 99.
      *
-     *
+     * @returns { int }
      * @syscap SystemCapability.Startup.SystemInfo
-     * @crossplatform
-     * @since 23 static
+     * @stagemodelonly
+     * @since 24 static
      */
-    static get majorVersion(): int;
+    get majorVersion(): int;
     
     /**
      * Obtains the senior (S) version number, which increases with any updates to the partial
      * architecture or major features.
      * <p>The S version number monotonically increases from 0 to 99.
      *
-     *
+     * @returns { int }
      * @syscap SystemCapability.Startup.SystemInfo
-     * @crossplatform
-     * @since 23 static
+     * @stagemodelonly
+     * @since 24 static
      */
-    static get seniorVersion(): int;
+    get seniorVersion(): int;
     
     /**
      * Obtains the feature (F) version number, which increases with any planned new features.
      * <p>The F version number monotonically increases from 0 or 1 to 99.
      *
-     *
+     * @returns { int }
      * @syscap SystemCapability.Startup.SystemInfo
-     * @crossplatform
-     * @since 23 static
+     * @stagemodelonly
+     * @since 24 static
      */
-    static get featureVersion(): int;
+    get featureVersion(): int;
     
     /**
      * Obtains the build (B) version number, which increases with each new development build.
      * <p>The B version number monotonically increases from 0 or 1 to 999.
      *
-     *
+     * @returns { int }
      * @syscap SystemCapability.Startup.SystemInfo
-     * @crossplatform
-     * @since 23 static
+     * @stagemodelonly
+     * @since 24 static
      */
-    static get buildVersion(): int;
+    get buildVersion(): int;
     
     
     /**
      * Obtains the SDK API version number.
      *
-     *
+     * @returns { int }
      * @syscap SystemCapability.Startup.SystemInfo
-     * @crossplatform
-     * @since 23 static
+     * @stagemodelonly
+     * @since 24 static
      */
-    static get sdkApiVersion(): int;
+    get sdkApiVersion(): int;
     
     /**
      * Obtains the first API version number.
      *
-     *
+     * @returns { int }
      * @syscap SystemCapability.Startup.SystemInfo
-     * @crossplatform
-     * @since 23 static
+     * @stagemodelonly
+     * @since 24 static
      */
-    static get firstApiVersion(): int;
+    get firstApiVersion(): int;
     
     /**
      * Obtains the version ID by a string.
      *
-     *
+     * @returns { string }
      * @syscap SystemCapability.Startup.SystemInfo
-     * @crossplatform
-     * @since 23 static
+     * @stagemodelonly
+     * @since 24 static
      */
-    static get versionId(): string;
+    get versionId(): string;
     
     /**
      * Obtains the build types of the same baseline code.
      *
-     *
+     * @returns { string }
      * @syscap SystemCapability.Startup.SystemInfo
-     * @crossplatform
-     * @since 23 static
+     * @stagemodelonly
+     * @since 24 static
      */
-    static get buildType(): string;
+    get buildType(): string;
     
     /**
      * Obtains the different build user of the same baseline code.
      *
-     *
+     * @returns { string }
      * @syscap SystemCapability.Startup.SystemInfo
-     * @crossplatform
-     * @since 23 static
+     * @stagemodelonly
+     * @since 24 static
      */
-    static get buildUser(): string;
+    get buildUser(): string;
     
     /**
      * Obtains the different build host of the same baseline code.
      *
-     *
+     * @returns { string }
      * @syscap SystemCapability.Startup.SystemInfo
-     * @crossplatform
-     * @since 23 static
+     * @stagemodelonly
+     * @since 24 static
      */
-    static get buildHost(): string;
+    get buildHost(): string;
     
     /**
      * Obtains the build time.
      *
-     *
+     * @returns { string }
      * @syscap SystemCapability.Startup.SystemInfo
-     * @crossplatform
-     * @since 23 static
+     * @stagemodelonly
+     * @since 24 static
      */
-    static get buildTime(): string;
+    get buildTime(): string;
     
     /**
      * Obtains the version hash.
      *
-     *
+     * @returns { string }
      * @syscap SystemCapability.Startup.SystemInfo
-     * @crossplatform
-     * @since 23 static
+     * @stagemodelonly
+     * @since 24 static
      */
-    static get buildRootHash(): string;
+    get buildRootHash(): string;
 
     /**
      * Obtains the device udid.
      *
      * @permission ohos.permission.sec.ACCESS_UDID
-     *
+     * @returns { string }
+     * @throws { BusinessError } 201 - Permission denied
      * @syscap SystemCapability.Startup.SystemInfo
-     * @since 23 static
+     * @stagemodelonly
+     * @since 24 static
      */
-    static get udid(): string;
+    get udid(): string;
 
     /**
      * Obtains the Distribution OS name.
@@ -355,11 +432,12 @@ declare class deviceInfo {
      * distributionOsName will return the ISV OS name
      * If ISV not specified, it will return an empty string
      *
-     *
+     * @returns { string }
      * @syscap SystemCapability.Startup.SystemInfo
-     * @since 23 static
+     * @stagemodelonly
+     * @since 24 static
      */
-    static get distributionOSName(): string;
+    get distributionOSName(): string;
 
     /**
      * Obtains the Distribution OS version.
@@ -367,11 +445,12 @@ declare class deviceInfo {
      * distributionOSVersion will return the ISV OS version
      * If ISV not specified, it will return the same value as osFullName
      *
-     *
+     * @returns { string }
      * @syscap SystemCapability.Startup.SystemInfo
-     * @since 23 static
+     * @stagemodelonly
+     * @since 24 static
      */
-    static get distributionOSVersion(): string;
+    get distributionOSVersion(): string;
 
     /**
      * Obtains the Distribution OS version.
@@ -379,21 +458,24 @@ declare class deviceInfo {
      * distributionOSVersion will return the ISV OS api version
      * If ISV not specified, it will return the same value as sdkApiVersion
      *
-     *
+     * @returns { int }
      * @syscap SystemCapability.Startup.SystemInfo
-     * @since 23 static
+     * @stagemodelonly
+     * @since 24 static
      */
-    static get distributionOSApiVersion(): int;
+    get distributionOSApiVersion(): int;
 
     /**
      * Obtains the Distribution OS api name.
      * <p>Independent Software Vendor (ISV) may distribute OHOS with their own OS api name.
      * distributionOSApiName will return the ISV OS api name
      *
+     * @returns { string }
      * @syscap SystemCapability.Startup.SystemInfo
-     * @since 23 static
+     * @stagemodelonly
+     * @since 24 static
      */
-    static get distributionOSApiName(): string;
+    get distributionOSApiName(): string;
 
     /**
      * Obtains the Distribution OS release type.
@@ -401,11 +483,12 @@ declare class deviceInfo {
      * distributionOSVersion will return the ISV OS release type
      * If ISV not specified, it will return the same value as osReleaseType
      *
-     *
+     * @returns { string }
      * @syscap SystemCapability.Startup.SystemInfo
-     * @since 23 static
+     * @stagemodelonly
+     * @since 24 static
      */
-    static get distributionOSReleaseType(): string;
+    get distributionOSReleaseType(): string;
 
     /**
      * Open Device Identifier (ODID): a developer-level non-permanent device identifier.
@@ -422,36 +505,88 @@ declare class deviceInfo {
      * For apps from the same developer, which are running on different devices, each of them has its own ODID.
      * For apps from different developers, which are running on different devices, each of them has its own ODID.
      *
-     *
+     * @returns { string }
      * @syscap SystemCapability.Startup.SystemInfo
-     * @since 23 static
+     * @stagemodelonly
+     * @since 24 static
      */
-    static get ODID(): string;
+    get ODID(): string;
     
     /**
      * Obtaining the hard drive serial number.
      *
      * @permission ohos.permission.ACCESS_DISK_PHY_INFO
+     * @returns { string }
+     * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Startup.SystemInfo
-     * @since 23 static
+     * @stagemodelonly
+     * @since 24 static
      */
-    static get diskSN(): string;
+    get diskSN(): string;
+
+    /**
+    * Performance Class level of a device.
+    *
+    * @syscap SystemCapability.Startup.SystemInfo
+    * @stagemodelonly
+    * @since 24 static
+    */
+    enum PerformanceClassLevel {
+        /**
+        * Device Capability Level is high.
+        * 
+        * @syscap SystemCapability.Startup.SystemInfo
+        * @stagemodelonly
+        * @since 24 static
+        */
+        CLASS_LEVEL_HIGH,
+        /**
+        * Device Capability Level is medium.
+        * 
+        * @syscap SystemCapability.Startup.SystemInfo
+        * @stagemodelonly
+        * @since 24 static
+        */
+        CLASS_LEVEL_MEDIUM,
+        /**
+        * Device Capability Level is low.
+        * 
+        * @syscap SystemCapability.Startup.SystemInfo
+        * @stagemodelonly
+        * @since 24 static
+        */
+        CLASS_LEVEL_LOW
+    }
+
+    /**
+    * Obtaining the performance class.
+    *
+    * @returns { PerformanceClassLevel }
+    * @syscap SystemCapability.Startup.SystemInfo
+    * @stagemodelonly
+    * @since 24 static
+    */
+    get performanceClass(): PerformanceClassLevel;
 
     /**
      * Obtaining the hard drive chip type.
      *
+     * @returns { string }
      * @syscap SystemCapability.Startup.SystemInfo
-     * @since 23 static
+     * @stagemodelonly
+     * @since 24 static
      */
-    static get chipType(): string;
+    get chipType(): string;
 
     /**
      * Obtaining the drive boot count.
      * if get failed, it will be -1
      *
+     * @returns { int }
      * @syscap SystemCapability.Startup.SystemInfo
-     * @since 23 static
+     * @stagemodelonly
+     * @since 24 static
      */
-    static get bootCount(): int;
+    get bootCount(): int;
 }
 export default deviceInfo;

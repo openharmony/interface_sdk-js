@@ -6757,13 +6757,13 @@ declare namespace huks {
      */
     HUKS_TAG_PURPOSE = HuksTagType.HUKS_TAG_TYPE_UINT | 2,
     /**
-     * Key size.
+     * Key bit length.
      *
      * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      */
     /**
-     * Key size.
+     * Key bit length.
      *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
@@ -7024,13 +7024,13 @@ declare namespace huks {
      */
     HUKS_TAG_KEY_ALIAS = HuksTagType.HUKS_TAG_TYPE_BYTES | 23,
     /**
-     * Size of the derived key.
+     * Byte length of the derived key.
      *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
-     * Size of the derived key.
+     * Byte length of the derived key.
      *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
@@ -7200,13 +7200,13 @@ declare namespace huks {
      */
     HUKS_TAG_USER_AUTH_TYPE = HuksTagType.HUKS_TAG_TYPE_UINT | 304,
     /**
-     * One-time validity period of the authentication token.
+     * One-time validity duration of the authentication token in seconds.
      *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
-     * One-time validity period of the authentication token.
+     * One-time validity duration of the authentication token in seconds.
      *
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
@@ -7470,7 +7470,7 @@ declare namespace huks {
      */
     HUKS_TAG_KEY_OVERRIDE = HuksTagType.HUKS_TAG_TYPE_BOOL | 520,
     /**
-     * The tag indicates the length of AEAD for CCM mode.
+     * The tag indicates the byte length of AEAD for CCM mode.
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 22
@@ -7491,6 +7491,15 @@ declare namespace huks {
      * @since 23
      */
     HUKS_TAG_KEY_ACCESS_GROUP = HuksTagType.HUKS_TAG_TYPE_BYTES | 523,
+    /**
+     * The tag indicates the additional authenticated data for GCM or CCM modes.
+     *
+     * @syscap SystemCapability.Security.Huks.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24
+     */
+    HUKS_TAG_AAD = HuksTagType.HUKS_TAG_TYPE_BYTES | 527,
 
     /*
      * Other reserved TAG: 601 - 1000

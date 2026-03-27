@@ -90,7 +90,7 @@ declare namespace config {
    */
   let daltonizationColorFilter: Config<DaltonizationColorFilter>;
   /**
-   * Indicates the configuration of content timeout.
+   * Indicates the configuration of content timeout, in units of ms.
    *
    * @type { Config<int> }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
@@ -130,7 +130,7 @@ declare namespace config {
    */
   let mouseKey: Config<boolean>;
   /**
-   * Indicates the configuration of mouse auto click.
+   * Indicates the configuration of mouse auto click, in units of ms.
    *
    * @type { Config<int> }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core

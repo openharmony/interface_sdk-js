@@ -28,28 +28,28 @@ export enum ErrorCode {
     /**
      * Permission denied.
      *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core.static
      * @since 20
      */
     PERMISSION_DENY = -3,
     /**
      * Ability not found.
      *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core.static
      * @since 20
      */
     ABILITY_NOT_FOUND = -2,
     /**
      * Invalid parameter.
      *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core.static
      * @since 20
      */
     INVALID_PARAMETER = -1,
     /**
      * No error.
      *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core.static
      * @since 20
      */
     NO_ERROR = 0

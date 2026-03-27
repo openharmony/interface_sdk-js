@@ -55,6 +55,7 @@ declare namespace usageStatistics {
 
     /**
      * The total duration, in milliseconds.
+     * <br> Unit:ms
      * @type { ?long }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
@@ -65,6 +66,7 @@ declare namespace usageStatistics {
 
     /**
      * The last time when the application was accessed, in milliseconds.
+     * <br> Unit:ms
      * @type { ?long }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
@@ -75,6 +77,7 @@ declare namespace usageStatistics {
 
     /**
      * The last time when the application was visible in the foreground, in milliseconds.
+     * <br> Unit:ms
      * @type { ?long }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
@@ -85,6 +88,7 @@ declare namespace usageStatistics {
 
     /**
      * The total duration, in milliseconds.
+     * <br> Unit:ms
      * @type { ?long }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
@@ -105,6 +109,7 @@ declare namespace usageStatistics {
 
     /**
      * The total duration, in milliseconds.
+     * <br> Unit:ms
      * @type { ?long }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
@@ -115,6 +120,7 @@ declare namespace usageStatistics {
 
     /**
      * The last time when the foreground application was accessed, in milliseconds.
+     * <br> Unit:ms
      * @type { ?long }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
@@ -126,6 +132,7 @@ declare namespace usageStatistics {
     /**
      * The time of the first bundle usage record in this {@code BundleActiveInfo} object,
      * in milliseconds.
+     * <br> Unit:ms
      * @type { ?long }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
@@ -137,6 +144,7 @@ declare namespace usageStatistics {
     /**
      * The time of the last bundle usage record in this {@code BundleActiveInfo} object,
      * in milliseconds.
+     * <br> Unit:ms
      * @type { ?long }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
@@ -196,6 +204,7 @@ declare namespace usageStatistics {
 
     /**
      * The last time when the form was accessed, in milliseconds..
+     * <br> Unit:ms
      * @type { long }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
@@ -335,6 +344,7 @@ declare namespace usageStatistics {
 
     /**
      * The last time when the module was accessed, in milliseconds.
+     * <br> Unit:ms
      * @type { long }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
@@ -443,6 +453,7 @@ declare namespace usageStatistics {
 
     /**
      * The time when this state occurred, in milliseconds.
+     * <br> Unit:ms
      * @type { ?long }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
@@ -775,7 +786,9 @@ declare namespace usageStatistics {
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
    * @param { long } begin - Indicates the start time of the query period, in milliseconds.
+   * <br> Unit:ms
    * @param { long } end - Indicates the end time of the query period, in milliseconds.
+   * <br> Unit:ms
    * @param { AsyncCallback<BundleStatsMap> } callback - the callback of queryBundleStatsInfos,
    * <p> the {@link BundleStatsMap} objects containing the usage information about each bundle.</p>
    * @throws { BusinessError } 201 - Permission denied.
@@ -802,7 +815,9 @@ declare namespace usageStatistics {
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
    * @param { long } begin - Indicates the start time of the query period, in milliseconds.
+   * <br> Unit:ms
    * @param { long } end - Indicates the end time of the query period, in milliseconds.
+   * <br> Unit:ms
    * @returns { Promise<BundleStatsMap> } the promise returned by queryBundleStatsInfos.
    * <p> the {@link BundleStatsMap} objects containing the usage information about each bundle.</p>
    * @throws { BusinessError } 201 - Permission denied.
@@ -838,7 +853,9 @@ declare namespace usageStatistics {
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
    * @param { long } begin - Indicates the start time of the query period, in milliseconds.
+   * <br> Unit:ms
    * @param { long } end - Indicates the end time of the query period, in milliseconds.
+   * <br> Unit:ms
    * @returns { Promise<AppStatsMap> } the promise returned by queryAppStatsInfos.
    * <p> the {@link AppStatsMap} objects containing the usage information about each application.</p>
    * @throws { BusinessError } 201 - Permission denied.
@@ -953,7 +970,9 @@ declare namespace usageStatistics {
    * <p> The value can be {@link #BY_OPTIMIZED}, {@link #BY_DAILY},
    * {@link #BY_WEEKLY}, {@link #BY_MONTHLY}, or {@link #BY_ANNUALLY}.</p>
    * @param { long } begin - Indicates the start time of the query period, in milliseconds.
+   * <br> Unit:ms
    * @param { long } end - Indicates the end time of the query period, in milliseconds.
+   * <br> Unit:ms
    * @param { AsyncCallback<Array<BundleStatsInfo>> } callback - the callback of queryBundleStatsInfoByInterval.
    * <p> the list of {@link BundleStatsInfo} objects containing the usage information about each bundle.</p>
    * @throws { BusinessError } 201 - Permission denied.
@@ -987,7 +1006,9 @@ declare namespace usageStatistics {
    * <p> The value can be {@link #BY_OPTIMIZED}, {@link #BY_DAILY},
    * {@link #BY_WEEKLY}, {@link #BY_MONTHLY}, or {@link #BY_ANNUALLY}.</p>
    * @param { long } begin - Indicates the start time of the query period, in milliseconds.
+   * <br> Unit:ms
    * @param { long } end - Indicates the end time of the query period, in milliseconds.
+   * <br> Unit:ms
    * @returns { Promise<Array<BundleStatsInfo>> } the promise returned by queryBundleStatsInfoByInterval.
    * <p> the list of {@link BundleStatsInfo} objects containing the usage information about each bundle.</p>
    * @throws { BusinessError } 201 - Permission denied.
@@ -1017,7 +1038,9 @@ declare namespace usageStatistics {
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
    * @param { long } begin - Indicates the start time of the query period, in milliseconds.
+   * <br> Unit:ms
    * @param { long } end - Indicates the end time of the query period, in milliseconds.
+   * <br> Unit:ms
    * @param { AsyncCallback<Array<BundleEvents>> } callback - the promise returned by queryBundleEvents.
    * <p> the list of {@link BundleEvents} objects containing the state data of all bundles.</p>
    * @throws { BusinessError } 201 - Permission denied.
@@ -1044,7 +1067,9 @@ declare namespace usageStatistics {
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
    * @param { long } begin - Indicates the start time of the query period, in milliseconds.
+   * <br> Unit:ms
    * @param { long } end - Indicates the end time of the query period, in milliseconds.
+   * <br> Unit:ms
    * @returns { Promise<Array<BundleEvents>> } the promise returned by queryBundleEvents.
    * <p> the list of {@link BundleEvents} objects containing the state data of all bundles.</p>
    * @throws { BusinessError } 201 - Permission denied.
@@ -1070,7 +1095,9 @@ declare namespace usageStatistics {
    * Queries state data of the current bundle within a specified period.
    *
    * @param { long } begin - Indicates the start time of the query period, in milliseconds.
+   * <br> Unit:ms
    * @param { long } end - Indicates the end time of the query period, in milliseconds.
+   * <br> Unit:ms
    * @param { AsyncCallback<Array<BundleEvents>> } callback - the callback of queryCurrentBundleEvents.
    * <p> the {@link BundleEvents} object Array containing the state data of the current bundle.</p>
    * @throws { BusinessError } 202 - Not System App.
@@ -1095,7 +1122,9 @@ declare namespace usageStatistics {
    * Queries state data of the current bundle within a specified period.
    *
    * @param { long } begin - Indicates the start time of the query period, in milliseconds.
+   * <br> Unit:ms
    * @param { long } end - Indicates the end time of the query period, in milliseconds.
+   * <br> Unit:ms
    * @returns { Promise<Array<BundleEvents>> } the promise returned by queryCurrentBundleEvents.
    * <p> the {@link BundleEvents} object Array containing the state data of the current bundle.</p>
    * @throws { BusinessError } 202 - Not System App.
@@ -1442,7 +1471,9 @@ declare namespace usageStatistics {
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
    * @param { long } begin - Indicates the start time of the query period, in milliseconds.
+   * <br> Unit:ms
    * @param { long } end - Indicates the end time of the query period, in milliseconds.
+   * <br> Unit:ms
    * @param { AsyncCallback<Array<DeviceEventStats>> } callback - the callback of queryDeviceEventStats.
    * <p> the {@link DeviceEventStats} object Array containing the event states data.</p>
    * @throws { BusinessError } 201 - Permission denied.
@@ -1469,7 +1500,9 @@ declare namespace usageStatistics {
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
    * @param { long } begin - Indicates the start time of the query period, in milliseconds.
+   * <br> Unit:ms
    * @param { long } end - Indicates the end time of the query period, in milliseconds.
+   * <br> Unit:ms
    * @returns { Promise<Array<DeviceEventStats>> } the promise returned by queryDeviceEventStats.
    * <p> the {@link DeviceEventStats} object Array containing the event states data.</p>
    * @throws { BusinessError } 201 - Permission denied.
@@ -1496,7 +1529,9 @@ declare namespace usageStatistics {
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
    * @param { long } begin - Indicates the start time of the query period, in milliseconds.
+   * <br> Unit:ms
    * @param { long } end - Indicates the end time of the query period, in milliseconds.
+   * <br> Unit:ms
    * @param { AsyncCallback<Array<DeviceEventStats>> } callback - the callback of queryNotificationEventStats.
    * <p> the {@link DeviceEventStats} object Array containing the event states data.</p>
    * @throws { BusinessError } 201 - Permission denied.
@@ -1527,7 +1562,9 @@ declare namespace usageStatistics {
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
    * @param { long } begin - Indicates the start time of the query period, in milliseconds.
+   * <br> Unit:ms
    * @param { long } end - Indicates the end time of the query period, in milliseconds.
+   * <br> Unit:ms
    * @returns { Promise<Array<DeviceEventStats>> } the promise returned by queryNotificationEventStats.
    * <p> the {@link DeviceEventStats} object Array containing the event states data.</p>
    * @throws { BusinessError } 201 - Permission denied.

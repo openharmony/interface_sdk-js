@@ -96,6 +96,7 @@ def build_ets_tool_config(root_build_dir, tool_dir, output_dir, out_interop_path
         # buildSdkPath是包含依赖产物的路径
         "buildSdkPath": str(os.path.join(tool_dir)),
         "dependentModuleList": [],
+        "plugins":[],
         "isIDE": "false",
         # 工具处理时候的线程数
         "maxWorkers": 16,

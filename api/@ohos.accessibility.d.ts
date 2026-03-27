@@ -2022,6 +2022,38 @@ declare namespace accessibility {
   function isAudioMonoEnabled(): Promise<boolean>;
 
   /**
+   * Check if senior mode is enabled.
+   *
+   * @returns { Promise<boolean> } Returns {@code true} if senior mode is enabled; returns {@code false} otherwise.
+   * @throws { BusinessError } 9300000 - System abnormality.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function isSeniorModeEnabled(): Promise<boolean>;
+
+  /**
+   * Register an observer for senior mode state changes.
+   *
+   * @param { Callback<boolean> } callback - Asynchronous callback interface.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function onSeniorModeStateChange(callback: Callback<boolean>): void;
+
+  /**
+   * Unregister the observer for senior mode state changes.
+   *
+   * @param { Callback<boolean> } [callback] - Asynchronous callback interface.
+   *     <br>Default behavior: Unregister all callbacks for senior mode state changes.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function offSeniorModeStateChange(callback?: Callback<boolean>): void;
+
+  /**
    * Indicates the captions manager.
    *
    * @typedef CaptionsManager
@@ -2241,13 +2273,13 @@ declare namespace accessibility {
      */
     fontFamily: CaptionsFontFamily;
     /**
-     * Indicates the font scaling of captions.
+     * Indicates the font scaling of captions, in units of %.
      * @type { int }
      * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
      * @since 8 dynamic
      */
     /**
-     * Indicates the font scaling of captions.
+     * Indicates the font scaling of captions, in units of %.
      * @type { int }
      * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
      * @form

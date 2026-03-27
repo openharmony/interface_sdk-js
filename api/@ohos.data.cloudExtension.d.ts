@@ -711,7 +711,7 @@ declare namespace cloudExtension {
     readonly id: string;
 
     /**
-     * Time when the row data was created.
+     * Time when the row data was created, in milliseconds.
      *
      * @type { long }
      * @readonly
@@ -723,7 +723,7 @@ declare namespace cloudExtension {
     readonly createTime: long;
 
     /**
-     * Time when the row data was last modified.
+     * Time when the row data was last modified, in milliseconds.
      *
      * @type { long }
      * @readonly
@@ -1341,7 +1341,7 @@ declare namespace cloudExtension {
      * the data to be subscribed to, that is, the key-value pairs corresponding
      * to an array of bundle names and databases.
      * @param { long } expirationTime - Indicates the subscription expiration
-     * time.
+     *     time, in milliseconds.
      * @returns { Promise<Result<SubscribeInfo>> } Returns <b>SubscribeInfo</b>.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi

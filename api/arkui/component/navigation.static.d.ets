@@ -121,13 +121,24 @@ export declare enum NavigationMode {
     Split,
 
     /**
-     * If the window width is greater than the sum of minNavBarWidth and minContentWidth, the navigation component is displayed in split mode.
-     * Otherwise it's displayed in stack mode.
+     * If the navigation width is greater than the sum of minNavBarWidth and minContentWidth,
+     * the navigation component is displayed in split mode. Otherwise it's displayed in stack mode.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
      */
-    Auto
+    Auto,
+
+    /**
+     * If the navigation width is greater than the sum of minNavBarWidth and minContentWidth,
+     * and the navigation component's aspect ratio (height to width) is less than or equal to 1.2,
+     * the navigation component is displayed in split mode. Otherwise it's displayed in stack mode.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 24 static
+     */
+    AUTO_WITH_ASPECT_RATIO
 }
 
 /**

@@ -1267,7 +1267,7 @@ export declare interface AccessibilityElement {
   windowId?: int;
 
   /**
-   * Indicates the offset.
+   * Indicates the offset, in units of px.
    *
    * @type { ?double }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
@@ -2210,7 +2210,7 @@ export interface ElementAttributeValues {
    */
   windowId: int;
   /**
-   * Indicates the offset.
+   * Indicates the offset, in units of px.
    *
    * @type {double}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
@@ -2354,7 +2354,7 @@ export type FocusRule = 'bypassSelf' | 'bypassSelfDescendants' |
  */
 export interface Rect {
   /**
-   * The left position of Rect
+   * The left position of Rect, in units of px.
    *
    * @type { int }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
@@ -2363,7 +2363,7 @@ export interface Rect {
    */
   left: int;
   /**
-   * The top position of Rect
+   * The top position of Rect, in units of px.
    *
    * @type { int }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
@@ -2372,7 +2372,7 @@ export interface Rect {
    */
   top: int;
   /**
-   * The width position of Rect
+   * The width position of Rect, in units of px.
    *
    * @type { int }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
@@ -2381,7 +2381,7 @@ export interface Rect {
    */
   width: int;
   /**
-   * The height position of Rect
+   * The height position of Rect, in units of px.
    *
    * @type { int }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core

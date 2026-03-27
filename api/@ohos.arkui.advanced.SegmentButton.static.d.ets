@@ -1284,6 +1284,18 @@ declare struct SegmentButton {
    * @since 23 staticonly
    */
   @Builder build(): void;
+
+  /**
+   * Enable animation when selectedIndexes change.
+   *
+   * @type { boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  @PropRef
+  enableStateAnimation: boolean;
 }
 
 export {

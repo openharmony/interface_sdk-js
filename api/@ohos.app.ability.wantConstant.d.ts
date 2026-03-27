@@ -411,7 +411,17 @@ declare namespace wantConstant {
     * @since 20 dynamic
     * @since 23 static
     */
-    ATOMIC_SERVICE_SHARE_ROUTER = 'ohos.params.atomicservice.shareRouter'
+    ATOMIC_SERVICE_SHARE_ROUTER = 'ohos.params.atomicservice.shareRouter',
+
+    /**
+    * Indicates the UIExtension root host token when connecting to a service extension ability.
+    *
+    * @syscap SystemCapability.Ability.AbilityBase
+    * @systemapi
+    * @stagemodelonly
+    * @since 26.0.0 dynamic&static
+    */
+    UI_EXTENSION_ROOT_TOKEN = 'ohos.param.uiExtension.rootHostToken'
   }
 
   /**

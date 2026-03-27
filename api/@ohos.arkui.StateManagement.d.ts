@@ -164,7 +164,21 @@ export declare class AppStorageV2 {
  * @atomicservice
  * @since 12 dynamic
  */
-export declare type PersistenceErrorCallback = (key: string, reason: 'quota' | 'serialization' | 'unknown', message: string) => void;
+/**
+ * Function that returns reason type when error.
+ *
+ * @typedef { function }
+ * @param { string } key - persisted key when error
+ * @param { 'quota' | 'serialization' | 'unknown' } reason - reason type when error
+ * @param { string } message - more message when error
+ * @param { string } [oldValue] - Returns the value before the persistence failure.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+export declare type PersistenceErrorCallback = (key: string, reason: 'quota' | 'serialization' | 'unknown', 
+    message: string, oldValue?: string) => void;
 
 /**
  * All collection classes supported by PersistenceV2

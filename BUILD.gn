@@ -72,6 +72,9 @@ group("build_ohos_ets_es2panda") {
     ohos_ets_koala_wrapper_deps,
     ohos_ets_stdlib_deps,
   ]
+  if (is_linux || is_win) {
+    external_deps += [ ohos_ets_libarkts_deps ]
+  }
   deps = [
     ohos_ets_ark_link_deps,
     ohos_ets_es2panda_deps,
@@ -431,6 +434,33 @@ ohos_copy("build_static_bridge_sdk_interop") {
   module_install_name = ""
 }
 
+# 处理预定义的dynamic interop
+ohos_copy("build_dynamic_sdk_predefined_interop") {
+  sources = [ "build-tools/interop/dynamic/api/@ohos.lang.interop.d.ets" ]
+  outputs = [ target_out_dir + "/${target_name}/{{source_file_part}}" ]
+  module_source_dir = target_out_dir + "/${target_name}"
+  module_install_name = ""
+}
+
+# 处理预定义的static 声明文件的interop
+ohos_copy("build_static_predefined_declaration_sdk_interop") {
+  sources = [
+    "build-tools/interop/static/declaration/api/@ohos.ETS_INTEROP_JS_NAPI.d.ets",
+    "build-tools/interop/static/declaration/api/@ohos.lang.interop.d.ets",
+  ]
+  outputs = [ target_out_dir + "/${target_name}/{{source_file_part}}" ]
+  module_source_dir = target_out_dir + "/${target_name}"
+  module_install_name = ""
+}
+
+# 处理预定义的static 胶水代码的interop
+ohos_copy("build_static_predefined_bridge_sdk_interop") {
+  sources = [ "build-tools/interop/static/bridge/api/@ohos.lang.interop.ts" ]
+  outputs = [ target_out_dir + "/${target_name}/{{source_file_part}}" ]
+  module_source_dir = target_out_dir + "/${target_name}"
+  module_install_name = ""
+}
+
 # 将static文件处理成static-interop
 action("build_static_sdk_interop") {
   interface_sdk_interop2_deps = ""
@@ -480,6 +510,9 @@ group("build_ohos_ets") {
     ohos_ets_koala_wrapper_deps,
     ohos_ets_stdlib_deps,
   ]
+  if (is_linux || is_win) {
+    external_deps += [ ohos_ets_libarkts_deps ]
+  }
   deps = [
     ":ohos_base_split",
     ":ohos_ets_api",

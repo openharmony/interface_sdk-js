@@ -1389,6 +1389,52 @@ declare interface AutoPlayOptions {
 }
 
 /**
+ * Defines the properties for controlling the cached count behavior.
+ *
+ * @interface CachedCountOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 24 dynamic
+ */
+declare interface CachedCountOptions {
+  /**
+   * Whether the cached nodes within the range rendered without being added to the render tree.
+   *
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 24 dynamic
+   */
+  isShown?: boolean;
+  /**
+   * Whether cachedCount is independent of group calculation.
+   *
+   * <p><strong>NOTE</strong>:
+   * <br>When set to true, cachedCount is calculated by actual child component count,
+   * independent of displayCount group calculation.
+   * <br>When swipeByGroup is enabled and this is false, cachedCount is calculated by group.
+   * </p>
+   *
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 24 dynamic
+   */
+  independent?: boolean;
+}
+
+/**
  * Swiper nested scroll nested mode
 
  * @enum { number } SwiperNestedScrollMode
@@ -1945,6 +1991,28 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @since 15 dynamic
    */
   cachedCount(count: number, isShown: boolean): SwiperAttribute;
+
+  /**
+   * Sets the number of child components to be preloaded(cached).
+   *
+   * <p><strong>NOTE</strong>:
+   * <br>When options.independent is set to true, cachedCount is calculated by actual child component count,
+   * independent of displayCount group calculation.
+   * </p>
+   *
+   * @param { number } count - Number of child components to be preloaded (cached).
+   *     <br>Value range:[0,+∞)
+   *     <br>The default value is 1.
+   * @param { CachedCountOptions } options - Options for controlling cached count behavior.
+   * @returns { SwiperAttribute } the attribute of the swiper.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 24 dynamic
+   */
+  cachedCount(count: number, options: CachedCountOptions): SwiperAttribute;
 
   /**
    * Sets the number of elements to display per page.

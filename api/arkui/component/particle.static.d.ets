@@ -1083,13 +1083,12 @@ export declare interface ParticleAnnulusRegion {
  * Defines Particle Component
  *
  * @param { Particles } particles - particle constructor options
- * @param { CustomBuilder } [content_] - container
  * @returns { ParticleAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @stagemodelonly
  * @since 23 static
  */
 @ComponentBuilder
 export declare function Particle(
     particles: Particles, 
-    content_?: CustomBuilder,
-): ParticleAttribute
+): ParticleAttribute;

@@ -36,6 +36,15 @@ function main() {
         console.error('Error: Must provide --path and --versionNumber parameters');
         process.exit(1);
       }
+      if (!/^[1-9][0-9]?((\.(0|[1-9][0-9]?)){2})?$/.test(opts.versionNumber)) {
+        console.error(
+          'Error: --versionNumber must be a valid version number format. major.minor.patch or single major version.',
+        );
+        console.error('  Valid formats: single number (e.g., 26) or three-part version (e.g., 26.0.0)');
+        console.error('  Number range: major 1-99, minor 0-99, patch 0-99');
+        console.error('  Example: --versionNumber 26 or --versionNumber 26.0.0');
+        process.exit(1);
+      }
       // 将相对路径解析为绝对路径
       inputDir = path.resolve(opts.path);
       let apiUtFiles = [];
@@ -53,7 +62,13 @@ function main() {
         errVersionArr.forEach(str => {
           errStr = errStr + '\n' + str + '\n';
         });
-        errStr = '当前API最高版本号不得高于' + opts.versionNumber + ', 以下接口版本号不合规，请检查！' + '\n' + errStr;
+        errStr =
+          'The current API version must not exceed' +
+          opts.versionNumber +
+          ', The following interface version numbers are not compliant. Please check！\n' +
+          'Example of correct format: 26 or 26.0.0 ' +
+          'version number range: major version number 1-99, minor version number 0-99, revised version number 0-99\n' +
+          errStr;
         console.log(errStr);
       }
     });
@@ -160,14 +175,64 @@ function apiLevelCheck(context, node, apiVersion, url) {
     });
   }
   function checkVersion(tag) {
-    if (tag.tagName.getText() === 'since') {
-      let versionNumber = tag.comment ? tag.comment : tag.getFullText().replace('@' + tag.tagName.getText(), '');
-      versionNumber = versionNumber.match(/\d+(\.\d+)?/g);
-      if (versionNumber && versionNumber[0] && parseFloat(versionNumber[0]) > Number(apiVersion)) {
-        const errVersionStr = recursionParentNode(tag, url, node);
-        errVersionArr.push(errVersionStr);
-      }
+    if (tag.tagName.getText() !== 'since') {
+      return;
     }
+    const versionComment = tag.comment ? tag.comment : tag.getFullText().replace('@' + tag.tagName.getText(), '');
+    const versionNumber = versionComment.trim();
+    if (!/^[1-9][0-9]?((\.(0|[1-9][0-9]?)){2})?$/.test(versionNumber)) {
+      const errVersionStr = recursionParentNode(tag, url, node);
+      const invalidVersionErr =
+        errVersionStr +
+        '\nerror since version: "' +
+        versionNumber +
+        '" is not a valid API version number,' +
+        ' please check if the version number format of the @since tag is correct.\n';
+      errVersionArr.push(invalidVersionErr);
+      return;
+    }
+    if (compareVersions(versionNumber, apiVersion) > 0) {
+      const errVersionStr = recursionParentNode(tag, url, node);
+      errVersionArr.push(errVersionStr);
+    }
+  }
+
+  /**
+   * 比较两个版本号大小
+   * 支持格式：
+   * - 单数字格式: '20', '26'
+   * - 三段式格式: '26.0.0', '26.1.2'
+   * @param {string} v1 版本号1
+   * @param {string} v2 版本号2
+   * @returns {number} 1: v1 > v2, 0: v1 === v2, -1: v1 < v2
+   */
+  function compareVersions(v1, v2) {
+    // 将版本号解析为 [major, minor, patch] 数组
+    const parseVersion = (version) => {
+      const trimmed = version.trim();
+      if (trimmed.includes('.')) {
+        const parts = trimmed.split('.').map(p => parseInt(p, 10));
+        // 确保有三段，不足则补0
+        return [parts[0] || 0, parts[1] || 0, parts[2] || 0];
+      }
+      // 单数字格式转换为 [major, 0, 0]
+      const num = parseInt(trimmed, 10);
+      return [num, 0, 0];
+    };
+
+    const p1 = parseVersion(v1);
+    const p2 = parseVersion(v2);
+
+    // 按位比较: major -> minor -> patch
+    for (let i = 0; i < 3; i++) {
+      if (p1[i] > p2[i]) {
+        return 1;
+      }
+      if (p1[i] < p2[i]) {
+        return -1;
+      };
+    }
+    return 0; // 版本号相等
   }
 }
 
@@ -194,7 +259,7 @@ function recursionParentNode(tag, url, node) {
   }
   errVersionStr = url + '#' + errVersionStr;
   // 获取到注释的位置，向下遍历找对应的定义，并将找到的行数追加到打印信息中
-  const strArr = errVersionStr.split('#')
+  const strArr = errVersionStr.split('#');
   const start = tag.getStart();
   const lineAndChar = node.getLineAndCharacterOfPosition(start);
   const sinceLine = lineAndChar.line;

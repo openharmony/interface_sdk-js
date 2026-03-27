@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -69,6 +69,12 @@ import { AbilityResult as _AbilityResult } from './ability/abilityResult';
 import type _AbilityStartCallback from './application/AbilityStartCallback';
 import { ConnectOptions as _ConnectOptions } from './ability/connectOptions';
 import { PacMap as _PacMap } from './ability/dataAbilityHelper';
+import { AgentCard as _AgentCard, AgentProvider as _AgentProvider, AgentCapabilities as _AgentCapabilities,
+         AgentSkill as _AgentSkill, AgentAppInfo as _AgentAppInfo } from './application/AgentCard';
+import { AgentHostProxy as _AgentHostProxy } from './application/AgentHostProxy';
+import { AgentProxy as _AgentProxy } from './application/AgentProxy';
+import { AgentExtensionConnectCallback as _AgentExtensionConnectCallback } from './application/AgentExtensionConnectCallback';
+import _AgentExtensionContext from './application/AgentExtensionContext';
 
 /**
  * This module provides application context classes and common data structures.
@@ -744,6 +750,109 @@ declare namespace common {
    * @since 23 static
    */
   export type AppServiceExtensionContext = _AppServiceExtensionContext;
+
+  /**
+   * The AgentCard information describes the basic information and capabilities provided by an Agent.
+   *
+   * @typedef { _AgentCard }
+   * @syscap SystemCapability.Ability.AgentRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 24 dynamic&static
+   */
+  export type AgentCard = _AgentCard;
+
+  /**
+   * The Provider in an AgentCard refers to the organization or platform that issues and
+   * manages the agent's credentials.
+   *
+   * @typedef { _AgentProvider }
+   * @syscap SystemCapability.Ability.AgentRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 24 dynamic&static
+   */
+  export type AgentProvider = _AgentProvider;
+
+  /**
+   * Capabilities in an AgentCard represent the specific skills, services, and functions that
+   * an agent can perform or provide within the system.
+   *
+   * @typedef { _AgentCapabilities }
+   * @syscap SystemCapability.Ability.AgentRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 24 dynamic&static
+   */
+  export type AgentCapabilities = _AgentCapabilities;
+
+  /**
+   * Skills in an AgentCard represent the specific abilities, expertise, and proficiencies that an
+   * agent possesses for performing tasks or solving problems.
+   *
+   * @typedef { _AgentSkill }
+   * @syscap SystemCapability.Ability.AgentRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 24 dynamic&static
+   */
+  export type AgentSkill = _AgentSkill;
+
+  /**
+   * Application-related information for the agent.
+   *
+   * @typedef { _AgentAppInfo }
+   * @syscap SystemCapability.Ability.AgentRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 24 dynamic&static
+   */
+  export type AgentAppInfo = _AgentAppInfo;
+
+  /**
+   * The AgentHostProxy is a proxy object for the client connected to the Agent, through which it
+   * can communicate with the Agent's connection counterpart.
+   *
+   * @typedef { _AgentHostProxy }
+   * @syscap SystemCapability.Ability.AgentRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 24 dynamic&static
+   */
+  export type AgentHostProxy = _AgentHostProxy;
+
+  /**
+   * Represents the AgentProxy type.
+   *
+   * @typedef { _AgentProxy }
+   * @syscap SystemCapability.Ability.AgentRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  export type AgentProxy = _AgentProxy;
+
+  /**
+   * Represents the AgentExtensionConnectCallback type.
+   *
+   * @typedef { _AgentExtensionConnectCallback }
+   * @syscap SystemCapability.Ability.AgentRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  export type AgentExtensionConnectCallback = _AgentExtensionConnectCallback;
+
+  /**
+   * The context of the agent service ability.
+   *
+   * @typedef { _AgentExtensionContext }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 24 dynamic&static
+   */
+  export type AgentExtensionContext = _AgentExtensionContext;
 }
 
 export default common;

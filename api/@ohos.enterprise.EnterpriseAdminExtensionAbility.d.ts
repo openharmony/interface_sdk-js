@@ -261,4 +261,14 @@ export default class EnterpriseAdminExtensionAbility {
    */
   onDeviceBootCompleted(): void;
 
+  /**
+   * Called back when a bundle is updated under an account.
+   *
+   * @param { string } bundleName - bundleName indicates the name of the bundle installed.
+   * @param { number } accountId - accountId indicates the account ID.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  onBundleUpdated(bundleName: string, accountId: number): void;
 }

@@ -25,38 +25,38 @@
  * @since 20
  */
 export enum ErrorCode {
-  // test[dynamiconly]
-  /**
-   * Permission denied.
-   *
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core.dynamic
-   * use multiple description syscap
-   * @since 20
-   */
-  PERMISSION_DENY = -3,
-  // test[staticonly]
-  /**
-   * Ability not found.
-   *
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core.dynamic
-   * use multiple description syscap
-   * @since 20
-   */
-  ABILITY_NOT_FOUND = -2,
-  /**
-   * Invalid parameter.
-   *
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core.dynamic
-   * use multiple description syscap
-   * @since 20
-   */
-  INVALID_PARAMETER = -1,
-  /**
-   * No error.
-   *
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core.dynamic
-   * use multiple description syscap
-   * @since 20
-   */
-  NO_ERROR = 0
+    /**
+     * Permission denied.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core.dynamic
+     * use multiple description syscap[ dynamiconly]
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core.dynamic
+     * use multiple description syscap[ staticonly]
+     * @since 20
+     */
+    PERMISSION_DENY = -3,
+    /**
+     * Ability not found.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core.dynamic
+     * use multiple description syscap
+     * @since 20
+     */
+    ABILITY_NOT_FOUND = -2,
+    /**
+     * Invalid parameter.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core.dynamic
+     * use multiple description syscap
+     * @since 20
+     */
+    INVALID_PARAMETER = -1,
+    /**
+     * No error.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core.dynamic
+     * use multiple description syscap
+     * @since 20
+     */
+    NO_ERROR = 0
 }

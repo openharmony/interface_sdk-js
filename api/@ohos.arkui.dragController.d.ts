@@ -460,6 +460,19 @@ declare namespace dragController {
      * @since 18 dynamic
      */
     previewOptions?: DragPreviewOptions;
+
+    /**
+     * Components to be automatically hidden during drag by uniqueId.
+     * You can pass a single uniqueId or an array. If the drag source itself also needs to be hidden,
+     * pass its uniqueId as well.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    autoHideComponentUniqueIds?: int | int[];
     
     /**
      * Provide a data representation to the system instead of providing a complete data

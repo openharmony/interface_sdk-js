@@ -681,6 +681,17 @@ declare namespace dlpPermission {
      * @since 10
      */
     tokenID: number;
+    
+    /**
+     * Index of the DLP sandbox application that has been installed and needs to be started.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Security.DataLossPrevention
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 24
+     */
+    bindAppIndex?: number;
   }
 
   /**
@@ -1192,6 +1203,14 @@ declare namespace dlpPermission {
      * @since 23
      */
     countdown?: number;
+
+    /**
+     * Defines the extended fields of the DLP file.
+     * @syscap SystemCapability.Security.DataLossPrevention
+     * @stagemodelonly
+     * @since 24
+     */
+    extensionFields?: Record<string, Object>;
   }
 
   /**
@@ -1893,7 +1912,7 @@ declare namespace dlpPermission {
     /**
      * Connect server.
      * 
-     * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE
+     * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE or ohos.permission.ACCESS_DLP_SERVICE
      * @param { string } requestId Id request.
      * @param { string } requestData Context in request.
      * @param { Callback<string> } callback Callback fun.
@@ -1915,7 +1934,7 @@ declare namespace dlpPermission {
     /**
      * constructor.
      * 
-     * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE
+     * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE or ohos.permission.ACCESS_DLP_SERVICE
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Security.DataLossPrevention
      * @since 21
@@ -1925,7 +1944,7 @@ declare namespace dlpPermission {
     /**
      * register plugin.
      * 
-     * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE
+     * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE or ohos.permission.ACCESS_DLP_SERVICE
      * @param { DlpConnPlugin } plugin Plugin.
      * @returns { number } Id for plugin.
      * @throws { BusinessError } 201 - Permission denied.
@@ -1942,7 +1961,7 @@ declare namespace dlpPermission {
     /**
      * unregister plugin.
      * 
-     * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE
+     * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE or ohos.permission.ACCESS_DLP_SERVICE
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100002 - Credential service busy due to too many tasks or duplicate tasks.

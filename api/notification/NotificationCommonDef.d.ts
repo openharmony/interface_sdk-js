@@ -90,3 +90,36 @@ export interface GrantedBundleInfo {
    */
   readonly appName?: string;
 }
+
+/**
+ * The NotificationCommonDef module provides APIs for describing the UserGrantSetting, that is,
+ * the bundle information of a specified application granted to third party wearable application by user.
+ *
+ * @typedef UserGrantSetting
+ * @syscap SystemCapability.Notification.Notification
+ * @stagemodelonly
+ * @since 26.0.0 dynamic&static
+ */
+export interface UserGrantSetting {
+  /**
+   * User-granted state.
+   *
+   * @type { boolean }
+   * @readonly
+   * @syscap SystemCapability.Notification.Notification
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  readonly userGrantEnabled: boolean;
+
+  /**
+   * Array of user-granted bundle info.
+   *
+   * @type { ?Array<GrantedBundleInfo> }
+   * @readonly
+   * @syscap SystemCapability.Notification.Notification
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  readonly grantedBundleInfos?: Array<GrantedBundleInfo>;
+}

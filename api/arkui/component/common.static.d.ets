@@ -153,6 +153,15 @@ export declare interface TextDecorationOptions {
      * @since 23 static
      */
     style?: TextDecorationStyle;
+    /**
+     * The scale value of decoration thickness.
+     *
+     * @type { ?double }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    thicknessScale?: double;
 }
 /**
  * Provides an interface for the style of an divider including stroke width, color, start margin
@@ -4529,7 +4538,17 @@ export declare interface MouseEvent extends BaseEvent {
      * @stagemodelonly
      * @since 24 static
      */
-    globalDisplayY?: double;    
+    globalDisplayY?: double;
+    /**
+     * The unique handle for the event processing session. This handle must be used for any further operations on the
+     * event. The system ensures that for a given finger, only one event with this handle can be active at a time.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 24 static
+     */
+    eventHandleId?: int;
 }
 /**
  * The accessibility hover action triggers this method invocation.
@@ -4846,6 +4865,16 @@ export declare interface TouchEvent extends BaseEvent {
      * @since 23 static
      */
     preventDefault(): void;
+    /**
+     * The unique handle for the event processing session. This handle must be used for any further operations on the
+     * event. The system ensures that for a given finger, only one event with this handle can be active at a time.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 24 static
+     */
+    eventHandleId?: int;
 }
 /**
  * The axis event triggers this method invocation.
@@ -4920,6 +4949,16 @@ export declare interface AxisEvent extends BaseEvent {
      * @since 23 static
      */
     scrollStep?: int;
+    /**
+     * The unique handle for the event processing session. This handle must be used for any further operations on the
+     * event. The system ensures that for a given finger, only one event with this handle can be active at a time.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 24 static
+     */
+    eventHandleId?: int;
     /**
      * Active event bubbling.
      *
@@ -5534,6 +5573,17 @@ export declare interface DragEvent {
      * @since 23 static
      */
     useCustomDropAnimation: boolean;
+    /**
+     * Set the uniqueId or uniqueId array of components that need to be automatically hidden during dragging.
+     * This property takes effect only in onDragStart. After the drag starts successfully, the system hides the
+     * target components before the drag preview window is shown. Developers need to restore component visibility
+     * in onDragEnd or onDrop based on service requirements.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    autoHideComponentUniqueIds?: int | int[];
     /**
      * Set dragData into DragEvent.
      *
@@ -7222,9 +7272,8 @@ export declare interface PopupCommonOptions {
      *
      * @type { ?SystemUiMaterial }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     systemMaterial?: SystemUiMaterial;
 
@@ -7653,9 +7702,8 @@ export declare interface PopupOptions {
      *
      * @type { ?SystemUiMaterial }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     systemMaterial?: SystemUiMaterial;
 
@@ -7998,9 +8046,8 @@ export declare interface CustomPopupOptions {
      *
      * @type { ?SystemUiMaterial }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     systemMaterial?: SystemUiMaterial;
 
@@ -8625,6 +8672,25 @@ export declare interface ContextMenuOptions {
      * @since 23 static
      */
     systemMaterial?: SystemUiMaterial;
+    /**
+     * Defines the scroll bar state of menu.
+     *
+     * @type { ?BarState }
+     * @default BarState.Auto
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    scrollBar?: BarState;
+    /**
+     * Defines the max height of menu.
+     *
+     * @type { ?LengthMetrics }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    maxHeight?: LengthMetrics;
 }
 /**
  * Defines the menu options.
@@ -11139,7 +11205,17 @@ export declare interface CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
      */
-    default overlay<T extends Object>(value: string | CustomBuilder | ComponentContent<T> | undefined, options?: OverlayOptions): this;
+    /**
+     * Add mask text to the current component. The layout is the same as that of the current component.
+     *
+     * @param { string | CustomBuilder | ComponentContent<Object> | undefined } value
+     * @param { OverlayOptions } [options]
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default overlay(value: string | CustomBuilder | ComponentContent<Object> | undefined, options?: OverlayOptions): this;
     /**
      * Linear Gradient
      * angle: Angle of Linear Gradient. The default value is 180;
@@ -11948,6 +12024,16 @@ export declare interface CommonMethod {
      * @since 23 static
      */
     default accessibilityActionOptions(option: AccessibilityActionOptions | undefined): this;
+    /**
+     * Set the component's source code redirection information. 
+     * @param { string } sourceLine - the source code line.
+     * @param { string } [moduleName] - module to which the component belongs.
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 24 staticonly
+     */
+    default debugLine(sourceLine: string, moduleName?: string): this;
 }
 /**
  * CommonAttribute for ide.
@@ -12870,6 +12956,18 @@ export declare interface ScrollableCommonMethod extends CommonMethod {
      */
     default scrollBarMargin(margin: ScrollBarMargin | undefined): this;
     /**
+     * Set the scroll bar auto adjust the margin to avoid the padding, safeAreaPadding, and
+     * contentStartOffset/contentEndOffset of the component.
+     *
+     * @param { boolean | undefined } enable - Whether to enable automatic adjustment of scroll bar margin.
+     *     <br>Default value: false.
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default autoAdjustScrollBarMargin(enable: boolean | undefined): this;
+    /**
      * Sets the effect used when the scroll boundary is reached.
      *
      * @param { EdgeEffect | undefined } edgeEffect - Effect used when the scroll boundary is
@@ -13176,6 +13274,17 @@ export type OnItemDragStartCallback = (event: ItemDragInfo, itemIndex: int) => C
   * @since 23 static
   */
 export type OnGetPreviewBadgeCallback = () => boolean | int;
+/**
+ * Defines the callback type used in OnVisibleIndexesChange.
+ *
+ * @typedef { function } OnVisibleIndexesChangeCallback
+ * @param { int } start - the first index in visible content.
+ * @param { int } end - the last index in visible content.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export type OnVisibleIndexesChangeCallback = (start: int, end: int) => void;
 /**
  * Defines the onMove callback.
  *

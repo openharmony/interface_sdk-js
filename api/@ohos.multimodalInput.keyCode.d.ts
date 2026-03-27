@@ -2675,6 +2675,24 @@ export declare enum KeyCode {
   KEYCODE_KBDINPUTASSIST_CANCEL = 2731,
 
   /**
+   * KEYCODE_MOUSE_ASSISTANT
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  KEYCODE_MOUSE_ASSISTANT = 2732,
+
+  /**
+   * KEYCODE_MOUSE_INTELLIGENCE_SELECTION
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  KEYCODE_MOUSE_INTELLIGENCE_SELECTION = 2733,
+
+  /**
    * KEYCODE_FRONT
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core

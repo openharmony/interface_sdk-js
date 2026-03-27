@@ -472,7 +472,18 @@ export interface IDataSource<T> {
  * @since 23 static
  * @noninterop
  */
-export interface LazyForEachAttribute extends DynamicNode {}
+export interface LazyForEachAttribute extends DynamicNode {
+    /**
+     * Set the component's source code redirection information. 
+     * @param { string } sourceLine - the source code line.
+     * @param { string } [moduleName] - module to which the component belongs.
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 24 staticonly
+     */
+    debugLine(sourceLine: string, moduleName?: string): this;
+}
 
 /**
  * Define item generator function.

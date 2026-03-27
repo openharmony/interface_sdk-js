@@ -267,7 +267,7 @@ declare namespace hid {
     reportError(error: ErrorReason): void;
 
     /**
-     * Subscribe to the event reported when GET_REMOTE message is received from the remote.
+     * Subscribe to the event reported when GET_REPORT message is received from the remote.
      *
      * @permission ohos.permission.ACCESS_BLUETOOTH
      * @param { Callback<GetReportData> } callback - Callback used to listen for event.
@@ -280,7 +280,7 @@ declare namespace hid {
     onGetReport(callback: Callback<GetReportData>): void;
 
     /**
-     * Unsubscribe from the event that a GET_REMOTE message is received from the peer device.
+     * Unsubscribe from the event that a GET_REPORT message is received from the peer device.
      *
      * @permission ohos.permission.ACCESS_BLUETOOTH
      * @param { Callback<GetReportData> } [callback] - Callback used to listen for event.
@@ -293,7 +293,7 @@ declare namespace hid {
     offGetReport(callback?: Callback<GetReportData>): void;
 
     /**
-     * Subscribe to the event reported when SET_REMOTE message is received from the remote.
+     * Subscribe to the event reported when SET_REPORT message is received from the remote.
      *
      * @permission ohos.permission.ACCESS_BLUETOOTH
      * @param { Callback<SetReportData> } callback - Callback used to listen for event.
@@ -306,7 +306,7 @@ declare namespace hid {
     onSetReport(callback: Callback<SetReportData>): void;
 
     /**
-     * Unsubscribe from the event that a SET_REMOTE message is received from the peer device.
+     * Unsubscribe from the event that a SET_REPORT message is received from the peer device.
      *
      * @permission ohos.permission.ACCESS_BLUETOOTH
      * @param { Callback<SetReportData> } [callback] - Callback used to listen for event.

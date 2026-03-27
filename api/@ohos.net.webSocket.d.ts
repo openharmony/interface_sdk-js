@@ -259,6 +259,15 @@ declare namespace webSocket {
      * @since 24 dynamic&static
      */
     pongTimeout?: int;
+
+    /**
+     * The minimum support version of TLS protocol.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    minSupportTlsProtocol?: TlsProtocol;
   }
 
   /**
@@ -349,6 +358,52 @@ declare namespace webSocket {
      * @since 23 static
      */
     keyPassword?: string;
+  }
+
+  /**
+   * Enumerates TLS protocols.
+   *
+   * @interface ClientCert
+   * @syscap SystemCapability.Communication.NetStack
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export enum TlsProtocol {
+    /**
+     * TLS1.0.
+     * 
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    TLS_V_1_0 = 0,
+
+    /**
+     * TLS1.1.
+     * 
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    TLS_V_1_1 = 1,
+
+    /**
+     * TLS1.2.
+     * 
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    TLS_V_1_2 = 2,
+
+    /**
+     * TLS1.3.
+     * 
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    TLS_V_1_3 = 3
   }
 
   /**
@@ -1627,7 +1682,6 @@ declare namespace webSocket {
      * @throws { BusinessError } 2302999 - Websocket other unknown error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 19 dynamic
-     * @since 23 static
      */
     /**
      * Start the WebSocket Server, and listen to a given port.
@@ -1638,6 +1692,7 @@ declare namespace webSocket {
      * @throws { BusinessError } 2302002 - Websocket certificate file does not exist.
      * @throws { BusinessError } 2302004 - Can't listen on the given NIC.
      * @throws { BusinessError } 2302005 - Can't listen on the given Port.
+     * @throws { BusinessError } 2302007 - Websocket port already occupied.
      * @throws { BusinessError } 2302999 - Websocket other unknown error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform

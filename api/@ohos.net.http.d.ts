@@ -621,7 +621,8 @@ declare namespace http {
      * Supports specifying the user custom defined http request method
      * @type {?string}
      * @syscap SystemCapability.Communication.NetStack
-     * @since 23 dynamic&static
+     * @since 23 dynamic
+     * @since 24 static
      */
     customMethod?: string;
   
@@ -629,7 +630,8 @@ declare namespace http {
      * Support specifying the configuration of maximum redirect count
      * @type {?int}
      * @syscap SystemCapability.Communication.NetStack
-     * @since 23 dynamic&static
+     * @since 23 dynamic
+     * @since 24 static
      */
     maxRedirects?: int;
   /**
@@ -638,7 +640,8 @@ declare namespace http {
      *
      * @type { ?PathPreference }
      * @syscap SystemCapability.Communication.NetStack
-     * @since 23 dynamic&static
+     * @since 23 dynamic
+     * @since 24 static
      */
     pathPreference?: PathPreference;
 	
@@ -646,9 +649,29 @@ declare namespace http {
      * Support specifying an SNI domain name to include the SNI field during the TLS connection process
      * @type {?string}
      * @syscap SystemCapability.Communication.NetStack
-     * @since 23 dynamic&static
+     * @since 23 dynamic
+     * @since 24 static
      */
     sniHostName?: string;
+    
+    /**
+     * Supports forbidding reuse of HTTP/HTTPS connections
+     * @type { ?boolean }
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    reuseConnections?: boolean;
+
+    /**
+      * Maximum HTTP idle time (unit: ms)
+      *
+      * @type { ?int }
+      * @syscap SystemCapability.Communication.NetStack
+      * @stagemodelonly
+      * @since 26.0.0 dynamic&static
+      */
+    inactivityMs?: int;
   }
 
    /**
@@ -727,7 +750,8 @@ declare namespace http {
    *
    * @typedef { 'auto' | 'primaryCellular' | 'secondaryCellular' }
    * @syscap SystemCapability.Communication.NetStack
-   * @since 23 dynamic&static
+   * @since 23 dynamic
+   * @since 24 static
    */
   export type PathPreference = 'auto' | 'primaryCellular' | 'secondaryCellular';
   
@@ -1851,6 +1875,52 @@ declare namespace http {
     request(url: string, options?: HttpRequestOptions): Promise<HttpResponse>;
 
     /**
+      * Initiates an HTTP request to a given URL.
+      *
+      * @permission ohos.permission.INTERNET
+      * @param { string } url - URL for initiating an HTTP request.
+      * @param { HttpRequestOptions } [options] - Optional parameters {@link HttpRequestOptions}.
+      * @returns { HttpResponse } The returned by the function.
+      * @throws { BusinessError } 201 - Permission denied.
+      * @throws { BusinessError } 2300001 - Unsupported protocol.
+      * @throws { BusinessError } 2300003 - Invalid URL format or missing URL.
+      * @throws { BusinessError } 2300005 - Failed to resolve the proxy name.
+      * @throws { BusinessError } 2300006 - Failed to resolve the host name.
+      * @throws { BusinessError } 2300007 - Failed to connect to the server.
+      * @throws { BusinessError } 2300008 - Invalid server response.
+      * @throws { BusinessError } 2300009 - Access to the remote resource denied.
+      * @throws { BusinessError } 2300016 - Error in the HTTP2 framing layer.
+      * @throws { BusinessError } 2300018 - Transferred a partial file.
+      * @throws { BusinessError } 2300023 - Failed to write the received data to the disk or application.
+      * @throws { BusinessError } 2300025 - Upload failed.
+      * @throws { BusinessError } 2300026 - Failed to open or read local data from the file or application.
+      * @throws { BusinessError } 2300027 - Out of memory.
+      * @throws { BusinessError } 2300028 - Operation timeout.
+      * @throws { BusinessError } 2300047 - The number of redirections reaches the maximum allowed.
+      * @throws { BusinessError } 2300052 - The server returned nothing (no header or data).
+      * @throws { BusinessError } 2300055 - Failed to send data to the peer.
+      * @throws { BusinessError } 2300056 - Failed to receive data from the peer.
+      * @throws { BusinessError } 2300058 - Local SSL certificate error.
+      * @throws { BusinessError } 2300059 - The specified SSL cipher cannot be used.
+      * @throws { BusinessError } 2300060 - Invalid SSL peer certificate or SSH remote key.
+      * @throws { BusinessError } 2300061 - Invalid HTTP encoding format.
+      * @throws { BusinessError } 2300063 - Maximum file size exceeded.
+      * @throws { BusinessError } 2300070 - Remote disk full.
+      * @throws { BusinessError } 2300073 - Remote file already exists.
+      * @throws { BusinessError } 2300077 - The SSL CA certificate does not exist or is inaccessible.
+      * @throws { BusinessError } 2300078 - Remote file not found.
+      * @throws { BusinessError } 2300094 - Authentication error.
+      * @throws { BusinessError } 2300997 - Cleartext traffic not permitted.
+      * @throws { BusinessError } 2300998 - It is not allowed to access this domain.
+      * @throws { BusinessError } 2300999 - Internal error.
+      * @syscap SystemCapability.Communication.NetStack
+      * @stagemodelonly
+      * @crossplatform
+      * @since 26.0.0 dynamic&static
+      */
+    requestSync(url: string, options?: HttpRequestOptions): HttpResponse;
+
+    /**
      * Initiates an HTTP request to a given URL, applicable to scenarios where http response supports streaming.
      * @permission ohos.permission.INTERNET
      * @param { string } url - URL for initiating an HTTP request.
@@ -2384,7 +2454,7 @@ declare namespace http {
      * @param { AsyncCallback<Object> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
      * @since 6 dynamiconly
-     * @deprecated since 8 dynamic
+     * @deprecated since 8
      * @useinstead on_headersReceive
      */
     on(type: "headerReceive", callback: AsyncCallback<Object>): void;
@@ -2395,7 +2465,7 @@ declare namespace http {
      * @param { AsyncCallback<Object> } [callback] - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
      * @since 6 dynamiconly
-     * @deprecated since 8 dynamic
+     * @deprecated since 8
      * @useinstead off_headersReceive
      */
     off(type: "headerReceive", callback?: AsyncCallback<Object>): void;
@@ -2890,7 +2960,17 @@ declare namespace http {
      * @since 11 dynamic
      * @since 23 static
      */
-    CONNECT = "CONNECT"
+    CONNECT = "CONNECT",
+
+    /**
+     * PATCH method
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @crossplatform
+     * @since 26.0.0 dynamic&static
+     */
+    PATCH = "PATCH"
   }
 
   /**
@@ -4006,6 +4086,15 @@ declare namespace http {
      * @since 23 static
      */
     performanceTiming: PerformanceTiming;
+
+    /**
+     * Information details of HTTP request.
+     *
+     * @type { ?ConnectionExtraInfo }
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 24 dynamic&static
+     */
+    connectionExtraInfo?: ConnectionExtraInfo;
   }
 
   /**
@@ -4474,7 +4563,7 @@ declare namespace http {
    * @syscap SystemCapability.Communication.NetStack
    * @atomicservice
    * @since 22 dynamic
-   * @since 23 static
+   * @since 24 static
    */
   export enum InterceptorType {
     /**
@@ -4482,7 +4571,7 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @atomicservice
      * @since 22 dynamic
-     * @since 23 static
+     * @since 24 static
      */
     INITIAL_REQUEST = 'INITIAL_REQUEST',
 
@@ -4491,7 +4580,7 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @atomicservice
      * @since 22 dynamic
-     * @since 23 static
+     * @since 24 static
      */
     REDIRECTION = 'REDIRECTION',
 
@@ -4500,7 +4589,7 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @atomicservice
      * @since 22 dynamic
-     * @since 23 static
+     * @since 24 static
      */
     CACHE_CHECKED = 'READ_CACHE',
 
@@ -4509,7 +4598,7 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @atomicservice
      * @since 22 dynamic
-     * @since 23 static
+     * @since 24 static
      */
     NETWORK_CONNECT = 'CONNECT_NETWORK',
 
@@ -4518,7 +4607,7 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @atomicservice
      * @since 22 dynamic
-     * @since 23 static
+     * @since 24 static
      */
     FINAL_RESPONSE = 'FINAL_RESPONSE',
   }
@@ -4530,7 +4619,7 @@ declare namespace http {
    * @syscap SystemCapability.Communication.NetStack
    * @atomicservice
    * @since 22 dynamic
-   * @since 23 static
+   * @since 24 static
    */
   export interface HttpRequestContext {
     /**
@@ -4539,7 +4628,7 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @atomicservice
      * @since 22 dynamic
-     * @since 23 static
+     * @since 24 static
      */
     url: string;
 
@@ -4549,7 +4638,7 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @atomicservice
      * @since 22 dynamic
-     * @since 23 static
+     * @since 24 static
      */
     header: Object;
 
@@ -4559,7 +4648,7 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @atomicservice
      * @since 22 dynamic
-     * @since 23 static
+     * @since 24 static
      */
     body: Object;
   }
@@ -4571,7 +4660,7 @@ declare namespace http {
    * @syscap SystemCapability.Communication.NetStack
    * @atomicservice
    * @since 22 dynamic
-   * @since 23 static
+   * @since 24 static
    */
   export type ChainContinue = boolean;
 
@@ -4581,7 +4670,7 @@ declare namespace http {
    * @syscap SystemCapability.Communication.NetStack
    * @atomicservice
    * @since 22 dynamic
-   * @since 23 static
+   * @since 24 static
    */
   export interface HttpInterceptor {
     /**
@@ -4590,7 +4679,7 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @atomicservice
      * @since 22 dynamic
-     * @since 23 static
+     * @since 24 static
      */
     interceptorType: InterceptorType;
 
@@ -4602,7 +4691,7 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @atomicservice
      * @since 22 dynamic
-     * @since 23 static
+     * @since 24 static
      */
     interceptorHandle(reqContext: HttpRequestContext, rspContext: HttpResponse): Promise<ChainContinue>;
   }
@@ -4613,7 +4702,7 @@ declare namespace http {
    * @syscap SystemCapability.Communication.NetStack
    * @atomicservice
    * @since 22 dynamic
-   * @since 23 static
+   * @since 24 static
    */
   export class HttpInterceptorChain {
     /**
@@ -4622,7 +4711,7 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @atomicservice
      * @since 22 dynamic
-     * @since 23 static
+     * @since 24 static
      */
     public getChain(): HttpInterceptor[];
 
@@ -4636,7 +4725,7 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @atomicservice
      * @since 22 dynamic
-     * @since 23 static
+     * @since 24 static
      */
     public addChain(chain: HttpInterceptor[]): boolean;
 
@@ -4650,9 +4739,118 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @atomicservice
      * @since 22 dynamic
-     * @since 23 static
+     * @since 24 static
      */
     public apply(httpRequest: HttpRequest): boolean;
+  }
+
+  /**
+   * Information details of the HTTP request
+   *
+   * @interface ConnectionExtraInfo
+   * @syscap SystemCapability.Communication.NetStack
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  export interface ConnectionExtraInfo {
+    /**
+     * The network protocol used to fetch the resource.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    networkProtocolName: string;
+
+    /**
+     * The tls version used to fetch the resource.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    tlsVersion?: TlsVersion;
+
+    /**
+     * The cipher suite used to fetch the resource.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    cipherSuite?: CipherSuite;
+
+    /**
+     * localAddress of the HTTP request.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    localAddress: string;
+
+    /**
+     * remoteAddress of the HTTP request.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    remoteAddress: string;
+
+    /**
+     * localPort of the HTTP request. -1 for unknown.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    localPort: int;
+
+    /**
+     * remotePort of the HTTP request. -1 for unknown.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    remotePort: int;
+
+    /**
+     * The HTTP request is a reused connection or not.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    isReusedConnection: boolean;
+
+    /**
+     * A Boolean value that indicastes whether the task used a proxy connection to fetch the resource.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    isProxyConnection: boolean;
+
+    /**
+     * A Boolean value that indicates whether the http request hit cache.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    isCacheHit: boolean;
+
+    /**
+     * The HTTP request redirect count.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    redirectCount: int;
   }
 }
 

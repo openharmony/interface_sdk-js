@@ -19,14 +19,14 @@
  */
 
 /**
- * The type uesd to set rounding
+ * The type used to set rounding
  *
  * @syscap SystemCapability.Utils.Lang
  * @atomicservice
  * @since 12
  */
 /**
- * The type uesd to set rounding
+ * The type used to set rounding
  *
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
@@ -36,7 +36,7 @@
 type Rounding = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
 
 /**
- * The type uesd to set rounding
+ * The type used to set rounding
  *
  * @typedef { int }
  * @syscap SystemCapability.Utils.Lang
@@ -47,14 +47,14 @@ type Rounding = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
 type Rounding = int;
 
 /**
- * The type uesd to set modulo
+ * The type used to set modulo
  *
  * @syscap SystemCapability.Utils.Lang
  * @atomicservice
  * @since 12
  */
 /**
- * The type uesd to set modulo
+ * The type used to set modulo
  *
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
@@ -64,7 +64,7 @@ type Rounding = int;
 type Modulo = Rounding | 9;
 
 /**
- * The type uesd to set modulo
+ * The type used to set modulo
  *
  * @typedef { int }
  * @syscap SystemCapability.Utils.Lang
@@ -75,14 +75,14 @@ type Modulo = Rounding | 9;
 type Modulo = int;
 
 /**
- * The type uesd to denote decimal value
+ * The type used to denote decimal value
  *
  * @syscap SystemCapability.Utils.Lang
  * @atomicservice
  * @since 12
  */
 /**
- * The type uesd to denote decimal value
+ * The type used to denote decimal value
  *
  * @typedef { string | double | Decimal }
  * @syscap SystemCapability.Utils.Lang

@@ -795,6 +795,20 @@ export declare struct TabSegmentButtonV2 {
     readonly backgroundSystemMaterial?: uiMaterial.Material;
 
     /**
+     * Enable animation when selectedIndexes change.
+     *
+     * @type { ?boolean }
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 24 dynamic
+     */
+    @Param
+    readonly enableStateAnimation?: boolean;
+
+    /**
      * Sets the build function of the segmented button.
      * 
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1250,6 +1264,20 @@ export declare struct CapsuleSegmentButtonV2 {
      */
     @Param
     readonly backgroundSystemMaterial?: uiMaterial.Material;
+
+    /**
+     * Enable animation when selectedIndexes change.
+     *
+     * @type { ?boolean }
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 24 dynamic
+     */
+    @Param
+    readonly enableStateAnimation?: boolean;
 
     /**
      * Sets the build function of the segmented button.

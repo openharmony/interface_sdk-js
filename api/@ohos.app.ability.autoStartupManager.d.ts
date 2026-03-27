@@ -256,6 +256,18 @@ declare namespace autoStartupManager {
    * @since 23 static
    */
   function getAutoStartupStatusForSelf(): Promise<boolean>;
+
+  /**
+   * Check whether the current device supports auto startup on this device.
+   *
+   * @returns { boolean }
+   *     - `true`: Device supports auto startup.
+   *     - `false`: Device do not support auto startup.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function isAutoStartupSupported(): boolean;
 }
 
 export default autoStartupManager;

@@ -62,7 +62,7 @@ declare class SelectionExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000061 - Operation not supported.
    * @throws { BusinessError } 16000069 - The extension cannot start the third party application.
    * @throws { BusinessError } 16000070 - The extension cannot start the service.
-   * @throws { BusinessError } 16000083 The ExtensionAbility cannot start the ability due to system control.
+   * @throws { BusinessError } 16000083 - The ExtensionAbility cannot start the ability due to system control.
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.SelectionInput.Selection
    * @systemapi
@@ -92,7 +92,7 @@ declare class SelectionExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000061 - Operation not supported.
    * @throws { BusinessError } 16000069 - The extension cannot start the third party application.
    * @throws { BusinessError } 16000070 - The extension cannot start the service.
-   * @throws { BusinessError } 16000083 The ExtensionAbility cannot start the ability due to system control.
+   * @throws { BusinessError } 16000083 - The ExtensionAbility cannot start the ability due to system control.
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.SelectionInput.Selection
    * @stagemodelonly

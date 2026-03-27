@@ -424,6 +424,16 @@ export declare interface Touch {
    * @since 23 static
    */
   globalY?: int;
+
+  /**
+   * blobId - blob id.
+   * @type { ?int }
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @systemapi Hide this for inner system use.
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  blobId?: int;
 }
 
 /**

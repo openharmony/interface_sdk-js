@@ -180,6 +180,17 @@ export declare class ButtonOptions {
    * @since 18 dynamic
    */
   defaultFocus?: boolean;
+  /**
+   * Set the alignment mode for the button label.
+   * @type { ?TextAlign }
+   * @default { TextAlign.Start }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 24 dynamic
+   */
+  textAlign?: TextAlign;
 }
 /**
  * Declare CustomDialog TipsDialog

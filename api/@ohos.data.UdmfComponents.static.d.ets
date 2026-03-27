@@ -92,7 +92,7 @@ declare struct ContentFormCard {
   formType: FormType;
 
   /**
-   * Width of the form card.
+   * Width of the content form card. The unit of measurement is vp.
    *
    * @type { ?double }
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -103,7 +103,7 @@ declare struct ContentFormCard {
   formWidth?: double;
 
   /**
-   * Height of the form card.
+   * Height of the content form card. The unit of measurement is vp.
    *
    * @type { ?double }
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core

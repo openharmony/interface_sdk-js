@@ -561,6 +561,19 @@ declare namespace certificateManagerDialog {
      */  
       keyUri: string;
   }
+
+  /**
+   * Indicates whether the device supports opening the CA certificate management dialog box,
+   * including the openInstallCertificateDialog, openUninstallCertificateDialog, and openCertificateDetailDialog methods.
+   *
+   * @returns { boolean } Indicates whether the device can display the CA certificate management dialog box.
+   * @throws { BusinessError } 29700001 - Internal error. Possible causes: 1. IPC communication failed;
+   *     <br>2. Memory operation error; 3. File operation error. Please try again.
+   * @syscap SystemCapability.Security.CertificateManagerDialog
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function supportsCACertDialog(): boolean;
 }
 
 export default certificateManagerDialog;

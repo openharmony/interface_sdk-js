@@ -238,6 +238,16 @@ export interface RepeatAttribute<T> extends DynamicNode {
    * @since 23 static
    */
   templateId(typedFunc: TemplateTypedFunc<T>): this;
+  /**
+   * Set the component's source code redirection information. 
+   * @param { string } sourceLine - the source code line.
+   * @param { string } [moduleName] - module to which the component belongs.
+   * @returns { this }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 staticonly
+   */
+  debugLine(sourceLine: string, moduleName?: string): this;
 }
 
 /**

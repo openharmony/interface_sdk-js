@@ -1657,6 +1657,16 @@ declare namespace media {
      * @since 23 static
      */
     gltf_offset?: string;
+
+    /**
+     * The identifier that represents the software or hardware and settings used for encoding.
+     * This parameter is not supported in AVRecorder settings.
+     * 
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    encoder?: string;
   }
 
   /**

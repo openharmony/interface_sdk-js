@@ -143,6 +143,19 @@ export declare class AdvancedDialogV2Button {
   @Trace
   enabled?: boolean;
   /**
+   * Set the alignment mode for the button label.
+   *
+   * @type { ?TextAlign }
+   * @default { TextAlign.Start }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 24 dynamic
+   */
+  @Trace
+  textAlign?: TextAlign;
+  /**
    * The constructor used to create a AdvancedDialogV2Button object.
    *
    * @param { AdvancedDialogV2ButtonOptions } options - button info.
@@ -258,6 +271,18 @@ export declare interface AdvancedDialogV2ButtonOptions {
    * @since 18 dynamic
    */
   enabled?: boolean;
+  /**
+   * Set the alignment mode for the button label.
+   *
+   * @type { ?TextAlign }
+   * @default { TextAlign.Start }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 24 dynamic
+   */
+  textAlign?: TextAlign;
 }
 
 /**

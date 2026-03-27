@@ -253,17 +253,18 @@ export declare abstract class CustomComponent<T extends CustomComponent<T, T_Opt
     
     /**
      * Implementation for creating a custom component
-     * @param { function } styles - styles of custom component
+     * @param { function | undefined } styles - styles of custom component
      * @param { function } factory - factory to create instance of custom component
      * @param { function } [initializers] - initial data for all the fields in custom component
      * @param { string } [reuseId] - reuse id for reusable. Only valid if custom component decorated with @Reusable
      * @param { CustomBuilder } [content] - tail closure for custom component
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
+     * @stagemodelonly
+     * @since 23 staticonly
      */
     @Builder
     static _invokeImpl<S extends CustomComponent<S, S_Options>, S_Options>(
-        @Builder styles: (instance: S) => void,
+        @Builder styles: ((instance: S) => void) | undefined,
         factory: () => S,
         initializers?: () => S_Options,
         reuseId?: string,
@@ -290,18 +291,18 @@ export declare abstract class CustomComponentV2<T extends CustomComponentV2<T, T
     /**
      * Implementation for creating a v2 custom component
      *
-     * @param { function } styles - styles of custom component
+     * @param { function | undefined } styles - styles of custom component
      * @param { function } factory - factory to create instance of custom component
      * @param { function } [initializers] - initial data for all the fields in custom component
      * @param { function } [reuseId] - reuse id for reusable. Only valid if custom component decorated with @ReusableV2
      * @param { CustomBuilder } [content] - tail closure for custom component
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 23 static
+     * @since 23 staticonly
      */
     @Builder
     static _invokeImpl<S extends CustomComponentV2<S, S_Options>, S_Options>(
-        @Builder styles: (instance: S) => void,
+        @Builder styles: ((instance: S) => void) | undefined,
         factory: () => S,
         initializers?: () => S_Options,
         reuseId?: () => string,
@@ -311,7 +312,7 @@ export declare abstract class CustomComponentV2<T extends CustomComponentV2<T, T
     /**
      * Implementation for creating a v2 custom component
      *
-     * @param { function } styles - styles of custom component
+     * @param { function | undefined } styles - styles of custom component
      * @param { function } factory - factory to create instance of custom component
      * @param { function } [initializers] - initial data for all the fields in custom component
      * @param { function } [reuseId] - reuse id for reusable. Only valid if custom component decorated with @ReusableV2
@@ -319,11 +320,11 @@ export declare abstract class CustomComponentV2<T extends CustomComponentV2<T, T
      * @param { CustomComponentInvokeOptions } [options] - additional invoke options
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 24 staticonly
      */
     @Builder
     static _invokeImpl<S extends CustomComponentV2<S, S_Options>, S_Options>(
-        @Builder styles: (instance: S) => void,
+        @Builder styles: ((instance: S) => void) | undefined,
         factory: () => S,
         initializers?: () => S_Options,
         reuseId?: () => string,
@@ -459,4 +460,169 @@ export interface CustomComponentInvokeOptions {
      * @since 24 static
      */
     sClass?: Class;
+}
+ 
+/**
+ * CustomComponent Lifecycle. It is used to monitor changes in the lifecycle of the custom component.
+ *
+ * @typedef CustomComponentLifecycle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 24 static
+ */
+export declare interface CustomComponentLifecycle {
+  /**
+   * Get the current lifecycle state.
+   *
+   * @returns { CustomComponentLifecycleState } - lifecycle state
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  getCurrentState(): CustomComponentLifecycleState;
+
+   /**
+  * Register a lifecycle listener. When the lifecycle state of a custom component changes, the corresponding
+  * lifecycle callback will be triggered.
+  *
+  * @param { CustomComponentLifecycleObserver } observer - Custom component lifecycle observer
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @stagemodelonly
+  * @since 24 static
+  */
+  addObserver(observer: CustomComponentLifecycleObserver): void;
+
+  /**
+  * Remove custom component lifecycle callbacks. Even if the custom component's lifecycle
+  * state changes, the lifecycle callback will not be triggered.
+  *
+  * @param { CustomComponentLifecycleObserver } observer - Custom component lifecycle observer.
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @stagemodelonly
+  * @since 24 static
+  */
+  removeObserver(observer: CustomComponentLifecycleObserver): void;
+}
+
+/**
+ * CustomComponent LifecycleObserver. When a user registers a custom component lifecycle callback,
+ * the corresponding lifecycle callback will be triggered when the lifecycle changes.
+ *
+ * @interface CustomComponentLifecycleObserver
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 24 static
+ */
+export declare interface CustomComponentLifecycleObserver {
+  /**
+  * The aboutToAppear function is extecuted after a new instance of the custom component is created,
+  * before its build() function is executed. Developers can modify state variables at this stage.
+  *
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @stagemodelonly
+  * @since 24 static
+  */
+  default aboutToAppear(): void;
+
+  /**
+  * The onDidBuild function is executed after a new instance of the custom component is built,
+  * after its build() function is executed. Developers can implement functions that
+  * do not affect the actual UI, such as event data reporting, at this stage.
+  *
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @stagemodelonly
+  * @since 24 static
+  */
+  default onDidBuild(): void;
+
+  /**
+  * The aboutToDisappear function executes before a custom component is destroyed.
+  * It is not alowed to change state variables in aboutToDisappear.
+  *
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @stagemodelonly
+  * @since 24 static
+  */
+  default aboutToDisappear(): void;
+
+  /**
+  * Invoked when a reusable custom component is re-added to the node tree from the reuse cache
+  * to receive construction parameters of the component.
+  * When params is defined, it is the callback for reusing the V1 component.
+  * When params is undefined, it is the callback for reusing the V2 compoennt.
+  *
+  * @param { ReuseObject } [params] - V1 component reuse data.
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @stagemodelonly
+  * @since 24 static
+  */
+  default aboutToReuse(params?: ReuseObject): void;
+
+  /**
+  * Callback function invoked when the component is about to be recycled.
+  *
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @stagemodelonly
+  * @since 24 static
+  */
+  default aboutToRecycle(): void;
+}
+
+/**
+ * Enum for Lifecycle State type
+ *
+ * @enum { int }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 24 static
+ */
+export declare enum CustomComponentLifecycleState {
+  /**
+  * Lifecycle init state. Custom components are in this state when they are created.
+  * The next state after the init state is the apear state, which will trigger aboutToAppear.
+  *
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @stagemodelonly
+  * @since 24 static
+  */
+  INIT = 0,
+
+  /**
+  * Lifecycle appeared state. Custom components are in this stage when they are about to be built.
+  * The next state after the appeared state is the built state, which will trigger onDidBuild.
+  *
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @stagemodelonly
+  * @since 24 static
+  */
+  APPEARED = 1,
+
+  /**
+  * Lifecycle built state. The next state after the built state could be the recycled state or disappeared state.
+  *
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @stagemodelonly
+  * @since 24 static
+  */
+  BUILT = 2,
+
+  /**
+  * Lifecycle recycled state. Custom components are in the state of being recycled or reused.
+  * The next state after the recycle state voud be the built state or the disappeared state.
+  *
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @stagemodelonly
+  * @since 24 static
+  */
+  RECYCLED = 3,
+
+  /**
+  * Lifecycle disappeared state. The disappeared state is the end state of a custom component's lifecycle.
+  * The init, built and recycled states could transfer to the disappeared state.
+  *
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @stagemodelonly
+  * @since 24 static
+  */
+  DISAPPEARED = 4
 }

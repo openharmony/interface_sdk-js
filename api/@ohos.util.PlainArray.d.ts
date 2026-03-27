@@ -110,8 +110,8 @@ declare class PlainArray<T> {
   /**
    * Appends a key-value pair to PlainArray
    *
-   * @param { number } key - key key Added the key of key-value
-   * @param { T } value - value value Added the value of key-value
+   * @param { number } key - the key of the key-value pair to add.
+   * @param { T } value - the value of the key-value pair to add.
    * @throws { BusinessError } 10200011 - The add method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * 1.Mandatory parameters are left unspecified;
@@ -122,8 +122,8 @@ declare class PlainArray<T> {
   /**
    * Appends a key-value pair to PlainArray
    *
-   * @param { number } key - key key Added the key of key-value
-   * @param { T } value - value value Added the value of key-value
+   * @param { number } key - the key of the key-value pair to add.
+   * @param { T } value - the value of the key-value pair to add.
    * @throws { BusinessError } 10200011 - The add method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * 1.Mandatory parameters are left unspecified;
@@ -135,8 +135,8 @@ declare class PlainArray<T> {
   /**
    * Appends a key-value pair to PlainArray
    *
-   * @param { int } key - key key Added the key of key-value
-   * @param { T } value - value value Added the value of key-value
+   * @param { int } key - the key of the key-value pair to add.
+   * @param { T } value - the value of the key-value pair to add.
    * @throws { BusinessError } 10200011 - The add method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * 1.Mandatory parameters are left unspecified;
@@ -206,7 +206,7 @@ declare class PlainArray<T> {
   /**
    * Checks whether the current PlainArray object contains the specified key
    *
-   * @param { number } key - key key need to determine whether to include the key
+   * @param { number } key - the key to check for presence
    * @returns { boolean } the boolean type
    * @throws { BusinessError } 10200011 - The has method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -218,7 +218,7 @@ declare class PlainArray<T> {
   /**
    * Checks whether the current PlainArray object contains the specified key
    *
-   * @param { number } key - key key need to determine whether to include the key
+   * @param { number } key - the key to check for presence
    * @returns { boolean } the boolean type
    * @throws { BusinessError } 10200011 - The has method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -231,7 +231,7 @@ declare class PlainArray<T> {
   /**
    * Checks whether the current PlainArray object contains the specified key
    *
-   * @param { int } key - key key need to determine whether to include the key
+   * @param { int } key - the key to check for presence
    * @returns { boolean } the boolean type
    * @throws { BusinessError } 10200011 - The has method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -247,7 +247,7 @@ declare class PlainArray<T> {
   /**
    * Queries the value associated with the specified key
    *
-   * @param { number } key - key key Looking for goals
+   * @param { number } key - the key to Lookup.
    * @returns { T } the value of key-value pairs
    * @throws { BusinessError } 10200011 - The get method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -259,7 +259,7 @@ declare class PlainArray<T> {
   /**
    * Queries the value associated with the specified key
    *
-   * @param { number } key - key key Looking for goals
+   * @param { number } key - the key to Lookup.
    * @returns { T } the value of key-value pairs
    * @throws { BusinessError } 10200011 - The get method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -272,7 +272,7 @@ declare class PlainArray<T> {
   /**
    * Queries the value associated with the specified key
    *
-   * @param { number } key - key key Looking for goals
+   * @param { number } key - the key to Lookup.
    * @returns { T } the value of key-value pairs
    * @throws { BusinessError } 10200011 - The get method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -301,7 +301,7 @@ declare class PlainArray<T> {
   /**
    * Queries the index for a specified key
    *
-   * @param { number } key - key key Looking for goals
+   * @param { number } key - the key to find the index for.
    * @returns { number } Subscript corresponding to target
    * @throws { BusinessError } 10200011 - The getIndexOfKey method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -313,7 +313,7 @@ declare class PlainArray<T> {
   /**
    * Queries the index for a specified key
    *
-   * @param { number } key - key key Looking for goals
+   * @param { number } key - the key to find the index for.
    * @returns { number } Subscript corresponding to target
    * @throws { BusinessError } 10200011 - The getIndexOfKey method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -326,7 +326,7 @@ declare class PlainArray<T> {
   /**
    * Queries the index for a specified key
    *
-   * @param { int } key - key key Looking for goals
+   * @param { int } key - the key to find the index for.
    * @returns { int } Subscript corresponding to target
    * @throws { BusinessError } 10200011 - The getIndexOfKey method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -342,7 +342,7 @@ declare class PlainArray<T> {
   /**
    * Queries the index for a specified value
    *
-   * @param { T } value - value value Looking for goals
+   * @param { T } value - the value to find the index for
    * @returns { number } Subscript corresponding to target
    * @throws { BusinessError } 10200011 - The getIndexOfValue method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
@@ -351,7 +351,7 @@ declare class PlainArray<T> {
   /**
    * Queries the index for a specified value
    *
-   * @param { T } value - value value Looking for goals
+   * @param { T } value - the value to find the index for
    * @returns { number } Subscript corresponding to target
    * @throws { BusinessError } 10200011 - The getIndexOfValue method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
@@ -361,7 +361,7 @@ declare class PlainArray<T> {
   /**
    * Queries the index for a specified value
    *
-   * @param { T } value - value value Looking for goals
+   * @param { T } value - the value to find the index for
    * @returns { int } Subscript corresponding to target
    * @throws { BusinessError } 10200011 - The getIndexOfValue method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
@@ -403,7 +403,7 @@ declare class PlainArray<T> {
   /**
    * Queries the key at a specified index
    *
-   * @param { number } index - index index Target subscript for search
+   * @param { number } index - the index position to get the key from
    * @returns { number } the key of key-value pairs
    * @throws { BusinessError } 10200011 - The getKeyAt method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -415,7 +415,7 @@ declare class PlainArray<T> {
   /**
    * Queries the key at a specified index
    *
-   * @param { number } index - index index Target subscript for search
+   * @param { number } index - the index position to get the key from
    * @returns { number } the key of key-value pairs
    * @throws { BusinessError } 10200011 - The getKeyAt method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -428,7 +428,7 @@ declare class PlainArray<T> {
   /**
    * Queries the key at a specified index
    *
-   * @param { int } index - index index Target subscript for search
+   * @param { int } index - the index position to get the key from
    * @returns { int } the key of key-value pairs
    * @throws { BusinessError } 10200011 - The getKeyAt method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -444,7 +444,7 @@ declare class PlainArray<T> {
   /**
    * Remove the key-value pair based on a specified key if it exists and return the value
    *
-   * @param { number } key - key key Target to be deleted
+   * @param { number } key - the key of the key-value pair to remove
    * @returns { T } Target mapped value
    * @throws { BusinessError } 10200011 - The remove method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -456,7 +456,7 @@ declare class PlainArray<T> {
   /**
    * Remove the key-value pair based on a specified key if it exists and return the value
    *
-   * @param { number } key - key key Target to be deleted
+   * @param { number } key - the key of the key-value pair to remove
    * @returns { T } Target mapped value
    * @throws { BusinessError } 10200011 - The remove method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -469,7 +469,7 @@ declare class PlainArray<T> {
   /**
    * Remove the key-value pair based on a specified key if it exists and return the value
    *
-   * @param { number } key - key key Target to be deleted
+   * @param { number } key - the key of the key-value pair to remove
    * @returns { T } Target mapped value
    * @throws { BusinessError } 10200011 - The remove method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -498,7 +498,7 @@ declare class PlainArray<T> {
   /**
    * Remove the key-value pair at a specified index if it exists and return the value
    *
-   * @param { number } index - index index Target subscript for search
+   * @param { number } index - the index position of the key-value pair to remove
    * @returns { T } the T type
    * @throws { BusinessError } 10200011 - The removeAt method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -510,7 +510,7 @@ declare class PlainArray<T> {
   /**
    * Remove the key-value pair at a specified index if it exists and return the value
    *
-   * @param { number } index - index index Target subscript for search
+   * @param { number } index - the index position of the key-value pair to remove
    * @returns { T } the T type
    * @throws { BusinessError } 10200011 - The removeAt method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -523,7 +523,7 @@ declare class PlainArray<T> {
   /**
    * Remove the key-value pair at a specified index if it exists and return the value
    *
-   * @param { number } index - index index Target subscript for search
+   * @param { number } index - the index position of the key-value pair to remove
    * @returns { T } the T type
    * @throws { BusinessError } 10200011 - The removeAt method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -552,8 +552,8 @@ declare class PlainArray<T> {
   /**
    * Remove a group of key-value pairs from a specified index
    *
-   * @param { number } index - index index remove start index
-   * @param { number } size - size size Expected deletion quantity
+   * @param { number } index - the starting index position for removal
+   * @param { number } size - the number of key-value pairs to remove
    * @returns { number } Actual deleted quantity
    * @throws { BusinessError } 10200011 - The removeRangeFrom method cannot be bound.
    * @throws { BusinessError } 10200001 - The value of index is out of range.
@@ -566,8 +566,8 @@ declare class PlainArray<T> {
   /**
    * Remove a group of key-value pairs from a specified index
    *
-   * @param { number } index - index index remove start index
-   * @param { number } size - size size Expected deletion quantity
+   * @param { number } index - the starting index position for removal
+   * @param { number } size - the number of key-value pairs to remove
    * @returns { number } Actual deleted quantity
    * @throws { BusinessError } 10200011 - The removeRangeFrom method cannot be bound.
    * @throws { BusinessError } 10200001 - The value of index is out of range.
@@ -581,8 +581,8 @@ declare class PlainArray<T> {
   /**
    * Remove a group of key-value pairs from a specified index
    *
-   * @param { int } index - index index remove start index
-   * @param { int } size - size size Expected deletion quantity
+   * @param { int } index - the starting index position for removal
+   * @param { int } size - the number of key-value pairs to remove
    * @returns { int } Actual deleted quantity
    * @throws { BusinessError } 10200011 - The removeRangeFrom method cannot be bound.
    * @throws { BusinessError } 10200001 - The value of index is out of range.
@@ -599,8 +599,8 @@ declare class PlainArray<T> {
   /**
    * Update value on specified index
    *
-   * @param { number } index - index index Target subscript for search
-   * @param { T } value - value value Updated the target mapped value
+   * @param { number } index - the index position to set the value at
+   * @param { T } value - replacing the value in the key-value pair
    * @throws { BusinessError } 10200011 - The setValueAt method cannot be bound.
    * @throws { BusinessError } 10200001 - The value of index is out of range.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -612,8 +612,8 @@ declare class PlainArray<T> {
   /**
    * Update value on specified index
    *
-   * @param { number } index - index index Target subscript for search
-   * @param { T } value - value value Updated the target mapped value
+   * @param { number } index - the index position to set the value at
+   * @param { T } value - replacing the value in the key-value pair
    * @throws { BusinessError } 10200011 - The setValueAt method cannot be bound.
    * @throws { BusinessError } 10200001 - The value of index is out of range.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -626,8 +626,8 @@ declare class PlainArray<T> {
   /**
    * Update value on specified index
    *
-   * @param { int } index - index index Target subscript for search
-   * @param { T } value - value value Updated the target mapped value
+   * @param { int } index - the index position to set the value at
+   * @param { T } value - replacing the value in the key-value pair
    * @throws { BusinessError } 10200011 - The setValueAt method cannot be bound.
    * @throws { BusinessError } 10200001 - The value of index is out of range.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -672,7 +672,7 @@ declare class PlainArray<T> {
   /**
    * Queries the value at a specified index
    *
-   * @param { number } index - index index Target subscript for search
+   * @param { number } index - the index position to set the value from
    * @returns { T } the value of key-value pairs
    * @throws { BusinessError } 10200011 - The getValueAt method cannot be bound.
    * @throws { BusinessError } 10200001 - The value of index is out of range.
@@ -685,7 +685,7 @@ declare class PlainArray<T> {
   /**
    * Queries the value at a specified index
    *
-   * @param { number } index - index index Target subscript for search
+   * @param { number } index - the index position to set the value from
    * @returns { T } the value of key-value pairs
    * @throws { BusinessError } 10200011 - The getValueAt method cannot be bound.
    * @throws { BusinessError } 10200001 - The value of index is out of range.
@@ -699,7 +699,7 @@ declare class PlainArray<T> {
   /**
    * Queries the value at a specified index
    *
-   * @param { int } index - index index Target subscript for search
+   * @param { int } index - the index position to set the value from
    * @returns { T } the value of key-value pairs
    * @throws { BusinessError } 10200011 - The getValueAt method cannot be bound.
    * @throws { BusinessError } 10200001 - The value of index is out of range.

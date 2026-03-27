@@ -2862,6 +2862,7 @@ declare namespace webview {
          * <br>2. Incorrect parameter types. 3.Parameter verification failed.
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
+         * @throws { BusinessError } 17100003 - Calling a JS method that returns an empty ArrayBuffer via runJavaScript.
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
@@ -2883,6 +2884,7 @@ declare namespace webview {
          * <br>2. Incorrect parameter types. 3.Parameter verification failed.
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
+         * @throws { BusinessError } 17100003 - Calling a JS method that returns an empty ArrayBuffer via runJavaScript.
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
@@ -3134,8 +3136,8 @@ declare namespace webview {
         /**
          * Slide by the speed.
          *
-         * @param { double } vx - the x speed of the speed.
-         * @param { double } vy - the y speed of the speed.
+         * @param { double } vx - the x speed of the speed. The unit is vp/s.
+         * @param { double } vy - the y speed of the speed. The unit is vp/s.
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
          * <br>2. Incorrect parameter types. 3.Parameter verification failed.
          * @throws { BusinessError } 17100001 - Init error.
@@ -3276,7 +3278,7 @@ declare namespace webview {
          * and only allows one prefetch within 500ms.
          * Prefetch behavior can be customized via ‌prefetchOptions‌, including ignoring Cache-Control:
          * no-store and adjusting the throttling interval.
-         * 
+         *
          * @param { string } url - Which url to preresolve/preconnect.
          * @param { Array<WebHeader> } [additionalHeaders] - Additional HTTP request header of the URL.
          * @param { PrefetchOptions } [prefetchOptions] - Prefetch behavior can be customized via ‌prefetchOptions‌,
@@ -4013,8 +4015,8 @@ declare namespace webview {
         /**
          * Scrolls by the specified delta position and returns a result indicating whether the scrolling operation was successful or not.
          *
-         * @param { double } deltaX - the delta x of the position.
-         * @param { double } deltaY - the delta y of the position.
+         * @param { double } deltaX - the delta x of the position. The unit is vp.
+         * @param { double } deltaY - the delta y of the position. The unit is vp.
          * @returns { boolean } true if the scroll operation is successful, otherwise false.
          * Return value scenario: when the Web page is in the touch state, return false, otherwise return true.
          * In the same layer rendering scene, when the same layer rendering area of ​​the Web is in the touching state, the return value is true.
@@ -6761,7 +6763,7 @@ declare namespace webview {
          */
         STRICT = 2
     }
-    
+
     /**
      * The form factors for User-Agent metadata.
      *
@@ -6770,7 +6772,7 @@ declare namespace webview {
      * @stagemodelonly
      * @since 24 static
      */
-    enum UserAgentFormFactor {    
+    enum UserAgentFormFactor {
         /**
          * Form factor option: Automotive.
          *
@@ -6838,7 +6840,7 @@ declare namespace webview {
      * @stagemodelonly
      * @since 24 static
      */
-    class UserAgentBrandVersion {    
+    class UserAgentBrandVersion {
       /**
        * Sets the brand. Should not be blank.
        *
@@ -6907,7 +6909,7 @@ declare namespace webview {
      * @stagemodelonly
      * @since 24 static
      */
-    class UserAgentMetadata {    
+    class UserAgentMetadata {
       /**
        * Sets User-Agent metadata brands and their versions.
        *
@@ -7143,7 +7145,7 @@ declare namespace webview {
        */
       getWow64(): boolean;
     }
-    
+
     /**
      * Defines the Web's HTTPCookie.
      * <p><strong>API Note</strong>:<br>

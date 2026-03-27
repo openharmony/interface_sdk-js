@@ -95,8 +95,8 @@ declare namespace stream {
 
     /**
      * writes a chunk to Writable and invokes callback when the chunk is flushed. The return value indicates
-     * whether the internal buffer of the Writable reaches the hightWaterMark. If true is returned, the buffer
-     * does not reach the hightWaterMark. If false is returned, the buffer has been reached. The write function
+     * whether the internal buffer of the Writable reaches the highWaterMark. If true is returned, the buffer
+     * does not reach the highWaterMark. If false is returned, the buffer has been reached. The write function
      * should be called after the drain event is triggered. If the write function is called continuously,
      * the chunk is still added to the buffer until the memory overflows
      *
@@ -764,8 +764,8 @@ declare namespace stream {
 
     /**
      * writes a chunk to Writable and invokes callback when the chunk is flushed. The return value indicates
-     * whether the internal buffer of the Writable reaches the hightWaterMark. If true is returned, the buffer
-     * does not reach the hightWaterMark. If false is returned, the buffer has been reached. The write function
+     * whether the internal buffer of the Writable reaches the highWaterMark. If true is returned, the buffer
+     * does not reach the highWaterMark. If false is returned, the buffer has been reached. The write function
      * should be called after the drain event is triggered. If the write function is called continuously,
      * the chunk is still added to the buffer until the memory overflows
      *

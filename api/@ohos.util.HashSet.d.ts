@@ -134,7 +134,7 @@ declare class HashSet<T> {
   /**
    * Returns whether the Set object contains the elements
    *
-   * @param { T } value - value value need to determine whether to include the element
+   * @param { T } value - the value to determine whether to include the element
    * @returns { boolean } the boolean type
    * @throws { BusinessError } 10200011 - The has method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -147,7 +147,7 @@ declare class HashSet<T> {
   /**
    * Returns whether the Set object contains the elements
    *
-   * @param { T } value - value value need to determine whether to include the element
+   * @param { T } value - the value to determine whether to include the element
    * @returns { boolean } the boolean type
    * @throws { BusinessError } 10200011 - The has method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -161,7 +161,7 @@ declare class HashSet<T> {
   /**
    * Returns whether the Set object contains the elements
    *
-   * @param { T } value - value value need to determine whether to include the element
+   * @param { T } value - the value to determine whether to include the element
    * @returns { boolean } the boolean type
    * @throws { BusinessError } 10200011 - The has method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -178,7 +178,7 @@ declare class HashSet<T> {
   /**
    * If the set does not contain the element, the specified element is added
    *
-   * @param { T } value - value value Added element
+   * @param { T } value - the value to be Added element
    * @returns { boolean } the boolean type(Is there contain this element)
    * @throws { BusinessError } 10200011 - The add method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -191,7 +191,7 @@ declare class HashSet<T> {
   /**
    * If the set does not contain the element, the specified element is added
    *
-   * @param { T } value - value value Added element
+   * @param { T } value - the value to be Added element
    * @returns { boolean } the boolean type(Is there contain this element)
    * @throws { BusinessError } 10200011 - The add method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -205,7 +205,7 @@ declare class HashSet<T> {
   /**
    * If the set does not contain the element, the specified element is added
    *
-   * @param { T } value - value value Added element
+   * @param { T } value - the value to be Added element
    * @returns { boolean } the boolean type(Is there contain this element)
    * @throws { BusinessError } 10200011 - The add method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -222,7 +222,7 @@ declare class HashSet<T> {
   /**
    * Remove a specified element from a Set object
    *
-   * @param { T } value - value value Target to be deleted
+   * @param { T } value - the Target value to be deleted
    * @returns { boolean } the boolean type(Is there contain this element)
    * @throws { BusinessError } 10200011 - The remove method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -235,7 +235,7 @@ declare class HashSet<T> {
   /**
    * Remove a specified element from a Set object
    *
-   * @param { T } value - value value Target to be deleted
+   * @param { T } value - the Target value to be deleted
    * @returns { boolean } the boolean type(Is there contain this element)
    * @throws { BusinessError } 10200011 - The remove method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -249,7 +249,7 @@ declare class HashSet<T> {
   /**
    * Remove a specified element from a Set object
    *
-   * @param { T } value - value value Target to be deleted
+   * @param { T } value - the Target value to be deleted
    * @returns { boolean } the boolean type(Is there contain this element)
    * @throws { BusinessError } 10200011 - The remove method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -412,7 +412,7 @@ declare class HashSet<T> {
    */
   entries(): IterableIterator<[T, T]>;
   /**
-   * returns an iterator.Each item of the iterator is a Javascript Object
+   * Returns an iterator. Each item of the iterator is a Javascript Object
    *
    * @returns { IterableIterator<T> }
    * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
@@ -420,7 +420,7 @@ declare class HashSet<T> {
    * @since 8
    */
   /**
-   * returns an iterator.Each item of the iterator is a Javascript Object
+   * Returns an iterator. Each item of the iterator is a Javascript Object
    *
    * @returns { IterableIterator<T> }
    * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
@@ -429,7 +429,7 @@ declare class HashSet<T> {
    * @since 10
    */
   /**
-   * returns an iterator.Each item of the iterator is a Javascript Object
+   * Returns an iterator. Each item of the iterator is a Javascript Object
    *
    * @returns { IterableIterator<T> }
    * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
@@ -441,7 +441,7 @@ declare class HashSet<T> {
   [Symbol.iterator](): IterableIterator<T>;
 
   /**
-   * returns an iterator.Each item of the iterator is a Javascript Object
+   * Returns an iterator. Each item of the iterator is a Javascript Object
    *
    * @returns { IterableIterator<T> } an iterator for the HashSet
    * @syscap SystemCapability.Utils.Lang

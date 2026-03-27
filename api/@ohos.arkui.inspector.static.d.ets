@@ -19,6 +19,7 @@
  */
 import { RecordData } from './@ohos.base';
 import { VoidCallback } from '@ohos.arkui.component';
+import { Callback } from './@ohos.base';
 
 /**
  * Used to do observer layout and draw event for component.
@@ -91,6 +92,29 @@ declare namespace inspector {
          * @since 23 static
          */
         offDrawChildren(callback?: VoidCallback): void;
+
+        /**
+          * Registers a callback with the corresponding query condition by using the handle.
+          * This callback is triggered when the child of component draw complete.
+          *
+          * @param { Callback<int[]> } callback - callback of the listened event.
+          * @syscap SystemCapability.ArkUI.ArkUI.Full
+          * @stagemodelonly
+          * @since 24 static
+          */
+        onDrawChildren(callback: Callback<int[]>): void;
+ 
+         /**
+          * Deregisters a callback with the corresponding query conditiion by using the handle.
+          * This callback is not triggered when the child of component draw complete.
+          *
+          * @param { Callback<int[]> } [callback] - callback of the listened event.
+          *     <br>Default value undefined
+          * @syscap SystemCapability.ArkUI.ArkUI.Full
+          * @stagemodelonly
+          * @since 24 static
+          */
+        offDrawChildren(callback?: Callback<int[]>): void;
 
         /**
          * Registers a callback with the corresponding query condition by using the handle.

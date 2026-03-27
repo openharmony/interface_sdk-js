@@ -2913,6 +2913,12 @@ export declare class ResolvedUIContext extends UIContext {
  * @since 23 static
  */
 export declare class UIContext {
+  /**
+   * UIContext constructor
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 24 static
+   */
+  constructor();
 
   /**
    * Gets the UIContext associated with the current calling scope.
@@ -3790,6 +3796,16 @@ export declare class UIContext {
    * @since 24 static
    */
   getPageRootNode(): FrameNode | null;
+
+  /**
+   * Checks whether the current UI instance is in easy split mode.
+   *
+   * @returns { boolean } Returns true if the current UI instance is in easy split mode; returns false otherwise.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  isEasySplit(): boolean;
 }
 
 /**

@@ -17,8 +17,8 @@
  * @file
  * @kit ArkUI
  */
-export { 
-    RowLayoutAlgorithm, ColumnLayoutAlgorithm, StackLayoutAlgorithm, CustomLayoutAlgorithm 
+export {
+    RowLayoutAlgorithm, ColumnLayoutAlgorithm, StackLayoutAlgorithm, GridLayoutAlgorithm, CustomLayoutAlgorithm
   } from './arkui/LayoutAlgorithm';
   export type { LayoutAlgorithm } from './arkui/LayoutAlgorithm'
   

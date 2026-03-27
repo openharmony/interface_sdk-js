@@ -545,6 +545,21 @@ export class BuilderNode<Args extends Object[]> {
   postInputEvent(event: InputEventType): boolean;
 
   /**
+   * Dispatch event to targetNode with competition strategy.
+   *
+   * @param { InputEventType  } event - The event which will be sent to the targetNode.
+   * @param { CompetitionStrategy  } competitionStrategy - The competition strategy.
+   * @returns { boolean } - Returns true if the eventhas been successfully posted to the targetNode,
+   *    false otherwise.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 24 dynamic
+   */
+  postInputEventWithStrategy(event: InputEventType, competitionStrategy?: CompetitionStrategy): boolean;
+
+  /**
    * Set if the BuilderNode inherits the freezing policy of the parent CustomComponent, ComponentContent, or BuilderNode.
    *
    * @param { boolean } enabled - If the BuilderNode inherits the freezing policy of the parent CustomComponent, ComponentContent, or BuilderNode.

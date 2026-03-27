@@ -582,6 +582,36 @@ declare interface NativeXComponentParameters {
 }
 
 /**
+ * Sets the HDR type of the XComponent.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @atomicservice
+ * @since 24 dynamic
+ */
+declare enum HdrType {
+  /**
+   * Default type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 24 dynamic
+   */
+  DEFAULT = 0,
+  /**
+   * AIHDR type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 24 dynamic
+   */
+  AIHDR = 1,
+}
+
+/**
  * Defines XComponent.
  *
  * @interface XComponentInterface
@@ -799,6 +829,19 @@ declare class XComponentAttribute extends CommonMethod<XComponentAttribute> {
    * @since 20 dynamic
    */
   hdrBrightness(brightness: number): XComponentAttribute;
+
+  /**
+   * Set hdrBrightness for XComponent.
+   *
+   * @param { number } brightness - control the brightness of HDR video
+   * @param { HdrType } type - the HDR type of the XComponent
+   * @returns { XComponentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 24 dynamic
+   */
+  hdrBrightness(brightness: number, type?: HdrType): XComponentAttribute;
   
   /**
    * Enable transparent layer for XComponent.

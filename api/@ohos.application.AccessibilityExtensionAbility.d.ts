@@ -325,7 +325,7 @@ export declare interface AccessibilityEventInfo {
   target?: AccessibilityElement;
 
   /**
-   * TimeStamp
+   * TimeStamp, in units of ms.
    *
    * @type { ?long }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
@@ -375,7 +375,7 @@ export declare interface AccessibilityEvent {
   target?: AccessibilityElement;
 
   /**
-   * TimeStamp
+   * TimeStamp, in units of ms.
    *
    * @type { ?long }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core

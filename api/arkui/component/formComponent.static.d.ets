@@ -173,7 +173,7 @@ export declare enum FormShape {
  * @stagemodelonly
  * @since 23 static
  */
-enum FormColorMode {  
+export declare enum FormColorMode {  
   /**
    * Automatic mode.
    *

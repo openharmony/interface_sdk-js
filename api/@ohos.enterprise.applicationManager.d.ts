@@ -55,7 +55,61 @@ declare namespace applicationManager {
      * @stagemodelonly
      * @since 20
      */
-    ALLOW_CONTROL_CENTER = 2
+    ALLOW_CONTROL_CENTER = 2,
+
+    /**
+     * Allow gesture control.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 24
+     */
+    ALLOW_GESTURE_CONTROL = 3,
+
+    /**
+     * Allow side dock.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 24
+     */
+    ALLOW_SIDE_DOCK = 4
+  }
+
+  /**
+   * The application information in the Dock.
+   *
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 24
+   */
+  interface DockInfo {
+    /**
+     * The bundle name of the application.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 24
+     */
+    bundleName: string;
+
+    /**
+     * The ability name of the application.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 24
+     */
+    abilityName: string;
+
+    /**
+     * The index of the application in the Dock.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 24
+     */
+    index: number;
   }
 
   /**
@@ -1131,6 +1185,76 @@ declare namespace applicationManager {
    * @since 23
    */
   function isAbilityDisabled(admin: Want, bundleName: string, accountId: number, abilityName: string): boolean;
+
+  /**
+   * Adds an application to the Dock.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *     The admin must have the corresponding permission.
+   * @param { string } bundleName - bundleName indicates the bundle name of the application.
+   * @param { string } abilityName - abilityName indicates the ability name of the application.
+   * @param { number } [index] - index indicates the position of the application in the Dock.
+   *     <br>Value range:[0,100) Default value:99
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 9200015 - The ability does not exist.
+   * @throws { BusinessError } 9201013 - The number of applications in the Dock has reached the maximum.
+   * @throws { BusinessError } 9201014 - The application is already in the Dock.
+   * @throws { BusinessError } 9201015 - The application is not installed.
+   * @throws { BusinessError } 9201018 - The application is inoperable.
+   * @throws { BusinessError } 9201019 - The location is inoperable.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *     Failed to call the API due to limited device capabilities.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 24
+   */
+  function addDockApp(admin: Want, bundleName: string, abilityName: string, index?: number): void;
+
+  /**
+   * Removes an application from the Dock.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *     The admin must have the corresponding permission.
+   * @param { string } bundleName - bundleName indicates the bundle name of the application.
+   * @param { string } abilityName - abilityName indicates the ability name of the application.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9201016 - The application has not been added to the Dock.
+   * @throws { BusinessError } 9201018 - The application is inoperable.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *     Failed to call the API due to limited device capabilities.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 24
+   */
+  function removeDockApp(admin: Want, bundleName: string, abilityName: string): void;
+
+  /**
+   * Gets the applications in the Dock.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *     The admin must have the corresponding permission.
+   * @returns { Array<DockInfo> } returns the information of applications in the Dock.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *     Failed to call the API due to limited device capabilities.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 24
+   */
+  function getDockApps(admin: Want): Array<DockInfo>;
 }
 
 export default applicationManager;

@@ -251,7 +251,7 @@ declare class LightWeightSet<T> {
    */
   has(key: T): boolean;
   /**
-   * Checks whether an the objects of an LightWeighSet container are of the same type as a specified Object LightWeightSet
+   * Checks whether an the objects of an LightWeightSet container are of the same type as a specified Object LightWeightSet
    *
    * @param { Object } obj - obj obj need to determine whether to include the obj
    * @returns { boolean } the boolean type
@@ -260,7 +260,7 @@ declare class LightWeightSet<T> {
    * @since 8
    */
   /**
-   * Checks whether an the objects of an LightWeighSet container are of the same type as a specified Object LightWeightSet
+   * Checks whether an the objects of an LightWeightSet container are of the same type as a specified Object LightWeightSet
    *
    * @param { Object } obj - obj obj need to determine whether to include the obj
    * @returns { boolean } the boolean type
@@ -436,16 +436,16 @@ declare class LightWeightSet<T> {
    */
   removeAt(index: int): boolean;
   /**
-   * Removes all of the mapping from this map
-   * The map will be empty after this call returns
+   * Removes all of the mapping from this container
+   * The container will be empty after this call returns
    *
    * @throws { BusinessError } 10200011 - The clear method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @since 8
    */
   /**
-   * Removes all of the mapping from this map
-   * The map will be empty after this call returns
+   * Removes all of the mapping from this container
+   * The container will be empty after this call returns
    *
    * @throws { BusinessError } 10200011 - The clear method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
@@ -453,8 +453,8 @@ declare class LightWeightSet<T> {
    * @since 10
    */
   /**
-   * Removes all of the mapping from this map
-   * The map will be empty after this call returns
+   * Removes all of the mapping from this container
+   * The container will be empty after this call returns
    *
    * @throws { BusinessError } 10200011 - The clear method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
@@ -465,7 +465,7 @@ declare class LightWeightSet<T> {
    */
   clear(): void;
   /**
-   * Executes the given callback function once for each real key in the map.
+   * Executes the given callback function once for each real key in the container.
    * It does not perform functions on deleted keys.
    *
    * @param { function } callbackFn - callbackFn
@@ -482,7 +482,7 @@ declare class LightWeightSet<T> {
    * @since 8
    */
   /**
-   * Executes the given callback function once for each real key in the map.
+   * Executes the given callback function once for each real key in the container.
    * It does not perform functions on deleted keys.
    *
    * @param { function } callbackFn - callbackFn
@@ -500,7 +500,7 @@ declare class LightWeightSet<T> {
    * @since 10
    */
   /**
-   * Executes the given callback function once for each real key in the map.
+   * Executes the given callback function once for each real key in the container.
    * It does not perform functions on deleted keys.
    *
    * @param { function } callbackFn - callbackFn
@@ -521,7 +521,7 @@ declare class LightWeightSet<T> {
   forEach(callbackFn: (value?: T, key?: T, set?: LightWeightSet<T>) => void, thisArg?: Object): void;
 
   /**
-   * Executes the given callback function once for each real key in the map.
+   * Executes the given callback function once for each real key in the container.
    * It does not perform functions on deleted keys.
    *
    * @param { LightWeightSetForEachCb<T> } callbackFn - A callback function to execute for each element.

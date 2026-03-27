@@ -2221,6 +2221,14 @@ declare namespace text {
      * @since 24 dynamic&static
      */
     value: double;
+    /**
+     * Data normalized.
+     * @type { ?boolean }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    isNormalized?: boolean;
   }
 
   /**
@@ -2929,6 +2937,16 @@ declare namespace text {
      * @since 23 static
      */
     fontWidth?: FontWidth;
+    /**
+     * Font edging. The default value is ANTI_ALIAS.
+     *
+     * @type { ?drawing.FontEdging } The type of font edging.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    fontEdging?: drawing.FontEdging;
   }
 
   /**
@@ -3919,6 +3937,16 @@ declare namespace text {
      * @since 23 dynamic&static
      */
     fallbackLineSpacing?: boolean;
+
+    /**
+     * Whether to enable orphan char optimization.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    orphanCharOptimization?: boolean;
   }
 
   /**
@@ -4439,6 +4467,126 @@ declare namespace text {
   }
 
   /**
+   * Font variation axis.
+   * 
+   * @typedef FontVariationAxis
+   * @syscap SystemCapability.Graphics.Drawing
+   * @atomicservice
+   * @since 24 dynamic&static
+   */
+  interface FontVariationAxis {
+    /**
+     * Font variation axis keyword.
+     * 
+     * @type { string }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    key: string;
+
+    /**
+     * Font variation axis min value.
+     * 
+     * @type { double }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    minValue: double;
+
+    /**
+     * Font variation axis max value.
+     * 
+     * @type { double }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    maxValue: double;
+
+    /**
+     * Font variation axis default value.
+     * 
+     * @type { double }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    defaultValue: double;
+
+    /**
+     * Font variation axis flags.
+     * 
+     * @type { int }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    flags: int;
+
+    /**
+     * Font variation axis english name.
+     * 
+     * @type { string }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    name: string;
+
+    /**
+     * Font variation axis local name, maybe empty.
+     * 
+     * @type { string }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    localName: string;
+  }
+
+  /**
+   * Font variation instance.
+   * 
+   * @typedef FontVariationInstance
+   * @syscap SystemCapability.Graphics.Drawing
+   * @atomicservice
+   * @since 24 dynamic&static
+   */
+  interface FontVariationInstance {
+    /**
+     * Font variation instance english name.
+     * 
+     * @type { string }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    name: string;
+
+    /**
+     * Font variation instance local name, maybe empty.
+     * 
+     * @type { string }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    localName: string;
+
+    /**
+     * Returns the array of font variation.
+     * 
+     * @type { Array<FontVariation> }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    coordinates: Array<FontVariation>;
+  }
+
+  /**
    * Describes the font descriptor information.
    * @typedef FontDescriptor
    * @syscap SystemCapability.Graphics.Drawing
@@ -4790,6 +4938,26 @@ declare namespace text {
      * @since 23 dynamic&static
      */
     license?: string;
+
+    /**
+     * Returns the array of font variation axis.
+     * 
+     * @type { ?Array<FontVariationAxis> }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    variationAxisRecords?: Array<FontVariationAxis>;
+
+    /**
+     * Returns the array of font variation instance.
+     * 
+     * @type { ?Array<FontVariationInstance> }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    variationInstanceRecords?: Array<FontVariationInstance>;
 
     /**
      * The font index in ttc file

@@ -87,6 +87,14 @@ export declare interface BaseSpan extends CommonMethod {
  */
 export declare interface SpanAttribute {
     /**
+     * Called when the font is set.
+     *
+     * @param { Font | undefined } value - the span font size and weight and family and style.
+     * @returns { SpanAttribute } The attribute of the span.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    /**
      * Used to set the font of span.
      *
      * @param { Font | undefined } value - the span font size, font weight, font family and font style.
@@ -125,6 +133,15 @@ export declare interface SpanAttribute {
      */
     default fontStyle(value: FontStyle | undefined): this;
     /**
+     * Called when the font weight is set.
+     *
+     * @param { int | FontWeight | ResourceStr | undefined } value
+     * @returns { SpanAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    /**
      * Used to set the font weight of span.
      *
      * @param { int | FontWeight | ResourceStr | undefined } weight - the span font weight.
@@ -132,7 +149,7 @@ export declare interface SpanAttribute {
      * @returns { SpanAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 23 static
+     * @since 24 static
      */
     default fontWeight(weight: int | FontWeight | ResourceStr | undefined, fontWeightConfigs?: FontWeightConfigs): this;
     /**
@@ -274,6 +291,16 @@ export declare interface SpanAttribute {
      * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<SpanAttribute> | undefined): this;
+    /**
+     * Set the component's source code redirection information. 
+     * @param { string } sourceLine - the source code line.
+     * @param { string } [moduleName] - module to which the component belongs.
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 24 staticonly
+     */
+    default debugLine(sourceLine: string, moduleName?: string): this;
 }
 
 /**

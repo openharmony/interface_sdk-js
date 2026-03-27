@@ -152,6 +152,47 @@ declare namespace vpnExtension {
   function createVpnConnection(context: VpnExtensionContext): VpnConnection;
 
   /**
+   * Create a VPN observer.
+   *
+   * @returns { VpnObserver } The VpnObserver instance.
+   * @syscap SystemCapability.Communication.NetManager.Vpn
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function createVpnObserver(): VpnObserver;
+
+  /**
+   * Defines a VPN observer.
+   *
+   * @syscap SystemCapability.Communication.NetManager.Vpn
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export interface VpnObserver {
+    /**
+     * Registers a listener for user authorization results.
+     * The authorization results are notified after startVpnExtensionAbility is invoked.
+     * Only the results of the current VPN are received.
+     *
+     * @param { Callback<boolean> } callback - the callback used to return the result.
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    onAuthorizationResult(callback: Callback<boolean>): void;
+
+    /**
+     * Unregisters the listener for user authorization results.
+     *
+     * @param { Callback<boolean> } [callback] - the callback used to return the result.
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    offAuthorizationResult(callback?: Callback<boolean>): void;
+  }
+
+  /**
    * Defines a VPN connection.
    * 
    * @interface VpnConnection
@@ -235,7 +276,6 @@ declare namespace vpnExtension {
      * @returns { Promise<void>} The promise returned by the function.
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @since 22 dynamic
-     * @since 23 static
      */
     protectProcessNet(): Promise<void>;  
   }
