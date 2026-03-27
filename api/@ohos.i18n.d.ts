@@ -381,6 +381,21 @@ declare namespace i18n {
      * @since 9 dynamic
      * @since 23 static
      */
+    /**
+     * Sets the system language.
+     *
+     * @permission ohos.permission.UPDATE_CONFIGURATION
+     * @param { string } language - Valid language ID.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+     *                                 required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
+     * @syscap SystemCapability.Global.I18n
+     * @systemapi Hide this for inner system use.
+     * @since 26.0.0 dynamic&static
+     */
     static setSystemLanguage(language: string): void;
 
     /**
@@ -424,6 +439,21 @@ declare namespace i18n {
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
      * @since 23 static
+     */
+    /**
+     * Sets the system region.
+     *
+     * @permission ohos.permission.UPDATE_CONFIGURATION
+     * @param { string } region - Valid region ID.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+     *                                 required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
+     * @syscap SystemCapability.Global.I18n
+     * @systemapi Hide this for inner system use.
+     * @since 26.0.0 dynamic&static
      */
     static setSystemRegion(region: string): void;
 
@@ -539,6 +569,21 @@ declare namespace i18n {
      * @since 9 dynamic
      * @since 23 static
      */
+    /**
+     * Sets whether to use the 24-hour clock.
+     *
+     * @permission ohos.permission.UPDATE_CONFIGURATION
+     * @param { boolean } option - Whether to use the 24-hour clock. The value "true" means to use the 24-hour clock,
+     *                             the the value "false" means the opposite.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+     *                                 required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @syscap SystemCapability.Global.I18n
+     * @systemapi Hide this for inner system use.
+     * @since 26.0.0 dynamic&static
+     */
     static set24HourClock(option: boolean): void;
 
     /**
@@ -559,6 +604,24 @@ declare namespace i18n {
      * @since 9 dynamic
      * @since 23 static
      */
+    /**
+     * Adds a preferred language to the specified position on the preferred language list.
+     *
+     * @permission ohos.permission.UPDATE_CONFIGURATION
+     * @param { string } language - Valid ID of the language to be added as a preferred language.
+     * @param { int } [index] - Position to which the preferred language is added. The default value is the length
+     *                             of the preferred language list.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+     *                                 required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
+     * @static
+     * @syscap SystemCapability.Global.I18n
+     * @systemapi Hide this for inner system use.
+     * @since 26.0.0 dynamic&static
+     */
     static addPreferredLanguage(language: string, index?: int): void;
 
     /**
@@ -576,6 +639,21 @@ declare namespace i18n {
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
      * @since 23 static
+     */
+    /**
+     * Removes a preferred language from the specified position on the preferred language list.
+     *
+     * @permission ohos.permission.UPDATE_CONFIGURATION
+     * @param { int } index - Position of the preferred language to delete.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+     *                                 required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @static
+     * @syscap SystemCapability.Global.I18n
+     * @systemapi Hide this for inner system use.
+     * @since 26.0.0 dynamic&static
      */
     static removePreferredLanguage(index: int): void;
 
@@ -714,6 +792,21 @@ declare namespace i18n {
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
      * @since 23 static
+     */
+    /**
+     * Specifies whether to enable use of local digits.
+     *
+     * @permission ohos.permission.UPDATE_CONFIGURATION
+     * @param { boolean } flag - Whether to turn on the local digit switch. The value "true" means to turn on the local
+     *                           digit switch, and the value "false" indicates the opposite.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+     *                                 required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @syscap SystemCapability.Global.I18n
+     * @systemapi Hide this for inner system use.
+     * @since 26.0.0 dynamic&static
      */
     static setUsingLocalDigit(flag: boolean): void;
 
