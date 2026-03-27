@@ -5568,6 +5568,18 @@ declare namespace window {
      * @since 23 dynamic&static
      */
     needAnimation?: boolean;
+
+    /**
+     * Whether to override system window limits.
+     * If true, the main window of the current ability can set a window limit that exceeds system restrictions.
+     *
+     * @default false
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    isWindowLimitsForcible?: boolean;
   }
 
   /**
