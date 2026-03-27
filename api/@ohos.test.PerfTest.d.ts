@@ -147,7 +147,7 @@ declare enum PerfMetric {
    * List sliding frame rate, the unit is fps.
    * Mark:
    * 1) List sliding frame rate: refers to the frequency at which the screen can be refreshed when the list is sliding.
-   * Only the sliding frame rate of the List, grid, scroll, and waterflow scroll components of ArKUI subsystems can be collected.
+   * Only the sliding frame rate of the List, grid, scroll, and waterflow scroll components of ArkUI subsystems can be collected.
    * 2) During the test, only the data of the first sliding of the component in specified application can be collected.
    *
    * @syscap SystemCapability.Test.PerfTest
@@ -188,7 +188,7 @@ declare interface PerfTestStrategy {
    * developers need to invoke this callback function when the execution of actionCode is complete,
    * to help PerfTest identify the time when the execution of the actionCode is complete. 
    * For example, the input parameter callback function of actionCode is defined as "(finish: Callback<boolean>)".
-   * When actionCode is executed completly, "finish(true)" should be invoked, the value true indicates actionCode is successfully executed.
+   * When actionCode is executed completely, "finish(true)" should be invoked, the value true indicates actionCode is successfully executed.
    * When an exception occurs, "finish(false)" should be invoked, the value false indicates actionCode is unsuccessfully executed.
    *
    * @type { Callback<Callback<boolean>> }
@@ -206,7 +206,7 @@ declare interface PerfTestStrategy {
    * developers need to invoke this callback function when the execution of resetCode is complete,
    * to help PerfTest identify the time when the execution of the resetCode is complete. 
    * For example, the input parameter callback function of resetCode is defined as "(finish: Callback<boolean>)".
-   * When resetCode is executed completly, "finish(true)" should be invoked, the value true indicates resetCode is successfully executed.
+   * When resetCode is executed compeletly, "finish(true)" should be invoked, the value true indicates resetCode is successfully executed.
    * When an exception occurs, "finish(false)" should be invoked, the value false indicates resetCode is unsuccessfully executed.
    *
    * @type { ?Callback<Callback<boolean>> }

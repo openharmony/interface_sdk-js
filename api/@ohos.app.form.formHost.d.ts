@@ -1597,5 +1597,22 @@ declare namespace formHost {
    * @since 23 dynamic&static
    */
   function offTemplateFormDetailInfoChange(callback?: formInfo.TemplateFormDetailInfoCallback): void;
+
+  /**
+    * Get the IDs of the forms at the current location.
+    *
+    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+    * @param { formInfo.FormLocation } location - Identifies the location of the form.
+    * @returns { Promise<Array<string>> } Returns the IDs of the forms at the location.
+    * @throws { BusinessError } 201 - Permissions denied.
+    * @throws { BusinessError } 202 - The application is not a system application.
+    * @throws { BusinessError } 16500050 - IPC connection error.
+    * @throws { BusinessError } 16501016 - The location of the widget is invalid.
+    * @syscap SystemCapability.Ability.Form
+    * @systemapi
+    * @stagemodelonly
+    * @since 24 dynamic&static
+    */
+   function getFormIdsByFormLocation(location: formInfo.FormLocation): Promise<Array<string>>;
 }
 export default formHost;

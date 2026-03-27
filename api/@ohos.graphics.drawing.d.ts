@@ -3755,7 +3755,7 @@ declare namespace drawing {
      *     The value is a floating-point array and the size must be ((meshWidth+1) * (meshHeight+1) + vertOffset) * 2.
      * @param { int } vertOffset - Number of vert elements to skip before drawing.
      *     The value is an integer greater than or equal to 0.
-     * @param { Array<int> } colors - Array of colors, which specify the color at each vertex.
+     * @param { Array<int> | null } colors - Array of colors, which specify the color at each vertex.
      *     The value is an integer array and can be null. The size must be (meshWidth+1) * (meshHeight+1) + colorOffset.
      * @param { int } colorOffset - Number of color elements to skip before drawing.
      *     The value is an integer greater than or equal to 0.
@@ -3767,7 +3767,7 @@ declare namespace drawing {
      * @since 23 static
      */
     drawPixelMapMesh(pixelmap: image.PixelMap, meshWidth: int, meshHeight: int,
-      vertices: Array<double>, vertOffset: int, colors: Array<int>, colorOffset: int): void;
+      vertices: Array<double>, vertOffset: int, colors: Array<int> | null, colorOffset: int): void;
 
     /**
      * Used to draw a triangle mesh defined by an array of vertices.
@@ -4379,6 +4379,15 @@ declare namespace drawing {
      * @since 23 static
      */
     resetMatrix(): void;
+
+    /**
+     * Resets the clip status.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    resetClip(): void;
 
     /**
      * Checks whether the path is not intersecting with the canvas area. The canvas area includes its boundaries.
@@ -10473,24 +10482,12 @@ declare namespace drawing {
     /**
      * Checks whether this matrix is equal to another matrix.
      * @param { Matrix } matrix - Matrix to compare.
-     * @returns { Boolean } Returns true if the two matrices are equal; returns false otherwise.
+     * @returns { boolean } Returns true if the two matrices are equal; returns false otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    /**
-     * Checks whether this matrix is equal to another matrix.
-     * @param { Matrix } matrix - Matrix to compare.
-     * @returns { Boolean } Returns true if the two matrices are equal; returns false otherwise.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types.
-     * @syscap SystemCapability.Graphics.Drawing
-     * @crossplatform
-     * @since 20 dynamic
-     */
-    isEqual(matrix: Matrix): Boolean;
-
     /**
      * Checks whether this matrix is equal to another matrix.
      * @param { Matrix } matrix - Matrix to compare.
@@ -10498,34 +10495,11 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic
      * @since 23 static
      */
     isEqual(matrix: Matrix): boolean;
-
-    /**
-     * Inverts this matrix and returns the result.
-     * @param { Matrix } matrix - Matrix object used to store the inverted matrix.
-     * @returns { Boolean } Check result. The value true means that the matrix is revertible
-     *     and the matrix object is set to its inverse,
-     *     and false means that the matrix is not revertible and the matrix object remains unchanged.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types.
-     * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
-     */
-    /**
-     * Inverts this matrix and returns the result.
-     * @param { Matrix } matrix - Matrix object used to store the inverted matrix.
-     * @returns { Boolean } Check result. The value true means that the matrix is revertible
-     *     and the matrix object is set to its inverse,
-     *     and false means that the matrix is not revertible and the matrix object remains unchanged.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types.
-     * @syscap SystemCapability.Graphics.Drawing
-     * @crossplatform
-     * @since 20 dynamic
-     */
-    invert(matrix: Matrix): Boolean;
 
     /**
      * Inverts this matrix and returns the result.
@@ -10536,25 +10510,38 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    /**
+     * Inverts this matrix and returns the result.
+     * @param { Matrix } matrix - Matrix object used to store the inverted matrix.
+     * @returns { boolean } Check result. The value true means that the matrix is revertible
+     *     and the matrix object is set to its inverse,
+     *     and false means that the matrix is not revertible and the matrix object remains unchanged.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic
      * @since 23 static
      */
     invert(matrix: Matrix): boolean;
 
     /**
      * Checks whether this matrix is an identity matrix.
-     * @returns { Boolean } Returns true if matrix is identity; returns false otherwise.
+     * @returns { boolean } Returns true if matrix is identity; returns false otherwise.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     /**
      * Checks whether this matrix is an identity matrix.
-     * @returns { Boolean } Returns true if matrix is identity; returns false otherwise.
+     * @returns { boolean } Returns true if matrix is identity; returns false otherwise.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20 dynamic
      * @since 23 static
      */
-    isIdentity(): Boolean;
+    isIdentity(): boolean;
 
     /**
      * Obtains the value of a given index in this matrix. The index ranges from 0 to 8.
@@ -10709,6 +10696,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20 dynamic
+     * @since 24 static
      */
     postSkew(kx: double, ky: double, px: double, py: double): void;
 

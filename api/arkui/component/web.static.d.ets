@@ -160,6 +160,53 @@ export declare enum NativeEmbedParamStatus {
      */
     DELETE = 2
 }
+
+/**
+* Enum type supplied to {@link keyboardAppearance} for setting the web keyboard appearance mode.
+*
+* @enum { number }
+* @syscap SystemCapability.Web.Webview.Core
+* @stagemodelonly
+* @since 26.0.0 static
+*/
+export declare enum WebKeyboardAppearanceMode {
+/**
+* Default skin mode, no immersive style.
+*
+* @syscap SystemCapability.Web.Webview.Core
+* @stagemodelonly
+* @since 26.0.0 static
+*/
+NONE_IMMERSIVE = 0,
+
+/**
+* No immersive style.
+*
+* @syscap SystemCapability.Web.Webview.Core
+* @stagemodelonly
+* @since 26.0.0 static
+*/
+IMMERSIVE = 1,
+
+/**
+*Light immersive style.
+*
+* @syscap SystemCapability.Web.Webview.Core
+* @stagemodelonly
+* @since 26.0.0 static
+*/
+LIGHT_IMMERSIVE = 2,
+
+/**
+*Dark immersive style.
+*
+* @syscap SystemCapability.Web.Webview.Core
+* @stagemodelonly
+* @since 26.0.0 static
+*/
+DARK_IMMERSIVE = 3
+}
+
 /**
  * Defines the information of param element.
  *
@@ -2006,6 +2053,7 @@ export declare class WebContextMenuParam {
     constructor();
     /**
      * Horizontal offset coordinates of the menu within the Web component.
+     * The unit is vp.
      *
      * @returns { int } The context menu x coordinate.
      *                  Returns a non-negative integer if normal, otherwise returns -1.
@@ -2016,6 +2064,7 @@ export declare class WebContextMenuParam {
     x(): int;
     /**
      * Vertical offset coordinates for the menu within the Web component.
+     * The unit is vp.
      *
      * @returns { int } The context menu y coordinate.
      *                  Returns a non-negative integer if normal, otherwise returns -1.
@@ -2105,7 +2154,7 @@ export declare class WebContextMenuParam {
      */
     getEditStateFlags(): int;
     /**
-     * Returns the selection menu preview width.
+     * Returns the selection menu preview width. The unit is vp.
      *
      * @returns { int } The preview menu width.
      * @syscap SystemCapability.Web.Webview.Core
@@ -2113,7 +2162,7 @@ export declare class WebContextMenuParam {
      */
     getPreviewWidth(): int;
     /**
-     * Returns the selection menu preview height.
+     * Returns the selection menu preview height. The unit is vp.
      *
      * @returns { int } The preview menu height.
      * @syscap SystemCapability.Web.Webview.Core
@@ -2223,6 +2272,14 @@ export declare class WebContextMenuResult {
      * @since 23 static
      */
     requestPasswordAutoFill(): void;
+    /**
+     * Performing the "Save As Image" operation associated with this context menu will trigger the download process.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 24 static
+     */
+    saveImage(): void;
 }
 /**
  * Encompassed message information as parameters to {@link onConsole} method.
@@ -3849,7 +3906,7 @@ export declare interface OnSearchResultReceiveEvent {
  */
 export declare interface OnScrollEvent {
     /**
-     * The X offset of the scroll. Unit: vp.
+     * The X offset of the scroll. The unit is vp.
      *
      * @type { double }
      * @syscap SystemCapability.Web.Webview.Core
@@ -3857,7 +3914,7 @@ export declare interface OnScrollEvent {
      */
     xOffset: double;
     /**
-     * The Y offset of the scroll. Unit: vp.
+     * The Y offset of the scroll. The unit is vp.
      *
      * @type { double }
      * @syscap SystemCapability.Web.Webview.Core
@@ -4268,7 +4325,7 @@ export declare interface OnLoadInterceptEvent {
 export declare interface OnOverScrollEvent {
     /**
      * Based on the leftmost part of the page, the horizontal scroll offset is over.
-     * Unit: vp.
+     * The unit is vp.
      *
      * @type { double }
      * @syscap SystemCapability.Web.Webview.Core
@@ -4277,7 +4334,7 @@ export declare interface OnOverScrollEvent {
     xOffset: double;
     /**
      * Based on the top of the page, the vertical scroll offset is over.
-     * Unit: vp.
+     * The unit is vp.
      *
      * @type { double }
      * @syscap SystemCapability.Web.Webview.Core
@@ -4822,6 +4879,15 @@ export declare interface FirstScreenPaint {
  * @since 23 static
  */
 export type OnFirstScreenPaintCallback = (firstScreenPaint: FirstScreenPaint) => void;
+/**
+ * The callback will be triggered when inputmethod is attached.
+ *
+ * @typedef { function } OnInputmethodAttachedCallback
+ * @syscap SystemCapability.Web.Webview.Core
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export type OnInputmethodAttachedCallback = () => void;
 /**
  * Defines the Web attribute functions.
  *
@@ -6547,6 +6613,44 @@ export declare interface WebAttribute extends CommonMethod {
      */
     default enableDefaultContextMenu(enable: boolean | undefined): this;
     /**
+     * Enables or disables dragging for this component.
+     *
+     * @param { boolean | undefined } value - {@code true} to enable dragging, {@code false} to disable it.
+     *     The default value is true.
+     * @returns { WebAttribute }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default enableDrag(value: boolean | undefined): this;
+    /**
+     * Sets the scrollbar layout policy.
+     *
+     * @param { ScrollbarLayoutPolicy | undefined } policy - The layout policy to apply.
+     * @returns { WebAttribute }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default scrollbarLayoutPolicy(policy: ScrollbarLayoutPolicy | undefined): this;
+    /**
+     * Enables or disables directional lock for scroll gestures in the WebView component.
+     *
+     * When directional lock is enabled, the scroll axis is locked based on the initial
+     * swipe vector direction. This behavior helps prevent unintended scroll direction changes
+     * during touch interactions, especially in nested scroll scenarios.
+     *
+     * @param { boolean | undefined } value - Whether to enable directional lock.
+     *     - `true`: Enables directional lock (default in nested scroll scenarios).
+     *     - `false`: Disables directional lock.
+     * @param { ScrollDirectionalLockType | undefined } type - Specifies the scenario in which directional lock is applied.
+     * @returns { WebAttribute }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default enableScrollDirectionalLock(value: boolean | undefined, type: ScrollDirectionalLockType | undefined): this;
+    /**
      * Set the attribute modifier
      *
      * @param { AttributeModifier<WebAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
@@ -6555,7 +6659,31 @@ export declare interface WebAttribute extends CommonMethod {
      * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<WebAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+
+    /**
+    * Set the WebKeyboardAppearanceMode to determine the immersive mode for the soft keyboard.
+    *
+    * @param { WebKeyboardAppearanceMode | undefined } mode - The WebKeyboardAppearanceMode of this web.
+    * @returns { WebAttribute }
+    * @syscap SystemCapability.Web.Webview.Core
+    * @stagemodelonly
+    * @since 26.0.0 static
+    */
+    default keyboardAppearance(mode: WebKeyboardAppearanceMode | undefined): this;
+
+    /**
+     * The callback is triggered when the inputmethod is attached to the IMF.
+     *
+     * @param { OnInputmethodAttachedCallback | undefined } callback - The triggered callback
+     *    when the inputmethod is attached to the IMF.
+     * @returns { WebAttribute }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default onInputmethodAttached(callback: OnInputmethodAttachedCallback | undefined): this;
 }
+
 /**
  * Defines the ssl error event.
  *
@@ -6944,4 +7072,60 @@ export declare enum MicrophoneCaptureState {
    * @since 23 static
    */
   ACTIVE = 2,
+}
+/**
+ * Defines the layout policy for scrollbars, used with {@link scrollbarLayoutPolicy}.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.Web.Webview.Core
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare enum ScrollbarLayoutPolicy {
+    /**
+     * Adheres to W3C standards (CSS/HTML/XHTML) for scrollbar layout.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    CONTENT = 0,
+
+    /**
+     * Follows the system UI conventions for scrollbar layout in the system language.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    SYSTEM = 1
+}
+/**
+ * Enum defining the scope of directional lock behavior in the WebView, used with {@link enableScrollDirectionalLock}.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.Web.Webview.Core
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare enum ScrollDirectionalLockType {
+    /**
+     * Applies directional lock across all scroll contexts.
+     * This includes both nested and flat scroll scenarios.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    ALL = 0,
+
+    /**
+     * Applies directional lock only within nested scroll scenarios.
+     * This is the default behavior in ArkWeb to improve UX in complex scroll hierarchies.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    NESTED_SCROLL = 1
 }

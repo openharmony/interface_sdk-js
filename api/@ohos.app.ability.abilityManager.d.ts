@@ -763,6 +763,17 @@ declare namespace abilityManager {
   function offPreloadedUIExtensionAbilityDestroyed(callback?: PreloadedUIExtensionAbilityDestroyedFn): void;
 
   /**
+   * Indicates whether the current device supports EmbeddedUIExtensionAbility.
+   *
+   * @returns { boolean } Returns {@code true} if EmbeddedUIExtensionAbility is supported,
+   *     returns {@code false} otherwise.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function isEmbeddedUIExtensionSupported(): boolean;
+
+  /**
    * The class of an ability running information.
    *
    * @typedef { _AbilityRunningInfo }

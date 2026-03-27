@@ -446,6 +446,66 @@ export declare interface IMonitorValue<T> {
 }
 
 /**
+ * Define ComponentInit Method Decorator.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 24 static
+ */
+@Retention({policy: "SOURCE"})
+export declare @interface ComponentInit {}
+
+/**
+ * Define ComponentAppear Method Decorator.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 24 static
+ */
+@Retention({policy: "SOURCE"})
+export declare @interface ComponentAppear {}
+
+/**
+ * Define ComponentBuilt Method Decorator.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 24 static
+ */
+@Retention({policy: "SOURCE"})
+export declare @interface ComponentBuilt {}
+
+/**
+ * Define ComponentReuse Method Decorator.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 24 static
+ */
+@Retention({policy: "SOURCE"})
+export declare @interface ComponentReuse {}
+
+/**
+ * Define ComponentRecycle Method Decorator.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 24 static
+ */
+@Retention({policy: "SOURCE"})
+export declare @interface ComponentRecycle {}
+
+/**
+ * Define ComponentDisappear Method Decorator.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 24 static
+ */
+@Retention({policy: "SOURCE"})
+export declare @interface ComponentDisappear {}
+
+/**
  * Define decorated variable interface.
  *
  * @interface IDecoratedVariable
@@ -1149,6 +1209,19 @@ export declare interface IStateMgmtFactory {
    */
   makeMonitor(pathInfos: Array<IMonitorPathInfo>, monitorCallback: MonitorCallback, owner?: IVariableOwner): IMonitorDecoratedVariable;
 
+  /**
+   * Create a monitored variable instance.
+   *
+   * @param { Array<IMonitorPathInfo> } pathInfos - monitor path to its accessor
+   * @param { MonitorCallback } monitorCallback - callback when  the monitor triggers
+   * @param { MakeMonitorOptions } [options] - options of this monitor
+   * @returns { IMonitorDecoratedVariable } Monitor variable instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  makeMonitor(pathInfos: Array<IMonitorPathInfo>, monitorCallback: MonitorCallback, options?: MakeMonitorOptions): IMonitorDecoratedVariable;
+
     /**
    * Create a Env variable instance.
    *
@@ -1407,4 +1480,34 @@ export declare interface EnvOptions<T> {
    * @since 24 static
    */
   initValue?: T;
+}
+
+/**
+ * Defines makeMonitor options to create Montior variables.
+ *
+ * @interface MakeMonitorOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 24 static
+ */
+export declare interface MakeMonitorOptions {
+  /**
+   * Owner of this monitor
+   *
+   * @type { ?IVariableOwner }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  owner?: IVariableOwner;
+
+  /**
+   * Name of this monitor
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  functionName?: string;
 }

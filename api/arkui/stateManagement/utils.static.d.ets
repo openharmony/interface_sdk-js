@@ -19,7 +19,7 @@
  */
 
 import { MonitorValueCallback, MonitorCallback, IMonitorDecoratedVariable, IVariableOwner } from './decorator';
-
+import { CustomComponentLifecycle } from '../component/customComponent';
 /**
  * UIUtils is a state management tool class for operating the observed data.
  *
@@ -124,6 +124,18 @@ export declare class UIUtils {
    * @since 24 static
    */
   static canBeObserved<T extends object>(source: T): ObservedResult;
+
+  /**
+   * Get lifecycle instance from custom component.
+   *
+   * @param { T } customComponent - custom component instance
+   * @returns { CustomComponentLifecycle } the lifecycle that the custom component belong to .
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  static getLifecycle<T extends IVariableOwner>(customComponent: T): CustomComponentLifecycle;
 }
 
 /**

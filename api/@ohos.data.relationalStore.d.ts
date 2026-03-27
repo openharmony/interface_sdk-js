@@ -696,7 +696,7 @@ declare namespace relationalStore {
     kdfAlgo?: KdfAlgo;
 
     /**
-     * Specifies the page size used when opening an encrypted database.
+     * Specifies the page size used when opening an encrypted database, in bytes.
      * Default crypto page size is 1024.
      *
      * @type { ?number }
@@ -704,7 +704,7 @@ declare namespace relationalStore {
      * @since 14
      */
     /**
-     * Specifies the page size used when opening an encrypted database.
+     * Specifies the page size used when opening an encrypted database, in bytes.
      * Default crypto page size is 1024.
      *
      * @type { ?int }
@@ -1812,6 +1812,112 @@ declare namespace relationalStore {
      * @since 23 dynamic&static
      */
     tableType?: DistributedTableType;
+  }
+
+  /**
+   * Manages the distributed info of the table.
+   *
+   * @interface DistributedInfo
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  interface DistributedInfo {  
+    /**
+     * Specifies the data origin sources.
+     *
+     * @type { ?DistributedOrigin }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    flag?: DistributedOrigin;
+        
+    /**
+     * Specifies the data origin sources device ID.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    oriDevice?: string;
+  }
+
+  /**
+   * Enumerates the DistributedField.
+   *
+   * @enum { string }
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  enum DistributedField {  
+    /**
+     * Origin field. For details, see {@link DistributedOrigin}.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    ORIGIN = '#_origin',
+    /**
+     * Origin device field.
+     * Indicates the data origin sources device ID.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    ORIGIN_ORIDEVICE = '#_ori_device'
+  }
+  
+  
+  /**
+   * Describes the data origin sources.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  enum DistributedOrigin {  
+    /**
+     * Indicates the data source is local.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    ORI_LOCAL = 0,
+
+    /**
+     * Indicates the data source is cloud.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    ORI_CLOUD = 1,
+
+    /**
+     * Indicates the data source is remote.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    ORI_REMOTE = 2
   }
 
   /**
@@ -8622,6 +8728,57 @@ declare namespace relationalStore {
     setDistributedTables(tables: Array<string>, type?: DistributedType, config?: DistributedConfig): Promise<void>;
 
     /**
+     * Remove distributed table remote data.
+     *
+     * @param { Record<string, Array<string>> } [retainDevices] -
+     *     key is the name of the table where the data is to be deleted,
+     *     <br>value is the device ID list of cross device end needs to be retained.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 202 - Permission verification failed,
+     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of valid range.
+     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+     * @throws { BusinessError } 14800042 - The database does not exist. Possible causes: 1. The database is deleted;
+     *     <br>2. The database is not created.
+     * @throws { BusinessError } 14800043 - The database does not support this scenario.
+     *     Possible causes: 1. The database type is not supported;2. The table type is not supported;
+     *     <br>3. This is a read-only database.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    retainDeviceData(retainDevices?: Record<string, Array<string>>): Promise<void>;
+
+    /**
+     * Update distributed table log.
+     *
+     * @param { DistributedInfo } info - Indicates the table log needs to be updated.
+     * @param { RdbPredicates } predicates -
+     *     The specified query condition by the instance object of {@link RdbPredicates}.
+     * @returns { Promise<long> } Returns the number of updated logs.
+     * @throws { BusinessError } 202 - Permission verification failed,
+     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of valid range.
+     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @throws { BusinessError } 14800015 - The database does not respond.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+     * @throws { BusinessError } 14800043 - The database does not support this scenario.
+     *     Possible causes: 1. The database type is not supported;2. The table type is not supported;
+     *     <br>3. This is a read-only database.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    updateDistributedInfo(info: DistributedInfo, predicates: RdbPredicates): Promise<long>;
+
+    /**
      * Obtain distributed table name of specified remote device according to local table name.
      * When query remote device database, distributed table name is needed.
      *
@@ -9238,8 +9395,8 @@ declare namespace relationalStore {
      * @param { Callback<ProgressDetails> } progress -
      *     Callback used to return the {@link ProgressDetails} result.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     *     <br>4. The event must be a not empty string. 5. The progress must be function.
+     *     <br>2. Incorrect parameter types; 3. Parameter verification failed;
+     *     <br>4. The event must be a not empty string; 5. The progress must be function.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800014 - The target instance is already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -9661,7 +9818,7 @@ declare namespace relationalStore {
      *
      * @param { string } fullPath - Indicates the path of the database file to attach.
      * @param { string } attachName - Indicates the alias of the database.
-     * @param { int } [waitTime] - Indicates the maximum time allowed for attaching the database file.
+     * @param { int } [waitTime] - Indicates the maximum time allowed for attaching the database file, in seconds.
      * @returns { Promise<int> } Promise used to return the number of attached databases.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -9700,7 +9857,7 @@ declare namespace relationalStore {
      * @param { StoreConfig } config -
      *     Indicates the {@link StoreConfig} configuration of the database related to this RDB store.
      * @param { string } attachName - Indicates the alias of the database.
-     * @param { int } [waitTime] - Indicates the maximum time allowed for attaching the database file.
+     * @param { int } [waitTime] - Indicates the maximum time allowed for attaching the database file, in seconds.
      * @returns { Promise<int> } Promise used to return the number of attached databases.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -9738,7 +9895,7 @@ declare namespace relationalStore {
      * Detaches a database from this database.
      *
      * @param { string } attachName - Indicates the alias of the database.
-     * @param { int } [waitTime] - Indicates the maximum time allowed for detaching the database.
+     * @param { int } [waitTime] - Indicates the maximum time allowed for detaching the database, in seconds.
      * @returns { Promise<int> } Return the current number of attached databases.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -9872,7 +10029,7 @@ declare namespace relationalStore {
     /**
      * Lock cloud container before non-auto cloud sync.
      *
-     * @returns { Promise<int> } The expired time of the lock.
+     * @returns { Promise<int> } The expired time of the lock, in ms.
      * @throws { BusinessError } 202 - Permission verification failed,
      *     application which is not a system application uses system API.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core

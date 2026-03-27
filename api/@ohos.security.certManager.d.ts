@@ -122,6 +122,16 @@ declare namespace certificateManager {
     CM_ERROR_DEVICE_ENTER_ADVSECMODE = 17500007,
 
     /**
+     * Indicates that the password is incorrect.
+     *
+     * @syscap SystemCapability.Security.CertificateManager
+     * @systemapi
+     * @FaAndStageModel
+     * @since 26.0.0 dynamiconly
+     */
+    CM_ERROR_PASSWORD_IS_ERR = 17500008,
+
+    /**
      * Indicates that the device does not support the specified certificate store path.
      *
      * @syscap SystemCapability.Security.CertificateManager
@@ -518,6 +528,16 @@ declare namespace certificateManager {
      * @since 23 static
      */
     credentialDetailList?: Array<Credential>;
+
+    /**
+     * Indicates the certificate URI list of CMResult.
+     *
+     * @type { ?Array<string> }
+     * @syscap SystemCapability.Security.CertificateManager
+     * @FaAndStageModel
+     * @since 26.0.0 dynamic&static
+     */
+    uriList?: Array<string>;
   }
 
   /**
@@ -1564,6 +1584,447 @@ declare namespace certificateManager {
      */
      certPurpose?: CertificatePurpose;
   }
+
+  /**
+   * Get the detail of system trusted CA certificate.
+   *  This function is only provided for certificate management application.
+   *
+   * @permission ohos.permission.ACCESS_CERT_MANAGER and ohos.permission.ACCESS_CERT_MANAGER_INTERNAL
+   * @param { string } certUri - Indicates the certificate's URI.
+   *     <br>Unique ID of a certificate, which can be obtained through the getSystemTrustedCertificateList interface.
+   * @returns { Promise<CMResult> } Indicates the detail of system trusted certificate.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *      <br>The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter verification failed.
+   *      <br>Possible causes: the URI is null or the URI format is wrong.
+   * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
+   *     <br>2. Memory operation error; 3. File operation error. Please try again.
+   * @throws { BusinessError } 17500002 - The certificate does not exist.
+   * @syscap SystemCapability.Security.CertificateManager
+   * @systemapi
+   * @FaAndStageModel
+   * @since 26.0.0 dynamiconly
+   */
+  function getSystemTrustedCertificate(certUri: string): Promise<CMResult>;
+
+  /**
+   * Get a list of system trusted CA certificates.
+   *  This function is only provided for certificate management application.
+   *
+   * @permission ohos.permission.ACCESS_CERT_MANAGER and ohos.permission.ACCESS_CERT_MANAGER_INTERNAL
+   * @returns { Promise<CMResult> } Indicates the list of system trusted certificates.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     <br>The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
+   *     <br>2. Memory operation error; 3. File operation error. Please try again.
+   * @syscap SystemCapability.Security.CertificateManager
+   * @systemapi
+   * @FaAndStageModel
+   * @since 26.0.0 dynamiconly
+   */
+  function getSystemTrustedCertificateList(): Promise<CMResult>;
+
+  /**
+   * Set the certificate status. This function is only provided for certificate management application.
+   *
+   * @permission ohos.permission.ACCESS_CERT_MANAGER and ohos.permission.ACCESS_USER_TRUSTED_CERT
+   * @param { string } certUri - Indicates the certificate's URI.
+   *     <br>Unique ID of the certificate. Currently, this interface only supports the user CA certificate.
+   * @param { CertType } certType - Indicates the certificate type.
+   *     <br>Currently, this interface supports only setting the status of the user CA certificate (CA_CERT_USER).
+   * @param { boolean } enabled - Indicate whether the certificate status is enabled or disabled.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     <br>The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter verification failed.
+   *     <br>Possible causes: the URI is null or the URI format is wrong,
+   *     <br> the certType's value is invalid or not supported.
+   * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
+   *     <br>2. Memory operation error; 3. File operation error. Please try again.
+   * @throws { BusinessError } 17500002 - The certificate does not exist.
+   * @syscap SystemCapability.Security.CertificateManager
+   * @systemapi
+   * @FaAndStageModel
+   * @since 26.0.0 dynamiconly
+   */
+  function setCertificateStatus(certUri: string, certType: CertType, enabled: boolean) : Promise<void>;
+
+  /**
+   * Enum for certificate file format.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Security.CertificateManager
+   * @FaAndStageModel
+   * @since 26.0.0 dynamic&static
+   */
+  export enum CertFileFormat {
+      /**
+       * Indicates the certificate file format is PEM or DER.
+       *
+       * @syscap SystemCapability.Security.CertificateManager
+       * @FaAndStageModel
+       * @since 26.0.0 dynamic&static
+       */
+      PEM_DER = 0,
+
+      /**
+       * Indicates the certificate file format is P7B.
+       *
+       * @syscap SystemCapability.Security.CertificateManager
+       * @FaAndStageModel
+       * @since 26.0.0 dynamic&static
+       */
+      P7B = 1,
+  }
+
+  /**
+   * Provides the Cert Blob type.
+   *
+   * @typedef CertBlob
+   * @syscap SystemCapability.Security.CertificateManager
+   * @FaAndStageModel
+   * @since 26.0.0 dynamic&static
+   */
+  export interface CertBlob {
+      /**
+       * Indicates the certificate file data.
+       *
+       * @type { Uint8Array }
+       * @syscap SystemCapability.Security.CertificateManager
+       * @FaAndStageModel
+       * @since 26.0.0 dynamic&static
+       */
+      certData: Uint8Array;
+
+      /**
+       * Indicates the certificate file format.
+       *
+       * @type { ?CertFileFormat }
+       * @syscap SystemCapability.Security.CertificateManager
+       * @FaAndStageModel
+       * @since 26.0.0 dynamic&static
+       */
+      certFormat? : CertFileFormat;
+
+      /**
+       * Indicates the scope of user CA certificate.
+       *
+       * @type { ?CertScope }
+       * @syscap SystemCapability.Security.CertificateManager
+       * @FaAndStageModel
+       * @since 26.0.0 dynamic&static
+       */
+      certScope? : CertScope;
+  }
+
+  /**
+   * Install the user trusted CA certificate.
+   *
+   * @permission ohos.permission.ACCESS_ENTERPRISE_USER_TRUSTED_CERTorohos.permission.ACCESS_USER_TRUSTED_CERT
+   * @param { CertBlob } certificate - Indicates the certificate information.
+   * @returns { Promise<CMResult> } Indicates the certificate's URI that identifies the installed certificate.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     <br>The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter verification failed. Possible causes:
+   *     <br>the certData parameter is empty or exceeds the maximum length .
+   * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
+   *     <br>2. Memory operation error; 3. File operation error. Please try again.
+   * @throws { BusinessError } 17500003 - Indicates that the certificate is in an invalid format.
+   * @throws { BusinessError } 17500004 - Indicates that the number of certificates reaches the maximum allowed.
+   * @throws { BusinessError } 17500007 - Indicates that the device enters advanced security mode.
+   *     <br>In this mode, the user CA certificate cannot be installed.
+   * @syscap SystemCapability.Security.CertificateManager
+   * @FaAndStageModel
+   * @since 26.0.0 dynamic&static
+   */
+  function installUserTrustedCertificate(certificate: CertBlob) : Promise<CMResult>;
+
+  /**
+   * Uninstall all the user trusted CA certificates.
+   *  This function is only provided for certificate management application.
+   *
+   * @permission ohos.permission.ACCESS_CERT_MANAGER and ohos.permission.ACCESS_USER_TRUSTED_CERT
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     <br>The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
+   *     <br>2. Memory operation error; 3. File operation error. Please try again.
+   * @syscap SystemCapability.Security.CertificateManager
+   * @systemapi
+   * @FaAndStageModel
+   * @since 26.0.0 dynamiconly
+   */
+  function uninstallAllUserTrustedCertificate() : Promise<void>;
+
+  /**
+   * Install the user public certificate credential.
+   *  This function is only provided for certificate management application.
+   *
+   * @permission ohos.permission.ACCESS_CERT_MANAGER and ohos.permission.ACCESS_CERT_MANAGER_INTERNAL
+   * @param { Uint8Array } keystore - Indicates the keystore file with key pair and certificate.
+   *     <br>Only the P12 format is supported.
+   * @param { string } keystorePwd - Indicates the password of keystore file.
+   * @returns { Promise<CMResult> } Indicates the certificate's key URI that identifies the installed certificate.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     <br>The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter verification failed. Possible causes:
+   *     <br>the keystore parameter is empty or exceeds the maximum length.
+   * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
+   *     <br>2. Memory operation error; 3. File operation error. Please try again.
+   * @throws { BusinessError } 17500003 - Indicates that the certificate is in an invalid format.
+   * @throws { BusinessError } 17500004 - Indicates that the number of certificates reaches the maximum allowed.
+   * @throws { BusinessError } 17500008 - Indicates that the password is error.
+   * @syscap SystemCapability.Security.CertificateManager
+   * @systemapi
+   * @FaAndStageModel
+   * @since 26.0.0 dynamiconly
+   */
+  function installPublicCertificate(keystore: Uint8Array, keystorePwd: string) : Promise<CMResult>;
+
+  /**
+   * Uninstall the user public certificate credential.
+   *  This function is only provided for certificate management application.
+   *
+   * @permission ohos.permission.ACCESS_CERT_MANAGER and ohos.permission.ACCESS_CERT_MANAGER_INTERNAL
+   * @param { string } keyUri - Indicates the user public certificate's key URI to be uninstalled.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     <br> The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter verification failed.
+   *     <br> Possible causes: the URI is null or the URI format is wrong.
+   * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
+   *     <br>2. Memory operation error; 3. File operation error. Please try again.
+   * @throws { BusinessError } 17500002 - Indicates that the certificate does not exist.
+   * @syscap SystemCapability.Security.CertificateManager
+   * @systemapi
+   * @FaAndStageModel
+   * @since 26.0.0 dynamiconly
+   */
+  function uninstallPublicCertificate(keyUri: string) : Promise<void>;
+
+  /**
+   * Get all the user public certificate credentials.
+   *  This function is only provided for certificate management application.
+   *
+   * @permission ohos.permission.ACCESS_CERT_MANAGER and ohos.permission.ACCESS_CERT_MANAGER_INTERNAL
+   * @returns { Promise<CMResult> } Indicates the list of user public certificate credentials.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     <br> The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
+   *     <br>2. Memory operation error; 3. File operation error. Please try again.
+   * @syscap SystemCapability.Security.CertificateManager
+   * @systemapi
+   * @FaAndStageModel
+   * @since 26.0.0 dynamiconly
+   */
+  function getAllPublicCertificates() : Promise<CMResult>;
+
+  /**
+   * Grant application permission to use the user public certificate credential.
+   *  This function is only provided for certificate management application.
+   *
+   * @permission ohos.permission.ACCESS_CERT_MANAGER and ohos.permission.ACCESS_CERT_MANAGER_INTERNAL
+   * @param { string } keyUri - Indicates the user public certificate's key URI to grant permission.
+   * @param { int } clientAppUid - Indicates the application UID.
+   * @returns { Promise<CMResult> } Indicates the authorization URI for application
+   *     <br> using the user public certificate credential.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     <br> The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter verification failed.
+   *     <br> Possible causes: the URI is null or the URI format is wrong.
+   * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
+   *     <br>2. Memory operation error; 3. File operation error. Please try again.
+   * @throws { BusinessError } 17500002 - Indicates that the certificate does not exist.
+   * @syscap SystemCapability.Security.CertificateManager
+   * @systemapi
+   * @FaAndStageModel
+   * @since 26.0.0 dynamiconly
+   */
+  function grantPublicCertificate(keyUri: string, clientAppUid: int) : Promise<CMResult>;
+
+  /**
+   * Get the authorized applications list of the user public certificate credential.
+   *  This function is only provided for certificate management application.
+   *
+   * @permission ohos.permission.ACCESS_CERT_MANAGER and ohos.permission.ACCESS_CERT_MANAGER_INTERNAL
+   * @param { string } keyUri - Indicates the user public certificate's key URI.
+   * @returns { Promise<CMResult> } Indicates the authorized applications list.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     <br> The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter verification failed.
+   *     <br> Possible causes: the URI is null or the URI format is wrong.
+   * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
+   *     <br>2. Memory operation error; 3. File operation error. Please try again.
+   * @throws { BusinessError } 17500002 - Indicates that the certificate does not exist.
+   * @syscap SystemCapability.Security.CertificateManager
+   * @systemapi
+   * @FaAndStageModel
+   * @since 26.0.0 dynamiconly
+   */
+  function getAuthorizedAppList(keyUri: string) : Promise<CMResult>;
+
+  /**
+   * Remove application permission to use the user public certificate credential.
+   *  This function is only provided for certificate management application.
+   *
+   * @permission ohos.permission.ACCESS_CERT_MANAGER and ohos.permission.ACCESS_CERT_MANAGER_INTERNAL
+   * @param { string } keyUri - Indicates the user public certificate's key URI to remove permission.
+   * @param { int } clientAppUid - Indicates the application UID.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     <br> The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter verification failed.
+   *     <br> Possible causes: the URI is null or the URI format is wrong.
+   * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
+   *     <br>2. Memory operation error; 3. File operation error. Please try again.
+   * @throws { BusinessError } 17500002 - Indicates that the certificate does not exist.
+   * @syscap SystemCapability.Security.CertificateManager
+   * @systemapi
+   * @FaAndStageModel
+   * @since 26.0.0 dynamiconly
+   */
+  function removeGrantedPublicCertificate(keyUri: string, clientAppUid: int) : Promise<void>;
+
+  /**
+   * Get all the private certificates of specified application.
+   *  This function is only provided for certificate management application.
+   *
+   * @permission ohos.permission.ACCESS_CERT_MANAGER and ohos.permission.ACCESS_CERT_MANAGER_INTERNAL
+   * @param { int } appUid - Indicates the application UID.
+   * @returns { Promise<CMResult> } Indicates the private certificates.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     <br> The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
+   *     <br>2. Memory operation error; 3. File operation error. Please try again.
+   * @syscap SystemCapability.Security.CertificateManager
+   * @systemapi
+   * @FaAndStageModel
+   * @since 26.0.0 dynamiconly
+   */
+  function getAllAppPrivateCertificatesByUid(appUid: int) : Promise<CMResult>;
+
+  /**
+   * Install the system application certificate credential.
+   *  This function is only provided for certificate management application.
+   *
+   * @permission ohos.permission.ACCESS_CERT_MANAGER and ohos.permission.ACCESS_SYSTEM_APP_CERT
+   * @param { Uint8Array } keystore - Indicates the keystore file with key pair and certificate.
+   *     <br>Only the P12 format is supported.
+   * @param { string } keystorePwd - Indicates the password of keystore file.
+   * @returns { Promise<CMResult> } Indicates the certificate's key URI that identifies the installed certificate.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     <br> The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter verification failed. Possible causes:
+   *     <br>The keystore parameter is empty or exceeds the maximum length.
+   * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
+   *     <br>2. Memory operation error; 3. File operation error. Please try again.
+   * @throws { BusinessError } 17500003 - Indicates that the certificate is in an invalid format.
+   * @throws { BusinessError } 17500004 - Indicates that the number of certificates reaches the maximum allowed.
+   * @throws { BusinessError } 17500008 - Indicates that the password is error.
+   * @syscap SystemCapability.Security.CertificateManager
+   * @systemapi
+   * @FaAndStageModel
+   * @since 26.0.0 dynamiconly
+   */
+  function installSystemAppCertificate(keystore: Uint8Array, keystorePwd: string): Promise<CMResult>;
+
+  /**
+   * Get the detail of system application certificate credential.
+   *  This function is only provided for certificate management application.
+   *
+   * @permission ohos.permission.ACCESS_CERT_MANAGER and ohos.permission.ACCESS_SYSTEM_APP_CERT
+   * @param { string } keyUri - Indicates the system application certificate's key URI.
+   * @returns { Promise<CMResult> } Indicates the detail of system application certificate.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     <br> The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter verification failed.
+   *     <br> Possible causes: the URI is null or the URI format is wrong.
+   * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
+   *     <br>2. Memory operation error; 3. File operation error. Please try again.
+   * @throws { BusinessError } 17500002 - Indicates that the certificate does not exist.
+   * @syscap SystemCapability.Security.CertificateManager
+   * @systemapi
+   * @FaAndStageModel
+   * @since 26.0.0 dynamiconly
+   */
+  function getSystemAppCertificate(keyUri: string) : Promise<CMResult>;
+
+  /**
+   * Uninstall the system application certificate credential.
+   *  This function is only provided for certificate management application.
+   *
+   * @permission ohos.permission.ACCESS_CERT_MANAGER and ohos.permission.ACCESS_SYSTEM_APP_CERT
+   * @param { string } keyUri - Indicates the system application certificate's key URI.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     <br> The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter verification failed.
+   *     <br> Possible causes: the URI is null or the URI format is wrong.
+   * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
+   *     <br>2. Memory operation error; 3. File operation error. Please try again.
+   * @throws { BusinessError } 17500002 - Indicates that the certificate does not exist.
+   * @syscap SystemCapability.Security.CertificateManager
+   * @systemapi
+   * @FaAndStageModel
+   * @since 26.0.0 dynamiconly
+   */
+  function uninstallSystemAppCertificate(keyUri: string) : Promise<void>;
+
+  /**
+   * Get the USB key certificate list.
+   *
+   * @permission ohos.permission.ACCESS_CERT_MANAGER
+   * @param { string } ukeyProvider - Indicates the USB key provider.
+   * @param { UkeyInfo } ukeyInfo - Indicates USB key certificate attribute information.
+   * @returns { Promise<CMResult> } Indicates the USB key certificate list.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     <br>The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
+   *     <br>2. Memory operation error; 3. File operation error.
+   * @throws { BusinessError } 17500010 - Indicates that access USB key service failed.
+   * @throws { BusinessError } 17500011 - Parameter verification failed.
+   *     <br> Possible causes: the ukeyInfo parameter is invalid.
+   *     For example, the parameter format is incorrect or the value range is invalid.
+   * @syscap SystemCapability.Security.CertificateManager
+   * @FaAndStageModel
+   * @since 26.0.0 dynamic&static
+   */
+  function getUkeyCertificateList(ukeyProvider: string, ukeyInfo: UkeyInfo): Promise<CMResult>;
+
+  /**
+   * Uninstall all the system application certificate credentials and user public certificate credentials.
+   *  This function is only provided for certificate management application.
+   *
+   * @permission ohos.permission.ACCESS_CERT_MANAGER and ohos.permission.ACCESS_CERT_MANAGER_INTERNAL
+   *     and ohos.permission.ACCESS_SYSTEM_APP_CERT
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     <br> The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
+   *     <br>2. Memory operation error; 3. File operation error. Please try again.
+   * @syscap SystemCapability.Security.CertificateManager
+   * @systemapi
+   * @FaAndStageModel
+   * @since 26.0.0 dynamiconly
+   */
+  function uninstallAllAppCertificate() : Promise<void>;
 }
 
 export default certificateManager;

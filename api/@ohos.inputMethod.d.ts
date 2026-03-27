@@ -799,8 +799,8 @@ declare namespace inputMethod {
      * @since 23 static
      */
     getInputMethodState(): Promise<EnabledState>;
-	
-	  /**
+
+    /**
      * 
      * Change inputmethod enabled status.
      *
@@ -1818,7 +1818,7 @@ declare namespace inputMethod {
 
     /**
      * Register a callback and when IME sends select event witch movement of cursor,
-     * the callbackwiii be invoked.
+     * the callback will be invoked.
      *
      * @param { Callback<Movement> } callback - the callback called when the input method selects text by movement.
      *     The movement of the cursor is provided for this callback, and subscribers are expected to select
@@ -1828,7 +1828,7 @@ declare namespace inputMethod {
      */
     onSelectByMovement(callback: Callback<Movement>): void;
     /**
-     * Unregister the callback of selectedByMovement
+     * Unregister the callback of selectedByMovement.
      *
      * @param { Callback<Movement> } [callback] - the callback called when the input method selects text by movement.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -1893,7 +1893,7 @@ declare namespace inputMethod {
      */
     onDeleteRight(callback: Callback<int>): void;
   /**
-   * Unreister the callback of deleteRight.
+   * Unregister the callback of deleteRight.
    *
    * @param { Callback<int> } [callback] - the callback called when the input method deletes text
    *     to the right of the cursor.
@@ -1914,7 +1914,7 @@ declare namespace inputMethod {
    /**
     * Unregister the callback of sendKeyboardStatus.
     *
-    * @param { Callback<Keyboardstatus> } [callback] - the callback called when the inputmethod
+    * @param { Callback<Keyboardstatus> } [callback] - the callback called when the inputmethod send
     *     keyboard's status.
     * @syscap SystemCapability.MiscServices.InputMethodFramework
     * @since 23 static
@@ -2879,7 +2879,7 @@ declare namespace inputMethod {
   }
 
   /**
-   * Callback function on receiveing a custom message.
+   * Callback function on receiving a custom message.
    * 
    * @typedef { function } OnMessageCallback.
    * @param { string } msgId - the identifier of the message.

@@ -20,7 +20,7 @@
 import { CommonMethod } from './common';
 import { LengthMetrics } from '../Graphics';
 import { ComponentBuilder, CustomBuilder } from './builder';
-import { AttributeModifier, CommonMethod } from "./common";
+import { AttributeModifier, CommonMethod, OnVisibleIndexesChangeCallback } from "./common";
 
 /**
  * The LazyGridLayoutAttribute.
@@ -49,6 +49,18 @@ export declare interface LazyGridLayoutAttribute extends CommonMethod {
      * @since 23 static
      */
     default columnsGap(value: LengthMetrics | undefined): this;
+      /**
+     * Triggered when the index of child components in the visible area changes.
+     *
+     * @param { OnVisibleIndexesChangeCallback  | undefined } callback - callback function, triggered
+     *     when the index of child components in the visible area changes.
+     *     Passing undefined will unregister the callback.
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default onVisibleIndexesChange(callback: OnVisibleIndexesChangeCallback | undefined): this;
 }
 
 /**

@@ -187,7 +187,16 @@ declare namespace adminManager {
      * @stagemodelonly
      * @since 24
      */
-    MANAGED_EVENT_BOOT_COMPLETED = 9
+    MANAGED_EVENT_BOOT_COMPLETED = 9,
+
+    /**
+     * Event of bundle updated.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    MANAGED_EVENT_BUNDLE_UPDATED = 10
   }
 
   /**

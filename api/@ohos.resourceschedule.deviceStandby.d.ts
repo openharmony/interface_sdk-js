@@ -232,6 +232,7 @@ declare namespace deviceStandby {
 
     /**
      * The exemption duration.
+     * <br>Unit:s
      *
      * @type { int }
      * @syscap SystemCapability.ResourceSchedule.DeviceStandby
@@ -287,6 +288,7 @@ declare namespace deviceStandby {
 
     /**
      * The exemption duration.
+     * <br>Unit:s
      *
      * @type { int }
      * @syscap SystemCapability.ResourceSchedule.DeviceStandby

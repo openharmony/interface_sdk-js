@@ -46,7 +46,7 @@ declare namespace selectionManager {
    * @param { 'selectionCompleted' } type Word selection completion event.
    * @param { Callback<SelectionInfo> } callback Callback used to listen for the word selection completion
    * event.
-   * @throws { BusinessError } 33600003 - The application calling the API dose not match the application
+   * @throws { BusinessError } 33600003 - The application calling the API does not match the application
    *     selected in the system settings.
    * @syscap SystemCapability.SelectionInput.Selection
    * @systemapi
@@ -58,7 +58,7 @@ declare namespace selectionManager {
    * @param { 'selectionCompleted' } type Word selection completion event.
    * @param { Callback<SelectionInfo> } callback Callback used to listen for the word selection completion
    * event.
-   * @throws { BusinessError } 33600003 - The application calling the API dose not match the application
+   * @throws { BusinessError } 33600003 - The application calling the API does not match the application
    *     selected in the system settings.
    * @syscap SystemCapability.SelectionInput.Selection
    * @since 24 dynamic
@@ -70,7 +70,7 @@ declare namespace selectionManager {
    * 
    * @param { Callback<SelectionInfo> } callback Callback used to listen for the word selection completion
    * event.
-   * @throws { BusinessError } 33600003 - The application calling the API dose not match the application
+   * @throws { BusinessError } 33600003 - The application calling the API does not match the application
    *     selected in the system settings.
    * @syscap SystemCapability.SelectionInput.Selection
    * @stagemodelonly
@@ -144,7 +144,7 @@ declare namespace selectionManager {
    * @param { PanelInfo } info Information about the word selection panel.
    * @returns { Promise<Panel> } Promise used to return the word selection panel.
    * @throws { BusinessError } 33600001 Selection service exception.
-   * @throws { BusinessError } 33600003 - The application calling the API dose not match the application
+   * @throws { BusinessError } 33600003 - The application calling the API does not match the application
    *     selected in the system settings.
    * @syscap SystemCapability.SelectionInput.Selection
    * @systemapi
@@ -157,7 +157,7 @@ declare namespace selectionManager {
    * @param { PanelInfo } info Information about the word selection panel.
    * @returns { Promise<Panel> } Promise used to return the word selection panel.
    * @throws { BusinessError } 33600001 Selection service exception.
-   * @throws { BusinessError } 33600003 - The application calling the API dose not match the application
+   * @throws { BusinessError } 33600003 - The application calling the API does not match the application
    *     selected in the system settings.
    * @syscap SystemCapability.SelectionInput.Selection
    * @stagemodelonly
@@ -541,7 +541,9 @@ declare namespace selectionManager {
      * @throws { BusinessError } 33600002 This selection window has been destroyed.
      * @syscap SystemCapability.SelectionInput.Selection
      * @systemapi
-     * @since 20 dynamic
+     * @since 20 dynamiconly
+     * @deprecated since 24
+     * @useinstead selectionManager.Panel#moveToGlobalDisplay
      */
     moveTo(x: int, y: int): Promise<void>;
 

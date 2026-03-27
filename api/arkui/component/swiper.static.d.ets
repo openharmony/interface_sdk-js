@@ -602,6 +602,43 @@ export declare interface AutoPlayOptions {
 }
 
 /**
+ * Defines the properties for controlling the cached count behavior.
+ *
+ * @interface CachedCountOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 24 static
+ */
+export declare interface CachedCountOptions {
+  /**
+   * Whether the cached nodes within the range rendered without being added to the render tree.
+   *
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  isShown?: boolean;
+  /**
+   * Whether cachedCount is independent of group calculation.
+   *
+   * <p><strong>NOTE</strong>:
+   * <br>When set to true, cachedCount is calculated by actual child component count,
+   * independent of displayCount group calculation.
+   * <br>When swipeByGroup is enabled and this is false, cachedCount is calculated by group.
+   * </p>
+   *
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  independent?: boolean;
+}
+
+/**
  * Swiper nested scroll nested mode
 
  * @enum { number } SwiperNestedScrollMode
@@ -837,6 +874,18 @@ export declare interface SwiperAttribute extends CommonMethod {
    * @since 23 static
    */
   default cachedCount(count: int | undefined, isShown: boolean | undefined): this;
+
+  /**
+   * Sets the number of child components to be preloaded(cached).
+   *
+   * @param { int | undefined } count - Number of child components to be preloaded (cached).
+   * @param { CachedCountOptions | undefined } options - Options for controlling cached count behavior.
+   * @returns { SwiperAttribute } the attribute of the swiper.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  default cachedCount(count: int | undefined, options: CachedCountOptions | undefined): this;
 
   /**
    * Sets the number of elements to display per page.

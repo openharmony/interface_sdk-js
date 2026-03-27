@@ -172,7 +172,7 @@ declare class TreeSet<T> {
   /**
    * Returns whether the Set object contains the elements
    *
-   * @param { T } value - value value need to determine whether to include the element
+   * @param { T } value - the value to check for presence in the set
    * @returns { boolean } the boolean type
    * @throws { BusinessError } 10200011 - The has method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
@@ -181,7 +181,7 @@ declare class TreeSet<T> {
   /**
    * Returns whether the Set object contains the elements
    *
-   * @param { T } value - value value need to determine whether to include the element
+   * @param { T } value - the value to check for presence in the set
    * @returns { boolean } the boolean type
    * @throws { BusinessError } 10200011 - The has method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
@@ -191,7 +191,7 @@ declare class TreeSet<T> {
   /**
    * Returns whether the Set object contains the elements
    *
-   * @param { T } value - value value need to determine whether to include the element
+   * @param { T } value - the value to check for presence in the set
    * @returns { boolean } the boolean type
    * @throws { BusinessError } 10200011 - The has method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
@@ -204,8 +204,8 @@ declare class TreeSet<T> {
   /**
    * If the set does not contain the element, the specified element is added
    *
-   * @param { T } value - value value Added element
-   * @returns { boolean } the boolean type(Is there contain this element)
+   * @param { T } value - the element to add to the set
+   * @returns { boolean } whether the element was already present
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * 1.Mandatory parameters are left unspecified;
    * 2.Incorrect parameter types;
@@ -217,8 +217,8 @@ declare class TreeSet<T> {
   /**
    * If the set does not contain the element, the specified element is added
    *
-   * @param { T } value - value value Added element
-   * @returns { boolean } the boolean type(Is there contain this element)
+   * @param { T } value - the element to add to the set
+   * @returns { boolean } whether the element was already present
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * 1.Mandatory parameters are left unspecified;
    * 2.Incorrect parameter types;
@@ -231,8 +231,8 @@ declare class TreeSet<T> {
   /**
    * If the set does not contain the element, the specified element is added
    *
-   * @param { T } value - value value Added element
-   * @returns { boolean } the boolean type(Is there contain this element)
+   * @param { T } value - the element to add to the set
+   * @returns { boolean } whether the element was already present
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * 1.Mandatory parameters are left unspecified;
    * 2.Incorrect parameter types;
@@ -248,7 +248,7 @@ declare class TreeSet<T> {
   /**
    * Remove a specified element from a Set object
    *
-   * @param { T } value - value value Target to be deleted
+   * @param { T } value - the element to remove from the set
    * @returns { boolean } the boolean type(Is there contain this element)
    * @throws { BusinessError } 10200011 - The remove method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
@@ -257,7 +257,7 @@ declare class TreeSet<T> {
   /**
    * Remove a specified element from a Set object
    *
-   * @param { T } value - value value Target to be deleted
+   * @param { T } value - the element to remove from the set
    * @returns { boolean } the boolean type(Is there contain this element)
    * @throws { BusinessError } 10200011 - The remove method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
@@ -267,7 +267,7 @@ declare class TreeSet<T> {
   /**
    * Remove a specified element from a Set object
    *
-   * @param { T } value - value value Target to be deleted
+   * @param { T } value - the element to remove from the set
    * @returns { boolean } the boolean type(Is there contain this element)
    * @throws { BusinessError } 10200011 - The remove method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
@@ -367,7 +367,7 @@ declare class TreeSet<T> {
    * Returns the greatest element smaller than or equal to the specified key
    * if the key does not exist, undefined is returned
    *
-   * @param { T } key - key key Objective of comparison
+   * @param { T } key - the key to compare against
    * @returns { T } key or undefined
    * @throws { BusinessError } 10200011 - The getLowerValue method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -381,7 +381,7 @@ declare class TreeSet<T> {
    * Returns the greatest element smaller than or equal to the specified key
    * if the key does not exist, undefined is returned
    *
-   * @param { T } key - key key Objective of comparison
+   * @param { T } key - the key to compare against
    * @returns { T } key or undefined
    * @throws { BusinessError } 10200011 - The getLowerValue method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -396,7 +396,7 @@ declare class TreeSet<T> {
    * Returns the greatest element smaller than or equal to the specified key
    * if the key does not exist, undefined is returned
    *
-   * @param { T } key - key key Objective of comparison
+   * @param { T } key - the key to compare against
    * @returns { T } key or undefined
    * @throws { BusinessError } 10200011 - The getLowerValue method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -413,7 +413,7 @@ declare class TreeSet<T> {
    * Returns the least element greater than or equal to the specified key
    * if the key does not exist, undefined is returned
    *
-   * @param { T } key - key key Objective of comparison
+   * @param { T } key - the key to compare against
    * @returns { T } key or undefined
    * @throws { BusinessError } 10200011 - The getHigherValue method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -427,7 +427,7 @@ declare class TreeSet<T> {
    * Returns the least element greater than or equal to the specified key
    * if the key does not exist, undefined is returned
    *
-   * @param { T } key - key key Objective of comparison
+   * @param { T } key - the key to compare against
    * @returns { T } key or undefined
    * @throws { BusinessError } 10200011 - The getHigherValue method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -442,7 +442,7 @@ declare class TreeSet<T> {
    * Returns the least element greater than or equal to the specified key
    * if the key does not exist, undefined is returned
    *
-   * @param { T } key - key key Objective of comparison
+   * @param { T } key - the key to compare against
    * @returns { T } key or undefined
    * @throws { BusinessError } 10200011 - The getHigherValue method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -520,7 +520,7 @@ declare class TreeSet<T> {
    * Returns the greatest element smaller than or equal to the specified key
    * if the key does not exist, undefined is returned
    *
-   * @param { T } key - key key Objective of comparison
+   * @param { T } key - the key to compare against
    * @returns { T | undefined } the lower value of the given key's element if exists, undefined otherwise
    * @throws { BusinessError } 10200010 - Container is empty.
    * @syscap SystemCapability.Utils.Lang
@@ -534,7 +534,7 @@ declare class TreeSet<T> {
    * Returns the least element greater than or equal to the specified key
    * if the key does not exist, undefined is returned
    *
-   * @param { T } key - key key Objective of comparison
+   * @param { T } key - the key to compare against
    * @returns { T | undefined } the higher value of the given key's element if exists, undefined otherwise
    * @throws { BusinessError } 10200010 - Container is empty.
    * @syscap SystemCapability.Utils.Lang

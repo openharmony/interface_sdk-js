@@ -545,14 +545,14 @@ declare namespace image {
    */
   interface Size {
     /**
-     * Height
+     * Height, in px
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 6
      */
     /**
-     * Height
+     * Height, in px
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -560,7 +560,7 @@ declare namespace image {
      * @since 10
      */
     /**
-     * Height
+     * Height, in px
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -569,7 +569,7 @@ declare namespace image {
      * @since 11
      */
     /**
-     * Height
+     * Height, in px
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -582,14 +582,14 @@ declare namespace image {
     height: int;
 
     /**
-     * Width
+     * Width, in px
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 6
      */
     /**
-     * Width
+     * Width, in px
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -597,7 +597,7 @@ declare namespace image {
      * @since 10
      */
     /**
-     * Width
+     * Width, in px
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -606,7 +606,7 @@ declare namespace image {
      * @since 11
      */
     /**
-     * Width
+     * Width, in px
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -3235,14 +3235,14 @@ declare namespace image {
     size: Size;
 
     /**
-     * x-coordinate at the upper left corner of the image.
+     * x-coordinate at the upper left corner of the image, in px.
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 7
      */
     /**
-     * x-coordinate at the upper left corner of the image.
+     * x-coordinate at the upper left corner of the image, in px.
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -3250,7 +3250,7 @@ declare namespace image {
      * @since 10
      */
     /**
-     * x-coordinate at the upper left corner of the image.
+     * x-coordinate at the upper left corner of the image, in px.
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -3259,7 +3259,7 @@ declare namespace image {
      * @since 11
      */
     /**
-     * x-coordinate at the upper left corner of the image.
+     * x-coordinate at the upper left corner of the image, in px.
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -3272,14 +3272,14 @@ declare namespace image {
     x: int;
 
     /**
-     * y-coordinate at the upper left corner of the image.
+     * y-coordinate at the upper left corner of the image, in px.
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 7
      */
     /**
-     * y-coordinate at the upper left corner of the image.
+     * y-coordinate at the upper left corner of the image, in px.
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -3287,7 +3287,7 @@ declare namespace image {
      * @since 10
      */
     /**
-     * y-coordinate at the upper left corner of the image.
+     * y-coordinate at the upper left corner of the image, in px.
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -3296,7 +3296,7 @@ declare namespace image {
      * @since 11
      */
     /**
-     * y-coordinate at the upper left corner of the image.
+     * y-coordinate at the upper left corner of the image, in px.
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -3383,14 +3383,14 @@ declare namespace image {
     pixels: ArrayBuffer;
 
     /**
-     * Offset for data reading.
+     * Offset for data reading, in bytes.
      *
      * @type { number }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 7
      */
     /**
-     * Offset for data reading.
+     * Offset for data reading, in bytes.
      *
      * @type { number }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -3398,7 +3398,7 @@ declare namespace image {
      * @since 10
      */
     /**
-     * Offset for data reading.
+     * Offset for data reading, in bytes.
      *
      * @type { number }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -3568,14 +3568,14 @@ declare namespace image {
     size: Size;
 
     /**
-     * Indicates image default density.
+     * Indicates image default density, in ppi.
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9
      */
     /**
-     * Indicates image default density.
+     * Indicates image default density, in ppi.
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -3583,7 +3583,7 @@ declare namespace image {
      * @since 10
      */
     /**
-     * Indicates image default density.
+     * Indicates image default density, in ppi.
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -3592,7 +3592,7 @@ declare namespace image {
      * @since 11
      */
     /**
-     * Indicates image default density.
+     * Indicates image default density, in ppi.
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -6618,14 +6618,14 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Obtains the density of the image pixel map.
      *
-     * @returns { number } The number of density.
+     * @returns { number } The number of density, in ppi.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9
      */
     /**
      * Obtains the density of the image pixel map.
      *
-     * @returns { number } The number of density.
+     * @returns { number } The number of density, in ppi.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 10
@@ -6633,7 +6633,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Obtains the density of the image pixel map.
      *
-     * @returns { number } The number of density.
+     * @returns { number } The number of density, in ppi.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @atomicservice
@@ -7012,8 +7012,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Image position transformation. This method uses a callback to return the operation result.
      *
-     * @param { double } x The position value of width.
-     * @param { double } y The position value of height.
+     * @param { double } x The position value of width, in px.
+     * @param { double } y The position value of height, in px.
      * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9
@@ -7021,8 +7021,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Image position transformation. This method uses a callback to return the operation result.
      *
-     * @param { double } x The position value of width.
-     * @param { double } y The position value of height.
+     * @param { double } x The position value of width, in px.
+     * @param { double } y The position value of height, in px.
      * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -7031,8 +7031,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Image position transformation. This method uses a callback to return the operation result.
      *
-     * @param { double } x The position value of width.
-     * @param { double } y The position value of height.
+     * @param { double } x The position value of width, in px.
+     * @param { double } y The position value of height, in px.
      * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -7042,8 +7042,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Image position transformation. This method uses a callback to return the operation result.
      *
-     * @param { double } x The position value of width.
-     * @param { double } y The position value of height.
+     * @param { double } x The position value of width, in px.
+     * @param { double } y The position value of height, in px.
      * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -7057,8 +7057,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Image position transformation. This method uses a promise to return the result.
      *
-     * @param { double } x The position value of width.
-     * @param { double } y The position value of height.
+     * @param { double } x The position value of width, in px.
+     * @param { double } y The position value of height, in px.
      * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9
@@ -7066,8 +7066,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Image position transformation. This method uses a promise to return the result.
      *
-     * @param { double } x The position value of width.
-     * @param { double } y The position value of height.
+     * @param { double } x The position value of width, in px.
+     * @param { double } y The position value of height, in px.
      * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -7076,8 +7076,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Image position transformation. This method uses a promise to return the result.
      *
-     * @param { double } x The position value of width.
-     * @param { double } y The position value of height.
+     * @param { double } x The position value of width, in px.
+     * @param { double } y The position value of height, in px.
      * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -7087,8 +7087,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Image position transformation. This method uses a promise to return the result.
      *
-     * @param { double } x The position value of width.
-     * @param { double } y The position value of height.
+     * @param { double } x The position value of width, in px.
+     * @param { double } y The position value of height, in px.
      * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -7102,8 +7102,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Image position transformation.
      *
-     * @param { double } x The position value of width.
-     * @param { double } y The position value of height.
+     * @param { double } x The position value of width, in px.
+     * @param { double } y The position value of height, in px.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
      * 2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 501 - Resource Unavailable.
@@ -7118,7 +7118,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Image rotation. This method uses a callback to return the operation result.
      *
-     * @param { double } angle The rotation angle.
+     * @param { double } angle The rotation angle, in degrees.
      * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9
@@ -7126,7 +7126,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Image rotation. This method uses a callback to return the operation result.
      *
-     * @param { double } angle The rotation angle.
+     * @param { double } angle The rotation angle, in degrees.
      * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -7135,7 +7135,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Image rotation. This method uses a callback to return the operation result.
      *
-     * @param { double } angle The rotation angle.
+     * @param { double } angle The rotation angle, in degrees.
      * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -7145,7 +7145,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Image rotation. This method uses a callback to return the operation result.
      *
-     * @param { double } angle The rotation angle.
+     * @param { double } angle The rotation angle, in degrees.
      * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -7159,7 +7159,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Image rotation. This method uses a promise to return the result.
      *
-     * @param { double } angle The rotation angle.
+     * @param { double } angle The rotation angle, in degrees.
      * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9
@@ -7167,7 +7167,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Image rotation. This method uses a promise to return the result.
      *
-     * @param { double } angle The rotation angle.
+     * @param { double } angle The rotation angle, in degrees.
      * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -7176,7 +7176,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Image rotation. This method uses a promise to return the result.
      *
-     * @param { double } angle The rotation angle.
+     * @param { double } angle The rotation angle, in degrees.
      * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -7186,7 +7186,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Image rotation. This method uses a promise to return the result.
      *
-     * @param { double } angle The rotation angle.
+     * @param { double } angle The rotation angle, in degrees.
      * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -7200,7 +7200,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Image rotation.
      *
-     * @param { double } angle The rotation angle.
+     * @param { double } angle The rotation angle, in degrees.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
      * 2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 501 - Resource Unavailable.
@@ -8054,6 +8054,27 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   function createAuxiliaryPicture(buffer: ArrayBuffer, size: Size, type: AuxiliaryPictureType): AuxiliaryPicture;
 
   /**
+   * Create an <b>AuxiliaryPicture</b> object, the memory type used by the AuxiliaryPicture can be specified by
+   * allocatorType {@link IMAGE_ALLOCATOR_TYPE}. By default, the system selects the memory type based on the image type,
+   * image size, platform capability, etc. When processing the AuxiliaryPicture returned by this interface, please
+   * always consider the impact of stride. The created auxiliary picture is initialized with the input pixels.
+   *
+   * @param { AuxiliaryPictureInfo } auxiliaryPictureInfo - The basic information of the auxiliary picture.
+   * @param { AllocatorType } [allocatorType] - Memory type.
+   * @param { ArrayBuffer } [pixels] - Pixel data used to initialize the auxiliary picture.
+   * @returns { AuxiliaryPicture } The AuxiliaryPicture object.
+   * @throws { BusinessError } 7600205 - Unsupported allocator type, e.g., use shared memory to create a gainmap as
+   * only DMA supported hdr metadata.
+   * @throws { BusinessError } 7600206 - Invalid parameter, size.height or size.width is less than or equal to 0.
+   * @throws { BusinessError } 7600301 - Alloc memory failed.
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  function createAuxiliaryPictureUsingAllocator(auxiliaryPictureInfo: AuxiliaryPictureInfo,
+    allocatorType?: AllocatorType, pixels?: ArrayBuffer): AuxiliaryPicture;
+
+  /**
    * AuxiliaryPicture instance.
    *
    * @typedef AuxiliaryPicture
@@ -8305,6 +8326,24 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 23 dynamic&static
      */
     HEIFS_METADATA = 15,
+
+      /**
+     * Metadata of a DNG image.
+     * 
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    DNG_METADATA = 16,
+
+    /**
+     * Metadata of a WebP image.
+     * 
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    WEBP_METADATA = 17,
   }
 
   /**
@@ -8498,6 +8537,816 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 23 dynamic&static
      */
     HEIFS_DELAY_TIME = 'HeifsDelayTime'
+  }
+
+  /**
+   * Enumerates the properties available for the metadata of a DNG image.
+   *
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  enum DngPropertyKey {
+    /**
+     * The DNG version.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    DNG_VERSION = 'DNGVersion',
+
+    /**
+     * The DNG backward version.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    DNG_BACKWARD_VERSION = 'DNGBackwardVersion',
+
+    /**
+     * A unique camera model.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    UNIQUE_CAMERA_MODEL = 'UniqueCameraModel',
+
+    /**
+     * A localized camera model.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    LOCALIZED_CAMERA_MODEL = 'LocalizedCameraModel',
+
+    /**
+     * The CFA (color filter array) plane color.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    CFA_PLANE_COLOR = 'CFAPlaneColor',
+
+    /**
+     * The CFA (color filter array) layout.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    CFA_LAYOUT = 'CFALayout',
+
+    /**
+     * The linearization table.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    LINEARIZATION_TABLE = 'LinearizationTable',
+
+    /**
+     * The black level repeat dimension.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    BLACK_LEVEL_REPEAT_DIM = 'BlackLevelRepeatDim',
+
+    /**
+     * The zero light encoding level.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    BLACK_LEVEL = 'BlackLevel',
+
+    /**
+     * The black level delta H.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    BLACK_LEVEL_DELTA_H = 'BlackLevelDeltaH',
+
+    /**
+     * The black level delta V.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    BLACK_LEVEL_DELTA_V = 'BlackLevelDeltaV',
+
+    /**
+     * The white level.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    WHITE_LEVEL = 'WhiteLevel',
+
+    /**
+     * The default scale.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    DEFAULT_SCALE = 'DefaultScale',
+
+    /**
+     * The default crop origin.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    DEFAULT_CROP_ORIGIN = 'DefaultCropOrigin',
+
+    /**
+     * The default crop size.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    DEFAULT_CROP_SIZE = 'DefaultCropSize',
+
+    /**
+     * A transformation matrix under the first calibration illuminant.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    COLOR_MATRIX1 = 'ColorMatrix1',
+
+    /**
+     * A transformation matrix under the second calibration illuminant.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    COLOR_MATRIX2 = 'ColorMatrix2',
+
+    /**
+     * A calibration matrix under the first calibration illuminant.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    CAMERA_CALIBRATION1 = 'CameraCalibration1',
+
+    /**
+     * A calibration matrix under the second calibration illuminant.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    CAMERA_CALIBRATION2 = 'CameraCalibration2',
+
+    /**
+     * A dimensionality reduction matrix under the first calibration illuminant.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    REDUCTION_MATRIX1 = 'ReductionMatrix1',
+
+    /**
+     * A dimensionality reduction matrix under the second calibration illuminant.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    REDUCTION_MATRIX2 = 'ReductionMatrix2',
+
+    /**
+     * The analog balance.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    ANALOG_BALANCE = 'AnalogBalance',
+
+    /**
+     * The as-shot neutral.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    AS_SHOT_NEUTRAL = 'AsShotNeutral',
+
+    /**
+     * The as-shot white, encoded as X‑Y chromaticity coordinates.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    AS_SHOT_WHITEXY = 'AsShotWhiteXY',
+
+    /**
+     * The baseline exposure.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    BASELINE_EXPOSURE = 'BaselineExposure',
+
+    /**
+     * The baseline noise.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    BASELINE_NOISE = 'BaselineNoise',
+
+    /**
+     * The baseline sharpness.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    BASELINE_SHARPNESS = 'BaselineSharpness',
+
+    /**
+     * The Bayer green split.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    BAYER_GREEN_SPLIT = 'BayerGreenSplit',
+
+    /**
+     * The linear response limit.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    LINEAR_RESPONSE_LIMIT = 'LinearResponseLimit',
+
+    /**
+     * The serial number of the camera.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    CAMERA_SERIAL_NUMBER = 'CameraSerialNumber',
+
+    /**
+     * Information about the lens.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    LENS_INFO = 'LensInfo',
+
+    /**
+     * The chroma blur radius.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    CHROMA_BLUR_RADIUS = 'ChromaBlurRadius',
+
+    /**
+     * The anti-alias strength.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    ANTI_ALIAS_STRENGTH = 'AntiAliasStrength',
+
+    /**
+     * The shadow scale.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    SHADOW_SCALE = 'ShadowScale',
+
+    /**
+     * The private data.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    DNG_PRIVATE_DATA = 'DNGPrivateData',
+
+    /**
+     * Whether the EXIF MakerNote tag is safe.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    MAKER_NOTE_SAFETY = 'MakerNoteSafety',
+
+    /**
+     * The first calibration illuminant.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    CALIBRATION_ILLUMINANT1 = 'CalibrationIlluminant1',
+
+    /**
+     * The second calibration illuminant.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    CALIBRATION_ILLUMINANT2 = 'CalibrationIlluminant2',
+
+    /**
+     * The best quality scale.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    BEST_QUALITY_SCALE = 'BestQualityScale',
+
+    /**
+     * The unique identifier of raw image data.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    RAW_DATA_UNIQUE_ID = 'RawDataUniqueID',
+
+    /**
+     * The original raw file name.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    ORIGINAL_RAW_FILE_NAME = 'OriginalRawFileName',
+
+    /**
+     * The original raw file data.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    ORIGINAL_RAW_FILE_DATA = 'OriginalRawFileData',
+
+    /**
+     * The active area.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    ACTIVE_AREA = 'ActiveArea',
+
+    /**
+     * The masked areas.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    MASKED_AREAS = 'MaskedAreas',
+
+    /**
+     * An ICC profile.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    AS_SHOT_ICC_PROFILE = 'AsShotICCProfile',
+
+    /**
+     * The as-shot pre-profile matrix.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    AS_SHOT_PRE_PROFILE_MATRIX = 'AsShotPreProfileMatrix',
+
+    /**
+     * The current ICC profile.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    CURRENT_ICC_PROFILE = 'CurrentICCProfile',
+
+    /**
+     * The current pre-profile matrix.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    CURRENT_PRE_PROFILE_MATRIX = 'CurrentPreProfileMatrix',
+
+    /**
+     * The colorimetric reference.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    COLORIMETRIC_REFERENCE = 'ColorimetricReference',
+
+    /**
+     * The camera calibration signature.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    CAMERA_CALIBRATION_SIGNATURE = 'CameraCalibrationSignature',
+
+    /**
+     * The profile calibration signature.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    PROFILE_CALIBRATION_SIGNATURE = 'ProfileCalibrationSignature',
+
+    /**
+     * The extra camera profiles.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    EXTRA_CAMERA_PROFILES = 'ExtraCameraProfiles',
+
+    /**
+     * The "as-shot" camera profile.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    AS_SHOT_PROFILE_NAME = 'AsShotProfileName',
+
+    /**
+     * The applied noise reduction.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    NOISE_REDUCTION_APPLIED = 'NoiseReductionApplied',
+
+    /**
+     * The profile name.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    PROFILE_NAME = 'ProfileName',
+
+    /**
+     * The profile hue/saturation map dimensions.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    PROFILE_HUE_SAT_MAP_DIMS = 'ProfileHueSatMapDims',
+
+    /**
+     * The first hue/saturation mapping table data.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    PROFILE_HUE_SAT_MAP_DATA1 = 'ProfileHueSatMapData1',
+
+    /**
+     * The second hue/saturation mapping table data.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    PROFILE_HUE_SAT_MAP_DATA2 = 'ProfileHueSatMapData2',
+
+    /**
+     * The profile tone curve.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    PROFILE_TONE_CURVE = 'ProfileToneCurve',
+
+    /**
+     * The profile embed policy.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    PROFILE_EMBED_POLICY = 'ProfileEmbedPolicy',
+
+    /**
+     * The profile copyright.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    PROFILE_COPYRIGHT = 'ProfileCopyright',
+
+    /**
+     * The first forward matrix.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    FORWARD_MATRIX1 = 'ForwardMatrix1',
+
+    /**
+     * The second forward matrix.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    FORWARD_MATRIX2 = 'ForwardMatrix2',
+
+    /**
+     * The preview application name.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    PREVIEW_APPLICATION_NAME = 'PreviewApplicationName',
+
+    /**
+     * The preview application version.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    PREVIEW_APPLICATION_VERSION = 'PreviewApplicationVersion',
+
+    /**
+     * The preview settings name.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    PREVIEW_SETTINGS_NAME = 'PreviewSettingsName',
+
+    /**
+     * The preview settings digest.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    PREVIEW_SETTINGS_DIGEST = 'PreviewSettingsDigest',
+
+    /**
+     * The preview color space.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    PREVIEW_COLOR_SPACE = 'PreviewColorSpace',
+
+    /**
+     * The preview date time.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    PREVIEW_DATE_TIME = 'PreviewDateTime',
+
+    /**
+     * An MD5 digest of the raw image data.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    RAW_IMAGE_DIGEST = 'RawImageDigest',
+
+    /**
+     * An MD5 digest of the data stored in the OriginalRawFileData.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    ORIGINAL_RAW_FILE_DIGEST = 'OriginalRawFileDigest',
+
+    /**
+     * The sub‑tile block size.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    SUB_TILE_BLOCK_SIZE = 'SubTileBlockSize',
+
+    /**
+     * The row interleave factor.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    ROW_INTERLEAVE_FACTOR = 'RowInterleaveFactor',
+
+    /**
+     * The profile look table dimensions.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    PROFILE_LOOK_TABLE_DIMS = 'ProfileLookTableDims',
+
+    /**
+     * The profile look table data.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    PROFILE_LOOK_TABLE_DATA = 'ProfileLookTableData',
+
+    /**
+     * The first opcode list.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    OPCODE_LIST1 = 'OpcodeList1',
+
+    /**
+     * The second opcode list.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    OPCODE_LIST2 = 'OpcodeList2',
+
+    /**
+     * The third opcode list.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    OPCODE_LIST3 = 'OpcodeList3',
+
+    /**
+     * The noise profile.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    NOISE_PROFILE = 'NoiseProfile',
+
+    /**
+     * The original default final size.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    ORIGINAL_DEFAULT_FINAL_SIZE = 'OriginalDefaultFinalSize',
+
+    /**
+     * The original best quality final size.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    ORIGINAL_BEST_QUALITY_FINAL_SIZE = 'OriginalBestQualityFinalSize',
+
+    /**
+     * The original default crop size.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    ORIGINAL_DEFAULT_CROP_SIZE = 'OriginalDefaultCropSize',
+
+    /**
+     * The profile hue/saturation map encoding.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    PROFILE_HUE_SAT_MAP_ENCODING = 'ProfileHueSatMapEncoding',
+
+    /**
+     * The profile look table encoding.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    PROFILE_LOOK_TABLE_ENCODING = 'ProfileLookTableEncoding',
+
+    /**
+     * The baseline exposure offset.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    BASELINE_EXPOSURE_OFFSET = 'BaselineExposureOffset',
+
+    /**
+     * The default black render.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    DEFAULT_BLACK_RENDER = 'DefaultBlackRender',
+
+    /**
+     * A modified MD5 digest of the raw image data.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    NEW_RAW_IMAGE_DIGEST = 'NewRawImageDigest',
+
+    /**
+     * The gain between the main raw IFD and the preview IFD.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    RAW_TO_PREVIEW_GAIN = 'RawToPreviewGain',
+
+    /**
+     * The default user crop.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    DEFAULT_USER_CROP = 'DefaultUserCrop',
   }
 
   /**
@@ -10821,6 +11670,924 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     setBlob(blob: ArrayBuffer): Promise<void>;
   }
 
+/**
+   * DNG metadata.
+   *
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  class DngMetadata {
+    /**
+     * The DNG version.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly dngVersion?: int[];
+
+    /**
+     * The DNG backward compatibility version.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly dngBackwardVersion?: int[];
+
+    /**
+     * A unique camera model.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly uniqueCameraModel?: string;
+
+    /**
+     * A localized camera model.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly localizedCameraModel?: string;
+
+    /**
+     * The CFA (color filter array) plane color.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly cfaPlaneColor?: int[];
+
+    /**
+     * The CFA (color filter array) layout.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly cfaLayout?: int;
+
+    /**
+     * The linearization table.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly linearizationTable?: int[];
+
+    /**
+     * The black level repeat dimension.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly blackLevelRepeatDim?: int[];
+
+    /**
+     * The zero-light encoding level.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly blackLevel?: double[];
+
+    /**
+     * The black level delta H.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly blackLevelDeltaH?: double[];
+
+    /**
+     * The black level delta V.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly blackLevelDeltaV?: double[];
+
+    /**
+     * The white level.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly whiteLevel?: double[];
+
+    /**
+     * The default scale.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly defaultScale?: double[];
+
+    /**
+     * The default crop origin.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly defaultCropOrigin?: double[];
+
+    /**
+     * The default crop size.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly defaultCropSize?: int[];
+
+    /**
+     * A transformation matrix under the first calibration illuminant.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly colorMatrix1?: double[];
+
+    /**
+     * A transformation matrix under the second calibration illuminant.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly colorMatrix2?: double[];
+
+    /**
+     * A calibration matrix under the first calibration illuminant.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly cameraCalibration1?: double[];
+
+    /**
+     * A calibration matrix under the second calibration illuminant.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly cameraCalibration2?: double[];
+
+    /**
+     * A dimensionality reduction matrix under the first calibration illuminant.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly reductionMatrix1?: double[];
+
+    /**
+     * A dimensionality reduction matrix under the second calibration illuminant.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly reductionMatrix2?: double[];
+
+    /**
+     * The analog balance.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly analogBalance?: double[];
+
+    /**
+     * The as-shot neutral.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly asShotNeutral?: double[];
+
+    /**
+     * The as-shot white, encoded as x-y chromaticity coordinates.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly asShotWhiteXY?: double[];
+
+    /**
+     * The baseline exposure.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly baselineExposure?: double;
+
+    /**
+     * The baseline noise.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly baselineNoise?: double;
+
+    /**
+     * The baseline sharpness.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly baselineSharpness?: double;
+
+    /**
+     * The Bayer green split.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly bayerGreenSplit?: int;
+
+    /**
+     * The linear response limit.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly linearResponseLimit?: double[];
+
+    /**
+     * The serial number of the camera.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly cameraSerialNumber?: string;
+
+    /**
+     * Information about the lens.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly lensInfo?: double[];
+
+    /**
+     * The chroma blur radius.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly chromaBlurRadius?: double;
+
+    /**
+     * The anti-alias strength.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly antiAliasStrength?: double;
+
+    /**
+     * The shadow scale.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly shadowScale?: double;
+
+    /**
+     * The private data.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly dngPrivateData?: ArrayBuffer;
+
+    /**
+     * Whether the EXIF MakerNote tag is safe.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly makerNoteSafety?: boolean;
+
+    /**
+     * The first calibration illuminant.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly calibrationIlluminant1?: int;
+
+    /**
+     * The second calibration illuminant.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly calibrationIlluminant2?: int;
+
+    /**
+     * The best quality scale.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly bestQualityScale?: double;
+
+    /**
+     * The unique identifier of raw image data.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly rawDataUniqueID?: string;
+
+    /**
+     * The original raw file name.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly originalRawFileName?: string;
+
+    /**
+     * The original raw file data.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly originalRawFileData?: ArrayBuffer;
+
+    /**
+     * The active area.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly activeArea?: int[];
+
+    /**
+     * The masked areas.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly maskedAreas?: int[];
+
+    /**
+     * An ICC profile.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly asShotICCProfile?: ArrayBuffer;
+
+    /**
+     * The as-shot pre-profile matrix.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly asShotPreProfileMatrix?: double[];
+
+    /**
+     * The current ICC profile.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly currentICCProfile?: ArrayBuffer;
+
+    /**
+     * The current pre-profile matrix.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly currentPreProfileMatrix?: double[];
+
+    /**
+     * The colorimetric reference.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly colorimetricReference?: int;
+
+    /**
+     * The camera calibration signature.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly cameraCalibrationSignature?: string;
+
+    /**
+     * The profile calibration signature.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly profileCalibrationSignature?: string;
+
+    /**
+     * The extra camera profiles.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly extraCameraProfiles?: int[];
+
+    /**
+     * The as-shot camera profile.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly asShotProfileName?: string;
+
+    /**
+     * The applied noise reduction.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly noiseReductionApplied?: double;
+
+    /**
+     * The profile name.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly profileName?: string;
+
+    /**
+     * The profile hue/saturation map dims.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly profileHueSatMapDims?: int[];
+
+    /**
+     * The first hue/saturation mapping table data.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly profileHueSatMapData1?: double[];
+
+    /**
+     * The second hue/saturation mapping table data.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly profileHueSatMapData2?: double[];
+
+    /**
+     * The profile tone curve.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly profileToneCurve?: double[];
+
+    /**
+     * The profile embed policy.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly profileEmbedPolicy?: int;
+
+    /**
+     * The profile copyright.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly profileCopyright?: string;
+
+    /**
+     * The first forward matrix.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly forwardMatrix1?: double[];
+
+    /**
+     * The second forward matrix.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly forwardMatrix2?: double[];
+
+    /**
+     * The preview application name.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly previewApplicationName?: string;
+
+    /**
+     * The preview application version.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly previewApplicationVersion?: string;
+
+    /**
+     * The preview settings name.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly previewSettingsName?: string;
+
+    /**
+     * The preview settings digest.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly previewSettingsDigest?: string;
+
+    /**
+     * The preview color space.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly previewColorSpace?: int;
+
+    /**
+     * The preview date time.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly previewDateTime?: string;
+
+    /**
+     * An MD5 digest of the raw image data.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly rawImageDigest?: string;
+
+    /**
+     * An MD5 digest of the data stored in the OriginalRawFileData.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly originalRawFileDigest?: string;
+
+    /**
+     * The sub‑tile block size.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly subTileBlockSize?: int[];
+
+    /**
+     * The row interleave factor.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly rowInterleaveFactor?: int;
+
+    /**
+     * The profile lookup table dimensions.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly profileLookTableDims?: int[];
+
+    /**
+     * The profile lookup table data.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly profileLookTableData?: double[];
+
+    /**
+     * The first opcode list.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly opcodeList1?: ArrayBuffer;
+
+    /**
+     * The second opcode list.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly opcodeList2?: ArrayBuffer;
+
+    /**
+     * The third opcode list.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly opcodeList3?: ArrayBuffer;
+
+    /**
+     * The noise profile.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly noiseProfile?: double[];
+
+    /**
+     * The original default final size.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly originalDefaultFinalSize?: int[];
+
+    /**
+     * The original best quality final size.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly originalBestQualityFinalSize?: int[];
+
+    /**
+     * The original default crop size.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly originalDefaultCropSize?: double[];
+
+    /**
+     * The profile hue/saturation map encoding.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly profileHueSatMapEncoding?: int;
+
+    /**
+     * The profile lookup table encoding.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly profileLookTableEncoding?: int;
+
+    /**
+     * The baseline exposure offset.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly baselineExposureOffset?: double;
+
+    /**
+     * The default black render.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly defaultBlackRender?: int;
+
+    /**
+     * A modified MD5 digest of the raw image data.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly newRawImageDigest?: string;
+
+    /**
+     * The gain between the main raw IFD and the preview IFD.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly rawToPreviewGain?: double;
+
+    /**
+     * The default user crop.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly defaultUserCrop?: int[];
+  }
+
+  /**
+   * Enumerates the properties available for the metadata of a WebP image.
+   *
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  enum WebPPropertyKey {
+    /**
+     * Canvas Width.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    CANVAS_WIDTH = 'WebPCanvasWidth',
+
+    /**
+     * Canvas Height.
+     * 
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    CANVAS_HEIGHT = 'WebPCanvasHeight',
+
+    /**
+     * Delay of each frame in milliseconds.
+     * 
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    DELAY_TIME = 'WebPDelayTime',
+
+    /**
+     * Unclamped delay of each frame in milliseconds.
+     * 
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    UNCLAMPED_DELAY_TIME = 'WebPUnclampedDelayTime',
+
+    /**
+     * Loop count.
+     * 
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    LOOP_COUNT = 'WebPLoopCount',
+  }
+
+  /**
+   * WebP metadata.
+   * 
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  class WebPMetadata {
+    /**
+     * Canvas Width.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly canvasWidth?: int;
+
+    /**
+     * Canvas Height.
+     * 
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly canvasHeight?: int;
+
+    /**
+     * Delay of each frame in milliseconds.
+     * 
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly delayTime?: int;
+
+    /**
+     * Unclamped delay of each frame in milliseconds.
+     * 
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly unclampedDelayTime?: int;
+
+    /**
+     * Loop count.
+     * 
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly loopCount?: int;
+  }
+
   /**
    * Metadata set of an image.
    *
@@ -10859,6 +12626,25 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 23 dynamic&static
      */
     heifsMetadata?: HeifsMetadata;
+
+    /**
+     * Dng metadata.
+     *
+     * @type { ?DngMetadata }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    dngMetadata?: DngMetadata;
+
+    /**
+     * WebP metadata.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    webPMetadata?: WebPMetadata;
   }
 
   /**
@@ -10879,6 +12665,27 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 23 static
      */
     desiredAuxiliaryPictures: Array<AuxiliaryPictureType>;
+
+    /**
+     * Desired size of the main pixel map. The value (0, 0) indicates that the pixels are decoded
+     * based on the original image size.
+     *
+     * @type { ?Size }
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    desiredSizeForMainPixelMap?: Size;
+
+    /**
+     * Desired Pixel format, RGBA_8888\BGRA_8888\RGB_565\NV12\NV21 are supported.
+     *
+     * @type { ?PixelMapFormat }
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    desiredPixelFormat?: PixelMapFormat;
   }
 
    /**
@@ -10939,6 +12746,36 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 23 static
      */
      colorSpace: colorSpaceManager.ColorSpaceManager;
+  }
+
+  /**
+   * Describes raw data in an image.
+   *
+   * @typedef ImageRawData
+   * @syscap SystemCapability.Multimedia.Image.ImageSource
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  interface ImageRawData {  
+    /**
+     * Binary data of the raw image.
+     *
+     * @type { ArrayBuffer }
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    buffer: ArrayBuffer;
+
+    /**
+     * Number of bits that each pixel actually occupies in the buffer data.
+     *
+     * @type { int }
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    bitsPerPixel: int;
   }
 
   /**
@@ -12106,6 +13943,25 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     modifyImagePropertiesEnhanced(records: Record<string, string | null>): Promise<void>;
 
     /**
+     * Modify the value of properties in an image with the specified keys.The HwMnote read-only key is supported.
+     *
+     * @param { Record<string, string|null> } records - Property Records whose values are to be modified,
+     *     when the value is set to null the tag will be removed.
+     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails,
+     *     an error message is returned.
+     * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
+     * @throws { BusinessError } 7700102 - Unsupported MIME type.
+     * @throws { BusinessError } 7700202 - Unsupported metadata. For example, the property key is not supported,
+     *     or the property value is invalid.
+     * @throws { BusinessError } 7700304 - Failed to write image properties to the file.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    modifyImageAllProperties(records: Record<string, string|null>): Promise<void>;
+
+    /**
      * Update the data in the incremental ImageSource.
      *
      * @param { ArrayBuffer } buf The data to be updated.
@@ -12227,13 +14083,27 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Creates a Picture object based on image decoding parameters. This method uses a promise to
      * return the object.
      *
-     * @param { DecodingOptionsForPicture } options Image decoding parameters.
+     * @param { DecodingOptionsForPicture } options - Image decoding parameters.
      * @returns { Promise<Picture> } A Promise instance used to return the Picture object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified.
      * 2.Incorrect parameter types; 3.Parameter verification failed.
-     * @throws { BusinessError } 7700301 - Failed to decode image.
+     * @throws { BusinessError } 7700301 - Decode failed.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @since 13 dynamic
+     */
+    /**
+     * Creates a Picture object based on image decoding parameters. This method uses a promise to
+     * return the object.
+     *
+     * @param { DecodingOptionsForPicture } options - Image decoding parameters.
+     * @returns { Promise<Picture> } A Promise instance used to return the Picture object.
+     * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types; 3.Parameter verification failed.
+     * @throws { BusinessError } 7700203 - Unsupported options. For example, unsupported desiredPixelFormat causes
+     * a failure in converting an image into the desired pixel format.
+     * @throws { BusinessError } 7700301 - Decode failed.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @since 24 dynamic
      */
     createPicture(options?: DecodingOptionsForPicture): Promise<Picture>
 
@@ -12380,6 +14250,35 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 23 static
      */
     isJpegProgressive(): Promise<boolean>;
+
+    /**
+     * Read metadata of the image source, use metadataType to specify metadata of interest. If metadataType
+     * is not specified, all supported metadata will be returned.
+     *
+     * @param { MetadataType[] } [metadataTypes] - Metadata of interest.
+     * @param { int }[index] - Index of interest, default is 0.
+     * @returns { Promise<ImageMetadata> } Promise that returns the metadata of the image source.
+     * @throws { BusinessError } 7700102 - Unsupported MIME type.
+     * @throws { BusinessError } 7700202 - Unsupported metadata.
+     * @throws { BusinessError } 7700204 - Invalid parameter. Possible causes: 1.The index is negative.
+     * 2. The index is greater than or equal to the number of frames in the image.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readImageMetadataByType(metadataTypes?: MetadataType[], index?: int): Promise<ImageMetadata>;
+
+    /**
+    * Obtains raw data from an image.
+    *
+    * @returns { Promise<ImageRawData> } A Promise instance used to return image raw data.
+    * @throws { BusinessError } 7700101 - Bad source.
+    * @throws { BusinessError } 7700102 - Unsupported MIME type.
+    * @syscap SystemCapability.Multimedia.Image.ImageSource
+    * @stagemodelonly
+    * @since 24 dynamic&static
+    */
+    createImageRawData(): Promise<ImageRawData>
   }
 
   /**

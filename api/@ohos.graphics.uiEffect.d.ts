@@ -234,6 +234,7 @@ declare namespace uiEffect {
 
     /**
     * Applies a high dynamic range (HDR) brightness enhancement filter to the component.
+    * 
     * @param { double } ratio - The brightness multiplier ratio (1.0 = original, >1.0 = brighter).
     * @returns { Filter } - Returns hdr brightness Filter.
     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -241,6 +242,17 @@ declare namespace uiEffect {
     * @systemapi
     * @since 20 dynamic
     * @since 23 static
+    */
+   /**
+    * Applies a high dynamic range (HDR) brightness enhancement filter to the component.
+    * 
+    * @permission ohos.permission.HDR_BRIGHTNESS
+    * @param { double } ratio - The brightness multiplier ratio (1.0 = original, >1.0 = brighter).
+    * @returns { Filter } - Returns hdr brightness Filter.
+    * @throws { BusinessError } 201 - Permission verification failed.
+    *     The application does not have the permission required to call the API.
+    * @syscap SystemCapability.Graphics.Drawing
+    * @since 24 dynamic&static
     */
     hdrBrightnessRatio(ratio: double): Filter;
 
@@ -1091,6 +1103,13 @@ declare namespace uiEffect {
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12 dynamic
    * @since 23 static
+   */
+  /**
+   * Create a VisualEffect to add multiple effects to the component.
+   * @returns { VisualEffect } Returns the head node of visualEffect.
+   * @syscap SystemCapability.Graphics.Drawing
+   * @form
+   * @since 24 dynamic&static
    */
   function createEffect(): VisualEffect;
 
