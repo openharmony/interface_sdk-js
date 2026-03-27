@@ -7222,6 +7222,19 @@ declare namespace audio {
      * @since 23 static
      */
     forceVolumeKeyControlType(volumeType: AudioVolumeType, duration: int): void;
+
+    /**
+     * Obtains the Volume information of the active audio streams.
+     *
+     * @returns { ActiveStreamsVolumeInfoArray } Returns the result.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 6800301 - System error, crash or blocking occurs in system process.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    getActiveStreamsVolumeInfo(): ActiveStreamsVolumeInfoArray;
   }
 
   /**
@@ -9536,6 +9549,59 @@ declare namespace audio {
      */
     previousVolume?: int;
   }
+
+  /**
+   * Volume information for active audio streams.
+   *
+   * @typedef ActiveStreamVolumeInfo
+   * @syscap SystemCapability.Multimedia.Audio.Volume
+   * @systemapi
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  interface ActiveStreamVolumeInfo {
+    /**
+     * Volume type of the current stream.
+     *
+     * @type { AudioVolumeType }
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    volumeType: AudioVolumeType;
+    /**
+     * Volume of the application.
+     *
+     * @type { int }
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    appVolume: int;
+    /**
+     * UID of the application.
+     *
+     * @type { int }
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    clientUid: int;
+  }
+
+  /**
+   * ActiveStreamVolumeInfo array.
+   *
+   * @typedef { Array<Readonly<ActiveStreamVolumeInfo>> }
+   * @syscap SystemCapability.Multimedia.Audio.Volume
+   * @systemapi
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  type ActiveStreamsVolumeInfoArray = Array<Readonly<ActiveStreamVolumeInfo>>;
 
   /**
    * Describes the callback invoked for audio interruption or focus gain events.When the audio of an application
