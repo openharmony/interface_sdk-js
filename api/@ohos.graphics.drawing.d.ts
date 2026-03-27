@@ -2557,6 +2557,16 @@ declare namespace drawing {
     buildFromSvgString(str: string): boolean;
 
     /**
+     * Converts path to an SVG string.
+     *
+     * @returns { string } The SVG string of the path.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    convertToSvgString(): string;
+
+    /**
      * Get pathIterator from path.
      *
      * @returns { PathIterator } Indicates the pointer to an pathIterator object.
