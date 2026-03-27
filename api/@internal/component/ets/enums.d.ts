@@ -405,14 +405,14 @@ declare enum Color {
   Orange,
 
   /**
-   * color.
+   * Pink.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @since 7
    */
   /**
-   * color.
+   * Pink.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -420,7 +420,7 @@ declare enum Color {
    * @since 9
    */
   /**
-   * color.
+   * Pink.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -429,7 +429,7 @@ declare enum Color {
    * @since 10
    */
   /**
-   * color.
+   * Pink.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
