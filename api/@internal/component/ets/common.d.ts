@@ -12653,6 +12653,116 @@ declare interface MouseEvent extends BaseEvent {
    * @since 24 dynamic
    */
   eventHandleId?: number;
+
+  /**
+   * Obtains all historical points of the current frame.
+   *
+   * @returns { Array<MouseHistoricalPoint> } - All historical points of the mouse event.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  getHistoricalPoints?(): Array<MouseHistoricalPoint>;
+}
+
+/**
+ * Defines the historical point information for mouse event.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare interface MouseHistoricalPoint {
+  /**
+   * X coordinate of the mouse pointer relative to the upper left corner of the current component, in vp.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  x: double;
+
+  /**
+   * Y coordinate of the mouse pointer relative to the upper left corner of the current component, in vp.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  y: double;
+
+  /**
+   * X coordinate of the mouse pointer relative to the upper left corner of the application screen, in vp.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  displayX: double;
+
+  /**
+   * Y coordinate of the mouse pointer relative to the upper left corner of the application screen, in vp.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  displayY: double;
+
+  /**
+   * X coordinate of the mouse pointer relative to the upper left corner of the application window, in vp.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  windowX: double;
+
+  /**
+   * Y coordinate of the mouse pointer relative to the upper left corner of the application window, in vp.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  windowY: double;
+
+  /**
+   * X coordinate of the point relative to the global display, in vp.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  globalDisplayX: double;
+
+  /**
+   * Y coordinate of the point relative to the global display, in vp.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  globalDisplayY: double;
+
+  /**
+   * Timestamp of the mouse event.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  timestamp: long;
 }
 
 /**
