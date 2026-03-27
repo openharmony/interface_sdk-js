@@ -9901,12 +9901,12 @@ declare namespace photoAccessHelper {
 
     /**
      * Support displaying index numbers.
-     *
      * @type { ?boolean }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @stagemodelonly
      * @atomicservice
-     * @since 23 dynamic&static
+     * @since 24 dynamic
+     * @since 26.0.0 static
      */
     isSelectionNumberVisible?: boolean;
     
