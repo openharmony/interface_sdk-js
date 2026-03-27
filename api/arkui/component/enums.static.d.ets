@@ -798,7 +798,16 @@ export declare enum KeyType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
-  Up = 1
+  Up = 1,
+
+  /**
+   * The key event is canceled.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  CANCEL = 3,
 }
 
 /**
@@ -4404,4 +4413,159 @@ export enum SystemProperties {
    * @since 24 static
    */
   WINDOW_SIZE_PX = 'system.window.size.px'
+}
+
+/**
+ * Defines the input event subtype mask for monitoring.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare enum InputEventSubTypeMask {
+  /**
+   * Mouse left button down.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  LEFT_MOUSE_DOWN = 1 << 0,
+
+  /**
+   * Mouse left button up.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  LEFT_MOUSE_UP = 1 << 1,
+
+  /**
+   * Mouse right button down.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  RIGHT_MOUSE_DOWN = 1 << 2,
+
+  /**
+   * Mouse right button up.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  RIGHT_MOUSE_UP = 1 << 3,
+
+  /**
+   * Mouse middle button down.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  MIDDLE_MOUSE_DOWN = 1 << 4,
+
+  /**
+   * Mouse middle button up.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  MIDDLE_MOUSE_UP = 1 << 5,
+
+  /**
+   * Mouse left button dragging.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  LEFT_MOUSE_DRAGGING = 1 << 6,
+
+  /**
+   * Mouse right button dragging.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  RIGHT_MOUSE_DRAGGING = 1 << 7,
+
+  /**
+   * Mouse middle button dragging.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  MIDDLE_MOUSE_DRAGGING = 1 << 8,
+
+  /**
+   * Touch down.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  TOUCH_DOWN = 1 << 9,
+
+  /**
+   * Touch up.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  TOUCH_UP = 1 << 10,
+
+  /**
+   * Physical keyboard key down.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  KEY_DOWN = 1 << 11,
+
+  /**
+   * Physical keyboard key up.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  KEY_UP = 1 << 12
+}
+
+/**
+ * Defines the input event intercept action.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare enum InputEventInterceptAction {
+  /**
+   * Continue to deliver the event to the UI framework.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  CONTINUE,
+
+  /**
+   * Block the event from being delivered to the UI framework.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  BLOCK
 }
