@@ -11881,6 +11881,16 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 24 dynamic
    */
   enableDefaultContextMenu(enable: boolean): WebAttribute;
+  /**
+   * Sets the scrollbar layout policy.
+   *
+   * @param { ScrollbarLayoutPolicy } policy - The layout policy to apply.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  scrollbarLayoutPolicy(policy: ScrollbarLayoutPolicy): WebAttribute;
 
   /**
    * Enables or disables dragging for this component.
@@ -12548,6 +12558,34 @@ declare enum MicrophoneCaptureState {
    * @since 23 dynamic
    */
   ACTIVE = 2,
+}
+
+/**
+ * Defines the layout policy for scrollbars, used with {@link scrollbarLayoutPolicy}.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.Web.Webview.Core
+ * @stagemodelonly
+ * @since 26.0.0 dynamic
+ */
+declare enum ScrollbarLayoutPolicy {
+  /**
+   * Adheres to W3C standards (CSS/HTML/XHTML) for scrollbar layout.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  CONTENT = 0,
+
+  /**
+   * Follows the system UI conventions for scrollbar layout in the system language.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  SYSTEM = 1
 }
 
 /**
