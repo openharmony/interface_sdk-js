@@ -11880,7 +11880,8 @@ declare namespace window {
     setSingleFrameComposerEnabled(enable: boolean): Promise<void>;
 
     /**
-     * When get focused, keep the keyboard created by other windows, support system window and app subwindow.
+     * When get focused, keep the keyboard created by other windows,
+     * support system window, app subwindow, float window, and dialog window.
      *
      * @param { boolean } keepKeyboardFlag - keep the keyboard if true, otherwise means the opposite.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
@@ -11892,7 +11893,8 @@ declare namespace window {
      * @since 11
      */
     /**
-     * When get focused, keep the keyboard created by other windows, support system window and app subwindow.
+     * When get focused, keep the keyboard created by other windows,
+     * support system window, app subwindow, float window, and dialog window.
      *
      * @param { boolean } keepKeyboardFlag - Whether to keep the soft keyboard created by others.
      * The value true means to keep the soft keyboard, and false means the opposite.
