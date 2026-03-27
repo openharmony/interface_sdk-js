@@ -65,7 +65,7 @@ declare namespace osAccount {
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
-  function isDomainAccountSupported(): Promise<boolean>
+  function isDomainAccountSupported(): Promise<boolean>;
 
   /**
    * Provides abilities for you to manage and perform operations on your OS accounts.
@@ -919,7 +919,7 @@ declare namespace osAccount {
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    getOsAccountLocalIds(): Promise<int[]>
+    getOsAccountLocalIds(): Promise<int[]>;
 
     /**
      * Obtains the number of all OS accounts created on a device.
