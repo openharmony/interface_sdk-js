@@ -906,7 +906,7 @@ declare interface GridRowOptions {
 }
 
 /**
- * Defines the the new version of grid-container component.
+ * Defines the new version of grid-container component.
  *
  * @interface GridRowInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -914,7 +914,7 @@ declare interface GridRowOptions {
  * @since 9
  */
 /**
- * Defines the the new version of grid-container component.
+ * Defines the new version of grid-container component.
  *
  * @interface GridRowInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -923,7 +923,7 @@ declare interface GridRowOptions {
  * @since 10
  */
 /**
- * Defines the the new version of grid-container component.
+ * Defines the new version of grid-container component.
  *
  * @interface GridRowInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
