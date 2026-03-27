@@ -7272,6 +7272,7 @@ export declare interface PopupCommonOptions {
      *
      * @type { ?SystemUiMaterial }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
      * @stagemodelonly
      * @since 26.0.0 static
      */
@@ -7702,6 +7703,7 @@ export declare interface PopupOptions {
      *
      * @type { ?SystemUiMaterial }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
      * @stagemodelonly
      * @since 26.0.0 static
      */
@@ -8046,6 +8048,7 @@ export declare interface CustomPopupOptions {
      *
      * @type { ?SystemUiMaterial }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
      * @stagemodelonly
      * @since 26.0.0 static
      */
