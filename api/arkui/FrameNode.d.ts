@@ -2104,16 +2104,17 @@ export namespace typeNode {
    */
   /**
    * Bind the controller of FrameNode.
-   * From API 15 to API 25, if the node is not created using ArkTS, cross-language access must be enabled; otherwise, 
-   * an exception is returned. This API does not support declaratively created nodes from API 15 to API 25.
-   * 
+   * From API version 15 to API version 24, if the node is not created using ArkTS, cross-language access must be
+   * enabled; otherwise, an exception is returned.
+   * This API does not support declaratively created nodes from API version 15 to API version 24.
+   *
    * @param { FrameNode } node - the target FrameNode.
    * @param { Scroller } controller - the controller which is bind to the target FrameNode.
    * @param { 'Scroll' } nodeType - node type.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. the type of the node is error.
-   * 2. the node is null or undefined.
-   * @throws { BusinessError } 100021 - The FrameNode is not modifiable. Introduced in API 15 and will not be threw
-   *    above API 25. [since 15 - 25]
+   *     2. the node is null or undefined.
+   * @throws { BusinessError } 100021 - The FrameNode is not modifiable. Introduced in API version 15 and will not
+   *     be threw above API version 24. [since 15 - 24]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -2474,16 +2475,17 @@ export namespace typeNode {
 
   /**
    * Bind the controller of FrameNode.
-   * From API 20 to API 25, if the node is not created using ArkTS, cross-language access must be enabled; otherwise, 
-   * an exception is returned. This API does not support declaratively created nodes from API 20 to API 25.
-   * 
+   * From API version 20 to API version 24, if the node is not created using ArkTS, cross-language access must be
+   * enabled; otherwise, an exception is returned.
+   * This API does not support declaratively created nodes from API version 20 to API version 24.
+   *
    * @param { FrameNode } node - the target FrameNode.
    * @param { Scroller } controller - the controller which is bind to the target FrameNode.
    * @param { 'List' } nodeType - node type.
-   * @throws { BusinessError } 100023 - Parameter error. Possible causes: 1. The component type of the node
-   * is incorrect. 2. The node is null or undefined. 3. The controller is null or undefined.
-   * @throws { BusinessError } 100021 - The FrameNode is not modifiable. Introduced in API 20 and will not be threw
-   *    above API 25. [since 20 - 25]
+   * @throws { BusinessError } 100023 - Parameter error. Possible causes: 1. The component type of the node is
+   *     incorrect. 2. The node is null or undefined. 3. The controller is null or undefined.
+   * @throws { BusinessError } 100021 - The FrameNode is not modifiable. Introduced in API version 20 and will not
+   *     be threw above API version 24. [since 20 - 24]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -2827,16 +2829,17 @@ export namespace typeNode {
 
   /**
    * Bind the controller of FrameNode.
-   * From API 20 to API 25, if the node is not created using ArkTS, cross-language access must be enabled; otherwise, 
-   * an exception is returned. This API does not support declaratively created nodes from API 20 to API 25.
-   * 
+   * From API version 20 to API version 24, if the node is not created using ArkTS, cross-language access must be
+   * enabled; otherwise, an exception is returned.
+   * This API does not support declaratively created nodes from API version  20 to API version 24.
+   *
    * @param { FrameNode } node - the target FrameNode.
    * @param { Scroller } controller - the controller which is bind to the target FrameNode.
    * @param { 'WaterFlow' } nodeType - node type.
    * @throws { BusinessError } 100023 - Parameter error. Possible causes: 1. The component type of the node
-   * is incorrect. 2. The node is null or undefined. 3. The controller is null or undefined.
-   * @throws { BusinessError } 100021 - The FrameNode is not modifiable. Introduced in API 20 and will not be threw
-   *    above API 25. [since 20 - 25]
+   *     is incorrect. 2. The node is null or undefined. 3. The controller is null or undefined.
+   * @throws { BusinessError } 100021 - The FrameNode is not modifiable. Introduced in API version 20 and will not
+   *     be threw above API version 24. [since 20 - 24]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -3766,16 +3769,17 @@ export namespace typeNode {
 
   /**
    * Bind the controller of FrameNode.
-   * From API 20 to API 25, if the node is not created using ArkTS, cross-language access must be enabled; otherwise, 
-   * an exception is returned. This API does not support declaratively created nodes from API 20 to API 25.
-   * 
+   * From API version 20 to API version 24, if the node is not created using ArkTS, cross-language access must be
+   * enabled; otherwise, an exception is returned.
+   * This API does not support declaratively created nodes from API version 20 to API version 24.
+   *
    * @param { FrameNode } node - the target FrameNode.
    * @param { Scroller } controller - the controller which is bind to the target FrameNode.
    * @param { 'Grid' } nodeType - node type.
    * @throws { BusinessError } 100023 - Parameter error. Possible causes: 1. The component type of the node
-   * is incorrect. 2. The node is null or undefined. 3. The controller is null or undefined.
-   * @throws { BusinessError } 100021 - The FrameNode is not modifiable. Introduced in API 20 and will not be threw
-   *    above API 25. [since 20 - 25]
+   *     is incorrect. 2. The node is null or undefined. 3. The controller is null or undefined.
+   * @throws { BusinessError } 100021 - The FrameNode is not modifiable. Introduced in API version 20 and will not
+   *     be threw above API version 24. [since 20 - 24]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
