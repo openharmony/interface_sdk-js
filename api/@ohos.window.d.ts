@@ -4740,7 +4740,7 @@ declare namespace window {
     Promise<Array<image.PixelMap | undefined>>;
 
   /**
-   * Create a subwindow with a specific name and bind parent
+   * Create a subwindow with a specific name and bind parent.
    * The parent window only supports main window.
    * The subwindow follows the parent window to show/hide, but does not follow the parent window to destroy.
    * The subwindow listens to the parent window lifecycle changes through the callback function.
@@ -4756,6 +4756,7 @@ declare namespace window {
    * @throws { BusinessError } 1300001 - Repeated operation.
    *     Possible cause: The window has been created and can not be created again.
    * @throws { BusinessError } 1300002 - This window state is abnormal.
+   *     Possible cause: Internal task error.
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @throws { BusinessError } 1300009 - The parent window is invalid.
    *     Possible cause: The parent window does not exist or has been destroyed.
