@@ -4756,6 +4756,21 @@ declare class Driver {
   screenCap(savePath: string, displayId: int): Promise<boolean>;
 
   /**
+   * Get the current layout information and save as file with json format.
+   * @param { string } savePath - the path where to store the json, must be in the application sandbox directory.
+   * @param { int } [displayId] - the Id of the specified display, default is the displayId of the main screen.
+   * @returns { Promise<boolean> } true if screen-capturing and file-storing are completed successfully,false otherwise.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
+   * @throws { BusinessError } 17000007 - Parameter verification failed.
+   * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   * @test
+   */
+  dumpLayout(savePath: string, displayId?: int): Promise<boolean>;
+
+
+  /**
    * Set the rotation of the device display.
    *
    * @param { DisplayRotation } rotation The target rotation to set.
