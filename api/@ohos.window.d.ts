@@ -95,7 +95,7 @@ declare type TransitionControllerCallback = (context: window.TransitionContext) 
  * Callback function for window event
  * 
  * @param { int } windowId - The id of the window which triggers the event
- * @param { window.WindowEventType } event - Window callback event type 
+ * @param { window.WindowEventType } event - Window callback event type
  * @syscap SystemCapability.Window.SessionManager
  * @stagemodelonly
  * @since 24 dynamic&static
