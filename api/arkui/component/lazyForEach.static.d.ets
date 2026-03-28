@@ -520,8 +520,20 @@ declare type KeyGeneratorFunc<T> = (item: T, index: int) => string;
  * @since 23 static
  * @noninterop
  */
+/**
+ * Enter the value to obtain the LazyForEach.
+ *
+ * @param { IDataSource<T> } dataSource - the array collection to be used in UI
+ * @param { ItemGeneratorFunc<T> } itemGenerator - item generator function
+ * @param { KeyGeneratorFunc<T> } [keyGenerator] - key generator function
+ * @returns { LazyForEachAttribute } LazyForEach attribute
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ * @noninterop
+ */
 @ComponentBuilder
-export declare function LazyForEach<T>(dataSource: IDataSource<T>,
+export declare function LazyForEach<T = Any>(dataSource: IDataSource<T>,
     itemGenerator: ItemGeneratorFunc<T>,
     keyGenerator?: KeyGeneratorFunc<T>,
 ): LazyForEachAttribute;
