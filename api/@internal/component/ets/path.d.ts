@@ -261,7 +261,7 @@ interface PathInterface {
    */
   /**
    * Use new to create Path.
-   * Annonymous Object Rectification.
+   * Anonymous Object Rectification.
    *
    * @param { PathOptions } [options] - path options
    * @returns { PathAttribute }

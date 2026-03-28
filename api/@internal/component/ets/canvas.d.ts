@@ -399,7 +399,7 @@ declare type CanvasTextBaseline = "alphabetic" | "bottom" | "hanging" | "ideogra
 
 /**
  * Sets the image smoothness attribute. The options are as follows:
- * "high": height
+ * "high": high
  * "low": (default)low
  * "medium": medium
  *
@@ -410,7 +410,7 @@ declare type CanvasTextBaseline = "alphabetic" | "bottom" | "hanging" | "ideogra
  */
 /**
  * Sets the image smoothness attribute. The options are as follows:
- * "high": height
+ * "high": high
  * "low": (default)low
  * "medium": medium
  *
@@ -422,7 +422,7 @@ declare type CanvasTextBaseline = "alphabetic" | "bottom" | "hanging" | "ideogra
  */
 /**
  * Sets the image smoothness attribute. The options are as follows:
- * "high": height
+ * "high": high
  * "low": (default)low
  * "medium": medium
  *
@@ -435,7 +435,7 @@ declare type CanvasTextBaseline = "alphabetic" | "bottom" | "hanging" | "ideogra
  */
 /**
  * Sets the image smoothness attribute. The options are as follows:
- * "high": height
+ * "high": high
  * "low": (default)low
  * "medium": medium
  *
