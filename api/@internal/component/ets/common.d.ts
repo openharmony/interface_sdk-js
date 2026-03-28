@@ -33303,6 +33303,20 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   contentEndOffset(offset: number | Resource): T;
 
   /**
+   * Enable left mouse button press-and-drag scrolling.
+   *
+   * @param { boolean | undefined } enabled - Enable left mouse button press-and-drag scrolling.
+   *     <br>Default value: false.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  enableScrollWithMouse(enabled: boolean | undefined): T;
+
+  /**
    * Triggered when the scrollable component scrolls.
    *
    * @param { function } event - callback of scrollable,
