@@ -419,40 +419,6 @@ declare namespace continuationManager {
   function unregisterContinuation(token: number, callback: AsyncCallback<void>): void;
 
   /**
-   * Registers an ability to be hopped with the continuation manager service and obtains the registration token
-   * assigned to the ability.
-   *
-   * @permission ohos.permission.DISTRIBUTED_DATASYNC
-   * @param { AsyncCallback<number> } callback - The AsyncCallback form returns the token generated after connecting to
-   *                                             the flow management service.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16600001 - The system ability works abnormally.
-   * @throws { BusinessError } 16600003 - The number of token registration times has reached the upper limit.
-   * @syscap SystemCapability.Ability.DistributedAbilityManager
-   * @since 9
-   */
-  /**
-   * Registers an ability to be hopped with the continuation manager service and obtains the registration token
-   * assigned to the ability.
-   *
-   * @permission ohos.permission.DISTRIBUTED_DATASYNC
-   * @param { AsyncCallback<int> } callback - The AsyncCallback form returns the token generated after connecting to
-   *                                             the flow management service.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16600001 - The system ability works abnormally.
-   * @throws { BusinessError } 16600003 - The number of token registration times has reached the upper limit.
-   * @syscap SystemCapability.Ability.DistributedAbilityManager
-   * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
-   */
-  function registerContinuation(callback: AsyncCallback<int>): void;
-
-  /**
    * Unregisters the continuation management service. This API uses a promise to return the result.
    *
    * @permission ohos.permission.DISTRIBUTED_DATASYNC
@@ -500,44 +466,6 @@ declare namespace continuationManager {
   ): void;
 
   /**
-   * Registers an ability to be hopped with the continuation manager service and obtains the registration token
-   * assigned to the ability.
-   *
-   * @permission ohos.permission.DISTRIBUTED_DATASYNC
-   * @param { ContinuationExtraParams } options - Indicates the {@link ExtraParams} object containing extra parameters
-   *                                              used to filter the list of available devices.
-   * @param { AsyncCallback<number> } callback - The AsyncCallback form returns the token generated after connecting to
-   *                                             flow management service.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16600001 - The system ability works abnormally.
-   * @throws { BusinessError } 16600003 - The number of token registration times has reached the upper limit.
-   * @syscap SystemCapability.Ability.DistributedAbilityManager
-   * @since 9
-   */
-  /**
-   * Registers an ability to be hopped with the continuation manager service and obtains the registration token
-   * assigned to the ability.
-   *
-   * @permission ohos.permission.DISTRIBUTED_DATASYNC
-   * @param { ContinuationExtraParams } options - Indicates the {@link ExtraParams} object containing extra parameters
-   *                                              used to filter the list of available devices.
-   * @param { AsyncCallback<int> } callback - The AsyncCallback form returns the token generated after connecting to
-   *                                             flow management service.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16600001 - The system ability works abnormally.
-   * @throws { BusinessError } 16600003 - The number of token registration times has reached the upper limit.
-   * @syscap SystemCapability.Ability.DistributedAbilityManager
-   * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
-   */
-  function registerContinuation(options: ContinuationExtraParams, callback: AsyncCallback<int>): void;
-
-  /**
    * Instructs the device selection module to update the device connection state. This API uses a promise to return the
    * result.
    *
@@ -558,44 +486,6 @@ declare namespace continuationManager {
    * @deprecated since 22
    */
   function updateContinuationState(token: number, deviceId: string, status: DeviceConnectState): Promise<void>;
-
-  /**
-   * Registers an ability to be hopped with the continuation manager service and obtains the registration token
-   * assigned to the ability.
-   *
-   * @permission ohos.permission.DISTRIBUTED_DATASYNC
-   * @param { ContinuationExtraParams } [options] - Indicates the {@link ExtraParams} object containing the extra
-   *                                                parameters used to filter the list of available devices.
-   * @returns { Promise<number> } callback Indicates the callback to be invoked when the continuation manager
-   *                              service is connected.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types
-   * <br>2. Parameter verification failed;
-   * @throws { BusinessError } 16600001 - The system ability works abnormally.
-   * @throws { BusinessError } 16600003 - The number of token registration times has reached the upper limit.
-   * @syscap SystemCapability.Ability.DistributedAbilityManager
-   * @since 9
-   */
-  /**
-   * Registers an ability to be hopped with the continuation manager service and obtains the registration token
-   * assigned to the ability.
-   *
-   * @permission ohos.permission.DISTRIBUTED_DATASYNC
-   * @param { ContinuationExtraParams } [options] - Indicates the {@link ExtraParams} object containing the extra
-   *                                                parameters used to filter the list of available devices.
-   * @returns { Promise<int> } callback Indicates the callback to be invoked when the continuation manager
-   *                              service is connected.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
-   * <br>2. Parameter verification failed;
-   * @throws { BusinessError } 16600001 - The system ability works abnormally.
-   * @throws { BusinessError } 16600003 - The number of token registration times has reached the upper limit.
-   * @syscap SystemCapability.Ability.DistributedAbilityManager
-   * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
-   */
-  function registerContinuation(options?: ContinuationExtraParams): Promise<int>;
 
   /**
    * Starts the device selection module to show the list of available devices on the network. This API does not involve
@@ -646,41 +536,6 @@ declare namespace continuationManager {
 
   /**
    * Unregisters a specified ability from the continuation manager service based on the token obtained during ability
-   * registration.
-   *
-   * @permission ohos.permission.DISTRIBUTED_DATASYNC
-   * @param { number } token - Indicates the registration token of the ability.
-   * @param { AsyncCallback<void> } callback - The AsyncCallback form returns token generated after connecting to flow
-   *                                           management service.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16600001 - The system ability works abnormally.
-   * @throws { BusinessError } 16600002 - The specified token or callback is not registered.
-   * @syscap SystemCapability.Ability.DistributedAbilityManager
-   * @since 9
-   */
-  /**
-   * Unregisters a specified ability from the continuation manager service based on the token obtained during ability
-   * registration.
-   *
-   * @permission ohos.permission.DISTRIBUTED_DATASYNC
-   * @param { int } token - Indicates the registration token of the ability.
-   * @param { AsyncCallback<void> } callback - The AsyncCallback form returns token generated after connecting to flow
-   *                                           management service.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16600001 - The system ability works abnormally.
-   * @throws { BusinessError } 16600002 - The specified token or callback is not registered.
-   * @syscap SystemCapability.Ability.DistributedAbilityManager
-   * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
-   */
-  function unregisterContinuation(token: int, callback: AsyncCallback<void>): void;
-
-  /**
    * Starts the device selection module to show the list of available devices on the network. This API uses a promise to
    *  return the result.
    *
@@ -701,40 +556,6 @@ declare namespace continuationManager {
    * @deprecated since 22
    */
   function startContinuationDeviceManager(token: number, options?: ContinuationExtraParams): Promise<void>;
-
-  /**
-   * Unregisters a specified ability from the continuation manager service based on the token obtained during ability
-   * registration.
-   *
-   * @permission ohos.permission.DISTRIBUTED_DATASYNC
-   * @param { number } token - Indicates the registration token of the ability.
-   * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16600001 - The system ability works abnormally.
-   * @throws { BusinessError } 16600002 - The specified token or callback is not registered.
-   * @syscap SystemCapability.Ability.DistributedAbilityManager
-   * @since 9
-   */
-  /**
-   * Unregisters a specified ability from the continuation manager service based on the token obtained during ability
-   * registration.
-   *
-   * @permission ohos.permission.DISTRIBUTED_DATASYNC
-   * @param { int } token - Indicates the registration token of the ability.
-   * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16600001 - The system ability works abnormally.
-   * @throws { BusinessError } 16600002 - The specified token or callback is not registered.
-   * @syscap SystemCapability.Ability.DistributedAbilityManager
-   * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
-   */
-  function unregisterContinuation(token: int): Promise<void>;
 
   /**
    * Device connection state.
@@ -792,47 +613,6 @@ declare namespace continuationManager {
   }
 
   /**
-   * Updates the connection state of the device where the specified ability is successfully hopped.
-   *
-   * @permission ohos.permission.DISTRIBUTED_DATASYNC
-   * @param { number } token - Indicates the registration token of the ability.
-   * @param { string } deviceId - Indicates the ID of the device whose connection state is to be updated.
-   * @param { DeviceConnectState } status - Indicates the connection state to update.
-   * @param { AsyncCallback<void> } callback - AsyncCallback returns the interface call result.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16600001 - The system ability works abnormally.
-   * @throws { BusinessError } 16600002 - The specified token or callback is not registered.
-   * @syscap SystemCapability.Ability.DistributedAbilityManager
-   * @since 9
-   */
-  /**
-   * Updates the connection state of the device where the specified ability is successfully hopped.
-   *
-   * @permission ohos.permission.DISTRIBUTED_DATASYNC
-   * @param { int } token - Indicates the registration token of the ability.
-   * @param { string } deviceId - Indicates the ID of the device whose connection state is to be updated.
-   * @param { DeviceConnectState } status - Indicates the connection state to update.
-   * @param { AsyncCallback<void> } callback - AsyncCallback returns the interface call result.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16600001 - The system ability works abnormally.
-   * @throws { BusinessError } 16600002 - The specified token or callback is not registered.
-   * @syscap SystemCapability.Ability.DistributedAbilityManager
-   * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
-   */
-  function updateContinuationState(
-    token: int,
-    deviceId: string,
-    status: DeviceConnectState,
-    callback: AsyncCallback<void>
-  ): void;
-
-  /**
    * Enumerates the continuation modes provided by the device selection module.
    *
    * @syscap SystemCapability.Ability.DistributedAbilityManager
@@ -865,44 +645,6 @@ declare namespace continuationManager {
     COLLABORATION_MULTIPLE = 1
   }
 
-  /**
-   * Updates the connection state of the device where the specified ability is successfully hopped.
-   *
-   * @permission ohos.permission.DISTRIBUTED_DATASYNC
-   * @param { number } token - Indicates the registration token of the ability.
-   * @param { string } deviceId - Indicates the ID of the device whose connection state is to be updated.
-   * @param { DeviceConnectState } status - Indicates the connection state to update.
-   * @returns { Promise<void> } callback Indicates the callback to be invoked when the continuation manager service
-   *                            is connected.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16600001 - The system ability works abnormally.
-   * @throws { BusinessError } 16600002 - The specified token or callback is not registered.
-   * @syscap SystemCapability.Ability.DistributedAbilityManager
-   * @since 9
-   */
-  /**
-   * Updates the connection state of the device where the specified ability is successfully hopped.
-   *
-   * @permission ohos.permission.DISTRIBUTED_DATASYNC
-   * @param { int } token - Indicates the registration token of the ability.
-   * @param { string } deviceId - Indicates the ID of the device whose connection state is to be updated.
-   * @param { DeviceConnectState } status - Indicates the connection state to update.
-   * @returns { Promise<void> } callback Indicates the callback to be invoked when the continuation manager service
-   *                            is connected.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16600001 - The system ability works abnormally.
-   * @throws { BusinessError } 16600002 - The specified token or callback is not registered.
-   * @syscap SystemCapability.Ability.DistributedAbilityManager
-   * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
-   */
-  function updateContinuationState(token: int, deviceId: string, status: DeviceConnectState): Promise<void>;
-
 
   /**
    * Defines the device information returned by the continuation management entry.
@@ -928,114 +670,6 @@ declare namespace continuationManager {
    * @useinstead @ohos.distributedDeviceManager:distributedDeviceManager.DeviceBasicInfo
    */
   export type ContinuationExtraParams = _ContinuationExtraParams;
-
-  /**
-   * Start to manage the devices that can be selected for continuation.
-   *
-   * @permission ohos.permission.DISTRIBUTED_DATASYNC
-   * @param { number } token - Indicates the registration token of the ability.
-   * @param { AsyncCallback<void> } callback - AsyncCallback returns the interface call result.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16600001 - The system ability works abnormally.
-   * @throws { BusinessError } 16600002 - The specified token or callback is not registered.
-   * @syscap SystemCapability.Ability.DistributedAbilityManager
-   * @since 9
-   */
-  /**
-   * Start to manage the devices that can be selected for continuation.
-   *
-   * @permission ohos.permission.DISTRIBUTED_DATASYNC
-   * @param { int } token - Indicates the registration token of the ability.
-   * @param { AsyncCallback<void> } callback - AsyncCallback returns the interface call result.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16600001 - The system ability works abnormally.
-   * @throws { BusinessError } 16600002 - The specified token or callback is not registered.
-   * @syscap SystemCapability.Ability.DistributedAbilityManager
-   * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
-   */
-  function startContinuationDeviceManager(token: int, callback: AsyncCallback<void>): void;
-
-  /**
-   * Start to manage the devices that can be selected for continuation.
-   *
-   * @permission ohos.permission.DISTRIBUTED_DATASYNC
-   * @param { number } token - Indicates the registration token of the ability.
-   * @param { ContinuationExtraParams } options - Indicates the extraParams object containing the extra parameters
-   *                                            used to filter list of available devices. This parameter can be null.
-   * @param { AsyncCallback<void> } callback - AsyncCallback form returns the interface call result.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16600001 - The system ability works abnormally.
-   * @throws { BusinessError } 16600002 - The specified token or callback is not registered.
-   * @syscap SystemCapability.Ability.DistributedAbilityManager
-   * @since 9
-   */
-  /**
-   * Start to manage the devices that can be selected for continuation.
-   *
-   * @permission ohos.permission.DISTRIBUTED_DATASYNC
-   * @param { int } token - Indicates the registration token of the ability.
-   * @param { ContinuationExtraParams } options - Indicates the extraParams object containing the extra parameters
-   *                                            used to filter list of available devices. This parameter can be null.
-   * @param { AsyncCallback<void> } callback - AsyncCallback form returns the interface call result.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16600001 - The system ability works abnormally.
-   * @throws { BusinessError } 16600002 - The specified token or callback is not registered.
-   * @syscap SystemCapability.Ability.DistributedAbilityManager
-   * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
-   */
-  function startContinuationDeviceManager(
-    token: int,
-    options: ContinuationExtraParams,
-    callback: AsyncCallback<void>
-  ): void;
-
-  /**
-   * Start to manage the devices that can be selected for continuation.
-   *
-   * @permission ohos.permission.DISTRIBUTED_DATASYNC
-   * @param { number } token - Indicates the registration token of the ability.
-   * @param { ContinuationExtraParams } [options] - Indicates extraParams object containing extra parameters used to
-   *                                                filter the list of available devices. This parameter can be null.
-   * @returns { Promise<void> } callback Indicates the callback to be invoked when continuation manager service is connected.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types
-   * <br>2. Parameter verification failed;
-   * @throws { BusinessError } 16600001 - The system ability works abnormally.
-   * @throws { BusinessError } 16600002 - The specified token or callback is not registered.
-   * @syscap SystemCapability.Ability.DistributedAbilityManager
-   * @since 9
-   */
-  /**
-   * Start to manage the devices that can be selected for continuation.
-   *
-   * @permission ohos.permission.DISTRIBUTED_DATASYNC
-   * @param { int } token - Indicates the registration token of the ability.
-   * @param { ContinuationExtraParams } [options] - Indicates extraParams object containing extra parameters used to
-   *                                                filter the list of available devices. This parameter can be null.
-   * @returns { Promise<void> } callback Indicates the callback to be invoked when continuation manager service is connected.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
-   * <br>2. Parameter verification failed;
-   * @throws { BusinessError } 16600001 - The system ability works abnormally.
-   * @throws { BusinessError } 16600002 - The specified token or callback is not registered.
-   * @syscap SystemCapability.Ability.DistributedAbilityManager
-   * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
-   */
-  function startContinuationDeviceManager(token: int, options?: ContinuationExtraParams): Promise<void>;
 }
 
 export default continuationManager;
