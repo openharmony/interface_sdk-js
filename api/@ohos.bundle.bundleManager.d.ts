@@ -4685,6 +4685,22 @@ declare namespace bundleManager {
   function isApplicationDisableForbidden(bundleName: string, userId: int, appIndex: int): boolean;
 
   /**
+   * Obtains the label of a specified application.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { string } bundleName - Indicates the bundle name of the application.
+   * @param { int } appIndex - Indicates the index of clone app.
+   * @returns { Promise<string> } Returns label of specified application.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700061 - The specified app index is invalid.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Resource
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function getApplicationLabel(bundleName: string, appIndex: int): Promise<string>;
+
+  /**
    * Obtains configuration information about an application.
    *
    * @typedef { _ApplicationInfo }
