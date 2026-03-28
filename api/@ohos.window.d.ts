@@ -4757,7 +4757,7 @@ declare namespace window {
    *     Possible cause: The window has been created and can not be created again.
    * @throws { BusinessError } 1300002 - This window state is abnormal.
    *     Possible cause: 1. Internal task error.
-   *                     2. The number of subwindows has reached the limit.
+   *                     2. The number of windows has reached the limit.
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @throws { BusinessError } 1300009 - The parent window is invalid.
    *     Possible cause: The parent window does not exist or has been destroyed.
