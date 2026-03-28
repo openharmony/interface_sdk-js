@@ -1423,37 +1423,5 @@ declare namespace abilityConnectionManager {
      */
     ABILITY_COLLABORATION_TYPE_CONNECT_PROXY = 'ohos.collaboration.value.connectProxy'
     }
-
-  /**
-   * Registers CollaborateEvent event.
-   *
-   * @param { 'collaborateEvent' } type - Registration Type, 'collaborateEvent'.
-   * @param { number } sessionId - Ability connection Session id.
-   * @param { Callback<CollaborateEventInfo> } callback - Called when an error event comes.
-   * @throws { BusinessError } 202 - Not system App.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
-   * @syscap SystemCapability.DistributedSched.AppCollaboration
-   * @systemapi
-   * @since 18 dynamic
-   */
-  function on(type: 'collaborateEvent', sessionId: number,
-        callback: Callback<CollaborateEventInfo>): void;
-
-  /**
-   * Unregisters CollaborateEvent event.
-   *
-   * @param { 'collaborateEvent' } type - Registration Type, 'collaborateEvent'.
-   * @param { number } sessionId - Ability connection Session id.
-   * @param { Callback<CollaborateEventInfo> } callback - Called when an error event comes.
-   * @throws { BusinessError } 202 - Not system App.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
-   * @syscap SystemCapability.DistributedSched.AppCollaboration
-   * @systemapi
-   * @since 18 dynamic
-   */
-  function off(type: 'collaborateEvent', sessionId: number,
-        callback?: Callback<CollaborateEventInfo>): void;
-
-
 }
 export default abilityConnectionManager;
