@@ -520,5 +520,4 @@ declare namespace distributedMissionManager {
    */
   export type MissionParameter = _MissionParameter;
 }
-
 export default distributedMissionManager;
