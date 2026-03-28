@@ -155,5 +155,4 @@ declare namespace continueManager {
     SYSTEM_ERROR = 1
     }
 }
-
 export default continueManager;
