@@ -1023,15 +1023,7 @@ export declare enum MarqueeState {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
      */
-    FINISH = 2,
-    /**
-     * The marquee is stoped.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 static
-     */
-    STOP = 3
+    FINISH = 2
 }
 /**
  * Defines marquee start policy.
