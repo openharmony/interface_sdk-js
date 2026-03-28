@@ -1318,14 +1318,14 @@ declare interface Rect {
 }
 
 /**
- * Represents filer condition to get the window .
+ * Represents filter condition to get the window .
  *
  * @typedef WindowFilter
  * @syscap SystemCapability.Test.UiTest
  * @since 9
  */
 /**
- * Represents filer condition to get the window .
+ * Represents filter condition to get the window .
  *
  * @typedef WindowFilter
  * @syscap SystemCapability.Test.UiTest
@@ -4033,7 +4033,7 @@ declare class Driver {
   /**
    * Find the first matched {@link UiWindow} window.
    *
-   * @param { WindowFilter } filter The filer condition of the target {@link UiWindow}.
+   * @param { WindowFilter } filter The filter condition of the target {@link UiWindow}.
    * @returns { Promise<UiWindow> } the first matched {@link UiWindow} or undefined.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
@@ -4044,7 +4044,7 @@ declare class Driver {
   /**
    * Find the first matched {@link UiWindow} window.
    *
-   * @param { WindowFilter } filter - the filer condition of the target {@link UiWindow}.
+   * @param { WindowFilter } filter - the filter condition of the target {@link UiWindow}.
    * @returns { Promise<UiWindow> } the first matched {@link UiWindow} or undefined.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
@@ -4057,7 +4057,7 @@ declare class Driver {
    /**
     * Find the first matched {@link UiWindow} window.
     *
-    * @param { WindowFilter } filter - the filer condition of the target {@link UiWindow}.
+    * @param { WindowFilter } filter - the filter condition of the target {@link UiWindow}.
     * @returns { Promise<UiWindow | null> } the first matched {@link UiWindow} or undefined.
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
     * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
@@ -4155,7 +4155,7 @@ declare class Driver {
     */
   findComponents(on: On): Promise<Array<Component> | null>;
   /**
-   * Assert t the matched {@link Component}s exists on current UI;if not,assertError will be raised.
+   * Assert the matched {@link Component}s exists on current UI;if not,assertError will be raised.
    *
    * @param { On } on The attribute requirements of the target {@link Component}.
    * @returns { Promise<void> }
@@ -4167,7 +4167,7 @@ declare class Driver {
    * @test
    */
   /**
-   * Assert t the matched {@link Component}s exists on current UI;if not,assertError will be raised.
+   * Assert the matched {@link Component}s exists on current UI;if not,assertError will be raised.
    *
    * @param { On } on The attribute requirements of the target {@link Component}.
    * @returns { Promise<void> }
@@ -4180,7 +4180,7 @@ declare class Driver {
    * @test
    */
   /**
-   * Assert t the matched {@link Component}s exists on current UI;if not,assertError will be raised.
+   * Assert the matched {@link Component}s exists on current UI;if not,assertError will be raised.
    *
    * @param { On } on - the attribute requirements of the target {@link Component}.
    * @returns { Promise<void> }

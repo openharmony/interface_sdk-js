@@ -378,7 +378,7 @@ declare class PerfTest {
   run(): Promise<void>;
 
   /**
-   * Get the test result of a specified performance metric. If no test result exist, -1 is returned for all results.
+   * Get the test result of a specified performance metric. If no test result exists, -1 is returned for all results.
    *
    * @param { PerfMetric } metric - performance metric for which the result will be get.
    * @returns { PerfMeasureResult } test results of specified performance metric.
