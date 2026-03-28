@@ -159,7 +159,7 @@ export class DrawContext {
 }
 
 /**
-  * Defined a vector with two values.
+  * Defines a vector with two values.
   *
   * @interface Vector2
   * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -167,7 +167,7 @@ export class DrawContext {
   * @since 11
   */
  /**
-  * Defined a vector with two values.
+  * Defines a vector with two values.
   *
   * @interface Vector2
   * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -220,7 +220,7 @@ interface Vector2 {
 }
 
 /**
-  * Defined a vector with two T type values.
+  * Defines a vector with two T type values.
   *
   * @interface Vector2T
   * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -254,7 +254,7 @@ interface Vector2T<T> {
 }
 
 /**
- * Defined a vector with three values.
+ * Defines a vector with three values.
  *
  * @interface Vector3
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -262,7 +262,7 @@ interface Vector2T<T> {
  * @since 11
  */
 /**
- * Defined a vector with three values.
+ * Defines a vector with three values.
  *
  * @interface Vector3
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1472,7 +1472,7 @@ export declare class ShapeClip {
 }
 
 /**
- * Obtain a object with all edges are set to the same color.
+ * Obtain an object with all edges are set to the same color.
  *
  * @param { number } all - The edge color will be set, in ARGB format, for example, 0xffff00ff.
  * Value range: [0, 0xffffffff]
@@ -1485,7 +1485,7 @@ export declare class ShapeClip {
 export function edgeColors(all: number): Edges<number>;
 
 /**
- * Obtain a object with all edges are set to the same width.
+ * Obtain an object with all edges are set to the same width.
  *
  * @param { number } all - The edge width will be set, in vp.
  * Value range: [0, +∞).
@@ -1498,7 +1498,7 @@ export function edgeColors(all: number): Edges<number>;
 export function edgeWidths(all: number): Edges<number>;
 
 /**
- * Obtain a object with all edges are set to the same style.
+ * Obtain an object with all edges are set to the same style.
  *
  * @param { BorderStyle } all - The edge style will be set.
  * @returns { Edges<BorderStyle> } - The object with all edges are set to the same style.

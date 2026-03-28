@@ -26,7 +26,7 @@ import { ComponentContent, ReactiveComponentContent } from './ComponentContent';
 import { BusinessError } from '../@ohos.base';
 
 /**
- * Layout constraint, include the max size, the min size and the reference size for children to calculate percent.
+ * Layout constraint, including the max size, the min size and the reference size for children to calculate percent.
  *
  * @interface LayoutConstraint
  * @syscap SystemCapability.ArkUI.ArkUI.Full

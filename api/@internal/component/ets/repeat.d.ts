@@ -54,7 +54,7 @@ interface RepeatItem<T> {
 }
 
 /**
- * Define the options of repeat virtualScroll to implement reuse and lazy loading.
+ * Defines the options of repeat virtualScroll to implement reuse and lazy loading.
  *
  * @interface VirtualScrollOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -86,7 +86,7 @@ interface VirtualScrollOptions {
   reusable?: boolean;
 
   /**
-   * Data lazy loading
+   * Data lazy loading.
    *
    * @param { number } index
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -109,7 +109,7 @@ interface VirtualScrollOptions {
 }
 
 /**
- * Define a builder template option parameter.
+ * Defines a builder template option parameter.
  *
  * @interface TemplateOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -131,9 +131,9 @@ interface TemplateOptions {
 }
 
 /**
- * Function that return typed string to render one template.
+ * Function that returns typed string to render one template.
  *
- * @typedef {function} TemplateTypedFunc<T>
+ * @typedef { function } TemplateTypedFunc<T>
  * @param { T } item - data item.
  * @param {number} index - data index number in array.
  * @returns { string } template type.
@@ -145,9 +145,9 @@ interface TemplateOptions {
 declare type TemplateTypedFunc<T> = (item: T, index: number) => string;
 
 /**
- * Define builder function to render one template type.
+ * Defines builder function to render one template type.
  *
- * @typedef {function} RepeatItemBuilder<T>
+ * @typedef { function } RepeatItemBuilder<T>
  * @param { RepeatItem<T> } repeatItem - the repeat item builder function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -227,7 +227,7 @@ declare class RepeatAttribute<T> extends DynamicNode<RepeatAttribute<T>> {
   /**
    * Typed function to render specific type of data item.
    *
-   * @param { TemplateTypedFunc<T> } typedFunc that define template typed function.
+   * @param { TemplateTypedFunc<T> } typedFunc that defines template typed function.
    * @returns { RepeatAttribute<T> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

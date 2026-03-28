@@ -88,7 +88,7 @@ export declare class DrawContext {
 }
 
 /**
- * Defined a vector with two values.
+ * Defines a vector with two values.
  *
  * @interface Vector2
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -115,7 +115,7 @@ export interface Vector2 {
 }
 
 /**
- * Defined a vector with two T type values.
+ * Defines a vector with two T type values.
  *
  * @interface Vector2T
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -143,7 +143,7 @@ export interface Vector2T<T> {
 }
 
 /**
- * Defined a vector with three values.
+ * Defines a vector with three values.
  *
  * @interface Vector3
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1113,7 +1113,7 @@ export declare class ShapeClip {
 }
 
 /**
- * Obtain a object with all edges are set to the same color.
+ * Obtain an object with all edges are set to the same color.
  *
  * @param { int } all - The edge color will be set.
  * @returns { NodeEdges<int> } - The object with all edges are set to the same color.
@@ -1123,7 +1123,7 @@ export declare class ShapeClip {
 export declare function edgeColors(all: int): NodeEdges<int>;
 
 /**
- * Obtain a object with all edges are set to the same width.
+ * Obtain an object with all edges are set to the same width.
  *
  * @param { double } all - The edge width will be set.
  * @returns { NodeEdges<double> } - The object with all edges are set to the same width.
@@ -1133,7 +1133,7 @@ export declare function edgeColors(all: int): NodeEdges<int>;
 export declare function edgeWidths(all: double): NodeEdges<double>;
 
 /**
- * Obtain a object with all edges are set to the same style.
+ * Obtain an object with all edges are set to the same style.
  *
  * @param { BorderStyle } all - The edge style will be set.
  * @returns { NodeEdges<BorderStyle> } - The object with all edges are set to the same style.
