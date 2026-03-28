@@ -4741,6 +4741,9 @@ declare namespace window {
 
   /**
    * Create a subwindow with a specific name and bind parent
+   * The parent window only supports main window.
+   * The subwindow follows the parent window to show/hide, but does not follow the parent window to destroy.
+   * The subwindow listens to the parent window lifecycle changes through the callback function.
    *
    * @param { string } name - Indicates window name.
    * @param { int } parentId - Indicates parent window id. The window id is a non-negative number and exists.
@@ -4752,6 +4755,7 @@ declare namespace window {
    *     This can not work correctly due to limited device capabilities.
    * @throws { BusinessError } 1300001 - Repeated operation.
    *     Possible cause: The window has been created and can not be created again.
+   * @throws { BusinessError } 1300002 - This window state is abnormal.
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @throws { BusinessError } 1300009 - The parent window is invalid.
    *     Possible cause: The parent window does not exist or has been destroyed.
