@@ -535,7 +535,6 @@ declare namespace continuationManager {
   ): void;
 
   /**
-   * Unregisters a specified ability from the continuation manager service based on the token obtained during ability
    * Starts the device selection module to show the list of available devices on the network. This API uses a promise to
    *  return the result.
    *
@@ -671,5 +670,4 @@ declare namespace continuationManager {
    */
   export type ContinuationExtraParams = _ContinuationExtraParams;
 }
-
 export default continuationManager;
