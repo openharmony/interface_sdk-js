@@ -3929,6 +3929,31 @@ declare namespace i18n {
      * @since 24 dynamic&static
      */
     public getZoneRules(): ZoneRules;
+
+    /**
+     * Sets the default time zone for the current app, the value will be used on the application's runtime lifecycle.
+     * When the date time formatting function is used, the default time zone ID of the app is used preferentially.
+     *
+     * @param { string } zoneID - Time zone ID that set default for app. for example, "Asia/Shanghai".
+     *     <br> Time zone ID supported by the system
+     * @throws { BusinessError } 8900001 - Invalid parameter. Possible causes: Parameter verification failed.
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    static setAppDefaultTimeZoneById(zoneID: string): void;
+
+    /**
+     * Obtains the TimeZone object of defautl time zone used by application.
+     *
+     * @returns { TimeZone } TimeZone object, first set by application, then system time zone, last GMT time zone.
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    static getAppDefaultTimeZone(): TimeZone;
   }
 
   /**
