@@ -3120,6 +3120,7 @@ declare namespace media {
     /**
      * Jumps to the specified playback position. This API can be called only when the AVPlayer is in the prepared,
      * playing, paused, or completed state.
+     * 
      * @param { number } timeMs - Playback position to jump, should be in [0, duration].
      * @param { SeekMode } mode - See @SeekMode .
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -3135,19 +3136,34 @@ declare namespace media {
      * @since 11
      */
     /**
-     * Jumps to the specified playback position. This API can be called only when the AVPlayer is in the prepared,
-     * playing, paused, or completed state.
+     * Jumps to the specified playback position.
+     * This API can be called only when the AVPlayer is in the prepared, playing, paused, or completed state.
      * You can check whether the seek operation takes effect by subscribing to the [seekDone]{@link #seekDone} event.
      * This API is not supported in live mode.
-     * @param { int } timeMs - Playback position to jump, should be in [0, duration]. In SEEK_CONTINUOU mode,
-     * the value -1 can be used to indicate the end of SEEK_CONTINUOUS mode.
-     * @param { SeekMode } mode - See @SeekMode . The default value is **SEEK_PREV_SYNC**. 
-     * Set this parameter only for video playback.
+     * 
+     * @param { int } timeMs - Playback position to jump, should be in [0, duration].
+     *     In SEEK_CONTINUOUS mode, the value -1 can be used to indicate the end of SEEK_CONTINUOUS mode.
+     * @param { SeekMode } mode - See @SeekMode . The default value is **SEEK_PREV_SYNC**.
+     *     Set this parameter only for video playback.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
+     */
+    /**
+     * Jumps to the specified playback position.
+     * This API can be called only when the AVPlayer is in the prepared,playing, paused, or completed state.
+     * You can check whether the seek operation takes effect by subscribing to the [seekDone]{@link #seekDone} event.
+     * 
+     * @param { int } timeMs - Playback position to jump, should be in [0, duration].
+     *     In SEEK_CONTINUOUS mode, the value -1 can be used to indicate the end of SEEK_CONTINUOUS mode.
+     * @param { SeekMode } mode - See @SeekMode . The default value is **SEEK_PREV_SYNC**. 
+     *     Set this parameter only for video playback.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @crossplatform
+     * @atomicservice
+     * @since 24 dynamic&static
      */
     seek(timeMs: int, mode?: SeekMode): void;
 
@@ -3333,6 +3349,41 @@ declare namespace media {
      * @since 23 static
      */
     getPlaybackInfo(): Promise<PlaybackInfo>;
+
+    /**
+     * To obtain the loaded time ranges;
+     * For local media sources, it is the entire media duration;
+     * For network loading, it is the progress cached locally.
+     * 
+     * @returns { Promise<Array<Range>> } return the currently loaded time ranges of the player,
+     *     expressed as [start, end] positions on the playback timeline in milliseconds.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 24 dynamic&static
+     */
+    getLoadedTimeRanges(): Promise<Array<Range>>;
+
+    /**
+     * To obtain the seekable time ranges;
+     * For local media resources and media sources that support segmented requests, it is the entire media duration.
+     * For media sources that only support chunked transmission, there is no seekable range.
+     * 
+     * @returns { Promise<Array<Range>> } return the currently seekable time ranges of the player,
+     *     expressed as [start, end] positions on the playback timeline in milliseconds.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    getSeekableTimeRanges(): Promise<Array<Range>>;
+
+    /**
+     * Seek to the default access point of the playback source.
+     * for live streaming it's the currently recommended new access point,
+     * and for video-on-demand it usually corresponds to the beginning of the video, similar to seek(0).
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 24 dynamic&static
+     */
+    seekToDefaultPosition(): void;
 
     /**
      * Get statistic metrics info of current player.
