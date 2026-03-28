@@ -194,7 +194,7 @@ export interface SkillUri {
   readonly utd: string;
 
   /**
-   * Indicates the maxFileSupported of the skillUri
+   * Indicates the maxFileSupported of the skillUri,the unit is quantity.
    *
    * @type { int }
    * @readonly

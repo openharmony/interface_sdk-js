@@ -2199,7 +2199,7 @@ declare namespace installer {
     hashParams?: Array<HashParam>;
 
     /**
-     * Indicates the deadline of the crowdtesting bundle
+     * Indicates the deadline of the crowdtesting bundle,the unit is seconds.
      *
      * @type { ?long }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core

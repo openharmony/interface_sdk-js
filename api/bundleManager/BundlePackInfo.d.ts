@@ -477,7 +477,7 @@ export interface AbilityFormInfo {
   readonly scheduledUpdateTime: string;
 
   /**
-   * Indicates the update duration
+   * Indicates the update duration,the unit is minutes, and the value is a multiple of 30.
    *
    * @type { int }
    * @readonly
