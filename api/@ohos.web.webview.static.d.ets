@@ -2204,6 +2204,8 @@ declare namespace webview {
          * Time when a frame is interpolated or removed.
          *
          * Device behavior differences: Only the mobile phone is supported. For other devices, 801 is returned.
+         * The value must be an integer.
+         * <br>Unit: ms.
          *
          * @type { int }
          * @syscap SystemCapability.Web.Webview.Core
@@ -2250,9 +2252,11 @@ declare namespace webview {
         enable: boolean;
 
         /**
-         * Duration of the frame interpolation, in ms. The valid range is the union of {0} and [200, 2000].
+         * Duration of the frame interpolation. The valid range is the union of {0} and [200, 2000].
          *
          * Device behavior differences: Only the mobile phone is supported. For other devices, 801 is returned.
+         * The value must be an integer.
+         * <br>Unit: ms.
          *
          * @type { ?int }
          * @syscap SystemCapability.Web.Webview.Core
