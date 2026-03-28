@@ -23,7 +23,7 @@ import { Dimension, Length, VoidCallback, Resource, LengthMetrics } from './unit
 import { ScrollSnapAlign, ScrollState } from "./list";
 import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod, UIScrollableCommonEvent, SizeResult, Bindable } from "./common";
-import { FrameNode } from '../FrameNode';
+import { FrameNode } from 'arkui.FrameNode';
 /**
  * Enumerates the scrolling directions.
  *
