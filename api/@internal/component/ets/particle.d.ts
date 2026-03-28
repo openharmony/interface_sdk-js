@@ -2033,7 +2033,7 @@ declare interface DisturbanceFieldOptions {
   strength?: number;
 
   /**
-   * Disturbance filed shape.
+   * Disturbance field shape.
    *
    * @type { ?DisturbanceFieldShape }
    * @default DisturbanceFieldShape.RECT
@@ -2045,7 +2045,7 @@ declare interface DisturbanceFieldOptions {
   shape?: DisturbanceFieldShape;
 
   /**
-   * Disturbance filed size width value width, height.
+   * Disturbance field size width value width, height.
    *
    * @type { ?SizeT<number> }
    * @default {width:0,height:0}
@@ -2057,7 +2057,7 @@ declare interface DisturbanceFieldOptions {
   size?: SizeT<number>;
 
   /**
-   * Disturbance filed position width value x, y.
+   * Disturbance field position width value x, y.
    *
    * @type { ?PositionT<number> }
    * @default {x:0,y:0}
@@ -2165,7 +2165,7 @@ declare enum DisturbanceFieldShape {
 }
 
 /**
- * Defines particle annuslus region params.
+ * Defines particle annulus region params.
  * 
  * @interface ParticleAnnulusRegion
  * @syscap SystemCapability.ArkUI.ArkUI.Full
