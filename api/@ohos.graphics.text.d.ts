@@ -3246,6 +3246,17 @@ declare namespace text {
      * @since 24 dynamic&static
      */
      clearCaches(): void;
+
+     /**
+     * Sets whether paragraph caches are enabled.
+     * 
+     * @param { boolean } enable - Indicates whether to enable paragraph caches, where true enables and false disables.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    setParagraphCachesEnabled(enable: boolean): void;
   }
 
   /**
