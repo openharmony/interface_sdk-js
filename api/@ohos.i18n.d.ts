@@ -1733,6 +1733,24 @@ declare namespace i18n {
      * @useinstead getUnicodeWrappedFilePath
      */
     static getUnicodeWrappedFilePath(path: string, delimiter?: string, locale?: intl.Locale): string;
+
+    /**
+     * Sets the text direction for a specific piece of text independently,
+     * separating it from the text direction of the surrounding context.
+     *
+     * @param { string } text - Input characters need to set direction.
+     *     <br>Pending Text
+     * @param { 'RTL' | 'LTR' } direction - The value can be  or "LTR".
+     *     "RTL" indicates setting the input text direction from right to left.
+     *     "LTR" indicates setting the input text direction from left to right.
+     *     <br>Text main directionality
+     * @returns { string } Processed Text.
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    static setUnicodeWrappedBidiDirection(text: string, direction: 'RTL' | 'LTR'): string;
   }
 
   /**
