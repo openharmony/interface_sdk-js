@@ -1030,7 +1030,7 @@ declare namespace image {
     FLASH = 'Flash',
  
     /**
-     * Focal length
+     * Focal length (mm)
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 10 dynamic
@@ -1048,7 +1048,7 @@ declare namespace image {
     USER_COMMENT = 'UserComment',
  
     /**
-     * Pixel x dimension
+     * Pixel X dimension (px)
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 10 dynamic
@@ -1057,7 +1057,7 @@ declare namespace image {
     PIXEL_X_DIMENSION = 'PixelXDimension',
  
     /**
-     * Pixel y dimension
+     * Pixel Y dimension (px)
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 10 dynamic
@@ -1101,7 +1101,6 @@ declare namespace image {
      */
     PHYSICAL_APERTURE = 'HwMnotePhysicalAperture',
 
-    /**
      * Roll Angle
      *
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -3383,14 +3382,14 @@ declare namespace image {
     pixels: ArrayBuffer;
 
     /**
-     * Offset for data reading, in bytes.
+     * Offset for data reading (bytes).
      *
      * @type { number }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 7
      */
     /**
-     * Offset for data reading, in bytes.
+     * Offset for data reading (bytes).
      *
      * @type { number }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -3398,7 +3397,7 @@ declare namespace image {
      * @since 10
      */
     /**
-     * Offset for data reading, in bytes.
+     * Offset for data reading (bytes).
      *
      * @type { number }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -3420,14 +3419,14 @@ declare namespace image {
     offset: int;
 
     /**
-     * Number of bytes to read.
+     * Number of bytes to read (bytes).
      *
      * @type { number }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 7
      */
     /**
-     * Number of bytes to read.
+     * Number of bytes to read (bytes).
      *
      * @type { number }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -3435,7 +3434,7 @@ declare namespace image {
      * @since 10
      */
     /**
-     * Number of bytes to read.
+     * Number of bytes to read (bytes).
      *
      * @type { number }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -3444,7 +3443,7 @@ declare namespace image {
      * @since 11
      */
     /**
-     * Number of bytes to read.
+     * Number of bytes to read (bytes).
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -10491,7 +10490,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     flash?: int;
 
     /**
-     * Focal length
+     * Focal length (mm)
      *
      * @type { ?double }
      * @syscap SystemCapability.Multimedia.Image.Core
