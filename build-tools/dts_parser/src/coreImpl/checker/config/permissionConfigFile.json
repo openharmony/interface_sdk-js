@@ -1009,15 +1009,6 @@
         "description": "$string:ohos_desc_notification_controller"
       },
       {
-        "name": "ohos.permission.NOTIFICATION_SYSTEM_SUBSCRIBER",
-        "grantMode": "system_grant",
-        "availableLevel": "system_core",
-        "since": 8,
-        "deprecated": "",
-        "provisionEnable": true,
-        "distributedSceneEnable": false
-      },
-      {
         "name": "ohos.permission.CONNECTIVITY_INTERNAL",
         "grantMode": "system_grant",
         "availableLevel": "system_basic",
@@ -3713,6 +3704,15 @@
         "grantMode": "system_grant",
         "availableLevel": "system_basic",
         "since": 16,
+        "deprecated": "",
+        "provisionEnable": true,
+        "distributedSceneEnable": false
+      },
+      {
+        "name": "ohos.permission.NOTIFICATION_SYSTEM_SUBSCRIBER",
+        "grantMode": "system_grant",
+        "availableLevel": "system_core",
+        "since": "26.0.0",
         "deprecated": "",
         "provisionEnable": true,
         "distributedSceneEnable": false
