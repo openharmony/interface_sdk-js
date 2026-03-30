@@ -29,7 +29,7 @@ import Context from './application/BaseContext';
  * The user preference persistent files are stored in the 
  * [preferencesDir](docroot://application-models/application-context-stage.md#obtaining-application-file-paths) 
  * directory. Before creating a preferences object, ensure that the **preferencesDir** directory is readable and 
- * writeable. The [encryption level]{@link ohos.app.ability.contextConstant:contextConstant.AreaMode} of the persistent 
+ * writeable. The [encryption level]{@link @ohos.app.ability.contextConstant:contextConstant.AreaMode} of the persistent 
  * file directory determines the access to the files. For details, see 
  * [Application File Directory and Application File Path](docroot://file-management/app-sandbox-directory.md#application-file-directory-and-application-file-path)
  * 
@@ -145,11 +145,11 @@ declare namespace preferences {
    */
   enum StorageType {
     /**
-     * [XML](docroot://database/data-persistence-by-preferences.md#xml) format, which is the default storage type of **
-     * Preferences**.
+     * [XML](docroot://database/data-persistence-by-preferences.md#xml) format, which is the default storage type of
+     * **Preferences**.
      * 
-     * In this mode, data is stored in XML format. Data operations are performed in the memory. To persist data, call **
-     * flush()**.
+     * In this mode, data is stored in XML format. Data operations are performed in the memory. To persist data, call
+     * **flush()**.
      *
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
@@ -207,7 +207,7 @@ declare namespace preferences {
      * This API can be used in atomic services since API version 11.
      *
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
-	 * @StageModelOnly
+	   * @StageModelOnly
      * @atomicservice [since 11]
      * @since 10 dynamic
      * @since 23 static
@@ -236,8 +236,9 @@ declare namespace preferences {
    *     [Context]{@link ./app/context}.<br>For details about the application context of the stage model, see 
    *     [Context]{@link ./application/Context:Context}.
    * @param { string } name - Name of the **Preferences** instance.
-   * @param { AsyncCallback<Preferences> } callback - Callback used to return the result. If the operation is successful, **
-   *     err** is **undefined** and the **Preferences** instance obtained is returned. Otherwise, **err** is an error object.
+   * @param { AsyncCallback<Preferences> } callback - Callback used to return the result. If the operation is successful,
+   *     **err** is **undefined** and the **Preferences** instance obtained is returned. Otherwise, **err** is an error
+   *     object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     
    *     <br>1. Mandatory parameters are left unspecified;
@@ -261,8 +262,9 @@ declare namespace preferences {
    *     [Context]{@link ./app/context}.<br>For details about the application context of the stage model, see 
    *     [Context]{@link ./application/Context:Context}.
    * @param { Options } options - Configuration options of the **Preferences** instance.
-   * @param { AsyncCallback<Preferences> } callback - Callback used to return the result. If the operation is successful, **
-   *     err** is **undefined** and the **Preferences** instance obtained is returned. Otherwise, **err** is an error object.
+   * @param { AsyncCallback<Preferences> } callback - Callback used to return the result. If the operation is successful,
+   *     **err** is **undefined** and the **Preferences** instance obtained is returned. Otherwise, **err** is an error
+   *     * object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     
    *     <br>1. Mandatory parameters are left unspecified;
@@ -760,8 +762,8 @@ declare namespace preferences {
      * @param { string } key - Key to be obtained. The value cannot be empty. For details about its maximum length, see 
      *     [MAX_KEY_LENGTH](docroot://reference/apis-arkdata/js-apis-data-preferences.md#constants).
      * @param { ValueType } defValue - Default value to be returned.
-     * @param { AsyncCallback<ValueType> } callback - Callback used to return the result. If the operation is successful, **err
-     *     ** is **undefined** and **data** is the value obtained. Otherwise, **err** is an error object.
+     * @param { AsyncCallback<ValueType> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **undefined** and **data** is the value obtained. Otherwise, **err** is an error object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     
      *     <br>1. Mandatory parameters are left unspecified;
@@ -896,8 +898,8 @@ declare namespace preferences {
      * Checks whether this **Preferences** instance contains the KV pair of the given key. This API uses a promise to 
      * return the result.
      *
-     * @returns { Promise<boolean> } Promise used to return the result. If the **Preferences** instance contains the KV pair, *
-     *     *true** will be returned. Otherwise, **false** will be returned.
+     * @returns { Promise<boolean> } Promise used to return the result. If the **Preferences** instance contains the KV pair,
+     *     **true** will be returned. Otherwise, **false** will be returned.
      * @param { string } key - Key to be checked. The value cannot be empty. For details about its maximum length, see 
      *     [MAX_KEY_LENGTH](docroot://reference/apis-arkdata/js-apis-data-preferences.md#constants).
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -920,8 +922,8 @@ declare namespace preferences {
      * Checks whether this **Preferences** instance contains the KV pair of the given key. This API returns the result 
      * synchronously.
      *
-     * @returns { boolean } If the **Preferences** instance contains the KV pair, **true** will be returned. Otherwise, **false
-     *     ** will be returned.
+     * @returns { boolean } If the **Preferences** instance contains the KV pair, **true** will be returned. Otherwise,
+     *     **false** will be returned.
      * @param { string } key - Key to be checked. The value cannot be empty. For details about its maximum length, see 
      *     [MAX_KEY_LENGTH](docroot://reference/apis-arkdata/js-apis-data-preferences.md#constants).
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -942,8 +944,8 @@ declare namespace preferences {
 
     /**
      * Writes data to this **Preferences** instance. This API uses an asynchronous callback to return the result. You 
-     * can use [flush]{@link preferences.Preferences.flush(callback: AsyncCallback<void>)} to persist the **Preferences*
-     * * instance.
+     * can use [flush]{@link preferences.Preferences.flush(callback: AsyncCallback<void>)} to persist the
+     * **Preferences** instance.
      * 
      * > **NOTE**
      * >
@@ -1041,8 +1043,8 @@ declare namespace preferences {
 
     /**
      * Deletes a KV pair from this **Preferences** instance. This API uses an asynchronous callback to return the 
-     * result. You can use [flush]{@link preferences.Preferences.flush(callback: AsyncCallback<void>)} to persist the **
-     * Preferences** instance.
+     * result. You can use [flush]{@link preferences.Preferences.flush(callback: AsyncCallback<void>)} to persist the
+     * **Preferences** instance.
      *
      * @param { string } key - Key to be deleted. The value cannot be empty. For details about its maximum length, see 
      *     [MAX_KEY_LENGTH](docroot://reference/apis-arkdata/js-apis-data-preferences.md#constants).
