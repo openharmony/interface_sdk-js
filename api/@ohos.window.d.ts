@@ -2485,7 +2485,7 @@ declare namespace window {
     colorMode?: ConfigurationConstant.ColorMode;
 
     /**
-     * button background size when hover.
+     * button background size when hover, measured in vp.
      *
      * @type { ?int }
      * @syscap SystemCapability.Window.SessionManager
@@ -2496,7 +2496,7 @@ declare namespace window {
     buttonBackgroundSize? : int;
 
     /**
-     * button spacing.
+     * button spacing, measured in vp.
      *
      * @type { ?int }
      * @syscap SystemCapability.Window.SessionManager
@@ -2507,7 +2507,7 @@ declare namespace window {
     spacingBetweenButtons? : int;
 
     /**
-     * close button right Margin.
+     * close button right Margin, measured in vp.
      *
      * @type { ?int }
      * @syscap SystemCapability.Window.SessionManager
@@ -2518,7 +2518,7 @@ declare namespace window {
     closeButtonRightMargin? : int;
 
     /**
-     * button icon size.
+     * button icon size, measured in vp.
      *
      * @type { ?int }
      * @syscap SystemCapability.Window.SessionManager
@@ -2529,7 +2529,7 @@ declare namespace window {
     buttonIconSize? : int;
 
     /**
-     * corner radius of button background when hover.
+     * corner radius of button background when hover, measured in vp.
      *
      * @type { ?int }
      * @syscap SystemCapability.Window.SessionManager
