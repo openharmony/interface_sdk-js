@@ -198,7 +198,7 @@ declare namespace notificationSubscribe {
   /**
    * Subscribe to notifications
    *
-   * @permission ohos.permission.NOTIFICATION_DATA_SUBSCRIBE
+   * @permission ohos.permission.NOTIFICATION_SYSTEM_SUBSCRIBER
    * @param { NotificationSubscriber } subscriber - The notification subscriber.
    * @param { NotificationSubscribeInfo } [info] - The notification subscribe info.
    * @returns { Promise<void> } The promise returned by the function.
