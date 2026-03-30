@@ -7252,6 +7252,33 @@ declare namespace media {
      *
      * avRecorder.setMetadata(meta);
      */
+    /**
+     * Set metadata (key-value pairs) for the recording file of the recorder.
+     * This metadata overwrites the value in config.metadata.customInfo (see {prepare()} and {AVRecorderConfig})
+     * if they have same key.
+     *
+     * This API can be called only after the prepare() event is successfully triggered and
+     * before the stop() API is called.
+     * @param { Record<string, string> } metadata - Tag and value of the metadata in key-value pairs.
+     * <br>- The first string is the key.<br>- The second string is the value.
+     * <br> The key string should start with "com.openharmony.", the length of value can't be more than 256 bytes.
+     * @throws { BusinessError } 5400101 - No memory.
+     * @throws { BusinessError } 5400102 - Operation not allowed.
+     * @throws { BusinessError } 5400108 - Parameter check failed.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @since 26 dynamic & static
+     * @example
+     * let meta: Record<string, string> = {
+     *   'com.openharmony.userdefine': '10',
+     *   'com.openharmony.userdefine2': '20'
+     * };
+     *
+     * try {
+     *   avRecorder.setMetadata(meta);
+     * } catch (err) {
+     *   console.error('Failed to set metadata and catch error is ' + err.message);
+     * }
+     */
     setMetadata(metadata: Record<string, string>): void;
 
     /**
