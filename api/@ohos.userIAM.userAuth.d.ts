@@ -1243,7 +1243,7 @@ declare namespace userAuth {
    *
    * @permission ohos.permission.ACCESS_BIOMETRIC
    * @param { UserAuthType } authType - Authentication type.
-   * @returns { Promise<AuthLockState } AuthLockState - Returns the lock state of the specified authType,
+   * @returns { Promise<AuthLockState> } AuthLockState - Returns the lock state of the specified authType,
    *     which contains lock state,
    *     remaining attempts if the authentication has not been locked,
    *     or remaining lockout duration if the authentication has been locked.
@@ -2364,7 +2364,7 @@ declare namespace userAuth {
     BUSY = 12500007,
 
     /**
-     * Indicates that the paramter is out of range.
+     * Indicates that the parameter is out of range.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
