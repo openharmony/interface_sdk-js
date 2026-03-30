@@ -75,7 +75,7 @@ declare namespace omapi {
   /**
    * Unsubscribe the service state changed event.
    *
-   * @param { 'stateChanged' } type - The type to register.
+   * @param { 'stateChanged' } type - The type to unregister.
    * @param { Callback<ServiceState> } callback - The callback used to listen for the state change event.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.Communication.SecureElement
