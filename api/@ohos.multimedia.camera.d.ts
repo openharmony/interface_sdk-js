@@ -1548,7 +1548,7 @@ declare namespace camera {
     /**
      * Subscribes fold status change event callback.
      *
-     * @param { 'foldStatusChanged' } type - Event type.
+     * @param { 'foldStatusChange' } type - Event type.
      * @param { AsyncCallback<FoldStatusInfo> } callback - Callback used to get the fold status change.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 12
@@ -1559,7 +1559,7 @@ declare namespace camera {
      * Description: Currently, it is not allowed to use off() to unregister the callback
      * within the callback method of on().
      *
-     * @param { 'foldStatusChanged' } type - Event type.
+     * @param { 'foldStatusChange' } type - Event type.
      * @param { AsyncCallback<FoldStatusInfo> } callback - Callback used to get the fold status change.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
@@ -1579,7 +1579,7 @@ declare namespace camera {
     /**
      * Unsubscribes from fold status change event callback.
      *
-     * @param { 'foldStatusChanged' } type - Event type.
+     * @param { 'foldStatusChange' } type - Event type.
      * @param { AsyncCallback<FoldStatusInfo> } callback - Callback used to get the fold status change.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 12
@@ -1587,7 +1587,7 @@ declare namespace camera {
     /**
      * Unsubscribes from fold status change event callback.
      *
-     * @param { 'foldStatusChanged' } type - Event type.
+     * @param { 'foldStatusChange' } type - Event type.
      * @param { AsyncCallback<FoldStatusInfo> } callback - Callback used to get the fold status change.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
