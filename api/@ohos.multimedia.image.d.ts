@@ -3829,6 +3829,19 @@ declare namespace image {
      * @since 23 static
      */
     needsPackProperties?: boolean;
+    
+    /**
+     * This parameter is valid only when needsPackProperties is set to true. It specifies the maximum width and height
+     *     of the thumbnail generated during encoding. If this parameter is not specified, no thumbnail will be
+     *     generated during encoding.
+     * The value should be an integer.
+     * <br>Unit:px.
+     *
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    maxEmbedThumbnailDimension?: int;
   }
 
   /**
@@ -12562,6 +12575,39 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     desiredPixelFormat?: PixelMapFormat;
   }
 
+  /**
+   * Describes thumbnail decoding parameters.
+   *
+   * @syscap SystemCapability.Multimedia.Image.ImageSource
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface DecodingOptionsForThumbnail {
+    /**
+     * Flag to specify whether the thumbnail should be generated, if the image does not have a thumbnail.
+     *
+     * <br>Default value: true.
+     *
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    generateThumbnailIfAbsent?: boolean;
+
+    /**
+     * This parameter is valid only when generateThumbnailIfAbsent is set to true. The width and height of the image
+     *     cannot exceed the value of this parameter.
+     * The value should be an integer.
+     * <br>Unit:px.
+     * <br>Default value:512.
+     *
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    maxGeneratedPixelDimension?: int;
+  }
+
    /**
    * Describes auxiliary picture information.
    *
@@ -14134,6 +14180,43 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     * @since 24 dynamic&static
     */
     createImageRawData(): Promise<ImageRawData>
+
+    /**
+     * Creates a thumbnail image based on image decoding parameters.
+     * This method uses a promise to return the PixelMap object, which represents the thumbnail.
+     *
+     * @param { DecodingOptionsForThumbnail } [options] - Image decoding parameters for creating the thumbnail.
+     * @returns { Promise<PixelMap | undefined> } A Promise instance used to return the PixelMap object representing
+     *     the thumbnail.
+     * @throws { BusinessError } 7700102 - Unsupported mimetype.
+     * @throws { BusinessError } 7700103 - Image too large.
+     * @throws { BusinessError } 7700204 - Invalid parameter, e.g, invalid generate size.
+     * @throws { BusinessError } 7700301 - Decode failed.
+     * @throws { BusinessError } 7700303 - Image does not carry thumbnail data.
+     * @throws { BusinessError } 7700305 - Thumbnail generation failed.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    createThumbnail(options?: DecodingOptionsForThumbnail): Promise<PixelMap | undefined>;
+
+    /**
+     * Synchronously creates a thumbnail image based on image decoding parameters.
+     * This method returns a `PixelMap` object, which represents the generated thumbnail.
+     *
+     * @param { DecodingOptionsForThumbnail } [options] - Image decoding parameters for creating the thumbnail.
+     * @returns { PixelMap | undefined } The PixelMap object representing the generated thumbnail.
+     * @throws { BusinessError } 7700102 - Unsupported mimetype.
+     * @throws { BusinessError } 7700103 - Image too large.
+     * @throws { BusinessError } 7700204 - Invalid parameter, e.g, invalid generate size.
+     * @throws { BusinessError } 7700301 - Decode failed.
+     * @throws { BusinessError } 7700303 - Image does not carry thumbnail data.
+     * @throws { BusinessError } 7700305 - Thumbnail generation failed.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    createThumbnailSync(options?: DecodingOptionsForThumbnail): PixelMap | undefined;
   }
 
   /**
