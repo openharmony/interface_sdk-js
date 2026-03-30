@@ -1015,9 +1015,7 @@
         "since": 8,
         "deprecated": "",
         "provisionEnable": true,
-        "distributedSceneEnable": false,
-        "label": "$string:ohos_lab_notification_system_subscriber",
-        "description": "$string:ohos_desc_notification_system_subscriber"
+        "distributedSceneEnable": false
       },
       {
         "name": "ohos.permission.CONNECTIVITY_INTERNAL",
