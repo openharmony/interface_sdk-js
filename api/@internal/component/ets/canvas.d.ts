@@ -2333,6 +2333,19 @@ declare class ImageBitmap {
    * @since 12 dynamic
    */
   constructor(data: PixelMap, unit: LengthMetricsUnit);
+
+  /**
+   * Transfer a Resource object to construct an ImageBitmap object.
+   *
+   * @param { Resource } data - Resource object
+   * @param { LengthMetricsUnit } [unit] - the unit mode
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
+   * @form
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  constructor(data: Resource, unit?: LengthMetricsUnit);
 }
 
 /**
