@@ -681,7 +681,7 @@ declare namespace webview {
    */
   interface PdfConfiguration {
     /**
-     * Number of the width. The unit is in.
+     * Number of the width. Unit: in.
      *
      * @type { number }
      * @syscap SystemCapability.Web.Webview.Core
@@ -691,7 +691,7 @@ declare namespace webview {
     width: number;
 
     /**
-     * Number of the height. The unit is in.
+     * Number of the height. Unit: in.
      *
      * @type { number }
      * @syscap SystemCapability.Web.Webview.Core
@@ -701,7 +701,7 @@ declare namespace webview {
     height: number;
 
     /**
-     * Number of the marginTop. The unit is in.
+     * Number of the marginTop. Unit: in.
      *
      * @type { number }
      * @syscap SystemCapability.Web.Webview.Core
@@ -711,7 +711,7 @@ declare namespace webview {
     marginTop: number;
 
     /**
-     * Number of the marginBottom. The unit is in.
+     * Number of the marginBottom. Unit: in.
      *
      * @type { number }
      * @syscap SystemCapability.Web.Webview.Core
@@ -721,7 +721,7 @@ declare namespace webview {
     marginBottom: number;
 
     /**
-     * Number of the marginRight. The unit is in.
+     * Number of the marginRight. Unit: in.
      *
      * @type { number }
      * @syscap SystemCapability.Web.Webview.Core
@@ -731,7 +731,7 @@ declare namespace webview {
     marginRight: number;
 
     /**
-     * Number of the marginLeft. The unit is in.
+     * Number of the marginLeft. Unit: in.
      *
      * @type { number }
      * @syscap SystemCapability.Web.Webview.Core
