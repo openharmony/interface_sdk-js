@@ -41,7 +41,7 @@ export declare struct AVInputCastPicker {
   customPicker?: CustomBuilder;
 
   /**
-   * Called when the compoent state changes.
+   * Called when the component state changes.
    * @type { ?OnPickerStateCallback }
    * @syscap SystemCapability.Multimedia.AVSession.AVInputCast
    * @atomicservice

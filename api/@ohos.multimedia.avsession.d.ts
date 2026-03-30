@@ -994,7 +994,7 @@ declare namespace avSession {
     TYPE_DLNA = 4,
 
     /**
-     * This type indicates the device supports audio casting with high defination to get a better sound quality.
+     * This type indicates the device supports audio casting with high definition to get a better sound quality.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
      * @since 20 dynamic
@@ -6522,13 +6522,13 @@ declare namespace avSession {
     subtitle?: string;
 
     /**
-     * The discription of the media, used for display
+     * The description of the media, used for display
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
     /**
-     * The discription of the media, used for display
+     * The description of the media, used for display
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
