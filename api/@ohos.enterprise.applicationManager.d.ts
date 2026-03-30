@@ -649,6 +649,26 @@ declare namespace applicationManager {
    * @stagemodelonly
    * @since 12
    */
+  /**
+   * Adds auto start applications.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *     The admin must have the corresponding permission.
+   * @param { Array<Want> } autoStartApps - autoStartApps indicates the information of auto start app ability.
+   *      Allows configuring whether the UI is hidden when the application auto-starts.
+   *     The bundleName and abilityName of the want cannot be non-exist.
+   *     The size of the array after setting cannot be greater than 10.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 24
+   */
   function addAutoStartApps(admin: Want, autoStartApps: Array<Want>): void;
 
   /**
@@ -670,6 +690,27 @@ declare namespace applicationManager {
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 20
+   */
+  /**
+   * Adds auto start applications which are not allowed to modify their auto start settings.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *     The admin must have the corresponding permission.
+   * @param { Array<Want> } autoStartApps - autoStartApps indicates the information of auto start app ability.
+   *      Allows configuring whether the UI is hidden when the application auto-starts.
+   *     The bundleName and abilityName of the want cannot be non-exist.
+   *     The size of the array after setting cannot be greater than 10.
+   * @param { number } accountId - accountId indicates the local ID of the OS account.
+   * @param { boolean } disallowModify - disallowModify specifies whether the applications are 
+   *     disallowed to modify their auto start setting.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. 
+   *     The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 24
    */
    function addAutoStartApps(admin: Want, autoStartApps: Array<Want>, accountId: number, disallowModify: boolean): void;
 
@@ -731,6 +772,23 @@ declare namespace applicationManager {
    * @stagemodelonly
    * @since 12
    */
+  /**
+   * Gets information of auto start applications.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *     The admin must have the corresponding permission.
+   * @returns { Array<Want> } the information with whether the UI is hidden of auto start applications.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 24
+   */
   function getAutoStartApps(admin: Want): Array<Want>;
 
   /**
@@ -748,6 +806,22 @@ declare namespace applicationManager {
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 20
+   */
+  /**
+   * Gets information of auto start applications.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *     The admin must have the corresponding permission.
+   * @param { number } accountId - accountId indicates the local ID of the OS account.
+   * @returns { Array<Want> } the information with whether the UI is hidden of auto start applications.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 24
    */
   function getAutoStartApps(admin: Want, accountId: number): Array<Want>;
 
