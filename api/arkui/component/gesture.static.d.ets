@@ -163,7 +163,7 @@ export declare enum SwipeDirection {
      */
     Horizontal,
     /**
-     * Sliding Vertical
+     * Sliding vertically
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static

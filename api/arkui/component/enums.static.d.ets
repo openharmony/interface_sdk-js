@@ -120,7 +120,7 @@ export declare enum Color {
   Orange = '#FFFFA500',
 
   /**
-   * color.
+   * Pink.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
