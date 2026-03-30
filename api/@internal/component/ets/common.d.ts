@@ -87,7 +87,7 @@ declare interface ComponentOptions {
 }
 
 /**
- * Define the ratio of characters entered by the the percentage of InputCounterOptions.
+ * Define the ratio of characters entered by the percentage of InputCounterOptions.
  *
  * @interface InputCounterOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -95,7 +95,7 @@ declare interface ComponentOptions {
  * @since 11
  */
 /**
- * Define the ratio of characters entered by the the percentage of InputCounterOptions.
+ * Define the ratio of characters entered by the percentage of InputCounterOptions.
  *
  * @interface InputCounterOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -170,7 +170,7 @@ declare interface InputCounterOptions {
   highlightBorder?: boolean;
 
   /**
-   * It is the color of counter when textField hasn't wanted to exceed the maximum character count.
+   * It is the color of counter when the text field has not exceeded the maximum character count.
    *
    * @type { ?ColorMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -181,7 +181,7 @@ declare interface InputCounterOptions {
   counterTextColor?: ColorMetrics;
 
   /**
-   * It is the color of counter when textField wants exceed the maximum character count.
+   * It is the color of counter when the text field wants to exceed the maximum character count.
    *
    * @type { ?ColorMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
