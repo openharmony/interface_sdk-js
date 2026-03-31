@@ -2512,6 +2512,33 @@ declare namespace media {
   }
 
   /**
+   * Describe video dimensions.
+   * 
+   * @typedef VideoSize
+   * @syscap SystemCapability.Multimedia.Media.Core
+   * @since 24 dynamic&static
+   */
+  interface VideoSize {
+    /**
+     * width of the video resolution.
+     * The value must be a positive integer (greater than 0).
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 24 dynamic&static
+     */
+    width?: int;
+
+    /**
+     * height of the video resolution.
+     * The value must be a positive integer (greater than 0).
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 24 dynamic&static
+     */
+    height?: int;
+  }
+
+  /**
    * Describes the information of an Metrics Event.
    *
    * @typedef AVMetricsEvent
@@ -2556,6 +2583,138 @@ declare namespace media {
     details: Record<string, Object>;
   }
 
+  /**
+   * Describes the filter conditions for track selection.
+   * 
+   * @typedef TrackSelectionFilter
+   * @syscap SystemCapability.Multimedia.Media.Core
+   * @since 24 dynamic&static
+   */
+  interface TrackSelectionFilter {
+    /**
+     * Maximum allowed video bitrate in bits per second.
+     * The value must be a positive integer (greater than 0).
+     * 
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 24 dynamic&static
+     */
+    maxVideoBitrate?: int;
+
+    /**
+     * Minimum allowed video bitrate in bits per second.
+     * The value must be a positive integer (greater than 0).
+     * 
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 24 dynamic&static
+     */
+    minVideoBitrate?: int;
+
+    /**
+     * Maximum allowed video frame rate in hertz.
+     * The value must be a positive integer (greater than 0).
+     * 
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 24 dynamic&static
+     */
+    maxVideoFrameRate?: int;
+
+    /**
+     * Minimum allowed video frame rate in hertz.
+     * The value must be a positive integer (greater than 0).
+     * 
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 24 dynamic&static
+     */
+    minVideoFrameRate?: int;
+
+    /**
+     * Maximum allowed video resolution.
+     * 
+     * @type { ?VideoSize }
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 24 dynamic&static
+     */
+    maxVideoResolution?: VideoSize;
+
+    /**
+     * Minimum allowed video resolution.
+     * 
+     * @type { ?VideoSize }
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 24 dynamic&static
+     */
+    minVideoResolution?: VideoSize;
+
+    /**
+     * The preferred sample MIME types for video tracks in order of preference, or an empty list for no preference.
+     * 
+     * @type { ?Array<string> }
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 24 dynamic&static
+     */
+    preferredVideoMimeTypes?: Array<string>;
+
+    /**
+     * Maximum allowed audio bitrate in bits per second.
+     * The value must be a positive integer (greater than 0).
+     * 
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 24 dynamic&static
+     */
+    maxAudioBitrate?: int;
+
+    /**
+     * Minimum allowed audio bitrate in bits per second.
+     * The value must be a positive integer (greater than 0).
+     * 
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 24 dynamic&static
+     */
+    minAudioBitrate?: int;
+
+    /**
+     * Maximum allowed audio channel count.
+     * The value must be a positive integer (greater than 0).
+     * 
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 24 dynamic&static
+     */
+    maxAudioChannels?: int;
+
+    /**
+     * The preferred sample MIME types for audio tracks in order of preference, or an empty list for no preference.
+     * 
+     * @type { ?Array<string> }
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 24 dynamic&static
+     */
+    preferredAudioMimeTypes?: Array<string>;
+
+    /**
+     * The preferred languages for audio tracks as IETF BCP 47-conforming tags in order of preference.
+     * 
+     * @type { ?Array<string> }
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 24 dynamic&static
+     */
+    preferredAudioLanguages?: Array<string>;
+
+    /**
+     * The preferred languages for subtitle tracks as IETF BCP 47-conforming tags in order of preference.
+     * 
+     * @type { ?Array<string> }
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 24 dynamic&static
+     */
+    preferredSubtitleLanguages?: Array<string>;
+  }
   /**
    * Describes AVPlayer states.
    * @typedef {'idle' | 'initialized' | 'prepared' | 'playing' | 'paused' | 'completed' | 'stopped' | 'released' | 'error'}
@@ -3261,9 +3420,10 @@ declare namespace media {
     /**
      * Selects a track when the AVPlayer is used to play a resource with multiple audio and video tracks.
      * This API uses a promise to return the result.
+     * 
      * @param { int } index - Track index returned by getTrackDescription#MD_KEY_TRACK_INDEX
      * @param { SwitchMode } mode - set switchmode for track select behavior. The default mode is SMOOTH.
-     * This parameter takes effect only for the switch of a video track for DASH streams.
+     *     This parameter takes effect only for the switch of a video track for DASH streams.
      * @returns { Promise<void> } A Promise instance used to return when select track completed.
      * @throws { BusinessError } 401 - The parameter check failed. Return by promise.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
@@ -3271,6 +3431,19 @@ declare namespace media {
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
+     */
+    /**
+     * Selects a track when the AVPlayer is used to play a resource with multiple audio and video tracks.
+     * This API uses a promise to return the result.
+     * 
+     * @param { int } index - Track index returned by getTrackDescription#MD_KEY_TRACK_INDEX
+     * @param { SwitchMode } mode - set switchmode for track select behavior. The default mode is SMOOTH.
+     * @returns { Promise<void> } A Promise instance used to return when select track completed.
+     * @throws { BusinessError } 401 - The parameter check failed. Return by promise.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @atomicservice
+     * @since 24 dynamic&static
      */
     selectTrack(index: int, mode?: SwitchMode): Promise<void>;
 
@@ -3304,6 +3477,28 @@ declare namespace media {
      * @since 23 static
      */
     setMediaSource(src: MediaSource, strategy?: PlaybackStrategy): Promise<void>;
+
+    /**
+     * Get the track selection filter currently configured for the player.
+     * @returns { Promise<TrackSelectionFilter> } Promise used to return the result.
+     * @throws { BusinessError } 5400102 - Operation not allowed.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 24 dynamic&static
+     */
+    getTrackSelectionFilter(): Promise<TrackSelectionFilter>;
+
+    /**
+     * Set the media track filter to the player,
+     * and the player uses the filter to select available tracks for rendering.
+     * 
+     * @param { TrackSelectionFilter } filter - Source of the streaming media to pre-download.
+     *     Track Selection Condition Filter
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 5400102 - Operation not allowed.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 24 dynamic&static
+     */
+    setTrackSelectionFilter(filter : TrackSelectionFilter): Promise<void>;
 
     /**
      * Add subtitle resource represented by FD to the player. Currently, the external subtitle must be set after
