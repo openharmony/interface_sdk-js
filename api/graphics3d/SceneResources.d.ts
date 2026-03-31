@@ -367,7 +367,7 @@ export interface Blend {
  */
 export interface RenderSort {
   /**
-   * Sort layer used sorting submeshes in rendering in render slots.
+   * Sort layer used for sorting submeshes in rendering in render slots.
    * Valid values are 0 - 63.
    * 
    * @type { ?int }
