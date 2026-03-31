@@ -1835,7 +1835,7 @@ declare namespace display {
     readonly position: Position;
 
     /**
-     * The radius of round corner.
+     * The radius of round corner, measured in px.
      *
      * @type { int }
      * @readonly

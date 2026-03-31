@@ -5424,7 +5424,7 @@ declare namespace window {
     curve: WindowAnimationCurve;
 
     /**
-     * Duration of the animation
+     * Duration of the animation, measured in ms.
      *
      * @type { ?long }
      * @syscap SystemCapability.Window.SessionManager
