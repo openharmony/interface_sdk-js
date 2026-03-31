@@ -421,7 +421,7 @@ interface DataMoveOperation {
 /**
  * Represents an operation for reloading data.
  * If the onDatasetChange event contains a DataOperationType.RELOAD operation,
- * all other operations in the event are ineffective.In such cases, the framework will
+ * all other operations in the event are ineffective. In such cases, the framework will
  * call keygenerator to perform a comparison of keys with their corresponding values.
  *
  * @interface DataReloadOperation
@@ -444,7 +444,7 @@ interface DataReloadOperation {
 }
 
 /**
- * All data operation type
+ * All data operation types.
  *
  * @typedef { DataAddOperation | DataDeleteOperation | DataChangeOperation |DataMoveOperation | DataExchangeOperation | DataReloadOperation }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -845,7 +845,7 @@ declare interface IDataSource {
 }
 
 /**
- * declare ForEachAttribute
+ * Declare LazyForEachAttribute.
  *
  * @extends DynamicNode<LazyForEachAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full

@@ -28,7 +28,7 @@ import { RecordData } from '@ohos.base';
 import { CompetitionStrategy } from '@ohos.arkui.component';
 
 /**
- * Render type of the node using for indicating that
+ * Render type of the node used for indicating that
  * if the node will be shown on the display or rendered to a texture
  *
  * @enum { number } Render type
@@ -37,7 +37,7 @@ import { CompetitionStrategy } from '@ohos.arkui.component';
  */
 export declare enum NodeRenderType {
   /**
-   * Display type.The node will be shown on the display.
+   * Display type. The node will be shown on the display.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
@@ -45,7 +45,7 @@ export declare enum NodeRenderType {
   RENDER_TYPE_DISPLAY = 0,
 
   /**
-   * Exporting texture type.The node will be render to a  texture.
+   * Exporting texture type. The node will be rendered to a  texture.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
@@ -124,7 +124,7 @@ export declare class BuilderNode<T = undefined> {
   /**
    * Build the BuilderNode with the builder.
    *
-   * @param {  WrappedBuilder<CustomBuilder> } builder - Defined the builder will be called to build the node.
+   * @param { WrappedBuilder<CustomBuilder> } builder - Defines the builder that will be called to build the node.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
@@ -132,19 +132,20 @@ export declare class BuilderNode<T = undefined> {
   /**
    * Build the BuilderNode with the builder.
    *
-   * @param { WrappedBuilder<CustomBuilderT<T>> } builder - Defined the builder will be called to build the node.
-   * @param { T } arg - Defined the args will be used in the builder.
+   * @param { WrappedBuilder<CustomBuilderT<T>> } builder - Defines the builder that will be called to build the node.
+   * @param { T } arg - Defines the args that will be used in the builder.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
   build(builder: WrappedBuilder<CustomBuilderT<T>>, arg: T): void;
 
   /**
-   * Build the BuilderNode with the builder.Support the type that WrappedBuilder contains builder used different params.
+   * Build the BuilderNode with the builder.
+   * Support the type that WrappedBuilder contains builder used different params.
    *
-   * @param { WrappedBuilder<CustomBuilderT<T>> } builder - Defined the builder will be called to build the node.
-   * @param { T } arg - Defined the args will be used in the builder.
-   * @param { BuildOptions } options - Defined the options will be used when build.
+   * @param { WrappedBuilder<CustomBuilderT<T>> } builder - Defines the builder that will be called to build the node.
+   * @param { T } arg - Defines the args that will be used in the builder.
+   * @param { BuildOptions } options - Defines the options that will be used when building.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
@@ -255,7 +256,7 @@ export declare class BuilderNode<T = undefined> {
    *
    * @param { InputEventType  } event - The event which will be sent to the targetNode.
    * @param { CompetitionStrategy  } competitionStrategy - The competition strategy.
-   * @returns { boolean } - Returns true if the eventhas been successfully posted to the targetNode,
+   * @returns { boolean } - Returns true if the event has been successfully posted to the targetNode,
    *    false otherwise.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -304,8 +305,8 @@ export declare class ReactiveBuilderNode {
   /**
    * Build the ReactiveBuilderNode with the builder.
    *
-   * @param { CustomBuilder } builder - Defined the builder will be called to build the node.
-   * @param { BuildOptions } [options] - Defined the options will be used when build.
+   * @param { CustomBuilder } builder - Defines the builder that will be called to build the node.
+   * @param { BuildOptions } [options] - Defines the options that will be used when building.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 24 static
    */
@@ -404,7 +405,7 @@ export declare class ReactiveBuilderNode {
   /**
    * Dispatch the input event to the FrameNode in the current ReactiveBuilderNode.
    * postInputEvent dispatches the event from a middle node in the component tree downwards. To ensure the event
-   * is dispatched correctly, the event coordinates needs to be transformed into the coordinate system of the
+   * is dispatched correctly, the event coordinates need to be transformed into the coordinate system of the
    * parent component.
    *
    * Note:
@@ -418,8 +419,8 @@ export declare class ReactiveBuilderNode {
    * such as the touches field for touch events and the scrollStep field for axis events. Also, ensure event
    * completeness - for example, both DOWN and UP fields in TouchType for touch events must be present to prevent
    * undefined behavior. Webview has already handled coordinate system transformations, so events be dispatched
-   * directly. The postInputEvent interface requires providing gesture coordinats relative to the window
-   * coordinates within the input event peer. It is not recommended to forward the same event multipie times.
+   * directly. The postInputEvent interface requires providing gesture coordinates relative to the window
+   * coordinates within the input event peer. It is not recommended to forward the same event multiple times.
    * The postInputEvent parameter does not support UIExtensionComponent.
    *
    * @param { InputEventType } event - The event which will be sent.

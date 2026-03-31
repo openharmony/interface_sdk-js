@@ -22,7 +22,7 @@ import { ComponentBuilder } from './builder';
 import { DynamicNode } from './common'
 
 /**
- * Define item generator function.
+ * Defines item generator function.
  *
  * @typedef { function } ItemGeneratorFunc<T>
  * @param { T } item - item in an array
@@ -34,7 +34,7 @@ import { DynamicNode } from './common'
 declare type ItemGeneratorFunc<T> = (item: T, index: int) => void;
 
 /**
- * Define key generator function.
+ * Defines key generator function.
  *
  * @typedef { function } KeyGeneratorFunc<T>
  * @param { T } item - item in an array
@@ -46,7 +46,7 @@ declare type ItemGeneratorFunc<T> = (item: T, index: int) => void;
 declare type KeyGeneratorFunc<T> = (item: T, index: int) => string;
 
 /**
- * declare ForEachAttribute
+ * Declare ForEachAttribute.
  *
  * @interface ForEachAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
