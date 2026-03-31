@@ -33,8 +33,8 @@ import lang from '../arkts/@arkts.lang';
  * directory. Before creating a preferences object, ensure that the **preferencesDir** path can be read and written. The
  * [encryption level]{@link @ohos.app.ability.contextConstant:contextConstant.AreaMode} of the persistent file directory
  * determines the access to the files. For details, see 
- * [Application File Directory and Application File Path](docroot://file-management/app-sandbox-directory.md#application-file-directory-and-application-file-path)
- * .
+ * [Application File Directory and Application File Path]
+ * (docroot://file-management/app-sandbox-directory.md#application-file-directory-and-application-file-path).
  * Sendable preferences can be passed between concurrent ArkTS instances (including the main thread and TaskPool or 
  * Worker threads) by reference. It allows for higher performance than 
  * [user preferences]{@link @ohos.data.preferences:preferences}. For more information, see 
@@ -108,9 +108,9 @@ declare namespace sendablePreferences {
    *
    * @returns { Promise<Preferences> } Promise used to return the **Preferences** instance obtained.
    *     
-   *     This instance inherits from [ISendable](../../arkts-utils/arkts-sendable.md#isendable) and can be passed between 
-   *     concurrent ArkTS instances (including the main thread and the TaskPool or Worker threads) by reference. For 
-   *     details, see [Using Sendable Objects](../../arkts-utils/sendable-guide.md).
+   *     This instance inherits from [ISendable](../../arkts-utils/arkts-sendable.md#isendable) and can be passed 
+   *     between concurrent ArkTS instances (including the main thread and the TaskPool or Worker threads)
+   *     by reference. For details, see [Using Sendable Objects](../../arkts-utils/sendable-guide.md).
    * @param { Context } context - Application context.
    * @param { Options } options - Configuration options of the **Preferences** instance.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -132,9 +132,9 @@ declare namespace sendablePreferences {
    *
    * @returns { Preferences } **Preferences** instance obtained.
    *     
-   *     This instance inherits from [ISendable](../../arkts-utils/arkts-sendable.md#isendable) and can be passed between 
-   *     concurrent ArkTS instances (including the main thread and the TaskPool or Worker threads) by reference. For 
-   *     details, see [Using Sendable Objects](../../arkts-utils/sendable-guide.md).
+   *     This instance inherits from [ISendable](../../arkts-utils/arkts-sendable.md#isendable) and can be passed 
+   *     between concurrent ArkTS instances (including the main thread and the TaskPool or Worker threads)
+   *     by reference. For details, see [Using Sendable Objects](../../arkts-utils/sendable-guide.md).
    * @param { Context } context - Application context.
    * @param { Options } options - Configuration options of the **Preferences** instance.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -201,7 +201,7 @@ declare namespace sendablePreferences {
 
   /**
    * Removes a **Preferences** instance from the cache. This API returns the result synchronously.
-   * After an application calls [getPreferences]{@link sendablePreferences.getPreferences} for the first time to obtain 
+   * After an application calls [getPreferences]{@link sendablePreferences.getPreferences} for the first time to obtain
    * a **Preferences** instance, the obtained **Preferences** instance is cached. When the application calls 
    * [getPreferences]{@link sendablePreferences.getPreferences} again, the **Preferences** instance will be read from 
    * the cache instead of from the persistent file. After this API is called to remove the instance from the cache, 
@@ -225,8 +225,8 @@ declare namespace sendablePreferences {
 
   /**
    * Provides APIs for obtaining and modifying **Preferences** instances. **Preferences** inherits from 
-   * [ISendable](docroot://arkts-utils/arkts-sendable.md#isendable) and can be passed between concurrent ArkTS instances
-   * (including the main thread and the TaskPool or Worker threads) by reference.
+   * [ISendable](docroot://arkts-utils/arkts-sendable.md#isendable) and can be passed between concurrent ArkTS
+   * instances (including the main thread and the TaskPool or Worker threads) by reference.
    * Before calling any API of **Preferences**, obtain a **Preferences** instance by using 
    * [sendablePreferences.getPreferences]{@link sendablePreferences.getPreferences}.
    *
@@ -241,12 +241,12 @@ declare namespace sendablePreferences {
      *
      * @returns { Promise<lang.ISendable> } Promise used to return the value obtained.
      *     
-     *     This instance inherits from [ISendable](../../arkts-utils/arkts-sendable.md#isendable) and can be passed between 
-     *     concurrent ArkTS instances (including the main thread and the TaskPool or Worker threads) by reference. For 
-     *     details, see [Using Sendable Objects](../../arkts-utils/sendable-guide.md).
-     * @param { string } key - Key to be obtained. The value cannot be empty, and the maximum length is 1024 bytes. For 
-     *     details, see [MAX_KEY_LENGTH](docroot://reference/apis-arkdata/js-apis-data-sendablePreferences.md#constants)
-     *     .
+     *     This instance inherits from [ISendable](../../arkts-utils/arkts-sendable.md#isendable) and can be passed 
+     *     between concurrent ArkTS instances (including the main thread and the TaskPool or Worker threads) 
+     *     by reference. Fordetails, see [Using Sendable Objects](../../arkts-utils/sendable-guide.md).
+     * @param { string } key - Key to be obtained. The value cannot be empty, and the maximum length is 1024 bytes.
+     *     For details,
+     *     see [MAX_KEY_LENGTH](docroot://reference/apis-arkdata/js-apis-data-sendablePreferences.md#constants).
      * @param { lang.ISendable } defValue - Default value to be returned.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
@@ -265,12 +265,12 @@ declare namespace sendablePreferences {
      *
      * @returns { lang.ISendable } Value obtained.
      *     
-     *     This instance inherits from [ISendable](../../arkts-utils/arkts-sendable.md#isendable) and can be passed between 
-     *     concurrent ArkTS instances (including the main thread and the TaskPool or Worker threads) by reference. For 
-     *     details, see [Using Sendable Objects](../../arkts-utils/sendable-guide.md).
-     * @param { string } key - Key to be obtained. The value cannot be empty, and the maximum length is 1024 bytes. For 
-     *     details, see [MAX_KEY_LENGTH](docroot://reference/apis-arkdata/js-apis-data-sendablePreferences.md#constants)
-     *     .
+     *     This instance inherits from [ISendable](../../arkts-utils/arkts-sendable.md#isendable) and can be passed 
+     *     between concurrent ArkTS instances (including the main thread and the TaskPool or Worker threads)
+     *     by reference. For details, see [Using Sendable Objects](../../arkts-utils/sendable-guide.md).
+     * @param { string } key - Key to be obtained. The value cannot be empty, and the maximum length is 1024 bytes. 
+     *     For details, 
+     *     see [MAX_KEY_LENGTH](docroot://reference/apis-arkdata/js-apis-data-sendablePreferences.md#constants).
      * @param { lang.ISendable } defValue - Default value to be returned.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
@@ -288,9 +288,9 @@ declare namespace sendablePreferences {
      *
      * @returns { Promise<lang.ISendable> } Promise used to return the KV pairs obtained.
      *     
-     *     This object inherits from [ISendable](../../arkts-utils/arkts-sendable.md#isendable) and can be passed between 
-     *     concurrent ArkTS instances (including the main thread and the TaskPool or Worker threads) by reference. For 
-     *     details, see [Using Sendable Objects](../../arkts-utils/sendable-guide.md).
+     *     This object inherits from [ISendable](../../arkts-utils/arkts-sendable.md#isendable) and can be passed 
+     *     between concurrent ArkTS instances (including the main thread and the TaskPool or Worker threads) 
+     *     by reference. Fordetails, see [Using Sendable Objects](../../arkts-utils/sendable-guide.md).
      * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
@@ -303,9 +303,9 @@ declare namespace sendablePreferences {
      *
      * @returns { lang.ISendable } All KV pairs obtained.
      *     
-     *     This object inherits from [ISendable](../../arkts-utils/arkts-sendable.md#isendable) and can be passed between 
-     *     concurrent ArkTS instances (including the main thread and the TaskPool or Worker threads) by reference. For 
-     *     details, see [Using Sendable Objects](../../arkts-utils/sendable-guide.md).
+     *     This object inherits from [ISendable](../../arkts-utils/arkts-sendable.md#isendable) and can be passed 
+     *     between concurrent ArkTS instances (including the main thread and the TaskPool or Worker threads)
+     *     by reference. For details, see [Using Sendable Objects](../../arkts-utils/sendable-guide.md).
      * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
@@ -319,9 +319,9 @@ declare namespace sendablePreferences {
      *
      * @returns { Promise<boolean> } Promise used to return the result. The value **true** means the **Preferences** 
      *     instance contains the KV pair; the value **false** means the opposite.
-     * @param { string } key - Key to be checked. The value cannot be empty, and the maximum length is 1024 bytes. For 
-     *     details, see [MAX_KEY_LENGTH](docroot://reference/apis-arkdata/js-apis-data-sendablePreferences.md#constants)
-     *     .
+     * @param { string } key - Key to be checked. The value cannot be empty, and the maximum length is 1024 bytes. 
+     *     For details, 
+     *     see [MAX_KEY_LENGTH](docroot://reference/apis-arkdata/js-apis-data-sendablePreferences.md#constants).
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
@@ -339,9 +339,9 @@ declare namespace sendablePreferences {
      *
      * @returns { boolean } The value **true** means the **Preferences** instance contains the KV pair; the value 
      *     **false** means the opposite.
-     * @param { string } key - Key to be checked. The value cannot be empty, and the maximum length is 1024 bytes. For 
-     *     details, see [MAX_KEY_LENGTH](docroot://reference/apis-arkdata/js-apis-data-sendablePreferences.md#constants)
-     *     .
+     * @param { string } key - Key to be checked. The value cannot be empty, and the maximum length is 1024 bytes. 
+     *     For details, 
+     *     see [MAX_KEY_LENGTH](docroot://reference/apis-arkdata/js-apis-data-sendablePreferences.md#constants).
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
@@ -358,9 +358,9 @@ declare namespace sendablePreferences {
      * [flush]{@link sendablePreferences.Preferences.flush} to persist the **Preferences** instance.
      *
      * @returns { Promise<void> } Promise that returns no value.
-     * @param { string } key - Key to be modified. The value cannot be empty, and the maximum length is 1024 bytes. For 
-     *     details, see [MAX_KEY_LENGTH](docroot://reference/apis-arkdata/js-apis-data-sendablePreferences.md#constants)
-     *     .
+     * @param { string } key - Key to be modified. The value cannot be empty, and the maximum length is 1024 bytes. For
+     *     details,
+     *     see [MAX_KEY_LENGTH](docroot://reference/apis-arkdata/js-apis-data-sendablePreferences.md#constants).
      * @param { lang.ISendable } value - Value to write.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
@@ -377,9 +377,9 @@ declare namespace sendablePreferences {
      * Writes data to this **Preferences** instance. This API returns the result synchronously. You can use 
      * [flush]{@link sendablePreferences.Preferences.flush} to persist the **Preferences** instance.
      *
-     * @param { string } key - Key to be modified. The value cannot be empty, and the maximum length is 1024 bytes. For 
-     *     details, see [MAX_KEY_LENGTH](docroot://reference/apis-arkdata/js-apis-data-sendablePreferences.md#constants)
-     *     .
+     * @param { string } key - Key to be modified. The value cannot be empty, and the maximum length is 1024 bytes. For
+     *     details, 
+     *     see [MAX_KEY_LENGTH](docroot://reference/apis-arkdata/js-apis-data-sendablePreferences.md#constants).
      * @param { lang.ISendable } value - Value to write.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
@@ -393,13 +393,13 @@ declare namespace sendablePreferences {
     putSync(key: string, value: lang.ISendable): void;
 
     /**
-     * Deletes a KV pair from this **Preferences** instance. This API uses a promise to return the result. You can use 
+     * Deletes a KV pair from this **Preferences** instance. This API uses a promise to return the result. You can use
      * [flush]{@link sendablePreferences.Preferences.flush} to persist the **Preferences** instance.
      *
      * @returns { Promise<void> } Promise that returns no value.
-     * @param { string } key - Key to be deleted. The value cannot be empty, and the maximum length is 1024 bytes. For 
-     *     details, see [MAX_KEY_LENGTH](docroot://reference/apis-arkdata/js-apis-data-sendablePreferences.md#constants)
-     *     .
+     * @param { string } key - Key to be deleted. The value cannot be empty, and the maximum length is 1024 bytes. For
+     *     details,
+     *     see [MAX_KEY_LENGTH](docroot://reference/apis-arkdata/js-apis-data-sendablePreferences.md#constants).
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
@@ -415,9 +415,9 @@ declare namespace sendablePreferences {
      * Deletes a KV pair from this **Preferences** instance. This API returns the result synchronously. You can use 
      * [flush]{@link sendablePreferences.Preferences.flush} to persist the **Preferences** instance.
      *
-     * @param { string } key - Key to be deleted. The value cannot be empty, and the maximum length is 1024 bytes. For 
-     *     details, see [MAX_KEY_LENGTH](docroot://reference/apis-arkdata/js-apis-data-sendablePreferences.md#constants)
-     *     .
+     * @param { string } key - Key to be deleted. The value cannot be empty, and the maximum length is 1024 bytes. For
+     *     details, 
+     *     see [MAX_KEY_LENGTH](docroot://reference/apis-arkdata/js-apis-data-sendablePreferences.md#constants).
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
@@ -475,8 +475,8 @@ declare namespace sendablePreferences {
     flushSync(): void;
 
     /**
-     * Subscribes to data changes. The registered callback will be invoked to return the new value if the data change is
-     * [flushed]{@link sendablePreferences.Preferences.flush}.
+     * Subscribes to data changes. The registered callback will be invoked to return the new value if the data change
+     * is [flushed]{@link sendablePreferences.Preferences.flush}.
      *
      * @param { 'change' } type - Event type. The value is **'change'**, which indicates data changes.
      * @param { Callback<string> } callback - Callback used to return the key whose value is changed.
@@ -578,7 +578,7 @@ declare namespace sendablePreferences {
      * @param { 'dataChange' } type - Event type. The value is **'dataChange'**, which indicates data changes.
      * @param { Array<string> } keys - Keys to be unsubscribed from. If this parameter is not specified, this API 
      *     unsubscribes from the changes of all keys.
-     * @param { Callback<lang.ISendable> } callback - Callback to unregister. If this parameter is not specified, this 
+     * @param { Callback<lang.ISendable> } callback - Callback to unregister. If this parameter is not specified, this
      *     API unregisters all callbacks for the changes of the specified data.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
