@@ -4549,6 +4549,111 @@ export declare interface MouseEvent extends BaseEvent {
      * @since 24 static
      */
     eventHandleId?: int;
+    /**
+     * Obtains all historical points of the current frame.
+     *
+     * @returns { MouseHistoricalPoint[] | undefined } - return all historical points. Undefined will be returned
+     *     if the internal runtime environment is broken.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default getHistoricalPoints(): MouseHistoricalPoint[] | undefined;
+}
+/**
+ * Defines the historical point information for mouse event.
+ *
+ * @interface MouseHistoricalPoint
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare interface MouseHistoricalPoint {
+  /**
+   * X coordinate of the mouse pointer relative to the upper left corner of the component being clicked.
+   *
+   * @type { double }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  x: double;
+  
+  /**
+   * Y coordinate of the mouse pointer relative to the upper left corner of the component being clicked.
+   *
+   * @type { double }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  y: double;
+  
+  /**
+   * X coordinate of the mouse pointer relative to the upper left corner of the application screen.
+   *
+   * @type { double }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  displayX: double;
+  
+  /**
+   * Y coordinate of the mouse pointer relative to the upper left corner of the application screen.
+   *
+   * @type { double }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  displayY: double;
+  
+  /**
+   * X coordinate of the mouse pointer relative to the upper left corner of the application window.
+   *
+   * @type { double }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  windowX: double;
+  
+  /**
+   * Y coordinate of the mouse pointer relative to the upper left corner of the application window.
+   *
+   * @type { double }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  windowY: double;
+
+  /**
+   * X coordinate of the point relative to the global display.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  globalDisplayX: double;
+
+  /**
+   * Y coordinate of the point relative to the global display.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  globalDisplayY: double;
+  
+  /**
+   * Timestamp of the mouse event.
+   *
+   * @type { long }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  timestamp: long;
 }
 /**
  * The accessibility hover action triggers this method invocation.
