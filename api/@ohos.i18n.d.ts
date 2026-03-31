@@ -1357,7 +1357,7 @@ declare namespace i18n {
    */
   export enum TemperatureType {
     /**
-     * Celesius.
+     * Celsius.
      *
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
@@ -1365,7 +1365,7 @@ declare namespace i18n {
      * @since 23 static
      */
     /**
-     * Celesius.
+     * Celsius.
      *
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
