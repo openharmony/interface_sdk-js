@@ -567,6 +567,69 @@ declare namespace deviceSettings {
   }
 
   /**
+   * The key of the switch.
+   *
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  enum SwitchKey {  
+    /**
+     * NearLink.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    NEARLINK = 0,
+
+    /**
+     * Bluetooth.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    BLUETOOTH = 1,
+
+    /**
+     * Wi-Fi.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    WIFI = 2
+  }
+
+  /**
+   * The status of the switch.
+   *
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  enum SwitchStatus {  
+    /**
+     * On.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    ON = 0,
+
+    /**
+     * Off.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    OFF = 1
+  }
+
+  /**
    * User certificate data.
    *
    * @typedef CertBlob
@@ -1038,6 +1101,28 @@ declare namespace deviceSettings {
    * @since 24
    */
   function getValueForAccount(admin: Want, item: SettingsItem, accountId: number): string;
+
+  /**
+   * Sets the status of a switch.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SETTINGS or ohos.permission.PERSONAL_MANAGE_RESTRICTIONS
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *     The admin must have the corresponding permission.
+   * @param { SwitchKey } key - key indicates the key of the switch.
+   * @param { SwitchStatus } status - status indicates the status of switch.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 203 - This function is prohibited by enterprise management policies.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *     Failed to call the API due to limited device capabilities.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function setSwitchStatus(admin: Want, key: SwitchKey, status: SwitchStatus): void;
 }
 
 export default deviceSettings;
