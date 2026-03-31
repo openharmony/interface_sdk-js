@@ -260,6 +260,7 @@ declare namespace backgroundTaskManager {
   interface TransientTaskInfo {
     /**
      * Total remaining quota of an application in one day.
+     * <br>Unit:ms
      *
      * @type { int }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
