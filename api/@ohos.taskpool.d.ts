@@ -1642,7 +1642,7 @@ declare namespace taskpool {
   /**
    * Verifies the passed-in parameter types and return value type of a concurrent function, and executes the generic task with a delay.
    *
-   * @param { number } delayTime - Delay, in ms.
+   * @param { number } delayTime - Delay duration (ms).
    * @param { GenericsTask<A, R> } task - Generic task to be executed with a delay.
    * @param { Priority } [priority] - Priority of the task. The default value is taskpool.Priority.MEDIUM.
    * @returns { Promise<R> }
@@ -1680,7 +1680,7 @@ declare namespace taskpool {
    * Executes a task periodically. In this execution mode, you can set the task priority and call cancel() to cancel the execution.
    * A periodic task cannot be a task in a task group, serial queue, or asynchronous queue. It cannot call execute() again or have a dependency relationship.
    *
-   * @param { number } period - Execution period, in ms.
+   * @param { number } period - Execution period (ms).
    * @param { Task } task - Task to be executed.
    * @param { Priority } [priority] - Priority of the task. The default value is taskpool.Priority.MEDIUM.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -1718,7 +1718,7 @@ declare namespace taskpool {
    * Verifies the passed-in parameter types and return value type of a concurrent function, and executes the generic task
    * periodically at an interval specified by period.
    *
-   * @param { number } period - Execution period, in ms.
+   * @param { number } period - Execution period (ms).
    * @param { GenericsTask<A, R> } task - Generic task to be executed periodically.
    * @param { Priority } [priority] - Priority of the task. The default value is taskpool.Priority.MEDIUM.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.

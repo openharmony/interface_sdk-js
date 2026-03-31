@@ -709,7 +709,7 @@ declare namespace utils {
       /**
        * Waits for the ConditionVariable to be notified, or until the specified time limit is reached.
        *
-       * @param { number } timeout - The maximum time to wait.
+       * @param { number } timeout - The maximum time to wait (ms).
        * @returns { Promise<void> } A promise that will be resolved once the ConditionVariable is notified or the
        * specified time limit is reached.
        * @syscap SystemCapability.Utils.Lang
@@ -719,7 +719,7 @@ declare namespace utils {
       /**
        * Waits for the ConditionVariable to be notified, or until the specified time limit is reached.
        *
-       * @param { number } timeout - The maximum time to wait.
+       * @param { number } timeout - The maximum time to wait (ms).
        * @returns { Promise<void> } A promise that will be resolved once the ConditionVariable is notified or the
        *      specified time limit is reached.
        * @syscap SystemCapability.Utils.Lang
