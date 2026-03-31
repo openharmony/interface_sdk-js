@@ -454,6 +454,7 @@
     { "filePath": "@ohos.file.storageStatistics.d.ts", "kitName": "CoreFileKit", "subSystem": "文件管理" },
     { "filePath": "@ohos.file.trash.d.ts", "kitName": "CoreFileKit", "subSystem": "文件管理" },
     { "filePath": "@ohos.file.volumeManager.d.ts", "kitName": "CoreFileKit", "subSystem": "文件管理" },
+    { "filePath": "@ohos.file.encryptedVolumeManager.d.ts", "kitName": "CoreFileKit", "subSystem": "文件管理" },
     { "filePath": "@ohos.fileio.d.ts", "kitName": "CoreFileKit", "subSystem": "文件管理" },
     { "filePath": "@ohos.filemanagement.userFileManager.d.ts", "kitName": "CoreFileKit", "subSystem": "文件管理" },
     { "filePath": "@ohos.fileshare.d.ts", "kitName": "CoreFileKit", "subSystem": "文件管理" },
