@@ -711,7 +711,129 @@ declare namespace photoAccessHelper {
      * @since 18 dynamic
      * @since 23 static
      */
-    ANALYSIS_SEARCH_INDEX = 16
+    ANALYSIS_SEARCH_INDEX = 16,
+    /**
+     * Analysis of selected.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    ANALYSIS_SELECTED = 17,
+    /**
+     * Analysis of duplicate and similarity.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    ANALYSIS_DUPLICATE_SIMILARITY = 18,
+    /**
+     * Analysis of negative emotion.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    ANALYSIS_NEGATIVE_EMOTION = 19,
+    /**
+     * Analysis of face aesthetics.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    ANALYSIS_FACE_AESTHETICS = 20,
+    /**
+     * Analysis of magic emoji.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    ANALYSIS_MAGIC_EMOJI = 21,
+    /**
+     * Analysis of AI edit.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    ANALYSIS_AI_EDIT = 22
+  }
+
+  /**
+   * Asset analysis config.
+   *
+   * @interface AnalysisConfig
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  interface AnalysisConfig {
+    /**
+     * Array of analysis types, limited in size to the number of defined members in the AnalysisType enumeration.
+     *
+     * @type { AnalysisType[] }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    types: AnalysisType[];
+
+    /**
+     * Array of asset URIs.
+     * <br>Length range:[0, 100].
+     *
+     * @type { string[] }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    uris: string[];
+
+    /**
+     * Extra info in JSON string format.
+     * <br>Length range:(0,500].
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    extraInfos?: string;
+  }
+
+  /**
+   * Asset analysis result info.
+   *
+   * @interface AnalysisResult
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  interface AnalysisResult {
+    /**
+     * The result code of asset analysis.
+     *
+     * @type { int }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    result: int;
   }
 
   /**
@@ -7136,6 +7258,47 @@ declare namespace photoAccessHelper {
      * @since 23 static
      */
     startAssetAnalysis(type: AnalysisType, assetUris?: Array<string>): Promise<int>;
+
+    /**
+     * Starts async asset analysis.
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { AnalysisConfig } config - Analysis config. The uris in config is from PhotoAsset.
+     * @param { Callback<AnalysisResult> } callback - Callback used to notify the analysis result.
+     * @returns { Promise<int> } Returns the task id of the service.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 23800151 - The scenario parameter verification fails. Possible causes:
+     * <br>1. Unsupported or invalid types of config;
+     * <br>2. The types or uris array size of config exceed max value.
+     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
+     * <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    startAssetAnalysisAsync(config: AnalysisConfig, callback: Callback<AnalysisResult>): Promise<int>;
+
+    /**
+     * Stops asset analysis.
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { AnalysisConfig } config - Analysis config.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 23800151 - The scenario parameter verification fails. Possible causes:
+     * <br>1. Unsupported or invalid AnalysisType of config;
+     * <br>2. The types or uris array size of config exceed max value.
+     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
+     * <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    stopAssetAnalysis(config: AnalysisConfig): void;
+
     /**
      * Obtains album information by album IDs. This API uses a promise to return the result.
      *
