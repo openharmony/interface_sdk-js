@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2025-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -38,6 +38,7 @@ declare namespace proxyChannelManager {
     * @param { ChannelInfo } channelInfo -  Parameters for creating proxy channel
     * @returns { Promise<int> } The Promise returned by this function.
     * @throws { BusinessError } 201 - Permission denied.
+    * @throws { BusinessError } 801 - Capability not supported.
     * @throws { BusinessError } 32390001 - BR is disabled.
     * @throws { BusinessError } 32390002 - Device not paired.
     * @throws { BusinessError } 32390006 - Parameter error.
