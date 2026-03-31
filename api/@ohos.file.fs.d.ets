@@ -118,6 +118,14 @@ declare namespace fileIo {
      * @since 23 static
      */
     const SYNC = 0o4010000;
+    /**
+     * UNCACHE IO.
+     *
+     * @syscap SystemCapability.FileManagement.File.FileIO
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    const UNCACHE = 0o10000000000;
   }
 
 /**
@@ -2223,6 +2231,7 @@ function moveFileSync(src: string, dest: string, mode?: int): void;
  *     <br>The write permission is not allowed.
  *     <br>OpenMode.NOFOLLOW(0o400000): If path points to a symbolic link, throw an exception.
  *     <br>OpenMode.SYNC(0o4010000): Open the file in synchronous I/O mode.
+ *     <br>OpenMode.UNCACHE(0o10000000000): Open the file in uncache I/O mode.
  * @returns { Promise<File> } Promise used to return the File object.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
@@ -2252,7 +2261,7 @@ function moveFileSync(src: string, dest: string, mode?: int): void;
  * @throws { BusinessError } 13900042 - Unknown error
  * @throws { BusinessError } 13900044 - Network is unreachable
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 23 static
+ * @since 26.0.0 static
  */
 function open(path: string, mode?: int): Promise<File>;
 
@@ -2313,6 +2322,7 @@ function open(path: string, callback: AsyncCallback<File>): void;
  *     <br>The write permission is not allowed.
  *     <br>OpenMode.NOFOLLOW(0o400000): If path points to a symbolic link, throw an exception.
  *     <br>OpenMode.SYNC(0o4010000): Open the file in synchronous I/O mode.
+ *     <br>OpenMode.UNCACHE(0o10000000000): Open the file in uncache I/O mode.
  * @param { AsyncCallback<File> } callback - The callback is used to return the File object to record
  *     <br>the file descriptor.
  * @throws { BusinessError } 13900001 - Operation not permitted
@@ -2342,7 +2352,7 @@ function open(path: string, callback: AsyncCallback<File>): void;
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 23 static
+ * @since 26.0.0 static
  */
 function open(path: string, mode: int, callback: AsyncCallback<File>): void;
 
@@ -2365,6 +2375,7 @@ function open(path: string, mode: int, callback: AsyncCallback<File>): void;
  *     <br>The write permission is not allowed.
  *     <br>OpenMode.NOFOLLOW(0o400000): If path points to a symbolic link, throw an exception.
  *     <br>OpenMode.SYNC(0o4010000): Open the file in synchronous I/O mode.
+ *     <br>OpenMode.UNCACHE(0o10000000000): Open the file in uncache I/O mode.
  * @returns { File } Returns the File object to record the file descriptor.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
@@ -2394,7 +2405,7 @@ function open(path: string, mode: int, callback: AsyncCallback<File>): void;
  * @throws { BusinessError } 13900042 - Unknown error
  * @throws { BusinessError } 13900044 - Network is unreachable
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 23 static
+ * @since 26.0.0 static
  */
 function openSync(path: string, mode?: int): File;
 
