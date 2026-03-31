@@ -72,7 +72,7 @@ declare namespace componentSnapshot {
     }
     /**
      * Defines the extra options for snapshot taking, if this is used, the start and end will
-     * be assigned to left and right value according to the layout direction of node automaticlly.
+     * be assigned to left and right value according to the layout direction of node automatically.
      *
      * @typedef LocalizedSnapshotRegion
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -144,8 +144,8 @@ declare namespace componentSnapshot {
        */
       colorSpace?: colorSpaceManager.ColorSpace;
       /**
-       * Indicate that if the system should decide the color space automaticlly.
-       * If set this to true, the one specificed by colorSpace parameter will be ignored.
+       * Indicate that if the system should decide the color space automatically.
+       * If set this to true, the one specified by colorSpace parameter will be ignored.
        *
        * When setting isAuto to true, it is recommended to also set the waitUntilRenderFinished field
        * in SnapshotOptions to true to ensure that the system can properly detect the mode being used.
@@ -183,8 +183,8 @@ declare namespace componentSnapshot {
       dynamicRangeMode?: DynamicRangeMode;
 
       /**
-       * Indicate that if the system should decide the dynamic range mode automaticlly.
-       * If set this to true, the one specificed by dynamicRangeMode parameter will be ignored.
+       * Indicate that if the system should decide the dynamic range mode automatically.
+       * If set this to true, the one specified by dynamicRangeMode parameter will be ignored.
        *
        * When setting isAuto to true, it is recommended to also set the waitUntilRenderFinished field
        * in SnapshotOptions to true to ensure that the system can properly detect the mode being used.
@@ -224,9 +224,8 @@ declare namespace componentSnapshot {
          */
         waitUntilRenderFinished?: boolean;
         /**
-         * Defines the rect reigon type of the snapshot.
+         * Defines the rect region type of the snapshot.
          *
-         * @type {?SnapshotRegionType}
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 23 static
          */

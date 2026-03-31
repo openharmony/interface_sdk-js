@@ -136,20 +136,20 @@ declare enum PanDirection {
   Right,
 
   /**
-   * Sliding Vertical
+   * Sliding vertically
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
-   * Sliding Vertical
+   * Sliding vertically
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
-   * Sliding Vertical
+   * Sliding vertically
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -300,20 +300,20 @@ declare enum SwipeDirection {
   Horizontal,
 
   /**
-   * Sliding Vertical
+   * Sliding vertically
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
-   * Sliding Vertical
+   * Sliding vertically
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
-   * Sliding Vertical
+   * Sliding vertically
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

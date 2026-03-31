@@ -629,7 +629,7 @@ declare namespace dragController {
   }
 
   /**
-   * Define the drag event paramters
+   * Define the drag event parameters
    * 
    * @interface DragEventParam
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -637,7 +637,7 @@ declare namespace dragController {
    * @since 12
    */
   /**
-   * Define the drag event paramters
+   * Define the drag event parameters
    * 
    * @interface DragEventParam
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -842,20 +842,20 @@ declare namespace dragController {
 
   /**
    * Get drag preview object.
-   * @returns { DragPreview } An drag preview object.
+   * @returns { DragPreview } A drag preview object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
   /**
    * Get drag preview object.
-   * @returns { DragPreview } An drag preview object.
+   * @returns { DragPreview } A drag preview object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
    */
   /**
    * Get drag preview object.
-   * @returns { DragPreview } An drag preview object.
+   * @returns { DragPreview } A drag preview object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
