@@ -1150,7 +1150,7 @@ declare namespace display {
     name: string;
 
     /**
-     * Indicates the width of the virtual screen.
+     * Indicates the width of the virtual screen, measured in px.
      *
      * @type { long }
      * @syscap SystemCapability.Window.SessionManager
@@ -1160,7 +1160,7 @@ declare namespace display {
     width: long;
 
     /**
-     * Indicates the height of the virtual screen.
+     * Indicates the height of the virtual screen, measured in px.
      *
      * @type { long }
      * @syscap SystemCapability.Window.SessionManager
@@ -1170,7 +1170,7 @@ declare namespace display {
     height: long;
 
     /**
-     * Indicates the density of the virtual screen.
+     * Indicates the density of the virtual screen, measured in px.
      *
      * @type { double }
      * @syscap SystemCapability.Window.SessionManager
@@ -2704,7 +2704,7 @@ declare namespace display {
     sourceMode?: DisplaySourceMode;
  
     /**
-     * The X-axis coordinate of the top-left corner of the display relative to the main display.
+     * The X-axis coordinate of the top-left corner of the display relative to the main display, measured in px.
      *
      * @type { ?long }
      * @syscap SystemCapability.Window.SessionManager
@@ -2715,7 +2715,7 @@ declare namespace display {
     x?: long;
   
     /**
-     * The Y-axis coordinate of the top-left corner of the display relative to the main display.
+     * The Y-axis coordinate of the top-left corner of the display relative to the main display, measured in px.
      *
      * @type { ?long }
      * @syscap SystemCapability.Window.SessionManager
@@ -2927,7 +2927,7 @@ declare namespace display {
    */
   interface Position {
     /**
-     * Indicates the x-axis coordinates
+     * Indicates the x-axis coordinates, measured in px.
      * 
      * @type { long }
      * @syscap SystemCapability.Window.SessionManager
@@ -2937,7 +2937,7 @@ declare namespace display {
     x: long;
 
     /**
-     * Indicates the y-axis coordinates
+     * Indicates the y-axis coordinates, measured in px.
      * 
      * @type { long }
      * @syscap SystemCapability.Window.SessionManager
