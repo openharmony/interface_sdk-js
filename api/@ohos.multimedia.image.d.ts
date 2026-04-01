@@ -6947,6 +6947,45 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     getDensity(): int;
 
     /**
+     * Sets opacity of the PixelMap. Every pixel will be set to the same opacity value.
+     *
+     * @param { double } value The target opacity value to be set.
+     *     The valid range is (0.0, 1.0] where 1.0 is fully opaque and becoming more transparent as it approaches 0.0.
+     * @returns { Promise<void> } A Promise that resolves when the operation completes.
+     * @throws { BusinessError } 7600105 - The PixelMap has been released.
+     * @throws { BusinessError } 7600106 - The PixelMap has been passed to another thread.
+     * @throws { BusinessError } 7600201 - Unsupported operation because the PixelMap is locked.
+     * @throws { BusinessError } 7600206 - Invalid parameter because the rate is out of range.
+     * @throws { BusinessError } 7600207 - Unsupported data format. Possible cause: Alpha type is not supported.
+     * @throws { BusinessError } 7600901 - Internal unknown error. Please check the logs for detailed information.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @form
+     * @since 26.0.0 dynamic&static
+     */
+    setOpacity(value: double): Promise<void>;
+
+    /**
+     * Sets opacity of the PixelMap. Every pixel will be set to the same opacity value.
+     *
+     * @param { double } value The target opacity value to be set.
+     *     The valid range is (0.0, 1.0] where 1.0 is fully opaque and becoming more transparent as it approaches 0.0.
+     * @throws { BusinessError } 7600105 - The PixelMap has been released.
+     * @throws { BusinessError } 7600106 - The PixelMap has been passed to another thread.
+     * @throws { BusinessError } 7600201 - Unsupported operation because the PixelMap is locked.
+     * @throws { BusinessError } 7600206 - Invalid parameter because the rate is out of range.
+     * @throws { BusinessError } 7600207 - Unsupported data format. Possible cause: Alpha type is not supported.
+     * @throws { BusinessError } 7600901 - Internal unknown error. Please check the logs for detailed information.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @form
+     * @since 26.0.0 dynamic&static
+     */
+    setOpacitySync(value: double): void;
+
+    /**
      * Set the transparent rate of pixel map. This method uses a callback to return the operation result.
      *
      * @param { double } rate The value of transparent rate.
@@ -6975,6 +7014,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      */
     /**
      * Set the transparent rate of pixel map. This method uses a callback to return the operation result.
+     * 
+     * It is recommended to use {@link setOpacity}.
      *
      * @param { double } rate The value of transparent rate.
      * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
@@ -7016,6 +7057,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      */
     /**
      * Set the transparent rate of pixel map. This method uses a promise to return the result.
+     * 
+     * It is recommended to use {@link setOpacity}.
      *
      * @param { double } rate The value of transparent rate.
      * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
@@ -7030,6 +7073,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * Set the transparent rate of pixel map.
+     * 
+     * It is recommended to use {@link setOpacitySync}.
      *
      * @param { double } rate The value of transparent rate.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
@@ -7176,6 +7221,49 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     createAlphaPixelmapSync(): PixelMap;
 
     /**
+     * Scales the PixelMap in the horizontal and/or vertical dimensions.
+     *
+     * @param { double } x The scale ratio of width.
+     * @param { double } y The scale ratio of height.
+     * @param { AntiAliasingLevel } [level] The anti-aliasing algorithm to be used.
+     *     The default value is AntiAliasingLevel.NONE.
+     * @returns { Promise<void> } A Promise that resolves when the operation completes.
+     * @throws { BusinessError } 7600105 - The PixelMap has been released.
+     * @throws { BusinessError } 7600106 - The PixelMap has been passed to another thread.
+     * @throws { BusinessError } 7600201 - Unsupported operation because the PixelMap is locked.
+     * @throws { BusinessError } 7600301 - Failed to allocate memory.
+     *     Possible causes: 1. The resulting PixelMap size is too large. 2. The system is out of memory.
+     * @throws { BusinessError } 7600901 - Internal unknown error. Please check the logs for detailed information.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @form
+     * @since 26.0.0 dynamic&static
+     */
+    applyScale(x: double, y: double, level?: AntiAliasingLevel): Promise<void>;
+
+    /**
+     * Scales the PixelMap in the horizontal and/or vertical dimensions.
+     *
+     * @param { double } x The scale ratio of width.
+     * @param { double } y The scale ratio of height.
+     * @param { AntiAliasingLevel } [level] The anti-aliasing algorithm to be used.
+     *     The default value is AntiAliasingLevel.NONE.
+     * @throws { BusinessError } 7600105 - The PixelMap has been released.
+     * @throws { BusinessError } 7600106 - The PixelMap has been passed to another thread.
+     * @throws { BusinessError } 7600201 - Unsupported operation because the PixelMap is locked.
+     * @throws { BusinessError } 7600301 - Failed to allocate memory.
+     *     Possible causes: 1. The resulting PixelMap size is too large. 2. The system is out of memory.
+     * @throws { BusinessError } 7600901 - Internal unknown error. Please check the logs for detailed information.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @form
+     * @since 26.0.0 dynamic&static
+     */
+    applyScaleSync(x: double, y: double, level?: AntiAliasingLevel): void;
+
+    /**
      * Image zoom in width and height. This method uses a callback to return the operation result.
      *
      * @param { double } x The zoom value of width.
@@ -7207,6 +7295,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      */
     /**
      * Image zoom in width and height. This method uses a callback to return the operation result.
+     * 
+     * It is recommended to use {@link applyScale}.
      *
      * @param { double } x The zoom value of width.
      * @param { double } y The zoom value of height.
@@ -7252,6 +7342,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      */
     /**
      * Image zoom in width and height. This method uses a promise to return the result.
+     * 
+     * It is recommended to use {@link applyScale}.
      *
      * @param { double } x The zoom value of width.
      * @param { double } y The zoom value of height.
@@ -7267,6 +7359,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * Image zoom in width and height.
+     * 
+     * It is recommended to use {@link applyScaleSync}.
      *
      * @param { double } x The zoom value of width.
      * @param { double } y The zoom value of height.
@@ -7283,6 +7377,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * Image zoom in width and height width with anti-aliasing. This method uses a promise to return the result.
+     * 
+     * It is recommended to use {@link applyScale}.
      *
      * @param { double } x The zoom value of width.
      * @param { double } y The zoom value of height.
@@ -7302,6 +7398,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * Image zoom in width and height with anti-aliasing.
+     * 
+     * It is recommended to use {@link applyScaleSync}.
      *
      * @param { double } x The zoom value of width.
      * @param { double } y The zoom value of height.
@@ -7350,6 +7448,45 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     createScaledPixelMapSync(x: double, y: double, level?: AntiAliasingLevel): PixelMap;
 
     /**
+     * Repositions the PixelMap in the horizontal and/or vertical directions.
+     *
+     * @param { double } x The distance in pixels to move in the horizontal direction.
+     * @param { double } y The distance in pixels to move in the vertical direction.
+     * @returns { Promise<void> } A Promise that resolves when the operation completes.
+     * @throws { BusinessError } 7600105 - The PixelMap has been released.
+     * @throws { BusinessError } 7600106 - The PixelMap has been passed to another thread.
+     * @throws { BusinessError } 7600201 - Unsupported operation because the PixelMap is locked.
+     * @throws { BusinessError } 7600301 - Failed to allocate memory.
+     *     Possible causes: 1. The resulting PixelMap size is too large. 2. The system is out of memory.
+     * @throws { BusinessError } 7600901 - Internal unknown error. Please check the logs for detailed information.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @form
+     * @since 26.0.0 dynamic&static
+     */
+    applyTranslate(x: double, y: double): Promise<void>;
+
+    /**
+     * Repositions the PixelMap in the horizontal and/or vertical directions.
+     *
+     * @param { double } x The distance in pixels to move in the horizontal direction.
+     * @param { double } y The distance in pixels to move in the vertical direction.
+     * @throws { BusinessError } 7600105 - The PixelMap has been released.
+     * @throws { BusinessError } 7600106 - The PixelMap has been passed to another thread.
+     * @throws { BusinessError } 7600201 - Unsupported operation because the PixelMap is locked.
+     * @throws { BusinessError } 7600301 - Failed to allocate memory.
+     *     Possible causes: 1. The resulting PixelMap size is too large. 2. The system is out of memory.
+     * @throws { BusinessError } 7600901 - Internal unknown error. Please check the logs for detailed information.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @form
+     * @since 26.0.0 dynamic&static
+     */
+    applyTranslateSync(x: double, y: double): void;
+
+    /**
      * Image position transformation. This method uses a callback to return the operation result.
      *
      * @param { double } x The position value of width, in px.
@@ -7381,6 +7518,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      */
     /**
      * Image position transformation. This method uses a callback to return the operation result.
+     * 
+     * It is recommended to use {@link applyTranslate}.
      *
      * @param { double } x The position value of width, in px.
      * @param { double } y The position value of height, in px.
@@ -7426,6 +7565,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      */
     /**
      * Image position transformation. This method uses a promise to return the result.
+     * 
+     * It is recommended to use {@link applyTranslate}.
      *
      * @param { double } x The position value of width, in px.
      * @param { double } y The position value of height, in px.
@@ -7441,6 +7582,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * Image position transformation.
+     * 
+     * It is recommended to use {@link applyTranslateSync}.
      *
      * @param { double } x The position value of width, in px.
      * @param { double } y The position value of height, in px.
@@ -7454,6 +7597,47 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 23 static
      */
     translateSync(x: double, y: double): void;
+
+    /**
+     * Rotates the PixelMap.
+     * 
+     * Note: YUV format PixelMaps only support rotation angles that are multiples of 90 degrees.
+     *
+     * @param { double } angle The rotation angle in degrees.
+     * @returns { Promise<void> } A Promise that resolves when the operation completes.
+     * @throws { BusinessError } 7600105 - The PixelMap has been released.
+     * @throws { BusinessError } 7600106 - The PixelMap has been passed to another thread.
+     * @throws { BusinessError } 7600201 - Unsupported operation because the PixelMap is locked.
+     * @throws { BusinessError } 7600301 - Failed to allocate memory.
+     *     Possible causes: 1. The resulting PixelMap size is too large. 2. The system is out of memory.
+     * @throws { BusinessError } 7600901 - Internal unknown error. Please check the logs for detailed information.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @form
+     * @since 26.0.0 dynamic&static
+     */
+    applyRotate(angle: double): Promise<void>;
+
+    /**
+     * Rotates the PixelMap.
+     * 
+     * Note: YUV format PixelMaps only support rotation angles that are multiples of 90 degrees.
+     *
+     * @param { double } angle The rotation angle in degrees.
+     * @throws { BusinessError } 7600105 - The PixelMap has been released.
+     * @throws { BusinessError } 7600106 - The PixelMap has been passed to another thread.
+     * @throws { BusinessError } 7600201 - Unsupported operation because the PixelMap is locked.
+     * @throws { BusinessError } 7600301 - Failed to allocate memory.
+     *     Possible causes: 1. The resulting PixelMap size is too large. 2. The system is out of memory.
+     * @throws { BusinessError } 7600901 - Internal unknown error. Please check the logs for detailed information.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @form
+     * @since 26.0.0 dynamic&static
+     */
+    applyRotateSync(angle: double): void;
 
     /**
      * Image rotation. This method uses a callback to return the operation result.
@@ -7484,6 +7668,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      */
     /**
      * Image rotation. This method uses a callback to return the operation result.
+     * 
+     * It is recommended to use {@link applyRotate}.
      *
      * @param { double } angle The rotation angle, in degrees.
      * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
@@ -7525,6 +7711,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      */
     /**
      * Image rotation. This method uses a promise to return the result.
+     * 
+     * It is recommended to use {@link applyRotate}.
      *
      * @param { double } angle The rotation angle, in degrees.
      * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
@@ -7539,6 +7727,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * Image rotation.
+     * 
+     * It is recommended to use {@link applyRotateSync}.
      *
      * @param { double } angle The rotation angle, in degrees.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
@@ -7551,6 +7741,43 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 23 static
      */
     rotateSync(angle: double): void;
+
+    /**
+     * Flips the PixelMap in the horizontal and/or vertical directions.
+     *
+     * @param { boolean } horizontal Whether to flip horizontally.
+     * @param { boolean } vertical Whether to flip vertically.
+     * @returns { Promise<void> } A Promise that resolves when the operation completes.
+     * @throws { BusinessError } 7600105 - The PixelMap has been released.
+     * @throws { BusinessError } 7600106 - The PixelMap has been passed to another thread.
+     * @throws { BusinessError } 7600201 - Unsupported operation because the PixelMap is locked.
+     * @throws { BusinessError } 7600301 - Failed to allocate memory. Possible cause: The system is out of memory.
+     * @throws { BusinessError } 7600901 - Internal unknown error. Please check the logs for detailed information.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @form
+     * @since 26.0.0 dynamic&static
+     */
+    applyFlip(horizontal: boolean, vertical: boolean): Promise<void>;
+
+    /**
+     * Flips the PixelMap in the horizontal and/or vertical directions.
+     *
+     * @param { boolean } horizontal Whether to flip horizontally.
+     * @param { boolean } vertical Whether to flip vertically.
+     * @throws { BusinessError } 7600105 - The PixelMap has been released.
+     * @throws { BusinessError } 7600106 - The PixelMap has been passed to another thread.
+     * @throws { BusinessError } 7600201 - Unsupported operation because the PixelMap is locked.
+     * @throws { BusinessError } 7600301 - Failed to allocate memory. Possible cause: The system is out of memory.
+     * @throws { BusinessError } 7600901 - Internal unknown error. Please check the logs for detailed information.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @form
+     * @since 26.0.0 dynamic&static
+     */
+    applyFlipSync(horizontal: boolean, vertical: boolean): void;
 
     /**
      * Image flipping. This method uses a callback to return the operation result.
@@ -7584,6 +7811,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      */
     /**
      * Image flipping. This method uses a callback to return the operation result.
+     * 
+     * It is recommended to use {@link applyFlip}.
      *
      * @param { boolean } horizontal Is flip in horizontal.
      * @param { boolean } vertical Is flip in vertical.
@@ -7629,6 +7858,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      */
     /**
      * Image flipping. This method uses a promise to return the result.
+     * 
+     * It is recommended to use {@link applyFlip}.
      *
      * @param { boolean } horizontal Is flip in horizontal.
      * @param { boolean } vertical Is flip in vertical.
@@ -7644,6 +7875,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * Image flipping.
+     * 
+     * It is recommended to use {@link applyFlipSync}.
      *
      * @param { boolean } horizontal Is flip in horizontal.
      * @param { boolean } vertical Is flip in vertical.
