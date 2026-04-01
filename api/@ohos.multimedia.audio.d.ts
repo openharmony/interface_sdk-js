@@ -642,7 +642,7 @@ declare namespace audio {
      */
     UNAVAILABLE_DEVICE = -2,
     /**
-     * Audio loopback is unavailable in the current scene. For example, the loopback is interrupted by other audioi streams or there is an ongoing call.
+     * Audio loopback is unavailable in the current scene. For example, the loopback is interrupted by other audio streams or there is an ongoing call.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 20 dynamic
      * @since 23 static
@@ -718,14 +718,14 @@ declare namespace audio {
      */
     FLAT = 1,
     /**
-     * A preset representing a equalizer effect that can enhance the fullness of the vocie
+     * A preset representing a equalizer effect that can enhance the fullness of the voice
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 21 dynamic
      * @since 24 static
      */
     FULL = 2,
     /**
-     * A preset representing a equalizer effect that can enhance the brightness of the vocie
+     * A preset representing a equalizer effect that can enhance the brightness of the voice
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 21 dynamic
      * @since 24 static
