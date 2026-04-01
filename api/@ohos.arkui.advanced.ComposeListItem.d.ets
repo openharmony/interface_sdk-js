@@ -403,14 +403,14 @@ export declare class OperateIcon {
  */
 export declare class OperateCheck {
   /**
-   * Whether is checked on default.
+   * Whether is checked by default.
    * @type { ?boolean }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 10
    */
   /**
-   * Whether is checked on default.
+   * Whether is checked by default.
    * @type { ?boolean }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -418,7 +418,7 @@ export declare class OperateCheck {
    * @since 11
    */
   /**
-   * Whether is checked on default.
+   * Whether is checked by default.
    * @type { ?boolean }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
