@@ -2726,7 +2726,7 @@ declare namespace display {
     y?: long;
 
     /**
-     * All supported refresh rates.
+     * All supported refresh rates, measured in Hz.
      *
      * @type { ?Array<int> }
      * @syscap SystemCapability.Window.SessionManager

@@ -12705,8 +12705,8 @@ declare namespace window {
     /**
      * Convert the window coordinates to the global coordinates.
      *
-     * @param { int } winX - Indicates the X-coordinate of the component relative to the current window.
-     * @param { int } winY - Indicates the Y-coordinate of the component relative to the current window.
+     * @param { int } winX - Indicates the X-coordinate of the component relative to the current window, measured in px.
+     * @param { int } winY - Indicates the Y-coordinate of the component relative to the current window, measured in px.
      * @returns { Position } Position - The pair {x, y} represents respectively the X-coordinate
      *     and Y-coordinate of the window relative to the primary display, measured in px.
      *     This parameter only accepts integer values; any floating-point input will be rounded down.
@@ -12723,8 +12723,8 @@ declare namespace window {
     /**
      * Convert the global coordinates to the window coordinates.
      *
-     * @param { int } globalDisplayX - Indicates the X-coordinate of the component relative to the primary display.
-     * @param { int } globalDisplayY - Indicates the Y-coordinate of the component relative to the primary display.
+     * @param { int } globalDisplayX - Indicates the X-coordinate of the component relative to the primary display, measured in px.
+     * @param { int } globalDisplayY - Indicates the Y-coordinate of the component relative to the primary display, measured in px.
      * @returns { Position } Position - The pair {x, y} represents respectively the X-coordinate
      *     and Y-coordinate of the window relative to the current screen, measured in px.
      *     This parameter only accepts integer values; any floating-point input will be rounded down.
