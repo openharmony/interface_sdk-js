@@ -368,6 +368,38 @@ declare namespace cloudData {
   }
 
   /**
+   * Bundle information configuration.
+   *
+   * @interface BundleInfo
+   * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+   * @systemapi
+   * @since 26 dynamic&static
+   */
+  interface BundleInfo {
+    /**
+     * Indicates the name of the application.
+     *
+     * @type { string }
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @systemapi
+     * @stagemodelonly
+     * @since 26 dynamic&static
+     */
+    bundleName: string;
+
+    /**
+     * Indicates the store ID.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @systemapi
+     * @stagemodelonly
+     * @since 26 dynamic&static
+     */
+    storeId?: string;
+  }
+
+  /**
    * Provides methods to set CloudSync config.
    *
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
@@ -713,6 +745,66 @@ declare namespace cloudData {
         bundleName: string,
         storeId?: string
     ): Promise<Record<string, SyncInfo>>;
+
+    /**
+     * Batch query last sync information.
+     *
+     * @permission ohos.permission.CLOUDDATA_CONFIG
+     * @param { string } accountId - Indicates the account ID. The account ID is required by hashing cloud account.
+     * @param { Array<BundleInfo> } bundleInfos - BundleInfo configuration array.
+     * @returns { Promise<Record<string, Record<string, SyncInfo>>> } Promise used to return the result.
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800001 - Invalid arguments, the accountId is empty.
+     * @static
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @systemapi
+     * @since 26 dynamic&static
+     */
+    static queryLastSyncInfo(
+        accountId: string,
+        bundleInfos: Array<BundleInfo>
+    ): Promise<Record<string, Record<string, SyncInfo>>>;
+
+    /**
+     * Subscribes to changes in the sync information of a specified application.
+     * When the sync information of the specified app changes, the registered callback function will be called.
+     *
+     * @permission ohos.permission.CLOUDDATA_CONFIG
+     * @param { Array<BundleInfo> } bundleInfos - BundleInfo configuration array.
+     * @param { Callback<Record<string, Record<string, SyncInfo>>> } progress - progress.
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @static
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @systemapi
+     * @since 26 dynamic&static
+     */
+    static onSyncInfoChanged(
+        bundleInfos: Array<BundleInfo>,
+        progress: Callback<Record<string, Record<string, SyncInfo>>>
+    ): void;
+
+    /**
+     * Remove specified observer of specified type from the database.
+     *
+     * @permission ohos.permission.CLOUDDATA_CONFIG
+     * @param { Array<BundleInfo> } bundleInfos - BundleInfo configuration array.
+     * @param { ?Callback<Record<string, Record<string, SyncInfo>>> } progress - progress.
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @static
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @systemapi
+     * @since 26 dynamic&static
+     */
+    static offSyncInfoChanged(
+        bundleInfos: Array<BundleInfo>,
+        progress?: Callback<Record<string, Record<string, SyncInfo>>>
+    ): void;
 
     /**
      * deletes cloud information from local data.
