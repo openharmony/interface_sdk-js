@@ -4397,7 +4397,7 @@ declare interface CopyEvent {
  */
 declare interface RichEditorUrlStyle {
   /**
-   * uniform resoure locator.
+   * uniform resource locator.
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
