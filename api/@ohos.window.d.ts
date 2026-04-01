@@ -6465,10 +6465,10 @@ declare namespace window {
      *     when the relative position between the primary sub window and the main window remains unchanged. The
      *     default value is window.WindowAnchor.TOP_Start, meaning the default anchor point is the top-left corner
      *     of the window.
-     * @param { int } [offsetX] - The x-axis offset, measured in px,
+     * @param { int } [offsetX] - The x-axis offset, measured in px.
      *     between the anchor point of the first level sub window and the anchor point of the main window.
      *     The default value is 0.
-     * @param { int } [offsetY] - The y-axis offset, measured in px,
+     * @param { int } [offsetY] - The y-axis offset, measured in px.
      *     between the anchor point of the first level sub window and the anchor point of the main window.
      *     The default value is 0.
      * @returns { Promise<void> } Promise that returns no value.
