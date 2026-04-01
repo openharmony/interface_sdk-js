@@ -4416,6 +4416,33 @@ export enum SystemProperties {
 }
 
 /**
+ * Define the type of raw input event.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare enum RawInputEventType {
+  /**
+   * Touch events.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  TOUCH = 0,
+
+  /**
+   * Mouse events.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  MOUSE = 1
+}
+
+/**
  * Defines the input event subtype mask for monitoring.
  *
  * @enum { number }
