@@ -18,7 +18,7 @@
  */
 import { BaseEvent, SourceTool, Callback } from './common';
 import { InteractionHand } from './enums';
-import { VoidCallback } from "./units";
+import { VoidCallback, Coordinate2D } from "./units";
 /**
  * Creating an Object
  *
@@ -484,15 +484,26 @@ export declare interface EventLocationInfo {
      * @since 24 static
      */
     globalDisplayY?: double;
+
+ 	/**
+ 	 * Gets the coordinates of the top-left corner of the current component based on its real-time position.
+ 	 *
+ 	 * @returns { Coordinate2D } - return the coordinates of the top-left corner of the current component based on its
+ 	 * real-time position.
+ 	 * @syscap SystemCapability.ArkUI.ArkUI.Full
+ 	 * @stagemodelonly
+ 	 * @since 26.0.0 static
+ 	 */
+ 	default getCurrentLocalPosition(): Coordinate2D;
 }
 /**
  * Type of the finger information.
  *
- * @interface FingerInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stageModelOnly
  * @since 23 static
  */
-export interface FingerInfo {
+export declare interface FingerInfo {
     /**
      * Finger unique identifier.
      *
@@ -576,6 +587,17 @@ export interface FingerInfo {
      * @since 23 static
      */
     hand?: InteractionHand;
+
+ 	/**
+ 	 * Gets the coordinates of the top-left corner of the current component based on its real-time position.
+ 	 *
+ 	 * @returns { Coordinate2D } - return the coordinates of the top-left corner of the current component based on its
+ 	 * real-time position.
+ 	 * @syscap SystemCapability.ArkUI.ArkUI.Full
+ 	 * @stagemodelonly
+ 	 * @since 26.0.0 static
+ 	 */
+ 	default getCurrentLocalPosition(): Coordinate2D;
 }
 /**
  * Defines the Gesture Type.
