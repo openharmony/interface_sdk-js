@@ -22,21 +22,21 @@ import { AsyncCallback, Callback } from './@ohos.base';
 import Context from './application/BaseContext';
 
 /**
- * The **Preferences** module provides APIs for processing data in the form of key-value (KV) pairs, including querying
- *  modifying, and persisting KV pairs.
+ * The **Preferences** module provides APIs for processing data in the form of key-value (KV) pairs, including querying,
+ * modifying, and persisting KV pairs.
  * The key is of string type, and the value can be a number, string, boolean value, or an array of numbers, strings, or 
  * boolean values.
  * The user preference persistent files are stored in the 
  * [preferencesDir](docroot://application-models/application-context-stage.md#obtaining-application-file-paths) 
  * directory. Before creating a preferences object, ensure that the **preferencesDir** directory is readable and 
- * writeable. The [encryption level]{@link @ohos.app.ability.contextConstant:contextConstant.AreaMode} of the 
- * persistent file directory determines the access to the files. For details, see 
- * [Application File Directory and Application File Path]
- * (docroot://file-management/app-sandbox-directory.md#application-file-directory-and-application-file-path)
+ * writeable. The [encryption level]{@link @ohos.app.ability.contextConstant:contextConstant.AreaMode} of the persistent
+ * file directory determines the access to the files. For details, see 
+ * [Application File Directory and Application File Path](docroot://file-management/app-sandbox-directory.md#application-file-directory-and-application-file-path)
+ * .
  * 
  * > **NOTE**
- * 
- * > Preferences are not thread-safe and may cause file damage and data loss when used in multi-process scenarios. Do
+ * >
+ * > Preferences are not thread-safe and may cause file damage and data loss when used in multi-process scenarios. Do 
  * > not use preferences in multi-process scenarios.
  *
  * @syscap SystemCapability.DistributedDataManager.Preferences.Core
@@ -146,10 +146,10 @@ declare namespace preferences {
    */
   enum StorageType {
     /**
-     * [XML](docroot://database/data-persistence-by-preferences.md#xml) format, which is the default storage type of
+     * [XML](docroot://database/data-persistence-by-preferences.md#xml) format, which is the default storage type of 
      * **Preferences**.
      * 
-     * In this mode, data is stored in XML format. Data operations are performed in the memory. To persist data, call
+     * In this mode, data is stored in XML format. Data operations are performed in the memory. To persist data, call 
      * **flush()**.
      *
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
@@ -199,7 +199,7 @@ declare namespace preferences {
     /**
      * Application group ID. <!--RP1-->Currently, this parameter is not supported.<!--RP1End-->
      * 
-     * This parameter is optional. A **Preferences** instance will be created in the sandbox path corresponding to the
+     * This parameter is optional. A **Preferences** instance will be created in the sandbox path corresponding to the 
      * specified **dataGroupId**. If this parameter is not specified, the **Preferences** instance is created in the 
      * sandbox directory of the application.
      * 
@@ -208,7 +208,7 @@ declare namespace preferences {
      * This API can be used in atomic services since API version 11.
      *
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
-	   * @StageModelOnly
+     * @StageModelOnly
      * @atomicservice [since 11]
      * @since 10 dynamic
      * @since 23 static
@@ -217,7 +217,7 @@ declare namespace preferences {
 
     /**
      * Storage mode to be used by the **Preferences** instance. This parameter is optional. If this parameter is left 
-     * blank, the XML storage type is used by default. After the storage type is set for a **Preferences** instance, it
+     * blank, the XML storage type is used by default. After the storage type is set for a **Preferences** instance, it 
      * cannot be changed.
      * 
      * This API can be used in atomic services since API version 18.
@@ -233,20 +233,16 @@ declare namespace preferences {
   /**
    * Obtains a **Preferences** instance. This API uses an asynchronous callback to return the result.
    *
-   * @param { Context } context - Application context.
-   *     For details about the application context of the FA model, see 
+   * @param { Context } context - Application context.<br>For details about the application context of the FA model, see
    *     [Context]{@link ./app/context}.<br>For details about the application context of the stage model, see 
    *     [Context]{@link ./application/Context:Context}.
    * @param { string } name - Name of the **Preferences** instance.
-   * @param { AsyncCallback<Preferences> } callback - Callback used to return the result. If the operation is
-   *     successful, **err** is **undefined** and the **Preferences** instance obtained is returned. Otherwise, **err**
-   *     is an error object.
+   * @param { AsyncCallback<Preferences> } callback - Callback used to return the result. If the operation is successful
+   *     , **err** is **undefined** and the **Preferences** instance obtained is returned. Otherwise, **err** is an 
+   *     error object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     
    *     <br>1. Mandatory parameters are left unspecified;
-   *     
    *     <br>2. Incorrect parameter types;
-   *     
    *     <br>3. Parameter verification failed.
    * @throws { BusinessError } 15500000 - Inner error. [since 11]
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
@@ -260,20 +256,16 @@ declare namespace preferences {
   /**
    * Obtains a **Preferences** instance. This API uses an asynchronous callback to return the result.
    *
-   * @param { Context } context - Application context.
-   *     For details about the application context of the FA model, see 
+   * @param { Context } context - Application context.<br>For details about the application context of the FA model, see
    *     [Context]{@link ./app/context}.<br>For details about the application context of the stage model, see 
    *     [Context]{@link ./application/Context:Context}.
    * @param { Options } options - Configuration options of the **Preferences** instance.
-   * @param { AsyncCallback<Preferences> } callback - Callback used to return the result. If the operation is
-   *     successful, **err** is **undefined** and the **Preferences** instance obtained is returned. Otherwise, **err**
-   *     is an error object.
+   * @param { AsyncCallback<Preferences> } callback - Callback used to return the result. If the operation is successful
+   *     , **err** is **undefined** and the **Preferences** instance obtained is returned. Otherwise, **err** is an 
+   *     error object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     
    *     <br>1. Mandatory parameters are left unspecified;
-   *     
    *     <br>2. Incorrect parameter types;
-   *     
    *     <br>3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 15501001 - The operations is supported in stage mode only.
@@ -290,18 +282,14 @@ declare namespace preferences {
   /**
    * Obtains a **Preferences** instance. This API uses a promise to return the result.
    *
-   * @returns { Promise<Preferences> } Promise used to return the **Preferences** instance obtained.
-   * @param { Context } context - Application context.
-   *     For details about the application context of the FA model, see 
+   * @param { Context } context - Application context.<br>For details about the application context of the FA model, see
    *     [Context]{@link ./app/context}.<br>For details about the application context of the stage model, see 
    *     [Context]{@link ./application/Context:Context}.
    * @param { string } name - Name of the **Preferences** instance.
+   * @returns { Promise<Preferences> } Promise used to return the **Preferences** instance obtained.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     
    *     <br>1. Mandatory parameters are left unspecified;
-   *     
    *     <br>2. Incorrect parameter types;
-   *     
    *     <br>3. Parameter verification failed.
    * @throws { BusinessError } 15500000 - Inner error. [since 11]
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
@@ -315,18 +303,14 @@ declare namespace preferences {
   /**
    * Obtains a **Preferences** instance. This API uses a promise to return the result.
    *
-   * @returns { Promise<Preferences> } Promise used to return the **Preferences** instance obtained.
-   * @param { Context } context - Application context.
-   *     For details about the application context of the FA model, see 
+   * @param { Context } context - Application context.<br>For details about the application context of the FA model, see
    *     [Context]{@link ./app/context}.<br>For details about the application context of the stage model, see 
    *     [Context]{@link ./application/Context:Context}.
    * @param { Options } options - Configuration options of the **Preferences** instance.
+   * @returns { Promise<Preferences> } Promise used to return the **Preferences** instance obtained.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     
    *     <br>1. Mandatory parameters are left unspecified;
-   *     
    *     <br>2. Incorrect parameter types;
-   *     
    *     <br>3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 15501001 - The operations is supported in stage mode only.
@@ -343,18 +327,14 @@ declare namespace preferences {
   /**
    * Obtains a **Preferences** instance. This API returns the result synchronously.
    *
-   * @returns { Preferences } **Preferences** instance obtained.
-   * @param { Context } context - Application context.
-   *     For details about the application context of the FA model, see 
-   *     [Context]{@link ./app/context}.<br>For details about the application context of the stage model, see
+   * @param { Context } context - Application context.<br>For details about the application context of the FA model, see
+   *     [Context]{@link ./app/context}.<br>For details about the application context of the stage model, see 
    *     [Context]{@link ./application/Context:Context}.
    * @param { Options } options - Configuration options of the **Preferences** instance.
+   * @returns { Preferences } **Preferences** instance obtained.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     
    *     <br>1. Mandatory parameters are left unspecified;
-   *     
    *     <br>2. Incorrect parameter types;
-   *     
    *     <br>3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 15501001 - The operations is supported in stage mode only.
@@ -369,7 +349,7 @@ declare namespace preferences {
   function getPreferencesSync(context: Context, options: Options): Preferences;
 
   /**
-   * Checks whether the specified storage type is supported. This API returns the result synchronously. If the storage
+   * Checks whether the specified storage type is supported. This API returns the result synchronously. If the storage 
    * type is supported, **true** is returned. Otherwise, **false** is returned.
    *
    * @param { StorageType } type - Storage type to check.
@@ -388,19 +368,15 @@ declare namespace preferences {
    * Instead, set the removed **Preferences** instance to null. The system will reclaim them in a unified manner.
    * This API cannot be called concurrently with other **preferences** APIs.
    *
-   * @param { Context } context - Application context.
-   *     For details about the application context of the FA model, see 
+   * @param { Context } context - Application context.<br>For details about the application context of the FA model, see
    *     [Context]{@link ./app/context}.<br>For details about the application context of the stage model, see 
    *     [Context]{@link ./application/Context:Context}.
    * @param { string } name - Name of the **Preferences** instance.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, 
    *     **err** is **undefined**. Otherwise, **err** is an error object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     
    *     <br>1. Mandatory parameters are left unspecified;
-   *     
    *     <br>2. Incorrect parameter types;
-   *     
    *     <br>3. Parameter verification failed.
    * @throws { BusinessError } 15500010 - Failed to delete the user preferences persistence file.
    * @throws { BusinessError } 15500000 - Inner error. [since 11]
@@ -413,25 +389,21 @@ declare namespace preferences {
   function deletePreferences(context: Context, name: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Deletes a specified **Preferences** instance from the cache. If the **Preferences** instance has a corresponding
+   * Deletes a specified **Preferences** instance from the cache. If the **Preferences** instance has a corresponding 
    * persistent file, the persistent file is also deleted. This API uses an asynchronous callback to return the result.
    * Avoid using a removed **Preferences** instance to perform data operations, which may cause data inconsistency. 
    * Instead, set the removed **Preferences** instance to null. The system will reclaim them in a unified manner.
    * This API cannot be called concurrently with other **preferences** APIs.
    *
-   * @param { Context } context - Application context.
-   *     For details about the application context of the FA model, see 
+   * @param { Context } context - Application context.<br>For details about the application context of the FA model, see
    *     [Context]{@link ./app/context}.<br>For details about the application context of the stage model, see 
    *     [Context]{@link ./application/Context:Context}.
    * @param { Options } options - Configuration options of the **Preferences** instance.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, 
    *     **err** is **undefined**. Otherwise, **err** is an error object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     
    *     <br>1. Mandatory parameters are left unspecified;
-   *     
    *     <br>2. Incorrect parameter types;
-   *     
    *     <br>3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 15500010 - Failed to delete the user preferences persistence file.
@@ -447,24 +419,20 @@ declare namespace preferences {
   function deletePreferences(context: Context, options: Options, callback: AsyncCallback<void>): void;
 
   /**
-   * Deletes a specified **Preferences** instance from the cache. If the **Preferences** instance has a corresponding
+   * Deletes a specified **Preferences** instance from the cache. If the **Preferences** instance has a corresponding 
    * persistent file, the persistent file is also deleted. This API uses a promise to return the result.
    * Avoid using a removed **Preferences** instance to perform data operations, which may cause data inconsistency. 
    * Instead, set the removed **Preferences** instance to null. The system will reclaim them in a unified manner.
    * This API cannot be called concurrently with other **preferences** APIs.
    *
-   * @returns { Promise<void> } Promise that returns no value.
-   * @param { Context } context - Application context.
-   *     For details about the application context of the FA model, see 
+   * @param { Context } context - Application context.<br>For details about the application context of the FA model, see
    *     [Context]{@link ./app/context}.<br>For details about the application context of the stage model, see 
    *     [Context]{@link ./application/Context:Context}.
    * @param { string } name - Name of the **Preferences** instance.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     
    *     <br>1. Mandatory parameters are left unspecified;
-   *     
    *     <br>2. Incorrect parameter types;
-   *     
    *     <br>3. Parameter verification failed.
    * @throws { BusinessError } 15500010 - Failed to delete the user preferences persistence file.
    * @throws { BusinessError } 15500000 - Inner error. [since 11]
@@ -483,18 +451,14 @@ declare namespace preferences {
    * Instead, set the removed **Preferences** instance to null. The system will reclaim them in a unified manner.
    * This API cannot be called concurrently with other **preferences** APIs.
    *
-   * @returns { Promise<void> } Promise that returns no value.
-   * @param { Context } context - Application context.
-   *     For details about the application context of the FA model, see 
+   * @param { Context } context - Application context.<br>For details about the application context of the FA model, see
    *     [Context]{@link ./app/context}.<br>For details about the application context of the stage model, see 
    *     [Context]{@link ./application/Context:Context}.
    * @param { Options } options - Configuration options of the **Preferences** instance.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     
    *     <br>1. Mandatory parameters are left unspecified;
-   *     
    *     <br>2. Incorrect parameter types;
-   *     
    *     <br>3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 15500010 - Failed to delete the user preferences persistence file.
@@ -512,36 +476,30 @@ declare namespace preferences {
   /**
    * Removes a **Preferences** instance from the cache. This API uses an asynchronous callback to return the result.
    * After an application calls 
-   * [getPreferences]{@link preferences.getPreferences(context: Context, name: string,
-   *     callback: AsyncCallback<Preferences>)}
-   *  for the first time to obtain a **Preferences** instance, the obtained **Preferences** instance is cached.
-   *  When the application calls 
-   * [getPreferences]{@link preferences.getPreferences(context: Context, name: string,
-   *     callback: AsyncCallback<Preferences>)}
-   *  again, the **Preferences** instance will be read from the cache instead of from the persistent file. After this 
-   * API is called to remove the instance from the cache, calling **getPreferences** again will read data from the 
+   * [getPreferences]{@link preferences.getPreferences(context: Context, name: string, callback: AsyncCallback<Preferences>)}
+   * for the first time to obtain a **Preferences** instance, the obtained **Preferences** instance is cached. When the 
+   * application calls 
+   * [getPreferences]{@link preferences.getPreferences(context: Context, name: string, callback: AsyncCallback<Preferences>)}
+   * again, the **Preferences** instance will be read from the cache instead of from the persistent file. After this API
+   * is called to remove the instance from the cache, calling **getPreferences** again will read data from the 
    * persistent file and create a **Preferences** instance.
    * Avoid using a removed **Preferences** instance to perform data operations, which may cause data inconsistency. 
    * Instead, set the removed **Preferences** instance to null. The system will reclaim them in a unified manner.
    * If [GSKV](docroot://database/data-persistence-by-preferences.md#gskv) is used, you are advised to manually call 
-   * this API once when the process exits. This operation writes the data cache page to the disk, which can reduce the
+   * this API once when the process exits. This operation writes the data cache page to the disk, which can reduce the 
    * time required for calling the **getPreferences** API next time. Otherwise, data restoration is required at the 
    * bottom layer when the **getPreferences** API is called. The time required for data restoration depends on the 
    * number of data cache pages that are not written to the disk.
    *
-   * @param { Context } context - Application context.
-   *     For details about the application context of the FA model, see 
+   * @param { Context } context - Application context.<br>For details about the application context of the FA model, see
    *     [Context]{@link ./app/context}.<br>For details about the application context of the stage model, see 
    *     [Context]{@link ./application/Context:Context}.
    * @param { string } name - Name of the **Preferences** instance.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, 
    *     **err** is **undefined**. Otherwise, **err** is an error object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     
    *     <br>1. Mandatory parameters are left unspecified;
-   *     
    *     <br>2. Incorrect parameter types;
-   *     
    *     <br>3. Parameter verification failed.
    * @throws { BusinessError } 15500000 - Inner error. [since 11]
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
@@ -555,36 +513,30 @@ declare namespace preferences {
   /**
    * Removes a **Preferences** instance from the cache. This API uses an asynchronous callback to return the result.
    * After an application calls 
-   * [getPreferences]{@link preferences.getPreferences(context: Context, name: string,
-   *     callback: AsyncCallback<Preferences>)}
-   *  for the first time to obtain a **Preferences** instance, the obtained **Preferences** instance is cached.
-   *  When the application calls 
-   * [getPreferences]{@link preferences.getPreferences(context: Context, name: string,
-   *     callback: AsyncCallback<Preferences>)}
-   *  again, the **Preferences** instance will be read from the cache instead of from the persistent file. After this 
-   * API is called to remove the instance from the cache, calling **getPreferences** again will read data from the 
+   * [getPreferences]{@link preferences.getPreferences(context: Context, name: string, callback: AsyncCallback<Preferences>)}
+   * for the first time to obtain a **Preferences** instance, the obtained **Preferences** instance is cached. When the 
+   * application calls 
+   * [getPreferences]{@link preferences.getPreferences(context: Context, name: string, callback: AsyncCallback<Preferences>)}
+   * again, the **Preferences** instance will be read from the cache instead of from the persistent file. After this API
+   * is called to remove the instance from the cache, calling **getPreferences** again will read data from the 
    * persistent file and create a **Preferences** instance.
    * Avoid using a removed **Preferences** instance to perform data operations, which may cause data inconsistency. 
    * Instead, set the removed **Preferences** instance to null. The system will reclaim them in a unified manner.
    * If [GSKV](docroot://database/data-persistence-by-preferences.md#gskv) is used, you are advised to manually call 
-   * this API once when the process exits. This operation writes the data cache page to the disk, which can reduce the
+   * this API once when the process exits. This operation writes the data cache page to the disk, which can reduce the 
    * time required for calling the **getPreferences** API next time. Otherwise, data restoration is required at the 
    * bottom layer when the **getPreferences** API is called. The time required for data restoration depends on the 
    * number of data cache pages that are not written to the disk.
    *
-   * @param { Context } context - Application context.
-   *     For details about the application context of the FA model, see 
+   * @param { Context } context - Application context.<br>For details about the application context of the FA model, see
    *     [Context]{@link ./app/context}.<br>For details about the application context of the stage model, see 
    *     [Context]{@link ./application/Context:Context}.
    * @param { Options } options - Configuration options of the **Preferences** instance.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, 
    *     **err** is **undefined**. Otherwise, **err** is an error object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     
    *     <br>1. Mandatory parameters are left unspecified;
-   *     
    *     <br>2. Incorrect parameter types;
-   *     
    *     <br>3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 15501001 - The operations is supported in stage mode only.
@@ -601,14 +553,12 @@ declare namespace preferences {
   /**
    * Removes a **Preferences** instance from the cache. This API uses a promise to return the result.
    * After an application calls 
-   * [getPreferences]{@link preferences.getPreferences(context: Context, name: string,
-   *     callback: AsyncCallback<Preferences>)}
-   *  for the first time to obtain a **Preferences** instance, the obtained **Preferences** instance is cached.
-   *  When the application calls 
-   * [getPreferences]{@link preferences.getPreferences(context: Context, name: string,
-   *     callback: AsyncCallback<Preferences>)}
-   *  again, the **Preferences** instance will be read from the cache instead of from the persistent file. After this 
-   * API is called to remove the instance from the cache, calling **getPreferences** again will read data from the 
+   * [getPreferences]{@link preferences.getPreferences(context: Context, name: string, callback: AsyncCallback<Preferences>)}
+   * for the first time to obtain a **Preferences** instance, the obtained **Preferences** instance is cached. When the 
+   * application calls 
+   * [getPreferences]{@link preferences.getPreferences(context: Context, name: string, callback: AsyncCallback<Preferences>)}
+   * again, the **Preferences** instance will be read from the cache instead of from the persistent file. After this API
+   * is called to remove the instance from the cache, calling **getPreferences** again will read data from the 
    * persistent file and create a **Preferences** instance.
    * Avoid using a removed **Preferences** instance to perform data operations, which may cause data inconsistency. 
    * Instead, set the removed **Preferences** instance to null. The system will reclaim them in a unified manner.
@@ -618,18 +568,14 @@ declare namespace preferences {
    * bottom layer when the **getPreferences** API is called. The time required for data restoration depends on the 
    * number of data cache pages that are not written to the disk.
    *
-   * @returns { Promise<void> } Promise that returns no value.
-   * @param { Context } context - Application context.
-   *     For details about the application context of the FA model, see 
+   * @param { Context } context - Application context.<br>For details about the application context of the FA model, see
    *     [Context]{@link ./app/context}.<br>For details about the application context of the stage model, see 
    *     [Context]{@link ./application/Context:Context}.
    * @param { string } name - Name of the **Preferences** instance.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     
    *     <br>1. Mandatory parameters are left unspecified;
-   *     
    *     <br>2. Incorrect parameter types;
-   *     
    *     <br>3. Parameter verification failed.
    * @throws { BusinessError } 15500000 - Inner error. [since 11]
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
@@ -643,35 +589,29 @@ declare namespace preferences {
   /**
    * Removes a **Preferences** instance from the cache. This API uses a promise to return the result.
    * After an application calls 
-   * [getPreferences]{@link preferences.getPreferences(context: Context, name: string,
-   *     callback: AsyncCallback<Preferences>)}
-   *  for the first time to obtain a **Preferences** instance, the obtained **Preferences** instance is cached.
-   *  When the application calls 
-   * [getPreferences]{@link preferences.getPreferences(context: Context, name: string,
-   *     callback: AsyncCallback<Preferences>)}
-   *  again, the **Preferences** instance will be read from the cache instead of from the persistent file. After this 
-   * API is called to remove the instance from the cache, calling **getPreferences** again will read data from the 
+   * [getPreferences]{@link preferences.getPreferences(context: Context, name: string, callback: AsyncCallback<Preferences>)}
+   * for the first time to obtain a **Preferences** instance, the obtained **Preferences** instance is cached. When the 
+   * application calls 
+   * [getPreferences]{@link preferences.getPreferences(context: Context, name: string, callback: AsyncCallback<Preferences>)}
+   * again, the **Preferences** instance will be read from the cache instead of from the persistent file. After this API
+   * is called to remove the instance from the cache, calling **getPreferences** again will read data from the 
    * persistent file and create a **Preferences** instance.
    * Avoid using a removed **Preferences** instance to perform data operations, which may cause data inconsistency. 
    * Instead, set the removed **Preferences** instance to null. The system will reclaim them in a unified manner.
    * If [GSKV](docroot://database/data-persistence-by-preferences.md#gskv) is used, you are advised to manually call 
-   * this API once when the process exits. This operation writes the data cache page to the disk, which can reduce the
+   * this API once when the process exits. This operation writes the data cache page to the disk, which can reduce the 
    * time required for calling the **getPreferences** API next time. Otherwise, data restoration is required at the 
    * bottom layer when the **getPreferences** API is called. The time required for data restoration depends on the 
    * number of data cache pages that are not written to the disk.
    *
-   * @returns { Promise<void> } Promise that returns no value.
-   * @param { Context } context - Application context.
-   *     For details about the application context of the FA model, see 
+   * @param { Context } context - Application context.<br>For details about the application context of the FA model, see
    *     [Context]{@link ./app/context}.<br>For details about the application context of the stage model, see 
    *     [Context]{@link ./application/Context:Context}.
    * @param { Options } options - Configuration options of the **Preferences** instance.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     
    *     <br>1. Mandatory parameters are left unspecified;
-   *     
    *     <br>2. Incorrect parameter types;
-   *     
    *     <br>3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 15501001 - The operations is supported in stage mode only.
@@ -688,34 +628,28 @@ declare namespace preferences {
   /**
    * Removes a **Preferences** instance from the cache. This API returns the result synchronously.
    * After an application calls 
-   * [getPreferences]{@link preferences.getPreferences(context: Context, name: string,
-   *     callback: AsyncCallback<Preferences>)}
-   *  for the first time to obtain a **Preferences** instance, the obtained **Preferences** instance is cached.
-   *  When the application calls 
-   * [getPreferences]{@link preferences.getPreferences(context: Context, name: string,
-   *     callback: AsyncCallback<Preferences>)}
-   *  again, the **Preferences** instance will be read from the cache instead of from the persistent file. After this 
-   * API is called to remove the instance from the cache, calling **getPreferences** again will read data from the 
+   * [getPreferences]{@link preferences.getPreferences(context: Context, name: string, callback: AsyncCallback<Preferences>)}
+   * for the first time to obtain a **Preferences** instance, the obtained **Preferences** instance is cached. When the 
+   * application calls 
+   * [getPreferences]{@link preferences.getPreferences(context: Context, name: string, callback: AsyncCallback<Preferences>)}
+   * again, the **Preferences** instance will be read from the cache instead of from the persistent file. After this API
+   * is called to remove the instance from the cache, calling **getPreferences** again will read data from the 
    * persistent file and create a **Preferences** instance.
    * Avoid using a removed **Preferences** instance to perform data operations, which may cause data inconsistency. 
    * Instead, set the removed **Preferences** instance to null. The system will reclaim them in a unified manner.
    * If [GSKV](docroot://database/data-persistence-by-preferences.md#gskv) is used, you are advised to manually call 
-   * this API once when the process exits. This operation writes the data cache page to the disk, which can reduce the
+   * this API once when the process exits. This operation writes the data cache page to the disk, which can reduce the 
    * time required for calling the **getPreferences** API next time. Otherwise, data restoration is required at the 
    * bottom layer when the **getPreferences** API is called. The time required for data restoration depends on the 
    * number of data cache pages that are not written to the disk.
    *
-   * @param { Context } context - Application context.
-   *     For details about the application context of the FA model, see 
+   * @param { Context } context - Application context.<br>For details about the application context of the FA model, see
    *     [Context]{@link ./app/context}.<br>For details about the application context of the stage model, see 
    *     [Context]{@link ./application/Context:Context}.
    * @param { string } name - Name of the **Preferences** instance.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     
    *     <br>1. Mandatory parameters are left unspecified;
-   *     
    *     <br>2. Incorrect parameter types;
-   *     
    *     <br>3. Parameter verification failed.
    * @throws { BusinessError } 15500000 - Inner error. [since 11]
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
@@ -729,14 +663,12 @@ declare namespace preferences {
   /**
    * Removes a **Preferences** instance from the cache. This API returns the result synchronously.
    * After an application calls 
-   * [getPreferences]{@link preferences.getPreferences(context: Context, name: string,
-   *     callback: AsyncCallback<Preferences>)}
-   *  for the first time to obtain a **Preferences** instance, the obtained **Preferences** instance is cached.
-   *  When the application calls 
-   * [getPreferences]{@link preferences.getPreferences(context: Context, name: string,
-   *     callback: AsyncCallback<Preferences>)}
-   *  again, the **Preferences** instance will be read from the cache instead of from the persistent file. After this 
-   * API is called to remove the instance from the cache, calling **getPreferences** again will read data from the 
+   * [getPreferences]{@link preferences.getPreferences(context: Context, name: string, callback: AsyncCallback<Preferences>)}
+   * for the first time to obtain a **Preferences** instance, the obtained **Preferences** instance is cached. When the 
+   * application calls 
+   * [getPreferences]{@link preferences.getPreferences(context: Context, name: string, callback: AsyncCallback<Preferences>)}
+   * again, the **Preferences** instance will be read from the cache instead of from the persistent file. After this API
+   * is called to remove the instance from the cache, calling **getPreferences** again will read data from the 
    * persistent file and create a **Preferences** instance.
    * Avoid using a removed **Preferences** instance to perform data operations, which may cause data inconsistency. 
    * Instead, set the removed **Preferences** instance to null. The system will reclaim them in a unified manner.
@@ -746,17 +678,13 @@ declare namespace preferences {
    * bottom layer when the **getPreferences** API is called. The time required for data restoration depends on the 
    * number of data cache pages that are not written to the disk.
    *
-   * @param { Context } context - Application context.
-   *     For details about the application context of the FA model, see 
+   * @param { Context } context - Application context.<br>For details about the application context of the FA model, see
    *     [Context]{@link ./app/context}.<br>For details about the application context of the stage model, see 
    *     [Context]{@link ./application/Context:Context}.
    * @param { Options } options - Configuration options of the **Preferences** instance.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     
    *     <br>1. Mandatory parameters are left unspecified;
-   *     
    *     <br>2. Incorrect parameter types;
-   *     
    *     <br>3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 15501001 - The operations is supported in stage mode only.
@@ -773,8 +701,8 @@ declare namespace preferences {
   /**
    * Provides APIs for obtaining and modifying the stored data.
    * Before calling any API of **Preferences**, you must obtain a **Preferences** instance by using 
-   * [preferences.getPreferences]{@link preferences.getPreferences(context: Context,
-   *     name: string, callback: AsyncCallback<Preferences>)}.
+   * [preferences.getPreferences]{@link preferences.getPreferences(context: Context, name: string, callback: AsyncCallback<Preferences>)}
+   * .
    *
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @crossplatform [since 10]
@@ -787,18 +715,14 @@ declare namespace preferences {
      * Obtains the value of a key from this **Preferences** instance. This API uses an asynchronous callback to return 
      * the result. If the value is null or is not of the default value type, **defValue** is returned.
      *
-     * @param { string } key - Key to be obtained. The value cannot be empty. For details about its maximum length, see
+     * @param { string } key - Key to be obtained. The value cannot be empty. For details about its maximum length, see 
      *     [MAX_KEY_LENGTH](docroot://reference/apis-arkdata/js-apis-data-preferences.md#constants).
      * @param { ValueType } defValue - Default value to be returned.
-     * @param { AsyncCallback<ValueType> } callback - Callback used to return the result. If the operation is
-     *     successful, **err** is **undefined** and **data** is the value obtained. Otherwise,
-     *     **err** is an error object.
+     * @param { AsyncCallback<ValueType> } callback - Callback used to return the result. If the operation is successful
+     *     , **err** is **undefined** and **data** is the value obtained. Otherwise, **err** is an error object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     
      *     <br>1. Mandatory parameters are left unspecified;
-     *     
      *     <br>2. Incorrect parameter types;
-     *     
      *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 15500000 - Inner error. [since 11]
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
@@ -813,16 +737,13 @@ declare namespace preferences {
      * Obtains the value of a key from this **Preferences** instance. This API uses a promise to return the result. If 
      * the value is null or is not of the default value type, **defValue** is returned.
      *
-     * @returns { Promise<ValueType> } Promise used to return the value obtained.
-     * @param { string } key - Key to be obtained. The value cannot be empty. For details about its maximum length, see
+     * @param { string } key - Key to be obtained. The value cannot be empty. For details about its maximum length, see 
      *     [MAX_KEY_LENGTH](docroot://reference/apis-arkdata/js-apis-data-preferences.md#constants).
      * @param { ValueType } defValue - Default value to be returned.
+     * @returns { Promise<ValueType> } Promise used to return the value obtained.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     
      *     <br>1. Mandatory parameters are left unspecified;
-     *     
      *     <br>2. Incorrect parameter types;
-     *     
      *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 15500000 - Inner error. [since 11]
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
@@ -837,16 +758,13 @@ declare namespace preferences {
      * Obtains the value of a key from this **Preferences** instance. This API returns the result synchronously. If the 
      * value is null or is not of the default value type, **defValue** is returned.
      *
-     * @returns { ValueType } Returns the value obtained.
-     * @param { string } key - Key to be obtained. The value cannot be empty. For details about its maximum length, see
+     * @param { string } key - Key to be obtained. The value cannot be empty. For details about its maximum length, see 
      *     [MAX_KEY_LENGTH](docroot://reference/apis-arkdata/js-apis-data-preferences.md#constants).
      * @param { ValueType } defValue - Default value to be returned.
+     * @returns { ValueType } Returns the value obtained.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     
      *     <br>1. Mandatory parameters are left unspecified;
-     *     
      *     <br>2. Incorrect parameter types;
-     *     
      *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 15500000 - Inner error. [since 11]
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
@@ -861,9 +779,8 @@ declare namespace preferences {
      * Obtains all KV pairs from a **Preferences** instance. This API uses an asynchronous callback to return the 
      * result.
      *
-     * @param { AsyncCallback<Object> } callback - Callback used to return the result. If the operation is successful,
-     *     **err** is **undefined** and **value** provides all KV pairs obtained.
-     *     Otherwise, **err** is an error object.
+     * @param { AsyncCallback<Object> } callback - Callback used to return the result. If the operation is successful, 
+     *     **err** is **undefined** and **value** provides all KV pairs obtained. Otherwise, **err** is an error object.
      * @throws { BusinessError } 401 - Parameter error. Mandatory parameters are left unspecified.
      * @throws { BusinessError } 15500000 - Inner error. [since 11]
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
@@ -901,19 +818,16 @@ declare namespace preferences {
     getAllSync(): Object;
 
     /**
-     * Checks whether this **Preferences** instance contains the KV pair of the given key. This API uses an
-     *  asynchronous callback to return the result.
+     * Checks whether this **Preferences** instance contains the KV pair of the given key. This API uses an asynchronous
+     * callback to return the result.
      *
      * @param { string } key - Key to be checked. The value cannot be empty. For details about its maximum length, see 
      *     [MAX_KEY_LENGTH](docroot://reference/apis-arkdata/js-apis-data-preferences.md#constants).
-     * @param { AsyncCallback<boolean> } callback - Callback used to return the result. If the **Preferences** 
-     *     instance contains the KV pair, **true** will be returned. Otherwise, **false** will be returned.
+     * @param { AsyncCallback<boolean> } callback - Callback used to return the result. If the **Preferences** instance 
+     *     contains the KV pair, **true** will be returned. Otherwise, **false** will be returned.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     
      *     <br>1. Mandatory parameters are left unspecified;
-     *     
      *     <br>2. Incorrect parameter types;
-     *     
      *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 15500000 - Inner error. [since 11]
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
@@ -928,16 +842,13 @@ declare namespace preferences {
      * Checks whether this **Preferences** instance contains the KV pair of the given key. This API uses a promise to 
      * return the result.
      *
-     * @returns { Promise<boolean> } Promise used to return the result. If the **Preferences** instance contains the KV
-     *     pair, **true** will be returned. Otherwise, **false** will be returned.
      * @param { string } key - Key to be checked. The value cannot be empty. For details about its maximum length, see 
      *     [MAX_KEY_LENGTH](docroot://reference/apis-arkdata/js-apis-data-preferences.md#constants).
+     * @returns { Promise<boolean> } Promise used to return the result. If the **Preferences** instance contains the KV 
+     *     pair, **true** will be returned. Otherwise, **false** will be returned.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     
      *     <br>1. Mandatory parameters are left unspecified;
-     *     
      *     <br>2. Incorrect parameter types;
-     *     
      *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 15500000 - Inner error. [since 11]
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
@@ -952,16 +863,13 @@ declare namespace preferences {
      * Checks whether this **Preferences** instance contains the KV pair of the given key. This API returns the result 
      * synchronously.
      *
-     * @returns { boolean } If the **Preferences** instance contains the KV pair, **true** will be returned. Otherwise,
-     *     **false** will be returned.
      * @param { string } key - Key to be checked. The value cannot be empty. For details about its maximum length, see 
      *     [MAX_KEY_LENGTH](docroot://reference/apis-arkdata/js-apis-data-preferences.md#constants).
+     * @returns { boolean } If the **Preferences** instance contains the KV pair, **true** will be returned. Otherwise, 
+     *     **false** will be returned.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     
      *     <br>1. Mandatory parameters are left unspecified;
-     *     
      *     <br>2. Incorrect parameter types;
-     *     
      *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 15500000 - Inner error. [since 11]
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
@@ -974,28 +882,17 @@ declare namespace preferences {
 
     /**
      * Writes data to this **Preferences** instance. This API uses an asynchronous callback to return the result. You 
-     * can use [flush]{@link preferences.Preferences.flush(callback: AsyncCallback<void>)} to persist the
+     * can use [flush]{@link preferences.Preferences.flush(callback: AsyncCallback<void>)} to persist the 
      * **Preferences** instance.
-     * 
-     * > **NOTE**
-     * >
-     * > If the value contains a string that is not in UTF-8 format, store it in a Uint8Array. Otherwise, the persistent
-     * >  file may be damaged due to format errors.
-     * >
-     * > If the key already exists, **put()** overwrites the value. You can use **hasSync()** to check whether the KV 
-     * > pair exists.
      *
-     * @param { string } key - Key to be modified. The value cannot be empty. For details about its maximum length, see
+     * @param { string } key - Key to be modified. The value cannot be empty. For details about its maximum length, see 
      *     [MAX_KEY_LENGTH](docroot://reference/apis-arkdata/js-apis-data-preferences.md#constants).
      * @param { ValueType } value - Value to write.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, 
      *     **err** is **undefined**. Otherwise, **err** is an error object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     
      *     <br>1. Mandatory parameters are left unspecified;
-     *     
      *     <br>2. Incorrect parameter types;
-     *     
      *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 15500000 - Inner error. [since 11]
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
@@ -1010,25 +907,14 @@ declare namespace preferences {
      * Writes data to this **Preferences** instance. This API uses a promise to return the result. You can use 
      * [flush]{@link preferences.Preferences.flush(callback: AsyncCallback<void>)} to persist the **Preferences** 
      * instance.
-     * 
-     * > **NOTE**
-     * >
-     * > If the value contains a string that is not in UTF-8 format, store it in a Uint8Array. Otherwise, the
-     * >  persistent file may be damaged due to format errors.
-     * >
-     * > If the key already exists, **put()** overwrites the value. You can use **hasSync()** to check whether the KV 
-     * > pair exists.
      *
-     * @returns { Promise<void> } Promise that returns no value.
      * @param { string } key - Key to be modified. The value cannot be empty. For details about its maximum length, see 
      *     [MAX_KEY_LENGTH](docroot://reference/apis-arkdata/js-apis-data-preferences.md#constants).
      * @param { ValueType } value - Value to write.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     
      *     <br>1. Mandatory parameters are left unspecified;
-     *     
      *     <br>2. Incorrect parameter types;
-     *     
      *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 15500000 - Inner error. [since 11]
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
@@ -1043,24 +929,13 @@ declare namespace preferences {
      * Writes data to this **Preferences** instance. This API returns the result synchronously. You can use 
      * [flush]{@link preferences.Preferences.flush(callback: AsyncCallback<void>)} to persist the **Preferences** 
      * instance.
-     * 
-     * > **NOTE**
-     * >
-     * > If the value contains a string that is not in UTF-8 format, store it in a Uint8Array. Otherwise, the
-     * >  persistent file may be damaged due to format errors.
-     * >
-     * > If the key already exists, **putSync()** overwrites the value. You can use **hasSync()** to check whether the 
-     * > KV pair exists.
      *
-     * @param { string } key - Key to be modified. The value cannot be empty. For details about its maximum length, see
+     * @param { string } key - Key to be modified. The value cannot be empty. For details about its maximum length, see 
      *     [MAX_KEY_LENGTH](docroot://reference/apis-arkdata/js-apis-data-preferences.md#constants).
      * @param { ValueType } value - Value to write.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     
      *     <br>1. Mandatory parameters are left unspecified;
-     *     
      *     <br>2. Incorrect parameter types;
-     *     
      *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 15500000 - Inner error. [since 11]
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
@@ -1073,19 +948,16 @@ declare namespace preferences {
 
     /**
      * Deletes a KV pair from this **Preferences** instance. This API uses an asynchronous callback to return the 
-     * result. You can use [flush]{@link preferences.Preferences.flush(callback: AsyncCallback<void>)} to persist the
+     * result. You can use [flush]{@link preferences.Preferences.flush(callback: AsyncCallback<void>)} to persist the 
      * **Preferences** instance.
      *
-     * @param { string } key - Key to be deleted. The value cannot be empty. For details about its maximum length, see
+     * @param { string } key - Key to be deleted. The value cannot be empty. For details about its maximum length, see 
      *     [MAX_KEY_LENGTH](docroot://reference/apis-arkdata/js-apis-data-preferences.md#constants).
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, 
      *     **err** is **undefined**. Otherwise, **err** is an error object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     
      *     <br>1. Mandatory parameters are left unspecified;
-     *     
      *     <br>2. Incorrect parameter types;
-     *     
      *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 15500000 - Inner error. [since 11]
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
@@ -1101,15 +973,12 @@ declare namespace preferences {
      * [flush]{@link preferences.Preferences.flush(callback: AsyncCallback<void>)} to persist the **Preferences** 
      * instance.
      *
-     * @returns { Promise<void> } Promise that returns no value.
      * @param { string } key - Key to be deleted. The value cannot be empty. For details about its maximum length, see 
      *     [MAX_KEY_LENGTH](docroot://reference/apis-arkdata/js-apis-data-preferences.md#constants).
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     
      *     <br>1. Mandatory parameters are left unspecified;
-     *     
      *     <br>2. Incorrect parameter types;
-     *     
      *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 15500000 - Inner error. [since 11]
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
@@ -1128,11 +997,8 @@ declare namespace preferences {
      * @param { string } key - Key to be deleted. The value cannot be empty. For details about its maximum length, see 
      *     [MAX_KEY_LENGTH](docroot://reference/apis-arkdata/js-apis-data-preferences.md#constants).
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     
      *     <br>1. Mandatory parameters are left unspecified;
-     *     
      *     <br>2. Incorrect parameter types;
-     *     
      *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 15500000 - Inner error. [since 11]
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
@@ -1148,7 +1014,7 @@ declare namespace preferences {
      * [flush]{@link preferences.Preferences.flush(callback: AsyncCallback<void>)} to persist the **Preferences** 
      * instance.
      *
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, 
      *     **err** is **undefined**. Otherwise, **err** is an error object.
      * @throws { BusinessError } 401 - Parameter error. Mandatory parameters are left unspecified.
      * @throws { BusinessError } 15500000 - Inner error. [since 11]
@@ -1189,20 +1055,10 @@ declare namespace preferences {
     clearSync(): void;
 
     /**
-     * Flushes the data in this **Preferences** instance to the persistent file. This API uses an asynchronous callback
+     * Flushes the data in this **Preferences** instance to the persistent file. This API uses an asynchronous callback 
      * to return the result.
-     * 
-     * > **NOTE**
-     * >
-     * > If no data is modified or the modified data is the same as the cached data, the persistent file will not be 
-     * > updated.
-     * >
-     * > This API is exclusively applicable to the XML storage and does not require invocation in the GSKV storage.
-     * >  When GSKV mode is selected, data operations via preferences are flushed to disk in real-time. For details
-     * >  about the preferences storage types, see 
-     * > [Storage Types](docroot://database/data-persistence-by-preferences.md#storage-types).
      *
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, 
      *     **err** is **undefined**. Otherwise, **err** is an error object.
      * @throws { BusinessError } 401 - Parameter error. Mandatory parameters are left unspecified.
      * @throws { BusinessError } 15500000 - Inner error. [since 11]
@@ -1217,16 +1073,6 @@ declare namespace preferences {
     /**
      * Flushes the data in this **Preferences** instance to the persistent file. This API uses a promise to return the 
      * result.
-     * 
-     * > **NOTE**
-     * >
-     * > If no data is modified or the modified data is the same as the cached data, the persistent file will not be 
-     * > updated.
-     * >
-     * > This API is exclusively applicable to the XML storage and does not require invocation in the GSKV storage.
-     * >  When GSKV mode is selected, data operations via preferences are flushed to disk in real-time. For details
-     * >  about the preferences storage types, see 
-     * > [Storage Types](docroot://database/data-persistence-by-preferences.md#storage-types).
      *
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 15500000 - Inner error. [since 11]
@@ -1240,11 +1086,6 @@ declare namespace preferences {
 
     /**
      * Flushes the data in the cached **Preferences** instance to the persistent file.
-     * 
-     * > **NOTE**
-     * >
-     * > If no data is modified or the modified data is the same as the cached data, the persistent file will not be 
-     * > updated.
      *
      * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
@@ -1256,32 +1097,16 @@ declare namespace preferences {
     flushSync(): void;
 
     /**
-     * Subscribes to data changes. The registered callback will be invoked to return the new value if the data
-     *  change is [flushed]{@link preferences.Preferences.flush(callback: AsyncCallback<void>)}.
-     * 
-     * > **NOTE**
-     * >
-     * > After 
-     * > [removePreferencesFromCache]{@link preferences.removePreferencesFromCache(context: Context, name: string,
-     *   callback: AsyncCallback<void>)}
-     * >  or 
-     * > [deletePreferences]{@link preferences.deletePreferences(context: Context, name: string,
-     *   callback: AsyncCallback<void>)}
-     * >  is called, the data change subscription will be automatically canceled. After 
-     * > [getPreferences]{@link preferences.getPreferences(context: Context, name: string,
-     *   callback: AsyncCallback<Preferences>)}
-     * >  is called again, you need to subscribe to data changes again.
+     * Subscribes to data changes. The registered callback will be invoked to return the new value if the data change is
+     * [flushed]{@link preferences.Preferences.flush(callback: AsyncCallback<void>)}.
      *
      * @param { 'change' } type - Event type. The value is **'change'**, which indicates data changes.
-     * @param { Callback<{ key: string }> } callback - Callback used to return the data change.
-     * @param { Function } callback - Callback used to return the data change.
-     * @param { Callback<string> } callback - Callback used to return the data change.
+     * @param { Callback<{ key: string }> } callback - Callback used to return the data change. [since 9 - 9]
+     * @param { Function } callback - Callback used to return the data change. [since 10 - 10]
+     * @param { Callback<string> } callback - Callback used to return the data change. [since 11]
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     
      *     <br>1. Mandatory parameters are left unspecified;
-     *     
      *     <br>2. Incorrect parameter types;
-     *     
      *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 15500000 - Inner error. [since 11]
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
@@ -1294,49 +1119,29 @@ declare namespace preferences {
     /**
      * Registers an observer to listen for the change of a {@link Preferences} object.
      *
-     * @param { Callback<string> } callback - Indicates the callback function. [since 23]
-     * @throws { BusinessError } 15500000 - Inner error. [since 23]
-     * @syscap SystemCapability.DistributedDataManager.Preferences.Core [since 23]
-     * @crossplatform [since 23]
+     * @param { Callback<string> } callback - Indicates the callback function.
+     * @throws { BusinessError } 15500000 - Inner error.
+     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+     * @crossplatform
      * @since 23 static
      */
     onChange(callback: Callback<string>): void;
 
     /**
      * Subscribes to data changes between processes. When multiple processes hold the same preference file, calling 
-     * [flush]{@link preferences.Preferences.flush(callback: AsyncCallback<void>)} in any process (including the
-     *  current process) will trigger the callback in this API.
-     * This API is provided for applications that have applied for [dataGroupId]{@link preferences.Options}. Avoid
-     * using this API for the applications that have not applied for **dataGroupId** because calling it in multiple 
-     * process may damage the persistent files and cause data loss.
-     * 
-     * > **NOTE**
-     * >
-     * > The maximum number of subscriptions for inter-process data change of the same persistent file for the current 
-     * > process is 50. Once the limit is reached, the subscription will fail. You are advised to cancel the 
-     * > subscription in a timely manner after the callback is triggered.
-     * >
-     * > After 
-     * > [removePreferencesFromCache]{@link preferences.removePreferencesFromCache(context: Context, name: string,
-     *   callback: AsyncCallback<void>)}
-     * >  or 
-     * > [deletePreferences]{@link preferences.deletePreferences(context: Context, name: string,
-     *   callback: AsyncCallback<void>)}
-     * >  is called, the data change subscription will be automatically canceled. After 
-     * > [getPreferences]{@link preferences.getPreferences(context: Context, name: string,
-     *   callback: AsyncCallback<Preferences>)}
-     * >  is called again, you need to subscribe to data changes again.
+     * [flush]{@link preferences.Preferences.flush(callback: AsyncCallback<void>)} in any process (including the current
+     * process) will trigger the callback in this API.
+     * This API is provided for applications that have applied for [dataGroupId]{@link preferences.Options}. Avoid using
+     * this API for the applications that have not applied for **dataGroupId** because calling it in multiple process 
+     * may damage the persistent files and cause data loss.
      *
-     * @param { 'multiProcessChange' } type - Event type. The value is **'multiProcessChange'**, which indicates
-     *     inter-process data changes.
-     * @param { Function } callback - Callback used to return the data change.
-     * @param { Callback<string> } callback - Callback used to return the data change.
+     * @param { 'multiProcessChange' } type - Event type. The value is **'multiProcessChange'**, which indicates inter-
+     *     process data changes.
+     * @param { Function } callback - Callback used to return the data change. [since 10 - 10]
+     * @param { Callback<string> } callback - Callback used to return the data change. [since 11]
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     
      *     <br>1. Mandatory parameters are left unspecified;
-     *     
      *     <br>2. Incorrect parameter types;
-     *     
      *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 15500019 - Failed to obtain the subscription service.
      * @throws { BusinessError } 15500000 - Inner error. [since 11]
@@ -1349,10 +1154,10 @@ declare namespace preferences {
     /**
      * Registers an observer to listen for the change of a {@link Preferences} object.
      *
-     * @param { Callback<string> } callback - Indicates the callback function. [since 23]
-     * @throws { BusinessError } 15500000 - Inner error. [since 23]
-     * @throws { BusinessError } 15500019 - Failed to obtain the subscription service. [since 23]
-     * @syscap SystemCapability.DistributedDataManager.Preferences.Core [since 23]
+     * @param { Callback<string> } callback - Indicates the callback function.
+     * @throws { BusinessError } 15500000 - Inner error.
+     * @throws { BusinessError } 15500019 - Failed to obtain the subscription service.
+     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @since 23 static
      */
     onMultiProcessChange(callback: Callback<string>): void;
@@ -1360,28 +1165,16 @@ declare namespace preferences {
     /**
      * Subscribes to changes of specific data. The registered callback will be invoked only after the values of the 
      * specified keys are changed and [flushed]{@link preferences.Preferences.flush(callback: AsyncCallback<void>)}.
-     * 
-     * > **NOTE**
-     * >
-     * > After 
-     * > [removePreferencesFromCache]{@link preferences.removePreferencesFromCache(context: Context, name: string,
-     *   callback: AsyncCallback<void>)}
-     * >  or 
-     * > [deletePreferences]{@link preferences.deletePreferences(context: Context, name: string,
-     *   callback: AsyncCallback<void>)}
-     * >  is called, the data change subscription will be automatically canceled. After 
-     * > [getPreferences]{@link preferences.getPreferences(context: Context, name: string,
-     *   callback: AsyncCallback<Preferences>)}
-     * >  is called again, you need to subscribe to data changes again.
      *
      * @param { 'dataChange' } type - Event type. The value is **'dataChange'**, which indicates data changes.
      * @param { Array<string> } keys - Array of the keys to be observed.
-     * @param { Callback<Record<string, ValueType>> } callback - Callback used to return the changed data, in an
-     *     array of KV pairs. The keys identify the data changed, and the values are the new values. 
-     *     The values support the following data types: number, string, boolean, Array<number>, Array<string>, 
-     *     Array< boolean>, Uint8Array, and object.
+     * @param { Callback<Record<string, ValueType>> } callback - Callback used to return the changed data, in an array 
+     *     of KV pairs. The keys identify the data changed, and the values are the new values. The values support the 
+     *     following data types: number, string, boolean, Array<number>, Array<string>, Array< boolean>, Uint8Array, and
+     *     object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     2. Incorrect parameter types; 3. Parameter verification failed.
+     *     2. Incorrect parameter types;
+     *     3. Parameter verification failed.
      * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform [since 20]
@@ -1393,12 +1186,11 @@ declare namespace preferences {
     /**
      * Registers an observer to listen for changes to the {@ link Preferences} object.
      *
-     * @param { Array<string> } keys - Indicates one or more keys to listen for. [since 23]
+     * @param { Array<string> } keys - Indicates one or more keys to listen for.
      * @param { Callback<Record<string, ValueType>> } callback - Indicates the callback used to return the data change.
-     *     [since 23]
-     * @throws { BusinessError } 15500000 - Inner error. [since 23]
-     * @syscap SystemCapability.DistributedDataManager.Preferences.Core [since 23]
-     * @crossplatform [since 23]
+     * @throws { BusinessError } 15500000 - Inner error.
+     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+     * @crossplatform
      * @since 23 static
      */
     onDataChange(keys: Array<string>, callback: Callback<Record<string, ValueType>>): void;
@@ -1407,18 +1199,15 @@ declare namespace preferences {
      * Unsubscribes from data changes.
      *
      * @param { 'change' } type - Event type. The value is **'change'**, which indicates data changes.
-     * @param { Callback<{ key: string }> } callback - Callback to unregister. If this parameter is not specified,
-     *     this API unregisters all callbacks for data changes.
+     * @param { Callback<{ key: string }> } callback - Callback to unregister. If this parameter is not specified, this 
+     *     API unregisters all callbacks for data changes. [since 9 - 9]
      * @param { Function } callback - Callback to unregister. If this parameter is not specified, this API unregisters 
-     *     all callbacks for data changes.
+     *     all callbacks for data changes. [since 10 - 10]
      * @param { Callback<string> } callback - Callback to unregister. If this parameter is not specified, this API 
-     *     unregisters all callbacks for data changes.
+     *     unregisters all callbacks for data changes. [since 11]
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     
      *     <br>1. Mandatory parameters are left unspecified;
-     *     
      *     <br>2. Incorrect parameter types;
-     *     
      *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 15500000 - Inner error. [since 11]
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
@@ -1431,32 +1220,29 @@ declare namespace preferences {
     /**
      * Unregisters an existing observer.
      *
-     * @param { Callback<string> } [callback] - Indicates the callback function. [since 23]
-     * @throws { BusinessError } 15500000 - Inner error. [since 23]
-     * @syscap SystemCapability.DistributedDataManager.Preferences.Core [since 23]
-     * @crossplatform [since 23]
+     * @param { Callback<string> } [callback] - Indicates the callback function.
+     * @throws { BusinessError } 15500000 - Inner error.
+     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+     * @crossplatform
      * @since 23 static
      */
     offChange(callback?: Callback<string>): void;
 
     /**
      * Unsubscribes from inter-process data changes.
-     * This API is provided for applications that have applied for [dataGroupId]{@link preferences.Options}. Avoid
-     * using this API for the applications that have not applied for **dataGroupId** because calling it in multiple 
-     * process may damage the persistent files and cause data loss.
+     * This API is provided for applications that have applied for [dataGroupId]{@link preferences.Options}. Avoid using
+     * this API for the applications that have not applied for **dataGroupId** because calling it in multiple process 
+     * may damage the persistent files and cause data loss.
      *
-     * @param { 'multiProcessChange' } type - Event type. The value is **'multiProcessChange'**, which indicates
-     *     inter-process data changes.
-     * @param { Function } callback - Callback to unregister. If this parameter is not specified, this API unregisters
-     *     all callbacks for data changes.
+     * @param { 'multiProcessChange' } type - Event type. The value is **'multiProcessChange'**, which indicates inter-
+     *     process data changes.
+     * @param { Function } callback - Callback to unregister. If this parameter is not specified, this API unregisters 
+     *     all callbacks for data changes. [since 10 - 10]
      * @param { Callback<string> } callback - Callback to unregister. If this parameter is not specified, this API 
-     *     unregisters all callbacks for data changes.
+     *     unregisters all callbacks for data changes. [since 11]
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     
      *     <br>1. Mandatory parameters are left unspecified;
-     *     
      *     <br>2. Incorrect parameter types;
-     *     
      *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 15500000 - Inner error. [since 11]
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
@@ -1468,9 +1254,9 @@ declare namespace preferences {
     /**
      * Unregisters an existing observer.
      *
-     * @param { Callback<string> } [callback] - Indicates the callback function. [since 23]
-     * @throws { BusinessError } 15500000 - Inner error. [since 23]
-     * @syscap SystemCapability.DistributedDataManager.Preferences.Core [since 23]
+     * @param { Callback<string> } [callback] - Indicates the callback function.
+     * @throws { BusinessError } 15500000 - Inner error.
+     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @since 23 static
      */
     offMultiProcessChange(callback?: Callback<string>): void;
@@ -1479,16 +1265,13 @@ declare namespace preferences {
      * Unsubscribes from changes of specific data.
      *
      * @param { 'dataChange' } type - Event type. The value is **'dataChange'**, which indicates data changes.
-     * @param { Array<string> } keys - Array of keys to be unsubscribed from. If this parameter is left empty, all keys
+     * @param { Array<string> } keys - Array of keys to be unsubscribed from. If this parameter is left empty, all keys 
      *     are unsubscribed from.
      * @param { Callback<Record<string, ValueType>> } callback - Callback to unregister. If this parameter is not 
      *     specified, this API unregisters all callbacks for the changes of the specified data.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     
      *     <br>1. Mandatory parameters are left unspecified;
-     *     
      *     <br>2. Incorrect parameter types;
-     *     
      *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
@@ -1501,11 +1284,11 @@ declare namespace preferences {
     /**
      * Unregisters an observer for changes to the {@ link Preferences} object.
      *
-     * @param { Array<string> } keys - Indicates the data whose changes are not observed. [since 23]
-     * @param { Callback<Record<string, ValueType>> } [callback] - Indicates the callback to unregister. [since 23]
-     * @throws { BusinessError } 15500000 - Inner error. [since 23]
-     * @syscap SystemCapability.DistributedDataManager.Preferences.Core [since 23]
-     * @crossplatform [since 23]
+     * @param { Array<string> } keys - Indicates the data whose changes are not observed.
+     * @param { Callback<Record<string, ValueType>> } [callback] - Indicates the callback to unregister.
+     * @throws { BusinessError } 15500000 - Inner error.
+     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+     * @crossplatform
      * @since 23 static
      */
     offDataChange(keys: Array<string>, callback?: Callback<Record<string, ValueType>>): void;
