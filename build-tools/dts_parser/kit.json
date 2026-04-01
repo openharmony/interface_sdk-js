@@ -28,6 +28,7 @@
     },
     { "filePath": "@internal/component/ets/data_panel.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },
     { "filePath": "@internal/component/ets/date_picker.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },
+    { "filePath": "@internal/component/ets/depth_component.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },
     { "filePath": "@internal/component/ets/divider.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },
     { "filePath": "@internal/component/ets/effect_component.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },
     { "filePath": "@internal/component/ets/ellipse.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },
