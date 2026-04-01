@@ -107,7 +107,7 @@ declare namespace bundleManager {
     WITH_SIGNATURE_INFO = 1 << 1,
 
     /**
-     * Used to obtained the application icon info
+     * Used to obtain the application icon info
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -464,7 +464,7 @@ declare namespace bundleManager {
     readonly iconData: string;
 
     /**
-     * Process of application, if user do not set it ,the value equal bundleName
+     * Process of the application. If the user does not set it, the value equals the bundleName.
      *
      * @type { string }
      * @readonly
