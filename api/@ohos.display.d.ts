@@ -1170,7 +1170,7 @@ declare namespace display {
     height: long;
 
     /**
-     * Indicates the density of the virtual screen, measured in px.
+     * Indicates the density of the virtual screen.
      *
      * @type { double }
      * @syscap SystemCapability.Window.SessionManager
@@ -2726,7 +2726,7 @@ declare namespace display {
     y?: long;
 
     /**
-     * All supported refresh rates, measured in Hz.
+     * All supported refresh rates, measured in hz.
      *
      * @type { ?Array<int> }
      * @syscap SystemCapability.Window.SessionManager

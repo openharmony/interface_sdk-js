@@ -1134,7 +1134,7 @@ declare namespace screen {
     height: long;
 
     /**
-     * Indicates the refreshRate of the screen
+     * Indicates the refreshRate of the screen, measured in hz.
      *
      * @type { int }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
