@@ -89,7 +89,7 @@ export class ConnectOptions<T extends object> {
 
   /**
    * Define encrypted partition for data storage.
-   * if not passed in, the defaule value is El2
+   * if not passed in, the default value is El2
    * 
    * @type { ?contextConstant.AreaMode} 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
