@@ -532,7 +532,7 @@ declare namespace webview {
          */
         origin: string;
         /**
-         * Specify the amount of storage for the source.
+         * Specify the amount of storage for the source. Unit: byte.
          *
          * @type { double }
          * @syscap SystemCapability.Web.Webview.Core
@@ -540,7 +540,7 @@ declare namespace webview {
          */
         usage: double;
         /**
-         * the callback of getOriginUsage.
+         * the callback of getOriginUsage. Unit: byte.
          *
          * @type { double }
          * @syscap SystemCapability.Web.Webview.Core
@@ -699,7 +699,7 @@ declare namespace webview {
         /**
          * Get the web storage quota with the origin.
          * @param { string } origin -  The origin which to be inquired.
-         * @returns { Promise<double> } - the promise returned by the function
+         * @returns { Promise<double> } - the promise returned by the function. Unit: byte.
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
          * <br>2. Incorrect parameter types. 3.Parameter verification failed.
          * @throws { BusinessError } 17100011 - Invalid origin.
@@ -725,7 +725,7 @@ declare namespace webview {
         /**
          * Get the web amount of storage with the origin.
          * @param { string } origin -  The origin which to be inquired.
-         * @returns { Promise<double> } - the promise returned by the function
+         * @returns { Promise<double> } - the promise returned by the function. Unit: byte.
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
          * <br>2. Incorrect parameter types. 3.Parameter verification failed.
          * @throws { BusinessError } 17100011 - Invalid origin.
