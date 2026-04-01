@@ -4203,6 +4203,16 @@ export declare enum ColorSpace {
    * @since 23 static
    */
   DISPLAY_P3 = 1,
+
+  /**
+   * BT2020 ColorSpace.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @systemapi
+   * @since 24 static
+   */
+  BT2020 = 2,
 }
 
 /**

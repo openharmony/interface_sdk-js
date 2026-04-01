@@ -11495,6 +11495,16 @@ declare enum ColorSpace {
    * @since 20 dynamic
    */
   DISPLAY_P3 = 1,
+
+  /**
+   * BT2020 ColorSpace.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 24 dynamic
+   */
+  BT2020 = 2,
 }
 
 /**
