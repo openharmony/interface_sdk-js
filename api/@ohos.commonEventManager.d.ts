@@ -2884,6 +2884,38 @@ declare namespace commonEventManager {
     COMMON_EVENT_TABLET_MODE_CHANGED = 'usual.event.TABLET_MODE_CHANGED',
 
     /**
+     * This common event indicates that specific volumes on the device have been decrypted.
+     * This is a protected common event that can only be sent by system.
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    COMMON_EVENT_VOLUME_DECRYPTED = 'usual.event.VOLUME_DECRYPTED',
+
+    /**
+     * This common event indicates that specific volumes on the device have been encrypted.
+     * This is a protected common event that can only be sent by system.
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    COMMON_EVENT_VOLUME_ENCRYPTED = 'usual.event.VOLUME_ENCRYPTED',
+
+    /**
+     * This common event indicates that specific volumes on the device have had their encryption policy set.
+     * This is a protected common event that can only be sent by system.
+     * To subscribe to this protected common event, your application must have
+     * the ohos.permission.QUERY_VOLUME_ENCRYPTION_STATUS permission.
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    COMMON_EVENT_VOLUME_ENCRYPTION_POLICY_SET = 'usual.event.VOLUME_ENCRYPTION_POLICY_SET',
+
+    /**
      * This common event means that the state (open or closed) of the laptop lid has changed.
      * This is a protected common event that can only be sent by system.
      * @syscap SystemCapability.Notification.CommonEvent
