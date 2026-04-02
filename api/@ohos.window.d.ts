@@ -4375,10 +4375,12 @@ declare namespace window {
    * @param { long } displayId - Indicate the id of display.
    * @param { int } [windowNumber] - Indicate the Number of query windows. If the value is less than or equal to 0,
    *    the function returns all visible windows at the target coordinate in the display. Default Value: 0.
-   * @param { int } [x] - Indicate the X-coordinate of the window, measured in px. If the value is less than or equal to 0,
-   *    the function returns all visible windows in the display. Default Value: -1.
-   * @param { int } [y] - Indicate the Y-coordinate of the window, measured in px. If the value is less than or equal to 0,
-   *    the function returns all visible windows in the display. Default Value: -1.
+   * @param { int } [x] - Indicate the X-coordinate of the window, measured in px. 
+   *    If the value is less than or equal to 0, the function returns all visible windows in the display.
+   *    Default Value: -1.
+   * @param { int } [y] - Indicate the Y-coordinate of the window, measured in px.
+   *    If the value is less than or equal to 0, the function returns all visible windows in the display.
+   *    Default Value: -1.
    * @returns { Promise<Array<Window>> } Promise used to return the window.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
    *                                                                  2. Incorrect parameter types;
@@ -12731,8 +12733,10 @@ declare namespace window {
     /**
      * Convert the global coordinates to the window coordinates.
      *
-     * @param { int } globalDisplayX - Indicates the X-coordinate of the component relative to the primary display, measured in px.
-     * @param { int } globalDisplayY - Indicates the Y-coordinate of the component relative to the primary display, measured in px.
+     * @param { int } globalDisplayX - Indicates the X-coordinate of the component relative to the primary display,
+     *     measured in px.
+     * @param { int } globalDisplayY - Indicates the Y-coordinate of the component relative to the primary display,
+     *     measured in px.
      * @returns { Position } Position - The pair {x, y} represents respectively the X-coordinate
      *     and Y-coordinate of the window relative to the current screen, measured in px.
      *     This parameter only accepts integer values; any floating-point input will be rounded down.
