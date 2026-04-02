@@ -114,7 +114,7 @@ declare namespace sendableContextManager {
   function convertToUIAbilityContext(sendableContext: SendableContext): common.UIAbilityContext;
 
   /**
-   * Enable/disable multi-threaded communication capability for the EventHub widthin the specified context.
+   * Enable/disable multi-threaded communication capability for the EventHub within the specified context.
    * After it is enabled, eventHub emit data is transmitted through serialization,
    * the data at the sender and receiver are independent.
    *
