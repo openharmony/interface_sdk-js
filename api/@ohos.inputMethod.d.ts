@@ -472,14 +472,14 @@ declare namespace inputMethod {
   function switchInputMethod(bundleName: string, subtypeId?: string): Promise<void>;
 
   /**
-   * Switch input method and subtype of a specified user
+   * Switch input method and subtype of a specified user.
    *
    * @permission ohos.permission.CONNECT_IME_ABILITY
-   * @param { string } bundleName - indicates the bundleName of target input method.
+   * @param { string } bundleName - indicates the bundleName of the target input method.
    * @param { string } [subtypeId] - indicates the id of the input method subtype. 
    *     If the param is not set, switch to the target input method with a default subtype.
    * @param { int } [userId] - the user ID.If not provided.
-   *     If the caller is ont a user 0 application, the value defaults to the caller's user ID.
+   *     If the caller is not a user 0 application, the value defaults to the caller's user ID.
    *     If the caller is a user 0 application, the value defaults to the foreground user ID of the main screen.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 201 - permissions check fails.
@@ -496,8 +496,7 @@ declare namespace inputMethod {
    * @stagemodelonly
    * @since 24 dynamic&static
    */
-  function switchInputMethodWithUserId(
-    bundleName: string, subtypeId?: string, userId?: int): Promise<void>;
+  function switchInputMethodWithUserId(bundleName: string, subtypeId?: string, userId?: int): Promise<void>;
 
   /**
    * Set simple keyboard mode.
