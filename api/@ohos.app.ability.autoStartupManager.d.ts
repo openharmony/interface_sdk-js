@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -18,8 +18,14 @@
  * @kit AbilityKit
  */
 
+/*** if arkts dynamic */
 import type { AutoStartupCallback } from './application/AutoStartupCallback';
 import type { AutoStartupInfo } from './application/AutoStartupInfo';
+/*** endif */
+/*** if arkts static */
+import type AutoStartupCallback from './application/AutoStartupCallback';
+import type AutoStartupInfo from './application/AutoStartupInfo';
+/*** endif */
 import type { AsyncCallback } from './@ohos.base';
 
 /**
@@ -28,15 +34,15 @@ import type { AsyncCallback } from './@ohos.base';
  * @namespace autoStartupManager
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
- * @since 11
+ * @since 11 dynamic
  */
 /**
  * The class of auto startup manager.
  *
  * @namespace autoStartupManager
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @since 21
- * @arkts 1.1&1.2
+ * @since 21 dynamic
+ * @since 23 static
  */
 declare namespace autoStartupManager {
   /**
@@ -54,9 +60,25 @@ declare namespace autoStartupManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
-   * @since 11
+   * @since 11 dynamic
    */
   function on(type: 'systemAutoStartup', callback: AutoStartupCallback): void;
+
+  /**
+   * Register the listener that watches for all applications auto startup state.
+   *
+   * @permission ohos.permission.MANAGE_APP_BOOT
+   * @param { AutoStartupCallback } callback - Auto startup callback.
+   * @throws { BusinessError } 201 - Permission denied, interface caller does not have permission
+   *     "ohos.permission.MANAGE_APP_BOOT".
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 16000050 - Connect to system server failed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 static
+   */
+  function onSystemAutoStartup(callback: AutoStartupCallback): void;
 
   /**
    * Unregister listener that watches for all applications auto startup state.
@@ -73,9 +95,25 @@ declare namespace autoStartupManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
-   * @since 11
+   * @since 11 dynamic
    */
   function off(type: 'systemAutoStartup', callback?: AutoStartupCallback): void;
+
+  /**
+   * Unregister listener that watches for all applications auto startup state.
+   *
+   * @permission ohos.permission.MANAGE_APP_BOOT
+   * @param { AutoStartupCallback } [callback] - Auto startup callback.
+   * @throws { BusinessError } 201 - Permission denied, interface caller does not have permission
+   *                                 "ohos.permission.MANAGE_APP_BOOT".
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 16000050 - Connect to system server failed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 static
+   */
+  function offSystemAutoStartup(callback?: AutoStartupCallback): void;
 
   /**
    * Set application auto startup state.
@@ -94,7 +132,8 @@ declare namespace autoStartupManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
-   * @since 11
+   * @since 11 dynamic
+   * @since 23 static
    */
   function setApplicationAutoStartup(info: AutoStartupInfo, callback: AsyncCallback<void>): void;
 
@@ -115,7 +154,8 @@ declare namespace autoStartupManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
-   * @since 11
+   * @since 11 dynamic
+   * @since 23 static
    */
   function setApplicationAutoStartup(info: AutoStartupInfo): Promise<void>;
 
@@ -136,7 +176,8 @@ declare namespace autoStartupManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
-   * @since 11
+   * @since 11 dynamic
+   * @since 23 static
    */
   function cancelApplicationAutoStartup(info: AutoStartupInfo, callback: AsyncCallback<void>): void;
 
@@ -157,7 +198,8 @@ declare namespace autoStartupManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
-   * @since 11
+   * @since 11 dynamic
+   * @since 23 static
    */
   function cancelApplicationAutoStartup(info: AutoStartupInfo): Promise<void>;
 
@@ -176,7 +218,8 @@ declare namespace autoStartupManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
-   * @since 11
+   * @since 11 dynamic
+   * @since 23 static
    */
   function queryAllAutoStartupApplications(callback: AsyncCallback<Array<AutoStartupInfo>>): void;
 
@@ -194,7 +237,8 @@ declare namespace autoStartupManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
-   * @since 11
+   * @since 11 dynamic
+   * @since 23 static
    */
   function queryAllAutoStartupApplications(): Promise<Array<AutoStartupInfo>>;
 
@@ -208,10 +252,22 @@ declare namespace autoStartupManager {
    *     2.System service failed to communicate with dependency module.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 21
-   * @arkts 1.1&1.2
+   * @since 21 dynamic
+   * @since 23 static
    */
   function getAutoStartupStatusForSelf(): Promise<boolean>;
+
+  /**
+   * Check whether the current device supports auto startup on this device.
+   *
+   * @returns { boolean }
+   *     - `true`: Device supports auto startup.
+   *     - `false`: Device do not support auto startup.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function isAutoStartupSupported(): boolean;
 }
 
 export default autoStartupManager;

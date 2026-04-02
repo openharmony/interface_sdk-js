@@ -18,11 +18,6 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { CommonShapeMethod } from './common';
-import { ShapePoint } from './line';
-/*** endif */
-
 /**
  * Define options used to construct a polyline.
  *
@@ -31,8 +26,7 @@ import { ShapePoint } from './line';
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18 dynamic
  */
 declare interface PolylineOptions {
   /**
@@ -40,6 +34,7 @@ declare interface PolylineOptions {
    *
    * @type { ?(string | number) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -47,6 +42,7 @@ declare interface PolylineOptions {
    *
    * @type { ?(string | number) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -55,6 +51,7 @@ declare interface PolylineOptions {
    *
    * @type { ?(string | number) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -64,6 +61,7 @@ declare interface PolylineOptions {
    *
    * @type { ?(string | number) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -75,6 +73,7 @@ declare interface PolylineOptions {
    *
    * @type { ?(string | number) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -85,30 +84,20 @@ declare interface PolylineOptions {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   width?: Length;
-  /**
-   * Polyline width.
-   *
-   * @type { ?(string | number) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  width?: string | number;
 
   /**
    * Polyline height.
    *
    * @type { ?(string | number) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -116,6 +105,7 @@ declare interface PolylineOptions {
    *
    * @type { ?(string | number) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -124,6 +114,7 @@ declare interface PolylineOptions {
    *
    * @type { ?(string | number) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -133,6 +124,7 @@ declare interface PolylineOptions {
    *
    * @type { ?(string | number) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -144,6 +136,7 @@ declare interface PolylineOptions {
    *
    * @type { ?(string | number) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -154,24 +147,13 @@ declare interface PolylineOptions {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   height?: Length;
-  /**
-   * Polyline height.
-   *
-   * @type { ?(string | number) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  height?: string | number
 }
 
 /**
@@ -179,6 +161,7 @@ declare interface PolylineOptions {
  *
  * @interface PolylineInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
@@ -186,6 +169,7 @@ declare interface PolylineOptions {
  *
  * @interface PolylineInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @form
  * @since 9
  */
@@ -194,6 +178,7 @@ declare interface PolylineOptions {
  *
  * @interface PolylineInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @since 10
@@ -203,22 +188,25 @@ declare interface PolylineOptions {
  *
  * @interface PolylineInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 interface PolylineInterface {
   /**
    * Uses new to create Polyline.
    * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
    * Uses new to create Polyline.
    * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -226,6 +214,7 @@ interface PolylineInterface {
    * Uses new to create Polyline.
    * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -234,6 +223,7 @@ interface PolylineInterface {
    * Uses new to create Polyline.
    * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -243,13 +233,14 @@ interface PolylineInterface {
    * Uses new to create Polyline.
    * Anonymous Object Rectification.
    *
-   * @param { PolylineOptions } [options] - Poly line options
+   * @param { PolylineOptions } [options] - Polyline options
    * @returns { PolylineAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   new (options?: PolylineOptions): PolylineAttribute;
 
@@ -259,6 +250,7 @@ interface PolylineInterface {
    * @param { object } value
    * @returns { PolylineAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -267,6 +259,7 @@ interface PolylineInterface {
    * @param { object } value
    * @returns { PolylineAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -276,6 +269,7 @@ interface PolylineInterface {
    * @param { object } value
    * @returns { PolylineAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -286,6 +280,7 @@ interface PolylineInterface {
    * @param { object } value
    * @returns { PolylineAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -295,13 +290,14 @@ interface PolylineInterface {
    * Called when using the draw fold.
    * Anonymous Object Rectification.
    *
-   * @param { PolylineOptions } [options] - Poly line options
+   * @param { PolylineOptions } [options] - Polyline options
    * @returns { PolylineAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   (options?: PolylineOptions): PolylineAttribute;
 }
@@ -309,17 +305,20 @@ interface PolylineInterface {
 /**
  * @extends CommonShapeMethod<PolylineAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
  * @extends CommonShapeMethod<PolylineAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @form
  * @since 9
  */
 /**
  * @extends CommonShapeMethod<PolylineAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @since 10
@@ -327,11 +326,11 @@ interface PolylineInterface {
 /**
  * @extends CommonShapeMethod<PolylineAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
  */
 declare class PolylineAttribute extends CommonShapeMethod<PolylineAttribute> {
   /**
@@ -340,6 +339,7 @@ declare class PolylineAttribute extends CommonShapeMethod<PolylineAttribute> {
    * @param { Array<any> } value
    * @returns { PolylineAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -348,6 +348,7 @@ declare class PolylineAttribute extends CommonShapeMethod<PolylineAttribute> {
    * @param { Array<any> } value
    * @returns { PolylineAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -357,6 +358,7 @@ declare class PolylineAttribute extends CommonShapeMethod<PolylineAttribute> {
    * @param { Array<any> } value
    * @returns { PolylineAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -367,38 +369,27 @@ declare class PolylineAttribute extends CommonShapeMethod<PolylineAttribute> {
    * @param { Array<any> } value
    * @returns { PolylineAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   points(value: Array<any>): PolylineAttribute;
-
-  /**
-   * Called when the polyline is set to pass through the coordinate point list.
-   *
-   * @param { Array<ShapePoint> } value
-   * @returns { PolylineAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  points(value: Array<ShapePoint>): PolylineAttribute;
 }
 
 /**
  * Defines Polyline Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
  * Defines Polyline Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @form
  * @since 9
  */
@@ -406,6 +397,7 @@ declare class PolylineAttribute extends CommonShapeMethod<PolylineAttribute> {
  * Defines Polyline Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @since 10
@@ -414,10 +406,11 @@ declare class PolylineAttribute extends CommonShapeMethod<PolylineAttribute> {
  * Defines Polyline Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const Polyline: PolylineInterface;
 
@@ -425,12 +418,14 @@ declare const Polyline: PolylineInterface;
  * Defines Polyline Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
  * Defines Polyline Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @form
  * @since 9
  */
@@ -438,6 +433,7 @@ declare const Polyline: PolylineInterface;
  * Defines Polyline Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @since 10
@@ -446,36 +442,10 @@ declare const Polyline: PolylineInterface;
  * Defines Polyline Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const PolylineInstance: PolylineAttribute;
-
-/**
- * Provides an interface for drawing polylines.
- *
- * @interface PolylineInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-interface PolylineInterface {
-  /**
-   * Set options for polyline component.
-   *
-   * @param { PolylineOptions } [options] - Poly line options
-   * @returns { PolylineAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  (options?: PolylineOptions): PolylineAttribute;
-}

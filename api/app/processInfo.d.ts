@@ -21,7 +21,8 @@
 /**
  * @typedef ProcessInfo
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @since 7
+ * @since 7 dynamic
+ * @since 23 static
  */
 export interface ProcessInfo {
   /**
@@ -29,16 +30,18 @@ export interface ProcessInfo {
    *
    * @type { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 7
+   * @since 7 dynamic
+   * @since 23 static
    */
-  pid: number;
+  pid: int;
 
   /**
    * The name of the current process
    *
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 7
+   * @since 7 dynamic
+   * @since 23 static
    */
   processName: string;
 }

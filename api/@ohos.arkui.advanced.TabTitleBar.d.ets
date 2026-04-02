@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -25,27 +25,48 @@
 /**
  * Declaration of the menu item on the right side.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 10
  */
 /**
  * Declaration of the menu item on the right side.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
+ */
+/**
+ * Declaration of the menu item on the right side.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 22 dynamic
  */
 export declare class TabTitleBarMenuItem {
   /**
    * Icon resource for this menu item.
    * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
    * Icon resource for this menu item.
    * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
+   */
+  /**
+   * Icon resource for this menu item.
+   * @type { ResourceStr }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
    */
   value: ResourceStr;
 
@@ -53,8 +74,18 @@ export declare class TabTitleBarMenuItem {
    * Symbol resource for this menu item.
    * @type { ?SymbolGlyphModifier }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
+   */
+  /**
+   * Symbol resource for this menu item.
+   * @type { ?SymbolGlyphModifier }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
    */
   symbolStyle?: SymbolGlyphModifier;
 
@@ -62,8 +93,18 @@ export declare class TabTitleBarMenuItem {
    * Icon label for this menu item.
    * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
-   * @since 13
+   * @since 13 dynamic
+   */
+  /**
+   * Icon label for this menu item.
+   * @type { ?ResourceStr }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
    */
   label?: ResourceStr;
 
@@ -71,14 +112,25 @@ export declare class TabTitleBarMenuItem {
    * Whether to enable this menu item.
    * @type { ?boolean }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
    * Whether to enable this menu item.
    * @type { ?boolean }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
+   */
+  /**
+   * Whether to enable this menu item.
+   * @type { ?boolean }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
    */
   isEnabled?: boolean;
 
@@ -86,14 +138,25 @@ export declare class TabTitleBarMenuItem {
    * Callback function when click on this menu item.
    * @type { ?() => void }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
    * Callback function when click on this menu item.
    * @type { ?() => void }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
+   */
+  /**
+   * Callback function when click on this menu item.
+   * @type { ?() => void }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
    */
   action?: () => void;
 
@@ -101,8 +164,18 @@ export declare class TabTitleBarMenuItem {
    * The accessibilityText of this menu item.
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
+   */
+  /**
+   * The accessibilityText of this menu item.
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
    */
   accessibilityText?: ResourceStr;
 
@@ -110,8 +183,18 @@ export declare class TabTitleBarMenuItem {
    * The accessibilityDescription of this menu item.
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
+   */
+  /**
+   * The accessibilityDescription of this menu item.
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
    */
   accessibilityDescription?: ResourceStr;
 
@@ -120,8 +203,19 @@ export declare class TabTitleBarMenuItem {
    * @type { ?string }
    * @default "auto"
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
+   */
+  /**
+   * The accessibilityLevel of this menu item.
+   * @type { ?string }
+   * @default "auto"
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
    */
   accessibilityLevel?: string;
 }
@@ -129,27 +223,48 @@ export declare class TabTitleBarMenuItem {
 /**
  * Declaration of the tab item.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 10
  */
 /**
  * Declaration of the tab item.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
+ */
+/**
+ * Declaration of the tab item.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 22 dynamic
  */
 export declare class TabTitleBarTabItem {
   /**
    * Text description for this tab item.
    * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
    * Text description for this tab item.
    * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
+   */
+  /**
+   * Text description for this tab item.
+   * @type { ResourceStr }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
    */
   title: ResourceStr;
 
@@ -157,14 +272,25 @@ export declare class TabTitleBarTabItem {
    * Icon resource for this tab item.
    * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
    * Icon resource for this tab item.
    * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
+   */
+  /**
+   * Icon resource for this tab item.
+   * @type { ?ResourceStr }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
    */
   icon?: ResourceStr;
 
@@ -172,8 +298,18 @@ export declare class TabTitleBarTabItem {
    * Symbol resource for this tab item.
    * @type { ?SymbolGlyphModifier }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
+   */
+  /**
+   * Symbol resource for this tab item.
+   * @type { ?SymbolGlyphModifier }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
    */
   symbolStyle?: SymbolGlyphModifier;
 }
@@ -181,13 +317,23 @@ export declare class TabTitleBarTabItem {
 /**
  * Declaration of the tabbed title bar.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 10
  */
 /**
  * Declaration of the tabbed title bar.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
+ */
+/**
+ * Declaration of the tabbed title bar.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 22 dynamic
  */
 @Component
 export declare struct TabTitleBar {
@@ -195,14 +341,25 @@ export declare struct TabTitleBar {
    * Tab items on the left side.
    * @type { ?Array<TabTitleBarItem> }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
    * Tab items on the left side.
    * @type { ?Array<TabTitleBarItem> }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
+   */
+  /**
+   * Tab items on the left side.
+   * @type { ?Array<TabTitleBarItem> }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
    */
   tabItems: Array<TabTitleBarTabItem>;
 
@@ -210,14 +367,25 @@ export declare struct TabTitleBar {
    * Menu items on the right side.
    * @type { Array<TabTitleBarMenuItem> }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
    * Menu items on the right side.
    * @type { Array<TabTitleBarMenuItem> }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
+   */
+  /**
+   * Menu items on the right side.
+   * @type { Array<TabTitleBarMenuItem> }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
    */
   menuItems?: Array<TabTitleBarMenuItem>;
 
@@ -226,6 +394,7 @@ export declare struct TabTitleBar {
    * The builder needs to be transferred.
    * @type { () => void }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -233,8 +402,19 @@ export declare struct TabTitleBar {
    * The builder needs to be transferred.
    * @type { () => void }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
+   */
+  /**
+   * Content builder. Each component corresponds to a tab item.
+   * The builder needs to be transferred.
+   * @type { () => void }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
    */
   @BuilderParam
   swiperContent: () => void;

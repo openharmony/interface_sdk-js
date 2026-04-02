@@ -31,7 +31,7 @@ import StartOptions from '../@ohos.app.ability.StartOptions';
  * @syscap SystemCapability.WindowManager.WindowManager.Core
  * @systemapi
  * @stagemodelonly
- * @since 9
+ * @since 9 dynamiconly
  * @deprecated since 21
  */
 declare class WindowExtensionContext extends ExtensionContext {
@@ -60,7 +60,7 @@ declare class WindowExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since 12 dynamiconly
    * @deprecated since 21
    */
   startAbility(want: Want, options: StartOptions, callback: AsyncCallback<void>): void;
@@ -90,7 +90,7 @@ declare class WindowExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since 12 dynamiconly
    * @deprecated since 21
    */
   startAbility(want: Want, options?: StartOptions): Promise<void>;

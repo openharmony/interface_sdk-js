@@ -23,8 +23,8 @@
  *
  * @typedef BundleOption
  * @syscap SystemCapability.Notification.Notification
- * @since arkts {'1.1':'9', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 9 dynamic
+ * @since 23 static
  */
 export interface BundleOption {
   /**
@@ -32,18 +32,94 @@ export interface BundleOption {
    *
    * @type { string }
    * @syscap SystemCapability.Notification.Notification
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 23 static
    */
   bundle: string;
 
   /**
    * UID of an application, which is obtained from ApplicationInfo. The default value is 0.
    *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.Notification.Notification
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 23 static
    */
-  uid?: number;
+  uid?: int;
+}
+
+/**
+ * The NotificationCommonDef module provides APIs for describing the GrantedBundleInfo, that is,
+ *  the bundle information of a specified application granted to third party wearable application by user.
+ *
+ * @typedef GrantedBundleInfo
+ * @syscap SystemCapability.Notification.Notification
+ * @since 22 dynamic
+ * @since 23 static
+ */
+export interface GrantedBundleInfo {
+  /**
+   * Name of the bundle.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 22 dynamic
+   * @since 23 static
+   */
+  bundleName: string;
+
+  /**
+   * The appIndex of application that creates the notification, only work in appClone mode.
+   *
+   * @type { int }
+   * @readonly
+   * @syscap SystemCapability.Notification.Notification
+   * @since 22 dynamic
+   * @since 23 static
+   */
+  readonly appIndex: int;
+
+  /**
+   * Name of the application.
+   *
+   * @type { ?string }
+   * @readonly
+   * @syscap SystemCapability.Notification.Notification
+   * @since 22 dynamic
+   * @since 23 static
+   */
+  readonly appName?: string;
+}
+
+/**
+ * The NotificationCommonDef module provides APIs for describing the UserGrantSetting, that is,
+ * the bundle information of a specified application granted to third party wearable application by user.
+ *
+ * @typedef UserGrantSetting
+ * @syscap SystemCapability.Notification.Notification
+ * @stagemodelonly
+ * @since 26.0.0 dynamic&static
+ */
+export interface UserGrantSetting {
+  /**
+   * User-granted state.
+   *
+   * @type { boolean }
+   * @readonly
+   * @syscap SystemCapability.Notification.Notification
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  readonly userGrantEnabled: boolean;
+
+  /**
+   * Array of user-granted bundle info.
+   *
+   * @type { ?Array<GrantedBundleInfo> }
+   * @readonly
+   * @syscap SystemCapability.Notification.Notification
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  readonly grantedBundleInfos?: Array<GrantedBundleInfo>;
 }

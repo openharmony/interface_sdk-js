@@ -24,14 +24,16 @@ import { Element } from './viewmodel';
  * global dom
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @famodelonly
  * @since 8
  */
 /**
  * global dom
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @famodelonly
  * @atomicservice
- * @since 11
+ * @since 11 dynamiconly
  */
 export declare class dom {
   /**
@@ -40,6 +42,7 @@ export declare class dom {
    * @param { string } tag - dom tag
    * @returns { Element }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @since 8
    */
   /**
@@ -48,8 +51,9 @@ export declare class dom {
    * @param { string } tag - dom tag
    * @returns { Element }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @famodelonly
    * @atomicservice
-   * @since 11
+   * @since 11 dynamiconly
    */
   static createElement(tag: string): Element
 }

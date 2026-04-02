@@ -31,9 +31,9 @@ import { ElementName } from './elementName';
  * @typedef LauncherAbilityInfo
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @systemapi Hide this for inner system use
- * @since 8
+ * @since 8 dynamiconly
  * @deprecated since 9
- * @useinstead ohos.bundle.bundleManager.LauncherAbilityInfo
+ * @useinstead ohos.bundle.launcherBundleManager/launcherBundleManager.LauncherAbilityInfo
  */
 export interface LauncherAbilityInfo {
   /**
@@ -42,8 +42,9 @@ export interface LauncherAbilityInfo {
    * @type { ApplicationInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.launcherBundleManager/launcherBundleManager.LauncherAbilityInfo#applicationInfo
    */
   readonly applicationInfo: ApplicationInfo;
 
@@ -53,8 +54,9 @@ export interface LauncherAbilityInfo {
    * @type { ElementName }
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.launcherBundleManager/launcherBundleManager.LauncherAbilityInfo#elementName
    */
   readonly elementName: ElementName;
 
@@ -64,8 +66,9 @@ export interface LauncherAbilityInfo {
    * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.launcherBundleManager/launcherBundleManager.LauncherAbilityInfo#labelId
    */
   readonly labelId: number;
 
@@ -75,8 +78,9 @@ export interface LauncherAbilityInfo {
    * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.launcherBundleManager/launcherBundleManager.LauncherAbilityInfo#iconId
    */
   readonly iconId: number;
 
@@ -86,19 +90,21 @@ export interface LauncherAbilityInfo {
    * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.launcherBundleManager/launcherBundleManager.LauncherAbilityInfo#userId
    */
   readonly userId: number;
 
   /**
-   * Obtains installTime about an launcher ability.
+   * Obtains installTime about an launcher ability,the unit is millisecond.
    *
    * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.launcherBundleManager/launcherBundleManager.LauncherAbilityInfo#installTime
    */
   readonly installTime: number;
 }

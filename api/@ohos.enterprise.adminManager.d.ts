@@ -27,7 +27,8 @@ import common from '@ohos.app.ability.common';
  *
  * @namespace adminManager
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
- * @since 9
+ * @since 9 dynamic
+ * @since 23 static
  */
 declare namespace adminManager {
   /**
@@ -36,7 +37,8 @@ declare namespace adminManager {
    * @typedef EnterpriseInfo
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
+   * @since 23 static
    */
   export interface EnterpriseInfo {
     /**
@@ -45,7 +47,8 @@ declare namespace adminManager {
      * @type { string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
+     * @since 23 static
      */
     name: string;
 
@@ -55,7 +58,8 @@ declare namespace adminManager {
      * @type { string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
+     * @since 23 static
      */
     description: string;
   }
@@ -165,7 +169,34 @@ declare namespace adminManager {
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @since 18
      */
-    MANAGED_EVENT_ACCOUNT_REMOVED = 7
+    MANAGED_EVENT_ACCOUNT_REMOVED = 7,
+
+    /**
+     * Event indicating that startup guide is completed.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 24
+     */
+    MANAGED_EVENT_STARTUP_GUIDE_COMPLETED = 8,
+
+    /**
+     * Event indicating that device boot is completed.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 24
+     */
+    MANAGED_EVENT_BOOT_COMPLETED = 9,
+
+    /**
+     * Event of bundle updated.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    MANAGED_EVENT_BUNDLE_UPDATED = 10
   }
 
   /**
@@ -223,7 +254,7 @@ declare namespace adminManager {
      */
     TRUST_LIST = 1
   }
-  
+
   /**
    * Enables the given ability as a administrator of the device.
    * Only apps with the ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN permission or the shell uid can call this method.
@@ -299,6 +330,25 @@ declare namespace adminManager {
   function enableAdmin(admin: Want, enterpriseInfo: EnterpriseInfo, type: AdminType, userId?: number): Promise<void>;
 
   /**
+   * Enables the given ability as a administrator of the device.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_DEVICE_ADMIN
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
+   * @returns { Promise<void> } the promise returned by the enableDeviceAdmin.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200003 - The administrator ability component is invalid.
+   * @throws { BusinessError } 9200004 - Failed to activate the administrator application of the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 23
+   */
+  function enableDeviceAdmin(admin: Want): Promise<void>;
+
+  /**
    * Disables a current normal administrator ability.
    * Only apps with the ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN permission or the shell uid can call this method.
    *
@@ -317,6 +367,24 @@ declare namespace adminManager {
    * @since 9
    */
   function disableAdmin(admin: Want, callback: AsyncCallback<void>): void;
+
+  /**
+   * Disables a current administrator ability.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_DEVICE_ADMIN
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
+   * @returns { Promise<void> } the promise returned by the disableDeviceAdmin.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200005 - Failed to deactivate the administrator application of the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 23
+   */
+  function disableDeviceAdmin(admin: Want): Promise<void>;
 
   /**
    * Disables a current normal administrator ability.
@@ -358,7 +426,7 @@ declare namespace adminManager {
    */
    /**
    * Disables a current administrator ability.
-   * Only apps with the ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN permission，
+   * Only apps with the ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN permission,
    *     ohos.permission.START_PROVISIONING_MESSAGE or the shell uid can call this method.
    *
    * @permission ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN or ohos.permission.START_PROVISIONING_MESSAGE
@@ -372,6 +440,26 @@ declare namespace adminManager {
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 20
+   */
+  /**
+   * Disables a current administrator ability.
+   * Only apps with the ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN permission,
+   *     ohos.permission.START_PROVISIONING_MESSAGE, ohos.permission.ENTERPRISE_DEACTIVATE_DEVICE_ADMIN
+   *     or the shell uid can call this method.
+   *
+   * @permission ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN or ohos.permission.START_PROVISIONING_MESSAGE
+   *     or ohos.permission.ENTERPRISE_DEACTIVATE_DEVICE_ADMIN
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *     The admin must have the corresponding permission.
+   * @param { number } [userId] - userId indicates the user ID or do not pass user ID,
+   *     default value is the current user ID.
+   * @returns { Promise<void> } the promise returned by the disableAdmin.
+   * @throws { BusinessError } 9200005 - Failed to deactivate the administrator application of the device.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 23
    */
   function disableAdmin(admin: Want, userId?: number): Promise<void>;
 
@@ -472,7 +560,8 @@ declare namespace adminManager {
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
-   * @since 9
+   * @since 9 dynamic
+   * @since 23 static
    */
   function getEnterpriseInfo(admin: Want, callback: AsyncCallback<EnterpriseInfo>): void;
 
@@ -488,7 +577,8 @@ declare namespace adminManager {
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
-   * @since 9
+   * @since 9 dynamic
+   * @since 23 static
    */
   function getEnterpriseInfo(admin: Want): Promise<EnterpriseInfo>;
 
@@ -709,7 +799,8 @@ declare namespace adminManager {
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since 12 dynamic
+   * @since 23 static
    */
   function getSuperAdmin(): Promise<Want>;
 
@@ -799,7 +890,7 @@ declare namespace adminManager {
    */
   function isByodAdmin(admin: Want): boolean;
 
-/**
+  /**
    * Administrator gets the delegated applications which access to the policy.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_DELEGATED_POLICY
@@ -816,6 +907,25 @@ declare namespace adminManager {
    * @since 14
    */
   function getDelegatedBundleNames(admin: Want, policy: string): Array<string>;
+
+  /**
+   * replace old admin with new admin.
+   *
+   * @permission ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN
+   * @param { Want } oldAdmin - oldAdmin indicates the old administrator ability information.
+   * @param { Want } newAdmin - newAdmin indicates the new administrator ability information.
+   * @param { boolean } isKeepPolicy - true indicates whether keep admin policy.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200003 - The administrator ability component is invalid.
+   * @throws { BusinessError } 9200011 - Failed to replace the administrator application of the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 18
+   */
+  function replaceSuperAdmin(oldAdmin: Want, newAdmin: Want, isKeepPolicy: boolean): void;
 
   /**
    * Starts an ability of admin provision application.
@@ -847,25 +957,6 @@ declare namespace adminManager {
   function getAdmins(): Promise<Array<Want>>;
 
   /**
-   * replace old admin with new admin.
-   *
-   * @permission ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN
-   * @param { Want } oldAdmin - oldAdmin indicates the old administrator ability information.
-   * @param { Want } newAdmin - newAdmin indicates the new administrator ability information.
-   * @param { boolean } isKeepPolicy - true indicates whether keep admin policy.
-   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200003 - The administrator ability component is invalid.
-   * @throws { BusinessError } 9200011 - Failed to replace the administrator application of the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
-   * @stagemodelonly
-   * @since 18
-   */
-  function replaceSuperAdmin(oldAdmin: Want, newAdmin: Want, isKeepPolicy: boolean): void;
-
-  /**
    * Administrator delegates access to policies to another application.
    *
    * @permission ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN
@@ -881,6 +972,18 @@ declare namespace adminManager {
    * @since 20
    */
   function setDelegatedPolicies(bundleName: string, accountId: number, policies: Array<string>): void;
+
+  /**
+   * Gets enterprise message tips.
+   *
+   * @returns { Promise<string> } returns the enterprise message tips.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function getEnterpriseManagedTips(): Promise<string>;
 }
 
 export default adminManager;

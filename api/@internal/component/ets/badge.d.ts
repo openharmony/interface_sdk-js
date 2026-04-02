@@ -18,12 +18,6 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { ResourceColor, Length, Position, Resource } from './units';
-import { FontWeight } from './enums';
-import { CommonMethod } from './common';
-/*** endif */
-
 /**
  * Defines the badge position property.
  *
@@ -56,8 +50,7 @@ import { CommonMethod } from './common';
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
  */
 declare enum BadgePosition {
   /**
@@ -88,8 +81,7 @@ declare enum BadgePosition {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   RightTop,
 
@@ -121,8 +113,7 @@ declare enum BadgePosition {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   Right,
 
@@ -154,8 +145,7 @@ declare enum BadgePosition {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   Left,
 }
@@ -192,8 +182,7 @@ declare enum BadgePosition {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
  */
 declare interface BadgeStyle {
   /**
@@ -229,8 +218,7 @@ declare interface BadgeStyle {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   color?: ResourceColor;
 
@@ -284,21 +272,9 @@ declare interface BadgeStyle {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   fontSize?: number | ResourceStr;
-  /**
-   * Text size.
-   *
-   * @type { ?(number | string) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  fontSize?: number | string;
 
   /**
    * Size of a badge.
@@ -351,21 +327,9 @@ declare interface BadgeStyle {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   badgeSize?: number | ResourceStr;
-  /**
-   * Size of a badge.
-   *
-   * @type { ?(number | string) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  badgeSize?: number | string;
 
   /**
    * Color of the badge.
@@ -400,8 +364,7 @@ declare interface BadgeStyle {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   badgeColor?: ResourceColor;
 
@@ -421,8 +384,7 @@ declare interface BadgeStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   borderColor?: ResourceColor;
 
@@ -444,8 +406,7 @@ declare interface BadgeStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   borderWidth?: Length;
 
@@ -480,20 +441,47 @@ declare interface BadgeStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   fontWeight?: number | FontWeight | ResourceStr;
+
   /**
-   * Define the font weight of the badge.
+   * Outer border color of the background.
    *
-   * @type { ?(number | FontWeight | string) }
+   * @type { ?ResourceColor }
+   * @default Color.White
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 22 dynamic
    */
-  fontWeight?: number | FontWeight | string;
+  outerBorderColor?: ResourceColor;
+
+  /**
+   * Outer border width of the background.
+   * This parameter cannot be set in percentage.
+   * Unit: vp
+   *
+   * @type { ?LengthMetrics }
+   * @default 0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  outerBorderWidth?: LengthMetrics;
+
+  /**
+   * Enable auto avoidance for text in badge.
+   *
+   * @type { ?boolean }
+   * @default true
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  enableAutoAvoidance?: boolean;
 }
 
 /**
@@ -528,8 +516,7 @@ declare interface BadgeStyle {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
  */
 declare interface BadgeParam {
   /**
@@ -572,8 +559,7 @@ declare interface BadgeParam {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   position?: BadgePosition | Position;
 
@@ -609,8 +595,7 @@ declare interface BadgeParam {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   style: BadgeStyle;
 }
@@ -651,8 +636,7 @@ declare interface BadgeParam {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
  */
 declare interface BadgeParamWithNumber extends BadgeParam {
   /**
@@ -695,8 +679,7 @@ declare interface BadgeParamWithNumber extends BadgeParam {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   count: number;
 
@@ -740,8 +723,7 @@ declare interface BadgeParamWithNumber extends BadgeParam {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   maxCount?: number;
 }
@@ -782,8 +764,7 @@ declare interface BadgeParamWithNumber extends BadgeParam {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
  */
 declare interface BadgeParamWithString extends BadgeParam {
   /**
@@ -828,21 +809,9 @@ declare interface BadgeParamWithString extends BadgeParam {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   value: ResourceStr;
-  /**
-   * Text string of the prompt content.
-   *
-   * @type { string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  value: string;
 }
 
 /**
@@ -877,8 +846,7 @@ declare interface BadgeParamWithString extends BadgeParam {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
  */
 interface BadgeInterface {
   /**
@@ -929,8 +897,7 @@ interface BadgeInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   (value: BadgeParamWithNumber): BadgeAttribute;
 
@@ -982,8 +949,7 @@ interface BadgeInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   (value: BadgeParamWithString): BadgeAttribute;
 }
@@ -1020,8 +986,7 @@ interface BadgeInterface {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
  */
 declare class BadgeAttribute extends CommonMethod<BadgeAttribute> {}
 
@@ -1053,7 +1018,7 @@ declare class BadgeAttribute extends CommonMethod<BadgeAttribute> {}
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const Badge: BadgeInterface;
 
@@ -1085,6 +1050,6 @@ declare const Badge: BadgeInterface;
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const BadgeInstance: BadgeAttribute;

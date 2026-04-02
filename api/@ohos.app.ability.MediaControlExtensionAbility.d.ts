@@ -27,7 +27,8 @@ import UIExtensionAbility from './@ohos.app.ability.UIExtensionAbility';
  * @syscap SystemCapability.Multimedia.AVSession.Core
  * @systemapi
  * @StageModelOnly
- * @since 10
+ * @since 10 dynamic
+ * @since 23 static
  */
 export default class MediaControlExtensionAbility extends UIExtensionAbility {
 }

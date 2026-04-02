@@ -28,16 +28,18 @@ import ExtensionContext from './application/ExtensionContext';
  * @extends ExtensionContext
  * @syscap SystemCapability.MiscServices.InputMethodFramework
  * @StageModelOnly
- * @since 9
+ * @since 9 dynamic
+ * @since 23 static
  */
-export default class InputMethodExtensionContext extends ExtensionContext {
+declare class InputMethodExtensionContext extends ExtensionContext {
   /**
    * Destroy the input method extension.
    *
    * @param { AsyncCallback<void> } callback - the callback of destroy.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @StageModelOnly
-   * @since 9
+   * @since 9 dynamic
+   * @since 23 static
    */
   destroy(callback: AsyncCallback<void>): void;
 
@@ -47,7 +49,8 @@ export default class InputMethodExtensionContext extends ExtensionContext {
    * @returns { Promise<void> } the promise returned by the function.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @StageModelOnly
-   * @since 9
+   * @since 9 dynamic
+   * @since 23 static
    */
   destroy(): Promise<void>;
 
@@ -79,7 +82,10 @@ export default class InputMethodExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @StageModelOnly
-   * @since 12
+   * @since 12 dynamic
+   * @since 23 static
    */
   startAbility(want: Want): Promise<void>;
 }
+
+export default InputMethodExtensionContext;

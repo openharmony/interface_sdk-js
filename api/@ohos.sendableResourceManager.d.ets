@@ -28,7 +28,7 @@ import { SendableResource as _SendableResource } from './global/sendableResource
  * @syscap SystemCapability.Global.ResourceManager
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamiconly
  */
 declare namespace sendableResourceManager {
 
@@ -42,7 +42,7 @@ declare namespace sendableResourceManager {
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
   export function resourceToSendableResource(resource: Resource): SendableResource;
 
@@ -56,7 +56,7 @@ declare namespace sendableResourceManager {
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
   export function sendableResourceToResource(resource: SendableResource): Resource;
 
@@ -67,7 +67,7 @@ declare namespace sendableResourceManager {
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
   export type Resource = _Resource;
 
@@ -78,7 +78,7 @@ declare namespace sendableResourceManager {
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
   export type SendableResource = _SendableResource;
 

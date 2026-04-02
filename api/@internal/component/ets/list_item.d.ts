@@ -18,19 +18,14 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { CommonMethod } from './common';
-import { CustomBuilder } from './builder'
-import { Length } from './units';
-import { ComponentContent } from '../ComponentContent'
-/*** endif */
 
 /**
  * Declare item ceiling attribute.
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
+ * @FaAndStageModel
+ * @since 7 dynamiconly
  * @deprecated since 9
  * @useinstead list/StickyStyle
  */
@@ -39,7 +34,8 @@ declare enum Sticky {
    * No sticky.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
+   * @FaAndStageModel
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   None,
@@ -48,7 +44,8 @@ declare enum Sticky {
    * Normal mode
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
+   * @FaAndStageModel
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   Normal,
@@ -57,7 +54,8 @@ declare enum Sticky {
    * Set opacity.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
+   * @FaAndStageModel
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   Opacity,
@@ -68,7 +66,8 @@ declare enum Sticky {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
+ * @FaAndStageModel
+ * @since 7 dynamiconly
  * @deprecated since 9
  */
 declare enum EditMode {
@@ -76,7 +75,8 @@ declare enum EditMode {
    * Unrestricted operations.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
+   * @FaAndStageModel
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   None,
@@ -85,7 +85,8 @@ declare enum EditMode {
    * Deletable.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
+   * @FaAndStageModel
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   Deletable,
@@ -94,7 +95,8 @@ declare enum EditMode {
    * Movable.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
+   * @FaAndStageModel
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   Movable,
@@ -120,10 +122,10 @@ declare enum EditMode {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
  */
 declare enum SwipeEdgeEffect {
   /**
@@ -143,10 +145,10 @@ declare enum SwipeEdgeEffect {
    * Elastic physical action, sliding to the edge can continue to slide for a distance based on the initial speed or touch event, and spring back when released.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   Spring,
 
@@ -167,10 +169,10 @@ declare enum SwipeEdgeEffect {
    * Sliding to the edge has no effect.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   None,
 }
@@ -190,8 +192,7 @@ declare enum SwipeEdgeEffect {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
  */
 declare enum SwipeActionState {
   /**
@@ -204,9 +205,9 @@ declare enum SwipeActionState {
    * Collapsed type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   COLLAPSED,
 
@@ -220,9 +221,9 @@ declare enum SwipeActionState {
    * EXPANDED type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   EXPANDED,
 
@@ -236,9 +237,9 @@ declare enum SwipeActionState {
    * Action type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   ACTIONING,
 }
@@ -250,7 +251,7 @@ declare enum SwipeActionState {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 21
+ * @since 21 dynamic
  */
 declare enum ListItemSwipeActionDirection {
   /**
@@ -260,7 +261,7 @@ declare enum ListItemSwipeActionDirection {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 21
+   * @since 21 dynamic
    */
   START = 0,
   /**
@@ -270,7 +271,7 @@ declare enum ListItemSwipeActionDirection {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 21
+   * @since 21 dynamic
    */
   END = 1,
 }
@@ -281,7 +282,7 @@ declare enum ListItemSwipeActionDirection {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 21
+ * @since 21 dynamic
  */
 declare class ListItemSwipeActionManager {
   /**
@@ -295,7 +296,7 @@ declare class ListItemSwipeActionManager {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 21
+   * @since 21 dynamic
    */
   static expand(node: FrameNode, direction: ListItemSwipeActionDirection): void;
 
@@ -309,7 +310,7 @@ declare class ListItemSwipeActionManager {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 21
+   * @since 21 dynamic
    */
   static collapse(node: FrameNode): void;
 }
@@ -328,8 +329,7 @@ declare class ListItemSwipeActionManager {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
  */
 declare interface SwipeActionItem {
   /**
@@ -348,8 +348,7 @@ declare interface SwipeActionItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   builder?: CustomBuilder;
 
@@ -361,8 +360,7 @@ declare interface SwipeActionItem {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':'18','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 18 dynamic
     */
   builderComponent?: ComponentContent;
 
@@ -382,8 +380,7 @@ declare interface SwipeActionItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   actionAreaDistance?: Length;
 
@@ -401,8 +398,7 @@ declare interface SwipeActionItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   onAction?: () => void;
 
@@ -420,8 +416,7 @@ declare interface SwipeActionItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   onEnterActionArea?: () => void;
 
@@ -439,8 +434,7 @@ declare interface SwipeActionItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   onExitActionArea?: () => void;
 
@@ -459,8 +453,7 @@ declare interface SwipeActionItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   onStateChange?: (state: SwipeActionState) => void;
 }
@@ -485,10 +478,10 @@ declare interface SwipeActionItem {
  *
  * @interface SwipeActionOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
  */
 declare interface SwipeActionOptions {
   /**
@@ -514,10 +507,10 @@ declare interface SwipeActionOptions {
    *
    * @type { ?(CustomBuilder | SwipeActionItem) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   start?: CustomBuilder | SwipeActionItem;
 
@@ -544,10 +537,10 @@ declare interface SwipeActionOptions {
    *
    * @type { ?(CustomBuilder | SwipeActionItem) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   end?: CustomBuilder | SwipeActionItem;
 
@@ -571,10 +564,10 @@ declare interface SwipeActionOptions {
    *
    * @type { ?SwipeEdgeEffect }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   edgeEffect?: SwipeEdgeEffect;
 
@@ -593,8 +586,7 @@ declare interface SwipeActionOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   onOffsetChange?: (offset: number) => void;
 }
@@ -613,8 +605,7 @@ declare interface SwipeActionOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
  */
 declare enum ListItemStyle {
   /**
@@ -629,8 +620,7 @@ declare enum ListItemStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   NONE = 0,
 
@@ -646,8 +636,7 @@ declare enum ListItemStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   CARD = 1,
 }
@@ -666,8 +655,7 @@ declare enum ListItemStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
  */
 declare interface ListItemOptions {
   /**
@@ -684,8 +672,7 @@ declare interface ListItemOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   style?: ListItemStyle;
 }
@@ -719,11 +706,12 @@ declare interface ListItemOptions {
  *
  * @interface ListItemInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @noninterop
  */
 interface ListItemInterface {
   /**
@@ -745,8 +733,7 @@ interface ListItemInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   (value?: ListItemOptions): ListItemAttribute;
 
@@ -764,8 +751,9 @@ interface ListItemInterface {
    * @param { string } value
    * @returns { ListItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
-   * @since 9
+   * @since 9 dynamiconly
    * @deprecated since 10
    * @useinstead listItem/ListItemInterface
    */
@@ -793,11 +781,12 @@ interface ListItemInterface {
 /**
  * @extends CommonMethod<ListItemAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @noninterop
  */
 declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
   /**
@@ -806,7 +795,8 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
    * @param { Sticky } value
    * @returns { ListItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
+   * @FaAndStageModel
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead list/List#sticky
    */
@@ -818,7 +808,8 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
    * @param { boolean | EditMode } value
    * @returns { ListItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
+   * @FaAndStageModel
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   editable(value: boolean | EditMode): ListItemAttribute;
@@ -856,11 +847,11 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
    * @param { boolean } value
    * @returns { ListItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   selectable(value: boolean): ListItemAttribute;
 
@@ -885,8 +876,7 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   selected(value: boolean): ListItemAttribute;
 
@@ -913,10 +903,10 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
    * @param { SwipeActionOptions } value - items defines in the SwipeActionOption.
    * @returns { ListItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   swipeAction(value: SwipeActionOptions): ListItemAttribute;
 
@@ -953,11 +943,11 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
    * @param { function } event
    * @returns { ListItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   onSelect(event: (isSelected: boolean) => void): ListItemAttribute;
 }
@@ -987,10 +977,12 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
  * Defines ListItem Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
+ * @noninterop
  */
 declare const ListItemInstance: ListItemAttribute;
 
@@ -1019,10 +1011,12 @@ declare const ListItemInstance: ListItemAttribute;
  * Defines ListItem Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
+ * @noninterop
  */
 declare const ListItem: ListItemInterface;
 

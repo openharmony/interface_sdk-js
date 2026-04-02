@@ -16,10 +16,12 @@
 /**
  * @file
  * @kit PerformanceAnalysisKit
- * @arkts 1.1&1.2
  */
 
 import type { AsyncCallback } from './@ohos.base';
+/*** if arkts static */
+import type { RecordData } from './@ohos.base'
+/*** endif */
 
 /**
  * Provides the event logging function for applications to log the fault, statistical, security,
@@ -49,21 +51,21 @@ import type { AsyncCallback } from './@ohos.base';
  * @syscap SystemCapability.HiviewDFX.HiAppEvent
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'19','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 19 dynamic
+ * @since 23 static
  */
 declare namespace hiAppEvent {
   /**
    * Enumerates event types.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @since 9
    */
   /**
    * Enumerates event types.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @atomicservice
    * @since 11
@@ -71,12 +73,12 @@ declare namespace hiAppEvent {
   /**
    * Enumerates event types.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19 dynamic
+   * @since 23 static
    */
   enum EventType {
     /**
@@ -98,8 +100,8 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'19','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19 dynamic
+     * @since 23 static
      */
     FAULT = 1,
 
@@ -122,8 +124,8 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'19','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19 dynamic
+     * @since 23 static
      */
     STATISTIC = 2,
 
@@ -146,8 +148,8 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'19','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19 dynamic
+     * @since 23 static
      */
     SECURITY = 3,
 
@@ -170,8 +172,8 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'19','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19 dynamic
+     * @since 23 static
      */
     BEHAVIOR = 4
   }
@@ -191,8 +193,8 @@ declare namespace hiAppEvent {
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19 dynamic
+   * @since 23 static
    */
   namespace domain {
     /**
@@ -208,8 +210,8 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'19','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19 dynamic
+     * @since 23 static
      */
     const OS: string;
   }
@@ -242,8 +244,8 @@ declare namespace hiAppEvent {
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19 dynamic
+   * @since 23 static
    */
   namespace event {
     /**
@@ -257,8 +259,8 @@ declare namespace hiAppEvent {
      *
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 23 static
      */
     const USER_LOGIN: string;
 
@@ -273,8 +275,8 @@ declare namespace hiAppEvent {
      *
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 23 static
      */
     const USER_LOGOUT: string;
 
@@ -289,8 +291,8 @@ declare namespace hiAppEvent {
      *
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 23 static
      */
     const DISTRIBUTED_SERVICE_START: string;
 
@@ -307,8 +309,8 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'19','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19 dynamic
+     * @since 23 static
      */
     const APP_CRASH: string;
 
@@ -317,8 +319,8 @@ declare namespace hiAppEvent {
      *
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 23 static
      */
     const APP_FREEZE: string;
 
@@ -327,8 +329,8 @@ declare namespace hiAppEvent {
      *
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     const APP_LAUNCH: string;
 
@@ -337,8 +339,8 @@ declare namespace hiAppEvent {
      *
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     const SCROLL_JANK: string;
 
@@ -347,8 +349,8 @@ declare namespace hiAppEvent {
      *
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     const CPU_USAGE_HIGH: string;
 
@@ -357,8 +359,8 @@ declare namespace hiAppEvent {
      *
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     const BATTERY_USAGE: string;
 
@@ -367,8 +369,8 @@ declare namespace hiAppEvent {
      *
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     const RESOURCE_OVERLIMIT: string;
 
@@ -377,8 +379,8 @@ declare namespace hiAppEvent {
      *
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     const ADDRESS_SANITIZER: string;
 
@@ -387,8 +389,8 @@ declare namespace hiAppEvent {
      *
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     const MAIN_THREAD_JANK: string;
 
@@ -398,7 +400,8 @@ declare namespace hiAppEvent {
      * @type { string }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
+     * @since 23 static
      */
     const APP_KILLED: string;
 
@@ -408,8 +411,8 @@ declare namespace hiAppEvent {
      * @type { string }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
-     * @since arkts {'1.1':'21','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 21 dynamic
+     * @since 23 static
      */
     const APP_HICOLLIE: string;
 
@@ -419,10 +422,21 @@ declare namespace hiAppEvent {
      * @type { string }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
-     * @since arkts {'1.1':'21','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 21 dynamic
+     * @since 23 static
      */
     const AUDIO_JANK_FRAME: string;
+
+    /**
+     * arkweb fling jank event. This is a system event name constant.
+     *
+     * @type { string }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @FaAndStageModel
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    const SCROLL_ARKWEB_FLING_JANK: string;
   }
 
   /**
@@ -447,8 +461,8 @@ declare namespace hiAppEvent {
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19 dynamic
+   * @since 23 static
    */
   namespace param {
     /**
@@ -470,8 +484,8 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'19','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19 dynamic
+     * @since 23 static
      */
     const USER_ID: string;
 
@@ -494,8 +508,8 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'19','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19 dynamic
+     * @since 23 static
      */
     const DISTRIBUTED_SERVICE_NAME: string;
 
@@ -518,8 +532,8 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'19','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19 dynamic
+     * @since 23 static
      */
     const DISTRIBUTED_SERVICE_INSTANCE_ID: string;
   }
@@ -557,8 +571,8 @@ declare namespace hiAppEvent {
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19 dynamic
+   * @since 23 static
    */
   function configure(config: ConfigOption): void;
 
@@ -584,8 +598,8 @@ declare namespace hiAppEvent {
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19 dynamic
+   * @since 23 static
    */
   interface ConfigOption {
     /**
@@ -616,8 +630,8 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'19','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19 dynamic
+     * @since 23 static
      */
     disable?: boolean;
 
@@ -652,8 +666,8 @@ declare namespace hiAppEvent {
      * @type { ?string }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 23 static
      */
     maxStorage?: string;
   }
@@ -680,8 +694,8 @@ declare namespace hiAppEvent {
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19 dynamic
+   * @since 23 static
    */
   interface AppEventInfo {
     /**
@@ -709,8 +723,8 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'19','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19 dynamic
+     * @since 23 static
      */
     domain: string;
 
@@ -742,8 +756,8 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'19','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19 dynamic
+     * @since 23 static
      */
     name: string;
 
@@ -769,8 +783,8 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'19','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19 dynamic
+     * @since 23 static
      */
     eventType: EventType;
 
@@ -835,10 +849,33 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'19','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19 dynamic
      */
     params: object;
+
+    /**
+     * Event parameter object, which consists of a parameter name and a parameter value. In system events, the fields 
+     * contained in params are defined by system. For details about the fields, you can see the overviews of system 
+     * events, for example, Crash Event Overview. For application events, you need to define the parameters of the 
+     * Write API. The specifications are as follows:
+     * <br>- A parameter name is a string that contains a maximum of 32 characters, including digits (0 to 9), letters 
+     * (a to z), underscore (_), and dollar sign ($). It must start with a letter or dollar sign ($) and end with a 
+     * digit or letter. For example, testName and $123_name.
+     * <br>- The parameter value can be a string, number, boolean, or array. The string type parameter can contain a 
+     * maximum of 8 x 1024 characters. If the length exceeds the limit, the parameter and its name will be discarded. 
+     * The value of the number type parameter must be within the range of Number.MIN_SAFE_INTEGER to 
+     * Number.MAX_SAFE_INTEGER. If the value exceeds the range, an uncertain value may be generated. The element type 
+     * in the array type parameter can only be string, number, or boolean. The number of elements must be less than 
+     * 100. If this limit is exceeded, excess elements will be discarded.
+     * <br>- The maximum number of parameters is 32. If this limit is exceeded, excess parameters will be discarded.
+     *
+     * @type { RecordData }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @crossplatform
+     * @atomicservice
+     * @since 23 static
+     */
+    params: RecordData;
   }
 
   /**
@@ -919,8 +956,8 @@ declare namespace hiAppEvent {
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19 dynamic
+   * @since 23 static
    */
   function write(info: AppEventInfo): Promise<void>;
 
@@ -940,10 +977,10 @@ declare namespace hiAppEvent {
    * @throws { BusinessError } 11101002 - Invalid event name. Possible causes: 1. Contain invalid characters;
    * <br>2. Length is invalid.
    * @throws { BusinessError } 11101003 - Invalid number of event parameters. Possible caused by the number of parameters
-   * <br>is over 32. 
+   * <br>is over 32.
    * @throws { BusinessError } 11101004 - Invalid string length of the event parameter.
    * @throws { BusinessError } 11101005 - Invalid event parameter name. Possible causes: 1. Contain invalid characters;
-   * <br>2. Length is invalid. 
+   * <br>2. Length is invalid.
    * @throws { BusinessError } 11101006 - Invalid array length of the event parameter.
    * @static
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
@@ -1002,15 +1039,15 @@ declare namespace hiAppEvent {
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19 dynamic
+   * @since 23 static
    */
   function write(info: AppEventInfo, callback: AsyncCallback<void>): void;
 
   /**
    * Type of a custom event parameter value.
    *
-   * @typedef {number | string | boolean | Array<string>}
+   * @typedef {int | long | double | string | boolean | Array<string>}
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @atomicservice
    * @since 12
@@ -1018,14 +1055,14 @@ declare namespace hiAppEvent {
   /**
    * Type of a custom event parameter value.
    *
-   * @typedef {number | string | boolean | Array<string>}
+   * @typedef {int | long | double | string | boolean | Array<string>}
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19 dynamic
+   * @since 23 static
    */
-  type ParamType = number | string | boolean | Array<string>;
+  type ParamType = int | long | double | string | boolean | Array<string>;
 
   /**
    * Sets custom event parameters. This API uses a promise to return the result. During the same lifecycle, system 
@@ -1096,8 +1133,8 @@ declare namespace hiAppEvent {
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19 dynamic
+   * @since 23 static
    */
   function setEventParam(params: Record<string, ParamType>, domain: string, name?: string): Promise<void>;
 
@@ -1118,8 +1155,8 @@ declare namespace hiAppEvent {
    * @static
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15 dynamic
+   * @since 23 static
    */
   function setEventConfig(name: string, config: Record<string, ParamType>): Promise<void>;
 
@@ -1148,21 +1185,21 @@ declare namespace hiAppEvent {
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19 dynamic
+   * @since 23 static
    */
   interface AppEventPackage {
     /**
      * Event package ID, which is named from 0 in ascending order.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 9
      */
     /**
      * Event package ID, which is named from 0 in ascending order.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 11
@@ -1170,26 +1207,26 @@ declare namespace hiAppEvent {
     /**
      * Event package ID, which is named from 0 in ascending order.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'19','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19 dynamic
+     * @since 23 static
      */
-    packageId: number;
+    packageId: int;
 
     /**
      * Number of events in the event package.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 9
      */
     /**
      * Number of events in the event package.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 11
@@ -1197,26 +1234,26 @@ declare namespace hiAppEvent {
     /**
      * Number of events in the event package.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'19','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19 dynamic
+     * @since 23 static
      */
-    row: number;
+    row: int;
 
     /**
      * Event size of the event package, in bytes.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 9
      */
     /**
      * Event size of the event package, in bytes.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 11
@@ -1224,14 +1261,14 @@ declare namespace hiAppEvent {
     /**
      * Event size of the event package, in bytes.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'19','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19 dynamic
+     * @since 23 static
      */
-    size: number;
+    size: int;
 
     /**
      * Event data in the event package.
@@ -1255,8 +1292,8 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'19','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19 dynamic
+     * @since 23 static
      */
     data: string[];
 
@@ -1275,8 +1312,8 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'19','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19 dynamic
+     * @since 23 static
      */
     appEventInfos: Array<AppEventInfo>;
   }
@@ -1300,8 +1337,8 @@ declare namespace hiAppEvent {
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19 dynamic
+   * @since 23 static
    */
   class AppEventPackageHolder {
     /**
@@ -1332,31 +1369,31 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'19','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19 dynamic
+     * @since 23 static
      */
     constructor(watcherName: string);
 
     /**
      * Sets the threshold for the data size of the event package obtained each time.
      *
-     * @param { number } size Data size threshold, in bytes. The value range is [0, $2^{31}$-1]. If the value is out of 
-     * the range, an exception is thrown.
+     * @param { int } size Data size threshold, in bytes. The value range is [0, $2^{31}$-1]. If the value is out of 
+     *     the range, an exception is thrown.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 11104001 - Invalid size value. Possible caused by the size value is less than or equal
-     * <br>to zero.
+     *     to zero.
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 9
      */
     /**
      * Sets the threshold for the data size of the event package obtained each time.
      *
-     * @param { number } size Data size threshold, in bytes. The value range is [0, $2^{31}$-1]. If the value is out of 
-     * the range, an exception is thrown.
+     * @param { int } size Data size threshold, in bytes. The value range is [0, $2^{31}$-1]. If the value is out of 
+     *     the range, an exception is thrown.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     *     2. Incorrect parameter types.
      * @throws { BusinessError } 11104001 - Invalid size value. Possible caused by the size value is less than or equal
-     * <br>to zero.
+     *     to zero.
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 11
@@ -1364,30 +1401,30 @@ declare namespace hiAppEvent {
     /**
      * Sets the threshold for the data size of the event package obtained each time.
      *
-     * @param { number } size Data size threshold, in bytes. The value range is [0, $2^{31}$-1]. If the value is out of 
-     * the range, an exception is thrown.
+     * @param { int } size Data size threshold, in bytes. The value range is [0, $2^{31}$-1]. If the value is out of 
+     *     the range, an exception is thrown.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     *     2. Incorrect parameter types.
      * @throws { BusinessError } 11104001 - Invalid size value. Possible caused by the size value is less than or equal
-     * <br>to zero.
+     *     to zero.
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'19','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19 dynamic
+     * @since 23 static
      */
-    setSize(size: number): void;
+    setSize(size: int): void;
 
     /**
      * Sets the number of data records of the event package obtained each time. When setRow() and setSize() are called 
      * at the same time, only setRow() takes effect.
      *
-     * @param { number } size Number of events. The value range is (0, $2^{31}$-1]. If the value is out of the range, an 
-     * exception is thrown.
+     * @param { int } size Number of events. The value range is (0, $2^{31}$-1]. If the value is out of the range, an
+     *     exception is thrown.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     *     2. Incorrect parameter types.
      * @throws { BusinessError } 11104001 - Invalid size value. Possible caused by the size value is less than or equal
-     * <br>to zero.
+     *     to zero.
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 12
@@ -1396,19 +1433,19 @@ declare namespace hiAppEvent {
      * Sets the number of data records of the event package obtained each time. When setRow() and setSize() are called 
      * at the same time, only setRow() takes effect.
      *
-     * @param { number } size Number of events. The value range is (0, $2^{31}$-1]. If the value is out of the range, an 
-     * exception is thrown.
+     * @param { int } size Number of events. The value range is (0, $2^{31}$-1]. If the value is out of the range, an 
+     *     exception is thrown.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     *     2. Incorrect parameter types.
      * @throws { BusinessError } 11104001 - Invalid size value. Possible caused by the size value is less than or equal
-     * <br>to zero.
+     *     to zero.
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'19','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19 dynamic
+     * @since 23 static
      */
-    setRow(size: number): void;
+    setRow(size: int): void;
 
     /**
      * Obtains the subscription event.
@@ -1447,10 +1484,25 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'19','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19 dynamic
      */
     takeNext(): AppEventPackage;
+
+    /**
+     * Obtains the subscription event.
+     * <br>The system obtains the subscription event data based on the data size threshold specified by setSize or the 
+     * number of data records specified by setRow. By default, one subscription event data record is obtained. When all 
+     * subscription event data is obtained, null is returned.
+     * <br>When setRow and setSize are called at the same time, only setRow takes effect.
+     *
+     * @returns { AppEventPackage | null } Event package object. If all subscription event data has been retrieved, null is 
+     *     returned.
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @crossplatform
+     * @atomicservice
+     * @since 23 static
+     */
+    takeNext(): AppEventPackage | null;
   }
 
   /**
@@ -1475,8 +1527,8 @@ declare namespace hiAppEvent {
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19 dynamic
+   * @since 23 static
    */
   interface TriggerCondition {
     /**
@@ -1484,7 +1536,7 @@ declare namespace hiAppEvent {
      * indicating that no callback is triggered. If this parameter is set to a negative value, the default 
      * value is used.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 9
      */
@@ -1493,7 +1545,7 @@ declare namespace hiAppEvent {
      * indicating that no callback is triggered. If this parameter is set to a negative value, the default 
      * value is used.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 11
@@ -1503,21 +1555,21 @@ declare namespace hiAppEvent {
      * indicating that no callback is triggered. If this parameter is set to a negative value, the default 
      * value is used.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'19','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19 dynamic
+     * @since 23 static
      */
-    row?: number;
+    row?: int;
 
     /**
      * Total size of events that trigger callback. The value is a positive integer, in bytes. The default value is 0, 
      * indicating that no callback is triggered. If this parameter is set to a negative value, the default value is 
      * used.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 9
      */
@@ -1526,7 +1578,7 @@ declare namespace hiAppEvent {
      * indicating that no callback is triggered. If this parameter is set to a negative value, the default value is 
      * used.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 11
@@ -1536,21 +1588,21 @@ declare namespace hiAppEvent {
      * indicating that no callback is triggered. If this parameter is set to a negative value, the default value is 
      * used.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'19','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19 dynamic
+     * @since 23 static
      */
-    size?: number;
+    size?: int;
 
     /**
      * Timeout interval for triggering callback. The value is a positive integer, in unit of 30s. The default value is 
      * 0, indicating that no callback is triggered. If this parameter is set to a negative value, the default value is 
      * used.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 9
      */
@@ -1559,7 +1611,7 @@ declare namespace hiAppEvent {
      * 0, indicating that no callback is triggered. If this parameter is set to a negative value, the default value is 
      * used.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 11
@@ -1569,14 +1621,14 @@ declare namespace hiAppEvent {
      * 0, indicating that no callback is triggered. If this parameter is set to a negative value, the default value is 
      * used.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'19','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19 dynamic
+     * @since 23 static
      */
-    timeOut?: number;
+    timeOut?: int;
   }
 
   /**
@@ -1607,8 +1659,8 @@ declare namespace hiAppEvent {
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19 dynamic
+   * @since 23 static
    */
   interface AppEventFilter {
     /**
@@ -1636,8 +1688,8 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'19','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19 dynamic
+     * @since 23 static
      */
     domain: string;
 
@@ -1663,8 +1715,8 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'19','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19 dynamic
+     * @since 23 static
      */
     eventTypes?: EventType[];
 
@@ -1683,8 +1735,8 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'19','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19 dynamic
+     * @since 23 static
      */
     names?: string[];
   }
@@ -1706,8 +1758,8 @@ declare namespace hiAppEvent {
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19 dynamic
+   * @since 23 static
    */
   interface AppEventGroup {
     /**
@@ -1725,8 +1777,8 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'19','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19 dynamic
+     * @since 23 static
      */
     name: string;
 
@@ -1745,8 +1797,8 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'19','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19 dynamic
+     * @since 23 static
      */
     appEventInfos: Array<AppEventInfo>;
   }
@@ -1776,8 +1828,8 @@ declare namespace hiAppEvent {
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19 dynamic
+   * @since 23 static
    */
   interface Watcher {
     /**
@@ -1808,8 +1860,8 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'19','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19 dynamic
+     * @since 23 static
      */
     name: string;
 
@@ -1838,8 +1890,8 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'19','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19 dynamic
+     * @since 23 static
      */
     triggerCondition?: TriggerCondition;
 
@@ -1868,8 +1920,8 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'19','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19 dynamic
+     * @since 23 static
      */
     appEventFilters?: AppEventFilter[];
 
@@ -1907,10 +1959,10 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'19','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19 dynamic
+     * @since 23 static
      */
-    onTrigger?: (curRow: number, curSize: number, holder: AppEventPackageHolder) => void;
+    onTrigger?: (curRow: int, curSize: int, holder: AppEventPackageHolder) => void;
 
     /**
      * Real-time subscription callback. Only this callback function is triggered if it is passed together with 
@@ -1933,8 +1985,8 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'19','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19 dynamic
+     * @since 23 static
      */
     onReceive?: (domain: string, appEventGroups: Array<AppEventGroup>) => void;
   }
@@ -1985,7 +2037,7 @@ declare namespace hiAppEvent {
    * @throws { BusinessError } 11102001 - Invalid watcher name. Possible causes: 1. Contain invalid characters;
    * <br>2. Length is invalid.
    * @throws { BusinessError } 11102002 - Invalid filtering event domain. Possible causes: 1. Contain invalid characters;
-   * <br>2. Length is invalid. 
+   * <br>2. Length is invalid.
    * @throws { BusinessError } 11102003 - Invalid row value. Possible caused by the row value is less than zero.
    * @throws { BusinessError } 11102004 - Invalid size value. Possible caused by the size value is less than zero.
    * @throws { BusinessError } 11102005 - Invalid timeout value. Possible caused by the timeout value is less than zero.
@@ -1993,8 +2045,8 @@ declare namespace hiAppEvent {
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19 dynamic
+   * @since 23 static
    */
   function addWatcher(watcher: Watcher): AppEventPackageHolder;
 
@@ -2034,8 +2086,8 @@ declare namespace hiAppEvent {
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19 dynamic
+   * @since 23 static
    */
   function removeWatcher(watcher: Watcher): void;
 
@@ -2061,8 +2113,8 @@ declare namespace hiAppEvent {
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19 dynamic
+   * @since 23 static
    */
   function clearData(): void;
 
@@ -2093,8 +2145,8 @@ declare namespace hiAppEvent {
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19 dynamic
+   * @since 23 static
    */
   function setUserId(name: string, value: string): void;
 
@@ -2123,8 +2175,8 @@ declare namespace hiAppEvent {
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19 dynamic
+   * @since 23 static
    */
   function getUserId(name: string): string;
 
@@ -2155,8 +2207,8 @@ declare namespace hiAppEvent {
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19 dynamic
+   * @since 23 static
    */
   function setUserProperty(name: string, value: string): void;
 
@@ -2185,8 +2237,8 @@ declare namespace hiAppEvent {
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19 dynamic
+   * @since 23 static
    */
   function getUserProperty(name: string): string;
 
@@ -2196,8 +2248,8 @@ declare namespace hiAppEvent {
    * @interface AppEventReportConfig
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 23 static
    */
   interface AppEventReportConfig {
     /**
@@ -2208,8 +2260,8 @@ declare namespace hiAppEvent {
      * @type { ?string }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 23 static
      */
     domain?: string;
 
@@ -2221,8 +2273,8 @@ declare namespace hiAppEvent {
      * @type { ?string }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 23 static
      */
     name?: string;
 
@@ -2233,8 +2285,8 @@ declare namespace hiAppEvent {
      * @type { ?boolean }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 23 static
      */
     isRealTime?: boolean;
   }
@@ -2245,8 +2297,8 @@ declare namespace hiAppEvent {
    * @interface Processor
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 23 static
    */
   interface Processor {
     /**
@@ -2256,8 +2308,8 @@ declare namespace hiAppEvent {
      * @type { string }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 23 static
      */
     name: string;
 
@@ -2268,8 +2320,8 @@ declare namespace hiAppEvent {
      * @type { ?boolean }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 23 static
      */
     debugMode?: boolean;
 
@@ -2280,8 +2332,8 @@ declare namespace hiAppEvent {
      * @type { ?string }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 23 static
      */
     routeInfo?: string;
 
@@ -2292,8 +2344,8 @@ declare namespace hiAppEvent {
      * @type { ?string }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 23 static
      */
     appId?: string;
 
@@ -2304,8 +2356,8 @@ declare namespace hiAppEvent {
      * @type { ?boolean }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 23 static
      */
     onStartReport?: boolean;
 
@@ -2316,8 +2368,8 @@ declare namespace hiAppEvent {
      * @type { ?boolean }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 23 static
      */
     onBackgroundReport?: boolean;
 
@@ -2325,26 +2377,26 @@ declare namespace hiAppEvent {
      * Interval for event reporting, in seconds. The input value must be greater than or equal to 0. If the input value 
      * is less than 0, the default value 0 is used and periodic reporting is not performed.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 23 static
      */
-    periodReport?: number;
+    periodReport?: int;
 
     /**
      * Event reporting threshold. When the number of events reaches the threshold, an event is reported. The value must 
      * be greater than 0 and less than 1000. If the value is not within the range, the default value 0 is used and no 
      * events are reported.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 23 static
      */
-    batchReport?: number;
+    batchReport?: int;
 
     /**
      * Name array of user IDs that can be reported by the data processor. name corresponds to the name parameter of the 
@@ -2353,8 +2405,8 @@ declare namespace hiAppEvent {
      * @type { ?string[] }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 23 static
      */
     userIds?: string[];
 
@@ -2365,8 +2417,8 @@ declare namespace hiAppEvent {
      * @type { ?string[] }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 23 static
      */
     userProperties?: string[];
 
@@ -2377,8 +2429,8 @@ declare namespace hiAppEvent {
      * @type { ?AppEventReportConfig[] }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 23 static
      */
     eventConfigs?: AppEventReportConfig[];
 
@@ -2387,13 +2439,13 @@ declare namespace hiAppEvent {
      * less than 0, the default value 0 is used. If the input value is greater than 0, the value uniquely identifies a 
      * data processor with its name.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
-    configId?: number;
+    configId?: int;
 
     /**
      * Custom extended parameters. If the input parameter name and value do not meet the specifications, extended 
@@ -2407,8 +2459,8 @@ declare namespace hiAppEvent {
      * @type { ?Record<string, string> }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     customConfigs?: Record<string, string>;
 
@@ -2418,7 +2470,8 @@ declare namespace hiAppEvent {
      * @type { ?string }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
+     * @since 23 static
      */
     configName?: string;
   }
@@ -2430,48 +2483,475 @@ declare namespace hiAppEvent {
    * is preset in the device for interaction for the moment, migrating events to the cloud is unavailable.
    *
    * @param { Processor } processor Data processor.
-   * @returns { number }  ID of the data processor of the reported event, which uniquely identifies the data processor 
-   * and can be used to remove the data processor. If the operation fails, -1 is returned. If the operation is 
-   * successful, a value greater than 0 is returned.
+   * @returns { long }  ID of the data processor of the reported event, which uniquely identifies the data processor 
+   *     and can be used to remove the data processor. If the operation fails, -1 is returned. If the operation is 
+   *     successful, a value greater than 0 is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
    * @static
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 23 static
    */
-  function addProcessor(processor: Processor): number;
+  function addProcessor(processor: Processor): long;
 
   /**
    * Add the processor from config asynchronously, who can report the event.
    *
    * @param { string } processorName The name of the processor.
    * @param { string } [configName] Initialize the processor by reading the configuration file based on the name.
-   * @returns { Promise<number> }  The processor unique ID.
+   * @returns { Promise<long> }  The processor unique ID.
    * @throws { BusinessError } 11105001 - Invalid parameter value. Possible causes: 1. Incorrect parameter length;
-   * <br>2. Incorrect parameter format.
+   *     2. Incorrect parameter format.
    * @static
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
+   * @since 23 static
    */
-  function addProcessorFromConfig(processorName: string, configName?: string): Promise<number>;
+  function addProcessorFromConfig(processorName: string, configName?: string): Promise<long>;
 
   /**
    * Removes the data processor of a reported event.
    *
-   * @param { number } id ID of a data processor. The value must be greater than 0. The value is obtained by calling 
-   * addProcessor.
+   * @param { long } id ID of a data processor. The value must be greater than 0. The value is obtained by calling 
+   *     addProcessor.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types.
+   *     2. Incorrect parameter types.
    * @static
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 23 static
    */
-  function removeProcessor(id: number): void;
+  function removeProcessor(id: long): void;
+
+  /**
+   * Definition of main thread jank event policy
+   *
+   * @interface MainThreadJankPolicy
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @atomicservice
+   * @since 22 dynamic
+   * @since 23 static
+   */
+  interface MainThreadJankPolicy {
+    /**
+     * The policy for MAIN_THREAD_JANK event
+     * logType = 0: Default value. When the main thread times out consecutively twice within 150ms~450ms,
+     *     the call stack is collected; when the main thread times out for 450ms, a trace is collected.
+     * logType = 1: Only the call stack is collected, and the threshold for triggering detection is user-defined.
+     * logType = 2: Only the trace is collected.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 22 dynamic
+     * @since 23 static
+     */
+    logType?: int;
+
+    /**
+     * The policy for MAIN_THREAD_JANK event
+     * Ignore main thread timeout detection during startup.Unit: seconds (s), Minimum value: 3, Default
+     * value: 10.Timeout detection is not performed for a certain period after thread startup.Some processes
+     * have longer startup times, and capturing full timeout sampling stacks during this period holds little
+     * analytical value.Therefore, timeout detection is disabled within the startup time interval
+     * defined by the developer.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 22 dynamic
+     * @since 23 static
+     */
+    ignoreStartupTime?: int;
+
+    /**
+     * The policy for MAIN_THREAD_JANK event
+     * The timeout detection interval and sampling interval for the main thread.
+     * The unit is milliseconds (ms), and the value range is [50, 500]. The Default Value is 150 (ms).
+     * The system performs timeout detection judgments based on the interval set by the developer and
+     *     uses this interval as the period for periodic task detection.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 22 dynamic
+     * @since 23 static
+     */
+    sampleInterval?: int;
+
+    /**
+     * The policy for MAIN_THREAD_JANK event
+     * Number of main thread timeout samples. Once the system detects that the current main thread task
+     * execution exceeds the sampling limit, it periodically collects stack traces at each interval,
+     * for a total of sampleCount times. Minimum value: 1 time(s), Unit: time(s). Default value: 10 time(s).
+     * The maximum value is dynamically calculated based on the custom sampleInterval, using the formula:
+     * sampleCount <= (2500 / sampleInterval - 4).
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 22 dynamic
+     * @since 23 static
+     */
+    sampleCount?: int;
+
+    /**
+     * The policy for MAIN_THREAD_JANK event
+     * Number of main thread timeout sampling reports per application PID within a single lifecycle.
+     *     This can only be set once per lifecycle.Default value: 1 time(s), Unit: time(s). The max
+     *     value is 180. Exceed max value will be set to max value.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 22 dynamic
+     * @since 23 static
+     */
+    reportTimesPerApp?: int;
+
+    /**
+     * The policy for MAIN_THREAD_JANK event
+     * Stop sampling main thread stack when main thread blockage is resolved. Default value is false.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 22 dynamic
+     * @since 23 static
+     */
+    autoStopSampling?: boolean;
+  }
+
+  /**
+   * Definition of cpu usage high event policy
+   *
+   * @interface CpuUsageHighPolicy
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @atomicservice
+   * @since 22 dynamic
+   * @since 23 static
+   */
+  interface CpuUsageHighPolicy {
+    /**
+     * The policy for CPU_USAGE_HIGH event
+     * The param is used for user to set the threshould for foreground progress cpu load anomaly,
+     * The value rang is [1, 100], Strongly recommend less than 30
+     * If not set the param, the default value is 30.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 22 dynamic
+     * @since 23 static
+     */
+    foregroundLoadThreshold?: int;
+
+    /**
+     * The policy for CPU_USAGE_HIGH event
+     * The param is used for user to set the threshould for background progress cpu load anomaly,
+     * The value rang is [1, 100] Strongly recommend less than 10.
+     * If not set the param, the default value is 10.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 22 dynamic
+     * @since 23 static
+     */
+    backgroundLoadThreshold?: int;
+
+    /**
+     * The policy for CPU_USAGE_HIGH event
+     * The param is used for user to set the threshould for thread cpu load anomaly,
+     * The value rang is [15, 100]
+     * If not set the param, the default value is 70.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 22 dynamic
+     * @since 23 static
+     */
+    threadLoadThreshold?: int;
+
+    /**
+     * The policy for CPU_USAGE_HIGH event
+     * The number of log captures per day. Once the system detects that the  execution count of the
+     * current abnormal log, The value rang is [-1, 100]
+     * if it exceeds the perfLogCaptureCount, it will stop capture logs but it will still report anomaly event.
+     * perfLogCaptureCount = -1: Collection log times per day is not limited per day.
+     * perfLogCaptureCount = 0 : Collection log times per day is zero, do not collect logs.
+     * perfLogCaptureCount > 0 : Collection log times per day is perfLogCaptureCount.
+     * perfLogCaptureCount default value is zero
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 22 dynamic
+     * @since 23 static
+     */
+    perfLogCaptureCount?: int;
+
+    /**
+     * The policy for CPU_USAGE_HIGH event
+     * The Interval of cpu thread anomaly, The unit is second. If not set, default is 60s;
+     * The value rang is [5, 3600] Strongly recommend multiples of 5.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 22 dynamic
+     * @since 23 static
+     */
+    threadLoadInterval?: int;
+  }
+
+  /**
+   * Definition of application crash event policy
+   *
+   * @interface AppCrashPolicy
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @FaAndStageModel
+   * @atomicservice
+   * @since 24 dynamic&static
+   */
+  interface AppCrashPolicy {
+    /**
+     * The policy for APP_CRASH event
+     * Enable page switch log. Default value is false.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @FaAndStageModel
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    pageSwitchLogEnable?: boolean;
+
+    /**
+     * The policy for APP_CRASH event
+     * The value true means to print the memory values of the 248 bytes before and 256 bytes after
+     * the PC and LR in the 64-bit system, or print the memory values of the 124 bytes before and 128 bytes
+     * after the PC and LR in the 32-bit system.
+     * The value false means to print the memory values of the 16 bytes before and 232 bytes after
+     * the PC and LR in the 64-bit system, or print the memory values of the 8 bytes before and 116 bytes
+     * after the PC and LR in the 32-bit system.
+     * If not set the param, the default value is false.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @FaAndStageModel
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    extendPcLrPrinting?: boolean;
+
+    /**
+     * The policy for APP_CRASH event
+     * The value ranges from 0 to 5242880, in bytes. The crash log is truncated to the specified size
+     * when this parameter is set. Otherwise, the default value 0 is used, which means no truncation.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @FaAndStageModel
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    logFileCutoffSzBytes?: int;
+
+    /**
+     * The policy for APP_CRASH event
+     * The value true means to print only the Virtual Memory Area (VMA) mapping information of the addresses
+     * in the crash log, that is, Maps in the crash log, to reduce the log size.
+     * The value false means to print all VMA mapping information.
+     * Default value: false.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @FaAndStageModel
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    simplifyVmaPrinting?: boolean;
+  }
+
+  /**
+   * Definition of application freeze event policy
+   *
+   * @interface AppFreezePolicy
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @FaAndStageModel
+   * @atomicservice
+   * @since 24 dynamic&static
+   */
+  interface AppFreezePolicy {
+    /**
+     * The policy for APP_FREEZE event
+     * Enable page switch log. Default value is false.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @FaAndStageModel
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    pageSwitchLogEnable?: boolean;
+  }
+
+  /**
+   * Definition of application resource leakage event policy
+   *
+   * @interface ResourceOverlimitPolicy
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @FaAndStageModel
+   * @atomicservice
+   * @since 24 dynamic&static
+   */
+  interface ResourceOverlimitPolicy {
+    /**
+     * The policy for RESOURCE_OVERLIMIT event
+     * Enable page switch log. Default value is false.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @FaAndStageModel
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    pageSwitchLogEnable?: boolean;
+
+    /**
+     * The policy for RESOURCE_OVERLIMIT event
+     * event: No heap snapshot is transferred when an OOM error occurs.
+     * event_rawheap: The system generates and transfers a heap snapshot when an OOM error occurs.
+     * Note: Only the preceding two values are supported. If other values are passed in,
+     * the API fails to be called and takes no effect.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @FaAndStageModel
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    jsHeapLogtype?: string;
+  }
+
+  /**
+   * Definition of address sanitizer event policy
+   *
+   * @interface AddressSanitizerPolicy
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @FaAndStageModel
+   * @atomicservice
+   * @since 24 dynamic&static
+   */
+  interface AddressSanitizerPolicy {
+    /**
+     * The policy for ADDRESS_SANITIZER event
+     * Enable page switch log. Default value is false.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @FaAndStageModel
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    pageSwitchLogEnable?: boolean;
+  }
+
+  /**
+   * Definition of event policy
+   *
+   * @interface EventPolicy
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @atomicservice
+   * @since 22 dynamic
+   * @since 23 static
+   */
+  interface EventPolicy {
+    /**
+     * The policy for MAIN_THREAD_JANK event
+     *
+     * @type { ?MainThreadJankPolicy }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 22 dynamic
+     * @since 23 static
+     */
+    mainThreadJankPolicy?: MainThreadJankPolicy;
+
+    /**
+     * The policy for CPU_USAGE_HIGH event
+     *
+     * @type { ?CpuUsageHighPolicy }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 22 dynamic
+     * @since 23 static
+     */
+    cpuUsageHighPolicy?: CpuUsageHighPolicy;
+
+    /**
+     * The policy for APP_CRASH event
+     *
+     * @type { ?AppCrashPolicy }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @FaAndStageModel
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    appCrashPolicy?: AppCrashPolicy;
+
+    /**
+     * The policy for APP_FREEZE event
+     *
+     * @type { ?AppFreezePolicy }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @FaAndStageModel
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    appFreezePolicy?: AppFreezePolicy;
+
+    /**
+     * The policy for RESOURCE_OVERLIMIT event
+     *
+     * @type { ?ResourceOverlimitPolicy }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @FaAndStageModel
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    resourceOverlimitPolicy?: ResourceOverlimitPolicy;
+
+    /**
+     * The policy for ADDRESS_SANITIZER event
+     *
+     * @type { ?AddressSanitizerPolicy }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @FaAndStageModel
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    addressSanitizerPolicy?: AddressSanitizerPolicy;
+  }
+
+  /**
+   * Configure target event process policy
+   *
+   * @param { EventPolicy } policy The policy object.
+   * @returns { Promise<void> } Promise used to return the result.
+   * @static
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @atomicservice
+   * @since 22 dynamic
+   * @since 23 static
+   */
+  function configEventPolicy(policy: EventPolicy): Promise<void>;
 }
 
 export default hiAppEvent;

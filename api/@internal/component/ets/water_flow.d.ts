@@ -18,16 +18,6 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { ScrollableCommonMethod, NestedScrollOptions, CommonMethod, Optional, OnWillScrollCallback, OnScrollCallback } from './common';
-import { CustomBuilder } from './builder'
-import { Length, Dimension, Margin, ConstraintSizeOptions, Resource } from './units';
-import { Scroller, OnScrollFrameBeginCallback } from './scroll';
-import { ScrollState } from './list'
-import { FlexDirection } from './enums'
-import { ComponentContent } from '../../arkui/ComponentContent'
-/*** endif */
-
 /**
  * function that returns item main size by index.
  * 
@@ -37,8 +27,7 @@ import { ComponentContent } from '../../arkui/ComponentContent'
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
  */
 declare type GetItemMainSizeByIndex = (index: number) => number;
 
@@ -48,8 +37,7 @@ declare type GetItemMainSizeByIndex = (index: number) => number;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
 */
 declare class SectionOptions {
   /**
@@ -61,8 +49,7 @@ declare class SectionOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   itemsCount: number;
 
@@ -75,8 +62,7 @@ declare class SectionOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   crossCount?: number;
 
@@ -97,8 +83,7 @@ declare class SectionOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   onGetItemMainSizeByIndex?: GetItemMainSizeByIndex;
 
@@ -111,8 +96,7 @@ declare class SectionOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   columnsGap?: Dimension;
 
@@ -125,8 +109,7 @@ declare class SectionOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   rowsGap?: Dimension;
 
@@ -138,8 +121,7 @@ declare class SectionOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   margin?: Margin | Dimension;
 }
@@ -150,8 +132,7 @@ declare class SectionOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
  */
 declare class WaterFlowSections {
   /**
@@ -160,8 +141,7 @@ declare class WaterFlowSections {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   constructor();
 
@@ -186,8 +166,7 @@ declare class WaterFlowSections {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   splice(start: number, deleteCount?: number, sections?: Array<SectionOptions>): boolean;
 
@@ -199,8 +178,7 @@ declare class WaterFlowSections {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   push(section: SectionOptions): boolean;
 
@@ -218,8 +196,7 @@ declare class WaterFlowSections {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   update(sectionIndex:number, section: SectionOptions): boolean;
 
@@ -230,8 +207,7 @@ declare class WaterFlowSections {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   values(): Array<SectionOptions>;
 
@@ -242,8 +218,7 @@ declare class WaterFlowSections {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   length(): number;
 }
@@ -255,8 +230,7 @@ declare class WaterFlowSections {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
  */
 declare enum WaterFlowLayoutMode {
   /**
@@ -266,8 +240,7 @@ declare enum WaterFlowLayoutMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   ALWAYS_TOP_DOWN = 0,
 
@@ -293,8 +266,7 @@ declare enum WaterFlowLayoutMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   SLIDING_WINDOW = 1,
 }
@@ -319,10 +291,10 @@ declare enum WaterFlowLayoutMode {
  *
  * @interface WaterFlowOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
  */
 declare interface WaterFlowOptions {
   /**
@@ -345,10 +317,10 @@ declare interface WaterFlowOptions {
    *
    * @type { ?CustomBuilder }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   footer?: CustomBuilder;
 
@@ -359,8 +331,7 @@ declare interface WaterFlowOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
    */
   footerContent?: ComponentContent;
 
@@ -388,10 +359,10 @@ declare interface WaterFlowOptions {
    *
    * @type { ?Scroller }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   scroller?: Scroller;
 
@@ -407,8 +378,7 @@ declare interface WaterFlowOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   sections?: WaterFlowSections;
 
@@ -420,8 +390,7 @@ declare interface WaterFlowOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   layoutMode?: WaterFlowLayoutMode;
 }
@@ -434,7 +403,7 @@ declare interface WaterFlowOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 19
+ * @since 19 dynamic
  */
 declare interface UIWaterFlowEvent extends UIScrollableCommonEvent {
   /**
@@ -444,7 +413,7 @@ declare interface UIWaterFlowEvent extends UIScrollableCommonEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 19
+   * @since 19 dynamic
    */
   setOnWillScroll(callback: OnWillScrollCallback | undefined): void;
 
@@ -455,7 +424,7 @@ declare interface UIWaterFlowEvent extends UIScrollableCommonEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 19
+   * @since 19 dynamic
    */
   setOnDidScroll(callback: OnScrollCallback | undefined): void;
 
@@ -467,7 +436,7 @@ declare interface UIWaterFlowEvent extends UIScrollableCommonEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 19
+   * @since 19 dynamic
    */
   setOnScrollIndex(callback: OnWaterFlowScrollIndexCallback | undefined): void;
 }
@@ -481,7 +450,7 @@ declare interface UIWaterFlowEvent extends UIScrollableCommonEvent {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 19
+ * @since 19 dynamic
  */
 declare type OnWaterFlowScrollIndexCallback = (first: number, last: number) => void;
 
@@ -505,10 +474,11 @@ declare type OnWaterFlowScrollIndexCallback = (first: number, last: number) => v
  *
  * @interface WaterFlowInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @noninterop
  */
 interface WaterFlowInterface {
   /**
@@ -534,10 +504,10 @@ interface WaterFlowInterface {
    * @param { WaterFlowOptions } options
    * @returns { WaterFlowAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   (options?: WaterFlowOptions): WaterFlowAttribute;
 }
@@ -562,10 +532,11 @@ interface WaterFlowInterface {
  * 
  * @extends ScrollableCommonMethod<WaterFlowAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @noninterop
  */
 declare class WaterFlowAttribute extends ScrollableCommonMethod<WaterFlowAttribute> {
   /**
@@ -591,12 +562,24 @@ declare class WaterFlowAttribute extends ScrollableCommonMethod<WaterFlowAttribu
    * @param { string } value - Number of columns in the layout.<br>Default value: <em>'1fr'</em>
    * @returns { WaterFlowAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   columnsTemplate(value: string): WaterFlowAttribute;
+  
+  /**
+   * Sets the number of columns in the layout. If this attribute is not set, one column is used by default.
+   *
+   * @param { string | ItemFillPolicy } value - Number of columns in the layout.<br>Default value: <em>'1fr'</em>
+   * @returns { WaterFlowAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  columnsTemplate(value: string | ItemFillPolicy): WaterFlowAttribute;
 
   /**
    * This parameter specifies the min or max size of each item.
@@ -622,10 +605,10 @@ declare class WaterFlowAttribute extends ScrollableCommonMethod<WaterFlowAttribu
    * If the value specified is less than 0, this parameter does not take effect.
    * @returns { WaterFlowAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   itemConstraintSize(value: ConstraintSizeOptions): WaterFlowAttribute;
 
@@ -652,10 +635,10 @@ declare class WaterFlowAttribute extends ScrollableCommonMethod<WaterFlowAttribu
    * @param { string } value - Number of rows in the layout.<br>Default value: <em>'1fr'</em>
    * @returns { WaterFlowAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   rowsTemplate(value: string): WaterFlowAttribute;
 
@@ -683,10 +666,10 @@ declare class WaterFlowAttribute extends ScrollableCommonMethod<WaterFlowAttribu
    * <br>Value range: [0, +∞).
    * @returns { WaterFlowAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   columnsGap(value: Length): WaterFlowAttribute;
 
@@ -713,10 +696,10 @@ declare class WaterFlowAttribute extends ScrollableCommonMethod<WaterFlowAttribu
    * @param { Length } value - Gap between rows.<br>Default value: <em>0</em>
    * @returns { WaterFlowAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   rowsGap(value: Length): WaterFlowAttribute;
 
@@ -743,10 +726,10 @@ declare class WaterFlowAttribute extends ScrollableCommonMethod<WaterFlowAttribu
    * @param { FlexDirection } value -  Main axis direction of the layout.<br>Default value: <em>FlexDirection.Column</em>
    * @returns { WaterFlowAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   layoutDirection(value: FlexDirection): WaterFlowAttribute;
 
@@ -766,7 +749,7 @@ declare class WaterFlowAttribute extends ScrollableCommonMethod<WaterFlowAttribu
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   nestedScroll(value: NestedScrollOptions): WaterFlowAttribute;
 
@@ -786,7 +769,7 @@ declare class WaterFlowAttribute extends ScrollableCommonMethod<WaterFlowAttribu
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   enableScrollInteraction(value: boolean): WaterFlowAttribute;
 
@@ -811,7 +794,7 @@ declare class WaterFlowAttribute extends ScrollableCommonMethod<WaterFlowAttribu
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   friction(value: number | Resource): WaterFlowAttribute;
 
@@ -834,8 +817,7 @@ declare class WaterFlowAttribute extends ScrollableCommonMethod<WaterFlowAttribu
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   cachedCount(value: number): WaterFlowAttribute;
 
@@ -851,8 +833,7 @@ declare class WaterFlowAttribute extends ScrollableCommonMethod<WaterFlowAttribu
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
    */
   cachedCount(count: number, show: boolean): WaterFlowAttribute;
 
@@ -864,9 +845,26 @@ declare class WaterFlowAttribute extends ScrollableCommonMethod<WaterFlowAttribu
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   syncLoad(enable: boolean): WaterFlowAttribute;
+
+  /**
+   * Sets whether empty branches are supported in lazy loading.
+   *
+   * @param { boolean | undefined } supported - Indicates whether empty branches are supported in lazy loading.
+   *     <br>Default value: false, passing undefined will restore the default value.
+   *     <br>If set to false, LazyForEach or Repeat with virtualScroll does not allow empty branches.
+   *     <br>If set to true, an empty branch of LazyForEach or Repeat with virtualScroll is treated as a node of
+   *     zero size.
+   * @returns { WaterFlowAttribute } the attribute of the WaterFlow.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  supportEmptyBranchInLazyLoading(supported: boolean | undefined): WaterFlowAttribute;
 
   /**
    * Called when the water flow begins to arrive.
@@ -891,9 +889,10 @@ declare class WaterFlowAttribute extends ScrollableCommonMethod<WaterFlowAttribu
    * @param { function } event
    * @returns { WaterFlowAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   onReachStart(event: () => void): WaterFlowAttribute;
 
@@ -920,9 +919,10 @@ declare class WaterFlowAttribute extends ScrollableCommonMethod<WaterFlowAttribu
    * @param { function } event
    * @returns { WaterFlowAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   onReachEnd(event: () => void): WaterFlowAttribute;
 
@@ -954,24 +954,10 @@ declare class WaterFlowAttribute extends ScrollableCommonMethod<WaterFlowAttribu
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   onScrollFrameBegin(event: OnScrollFrameBeginCallback): WaterFlowAttribute;
 
-  /**
-   * Called when scrolling begin each frame.
-   * Anonymous Object Rectification.
-   *
-   * @param { OnScrollFrameBeginCallback } event - callback function, triggered when the scrolling begin each frame.
-   * @returns { WaterFlowAttribute } the attribute of the water flow.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  onScrollFrameBegin(event: OnScrollFrameBeginCallback): WaterFlowAttribute;
-  
   /**
    * Triggered when the first or last item displayed in the component changes.
    * It is triggered once when the component is initialized.
@@ -984,35 +970,9 @@ declare class WaterFlowAttribute extends ScrollableCommonMethod<WaterFlowAttribu
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   onScrollIndex(event: (first: number, last: number) => void): WaterFlowAttribute;
-
-  /**
-   * Called when the scrollable will scroll.
-   *
-   * @param { Optional<OnWillScrollCallback> } handler - callback of scrollable.
-   * @returns { WaterFlowAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  onWillScroll(handler: Optional<OnWillScrollCallback>): WaterFlowAttribute;
-  
-  /**
-   * Called when the scrollable did scroll.
-   *
-   * @param { OnScrollCallback } handler - callback of scrollable,
-   * scrollOffset is offset this frame did scroll, scrollState is current scroll state.
-   * @returns { WaterFlowAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  onDidScroll(handler: OnScrollCallback): WaterFlowAttribute;
 }
 
 /**
@@ -1041,9 +1001,11 @@ declare class WaterFlowAttribute extends ScrollableCommonMethod<WaterFlowAttribu
  * It is recommended to use LazyForEach or Repeat to generate child components.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
+ * @noninterop
  */
 declare const WaterFlow: WaterFlowInterface;
 
@@ -1064,8 +1026,10 @@ declare const WaterFlow: WaterFlowInterface;
  * Defines WaterFlow Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
+ * @noninterop
  */
 declare const WaterFlowInstance: WaterFlowAttribute;

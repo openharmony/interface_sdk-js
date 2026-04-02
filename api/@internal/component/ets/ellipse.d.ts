@@ -18,10 +18,6 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { CommonShapeMethod } from './common';
-/*** endif */
-
 /**
  * Ellipse constructor options.
  *
@@ -30,8 +26,7 @@ import { CommonShapeMethod } from './common';
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18 dynamic
  */
 interface EllipseOptions {
   /**
@@ -39,6 +34,7 @@ interface EllipseOptions {
    *
    * @type { ?(string | number) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -46,6 +42,7 @@ interface EllipseOptions {
    *
    * @type { ?(string | number) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -54,6 +51,7 @@ interface EllipseOptions {
    *
    * @type { ?(string | number) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -63,6 +61,7 @@ interface EllipseOptions {
    *
    * @type { ?(string | number) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -74,6 +73,7 @@ interface EllipseOptions {
    *
    * @type { ?(string | number) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -84,30 +84,20 @@ interface EllipseOptions {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   width?: Length;
-  /**
-   * Set width.
-   *
-   * @type { ?(string | number) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  width?: string | number;
 
   /**
    * Set height.
    *
    * @type { ?(string | number) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -115,6 +105,7 @@ interface EllipseOptions {
    *
    * @type { ?(string | number) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -123,6 +114,7 @@ interface EllipseOptions {
    *
    * @type { ?(string | number) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -132,6 +124,7 @@ interface EllipseOptions {
    *
    * @type { ?(string | number) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -143,6 +136,7 @@ interface EllipseOptions {
    *
    * @type { ?(string | number) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -153,24 +147,13 @@ interface EllipseOptions {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   height?: Length;
-  /**
-   * Set height.
-   *
-   * @type { ?(string | number) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  height?: string | number;
 }
 
 /**
@@ -178,6 +161,7 @@ interface EllipseOptions {
  *
  * @interface EllipseInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
@@ -185,6 +169,7 @@ interface EllipseOptions {
  *
  * @interface EllipseInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @form
  * @since 9
  */
@@ -193,6 +178,7 @@ interface EllipseOptions {
  *
  * @interface EllipseInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @since 10
@@ -202,10 +188,11 @@ interface EllipseOptions {
  *
  * @interface EllipseInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 interface EllipseInterface {
   /**
@@ -214,6 +201,7 @@ interface EllipseInterface {
    * @param { object } value
    * @returns { EllipseAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -222,6 +210,7 @@ interface EllipseInterface {
    * @param { object } value
    * @returns { EllipseAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -231,6 +220,7 @@ interface EllipseInterface {
    * @param { object } value
    * @returns { EllipseAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -241,6 +231,7 @@ interface EllipseInterface {
    * @param { object } value
    * @returns { EllipseAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -253,10 +244,11 @@ interface EllipseInterface {
    * @param { EllipseOptions } [options] - ellipse options
    * @returns { EllipseAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   new (options?: EllipseOptions): EllipseAttribute;
 
@@ -266,6 +258,7 @@ interface EllipseInterface {
    * @param { object } value
    * @returns { EllipseAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -274,6 +267,7 @@ interface EllipseInterface {
    * @param { object } value
    * @returns { EllipseAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -283,6 +277,7 @@ interface EllipseInterface {
    * @param { object } value
    * @returns { EllipseAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -293,6 +288,7 @@ interface EllipseInterface {
    * @param { object } value
    * @returns { EllipseAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -305,10 +301,11 @@ interface EllipseInterface {
    * @param { EllipseOptions } [options] - ellipse options
    * @returns { EllipseAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   (options?: EllipseOptions): EllipseAttribute;
 }
@@ -316,17 +313,20 @@ interface EllipseInterface {
 /**
  * @extends CommonShapeMethod<EllipseAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
  * @extends CommonShapeMethod<EllipseAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @form
  * @since 9
  */
 /**
  * @extends CommonShapeMethod<EllipseAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @since 10
@@ -334,11 +334,11 @@ interface EllipseInterface {
 /**
  * @extends CommonShapeMethod<EllipseAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
  */
 declare class EllipseAttribute extends CommonShapeMethod<EllipseAttribute> {}
 
@@ -346,12 +346,14 @@ declare class EllipseAttribute extends CommonShapeMethod<EllipseAttribute> {}
  * Defines Ellipse Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
  * Defines Ellipse Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @form
  * @since 9
  */
@@ -359,6 +361,7 @@ declare class EllipseAttribute extends CommonShapeMethod<EllipseAttribute> {}
  * Defines Ellipse Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @since 10
@@ -367,10 +370,11 @@ declare class EllipseAttribute extends CommonShapeMethod<EllipseAttribute> {}
  * Defines Ellipse Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const Ellipse: EllipseInterface;
 
@@ -378,12 +382,14 @@ declare const Ellipse: EllipseInterface;
  * Defines Ellipse Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
  * Defines Ellipse Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @form
  * @since 9
  */
@@ -391,6 +397,7 @@ declare const Ellipse: EllipseInterface;
  * Defines Ellipse Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @since 10
@@ -399,36 +406,10 @@ declare const Ellipse: EllipseInterface;
  * Defines Ellipse Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const EllipseInstance: EllipseAttribute;
-
-/**
- * Ellipse drawing.
- *
- * @interface EllipseInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-interface EllipseInterface {
-  /**
-   * Set the value.
-   *
-   * @param { EllipseOptions } [options] - ellipse options
-   * @returns { EllipseAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  (options?: EllipseOptions): EllipseAttribute;
-}

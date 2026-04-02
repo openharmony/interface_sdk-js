@@ -27,7 +27,7 @@ import type constant from './@ohos.bluetooth.constant';
  *
  * @namespace pbap
  * @syscap SystemCapability.Communication.Bluetooth.Core
- * @since 11
+ * @since 11 dynamic
  */
 declare namespace pbap {
   /**
@@ -35,7 +35,7 @@ declare namespace pbap {
    *
    * @typedef { baseProfile.BaseProfile } BaseProfile
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 11
+   * @since 11 dynamic
    */
   type BaseProfile = baseProfile.BaseProfile;
 
@@ -45,7 +45,7 @@ declare namespace pbap {
    * @typedef { constant.AccessAuthorization } AccessAuthorization
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
    */
   type AccessAuthorization = constant.AccessAuthorization;
 
@@ -55,7 +55,7 @@ declare namespace pbap {
    * @enum { number }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
    */
   enum ShareType {
     /**
@@ -63,7 +63,7 @@ declare namespace pbap {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
      */
     SHARE_NAME_AND_PHONE_NUMBER = 0,
     /**
@@ -71,7 +71,7 @@ declare namespace pbap {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
      */
     SHARE_ALL = 1,
     /**
@@ -79,7 +79,7 @@ declare namespace pbap {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
      */
     SHARE_NOTHING = 2
   }
@@ -92,7 +92,7 @@ declare namespace pbap {
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 11
+   * @since 11 dynamic
    */
   function createPbapServerProfile(): PbapServerProfile;
 
@@ -102,7 +102,7 @@ declare namespace pbap {
    * @extends BaseProfile
    * @typedef PbapServerProfile
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 11
+   * @since 11 dynamic
    */
   interface PbapServerProfile extends BaseProfile {
     /**
@@ -121,7 +121,7 @@ declare namespace pbap {
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
      */
     disconnect(deviceId: string): void;
 
@@ -143,7 +143,7 @@ declare namespace pbap {
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
      */
     setShareType(deviceId: string, type: ShareType, callback: AsyncCallback<void>): void;
 
@@ -165,7 +165,7 @@ declare namespace pbap {
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
      */
     setShareType(deviceId: string, type: ShareType): Promise<void>;
 
@@ -186,7 +186,7 @@ declare namespace pbap {
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
      */
     getShareType(deviceId: string, callback: AsyncCallback<ShareType>): void;
 
@@ -207,7 +207,7 @@ declare namespace pbap {
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
      */
     getShareType(deviceId: string): Promise<ShareType>;
 
@@ -229,7 +229,7 @@ declare namespace pbap {
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
      */
     setPhoneBookAccessAuthorization(
       deviceId: string,
@@ -255,7 +255,7 @@ declare namespace pbap {
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
      */
     setPhoneBookAccessAuthorization(deviceId: string, authorization: AccessAuthorization): Promise<void>;
 
@@ -276,7 +276,7 @@ declare namespace pbap {
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
      */
     getPhoneBookAccessAuthorization(deviceId: string, callback: AsyncCallback<AccessAuthorization>): void;
 
@@ -297,7 +297,7 @@ declare namespace pbap {
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
      */
     getPhoneBookAccessAuthorization(deviceId: string): Promise<AccessAuthorization>;
   }

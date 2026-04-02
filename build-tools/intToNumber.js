@@ -304,7 +304,12 @@ function applJSDocTransformations(typeExpr, newTypeExpr, tagDataList, isChange) 
     return;
   }
   const printer = ts.createPrinter({ newLine: ts.NewLineKind.LineFeed });
-  const finalContent = printer.printNode(ts.EmitHint.Unspecified, newTypeExpr);
+  const finalContent = printer.printNode(ts.EmitHint.Unspecified, newTypeExpr)
+    //去除注释内容中空格，换行，分号等异常字符
+    .replace(/\s*;\s*/g, ', ')
+    .replace(/,\s*}$/, ' }')
+    .replace(/\s+/g, ' ')
+    .replace(/, \}/g, '}');
   if (finalContent.includes('number') && typeExpr.kind === ts.SyntaxKind.JSDocNullableType && !finalContent.includes('?number') && isChange) {
     if (typeExpr.type.type && typeExpr.type.type.kind === ts.SyntaxKind.UnionType) {
       const data = {
@@ -425,20 +430,16 @@ function collectNewTypes(type) {
  * @returns 
  */
 function duplicateRemoval(newTypesArr) {
-  let newTypes2 = [];
-  let hasNumberKeyWorld = false;
+  let newTypesNodeArr = [];
+  let newTypesTextArr = [];
   newTypesArr.forEach(type => {
-    if (type.kind === ts.SyntaxKind.NumberKeyword) {
-      if (!hasNumberKeyWorld) {
-        newTypes2.push(type);
-        hasNumberKeyWorld = true;
-      }
-    } else {
-      newTypes2.push(type);
+    if (!newTypesTextArr.includes(type.getText())) {
+      newTypesNodeArr.push(type);
+      newTypesTextArr.push(type.getText());
     }
   });
 
-  return newTypes2;
+  return newTypesNodeArr;
 }
 
 /**

@@ -29,7 +29,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 
 
@@ -47,7 +47,7 @@ export interface PopupTextOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   text: ResourceStr;
 
@@ -64,7 +64,7 @@ export interface PopupTextOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   fontSize?: number | string | Resource;
 
@@ -81,7 +81,7 @@ export interface PopupTextOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   fontColor?: ResourceColor;
 
@@ -98,7 +98,7 @@ export interface PopupTextOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   fontWeight?: number | FontWeight | string;
 }
@@ -114,7 +114,7 @@ export interface PopupTextOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 export interface PopupButtonOptions {
   /**
@@ -130,7 +130,7 @@ export interface PopupButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   text: ResourceStr;
 
@@ -147,7 +147,7 @@ export interface PopupButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   action?: () => void;
 
@@ -164,7 +164,7 @@ export interface PopupButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   fontSize?: number | string | Resource;
 
@@ -181,7 +181,7 @@ export interface PopupButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   fontColor?: ResourceColor;
 }
@@ -197,7 +197,7 @@ export interface PopupButtonOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 export interface PopupIconOptions {
   /**
@@ -213,7 +213,7 @@ export interface PopupIconOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   image: ResourceStr;
 
@@ -230,7 +230,7 @@ export interface PopupIconOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   width?: Dimension;
 
@@ -247,7 +247,7 @@ export interface PopupIconOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   height?: Dimension;
 
@@ -264,7 +264,7 @@ export interface PopupIconOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   fillColor?: ResourceColor;
 
@@ -281,7 +281,7 @@ export interface PopupIconOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   borderRadius?: Length | BorderRadiuses;
 }
@@ -297,7 +297,7 @@ export interface PopupIconOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 export interface PopupOptions {
   /**
@@ -315,7 +315,7 @@ export interface PopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   icon?: PopupIconOptions;
 
@@ -334,7 +334,7 @@ export interface PopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   title?: PopupTextOptions;
 
@@ -353,7 +353,7 @@ export interface PopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   message: PopupTextOptions;
 
@@ -372,7 +372,7 @@ export interface PopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   showClose?: boolean | Resource;
 
@@ -391,7 +391,7 @@ export interface PopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   onClose?: () => void;
 
@@ -410,7 +410,7 @@ export interface PopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   buttons?: [PopupButtonOptions?, PopupButtonOptions?];
 
@@ -421,7 +421,7 @@ export interface PopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
    direction?: Direction;
 
@@ -432,7 +432,7 @@ export interface PopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   maxWidth?: Dimension;
 }
@@ -452,7 +452,7 @@ export interface PopupOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 @Builder
 export declare function Popup(options: PopupOptions): void;

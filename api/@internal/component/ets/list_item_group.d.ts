@@ -18,12 +18,6 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { ChildrenMainSize, CommonMethod } from './common';
-import { CustomBuilder } from './builder'
-import { ComponentContent } from '../ComponentContent'
-import { ListDividerOptions  } from './list';
-/*** endif */
 
 /**
  * Defines the list item group style.
@@ -39,8 +33,7 @@ import { ListDividerOptions  } from './list';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
  */
 declare enum ListItemGroupStyle {
   /**
@@ -55,8 +48,7 @@ declare enum ListItemGroupStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   NONE = 0,
 
@@ -72,8 +64,7 @@ declare enum ListItemGroupStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   CARD = 1,
 }
@@ -98,10 +89,10 @@ declare enum ListItemGroupStyle {
  *
  * @interface ListItemGroupOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
  */
 declare interface ListItemGroupOptions {
   /**
@@ -124,10 +115,10 @@ declare interface ListItemGroupOptions {
    *
    * @type { ?CustomBuilder }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   header?: CustomBuilder;
 
@@ -138,8 +129,7 @@ declare interface ListItemGroupOptions {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':'13','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 13 dynamic
     */
   headerComponent?: ComponentContent;
 
@@ -163,10 +153,10 @@ declare interface ListItemGroupOptions {
    *
    * @type { ?CustomBuilder }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   footer?: CustomBuilder;
 
@@ -177,8 +167,7 @@ declare interface ListItemGroupOptions {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':'13','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 13 dynamic
     */
   footerComponent?: ComponentContent;
 
@@ -202,10 +191,10 @@ declare interface ListItemGroupOptions {
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   space?: number | string;
 
@@ -223,8 +212,7 @@ declare interface ListItemGroupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   style?: ListItemGroupStyle;
 }
@@ -249,10 +237,11 @@ declare interface ListItemGroupOptions {
  *
  * @interface ListItemGroupInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @noninterop
  */
 interface ListItemGroupInterface {
   /**
@@ -278,10 +267,10 @@ interface ListItemGroupInterface {
    * @param { ListItemGroupOptions } options
    * @returns { ListItemGroupAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   (options?: ListItemGroupOptions): ListItemGroupAttribute;
 }
@@ -306,10 +295,11 @@ interface ListItemGroupInterface {
  *
  * @extends CommonMethod<ListItemGroupAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @noninterop
  */
 declare class ListItemGroupAttribute extends CommonMethod<ListItemGroupAttribute> {
   /**
@@ -361,10 +351,10 @@ declare class ListItemGroupAttribute extends CommonMethod<ListItemGroupAttribute
    * @param { ListDividerOptions | null } value
    * @returns { ListItemGroupAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
    */
   divider(
     value: ListDividerOptions | null,
@@ -378,8 +368,7 @@ declare class ListItemGroupAttribute extends CommonMethod<ListItemGroupAttribute
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   childrenMainSize(value: ChildrenMainSize): ListItemGroupAttribute;
 }
@@ -401,9 +390,11 @@ declare class ListItemGroupAttribute extends CommonMethod<ListItemGroupAttribute
  * Defines ListItemGroup Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
+ * @noninterop
  */
 declare const ListItemGroupInstance: ListItemGroupAttribute;
 
@@ -424,8 +415,10 @@ declare const ListItemGroupInstance: ListItemGroupAttribute;
  * Defines ListItemGroup Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
+ * @noninterop
  */
 declare const ListItemGroup: ListItemGroupInterface;

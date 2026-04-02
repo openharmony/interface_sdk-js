@@ -31,123 +31,145 @@ import { AsyncCallback, Callback } from './@ohos.base';
  *
  * @namespace usageStatistics
  * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
- * @since 9
+ * @since 9 dynamic
+ * @since 23 static
  */
 declare namespace usageStatistics {
   /**
    * @interface BundleStatsInfo
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 23 static
    */
   interface BundleStatsInfo {
     /**
      * The identifier of BundleStatsInfo.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 23 static
      */
-    id: number;
+    id: int;
 
     /**
      * The total duration, in milliseconds.
-     * @type { ?number }
+     * <br> Unit:ms
+     * @type { ?long }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 23 static
      */
-    abilityInFgTotalTime?: number;
+    abilityInFgTotalTime?: long;
 
     /**
      * The last time when the application was accessed, in milliseconds.
-     * @type { ?number }
+     * <br> Unit:ms
+     * @type { ?long }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 23 static
      */
-    abilityPrevAccessTime?: number;
+    abilityPrevAccessTime?: long;
 
     /**
      * The last time when the application was visible in the foreground, in milliseconds.
-     * @type { ?number }
+     * <br> Unit:ms
+     * @type { ?long }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 23 static
      */
-    abilityPrevSeenTime?: number;
+    abilityPrevSeenTime?: long;
 
     /**
      * The total duration, in milliseconds.
-     * @type { ?number }
+     * <br> Unit:ms
+     * @type { ?long }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 23 static
      */
-    abilitySeenTotalTime?: number;
+    abilitySeenTotalTime?: long;
 
     /**
      * The bundle name of the application.
      * @type { ?string }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 23 static
      */
     bundleName?: string;
 
     /**
      * The total duration, in milliseconds.
-     * @type { ?number }
+     * <br> Unit:ms
+     * @type { ?long }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 23 static
      */
-    fgAbilityAccessTotalTime?: number;
+    fgAbilityAccessTotalTime?: long;
 
     /**
      * The last time when the foreground application was accessed, in milliseconds.
-     * @type { ?number }
+     * <br> Unit:ms
+     * @type { ?long }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 23 static
      */
-    fgAbilityPrevAccessTime?: number;
+    fgAbilityPrevAccessTime?: long;
 
     /**
      * The time of the first bundle usage record in this {@code BundleActiveInfo} object,
      * in milliseconds.
-     * @type { ?number }
+     * <br> Unit:ms
+     * @type { ?long }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 23 static
      */
-    infosBeginTime?: number;
+    infosBeginTime?: long;
 
     /**
      * The time of the last bundle usage record in this {@code BundleActiveInfo} object,
      * in milliseconds.
-     * @type { ?number }
+     * <br> Unit:ms
+     * @type { ?long }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 23 static
      */
-    infosEndTime?: number;
+    infosEndTime?: long;
 
     /**
      * The app index of the application.
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
-     * @since 15
+     * @since 15 dynamic
+     * @since 23 static
      */
-    appIndex?: number;
+    appIndex?: int;
   }
 
   /**
    * @interface HapFormInfo
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 23 static
    */
   interface HapFormInfo {
     /**
@@ -155,52 +177,59 @@ declare namespace usageStatistics {
      * @type { string }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 23 static
      */
     formName: string;
 
     /**
      * The form dimension.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 23 static
      */
-    formDimension: number;
+    formDimension: int;
 
     /**
      * The form id.
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 23 static
      */
-    formId: number;
+    formId: long;
 
     /**
      * The last time when the form was accessed, in milliseconds..
-     * @type { number }
+     * <br> Unit:ms
+     * @type { long }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 23 static
      */
-    formLastUsedTime: number;
+    formLastUsedTime: long;
 
     /**
      * The click count of module.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 23 static
      */
-    count: number;
+    count: int;
   }
 
   /**
    * @interface HapModuleInfo
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 23 static
    */
   interface HapModuleInfo {
     /**
@@ -208,7 +237,8 @@ declare namespace usageStatistics {
      * @type { ?string }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 23 static
      */
     deviceId?: string;
 
@@ -217,7 +247,8 @@ declare namespace usageStatistics {
      * @type { string }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 23 static
      */
     bundleName: string;
 
@@ -226,7 +257,8 @@ declare namespace usageStatistics {
      * @type { string }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 23 static
      */
     moduleName: string;
 
@@ -235,88 +267,99 @@ declare namespace usageStatistics {
      * @type { ?string }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 23 static
      */
     abilityName?: string;
 
     /**
      * The label id of application.
-     * @type { ?number }
+     * @type { ?long }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 23 static
      */
-    appLabelId?: number;
+    appLabelId?: long;
 
     /**
      * The label id of module.
-     * @type { ?number }
+     * @type { ?long }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 23 static
      */
-    labelId?: number;
+    labelId?: long;
 
     /**
      * The description id of application.
-     * @type { ?number }
+     * @type { ?long }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 23 static
      */
-    descriptionId?: number;
+    descriptionId?: long;
 
     /**
      * The ability id of main ability.
-     * @type { ?number }
+     * @type { ?long }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 23 static
      */
-    abilityLableId?: number;
+    abilityLableId?: long;
 
     /**
      * The description id of main ability.
-     * @type { ?number }
+     * @type { ?long }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 23 static
      */
-    abilityDescriptionId?: number;
+    abilityDescriptionId?: long;
 
     /**
      * The icon id of main ability.
-     * @type { ?number }
+     * @type { ?long }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 23 static
      */
-    abilityIconId?: number;
+    abilityIconId?: long;
 
     /**
      * The launch count of module.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 23 static
      */
-    launchedCount: number;
+    launchedCount: int;
 
     /**
      * The last time when the module was accessed, in milliseconds.
-     * @type { number }
+     * <br> Unit:ms
+     * @type { long }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 23 static
      */
-    lastModuleUsedTime: number;
+    lastModuleUsedTime: long;
 
     /**
      * The form usage record list of current module.
      * @type { Array<HapFormInfo> }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 23 static
      */
     formRecords: Array<HapFormInfo>;
   }
@@ -325,7 +368,8 @@ declare namespace usageStatistics {
    * @interface DeviceEventStats
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 23 static
    */
   interface DeviceEventStats {
     /**
@@ -333,51 +377,57 @@ declare namespace usageStatistics {
      * @type { string }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 23 static
      */
     name: string;
 
     /**
      * The event id.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 23 static
      */
-    eventId: number;
+    eventId: int;
 
     /**
      * The the event occurrence number.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 23 static
      */
-    count: number;
+    count: int;
   }
 
   /**
    * @interface BundleEvents
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 23 static
    */
   interface BundleEvents {
     /**
      * The usage group of the application.
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 23 static
      */
-    appGroup?: number;
+    appGroup?: int;
 
     /**
      * The bundle name.
      * @type { ?string }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 23 static
      */
     bundleName?: string;
 
@@ -386,7 +436,8 @@ declare namespace usageStatistics {
      * @type { ?string }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 23 static
      */
     indexOfLink?: string;
 
@@ -395,78 +446,88 @@ declare namespace usageStatistics {
      * @type { ?string }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 23 static
      */
     nameOfClass?: string;
 
     /**
      * The time when this state occurred, in milliseconds.
-     * @type { ?number }
+     * <br> Unit:ms
+     * @type { ?long }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 23 static
      */
-    eventOccurredTime?: number;
+    eventOccurredTime?: long;
 
     /**
      * The event id.
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 23 static
      */
-    eventId?: number;
+    eventId?: int;
   }
 
   /**
    * @interface AppGroupCallbackInfo
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
    * @systemapi Hide this for inner system use.
-   * @since 9
+     * @since 9 dynamic
+     * @since 23 static
    */
   interface AppGroupCallbackInfo {
     /**
      * The usage old group of the application
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 23 static
      */
-    appOldGroup: number;
+    appOldGroup: int;
 
     /**
      * The usage new group of the application
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 23 static
      */
-    appNewGroup: number;
+    appNewGroup: int;
 
     /**
      * The use id
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 23 static
      */
-    userId: number;
+    userId: int;
 
     /**
      * The change reason
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 23 static
      */
-    changeReason: number;
+    changeReason: long;
 
     /**
      * The bundle name
      * @type { string }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 23 static
      */
     bundleName: string;
   }
@@ -492,7 +553,8 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 10000006 - Failed to get the application information.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 23 static
    */
   function isIdleState(bundleName: string, callback: AsyncCallback<boolean>): void;
 
@@ -517,7 +579,8 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 10000006 - Failed to get the application information.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 23 static
    */
   function isIdleState(bundleName: string): Promise<boolean>;
 
@@ -542,7 +605,8 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 10000006 - Failed to get the application information.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 10 dynamic
+   * @since 23 static
    */
   function isIdleStateSync(bundleName: string): boolean;
 
@@ -552,7 +616,7 @@ declare namespace usageStatistics {
    * for example, restricting the running of background tasks. </p>
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
-   * @param { AsyncCallback<number> } callback - the callback of queryAppGroup.
+   * @param { AsyncCallback<int> } callback - the callback of queryAppGroup.
    * <p> Returns the app group of the calling application.</p>
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
@@ -568,9 +632,10 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 10100002 - Failed to get the application group information.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 23 static
    */
-  function queryAppGroup(callback: AsyncCallback<number>): void;
+  function queryAppGroup(callback: AsyncCallback<int>): void;
 
   /**
    * Queries the app group of the calling application.
@@ -578,7 +643,7 @@ declare namespace usageStatistics {
    * for example, restricting the running of background tasks. </p>
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
-   * @returns { Promise<number> } the promise returned by queryAppGroup.
+   * @returns { Promise<int> } the promise returned by queryAppGroup.
    * <p> Returns the app group of the calling application.</p>
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
@@ -593,9 +658,10 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 10100002 - Failed to get the application group information.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 23 static
    */
-  function queryAppGroup(): Promise<number>;
+  function queryAppGroup(): Promise<int>;
 
   /**
    * Queries the app group of the calling application.
@@ -603,7 +669,7 @@ declare namespace usageStatistics {
    * for example, restricting the running of background tasks. </p>
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
-   * @returns { number } Returns the app group of the calling application.
+   * @returns { int } Returns the app group of the calling application.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -617,9 +683,10 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 10100002 - Failed to get the application group information.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 10 dynamic
+   * @since 23 static
    */
-  function queryAppGroupSync(): number;
+  function queryAppGroupSync(): int;
 
   /**
    * Queries the usage priority group by bundleName.
@@ -628,7 +695,7 @@ declare namespace usageStatistics {
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
    * @param { string } bundleName - name of the application.
-   * @param { AsyncCallback<number> } callback - the callback of queryAppGroup.
+   * @param { AsyncCallback<int> } callback - the callback of queryAppGroup.
    * <p> the usage priority group of the calling application.</p>
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
@@ -644,9 +711,10 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 10100002 - Failed to get the application group information.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 23 static
    */
-  function queryAppGroup(bundleName: string, callback: AsyncCallback<number>): void;
+  function queryAppGroup(bundleName: string, callback: AsyncCallback<int>): void;
 
   /**
    * Queries the usage priority group by bundleName.
@@ -655,7 +723,7 @@ declare namespace usageStatistics {
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
    * @param { string } bundleName - name of the application.
-   * @returns { Promise<number> } the promise returned by queryAppGroup.
+   * @returns { Promise<int> } the promise returned by queryAppGroup.
    * <p> the usage priority group of the calling application.</p>
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
@@ -671,9 +739,10 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 10100002 - Failed to get the application group information.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 23 static
    */
-  function queryAppGroup(bundleName: string): Promise<number>;
+  function queryAppGroup(bundleName: string): Promise<int>;
 
   /**
    * Queries the usage priority group by bundleName.
@@ -682,7 +751,7 @@ declare namespace usageStatistics {
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
    * @param { string } bundleName - name of the application.
-   * @returns { number } the usage priority group of the calling application.
+   * @returns { int } the usage priority group of the calling application.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: Parameter verification failed.
@@ -697,15 +766,17 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 10100002 - Failed to get the application group information.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 10 dynamic
+   * @since 23 static
    */
-  function queryAppGroupSync(bundleName: string): number;
+  function queryAppGroupSync(bundleName: string): int;
 
   /**
    * @typedef { Record<string, BundleStatsInfo> }
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 23 static
    */
   type BundleStatsMap = Record<string, BundleStatsInfo>;
 
@@ -714,8 +785,10 @@ declare namespace usageStatistics {
    * <p>This method queries usage information at the {@link #BY_OPTIMIZED} interval by default.</p>
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
-   * @param { number } begin - Indicates the start time of the query period, in milliseconds.
-   * @param { number } end - Indicates the end time of the query period, in milliseconds.
+   * @param { long } begin - Indicates the start time of the query period, in milliseconds.
+   * <br> Unit:ms
+   * @param { long } end - Indicates the end time of the query period, in milliseconds.
+   * <br> Unit:ms
    * @param { AsyncCallback<BundleStatsMap> } callback - the callback of queryBundleStatsInfos,
    * <p> the {@link BundleStatsMap} objects containing the usage information about each bundle.</p>
    * @throws { BusinessError } 201 - Permission denied.
@@ -731,17 +804,20 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 10000007 - Failed to get the system time.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 23 static
    */
-  function queryBundleStatsInfos(begin: number, end: number, callback: AsyncCallback<BundleStatsMap>): void;
+  function queryBundleStatsInfos(begin: long, end: long, callback: AsyncCallback<BundleStatsMap>): void;
 
   /**
    * Queries usage information about each bundle within a specified period.
    * <p>This method queries usage information at the {@link #BY_OPTIMIZED} interval by default.</p>
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
-   * @param { number } begin - Indicates the start time of the query period, in milliseconds.
-   * @param { number } end - Indicates the end time of the query period, in milliseconds.
+   * @param { long } begin - Indicates the start time of the query period, in milliseconds.
+   * <br> Unit:ms
+   * @param { long } end - Indicates the end time of the query period, in milliseconds.
+   * <br> Unit:ms
    * @returns { Promise<BundleStatsMap> } the promise returned by queryBundleStatsInfos.
    * <p> the {@link BundleStatsMap} objects containing the usage information about each bundle.</p>
    * @throws { BusinessError } 201 - Permission denied.
@@ -757,15 +833,17 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 10000007 - Failed to get the system time.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 23 static
    */
-  function queryBundleStatsInfos(begin: number, end: number): Promise<BundleStatsMap>;
+  function queryBundleStatsInfos(begin: long, end: long): Promise<BundleStatsMap>;
 
   /**
    * @typedef { Record<string, Array<BundleStatsInfo>> }
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
-   * @since 15
+   * @since 15 dynamic
+   * @since 23 static
    */
   type AppStatsMap = Record<string, Array<BundleStatsInfo>>;
 
@@ -774,8 +852,10 @@ declare namespace usageStatistics {
    * <p>This method queries usage information at the {@link #BY_OPTIMIZED} interval by default.</p>
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
-   * @param { number } begin - Indicates the start time of the query period, in milliseconds.
-   * @param { number } end - Indicates the end time of the query period, in milliseconds.
+   * @param { long } begin - Indicates the start time of the query period, in milliseconds.
+   * <br> Unit:ms
+   * @param { long } end - Indicates the end time of the query period, in milliseconds.
+   * <br> Unit:ms
    * @returns { Promise<AppStatsMap> } the promise returned by queryAppStatsInfos.
    * <p> the {@link AppStatsMap} objects containing the usage information about each application.</p>
    * @throws { BusinessError } 201 - Permission denied.
@@ -791,15 +871,15 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 10000007 - Failed to get the system time.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
-   * @since 15
+   * @since 15 dynamic
+   * @since 23 static
    */
-  function queryAppStatsInfos(begin: number, end: number): Promise<AppStatsMap>;
+  function queryAppStatsInfos(begin: long, end: long): Promise<AppStatsMap>;
 
   /**
    * Queries the last usage timestamp by bundleName and app index.
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
-   * @param { string } bundleName - name of the application.
    * @param { appInfo } bundle name and app index info for each application.
    * @returns { Promise<AppStatsMap> } the promise returned by queryLastUseTime.
    * <p> the {@link AppStatsMap} objects containing the usage information about each application.</p>
@@ -816,17 +896,19 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 10000007 - Failed to get the system time.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
-   * @since 15
+   * @since 15 dynamic
+   * @since 23 static
    */
-  function queryLastUseTime(appInfo: Record<string, Array<number>>): Promise<AppStatsMap>;
+  function queryLastUseTime(appInfo: Record<string, Array<long>>): Promise<AppStatsMap>;
 
   /**
    * Declares interval type.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 23 static
    */
   export enum IntervalType {
     /**
@@ -834,7 +916,8 @@ declare namespace usageStatistics {
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 23 static
      */
     BY_OPTIMIZED = 0,
 
@@ -843,7 +926,8 @@ declare namespace usageStatistics {
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 23 static
      */
     BY_DAILY = 1,
 
@@ -852,7 +936,8 @@ declare namespace usageStatistics {
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 23 static
      */
     BY_WEEKLY = 2,
 
@@ -861,7 +946,8 @@ declare namespace usageStatistics {
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 23 static
      */
     BY_MONTHLY = 3,
 
@@ -870,7 +956,8 @@ declare namespace usageStatistics {
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 23 static
      */
     BY_ANNUALLY = 4
   }
@@ -882,8 +969,10 @@ declare namespace usageStatistics {
    * @param { IntervalType } byInterval - Indicates the interval at which the usage statistics are queried.
    * <p> The value can be {@link #BY_OPTIMIZED}, {@link #BY_DAILY},
    * {@link #BY_WEEKLY}, {@link #BY_MONTHLY}, or {@link #BY_ANNUALLY}.</p>
-   * @param { number } begin - Indicates the start time of the query period, in milliseconds.
-   * @param { number } end - Indicates the end time of the query period, in milliseconds.
+   * @param { long } begin - Indicates the start time of the query period, in milliseconds.
+   * <br> Unit:ms
+   * @param { long } end - Indicates the end time of the query period, in milliseconds.
+   * <br> Unit:ms
    * @param { AsyncCallback<Array<BundleStatsInfo>> } callback - the callback of queryBundleStatsInfoByInterval.
    * <p> the list of {@link BundleStatsInfo} objects containing the usage information about each bundle.</p>
    * @throws { BusinessError } 201 - Permission denied.
@@ -899,12 +988,13 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 10000007 - Failed to get the system time.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 23 static
    */
   function queryBundleStatsInfoByInterval(
     byInterval: IntervalType,
-    begin: number,
-    end: number,
+    begin: long,
+    end: long,
     callback: AsyncCallback<Array<BundleStatsInfo>>
   ): void;
 
@@ -915,8 +1005,10 @@ declare namespace usageStatistics {
    * @param { IntervalType } byInterval - Indicates the interval at which the usage statistics are queried.
    * <p> The value can be {@link #BY_OPTIMIZED}, {@link #BY_DAILY},
    * {@link #BY_WEEKLY}, {@link #BY_MONTHLY}, or {@link #BY_ANNUALLY}.</p>
-   * @param { number } begin - Indicates the start time of the query period, in milliseconds.
-   * @param { number } end - Indicates the end time of the query period, in milliseconds.
+   * @param { long } begin - Indicates the start time of the query period, in milliseconds.
+   * <br> Unit:ms
+   * @param { long } end - Indicates the end time of the query period, in milliseconds.
+   * <br> Unit:ms
    * @returns { Promise<Array<BundleStatsInfo>> } the promise returned by queryBundleStatsInfoByInterval.
    * <p> the list of {@link BundleStatsInfo} objects containing the usage information about each bundle.</p>
    * @throws { BusinessError } 201 - Permission denied.
@@ -932,20 +1024,23 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 10000007 - Failed to get the system time.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 23 static
    */
   function queryBundleStatsInfoByInterval(
     byInterval: IntervalType,
-    begin: number,
-    end: number
+    begin: long,
+    end: long
   ): Promise<Array<BundleStatsInfo>>;
 
   /**
    * Queries state data of all bundles within a specified period identified by the start and end time.
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
-   * @param { number } begin - Indicates the start time of the query period, in milliseconds.
-   * @param { number } end - Indicates the end time of the query period, in milliseconds.
+   * @param { long } begin - Indicates the start time of the query period, in milliseconds.
+   * <br> Unit:ms
+   * @param { long } end - Indicates the end time of the query period, in milliseconds.
+   * <br> Unit:ms
    * @param { AsyncCallback<Array<BundleEvents>> } callback - the promise returned by queryBundleEvents.
    * <p> the list of {@link BundleEvents} objects containing the state data of all bundles.</p>
    * @throws { BusinessError } 201 - Permission denied.
@@ -962,16 +1057,19 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 10000007 - Failed to get the system time.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 23 static
    */
-  function queryBundleEvents(begin: number, end: number, callback: AsyncCallback<Array<BundleEvents>>): void;
+  function queryBundleEvents(begin: long, end: long, callback: AsyncCallback<Array<BundleEvents>>): void;
 
   /**
    * Queries state data of all bundles within a specified period identified by the start and end time.
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
-   * @param { number } begin - Indicates the start time of the query period, in milliseconds.
-   * @param { number } end - Indicates the end time of the query period, in milliseconds.
+   * @param { long } begin - Indicates the start time of the query period, in milliseconds.
+   * <br> Unit:ms
+   * @param { long } end - Indicates the end time of the query period, in milliseconds.
+   * <br> Unit:ms
    * @returns { Promise<Array<BundleEvents>> } the promise returned by queryBundleEvents.
    * <p> the list of {@link BundleEvents} objects containing the state data of all bundles.</p>
    * @throws { BusinessError } 201 - Permission denied.
@@ -988,15 +1086,47 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 10000007 - Failed to get the system time.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 23 static
    */
-  function queryBundleEvents(begin: number, end: number): Promise<Array<BundleEvents>>;
+  function queryBundleEvents(begin: long, end: long): Promise<Array<BundleEvents>>;
+
+    /**
+   * Queries state data of all bundles within a specified period identified by the start and end time.
+   *
+   * @permission ohos.permission.BUNDLE_ACTIVE_INFO
+   * @param { long } begin - Indicates the start time of the query period, in milliseconds.
+   * <br> Unit:ms
+   * @param { long } end - Indicates the end time of the query period, in milliseconds.
+   * <br> Unit:ms
+   * @param { int } maxNum - Indicates max record number in result, max value is 1000, default value is 1000.
+   * @returns { Promise<Array<BundleEvents>> } the promise returned by queryBundleEvents.
+   * <p> the list of {@link BundleEvents} objects containing the state data of all bundles.</p>
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not System App.
+   * @throws { BusinessError } 10000001 - Memory operation failed.
+   * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
+   * <br> 2. Failed to apply for memory.
+   * @throws { BusinessError } 10000003 - Failed to get system ability manager.
+   * @throws { BusinessError } 10000004 - Failed to access the device usage service.
+   * @throws { BusinessError } 10000006 - Failed to get the application information.
+   * @throws { BusinessError } 10000007 - Failed to get the system time.
+   * @throws { BusinessError } 10000008 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
+   * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
+   * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
+   * @systemapi Hide this for inner system use.
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+    function queryBundleEvents(begin: long, end: long, maxNum: int): Promise<Array<BundleEvents>>;
 
   /**
    * Queries state data of the current bundle within a specified period.
    *
-   * @param { number } begin - Indicates the start time of the query period, in milliseconds.
-   * @param { number } end - Indicates the end time of the query period, in milliseconds.
+   * @param { long } begin - Indicates the start time of the query period, in milliseconds.
+   * <br> Unit:ms
+   * @param { long } end - Indicates the end time of the query period, in milliseconds.
+   * <br> Unit:ms
    * @param { AsyncCallback<Array<BundleEvents>> } callback - the callback of queryCurrentBundleEvents.
    * <p> the {@link BundleEvents} object Array containing the state data of the current bundle.</p>
    * @throws { BusinessError } 202 - Not System App.
@@ -1012,15 +1142,18 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 10000007 - Failed to get the system time.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 23 static
    */
-  function queryCurrentBundleEvents(begin: number, end: number, callback: AsyncCallback<Array<BundleEvents>>): void;
+  function queryCurrentBundleEvents(begin: long, end: long, callback: AsyncCallback<Array<BundleEvents>>): void;
 
   /**
    * Queries state data of the current bundle within a specified period.
    *
-   * @param { number } begin - Indicates the start time of the query period, in milliseconds.
-   * @param { number } end - Indicates the end time of the query period, in milliseconds.
+   * @param { long } begin - Indicates the start time of the query period, in milliseconds.
+   * <br> Unit:ms
+   * @param { long } end - Indicates the end time of the query period, in milliseconds.
+   * <br> Unit:ms
    * @returns { Promise<Array<BundleEvents>> } the promise returned by queryCurrentBundleEvents.
    * <p> the {@link BundleEvents} object Array containing the state data of the current bundle.</p>
    * @throws { BusinessError } 202 - Not System App.
@@ -1036,15 +1169,43 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 10000007 - Failed to get the system time.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 23 static
    */
-  function queryCurrentBundleEvents(begin: number, end: number): Promise<Array<BundleEvents>>;
+  function queryCurrentBundleEvents(begin: long, end: long): Promise<Array<BundleEvents>>;
+
+   /**
+   * Queries state data of the current bundle within a specified period.
+   *
+   * @param { long } begin - Indicates the start time of the query period, in milliseconds.
+   * <br> Unit:ms
+   * @param { long } end - Indicates the end time of the query period, in milliseconds.
+   * <br> Unit:ms
+   * @param { int } maxNum - Indicates max record number in result, max value is 1000, default value is 1000.
+   * @returns { Promise<Array<BundleEvents>> } the promise returned by queryCurrentBundleEvents.
+   * <p> the {@link BundleEvents} object Array containing the state data of the current bundle.</p>
+   * @throws { BusinessError } 202 - Not System App.
+   * @throws { BusinessError } 10000001 - Memory operation failed.
+   * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
+   * <br> 2. Failed to apply for memory.
+   * @throws { BusinessError } 10000003 - Failed to get system ability manager.
+   * @throws { BusinessError } 10000004 - Failed to access the device usage service.
+   * @throws { BusinessError } 10000006 - Failed to get the application information.
+   * @throws { BusinessError } 10000007 - Failed to get the system time.
+   * @throws { BusinessError } 10000008 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
+   * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
+   * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
+   * @systemapi Hide this for inner system use.
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+   function queryCurrentBundleEvents(begin: long, end: long, maxNum: int): Promise<Array<BundleEvents>>;
 
   /**
    * Queries recently module usage records with maxNum.
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
-   * @param { number } maxNum - Indicates max record number in result, max value is 1000, default value is 1000.
+   * @param { int } maxNum - Indicates max record number in result, max value is 1000, default value is 1000.
    * @param { AsyncCallback<Array<HapModuleInfo>> } callback - the callback of queryModuleUsageRecords.
    * <p> the {@link HapModuleInfo} object Array containing the usage data of the modules.</p>
    * @throws { BusinessError } 201 - Permission denied.
@@ -1061,15 +1222,16 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 10000007 - Failed to get the system time.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 23 static
    */
-  function queryModuleUsageRecords(maxNum: number, callback: AsyncCallback<Array<HapModuleInfo>>): void;
+  function queryModuleUsageRecords(maxNum: int, callback: AsyncCallback<Array<HapModuleInfo>>): void;
 
   /**
    * Queries recently module usage records with maxNum.
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
-   * @param { number } maxNum - Indicates max record number in result, max value is 1000, default value is 1000.
+   * @param { int } maxNum - Indicates max record number in result, max value is 1000, default value is 1000.
    * @returns { Promise<Array<HapModuleInfo>> } the promise returned by queryModuleUsageRecords.
    * <p> the {@link HapModuleInfo} object Array containing the usage data of the modules.</p>
    * @throws { BusinessError } 201 - Permission denied.
@@ -1086,9 +1248,10 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 10000007 - Failed to get the system time.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 23 static
    */
-  function queryModuleUsageRecords(maxNum: number): Promise<Array<HapModuleInfo>>;
+  function queryModuleUsageRecords(maxNum: int): Promise<Array<HapModuleInfo>>;
 
   /**
    * Queries recently module usage records.
@@ -1110,7 +1273,8 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 10000007 - Failed to get the system time.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 23 static
    */
   function queryModuleUsageRecords(callback: AsyncCallback<Array<HapModuleInfo>>): void;
 
@@ -1134,17 +1298,19 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 10000007 - Failed to get the system time.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 23 static
    */
   function queryModuleUsageRecords(): Promise<Array<HapModuleInfo>>;
 
   /**
    * Declares group type.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 23 static
    */
   export enum GroupType {
     /**
@@ -1152,7 +1318,8 @@ declare namespace usageStatistics {
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 23 static
      */
     ALIVE_GROUP = 10,
 
@@ -1161,7 +1328,8 @@ declare namespace usageStatistics {
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 23 static
      */
     DAILY_GROUP = 20,
 
@@ -1170,7 +1338,8 @@ declare namespace usageStatistics {
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 23 static
      */
     FIXED_GROUP = 30,
 
@@ -1179,7 +1348,8 @@ declare namespace usageStatistics {
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 23 static
      */
     RARE_GROUP = 40,
 
@@ -1188,7 +1358,8 @@ declare namespace usageStatistics {
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 23 static
      */
     LIMITED_GROUP = 50,
 
@@ -1197,7 +1368,8 @@ declare namespace usageStatistics {
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 23 static
      */
     NEVER_GROUP = 60
   }
@@ -1223,7 +1395,8 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 10100001 - Repeated operation on the application group.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 23 static
    */
   function setAppGroup(bundleName: string, newGroup: GroupType, callback: AsyncCallback<void>): void;
 
@@ -1248,7 +1421,8 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 10100001 - Repeated operation on the application group.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 23 static
    */
   function setAppGroup(bundleName: string, newGroup: GroupType): Promise<void>;
 
@@ -1272,7 +1446,8 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 10100001 - Repeated operation on the application group.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 23 static
    */
   function registerAppGroupCallBack(groupCallback: Callback<AppGroupCallbackInfo>, callback: AsyncCallback<void>): void;
 
@@ -1296,7 +1471,8 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 10100001 - Repeated operation on the application group.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 23 static
    */
   function registerAppGroupCallBack(groupCallback: Callback<AppGroupCallbackInfo>): Promise<void>;
 
@@ -1318,7 +1494,8 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 10100001 - Repeated operation on the application group.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 23 static
    */
   function unregisterAppGroupCallBack(callback: AsyncCallback<void>): void;
 
@@ -1340,7 +1517,8 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 10100001 - Repeated operation on the application group.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 23 static
    */
   function unregisterAppGroupCallBack(): Promise<void>;
 
@@ -1348,8 +1526,10 @@ declare namespace usageStatistics {
    * Queries device event states data within a specified period identified by the start and end time.
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
-   * @param { number } begin - Indicates the start time of the query period, in milliseconds.
-   * @param { number } end - Indicates the end time of the query period, in milliseconds.
+   * @param { long } begin - Indicates the start time of the query period, in milliseconds.
+   * <br> Unit:ms
+   * @param { long } end - Indicates the end time of the query period, in milliseconds.
+   * <br> Unit:ms
    * @param { AsyncCallback<Array<DeviceEventStats>> } callback - the callback of queryDeviceEventStats.
    * <p> the {@link DeviceEventStats} object Array containing the event states data.</p>
    * @throws { BusinessError } 201 - Permission denied.
@@ -1366,16 +1546,19 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 10000007 - Failed to get the system time.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 23 static
    */
-  function queryDeviceEventStats(begin: number, end: number, callback: AsyncCallback<Array<DeviceEventStats>>): void;
+  function queryDeviceEventStats(begin: long, end: long, callback: AsyncCallback<Array<DeviceEventStats>>): void;
 
   /**
    * Queries device event states data within a specified period identified by the start and end time.
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
-   * @param { number } begin - Indicates the start time of the query period, in milliseconds.
-   * @param { number } end - Indicates the end time of the query period, in milliseconds.
+   * @param { long } begin - Indicates the start time of the query period, in milliseconds.
+   * <br> Unit:ms
+   * @param { long } end - Indicates the end time of the query period, in milliseconds.
+   * <br> Unit:ms
    * @returns { Promise<Array<DeviceEventStats>> } the promise returned by queryDeviceEventStats.
    * <p> the {@link DeviceEventStats} object Array containing the event states data.</p>
    * @throws { BusinessError } 201 - Permission denied.
@@ -1392,16 +1575,19 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 10000007 - Failed to get the system time.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 23 static
    */
-  function queryDeviceEventStats(begin: number, end: number): Promise<Array<DeviceEventStats>>;
+  function queryDeviceEventStats(begin: long, end: long): Promise<Array<DeviceEventStats>>;
 
   /**
    * Queries app notification number within a specified period identified by the start and end time.
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
-   * @param { number } begin - Indicates the start time of the query period, in milliseconds.
-   * @param { number } end - Indicates the end time of the query period, in milliseconds.
+   * @param { long } begin - Indicates the start time of the query period, in milliseconds.
+   * <br> Unit:ms
+   * @param { long } end - Indicates the end time of the query period, in milliseconds.
+   * <br> Unit:ms
    * @param { AsyncCallback<Array<DeviceEventStats>> } callback - the callback of queryNotificationEventStats.
    * <p> the {@link DeviceEventStats} object Array containing the event states data.</p>
    * @throws { BusinessError } 201 - Permission denied.
@@ -1418,11 +1604,12 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 10000007 - Failed to get the system time.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 23 static
    */
   function queryNotificationEventStats(
-    begin: number,
-    end: number,
+    begin: long,
+    end: long,
     callback: AsyncCallback<Array<DeviceEventStats>>
   ): void;
 
@@ -1430,8 +1617,10 @@ declare namespace usageStatistics {
    * Queries app notification number within a specified period identified by the start and end time.
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
-   * @param { number } begin - Indicates the start time of the query period, in milliseconds.
-   * @param { number } end - Indicates the end time of the query period, in milliseconds.
+   * @param { long } begin - Indicates the start time of the query period, in milliseconds.
+   * <br> Unit:ms
+   * @param { long } end - Indicates the end time of the query period, in milliseconds.
+   * <br> Unit:ms
    * @returns { Promise<Array<DeviceEventStats>> } the promise returned by queryNotificationEventStats.
    * <p> the {@link DeviceEventStats} object Array containing the event states data.</p>
    * @throws { BusinessError } 201 - Permission denied.
@@ -1448,9 +1637,10 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 10000007 - Failed to get the system time.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 23 static
    */
-  function queryNotificationEventStats(begin: number, end: number): Promise<Array<DeviceEventStats>>;
+  function queryNotificationEventStats(begin: long, end: long): Promise<Array<DeviceEventStats>>;
 }
 
 export default usageStatistics;

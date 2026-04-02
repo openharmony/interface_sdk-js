@@ -25,7 +25,7 @@ import type { Callback } from './@ohos.base';
  *
  * @namespace opp
  * @syscap SystemCapability.Communication.Bluetooth.Core
- * @since 16
+ * @since 16 dynamic
  */
 declare namespace opp {
   /**
@@ -36,7 +36,7 @@ declare namespace opp {
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
-   * @since 16
+   * @since 16 dynamic
    */
   function createOppServerProfile(): OppServerProfile;
 
@@ -45,7 +45,7 @@ declare namespace opp {
    *
    * @typedef OppServerProfile
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 16
+   * @since 16 dynamic
    */
   interface OppServerProfile {
     /**
@@ -65,7 +65,7 @@ declare namespace opp {
      * @throws { BusinessError } 2900004 - Profile not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 16
+     * @since 16 dynamic
      */
     on(type: 'transferStateChange', callback: Callback<OppTransferInformation>): void;
 
@@ -86,7 +86,7 @@ declare namespace opp {
      * @throws { BusinessError } 2900004 - Profile not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 16
+     * @since 16 dynamic
      */
     off(type: 'transferStateChange', callback?: Callback<OppTransferInformation>): void;
 
@@ -107,7 +107,7 @@ declare namespace opp {
      * @throws { BusinessError } 2900004 - Profile not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 16
+     * @since 16 dynamic
      */
     on(type: 'receiveIncomingFile', callback: Callback<OppTransferInformation>): void;
 
@@ -128,7 +128,7 @@ declare namespace opp {
      * @throws { BusinessError } 2900004 - Profile not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 16
+     * @since 16 dynamic
      */
     off(type: 'receiveIncomingFile', callback?: Callback<OppTransferInformation>): void;
   
@@ -153,7 +153,7 @@ declare namespace opp {
      * @throws { BusinessError } 2903003 - The file is not accessible.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 16
+     * @since 16 dynamic
      */
     sendFile(deviceId: string, fileHolds: Array<FileHolder>): Promise<void>;
 
@@ -177,7 +177,7 @@ declare namespace opp {
      * @throws { BusinessError } 2903003 - The file is not accessible.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 16
+     * @since 16 dynamic
      */
     setIncomingFileConfirmation(accept: boolean, fileFd: number): Promise<void>;
 
@@ -197,7 +197,7 @@ declare namespace opp {
      * @throws { BusinessError } 2903002 - Current Transfer Information is busy.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 16
+     * @since 16 dynamic
      */
     cancelTransfer(): Promise<void>;
 
@@ -217,7 +217,7 @@ declare namespace opp {
      * @throws { BusinessError } 2903004 - Current Transfer Information is empty.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 16
+     * @since 16 dynamic
      */
     getCurrentTransferInformation(): Promise<OppTransferInformation>;
 
@@ -239,7 +239,7 @@ declare namespace opp {
      * @throws { BusinessError } 2900099 - Failed to set the URI of the last file.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 16
+     * @since 16 dynamic
      */
     setLastReceivedFileUri(uri: string): Promise<void>;
   }
@@ -250,7 +250,7 @@ declare namespace opp {
    * @enum { number }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
-   * @since 16
+   * @since 16 dynamic
    */
   enum DirectionType {
     /**
@@ -258,7 +258,7 @@ declare namespace opp {
      * 
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 16
+     * @since 16 dynamic
      */
     OUTBOUND = 0,
 
@@ -267,7 +267,7 @@ declare namespace opp {
      * 
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 16
+     * @since 16 dynamic
      */
     INBOUND = 1
   }
@@ -278,7 +278,7 @@ declare namespace opp {
    * @enum { number }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
-   * @since 16
+   * @since 16 dynamic
    */
   enum TransferStatus {
     /**
@@ -286,7 +286,7 @@ declare namespace opp {
      * 
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 16
+     * @since 16 dynamic
      */
     PENDING = 0,
 
@@ -295,7 +295,7 @@ declare namespace opp {
      * 
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 16
+     * @since 16 dynamic
      */
     RUNNING = 1,
 
@@ -304,7 +304,7 @@ declare namespace opp {
      * 
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 16
+     * @since 16 dynamic
      */
     FINISH = 2
   }
@@ -315,7 +315,7 @@ declare namespace opp {
    * @enum { number }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
-   * @since 16
+   * @since 16 dynamic
    */
   enum TransferResult {
     /**
@@ -323,7 +323,7 @@ declare namespace opp {
      * 
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 16
+     * @since 16 dynamic
      */
     SUCCESS = 0,
 
@@ -332,7 +332,7 @@ declare namespace opp {
      * 
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 16
+     * @since 16 dynamic
      */
     ERROR_UNSUPPORTED_TYPE = 1,
 
@@ -341,7 +341,7 @@ declare namespace opp {
      * 
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 16
+     * @since 16 dynamic
      */
     ERROR_BAD_REQUEST = 2,
 
@@ -350,7 +350,7 @@ declare namespace opp {
      * 
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 16
+     * @since 16 dynamic
      */
     ERROR_NOT_ACCEPTABLE = 3,
 
@@ -360,7 +360,7 @@ declare namespace opp {
      * 
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 16
+     * @since 16 dynamic
      */
     ERROR_CANCELED = 4,
 
@@ -369,7 +369,7 @@ declare namespace opp {
      * 
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 16
+     * @since 16 dynamic
      */
     ERROR_CONNECTION_FAILED = 5,
 
@@ -378,7 +378,7 @@ declare namespace opp {
      * 
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 16
+     * @since 16 dynamic
      */
     ERROR_TRANSFER_FAILED = 6,
 
@@ -387,7 +387,7 @@ declare namespace opp {
      * 
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 16
+     * @since 16 dynamic
      */
     ERROR_UNKNOWN = 7
   }
@@ -398,7 +398,7 @@ declare namespace opp {
    * @typedef OppTransferInformation
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
-   * @since 16
+   * @since 16 dynamic
    */
   interface OppTransferInformation {
     /**
@@ -407,7 +407,7 @@ declare namespace opp {
      * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 16
+     * @since 16 dynamic
      */
     filePath: string;
 
@@ -417,7 +417,7 @@ declare namespace opp {
      * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 16
+     * @since 16 dynamic
      */
     remoteDeviceName: string;
 
@@ -427,7 +427,7 @@ declare namespace opp {
      * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 16
+     * @since 16 dynamic
      */
     remoteDeviceId: string;
 
@@ -437,7 +437,7 @@ declare namespace opp {
      * @type { DirectionType }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 16
+     * @since 16 dynamic
      */
     direction: DirectionType;
 
@@ -447,7 +447,7 @@ declare namespace opp {
      * @type { TransferStatus }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 16
+     * @since 16 dynamic
      */
     status: TransferStatus;
 
@@ -457,7 +457,7 @@ declare namespace opp {
      * @type { TransferResult }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 16
+     * @since 16 dynamic
      */
     result: TransferResult;
 
@@ -467,7 +467,7 @@ declare namespace opp {
      * @type { number }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 16
+     * @since 16 dynamic
      */
     currentBytes: number;
 
@@ -477,7 +477,7 @@ declare namespace opp {
      * @type { number }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 16
+     * @since 16 dynamic
      */
     totalBytes: number;
 
@@ -487,7 +487,7 @@ declare namespace opp {
      * @type { number }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 16
+     * @since 16 dynamic
      */
     currentCount: number;
 
@@ -497,7 +497,7 @@ declare namespace opp {
      * @type { number }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 16
+     * @since 16 dynamic
      */
     totalCount: number;
   }
@@ -508,7 +508,7 @@ declare namespace opp {
    * @typedef FileHolder
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
-   * @since 16
+   * @since 16 dynamic
    */
   interface FileHolder {
     /**
@@ -517,7 +517,7 @@ declare namespace opp {
      * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 16
+     * @since 16 dynamic
      */
     filePath: string;
 
@@ -527,7 +527,7 @@ declare namespace opp {
      * @type { number }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 16
+     * @since 16 dynamic
      */
     fileSize: number;
 
@@ -537,7 +537,7 @@ declare namespace opp {
      * @type { number }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 16
+     * @since 16 dynamic
      */
     fileFd: number;
   }

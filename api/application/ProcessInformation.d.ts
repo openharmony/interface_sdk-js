@@ -18,10 +18,10 @@
  * @kit AbilityKit
  */
 
-/*** if arkts 1.1 */
+/*** if arkts dynamic */
 import type appManager from '../@ohos.app.ability.appManager';
 /*** endif */
-/*** if arkts 1.2 */
+/*** if arkts static */
 import appManager from '../@ohos.app.ability.appManager';
 /*** endif */
 import bundleManager from '../@ohos.bundle.bundleManager';
@@ -48,8 +48,8 @@ import bundleManager from '../@ohos.bundle.bundleManager';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 23 static
  */
 export interface ProcessInformation {
   /**
@@ -67,15 +67,15 @@ export interface ProcessInformation {
    * @since 10
    */
   /**
-   * @type { number }
+   * @type { int }
    * @default process id
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 23 static
    */
-  pid: number;
+  pid: int;
 
   /**
    * @type { number }
@@ -84,14 +84,14 @@ export interface ProcessInformation {
    * @since 9
    */
   /**
-   * @type { number }
+   * @type { int }
    * @default user id
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 23 static
    */
-  uid: number;
+  uid: int;
 
   /**
    * @type { string }
@@ -113,8 +113,8 @@ export interface ProcessInformation {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 23 static
    */
   processName: string;
 
@@ -138,8 +138,8 @@ export interface ProcessInformation {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 23 static
    */
   bundleNames: Array<string>;
 
@@ -156,8 +156,8 @@ export interface ProcessInformation {
    * @type { appManager.ProcessState }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 23 static
    */
   state: appManager.ProcessState;
 
@@ -167,18 +167,31 @@ export interface ProcessInformation {
    * @type { bundleManager.BundleType }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   bundleType: bundleManager.BundleType;
 
   /**
    * The app clone index of current process if app is multi app mode.
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
-  appCloneIndex?: number;
+  appCloneIndex?: int;
+
+  /**
+   * Indicates whether the process is in the preload state.
+   * - `true`: The process is currently in the preload state.
+   * - `false`: The process is either not a preload process, or its preload state has been consumed.
+   * 
+   * @type { ?boolean }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  isPreload?: boolean;
 }

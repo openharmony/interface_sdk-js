@@ -18,40 +18,15 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import window from '../../@ohos.window';
-import { Resource } from '../../global/resource';
-import { TextModifier } from '../../arkui/TextModifier';
-import { LengthMetrics } from '../../arkui/Graphics';
-import { Callback, BlurStyle, CommonMethod, Optional, LayoutSafeAreaType, LayoutSafeAreaEdge, BackgroundEffectOptions, BackgroundBlurStyleOptions, PixelMap, Bindable } from './common'
-import { CustomBuilder, PageMapBuilder } from './builder'
-import { Length, ResourceStr, ResourceColor, Dimension, VoidCallback } from './units'
-import { TitleHeight } from './enums'
-import { SymbolGlyphModifier } from '../../arkui/SymbolGlyphModifier'
-import { NavDestinationContext, NavDestinationMode } from './navDestination'
-/*** endif */
-
 /**
  * Import the SystemBarStyle type for Navigation.
  *
  * @typedef { import('../api/@ohos.window').default.SystemBarStyle } SystemBarStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare type SystemBarStyle = import('../api/@ohos.window').default.SystemBarStyle;
-
-
-/**
- * Import the SystemBarStyle type for Navigation.
- *
- * @typedef { window.SystemBarStyle } SystemBarStyle
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-declare type SystemBarStyle = window.SystemBarStyle;
 
 /**
  * Defines the navigation common title.
@@ -75,8 +50,7 @@ declare type SystemBarStyle = window.SystemBarStyle;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
  */
 declare interface NavigationCommonTitle {
   /**
@@ -110,8 +84,7 @@ declare interface NavigationCommonTitle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
    */
   main: string | Resource;
 
@@ -146,8 +119,7 @@ declare interface NavigationCommonTitle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
    */
   sub: string | Resource;
 }
@@ -174,8 +146,7 @@ declare interface NavigationCommonTitle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
  */
 declare interface NavigationCustomTitle {
   /**
@@ -200,8 +171,7 @@ declare interface NavigationCustomTitle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   builder: CustomBuilder;
 
@@ -227,8 +197,7 @@ declare interface NavigationCustomTitle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   height: TitleHeight | Length;
 }
@@ -256,8 +225,7 @@ declare interface NavigationCustomTitle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
  */
 declare enum NavigationMode {
   /**
@@ -279,8 +247,7 @@ declare enum NavigationMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   Stack,
 
@@ -303,37 +270,48 @@ declare enum NavigationMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   Split,
 
   /**
-   * If the window width is greater than 520vp, the navigation component is displayed in split mode.
+   * If the navigation width is greater than 520vp, the navigation component is displayed in split mode.
    * Otherwise it's displayed in stack mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
   /**
-   * If the window width is greater than the sum of minNavBarWidth and minContentWidth, the navigation component is displayed in split mode.
-   * Otherwise it's displayed in stack mode.
+   * If the navigation width is greater than the sum of minNavBarWidth and minContentWidth,
+   * the navigation component is displayed in split mode. Otherwise it's displayed in stack mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
-   * If the window width is greater than the sum of minNavBarWidth and minContentWidth, the navigation component is displayed in split mode.
-   * Otherwise it's displayed in stack mode.
+   * If the navigation width is greater than the sum of minNavBarWidth and minContentWidth,
+   * the navigation component is displayed in split mode. Otherwise it's displayed in stack mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   Auto,
+
+  /**
+   * If the navigation width is greater than the sum of minNavBarWidth and minContentWidth,
+   * and the navigation component's aspect ratio (height to width) is less than or equal to 1.2,
+   * the navigation component is displayed in split mode. Otherwise it's displayed in stack mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 24 dynamic
+   */
+  AUTO_WITH_ASPECT_RATIO,
 }
 
 /**
@@ -358,8 +336,7 @@ declare enum NavigationMode {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
  */
 declare enum NavBarPosition {
   /**
@@ -381,8 +358,7 @@ declare enum NavBarPosition {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   Start,
 
@@ -405,8 +381,7 @@ declare enum NavBarPosition {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   End,
 }
@@ -433,8 +408,7 @@ declare enum NavBarPosition {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
  */
 declare enum NavigationTitleMode {
   /**
@@ -495,8 +469,7 @@ declare enum NavigationTitleMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   Free = 0,
 
@@ -525,8 +498,7 @@ declare enum NavigationTitleMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   Full,
 
@@ -555,8 +527,7 @@ declare enum NavigationTitleMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   Mini,
 }
@@ -583,8 +554,7 @@ declare enum NavigationTitleMode {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
  */
 declare interface NavigationMenuItem {
   /**
@@ -618,8 +588,7 @@ declare interface NavigationMenuItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
    */
   value: string | Resource;
 
@@ -654,8 +623,7 @@ declare interface NavigationMenuItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
    */
   icon?: string | Resource;
 
@@ -674,8 +642,7 @@ declare interface NavigationMenuItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
    */
   symbolIcon?: SymbolGlyphModifier;
 
@@ -687,8 +654,7 @@ declare interface NavigationMenuItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   isEnabled?: boolean;
 
@@ -714,8 +680,7 @@ declare interface NavigationMenuItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   action?: () => void;
 }
@@ -735,8 +700,7 @@ declare interface NavigationMenuItem {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
  */
 declare interface PopInfo {
   /**
@@ -754,8 +718,7 @@ declare interface PopInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   info: NavPathInfo;
 
@@ -774,8 +737,7 @@ declare interface PopInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   result: Object;
 }
@@ -793,8 +755,7 @@ declare interface PopInfo {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
  */
 declare class NavPathInfo {
   /**
@@ -830,24 +791,9 @@ declare class NavPathInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   constructor(name: string, param: unknown, onPop?: import('../api/@ohos.base').Callback<PopInfo>, isEntry?: boolean);
-  
-  /**
-   * Creates an instance of NavPathInfo.
-   *
-   * @param { string } name - The name of NavDestination.
-   * @param { Object | null | undefined } param - The detailed parameter of the NavDestination.
-   * @param { Callback<PopInfo> } [onPop] - The callback when next page returns.
-   * @param { boolean } [isEntry] - Indicates whether it is an entry destination.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  constructor(name: string, param: Object | null | undefined, onPop?: Callback<PopInfo>, isEntry?: boolean);
 
   /**
    * Name of the navigation destination page.
@@ -864,8 +810,7 @@ declare class NavPathInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   name: string;
 
@@ -884,21 +829,9 @@ declare class NavPathInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   param?: unknown;
-  
-  /**
-   * The detailed parameter of the NavDestination.
-   *
-   * @type { ?(Object | null | undefined) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  param?: Object | null | undefined;
 
   /**
    * Callback returned when pop is called on the navigation destination page.
@@ -917,21 +850,9 @@ declare class NavPathInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   onPop?: import('../api/@ohos.base').Callback<PopInfo>;
-
-  /**
-   * The callback when next page returns.
-   *
-   * @type { ?Callback<PopInfo> }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  onPop?: Callback<PopInfo>;
 
   /**
    * Indicates whether it is an entry destination.
@@ -940,8 +861,7 @@ declare class NavPathInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   isEntry?: boolean;
 
@@ -952,8 +872,7 @@ declare class NavPathInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19 dynamic
    */
   navDestinationId?: string;
 }
@@ -965,8 +884,7 @@ declare class NavPathInfo {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
  */
 declare enum LaunchMode {
   /**
@@ -977,8 +895,7 @@ declare enum LaunchMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   STANDARD = 0,
 
@@ -989,8 +906,7 @@ declare enum LaunchMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   MOVE_TO_TOP_SINGLETON = 1,
 
@@ -1001,8 +917,7 @@ declare enum LaunchMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   POP_TO_SINGLETON = 2,
   
@@ -1013,8 +928,7 @@ declare enum LaunchMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   NEW_INSTANCE = 3,
 }
@@ -1026,8 +940,7 @@ declare enum LaunchMode {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
  */
 declare interface NavigationOptions {
   /**
@@ -1038,8 +951,7 @@ declare interface NavigationOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   launchMode?: LaunchMode;
 
@@ -1053,8 +965,7 @@ declare interface NavigationOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   animated?: boolean;
 }
@@ -1072,8 +983,7 @@ declare interface NavigationOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
  */
 declare class NavPathStack {
   /**
@@ -1089,8 +999,7 @@ declare class NavPathStack {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   constructor();
 
@@ -1112,8 +1021,7 @@ declare class NavPathStack {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   pushPath(info: NavPathInfo, animated?: boolean): void;
 
@@ -1126,8 +1034,7 @@ declare class NavPathStack {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   pushPath(info: NavPathInfo, options?: NavigationOptions): void;
 
@@ -1172,8 +1079,7 @@ declare class NavPathStack {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   pushDestination(info: NavPathInfo, animated?: boolean): Promise<void>;
 
@@ -1195,8 +1101,7 @@ declare class NavPathStack {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   pushDestination(info: NavPathInfo, options?: NavigationOptions): Promise<void>;
 
@@ -1220,25 +1125,9 @@ declare class NavPathStack {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   pushPathByName(name: string, param: unknown, animated?: boolean): void;
-  
-  /**
-   * Pushes the specified NavDestination into the stack.
-   *
-   * @param { string } name - Indicates the name of the NavDestination to be pushed.
-   * @param { Object | null | undefined } param - Indicates the detailed parameter of the NavDestination to be pushed.
-   * @param { boolean } [animated] - Indicates whether the transition is animated.
-   * <br>Default value: **true**.
-   * <br>**true**: The transition animation is supported. **false**: The transition animation is not supported.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  pushPathByName(name: string, param: Object | null | undefined, animated?: boolean): void;
 
   /**
    * Pushes the specified NavDestination into the stack.
@@ -1265,26 +1154,9 @@ declare class NavPathStack {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   pushPathByName(name: string, param: Object, onPop: import('../api/@ohos.base').Callback<PopInfo>, animated?: boolean): void;
-  
-  /**
-   * Pushes the specified NavDestination into the stack.
-   *
-   * @param { string } name - Indicates the name of the NavDestination to be pushed.
-   * @param { Object } param - Indicates the detailed parameter of the NavDestination to be pushed.
-   * @param { Callback<PopInfo> } onPop - The callback when next page returns.
-   * @param { boolean } [animated] - Indicates whether the transition is animated.
-   * <br>Default value: **true**.
-   * <br>**true**: The transition animation is supported. **false**: The transition animation is not supported.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  pushPathByName(name: string, param: Object, onPop: Callback<PopInfo>, animated?: boolean): void;
 
   /**
    * Pushes the specified NavDestination into the stack.
@@ -1325,8 +1197,7 @@ declare class NavPathStack {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   pushDestinationByName(name: string, param: Object, animated?: boolean): Promise<void>;
 
@@ -1371,34 +1242,9 @@ declare class NavPathStack {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   pushDestinationByName(name: string, param: Object, onPop: import('../api/@ohos.base').Callback<PopInfo>, animated?: boolean): Promise<void>;
-
-  /**
-   * Pushes the specified NavDestination into the stack.
-   *
-   * @param { string } name - Indicates the name of the NavDestination to be pushed.
-   * @param { Object } param - Indicates the detailed parameter of the NavDestination to be pushed.
-   * @param { Callback<PopInfo> } onPop - The callback when next page returns.
-   * @param { boolean } [animated] - Indicates whether the transition is animated.
-   * <br>Default value: **true**.
-   * <br>**true**: The transition animation is supported. **false**: The transition animation is not supported.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   *     1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameters types.
-   *     3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - Internal error.
-   * @throws { BusinessError } 100005 - Builder function not registered.
-   * @throws { BusinessError } 100006 - NavDestination not found.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  pushDestinationByName(name: string, param: Object, onPop: Callback<PopInfo>, animated?: boolean): Promise<void>;
 
   /**
    * Replace the current NavDestination with the specific one.The current NavDestination will be destroyed.
@@ -1423,8 +1269,7 @@ declare class NavPathStack {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   replacePath(info: NavPathInfo, animated?: boolean): void;
 
@@ -1436,8 +1281,7 @@ declare class NavPathStack {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   replacePath(info: NavPathInfo, options?: NavigationOptions): void;
 
@@ -1457,8 +1301,7 @@ declare class NavPathStack {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
    */
   replaceDestination(info: NavPathInfo, options?: NavigationOptions): Promise<void>;
 
@@ -1485,8 +1328,7 @@ declare class NavPathStack {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   replacePathByName(name: string, param: Object, animated?: boolean): void;
 
@@ -1507,8 +1349,7 @@ declare class NavPathStack {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   removeByIndexes(indexes: Array<number>): number;
 
@@ -1529,8 +1370,7 @@ declare class NavPathStack {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   removeByName(name: string): number;
 
@@ -1544,8 +1384,7 @@ declare class NavPathStack {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   removeByNavDestinationId(navDestinationId: string): boolean;
 
@@ -1567,8 +1406,7 @@ declare class NavPathStack {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   pop(animated?: boolean): NavPathInfo | undefined;
 
@@ -1595,8 +1433,7 @@ declare class NavPathStack {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   pop(result: Object, animated?: boolean): NavPathInfo | undefined;
 
@@ -1620,8 +1457,7 @@ declare class NavPathStack {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   popToName(name: string, animated?: boolean): number;
 
@@ -1654,8 +1490,7 @@ declare class NavPathStack {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   popToName(name: string, result: Object, animated?: boolean): number;
 
@@ -1677,8 +1512,7 @@ declare class NavPathStack {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   popToIndex(index: number, animated?: boolean): void;
 
@@ -1693,8 +1527,7 @@ declare class NavPathStack {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   popToIndex(index: number, result: Object, animated?: boolean): void;
 
@@ -1720,8 +1553,7 @@ declare class NavPathStack {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   moveToTop(name: string, animated?: boolean): number;
 
@@ -1744,8 +1576,7 @@ declare class NavPathStack {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   moveIndexToTop(index: number, animated?: boolean): void;
 
@@ -1766,8 +1597,7 @@ declare class NavPathStack {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   clear(animated?: boolean): void;
 
@@ -1786,8 +1616,7 @@ declare class NavPathStack {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   getAllPathName(): Array<string>;
 
@@ -1810,22 +1639,9 @@ declare class NavPathStack {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   getParamByIndex(index: number): unknown | undefined;
-  
-  /**
-   * Obtains the param of the specified NavDestination.
-   *
-   * @param { number } index - Indicates the index of the NavDestination.
-   * @returns { Object | null | undefined } Returns the detailed parameter of the NavDestination if it exists in the stack, otherwise returns undefined;
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  getParamByIndex(index: number): Object | null | undefined;
 
   /**
    * Obtains the param of the specified NavDestination.
@@ -1844,22 +1660,9 @@ declare class NavPathStack {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   getParamByName(name: string): Array<unknown>;
-  
-  /**
-   * Obtains the param of the specified NavDestination.
-   *
-   * @param { string } name - Indicates the name of the NavDestination.
-   * @returns { Array<Object | null | undefined> } Returns the detailed parameter of all the NavDestinations.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  getParamByName(name: string): Array<Object | null | undefined>;
 
   /**
    * Obtains the indexes of all the navigation destination pages that match **name**.
@@ -1878,8 +1681,7 @@ declare class NavPathStack {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   getIndexByName(name: string): Array<number>;
 
@@ -1892,8 +1694,7 @@ declare class NavPathStack {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   getParent(): NavPathStack | null;
 
@@ -1914,8 +1715,7 @@ declare class NavPathStack {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   size(): number;
 
@@ -1940,8 +1740,7 @@ declare class NavPathStack {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   disableAnimation(value: boolean): void;
 
@@ -1952,8 +1751,7 @@ declare class NavPathStack {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   setInterception(interception: NavigationInterception): void;
 
@@ -1964,8 +1762,7 @@ declare class NavPathStack {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19 dynamic
    */
   getPathStack(): Array<NavPathInfo>;
 
@@ -1979,8 +1776,7 @@ declare class NavPathStack {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19 dynamic
    */
   setPathStack(pathStack: Array<NavPathInfo>, animated?: boolean): void;
 }
@@ -1992,8 +1788,7 @@ declare class NavPathStack {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
  */
 declare type NavBar = 'navBar'
 
@@ -2008,10 +1803,25 @@ declare type NavBar = 'navBar'
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
  */
 declare type InterceptionShowCallback = (from: NavDestinationContext|NavBar, to: NavDestinationContext|NavBar, operation: NavigationOperation, isAnimated: boolean) => void;
+
+/**
+ * navigation interception callback.
+ *
+ * @typedef { function } InterceptionCallback
+ * @param { NavPathInfo | NavBar } from - Indicates the info of NavDestination or NavBar.
+ * @param { NavPathInfo | NavBar } to - Indicates the info of NavDestination or NavBar.
+ * @param { NavPathStack } pathStack - The NavPathStack of current Navigation.
+ * @param { NavigationOperation } operation - Indicates the type of navigation operation.
+ * @param { boolean } isAnimated - Indicates whether the transition is animated.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 22 dynamic
+ */
+declare type InterceptionCallback = (from: NavPathInfo|NavBar, to: NavPathInfo|NavBar, pathStack: NavPathStack, operation: NavigationOperation, isAnimated: boolean) => void;
 
 /**
  * navigation interception callback using in navigation mode change
@@ -2021,8 +1831,7 @@ declare type InterceptionShowCallback = (from: NavDestinationContext|NavBar, to:
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
  */
 declare type InterceptionModeCallback = (mode: NavigationMode) => void;
 
@@ -2033,8 +1842,7 @@ declare type InterceptionModeCallback = (mode: NavigationMode) => void;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
  */
 declare interface NavigationInterception {
   /**
@@ -2045,8 +1853,7 @@ declare interface NavigationInterception {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   willShow?: InterceptionShowCallback;
 
@@ -2057,8 +1864,7 @@ declare interface NavigationInterception {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   didShow?: InterceptionShowCallback;
 
@@ -2069,10 +1875,20 @@ declare interface NavigationInterception {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   modeChange?: InterceptionModeCallback;
+
+  /**
+   * Called before destination is created.For details, see { @Link InterceptionCallback}.
+   *
+   * @type { ?InterceptionCallback }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  interception?: InterceptionCallback;
 }
 
 /**
@@ -2082,7 +1898,7 @@ declare interface NavigationInterception {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 declare interface HomePathInfo {
   /**
@@ -2092,7 +1908,7 @@ declare interface HomePathInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   name: string;
 
@@ -2103,7 +1919,7 @@ declare interface HomePathInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   param?: Object;
 }
@@ -2130,8 +1946,7 @@ declare interface HomePathInfo {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
  */
 interface NavigationInterface {
   /**
@@ -2156,8 +1971,7 @@ interface NavigationInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   (): NavigationAttribute;
 
@@ -2178,8 +1992,7 @@ interface NavigationInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   (pathInfos: NavPathStack): NavigationAttribute;
 
@@ -2192,7 +2005,7 @@ interface NavigationInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   (pathInfos: NavPathStack, homeDestination: HomePathInfo): NavigationAttribute;
 }
@@ -2211,8 +2024,7 @@ interface NavigationInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
  */
 declare enum ToolbarItemStatus {
   /**
@@ -2231,8 +2043,7 @@ declare enum ToolbarItemStatus {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   NORMAL = 0,
 
@@ -2248,8 +2059,7 @@ declare enum ToolbarItemStatus {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   DISABLED = 1,
 
@@ -2267,8 +2077,7 @@ declare enum ToolbarItemStatus {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   ACTIVE = 2,
 }
@@ -2288,8 +2097,7 @@ declare enum ToolbarItemStatus {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
  */
 declare enum NavigationOperation {
   /**
@@ -2305,8 +2113,7 @@ declare enum NavigationOperation {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   PUSH = 1,
 
@@ -2323,8 +2130,7 @@ declare enum NavigationOperation {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   POP = 2,
 
@@ -2341,8 +2147,7 @@ declare enum NavigationOperation {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   REPLACE = 3,
 }
@@ -2369,8 +2174,7 @@ declare enum NavigationOperation {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20
- * @arkts 1.1&1.2
+ * @since 20 dynamic
  */
 declare interface ToolbarItem {
   /**
@@ -2388,8 +2192,7 @@ declare interface ToolbarItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   value: ResourceStr;
 
@@ -2408,8 +2211,7 @@ declare interface ToolbarItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   icon?: ResourceStr;
 
@@ -2428,8 +2230,7 @@ declare interface ToolbarItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
    */
   symbolIcon?: SymbolGlyphModifier;
 
@@ -2448,8 +2249,7 @@ declare interface ToolbarItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   action?: () => void;
 
@@ -2470,8 +2270,7 @@ declare interface ToolbarItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   status?: ToolbarItemStatus;
 
@@ -2490,8 +2289,7 @@ declare interface ToolbarItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   activeIcon?: ResourceStr;
 
@@ -2510,8 +2308,7 @@ declare interface ToolbarItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
    */
   activeSymbolIcon?: SymbolGlyphModifier;
 }
@@ -2523,8 +2320,7 @@ declare interface ToolbarItem {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
  */
 declare interface NavigationTitleOptions {
   /**
@@ -2534,8 +2330,7 @@ declare interface NavigationTitleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   backgroundColor?: ResourceColor;
 
@@ -2547,8 +2342,7 @@ declare interface NavigationTitleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   backgroundBlurStyle?: BlurStyle;
 
@@ -2559,8 +2353,7 @@ declare interface NavigationTitleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19 dynamic
    */
   backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
 
@@ -2571,8 +2364,7 @@ declare interface NavigationTitleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19 dynamic
    */
   backgroundEffect?: BackgroundEffectOptions;
 
@@ -2585,8 +2377,7 @@ declare interface NavigationTitleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   barStyle?: BarStyle;
 
@@ -2598,8 +2389,7 @@ declare interface NavigationTitleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   paddingStart?: LengthMetrics;
 
@@ -2611,8 +2401,7 @@ declare interface NavigationTitleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   paddingEnd?: LengthMetrics;
 
@@ -2623,8 +2412,7 @@ declare interface NavigationTitleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13 dynamic
    */
   mainTitleModifier?: TextModifier;
 
@@ -2635,8 +2423,7 @@ declare interface NavigationTitleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13 dynamic
    */
   subTitleModifier?: TextModifier;
   
@@ -2650,8 +2437,7 @@ declare interface NavigationTitleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13 dynamic
    */
   enableHoverMode?: boolean;
 }
@@ -2663,8 +2449,7 @@ declare interface NavigationTitleOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
  */
 declare enum BarStyle {
   /**
@@ -2673,8 +2458,7 @@ declare enum BarStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   STANDARD = 0,
 
@@ -2684,8 +2468,7 @@ declare enum BarStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   STACK = 1,
 
@@ -2695,8 +2478,7 @@ declare enum BarStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
    */
   SAFE_AREA_PADDING = 2,
 }
@@ -2708,8 +2490,7 @@ declare enum BarStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
  */
 declare interface NavigationToolbarOptions {
   /**
@@ -2719,8 +2500,7 @@ declare interface NavigationToolbarOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   backgroundColor?: ResourceColor;
 
@@ -2732,8 +2512,7 @@ declare interface NavigationToolbarOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   backgroundBlurStyle?: BlurStyle;
 
@@ -2744,8 +2523,7 @@ declare interface NavigationToolbarOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19 dynamic
    */
   backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
 
@@ -2756,8 +2534,7 @@ declare interface NavigationToolbarOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19 dynamic
    */
   backgroundEffect?: BackgroundEffectOptions;
 
@@ -2768,8 +2545,7 @@ declare interface NavigationToolbarOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19 dynamic
    */
   moreButtonOptions?: MoreButtonOptions;
 
@@ -2781,8 +2557,7 @@ declare interface NavigationToolbarOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
    */
   barStyle?: BarStyle;
 
@@ -2796,8 +2571,7 @@ declare interface NavigationToolbarOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19 dynamic
    */
   hideItemValue?: boolean
 }
@@ -2809,8 +2583,7 @@ declare interface NavigationToolbarOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'19','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 19 dynamic
  */
 declare interface NavigationMenuOptions {
 /**
@@ -2820,21 +2593,19 @@ declare interface NavigationMenuOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'19','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 19 dynamic
  */
   moreButtonOptions?: MoreButtonOptions;
 }
 
 /**
- * Indicates the options of Navigation's Menu.
+ * The more button options of Navigation's menu or toolbar.
  *
  * @interface MoreButtonOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'19','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 19 dynamic
  */
 declare interface MoreButtonOptions {
   /**
@@ -2844,8 +2615,7 @@ declare interface MoreButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19 dynamic
    */
   backgroundBlurStyle?: BlurStyle;
   
@@ -2856,8 +2626,7 @@ declare interface MoreButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19 dynamic
    */
   backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
 
@@ -2868,8 +2637,7 @@ declare interface MoreButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19 dynamic
    */
   backgroundEffect?: BackgroundEffectOptions;
 }
@@ -2896,8 +2664,7 @@ declare interface MoreButtonOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
  */
 declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
   /**
@@ -2934,8 +2701,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   navBarWidth(value: Length): NavigationAttribute;
 
@@ -2970,8 +2736,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   navBarPosition(value: NavBarPosition): NavigationAttribute;
 
@@ -2998,8 +2763,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   navBarWidthRange(value: [Dimension, Dimension]): NavigationAttribute;
 
@@ -3030,8 +2794,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   minContentWidth(value: Dimension): NavigationAttribute;
 
@@ -3066,8 +2829,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   mode(value: NavigationMode): NavigationAttribute;
 
@@ -3106,8 +2868,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   backButtonIcon(value: string | PixelMap | Resource | SymbolGlyphModifier): NavigationAttribute;
 
@@ -3121,8 +2882,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19 dynamic
    */
   backButtonIcon(icon: string | PixelMap | Resource | SymbolGlyphModifier, accessibilityText?: ResourceStr): NavigationAttribute;
 
@@ -3155,8 +2915,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   hideNavBar(value: boolean): NavigationAttribute;
 
@@ -3206,8 +2965,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   title(value: ResourceStr | CustomBuilder | NavigationCommonTitle | NavigationCustomTitle, options?: NavigationTitleOptions): NavigationAttribute;
 
@@ -3217,7 +2975,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @param { string } value - Content of subtitle.
    * @returns { NavigationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead title
    */
@@ -3251,8 +3009,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   hideTitleBar(value: boolean): NavigationAttribute;
 
@@ -3268,8 +3025,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13 dynamic
    */
   hideTitleBar(hide: boolean, animated: boolean): NavigationAttribute;
 
@@ -3304,8 +3060,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   hideBackButton(value: boolean): NavigationAttribute;
 
@@ -3337,8 +3092,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   titleMode(value: NavigationTitleMode): NavigationAttribute;
 
@@ -3379,8 +3133,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   menus(value: Array<NavigationMenuItem> | CustomBuilder): NavigationAttribute;
 
@@ -3393,8 +3146,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19 dynamic
    */
   menus(items: Array<NavigationMenuItem> | CustomBuilder, options?: NavigationMenuOptions): NavigationAttribute;
 
@@ -3408,7 +3160,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @param { object | CustomBuilder } value - Content of the toolbar.
    * @returns { NavigationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 10
    * @useinstead navigation/NavigationAttribute#toolbarConfiguration
    */
@@ -3432,8 +3184,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 11 dynamic
     */
   toolbarConfiguration(value: Array<ToolbarItem> | CustomBuilder, options?: NavigationToolbarOptions): NavigationAttribute;
 
@@ -3465,8 +3216,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   hideToolBar(value: boolean): NavigationAttribute;
 
@@ -3482,8 +3232,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13 dynamic
    */
   hideToolBar(hide: boolean, animated: boolean): NavigationAttribute;
 
@@ -3498,8 +3247,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19 dynamic
    */
   enableToolBarAdaptation(enable: Optional<boolean>): NavigationAttribute;
 
@@ -3531,8 +3279,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   onTitleModeChange(callback: (titleMode: NavigationTitleMode) => void): NavigationAttribute;
 
@@ -3564,8 +3311,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   onNavBarStateChange(callback: (isVisible: boolean) => void): NavigationAttribute;
 
@@ -3578,8 +3324,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   onNavigationModeChange(callback: (mode: NavigationMode) => void): NavigationAttribute;
 
@@ -3604,24 +3349,11 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   navDestination(builder: (name: string, param: unknown) => void): NavigationAttribute;
 
   /**
-   * Set builder for user-defined NavDestination component.
-   *
-   * @param { PageMapBuilder | undefined } builder - The builder function of NavDestination component.
-   * @returns { NavigationAttribute } Returns the instance of the NavigationAttribute.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  navDestination(builder: PageMapBuilder | undefined): NavigationAttribute;
-
-  /**
    * Set custom navigation content transition animation.
    *
    * @param { function } delegate - Custom transition delegate.
@@ -3638,8 +3370,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   customNavContentTransition(delegate: (from: NavContentInfo, to: NavContentInfo, operation: NavigationOperation) => NavigationAnimatedTransition | undefined): NavigationAttribute;
 
@@ -3654,8 +3385,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   ignoreLayoutSafeArea(types?: Array<LayoutSafeAreaType>, edges?: Array<LayoutSafeAreaEdge>): NavigationAttribute;
 
@@ -3666,8 +3396,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @returns { NavigationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   systemBarStyle(style: Optional<SystemBarStyle>): NavigationAttribute;
   
@@ -3681,8 +3410,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    *                                  **false**: The **Navigation** component is not recoverable.
    * @returns { NavigationAttribute } Returns the instance of the NavigationAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
    */
   recoverable(recoverable: Optional<boolean>): NavigationAttribute;
 
@@ -3697,11 +3425,24 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
    */
   enableDragBar(isEnabled: Optional<boolean>): NavigationAttribute;
   
+  /**
+   * Set the navigation divider style in split mode.
+   *
+   * @param { NavigationDividerStyle | null } style - navigation divider style in split mode.
+   *      null indicates that the divider is hidden.
+   * @returns { NavigationAttribute } Returns the instance of the NavigationAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  divider(style: NavigationDividerStyle | null): NavigationAttribute;
+
   /**
    * whether to enable modeChangeAnimation
    * 
@@ -3713,8 +3454,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15 dynamic
    */
   enableModeChangeAnimation(isEnabled: Optional<boolean>): NavigationAttribute;
 
@@ -3726,7 +3466,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   splitPlaceholder(placeholder: ComponentContent): NavigationAttribute;
 
@@ -3742,9 +3482,9 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 21
+   * @since 21 dynamic
    */
-  enableShowHideWithContentCover(isEnabled: Optional<boolean>): NavigationAttribute;
+  enableVisibilityLifecycleWithContentCover(isEnabled: Optional<boolean>): NavigationAttribute;
 }
 
 /**
@@ -3762,8 +3502,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
 * @syscap SystemCapability.ArkUI.ArkUI.Full
 * @crossplatform
 * @atomicservice
-* @since arkts {'1.1':'12','1.2':'20'}
-* @arkts 1.1&1.2
+* @since 12 dynamic
 */
 declare interface NavigationAnimatedTransition {
   /**
@@ -3781,8 +3520,7 @@ declare interface NavigationAnimatedTransition {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   onTransitionEnd?: (success: boolean) => void
 
@@ -3801,8 +3539,7 @@ declare interface NavigationAnimatedTransition {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   timeout?: number;
 
@@ -3814,8 +3551,7 @@ declare interface NavigationAnimatedTransition {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   isInteractive?: boolean;
 
@@ -3834,8 +3570,7 @@ declare interface NavigationAnimatedTransition {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   transition: (transitionProxy: NavigationTransitionProxy) => void
 }
@@ -3855,8 +3590,7 @@ declare interface NavigationAnimatedTransition {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
-* @since arkts {'1.1':'12','1.2':'20'}
-* @arkts 1.1&1.2
+ * @since 12 dynamic
  */
 declare interface NavigationTransitionProxy {
   /**
@@ -3874,8 +3608,7 @@ declare interface NavigationTransitionProxy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   from: NavContentInfo;
 
@@ -3894,8 +3627,7 @@ declare interface NavigationTransitionProxy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   to: NavContentInfo;
 
@@ -3907,8 +3639,7 @@ declare interface NavigationTransitionProxy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   isInteractive?: boolean;
 
@@ -3925,8 +3656,7 @@ declare interface NavigationTransitionProxy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   finishTransition(): void;
 
@@ -3938,21 +3668,9 @@ declare interface NavigationTransitionProxy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   cancelTransition?(): void;
-
-  /**
-   * Notification system transition animation canceled.
-   *
-   * @type { ?VoidCallback }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  cancelTransition?: VoidCallback;
 
   /**
    * Updates the progress of this interactive transition animation. (Non-interactive
@@ -3962,35 +3680,10 @@ declare interface NavigationTransitionProxy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   updateTransition?(progress: number): void;
-
-  /**
-   * Notification system transition animation update.
-   *
-   * @type { ?UpdateTransitionCallback }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  updateTransition?: UpdateTransitionCallback;
 }
-
-/**
- * navigation update transition callback.
- *
- * @typedef { function } UpdateTransitionCallback
- * @param { number } progress - Indicates the process of transition
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-declare type UpdateTransitionCallback = (progress: number) => void;
 
 /**
  * Navigation content info.
@@ -4007,8 +3700,7 @@ declare type UpdateTransitionCallback = (progress: number) => void;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
  */
 declare interface NavContentInfo {
   /**
@@ -4026,8 +3718,7 @@ declare interface NavContentInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   name?: string;
 
@@ -4046,8 +3737,7 @@ declare interface NavContentInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   index: number;
 
@@ -4066,8 +3756,7 @@ declare interface NavContentInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   mode?: NavDestinationMode;
 
@@ -4078,8 +3767,7 @@ declare interface NavContentInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   param?: Object;
 
@@ -4090,10 +3778,53 @@ declare interface NavContentInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   navDestinationId?: string;
+}
+
+/**
+* Define the style of the Navigation divider.
+*
+* @interface NavigationDividerStyle
+* @syscap SystemCapability.ArkUI.ArkUI.Full
+* @crossplatform
+* @atomicservice
+* @since 23 dynamic
+*/
+declare interface NavigationDividerStyle {
+  /**
+   * Define the color of the navigation divider.
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  color?: ResourceColor;
+
+  /**
+   * Define the start margin of the navigation divider.
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  startMargin?: Length;
+
+  /**
+   * Define the end margin of the navigation divider.
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  endMargin?: Length;
 }
 
 /**
@@ -4115,7 +3846,7 @@ declare interface NavContentInfo {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const Navigation: NavigationInterface;
 
@@ -4138,6 +3869,6 @@ declare const Navigation: NavigationInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const NavigationInstance: NavigationAttribute;

@@ -37,7 +37,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 export declare class HyperlinkModifier extends HyperlinkAttribute implements AttributeModifier<HyperlinkAttribute> {
 
@@ -48,7 +48,7 @@ export declare class HyperlinkModifier extends HyperlinkAttribute implements Att
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   applyNormalAttribute?(instance: HyperlinkAttribute): void;
 }

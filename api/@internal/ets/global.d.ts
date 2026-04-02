@@ -47,7 +47,7 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 export declare class console {
   /**
@@ -86,7 +86,7 @@ export declare class console {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   static debug(message: string, ...arguments: any[]): void;
 
@@ -126,7 +126,7 @@ export declare class console {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   static log(message: string, ...arguments: any[]): void;
 
@@ -166,7 +166,7 @@ export declare class console {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   static info(message: string, ...arguments: any[]): void;
 
@@ -206,7 +206,7 @@ export declare class console {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   static warn(message: string, ...arguments: any[]): void;
 
@@ -246,7 +246,7 @@ export declare class console {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   static error(message: string, ...arguments: any[]): void;
 
@@ -274,7 +274,7 @@ export declare class console {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   static assert(value?: Object, ...arguments: Object[]): void;
 
@@ -302,7 +302,7 @@ export declare class console {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   static count(label?: string): void;
 
@@ -328,7 +328,7 @@ export declare class console {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   static countReset(label?: string): void;
 
@@ -350,7 +350,7 @@ export declare class console {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   static dir(dir?: Object): void;
 
@@ -374,7 +374,7 @@ export declare class console {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   static dirxml(...arguments: Object[]): void;
 
@@ -396,7 +396,7 @@ export declare class console {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   static group(...arguments: Object[]): void;
 
@@ -418,7 +418,7 @@ export declare class console {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   static groupCollapsed(...arguments: Object[]): void;
 
@@ -437,7 +437,7 @@ export declare class console {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   static groupEnd(): void;
 
@@ -459,7 +459,7 @@ export declare class console {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   static table(tableData?: Object): void;
 
@@ -486,7 +486,7 @@ export declare class console {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   static time(label?: string): void;
 
@@ -512,7 +512,7 @@ export declare class console {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   static timeEnd(label?: string): void;
 
@@ -540,7 +540,7 @@ export declare class console {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   static timeLog(label?: string, ...arguments: Object[]): void;
 
@@ -562,7 +562,7 @@ export declare class console {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   static trace(...arguments: Object[]): void;
 
@@ -573,7 +573,7 @@ export declare class console {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   static traceHybridStack(): void;
 }
@@ -616,7 +616,7 @@ export declare class console {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 export declare function setInterval(handler: Function | string, delay: number, ...arguments: any[]): number;
 
@@ -654,17 +654,18 @@ export declare function setInterval(handler: Function | string, delay: number, .
  * @param { Function | string } handler - Function to be called after the timer goes off. If the type is string, error information is printed and no other processing is performed.
  * For devices of "tv", "phone, tablet", and "wearable" types, this parameter can be a function or string.
  * For devices of "lite wearable" and "smartVision" types, this parameter must be a function.
- * @param { number } [delay] - Number of milliseconds delayed before the execution. It is recommended that an integer be passed in. A decimal will be rounded down.
+ * @param { number } [delay] - Number of milliseconds delayed before the execution (ms). It is recommended that an integer be passed in. A decimal will be rounded down.
  * If this parameter is not specified, the default value 0 is used, indicating that the function is executed immediately (in the next event loop).
  * NOTE
  * 1. In either case, the actual delay may be longer than expected.
  * 2. If a value less than 1 is passed, the default value 0 is used.
+ * 3. The value of delay is subject to system limitations. If it exceeds 2^31 - 1, an overflow will occur and the delay value will be set to 0.
  * @param { any[] } [arguments] - Additional parameters to pass to the handler after the timer goes off.
  * @returns { number } ID of the timer. The timer ID is shared by processes and is an integer starting from 0 in ascending order.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 export declare function setTimeout(handler: Function | string, delay?: number, ...arguments: any[]): number;
 
@@ -691,7 +692,7 @@ export declare function setTimeout(handler: Function | string, delay?: number, .
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 export declare function clearInterval(intervalID?: number): void;
 
@@ -718,7 +719,7 @@ export declare function clearInterval(intervalID?: number): void;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 export declare function clearTimeout(timeoutID?: number): void;
 
@@ -747,7 +748,8 @@ export declare function clearTimeout(timeoutID?: number): void;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
+ * @since 23 static
  */
 export declare function canIUse(syscap: string): boolean;
 
@@ -778,7 +780,7 @@ export declare function canIUse(syscap: string): boolean;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @test
  */
 export declare function getInspectorByKey(id: string): string;
@@ -807,7 +809,7 @@ export declare function getInspectorByKey(id: string): string;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @test
  */
 export declare function getInspectorTree(): Object;
@@ -845,7 +847,7 @@ export declare function getInspectorTree(): Object;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @test
  */
 export declare function sendEventByKey(id: string, action: number, params: string): boolean;
@@ -877,7 +879,7 @@ export declare function sendEventByKey(id: string, action: number, params: strin
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @test
  */
 export declare function sendTouchEvent(event: TouchObject): boolean;
@@ -909,7 +911,7 @@ export declare function sendTouchEvent(event: TouchObject): boolean;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @test
  */
 export declare function sendKeyEvent(event: KeyEvent): boolean;
@@ -941,7 +943,7 @@ export declare function sendKeyEvent(event: KeyEvent): boolean;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @test
  */
 export declare function sendMouseEvent(event: MouseEvent): boolean;
@@ -954,7 +956,7 @@ export declare function sendMouseEvent(event: MouseEvent): boolean;
   * @syscap SystemCapability.Utils.Lang
   * @systemapi
   * @stagemodelonly
-  * @since 10
+  * @since 10 dynamiconly
   */
 export declare function markModuleCollectable(namespace: Object): void;
 
@@ -968,6 +970,6 @@ export declare function markModuleCollectable(namespace: Object): void;
  * @syscap SystemCapability.Utils.Lang
  * @stagemodelonly
  * @atomicservice
- * @since 12
+ * @since 12 dynamiconly
  */
 export declare function loadNativeModule(moduleName: string): Object;

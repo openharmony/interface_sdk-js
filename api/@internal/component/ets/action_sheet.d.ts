@@ -18,19 +18,6 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { Resource } from '../../global/resource';
-import {
-  VoidCallback, ResourceStr, ResourceColor, Dimension, BorderRadiuses, LocalizedEdgeColors, EdgeColors,
-  EdgeWidths, LocalizedEdgeWidths, EdgeStyles, LocalizedBorderRadiuses
-} from './units';
-import { Callback, DismissReason, Rectangle, BlurStyle, TransitionEffect, ShadowOptions, HoverModeAreaType, 
-  ShadowStyle, BackgroundBlurStyleOptions, BackgroundEffectOptions } from './common';
-import { DialogButtonStyle, BorderStyle } from './enums';
-import { DialogAlignment } from './alertDialog';
-import { LevelOrder, LevelMode, ImmersiveMode } from '../../@ohos.promptAction';
-/*** endif */
-
 /**
  * The information of sheet.
  *
@@ -51,10 +38,10 @@ import { LevelOrder, LevelMode, ImmersiveMode } from '../../@ohos.promptAction';
  *
  * @interface SheetInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
  */
 interface SheetInfo {
   /**
@@ -73,14 +60,14 @@ interface SheetInfo {
    * @since 10
    */
   /**
-   * Sheet text.
+   * Title Properties
    *
    * @type { string | Resource }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   title: string | Resource;
 
@@ -100,14 +87,14 @@ interface SheetInfo {
    * @since 10
    */
   /**
-   * Sheet icon. By default, no icon is displayed.
+   * Icon Properties.
    *
    * @type { ?(string | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   icon?: string | Resource;
 
@@ -136,15 +123,15 @@ interface SheetInfo {
    * @since 11
    */
   /**
-   * Callback when the sheet is selected.
+   * Callback method after the operation.
    * Anonymous Object Rectification.
    *
    * @type { VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
    */
   action: VoidCallback;
 }
@@ -156,8 +143,7 @@ interface SheetInfo {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
  */
 declare interface DismissDialogAction {
   /**
@@ -167,20 +153,19 @@ declare interface DismissDialogAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   dismiss: Callback<void>;
   
   /**
-   * Dismiss reason type.
+   * Reason why the dialog box cannot be dismissed. You must specify whether to close the dialog box for each of the
+   * listed actions.
    *
    * @type { DismissReason }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   reason: DismissReason;
 }
@@ -192,8 +177,7 @@ declare interface DismissDialogAction {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18 dynamic
  */
 interface ActionSheetButtonOptions {
   /**
@@ -223,8 +207,7 @@ interface ActionSheetButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
    */
   enabled?: boolean;
 
@@ -255,8 +238,7 @@ interface ActionSheetButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
    */
   defaultFocus?: boolean;
 
@@ -286,8 +268,7 @@ interface ActionSheetButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
    */
   style?: DialogButtonStyle;
 
@@ -316,15 +297,15 @@ interface ActionSheetButtonOptions {
    * @since 11
    */
   /**
-   * Button text.
+   * Text content of the confirmation button.
    * Anonymous Object Rectification.
    *
    * @type { string | Resource }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
    */
   value: string | Resource;
 
@@ -353,15 +334,15 @@ interface ActionSheetButtonOptions {
    * @since 11
    */
   /**
-   * Callback invoked when the button is selected.
+   * Method executed by the callback.
    * Anonymous Object Rectification.
    *
    * @type { VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
    */
   action: VoidCallback;
 }
@@ -373,8 +354,7 @@ interface ActionSheetButtonOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18 dynamic
  */
 interface ActionSheetOffset {
   /**
@@ -385,8 +365,7 @@ interface ActionSheetOffset {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
    */
   dx: number | string | Resource;
   /**
@@ -397,8 +376,7 @@ interface ActionSheetOffset {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
    */
   dy: number | string | Resource;
 }
@@ -410,7 +388,7 @@ interface ActionSheetOffset {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 15
+ * @since 15 dynamic
  */
 declare type LevelMode = import('../api/@ohos.promptAction').LevelMode;
 
@@ -421,7 +399,7 @@ declare type LevelMode = import('../api/@ohos.promptAction').LevelMode;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 15
+ * @since 15 dynamic
  */
 declare type ImmersiveMode = import('../api/@ohos.promptAction').ImmersiveMode;
 
@@ -445,10 +423,10 @@ declare type ImmersiveMode = import('../api/@ohos.promptAction').ImmersiveMode;
  *
  * @interface ActionSheetOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
  */
 interface ActionSheetOptions
 {
@@ -468,14 +446,14 @@ interface ActionSheetOptions
    * @since 10
    */
   /**
-   * Title of the dialog box.
+   * Title Properties
    *
    * @type { string | Resource }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   title: string | Resource;
   
@@ -492,8 +470,7 @@ interface ActionSheetOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   subtitle?: ResourceStr;
 
@@ -513,14 +490,14 @@ interface ActionSheetOptions
    * @since 10
    */
   /**
-   * Content of the dialog box.
+   * message Properties
    *
    * @type { string | Resource }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   message: string | Resource;
 
@@ -549,16 +526,15 @@ interface ActionSheetOptions
    * @since 11
    */
   /**
-   * Information about the confirm button. When the dialog box has focus and focus has not been shifted using the Tab
-   * key, the button responds to the Enter key by default, and multiple dialog boxes can gain focus consecutively
-   * to respond automatically. The default response to the Enter key does not work when defaultFocus is set to true.
+   * Invoke the commit function.
+   * Anonymous Object Rectification.
    *
    * @type { ?ActionSheetButtonOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
    */
   confirm?: ActionSheetButtonOptions;
 
@@ -587,15 +563,15 @@ interface ActionSheetOptions
    * @since 11
    */
   /**
-   * Callback invoked when the dialog box is closed after the overlay is clicked.
+   * Execute Cancel Function.
    * Anonymous Object Rectification.
    *
    * @type { ?VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
    */
   cancel?: VoidCallback;
 
@@ -615,14 +591,14 @@ interface ActionSheetOptions
    * @since 10
    */
   /**
-   * Options in the dialog box. Each option supports the image, text, and callback.
+   * The Array of sheets
    *
    * @type { Array<SheetInfo> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   sheets: Array<SheetInfo>;
 
@@ -642,16 +618,14 @@ interface ActionSheetOptions
    * @since 10
    */
   /**
-   * Whether to close the dialog box when the overlay is clicked.
+   * Allows users to click the mask layer to exit.
    *
    * @type { ?boolean }
-   * @default true - The value true means to close the dialog box when the overlay is clicked, and false means
-   * the opposite.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   autoCancel?: boolean;
 
@@ -671,19 +645,14 @@ interface ActionSheetOptions
    * @since 10
    */
   /**
-   * Alignment mode of the dialog box in the vertical direction.
-   * <p><strong>NOTE</strong>:
-   * <br>If showInSubWindow is set to true in UIExtension, the dialog box is aligned with the host window based
-   * on UIExtension.
-   * </p>
+   * Alignment in the vertical direction.
    *
    * @type { ?DialogAlignment }
-   * @default DialogAlignment.Bottom
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   alignment?: DialogAlignment;
 
@@ -712,16 +681,15 @@ interface ActionSheetOptions
    * @since 11
    */
   /**
-   * Offset of the dialog box relative to the alignment position.
-   * <br>When alignment is set to Top, TopStart, or TopEnd: {dx: 0,dy: "40vp"}
-   * <br>When alignment is set to any other value: {dx: 0,dy: "-40vp"}
+   * Offset of the pop-up window relative to the alignment position.
+   * Anonymous Object Rectification.
    *
    * @type { ?ActionSheetOffset }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
    */
   offset?: ActionSheetOffset;
 
@@ -745,8 +713,7 @@ interface ActionSheetOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   maskRect?: Rectangle;
     
@@ -771,8 +738,7 @@ interface ActionSheetOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   showInSubWindow?: boolean;
 
@@ -791,8 +757,7 @@ interface ActionSheetOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   isModal?: boolean;
 
@@ -817,8 +782,7 @@ interface ActionSheetOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   backgroundColor?: ResourceColor;
 
@@ -844,8 +808,7 @@ interface ActionSheetOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   backgroundBlurStyle?: BlurStyle;
 
@@ -856,8 +819,7 @@ interface ActionSheetOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19 dynamic
    */
   backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
 
@@ -868,8 +830,7 @@ interface ActionSheetOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19 dynamic
    */
   backgroundEffect?: BackgroundEffectOptions;
 
@@ -887,8 +848,7 @@ interface ActionSheetOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   onWillDismiss?: Callback<DismissDialogAction>;
 
@@ -906,8 +866,7 @@ interface ActionSheetOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   transition?: TransitionEffect;
 
@@ -922,8 +881,7 @@ interface ActionSheetOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   cornerRadius?: Dimension | BorderRadiuses | LocalizedBorderRadiuses;
 
@@ -937,8 +895,7 @@ interface ActionSheetOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   width?: Dimension;
 
@@ -952,8 +909,7 @@ interface ActionSheetOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   height?: Dimension;
 
@@ -968,8 +924,7 @@ interface ActionSheetOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   borderWidth?: Dimension | EdgeWidths | LocalizedEdgeWidths;
 
@@ -985,8 +940,7 @@ interface ActionSheetOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   borderColor?: ResourceColor | EdgeColors | LocalizedEdgeColors;
 
@@ -998,8 +952,7 @@ interface ActionSheetOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   borderStyle?: BorderStyle | EdgeStyles;
 
@@ -1012,8 +965,7 @@ interface ActionSheetOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   shadow?: ShadowOptions | ShadowStyle;
 
@@ -1025,8 +977,7 @@ interface ActionSheetOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
    */
   enableHoverMode?: boolean;
 
@@ -1038,8 +989,7 @@ interface ActionSheetOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
    */
   hoverModeArea?: HoverModeAreaType;
 
@@ -1050,8 +1000,7 @@ interface ActionSheetOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19 dynamic
    */
   onDidAppear?: Callback<void>;
 
@@ -1062,8 +1011,7 @@ interface ActionSheetOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19 dynamic
    */
   onDidDisappear?: Callback<void>;
 
@@ -1074,8 +1022,7 @@ interface ActionSheetOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19 dynamic
    */
   onWillAppear?: Callback<void>;
 
@@ -1086,8 +1033,7 @@ interface ActionSheetOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19 dynamic
    */
   onWillDisappear?: Callback<void>;
 
@@ -1099,8 +1045,7 @@ interface ActionSheetOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15 dynamic
    */
   levelMode?: LevelMode;
 
@@ -1114,8 +1059,7 @@ interface ActionSheetOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15 dynamic
    */
   levelUniqueId?: number;
 
@@ -1127,8 +1071,7 @@ interface ActionSheetOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15 dynamic
    */
   immersiveMode?: ImmersiveMode;
 
@@ -1140,8 +1083,7 @@ interface ActionSheetOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
    */
   levelOrder?: LevelOrder;
 }
@@ -1163,9 +1105,12 @@ interface ActionSheetOptions
  * Declare the ActionSheet
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamiconly
+ * @deprecated since 26.0.0
+ * @useinstead ohos.arkui.UIContext.UIContext#showActionSheet
  */
 declare class ActionSheet {
   /**
@@ -1188,9 +1133,10 @@ declare class ActionSheet {
    *
    * @param { ActionSheetOptions } value
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamiconly
    * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.UIContext#showActionSheet
    */

@@ -18,13 +18,6 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { ResourceColor, Length } from './units';
-import { CommonMethod } from './common';
-import { FontWeight, MarqueeUpdateStrategy } from './enums';
-import { Resource } from './../../../api/global/resource';
-/*** endif */
-
 /**
  * Defines Marquee constructor options.
  *
@@ -34,8 +27,7 @@ import { Resource } from './../../../api/global/resource';
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18 dynamic
  */
 interface MarqueeOptions {
   /**
@@ -88,8 +80,7 @@ interface MarqueeOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
    */
   start: boolean;
 
@@ -142,8 +133,7 @@ interface MarqueeOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
    */
   step?: number;
 
@@ -197,8 +187,7 @@ interface MarqueeOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
    */
   loop?: number;
 
@@ -246,8 +235,7 @@ interface MarqueeOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
    */
   fromStart?: boolean;
 
@@ -294,10 +282,37 @@ interface MarqueeOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
    */
   src: string;
+
+  /**
+   * The spacing between two rounds of marquee.
+   *
+   * Default value is marquee width.
+   *
+   * @type { ?LengthMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  spacing?: LengthMetrics;
+
+  /**
+   * The waiting time between each round of the marquee.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  delay?: number;
 }
 
 /**
@@ -332,8 +347,7 @@ interface MarqueeOptions {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
  */
 interface MarqueeInterface {
   /**
@@ -384,8 +398,7 @@ interface MarqueeInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
    */
   (options: MarqueeOptions): MarqueeAttribute;
 }
@@ -422,8 +435,7 @@ interface MarqueeInterface {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
  */
 declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
   /**
@@ -462,8 +474,7 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   fontColor(value: ResourceColor): MarqueeAttribute;
 
@@ -508,8 +519,7 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   fontSize(value: Length): MarqueeAttribute;
 
@@ -553,8 +563,7 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   allowScale(value: boolean): MarqueeAttribute;
 
@@ -603,8 +612,7 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   fontWeight(value: number | FontWeight | string): MarqueeAttribute;
 
@@ -650,8 +658,7 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   fontFamily(value: string | Resource): MarqueeAttribute;
 
@@ -668,8 +675,7 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   marqueeUpdateStrategy(value: MarqueeUpdateStrategy): MarqueeAttribute;
 
@@ -709,8 +715,7 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   onStart(event: () => void): MarqueeAttribute;
 
@@ -754,8 +759,7 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   onBounce(event: () => void): MarqueeAttribute;
 
@@ -795,10 +799,26 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   onFinish(event: () => void): MarqueeAttribute;
+  /**
+   * Called when scrolling is stoped.
+   *
+   * <p><strong>NOTE</strong>:
+   * <br>If event is set to undefined, the current event will be unbound.
+   * </p>
+   * 
+   * @param { Callback<void> | undefined } event
+   * @returns { MarqueeAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  onStop(event: Callback<void> | undefined): MarqueeAttribute;
 }
 
 /**
@@ -836,7 +856,7 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const Marquee: MarqueeInterface;
 
@@ -868,6 +888,6 @@ declare const Marquee: MarqueeInterface;
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const MarqueeInstance: MarqueeAttribute;

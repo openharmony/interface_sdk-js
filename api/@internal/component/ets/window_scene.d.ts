@@ -18,19 +18,14 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { Position } from './units'
-import { CommonMethod } from './common'
-/*** endif */
-
 /**
  * Defines the interface of WindowScene.
  *
  * @interface WindowSceneInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since arkts {'1.1':'10','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 10 dynamic
+ * @noninterop
  */
 interface WindowSceneInterface {
   /**
@@ -40,8 +35,7 @@ interface WindowSceneInterface {
    * @returns { WindowSceneAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
    */
   (persistentId: number): WindowSceneAttribute;
 }
@@ -52,8 +46,8 @@ interface WindowSceneInterface {
  * @extends CommonMethod<WindowSceneAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since arkts {'1.1':'10','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 10 dynamic
+ * @noninterop
  */
 declare class WindowSceneAttribute extends CommonMethod<WindowSceneAttribute> {
   /**
@@ -66,8 +60,7 @@ declare class WindowSceneAttribute extends CommonMethod<WindowSceneAttribute> {
    * @returns { WindowSceneAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
    */
   attractionEffect(destination: Position, fraction: number): WindowSceneAttribute;
 }
@@ -77,7 +70,8 @@ declare class WindowSceneAttribute extends CommonMethod<WindowSceneAttribute> {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 10
+ * @since 10 dynamic
+ * @noninterop
  */
 declare const WindowScene: WindowSceneInterface;
 
@@ -86,6 +80,7 @@ declare const WindowScene: WindowSceneInterface;
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 10
+ * @since 10 dynamic
+ * @noninterop
  */
 declare const WindowSceneInstance: WindowSceneAttribute;

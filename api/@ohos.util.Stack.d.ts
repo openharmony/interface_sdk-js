@@ -20,14 +20,14 @@
 
 /**
  * Stack is implemented based on the array data structure. 
- * It follows the principle Last Out First In (LOFI) and supports data insertion and removal at one end.
+ * It follows the principle Last In First Out (LIFO) and supports data insertion and removal at one end.
  *
  * @syscap SystemCapability.Utils.Lang
  * @since 8
  */
 /**
  * Stack is implemented based on the array data structure. 
- * It follows the principle Last Out First In (LOFI) and supports data insertion and removal at one end.
+ * It follows the principle Last In First Out (LIFO) and supports data insertion and removal at one end.
  *
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
@@ -35,13 +35,13 @@
  */
 /**
  * Stack is implemented based on the array data structure. 
- * It follows the principle Last Out First In (LOFI) and supports data insertion and removal at one end.
+ * It follows the principle Last In First Out (LIFO) and supports data insertion and removal at one end.
  *
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
+ * @since 23 static
  */
 declare class Stack<T> {
   /**
@@ -66,8 +66,8 @@ declare class Stack<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   constructor();
   /**
@@ -92,21 +92,20 @@ declare class Stack<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   length: number;
 
   /**
    * Gets the element number of the Stack.
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 23 static
    */
-  get length(): number;
+  get length(): int;
 
   /**
    * Tests if this stack is empty
@@ -133,8 +132,8 @@ declare class Stack<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   isEmpty(): boolean;
   /**
@@ -161,28 +160,17 @@ declare class Stack<T> {
    * Return undefined if this stack is empty
    *
    * @returns { T } the top value or undefined
+   * @throws { BusinessError } 10200010 - Container is empty.[staticonly]
    * @throws { BusinessError } 10200011 - The peek method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
+   * @since 23 static
    */
   peek(): T;
 
   /**
-   * Looks at the object at the top of this stack without removing it from the stack
-   * Return undefined if this stack is empty
-   *
-   * @returns { T | undefined } the top value, or undefined if container is empty
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  peek(): T | undefined;
-
-  /**
    * Removes the object at the top of this stack and returns that object as the value of this function
    * an exception if the stack is empty
    *
@@ -206,28 +194,17 @@ declare class Stack<T> {
    * an exception if the stack is empty
    *
    * @returns { T } Stack top value or undefined
+   * @throws { BusinessError } 10200010 - Container is empty.[staticonly]
    * @throws { BusinessError } 10200011 - The pop method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
+   * @since 23 static
    */
   pop(): T;
 
   /**
-   * Removes the object at the top of this stack and returns that object as the value of this function
-   * an exception if the stack is empty
-   *
-   * @returns { T | undefined } Stack top value, or undefined if container is empty
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  pop(): T | undefined;
-
-  /**
    * Pushes an item onto the top of this stack
    *
    * @param { T } item - item item to be appended to this Stack
@@ -255,14 +232,14 @@ declare class Stack<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   push(item: T): T;
   /**
    * Returns the 1-based position where an object is on this stack
    *
-   * @param { T } element - element element Target to be deleted
+   * @param { T } element - element to be located
    * @returns { number } the T type,If there is no such element, return -1
    * @throws { BusinessError } 10200011 - The locate method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
@@ -271,7 +248,7 @@ declare class Stack<T> {
   /**
    * Returns the 1-based position where an object is on this stack
    *
-   * @param { T } element - element element Target to be deleted
+   * @param { T } element - element to be located
    * @returns { number } the T type,If there is no such element, return -1
    * @throws { BusinessError } 10200011 - The locate method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
@@ -281,16 +258,16 @@ declare class Stack<T> {
   /**
    * Returns the 1-based position where an object is on this stack
    *
-   * @param { T } element - element element Target to be deleted
-   * @returns { number } the T type,If there is no such element, return -1
+   * @param { T } element - element to be located
+   * @returns { int } the T type,If there is no such element, return -1
    * @throws { BusinessError } 10200011 - The locate method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
-  locate(element: T): number;
+  locate(element: T): int;
   /**
    * Executes a provided function once for each value in the Stack object.
    *
@@ -340,7 +317,7 @@ declare class Stack<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   forEach(callbackFn: (value: T, index?: number, stack?: Stack<T>) => void, thisArg?: Object): void;
 
@@ -351,8 +328,7 @@ declare class Stack<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 23 static
    */
   forEach(callbackfn: StackForEachCb<T>): void;
 
@@ -381,7 +357,7 @@ declare class Stack<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   [Symbol.iterator](): IterableIterator<T>;
 
@@ -392,8 +368,7 @@ declare class Stack<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 23 static
    */
   $_iterator(): IterableIterator<T>;
 
@@ -404,14 +379,13 @@ declare class Stack<T> {
  *
  * @typedef { function } StackForEachCb
  * @param { T } value - The value of current element
- * @param { number } index - The key of current element
+ * @param { int } index - The key of current element
  * @param { Stack<T> } stack - The Stack instance being traversed
  * @returns { void } This callback does not return a value
  * @syscap SystemCapability.Utils.Lang
  * @atomicservice
- * @since 20
- * @arkts 1.2
+ * @since 23 static
  */
-type StackForEachCb<T> = (value: T, index: number, stack: Stack<T>) => void
+export type StackForEachCb<T> = (value: T, index: int, stack: Stack<T>) => void
 
 export default Stack;

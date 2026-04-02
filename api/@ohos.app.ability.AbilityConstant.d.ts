@@ -18,9 +18,7 @@
  * @kit AbilityKit
  */
 
-/*** if arkts 1.1 */
 import type appManager from './@ohos.app.ability.appManager';
-/*** endif */
 
 /**
  * The definition of AbilityConstant.
@@ -48,8 +46,8 @@ import type appManager from './@ohos.app.ability.appManager';
  * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 23 static
  */
 declare namespace AbilityConstant {
   /**
@@ -59,7 +57,8 @@ declare namespace AbilityConstant {
    * @syscap SystemCapability.Ability.AbilityBase
    * @stagemodelonly
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
+   * @since 23 static
    */
   const REASON_MESSAGE_DESKTOP_SHORTCUT = 'ReasonMessage_DesktopShortcut';
   /**
@@ -89,8 +88,8 @@ declare namespace AbilityConstant {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 23 static
    */
   export interface LaunchParam {
     /**
@@ -118,8 +117,8 @@ declare namespace AbilityConstant {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 23 static
      */
     launchReason: LaunchReason;
 
@@ -130,8 +129,8 @@ declare namespace AbilityConstant {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 23 static
      */
     launchReasonMessage?: string;
 
@@ -160,8 +159,8 @@ declare namespace AbilityConstant {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 23 static
      */
     lastExitReason: LastExitReason;
 
@@ -172,8 +171,8 @@ declare namespace AbilityConstant {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     lastExitMessage: string;
 
@@ -184,10 +183,32 @@ declare namespace AbilityConstant {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 23 static
      */
     lastExitDetailInfo?: LastExitDetailInfo;
+
+    /**
+     * Indicates the UTC timestamp of component launch, in milliseconds.
+     *
+     * @type { ?long }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    launchUTCTime?: long;
+
+    /**
+     * Indicates the system uptime (time since last system boot) when the component launched, in milliseconds.
+     *
+     * @type { ?long }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    launchUptime?: long;
   }
 
   /**
@@ -197,21 +218,21 @@ declare namespace AbilityConstant {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 23 static
    */
   export interface LastExitDetailInfo {
     /**
      * ID of the process where the ability is running when it exits last time.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 23 static
      */
-    pid: number;
+    pid: int;
 
     /**
      * Name of the process.
@@ -220,34 +241,34 @@ declare namespace AbilityConstant {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 23 static
      */
     processName: string;
 
     /**
      * UID of the application.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 23 static
      */
-    uid: number;
+    uid: int;
 
     /**
      * Specific reason for the last exit of the ability.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 23 static
      */
-    exitSubReason: number;
+    exitSubReason: int;
 
     /**
      * Reason why the process was killed.
@@ -256,46 +277,46 @@ declare namespace AbilityConstant {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 23 static
      */
     exitMsg: string;
 
     /**
      * RSS value of the process.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 23 static
      */
-    rss: number;
+    rss: int;
 
     /**
      * PSS value of the process.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 23 static
      */
-    pss: number;
+    pss: int;
 
     /**
      * Exact time when the ability last exits.
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 23 static
      */
-    timestamp: number;
+    timestamp: long;
 
     /**
      * The process state when the process exits.
@@ -304,9 +325,21 @@ declare namespace AbilityConstant {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
+     * @since 23 static
      */
     processState?: appManager.ProcessState;
+
+    /**
+     * Indecates kill reason message.
+     * 
+     * @type { ?string }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    killReason?: string;
   }
 
   /**
@@ -336,8 +369,8 @@ declare namespace AbilityConstant {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 23 static
    */
   export enum LaunchReason {
     /**
@@ -360,8 +393,8 @@ declare namespace AbilityConstant {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 23 static
      */
     UNKNOWN = 0,
 
@@ -378,8 +411,8 @@ declare namespace AbilityConstant {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 23 static
      */
     START_ABILITY = 1,
 
@@ -396,8 +429,8 @@ declare namespace AbilityConstant {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 23 static
      */
     CALL = 2,
 
@@ -414,8 +447,8 @@ declare namespace AbilityConstant {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 23 static
      */
     CONTINUATION = 3,
 
@@ -432,8 +465,8 @@ declare namespace AbilityConstant {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 23 static
      */
     APP_RECOVERY = 4,
 
@@ -450,8 +483,8 @@ declare namespace AbilityConstant {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 23 static
      */
     SHARE = 5,
 
@@ -460,8 +493,8 @@ declare namespace AbilityConstant {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 23 static
      */
     AUTO_STARTUP = 8,
 
@@ -471,8 +504,8 @@ declare namespace AbilityConstant {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 23 static
      */
     INSIGHT_INTENT = 9,
 
@@ -482,8 +515,8 @@ declare namespace AbilityConstant {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     PREPARE_CONTINUATION = 10,
 
@@ -493,8 +526,8 @@ declare namespace AbilityConstant {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
+     * @since 23 static
      */
     PRELOAD = 11,
   }
@@ -526,8 +559,8 @@ declare namespace AbilityConstant {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 23 static
    */
   export enum LastExitReason {
     /**
@@ -554,8 +587,8 @@ declare namespace AbilityConstant {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 23 static
      */
     UNKNOWN = 0,
 
@@ -564,7 +597,7 @@ declare namespace AbilityConstant {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
-     * @since 9
+     * @since 9 dynamiconly
      * @deprecated since 10
      * @useinstead AbilityConstant.LastExitReason#APP_FREEZE
      */
@@ -583,8 +616,8 @@ declare namespace AbilityConstant {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 23 static
      */
     NORMAL = 2,
 
@@ -601,8 +634,8 @@ declare namespace AbilityConstant {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 23 static
      */
     CPP_CRASH = 3,
 
@@ -620,8 +653,8 @@ declare namespace AbilityConstant {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 23 static
      */
     JS_ERROR = 4,
 
@@ -638,8 +671,8 @@ declare namespace AbilityConstant {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 23 static
      */
     APP_FREEZE = 5,
 
@@ -656,8 +689,8 @@ declare namespace AbilityConstant {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 23 static
      */
     PERFORMANCE_CONTROL = 6,
 
@@ -681,8 +714,8 @@ declare namespace AbilityConstant {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 23 static
      */
     RESOURCE_CONTROL = 7,
 
@@ -699,8 +732,8 @@ declare namespace AbilityConstant {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 23 static
      */
     UPGRADE = 8,
 
@@ -711,8 +744,8 @@ declare namespace AbilityConstant {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 23 static
      */
     USER_REQUEST = 9,
 
@@ -722,8 +755,8 @@ declare namespace AbilityConstant {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 23 static
      */
     SIGNAL = 10
   }
@@ -745,8 +778,8 @@ declare namespace AbilityConstant {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 23 static
    */
   export enum OnContinueResult {
     /**
@@ -762,8 +795,8 @@ declare namespace AbilityConstant {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 23 static
      */
     AGREE = 0,
 
@@ -782,8 +815,8 @@ declare namespace AbilityConstant {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 23 static
      */
     REJECT = 1,
 
@@ -802,8 +835,8 @@ declare namespace AbilityConstant {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 23 static
      */
     MISMATCH = 2
   }
@@ -824,8 +857,8 @@ declare namespace AbilityConstant {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 23 static
    */
   export enum MemoryLevel {
     /**
@@ -841,8 +874,8 @@ declare namespace AbilityConstant {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 23 static
      */
     MEMORY_LEVEL_MODERATE = 0,
 
@@ -859,8 +892,8 @@ declare namespace AbilityConstant {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 23 static
      */
     MEMORY_LEVEL_LOW = 1,
 
@@ -877,10 +910,50 @@ declare namespace AbilityConstant {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 23 static
      */
-    MEMORY_LEVEL_CRITICAL = 2
+    MEMORY_LEVEL_CRITICAL = 2,
+
+    /**
+     * All UI elements of the process are hidden.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    MEMORY_LEVEL_UI_HIDDEN = 3,
+
+    /**
+     * The process is in the background and the available memory of the entire device is moderate.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    MEMORY_LEVEL_BACKGROUND_MODERATE = 4,
+
+    /**
+     * The process is in the background and the available memory of the entire device is low.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    MEMORY_LEVEL_BACKGROUND_LOW = 5,
+
+    /**
+     * The process is in the background and the available memory of the entire device is extremely low.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static 
+     */
+    MEMORY_LEVEL_BACKGROUND_CRITICAL = 6
   }
 
   /**
@@ -890,8 +963,8 @@ declare namespace AbilityConstant {
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   export enum WindowMode {
     /**
@@ -900,8 +973,8 @@ declare namespace AbilityConstant {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     WINDOW_MODE_UNDEFINED = 0,
 
@@ -910,8 +983,8 @@ declare namespace AbilityConstant {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     WINDOW_MODE_FULLSCREEN = 1,
 
@@ -922,8 +995,8 @@ declare namespace AbilityConstant {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     WINDOW_MODE_SPLIT_PRIMARY = 100,
 
@@ -934,8 +1007,8 @@ declare namespace AbilityConstant {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     WINDOW_MODE_SPLIT_SECONDARY = 101,
 
@@ -945,8 +1018,8 @@ declare namespace AbilityConstant {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 23 static
      */
     WINDOW_MODE_FLOATING = 102
   }
@@ -967,8 +1040,8 @@ declare namespace AbilityConstant {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 23 static
    */
   export enum OnSaveResult {
     /**
@@ -984,8 +1057,8 @@ declare namespace AbilityConstant {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 23 static
      */
     ALL_AGREE = 0,
 
@@ -1002,8 +1075,8 @@ declare namespace AbilityConstant {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 23 static
      */
     CONTINUATION_REJECT = 1,
 
@@ -1020,8 +1093,8 @@ declare namespace AbilityConstant {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 23 static
      */
     CONTINUATION_MISMATCH = 2,
 
@@ -1038,8 +1111,8 @@ declare namespace AbilityConstant {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 23 static
      */
     RECOVERY_AGREE = 3,
 
@@ -1056,8 +1129,8 @@ declare namespace AbilityConstant {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 23 static
      */
     RECOVERY_REJECT = 4,
 
@@ -1074,8 +1147,8 @@ declare namespace AbilityConstant {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 23 static
      */
     ALL_REJECT
   }
@@ -1096,8 +1169,8 @@ declare namespace AbilityConstant {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 23 static
    */
   export enum StateType {
     /**
@@ -1113,8 +1186,8 @@ declare namespace AbilityConstant {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 23 static
      */
     CONTINUATION = 0,
 
@@ -1131,8 +1204,8 @@ declare namespace AbilityConstant {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 23 static
      */
     APP_RECOVERY = 1
   }
@@ -1153,8 +1226,8 @@ declare namespace AbilityConstant {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 23 static
    */
   export enum ContinueState {
     /**
@@ -1170,8 +1243,8 @@ declare namespace AbilityConstant {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 23 static
      */
     ACTIVE = 0,
 
@@ -1188,8 +1261,8 @@ declare namespace AbilityConstant {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 23 static
      */
     INACTIVE = 1
   }
@@ -1203,8 +1276,8 @@ declare namespace AbilityConstant {
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 23 static
    */
   export enum CollaborateResult {
     /**
@@ -1212,8 +1285,8 @@ declare namespace AbilityConstant {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 23 static
      */
     ACCEPT = 0,
 
@@ -1222,8 +1295,8 @@ declare namespace AbilityConstant {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 23 static
      */
     REJECT = 1,
   }
@@ -1236,8 +1309,8 @@ declare namespace AbilityConstant {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'15', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15 dynamic
+   * @since 23 static
    */
   export enum PrepareTermination {
     /**
@@ -1246,8 +1319,8 @@ declare namespace AbilityConstant {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
-     * @since arkts {'1.1':'15', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15 dynamic
+     * @since 23 static
      */
     TERMINATE_IMMEDIATELY = 0,
 
@@ -1257,8 +1330,8 @@ declare namespace AbilityConstant {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
-     * @since arkts {'1.1':'15', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15 dynamic
+     * @since 23 static
      */
     CANCEL = 1
   }

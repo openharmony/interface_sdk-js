@@ -18,24 +18,6 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { CommonShapeMethod } from './common';
-import { Length } from './units';
-/*** endif */
-
-/**
- * Defines the RadiusItem, the first element is the width of the rounded corner, the second is the height of the rounded corner.
- * 
- * @typedef { [Length, Length] } RadiusItem
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-declare type RadiusItem = [Length, Length];
-
 /**
  * Define options used to construct a rectangle.
  *
@@ -44,8 +26,7 @@ declare type RadiusItem = [Length, Length];
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18 dynamic
  */
 declare interface RectOptions {
   /**
@@ -53,6 +34,7 @@ declare interface RectOptions {
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -60,6 +42,7 @@ declare interface RectOptions {
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -68,6 +51,7 @@ declare interface RectOptions {
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -77,6 +61,7 @@ declare interface RectOptions {
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -88,6 +73,7 @@ declare interface RectOptions {
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -98,11 +84,11 @@ declare interface RectOptions {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
    */
   width?: Length;
 
@@ -111,6 +97,7 @@ declare interface RectOptions {
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -118,6 +105,7 @@ declare interface RectOptions {
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -126,6 +114,7 @@ declare interface RectOptions {
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -135,6 +124,7 @@ declare interface RectOptions {
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -146,6 +136,7 @@ declare interface RectOptions {
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -156,11 +147,11 @@ declare interface RectOptions {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
    */
   height?: Length;
 
@@ -169,6 +160,7 @@ declare interface RectOptions {
    *
    * @type { ?(number | string | Array<any>) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -176,6 +168,7 @@ declare interface RectOptions {
    *
    * @type { ?(number | string | Array<any>) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -184,6 +177,7 @@ declare interface RectOptions {
    *
    * @type { ?(number | string | Array<any>) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -193,6 +187,7 @@ declare interface RectOptions {
    *
    * @type { ?(number | string | Array<any>) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -204,6 +199,7 @@ declare interface RectOptions {
    *
    * @type { ?(number | string | Array<any>) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -214,25 +210,13 @@ declare interface RectOptions {
    *
    * @type { ?(Length | Array<any>) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   radius?: Length | Array<any>;
-  
-  /**
-   * Corner radius of the rectangle.
-   *
-   * @type { ?(Length | Array<RadiusItem>) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  radius?: Length | Array<RadiusItem>;
 }
 
 /**
@@ -243,8 +227,7 @@ declare interface RectOptions {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18 dynamic
  */
 declare interface RoundedRectOptions {
   /**
@@ -252,6 +235,7 @@ declare interface RoundedRectOptions {
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -259,6 +243,7 @@ declare interface RoundedRectOptions {
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -267,6 +252,7 @@ declare interface RoundedRectOptions {
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -276,6 +262,7 @@ declare interface RoundedRectOptions {
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -287,6 +274,7 @@ declare interface RoundedRectOptions {
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -297,10 +285,11 @@ declare interface RoundedRectOptions {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   width?: Length;
 
@@ -309,6 +298,7 @@ declare interface RoundedRectOptions {
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -316,6 +306,7 @@ declare interface RoundedRectOptions {
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -324,6 +315,7 @@ declare interface RoundedRectOptions {
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -333,6 +325,7 @@ declare interface RoundedRectOptions {
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -344,6 +337,7 @@ declare interface RoundedRectOptions {
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -354,10 +348,11 @@ declare interface RoundedRectOptions {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   height?: Length;
 
@@ -366,6 +361,7 @@ declare interface RoundedRectOptions {
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -373,6 +369,7 @@ declare interface RoundedRectOptions {
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -381,6 +378,7 @@ declare interface RoundedRectOptions {
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -390,6 +388,7 @@ declare interface RoundedRectOptions {
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -401,6 +400,7 @@ declare interface RoundedRectOptions {
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -411,10 +411,11 @@ declare interface RoundedRectOptions {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   radiusWidth?: Length;
 
@@ -423,6 +424,7 @@ declare interface RoundedRectOptions {
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -430,6 +432,7 @@ declare interface RoundedRectOptions {
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -438,6 +441,7 @@ declare interface RoundedRectOptions {
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -447,6 +451,7 @@ declare interface RoundedRectOptions {
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -458,6 +463,7 @@ declare interface RoundedRectOptions {
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -468,10 +474,11 @@ declare interface RoundedRectOptions {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   radiusHeight?: Length;
 }
@@ -481,6 +488,7 @@ declare interface RoundedRectOptions {
  *
  * @interface RectInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
@@ -488,6 +496,7 @@ declare interface RoundedRectOptions {
  *
  * @interface RectInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @form
  * @since 9
  */
@@ -496,6 +505,7 @@ declare interface RoundedRectOptions {
  *
  * @interface RectInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @since 10
@@ -505,10 +515,11 @@ declare interface RoundedRectOptions {
  *
  * @interface RectInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 interface RectInterface {
   /**
@@ -517,6 +528,7 @@ interface RectInterface {
    * @param { object } value
    * @returns { RectAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -525,6 +537,7 @@ interface RectInterface {
    * @param { object } value
    * @returns { RectAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -534,6 +547,7 @@ interface RectInterface {
    * @param { object } value
    * @returns { RectAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -544,6 +558,7 @@ interface RectInterface {
    * @param { object } value
    * @returns { RectAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -556,10 +571,11 @@ interface RectInterface {
    * @param { RectOptions | RoundedRectOptions } [options] - Rect options
    * @returns { RectAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   new (
     options?: RectOptions | RoundedRectOptions,
@@ -572,6 +588,7 @@ interface RectInterface {
   *  {width?: number | string;height?: number | string;radiusWidth?: number | string;radiusHeight?: number | string;} } value
    * @returns { RectAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -581,6 +598,7 @@ interface RectInterface {
   *  {width?: number | string;height?: number | string;radiusWidth?: number | string;radiusHeight?: number | string;} } value
    * @returns { RectAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -591,6 +609,7 @@ interface RectInterface {
    *  {width?: number | string;height?: number | string;radiusWidth?: number | string;radiusHeight?: number | string;} } value
    * @returns { RectAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -602,6 +621,7 @@ interface RectInterface {
    *  {width?: number | string;height?: number | string;radiusWidth?: number | string;radiusHeight?: number | string;} } value
    * @returns { RectAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -614,10 +634,11 @@ interface RectInterface {
    * @param { RectOptions | RoundedRectOptions } [options] - Rect options
    * @returns { RectAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   (
     options?: RectOptions | RoundedRectOptions,
@@ -629,6 +650,7 @@ interface RectInterface {
  *
  * @extends CommonShapeMethod<RectAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
@@ -636,6 +658,7 @@ interface RectInterface {
  *
  * @extends CommonShapeMethod<RectAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @form
  * @since 9
  */
@@ -644,6 +667,7 @@ interface RectInterface {
  *
  * @extends CommonShapeMethod<RectAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @since 10
@@ -653,11 +677,11 @@ interface RectInterface {
  *
  * @extends CommonShapeMethod<RectAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
  */
 declare class RectAttribute extends CommonShapeMethod<RectAttribute> {
   /**
@@ -666,6 +690,7 @@ declare class RectAttribute extends CommonShapeMethod<RectAttribute> {
    * @param { number | string } value
    * @returns { RectAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -674,6 +699,7 @@ declare class RectAttribute extends CommonShapeMethod<RectAttribute> {
    * @param { number | string } value
    * @returns { RectAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -683,6 +709,7 @@ declare class RectAttribute extends CommonShapeMethod<RectAttribute> {
    * @param { number | string } value
    * @returns { RectAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -693,6 +720,7 @@ declare class RectAttribute extends CommonShapeMethod<RectAttribute> {
    * @param { number | string } value
    * @returns { RectAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -704,10 +732,11 @@ declare class RectAttribute extends CommonShapeMethod<RectAttribute> {
    * @param { Length } value
    * @returns { RectAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   radiusWidth(value: Length): RectAttribute;
 
@@ -717,6 +746,7 @@ declare class RectAttribute extends CommonShapeMethod<RectAttribute> {
    * @param { number | string } value
    * @returns { RectAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -725,6 +755,7 @@ declare class RectAttribute extends CommonShapeMethod<RectAttribute> {
    * @param { number | string } value
    * @returns { RectAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -734,6 +765,7 @@ declare class RectAttribute extends CommonShapeMethod<RectAttribute> {
    * @param { number | string } value
    * @returns { RectAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -744,6 +776,7 @@ declare class RectAttribute extends CommonShapeMethod<RectAttribute> {
    * @param { number | string } value
    * @returns { RectAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -755,10 +788,11 @@ declare class RectAttribute extends CommonShapeMethod<RectAttribute> {
    * @param { Length } value
    * @returns { RectAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   radiusHeight(value: Length): RectAttribute;
 
@@ -768,6 +802,7 @@ declare class RectAttribute extends CommonShapeMethod<RectAttribute> {
    * @param { number | string | Array<any> } value
    * @returns { RectAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -776,6 +811,7 @@ declare class RectAttribute extends CommonShapeMethod<RectAttribute> {
    * @param { number | string | Array<any> } value
    * @returns { RectAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -785,6 +821,7 @@ declare class RectAttribute extends CommonShapeMethod<RectAttribute> {
    * @param { number | string | Array<any> } value
    * @returns { RectAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -795,6 +832,7 @@ declare class RectAttribute extends CommonShapeMethod<RectAttribute> {
    * @param { number | string | Array<any> } value
    * @returns { RectAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -806,32 +844,20 @@ declare class RectAttribute extends CommonShapeMethod<RectAttribute> {
    * @param { Length | Array<any> } value
    * @returns { RectAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   radius(value: Length | Array<any>): RectAttribute;
-
-  /**
-   * Called when the fillet size is set.
-   *
-   * @param { number | string | Array<number | string> } value
-   * @returns { RectAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  radius(value: number | string | Array<number | string>): RectAttribute;
 }
 
 /**
  * Defines Rect Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @form
  * @since 9
  */
@@ -839,6 +865,7 @@ declare class RectAttribute extends CommonShapeMethod<RectAttribute> {
  * Defines Rect Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @since 10
@@ -847,10 +874,11 @@ declare class RectAttribute extends CommonShapeMethod<RectAttribute> {
  * Defines Rect Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const Rect: RectInterface;
 
@@ -858,8 +886,10 @@ declare const Rect: RectInterface;
  * Rect attribute.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
+ * @FaAndStageModel
+ * @since 7 dynamiconly
  * @deprecated since 9
+ * @useinstead RectInstance
  */
 declare const RectInStance: RectAttribute;
 
@@ -867,49 +897,23 @@ declare const RectInStance: RectAttribute;
  * Rect attribute.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @form
  * @since 9
  */
 /**
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @since 10
  */
 /**
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const RectInstance: RectAttribute;
-
-/**
- * Provides an interface for drawing rectangles.
- *
- * @interface RectInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-interface RectInterface {
-  /**
-   * Called when a rectangle is created.
-   *
-   * @param { RectOptions | RoundedRectOptions } [options] - Rect options
-   * @returns { RectAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  (
-    options?: RectOptions | RoundedRectOptions,
-  ): RectAttribute;
-}

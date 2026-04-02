@@ -18,10 +18,6 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { CommonMethod } from './common';
-/*** endif */
-
 /**
  * Defines the option in number unit of grid-container child component.
  * 
@@ -47,8 +43,7 @@ import { CommonMethod } from './common';
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
  */
 declare interface GridColColumnOption {
   /**
@@ -76,8 +71,7 @@ declare interface GridColColumnOption {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   xs?: number,
 
@@ -106,8 +100,7 @@ declare interface GridColColumnOption {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   sm?: number,
 
@@ -136,8 +129,7 @@ declare interface GridColColumnOption {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   md?: number,
 
@@ -166,8 +158,7 @@ declare interface GridColColumnOption {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   lg?: number,
 
@@ -196,8 +187,7 @@ declare interface GridColColumnOption {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   xl?: number,
 
@@ -226,8 +216,7 @@ declare interface GridColColumnOption {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   xxl?: number,
 }
@@ -257,12 +246,11 @@ declare interface GridColColumnOption {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
  */
 declare interface GridColOptions {
   /**
-   * Sets the span of current gird-container item.
+   * Sets the span of current grid-container item.
    *
    * @type { ?(number | GridColColumnOption) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -270,7 +258,7 @@ declare interface GridColOptions {
    * @since 9
    */
   /**
-   * Sets the span of current gird-container item.
+   * Sets the span of current grid-container item.
    *
    * @type { ?(number | GridColColumnOption) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -279,20 +267,19 @@ declare interface GridColOptions {
    * @since 10
    */
   /**
-   * Sets the span of current gird-container item.
+   * Sets the span of current grid-container item.
    *
    * @type { ?(number | GridColColumnOption) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   span?: number | GridColColumnOption;
 
   /**
-   * Sets the offset of current gird-container item.
+   * Sets the offset of current grid-container item.
    *
    * @type { ?(number | GridColColumnOption) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -300,7 +287,7 @@ declare interface GridColOptions {
    * @since 9
    */
   /**
-   * Sets the offset of current gird-container item.
+   * Sets the offset of current grid-container item.
    *
    * @type { ?(number | GridColColumnOption) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -309,20 +296,19 @@ declare interface GridColOptions {
    * @since 10
    */
   /**
-   * Sets the offset of current gird-container item.
+   * Sets the offset of current grid-container item.
    *
    * @type { ?(number | GridColColumnOption) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   offset?: number | GridColColumnOption;
 
   /**
-   * Sets the order of current gird-container item.
+   * Sets the order of current grid-container item.
    *
    * @type { ?(number | GridColColumnOption) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -330,7 +316,7 @@ declare interface GridColOptions {
    * @since 9
    */
   /**
-   * Sets the order of current gird-container item.
+   * Sets the order of current grid-container item.
    *
    * @type { ?(number | GridColColumnOption) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -339,21 +325,20 @@ declare interface GridColOptions {
    * @since 10
    */
   /**
-   * Sets the order of current gird-container item.
+   * Sets the order of current grid-container item.
    *
    * @type { ?(number | GridColColumnOption) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   order?: number | GridColColumnOption;
 }
 
 /**
- * Defines the the new version of grid-container child component.
+ * Defines the new version of grid-container child component.
  *
  * @interface GridColInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -361,7 +346,7 @@ declare interface GridColOptions {
  * @since 9
  */
 /**
- * Defines the the new version of grid-container child component.
+ * Defines the new version of grid-container child component.
  *
  * @interface GridColInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -370,15 +355,14 @@ declare interface GridColOptions {
  * @since 10
  */
 /**
- * Defines the the new version of grid-container child component.
+ * Defines the new version of grid-container child component.
  *
  * @interface GridColInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
  */
 interface GridColInterface {
   /**
@@ -409,8 +393,7 @@ interface GridColInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   (option?: GridColOptions): GridColAttribute;
 }
@@ -440,12 +423,11 @@ interface GridColInterface {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
  */
 declare class GridColAttribute extends CommonMethod<GridColAttribute> {
   /**
-   * Sets the span of current gird-container item.
+   * Sets the span of current grid-container item.
    *
    * @param { number | GridColColumnOption } value
    * @returns { GridColAttribute }
@@ -454,7 +436,7 @@ declare class GridColAttribute extends CommonMethod<GridColAttribute> {
    * @since 9
    */
   /**
-   * Sets the span of current gird-container item.
+   * Sets the span of current grid-container item.
    *
    * @param { number | GridColColumnOption } value
    * @returns { GridColAttribute }
@@ -464,7 +446,7 @@ declare class GridColAttribute extends CommonMethod<GridColAttribute> {
    * @since 10
    */
   /**
-   * Sets the span of current gird-container item.
+   * Sets the span of current grid-container item.
    *
    * @param { number | GridColColumnOption } value
    * @returns { GridColAttribute }
@@ -472,13 +454,12 @@ declare class GridColAttribute extends CommonMethod<GridColAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   span(value: number | GridColColumnOption): GridColAttribute;
 
   /**
-   * Sets the offset of current gird-container item.
+   * Sets the offset of current grid-container item.
    *
    * @param { number | GridColColumnOption } value
    * @returns { GridColAttribute }
@@ -487,7 +468,7 @@ declare class GridColAttribute extends CommonMethod<GridColAttribute> {
    * @since 9
    */
   /**
-   * Sets the offset of current gird-container item.
+   * Sets the offset of current grid-container item.
    *
    * @param { number | GridColColumnOption } value
    * @returns { GridColAttribute }
@@ -497,7 +478,7 @@ declare class GridColAttribute extends CommonMethod<GridColAttribute> {
    * @since 10
    */
   /**
-   * Sets the offset of current gird-container item.
+   * Sets the offset of current grid-container item.
    *
    * @param { number | GridColColumnOption } value
    * @returns { GridColAttribute }
@@ -505,13 +486,12 @@ declare class GridColAttribute extends CommonMethod<GridColAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   gridColOffset(value: number | GridColColumnOption): GridColAttribute;
 
   /**
-   * Sets the order of current gird-container item.
+   * Sets the order of current grid-container item.
    *
    * @param { number | GridColColumnOption } value
    * @returns { GridColAttribute }
@@ -520,7 +500,7 @@ declare class GridColAttribute extends CommonMethod<GridColAttribute> {
    * @since 9
    */
   /**
-   * Sets the order of current gird-container item.
+   * Sets the order of current grid-container item.
    *
    * @param { number | GridColColumnOption } value
    * @returns { GridColAttribute }
@@ -530,7 +510,7 @@ declare class GridColAttribute extends CommonMethod<GridColAttribute> {
    * @since 10
    */
   /**
-   * Sets the order of current gird-container item.
+   * Sets the order of current grid-container item.
    *
    * @param { number | GridColColumnOption } value
    * @returns { GridColAttribute }
@@ -538,8 +518,7 @@ declare class GridColAttribute extends CommonMethod<GridColAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   order(value: number | GridColColumnOption): GridColAttribute;
 }
@@ -566,7 +545,7 @@ declare class GridColAttribute extends CommonMethod<GridColAttribute> {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const GridCol: GridColInterface
 
@@ -592,6 +571,6 @@ declare const GridCol: GridColInterface
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const GridColInstance: GridColAttribute;

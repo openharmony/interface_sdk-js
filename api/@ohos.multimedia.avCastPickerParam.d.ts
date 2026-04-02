@@ -20,16 +20,17 @@
 
 /**
  * Definition of av cast picker state
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.Multimedia.AVSession.AVCast
  * @since 11
  */
 /**
  * Definition of av cast picker state
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.Multimedia.AVSession.AVCast
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
+ * @since 23 static
  */
 export declare enum AVCastPickerState {
   /**
@@ -41,37 +42,41 @@ export declare enum AVCastPickerState {
    * The picker starts showing.
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
+   * @since 23 static
    */
   STATE_APPEARING,
 
   /**
-   * The picker finishes presenting.
+   * The picker starts disappearing.
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @since 11
    */
   /**
-   * The picker finishes presenting.
+   * The picker starts disappearing.
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
+   * @since 23 static
    */
   STATE_DISAPPEARING,
 }
 
 /**
  * Definition of av cast picker style
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.Multimedia.AVSession.AVCast
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
+ * @since 23 static
  */
 export declare enum AVCastPickerStyle {
   /**
    * The picker shows in a panel style.
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
+   * @since 23 static
    */
   STYLE_PANEL,
 
@@ -79,24 +84,27 @@ export declare enum AVCastPickerStyle {
    * The picker shows in a menu style.
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
+   * @since 23 static
    */
   STYLE_MENU,
 }
 
 /**
  * Definition of color mode of picker
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.Multimedia.AVSession.AVCast
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
+ * @since 23 static
  */
 export declare enum AVCastPickerColorMode {
   /**
-   * Auto mode which follows the definition of system.
+   * Auto mode that follows the system definition.
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
+   * @since 23 static
    */
   AUTO,
 
@@ -104,7 +112,8 @@ export declare enum AVCastPickerColorMode {
    * Dark mode.
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
+   * @since 23 static
    */
   DARK,
 
@@ -112,7 +121,8 @@ export declare enum AVCastPickerColorMode {
    * Light mode.
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
+   * @since 23 static
    */
   LIGHT,
 }

@@ -681,6 +681,17 @@ declare namespace dlpPermission {
      * @since 10
      */
     tokenID: number;
+    
+    /**
+     * Index of the DLP sandbox application that has been installed and needs to be started.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Security.DataLossPrevention
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 24
+     */
+    bindAppIndex?: number;
   }
 
   /**
@@ -912,6 +923,13 @@ declare namespace dlpPermission {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
+  /**
+   * Represents the authorized user information.
+   *
+   * @interface AuthUser
+   * @syscap SystemCapability.Security.DataLossPrevention
+   * @since 21
+   */
   export interface AuthUser {
     /**
      * Authorized account of the DLP file.
@@ -920,6 +938,13 @@ declare namespace dlpPermission {
      * @syscap SystemCapability.Security.DataLossPrevention
      * @systemapi Hide this for inner system use.
      * @since 10
+     */
+    /**
+     * Authorized account of the DLP file.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Security.DataLossPrevention
+     * @since 21
      */
     authAccount: string;
 
@@ -931,6 +956,13 @@ declare namespace dlpPermission {
      * @systemapi Hide this for inner system use.
      * @since 10
      */
+    /**
+     * Type of the authorized account.
+     *
+     * @type { AccountType }
+     * @syscap SystemCapability.Security.DataLossPrevention
+     * @since 21
+     */
     authAccountType: AccountType;
 
     /**
@@ -941,6 +973,13 @@ declare namespace dlpPermission {
      * @systemapi Hide this for inner system use.
      * @since 10
      */
+    /**
+     * Authorized permission for the DLP file.
+     *
+     * @type { DLPFileAccess }
+     * @syscap SystemCapability.Security.DataLossPrevention
+     * @since 21
+     */
     dlpFileAccess: DLPFileAccess;
 
     /**
@@ -950,6 +989,13 @@ declare namespace dlpPermission {
      * @syscap SystemCapability.Security.DataLossPrevention
      * @systemapi Hide this for inner system use.
      * @since 10
+     */
+    /**
+     * Authorization expiration time of the DLP file.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Security.DataLossPrevention
+     * @since 21
      */
     permExpiryTime: number;
   }
@@ -1132,6 +1178,39 @@ declare namespace dlpPermission {
      * @since 21
      */
     fileId?: string;
+
+    /**
+     * Defines the number of times the DLP file can be opened.
+     * @type { ?number }
+     * @syscap SystemCapability.Security.DataLossPrevention
+     * @since 21
+     */
+    allowedOpenCount?: number;
+
+    /**
+     * Defines whether watermarking is required.
+     * @type { ?boolean }
+     * @syscap SystemCapability.Security.DataLossPrevention
+     * @since 23
+     */
+    waterMarkConfig?: boolean;
+
+    /**
+     * Defines the countdown for the DLP file can be opened.
+     * @type { ?number }
+     * @syscap SystemCapability.Security.DataLossPrevention
+     * @stagemodelonly
+     * @since 23
+     */
+    countdown?: number;
+
+    /**
+     * Defines the extended fields of the DLP file.
+     * @syscap SystemCapability.Security.DataLossPrevention
+     * @stagemodelonly
+     * @since 24
+     */
+    extensionFields?: Record<string, Object>;
   }
 
   /**
@@ -1590,12 +1669,23 @@ declare namespace dlpPermission {
    * @systemapi Hide this for inner system use.
    * @since 20
    */
+  /**
+   * Enumerates the action types when exceed expiry time.
+   * @enum { number } Valuable
+   * @syscap SystemCapability.Security.DataLossPrevention
+   * @since 21
+   */
   export enum ActionType {
     /**
      * NOT_OPEN, which not allows DLP files to be opened exceed expiry time.
      * @syscap SystemCapability.Security.DataLossPrevention
      * @systemapi Hide this for inner system use.
      * @since 20
+     */
+    /**
+     * NOT_OPEN, which not allows DLP files to be opened exceed expiry time.
+     * @syscap SystemCapability.Security.DataLossPrevention
+     * @since 21
      */
     NOT_OPEN = 0,
 
@@ -1604,6 +1694,11 @@ declare namespace dlpPermission {
      * @syscap SystemCapability.Security.DataLossPrevention
      * @systemapi Hide this for inner system use.
      * @since 20
+     */
+    /**
+     * OPEN, which allows DLP files to be opened exceed expiry time.
+     * @syscap SystemCapability.Security.DataLossPrevention
+     * @since 21
      */
     OPEN = 1
   }
@@ -1817,7 +1912,8 @@ declare namespace dlpPermission {
     /**
      * Connect server.
      * 
-     * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE
+     * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE[since 21 - 24]
+     * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE or ohos.permission.ACCESS_DLP_SERVICE[since 26.0.0]
      * @param { string } requestId Id request.
      * @param { string } requestData Context in request.
      * @param { Callback<string> } callback Callback fun.
@@ -1839,7 +1935,8 @@ declare namespace dlpPermission {
     /**
      * constructor.
      * 
-     * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE
+     * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE[since 21 - 24]
+     * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE or ohos.permission.ACCESS_DLP_SERVICE[since 26.0.0]
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Security.DataLossPrevention
      * @since 21
@@ -1849,7 +1946,8 @@ declare namespace dlpPermission {
     /**
      * register plugin.
      * 
-     * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE
+     * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE[since 21 - 24]
+     * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE or ohos.permission.ACCESS_DLP_SERVICE[since 26.0.0]
      * @param { DlpConnPlugin } plugin Plugin.
      * @returns { number } Id for plugin.
      * @throws { BusinessError } 201 - Permission denied.
@@ -1866,7 +1964,8 @@ declare namespace dlpPermission {
     /**
      * unregister plugin.
      * 
-     * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE
+     * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE[since 21 - 24]
+     * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE or ohos.permission.ACCESS_DLP_SERVICE[since 26.0.0]
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100002 - Credential service busy due to too many tasks or duplicate tasks.

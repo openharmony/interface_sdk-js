@@ -18,11 +18,6 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { CommonMethod } from './common';
-import { ResourceColor } from './units';
-/*** endif */
-
 /**
  * Create Blank.
  *
@@ -55,8 +50,7 @@ import { ResourceColor } from './units';
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
  */
 interface BlankInterface {
   /**
@@ -96,8 +90,7 @@ interface BlankInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   (min?: number | string): BlankAttribute;
 }
@@ -134,8 +127,7 @@ interface BlankInterface {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
  */
 declare class BlankAttribute extends CommonMethod<BlankAttribute> {
   /**
@@ -175,8 +167,7 @@ declare class BlankAttribute extends CommonMethod<BlankAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   color(value: ResourceColor): BlankAttribute;
 }
@@ -209,7 +200,7 @@ declare class BlankAttribute extends CommonMethod<BlankAttribute> {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const Blank: BlankInterface;
 
@@ -241,6 +232,6 @@ declare const Blank: BlankInterface;
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const BlankInstance: BlankAttribute;

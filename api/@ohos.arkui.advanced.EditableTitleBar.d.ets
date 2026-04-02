@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023-2024 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -25,27 +25,48 @@
 /**
  * Declaration of the menu item on the right side.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 10
  */
 /**
  * Declaration of the menu item on the right side.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
+ */
+/**
+ * Declaration of the menu item on the right side.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 22 dynamic
  */
 export declare class EditableTitleBarMenuItem {
   /**
    * Icon resource for this menu item.
    * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
    * Icon resource for this menu item.
    * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
+   */
+  /**
+   * Icon resource for this menu item.
+   * @type { ResourceStr }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
    */
   value: ResourceStr;
 
@@ -53,8 +74,18 @@ export declare class EditableTitleBarMenuItem {
    * Symbol style for this menu item.
    * @type { ?SymbolGlyphModifier }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
+   */
+  /**
+   * Symbol style for this menu item.
+   * @type { ?SymbolGlyphModifier }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
    */
   symbolStyle?: SymbolGlyphModifier;
 
@@ -62,8 +93,18 @@ export declare class EditableTitleBarMenuItem {
    * Icon label for this menu item.
    * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
+   */
+  /**
+   * Icon label for this menu item.
+   * @type { ?ResourceStr }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
    */
   label?: ResourceStr;
 
@@ -71,14 +112,25 @@ export declare class EditableTitleBarMenuItem {
    * Whether to enable this menu item.
    * @type { ?boolean }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
    * Whether to enable this menu item.
    * @type { ?boolean }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
+   */
+  /**
+   * Whether to enable this menu item.
+   * @type { ?boolean }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
    */
   isEnabled?: boolean;
 
@@ -86,14 +138,25 @@ export declare class EditableTitleBarMenuItem {
    * Callback function when click on this menu item.
    * @type { ?() => void }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
    * Callback function when click on this menu item.
    * @type { ?() => void }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
+   */
+  /**
+   * Callback function when click on this menu item.
+   * @type { ?() => void }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
    */
   action?: () => void;
 
@@ -101,8 +164,18 @@ export declare class EditableTitleBarMenuItem {
    * The accessibilityText of this menu item.
    * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
+   */
+  /**
+   * The accessibilityText of this menu item.
+   * @type { ?ResourceStr }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
    */
   accessibilityText?: ResourceStr;
 
@@ -110,8 +183,18 @@ export declare class EditableTitleBarMenuItem {
    * The accessibilityDescription of this menu item.
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
+   */
+  /**
+   * The accessibilityDescription of this menu item.
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
    */
   accessibilityDescription?: ResourceStr;
 
@@ -120,8 +203,19 @@ export declare class EditableTitleBarMenuItem {
    * @type { ?string }
    * @default "auto"
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
+   */
+  /**
+   * The accessibilityLevel of this menu item.
+   * @type { ?string }
+   * @default "auto"
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
    */
   accessibilityLevel?: string;
 
@@ -130,18 +224,30 @@ export declare class EditableTitleBarMenuItem {
    * @type { ?boolean }.
    * @default { false }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
+   */
+  /**
+   * Set the default focus state of this menu item.
+   * @type { ?boolean }.
+   * @default { false }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
    */
   defaultFocus?: boolean;
 }
 
 /**
- * Declaration of the image item .
+ * Declaration of the image item.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 export type EditableTitleBarItem = EditableTitleBarMenuItem;
 
@@ -149,39 +255,70 @@ export type EditableTitleBarItem = EditableTitleBarMenuItem;
  * Declaration of the left icon type.
  * @enum { EditableLeftIconType }.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 10
  */
 /**
  * Declaration of the left icon type.
  * @enum { EditableLeftIconType }.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
+ */
+/**
+ * Declaration of the left icon type.
+ * @enum { EditableLeftIconType }.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 22 dynamic
  */
 export declare enum EditableLeftIconType {
   /**
    * The back type.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
    * The back type.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
+   */
+  /**
+   * The back type.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
    */
   Back = 0,
 
   /**
    * The cancel type.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
    * The cancel type.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
+   */
+  /**
+   * The cancel type.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
    */
   Cancel = 1
 }
@@ -191,9 +328,10 @@ export declare enum EditableLeftIconType {
  *
  * @interface EditableTitleBarOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 export declare interface EditableTitleBarOptions {
   /**
@@ -201,9 +339,10 @@ export declare interface EditableTitleBarOptions {
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   backgroundColor?: ResourceColor;
 
@@ -212,9 +351,10 @@ export declare interface EditableTitleBarOptions {
    *
    * @type { ?BlurStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   backgroundBlurStyle?: BlurStyle;
 
@@ -223,9 +363,10 @@ export declare interface EditableTitleBarOptions {
    *
    * @type { ?Array<SafeAreaType> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   safeAreaTypes?: Array<SafeAreaType>;
 
@@ -234,9 +375,10 @@ export declare interface EditableTitleBarOptions {
    *
    * @type { ?Array<SafeAreaEdge> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   safeAreaEdges?: Array<SafeAreaEdge>;
 }
@@ -244,13 +386,23 @@ export declare interface EditableTitleBarOptions {
 /**
  * Declaration of the editable title bar.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 10
  */
 /**
  * Declaration of the editable title bar.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
+ */
+/**
+ * Declaration of the editable title bar.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 22 dynamic
  */
 @Component
 export declare struct EditableTitleBar {
@@ -258,14 +410,25 @@ export declare struct EditableTitleBar {
    * Style of the left icon.
    * @type { EditableLeftIconType }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
    * Style of the left icon.
    * @type { EditableLeftIconType }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
+   */
+  /**
+   * Style of the left icon.
+   * @type { EditableLeftIconType }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
    */
   leftIconStyle: EditableLeftIconType;
 
@@ -273,9 +436,10 @@ export declare struct EditableTitleBar {
    * Image item between the left icon and the title.
    * @type { ?EditableTitleBarItem }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   imageItem?: EditableTitleBarItem;
 
@@ -283,14 +447,25 @@ export declare struct EditableTitleBar {
    * Title of this title bar.
    * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
    * Title of this title bar.
    * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
+   */
+  /**
+   * Title of this title bar.
+   * @type { ResourceStr }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
    */
   title: ResourceStr;
 
@@ -298,20 +473,22 @@ export declare struct EditableTitleBar {
    * Sub-Title of this title bar.
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   subtitle?: ResourceStr;
 
   /**
-   * Whether to required the save icon.
+   * Whether to require the save icon.
    * @type { boolean }
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   isSaveIconRequired: boolean;
 
@@ -319,14 +496,25 @@ export declare struct EditableTitleBar {
    * Menu items on the right side.
    * @type { ?Array<EditableTitleBarMenuItem> }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
    * Menu items on the right side.
    * @type { ?Array<EditableTitleBarMenuItem> }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
+   */
+  /**
+   * Menu items on the right side.
+   * @type { ?Array<EditableTitleBarMenuItem> }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
    */
   menuItems?: Array<EditableTitleBarMenuItem>;
 
@@ -334,14 +522,25 @@ export declare struct EditableTitleBar {
    * Callback function when click on the save icon at the right side.
    * @type { ?() => void }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
    * Callback function when click on the save icon at the right side.
    * @type { ?() => void }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
+   */
+  /**
+   * Callback function when click on the save icon at the right side.
+   * @type { ?() => void }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
    */
   onSave?: () => void;
 
@@ -349,37 +548,50 @@ export declare struct EditableTitleBar {
    * Callback function when click on the cancel icon at the left side.
    * @type { ?() => void }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
    * Callback function when click on the cancel icon at the left side.
    * @type { ?() => void }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
+   */
+  /**
+   * Callback function when click on the cancel icon at the left side.
+   * @type { ?() => void }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
    */
   onCancel?: () => void;
   
   /**
-   * Indicates the options of titlebar.
+   * Indicates the options of the title bar.
    * @type { EditableTitleBarOptions }
    * @default {expandSafeAreaTypes: SafeAreaType.SYSTEM, expandSafeAreaEdges: SafeAreaEdge.TOP}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   options: EditableTitleBarOptions;
 
   /**
-   * Sets the content margin.
+   * Sets the content margins.
    * @type { ?LocalizedMargin }
    * @default {start: LengthMetrics.resource($r('sys.float.margin_left')),
    * <br> end: LengthMetrics.resource($r('sys.float.margin_right'))}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   @Prop contentMargin?: LocalizedMargin;
 
@@ -388,9 +600,10 @@ export declare struct EditableTitleBar {
    * @type { ?boolean }
    * @default { false }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   leftIconDefaultFocus?: boolean;
 
@@ -399,9 +612,10 @@ export declare struct EditableTitleBar {
    * @type { ?boolean }
    * @default { false }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   saveIconDefaultFocus?: boolean;
 }

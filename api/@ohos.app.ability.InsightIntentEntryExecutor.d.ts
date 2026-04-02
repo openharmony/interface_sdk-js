@@ -30,7 +30,7 @@ import UIExtensionContentSession from './@ohos.app.ability.UIExtensionContentSes
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @atomicservice
- * @since 20
+ * @since 20 dynamiconly
  */
 export default class InsightIntentEntryExecutor<T> {
   /**
@@ -40,7 +40,7 @@ export default class InsightIntentEntryExecutor<T> {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 20
+   * @since 20 dynamiconly
    */
   executeMode: insightIntent.ExecuteMode;
 
@@ -51,7 +51,7 @@ export default class InsightIntentEntryExecutor<T> {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 20
+   * @since 20 dynamiconly
    */
   context: InsightIntentContext;
 
@@ -62,7 +62,7 @@ export default class InsightIntentEntryExecutor<T> {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 20
+   * @since 20 dynamiconly
    */
   windowStage?: window.WindowStage;
 
@@ -73,7 +73,7 @@ export default class InsightIntentEntryExecutor<T> {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 20
+   * @since 20 dynamiconly
    */
   uiExtensionSession?: UIExtensionContentSession;
 
@@ -84,7 +84,7 @@ export default class InsightIntentEntryExecutor<T> {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-   * @since 20
+   * @since 20 dynamiconly
    */
   onExecute(): Promise<insightIntent.IntentResult<T>>;
 }

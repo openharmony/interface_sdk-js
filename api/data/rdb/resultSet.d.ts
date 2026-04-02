@@ -25,7 +25,7 @@ import { AsyncCallback } from '../../@ohos.base';
  *
  * @interface ResultSet
  * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
- * @since 7
+ * @since 7 dynamiconly
  * @deprecated since 9
  * @useinstead ohos.data.relationalStore.ResultSet
  */
@@ -36,7 +36,7 @@ export interface ResultSet {
    * as the columns in the result set.
    *
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.data.relationalStore.ResultSet.columnNames
    */
@@ -48,7 +48,7 @@ export interface ResultSet {
    * columnCount method.
    *
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.data.relationalStore.ResultSet.columnCount
    */
@@ -58,7 +58,7 @@ export interface ResultSet {
    * Obtains the number of rows in the result set.
    *
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.data.relationalStore.ResultSet.rowCount
    */
@@ -69,7 +69,7 @@ export interface ResultSet {
    * The result set index starts from 0.
    *
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.data.relationalStore.ResultSet.rowIndex
    */
@@ -79,7 +79,7 @@ export interface ResultSet {
    * Checks whether the result set is positioned at the first row.
    *
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.data.relationalStore.ResultSet.isAtFirstRow
    */
@@ -89,7 +89,7 @@ export interface ResultSet {
    * Checks whether the result set is positioned at the last row.
    *
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.data.relationalStore.ResultSet.isAtLastRow
    */
@@ -99,7 +99,7 @@ export interface ResultSet {
    * Checks whether the result set is positioned after the last row.
    *
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.data.relationalStore.ResultSet.isEnded
    */
@@ -110,7 +110,7 @@ export interface ResultSet {
    * row.
    *
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.data.relationalStore.ResultSet.isStarted
    */
@@ -121,7 +121,7 @@ export interface ResultSet {
    * If the result set is closed by calling the close method, true will be returned.
    *
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.data.relationalStore.ResultSet.isClosed
    */
@@ -134,7 +134,7 @@ export interface ResultSet {
    * @param { string } columnName - Indicates the name of the specified column in the result set.
    * @returns { number } return the index of the specified column.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.data.relationalStore.ResultSet.getColumnIndex
    */
@@ -147,7 +147,7 @@ export interface ResultSet {
    * @param { number } columnIndex - Indicates the index of the specified column in the result set.
    * @returns { string } returns the name of the specified column.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.data.relationalStore.ResultSet.getColumnName
    */
@@ -161,7 +161,7 @@ export interface ResultSet {
    * @returns { boolean } returns true if the result set is moved successfully and does not go beyond the range;
    *                   returns false otherwise.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.data.relationalStore.ResultSet.goTo
    */
@@ -173,7 +173,7 @@ export interface ResultSet {
    * @param { number } position - Indicates the index of the specified row, which starts from 0.
    * @returns { boolean } returns true if the result set is moved successfully; returns false otherwise.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.data.relationalStore.ResultSet.goToRow
    */
@@ -185,7 +185,7 @@ export interface ResultSet {
    * @returns { boolean } returns true if the result set is moved successfully;
    *                    returns false otherwise, for example, if the result set is empty.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.data.relationalStore.ResultSet.goToFirstRow
    */
@@ -197,7 +197,7 @@ export interface ResultSet {
    * @returns { boolean } returns true if the result set is moved successfully;
    *                    returns false otherwise, for example, if the result set is empty.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.data.relationalStore.ResultSet.goToLastRow
    */
@@ -209,7 +209,7 @@ export interface ResultSet {
    * @returns { boolean } returns true if the result set is moved successfully;
    *                    returns false otherwise, for example, if the result set is already in the last row.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.data.relationalStore.ResultSet.goToNextRow
    */
@@ -221,7 +221,7 @@ export interface ResultSet {
    * @returns { boolean } returns true if the result set is moved successfully;
    *                    returns false otherwise, for example, if the result set is already in the first row.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.data.relationalStore.ResultSet.goToPreviousRow
    */
@@ -235,7 +235,7 @@ export interface ResultSet {
    * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
    * @returns { Uint8Array } returns the value of the specified column as a byte array.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.data.relationalStore.ResultSet.getBlob
    */
@@ -249,7 +249,7 @@ export interface ResultSet {
    * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
    * @returns { string } returns the value of the specified column as a string.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.data.relationalStore.ResultSet.getString
    */
@@ -263,7 +263,7 @@ export interface ResultSet {
    * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
    * @returns { number } returns the value of the specified column as a long.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.data.relationalStore.ResultSet.getLong
    */
@@ -277,7 +277,7 @@ export interface ResultSet {
    * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
    * @returns { number } returns the value of the specified column as a double.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.data.relationalStore.ResultSet.getDouble
    */
@@ -290,7 +290,7 @@ export interface ResultSet {
    * @returns { boolean } returns true if the value of the specified column in the current row is null;
    *                    returns false otherwise.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.data.relationalStore.ResultSet.isColumnNull
    */
@@ -301,7 +301,7 @@ export interface ResultSet {
    * Calling this method on the result set will release all of its resources and makes it ineffective.
    *
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.data.relationalStore.ResultSet.close
    */

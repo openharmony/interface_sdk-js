@@ -26,16 +26,18 @@ import image from './@ohos.multimedia.image';
  * @syscap SystemCapability.Multimedia.VideoProcessingEngine
  * @crossplatform
  * @form
- * @since 18
+ * @since 18 dynamic
+ * @since 23 static
  */
 declare namespace videoProcessingEngine {
   /**
    * Levels of processing quality for detail enhancement.
-   * @enum {number}
+   * @enum {int}
    * @syscap SystemCapability.Multimedia.VideoProcessingEngine
    * @crossplatform
    * @form
-   * @since 18
+   * @since 18 dynamic
+   * @since 23 static
    */
   enum QualityLevel {
     /**
@@ -43,7 +45,8 @@ declare namespace videoProcessingEngine {
      * @syscap SystemCapability.Multimedia.VideoProcessingEngine
      * @crossplatform
      * @form
-     * @since 18
+     * @since 18 dynamic
+     * @since 23 static
      */
     NONE = 0,
     /**
@@ -51,7 +54,8 @@ declare namespace videoProcessingEngine {
      * @syscap SystemCapability.Multimedia.VideoProcessingEngine
      * @crossplatform
      * @form
-     * @since 18
+     * @since 18 dynamic
+     * @since 23 static
      */
     LOW = 1,
     /**
@@ -59,7 +63,8 @@ declare namespace videoProcessingEngine {
      * @syscap SystemCapability.Multimedia.VideoProcessingEngine
      * @crossplatform
      * @form
-     * @since 18
+     * @since 18 dynamic
+     * @since 23 static
      */
     MEDIUM = 2,
     /**
@@ -67,7 +72,8 @@ declare namespace videoProcessingEngine {
      * @syscap SystemCapability.Multimedia.VideoProcessingEngine
      * @crossplatform
      * @form
-     * @since 18
+     * @since 18 dynamic
+     * @since 23 static
      */
     HIGH = 3
   }
@@ -78,7 +84,8 @@ declare namespace videoProcessingEngine {
    * @syscap SystemCapability.Multimedia.VideoProcessingEngine
    * @crossplatform
    * @form
-   * @since 18
+   * @since 18 dynamic
+   * @since 23 static
    */
   interface ImageProcessor {
     /**
@@ -86,8 +93,8 @@ declare namespace videoProcessingEngine {
      * <br>according to width and height. Different levels of scaling methonds are provided to
      * <br>balance performance and image quality. This method uses a promise to return the result.
      * @param { image.PixelMap } sourceImage - The source pixelmap.
-     * @param { number } width - The zoom value of width.
-     * @param { number } height - The zoom value of height.
+     * @param { int } width - The zoom value of width.
+     * @param { int } height - The zoom value of height.
      * @param { QualityLevel } [level] - The quality level.
      * @returns { Promise<image.PixelMap> } A Promise instance used to return the PixelMap object.
      * @throws { BusinessError } 801 - Capability not supported. Function enhanceDetail can not work correctly due to
@@ -102,17 +109,18 @@ declare namespace videoProcessingEngine {
      * @syscap SystemCapability.Multimedia.VideoProcessingEngine
      * @crossplatform
      * @form
-     * @since 18
+     * @since 18 dynamic
+     * @since 23 static
      */
-    enhanceDetail(sourceImage: image.PixelMap, width: number, height: number, level?: QualityLevel): Promise<image.PixelMap>;
+    enhanceDetail(sourceImage: image.PixelMap, width: int, height: int, level?: QualityLevel): Promise<image.PixelMap>;
 
     /**
      * The function generate the destinationImage from sourceImage with necessary scaling operation
      * <br>according to width and height. Different levels of scaling methonds are provided to
      * <br>balance performance and image quality.
      * @param { image.PixelMap } sourceImage - The source pixelmap.
-     * @param { number } width - The zoom value of width.
-     * @param { number } height - The zoom value of height.
+     * @param { int } width - The zoom value of width.
+     * @param { int } height - The zoom value of height.
      * @param { QualityLevel } [level] - The quality level.
      * @returns { image.PixelMap } Returns the destination pixelmap instance .
      * <br>if the operation is successful; Otherwise, return undefined.
@@ -129,16 +137,17 @@ declare namespace videoProcessingEngine {
      * @syscap SystemCapability.Multimedia.VideoProcessingEngine
      * @crossplatform
      * @form
-     * @since 18
+     * @since 18 dynamic
+     * @since 23 static
      */
-    enhanceDetailSync(sourceImage: image.PixelMap, width: number, height: number, level?: QualityLevel): image.PixelMap;
+    enhanceDetailSync(sourceImage: image.PixelMap, width: int, height: int, level?: QualityLevel): image.PixelMap;
 
     /**
      * The function generate the destinationImage from sourceImage with necessary scaling operation
      * <br>according to the zoom ratio. Different levels of scaling methonds are provided to
      * <br>balance performance and image quality. This method uses a promise to return the result.
      * @param { image.PixelMap } sourceImage - The source pixelmap.
-     * @param { number } scale - The zoom ratio.
+     * @param { double } scale - The zoom ratio.
      * @param { QualityLevel } [level] - The quality level.
      * @returns { Promise<image.PixelMap> } A Promise instance used to return the PixelMap object.
      * @throws { BusinessError } 801 - Capability not supported. Function enhanceDetail can not work correctly due to
@@ -153,16 +162,17 @@ declare namespace videoProcessingEngine {
      * @syscap SystemCapability.Multimedia.VideoProcessingEngine
      * @crossplatform
      * @form
-     * @since 18
+     * @since 18 dynamic
+     * @since 23 static
      */
-    enhanceDetail(sourceImage: image.PixelMap, scale: number, level?: QualityLevel): Promise<image.PixelMap>;
+    enhanceDetail(sourceImage: image.PixelMap, scale: double, level?: QualityLevel): Promise<image.PixelMap>;
 
     /**
      * The function generate the destinationImage from sourceImage with necessary scaling operation
      * <br>according to the zoom ratio. Different levels of scaling methonds are provided to
      * <br>balance performance and image quality.
      * @param { image.PixelMap } sourceImage - The source pixelmap.
-     * @param { number } scale - The zoom ratio.
+     * @param { double } scale - The zoom ratio.
      * @param { QualityLevel } [level] - The quality level.
      * @returns { image.PixelMap } Returns the destination pixelmap instance
      * <br>if the operation is successful; Otherwise, return undefined.
@@ -179,9 +189,10 @@ declare namespace videoProcessingEngine {
      * @syscap SystemCapability.Multimedia.VideoProcessingEngine
      * @crossplatform
      * @form
-     * @since 18
+     * @since 18 dynamic
+     * @since 23 static
      */
-    enhanceDetailSync(sourceImage: image.PixelMap, scale: number, level?: QualityLevel): image.PixelMap;
+    enhanceDetailSync(sourceImage: image.PixelMap, scale: double, level?: QualityLevel): image.PixelMap;
   }
 
   /**
@@ -197,7 +208,8 @@ declare namespace videoProcessingEngine {
    * @syscap SystemCapability.Multimedia.VideoProcessingEngine
    * @crossplatform
    * @form
-   * @since 18
+   * @since 18 dynamic
+   * @since 23 static
    */
   function initializeEnvironment(): Promise<void>;
   /**
@@ -208,7 +220,8 @@ declare namespace videoProcessingEngine {
    * @syscap SystemCapability.Multimedia.VideoProcessingEngine
    * @crossplatform
    * @form
-   * @since 18
+   * @since 18 dynamic
+   * @since 23 static
    */
   function deinitializeEnvironment(): Promise<void>;
   /**
@@ -223,7 +236,8 @@ declare namespace videoProcessingEngine {
    * @syscap SystemCapability.Multimedia.VideoProcessingEngine
    * @crossplatform
    * @form
-   * @since 18
+   * @since 18 dynamic
+   * @since 23 static
    */
   function create(): ImageProcessor;
 }

@@ -18,19 +18,12 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { Resource } from '../../global/resource';
-import { ImageAIOptions, ImageAnalyzerConfig } from './imageCommon';
-import { ImageFit } from './enums';
-import { CommonMethod, Callback, PixelMap } from './common';
-import { VoidCallback, ColorMetrics } from './units';
-/*** endif */
-
 /**
  * Seek mode.
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 8
  */
 /**
@@ -38,6 +31,7 @@ import { VoidCallback, ColorMetrics } from './units';
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @since 10
  */
@@ -46,22 +40,24 @@ import { VoidCallback, ColorMetrics } from './units';
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
  */
 declare enum SeekMode {
   /**
    * Sync to keyframes before the time point.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8
    */
   /**
    * Sync to keyframes before the time point.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -69,10 +65,10 @@ declare enum SeekMode {
    * Sync to keyframes before the time point.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   PreviousKeyframe,
 
@@ -80,12 +76,14 @@ declare enum SeekMode {
    * Sync to keyframes after the time point.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8
    */
   /**
    * Sync to keyframes after the time point.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -93,10 +91,10 @@ declare enum SeekMode {
    * Sync to keyframes after the time point.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   NextKeyframe,
 
@@ -104,12 +102,14 @@ declare enum SeekMode {
    * Sync to closest keyframes.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8
    */
   /**
    * Sync to closest keyframes.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -117,10 +117,10 @@ declare enum SeekMode {
    * Sync to closest keyframes.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   ClosestKeyframe,
 
@@ -128,12 +128,14 @@ declare enum SeekMode {
    * Seek to frames closest the time point.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8
    */
   /**
    * Seek to frames closest the time point.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -141,10 +143,10 @@ declare enum SeekMode {
    * Seek to frames closest the time point.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   Accurate,
 }
@@ -154,6 +156,7 @@ declare enum SeekMode {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 8
  */
 /**
@@ -161,6 +164,7 @@ declare enum SeekMode {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @since 10
  */
@@ -169,22 +173,24 @@ declare enum SeekMode {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
  */
 declare enum PlaybackSpeed {
   /**
    * 0.75x speed playback.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8
    */
   /**
    * 0.75x speed playback.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -192,10 +198,10 @@ declare enum PlaybackSpeed {
    * 0.75x speed playback.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   Speed_Forward_0_75_X,
 
@@ -203,12 +209,14 @@ declare enum PlaybackSpeed {
    * 1.00x speed playback.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8
    */
   /**
    * 1.00x speed playback.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -216,10 +224,10 @@ declare enum PlaybackSpeed {
    * 1.00x speed playback.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   Speed_Forward_1_00_X,
 
@@ -227,12 +235,14 @@ declare enum PlaybackSpeed {
    * 1.25x speed playback.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8
    */
   /**
    * 1.25x speed playback.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -240,10 +250,10 @@ declare enum PlaybackSpeed {
    * 1.25x speed playback.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   Speed_Forward_1_25_X,
 
@@ -251,12 +261,14 @@ declare enum PlaybackSpeed {
    * 1.75x speed playback.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8
    */
   /**
    * 1.75x speed playback.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -264,10 +276,10 @@ declare enum PlaybackSpeed {
    * 1.75x speed playback.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   Speed_Forward_1_75_X,
 
@@ -275,12 +287,14 @@ declare enum PlaybackSpeed {
    * 2.00x speed playback.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8
    */
   /**
    * 2.00x speed playback.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -288,10 +302,10 @@ declare enum PlaybackSpeed {
    * 2.00x speed playback.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   Speed_Forward_2_00_X,
   /**
@@ -299,7 +313,7 @@ declare enum PlaybackSpeed {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 22
+   * @since 22 dynamic
    */
   SPEED_FORWARD_0_50_X = 5,
   /**
@@ -307,7 +321,7 @@ declare enum PlaybackSpeed {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 22
+   * @since 22 dynamic
    */
   SPEED_FORWARD_1_50_X = 6,
   /**
@@ -315,7 +329,7 @@ declare enum PlaybackSpeed {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 22
+   * @since 22 dynamic
    */
   SPEED_FORWARD_3_00_X = 7,
   /**
@@ -323,7 +337,7 @@ declare enum PlaybackSpeed {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 22
+   * @since 22 dynamic
    */
   SPEED_FORWARD_0_25_X = 8,
   /**
@@ -331,7 +345,7 @@ declare enum PlaybackSpeed {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 22
+   * @since 22 dynamic
    */
   SPEED_FORWARD_0_125_X = 9,
 }
@@ -343,14 +357,14 @@ declare enum PlaybackSpeed {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18 dynamic
  */
 interface FullscreenInfo {
   /**
    * The flag whether play in full screen.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * 
    * @crossplatform
    * @since 10
    */
@@ -371,8 +385,7 @@ interface FullscreenInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
    */
   fullscreen: boolean;
 }
@@ -384,8 +397,7 @@ interface FullscreenInfo {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18 dynamic
  */
 interface PreparedInfo {
   /**
@@ -412,8 +424,7 @@ interface PreparedInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
    */
   duration: number;
 }
@@ -425,8 +436,7 @@ interface PreparedInfo {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18 dynamic
  */
 interface PlaybackInfo {
   /**
@@ -453,8 +463,7 @@ interface PlaybackInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
    */
   time: number;
 }
@@ -465,8 +474,7 @@ interface PlaybackInfo {
  * @interface PosterOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18 dynamic
  */
 declare interface PosterOptions {
   /**
@@ -476,8 +484,7 @@ declare interface PosterOptions {
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
    */
   showFirstFrame?: boolean;
 
@@ -489,7 +496,7 @@ declare interface PosterOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 21
+   * @since 21 dynamic
    */
   contentTransitionEffect?: ContentTransitionEffect;
 }
@@ -499,6 +506,7 @@ declare interface PosterOptions {
  *
  * @interface VideoOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
@@ -506,6 +514,7 @@ declare interface PosterOptions {
  *
  * @interface VideoOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @since 10
  */
@@ -514,6 +523,7 @@ declare interface PosterOptions {
  *
  * @interface VideoOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11
@@ -523,10 +533,10 @@ declare interface PosterOptions {
  *
  * @interface VideoOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
  */
 declare interface VideoOptions {
   /**
@@ -534,6 +544,7 @@ declare interface VideoOptions {
    *
    * @type { ?(string | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -541,6 +552,7 @@ declare interface VideoOptions {
    *
    * @type { ?(string | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -549,10 +561,10 @@ declare interface VideoOptions {
    *
    * @type { ?(string | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   src?: string | Resource;
 
@@ -561,6 +573,7 @@ declare interface VideoOptions {
    *
    * @type { ?(number | string | PlaybackSpeed) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -568,6 +581,7 @@ declare interface VideoOptions {
    *
    * @type { ?(number | string | PlaybackSpeed) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -576,10 +590,10 @@ declare interface VideoOptions {
    *
    * @type { ?(number | string | PlaybackSpeed) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   currentProgressRate?: number | string | PlaybackSpeed;
 
@@ -588,6 +602,7 @@ declare interface VideoOptions {
    *
    * @type { ?(string | PixelMap | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -595,6 +610,7 @@ declare interface VideoOptions {
    *
    * @type { ?(string | PixelMap | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -603,10 +619,10 @@ declare interface VideoOptions {
    *
    * @type { ?(string | PixelMap | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   previewUri?: string | PixelMap | Resource;
 
@@ -615,6 +631,7 @@ declare interface VideoOptions {
    *
    * @type { ?VideoController }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -622,6 +639,7 @@ declare interface VideoOptions {
    *
    * @type { ?VideoController }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -630,10 +648,10 @@ declare interface VideoOptions {
    *
    * @type { ?VideoController }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   controller?: VideoController;
 
@@ -643,8 +661,7 @@ declare interface VideoOptions {
    * @type { ?ImageAIOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   imageAIOptions?: ImageAIOptions;
 
@@ -654,8 +671,7 @@ declare interface VideoOptions {
    * @type { ?PosterOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
    */
   posterOptions?: PosterOptions;
 }
@@ -664,12 +680,14 @@ declare interface VideoOptions {
  * Defines the video controller.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
  * Defines the video controller.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @since 10
  */
@@ -677,22 +695,24 @@ declare interface VideoOptions {
  * Defines the video controller.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
  */
 declare class VideoController {
   /**
    * constructor.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
    * constructor.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -700,10 +720,10 @@ declare class VideoController {
    * constructor.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   constructor();
 
@@ -711,12 +731,14 @@ declare class VideoController {
    * Provides events to play.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
    * Provides events to play.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -724,33 +746,25 @@ declare class VideoController {
    * Provides events to play.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   start();
 
   /**
-   * Provides events to play.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  start(): void;
-
-  /**
    * Provides a pause event for playback.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
    * Provides a pause event for playback.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -758,33 +772,25 @@ declare class VideoController {
    * Provides a pause event for playback.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   pause();
 
   /**
-   * Provides a pause event for playback.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  pause(): void;
-
-  /**
    * Provides an event to stop playback.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
    * Provides an event to stop playback.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -792,28 +798,19 @@ declare class VideoController {
    * Provides an event to stop playback.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   stop();
 
   /**
-   * Provides an event to stop playback.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  stop(): void;
-
-  /**
    * Provide the progress method of video playback.
    *
    * @param { number } value
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -821,6 +818,7 @@ declare class VideoController {
    *
    * @param { number } value
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -829,29 +827,19 @@ declare class VideoController {
    *
    * @param { number } value
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   setCurrentTime(value: number);
 
   /**
-   * Provide the progress method of video playback.
-   *
-   * @param { number } value
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  setCurrentTime(value: number): void;
-
-  /**
    * Provides a full screen playback method.
    *
    * @param { boolean } value
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -859,6 +847,7 @@ declare class VideoController {
    *
    * @param { boolean } value
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -867,34 +856,25 @@ declare class VideoController {
    *
    * @param { boolean } value
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   requestFullscreen(value: boolean);
 
   /**
-   * Provides a full screen playback method.
-   *
-   * @param { boolean } value
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  requestFullscreen(value: boolean): void;
-
-  /**
    * Provides a method to exit full screen playback.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
    * Provides a method to exit full screen playback.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -902,22 +882,12 @@ declare class VideoController {
    * Provides a method to exit full screen playback.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   exitFullscreen();
-
-  /**
-   * Provides a method to exit full screen playback.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  exitFullscreen(): void;
 
   /**
    * Provide the progress method of video playback.
@@ -925,6 +895,7 @@ declare class VideoController {
    * @param { number } value
    * @param { SeekMode } seekMode
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8
    */
   /**
@@ -933,6 +904,7 @@ declare class VideoController {
    * @param { number } value
    * @param { SeekMode } seekMode
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -942,32 +914,19 @@ declare class VideoController {
    * @param { number } value
    * @param { SeekMode } seekMode
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   setCurrentTime(value: number, seekMode: SeekMode);
-
-  /**
-   * Provide the progress method of video playback.
-   *
-   * @param { number } value
-   * @param { SeekMode } seekMode
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  setCurrentTime(value: number, seekMode: SeekMode): void;
 
   /**
    * Provide the reset method of video playback.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   reset(): void;
 }
@@ -977,6 +936,7 @@ declare class VideoController {
  *
  * @interface VideoInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
@@ -984,6 +944,7 @@ declare class VideoController {
  *
  * @interface VideoInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @since 10
  */
@@ -992,10 +953,10 @@ declare class VideoController {
  *
  * @interface VideoInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
  */
 interface VideoInterface {
   /**
@@ -1004,6 +965,7 @@ interface VideoInterface {
    * @param { VideoOptions } value
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -1012,6 +974,7 @@ interface VideoInterface {
    * @param { VideoOptions } value
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -1021,10 +984,10 @@ interface VideoInterface {
    * @param { VideoOptions } value
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   (value: VideoOptions): VideoAttribute;
 }
@@ -1034,6 +997,7 @@ interface VideoInterface {
  *
  * @extends CommonMethod<VideoAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
@@ -1041,6 +1005,7 @@ interface VideoInterface {
  *
  * @extends CommonMethod<VideoAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @since 10
  */
@@ -1049,10 +1014,10 @@ interface VideoInterface {
  *
  * @extends CommonMethod<VideoAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
  */
 declare class VideoAttribute extends CommonMethod<VideoAttribute> {
   /**
@@ -1061,6 +1026,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @param { boolean } value
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -1069,6 +1035,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @param { boolean } value
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -1078,10 +1045,10 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @param { boolean } value
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   muted(value: boolean): VideoAttribute;
 
@@ -1091,6 +1058,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @param { boolean } value
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -1099,6 +1067,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @param { boolean } value
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -1108,10 +1077,10 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @param { boolean } value
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   autoPlay(value: boolean): VideoAttribute;
 
@@ -1121,6 +1090,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @param { boolean } value
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -1129,6 +1099,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @param { boolean } value
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -1138,10 +1109,10 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @param { boolean } value
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   controls(value: boolean): VideoAttribute;
 
@@ -1151,6 +1122,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @param { boolean } value
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 6
    */
   /**
@@ -1159,6 +1131,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @param { boolean } value
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -1168,10 +1141,10 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @param { boolean } value
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   loop(value: boolean): VideoAttribute;
 
@@ -1181,6 +1154,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @param { ImageFit } value
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -1189,6 +1163,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @param { ImageFit } value
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -1198,10 +1173,10 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @param { ImageFit } value
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   objectFit(value: ImageFit): VideoAttribute;
 
@@ -1211,6 +1186,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @param { function } event
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -1219,6 +1195,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @param { function } event
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -1228,6 +1205,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @param { function } event
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -1239,10 +1217,10 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @param { VoidCallback } event
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
    */
   onStart(event: VoidCallback): VideoAttribute;
 
@@ -1252,6 +1230,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @param { function } event
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -1260,6 +1239,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @param { function } event
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -1269,6 +1249,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @param { function } event
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -1280,10 +1261,10 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @param { VoidCallback } event
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
    */
   onPause(event: VoidCallback): VideoAttribute;
 
@@ -1293,6 +1274,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @param { function } event
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -1301,6 +1283,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @param { function } event
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -1310,6 +1293,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @param { function } event
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -1321,10 +1305,10 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @param { VoidCallback } event
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
    */
   onFinish(event: VoidCallback): VideoAttribute;
 
@@ -1334,6 +1318,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @param { function } callback
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -1342,6 +1327,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @param { function } callback
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -1351,6 +1337,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @param { function } callback
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -1362,10 +1349,10 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @param { Callback<FullscreenInfo> } callback
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
    */
   onFullscreenChange(callback: Callback<FullscreenInfo>): VideoAttribute;
 
@@ -1375,6 +1362,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @param { function } callback
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -1383,6 +1371,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @param { function } callback
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -1392,6 +1381,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @param { function } callback
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -1403,10 +1393,10 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @param { Callback<PreparedInfo> } callback
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
    */
   onPrepared(callback: Callback<PreparedInfo>): VideoAttribute;
 
@@ -1416,6 +1406,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @param { function } callback
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -1424,6 +1415,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @param { function } callback
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -1433,6 +1425,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @param { function } callback
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -1444,10 +1437,10 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @param { Callback<PlaybackInfo> } callback
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
    */
   onSeeking(callback: Callback<PlaybackInfo>): VideoAttribute;
 
@@ -1457,6 +1450,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @param { function } callback
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -1465,6 +1459,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @param { function } callback
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -1474,6 +1469,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @param { function } callback
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -1485,10 +1481,10 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @param { Callback<PlaybackInfo> } callback
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
    */
   onSeeked(callback: Callback<PlaybackInfo>): VideoAttribute;
 
@@ -1498,6 +1494,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @param { function } callback
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -1506,6 +1503,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @param { function } callback
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -1515,6 +1513,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @param { function } callback
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -1526,10 +1525,10 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @param { Callback<PlaybackInfo> } callback
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
    */
   onUpdate(callback: Callback<PlaybackInfo>): VideoAttribute;
 
@@ -1539,6 +1538,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @param { function } event
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -1547,6 +1547,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @param { function } event
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -1556,6 +1557,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @param { function } event
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -1566,24 +1568,12 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @param { VoidCallback | import('../api/@ohos.base').ErrorCallback } event
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   onError(event: VoidCallback | import('../api/@ohos.base').ErrorCallback): VideoAttribute;
-  
-  /**
-   * Called when playback fails.
-   *
-   * @param { function } event
-   * @returns { VideoAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  onError(event: () => void): VideoAttribute;
 
   /**
    * Called when the video is stopped.
@@ -1593,8 +1583,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   onStop(event: Callback<void>): VideoAttribute;
 
@@ -1605,8 +1594,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   enableAnalyzer(enable: boolean): VideoAttribute;
 
@@ -1617,8 +1605,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   analyzerConfig(config: ImageAnalyzerConfig): VideoAttribute;
 
@@ -1629,8 +1616,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15 dynamic
    */
   surfaceBackgroundColor(color: ColorMetrics): VideoAttribute;
 
@@ -1645,8 +1631,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15 dynamic
    */
   enableShortcutKey(enabled: boolean): VideoAttribute;
 }
@@ -1655,12 +1640,14 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
  * Defines Video Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
  * Defines Video Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @since 10
  */
@@ -1668,9 +1655,10 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
  * Defines Video Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const Video: VideoInterface;
 
@@ -1678,12 +1666,14 @@ declare const Video: VideoInterface;
  * Defines Video Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
  * Defines Video Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @since 10
  */
@@ -1691,8 +1681,9 @@ declare const Video: VideoInterface;
  * Defines Video Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const VideoInstance: VideoAttribute;

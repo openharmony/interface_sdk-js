@@ -25,7 +25,9 @@ import type { Callback } from './@ohos.base';
  *
  * @namespace userStatus
  * @syscap SystemCapability.MultimodalAwareness.UserStatus
- * @since 20
+ * @since 20 dynamic
+ * @since 23 static
+ * @deprecated since 24
  */
 declare namespace userStatus {
   /**
@@ -34,7 +36,9 @@ declare namespace userStatus {
    *
    * @interface UserClassification
    * @syscap SystemCapability.MultimodalAwareness.UserStatus
-   * @since 20
+   * @since 20 dynamic
+   * @since 23 static
+   * @deprecated since 24
    */
   export interface UserClassification {
     /**
@@ -42,7 +46,9 @@ declare namespace userStatus {
      *
      * @type  { ?UserAgeGroup }
      * @syscap SystemCapability.MultimodalAwareness.UserStatus
-     * @since 20
+     * @since 20 dynamic
+     * @since 23 static
+     * @deprecated since 24
      */
     ageGroup?: UserAgeGroup;
 
@@ -51,7 +57,9 @@ declare namespace userStatus {
      *
      * @type  { ?float }
      * @syscap SystemCapability.MultimodalAwareness.UserStatus
-     * @since 20
+     * @since 20 dynamic
+     * @since 23 static
+     * @deprecated since 24
      */
     confidence?: float;
   }
@@ -61,14 +69,18 @@ declare namespace userStatus {
    *
    * @enum { number } UserAgeGroup
    * @syscap SystemCapability.MultimodalAwareness.UserStatus
-   * @since 20
+   * @since 20 dynamic
+   * @since 23 static
+   * @deprecated since 24
    */
   export enum UserAgeGroup {
     /**
      * Indicates that the operator is not a child.
      *
      * @syscap SystemCapability.MultimodalAwareness.UserStatus
-     * @since 20
+     * @since 20 dynamic
+     * @since 23 static
+     * @deprecated since 24
      */
     OTHERS = 0,
 
@@ -76,7 +88,9 @@ declare namespace userStatus {
      * Indicates that the operator is a child.
      *
      * @syscap SystemCapability.MultimodalAwareness.UserStatus
-     * @since 20
+     * @since 20 dynamic
+     * @since 23 static
+     * @deprecated since 24
      */
     CHILD = 1
   }
@@ -96,8 +110,8 @@ declare namespace userStatus {
    * <br>3. Node-API invocation exception, such as invalid Node-API status.
    * <br>4. IPC request exception.
    * @syscap SystemCapability.MultimodalAwareness.UserStatus
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
+   * @deprecated since 24
    */
   function on(type: 'userAgeGroupDetected', callback: Callback<UserClassification>): void;
 
@@ -115,9 +129,46 @@ declare namespace userStatus {
    * <br>2. Node-API invocation exception, such as invalid Node-API status.
    * <br>3. IPC request exception.
    * @syscap SystemCapability.MultimodalAwareness.UserStatus
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
+   * @deprecated since 24
    */
   function off(type: 'userAgeGroupDetected', callback?: Callback<UserClassification>): void;
+
+  /**
+   * Subscribe to age group detection feature.
+   * @param { Callback<UserClassification> } callback - Indicates the callback for getting the event data.
+   * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
+   *     <br> device capabilities.
+   * @throws { BusinessError } 33900001 - Service exception. Possible causes:
+   *     <br>1. System error, such as a null pointer and container-related exception.
+   *     <br>2. Node-API invocation exception, such as invalid Node-API status.
+   * @throws { BusinessError } 33900002 - Subscription failed. Possible causes:
+   *     <br>1. Callback registration failed.
+   *     <br>2. Failed to bind the native object to the JS wrapper.
+   *     <br>3. Node-API invocation exception, such as invalid Node-API status.
+   *     <br>4. IPC request exception.
+   * @syscap SystemCapability.MultimodalAwareness.UserStatus
+   * @since 23 static
+   * @deprecated since 24
+   */
+  function onUserAgeGroupDetected(callback: Callback<UserClassification>): void;
+
+  /**
+   * Unsubscribe to age group detection feature.
+   * @param { Callback<UserClassification> } [callback] - Indicates the callback for getting the event data.
+   * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
+   *     <br> device capabilities.
+   * @throws { BusinessError } 33900001 - Service exception. Possible causes:
+   *     <br>1. System error, such as a null pointer and container-related exception.
+   *     <br>2. Node-API invocation exception, such as invalid Node-API status.
+   * @throws { BusinessError } 33900003 - Unsubscription failed. Possible causes:
+   *     <br>1. Callback failure.
+   *     <br>2. Node-API invocation exception, such as invalid Node-API status.
+   *     <br>3. IPC request exception.
+   * @syscap SystemCapability.MultimodalAwareness.UserStatus
+   * @since 23 static
+   * @deprecated since 24
+   */
+  function offUserAgeGroupDetected(callback?: Callback<UserClassification>): void;
 }
 export default userStatus;

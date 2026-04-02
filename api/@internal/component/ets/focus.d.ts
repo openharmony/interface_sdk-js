@@ -18,10 +18,6 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { LengthMetrics , ColorMetrics } from '../Graphics';
-/*** endif */
-
 /**
  * Focus box style.
  *
@@ -29,8 +25,7 @@ import { LengthMetrics , ColorMetrics } from '../Graphics';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
  */
 declare interface FocusBoxStyle {
   /**
@@ -40,8 +35,7 @@ declare interface FocusBoxStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   margin?: LengthMetrics;
   /**
@@ -51,8 +45,7 @@ declare interface FocusBoxStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   strokeColor?: ColorMetrics;
   /**
@@ -62,8 +55,7 @@ declare interface FocusBoxStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   strokeWidth?: LengthMetrics;
 }
@@ -75,8 +67,7 @@ declare interface FocusBoxStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
  */
 declare enum FocusPriority {
   /**
@@ -85,8 +76,7 @@ declare enum FocusPriority {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   AUTO = 0,
 
@@ -96,8 +86,7 @@ declare enum FocusPriority {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   PRIOR = 2000,
 
@@ -107,8 +96,7 @@ declare enum FocusPriority {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   PREVIOUS = 3000,
 }
@@ -121,8 +109,7 @@ declare enum FocusPriority {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'15','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 15 dynamic
  */
 declare enum KeyProcessingMode {
   /**
@@ -131,8 +118,7 @@ declare enum KeyProcessingMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15 dynamic
    */
   FOCUS_NAVIGATION = 0,
 
@@ -142,8 +128,7 @@ declare enum KeyProcessingMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15 dynamic
    */
   ANCESTOR_EVENT = 1,
 }

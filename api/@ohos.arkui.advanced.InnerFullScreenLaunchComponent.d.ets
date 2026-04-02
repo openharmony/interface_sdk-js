@@ -13,19 +13,19 @@
  * limitations under the License.
  */
 
- /**
+/**
  * @file Defines the inner fullScreen launch component for system applications
  * @kit ArkUI
  */
 
 import AtomicServiceOptions from '@ohos.app.ability.AtomicServiceOptions';
-import Callback from '@ohos.base';
+import { Callback, ErrorCallback } from '@ohos.base';
 
 /**
  * Declare component InnerFullScreenLaunchComponent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 12
+ * @since 12 dynamiconly
  */
 @Component
 export declare struct InnerFullScreenLaunchComponent {
@@ -34,7 +34,7 @@ export declare struct InnerFullScreenLaunchComponent {
    * @type { Callback<void> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 12
+   * @since 12 dynamiconly
    */
   @BuilderParam content: Callback<void>;
 
@@ -42,8 +42,8 @@ export declare struct InnerFullScreenLaunchComponent {
    * Sets the component Controller.
    * @type { LaunchController }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi  
-   * @since 12
+   * @systemapi
+   * @since 12 dynamiconly
    */
   controller: LaunchController;
 
@@ -52,16 +52,36 @@ export declare struct InnerFullScreenLaunchComponent {
    * @type { ?Callback<Record<string, Object>> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 20
+   * @since 20 dynamiconly
    */
   onReceive?: Callback<Record<string, Object>>;
+  /**
+   * Callback triggered when an error occurs during running of the started ExtensionAbility.
+   * It is supported only when the atomic service runs in embedded mode,
+   * with the parameter being of type BusinessError.
+   * @type { ?ErrorCallback }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 23 dynamiconly
+   */
+  onError?: ErrorCallback;
+  /**
+   * Callback triggered when the EmbeddableUIAbility is terminated to receive the information
+   * about the termination. It is supported only when the atomic service runs in embedded mode,
+   * with the parameter being of type TerminationInfo.
+   * @type { ?Callback<TerminationInfo> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 23 dynamiconly
+   */
+  onTerminated?: Callback<TerminationInfo>;
 }
 
 /**
  * Declare type LaunchController
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 12
+ * @since 12 dynamiconly
  */
 export declare class LaunchController {
 
@@ -71,7 +91,7 @@ export declare class LaunchController {
    * @type { LaunchAtomicServiceCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 12
+   * @since 12 dynamiconly
    **/
   public launchAtomicService: LaunchAtomicServiceCallback;
 }
@@ -85,6 +105,6 @@ export declare class LaunchController {
  * @param { AtomicServiceOptions } [options] - options that could be empty.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 12
+ * @since 12 dynamiconly
  **/
 export declare type LaunchAtomicServiceCallback = (appId: string, options?: AtomicServiceOptions) => void;

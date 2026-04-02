@@ -18,28 +18,36 @@
  * @kit IMEKit
  */
 
+ /*** if arkts static */
+ import { CustomDialogController, CustomDialog } from '@ohos.arkui.component';
+ import { Resource } from './global/resource';
+ /*** endif */
+
 /**
  * Define pattern options of keyboard.
  *
  * @interface PatternOptions
  * @syscap SystemCapability.MiscServices.InputMethodFramework
- * @since 11
+ * @since 11 dynamic
+ * @since 23 static
  */
 export interface PatternOptions {
   /**
    * The default selected pattern, The defaultSelected will default to 0 if left blank
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 11
+   * @since 11 dynamic
+   * @since 23 static
    */
-  defaultSelected?: number;
+  defaultSelected?: int;
   /**
    * the patterns of input method.
    *
    * @type { Array<Pattern> }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 11
+   * @since 11 dynamic
+   * @since 23 static
    */
   patterns: Array<Pattern>;
   /**
@@ -47,9 +55,10 @@ export interface PatternOptions {
    *
    * @type { function }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 11
+   * @since 11 dynamic
+   * @since 23 static
    */
-  action: (index: number) => void;
+  action: (index: int) => void;
 }
 
 /**
@@ -57,7 +66,8 @@ export interface PatternOptions {
  * 
  * @interface Pattern
  * @syscap SystemCapability.MiscServices.InputMethodFramework
- * @since 11
+ * @since 11 dynamic
+ * @since 23 static
  */
 export interface Pattern {
   /**
@@ -65,7 +75,8 @@ export interface Pattern {
    *
    * @type { Resource }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 11
+   * @since 11 dynamic
+   * @since 23 static
    */
   icon: Resource;
   /**
@@ -73,7 +84,8 @@ export interface Pattern {
    *
    * @type { Resource }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 11
+   * @since 11 dynamic
+   * @since 23 static
    */
   selectedIcon: Resource;
 }
@@ -82,7 +94,8 @@ export interface Pattern {
  * Declare input method list dialog. The caller must be the current inputmethod.
  *
  * @syscap SystemCapability.MiscServices.InputMethodFramework
- * @since 11
+ * @since 11 dynamic
+ * @since 23 static
  */
 @CustomDialog
 export declare struct InputMethodListDialog {
@@ -91,7 +104,8 @@ export declare struct InputMethodListDialog {
    *
    * @type { CustomDialogController }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 11
+   * @since 11 dynamic
+   * @since 23 static
    */
   controller: CustomDialogController;
   /**
@@ -99,7 +113,16 @@ export declare struct InputMethodListDialog {
    *
    * @type { PatternOptions }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 11
+   * @since 11 dynamic
+   * @since 23 static
    */
   patternOptions?: PatternOptions;
+
+  /**
+   * The method to build component.
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 23 staticonly
+   */
+  @Builder
+  build(): void;
 }

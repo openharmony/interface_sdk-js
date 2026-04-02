@@ -26,7 +26,7 @@ import type { AsyncCallback, Callback } from './@ohos.base';
  *
  * @namespace omapi
  * @syscap SystemCapability.Communication.SecureElement
- * @since 10
+ * @since 10 dynamic
  */
 declare namespace omapi {
   /**
@@ -43,7 +43,7 @@ declare namespace omapi {
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.Communication.SecureElement
-   * @since 10
+   * @since 10 dynamiconly
    * @deprecated since 12
    * @useinstead omapi#createService
    */
@@ -57,7 +57,7 @@ declare namespace omapi {
    * @returns { Promise<SEService> } Returns the created SEService instance.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.Communication.SecureElement
-   * @since 12
+   * @since 12 dynamic
    */
   function createService(): Promise<SEService>;
 
@@ -68,7 +68,7 @@ declare namespace omapi {
    * @param { Callback<ServiceState> } callback - The callback used to listen for the state change event.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.Communication.SecureElement
-   * @since 18
+   * @since 18 dynamic
    */
   function on(type: 'stateChanged', callback: Callback<ServiceState>): void;
 
@@ -79,7 +79,7 @@ declare namespace omapi {
    * @param { Callback<ServiceState> } callback - The callback used to listen for the state change event.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.Communication.SecureElement
-   * @since 18
+   * @since 18 dynamic
    */
   function off(type: 'stateChanged', callback?: Callback<ServiceState>): void;
 
@@ -88,7 +88,7 @@ declare namespace omapi {
    * 
    * @typedef SEService
    * @syscap SystemCapability.Communication.SecureElement
-   * @since 10
+   * @since 10 dynamic
    */
   export interface SEService {
     /**
@@ -98,7 +98,7 @@ declare namespace omapi {
      * @returns { Reader[] } The list of available SE readers.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.SecureElement
-     * @since 10
+     * @since 10 dynamic
      */
     getReaders(): Reader[];
 
@@ -108,7 +108,7 @@ declare namespace omapi {
      * @returns { boolean } True if the service is connected.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.SecureElement
-     * @since 10
+     * @since 10 dynamic
      */
     isConnected(): boolean;
 
@@ -117,7 +117,7 @@ declare namespace omapi {
      *
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.SecureElement
-     * @since 10
+     * @since 10 dynamic
      */
     shutdown(): void;
 
@@ -127,7 +127,7 @@ declare namespace omapi {
      * @returns { string } The Open Mobile API version (e.g. “3.3” for Open Mobile API Specification version 3.3).
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.SecureElement
-     * @since 10
+     * @since 10 dynamic
      */
     getVersion(): string;
   }
@@ -137,7 +137,7 @@ declare namespace omapi {
    * 
    * @typedef Reader
    * @syscap SystemCapability.Communication.SecureElement
-   * @since 10
+   * @since 10 dynamic
    */
   export interface Reader {
     /**
@@ -148,7 +148,7 @@ declare namespace omapi {
      * @returns { string } The reader name, as a String.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.SecureElement
-     * @since 10
+     * @since 10 dynamic
      */
     getName(): string;
 
@@ -159,7 +159,7 @@ declare namespace omapi {
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 3300101 - IllegalStateError, service state exception.
      * @syscap SystemCapability.Communication.SecureElement
-     * @since 10
+     * @since 10 dynamic
      */
     isSecureElementPresent(): boolean;
 
@@ -173,7 +173,7 @@ declare namespace omapi {
      * @throws { BusinessError } 3300101 - IllegalStateError, service state exception.
      * @throws { BusinessError } 3300104 - IOError, there is a communication problem to the reader or the SE.
      * @syscap SystemCapability.Communication.SecureElement
-     * @since 10
+     * @since 10 dynamic
      */
     openSession(): Session;
 
@@ -183,7 +183,7 @@ declare namespace omapi {
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 3300101 - IllegalStateError, service state exception.
      * @syscap SystemCapability.Communication.SecureElement
-     * @since 10
+     * @since 10 dynamic
      */
     closeSessions(): void;
   }
@@ -195,7 +195,7 @@ declare namespace omapi {
    *
    * @typedef Session
    * @syscap SystemCapability.Communication.SecureElement
-   * @since 10
+   * @since 10 dynamic
    */
   export interface Session {
     /**
@@ -204,7 +204,7 @@ declare namespace omapi {
      * @returns { Reader } The Reader object.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.SecureElement
-     * @since 10
+     * @since 10 dynamic
      */
     getReader(): Reader;
 
@@ -216,7 +216,7 @@ declare namespace omapi {
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 3300101 - IllegalStateError, service state exception.
      * @syscap SystemCapability.Communication.SecureElement
-     * @since 10
+     * @since 10 dynamic
      */
     getATR(): number[];
 
@@ -226,7 +226,7 @@ declare namespace omapi {
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 3300101 - IllegalStateError, service state exception.
      * @syscap SystemCapability.Communication.SecureElement
-     * @since 10
+     * @since 10 dynamic
      */
     close(): void;
 
@@ -236,7 +236,7 @@ declare namespace omapi {
      * @returns { boolean } True if the session is closed, false otherwise.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.SecureElement
-     * @since 10
+     * @since 10 dynamic
      */
     isClosed(): boolean;
 
@@ -246,7 +246,7 @@ declare namespace omapi {
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 3300101 - IllegalStateError, service state exception.
      * @syscap SystemCapability.Communication.SecureElement
-     * @since 10
+     * @since 10 dynamic
      */
     closeChannels(): void;
 
@@ -267,7 +267,7 @@ declare namespace omapi {
      * @throws { BusinessError } 3300103 - SecurityError, the calling application cannot be granted access to this AID or the default applet on this session.
      * @throws { BusinessError } 3300104 - IOError, there is a communication problem to the reader or the SE.
      * @syscap SystemCapability.Communication.SecureElement
-     * @since 10
+     * @since 10 dynamic
      */
     openBasicChannel(aid: number[]): Promise<Channel>;
 
@@ -288,7 +288,7 @@ declare namespace omapi {
      * @throws { BusinessError } 3300103 - SecurityError, the calling application cannot be granted access to this AID or the default applet on this session.
      * @throws { BusinessError } 3300104 - IOError, there is a communication problem to the reader or the SE.
      * @syscap SystemCapability.Communication.SecureElement
-     * @since 10
+     * @since 10 dynamic
      */
     openBasicChannel(aid: number[], callback: AsyncCallback<Channel>): void;
 
@@ -316,7 +316,7 @@ declare namespace omapi {
      * @throws { BusinessError } 3300103 - SecurityError, the calling application cannot be granted access to this AID or the default applet on this session.
      * @throws { BusinessError } 3300104 - IOError, there is a communication problem to the reader or the SE.
      * @syscap SystemCapability.Communication.SecureElement
-     * @since 10
+     * @since 10 dynamic
      */
     openBasicChannel(aid: number[], p2: number): Promise<Channel>;
 
@@ -344,7 +344,7 @@ declare namespace omapi {
      * @throws { BusinessError } 3300103 - SecurityError, the calling application cannot be granted access to this AID or the default applet on this session.
      * @throws { BusinessError } 3300104 - IOError, there is a communication problem to the reader or the SE.
      * @syscap SystemCapability.Communication.SecureElement
-     * @since 10
+     * @since 10 dynamic
      */
     openBasicChannel(aid: number[], p2: number, callback: AsyncCallback<Channel>): void;
 
@@ -366,7 +366,7 @@ declare namespace omapi {
      * @throws { BusinessError } 3300103 - SecurityError, the calling application cannot be granted access to this AID or the default applet on this session.
      * @throws { BusinessError } 3300104 - IOError, there is a communication problem to the reader or the SE.
      * @syscap SystemCapability.Communication.SecureElement
-     * @since 10
+     * @since 10 dynamic
      */
     openLogicalChannel(aid: number[]): Promise<Channel>;
 
@@ -388,7 +388,7 @@ declare namespace omapi {
      * @throws { BusinessError } 3300103 - SecurityError, the calling application cannot be granted access to this AID or the default applet on this session.
      * @throws { BusinessError } 3300104 - IOError, there is a communication problem to the reader or the SE.
      * @syscap SystemCapability.Communication.SecureElement
-     * @since 10
+     * @since 10 dynamic
      */
     openLogicalChannel(aid: number[], callback: AsyncCallback<Channel>): void;
 
@@ -417,7 +417,7 @@ declare namespace omapi {
      * @throws { BusinessError } 3300103 - SecurityError, the calling application cannot be granted access to this AID or the default applet on this session.
      * @throws { BusinessError } 3300104 - IOError, there is a communication problem to the reader or the SE.
      * @syscap SystemCapability.Communication.SecureElement
-     * @since 10
+     * @since 10 dynamic
      */
     openLogicalChannel(aid: number[], p2: number): Promise<Channel>;
 
@@ -445,7 +445,7 @@ declare namespace omapi {
      * @throws { BusinessError } 3300103 - SecurityError, the calling application cannot be granted access to this AID or the default applet on this session.
      * @throws { BusinessError } 3300104 - IOError, there is a communication problem to the reader or the SE.
      * @syscap SystemCapability.Communication.SecureElement
-     * @since 10
+     * @since 10 dynamic
      */
     openLogicalChannel(aid: number[], p2: number, callback: AsyncCallback<Channel>): void;
   }
@@ -455,7 +455,7 @@ declare namespace omapi {
    * 
    * @typedef Channel
    * @syscap SystemCapability.Communication.SecureElement
-   * @since 10
+   * @since 10 dynamic
    */
   export interface Channel {
     /**
@@ -464,7 +464,7 @@ declare namespace omapi {
      * @returns { Session } The Session object this channel is bound to.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.SecureElement
-     * @since 10
+     * @since 10 dynamic
      */
     getSession(): Session;
 
@@ -474,7 +474,7 @@ declare namespace omapi {
      *
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.SecureElement
-     * @since 10
+     * @since 10 dynamic
      */
     close(): void;
 
@@ -484,7 +484,7 @@ declare namespace omapi {
      * @returns { boolean } True if this channel is a basic channel, false otherwise.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.SecureElement
-     * @since 10
+     * @since 10 dynamic
      */
     isBasicChannel(): boolean;
 
@@ -494,7 +494,7 @@ declare namespace omapi {
      * @returns { boolean } True if the channel is closed, false otherwise.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.SecureElement
-     * @since 10
+     * @since 10 dynamic
      */
     isClosed(): boolean;
 
@@ -505,7 +505,7 @@ declare namespace omapi {
      * @returns { number[] } The data as returned by the application select command inclusive of the status word.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.SecureElement
-     * @since 10
+     * @since 10 dynamic
      */
     getSelectResponse(): number[];
 
@@ -523,7 +523,7 @@ declare namespace omapi {
      * @throws { BusinessError } 3300103 - SecurityError, the command is filtered by the security policy.
      * @throws { BusinessError } 3300104 - IOError, there is a communication problem to the reader or the SE.
      * @syscap SystemCapability.Communication.SecureElement
-     * @since 10
+     * @since 10 dynamic
      */
     transmit(command: number[]): Promise<number[]>;
 
@@ -541,7 +541,7 @@ declare namespace omapi {
      * @throws { BusinessError } 3300103 - SecurityError, the command is filtered by the security policy.
      * @throws { BusinessError } 3300104 - IOError, there is a communication problem to the reader or the SE.
      * @syscap SystemCapability.Communication.SecureElement
-     * @since 10
+     * @since 10 dynamic
      */
     transmit(command: number[], callback: AsyncCallback<number[]>): void;
   }
@@ -551,14 +551,14 @@ declare namespace omapi {
    *
    * @enum { number }
    * @syscap SystemCapability.Communication.SecureElement
-   * @since 10
+   * @since 10 dynamic
    */
   enum ServiceState {
     /**
      * Service is disconnected.
      *
      * @syscap SystemCapability.Communication.SecureElement
-     * @since 10
+     * @since 10 dynamic
      */
     DISCONNECTED = 0,
 
@@ -566,7 +566,7 @@ declare namespace omapi {
      * Service is connected.
      *
      * @syscap SystemCapability.Communication.SecureElement
-     * @since 10
+     * @since 10 dynamic
      */
     CONNECTED = 1
   }

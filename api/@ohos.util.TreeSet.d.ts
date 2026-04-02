@@ -40,8 +40,8 @@
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
+ * @since 23 static
  */
 declare class TreeSet<T> {
   /**
@@ -87,7 +87,7 @@ declare class TreeSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   constructor(comparator?: (firstValue: T, secondValue: T) => boolean);
 
@@ -99,8 +99,7 @@ declare class TreeSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 23 static
    */
   constructor(comparator?: TreeSetComparator<T>);
 
@@ -126,21 +125,20 @@ declare class TreeSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   length: number;
 
   /**
    * Gets the element number of the TreeSet.
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 23 static
    */
-  get length(): number;
+  get length(): int;
 
   /**
    * Returns whether the Set object contains elements
@@ -167,23 +165,23 @@ declare class TreeSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   isEmpty(): boolean;
   /**
-   * Returns whether the Set object contain s the elements
+   * Returns whether the Set object contains the elements
    *
-   * @param { T } value - value value need to determine whether to include the element
+   * @param { T } value - the value to check for presence in the set
    * @returns { boolean } the boolean type
    * @throws { BusinessError } 10200011 - The has method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @since 8
    */
   /**
-   * Returns whether the Set object contain s the elements
+   * Returns whether the Set object contains the elements
    *
-   * @param { T } value - value value need to determine whether to include the element
+   * @param { T } value - the value to check for presence in the set
    * @returns { boolean } the boolean type
    * @throws { BusinessError } 10200011 - The has method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
@@ -191,23 +189,23 @@ declare class TreeSet<T> {
    * @since 10
    */
   /**
-   * Returns whether the Set object contain s the elements
+   * Returns whether the Set object contains the elements
    *
-   * @param { T } value - value value need to determine whether to include the element
+   * @param { T } value - the value to check for presence in the set
    * @returns { boolean } the boolean type
    * @throws { BusinessError } 10200011 - The has method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   has(value: T): boolean;
   /**
    * If the set does not contain the element, the specified element is added
    *
-   * @param { T } value - value value Added element
-   * @returns { boolean } the boolean type(Is there contain this element)
+   * @param { T } value - the element to add to the set
+   * @returns { boolean } whether the element was already present
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * 1.Mandatory parameters are left unspecified;
    * 2.Incorrect parameter types;
@@ -219,8 +217,8 @@ declare class TreeSet<T> {
   /**
    * If the set does not contain the element, the specified element is added
    *
-   * @param { T } value - value value Added element
-   * @returns { boolean } the boolean type(Is there contain this element)
+   * @param { T } value - the element to add to the set
+   * @returns { boolean } whether the element was already present
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * 1.Mandatory parameters are left unspecified;
    * 2.Incorrect parameter types;
@@ -233,8 +231,8 @@ declare class TreeSet<T> {
   /**
    * If the set does not contain the element, the specified element is added
    *
-   * @param { T } value - value value Added element
-   * @returns { boolean } the boolean type(Is there contain this element)
+   * @param { T } value - the element to add to the set
+   * @returns { boolean } whether the element was already present
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * 1.Mandatory parameters are left unspecified;
    * 2.Incorrect parameter types;
@@ -243,14 +241,14 @@ declare class TreeSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   add(value: T): boolean;
   /**
    * Remove a specified element from a Set object
    *
-   * @param { T } value - value value Target to be deleted
+   * @param { T } value - the element to remove from the set
    * @returns { boolean } the boolean type(Is there contain this element)
    * @throws { BusinessError } 10200011 - The remove method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
@@ -259,7 +257,7 @@ declare class TreeSet<T> {
   /**
    * Remove a specified element from a Set object
    *
-   * @param { T } value - value value Target to be deleted
+   * @param { T } value - the element to remove from the set
    * @returns { boolean } the boolean type(Is there contain this element)
    * @throws { BusinessError } 10200011 - The remove method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
@@ -269,14 +267,14 @@ declare class TreeSet<T> {
   /**
    * Remove a specified element from a Set object
    *
-   * @param { T } value - value value Target to be deleted
+   * @param { T } value - the element to remove from the set
    * @returns { boolean } the boolean type(Is there contain this element)
    * @throws { BusinessError } 10200011 - The remove method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   remove(value: T): boolean;
   /**
@@ -301,8 +299,8 @@ declare class TreeSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   clear(): void;
   /**
@@ -326,11 +324,13 @@ declare class TreeSet<T> {
    * Gets the first elements in a set
    *
    * @returns { T } value or undefined
+   * @throws { BusinessError } 10200010 - Container is empty.[staticonly]
    * @throws { BusinessError } 10200011 - The getFirstValue method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
+   * @since 23 static
    */
   getFirstValue(): T;
   /**
@@ -354,18 +354,20 @@ declare class TreeSet<T> {
    * Gets the last elements in a set
    *
    * @returns { T } value or undefined
+   * @throws { BusinessError } 10200010 - Container is empty.[staticonly]
    * @throws { BusinessError } 10200011 - The getLastValue method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
+   * @since 23 static
    */
   getLastValue(): T;
   /**
    * Returns the greatest element smaller than or equal to the specified key
    * if the key does not exist, undefined is returned
    *
-   * @param { T } key - key key Objective of comparison
+   * @param { T } key - the key to compare against
    * @returns { T } key or undefined
    * @throws { BusinessError } 10200011 - The getLowerValue method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -379,7 +381,7 @@ declare class TreeSet<T> {
    * Returns the greatest element smaller than or equal to the specified key
    * if the key does not exist, undefined is returned
    *
-   * @param { T } key - key key Objective of comparison
+   * @param { T } key - the key to compare against
    * @returns { T } key or undefined
    * @throws { BusinessError } 10200011 - The getLowerValue method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -394,7 +396,7 @@ declare class TreeSet<T> {
    * Returns the greatest element smaller than or equal to the specified key
    * if the key does not exist, undefined is returned
    *
-   * @param { T } key - key key Objective of comparison
+   * @param { T } key - the key to compare against
    * @returns { T } key or undefined
    * @throws { BusinessError } 10200011 - The getLowerValue method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -404,14 +406,14 @@ declare class TreeSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   getLowerValue(key: T): T;
   /**
    * Returns the least element greater than or equal to the specified key
    * if the key does not exist, undefined is returned
    *
-   * @param { T } key - key key Objective of comparison
+   * @param { T } key - the key to compare against
    * @returns { T } key or undefined
    * @throws { BusinessError } 10200011 - The getHigherValue method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -425,7 +427,7 @@ declare class TreeSet<T> {
    * Returns the least element greater than or equal to the specified key
    * if the key does not exist, undefined is returned
    *
-   * @param { T } key - key key Objective of comparison
+   * @param { T } key - the key to compare against
    * @returns { T } key or undefined
    * @throws { BusinessError } 10200011 - The getHigherValue method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -440,7 +442,7 @@ declare class TreeSet<T> {
    * Returns the least element greater than or equal to the specified key
    * if the key does not exist, undefined is returned
    *
-   * @param { T } key - key key Objective of comparison
+   * @param { T } key - the key to compare against
    * @returns { T } key or undefined
    * @throws { BusinessError } 10200011 - The getHigherValue method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -450,7 +452,7 @@ declare class TreeSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   getHigherValue(key: T): T;
   /**
@@ -474,11 +476,13 @@ declare class TreeSet<T> {
    * Return and delete the first element, returns undefined if tree set is empty
    *
    * @returns { T } first value or undefined
+   * @throws { BusinessError } 10200010 - Container is empty.[staticonly]
    * @throws { BusinessError } 10200011 - The popFirst method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
+   * @since 23 static
    */
   popFirst(): T;
   /**
@@ -502,49 +506,27 @@ declare class TreeSet<T> {
    * Return and delete the last element, returns undefined if tree set is empty
    *
    * @returns { T } last value or undefined
+   * @throws { BusinessError } 10200010 - Container is empty.[staticonly]
    * @throws { BusinessError } 10200011 - The popLast method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
+   * @since 23 static
    */
   popLast(): T;
-
-  /**
-   * Gets the first elements in a set
-   *
-   * @returns { T | undefined } the value of the first element if exists, undefined otherwise
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  getFirstValue(): T | undefined;
-
-  /**
-   * Gets the last elements in a set
-   *
-   * @returns { T | undefined } the value of the last element if exists, undefined otherwise
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  getLastValue(): T | undefined;
 
   /**
    * Returns the greatest element smaller than or equal to the specified key
    * if the key does not exist, undefined is returned
    *
-   * @param { T } key - key key Objective of comparison
+   * @param { T } key - the key to compare against
    * @returns { T | undefined } the lower value of the given key's element if exists, undefined otherwise
+   * @throws { BusinessError } 10200010 - Container is empty.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 23 static
    */
   getLowerValue(key: T): T | undefined;
 
@@ -552,39 +534,15 @@ declare class TreeSet<T> {
    * Returns the least element greater than or equal to the specified key
    * if the key does not exist, undefined is returned
    *
-   * @param { T } key - key key Objective of comparison
+   * @param { T } key - the key to compare against
    * @returns { T | undefined } the higher value of the given key's element if exists, undefined otherwise
+   * @throws { BusinessError } 10200010 - Container is empty.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 23 static
    */
   getHigherValue(key: T): T | undefined;
-
-  /**
-   * Return and delete the first element, returns undefined if tree set is empty
-   *
-   * @returns { T | undefined} the value of the first element in the TreeSet if exists, undefined otherwise
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  popFirst(): T | undefined;
-
-  /**
-   * Return and delete the last element, returns undefined if tree set is empty
-   *
-   * @returns { T | undefined } the value of the last element in the TreeSet if exists, undefined otherwise
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  popLast(): T | undefined;
 
   /**
    * Executes a provided function once for each value in the Set object.
@@ -635,7 +593,7 @@ declare class TreeSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   forEach(callbackFn: (value?: T, key?: T, set?: TreeSet<T>) => void, thisArg?: Object): void;
 
@@ -646,8 +604,7 @@ declare class TreeSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 23 static
    */
   forEach(callbackFn: TreeSetForEachCb<T>): void;
 
@@ -676,8 +633,8 @@ declare class TreeSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   values(): IterableIterator<T>;
   /**
@@ -705,8 +662,8 @@ declare class TreeSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   entries(): IterableIterator<[T, T]>;
   /**
@@ -734,7 +691,7 @@ declare class TreeSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   [Symbol.iterator](): IterableIterator<T>;
 
@@ -745,8 +702,7 @@ declare class TreeSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 23 static
    */
   $_iterator(): IterableIterator<T>;
 
@@ -762,10 +718,9 @@ declare class TreeSet<T> {
  * @returns { void } This callback does not return a value
  * @syscap SystemCapability.Utils.Lang
  * @atomicservice
- * @since 20
- * @arkts 1.2
+ * @since 23 static
  */
-type TreeSetForEachCb<T> = (value: T, key: T, set: TreeSet<T>) => void
+export type TreeSetForEachCb<T> = (value: T, key: T, set: TreeSet<T>) => void
 
 /**
  * The type of TreeSet comparator.
@@ -773,12 +728,11 @@ type TreeSetForEachCb<T> = (value: T, key: T, set: TreeSet<T>) => void
  * @typedef { function } TreeSetComparator
  * @param { T } firstValue - The first value compared
  * @param { T } secondValue - The second value compared
- * @returns { number } - Comparison results
+ * @returns { double } - Comparison results
  * @syscap SystemCapability.Utils.Lang
  * @atomicservice
- * @since 20
- * @arkts 1.2
+ * @since 23 static
  */
-type TreeSetComparator<T> = (firstValue: T, secondValue: T) => number
+export type TreeSetComparator<T> = (firstValue: T, secondValue: T) => double
 
 export default TreeSet;

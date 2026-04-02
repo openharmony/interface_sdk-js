@@ -25,7 +25,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  */
 
 export declare enum ArcSliderPosition {
@@ -36,7 +36,7 @@ export declare enum ArcSliderPosition {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   LEFT = 0,
 
@@ -46,7 +46,7 @@ export declare enum ArcSliderPosition {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   RIGHT = 1
 }
@@ -58,7 +58,7 @@ export declare enum ArcSliderPosition {
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  */
 interface ArcSliderValueOptionsConstructorOptions {
   /**
@@ -68,7 +68,7 @@ interface ArcSliderValueOptionsConstructorOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   progress?: number;
 
@@ -80,7 +80,7 @@ interface ArcSliderValueOptionsConstructorOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   min?: number;
 
@@ -92,7 +92,7 @@ interface ArcSliderValueOptionsConstructorOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   max?: number;
 }
@@ -103,7 +103,7 @@ interface ArcSliderValueOptionsConstructorOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  */
 @ObservedV2
 declare class ArcSliderValueOptions {
@@ -114,7 +114,7 @@ declare class ArcSliderValueOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   @Trace
   progress?: number;
@@ -127,7 +127,7 @@ declare class ArcSliderValueOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   @Trace
   min?: number;
@@ -140,7 +140,7 @@ declare class ArcSliderValueOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   @Trace
   max?: number;
@@ -152,7 +152,7 @@ declare class ArcSliderValueOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   constructor(options?: ArcSliderValueOptionsConstructorOptions);
 }
@@ -164,7 +164,7 @@ declare class ArcSliderValueOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  */
 interface ArcSliderLayoutOptionsConstructorOptions {
   /**
@@ -175,7 +175,7 @@ interface ArcSliderLayoutOptionsConstructorOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   reverse?: boolean;
   /**
@@ -186,7 +186,7 @@ interface ArcSliderLayoutOptionsConstructorOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   position?: ArcSliderPosition;
 }
@@ -196,7 +196,7 @@ interface ArcSliderLayoutOptionsConstructorOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  */
 @ObservedV2
 declare class ArcSliderLayoutOptions {
@@ -208,7 +208,7 @@ declare class ArcSliderLayoutOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   @Trace
   reverse?: boolean;
@@ -221,7 +221,7 @@ declare class ArcSliderLayoutOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   @Trace
   position?: ArcSliderPosition;
@@ -233,7 +233,7 @@ declare class ArcSliderLayoutOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   constructor(options?: ArcSliderLayoutOptionsConstructorOptions);
 }
@@ -245,7 +245,7 @@ declare class ArcSliderLayoutOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  */
 interface ArcSliderStyleOptionsConstructorOptions {
   /**
@@ -256,7 +256,7 @@ interface ArcSliderStyleOptionsConstructorOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   trackThickness?: number;
 
@@ -268,7 +268,7 @@ interface ArcSliderStyleOptionsConstructorOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   activeTrackThickness?: number;
 
@@ -280,7 +280,7 @@ interface ArcSliderStyleOptionsConstructorOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   trackColor?: string;
 
@@ -292,7 +292,7 @@ interface ArcSliderStyleOptionsConstructorOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   selectedColor?: string;
 
@@ -304,7 +304,7 @@ interface ArcSliderStyleOptionsConstructorOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   trackBlur?: number;
 }
@@ -315,7 +315,7 @@ interface ArcSliderStyleOptionsConstructorOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  */
 @ObservedV2
 declare class ArcSliderStyleOptions {
@@ -327,7 +327,7 @@ declare class ArcSliderStyleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   @Trace
   trackThickness?: number;
@@ -340,7 +340,7 @@ declare class ArcSliderStyleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   @Trace
   activeTrackThickness?: number;
@@ -353,7 +353,7 @@ declare class ArcSliderStyleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   @Trace
   trackColor?: string;
@@ -366,7 +366,7 @@ declare class ArcSliderStyleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   @Trace
   selectedColor?: string;
@@ -379,7 +379,7 @@ declare class ArcSliderStyleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   @Trace
   trackBlur?: number;
@@ -391,7 +391,7 @@ declare class ArcSliderStyleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   constructor(options?: ArcSliderStyleOptionsConstructorOptions);
 }
@@ -404,7 +404,7 @@ declare class ArcSliderStyleOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  */
 declare type ArcSliderTouchHandler = (event: TouchEvent) => void;
 
@@ -416,7 +416,7 @@ declare type ArcSliderTouchHandler = (event: TouchEvent) => void;
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  */
 declare type ArcSliderChangeHandler = (progress: number) => void;
 
@@ -428,7 +428,7 @@ declare type ArcSliderChangeHandler = (progress: number) => void;
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  */
 declare type ArcSliderEnlargeHandler = (isEnlarged: boolean) => void;
 
@@ -439,7 +439,7 @@ declare type ArcSliderEnlargeHandler = (isEnlarged: boolean) => void;
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  */
 interface ArcSliderOptionsConstructorOptions {
   /**
@@ -449,7 +449,7 @@ interface ArcSliderOptionsConstructorOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   valueOptions?: ArcSliderValueOptions;
 
@@ -460,7 +460,7 @@ interface ArcSliderOptionsConstructorOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   layoutOptions?: ArcSliderLayoutOptions;
 
@@ -471,7 +471,7 @@ interface ArcSliderOptionsConstructorOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   styleOptions?: ArcSliderStyleOptions;
 
@@ -482,7 +482,7 @@ interface ArcSliderOptionsConstructorOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   digitalCrownSensitivity?: CrownSensitivity;
 
@@ -493,7 +493,7 @@ interface ArcSliderOptionsConstructorOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   onTouch?: ArcSliderTouchHandler;
 
@@ -504,7 +504,7 @@ interface ArcSliderOptionsConstructorOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   onChange?: ArcSliderChangeHandler;
 
@@ -515,7 +515,7 @@ interface ArcSliderOptionsConstructorOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   onEnlarge?: ArcSliderEnlargeHandler;
 }
@@ -526,7 +526,7 @@ interface ArcSliderOptionsConstructorOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  */
 @ObservedV2
 declare class ArcSliderOptions {
@@ -537,7 +537,7 @@ declare class ArcSliderOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   @Trace
   valueOptions?: ArcSliderValueOptions;
@@ -549,7 +549,7 @@ declare class ArcSliderOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   @Trace
   layoutOptions?: ArcSliderLayoutOptions;
@@ -561,7 +561,7 @@ declare class ArcSliderOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   @Trace
   styleOptions?: ArcSliderStyleOptions;
@@ -573,7 +573,7 @@ declare class ArcSliderOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   @Trace
   digitalCrownSensitivity?: CrownSensitivity;
@@ -585,7 +585,7 @@ declare class ArcSliderOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   @Trace
   onTouch?: ArcSliderTouchHandler;
@@ -597,7 +597,7 @@ declare class ArcSliderOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   @Trace
   onChange?: ArcSliderChangeHandler;
@@ -609,7 +609,7 @@ declare class ArcSliderOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   @Trace
   onEnlarge?: ArcSliderEnlargeHandler;
@@ -621,7 +621,7 @@ declare class ArcSliderOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   constructor(options?: ArcSliderOptionsConstructorOptions);
 }
@@ -632,7 +632,7 @@ declare class ArcSliderOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  */
 @Component
 declare struct ArcSlider {
@@ -643,7 +643,7 @@ declare struct ArcSlider {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   options: ArcSliderOptions;
 }

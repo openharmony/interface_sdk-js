@@ -18,8 +18,9 @@
  * @kit AbilityKit
  */
 
-/*** if arkts 1.1 */
 import CompletionHandler from './@ohos.app.ability.CompletionHandler';
+/*** if arkts static */
+import { RecordData } from './@ohos.base';
 /*** endif */
 
 /**
@@ -29,8 +30,8 @@ import CompletionHandler from './@ohos.app.ability.CompletionHandler';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @atomicservice
- * @since arkts {'1.1':'12', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
+ * @since 23 static
  */
 export default interface OpenLinkOptions {
   /**
@@ -41,8 +42,8 @@ export default interface OpenLinkOptions {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   appLinkingOnly?: boolean;
 
@@ -53,10 +54,19 @@ export default interface OpenLinkOptions {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   parameters?: Record<string, Object>;
+
+  /**
+   * OpenLinkOptions parameters in the form of custom key-value pairs.
+   *
+   * @type { ?Record<string, RecordData> }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 23 static
+   */
+  parameters?: Record<string, RecordData>;
 
   /**
    * The completion handler of openLink.
@@ -65,7 +75,8 @@ export default interface OpenLinkOptions {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 21
+   * @since 21 dynamic
+   * @since 23 static
    */
   completionHandler?: CompletionHandler;
 
@@ -77,8 +88,8 @@ export default interface OpenLinkOptions {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 21
-   * @arkts 1.1&1.2
+   * @since 21 dynamic
+   * @since 23 static
    */
   hideFailureTipDialog?: boolean;
 }

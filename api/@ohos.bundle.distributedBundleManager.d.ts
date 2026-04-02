@@ -28,7 +28,8 @@ import { RemoteAbilityInfo as _RemoteAbilityInfo } from './bundleManager/RemoteA
  * @namespace distributedBundleManager
  * @syscap SystemCapability.BundleManager.DistributedBundleFramework
  * @systemapi
- * @since 9
+ * @since 9 dynamic
+ * @since 23 static
  */
 declare namespace distributedBundleManager {
   /**
@@ -47,7 +48,8 @@ declare namespace distributedBundleManager {
    * @throws { BusinessError } 17700027 - The distributed service is not running.
    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
+   * @since 23 static
    */
   function getRemoteAbilityInfo(elementName: ElementName, callback: AsyncCallback<RemoteAbilityInfo>): void;
 
@@ -67,7 +69,8 @@ declare namespace distributedBundleManager {
    * @throws { BusinessError } 17700027 - The distributed service is not running.
    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
+   * @since 23 static
    */
   function getRemoteAbilityInfo(elementName: ElementName): Promise<RemoteAbilityInfo>;
 
@@ -87,7 +90,8 @@ declare namespace distributedBundleManager {
    * @throws { BusinessError } 17700027 - The distributed service is not running.
    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
+   * @since 23 static
    */
   function getRemoteAbilityInfo(elementNames: Array<ElementName>,
     callback: AsyncCallback<Array<RemoteAbilityInfo>>): void;
@@ -108,7 +112,8 @@ declare namespace distributedBundleManager {
    * @throws { BusinessError } 17700027 - The distributed service is not running.
    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
+   * @since 23 static
    */
   function getRemoteAbilityInfo(elementNames: Array<ElementName>): Promise<Array<RemoteAbilityInfo>>;
 
@@ -129,7 +134,8 @@ declare namespace distributedBundleManager {
    * @throws { BusinessError } 17700027 - The distributed service is not running.
    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
+   * @since 23 static
    */
   function getRemoteAbilityInfo(elementName: ElementName,
     locale: string, callback: AsyncCallback<RemoteAbilityInfo>): void;
@@ -151,7 +157,8 @@ declare namespace distributedBundleManager {
    * @throws { BusinessError } 17700027 - The distributed service is not running.
    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
+   * @since 23 static
    */
   function getRemoteAbilityInfo(elementName: ElementName, locale: string): Promise<RemoteAbilityInfo>;
 
@@ -172,7 +179,8 @@ declare namespace distributedBundleManager {
    * @throws { BusinessError } 17700027 - The distributed service is not running.
    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
+   * @since 23 static
    */
   function getRemoteAbilityInfo(elementNames: Array<ElementName>,
     locale: string, callback: AsyncCallback<Array<RemoteAbilityInfo>>): void;
@@ -194,9 +202,30 @@ declare namespace distributedBundleManager {
    * @throws { BusinessError } 17700027 - The distributed service is not running.
    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
+   * @since 23 static
    */
   function getRemoteAbilityInfo(elementNames: Array<ElementName>, locale: string): Promise<Array<RemoteAbilityInfo>>;
+
+  /**
+   * Obtains the version code of the bundle on the remote device.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { string } deviceId - Indicates the device ID.
+   * @param { string } bundleName - Indicates the bundle name.
+   * @returns { Promise<long> } Returns the version code of the bundle on the remote device.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 17700001 - The specified bundle name is not found.
+   * @throws { BusinessError } 17700007 - The specified device ID is not found.
+   * @throws { BusinessError } 17700027 - The distributed service is not running.
+   * @syscap SystemCapability.BundleManager.DistributedBundleFramework
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function getRemoteBundleVersionCode(deviceId: string, bundleName: string): Promise<long>;
 
   /**
    * Contains basic remote ability information.
@@ -204,7 +233,8 @@ declare namespace distributedBundleManager {
    * @typedef { _RemoteAbilityInfo }
    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
+   * @since 23 static
    */
   export type RemoteAbilityInfo = _RemoteAbilityInfo;
 }

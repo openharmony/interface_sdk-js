@@ -23,7 +23,7 @@
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamiconly
  */
 declare namespace fastbuffer {
     /**
@@ -33,7 +33,7 @@ declare namespace fastbuffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 dynamiconly
      */
     type BufferEncoding = 'ascii' | 'utf8' | 'utf-8' | 'utf16le' | 'ucs2' | 'ucs-2' | 'base64' | 'base64url' | 'latin1' | 'binary' | 'hex';
     /**
@@ -44,7 +44,7 @@ declare namespace fastbuffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 dynamiconly
      */
     interface TypedArray extends Int8Array {
     }
@@ -58,7 +58,7 @@ declare namespace fastbuffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 dynamiconly
      */
     function alloc(size: number, fill?: string | FastBuffer | number, encoding?: BufferEncoding): FastBuffer;
     /**
@@ -69,7 +69,7 @@ declare namespace fastbuffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 dynamiconly
      */
     function allocUninitializedFromPool(size: number): FastBuffer;
     /**
@@ -80,7 +80,7 @@ declare namespace fastbuffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 dynamiconly
      */
     function allocUninitialized(size: number): FastBuffer;
     /**
@@ -94,7 +94,7 @@ declare namespace fastbuffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 dynamiconly
      */
     function byteLength(value: string | FastBuffer | TypedArray | DataView | ArrayBuffer | SharedArrayBuffer, encoding?: BufferEncoding): number;
     /**
@@ -108,7 +108,7 @@ declare namespace fastbuffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 dynamiconly
      */
     function concat(list: FastBuffer[] | Uint8Array[], totalLength?: number): FastBuffer;
     /**
@@ -119,7 +119,7 @@ declare namespace fastbuffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 dynamiconly
      */
     function from(array: number[]): FastBuffer;
     /**
@@ -136,7 +136,7 @@ declare namespace fastbuffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 dynamiconly
      */
     function from(arrayBuffer: ArrayBuffer | SharedArrayBuffer, byteOffset?: number, length?: number): FastBuffer;
     /**
@@ -148,7 +148,7 @@ declare namespace fastbuffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 dynamiconly
      */
     function from(buffer: FastBuffer | Uint8Array): FastBuffer;
     /**
@@ -161,7 +161,7 @@ declare namespace fastbuffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 dynamiconly
      */
     function from(value: string, encoding?: BufferEncoding): FastBuffer;
     /**
@@ -172,7 +172,7 @@ declare namespace fastbuffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 dynamiconly
      */
     function isBuffer(obj: Object): boolean;
     /**
@@ -183,7 +183,7 @@ declare namespace fastbuffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 dynamiconly
      */
     function isEncoding(encoding: string): boolean;
     /**
@@ -198,7 +198,7 @@ declare namespace fastbuffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 dynamiconly
      */
     function compare(buf1: FastBuffer | Uint8Array, buf2: FastBuffer | Uint8Array): -1 | 0 | 1;
     /**
@@ -211,7 +211,7 @@ declare namespace fastbuffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 dynamiconly
      */
     function transcode(source: FastBuffer | Uint8Array, fromEnc: string, toEnc: string): FastBuffer;
     /**
@@ -220,7 +220,7 @@ declare namespace fastbuffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 dynamiconly
      */
     class FastBuffer {
         /**
@@ -230,7 +230,7 @@ declare namespace fastbuffer {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 20
+         * @since 20 dynamiconly
          */
         length: number;
         /**
@@ -240,7 +240,7 @@ declare namespace fastbuffer {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 20
+         * @since 20 dynamiconly
          */
         buffer: ArrayBuffer;
         /**
@@ -250,7 +250,7 @@ declare namespace fastbuffer {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 20
+         * @since 20 dynamiconly
          */
         byteOffset: number;
         /**
@@ -267,7 +267,7 @@ declare namespace fastbuffer {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 20
+         * @since 20 dynamiconly
          */
         fill(value: string | FastBuffer | Uint8Array | number, offset?: number, end?: number, encoding?: BufferEncoding): FastBuffer;
         /**
@@ -288,7 +288,7 @@ declare namespace fastbuffer {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 20
+         * @since 20 dynamiconly
          */
         compare(target: FastBuffer | Uint8Array, targetStart?: number, targetEnd?: number, sourceStart?: number, sourceEnd?: number): -1 | 0 | 1;
         /**
@@ -306,7 +306,7 @@ declare namespace fastbuffer {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 20
+         * @since 20 dynamiconly
          */
         copy(target: FastBuffer | Uint8Array, targetStart?: number, sourceStart?: number, sourceEnd?: number): number;
         /**
@@ -318,7 +318,7 @@ declare namespace fastbuffer {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 20
+         * @since 20 dynamiconly
          */
         equals(otherBuffer: Uint8Array | FastBuffer): boolean;
         /**
@@ -331,7 +331,7 @@ declare namespace fastbuffer {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 20
+         * @since 20 dynamiconly
          */
         includes(value: string | number | FastBuffer | Uint8Array, byteOffset?: number, encoding?: BufferEncoding): boolean;
         /**
@@ -345,7 +345,7 @@ declare namespace fastbuffer {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 20 
+         * @since 20 dynamiconly
          */
         indexOf(value: string | number | FastBuffer | Uint8Array, byteOffset?: number, encoding?: BufferEncoding): number;
         /**
@@ -355,7 +355,7 @@ declare namespace fastbuffer {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 20
+         * @since 20 dynamiconly
          */
         keys(): IterableIterator<number>;
         /**
@@ -365,7 +365,7 @@ declare namespace fastbuffer {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 20
+         * @since 20 dynamiconly
          */
         values(): IterableIterator<number>;
         /**
@@ -375,7 +375,7 @@ declare namespace fastbuffer {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 20
+         * @since 20 dynamiconly
          */
         entries(): IterableIterator<[
             number,
@@ -392,7 +392,7 @@ declare namespace fastbuffer {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 20
+         * @since 20 dynamiconly
          */
         lastIndexOf(value: string | number | FastBuffer | Uint8Array, byteOffset?: number, encoding?: BufferEncoding): number;
         /**
@@ -404,7 +404,7 @@ declare namespace fastbuffer {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 20
+         * @since 20 dynamiconly
          */
         readBigInt64BE(offset?: number): bigint;
         /**
@@ -416,7 +416,7 @@ declare namespace fastbuffer {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 20
+         * @since 20 dynamiconly
          */
         readBigInt64LE(offset?: number): bigint;
         /**
@@ -428,7 +428,7 @@ declare namespace fastbuffer {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 20
+         * @since 20 dynamiconly
          */
         readBigUInt64BE(offset?: number): bigint;
         /**
@@ -440,7 +440,7 @@ declare namespace fastbuffer {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 20
+         * @since 20 dynamiconly
          */
         readBigUInt64LE(offset?: number): bigint;
         /**
@@ -452,7 +452,7 @@ declare namespace fastbuffer {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 20
+         * @since 20 dynamiconly
          */
         readDoubleBE(offset?: number): number;
         /**
@@ -464,7 +464,7 @@ declare namespace fastbuffer {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 20
+         * @since 20 dynamiconly
          */
         readDoubleLE(offset?: number): number;
         /**
@@ -476,7 +476,7 @@ declare namespace fastbuffer {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 20
+         * @since 20 dynamiconly
          */
         readFloatBE(offset?: number): number;
         /**
@@ -488,7 +488,7 @@ declare namespace fastbuffer {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 20
+         * @since 20 dynamiconly
          */
         readFloatLE(offset?: number): number;
         /**
@@ -500,7 +500,7 @@ declare namespace fastbuffer {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 20
+         * @since 20 dynamiconly
          */
         readInt8(offset?: number): number;
         /**
@@ -512,7 +512,7 @@ declare namespace fastbuffer {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 20
+         * @since 20 dynamiconly
          */
         readInt16BE(offset?: number): number;
         /**
@@ -524,7 +524,7 @@ declare namespace fastbuffer {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 20
+         * @since 20 dynamiconly
          */
         readInt16LE(offset?: number): number;
         /**
@@ -536,7 +536,7 @@ declare namespace fastbuffer {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 20
+         * @since 20 dynamiconly
          */
         readInt32BE(offset?: number): number;
         /**
@@ -548,7 +548,7 @@ declare namespace fastbuffer {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 20
+         * @since 20 dynamiconly
          */
         readInt32LE(offset?: number): number;
         /**
@@ -562,7 +562,7 @@ declare namespace fastbuffer {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 20
+         * @since 20 dynamiconly
          */
         readIntBE(offset: number, byteLength: number): number;
         /**
@@ -576,7 +576,7 @@ declare namespace fastbuffer {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 20
+         * @since 20 dynamiconly
          */
         readIntLE(offset: number, byteLength: number): number;
         /**
@@ -588,7 +588,7 @@ declare namespace fastbuffer {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 20
+         * @since 20 dynamiconly
          */
         readUInt8(offset?: number): number;
         /**
@@ -600,7 +600,7 @@ declare namespace fastbuffer {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 20
+         * @since 20 dynamiconly
          */
         readUInt16BE(offset?: number): number;
         /**
@@ -612,7 +612,7 @@ declare namespace fastbuffer {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 20
+         * @since 20 dynamiconly
          */
         readUInt16LE(offset?: number): number;
         /**
@@ -624,7 +624,7 @@ declare namespace fastbuffer {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 20
+         * @since 20 dynamiconly
          */
         readUInt32BE(offset?: number): number;
         /**
@@ -636,7 +636,7 @@ declare namespace fastbuffer {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 20
+         * @since 20 dynamiconly
          */
         readUInt32LE(offset?: number): number;
         /**
@@ -650,7 +650,7 @@ declare namespace fastbuffer {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 20
+         * @since 20 dynamiconly
          */
         readUIntBE(offset: number, byteLength: number): number;
         /**
@@ -664,7 +664,7 @@ declare namespace fastbuffer {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 20
+         * @since 20 dynamiconly
          */
         readUIntLE(offset: number, byteLength: number): number;
         /**
@@ -676,7 +676,7 @@ declare namespace fastbuffer {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 20
+         * @since 20 dynamiconly
          */
         subarray(start?: number, end?: number): FastBuffer;
         /**
@@ -687,7 +687,7 @@ declare namespace fastbuffer {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 20
+         * @since 20 dynamiconly
          */
         swap16(): FastBuffer;
         /**
@@ -698,7 +698,7 @@ declare namespace fastbuffer {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 20
+         * @since 20 dynamiconly
          */
         swap32(): FastBuffer;
         /**
@@ -709,7 +709,7 @@ declare namespace fastbuffer {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 20
+         * @since 20 dynamiconly
          */
         swap64(): FastBuffer;
         /**
@@ -719,7 +719,7 @@ declare namespace fastbuffer {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice 
-         * @since 20
+         * @since 20 dynamiconly
          */
         toJSON(): Object;
         /**
@@ -733,7 +733,7 @@ declare namespace fastbuffer {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 20
+         * @since 20 dynamiconly
          */
         toString(encoding?: string, start?: number, end?: number): string;
         /**
@@ -750,7 +750,7 @@ declare namespace fastbuffer {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 20
+         * @since 20 dynamiconly
          */
         write(str: string, offset?: number, length?: number, encoding?: string): number;
         /**
@@ -763,7 +763,7 @@ declare namespace fastbuffer {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 20
+         * @since 20 dynamiconly
          */
         writeBigInt64BE(value: bigint, offset?: number): number;
         /**
@@ -776,7 +776,7 @@ declare namespace fastbuffer {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 20
+         * @since 20 dynamiconly
          */
         writeBigInt64LE(value: bigint, offset?: number): number;
         /**
@@ -789,7 +789,7 @@ declare namespace fastbuffer {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 20
+         * @since 20 dynamiconly
          */
         writeBigUInt64BE(value: bigint, offset?: number): number;
         /**
@@ -802,7 +802,7 @@ declare namespace fastbuffer {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 20
+         * @since 20 dynamiconly
          */
         writeBigUInt64LE(value: bigint, offset?: number): number;
         /**
@@ -815,7 +815,7 @@ declare namespace fastbuffer {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 20
+         * @since 20 dynamiconly
          */
         writeDoubleBE(value: number, offset?: number): number;
         /**
@@ -828,7 +828,7 @@ declare namespace fastbuffer {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 20
+         * @since 20 dynamiconly
          */
         writeDoubleLE(value: number, offset?: number): number;
         /**
@@ -841,7 +841,7 @@ declare namespace fastbuffer {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 20
+         * @since 20 dynamiconly
          */
         writeFloatBE(value: number, offset?: number): number;
         /**
@@ -854,7 +854,7 @@ declare namespace fastbuffer {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 20
+         * @since 20 dynamiconly
          */
         writeFloatLE(value: number, offset?: number): number;
         /**
@@ -867,7 +867,7 @@ declare namespace fastbuffer {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 20
+         * @since 20 dynamiconly
          */
         writeInt8(value: number, offset?: number): number;
         /**
@@ -880,7 +880,7 @@ declare namespace fastbuffer {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 20
+         * @since 20 dynamiconly
          */
         writeInt16BE(value: number, offset?: number): number;
         /**
@@ -893,7 +893,7 @@ declare namespace fastbuffer {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 20
+         * @since 20 dynamiconly
          */
         writeInt16LE(value: number, offset?: number): number;
         /**
@@ -906,7 +906,7 @@ declare namespace fastbuffer {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 20
+         * @since 20 dynamiconly
          */
         writeInt32BE(value: number, offset?: number): number;
         /**
@@ -919,7 +919,7 @@ declare namespace fastbuffer {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 20
+         * @since 20 dynamiconly
          */
         writeInt32LE(value: number, offset?: number): number;
         /**
@@ -933,7 +933,7 @@ declare namespace fastbuffer {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 20
+         * @since 20 dynamiconly
          */
         writeIntBE(value: number, offset: number, byteLength: number): number;
         /**
@@ -947,7 +947,7 @@ declare namespace fastbuffer {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 20
+         * @since 20 dynamiconly
          */
         writeIntLE(value: number, offset: number, byteLength: number): number;
         /**
@@ -960,7 +960,7 @@ declare namespace fastbuffer {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 20
+         * @since 20 dynamiconly
          */
         writeUInt8(value: number, offset?: number): number;
         /**
@@ -973,7 +973,7 @@ declare namespace fastbuffer {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 20
+         * @since 20 dynamiconly
          */
         writeUInt16BE(value: number, offset?: number): number;
         /**
@@ -986,7 +986,7 @@ declare namespace fastbuffer {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 20
+         * @since 20 dynamiconly
          */
         writeUInt16LE(value: number, offset?: number): number;
         /**
@@ -999,7 +999,7 @@ declare namespace fastbuffer {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 20
+         * @since 20 dynamiconly
          */
         writeUInt32BE(value: number, offset?: number): number;
         /**
@@ -1012,7 +1012,7 @@ declare namespace fastbuffer {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 20
+         * @since 20 dynamiconly
          */
         writeUInt32LE(value: number, offset?: number): number;
         /**
@@ -1026,7 +1026,7 @@ declare namespace fastbuffer {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 20
+         * @since 20 dynamiconly
          */
         writeUIntBE(value: number, offset: number, byteLength: number): number;
         /**
@@ -1040,7 +1040,7 @@ declare namespace fastbuffer {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 20
+         * @since 20 dynamiconly
          */
         writeUIntLE(value: number, offset: number, byteLength: number): number;
     }

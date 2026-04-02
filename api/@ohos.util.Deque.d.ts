@@ -43,8 +43,8 @@
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
+ * @since 23 static
  */
 declare class Deque<T> {
   /**
@@ -69,8 +69,8 @@ declare class Deque<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   constructor();
   /**
@@ -95,20 +95,19 @@ declare class Deque<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   length: number;
     /**
    * Gets the element number of the Deque.
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 23 static
    */
-  get length(): number;
+  get length(): int;
   /**
    * Inserts an element into the deque header.
    *
@@ -134,8 +133,8 @@ declare class Deque<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   insertFront(element: T): void;
   /**
@@ -163,8 +162,8 @@ declare class Deque<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   insertEnd(element: T): void;
   /**
@@ -195,8 +194,8 @@ declare class Deque<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   has(element: T): boolean;
   /**
@@ -220,27 +219,17 @@ declare class Deque<T> {
    * Obtains the header element of a deque.
    *
    * @returns { T } the T type
+   * @throws { BusinessError } 10200010 - Container is empty.[staticonly]
    * @throws { BusinessError } 10200011 - The getFirst method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
+   * @since 23 static
    */
   getFirst(): T;
 
   /**
-   * Obtains the header element of a deque.
-   *
-   * @returns { T | undefined } the first element of the deque if it exists, otherwise returns undefined.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  getFirst(): T | undefined;
-
-  /**
    * Obtains the end element of a deque.
    *
    * @returns { T } the T type
@@ -261,27 +250,17 @@ declare class Deque<T> {
    * Obtains the end element of a deque.
    *
    * @returns { T } the T type
+   * @throws { BusinessError } 10200010 - Container is empty.[staticonly]
    * @throws { BusinessError } 10200011 - The getLast method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
+   * @since 23 static
    */
   getLast(): T;
 
   /**
-   * Obtains the end element of a deque.
-   *
-   * @returns { T | undefined } the last element of the deque if it exists, otherwise returns undefined.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  getLast(): T | undefined;
-
-  /**
    * Obtains the header element of a deque and delete the element.
    *
    * @returns { T } the T type
@@ -302,27 +281,17 @@ declare class Deque<T> {
    * Obtains the header element of a deque and delete the element.
    *
    * @returns { T } the T type
+   * @throws { BusinessError } 10200010 - Container is empty.[staticonly]
    * @throws { BusinessError } 10200011 - The popFirst method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
+   * @since 23 static
    */
   popFirst(): T;
 
   /**
-   * Obtains the header element of a deque and delete the element.
-   *
-   * @returns { T | undefined } the deleted element of the deque if it exists, otherwise returns undefined.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  popFirst(): T | undefined;
-
-  /**
    * Obtains the end element of a deque and delete the element.
    *
    * @returns { T } the T type
@@ -343,27 +312,17 @@ declare class Deque<T> {
    * Obtains the end element of a deque and delete the element.
    *
    * @returns { T } the T type
+   * @throws { BusinessError } 10200010 - Container is empty.[staticonly]
    * @throws { BusinessError } 10200011 - The popLast method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
+   * @since 23 static
    */
   popLast(): T;
 
   /**
-   * Obtains the end element of a deque and delete the element.
-   *
-   * @returns { T | undefined } the deleted element of the deque if it exists, otherwise returns undefined.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  popLast(): T | undefined;
-
-  /**
    * Executes a provided function once for each value in the deque object.
    *
    * @param { function } callbackFn - callbackFn
@@ -412,46 +371,34 @@ declare class Deque<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   forEach(callbackFn: (value: T, index?: number, deque?: Deque<T>) => void, thisArg?: Object): void;
 
   /**
    * Iterates over elements in a generic Deque (double-ended queue) and executes a callback function for each element.
    *
-   * @param { DequeCbFnforEach<T> } callbackFn - A callback function to execute for each element.
+   * @param { DequeForEachCb<T> } callbackFn - A callback function to execute for each element.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 23 static
    */
-  forEach(callbackFn: DequeCbFnforEach<T>): void;
-  /**
-   * Returns the byte at the specified index.
-   *
-   * @param { number } index - The zero-based index of the desired code unit.
-   * @returns { T } The element in the deque matching the given index.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  $_get(index: number): T;
+  forEach(callbackFn: DequeForEachCb<T>): void;
 
-  /**
-   * Sets the byte at the specified index.
-   *
-   * @param { number } index – The index of the element to set.
-   * @param { T } value – The value to set at the specified index.
+   /**
+   * Returns the item at that index.
+   * 
+   * @param { int } index - The zero-based index of the desired code unit.
+   *     Throws error if index < 0 or index >= deque.length.
+   * @returns { T } The element in the deque matching the given index. 
+   * @throws { BusinessError } 10200001 - The value of index is out of range.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 23 static
    */
-  $_set(index: number, value: T): void;
+  [index: int]: T;
 
   /**
    * returns an iterator.Each item of the iterator is a Javascript Object
@@ -478,7 +425,7 @@ declare class Deque<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   [Symbol.iterator](): IterableIterator<T>;
 
@@ -489,25 +436,23 @@ declare class Deque<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 23 static
    */
   $_iterator(): IterableIterator<T>;
 }
 
-  /**
-   * The type of Deque forEach callback function.
-   *
-   * @typedef { function } DequeCbFnforEach
-   * @param { T } value - The current element being processed
-   * @param { number } index - The index of the current element
-   * @param { Deque<T> } deque - The Deque instance being traversed
-   * @returns { void } This callback does not return a value
-   * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  type DequeCbFnforEach<T> = (value: T, index: number, deque: Deque<T>) => void;
+/**
+ * The type of Deque forEach callback function.
+ *
+ * @typedef { function } DequeForEachCb
+ * @param { T } value - The current element being processed
+ * @param { int } index - The index of the current element
+ * @param { Deque<T> } deque - The Deque instance being traversed
+ * @returns { void } This callback does not return a value
+ * @syscap SystemCapability.Utils.Lang
+ * @atomicservice
+ * @since 23 static
+ */
+export type DequeForEachCb<T> = (value: T, index: int, deque: Deque<T>) => void;
 
 export default Deque;

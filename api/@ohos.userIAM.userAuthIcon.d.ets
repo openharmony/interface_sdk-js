@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 Huawei Device Co., Ltd.
+ * Copyright (c) 2024-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -21,11 +21,11 @@
 import userAuth from '@ohos.userIAM.userAuth';
 
 /**
- * Declare UserAuthIcon, use for user authentication.
+ * Declare UserAuthIcon, used for user authentication.
  *
  * @syscap SystemCapability.UserIAM.UserAuth.Core
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 @Component
 export default struct UserAuthIcon {
@@ -35,7 +35,7 @@ export default struct UserAuthIcon {
      * @type { userAuth.AuthParam }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     authParam: userAuth.AuthParam;
 
@@ -45,7 +45,7 @@ export default struct UserAuthIcon {
      * @type { userAuth.WidgetParam }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     widgetParam: userAuth.WidgetParam;
 
@@ -53,10 +53,10 @@ export default struct UserAuthIcon {
      * Set the height of the icon, width and height ratio 1:1.
      *
      * @type { ?Dimension }
-     * @default 64
+     * @default 64fp
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     iconHeight?: Dimension;
 
@@ -67,7 +67,7 @@ export default struct UserAuthIcon {
      * @default $r('sys.color.ohos_id_color_activated')
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     iconColor?: ResourceColor;
 
@@ -79,7 +79,7 @@ export default struct UserAuthIcon {
      * @param { userAuth.UserAuthResult } result - Authentication result information.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     onAuthResult: (result: userAuth.UserAuthResult) => void;
 
@@ -88,7 +88,7 @@ export default struct UserAuthIcon {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     onIconClick?: () => void;
 }

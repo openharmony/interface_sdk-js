@@ -18,16 +18,17 @@
  * @kit ArkUI
  */
 
-
 import { Callback } from './@ohos.base';
 import window from './@ohos.window';
+import uiExtension from './@ohos.arkui.uiExtension';
 /**
  * uiExtensionHost.
  *
  * @namespace uiExtensionHost
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 11
+ * @since 11 dynamic
+ * @since 23 static
  */
 declare namespace uiExtensionHost {
   /**
@@ -36,7 +37,8 @@ declare namespace uiExtensionHost {
    * @interface UIExtensionHostWindowProxy
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
+   * @since 23 static
    */
   interface UIExtensionHostWindowProxy {
     /**
@@ -47,7 +49,8 @@ declare namespace uiExtensionHost {
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
+     * @since 23 static
      */
     getWindowAvoidArea(type: window.AvoidAreaType): window.AvoidArea;
 
@@ -62,9 +65,20 @@ declare namespace uiExtensionHost {
      * <br> 3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
      */
     on(type: 'avoidAreaChange', callback: Callback<{ type: window.AvoidAreaType, area: window.AvoidArea }>): void;
+
+    /**
+     * Register the callback of avoidAreaChange
+     *
+     * @param { Callback<uiExtension.AvoidAreaInfo> } callback
+     *     - Callback used to return the area.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @since 23 static
+     */
+    onAvoidAreaChange(callback: Callback<uiExtension.AvoidAreaInfo>): void;
 
     /**
      * Unregister the callback of avoidAreaChange
@@ -77,39 +91,75 @@ declare namespace uiExtensionHost {
      * <br> 3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
      */
     off(type: 'avoidAreaChange', callback?: Callback<{ type: window.AvoidAreaType, area: window.AvoidArea }>): void;
 
     /**
-     * Register the callback of windowSizeChange
+     * Unregister the callback of avoidAreaChange
      *
-     * @param { 'windowSizeChange' } type - The value is fixed at 'windowSizeChange', indicating the window size change event.
-     * @param { Callback<window.Size> } callback - Callback used to return the window size.
+     * @param { Callback<uiExtension.AvoidAreaInfo> } [callback]
+     *     - Unregister the callback function. If not provided, all callbacks for the given event type will be removed.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @since 23 static
+     */
+    offAvoidAreaChange(callback?: Callback<uiExtension.AvoidAreaInfo>): void;
+
+    /**
+     * Subscribes to the component (EmbeddedComponent or UIExtensionComponent) size change event.
+     *
+     * @param { 'windowSizeChange' } type - The value is fixed at 'windowSizeChange',
+     *        indicating the component (EmbeddedComponent or UIExtensionComponent) size change event.
+     * @param { Callback<window.Size> } callback - Callback used to return the component (EmbeddedComponent or
+     *        UIExtensionComponent) size.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 
      * <br> 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameters types.
      * <br> 3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
      */
     on(type: 'windowSizeChange', callback: Callback<window.Size>): void;
 
     /**
-     * Unregister the callback of windowSizeChange
+     * Subscribes to the component (EmbeddedComponent or UIExtensionComponent) size change event.
      *
-     * @param { 'windowSizeChange' } type - The value is fixed at 'windowSizeChange', indicating the window size change event.
      * @param { Callback<window.Size> } callback - Callback used to return the window size.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @since 23 static
+     */
+    onWindowSizeChange(callback: Callback<window.Size>): void;
+
+    /**
+     * Unsubscribes from the component (EmbeddedComponent or UIExtensionComponent) size change event.
+     *
+     * @param { 'windowSizeChange' } type - The value is fixed at 'windowSizeChange',
+     *        indicating the component (EmbeddedComponent or UIExtensionComponent) size change event.
+     * @param { Callback<window.Size> } [callback] - Unregister the callback function.
+     *        If not provided, all callbacks for the given event type will be removed.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 
      * <br> 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameters types.
      * <br> 3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
      */
     off(type: 'windowSizeChange', callback?: Callback<window.Size>): void;
+
+    /**
+     * Unsubscribes from the component (EmbeddedComponent or UIExtensionComponent) size change event.
+     *
+     * @param { Callback<window.Size> } [callback] - Unregister the callback function.
+     *     If not provided, all callbacks for the given event type will be removed.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @since 23 static
+     */
+    offWindowSizeChange(callback?: Callback<window.Size>): void;
 
     /**
      * The properties of the UIExtension window
@@ -117,7 +167,8 @@ declare namespace uiExtensionHost {
      * @type { UIExtensionHostWindowProxyProperties } 
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
+     * @since 23 static
      */
     properties: UIExtensionHostWindowProxyProperties;
 
@@ -152,7 +203,8 @@ declare namespace uiExtensionHost {
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 12
+     * @since 12 dynamic
+     * @since 23 static
      */
     hideNonSecureWindows(shouldHide: boolean): Promise<void>;
 
@@ -167,13 +219,44 @@ declare namespace uiExtensionHost {
      * <br> 2. Incorrect parameters types.
      * <br> 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible causes:
+     * <br> 1. The window is not created or destroyed.
+     * <br> 2. Internal task error.
+     * @throws { BusinessError } 1300035 - Creating a subwindow is not allowed in the current context. Possible cause:
+     * <br> 1. An AgentUIExtensionAbility cannot create a subwindow.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @StageModelOnly
-     * @since 12
+     * @since 12 dynamic
+     * @since 23 static
      */
-     createSubWindowWithOptions(name: string, subWindowOptions: window.SubWindowOptions): Promise<window.Window>;
+    createSubWindowWithOptions(name: string, subWindowOptions: window.SubWindowOptions): Promise<window.Window>;
+
+    /**
+     * Create subwindow.
+     *
+     * @param { string } name - Name of the subwindow.
+     * @param { window.SubWindowOptions } subWindowConfig - Configuration parameters for creating the subwindow.
+     * @param { boolean } followCreatorLifecycle - Whether the lifecycle of the subwindow follows creator of
+     *     subwindow. If true, when the creator goes to background, the subwindow will also go to background, when the
+     *     creator returns to foreground, the subwindow will also return to foreground. If false, the subwindow will
+     *     not change when the creator goes to background or returns to foreground.
+     * @returns { Promise<window.Window> } Promise used to return the subwindow.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible causes:
+     *     1. The window is not created or destroyed.
+     *     2. Internal task error.
+     * @throws { BusinessError } 1300035 - Creating a subwindow is not allowed in the current context. Possible cause:
+     *     1. An AgentUIExtensionAbility cannot create a subwindow.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 22 dynamic
+     * @since 23 static
+     */
+    createSubWindowWithOptions(name: string, subWindowConfig: window.SubWindowOptions,
+        followCreatorLifecycle: boolean): Promise<window.Window>;
 
      /**
      * Set the watermark flag on the UIExtension window
@@ -185,7 +268,8 @@ declare namespace uiExtensionHost {
      * @throws { BusinessError } 1300008 - The display device is abnormal.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 12
+     * @since 12 dynamic
+     * @since 23 static
      */
     setWaterMarkFlag(enable: boolean): Promise<void>;
 
@@ -205,7 +289,8 @@ declare namespace uiExtensionHost {
      * <br> 2. Not the UIExtensionAbility process calling.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 13
+     * @since 13 dynamic
+     * @since 23 static
      */
     hidePrivacyContentForHost(shouldHide: boolean): Promise<void>;
   }
@@ -216,7 +301,8 @@ declare namespace uiExtensionHost {
    * @interface UIExtensionHostWindowProxyProperties
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
+   * @since 23 static
    */
   interface UIExtensionHostWindowProxyProperties {
     /**
@@ -225,7 +311,8 @@ declare namespace uiExtensionHost {
      * @type { window.Rect } 
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
+     * @since 23 static
      */
     uiExtensionHostWindowProxyRect: window.Rect;
   }

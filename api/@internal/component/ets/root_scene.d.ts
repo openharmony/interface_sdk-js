@@ -17,17 +17,14 @@
  * @file
  * @kit ArkUI
  */
-/*** if arkts 1.2 */
-import { CommonMethod} from './common';
-/*** endif */
+
 /**
  * Defines the session of RootScene.
  *
  * @interface RootSceneSession
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since arkts {'1.1':'10','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 10 dynamic
  */
 interface RootSceneSession {
 }
@@ -38,8 +35,8 @@ interface RootSceneSession {
  * @interface RootSceneInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since arkts {'1.1':'10','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 10 dynamic
+ * @noninterop
  */
 interface RootSceneInterface {
   /**
@@ -49,8 +46,7 @@ interface RootSceneInterface {
    * @returns { RootSceneAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
    */
   (session: RootSceneSession): RootSceneAttribute;
 }
@@ -61,8 +57,8 @@ interface RootSceneInterface {
  * @extends CommonMethod<RootSceneAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since arkts {'1.1':'10','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 10 dynamic
+ * @noninterop
  */
 declare class RootSceneAttribute extends CommonMethod<RootSceneAttribute> {
 }
@@ -72,7 +68,8 @@ declare class RootSceneAttribute extends CommonMethod<RootSceneAttribute> {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 10
+ * @since 10 dynamic
+ * @noninterop
  */
 declare const RootScene: RootSceneInterface;
 
@@ -81,6 +78,7 @@ declare const RootScene: RootSceneInterface;
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 10
+ * @since 10 dynamic
+ * @noninterop
  */
 declare const RootSceneInstance: RootSceneAttribute;

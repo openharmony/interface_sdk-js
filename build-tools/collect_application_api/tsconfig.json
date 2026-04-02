@@ -108,7 +108,8 @@
         "GridRow",
         "GridCol",
         "ArcAlphabetIndexer",
-        "ArcSwiper"
+        "ArcSwiper",
+        "UIPickerComponent"
       ],
       "extend": {
         "decorator": "Extend",
@@ -392,6 +393,11 @@
             "name": "PatternLock",
             "type": "PatternLockAttribute",
             "instance": "PatternLockInstance"
+          },
+          {
+            "name": "UIPickerComponent",
+            "type": "UIPickerComponentAttribute",
+            "instance": "UIPickerComponentInstance"
           },
           {
             "name": "Piece",

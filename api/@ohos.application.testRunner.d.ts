@@ -19,6 +19,37 @@
  */
 
 /**
+ * Prepare the unit testing environment for running test cases.
+ *
+ * @typedef { Function }
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @atomicservice
+ * @since 23 static
+ */
+type OnPrepareFn = () => void;
+
+/**
+ * Run all test cases.
+ * 
+ * @typedef { Function }
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @atomicservice
+ * @since 23 static
+ */
+type OnRunFn = () => void;
+
+/**
+ * Stop all test cases.
+ * 
+ * @typedef { function }
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @stagemodelonly
+ * @atomicservice
+ * @since 26.0.0 dynamic&static
+ */
+type OnStopFn = () => void;
+
+/**
  * Base class for the test framework.
  * If you want to implement your own unit test framework, you must inherit this class and overrides all its methods.
  *
@@ -33,8 +64,8 @@
  * @interface TestRunner
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 23 static
  */
 interface TestRunner {
   /**
@@ -48,10 +79,19 @@ interface TestRunner {
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   onPrepare(): void;
+
+  /**
+   * Prepare the unit testing environment for running test cases.
+   * 
+   * @type { OnPrepareFn }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice
+   * @since 23 static
+   */
+  onPrepare: OnPrepareFn;
 
   /**
    * Run all test cases.
@@ -64,13 +104,33 @@ interface TestRunner {
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   onRun(): void;
+
+  /**
+   * Run all test cases.
+   *
+   * @typedef { OnRunFn }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice
+   * @since 23 static
+   */
+  onRun: OnRunFn;
+  
+  /**
+   * Stop all test cases.
+   *
+   * @type { ?OnStopFn }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  onStop?: OnStopFn;
 }
 
-/*** if arkts 1.1 */
+/*** if arkts dynamic */
 export { TestRunner };
 /*** endif */
 export default TestRunner;

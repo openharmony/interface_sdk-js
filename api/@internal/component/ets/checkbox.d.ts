@@ -18,13 +18,6 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { CommonConfiguration, Callback, CommonMethod, ContentModifier, Optional } from './common';
-import { CustomBuilder } from './builder';
-import { ResourceColor, MarkStyle } from './units';
-import { CheckBoxShape } from './enums';
-/*** endif */
-
 /**
  * Defines the options of Checkbox.
  *
@@ -54,11 +47,11 @@ import { CheckBoxShape } from './enums';
  *
  * @interface CheckboxOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
  */
 declare interface CheckboxOptions {
   /**
@@ -90,11 +83,11 @@ declare interface CheckboxOptions {
    *
    * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   name?: string;
 
@@ -127,11 +120,11 @@ declare interface CheckboxOptions {
    *
    * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   group?: string;
 
@@ -142,8 +135,7 @@ declare interface CheckboxOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   indicatorBuilder?: CustomBuilder;
 }
@@ -156,8 +148,7 @@ declare interface CheckboxOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
  */
 declare interface CheckBoxConfiguration extends CommonConfiguration<CheckBoxConfiguration> {
   /**
@@ -167,8 +158,7 @@ declare interface CheckBoxConfiguration extends CommonConfiguration<CheckBoxConf
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   name: string;
 
@@ -179,8 +169,7 @@ declare interface CheckBoxConfiguration extends CommonConfiguration<CheckBoxConf
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   selected: boolean;
 
@@ -191,8 +180,7 @@ declare interface CheckBoxConfiguration extends CommonConfiguration<CheckBoxConf
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   triggerChange: Callback<boolean>;
 }
@@ -226,11 +214,12 @@ declare interface CheckBoxConfiguration extends CommonConfiguration<CheckBoxConf
  *
  * @interface CheckboxInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @noninterop
  */
 interface CheckboxInterface {
   /**
@@ -270,11 +259,11 @@ interface CheckboxInterface {
    * @param { CheckboxOptions } options
    * @returns { CheckboxAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   (options?: CheckboxOptions): CheckboxAttribute;
 }
@@ -289,8 +278,7 @@ interface CheckboxInterface {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18 dynamic
  */
 declare type OnCheckboxChangeCallback = (value: boolean) => void;
 
@@ -323,11 +311,12 @@ declare type OnCheckboxChangeCallback = (value: boolean) => void;
  *
  * @extends CommonMethod<CheckboxAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @noninterop
  */
 declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
   /**
@@ -363,11 +352,11 @@ declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
    * @param { boolean } value
    * @returns { CheckboxAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   select(value: boolean): CheckboxAttribute;
 
@@ -380,8 +369,7 @@ declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
    */
   select(isSelected: Optional<boolean>): CheckboxAttribute;
 
@@ -418,11 +406,11 @@ declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
    * @param { ResourceColor } value
    * @returns { CheckboxAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   selectedColor(value: ResourceColor): CheckboxAttribute;
 
@@ -435,8 +423,7 @@ declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
    */
   selectedColor(resColor: Optional<ResourceColor>): CheckboxAttribute;
 
@@ -459,8 +446,7 @@ declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   shape(value: CheckBoxShape): CheckboxAttribute;
 
@@ -473,8 +459,7 @@ declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
    */
   shape(shape: Optional<CheckBoxShape>): CheckboxAttribute;
 
@@ -495,8 +480,7 @@ declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   unselectedColor(value: ResourceColor): CheckboxAttribute;
 
@@ -508,8 +492,7 @@ declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
    */
   unselectedColor(resColor: Optional<ResourceColor>): CheckboxAttribute;
 
@@ -530,8 +513,7 @@ declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   mark(value: MarkStyle): CheckboxAttribute;
 
@@ -543,8 +525,7 @@ declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
    */
   mark(style: Optional<MarkStyle>): CheckboxAttribute;
 
@@ -593,11 +574,11 @@ declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
    * @param { OnCheckboxChangeCallback } callback
    * @returns { CheckboxAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
    */
   onChange(callback: OnCheckboxChangeCallback): CheckboxAttribute;
 
@@ -610,8 +591,7 @@ declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
    */
   onChange(callback: Optional<OnCheckboxChangeCallback>): CheckboxAttribute;
 
@@ -623,8 +603,7 @@ declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   contentModifier(modifier: ContentModifier<CheckBoxConfiguration>): CheckboxAttribute;
 
@@ -636,8 +615,7 @@ declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
    */  
   contentModifier(modifier: Optional<ContentModifier<CheckBoxConfiguration>>): CheckboxAttribute;
 }
@@ -667,10 +645,11 @@ declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
  * Defines Checkbox Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const Checkbox: CheckboxInterface;
 
@@ -699,9 +678,10 @@ declare const Checkbox: CheckboxInterface;
  * Defines Checkbox Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const CheckboxInstance: CheckboxAttribute;

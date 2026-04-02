@@ -28,27 +28,16 @@ import { FrameNode } from './FrameNode';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
-/**
- * NodeContent is the entity encapsulation of the node content.
- *
- * @extends Content
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.1&1.2
- */
-export declare class NodeContent extends Content {
+export class NodeContent extends Content {
   /**
    * constructor
    * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   constructor();
 
@@ -59,20 +48,29 @@ export declare class NodeContent extends Content {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   */
+  /**
+   * Add FrameNode to NodeContent based on parameters.
+   * 
+   * @param { FrameNode } node - Newly added FrameNode.
+   * @throws { BusinessError } 100025 - The parameter is invalid. Details about the invalid parameter and the reason
+   *     are included in the error message. For example: "The parameter 'node' is invalid: it cannot be adopted."
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
    */
   addFrameNode(node: FrameNode): void;
 
   /**
-   * Delete FrameNode based on the NodeContent parameter.
+   * Delete the target FrameNode.
    * 
    * @param { FrameNode } node - FrameNode deleted.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   removeFrameNode(node: FrameNode): void;
 }

@@ -35,9 +35,10 @@
  * Defines Close contextMenu.
  * 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare class ContextMenu {
   /**
@@ -59,7 +60,7 @@ declare class ContextMenu {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamiconly
    * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.ContextMenuController#close
    */

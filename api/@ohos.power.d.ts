@@ -18,15 +18,15 @@
  * @kit BasicServicesKit
  */
 
-import { AsyncCallback, BusinessError } from './@ohos.base';
+import { AsyncCallback, BusinessError, Callback } from './@ohos.base';
 
 /**
  * Provides interfaces to manage power.
  *
  * @namespace power
  * @syscap SystemCapability.PowerManager.PowerManager.Core
- * @since arkts {'1.1':'7', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 7 dynamic
+ * @since 23 static
  */
 declare namespace power {
   /**
@@ -42,8 +42,8 @@ declare namespace power {
    * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 23 static
    */
   function shutdown(reason: string): void;
 
@@ -55,7 +55,7 @@ declare namespace power {
    * @param { string } reason Indicates the restart reason. For example, "updater" indicates entering the updater mode
    * after the restart. If the parameter is not specified, the system enters the normal mode after the restart.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead power#reboot
    */
@@ -75,8 +75,8 @@ declare namespace power {
    * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 23 static
    */
   function reboot(reason: string): void;
 
@@ -85,7 +85,7 @@ declare namespace power {
    *
    * @param { AsyncCallback<boolean> } callback Returns true if the screen is on; returns false otherwise.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead power#isActive
    */
@@ -96,7 +96,7 @@ declare namespace power {
    *
    * @returns { Promise<boolean> } Returns true if the screen is on; returns false otherwise.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead power#isActive
    */
@@ -109,8 +109,8 @@ declare namespace power {
    *
    * @returns { boolean } Returns true if the device is active; returns false otherwise.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 23 static
    */
   function isActive(): boolean;
 
@@ -138,8 +138,8 @@ declare namespace power {
    * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
-   * @since arkts {'1.1':'19', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19 dynamic
+   * @since 23 static
    */
   function wakeup(detail: string): void;
 
@@ -175,8 +175,8 @@ declare namespace power {
    * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
-   * @since arkts {'1.1':'19', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19 dynamic
+   * @since 23 static
    */
   function suspend(isImmediate?: boolean): void;
 
@@ -185,25 +185,41 @@ declare namespace power {
    *
    * @returns { DevicePowerMode } The power mode {@link DevicePowerMode} of current device .
    * @syscap SystemCapability.PowerManager.PowerManager.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 23 static
    */
   function getPowerMode(): DevicePowerMode;
 
   /**
-   * Obtains the power mode of the current device. For details, see {@link DevicePowerMode}.
+   * Sets the power mode of current device. For details, see {@link DevicePowerMode}.
    *
    * @permission ohos.permission.POWER_OPTIMIZATION
    * @param { DevicePowerMode } mode Indicates power mode {@link DevicePowerMode} to set.
-   * the DevicePowerMode type is an enumeration class.
+   *     the DevicePowerMode type is an enumeration class.
    * @param { AsyncCallback<void> } callback Indicates the callback of setting the power mode.
-   * @throws { BusinessError } 201 – Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Parameter verification failed.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   */
+  /**
+   * Sets the power mode of current device. For details, see {@link DevicePowerMode}.
+   *
+   * @permission ohos.permission.POWER_OPTIMIZATION
+   * @param { DevicePowerMode } mode Indicates power mode {@link DevicePowerMode} to set.
+   *     the DevicePowerMode type is an enumeration class.
+   * @param { AsyncCallback<void> } callback Indicates the callback of setting the power mode.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Parameter verification failed.
+   * @throws { BusinessError } 4900301 - Setting the power mode failed.
+   * @syscap SystemCapability.PowerManager.PowerManager.Core
+   * @systemapi
+   * @since 23 dynamic&static
    */
   function setPowerMode(mode: DevicePowerMode, callback: AsyncCallback<void>): void;
 
@@ -212,15 +228,31 @@ declare namespace power {
    *
    * @permission ohos.permission.POWER_OPTIMIZATION
    * @param { DevicePowerMode } mode Indicates power mode {@link DevicePowerMode} to set.
-   * the DevicePowerMode type is an enumeration class.
+   *     the DevicePowerMode type is an enumeration class.
    * @returns { Promise<void> }
-   * @throws { BusinessError } 201 – Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Parameter verification failed.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   */
+  /**
+   * Sets the power mode of current device. For details, see {@link DevicePowerMode}.
+   *
+   * @permission ohos.permission.POWER_OPTIMIZATION
+   * @param { DevicePowerMode } mode Indicates power mode {@link DevicePowerMode} to set.
+   *     the DevicePowerMode type is an enumeration class.
+   * @returns { Promise<void> }
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Parameter verification failed.
+   * @throws { BusinessError } 4900301 - Setting the power mode failed.
+   * @syscap SystemCapability.PowerManager.PowerManager.Core
+   * @systemapi
+   * @since 23 dynamic&static
    */
   function setPowerMode(mode: DevicePowerMode): Promise<void>;
 
@@ -230,8 +262,8 @@ declare namespace power {
    * @returns { boolean } Returns true if the device is in idle mode; returns false otherwise.
    * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 23 static
    */
   function isStandby(): boolean;
 
@@ -257,8 +289,8 @@ declare namespace power {
    * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
-   * @since arkts {'1.1':'19', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19 dynamic
+   * @since 23 static
    */
   function hibernate(clearMemory: boolean): void;
 
@@ -284,8 +316,8 @@ declare namespace power {
    * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
-   * @since arkts {'1.1':'19', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19 dynamic
+   * @since 23 static
    */
   function setScreenOffTime(timeout: long): void;
 
@@ -303,33 +335,64 @@ declare namespace power {
    *     interval is 100 ms.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
-   * @since arkts {'1.1':'20', '1.2':'22'}
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
+   * @since 23 static
    */
   function refreshActivity(reason: string): void;
+
+  /**
+  * Register the notification callback of device shutdown.
+  * 
+  * @permission ohos.permission.REBOOT 
+  * @param { Callback<boolean> } callback Notification callback of device shutdown. The callback parameter value of
+  *     true indicates a device restart, while false indicates a device shutdown.
+  * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission 
+  *     required to call the API.
+  * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+  * @throws { BusinessError } 4900101 - Failed to connect to the service.
+  * @syscap SystemCapability.PowerManager.PowerManager.Core
+  * @systemapi
+  * @since 23 dynamic&static
+  */
+  function registerShutdownCallback(callback: Callback<boolean>): void;
+
+  /**
+  * Unregister the notification callback of device shutdown.
+  * 
+  * @permission ohos.permission.REBOOT 
+  * @param { Callback<void> } [callback] Callback used to return the result.
+  * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission 
+  *     required to call the API.
+  * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+  * @throws { BusinessError } 4900101 - Failed to connect to the service.
+  * @syscap SystemCapability.PowerManager.PowerManager.Core
+  * @systemapi
+  * @since 23 dynamic&static
+  */
+  function unregisterShutdownCallback(callback?: Callback<void>): void;
 
   /**
    * Power mode of a device.
    *
    * @enum { int }
    * @syscap SystemCapability.PowerManager.PowerManager.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 23 static
    */
   export enum DevicePowerMode {
     /**
      * Normal power mode
      *
      * @syscap SystemCapability.PowerManager.PowerManager.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 23 static
      */
     MODE_NORMAL = 600,
     /**
      * Power save mode
      * @syscap SystemCapability.PowerManager.PowerManager.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 23 static
      *
      */
     MODE_POWER_SAVE,
@@ -337,24 +400,24 @@ declare namespace power {
      * Performance power mode
      *
      * @syscap SystemCapability.PowerManager.PowerManager.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 23 static
      */
     MODE_PERFORMANCE,
     /**
      * Extreme power save mode
      *
      * @syscap SystemCapability.PowerManager.PowerManager.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 23 static
      */
     MODE_EXTREME_POWER_SAVE,
     /**
      * Custom power save mode.
      *
      * @syscap SystemCapability.PowerManager.PowerManager.Core
-     * @since arkts {'1.1':'20', '1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
+     * @since 23 static
      */
     MODE_CUSTOM_POWER_SAVE = 650
   }
@@ -373,7 +436,8 @@ declare namespace power {
    * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
-   * @since 21
+   * @since 21 dynamic
+   * @since 23 static
    */
   function setPowerKeyFilteringStrategy(strategy: PowerKeyFilteringStrategy): void;
 
@@ -382,7 +446,8 @@ declare namespace power {
    *
    * @enum { int }
    * @syscap SystemCapability.PowerManager.PowerManager.Core
-   * @since 21
+   * @since 21 dynamic
+   * @since 23 static
    */
   export enum PowerKeyFilteringStrategy {
     /**
@@ -391,7 +456,8 @@ declare namespace power {
      *     is the default strategy of handling the power key long-press event.
      *
      * @syscap SystemCapability.PowerManager.PowerManager.Core
-     * @since 21
+     * @since 21 dynamic
+     * @since 23 static
      */
     DISABLE_LONG_PRESS_FILTERING = 0,
     /**
@@ -399,7 +465,8 @@ declare namespace power {
      * The next power key long-press event is not filtered by default.
      *
      * @syscap SystemCapability.PowerManager.PowerManager.Core
-     * @since 21
+     * @since 21 dynamic
+     * @since 23 static
      */
     LONG_PRESS_FILTERING_ONCE = 1
   }

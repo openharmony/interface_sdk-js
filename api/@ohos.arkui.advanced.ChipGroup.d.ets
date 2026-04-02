@@ -29,7 +29,7 @@ import { SymbolGlyphModifier } from './@ohos.arkui.modifier';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 export interface IconOptions {
 
@@ -40,7 +40,7 @@ export interface IconOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     src: ResourceStr;
 
@@ -51,7 +51,7 @@ export interface IconOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     size?: SizeOptions;
 }
@@ -63,7 +63,7 @@ export interface IconOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 14
+ * @since 14 dynamic
  */
 export interface SuffixImageIconOptions extends IconOptions {
     /**
@@ -73,7 +73,7 @@ export interface SuffixImageIconOptions extends IconOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
      */
     action?: VoidCallback;
 
@@ -84,7 +84,7 @@ export interface SuffixImageIconOptions extends IconOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
      */
     accessibilityText?: ResourceStr;
 
@@ -95,7 +95,7 @@ export interface SuffixImageIconOptions extends IconOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
      */
     accessibilityDescription?: ResourceStr;
 
@@ -107,7 +107,7 @@ export interface SuffixImageIconOptions extends IconOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
      */
     accessibilityLevel?: string;
 }
@@ -119,7 +119,7 @@ export interface SuffixImageIconOptions extends IconOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 export interface LabelOptions {
 
@@ -130,7 +130,7 @@ export interface LabelOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     text: string;
 }
@@ -143,7 +143,7 @@ export interface LabelOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 export interface ChipGroupItemOptions {
 
@@ -154,7 +154,7 @@ export interface ChipGroupItemOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     prefixIcon?: IconOptions;
 
@@ -164,7 +164,16 @@ export interface ChipGroupItemOptions {
      * @type { ?ChipSymbolGlyphOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
+     */
+    /**
+     * Prefix symbol.
+     *
+     * @type { ?ChipSymbolGlyphOptions }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamic
      */
     prefixSymbol?: ChipSymbolGlyphOptions;
 
@@ -175,7 +184,7 @@ export interface ChipGroupItemOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     label: LabelOptions;
 
@@ -186,7 +195,7 @@ export interface ChipGroupItemOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      * @deprecated since 14
      * @useinstead ChipGroupItemOptions#suffixImageIcon
      */
@@ -199,7 +208,7 @@ export interface ChipGroupItemOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
      */
     suffixImageIcon?: SuffixImageIconOptions;
 
@@ -209,7 +218,16 @@ export interface ChipGroupItemOptions {
      * @type { ?ChipSymbolGlyphOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
+     */
+    /**
+     * suffix symbol.
+     *
+     * @type { ?ChipSymbolGlyphOptions }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamic
      */
     suffixSymbol?: ChipSymbolGlyphOptions;
 
@@ -220,7 +238,7 @@ export interface ChipGroupItemOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
      */
     suffixSymbolOptions?: ChipSuffixSymbolGlyphOptions;
 
@@ -231,7 +249,7 @@ export interface ChipGroupItemOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     allowClose?: boolean;
 
@@ -242,7 +260,7 @@ export interface ChipGroupItemOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
      */
     closeOptions?: CloseOptions;
 
@@ -253,7 +271,7 @@ export interface ChipGroupItemOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
      */
     accessibilityDescription?: ResourceStr;
 
@@ -265,7 +283,7 @@ export interface ChipGroupItemOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
      */
     accessibilityLevel?: string;
 }
@@ -278,7 +296,7 @@ export interface ChipGroupItemOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 export interface ChipItemStyle {
 
@@ -289,7 +307,7 @@ export interface ChipItemStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     size?: ChipSize | SizeOptions;
 
@@ -300,7 +318,7 @@ export interface ChipItemStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     backgroundColor?: ResourceColor;
 
@@ -311,7 +329,7 @@ export interface ChipItemStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     fontColor?: ResourceColor;
 
@@ -322,7 +340,7 @@ export interface ChipItemStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     selectedFontColor?: ResourceColor;
 
@@ -333,7 +351,7 @@ export interface ChipItemStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     selectedBackgroundColor?: ResourceColor;
 }
@@ -346,7 +364,7 @@ export interface ChipItemStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 export interface ChipGroupSpaceOptions {
 
@@ -357,7 +375,7 @@ export interface ChipGroupSpaceOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     itemSpace?: string | number;
 
@@ -368,7 +386,7 @@ export interface ChipGroupSpaceOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     startSpace?: Length;
 
@@ -379,7 +397,7 @@ export interface ChipGroupSpaceOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     endSpace?: Length;
 }
@@ -391,7 +409,7 @@ export interface ChipGroupSpaceOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 export interface IconItemOptions {
     /**
@@ -401,7 +419,7 @@ export interface IconItemOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     icon: IconOptions;
 
@@ -412,7 +430,7 @@ export interface IconItemOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     action: Callback<void>;
 
@@ -423,7 +441,7 @@ export interface IconItemOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
      */
     accessibilityText?: ResourceStr;
 
@@ -434,7 +452,7 @@ export interface IconItemOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
      */
     accessibilityDescription?: ResourceStr;
 
@@ -446,7 +464,7 @@ export interface IconItemOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
      */
     accessibilityLevel?: string;
 }
@@ -457,7 +475,16 @@ export interface IconItemOptions {
  * @interface SymbolItemOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 14
+ * @since 14 dynamic
+ */
+/**
+ * Defines symbol item options.
+ *
+ * @interface SymbolItemOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 22 dynamic
  */
 export interface SymbolItemOptions {
     /**
@@ -466,7 +493,16 @@ export interface SymbolItemOptions {
      * @type { ?SymbolGlyphModifier }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
+     */
+    /**
+     * Set symbol.
+     *
+     * @type { ?SymbolGlyphModifier }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamic
      */
     symbol: SymbolGlyphModifier;
 
@@ -477,7 +513,7 @@ export interface SymbolItemOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
      */
     action: VoidCallback;
 
@@ -488,7 +524,7 @@ export interface SymbolItemOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
      */
     accessibilityText?: ResourceStr;
 
@@ -499,7 +535,7 @@ export interface SymbolItemOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
      */
     accessibilityDescription?: ResourceStr;
 
@@ -511,7 +547,7 @@ export interface SymbolItemOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
      */
     accessibilityLevel?: string;
 }
@@ -523,7 +559,7 @@ export interface SymbolItemOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 export interface ChipGroupPaddingOptions {
     /**
@@ -533,7 +569,7 @@ export interface ChipGroupPaddingOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     top: Length;
 
@@ -544,7 +580,7 @@ export interface ChipGroupPaddingOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     bottom: Length;
 }
@@ -556,7 +592,7 @@ export interface ChipGroupPaddingOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 @Component
 export declare struct IconGroupSuffix {
@@ -576,7 +612,7 @@ export declare struct IconGroupSuffix {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
      */
     @Require @Prop
     items: Array<IconItemOptions | SymbolGlyphModifier | SymbolItemOptions>;
@@ -590,7 +626,7 @@ export declare struct IconGroupSuffix {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 @Component
 export declare struct ChipGroup {
@@ -602,7 +638,7 @@ export declare struct ChipGroup {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     @Require @Prop
     items: ChipGroupItemOptions[];
@@ -614,7 +650,7 @@ export declare struct ChipGroup {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     @Prop
     itemStyle?: ChipItemStyle;
@@ -626,7 +662,7 @@ export declare struct ChipGroup {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     @Prop
     selectedIndexes?: Array<number>;
@@ -638,7 +674,7 @@ export declare struct ChipGroup {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     @Prop
     multiple?: boolean;
@@ -650,7 +686,7 @@ export declare struct ChipGroup {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     @Prop
     chipGroupSpace?: ChipGroupSpaceOptions;
@@ -662,7 +698,7 @@ export declare struct ChipGroup {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     @Prop
     chipGroupPadding?: ChipGroupPaddingOptions;
@@ -674,7 +710,7 @@ export declare struct ChipGroup {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     onChange?: Callback<Array<number>>;
 
@@ -685,7 +721,7 @@ export declare struct ChipGroup {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     @BuilderParam
     suffix?: Callback<void>;

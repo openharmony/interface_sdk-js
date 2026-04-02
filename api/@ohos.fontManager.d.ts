@@ -24,7 +24,8 @@
  * @namespace fontManager
  * @syscap SystemCapability.Global.FontManager
  * @systemapi
- * @since 19
+ * @since 19 dynamic
+ * @since 23 static
  */
 declare namespace fontManager {
   /**
@@ -32,7 +33,7 @@ declare namespace fontManager {
    *
    * @permission ohos.permission.UPDATE_FONT
    * @param { string } path - path indicates the font path.
-   * @returns { Promise<number> } - Number indicates the font installation result.
+   * @returns { Promise<int> } - Number indicates the font installation result.
    *        0 - Install successful.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system application.
@@ -44,16 +45,17 @@ declare namespace fontManager {
    * @throws { BusinessError } 31100106 - Other error.
    * @syscap SystemCapability.Global.FontManager
    * @systemapi
-   * @since 19
+   * @since 19 dynamic
+   * @since 23 static
    */
-  function installFont(path: string): Promise<number>;
+  function installFont(path: string): Promise<int>;
 
   /**
    * Uninstalls the specified path font.
    *
    * @permission ohos.permission.UPDATE_FONT
    * @param { string } fullName - fullName indicates the font name.
-   * @returns { Promise<number> } - number indicates the font uninstallation result.
+   * @returns { Promise<int> } - number indicates the font uninstallation result.
    *        0 - Uninstall successful.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system application.
@@ -62,8 +64,87 @@ declare namespace fontManager {
    * @throws { BusinessError } 31100109 - Other error.
    * @syscap SystemCapability.Global.FontManager
    * @systemapi
-   * @since 19
+   * @since 19 dynamic
+   * @since 23 static
    */
-  function uninstallFont(fullName: string): Promise<number>;
+  function uninstallFont(fullName: string): Promise<int>;
+
+  /**
+   * Font data migration.
+   * @permission ohos.permission.UPDATE_FONT
+   * @param { DataMigrationCallback } callback callback of dataMigration.
+   * @returns { int } The call result.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system application.
+   * @throws { BusinessError } 31100110 Call failed due to system error.
+   * @throws { BusinessError } 31100111 Data migration is in progress.
+   * @syscap SystemCapability.Global.FontManager
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  function dataMigration(callback: DataMigrationCallback): int;
+
+  /**
+   * Provides the DataMigration progress information.
+   * @interface DataMigrationProgress
+   * @syscap SystemCapability.Global.FontManager
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  interface DataMigrationProgress {
+    /**
+     * The Estimated Time Remaining, expressed in seconds.
+     * @type { int }
+     * @syscap SystemCapability.Global.FontManager
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    timeRemaining: int;
+
+    /**
+     * The Progress Percentage.
+     * @type { int } int
+     * @syscap SystemCapability.Global.FontManager
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    progressPercentage: int;
+  }
+
+  /**
+   * The Callback of DataMigration.
+   * @interface DataMigrationCallback
+   * @syscap SystemCapability.Global.FontManager
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  interface DataMigrationCallback {
+    /**
+     * The HeartBeat Callback.
+     * @syscap SystemCapability.Global.FontManager
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    onHeartBeat(): void;
+
+    /**
+     * The Progress Callback.
+     * @param { DataMigrationProgress } progress The DataMigration progress information.
+     * @syscap SystemCapability.Global.FontManager
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    onProgress(progress : DataMigrationProgress): void;
+
+    /**
+     * The Result Callback.
+     * @param { int } result The DataMigration Result.
+     * @syscap SystemCapability.Global.FontManager
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    onResult(result : int): void;
+  }
 }
+
 export default fontManager;

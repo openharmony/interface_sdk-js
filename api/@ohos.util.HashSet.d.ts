@@ -37,8 +37,8 @@
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
+ * @since 23 static
  */
 declare class HashSet<T> {
   /**
@@ -63,8 +63,8 @@ declare class HashSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   constructor();
   /**
@@ -89,20 +89,19 @@ declare class HashSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   length: number;
     /**
    * Gets the element number of the HashSet.
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 23 static
    */
-  get length(): number;
+  get length(): int;
   /**
    * Returns whether the Set object contains elements
    *
@@ -128,14 +127,14 @@ declare class HashSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   isEmpty(): boolean;
   /**
-   * Returns whether the Set object contain s the elements
+   * Returns whether the Set object contains the elements
    *
-   * @param { T } value - value value need to determine whether to include the element
+   * @param { T } value - the value to determine whether to include the element
    * @returns { boolean } the boolean type
    * @throws { BusinessError } 10200011 - The has method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -146,9 +145,9 @@ declare class HashSet<T> {
    * @since 8
    */
   /**
-   * Returns whether the Set object contain s the elements
+   * Returns whether the Set object contains the elements
    *
-   * @param { T } value - value value need to determine whether to include the element
+   * @param { T } value - the value to determine whether to include the element
    * @returns { boolean } the boolean type
    * @throws { BusinessError } 10200011 - The has method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -160,9 +159,9 @@ declare class HashSet<T> {
    * @since 10
    */
   /**
-   * Returns whether the Set object contain s the elements
+   * Returns whether the Set object contains the elements
    *
-   * @param { T } value - value value need to determine whether to include the element
+   * @param { T } value - the value to determine whether to include the element
    * @returns { boolean } the boolean type
    * @throws { BusinessError } 10200011 - The has method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -172,14 +171,14 @@ declare class HashSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   has(value: T): boolean;
   /**
    * If the set does not contain the element, the specified element is added
    *
-   * @param { T } value - value value Added element
+   * @param { T } value - the value to be Added element
    * @returns { boolean } the boolean type(Is there contain this element)
    * @throws { BusinessError } 10200011 - The add method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -192,7 +191,7 @@ declare class HashSet<T> {
   /**
    * If the set does not contain the element, the specified element is added
    *
-   * @param { T } value - value value Added element
+   * @param { T } value - the value to be Added element
    * @returns { boolean } the boolean type(Is there contain this element)
    * @throws { BusinessError } 10200011 - The add method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -206,7 +205,7 @@ declare class HashSet<T> {
   /**
    * If the set does not contain the element, the specified element is added
    *
-   * @param { T } value - value value Added element
+   * @param { T } value - the value to be Added element
    * @returns { boolean } the boolean type(Is there contain this element)
    * @throws { BusinessError } 10200011 - The add method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -216,14 +215,14 @@ declare class HashSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   add(value: T): boolean;
   /**
    * Remove a specified element from a Set object
    *
-   * @param { T } value - value value Target to be deleted
+   * @param { T } value - the Target value to be deleted
    * @returns { boolean } the boolean type(Is there contain this element)
    * @throws { BusinessError } 10200011 - The remove method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -236,7 +235,7 @@ declare class HashSet<T> {
   /**
    * Remove a specified element from a Set object
    *
-   * @param { T } value - value value Target to be deleted
+   * @param { T } value - the Target value to be deleted
    * @returns { boolean } the boolean type(Is there contain this element)
    * @throws { BusinessError } 10200011 - The remove method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -250,7 +249,7 @@ declare class HashSet<T> {
   /**
    * Remove a specified element from a Set object
    *
-   * @param { T } value - value value Target to be deleted
+   * @param { T } value - the Target value to be deleted
    * @returns { boolean } the boolean type(Is there contain this element)
    * @throws { BusinessError } 10200011 - The remove method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -260,8 +259,8 @@ declare class HashSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   remove(value: T): boolean;
   /**
@@ -286,8 +285,8 @@ declare class HashSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   clear(): void;
   /**
@@ -339,7 +338,7 @@ declare class HashSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   forEach(callbackFn: (value?: T, key?: T, set?: HashSet<T>) => void, thisArg?: Object): void;
 
@@ -350,8 +349,7 @@ declare class HashSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 23 static
    */
   forEach(callbackFn: HashSetCbFn<T>): void;
 
@@ -380,8 +378,8 @@ declare class HashSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   values(): IterableIterator<T>;
   /**
@@ -409,12 +407,12 @@ declare class HashSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   entries(): IterableIterator<[T, T]>;
   /**
-   * returns an iterator.Each item of the iterator is a Javascript Object
+   * Returns an iterator. Each item of the iterator is a Javascript Object
    *
    * @returns { IterableIterator<T> }
    * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
@@ -422,7 +420,7 @@ declare class HashSet<T> {
    * @since 8
    */
   /**
-   * returns an iterator.Each item of the iterator is a Javascript Object
+   * Returns an iterator. Each item of the iterator is a Javascript Object
    *
    * @returns { IterableIterator<T> }
    * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
@@ -431,26 +429,25 @@ declare class HashSet<T> {
    * @since 10
    */
   /**
-   * returns an iterator.Each item of the iterator is a Javascript Object
+   * Returns an iterator. Each item of the iterator is a Javascript Object
    *
    * @returns { IterableIterator<T> }
    * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   [Symbol.iterator](): IterableIterator<T>;
 
   /**
-   * returns an iterator.Each item of the iterator is a Javascript Object
+   * Returns an iterator. Each item of the iterator is a Javascript Object
    *
    * @returns { IterableIterator<T> } an iterator for the HashSet
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 23 static
    */
   $_iterator(): IterableIterator<T>;
 }
@@ -465,9 +462,8 @@ declare class HashSet<T> {
  * @returns { void } This callback does not return a value
  * @syscap SystemCapability.Utils.Lang
  * @atomicservice
- * @since 20
- * @arkts 1.2
+ * @since 23 static
  */
-type HashSetCbFn<T> = (value: T, key: T, set: HashSet<T>) => void;
+export type HashSetCbFn<T> = (value: T, key: T, set: HashSet<T>) => void;
 
 export default HashSet;

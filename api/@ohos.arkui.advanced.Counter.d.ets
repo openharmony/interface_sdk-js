@@ -33,7 +33,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare enum CounterType {
     /**
@@ -47,7 +47,7 @@ declare enum CounterType {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     LIST = 0,
 
@@ -62,7 +62,7 @@ declare enum CounterType {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     COMPACT = 1,
 
@@ -77,7 +77,7 @@ declare enum CounterType {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     INLINE = 2,
 
@@ -92,7 +92,7 @@ declare enum CounterType {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     INLINE_DATE = 3
 }
@@ -110,7 +110,7 @@ declare enum CounterType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare class CommonOptions {
     /**
@@ -128,7 +128,7 @@ declare class CommonOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     focusable?: boolean;
 
@@ -149,7 +149,7 @@ declare class CommonOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     step?: number;
 
@@ -168,7 +168,7 @@ declare class CommonOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     onHoverIncrease?: (isHover: boolean) => void;
 
@@ -187,7 +187,7 @@ declare class CommonOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     onHoverDecrease?: (isHover: boolean) => void;
 }
@@ -205,7 +205,7 @@ declare class CommonOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare class InlineStyleOptions extends CommonOptions {
     /**
@@ -225,7 +225,7 @@ declare class InlineStyleOptions extends CommonOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     value?: number;
 
@@ -246,7 +246,7 @@ declare class InlineStyleOptions extends CommonOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     min?: number;
 
@@ -267,7 +267,7 @@ declare class InlineStyleOptions extends CommonOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     max?: number;
 
@@ -288,7 +288,7 @@ declare class InlineStyleOptions extends CommonOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     textWidth?: number;
 
@@ -307,7 +307,7 @@ declare class InlineStyleOptions extends CommonOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     onChange?: (value: number) => void;
 }
@@ -325,7 +325,7 @@ declare class InlineStyleOptions extends CommonOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare class NumberStyleOptions extends InlineStyleOptions {
     /**
@@ -343,7 +343,7 @@ declare class NumberStyleOptions extends InlineStyleOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     label?: ResourceStr;
 
@@ -362,7 +362,7 @@ declare class NumberStyleOptions extends InlineStyleOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     onFocusIncrease?: () => void;
 
@@ -381,7 +381,7 @@ declare class NumberStyleOptions extends InlineStyleOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     onFocusDecrease?: () => void;
 
@@ -400,7 +400,7 @@ declare class NumberStyleOptions extends InlineStyleOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     onBlurIncrease?: () => void;
 
@@ -419,7 +419,7 @@ declare class NumberStyleOptions extends InlineStyleOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     onBlurDecrease?: () => void;
 }
@@ -437,7 +437,7 @@ declare class NumberStyleOptions extends InlineStyleOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare class DateData {
     /**
@@ -455,7 +455,7 @@ declare class DateData {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     year: number;
 
@@ -474,7 +474,7 @@ declare class DateData {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     month: number;
 
@@ -493,7 +493,7 @@ declare class DateData {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     day: number;
 
@@ -516,7 +516,7 @@ declare class DateData {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     constructor(year: number, month: number, day: number);
 
@@ -535,7 +535,7 @@ declare class DateData {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     toString(): string;
 }
@@ -553,7 +553,7 @@ declare class DateData {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare class DateStyleOptions extends CommonOptions {
     /**
@@ -573,7 +573,7 @@ declare class DateStyleOptions extends CommonOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     year?: number;
 
@@ -594,7 +594,7 @@ declare class DateStyleOptions extends CommonOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     month?: number;
 
@@ -615,7 +615,7 @@ declare class DateStyleOptions extends CommonOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     day?: number;
 
@@ -634,7 +634,7 @@ declare class DateStyleOptions extends CommonOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     onDateChange?: (date: DateData) => void;
 }
@@ -653,7 +653,7 @@ declare class DateStyleOptions extends CommonOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare class CounterOptions {
     /**
@@ -671,7 +671,7 @@ declare class CounterOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     type: CounterType;
 
@@ -690,7 +690,7 @@ declare class CounterOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     numberOptions?: NumberStyleOptions;
 
@@ -709,7 +709,7 @@ declare class CounterOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     inlineOptions?: InlineStyleOptions;
 
@@ -728,7 +728,7 @@ declare class CounterOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     dateOptions?: DateStyleOptions;
 
@@ -739,7 +739,7 @@ declare class CounterOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     direction?: Direction;
 }
@@ -757,7 +757,7 @@ declare class CounterOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 @Component
 declare struct CounterComponent {
@@ -776,7 +776,7 @@ declare struct CounterComponent {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     @Prop
     options: CounterOptions;

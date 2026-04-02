@@ -37,7 +37,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 export declare class CalendarPickerModifier extends CalendarPickerAttribute implements AttributeModifier<CalendarPickerAttribute> {
 
@@ -48,7 +48,7 @@ export declare class CalendarPickerModifier extends CalendarPickerAttribute impl
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   applyNormalAttribute?(instance: CalendarPickerAttribute): void;
 }

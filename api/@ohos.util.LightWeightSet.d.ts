@@ -37,8 +37,8 @@
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
+ * @since 23 static
  */
 declare class LightWeightSet<T> {
   /**
@@ -63,8 +63,8 @@ declare class LightWeightSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   constructor();
   /**
@@ -89,21 +89,20 @@ declare class LightWeightSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   length: number;
 
   /**
    * Gets the element number of the LightWeightSet.
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 23 static
    */
-  get length(): number;
+  get length(): int;
 
   /**
    * If the set does not contain the element, the specified element is added
@@ -133,8 +132,8 @@ declare class LightWeightSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   add(obj: T): boolean;
   /**
@@ -174,8 +173,8 @@ declare class LightWeightSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   addAll(set: LightWeightSet<T>): boolean;
   /**
@@ -215,8 +214,8 @@ declare class LightWeightSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   hasAll(set: LightWeightSet<T>): boolean;
   /**
@@ -247,12 +246,12 @@ declare class LightWeightSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   has(key: T): boolean;
   /**
-   * Checks whether an the objects of an LightWeighSet container are of the same type as a specified Object LightWeightSet
+   * Checks whether an the objects of an LightWeightSet container are of the same type as a specified Object LightWeightSet
    *
    * @param { Object } obj - obj obj need to determine whether to include the obj
    * @returns { boolean } the boolean type
@@ -261,14 +260,14 @@ declare class LightWeightSet<T> {
    * @since 8
    */
   /**
-   * Checks whether an the objects of an LightWeighSet container are of the same type as a specified Object LightWeightSet
+   * Checks whether an the objects of an LightWeightSet container are of the same type as a specified Object LightWeightSet
    *
    * @param { Object } obj - obj obj need to determine whether to include the obj
    * @returns { boolean } the boolean type
    * @throws { BusinessError } 10200011 - The equal method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
-   * @since 10
+   * @since 10 dynamiconly
    * @deprecated since 12
    */
   equal(obj: Object): boolean;
@@ -305,7 +304,7 @@ declare class LightWeightSet<T> {
    * Ensures that the capacity of an LightWeightSet container is greater than or equal to a specified value,
    * and that the container has all the original objects after capacity expansion
    *
-   * @param { number } minimumCapacity Minimum capacity to be reserved
+   * @param { int } minimumCapacity Minimum capacity to be reserved
    * @throws { BusinessError } 10200011 - The increaseCapacityTo method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * 1.Mandatory parameters are left unspecified;
@@ -315,12 +314,12 @@ declare class LightWeightSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
-  increaseCapacityTo(minimumCapacity: number): void;
+  increaseCapacityTo(minimumCapacity: int): void;
   /**
-   * Obtains the index of s key of a specified Object type in an LightWeightSet container
+   * Obtains the index of the key of a specified Object type in an LightWeightSet container
    *
    * @param { T } key - key key Looking for goals
    * @returns { number } Subscript corresponding to target
@@ -329,7 +328,7 @@ declare class LightWeightSet<T> {
    * @since 8
    */
   /**
-   * Obtains the index of s key of a specified Object type in an LightWeightSet container
+   * Obtains the index of the key of a specified Object type in an LightWeightSet container
    *
    * @param { T } key - key key Looking for goals
    * @returns { number } Subscript corresponding to target
@@ -339,18 +338,18 @@ declare class LightWeightSet<T> {
    * @since 10
    */
   /**
-   * Obtains the index of s key of a specified Object type in an LightWeightSet container
+   * Obtains the index of the key of a specified Object type in an LightWeightSet container
    *
    * @param { T } key - key key Looking for goals
-   * @returns { number } Subscript corresponding to target
+   * @returns { int } Subscript corresponding to target
    * @throws { BusinessError } 10200011 - The getIndexOf method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
-  getIndexOf(key: T): number;
+  getIndexOf(key: T): int;
   /**
    * Deletes an object of a specified Object type from an LightWeightSet container
    *
@@ -379,7 +378,7 @@ declare class LightWeightSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   remove(key: T): T;
 
@@ -391,8 +390,7 @@ declare class LightWeightSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 23 static
    */
   remove(key: T): T | undefined;
 
@@ -424,7 +422,7 @@ declare class LightWeightSet<T> {
   /**
    * Deletes an object at the location identified by index from an LightWeightSet container
    *
-   * @param { number } index - index index Target subscript for search
+   * @param { int } index - index index Target subscript for search
    * @returns { boolean } the boolean type(Is there a delete value)
    * @throws { BusinessError } 10200011 - The removeAt method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -433,21 +431,21 @@ declare class LightWeightSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
-  removeAt(index: number): boolean;
+  removeAt(index: int): boolean;
   /**
-   * Removes all of the mapping from this map
-   * The map will be empty after this call returns
+   * Removes all of the mapping from this container
+   * The container will be empty after this call returns
    *
    * @throws { BusinessError } 10200011 - The clear method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @since 8
    */
   /**
-   * Removes all of the mapping from this map
-   * The map will be empty after this call returns
+   * Removes all of the mapping from this container
+   * The container will be empty after this call returns
    *
    * @throws { BusinessError } 10200011 - The clear method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
@@ -455,19 +453,19 @@ declare class LightWeightSet<T> {
    * @since 10
    */
   /**
-   * Removes all of the mapping from this map
-   * The map will be empty after this call returns
+   * Removes all of the mapping from this container
+   * The container will be empty after this call returns
    *
    * @throws { BusinessError } 10200011 - The clear method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   clear(): void;
   /**
-   * Executes the given callback function once for each real key in the map.
+   * Executes the given callback function once for each real key in the container.
    * It does not perform functions on deleted keys.
    *
    * @param { function } callbackFn - callbackFn
@@ -484,7 +482,7 @@ declare class LightWeightSet<T> {
    * @since 8
    */
   /**
-   * Executes the given callback function once for each real key in the map.
+   * Executes the given callback function once for each real key in the container.
    * It does not perform functions on deleted keys.
    *
    * @param { function } callbackFn - callbackFn
@@ -502,7 +500,7 @@ declare class LightWeightSet<T> {
    * @since 10
    */
   /**
-   * Executes the given callback function once for each real key in the map.
+   * Executes the given callback function once for each real key in the container.
    * It does not perform functions on deleted keys.
    *
    * @param { function } callbackFn - callbackFn
@@ -518,20 +516,19 @@ declare class LightWeightSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   forEach(callbackFn: (value?: T, key?: T, set?: LightWeightSet<T>) => void, thisArg?: Object): void;
 
   /**
-   * Executes the given callback function once for each real key in the map.
+   * Executes the given callback function once for each real key in the container.
    * It does not perform functions on deleted keys.
    *
    * @param { LightWeightSetForEachCb<T> } callbackFn - A callback function to execute for each element.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 23 static
    */
   forEach(callbackFn: LightWeightSetForEachCb<T>): void;
 
@@ -560,7 +557,7 @@ declare class LightWeightSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   [Symbol.iterator](): IterableIterator<T>;
 
@@ -571,8 +568,7 @@ declare class LightWeightSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 23 static
    */
   $_iterator(): IterableIterator<T>;
 
@@ -598,8 +594,8 @@ declare class LightWeightSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   toString(): String;
   /**
@@ -627,8 +623,8 @@ declare class LightWeightSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   toArray(): Array<T>;
   /**
@@ -668,22 +664,21 @@ declare class LightWeightSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   getValueAt(index: number): T;
 
   /**
    * Obtains the object at the location  identified by index in an LightWeightSet container
    *
-   * @param { number } index - index index Target subscript for search
+   * @param { int } index - index index Target subscript for search
    * @returns { T | undefined } the value at the specified index, or undefined if the index out of range
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 23 static
    */
-  getValueAt(index: number): T | undefined;
+  getValueAt(index: int): T | undefined;
 
   /**
    * Returns a ES6 iterator of the values contained in this Set
@@ -710,8 +705,8 @@ declare class LightWeightSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   values(): IterableIterator<T>;
   /**
@@ -739,8 +734,8 @@ declare class LightWeightSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   entries(): IterableIterator<[T, T]>;
   /**
@@ -768,8 +763,8 @@ declare class LightWeightSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   isEmpty(): boolean;
 }
@@ -784,9 +779,8 @@ declare class LightWeightSet<T> {
  * @returns { void } This callback does not return a value
  * @syscap SystemCapability.Utils.Lang
  * @atomicservice
- * @since 20
- * @arkts 1.2
+ * @since 23 static
  */
-type LightWeightSetForEachCb<T> = (value: T, key: T, set: LightWeightSet<T>) => void
+export type LightWeightSetForEachCb<T> = (value: T, key: T, set: LightWeightSet<T>) => void
 
 export default LightWeightSet;

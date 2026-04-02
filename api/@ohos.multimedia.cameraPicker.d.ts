@@ -30,22 +30,24 @@ import type camera from './@ohos.multimedia.camera';
  * @namespace cameraPicker
  * @syscap SystemCapability.Multimedia.Camera.Core
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
+ * @since 23 static
  */
 declare namespace cameraPicker {
 
   /**
-   * Picker profile settings for take photo and record video.
+   * Picker profile settings for taking photos and recording videos.
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @since 11
    */
   /**
-   * Picker profile settings for take photo and record video.
+   * Picker profile settings for taking photos and recording videos.
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
+   * @since 23 static
    */
   class PickerProfile {
     /**
@@ -61,7 +63,8 @@ declare namespace cameraPicker {
      * @type { camera.CameraPosition }
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
+     * @since 23 static
      */
     cameraPosition: camera.CameraPosition;
 
@@ -78,7 +81,8 @@ declare namespace cameraPicker {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
+     * @since 23 static
      */
     saveUri?: string;
 
@@ -92,12 +96,13 @@ declare namespace cameraPicker {
     /**
      * The max duration of the video.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
+     * @since 23 static
      */
-    videoDuration?: number;
+    videoDuration?: int;
   }
 
   /**
@@ -113,36 +118,39 @@ declare namespace cameraPicker {
    * @enum { string }
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
+   * @since 23 static
    */
   enum PickerMediaType {
     /**
-     * Type image, picker provide an ability to take photo.
+     * Type image, picker provides an ability to take photos.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 11
      */
     /**
-     * Type image, picker provide an ability to take photo.
+     * Type image, picker provides an ability to take photos.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
+     * @since 23 static
      */
     PHOTO = 'photo',
 
     /**
-     * Type video, picker provide an ability to record video.
+     * Type video, picker provides an ability to record videos.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 11
      */
     /**
-     * Type video, picker provide an ability to record video.
+     * Type video, picker provides an ability to record videos.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
+     * @since 23 static
      */
     VIDEO = 'video'
   }
@@ -158,7 +166,8 @@ declare namespace cameraPicker {
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
+   * @since 23 static
    */
   class PickerResult {
     /**
@@ -171,12 +180,13 @@ declare namespace cameraPicker {
     /**
      * The result code.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
+     * @since 23 static
      */
-    resultCode: number;
+    resultCode: int;
 
     /**
      * The result saved uri.
@@ -191,7 +201,8 @@ declare namespace cameraPicker {
      * @type { string }
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
+     * @since 23 static
      */
     resultUri: string;
 
@@ -208,13 +219,14 @@ declare namespace cameraPicker {
      * @type { PickerMediaType }
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
+     * @since 23 static
      */
     mediaType: PickerMediaType;
   }
 
   /**
-   * Launch the camera picker and configure it to photo or video mode base on the incoming media type.
+   * Launch the camera picker and configure it to photo or video mode based on the incoming media type.
    * The photo or video result will be returned via a Promise upon completion of the operation.
    *
    * @param { Context } context - From UIExtensionAbility.
@@ -234,7 +246,8 @@ declare namespace cameraPicker {
    * method. The return value is PickerResult.
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
+   * @since 23 static
    */
   function pick(context: Context, mediaTypes: Array<PickerMediaType>, pickerProfile: PickerProfile): Promise<PickerResult>;
 }

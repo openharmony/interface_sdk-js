@@ -31,7 +31,7 @@ import collections from '../arkts/@arkts.collections';
  * @syscap SystemCapability.Multimedia.Image.Core
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamiconly
  */
 declare namespace sendableImage {
 
@@ -43,30 +43,30 @@ declare namespace sendableImage {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
  interface Size extends lang.ISendable {
   /**
-   * Height
+   * Height, in px
    *
    * @type { number }
    * @syscap SystemCapability.Multimedia.Image.Core
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
   height: number;
 
   /**
-   * Width
+   * Width, in px
    *
    * @type { number }
    * @syscap SystemCapability.Multimedia.Image.Core
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
   width: number;
 }
@@ -79,7 +79,7 @@ declare namespace sendableImage {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 12
+ * @since 12 dynamiconly
  */
 interface Region extends lang.ISendable {
   /**
@@ -90,31 +90,31 @@ interface Region extends lang.ISendable {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
   size: Size;
 
   /**
-   * x-coordinate at the upper left corner of the image.
+   * x-coordinate at the upper left corner of the image, in px.
    *
    * @type { number }
    * @syscap SystemCapability.Multimedia.Image.Core
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
   x: number;
 
   /**
-   * y-coordinate at the upper left corner of the image.
+   * y-coordinate at the upper left corner of the image, in px.
    *
    * @type { number }
    * @syscap SystemCapability.Multimedia.Image.Core
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
   y: number;
 }
@@ -127,7 +127,7 @@ interface Region extends lang.ISendable {
    * @syscap SystemCapability.Multimedia.Image.ImageSource
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
   function createImageSource(uri: string): ImageSource;
 
@@ -139,7 +139,7 @@ interface Region extends lang.ISendable {
    * @syscap SystemCapability.Multimedia.Image.ImageSource
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
   function createImageSource(fd: number): ImageSource;
 
@@ -152,7 +152,7 @@ interface Region extends lang.ISendable {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
   function createImageSource(buf: ArrayBuffer): ImageSource;
 
@@ -166,7 +166,7 @@ interface Region extends lang.ISendable {
    * @returns { ImageReceiver } Returns the ImageReceiver instance if the operation is successful; returns null otherwise.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @syscap SystemCapability.Multimedia.Image.ImageReceiver
-   * @since 12
+   * @since 12 dynamiconly
    */
   function createImageReceiver(size: image.Size, format: image.ImageFormat, capacity: number): ImageReceiver; 
 
@@ -176,7 +176,7 @@ interface Region extends lang.ISendable {
    * @typedef { lang.ISendable } ISendable
    * @syscap SystemCapability.Multimedia.Image.Core
    * @crossplatform
-   * @since 12
+   * @since 12 dynamiconly
    */
 
   type ISendable = lang.ISendable;
@@ -189,7 +189,7 @@ interface Region extends lang.ISendable {
    * @returns { Promise<PixelMap> } A Promise instance used to return the PixelMap object.
    * @syscap SystemCapability.Multimedia.Image.Core
    * @crossplatform
-   * @since 12
+   * @since 12 dynamiconly
    */
   function createPixelMap(colors: ArrayBuffer, options: image.InitializationOptions): Promise<PixelMap>;
 
@@ -203,7 +203,7 @@ interface Region extends lang.ISendable {
    * 2.Incorrect parameter types. 3.Parameter verification failed.
    * @syscap SystemCapability.Multimedia.Image.Core
    * @crossplatform
-   * @since 12
+   * @since 12 dynamiconly
    */
   function createPixelMapSync(colors: ArrayBuffer, options: image.InitializationOptions): PixelMap;
 
@@ -223,7 +223,7 @@ interface Region extends lang.ISendable {
    * @throws { BusinessError } 62980180 - FD mapping failed.
    * @throws { BusinessError } 62980246 - Failed to read the PixelMap.
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 12
+   * @since 12 dynamiconly
    */
   function createPixelMapFromParcel(sequence: rpc.MessageSequence): PixelMap;
 
@@ -238,7 +238,7 @@ interface Region extends lang.ISendable {
    * @throws { BusinessError } 62980105 - Failed to get the data.
    * @throws { BusinessError } 62980178 - Failed to create the PixelMap.
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 12
+   * @since 12 dynamiconly
    */
   function createPixelMapFromSurface(surfaceId: string, region: image.Region): Promise<PixelMap>;
 
@@ -252,7 +252,7 @@ interface Region extends lang.ISendable {
    * 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types. 3.Parameter verification failed.
    * @throws { BusinessError } 62980104 - Failed to initialize the internal object.
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 12
+   * @since 12 dynamiconly
    */
   function convertFromPixelMap(pixelmap: image.PixelMap): PixelMap;
 
@@ -266,7 +266,7 @@ interface Region extends lang.ISendable {
    * 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types. 3.Parameter verification failed.
    * @throws { BusinessError } 62980104 - Failed to initialize the internal object.
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 12
+   * @since 12 dynamiconly
    */
   function convertToPixelMap(pixelmap: PixelMap): image.PixelMap;
 
@@ -277,7 +277,7 @@ interface Region extends lang.ISendable {
    * @syscap SystemCapability.Multimedia.Image.Core
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
   interface PixelMap extends ISendable {
     /**
@@ -287,7 +287,7 @@ interface Region extends lang.ISendable {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      */
     readonly isEditable: boolean;
 
@@ -301,7 +301,7 @@ interface Region extends lang.ISendable {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      */
     readPixelsToBuffer(dst: ArrayBuffer): Promise<void>;
 
@@ -315,7 +315,7 @@ interface Region extends lang.ISendable {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      */
     readPixelsToBufferSync(dst: ArrayBuffer): void;
 
@@ -328,7 +328,7 @@ interface Region extends lang.ISendable {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      */
     readPixels(area: image.PositionArea): Promise<void>;
 
@@ -342,7 +342,7 @@ interface Region extends lang.ISendable {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      */
     readPixelsSync(area: image.PositionArea): void;
 
@@ -356,7 +356,7 @@ interface Region extends lang.ISendable {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      */
     writePixels(area: image.PositionArea): Promise<void>;
 
@@ -370,7 +370,7 @@ interface Region extends lang.ISendable {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      */
     writePixelsSync(area: image.PositionArea): void;
 
@@ -384,7 +384,7 @@ interface Region extends lang.ISendable {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      */
     writeBufferToPixels(src: ArrayBuffer): Promise<void>;
 
@@ -398,7 +398,7 @@ interface Region extends lang.ISendable {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      */
     writeBufferToPixelsSync(src: ArrayBuffer): void;
 
@@ -410,7 +410,7 @@ interface Region extends lang.ISendable {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      */
     getImageInfo(): Promise<image.ImageInfo>;
 
@@ -422,7 +422,7 @@ interface Region extends lang.ISendable {
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      */
     getImageInfoSync(): image.ImageInfo;
 
@@ -433,7 +433,7 @@ interface Region extends lang.ISendable {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      */
     getBytesNumberPerRow(): number;
 
@@ -444,18 +444,18 @@ interface Region extends lang.ISendable {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      */
     getPixelBytesNumber(): number;
 
     /**
      * Obtains the density of the image pixelmap.
      *
-     * @returns { number } The number of density.
+     * @returns { number } The number of density, in ppi.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      */
     getDensity(): number;
 
@@ -468,7 +468,7 @@ interface Region extends lang.ISendable {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      */
     opacity(rate: number): Promise<void>;
 
@@ -482,7 +482,7 @@ interface Region extends lang.ISendable {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      */
     opacitySync(rate: number): void;
 
@@ -494,7 +494,7 @@ interface Region extends lang.ISendable {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      */
     createAlphaPixelmap(): Promise<PixelMap>;
 
@@ -508,7 +508,7 @@ interface Region extends lang.ISendable {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      */
     createAlphaPixelmapSync(): PixelMap;
 
@@ -522,7 +522,7 @@ interface Region extends lang.ISendable {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      */
     scale(x: number, y: number): Promise<void>;
 
@@ -537,63 +537,63 @@ interface Region extends lang.ISendable {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      */
     scaleSync(x: number, y: number): void;
 
     /**
      * Image position transformation. This method uses a promise to return the result.
      *
-     * @param { number } x The position value of width.
-     * @param { number } y The position value of height.
+     * @param { number } x The position value of width, in px.
+     * @param { number } y The position value of height, in px.
      * @returns { Promise<void> } A Promise instance used to return the operation result.
      * If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      */
     translate(x: number, y: number): Promise<void>;
 
     /**
      * Image position transformation.
      *
-     * @param { number } x The position value of width.
-     * @param { number } y The position value of height.
+     * @param { number } x The position value of width, in px.
+     * @param { number } y The position value of height, in px.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
      * 2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 501 - Resource Unavailable.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      */
     translateSync(x: number, y: number): void;
 
     /**
      * Image rotation. This method uses a promise to return the result.
      *
-     * @param { number } angle The rotation angle.
+     * @param { number } angle The rotation angle, in degrees.
      * @returns { Promise<void> } A Promise instance used to return the operation result.
      * If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      */
     rotate(angle: number): Promise<void>;
 
     /**
      * Image rotation.
      *
-     * @param { number } angle The rotation angle.
+     * @param { number } angle The rotation angle, in degrees.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
      * 2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 501 - Resource Unavailable.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      */
     rotateSync(angle: number): void;
 
@@ -607,7 +607,7 @@ interface Region extends lang.ISendable {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      */
     flip(horizontal: boolean, vertical: boolean): Promise<void>;
 
@@ -622,7 +622,7 @@ interface Region extends lang.ISendable {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      */
     flipSync(horizontal: boolean, vertical: boolean): void;
 
@@ -635,7 +635,7 @@ interface Region extends lang.ISendable {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      */
     crop(region: image.Region): Promise<void>;
 
@@ -649,7 +649,7 @@ interface Region extends lang.ISendable {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      */
     cropSync(region: image.Region): void;
 
@@ -662,7 +662,7 @@ interface Region extends lang.ISendable {
      * @throws { BusinessError } 62980115 - If the image parameter invalid.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform  
-     * @since 12
+     * @since 12 dynamiconly
      */
     getColorSpace(): colorSpaceManager.ColorSpaceManager;
 
@@ -679,7 +679,7 @@ interface Region extends lang.ISendable {
      * @throws { BusinessError } 62980115 - If the image parameter invalid.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform 
-     * @since 12
+     * @since 12 dynamiconly
      */
     setColorSpace(colorSpace: colorSpaceManager.ColorSpaceManager): void;
 
@@ -689,7 +689,7 @@ interface Region extends lang.ISendable {
      * @type { boolean }
      * @readonly
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 12 dynamiconly
      */
     readonly isStrideAlignment: boolean;
 
@@ -712,7 +712,7 @@ interface Region extends lang.ISendable {
      * @throws { BusinessError } 62980115 - Invalid image parameter.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 12
+     * @since 12 dynamiconly
      */
     applyColorSpace(targetColorSpace: colorSpaceManager.ColorSpaceManager): Promise<void>;
 
@@ -724,7 +724,7 @@ interface Region extends lang.ISendable {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      */
     release(): Promise<void>;
 
@@ -735,7 +735,7 @@ interface Region extends lang.ISendable {
      * @throws { BusinessError } 62980115 - Invalid image parameter.
      * @throws { BusinessError } 62980097 - IPC error.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 12 dynamiconly
      */
     marshalling(sequence: rpc.MessageSequence): void;
 
@@ -748,7 +748,7 @@ interface Region extends lang.ISendable {
      * @throws { BusinessError } 62980097 - IPC error.
      * @throws { BusinessError } 62980096 - The operation failed.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 12 dynamiconly
      */
     unmarshalling(sequence: rpc.MessageSequence): Promise<PixelMap>;
   }
@@ -761,7 +761,7 @@ interface Region extends lang.ISendable {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
   interface ImageSource {
     /**
@@ -774,7 +774,7 @@ interface Region extends lang.ISendable {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      */
     createPixelMap(options?: image.DecodingOptions): Promise<PixelMap>;
 
@@ -784,7 +784,7 @@ interface Region extends lang.ISendable {
      * @returns { Promise<void> } A Promise instance used to return the operation result.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
-     * @since 12
+     * @since 12 dynamiconly
      */
     release(): Promise<void>;
   }
@@ -794,15 +794,17 @@ interface Region extends lang.ISendable {
    *
    * @typedef Image
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 12
+   * @since 12 dynamiconly
    */
   interface Image extends lang.ISendable {
     /**
-     * Sets or gets the image area to crop, default is size.
+     * Gets the image area, which always covers the entire image and can not be modified.
+     * clipRect.size equals to the size of the image.
+     * clipRect.x and clipRect.y are always 0, indicating the top-left corner of the image.
      *
      * @type { Region }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 12 dynamiconly
      */
     clipRect: Region;
 
@@ -811,7 +813,7 @@ interface Region extends lang.ISendable {
      *
      * @type { Size }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 12 dynamiconly
      */
     readonly size: Size;
 
@@ -820,7 +822,7 @@ interface Region extends lang.ISendable {
      *
      * @type { number }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 12 dynamiconly
      */
     readonly format: number;
 
@@ -829,7 +831,7 @@ interface Region extends lang.ISendable {
      *
      * @type { number }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 12 dynamiconly
      */
     readonly timestamp: number;
 
@@ -839,7 +841,7 @@ interface Region extends lang.ISendable {
      * @param { ComponentType } componentType The component type of image.
      * @returns { Promise<Component> } A Promise instance used to return the component buffer.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 12 dynamiconly
      */
     getComponent(componentType: image.ComponentType): Promise<image.Component>;
 
@@ -848,7 +850,7 @@ interface Region extends lang.ISendable {
      *
      * @returns { Promise<void> } A Promise instance used to return the operation result.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 12 dynamiconly
      */
     release(): Promise<void>;
   }
@@ -858,7 +860,7 @@ interface Region extends lang.ISendable {
    *
    * @typedef ImageReceiver
    * @syscap SystemCapability.Multimedia.Image.ImageReceiver
-   * @since 12
+   * @since 12 dynamiconly
    */
   interface ImageReceiver {
     /**
@@ -866,7 +868,7 @@ interface Region extends lang.ISendable {
      *
      * @type { Size }
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
-     * @since 12
+     * @since 12 dynamiconly
      */
     readonly size: image.Size;
 
@@ -875,7 +877,7 @@ interface Region extends lang.ISendable {
      *
      * @type { number }
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
-     * @since 12
+     * @since 12 dynamiconly
      */
     readonly capacity: number;
 
@@ -884,7 +886,7 @@ interface Region extends lang.ISendable {
      *
      * @type { ImageFormat }
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
-     * @since 12
+     * @since 12 dynamiconly
      */
     readonly format: image.ImageFormat;
 
@@ -894,7 +896,7 @@ interface Region extends lang.ISendable {
      *
      * @returns { Promise<string> } A Promise instance used to return the surface id.
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
-     * @since 12
+     * @since 12 dynamiconly
      */
     getReceivingSurfaceId(): Promise<string>;
 
@@ -903,7 +905,7 @@ interface Region extends lang.ISendable {
      *
      * @returns { Promise<Image> } A Promise instance used to return the latest image.
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
-     * @since 12
+     * @since 12 dynamiconly
      */
     readLatestImage(): Promise<Image>;
 
@@ -912,7 +914,7 @@ interface Region extends lang.ISendable {
      *
      * @returns { Promise<Image> } A Promise instance used to return the next image.
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
-     * @since 12
+     * @since 12 dynamiconly
      */
     readNextImage(): Promise<Image>;
 
@@ -922,7 +924,7 @@ interface Region extends lang.ISendable {
      * @param { 'imageArrival' } type Callback used to return the next image.
      * @param { AsyncCallback<void> } callback Callback used to return image.
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
-     * @since 12
+     * @since 12 dynamiconly
      */
     on(type: 'imageArrival', callback: AsyncCallback<void>): void;
 
@@ -931,7 +933,7 @@ interface Region extends lang.ISendable {
      *
      * @returns { Promise<void> } A Promise instance used to return the operation result.
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
-     * @since 12
+     * @since 12 dynamiconly
      */
     release(): Promise<void>;
   }

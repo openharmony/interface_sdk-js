@@ -28,7 +28,7 @@ import colorSpaceManager from '@ohos.graphics.colorSpaceManager';
  * @namespace sendableColorSpaceManager
  * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
  * @crossplatform
- * @since 12
+ * @since 12 dynamiconly
  */
 declare namespace sendableColorSpaceManager {
   /**
@@ -37,7 +37,7 @@ declare namespace sendableColorSpaceManager {
    * @typedef { lang.ISendable } ISendable
    * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
    * @crossplatform
-   * @since 12
+   * @since 12 dynamiconly
    */
   type ISendable = lang.ISendable;
   /**
@@ -45,7 +45,7 @@ declare namespace sendableColorSpaceManager {
    * @interface ColorSpaceManager
    * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
    * @crossplatform
-   * @since 12
+   * @since 12 dynamiconly
    */
   interface ColorSpaceManager extends ISendable {
     /**
@@ -54,7 +54,14 @@ declare namespace sendableColorSpaceManager {
      * @throws { BusinessError } 18600001 - The parameter value is abnormal.
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
-     * @since 12
+     * @since 12 dynamiconly
+     */
+     /**
+     * Get the name of color space type.
+     * @returns { colorSpaceManager.ColorSpace } Returns the name of color space type.
+     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
+     * @crossplatform
+     * @since 23 dynamiconly
      */
     getColorSpaceName(): colorSpaceManager.ColorSpace;
 
@@ -64,7 +71,14 @@ declare namespace sendableColorSpaceManager {
      * @throws { BusinessError } 18600001 - The parameter value is abnormal.
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
-     * @since 12
+     * @since 12 dynamiconly
+     */
+     /**
+     * Get white point(x, y) of color space.
+     * @returns { collections.Array<number> } Returns the white point value of color space.
+     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
+     * @crossplatform
+     * @since 23 dynamiconly
      */
     getWhitePoint(): collections.Array<number>;
 
@@ -74,7 +88,14 @@ declare namespace sendableColorSpaceManager {
      * @throws { BusinessError } 18600001 - The parameter value is abnormal.
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
-     * @since 12
+     * @since 12 dynamiconly
+     */
+     /**
+     * Get gamma value of color space.
+     * @returns { number } Returns the gamma value of color space.
+     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
+     * @crossplatform
+     * @since 23 dynamiconly
      */
     getGamma(): number;
   }
@@ -88,7 +109,7 @@ declare namespace sendableColorSpaceManager {
    * @throws { BusinessError } 18600001 - The parameter value is abnormal.
    * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
    * @crossplatform
-   * @since 12
+   * @since 12 dynamiconly
    */
   function create(colorSpaceName: colorSpaceManager.ColorSpace): ColorSpaceManager;
 
@@ -102,7 +123,7 @@ declare namespace sendableColorSpaceManager {
    * @throws { BusinessError } 18600001 - The parameter value is abnormal.
    * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
    * @crossplatform
-   * @since 12
+   * @since 12 dynamiconly
    */
   function create(primaries: colorSpaceManager.ColorSpacePrimaries, gamma: number): ColorSpaceManager;
 }

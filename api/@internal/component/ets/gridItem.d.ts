@@ -18,9 +18,6 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { CommonMethod, Bindable } from './common'
-/*** endif */
 
 /**
  * Defines the grid item style.
@@ -37,8 +34,7 @@ import { CommonMethod, Bindable } from './common'
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
  */
 declare enum GridItemStyle {
   /**
@@ -54,8 +50,7 @@ declare enum GridItemStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   NONE = 0,
 
@@ -72,8 +67,7 @@ declare enum GridItemStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   PLAIN = 1,
 }
@@ -93,8 +87,7 @@ declare enum GridItemStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
  */
 declare interface GridItemOptions {
   /**
@@ -112,8 +105,7 @@ declare interface GridItemOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   style?: GridItemStyle;
 }
@@ -138,10 +130,11 @@ declare interface GridItemOptions {
  *
  * @interface GridItemInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @noninterop
  */
 interface GridItemInterface {
   /**
@@ -165,10 +158,10 @@ interface GridItemInterface {
    * @param { GridItemOptions } value - Defines the grid item options.
    * @returns { GridItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   (value?: GridItemOptions): GridItemAttribute;
 }
@@ -187,10 +180,11 @@ interface GridItemInterface {
 /**
  * @extends CommonMethod<GridItemAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @noninterop
  */
 declare class GridItemAttribute extends CommonMethod<GridItemAttribute> {
   /**
@@ -216,10 +210,10 @@ declare class GridItemAttribute extends CommonMethod<GridItemAttribute> {
    * @param { number } value
    * @returns { GridItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   rowStart(value: number): GridItemAttribute;
 
@@ -246,10 +240,10 @@ declare class GridItemAttribute extends CommonMethod<GridItemAttribute> {
    * @param { number } value
    * @returns { GridItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   rowEnd(value: number): GridItemAttribute;
 
@@ -276,10 +270,10 @@ declare class GridItemAttribute extends CommonMethod<GridItemAttribute> {
    * @param { number } value
    * @returns { GridItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   columnStart(value: number): GridItemAttribute;
 
@@ -306,10 +300,10 @@ declare class GridItemAttribute extends CommonMethod<GridItemAttribute> {
    * @param { number } value
    * @returns { GridItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   columnEnd(value: number): GridItemAttribute;
 
@@ -319,7 +313,8 @@ declare class GridItemAttribute extends CommonMethod<GridItemAttribute> {
    * @param { boolean } value
    * @returns { GridItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
+   * @FaAndStageModel
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   forceRebuild(value: boolean): GridItemAttribute;
@@ -347,10 +342,10 @@ declare class GridItemAttribute extends CommonMethod<GridItemAttribute> {
    * @param { boolean } value
    * @returns { GridItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   selectable(value: boolean): GridItemAttribute;
 
@@ -373,23 +368,9 @@ declare class GridItemAttribute extends CommonMethod<GridItemAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   selected(value: boolean): GridItemAttribute;
-
-  /**
-   * Called when judging whether it is selected.
-   * This parameter supports $$ for two-way binding of variables.
-   * 
-   * @param { boolean | Bindable<boolean> } value
-   * @returns { GridItemAttribute } the attribute of the gridItem.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  selected(value: boolean | Bindable<boolean>): GridItemAttribute;
 
   /**
    * Called when the gridItem is selected.
@@ -414,10 +395,10 @@ declare class GridItemAttribute extends CommonMethod<GridItemAttribute> {
    * @param { function } event
    * @returns { GridItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   onSelect(event: (isSelected: boolean) => void): GridItemAttribute;
 }
@@ -439,9 +420,11 @@ declare class GridItemAttribute extends CommonMethod<GridItemAttribute> {
  * Defines GridItem Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
+ * @noninterop
  */
 declare const GridItem: GridItemInterface
 
@@ -462,8 +445,10 @@ declare const GridItem: GridItemInterface
  * Defines GridItem Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
+ * @noninterop
  */
 declare const GridItemInstance: GridItemAttribute;

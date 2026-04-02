@@ -40,7 +40,7 @@
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @famodelonly
  * @atomicservice
- * @since 12
+ * @since 12 dynamiconly
  */
 export interface AppVersionInfo {
   /**
@@ -71,7 +71,7 @@ export interface AppVersionInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @famodelonly
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
   readonly appName: string;
 
@@ -103,7 +103,7 @@ export interface AppVersionInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @famodelonly
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
   readonly versionCode: number;
 
@@ -135,7 +135,7 @@ export interface AppVersionInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @famodelonly
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
   readonly versionName: string;
 }

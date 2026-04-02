@@ -18,11 +18,6 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { ICurve, TranslateOptions, ScaleOptions } from './common';
-import { Curve } from './enums';
-/*** endif */
-
 /**
  * Declare the jump method.
  *
@@ -45,8 +40,7 @@ import { Curve } from './enums';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
  */
 declare enum RouteType {
   /**
@@ -68,8 +62,7 @@ declare enum RouteType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   None,
 
@@ -92,8 +85,7 @@ declare enum RouteType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   Push,
 
@@ -116,8 +108,7 @@ declare enum RouteType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   Pop,
 }
@@ -144,8 +135,7 @@ declare enum RouteType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
  */
 declare enum SlideEffect {
   /**
@@ -167,8 +157,7 @@ declare enum SlideEffect {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   Left,
 
@@ -191,8 +180,7 @@ declare enum SlideEffect {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   Right,
 
@@ -215,8 +203,7 @@ declare enum SlideEffect {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   Top,
 
@@ -239,8 +226,7 @@ declare enum SlideEffect {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   Bottom,
 
@@ -250,8 +236,7 @@ declare enum SlideEffect {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   START = 5,
 
@@ -261,8 +246,7 @@ declare enum SlideEffect {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   END = 6,
 }
@@ -286,7 +270,7 @@ declare enum SlideEffect {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare class CommonTransition<T> {
   /**
@@ -308,7 +292,7 @@ declare class CommonTransition<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   constructor();
 
@@ -337,7 +321,7 @@ declare class CommonTransition<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   slide(value: SlideEffect): T;
 
@@ -377,7 +361,7 @@ declare class CommonTransition<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   translate(value: TranslateOptions): T;
 
@@ -417,7 +401,7 @@ declare class CommonTransition<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   scale(value: ScaleOptions): T;
 
@@ -446,72 +430,9 @@ declare class CommonTransition<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   opacity(value: number): T;
-}
-
-/**
- * Provides interfaces for common transitions.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-declare class CommonTransition {
-  /**
-   * Called when the slide in effect of the transition is set.
-   *
-   * @param { SlideEffect } value
-   * @returns { this }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  slide(value: SlideEffect): this;
-
-  /**
-   * Called when the translation effect of page transition is set.
-   *
-   * @param { TranslateOptions } value
-   * @returns { this }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  translate(value: TranslateOptions): this;
-
-  /**
-   * Called when setting the zoom effect of page transition.
-   *
-   * @param { ScaleOptions } value
-   * @returns { this }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  scale(value: ScaleOptions): this;
-
-  /**
-   * Called when the transparency value of the starting point of entry or the ending point of exit is set.
-   *
-   * @param { number } value
-   * @returns { this }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  opacity(value: number): this;
 }
 
 /**
@@ -536,8 +457,7 @@ declare class CommonTransition {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
  */
 declare interface PageTransitionOptions {
   /**
@@ -559,8 +479,7 @@ declare interface PageTransitionOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   type?: RouteType;
   /**
@@ -582,8 +501,7 @@ declare interface PageTransitionOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   duration?: number;
   /**
@@ -608,8 +526,7 @@ declare interface PageTransitionOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   curve?: Curve | string | ICurve;
   /**
@@ -634,8 +551,7 @@ declare interface PageTransitionOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   delay?: number;
 }
@@ -649,8 +565,7 @@ declare interface PageTransitionOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18 dynamic
  */
 declare type PageTransitionCallback = (type: RouteType, progress: number) => void;
 
@@ -679,7 +594,7 @@ declare type PageTransitionCallback = (type: RouteType, progress: number) => voi
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 interface PageTransitionEnterInterface extends CommonTransition<PageTransitionEnterInterface> {
   /**
@@ -707,7 +622,7 @@ interface PageTransitionEnterInterface extends CommonTransition<PageTransitionEn
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   (value: PageTransitionOptions): PageTransitionEnterInterface;
 
@@ -750,50 +665,9 @@ interface PageTransitionEnterInterface extends CommonTransition<PageTransitionEn
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   onEnter(event: PageTransitionCallback): PageTransitionEnterInterface;
-}
-
-/**
- * Provides an interface to set transition style when a page enters.
- *
- * @extends CommonTransition
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-declare class PageTransitionEnter extends CommonTransition {
-
-  /**
-   * Called when page Jump animation is used.
-   *
-   * @param { PageTransitionOptions } value - pageTransition options
-   * @returns { PageTransitionEnter }
-   * @static
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  static $_invoke(value: PageTransitionOptions): PageTransitionEnter;
-
-  /**
-   * Called frame by frame to customize pageTransition animation when the page enters.
-   * The incoming parameter is the normalized progress of the current incoming animation.
-   *
-   * @param { PageTransitionCallback } event - animation callback frame by frame
-   * @returns { this }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  onEnter(event: PageTransitionCallback): this;
 }
 
 /**
@@ -821,7 +695,7 @@ declare class PageTransitionEnter extends CommonTransition {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 interface PageTransitionExitInterface extends CommonTransition<PageTransitionExitInterface> {
   /**
@@ -849,7 +723,7 @@ interface PageTransitionExitInterface extends CommonTransition<PageTransitionExi
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   (value: PageTransitionOptions): PageTransitionExitInterface;
 
@@ -892,49 +766,9 @@ interface PageTransitionExitInterface extends CommonTransition<PageTransitionExi
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   onExit(event: PageTransitionCallback): PageTransitionExitInterface;
-}
-
-/**
- * Provide an interface to set transition style when a page exits.
- *
- * @extends CommonTransition
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20 
- * @arkts 1.2
- */
-declare class PageTransitionExit extends CommonTransition {
-  /**
-   * Called when page Jump animation is used.
-   *
-   * @param { PageTransitionOptions } value - pageTransition options
-   * @returns { PageTransitionExit }
-   * @static
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  static $_invoke(value: PageTransitionOptions): PageTransitionExit;
-
-  /**
-   * Called frame by frame to customize pageTransition animation when the page exits.
-   * The input parameter is the normalized progress of the current exit animation.
-   *
-   * @param { PageTransitionCallback } event
-   * @returns { this }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  onExit(event: PageTransitionCallback): this;
 }
 
 /**
@@ -956,7 +790,7 @@ declare class PageTransitionExit extends CommonTransition {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const PageTransitionEnter: PageTransitionEnterInterface;
 
@@ -979,6 +813,6 @@ declare const PageTransitionEnter: PageTransitionEnterInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const PageTransitionExit: PageTransitionExitInterface;

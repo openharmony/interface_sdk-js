@@ -18,6 +18,10 @@
  * @kit ArkTS
  */
 
+/*** if arkts static */
+import { RecordData } from '@ohos.base';
+/*** endif */
+
 /**
  * List is implemented based on the singly linked list. Each node has a reference pointing to the next element.
  * When querying an element, the system traverses the list from the beginning.
@@ -35,14 +39,13 @@
  */
 /**
  * List is implemented based on the singly linked list. Each node has a reference pointing to the next element.
- * When querying an element, the system traverses the list from the beginning. List offers efficient insertion
- * and removal operations but supports low query efficiency. List allows null elements.
+ * When querying an element, the system traverses the list from the beginning.
  *
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
+ * @since 23 static
  */
 declare class List<T> {
   /**
@@ -61,14 +64,14 @@ declare class List<T> {
    * @since 10
    */
   /**
-   * A constructor used to create a List instance.
+   * A constructor used to create a List object.
    *
    * @throws { BusinessError } 10200012 - The List's constructor cannot be directly invoked.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   constructor();
   /**
@@ -87,27 +90,25 @@ declare class List<T> {
    * @since 10
    */
   /**
-   * Number of elements in a list.
+   * Gets the element number of the List. This is a number one higher than the highest index in the list.
    *
    * @type { number }
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   length: number;
 
   /**
    * Gets the element number of the List.
    *
-   * @type { number }
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 23 static
    */
-  get length(): number;
+  get length(): int;
 
   /**
    * Appends the specified element to the end of this list.
@@ -129,16 +130,16 @@ declare class List<T> {
    * @since 10
    */
   /**
-   * Adds an element at the end of this container.
+   * Appends the specified element to the end of this list.
    *
-   * @param { T } element - Target element.
+   * @param { T } element - element element to be appended to this list
    * @returns { boolean } the boolean type, returns true if the addition is successful, and returns false if it fails.
    * @throws { BusinessError } 10200011 - The add method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   add(element: T): boolean;
   /**
@@ -171,10 +172,10 @@ declare class List<T> {
    * @since 10
    */
   /**
-   * Inserts an element at the specified position in this container.
+   * Inserts the specified element at the specified position in this list.
    *
-   * @param { T } element - Target element.
-   * @param { number } index - Index of the position where the element is to be inserted.
+   * @param { T } element - element element element to be inserted
+   * @param { int } index - index index index at which the specified element is to be inserted
    * @throws { BusinessError } 10200011 - The insert method cannot be bound.
    * @throws { BusinessError } 10200001 - The value of index is out of range.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -184,10 +185,10 @@ declare class List<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
-  insert(element: T, index: number): void;
+  insert(element: T, index: int): void;
   /**
    * Returns the element at the specified position in this list,
    * or returns undefined if this list is empty
@@ -216,34 +217,23 @@ declare class List<T> {
    * @since 10
    */
   /**
-   * Obtains the element at the specified position in this container.
-   *
-   * @param { number } index - Position index of the target element.
-   * @returns { T } the T type
-   * @throws { BusinessError } 10200011 - The get method cannot be bound.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
-  get(index: number): T;
-
-  /**
    * Returns the element at the specified position in this list,
    * or returns undefined if this list is empty
    *
-   * @param { number } index - specified position
-   * @returns { T | undefined} the element at the specified index, or undefined if the index is out of range.
+   * @param { int } index - index index specified position
+   * @returns { T } the T type
+   * @throws { BusinessError } 10200001 - The value of index is out of range.[staticonly]
+   * @throws { BusinessError } 10200011 - The get method cannot be bound.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
-  get(index: number): T | undefined;
+  get(index: int): T;
 
   /**
    * Check if list contains the specified element
@@ -265,16 +255,16 @@ declare class List<T> {
    * @since 10
    */
   /**
-   * Checks whether this container has the specified element.
+   * Check if list contains the specified element
    *
-   * @param { T } element - Target element.
+   * @param { T } element - element element element to be contained
    * @returns { boolean } the boolean type,if list contains the specified element,return true,else return false
    * @throws { BusinessError } 10200011 - The has method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   has(element: T): boolean;
   /**
@@ -299,18 +289,19 @@ declare class List<T> {
    * @since 10
    */
   /**
-   * Obtains the index of the last occurrence of the specified element in this container.
+   * Returns the index of the first occurrence of the specified element
+   * in this list, or -1 if this list does not contain the element.
    *
-   * @param { T } element - Target element.
-   * @returns { number } the number type ,returns the lowest index such that or -1 if there is no such index.
+   * @param { T } element - element element element to be contained
+   * @returns { int } the int type ,returns the lowest index such that or -1 if there is no such index.
    * @throws { BusinessError } 10200011 - The getIndexOf method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
-  getIndexOf(element: T): number;
+  getIndexOf(element: T): int;
   /**
    * Find the corresponding element according to the index.
    *
@@ -341,9 +332,9 @@ declare class List<T> {
    * @since 10
    */
   /**
-   * Searches for an element based on its index and then removes it.
+   * Find the corresponding element according to the index.
    *
-   * @param { number } index - Position index of the target element.
+   * @param { number } index - index index the index in the list
    * @returns { T } the T type ,returns undefined if list is empty,If the index is
    * out of bounds (greater than or equal to length or less than 0), throw an exception
    * @throws { BusinessError } 10200011 - The removeByIndex method cannot be bound.
@@ -354,25 +345,24 @@ declare class List<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   removeByIndex(index: number): T;
 
   /**
-   * Searches for an element based on its index and then removes it.
+   * Find the corresponding element according to the index.
    *
-   * @param { number } index - Position index of the target element.
+   * @param { int } index - the index in the linkedList
    * @returns { T | undefined } the T type, if the index is
-   * out of bounds (greater than or equal to length or less than 0), throw an exception
+   *     out of bounds (greater than or equal to length or less than 0), throw an exception
    * @throws { BusinessError } 10200001 - The value of "index" is out of range. It must be >= 0 && <= ${length - 1}.
-   * Received value is: ${index}
+   *     Received value is: ${index}
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 23 static
    */
-  removeByIndex(index: number): T | undefined;
+  removeByIndex(index: int): T | undefined;
 
   /**
    * Removes the first occurrence of the specified element from this list,
@@ -398,16 +388,18 @@ declare class List<T> {
    * @since 10
    */
   /**
-   * Removes the first occurrence of the specified element from this container.
+   * Removes the first occurrence of the specified element from this list,
+   * if it is present.  If the list does not contain the element, it is
+   * unchanged.  More formally, removes the element with the lowest index
    *
-   * @param { T } element - Target element.
+   * @param { T } element - element element element to remove
    * @returns { boolean } the boolean type ,If there is no such element, return false
    * @throws { BusinessError } 10200011 - The remove method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   remove(element: T): boolean;
   /**
@@ -432,18 +424,19 @@ declare class List<T> {
    * @since 10
    */
   /**
-   * Obtains the index of the last occurrence of the specified element in this container.
+   * Returns in the index of the last occurrence of the specified element in this list ,
+   * or -1 if the list does not contain the element.
    *
-   * @param { T } element - Target element.
-   * @returns { number } the number type
+   * @param { T } element - element element element to find
+   * @returns { int } the int type
    * @throws { BusinessError } 10200011 - The getLastIndexOf method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
-  getLastIndexOf(element: T): number;
+  getLastIndexOf(element: T): int;
   /**
    * Returns the first element (the item at index 0) of this list.
    * or returns undefined if list is empty
@@ -464,14 +457,17 @@ declare class List<T> {
    * @since 10
    */
   /**
-   * Obtains the first element in this container.
+   * Returns the first element (the item at index 0) of this list.
+   * or returns undefined if list is empty
    *
    * @returns { T } the T type ,returns undefined if list is empty
+   * @throws { BusinessError } 10200010 - Container is empty.[staticonly]
    * @throws { BusinessError } 10200011 - The getFirst method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
+   * @since 23 static
    */
   getFirst(): T;
   /**
@@ -494,42 +490,21 @@ declare class List<T> {
    * @since 10
    */
   /**
-   * Obtains the last element in this container.
+   * Returns the Last element (the item at index length-1) of this list.
+   * or returns undefined if list is empty
    *
    * @returns { T } the T type ,returns undefined if list is empty
+   * @throws { BusinessError } 10200010 - Container is empty.[staticonly]
    * @throws { BusinessError } 10200011 - The getLast method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
+   * @since 23 static
    */
   getLast(): T;
 
   /**
-   * Obtains the first element in this container.
-   *
-   * @returns { T | undefined } the T type, returns undefined if list is empty
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  getFirst(): T | undefined;
-
-  /**
-   * Obtains the last element in this container.
-   *
-   * @returns { T | undefined } the T type, returns undefined if list is empty
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  getLast(): T | undefined;
-
-  /**
    * Replaces the element at the specified position in this List with the specified element
    *
    * @param { number } index - index index index to find
@@ -559,10 +534,10 @@ declare class List<T> {
    * @since 10
    */
   /**
-   * Replaces an element at the specified position in this container with a given element.
+   * Replaces the element at the specified position in this List with the specified element
    *
-   * @param { number } index - Position index of the target element.
-   * @param { T } element - Element to be used for replacement.
+   * @param { int } index - index index index to find
+   * @param { T } element - element element replaced element
    * @returns { T } the T type
    * @throws { BusinessError } 10200011 - The set method cannot be bound.
    * @throws { BusinessError } 10200001 - The value of index is out of range.
@@ -572,24 +547,11 @@ declare class List<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
+   * @since 23 static
    */
-  set(index: number, element: T): T;
-  /**
-   * Replaces an element at the specified position in this container with a given element.
-   *
-   * @param { number } index - Position index of the target element.
-   * @param { T } element - Element to be used for replacement.
-   * @returns { T | undefined } the T type, returns undefined if linkedList is empty
-   * @throws { BusinessError } 10200001 - The value of "index" is out of range. It must be >= 0 && <= ${length - 1}.
-   * Received value is: ${index}
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  set(index: number, element: T): T | undefined;
+  set(index: int, element: T): T;
+
   /**
    * Compares the specified object with this list for equality.if the object are the same as this list
    * return true, otherwise return false.
@@ -612,18 +574,33 @@ declare class List<T> {
    * @since 10
    */
   /**
-   * Compares whether a specified object is equal to this container.
+   * Compares the specified object with this list for equality.if the object are the same as this list
+   * return true, otherwise return false.
    *
-   * @param { Object } obj - Object used for comparison.
+   * @param { Object } obj - obj obj Compare objects
    * @returns { boolean } the boolean type
    * @throws { BusinessError } 10200011 - The equal method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   equal(obj: Object): boolean;
+
+  /**
+   * Compares the specified object with this list for equality.if the object are the same as this list
+   * return true, otherwise return false.
+   *
+   * @param { RecordData } obj - obj obj Compare objects
+   * @returns { boolean } the boolean type
+   * @throws { BusinessError } 10200011 - The equal method cannot be bound.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 23 static
+   */
+  equal(obj: RecordData): boolean;
+  
   /**
    * Replaces each element of this list with the result of applying the operator to that element.
    *
@@ -658,10 +635,14 @@ declare class List<T> {
    * @since 10
    */
   /**
-   * Uses a callback to traverse the elements in this container and obtain their position indexes.
+   * Replaces each element of this list with the result of applying the operator to that element.
    *
-   * @param { function } callbackFn - Callback invoked for the replacement.
-   * @param { Object } [thisArg] - Value of this to use when callbackFn is invoked. The default value is this instance.
+   * @param { function } callbackFn - callbackFn
+   * callbackFn (required) A function that accepts up to three arguments.
+   * The function to be called for each element.
+   * @param { Object } [thisArg] - thisArg
+   * thisArg (Optional) The value to be used as this value for when callbackFn is called.
+   * If thisArg is omitted, undefined is used as the this value.
    * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * 1.Mandatory parameters are left unspecified;
@@ -669,19 +650,18 @@ declare class List<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   forEach(callbackFn: (value: T, index?: number, List?: List<T>) => void, thisArg?: Object): void;
 
   /**
-   * Uses a callback to traverse the elements in this container and obtain their position indexes.
+   * Replaces each element of this list with the result of applying the operator to that element.
    *
-   * @param { ListForEachCb } callbackFn - Callback invoked for the replacement.
+   * @param { ListForEachCb } callbackFn - callbackFn
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 23 static
    */
   forEach(callbackfn: ListForEachCb<T>): void;
 
@@ -689,13 +669,13 @@ declare class List<T> {
    * Sorts this list according to the order induced by the specified comparator
    *
    * @param { function } comparator - comparator
-   * comparator (required) A function that accepts up to two arguments.
-   * Specifies the sort order. Must be a function,return number type,If it returns firstValue
-   * minus secondValue, it returns an list sorted in ascending order;If it returns secondValue
-   * minus firstValue, it returns an list sorted in descending order;
+   *     comparator (required) A function that accepts up to two arguments.
+   *     Specifies the sort order. Must be a function,return number type,If it returns firstValue
+   *     minus secondValue, it returns an list sorted in ascending order;If it returns secondValue
+   *     minus firstValue, it returns an list sorted in descending order;
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
+   *     1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types.
    * @throws { BusinessError } 10200011 - The sort method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @since 8
@@ -704,33 +684,54 @@ declare class List<T> {
    * Sorts this list according to the order induced by the specified comparator
    *
    * @param { function } comparator - comparator
-   * comparator (required) A function that accepts up to two arguments.
-   * Specifies the sort order. Must be a function,return number type,If it returns firstValue
-   * minus secondValue, it returns an list sorted in ascending order;If it returns secondValue
-   * minus firstValue, it returns an list sorted in descending order;
+   *     comparator (required) A function that accepts up to two arguments.
+   *     Specifies the sort order. Must be a function,return number type,If it returns firstValue
+   *     minus secondValue, it returns an list sorted in ascending order;If it returns secondValue
+   *     minus firstValue, it returns an list sorted in descending order;
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
+   *     1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types.
    * @throws { BusinessError } 10200011 - The sort method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
    */
   /**
-   * Sorts elements in this container.
+   * Sorts this list according to the order induced by the specified comparator
    *
-   * @param { function } comparator - Callback invoked for sorting.
+   * @param { function } comparator - comparator
+   *     comparator (required) A function that accepts up to two arguments.
+   *     Specifies the sort order. Must be a function,return number type,If it returns firstValue
+   *     minus secondValue, it returns an list sorted in ascending order;If it returns secondValue
+   *     minus firstValue, it returns an list sorted in descending order;
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
+   *     1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types.
    * @throws { BusinessError } 10200011 - The sort method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
-  sort(comparator: (firstValue: T, secondValue: T) => number): void;
+  /**
+   * Sorts this list according to the order induced by the specified comparator
+   *
+   * Anonymous Object Rectification
+   * @param { ListComparatorFn<T> } comparator - comparator
+   *     comparator (required) A function that accepts up to two arguments.
+   *     Specifies the sort order. Must be a function,return number type,If it returns firstValue
+   *     minus secondValue, it returns an list sorted in ascending order;If it returns secondValue
+   *     minus firstValue, it returns an list sorted in descending order;
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types.
+   * @throws { BusinessError } 10200011 - The sort method cannot be bound.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  sort(comparator: ListComparatorFn<T>): void;
   /**
    * Removes all of the elements from this list.The list will
    * be empty after this call returns.length becomes 0
@@ -749,14 +750,15 @@ declare class List<T> {
    * @since 10
    */
   /**
-   * Clears this container and sets its length to 0.
+   * Removes all of the elements from this list.The list will
+   * be empty after this call returns.length becomes 0
    *
    * @throws { BusinessError } 10200011 - The clear method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   clear(): void;
   /**
@@ -789,11 +791,10 @@ declare class List<T> {
    * @since 10
    */
   /**
-   * Obtains elements within a range in this container, including the element at the start position but not that at the
-   * end position, and returns these elements as a new List instance.
+   * Returns a view of the portion of this list between the specified fromIndex,inclusive,and toIndex,exclusive
    *
-   * @param { number } fromIndex - Index of the start position.
-   * @param { number } toIndex - Index of the end position.
+   * @param { int } fromIndex - fromIndex fromIndex The starting position of the index, containing the value at that index position
+   * @param { int } toIndex - toIndex toIndex the end of the index, excluding the value at that index
    * @returns { List<T> }
    * @throws { BusinessError } 10200011 - The getSubList method cannot be bound.
    * @throws { BusinessError } 10200001 - The value of fromIndex or toIndex is out of range.
@@ -803,10 +804,10 @@ declare class List<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
-  getSubList(fromIndex: number, toIndex: number): List<T>;
+  getSubList(fromIndex: int, toIndex: int): List<T>;
   /**
    * Replaces each element of this list with the result of applying the operator to that element.
    *
@@ -841,9 +842,14 @@ declare class List<T> {
    * @since 10
    */
   /**
-   * Replaces all elements in this container with new elements, and returns the new ones.
-   * @param { function } callbackFn - Callback invoked for the replacement.
-   * @param { Object } [thisArg] - Value of this to use when callbackFn is invoked. The default value is this instance.
+   * Replaces each element of this list with the result of applying the operator to that element.
+   *
+   * @param { function } callbackFn - callbackFn
+   * callbackFn (required) A function that accepts up to three arguments.
+   * The function to be called for each element.
+   * @param { Object } [thisArg] - thisArg
+   * thisArg (Optional) The value to be used as this value for when callbackFn is called.
+   * If thisArg is omitted, undefined is used as the this value.
    * @throws { BusinessError } 10200011 - The replaceAllElements method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * 1.Mandatory parameters are left unspecified;
@@ -851,19 +857,18 @@ declare class List<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   replaceAllElements(callbackFn: (value: T, index?: number, list?: List<T>) => T, thisArg?: Object): void;
 
   /**
-   * Replaces all elements in this container with new elements, and returns the new ones.
+   * Replaces each element of this list with the result of applying the operator to that element.
    *
-   * @param { ListReplaceCb } callbackFn - Callback invoked for the replacement.
+   * @param { ListReplaceCb } callbackFn - callbackFn
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 23 static
    */
   replaceAllElements(callbackfn: ListReplaceCb<T>): void;
 
@@ -885,15 +890,15 @@ declare class List<T> {
    * @since 10
    */
   /**
-   * Converts this container into an array.
+   * convert list to array
    *
    * @returns { Array<T> } the Array type
    * @throws { BusinessError } 10200011 - The convertToArray method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   convertToArray(): Array<T>;
   /**
@@ -914,43 +919,31 @@ declare class List<T> {
    * @since 10
    */
   /**
-   * Checks whether this container is empty (contains no element).
+   * Determine whether list is empty and whether there is an element
    *
    * @returns { boolean } the boolean type
    * @throws { BusinessError } 10200011 - The isEmpty method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   isEmpty(): boolean;
-  /**
-   * Returns the item at that index
-   *
-   * @param { number } index - the zero-based index of the desired code unit.
-   * @returns { T | undefined } the element in the list matching the given index,
-   * or undefined if the index is out of range.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  $_get(index: number): T | undefined;
 
-  /**
-   * Set the value of item at that index.
-   *
-   * @param { number } index – the index of the element to set.
-   * @param { T } value – the value to set at the specified index
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  $_set(index: number, value: T): void;
+    /**
+     * Returns the item at that index.
+     *
+     * @param { int } index - The zero-based index of the desired code unit.
+     *     Throws error if index < 0 or index >= list.length.
+     * @returns { T } The element in the list matching the given index.
+     * @throws { BusinessError } 10200001 - The value of index is out of range.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 23 static
+     */
+    [index: int]: T;
   /**
    * returns an iterator.Each item of the iterator is a Javascript Object
    *
@@ -969,59 +962,68 @@ declare class List<T> {
    * @since 10
    */
   /**
-   * Obtains an iterator, each item of which is a JavaScript object.
+   * returns an iterator.Each item of the iterator is a Javascript Object
    *
    * @returns { IterableIterator<T> }
    * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   [Symbol.iterator](): IterableIterator<T>;
 
   /**
-   * Obtains an iterator, each item of which is a JavaScript object.
+   * returns an iterator. Each item of the iterator is a ArkTS Object
    *
    * @returns { IterableIterator<T> }
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 23 static
    */
   $_iterator(): IterableIterator<T>;
 
 }
-
+/**
+ * This type specifies the comparator of sort in comparation.
+ *
+ * @typedef { function } ListComparatorFn
+ * @param { T } firstValue - firstValue (required) previous element.
+ * @param { T } secondValue - secondValue (required) next element.
+ * @returns { double } the number type
+ * @syscap SystemCapability.Utils.Lang
+ * @crossplatform
+ * @atomicservice
+ * @since 23 dynamic&static
+ */
+export type ListComparatorFn<T> = (firstValue: T, secondValue: T) => double;
 /**
  * The type of List callback function.
  *
  * @typedef { function } ListForEachCb
  * @param { T } value - The value of current element
- * @param { number } index - The index of current element
+ * @param { int } index - The index of current element
  * @param { List<T> } list - The List instance being traversed
  * @returns { void } This callback does not return a value
  * @syscap SystemCapability.Utils.Lang
  * @atomicservice
- * @since 20
- * @arkts 1.2
+ * @since 23 static
  */
-type ListForEachCb<T> = (value: T, index: number, list: List<T>) => void
+export type ListForEachCb<T> = (value: T, index: int, list: List<T>) => void;
 
 /**
  * The type of List callback function.
  *
  * @typedef { function } LinkedListForEachCb
  * @param { T } value - The old value of current element
- * @param { number } index - The index of current element
+ * @param { int } index - The index of current element
  * @param { List<T> } list - The List instance being traversed
  * @returns { T } - The new value of current element
  * @syscap SystemCapability.Utils.Lang
  * @atomicservice
- * @since 20
- * @arkts 1.2
+ * @since 23 static
  */
-type ListReplaceCb<T> = (value: T, index: number, list: List<T>) => T
+export type ListReplaceCb<T> = (value: T, index: int, list: List<T>) => T;
 
 export default List;

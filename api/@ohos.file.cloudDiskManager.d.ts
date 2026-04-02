@@ -24,16 +24,18 @@
  * @namespace cloudDiskManager
  * @syscap SystemCapability.FileManagement.CloudDiskManager
  * @systemapi
- * @since 21
+ * @since 21 dynamic
+ * @since 23 static
  */
 declare namespace cloudDiskManager {
   /**
    * Enumerates the syncFolder state of the cloud disk.
    *
-   * @enum {number}
+   * @enum {int}
    * @syscap SystemCapability.FileManagement.CloudDiskManager
    * @systemapi
-   * @since 21
+   * @since 21 dynamic
+   * @since 23 static
    */
   enum SyncFolderState {
     /**
@@ -41,7 +43,8 @@ declare namespace cloudDiskManager {
      *
      * @syscap SystemCapability.FileManagement.CloudDiskManager
      * @systemapi
-     * @since 21
+     * @since 21 dynamic
+     * @since 23 static
      */
     INACTIVE = 0,
 
@@ -50,18 +53,20 @@ declare namespace cloudDiskManager {
      *
      * @syscap SystemCapability.FileManagement.CloudDiskManager
      * @systemapi
-     * @since 21
+     * @since 21 dynamic
+     * @since 23 static
      */
     ACTIVE = 1
   }
 
   /**
-   * Defines the syncFolder of the cloudDisk
+   * Defines the syncFolder of the cloudDisk.
    *
    * @typedef SyncFolder
    * @syscap SystemCapability.FileManagement.CloudDiskManager
    * @systemapi
-   * @since 21
+   * @since 21 dynamic
+   * @since 23 static
    */
   interface SyncFolder {
     /**
@@ -70,7 +75,8 @@ declare namespace cloudDiskManager {
      * @type { string }
      * @syscap SystemCapability.FileManagement.CloudDiskManager
      * @systemapi
-     * @since 21
+     * @since 21 dynamic
+     * @since 23 static
      */
     path: string;
 
@@ -80,7 +86,8 @@ declare namespace cloudDiskManager {
      * @type { string }
      * @syscap SystemCapability.FileManagement.CloudDiskManager
      * @systemapi
-     * @since 21
+     * @since 21 dynamic
+     * @since 23 static
      */
     bundleName: string;
 
@@ -90,19 +97,21 @@ declare namespace cloudDiskManager {
      * @type { SyncFolderState }
      * @syscap SystemCapability.FileManagement.CloudDiskManager
      * @systemapi
-     * @since 21
+     * @since 21 dynamic
+     * @since 23 static
      */
     state: SyncFolderState;
 
     /**
      * The displayNameResId of the syncFolder.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.FileManagement.CloudDiskManager
      * @systemapi
-     * @since 21
+     * @since 21 dynamic
+     * @since 23 static
      */
-    displayNameResId?: number;
+    displayNameResId?: int;
 
     /**
      * The alias of the syncFolder supports user customization.
@@ -110,7 +119,8 @@ declare namespace cloudDiskManager {
      * @type { ?string }
      * @syscap SystemCapability.FileManagement.CloudDiskManager
      * @systemapi
-     * @since 21
+     * @since 21 dynamic
+     * @since 23 static
      */
     customAlias?: string;
   }
@@ -120,7 +130,8 @@ declare namespace cloudDiskManager {
    *
    * @syscap SystemCapability.FileManagement.CloudDiskManager
    * @systemapi
-   * @since 21
+   * @since 21 dynamic
+   * @since 23 static
    */
   class SyncFolderAccessor {
     /**
@@ -132,7 +143,8 @@ declare namespace cloudDiskManager {
      *    application which is not a system application uses system API.
      * @syscap SystemCapability.FileManagement.CloudDiskManager
      * @systemapi
-     * @since 21
+     * @since 21 dynamic
+     * @since 23 static
      */
     constructor();
 
@@ -143,13 +155,15 @@ declare namespace cloudDiskManager {
      * @returns { Promise<Array<SyncFolder>> } Returns the syncFolder list for all bundles.
      * @throws { BusinessError } 201 - Permission verification failed.
      * @throws { BusinessError } 202 - Permission verification failed,
-     *    application which is not a system application uses system API.
+     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 801 - Device not supported.
      * @throws { BusinessError } 34400003 - IPC communication failed.
-     * @throws { BusinessError } 34400015 - Internal error.
-     * @throws { BusinessError } 34400016 - Cloud disk not support.
+     * @throws { BusinessError } 34400014 - Temporary failure. Retry is recommended (e.g., network issues).
+     * @throws { BusinessError } 34400015 - Cloud disk is not allowed on this device.
      * @syscap SystemCapability.FileManagement.CloudDiskManager
      * @systemapi
-     * @since 21
+     * @since 21 dynamic
+     * @since 23 static
      */
     getAllSyncFolders(): Promise<Array<SyncFolder>>;
   }

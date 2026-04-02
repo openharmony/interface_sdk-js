@@ -21,6 +21,7 @@
 import AbilityConstant from './@ohos.app.ability.AbilityConstant';
 import { Configuration } from './@ohos.app.ability.Configuration';
 
+/*** if arkts dynamic */
 /**
  * The environment callback.
  *
@@ -32,9 +33,22 @@ import { Configuration } from './@ohos.app.ability.Configuration';
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 export default class EnvironmentCallback {
+/*** endif */
+
+/*** if arkts static */
+/**
+ * The environment callback.
+ *
+ * @typedef EnvironmentCallback
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @atomicservice
+ * @since 23 static
+ */
+declare interface EnvironmentCallback {
+/*** endif */
   /**
    * Called when the system configuration is updated.
    *
@@ -50,7 +64,8 @@ export default class EnvironmentCallback {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
+   * @since 23 static
    */
   onConfigurationUpdated(config: Configuration): void;
 
@@ -71,7 +86,12 @@ export default class EnvironmentCallback {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
+   * @since 23 static
    */
   onMemoryLevel(level: AbilityConstant.MemoryLevel): void;
 }
+
+/*** if arkts static */
+export default EnvironmentCallback;
+/*** endif */

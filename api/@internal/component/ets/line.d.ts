@@ -18,24 +18,6 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { CommonShapeMethod, CommonMethod } from './common';
-import { Length } from './units';
-/*** endif */
-
-/**
- * Defines the Shape Point, the first element is the x-axis offset and the second is the y-axis.
- * 
- * @typedef { [Length, Length] } ShapePoint
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-export type ShapePoint = [Length, Length];
-
 /**
  * Defines Line constructor options.
  *
@@ -44,8 +26,7 @@ export type ShapePoint = [Length, Length];
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18 dynamic
  */
 interface LineOptions {
   /**
@@ -53,6 +34,7 @@ interface LineOptions {
    *
    * @type { ?(string | number) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -60,6 +42,7 @@ interface LineOptions {
    *
    * @type { ?(string | number) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -68,6 +51,7 @@ interface LineOptions {
    *
    * @type { ?(string | number) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -77,6 +61,7 @@ interface LineOptions {
    *
    * @type { ?(string | number) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -88,6 +73,7 @@ interface LineOptions {
    *
    * @type { ?(string | number) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -98,30 +84,20 @@ interface LineOptions {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   width?: Length;
-  /**
-   * Width of the rectangle where the line resides.
-   *
-   * @type { ?(string | number) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  width?: string | number;
 
   /**
    * Height of the rectangle where the line resides.
    *
    * @type { ?(string | number) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -129,6 +105,7 @@ interface LineOptions {
    *
    * @type { ?(string | number) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -137,6 +114,7 @@ interface LineOptions {
    *
    * @type { ?(string | number) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -146,6 +124,7 @@ interface LineOptions {
    *
    * @type { ?(string | number) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -157,6 +136,7 @@ interface LineOptions {
    *
    * @type { ?(string | number) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -167,24 +147,13 @@ interface LineOptions {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   height?: Length;
-  /**
-   * Height of the rectangle where the line resides.
-   *
-   * @type { ?(string | number) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  height?: string | number;
 }
 
 /**
@@ -192,6 +161,7 @@ interface LineOptions {
  *
  * @interface LineInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
@@ -199,6 +169,7 @@ interface LineOptions {
  *
  * @interface LineInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @form
  * @since 9
  */
@@ -207,6 +178,7 @@ interface LineOptions {
  *
  * @interface LineInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @since 10
@@ -216,10 +188,11 @@ interface LineOptions {
  *
  * @interface LineInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 interface LineInterface {
   /**
@@ -230,6 +203,7 @@ interface LineInterface {
    * @param { object } value
    * @returns { LineAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -240,6 +214,7 @@ interface LineInterface {
    * @param { object } value
    * @returns { LineAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -251,6 +226,7 @@ interface LineInterface {
    * @param { object } value
    * @returns { LineAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -263,6 +239,7 @@ interface LineInterface {
    * @param { object } value
    * @returns { LineAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -275,10 +252,11 @@ interface LineInterface {
    * @param { LineOptions } [options] - Line options
    * @returns { LineAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   new (options?: LineOptions): LineAttribute;
 
@@ -290,6 +268,7 @@ interface LineInterface {
    * @param { object } value
    * @returns { LineAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -300,6 +279,7 @@ interface LineInterface {
    * @param { object } value
    * @returns { LineAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -311,6 +291,7 @@ interface LineInterface {
    * @param { object } value
    * @returns { LineAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -323,6 +304,7 @@ interface LineInterface {
    * @param { object } value
    * @returns { LineAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -335,10 +317,11 @@ interface LineInterface {
    * @param { LineOptions } [options] - Line options
    * @returns { LineAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   (options?: LineOptions): LineAttribute;
 }
@@ -348,6 +331,7 @@ interface LineInterface {
  *
  * @extends CommonShapeMethod<LineAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
@@ -355,6 +339,7 @@ interface LineInterface {
  *
  * @extends CommonShapeMethod<LineAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @form
  * @since 9
  */
@@ -363,6 +348,7 @@ interface LineInterface {
  *
  * @extends CommonShapeMethod<LineAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @since 10
@@ -372,11 +358,11 @@ interface LineInterface {
  *
  * @extends CommonShapeMethod<LineAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
  */
 declare class LineAttribute extends CommonShapeMethod<LineAttribute> {
   /**
@@ -385,6 +371,7 @@ declare class LineAttribute extends CommonShapeMethod<LineAttribute> {
    * @param { Array<any> } value
    * @returns { LineAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -393,6 +380,7 @@ declare class LineAttribute extends CommonShapeMethod<LineAttribute> {
    * @param { Array<any> } value
    * @returns { LineAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -402,6 +390,7 @@ declare class LineAttribute extends CommonShapeMethod<LineAttribute> {
    * @param { Array<any> } value
    * @returns { LineAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -412,33 +401,21 @@ declare class LineAttribute extends CommonShapeMethod<LineAttribute> {
    * @param { Array<any> } value
    * @returns { LineAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   startPoint(value: Array<any>): LineAttribute;
 
   /**
-   * Coordinate of the start point of the line (relative coordinate).
-   *
-   * @param { ShapePoint } value
-   * @returns { LineAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  startPoint(value: ShapePoint): LineAttribute;
-
-  /**
    * Line end coordinates (relative coordinates).
    *
    * @param { Array<any> } value
    * @returns { LineAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -447,6 +424,7 @@ declare class LineAttribute extends CommonShapeMethod<LineAttribute> {
    * @param { Array<any> } value
    * @returns { LineAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -456,6 +434,7 @@ declare class LineAttribute extends CommonShapeMethod<LineAttribute> {
    * @param { Array<any> } value
    * @returns { LineAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -466,38 +445,27 @@ declare class LineAttribute extends CommonShapeMethod<LineAttribute> {
    * @param { Array<any> } value
    * @returns { LineAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   endPoint(value: Array<any>): LineAttribute;
-
-  /**
-   * Line end coordinates (relative coordinates).
-   *
-   * @param { ShapePoint } value
-   * @returns { LineAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  endPoint(value: ShapePoint): LineAttribute;
 }
 
 /**
  * Defines Line Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
  * Defines Line Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @form
  * @since 9
  */
@@ -505,6 +473,7 @@ declare class LineAttribute extends CommonShapeMethod<LineAttribute> {
  * Defines Line Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @since 10
@@ -513,10 +482,11 @@ declare class LineAttribute extends CommonShapeMethod<LineAttribute> {
  * Defines Line Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const Line: LineInterface;
 
@@ -524,12 +494,14 @@ declare const Line: LineInterface;
  * Defines Line Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
  * Defines Line Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @form
  * @since 9
  */
@@ -537,6 +509,7 @@ declare const Line: LineInterface;
  * Defines Line Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @since 10
@@ -545,36 +518,10 @@ declare const Line: LineInterface;
  * Defines Line Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const LineInstance: LineAttribute;
-
-/**
- * Line drawing component.
- *
- * @interface LineInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-interface LineInterface {
-  /**
-   * The return value of the parameter is Line.
-   *
-   * @param { LineOptions } [options] - Line options
-   * @returns { LineAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  (options?: LineOptions): LineAttribute;
-}

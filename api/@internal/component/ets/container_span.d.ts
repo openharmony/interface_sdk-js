@@ -18,11 +18,6 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { TextBackgroundStyle } from './span';
-import { AttributeModifier } from './common';
-/*** endif */
-
 /**
  * Span container interface.
  *
@@ -38,8 +33,7 @@ import { AttributeModifier } from './common';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
  */
 interface ContainerSpanInterface {
   /**
@@ -57,8 +51,7 @@ interface ContainerSpanInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   (): ContainerSpanAttribute;
 }
@@ -76,8 +69,7 @@ interface ContainerSpanInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
  */
 declare class ContainerSpanAttribute {
   /**
@@ -97,8 +89,7 @@ declare class ContainerSpanAttribute {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   textBackgroundStyle(style: TextBackgroundStyle): ContainerSpanAttribute;
 
@@ -110,8 +101,7 @@ declare class ContainerSpanAttribute {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   attributeModifier(modifier: AttributeModifier<ContainerSpanAttribute>): ContainerSpanAttribute;
 }
@@ -129,7 +119,7 @@ declare class ContainerSpanAttribute {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare const ContainerSpan: ContainerSpanInterface;
 
@@ -146,6 +136,6 @@ declare const ContainerSpan: ContainerSpanInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare const ContainerSpanInstance: ContainerSpanAttribute;

@@ -30,8 +30,8 @@ import type UIExtensionContext from './application/UIExtensionContext';
  * @extends ExtensionAbility
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @StageModelOnly
- * @since arkts {'1.1':'10', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 10 dynamic
+ * @since 23 static
  */
 declare class UIExtensionAbility extends ExtensionAbility {
   /**
@@ -40,8 +40,8 @@ declare class UIExtensionAbility extends ExtensionAbility {
    * @type { UIExtensionContext }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 23 static
    */
   context: UIExtensionContext;
 
@@ -58,8 +58,8 @@ declare class UIExtensionAbility extends ExtensionAbility {
    * @param { AbilityConstant.LaunchParam } launchParam - Indicates the LaunchParam information about UIExtensionAbility.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 23 static
    */
   onCreate(launchParam: AbilityConstant.LaunchParam): void;
 
@@ -70,8 +70,8 @@ declare class UIExtensionAbility extends ExtensionAbility {
    * @param { UIExtensionContentSession } session - Indicates the session of the UI extension page.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 23 static
    */
   onSessionCreate(want: Want, session: UIExtensionContentSession): void;
 
@@ -81,8 +81,8 @@ declare class UIExtensionAbility extends ExtensionAbility {
    * @param { UIExtensionContentSession } session - Indicates the session of the UI extension page.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 23 static
    */
   onSessionDestroy(session: UIExtensionContentSession): void;
 
@@ -91,8 +91,8 @@ declare class UIExtensionAbility extends ExtensionAbility {
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 23 static
    */
   onForeground(): void;
 
@@ -101,8 +101,8 @@ declare class UIExtensionAbility extends ExtensionAbility {
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 23 static
    */
   onBackground(): void;
 
@@ -112,31 +112,19 @@ declare class UIExtensionAbility extends ExtensionAbility {
    * @returns { void | Promise<void> } the promise returned by the function.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
-   * @since 10
+   * @since 10 dynamic
    */
   onDestroy(): void | Promise<void>;
 
   /**
    * Called back before an UI extension is destroyed.
    *
-   * @returns { void } the promise returned by the function.
+   * @returns { Promise<void> | undefined } the promise returned by the function.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
-   * @since 20
-   * @arkts 1.2
+   * @since 23 static
    */
-  onDestroy(): void;
-
-  /**
-   * Called back before an UI extension is destroyed.
-   *
-   * @returns { Promise<void> } the promise returned by the function.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
-   * @since 20
-   * @arkts 1.2
-   */
-  onDestroyAsync(): Promise<void>;
+  onDestroy(): Promise<void> | undefined;
 }
 
 export default UIExtensionAbility;

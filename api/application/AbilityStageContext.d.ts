@@ -20,6 +20,7 @@
 
 import { HapModuleInfo } from '../bundleManager/HapModuleInfo';
 import { Configuration } from '../@ohos.app.ability.Configuration';
+import { ElementName } from '../bundleManager/ElementName';
 import Context from './Context';
 
 /**
@@ -47,8 +48,8 @@ import Context from './Context';
  * @StageModelOnly
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 23 static
  */
 declare class AbilityStageContext extends Context {
   /**
@@ -77,8 +78,8 @@ declare class AbilityStageContext extends Context {
    * @StageModelOnly
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 23 static
    */
   currentHapModuleInfo: HapModuleInfo;
 
@@ -108,10 +109,20 @@ declare class AbilityStageContext extends Context {
    * @StageModelOnly
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 23 static
    */
   config: Configuration;
+
+  /**
+   * Indicates launch ElementName object of the abilityStage.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 24 dynamic&static
+   */
+  launchElement?: ElementName;
 }
 
 export default AbilityStageContext;
