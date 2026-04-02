@@ -3073,14 +3073,16 @@ declare namespace window {
   interface WindowLimits {
     
     /**
-     * The maximum width of the window.
+     * The maximum width of the window(unit: px or vp, depends on pixelUnit).
+     * Defaults to px if pixelUnit is not specified.
      *
      * @type { ?int }
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
     /**
-     * The maximum width of the window.
+     * The maximum width of the window(unit: px or vp, depends on pixelUnit).
+     * Defaults to px if pixelUnit is not specified.
      *
      * @type { ?int }
      * @syscap SystemCapability.Window.SessionManager
@@ -3091,14 +3093,16 @@ declare namespace window {
     maxWidth?: int;
 
     /**
-     * The maximum height of the window.
+     * The maximum height of the window(unit: px or vp, depends on pixelUnit).
+     * Defaults to px if pixelUnit is not specified.
      *
      * @type { ?int }
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
     /**
-     * The maximum height of the window.
+     * The maximum height of the window(unit: px or vp, depends on pixelUnit).
+     * Defaults to px if pixelUnit is not specified.
      *
      * @type { ?int }
      * @syscap SystemCapability.Window.SessionManager
@@ -3109,14 +3113,16 @@ declare namespace window {
     maxHeight?: int;
 
     /**
-     * The minimum width of the window.
+     * The minimum width of the window(unit: px or vp, depends on pixelUnit).
+     * Defaults to px if pixelUnit is not specified.
      *
      * @type { ?int }
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
     /**
-     * The minimum width of the window.
+     * The minimum width of the window(unit: px or vp, depends on pixelUnit).
+     * Defaults to px if pixelUnit is not specified.
      *
      * @type { ?int }
      * @syscap SystemCapability.Window.SessionManager
@@ -3127,14 +3133,16 @@ declare namespace window {
     minWidth?: int;
 
     /**
-     * The minimum height of the window.
+     * The minimum height of the window(unit: px or vp, depends on pixelUnit).
+     * Defaults to px if pixelUnit is not specified.
      *
      * @type { ?int }
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
     /**
-     * The minimum height of the window.
+     * The minimum height of the window(unit: px or vp, depends on pixelUnit).
+     * Defaults to px if pixelUnit is not specified.
      *
      * @type { ?int }
      * @syscap SystemCapability.Window.SessionManager
@@ -3145,7 +3153,7 @@ declare namespace window {
     minHeight?: int;
 
     /**
-     * The unit of window limits.
+     * The unit of window limits (default: px).
      *
      * @type { ?PixelUnit }
      * @syscap SystemCapability.Window.SessionManager
