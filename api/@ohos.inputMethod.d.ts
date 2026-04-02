@@ -140,7 +140,7 @@ declare namespace inputMethod {
   function getSystemInputMethodConfigAbility(): ElementName;
 
   /**
-   * Get system input method config ability of a specified user.
+   * Get the system input method config ability of a specified user.
    *
    * @param { int } [userId] - the user ID.If not provided:
    *     If the caller is not a user 0 application, the value defaults to the caller's user ID.
@@ -233,7 +233,7 @@ declare namespace inputMethod {
   function getCurrentInputMethod(): InputMethodProperty;
 
   /**
-   * Get current input method of a specified user.
+   * Get the current input method of a specified user.
    *
    * @param { int } [userId] - the user ID.If not provided:
    *     If the caller is not a user 0 application, the value defaults to the caller's user ID.
@@ -1023,7 +1023,7 @@ declare namespace inputMethod {
      * @param { string } bundleName - Indicates the bundleName of the inputmethod.
      * @param { string } extensionName - Indicates the extensionName of the inputmethod.
      * @param { EnabledState } enabledState - Indicates the enabledState to be changed.
-     * @param { int } [userId] - the user ID.If not provided.
+     * @param { int } [userId] - the user ID.If not provided:
      *     If the caller is not a user 0 application, the value defaults to the caller's user ID.
      *     If the caller is a user 0 application, the value defaults to the foreground user ID of the main screen.
      * @returns { Promise<void> } the promise returned by the function.
