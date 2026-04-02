@@ -1193,7 +1193,7 @@ declare namespace hidebug {
   * @atomicservice
   * @since 26.0.0 dynamic&static
   */
-  function dumpJsRawHeapData(needGC: boolean, needClean: boolean, isProcDump: boolean): Promise<Array<string>>;
+  function dumpJsRawHeapData(needGC: boolean, needClean: boolean, processDump: boolean): Promise<Array<string>>
 
   /**
    * GwpAsan Options.
