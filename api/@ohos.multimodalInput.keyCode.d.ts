@@ -2679,7 +2679,7 @@ export declare enum KeyCode {
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @stagemodelonly
-   * @since 24 dynamic&static
+   * @since 26 dynamic&static
    */
   KEYCODE_MOUSE_ASSISTANT = 2732,
 
@@ -2688,7 +2688,7 @@ export declare enum KeyCode {
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @stagemodelonly
-   * @since 24 dynamic&static
+   * @since 26 dynamic&static
    */
   KEYCODE_MOUSE_INTELLIGENCE_SELECTION = 2733,
 
