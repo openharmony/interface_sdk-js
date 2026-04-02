@@ -324,6 +324,55 @@ declare namespace uiEffect {
       riseWeight: double): Filter;
 
     /**
+     * Applies blur bubbles rise effect to simulate rising bubbles with blur.
+     * This effect creates a dreamy, bubbly distortion similar to rising bubbles in liquid.
+     *
+     * @param { double } blurRadius - The radius of the gaussian blur effect.
+     *     Value range: [0.0, 20.0].
+     *     Controls the strength of the blur applied to the image.
+     *     Larger values create stronger blur effects.
+     *     Recommended range: 2.0-5.0 for subtle effect, 5.0-10.0 for strong blur.
+     *     Default: 3.0.
+     * @param { double } mixStrength - The strength of mixing between original and blurred images.
+     *     Value range: [0.0, 2.0].
+     *     Controls how much the blurred image is mixed with the original.
+     *     0.0 = no blur, 1.0 = full blur, >1.0 = enhanced blur.
+     *     Recommended range: 0.5-1.5 for natural effect.
+     *     Default: 1.0.
+     * @param { boolean } invertMask - Whether to invert the mask image.
+     *     Value: true or false.
+     *     When true, the mask is inverted (light areas become dark and vice versa).
+     *     Use this to control which areas show the blur effect.
+     *     Default: false.
+     * @param { number } maskChannel - The color channel to use from the mask image.
+     *     Value range: [0, 4].
+     *     0 = Red channel, 1 = Green channel, 2 = Blue channel, 3 = Alpha channel, 4 = Luminance.
+     *     Determines which channel of the mask image controls the blur effect.
+     *     Recommended: 3 (Alpha) for transparency masks, 4 (Luminance) for grayscale masks.
+     *     Default: 0.
+     * @param { double } maskScrollSpeed - The speed at which the mask scrolls vertically.
+     *     Value range: [0.0, 1.0].
+     *     Controls how fast the mask pattern moves upward.
+     *     Creates animated rising bubble effect.
+     *     Recommended range: 0.05-0.15 for gentle rising, 0.15-0.3 for faster motion.
+     *     Default: 0.07.
+     * @param { image.PixelMap } maskImage - The mask image that controls where the blur effect is applied.
+     *     A PixelMap object containing the mask pattern.
+     *     Lighter areas show more blur, darker areas show less blur (when invertMask is false).
+     *     Typically a bubble pattern or gradient texture.
+     *     Pass null to use a default uniform blur.
+     *     Default: null.
+     * @returns { Filter } - Returns the blur bubbles rise Filter.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @since 25 dynamic
+     * @since 25 static
+     */
+    blurBubblesRise(blurRadius: double, mixStrength: double, invertMask: boolean, maskChannel: number,
+      maskScrollSpeed: double, maskImage: image.PixelMap | null): Filter;
+
+    /**
      * Applies Transition with alpha mask
      * 
      * @param { Mask } alphaMask - Animatable mask object
