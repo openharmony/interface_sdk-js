@@ -488,6 +488,16 @@ declare interface IntentEntityDecoratorInfo {
    * @since 20 dynamiconly
    */
   parameters?: Record<string, Object>;
+
+  /**
+  * Supported query properties.
+  *
+  * @syscap SystemCapability.Ability.AbilityRuntime.Core
+  * @stagemodelonly
+  * @atomicservice
+  * @since 26.0.0 dynamic
+  */
+  supportedQueryProperties?: string[];
 }
 
 /**

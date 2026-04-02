@@ -252,6 +252,86 @@ declare namespace insightIntentDriver {
   }
 
   /**
+   * Param when query insight intent entity.
+   *
+   * @typedef QueryParam
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface QueryParam {
+    /**
+     * Indicates the bundle name.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @StageModelOnly
+     * @since 26.0.0 dynamic&static
+     */
+    bundleName: string;
+
+    /**
+     * Indicates the module name.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @StageModelOnly
+     * @since 26.0.0 dynamic&static
+     */
+    moduleName: string;
+
+    /**
+     * Indicates the intent name.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    intentName: string;
+
+    /**
+     * Indicates the entity class name.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    className: string;
+
+    /**
+     * Indicates the param for query entity.
+     *
+     * @type { insightIntent.QueryEntityParam }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    queryEntityParam: insightIntent.QueryEntityParam;
+
+    /**
+     * Indicates the target user ID.
+     *
+     * If the user ID of the caller application is different from the target user ID, you need to apply for permission:
+     *     ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    userId?: int;
+  }
+
+  /**
    * Execute insight intent.
    * If the caller application is in foreground, you can use this method to execute insight intent;
    * If the caller application is in background, you need to apply for permission: ohos.permission.START_ABILITIES_FROM_BACKGROUND;
@@ -1254,6 +1334,26 @@ declare namespace insightIntentDriver {
      * @since 23 static
      */
     readonly parentClassName: string;
+
+    /**
+     * The entity is queryable.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly isQueryable?: boolean;
+
+    /**
+     * Support query properties.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly supportedQueryProperties?: string[];
   }
 
   /**
@@ -1334,6 +1434,40 @@ declare namespace insightIntentDriver {
    * @since 23 dynamic&static
    */
   function getInsightIntentInfoByFilter(filter: InsightIntentInfoFilter): Promise<Array<InsightIntentInfo>>;
+
+  /**
+   *  Query insight intent entity info.
+   *
+   * @permission ohos.permission.EXECUTE_INSIGHT_INTENT
+   * @param { QueryParam } param - Query parameter.
+   * @returns { Promise<Array<Record<string, Object>>> } - Returns the insight intent entity information.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 16000050 - Internal error. Possible causes: 1. Connect to system service failed;
+   *     2.Send restart message to system service failed; 3.System service failed to communicate with dependency module.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  function queryEntityInfo(param: QueryParam): Promise<Array<Record<string, Object>>>;
+
+  /**
+   *  Query insight intent entity info.
+   *
+   * @permission ohos.permission.EXECUTE_INSIGHT_INTENT
+   * @param { QueryParam } param - Query parameter.
+   * @returns { Promise<Array<Record<string, RecordData>>> } - Returns the insight intent entity information.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 16000050 - Internal error. Possible causes: 1. Connect to system service failed;
+   *     2.Send restart message to system service failed; 3.System service failed to communicate with dependency module.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  function queryEntityInfo(param: QueryParam): Promise<Array<Record<string, RecordData>>>;
 }
 
 export default insightIntentDriver;
