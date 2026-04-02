@@ -2635,6 +2635,16 @@ declare namespace inputMethod {
      * @since 23 static
      */
     abilityName?: string;
+
+    /**
+     * Whether the editor supports consuming key events.
+     *
+     * @default false
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    consumeKeyEvents?: boolean;
   }
 
   /**
