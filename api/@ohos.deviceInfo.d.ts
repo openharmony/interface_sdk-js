@@ -781,8 +781,7 @@ declare namespace deviceInfo {
     const chipType: string;
 
     /**
-     * Obtains the deviceboot count by a number
-     * if get failed, it will return -1
+     * Obtains boot count since the device starts running
      * 
      * @type { number }
      * @syscap SystemCapability.Startup.SystemInfo
