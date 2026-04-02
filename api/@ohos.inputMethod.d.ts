@@ -478,7 +478,7 @@ declare namespace inputMethod {
    * @param { string } bundleName - indicates the bundleName of the target input method.
    * @param { string } [subtypeId] - indicates the id of the input method subtype. 
    *     If the param is not set, switch to the target input method with a default subtype.
-   * @param { int } [userId] - the user ID.If not provided.
+   * @param { int } [userId] - the user ID.If not provided:
    *     If the caller is not a user 0 application, the value defaults to the caller's user ID.
    *     If the caller is a user 0 application, the value defaults to the foreground user ID of the main screen.
    * @returns { Promise<void> } the promise returned by the function.
