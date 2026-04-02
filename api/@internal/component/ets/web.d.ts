@@ -7440,7 +7440,7 @@ declare enum NavigationPolicy {
  */
 declare interface WindowFeatures {
   /**
-   * The requested height of the containing window.
+   * The requested height of the containing window. Unit:pixels.
    *
    * @type { number }
    * @syscap SystemCapability.Web.Webview.Core
@@ -7449,7 +7449,7 @@ declare interface WindowFeatures {
   height: number;
 
   /**
-   * The requested width of the containing window.
+   * The requested width of the containing window. Unit:pixels.
    *
    * @type { number }
    * @syscap SystemCapability.Web.Webview.Core
@@ -7458,7 +7458,7 @@ declare interface WindowFeatures {
   width: number;
 
   /**
-   * The requested x-coordinate of the containing window.
+   * The requested x-coordinate of the containing window. Unit:pixels.
    *
    * @type { number }
    * @syscap SystemCapability.Web.Webview.Core
@@ -7467,7 +7467,7 @@ declare interface WindowFeatures {
   x: number;
 
   /**
-   * The requested y-coordinate of the containing window.
+   * The requested y-coordinate of the containing window. Unit:pixels.
    *
    * @type { number }
    * @syscap SystemCapability.Web.Webview.Core
