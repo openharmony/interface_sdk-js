@@ -374,7 +374,7 @@ declare namespace inputMethod {
    * @stagemodelonly
    * @since 24 dynamic&static
    */
-  function getCurrentInputMethodSubtype(userId: int): InputMethodSubtype;
+  function getCurrentInputMethodSubtype(userId?: int): InputMethodSubtype;
 
   /**
    * Switch input method and subtype. If the caller is an input method, it must be the current inputmethod.
@@ -496,7 +496,8 @@ declare namespace inputMethod {
    * @stagemodelonly
    * @since 24 dynamic&static
    */
-  function switchInputMethodWithUserId(bundleName: string, subtypeId?: string, userId?: int): Promise<void>;
+  function switchInputMethodWithUserId(
+    bundleName: string, subtypeId?: string, userId?: int): Promise<void>;
 
   /**
    * Set simple keyboard mode.
@@ -1044,7 +1045,7 @@ declare namespace inputMethod {
      * @since 24 dynamic&static
      */
     enableInputMethod(
-      bundleName: string, extensionName: string, enabledState: EnabledState, userId: int): Promise<void>;
+      bundleName: string, extensionName: string, enabledState: EnabledState, userId?: int): Promise<void>;
 
     /**
      * Subscribe input method or subtype change.
