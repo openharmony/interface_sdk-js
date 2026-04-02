@@ -642,7 +642,7 @@ declare namespace audio {
      */
     UNAVAILABLE_DEVICE = -2,
     /**
-     * Audio loopback is unavailable in the current scene. For example, the loopback is interrupted by other audioi streams or there is an ongoing call.
+     * Audio loopback is unavailable in the current scene. For example, the loopback is interrupted by other audio streams or there is an ongoing call.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 20 dynamic
      * @since 23 static
@@ -718,14 +718,14 @@ declare namespace audio {
      */
     FLAT = 1,
     /**
-     * A preset representing a equalizer effect that can enhance the fullness of the vocie
+     * A preset representing a equalizer effect that can enhance the fullness of the voice
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 21 dynamic
      * @since 24 static
      */
     FULL = 2,
     /**
-     * A preset representing a equalizer effect that can enhance the brightness of the vocie
+     * A preset representing a equalizer effect that can enhance the brightness of the voice
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 21 dynamic
      * @since 24 static
@@ -5420,6 +5420,71 @@ declare namespace audio {
      */
     isIntelligentNoiseReductionEnabledForCurrentDevice(sourceType: SourceType): boolean;
 
+    /**
+     * Return if fast playback is supported for the specific audio stream info and usage type
+     *     in current device situation.
+     *
+     * @param { AudioStreamInfo } streamInfo - reference of stream info structure to describe basic audio format.
+     * @param { StreamUsage } usage - stream usage type used to decide the audio device and pipe type selection result.
+     * @returns { boolean } True if fast playback is supported in this situation.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    isFastPlaybackSupported(streamInfo: AudioStreamInfo, usage: StreamUsage): boolean;
+
+    /**
+     * Return if offload playback is supported for the specific audio stream info and usage type
+     *     in current device situation.
+     *
+     * @param { AudioStreamInfo } streamInfo - reference of stream info structure to describe basic audio format.
+     * @param { StreamUsage } usage - stream usage type used to decide the audio device and pipe type selection result.
+     * @returns { boolean } True if offload playback is supported in this situation.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    isOffloadPlaybackSupported(streamInfo: AudioStreamInfo, usage: StreamUsage): boolean;
+
+    /**
+     * Return if direct playback is supported for the specific audio stream info and usage type
+     *     in current device situation.
+     *
+     * @param { AudioStreamInfo } streamInfo - reference of stream info structure to describe basic audio format.
+     * @param { StreamUsage } usage - stream usage type used to decide the audio device and pipe type selection result.
+     * @returns { boolean } True if direct playback is supported in this situation.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    isDirectPlaybackSupported(streamInfo: AudioStreamInfo, usage: StreamUsage): boolean;
+
+    /**
+     * Return if fast recording is supported for the specific audio stream info and usage type
+     *     in current device situation.
+     *
+     * @param { AudioStreamInfo } streamInfo - reference of stream info structure to describe basic audio format.
+     * @param { SourceType } source - stream source type used to decide the audio device and pipe type selection result.
+     * @returns { boolean } True if fast recording is supported in this situation.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    isFastRecordingSupported(streamInfo: AudioStreamInfo, source: SourceType): boolean;
+
+    /**
+     * Return if multichannel playback is supported for the specific audio stream info and usage type
+     *     in current device situation.
+     *
+     * @param { AudioStreamInfo } streamInfo - reference of stream info structure to describe basic audio format.
+     * @param { StreamUsage } usage - stream usage type used to decide the audio device and pipe type selection result.
+     * @returns { boolean } True if multichannel playback is supported in this situation.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    isMultichannelPlaybackSupported(streamInfo: AudioStreamInfo, usage: StreamUsage): boolean;
+
   }
 
   /**
@@ -5600,6 +5665,30 @@ declare namespace audio {
      * @since 23 dynamic&static
      */
     AUDIO_SESSION_STATE_CHANGE_HINT_UNMUTE_SUGGESTION = 7,
+
+    /**
+     * The hint can be received only after the parameter {@link #AudioSessionBehaviorFlags.MUTE_WHEN_INTERRUPTED}
+     * has been set by the interface {@link #setAudioSessionBehavior}
+     * and {@link #setAudioSessionScene} has been called, and the audio session has been activated.
+     * After the hint is received, the audio stream is muted.
+     *
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    AUDIO_SESSION_STATE_CHANGE_HINT_MUTE = 8,
+
+    /**
+     * The hint can be received only after the parameter {@link #AudioSessionBehaviorFlags.MUTE_WHEN_INTERRUPTED}
+     * has been set by the interface {@link #setAudioSessionBehavior}
+     * and {@link #setAudioSessionScene} has been called, and the audio session has been activated.
+     * When the hint is received, the audio stream is unmuted.
+     *
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    AUDIO_SESSION_STATE_CHANGE_HINT_UNMUTE = 9
   }
 
   /**
@@ -5612,6 +5701,8 @@ declare namespace audio {
   enum OutputDeviceChangeRecommendedAction {
     /**
      * Recommend to continue the playback.
+     * This event indicates that the application does not need to stop audio playback when switching devices.
+     * However, it should not be used to restart audio playback that has already been paused or stopped.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 20 dynamic
      * @since 23 static
@@ -5624,6 +5715,42 @@ declare namespace audio {
      * @since 23 static
      */
     DEVICE_CHANGE_RECOMMEND_TO_STOP = 1,
+  }
+
+  /**
+   * Enumerates audio session behavior flags.
+   *
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  enum AudioSessionBehaviorFlags {
+    /**
+     * Default behavior, used to clear behavior settings.
+     *
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+     DEFAULT_BEHAVIOR = 0x00000000,
+
+      /**
+      * Non-privacy VoIP, allowed to be recorded.
+      *
+      * @syscap SystemCapability.Multimedia.Audio.Core
+      * @stagemodelonly
+      * @since 26.0.0 dynamic&static
+      */
+      VOIP_PRIVACY_TYPE_PUBLIC = 0x00000001,
+
+    /**
+     * When the audio stream is interrupted by the system, it performs a forced mute instead.
+     *
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    MUTE_WHEN_INTERRUPTED = 0x00000002
   }
 
   /**
@@ -5890,7 +6017,18 @@ declare namespace audio {
      * @since 20 dynamic
      * @since 23 static
      */
-    setAudioSessionScene(scene: AudioSessionScene): void;
+     setAudioSessionScene(scene: AudioSessionScene): void;
+
+    /**
+     * Set mute hint for all capturer streams in the current audio session. It dose not mute the recording
+     * stream, only affects internal processing strategy.
+     * @param { boolean } mute - Use true if application recording stream muted by application if self.
+     * @throws { BusinessError } 6800103 - Operation not permit at current state, there is no audio capturer running.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    setCapturerMuteHint(mute: boolean): Promise<void>;
 
     /**
      * Listens for audio session state change event. When the audio session state change,
@@ -6224,6 +6362,23 @@ declare namespace audio {
      * @since 23 dynamic&static
      */
     isOtherMediaPlaying(): boolean;
+
+    /**
+     * Set audio session behavior parameters (supporting multiple flag combinations)
+     * This interface takes effect only after the interface {@link #setAudioSessionScene} is called.
+     * Each time you call this interface to set parameters,
+     * you need to call the interface {@link #activateAudioSession} again for the settings to take effect.
+     *
+     * @param { int } behavior - Used to adjust the focus behavior.
+     *     <br>Value range: behavior can be a single flag or a bitwise OR combination of multiple flags
+     *     in {@link #AudioSessionBehaviorFlags}.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800103 - Operation not permitted in the current state.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    setAudioSessionBehavior(behavior: int): void;
   }
 
   /**
@@ -7067,6 +7222,19 @@ declare namespace audio {
      * @since 23 static
      */
     forceVolumeKeyControlType(volumeType: AudioVolumeType, duration: int): void;
+
+    /**
+     * Obtains the Volume information of the active audio streams.
+     *
+     * @returns { ActiveStreamsVolumeInfoArray } Returns the result.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 6800301 - System error, crash or blocking occurs in system process.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    getActiveStreamsVolumeInfo(): ActiveStreamsVolumeInfoArray;
   }
 
   /**
@@ -7945,6 +8113,43 @@ declare namespace audio {
   }
 
   /**
+   * Enumerates the spatial audio source type.
+   *
+   * @syscap SystemCapability.Multimedia.Audio.Spatialization
+   * @systemapi
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  enum SpatialAudioSourceType {
+    /**
+     * stereo source type.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    SPATIAL_AUDIO_SOURCE_TYPE_STEREO = 0,
+
+    /**
+     * audio vivid source type.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    SPATIAL_AUDIO_SOURCE_TYPE_AUDIO_VIVID = 1,
+
+    /**
+     * multichannel source type.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    SPATIAL_AUDIO_SOURCE_TYPE_MULTI_CHANNEL = 2
+  }  
+
+  /**
    * This interface is used to notify the listener of any device Spatialization or Head Tracking enable state change.
    * @interface AudioSpatialEnabledStateForDevice
    * @syscap SystemCapability.Multimedia.Audio.Spatialization
@@ -7963,7 +8168,7 @@ declare namespace audio {
      */
     deviceDescriptor: AudioDeviceDescriptor;
     /**
-     * Spatialization or Head Tracking enable state.
+     * Spatialization or Head Tracking or Adaptive Spatial Rendering enable state.
      * @type { boolean }
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
@@ -8470,6 +8675,99 @@ declare namespace audio {
      * @since 23 static
      */
     offSpatializationEnabledChangeForCurrentDevice(callback?: Callback<boolean>): void;
+
+    /**
+     * Sets the adaptive spatial rendering enabled or disabled by the specified device.
+     *     This method uses a promise to return the result.
+     *     When the adaptive spatial rendering is enabled, spatial audio rendering will not take effect on stereo audio.
+     * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
+     * @param { AudioDeviceDescriptor } deviceDescriptor - The target device
+     *     to be set adaptive spatial rendering enabled.
+     * @param { boolean } enabled - Adaptive spatial rendering enable state.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 201 - Permission denied. Return by promise.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 801 - Capability not supported on the device.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @systemapi
+     * @since 24 dynamic&static
+     */
+    setAdaptiveSpatialRenderingEnabled(deviceDescriptor: AudioDeviceDescriptor, enabled: boolean): Promise<void>;
+
+    /**
+     * Checks whether the adaptive spatial rendering is enabled by the specified device.
+     * @param { AudioDeviceDescriptor } deviceDescriptor - The target device
+     *     to be check whether the adaptive spatial rendering is enabled.
+     * @returns { boolean } Whether the adaptive spatial rendering is enabled by the specified device.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @systemapi
+     * @since 24 dynamic&static
+     */
+    isAdaptiveSpatialRenderingEnabled(deviceDescriptor: AudioDeviceDescriptor): boolean;
+
+    /**
+     * Subscribes to the adaptive spatial rendering enable state change events by the specified device.
+     *     When the adaptive spatial rendering enable state changes, registered clients will receive the callback.
+     * @param { Callback<AudioSpatialEnabledStateForDevice> } callback - Callback used to get the adaptive spatial
+     *     rendering enable state by the specified device.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @systemapi
+     * @since 24 dynamic&static
+     */
+    onAdaptiveSpatialRenderingEnabledChangeForAnyDevice(callback: Callback<AudioSpatialEnabledStateForDevice>): void;
+
+    /**
+     * Unsubscribes to the adaptive spatial rendering enable state change events by the specified device.
+     * @param { Callback<AudioSpatialEnabledStateForDevice> } [callback] - Callback used to get the adaptive spatial
+     *     rendering enable state by the specified device.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @systemapi
+     * @since 24 dynamic&static
+     */
+    offAdaptiveSpatialRenderingEnabledChangeForAnyDevice(callback?: Callback<AudioSpatialEnabledStateForDevice>): void;
+
+    /**
+     * Checks the current spatial audio source type.
+     * @returns { SpatialAudioSourceType } The spatial audio source type on current device.
+     * @throws { BusinessError } 202 - Not system App.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    getCurrentSpatialAudioSourceType(): SpatialAudioSourceType;
+
+    /**
+     * Subscribes to the spatial audio source type change events. When current spatial audio source type changes,
+     *     registered clients will receive the callback.
+     * @param { Callback<SpatialAudioSourceType> } callback - Callback used to get current spatial audio source type
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    onSpatialAudioSourceTypeChange(callback: Callback<SpatialAudioSourceType>): void;
+
+    /**
+     * Unsubscribes to the spatial audio source type change events.
+     * @param { Callback<SpatialAudioSourceType> } [callback] - Callback used to get current spatial audio source type mode change
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    offSpatialAudioSourceTypeChange(callback?: Callback<SpatialAudioSourceType>): void;
   }
 
   /**
@@ -8548,6 +8846,19 @@ declare namespace audio {
      * @since 23 static
      */
     isCollaborativePlaybackSupported(): boolean;
+
+    /**
+     * Checks whether the collaborative playback is supported for the specified device.
+     * 
+     * @param { AudioDeviceDescriptor } deviceDescriptor - Audio device descriptor to check.
+     * @returns { boolean } Whether the collaborative playback is supported for the specified device.
+     * @throws { BusinessError } 202 - Not system application.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    isCollaborativePlaybackSupportedForDevice(deviceDescriptor: AudioDeviceDescriptor): boolean;
 
     /**
      * Enables or disables collaborative playback for the specified device.
@@ -9368,6 +9679,59 @@ declare namespace audio {
      */
     previousVolume?: int;
   }
+
+  /**
+   * Volume information for active audio streams.
+   *
+   * @typedef ActiveStreamVolumeInfo
+   * @syscap SystemCapability.Multimedia.Audio.Volume
+   * @systemapi
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  interface ActiveStreamVolumeInfo {
+    /**
+     * Volume type of the current stream.
+     *
+     * @type { AudioVolumeType }
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    volumeType: AudioVolumeType;
+    /**
+     * Volume of the application.
+     *
+     * @type { int }
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    appVolume: int;
+    /**
+     * UID of the application.
+     *
+     * @type { int }
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    clientUid: int;
+  }
+
+  /**
+   * ActiveStreamVolumeInfo array.
+   *
+   * @typedef { Array<Readonly<ActiveStreamVolumeInfo>> }
+   * @syscap SystemCapability.Multimedia.Audio.Volume
+   * @systemapi
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  type ActiveStreamsVolumeInfoArray = Array<Readonly<ActiveStreamVolumeInfo>>;
 
   /**
    * Describes the callback invoked for audio interruption or focus gain events.When the audio of an application
@@ -11449,6 +11813,23 @@ declare namespace audio {
      * @since 23 dynamic&static
      */
     getLatency(type: AudioLatencyType): int;
+
+    /**
+     * Set a focus policy independent of the audio session.
+     * Each time you call this interface to set parameters,
+     * you need to call the interface {@link #AudioRenderer.start} again for the settings to take effect.
+     *
+     * @param { AudioSessionStrategy } strategy - Audio session strategy.
+     * @param { int } behavior - Used to adjust the focus behavior.
+     *     <br>Value range: behavior can be a single flag or a bitwise OR combination of multiple flags
+     *     in {@link #AudioSessionBehaviorFlags}.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800103 - Operation not permit at current state.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    setIndependentAudioSessionStrategy(strategy: AudioSessionStrategy, behavior: int): void;
   }
 
   /**
@@ -11727,6 +12108,16 @@ declare namespace audio {
    */
   interface AudioCapturerMicInConfig {
     /**
+     * Stream information that describes the processed audio stream.
+     *
+     * @type { AudioStreamInfo }
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    processedStreamInfo?: AudioStreamInfo;
+    /**
      * Stream information that describes Mic-In audio stream.
      *
      * @type { AudioStreamInfo }
@@ -11757,6 +12148,47 @@ declare namespace audio {
      * @since 23 dynamic&static
      */
     capturerInfo: AudioCapturerInfo;
+  }
+
+  /**
+   * Describes audio capturer data that contains processed audio data and
+   * microphone input (mic-in) audio data before any processing.
+   * 
+   * @syscap SystemCapability.Multimedia.Audio.Capturer
+   * @systemapi
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  interface AudioCapturerMicInData {
+    /**
+     * Processed audio data buffer.
+     * 
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    data: ArrayBuffer;
+    /**
+     * Microphone input audio data buffer.
+     * 
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    micInData: ArrayBuffer;
+    /**
+     * Echo reference audio data buffer.
+     * If capturer config does not set ecStreamInfo, this buffer will be null.
+     * See {@link #AudioCapturerMicInConfig} for details.
+     * 
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    ecData?: ArrayBuffer;
   }
 
   /**
@@ -12289,6 +12721,18 @@ declare namespace audio {
     setWillMuteWhenInterrupted(muteWhenInterrupted: boolean): Promise<void>;
 
     /**
+     * Set mute hint for this capturer, this method is used as a hint for power optimization
+     * it does not mute the recording stream, only affects internal processing strategy.
+     * @param { boolean } mute - Use true if application recording stream muted by application if self.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 6800103 - Operation not permitted at current state, stream is not running.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    setMuteHint(mute: boolean): Promise<void>;
+
+    /**
      * Subscribes to mark reached events. When the number of frames captured reaches the value of the frame parameter,
      * the callback is invoked.
      * @param { 'markReach' } type - Type of the event to listen for. Only the markReach event is supported.
@@ -12737,6 +13181,36 @@ declare namespace audio {
     offReadData(callback?: Callback<ArrayBuffer>): void;
 
     /**
+     * Subscribes to micIn audio data callback. This callback has higher priority than 'readData' callback.
+     * If this callback and 'readData' callback are both subscribed, only this callback will be triggered.
+     * See {@link #onReadData} for more details.
+     * The event is triggered when an audio buffer is available for reading more data.
+     * 
+     * @param { Callback<AudioCapturerMicInData> } callback - Callback for the buffers to read.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 6800103 - Operation not permitted at running state.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    onReadMicInData(callback: Callback<AudioCapturerMicInData>): void;
+
+    /**
+     * Unsubscribes from micIn audio data callback.
+     * 
+     * @param { Callback<AudioCapturerMicInData> } [callback] - Callback for the buffers to read.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800103 - Operation not permitted at running state.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    offReadMicInData(callback?: Callback<AudioCapturerMicInData>): void;
+
+    /**
      * Sets default input device of this Capturer to DEVICE_TYPE_ACCESSORY.
      * Other capturers' devices will not be affected by this method.
      * This method can only be used before the capture stream starts. Besides,
@@ -12751,6 +13225,23 @@ declare namespace audio {
      * @since 23 static
      */
     setInputDeviceToAccessory(): void;
+
+    /**
+     * Set focus policy independent of audio session.
+     * Each time you call this interface to set parameters,
+     * you need to call the interface {@link #AudioCapturer.start} again for the settings to take effect.
+     *
+     * @param { AudioSessionStrategy } strategy - Audio session strategy.
+     * @param { int } behavior - Used to adjust the focus behavior.
+     *     <br>Value range: behavior can be a single flag or a bitwise OR combination of multiple flags
+     *     in {@link #AudioSessionBehaviorFlags}.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800103 - Operation not permit at current state.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    setIndependentAudioSessionStrategy(strategy: AudioSessionStrategy, behavior: int): void;
   }
 
   /**

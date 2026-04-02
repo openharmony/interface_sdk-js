@@ -1061,6 +1061,24 @@ declare namespace media {
     fetchMetadata(): Promise<AVMetadata | undefined>;
 
     /**
+     * Obtains media metadata. This API uses a promise to return the result.
+     *
+     * @param { long } timeoutMs - the timeout period is exceeded, then an error will return. The max value is 20000ms.
+     *     The unit is millisecond(ms).
+     * @returns { Promise<AVMetadata | undefined> } Promise used to return the result,
+     *     which is an **AVMetadata** instance.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Returned by promise.
+     * @throws { BusinessError } 5400104 - Operation timeout.
+     * @throws { BusinessError } 5400106 - Unsupported format. Returned by promise.
+     * @throws { BusinessError } 5400108 - Parameter check failed. Returned by promise.
+     * @throws { BusinessError } 5411012 - Http cleartext traffic is not permitted.
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    fetchMetadataWithTimeout(timeoutMs: long): Promise<AVMetadata | undefined>;
+
+    /**
      * It will extract the audio resource to fetch an album cover.
      * @param { AsyncCallback<image.PixelMap> } callback - A callback instance used
      * to return when fetchAlbumCover completed.
@@ -1186,6 +1204,30 @@ declare namespace media {
     fetchFrameByTime(timeUs: long, options: AVImageQueryOptions, param: PixelMapParams): Promise<image.PixelMap | undefined>;
 
     /**
+     * It will decode the given video resource. Then fetch a picture
+     * at @timeUs according the given @options and @param .
+     * @param { long } timeUs - The time expected to fetch picture from the video resource.
+     *     The unit is microsecond(us).
+     * @param { AVImageQueryOptions } options - The time options about the relationship
+     *     between the given timeUs and a key frame, see @AVImageQueryOptions .
+     * @param { PixelMapParams } param - The output pixel map format params, see @PixelMapParams .
+     * @param { long } timeoutMs - the timeout period is exceeded, then an error will return. The max value is 20000ms.
+     *     The unit is millisecond(ms).
+     * @returns { Promise<image.PixelMap | undefined> } A Promise instance used to return the pixel map
+     *     when fetchFrameByTime completed.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Returned by promise.
+     * @throws { BusinessError } 5400104 - Operation timeout.
+     * @throws { BusinessError } 5400106 - Unsupported format. Returned by promise.
+     * @throws { BusinessError } 5400108 - Parameter check failed. Returned by promise.
+     * @throws { BusinessError } 5411012 - Http cleartext traffic is not permitted.
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    fetchFrameByTimeWithTimeout(timeUs: long, options: AVImageQueryOptions, param: PixelMapParams,
+        timeoutMs: long): Promise<image.PixelMap | undefined>;
+
+    /**
      * It will decode the given video resource, then fetch pictures at each time member of @timesUs array
      * according the given @options and @param. When one fetch is done, a callback is called with fetch result.
      * Please note that, the callback order is not same as the time order in @timesUs array.
@@ -1207,6 +1249,31 @@ declare namespace media {
      */
     fetchFramesByTimes(timesUs: long[], queryOption: AVImageQueryOptions, param: PixelMapParams,
         callback: OnFrameFetched): void;
+
+    /**
+     * It will decode the given video resource, then fetch pictures at each time member of @timesUs array
+     * according the given @options and @param. When one fetch is done, a callback is called with fetch result.
+     * Please note that, the callback order is not same as the time order in @timesUs array.
+     * @param { long[] } timesUs - The times array expected to fetch picture from the video resource.
+     *     The unit of time is microsecond(us). The max size of array is 4096.
+     * @param { AVImageQueryOptions } queryOption - The time options about the relationship
+     *     between the given timeUs and a key frame, see @AVImageQueryOptions.
+     * @param { PixelMapParams } param - The output pixel map format params, see @PixelMapParams.
+     * @param { long } timeoutMs - the timeout period is exceeded, then an error will return. The max value is 20000ms.
+     *     The unit is millisecond(ms).
+     * @param { OnFrameFetched } callback - the callback function when a fetch is done\failed\cancelled.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Returned by callback.
+     * @throws { BusinessError } 5400104 - Fetch timeout, Returned by callback.
+     * @throws { BusinessError } 5400106 - Unsupported format. Returned by callback.
+     * @throws { BusinessError } 5400105 - Service died.
+     * @throws { BusinessError } 5400108 - Parameter check failed. e.g. The size of timesUs is larger than 4096.
+     * @throws { BusinessError } 5411012 - Http cleartext not permitted.
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    fetchFramesByTimesWithTimeout(timesUs: long[], queryOption: AVImageQueryOptions, param: PixelMapParams,
+        timeoutMs: long, callback: OnFrameFetched): void;
 
     /**
      * Cancel all fetch tasks which are triggered by { fetchFramesByTimes }. The callbacks of { fetchFramesByTimes }
@@ -1657,6 +1724,16 @@ declare namespace media {
      * @since 23 static
      */
     gltf_offset?: string;
+
+    /**
+     * The identifier that represents the software or hardware and settings used for encoding.
+     * This parameter is not supported in AVRecorder settings.
+     * 
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    encoder?: string;
   }
 
   /**
@@ -2502,6 +2579,33 @@ declare namespace media {
   }
 
   /**
+   * Describe video dimensions.
+   * 
+   * @typedef VideoSize
+   * @syscap SystemCapability.Multimedia.Media.Core
+   * @since 24 dynamic&static
+   */
+  interface VideoSize {
+    /**
+     * width of the video resolution.
+     * The value must be a positive integer (greater than 0).
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 24 dynamic&static
+     */
+    width?: int;
+
+    /**
+     * height of the video resolution.
+     * The value must be a positive integer (greater than 0).
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 24 dynamic&static
+     */
+    height?: int;
+  }
+
+  /**
    * Describes the information of an Metrics Event.
    *
    * @typedef AVMetricsEvent
@@ -2546,6 +2650,138 @@ declare namespace media {
     details: Record<string, Object>;
   }
 
+  /**
+   * Describes the filter conditions for track selection.
+   * 
+   * @typedef TrackSelectionFilter
+   * @syscap SystemCapability.Multimedia.Media.Core
+   * @since 24 dynamic&static
+   */
+  interface TrackSelectionFilter {
+    /**
+     * Maximum allowed video bitrate in bits per second.
+     * The value must be a positive integer (greater than 0).
+     * 
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 24 dynamic&static
+     */
+    maxVideoBitrate?: int;
+
+    /**
+     * Minimum allowed video bitrate in bits per second.
+     * The value must be a positive integer (greater than 0).
+     * 
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 24 dynamic&static
+     */
+    minVideoBitrate?: int;
+
+    /**
+     * Maximum allowed video frame rate in hertz.
+     * The value must be a positive integer (greater than 0).
+     * 
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 24 dynamic&static
+     */
+    maxVideoFrameRate?: int;
+
+    /**
+     * Minimum allowed video frame rate in hertz.
+     * The value must be a positive integer (greater than 0).
+     * 
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 24 dynamic&static
+     */
+    minVideoFrameRate?: int;
+
+    /**
+     * Maximum allowed video resolution.
+     * 
+     * @type { ?VideoSize }
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 24 dynamic&static
+     */
+    maxVideoResolution?: VideoSize;
+
+    /**
+     * Minimum allowed video resolution.
+     * 
+     * @type { ?VideoSize }
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 24 dynamic&static
+     */
+    minVideoResolution?: VideoSize;
+
+    /**
+     * The preferred sample MIME types for video tracks in order of preference, or an empty list for no preference.
+     * 
+     * @type { ?Array<string> }
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 24 dynamic&static
+     */
+    preferredVideoMimeTypes?: Array<string>;
+
+    /**
+     * Maximum allowed audio bitrate in bits per second.
+     * The value must be a positive integer (greater than 0).
+     * 
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 24 dynamic&static
+     */
+    maxAudioBitrate?: int;
+
+    /**
+     * Minimum allowed audio bitrate in bits per second.
+     * The value must be a positive integer (greater than 0).
+     * 
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 24 dynamic&static
+     */
+    minAudioBitrate?: int;
+
+    /**
+     * Maximum allowed audio channel count.
+     * The value must be a positive integer (greater than 0).
+     * 
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 24 dynamic&static
+     */
+    maxAudioChannels?: int;
+
+    /**
+     * The preferred sample MIME types for audio tracks in order of preference, or an empty list for no preference.
+     * 
+     * @type { ?Array<string> }
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 24 dynamic&static
+     */
+    preferredAudioMimeTypes?: Array<string>;
+
+    /**
+     * The preferred languages for audio tracks as IETF BCP 47-conforming tags in order of preference.
+     * 
+     * @type { ?Array<string> }
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 24 dynamic&static
+     */
+    preferredAudioLanguages?: Array<string>;
+
+    /**
+     * The preferred languages for subtitle tracks as IETF BCP 47-conforming tags in order of preference.
+     * 
+     * @type { ?Array<string> }
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 24 dynamic&static
+     */
+    preferredSubtitleLanguages?: Array<string>;
+  }
   /**
    * Describes AVPlayer states.
    * @typedef {'idle' | 'initialized' | 'prepared' | 'playing' | 'paused' | 'completed' | 'stopped' | 'released' | 'error'}
@@ -3110,6 +3346,7 @@ declare namespace media {
     /**
      * Jumps to the specified playback position. This API can be called only when the AVPlayer is in the prepared,
      * playing, paused, or completed state.
+     * 
      * @param { number } timeMs - Playback position to jump, should be in [0, duration].
      * @param { SeekMode } mode - See @SeekMode .
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -3125,19 +3362,34 @@ declare namespace media {
      * @since 11
      */
     /**
-     * Jumps to the specified playback position. This API can be called only when the AVPlayer is in the prepared,
-     * playing, paused, or completed state.
+     * Jumps to the specified playback position.
+     * This API can be called only when the AVPlayer is in the prepared, playing, paused, or completed state.
      * You can check whether the seek operation takes effect by subscribing to the [seekDone]{@link #seekDone} event.
      * This API is not supported in live mode.
-     * @param { int } timeMs - Playback position to jump, should be in [0, duration]. In SEEK_CONTINUOU mode,
-     * the value -1 can be used to indicate the end of SEEK_CONTINUOUS mode.
-     * @param { SeekMode } mode - See @SeekMode . The default value is **SEEK_PREV_SYNC**. 
-     * Set this parameter only for video playback.
+     * 
+     * @param { int } timeMs - Playback position to jump, should be in [0, duration].
+     *     In SEEK_CONTINUOUS mode, the value -1 can be used to indicate the end of SEEK_CONTINUOUS mode.
+     * @param { SeekMode } mode - See @SeekMode . The default value is **SEEK_PREV_SYNC**.
+     *     Set this parameter only for video playback.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
+     */
+    /**
+     * Jumps to the specified playback position.
+     * This API can be called only when the AVPlayer is in the prepared,playing, paused, or completed state.
+     * You can check whether the seek operation takes effect by subscribing to the [seekDone]{@link #seekDone} event.
+     * 
+     * @param { int } timeMs - Playback position to jump, should be in [0, duration].
+     *     In SEEK_CONTINUOUS mode, the value -1 can be used to indicate the end of SEEK_CONTINUOUS mode.
+     * @param { SeekMode } mode - See @SeekMode . The default value is **SEEK_PREV_SYNC**. 
+     *     Set this parameter only for video playback.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @crossplatform
+     * @atomicservice
+     * @since 24 dynamic&static
      */
     seek(timeMs: int, mode?: SeekMode): void;
 
@@ -3235,9 +3487,10 @@ declare namespace media {
     /**
      * Selects a track when the AVPlayer is used to play a resource with multiple audio and video tracks.
      * This API uses a promise to return the result.
+     * 
      * @param { int } index - Track index returned by getTrackDescription#MD_KEY_TRACK_INDEX
      * @param { SwitchMode } mode - set switchmode for track select behavior. The default mode is SMOOTH.
-     * This parameter takes effect only for the switch of a video track for DASH streams.
+     *     This parameter takes effect only for the switch of a video track for DASH streams.
      * @returns { Promise<void> } A Promise instance used to return when select track completed.
      * @throws { BusinessError } 401 - The parameter check failed. Return by promise.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
@@ -3245,6 +3498,19 @@ declare namespace media {
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
+     */
+    /**
+     * Selects a track when the AVPlayer is used to play a resource with multiple audio and video tracks.
+     * This API uses a promise to return the result.
+     * 
+     * @param { int } index - Track index returned by getTrackDescription#MD_KEY_TRACK_INDEX
+     * @param { SwitchMode } mode - set switchmode for track select behavior. The default mode is SMOOTH.
+     * @returns { Promise<void> } A Promise instance used to return when select track completed.
+     * @throws { BusinessError } 401 - The parameter check failed. Return by promise.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @atomicservice
+     * @since 24 dynamic&static
      */
     selectTrack(index: int, mode?: SwitchMode): Promise<void>;
 
@@ -3278,6 +3544,28 @@ declare namespace media {
      * @since 23 static
      */
     setMediaSource(src: MediaSource, strategy?: PlaybackStrategy): Promise<void>;
+
+    /**
+     * Get the track selection filter currently configured for the player.
+     * @returns { Promise<TrackSelectionFilter> } Promise used to return the result.
+     * @throws { BusinessError } 5400102 - Operation not allowed.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 24 dynamic&static
+     */
+    getTrackSelectionFilter(): Promise<TrackSelectionFilter>;
+
+    /**
+     * Set the media track filter to the player,
+     * and the player uses the filter to select available tracks for rendering.
+     * 
+     * @param { TrackSelectionFilter } filter - Source of the streaming media to pre-download.
+     *     Track Selection Condition Filter
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 5400102 - Operation not allowed.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 24 dynamic&static
+     */
+    setTrackSelectionFilter(filter : TrackSelectionFilter): Promise<void>;
 
     /**
      * Add subtitle resource represented by FD to the player. Currently, the external subtitle must be set after
@@ -3323,6 +3611,41 @@ declare namespace media {
      * @since 23 static
      */
     getPlaybackInfo(): Promise<PlaybackInfo>;
+
+    /**
+     * To obtain the loaded time ranges;
+     * For local media sources, it is the entire media duration;
+     * For network loading, it is the progress cached locally.
+     * 
+     * @returns { Promise<Array<Range>> } return the currently loaded time ranges of the player,
+     *     expressed as [start, end] positions on the playback timeline in milliseconds.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 24 dynamic&static
+     */
+    getLoadedTimeRanges(): Promise<Array<Range>>;
+
+    /**
+     * To obtain the seekable time ranges;
+     * For local media resources and media sources that support segmented requests, it is the entire media duration.
+     * For media sources that only support chunked transmission, there is no seekable range.
+     * 
+     * @returns { Promise<Array<Range>> } return the currently seekable time ranges of the player,
+     *     expressed as [start, end] positions on the playback timeline in milliseconds.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    getSeekableTimeRanges(): Promise<Array<Range>>;
+
+    /**
+     * Seek to the default access point of the playback source.
+     * for live streaming it's the currently recommended new access point,
+     * and for video-on-demand it usually corresponds to the beginning of the video, similar to seek(0).
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 24 dynamic&static
+     */
+    seekToDefaultPosition(): void;
 
     /**
      * Get statistic metrics info of current player.

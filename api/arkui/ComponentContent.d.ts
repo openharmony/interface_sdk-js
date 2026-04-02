@@ -37,7 +37,7 @@ export class ComponentContent<T extends Object> extends Content {
    * Constructor.
    *
    * @param { UIContext } uiContext - uiContext used to create the ComponentContent
-   * @param { WrappedBuilder<[]> } builder - Defined the builder will be called to build ComponentContent.
+   * @param { WrappedBuilder<[]> } builder - Defines the builder that will be called to build ComponentContent.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -49,7 +49,7 @@ export class ComponentContent<T extends Object> extends Content {
    * Constructor.
    *
    * @param { UIContext } uiContext - uiContext used to create the ComponentContent
-   * @param { WrappedBuilder<[T]> } builder - Defined the builder will be called to build ComponentContent.
+   * @param { WrappedBuilder<[T]> } builder - Defines the builder that will be called to build ComponentContent.
    * @param { T } args - Parameters used to update the ComponentContent.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -62,9 +62,9 @@ export class ComponentContent<T extends Object> extends Content {
    * Constructor.
    *
    * @param { UIContext } uiContext - uiContext used to create the ComponentContent
-   * @param { WrappedBuilder<[T]> } builder - Defined the builder will be called to build ComponentContent.
+   * @param { WrappedBuilder<[T]> } builder - Defines the builder that will be called to build ComponentContent.
    * @param { T } args - Parameters used to update the ComponentContent.
-   * @param { BuildOptions } options - Defined the options will be used when build.
+   * @param { BuildOptions } options - Defines the options that will be used when building.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -153,6 +153,19 @@ export class ComponentContent<T extends Object> extends Content {
    * @since 20 dynamic
    */
   isDisposed(): boolean;
+
+  /**
+   * Returns a flag indicating whether the current ComponentContent was obtained through dynamic-static conversion,
+   * includes conversions in both directions: dynamic-to-static and static-to-dynamic.
+   *
+   * @returns { boolean } - Returns true if the ComponentContent was converted between dynamic and static states,
+   *     otherwise, returns false.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 24 dynamic
+   */
+  isTransferred(): boolean;
 }
 
 /**
@@ -169,8 +182,8 @@ export class ReactiveComponentContent<T extends Object[]> extends Content {
     * Constructor.
     *
     * @param { UIContext } uiContext - uiContext used to create the ReactiveComponentContent
-    * @param { WrappedBuilder<T> } builder - Defined the builder will be called to build ReactiveComponentContent.
-    * @param { BuildOptions } config - Defined the options will be used when build.
+    * @param { WrappedBuilder<T> } builder - Defines the builder that will be called to build ReactiveComponentContent.
+    * @param { BuildOptions } config - Defines the options that will be used when building.
     * @param { T } args - Parameters used to update the ComponentContentEx.
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
@@ -226,7 +239,7 @@ export class ReactiveComponentContent<T extends Object[]> extends Content {
 
    /**
     * Flushes the current state changes to update the ReactiveComponentContent immediately.
-    * This forces a synchronous update of the compponent with the latest state values.
+    * This forces a synchronous update of the component with the latest state values.
     *
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform

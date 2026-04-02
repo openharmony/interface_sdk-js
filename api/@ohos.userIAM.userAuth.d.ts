@@ -415,7 +415,7 @@ declare namespace userAuth {
     remainTimes?: number;
 
     /**
-     * The freezing time if the authentication executor is locked.
+     * The freezing time if the authentication executor is locked. The unit is ms.
      *
      * @type { ?number }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
@@ -973,7 +973,7 @@ declare namespace userAuth {
     remainAttempts?: number;
 
     /**
-     * The lockout duration if the authentication executor is locked.
+     * The lockout duration if the authentication executor is locked. The unit is ms.
      *
      * @type { ?number }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
@@ -1226,7 +1226,7 @@ declare namespace userAuth {
     remainingAuthAttempts: int;
 
     /**
-     * The remaining lockout duration if the authentication has been locked.
+     * The remaining lockout duration if the authentication has been locked. The unit is ms.
      * It would be PERMANENT_LOCKOUT_DURATION if permanently locked and requires PIN authentication to unlock.
      *
      * @type { int }
@@ -1243,7 +1243,7 @@ declare namespace userAuth {
    *
    * @permission ohos.permission.ACCESS_BIOMETRIC
    * @param { UserAuthType } authType - Authentication type.
-   * @returns { Promise<AuthLockState } AuthLockState - Returns the lock state of the specified authType,
+   * @returns { Promise<AuthLockState> } AuthLockState - Returns the lock state of the specified authType,
    *     which contains lock state,
    *     remaining attempts if the authentication has not been locked,
    *     or remaining lockout duration if the authentication has been locked.
@@ -1397,7 +1397,7 @@ declare namespace userAuth {
     reuseMode: ReuseMode;
 
     /**
-     * Period for which the authentication result can be reused. The value must be greater than 0 and less
+     * Period for which the authentication result can be reused. The unit is ms. The value must be greater than 0 and less
      * than MAX_ALLOWABLE_REUSE_DURATION.
      *
      * @type { int }
@@ -2364,7 +2364,7 @@ declare namespace userAuth {
     BUSY = 12500007,
 
     /**
-     * Indicates that the paramter is out of range.
+     * Indicates that the parameter is out of range.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice

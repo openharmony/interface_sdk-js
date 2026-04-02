@@ -20,20 +20,20 @@
 
 import { AsyncCallback } from './@ohos.base';
 
+/*** if arkts dynamic */
 import * as _ErrorObserver from './application/ErrorObserver';
 import { LoopObserver as _LoopObserver } from './application/LoopObserver';
+/*** endif */
 
 /**
  * This module provides the function of error manager.
  *
- * @namespace errorManager
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @since 9
  */
 /**
  * This module provides the function of error manager.
  *
- * @namespace errorManager
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @atomicservice
  * @since 11
@@ -41,11 +41,11 @@ import { LoopObserver as _LoopObserver } from './application/LoopObserver';
 /**
  * This module provides the function of error manager.
  *
- * @namespace errorManager
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @crossplatform
  * @atomicservice
  * @since 19 dynamic
+ * @since 24 static
  */
 declare namespace errorManager {
   /**
@@ -261,6 +261,18 @@ declare namespace errorManager {
   function on(type: 'unhandledRejection', observer: UnhandledRejectionObserver): void;
 
   /**
+   * Register unhandled rejection observer.
+   *
+   * @param { UnhandledRejectionObserver } observer - The unhandled rejection observer.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 16200001 - If the caller is invalid.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 24 static
+   */
+  function onUnhandledRejection(observer: UnhandledRejectionObserver): void;
+
+  /**
    * Unregister unhandled rejection observer.
    *
    * @param { 'unhandledRejection' } type - error.
@@ -288,6 +300,19 @@ declare namespace errorManager {
    * @since 19 dynamic
    */
   function off(type: 'unhandledRejection', observer?: UnhandledRejectionObserver): void;
+
+  /**
+   * Unregister unhandled rejection observer.
+   *
+   * @param { UnhandledRejectionObserver } [observer] - the registered observer
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 16200001 - If the caller is invalid.
+   * @throws { BusinessError } 16300004 - If the observer does not exist
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 24 static
+   */
+  function offUnhandledRejection(observer?: UnhandledRejectionObserver): void;
 
   /**
    * The observer will be called by system when an error occurs.
@@ -355,6 +380,17 @@ declare namespace errorManager {
   export type UnhandledRejectionObserver = (reason: Error | any, promise: Promise<any>) => void;
 
   /**
+   * The observer will be called by system when an unhandled rejection occurs.
+   *
+   * @param { Error | Any } reason - the reason of the rejection, typically of Error type
+   * @param { Promise<Any> } promise - the promise that is rejected
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 24 static
+   */
+  export type UnhandledRejectionObserver = (reason: Error | Any, promise: Promise<Any>) => void;
+
+  /**
    * Register a rejection observer for all VM instances include worker and taskpool.
    * @param { 'globalUnhandledRejectionDetected'} type - globalUnhandledRejectionDetected.
    * @param { GlobalObserver } observer - the global error observer.
@@ -410,9 +446,23 @@ declare namespace errorManager {
   function on(type: 'freeze', observer: FreezeObserver): void;
 
   /**
+   * Register an observer for freeze event.
+   * This function can only be called from main thread.
+   * Please note that each process only supports registering one observer.
+   * If you register multiple times, the later one will overwrite the previous one.
+   *
+   * @param { FreezeObserver } observer - The freeze event observer.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 24 static
+   */
+  function onFreeze(observer: FreezeObserver): void;
+
+  /**
    * Register an error observer for all VM instances include worker and taskpool.
    * @param { 'globalErrorOccurred'} type - globalErrorOccurred
-   * @param { GlobalObserver } observer - the global error observer.
+   * @param { GlobalObserver } observer - The global error observer.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16200001 - If the caller is invalid.
@@ -469,6 +519,78 @@ declare namespace errorManager {
   }
 
   /**
+    * Define the resource types of the application.
+    *
+    * @enum { int }
+    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+    * @stagemodelonly
+    * @atomicservice
+    * @since 24 dynamic&static
+    */
+  export enum ResourceType {  
+ 	 
+    /**
+     * Indicates that it is an pss resource.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    PSS_MEMORY = 1,
+
+    /**
+     * Indicates that it is a ion resource.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    ION_MEMORY = 2,
+
+    /**
+     * Indicates that it is a ashmem resource.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    ASHMEM_MEMORY = 3,
+
+    /**
+     * Indicates that it is an GPU resource.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    GPU_MEMORY = 4,
+
+    /**
+     * Indicates that it is an FD resource.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    FD = 5,
+
+    /**
+     * Indicates that it is a thread resource.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    THREAD = 6
+  }
+
+  /**
    * Defines GlobalError.
    *
    * @extends Error
@@ -514,6 +636,19 @@ declare namespace errorManager {
   function off(type: 'freeze', observer?: FreezeObserver): void;
 
   /**
+   * Unregister the observer for freeze event.
+   * This function can only be called from main thread.
+   *
+   * @param { FreezeObserver } [observer] - The freeze event observer.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 16300004 - If the observer does not exist
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 24 static
+   */
+  function offFreeze(observer?: FreezeObserver): void;
+
+  /**
    * Unregister the error observer for all VM instance include worker and taskpool.
    * @param { 'globalErrorOccurred'} type - globalErrorOccurred.
    * @param { GlobalObserver } observer - the global error observer.
@@ -530,25 +665,42 @@ declare namespace errorManager {
   /**
    * Set the default error handler, This function will be executed right after the callback function registered 
    * through errorManager.on is executed. You can use it to implement chain calls instead of errorManager.on.
-   * This API must be called in the main thread.
+   * This API must be called on the main thread.
    *
-   * @param { ErrorHandler } [defaultHandler] - the default error handler.
-   * @returns { ErrorHandler } return original default error handler.
-   * @throws { BusinessError } 16000205 - The API is not called in the main thread.
+   * @param { ErrorHandler } [defaultHandler] - The default error handler.
+   * @returns { ErrorHandler } Returns the original default error handler.
+   * @throws { BusinessError } 16000205 - The API is not called on the main thread.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 21 dynamic
+   * @since 24 static
    */
   function setDefaultErrorHandler(defaultHandler?: ErrorHandler) : ErrorHandler;
 
   /**
-   * ErrorHandler will be called when ArkTS runtime throws an exception which doesn't caught by user.
+   * Set the default resource usage observer. You can use it to implement chain calls.
+   * If an empty observer is set for a certain module, it will cause the call chain to be interrupted.
+   * This API must be called on the main thread.
+   *
+   * @param { ResourceUsageObserver } [defaultObserver] - The default resource usage observer.
+   * @returns { ResourceUsageObserver } Returns the original default resource usage observer.
+   * @throws { BusinessError } 16000205 - The API is not called on the main thread.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 24 dynamic&static
+   */
+  function setDefaultResourceUsageObserver(defaultObserver?: ResourceUsageObserver): ResourceUsageObserver;
+
+  /**
+   * The ErrorHandler will be called when the ArkTS runtime throws an exception that is not caught by the user.
    *
    * @typedef { function }
-   * @param { Error } errObject - the error object about the exception.
+   * @param { Error } errObject - The error object that describes the exception.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 21 dynamic
+   * @since 24 static
    */
   export type ErrorHandler = (errObject: Error) => void;
 
@@ -559,8 +711,22 @@ declare namespace errorManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 18 dynamic
+   * @since 24 static
    */
   export type FreezeObserver = () => void;
+
+  /**
+   * The observer will be called by the system when resource usage exceed threshold.
+   *
+   * @param { ResourceType } resourceType - The type of resource.
+   * @param { long } resourceSize - The amount of resources occupied.
+   * @param { Record<string, long> } [detailInfo] - Key-value pair of the resource type and its size.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 24 dynamic&static
+   */
+  export type ResourceUsageObserver = (resourceType: ResourceType, resourceSize: long, detailInfo?: Record<string, long>) => void;
 }
 
 export default errorManager;

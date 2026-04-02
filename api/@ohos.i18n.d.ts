@@ -381,6 +381,21 @@ declare namespace i18n {
      * @since 9 dynamic
      * @since 23 static
      */
+    /**
+     * Sets the system language.
+     *
+     * @permission ohos.permission.UPDATE_CONFIGURATION
+     * @param { string } language - Valid language ID.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+     *                                 required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
+     * @syscap SystemCapability.Global.I18n
+     * @systemapi Hide this for inner system use.
+     * @since 26.0.0 dynamic&static
+     */
     static setSystemLanguage(language: string): void;
 
     /**
@@ -424,6 +439,21 @@ declare namespace i18n {
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
      * @since 23 static
+     */
+    /**
+     * Sets the system region.
+     *
+     * @permission ohos.permission.UPDATE_CONFIGURATION
+     * @param { string } region - Valid region ID.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+     *                                 required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
+     * @syscap SystemCapability.Global.I18n
+     * @systemapi Hide this for inner system use.
+     * @since 26.0.0 dynamic&static
      */
     static setSystemRegion(region: string): void;
 
@@ -539,6 +569,21 @@ declare namespace i18n {
      * @since 9 dynamic
      * @since 23 static
      */
+    /**
+     * Sets whether to use the 24-hour clock.
+     *
+     * @permission ohos.permission.UPDATE_CONFIGURATION
+     * @param { boolean } option - Whether to use the 24-hour clock. The value "true" means to use the 24-hour clock,
+     *                             the the value "false" means the opposite.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+     *                                 required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @syscap SystemCapability.Global.I18n
+     * @systemapi Hide this for inner system use.
+     * @since 26.0.0 dynamic&static
+     */
     static set24HourClock(option: boolean): void;
 
     /**
@@ -559,6 +604,24 @@ declare namespace i18n {
      * @since 9 dynamic
      * @since 23 static
      */
+    /**
+     * Adds a preferred language to the specified position on the preferred language list.
+     *
+     * @permission ohos.permission.UPDATE_CONFIGURATION
+     * @param { string } language - Valid ID of the language to be added as a preferred language.
+     * @param { int } [index] - Position to which the preferred language is added. The default value is the length
+     *                             of the preferred language list.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+     *                                 required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
+     * @static
+     * @syscap SystemCapability.Global.I18n
+     * @systemapi Hide this for inner system use.
+     * @since 26.0.0 dynamic&static
+     */
     static addPreferredLanguage(language: string, index?: int): void;
 
     /**
@@ -576,6 +639,21 @@ declare namespace i18n {
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
      * @since 23 static
+     */
+    /**
+     * Removes a preferred language from the specified position on the preferred language list.
+     *
+     * @permission ohos.permission.UPDATE_CONFIGURATION
+     * @param { int } index - Position of the preferred language to delete.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+     *                                 required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @static
+     * @syscap SystemCapability.Global.I18n
+     * @systemapi Hide this for inner system use.
+     * @since 26.0.0 dynamic&static
      */
     static removePreferredLanguage(index: int): void;
 
@@ -714,6 +792,21 @@ declare namespace i18n {
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
      * @since 23 static
+     */
+    /**
+     * Specifies whether to enable use of local digits.
+     *
+     * @permission ohos.permission.UPDATE_CONFIGURATION
+     * @param { boolean } flag - Whether to turn on the local digit switch. The value "true" means to turn on the local
+     *                           digit switch, and the value "false" indicates the opposite.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+     *                                 required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @syscap SystemCapability.Global.I18n
+     * @systemapi Hide this for inner system use.
+     * @since 26.0.0 dynamic&static
      */
     static setUsingLocalDigit(flag: boolean): void;
 
@@ -1264,7 +1357,7 @@ declare namespace i18n {
    */
   export enum TemperatureType {
     /**
-     * Celesius.
+     * Celsius.
      *
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
@@ -1272,7 +1365,7 @@ declare namespace i18n {
      * @since 23 static
      */
     /**
-     * Celesius.
+     * Celsius.
      *
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
@@ -1640,6 +1733,24 @@ declare namespace i18n {
      * @useinstead getUnicodeWrappedFilePath
      */
     static getUnicodeWrappedFilePath(path: string, delimiter?: string, locale?: intl.Locale): string;
+
+    /**
+     * Sets the text direction for a specific piece of text independently,
+     * separating it from the text direction of the surrounding context.
+     *
+     * @param { string } text - Input characters need to set direction.
+     *     <br>Pending Text
+     * @param { 'RTL' | 'LTR' } direction - The value can be  or "LTR".
+     *     "RTL" indicates setting the input text direction from right to left.
+     *     "LTR" indicates setting the input text direction from left to right.
+     *     <br>Text main directionality
+     * @returns { string } Processed Text.
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    static setUnicodeWrappedBidiDirection(text: string, direction: 'RTL' | 'LTR'): string;
   }
 
   /**
@@ -3377,6 +3488,56 @@ declare namespace i18n {
      * @since 23 static
      */
     static getType(ch: string): string;
+
+    /**
+     * Detects the encoding format of the input byte array.
+     * It is recommended to check the encoding format before performing data conversion operations.
+     *
+     * @param { Uint8Array } bytes - Input byte stream. To detect the encoding of a text string,
+     *     convert the text to a byte stream first while preserving its original format.
+     *     <br>Byte stream to be identified and encoded
+     * @returns { EncodingInfo } An object containing the detected encoding name and detection confidence level.
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    static detectEncoding(bytes: Uint8Array): EncodingInfo;
+  }
+
+  /**
+   * Defines the detect encoding result information.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  export interface EncodingInfo {  
+    /**
+     * Name of the detect encoding result, the value can be "UTF-8", "UTF-16BE", "UTF-16LE", "TF-32BE",
+     * "UTF-32LE", "Shift_JIS", "ISO-2022-JP", "ISO-2022-CN", "ISO-2022-KR", "GB18030", "Big5", "EUC-JP",
+     * "EUC-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8",
+     * "ISO-8859-9", "windows-1250", "windows-1251", "windows-1252", "windows-1253", "windows-1254",
+     * "windows-1255", "windows-1256", "KOI8-R", "IBM420", "IBM424".
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    encodingName: string;
+
+    /**
+     * An integer between 0 to 100, determine the accuracy of the result.
+     * Higher value indicates a more reliable detection result.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    confidence: int;
   }
 
   /**
@@ -3768,6 +3929,31 @@ declare namespace i18n {
      * @since 24 dynamic&static
      */
     public getZoneRules(): ZoneRules;
+
+    /**
+     * Sets the default time zone for the current app, the value will be used on the application's runtime lifecycle.
+     * When the date time formatting function is used, the default time zone ID of the app is used preferentially.
+     *
+     * @param { string } zoneID - Time zone ID that set default for app. for example, "Asia/Shanghai".
+     *     <br> Time zone ID supported by the system
+     * @throws { BusinessError } 8900001 - Invalid parameter. Possible causes: Parameter verification failed.
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    static setAppDefaultTimeZoneById(zoneID: string): void;
+
+    /**
+     * Obtains the TimeZone object of defautl time zone used by application.
+     *
+     * @returns { TimeZone } TimeZone object, first set by application, then system time zone, last GMT time zone.
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    static getAppDefaultTimeZone(): TimeZone;
   }
 
   /**

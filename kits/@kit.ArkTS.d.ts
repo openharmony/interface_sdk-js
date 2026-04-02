@@ -57,14 +57,14 @@ import worker, {
   WorkerEventListener, WorkerEventTarget, WorkerOptions, ThreadWorkerPriority
 } from '@ohos.worker';
 import JSON from '@ohos.util.json';
-import lang from '@arkts.lang';
+import lang, { Retention, RetentionPolicy } from '@arkts.lang';
 import ArkTSUtils from '@arkts.utils';
 export {
   ArrayList, convertxml, DedicatedWorkerGlobalScope, Deque, ErrorEvent, Event, EventListener,
   EventTarget, HashMap, HashSet, LightWeightMap, LightWeightSet, LinkedList, List, MessageEvent,
   MessageEvents, PlainArray, PostMessageOptions, Queue, Stack, ThreadWorkerGlobalScope, TreeMap,
   TreeSet, Vector, WorkerEventListener, WorkerEventTarget, WorkerOptions, ThreadWorkerPriority, buffer, process, taskpool,
-  uri, url, util, worker, xml, JSON, lang, ArkTSUtils, collections, stream, Decimal, fastbuffer,
+  uri, url, util, worker, xml, JSON, lang, Retention, RetentionPolicy, ArkTSUtils, collections, stream, Decimal, fastbuffer,
   ArrayListComparatorFn, ListComparatorFn
 };
 

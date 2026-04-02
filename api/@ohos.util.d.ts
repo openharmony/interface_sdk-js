@@ -18,6 +18,8 @@
  * @kit ArkTS
  */
 
+import type { Callback } from './@ohos.base';
+
 /**
  * TextDecoder support full encoding in ICU data utf-8 utf-16 iso8859 must support in all device, TextEncoder takes a
  * stream of code points as input and emits a stream of UTF-8 bytes, and system help function.
@@ -5020,6 +5022,93 @@ declare namespace util {
      * @since 24 dynamiconly
      */
     static getAllVMHeapMemoryInfo(): Promise<HeapMemoryInfo[]>;
+
+    /**
+     * Register a callback that is triggered if the heap memory exceeds the critical warning threshold after a GC.
+     * It must be called on the main thread and only one callback can be registered.
+     * 
+     * NOTE:
+     * There is no guarantee that the callback will be triggered before OOM.
+     *
+     * @param { Callback<string> } callback - This callback is triggered if the memory reaches the threshold after a GC.
+     *     The string parameter indicates the type of memory pressure event:
+     *     "LocalHeapMemPressure", "SharedHeapMemPressure", or "ProcessHeapMemPressure".
+     * @param { HeapMemoryThreshold } heapMemoryThreshold - Indicates
+     *     the percentage threshold of the heap memory to trigger the callback after a GC. The value range is [70, 95].
+     * @returns { boolean } Returns {@code true} if the registration succeeds;
+     *     returns {@code false} if not called on the main thread or if the callback is already registered.
+     * @static
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 24 dynamiconly
+     */
+    static onVMHeapMemoryPressure(callback: Callback<string>, heapMemoryThreshold: HeapMemoryThreshold): boolean;
+
+    /**
+     * Unregister the callback that is triggered when the heap memory exceeds the critical warning threshold after a GC.
+     *
+     * @static
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 24 dynamiconly
+     */
+    static offVMHeapMemoryPressure(): void;
+
+    /**
+    * Enable the local handle detection to avoid memory leakage in the event looper of Libuv or EventHandler.
+    * 
+    * @syscap SystemCapability.Utils.Lang
+    * @stagemodelonly
+    * @crossplatform
+    * @since 24 dynamiconly
+    */
+    static enableLocalHandleDetection(): void;
+  }
+
+  /**
+   * Describes the heap memory threshold at which the registered callback is triggered after a GC.
+   *
+   * @interface HeapMemoryThreshold
+   * @syscap SystemCapability.Utils.Lang
+   * @stagemodelonly
+   * @since 24 dynamiconly
+   */
+  interface HeapMemoryThreshold {
+    /**
+     * This number is on a scale of 70 to 95, representing the percentage threshold of the local heap memory
+     * at which the callback is triggered after a GC. Values outside this range are automatically clamped to the valid range.
+     * If not set, the callback will not be triggered by local heap memory pressure.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 24 dynamiconly
+     */
+    localHeapThreshold?: number;
+
+    /**
+     * This number is on a scale of 70 to 95, representing the percentage threshold of the shared heap memory
+     * at which the callback is triggered after a GC. Values outside this range are automatically clamped to the valid range.
+     * If not set, the callback will not be triggered by shared heap memory pressure.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 24 dynamiconly
+     */
+    sharedHeapThreshold?: number;
+
+    /**
+     * This number is on a scale of 70 to 95, representing the percentage threshold of the process's total heap memory
+     * at which the callback is triggered after a GC. Values outside this range are automatically clamped to the valid range.
+     * If not set, the callback will not be triggered by process heap memory pressure.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 24 dynamiconly
+     */
+    processHeapThreshold?: number;
   }
 
   /**

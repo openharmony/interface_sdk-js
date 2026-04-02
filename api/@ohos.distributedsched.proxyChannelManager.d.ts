@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2025-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -38,6 +38,7 @@ declare namespace proxyChannelManager {
     * @param { ChannelInfo } channelInfo -  Parameters for creating proxy channel
     * @returns { Promise<int> } The Promise returned by this function.
     * @throws { BusinessError } 201 - Permission denied.
+    * @throws { BusinessError } 801 - Capability not supported.
     * @throws { BusinessError } 32390001 - BR is disabled.
     * @throws { BusinessError } 32390002 - Device not paired.
     * @throws { BusinessError } 32390006 - Parameter error.
@@ -57,6 +58,7 @@ declare namespace proxyChannelManager {
     * @permission ohos.permission.ACCESS_BLUETOOTH
     * @param { int } channelId - Indicates the unique channelId.
     * @throws { BusinessError } 201 - Permission denied.
+    * @throws { BusinessError } 801 - Capability not supported.
     * @throws { BusinessError } 32390004 - ChannelId is invalid or unavailable.
     * @throws { BusinessError } 32390006 - Parameter error.
     * @throws { BusinessError } 32390100 - Internal error.
@@ -72,10 +74,11 @@ declare namespace proxyChannelManager {
     * Send data to the peer device through proxy channel identification.
     *
     * @permission ohos.permission.ACCESS_BLUETOOTH
-    * @param { int } channelId - Indicates the the unique channelId.
-    * @param { ArrayBuffer } data - Indicatesthe message data to send.
+    * @param { int } channelId - Indicates the unique channelId.
+    * @param { ArrayBuffer } data - Indicates the message data to send.
     * @returns { Promise<void> } The promise returned by the function.
     * @throws { BusinessError } 201 - Permission denied.
+    * @throws { BusinessError } 801 - Capability not supported.
     * @throws { BusinessError } 32390004 - ChannelId is invalid or unavailable.
     * @throws { BusinessError } 32390006 - Parameter error.
     * @throws { BusinessError } 32390100 - Internal error.
@@ -97,6 +100,7 @@ declare namespace proxyChannelManager {
     * @param { number } channelId - Indicates the unique channelId.
     * @param { Callback<DataInfo> } callback - Used to handle ('receiveData') command.
     * @throws { BusinessError } 201 - Permission denied.
+    * @throws { BusinessError } 801 - Capability not supported.
     * @throws { BusinessError } 32390004 - ChannelId is invalid or unavailable.
     * @throws { BusinessError } 32390006 - Parameter error.
     * @throws { BusinessError } 32390100 - Internal error.
@@ -108,13 +112,14 @@ declare namespace proxyChannelManager {
    function on(type: 'receiveData', channelId: number, callback: Callback<DataInfo>): void;
  
    /**
-    * Unregister and receive data events.
+    * Unregister to receive data events.
     *
     * @permission ohos.permission.ACCESS_BLUETOOTH
     * @param { 'receiveData' } type - Registration Type, 'receiveData'.
     * @param { number } channelId - Indicates the unique channelId.
     * @param { Callback<DataInfo> } [callback] - Used to handle ('receiveData') command.
     * @throws { BusinessError } 201 - Permission denied.
+    * @throws { BusinessError } 801 - Capability not supported.
     * @throws { BusinessError } 32390004 - ChannelId is invalid or unavailable.
     * @throws { BusinessError } 32390006 - Parameter error.
     * @throws { BusinessError } 32390100 - Internal error.
@@ -132,6 +137,7 @@ declare namespace proxyChannelManager {
     * @param { int } channelId - Indicates the unique channelId.
     * @param { Callback<DataInfo> } callback - Used to handle ('receiveData') command.
     * @throws { BusinessError } 201 - Permission denied.
+    * @throws { BusinessError } 801 - Capability not supported.
     * @throws { BusinessError } 32390004 - ChannelId is invalid or unavailable.
     * @throws { BusinessError } 32390006 - Parameter error.
     * @throws { BusinessError } 32390100 - Internal error.
@@ -143,12 +149,13 @@ declare namespace proxyChannelManager {
    function onReceiveData(channelId: int, callback: Callback<DataInfo>): void;
  
    /**
-    * Unregister and receive data events.
+    * Unregister to receive data events.
     *
     * @permission ohos.permission.ACCESS_BLUETOOTH
     * @param { int } channelId - Indicates the unique channelId.
     * @param { Callback<DataInfo> } [callback] - Used to handle ('receiveData') command.
     * @throws { BusinessError } 201 - Permission denied.
+    * @throws { BusinessError } 801 - Capability not supported.
     * @throws { BusinessError } 32390004 - ChannelId is invalid or unavailable.
     * @throws { BusinessError } 32390006 - Parameter error.
     * @throws { BusinessError } 32390100 - Internal error.
@@ -167,6 +174,7 @@ declare namespace proxyChannelManager {
     * @param { number } channelId - Indicates the unique channelId.
     * @param { Callback<ChannelStateInfo> } callback - Used to handle ('channelStateChange') command.
     * @throws { BusinessError } 201 - Permission denied.
+    * @throws { BusinessError } 801 - Capability not supported.
     * @throws { BusinessError } 32390004 - ChannelId is invalid or unavailable.
     * @throws { BusinessError } 32390006 - Parameter error.
     * @throws { BusinessError } 32390100 - Internal error.
@@ -185,6 +193,7 @@ declare namespace proxyChannelManager {
     * @param { number } channelId - Indicates the unique channelId.
     * @param { Callback<ChannelStateInfo> } [callback] - Used to handle ('channelStateChange') command.
     * @throws { BusinessError } 201 - Permission denied.
+    * @throws { BusinessError } 801 - Capability not supported.
     * @throws { BusinessError } 32390004 - ChannelId is invalid or unavailable.
     * @throws { BusinessError } 32390006 - Parameter error.
     * @throws { BusinessError } 32390100 - Internal error.
@@ -202,6 +211,7 @@ declare namespace proxyChannelManager {
     * @param { int } channelId - Indicates the unique channelId.
     * @param { Callback<ChannelStateInfo> } callback - Used to handle ('channelStateChange') command.
     * @throws { BusinessError } 201 - Permission denied.
+    * @throws { BusinessError } 801 - Capability not supported.
     * @throws { BusinessError } 32390004 - ChannelId is invalid or unavailable.
     * @throws { BusinessError } 32390006 - Parameter error.
     * @throws { BusinessError } 32390100 - Internal error.
@@ -219,6 +229,7 @@ declare namespace proxyChannelManager {
     * @param { int } channelId - Indicates the unique channelId.
     * @param { Callback<ChannelStateInfo> } [callback] - Used to handle ('channelStateChange') command.
     * @throws { BusinessError } 201 - Permission denied.
+    * @throws { BusinessError } 801 - Capability not supported.
     * @throws { BusinessError } 32390004 - ChannelId is invalid or unavailable.
     * @throws { BusinessError } 32390006 - Parameter error.
     * @throws { BusinessError } 32390100 - Internal error.

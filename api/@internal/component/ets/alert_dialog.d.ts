@@ -1537,7 +1537,7 @@ declare interface AlertDialogParamWithOptions extends AlertDialogParam {
  * @crossplatform
  * @atomicservice
  * @since 11 dynamiconly
- * @deprecated since 26
+ * @deprecated since 26.0.0
  * @useinstead ohos.arkui.UIContext.UIContext#showAlertDialog
  */
 declare class AlertDialog {

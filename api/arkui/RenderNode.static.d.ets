@@ -582,6 +582,15 @@ export declare class RenderNode {
   dispose(): void;
 
   /**
+   * Get if the RenderNode is disposed.
+   *
+   * @returns { boolean } - Returns true if the RenderNode is disposed, false otherwise.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 24 static
+   */
+  isDisposed(): boolean;
+
+  /**
    * Set the length metrics unit of RenderNode.
    *
    * @param { LengthMetricsUnit } unit - The length metrics unit of RenderNode.

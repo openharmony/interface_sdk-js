@@ -84,12 +84,12 @@ export declare class STValue {
     /**
      * Wraps a string as a character type (16-bit Unicode character).
      *
-     * @param {number} b - The character code to wrap.
+     * @param {string} b - The character code to wrap.
      * @returns {STValue} The wrapped character type STValue object.
      * @syscap SystemCapability.ArkTS.ArkTS
      * @since 24
      */
-    static wrapChar(b: number): STValue
+    static wrapChar(b: string): STValue
 
     /**
      * Wraps a number into a short integer type (16-bit signed integer).

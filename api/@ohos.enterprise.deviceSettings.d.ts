@@ -171,6 +171,465 @@ declare namespace deviceSettings {
   }
 
   /**
+   * The enum of settings menu.
+   *
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 24
+   */
+  enum SettingsMenu {  
+    /**
+     * Account ID menu.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 24
+     */
+    ACCOUNT_ID = 0,
+
+    /**
+     * Wi-Fi menu.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 24
+     */
+    WIFI = 1,
+
+    /**
+     * Wi-Fi proxy settings menu.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 24
+     */
+    WIFI_PROXY_SETTINGS = 2,
+
+    /**
+     * Wi-Fi ip settings menu.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 24
+     */
+    WIFI_IP_SETTINGS = 3,
+
+    /**
+     * Bluetooth menu.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 24
+     */
+    BLUETOOTH = 4,
+
+    /**
+     * Network menu.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 24
+     */
+    NETWORK = 5,
+  
+    /**
+     * Mobile network menu.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 24
+     */
+    MOBILE_NETWORK = 6,
+
+    /**
+     * Super device menu.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 24
+     */
+    SUPER_DEVICE = 7,
+
+    /**
+     * More connectivity options menu.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 24
+     */
+    MORE_CONNECTIVITY_OPTIONS = 8,
+
+    /**
+     * Home screen style menu.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 24
+     */
+    HOME_SCREEN_STYLE = 9,
+
+    /**
+     * Display brightness menu.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 24
+     */
+    DISPLAY_BRIGHTNESS = 10,
+
+    /**
+     * Sound vibration menu.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 24
+     */
+    SOUND_VIBRATION = 11,
+
+    /**
+     * Notifications menu.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 24
+     */
+    NOTIFICATIONS = 12,
+
+    /**
+     * Biometrics password menu.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 24
+     */
+    BIOMETRICS_PASSWORD = 13,
+
+    /**
+     * Applications and services menu.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 24
+     */
+    APPS_AND_SERVICES = 14,
+
+    /**
+     * Battery menu.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 24
+     */
+    BATTERY = 15,
+
+    /**
+     * Storage menu.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 24
+     */
+    STORAGE = 16,
+
+    /**
+     * Privacy and security menu.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 24
+     */
+    PRIVACY_AND_SECURITY = 17,
+
+    /**
+     * Digital balance menu.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 24
+     */
+    DIGITAL_BALANCE = 18,
+
+    /**
+     * Smart assistant menu.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 24
+     */
+    SMART_ASSISTANT = 19,
+
+    /**
+     * Accessibility menu.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 24
+     */
+    ACCESSIBILITY = 20,
+
+    /**
+     * System menu.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 24
+     */
+    SYSTEM = 21,
+
+    /**
+     * About device menu.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 24
+     */
+    ABOUT_DEVICE = 22,
+
+    /**
+     * System navigation menu.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 24
+     */
+    SYSTEM_NAVIGATION = 23,
+
+    /**
+     * Language region menu.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 24
+     */
+    LANGUAGE_REGION = 24,
+
+    /**
+     * Input methods menu.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 24
+     */
+    INPUT_METHODS = 25,
+
+    /**
+     * Date time menu.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 24
+     */
+    DATE_TIME = 26,
+
+    /**
+     * Data clone menu.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 24
+     */
+    DATA_CLONE = 27,
+
+    /**
+     * Backup settings menu.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 24
+     */
+    BACKUP_SETTINGS = 28,
+
+    /**
+     * Reset menu.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 24
+     */
+    RESET = 29,
+
+    /**
+     * Superhub menu.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 24
+     */
+    SUPERHUB = 30,
+
+    /**
+     * User experience menu.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 24
+     */
+    USER_EXPERIENCE = 31,
+
+    /**
+     * Screen cast menu.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 24
+     */
+    SCREEN_CAST = 32,
+
+    /**
+     * Printers scanners menu.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 24
+     */
+    PRINTERS_SCANNERS = 33,
+
+    /**
+     * Mobile data menu.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 24
+     */
+    MOBILE_DATA = 34,
+
+    /**
+     * Personal hotspot menu.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 24
+     */
+    PERSONAL_HOTSPOT = 35,
+
+    /**
+     * SIM management menu.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 24
+     */
+    SIM_MANAGEMENT = 36,
+
+    /**
+     * Airplane mode menu.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 24
+     */
+    AIRPLANE_MODE = 37,
+
+    /**
+     * Manage data usage menu.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 24
+     */
+    MANAGE_DATA_USAGE = 38,
+
+    /**
+     * VPN settings menu.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 24
+     */
+    VPN_SETTINGS = 39,
+
+    /**
+     * Text display size menu.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 24
+     */
+    TEXT_DISPLAY_SIZE = 40,
+
+    /**
+     * Application duplicator menu.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 24
+     */
+    APP_DUPLICATOR = 41,
+
+    /**
+     * Search menu.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 24
+     */
+    SEARCH = 42
+  }
+
+  /**
+   * The key of the switch.
+   *
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  enum SwitchKey {  
+    /**
+     * NearLink.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    NEARLINK = 0,
+
+    /**
+     * Bluetooth.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    BLUETOOTH = 1,
+
+    /**
+     * Wi-Fi.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    WIFI = 2
+  }
+
+  /**
+   * The status of the switch.
+   *
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  enum SwitchStatus {  
+    /**
+     * On.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    ON = 0,
+
+    /**
+     * Off.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    OFF = 1
+  }
+
+  /**
    * User certificate data.
    *
    * @typedef CertBlob
@@ -538,6 +997,67 @@ declare namespace deviceSettings {
   function setUnlockWallpaper(admin: Want, fd: number): Promise<void>;
 
   /**
+   * Adds hidden settings menus.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SETTINGS
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *     The admin must have the corresponding permission.
+   * @param { Array<SettingsMenu> } menusToHidden - menusToHidden indicates the settings menus to be hidden.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 9200016 - Service timeout.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *     Failed to call the API due to limited device capabilities.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 24
+   */
+  function addHiddenSettingsMenu(admin: Want, menusToHidden: Array<SettingsMenu>): void;
+
+  /**
+   * Removes hidden settings menus.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SETTINGS
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *     The admin must have the corresponding permission.
+   * @param { Array<SettingsMenu> } menusToHidden - menusToHidden indicates the settings menus to be hidden.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 9200016 - Service timeout.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *     Failed to call the API due to limited device capabilities.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 24
+   */
+  function removeHiddenSettingsMenu(admin: Want, menusToHidden: Array<SettingsMenu>): void;
+
+  /**
+   * Gets hidden settings menus.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SETTINGS
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *     The admin must have the corresponding permission.
+   * @returns { Array<SettingsMenu> } Returns the hidden settings menu items.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *     Failed to call the API due to limited device capabilities.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 24
+   */
+  function getHiddenSettingsMenu(admin: Want): Array<SettingsMenu>;
+
+  /**
    * Sets the device settings value for account.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SETTINGS
@@ -581,6 +1101,28 @@ declare namespace deviceSettings {
    * @since 24
    */
   function getValueForAccount(admin: Want, item: SettingsItem, accountId: number): string;
+
+  /**
+   * Sets the status of a switch.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SETTINGS or ohos.permission.PERSONAL_MANAGE_RESTRICTIONS
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *     The admin must have the corresponding permission.
+   * @param { SwitchKey } key - key indicates the key of the switch.
+   * @param { SwitchStatus } status - status indicates the status of switch.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 203 - This function is prohibited by enterprise management policies.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *     Failed to call the API due to limited device capabilities.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function setSwitchStatus(admin: Want, key: SwitchKey, status: SwitchStatus): void;
 }
 
 export default deviceSettings;

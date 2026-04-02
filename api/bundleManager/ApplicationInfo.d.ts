@@ -983,7 +983,7 @@ export interface MultiAppMode {
   readonly multiAppModeType: bundleManager.MultiAppModeType;
 
   /**
-   * Indicates the max count of the bundle
+   * Indicates the max count of the bundle,the unit is quantity.
    *
    * @type { int }
    * @readonly

@@ -799,8 +799,8 @@ declare namespace inputMethod {
      * @since 23 static
      */
     getInputMethodState(): Promise<EnabledState>;
-	
-	  /**
+
+    /**
      * 
      * Change inputmethod enabled status.
      *
@@ -886,25 +886,20 @@ declare namespace inputMethod {
     offImeHide(callback?: Callback<Array<InputWindowInfo>>): void;
 
     /**
-     * Get the cursor infomation of a specified user.
+     * <p>Get the default input method ability.</p>
+     * <p>To optimize performance, only the 'name' and 'id' properties which can uniquely identify an input method ability
+     *  are included in the returned InputMethodProperty object.</p>
      *
-     * @param { int } [userId] - the ID of the specified user, defaults to the foreground user ID of the screen.,
-     * @returns { CursorInfo } the promise returned by the function.
+     * @returns { InputMethodProperty } property of the default input method.Only contains 'name' and 'id' properties.
      * @throws { BusinessError } 202 - not system application.
-     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
-     *     1. No edit box is bound to the current input method application under the specified user.
      * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
      *     a system error, such as null pointer, IPC exception.
-     * @throws { BusinessError } 12800023 - the specified user does not exit.
-     * @throws { BusinessError } 12800024 - the specified user is not in the foregeound.
-     * @throws { BusinessError } 12800025 - cross-user operation denied.
-     *     Only user 0 applications are authorized for this operation.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&&static
+     * @since 26.0.0 dynamic&static
      */
-    getCursorInfo(userId?: int): CursorInfo;
+    getDefaultInputMethodAbility(): InputMethodProperty;
   }
 
   /**
@@ -1839,7 +1834,7 @@ declare namespace inputMethod {
 
     /**
      * Register a callback and when IME sends select event witch movement of cursor,
-     * the callbackwiii be invoked.
+     * the callback will be invoked.
      *
      * @param { Callback<Movement> } callback - the callback called when the input method selects text by movement.
      *     The movement of the cursor is provided for this callback, and subscribers are expected to select
@@ -1849,7 +1844,7 @@ declare namespace inputMethod {
      */
     onSelectByMovement(callback: Callback<Movement>): void;
     /**
-     * Unregister the callback of selectedByMovement
+     * Unregister the callback of selectedByMovement.
      *
      * @param { Callback<Movement> } [callback] - the callback called when the input method selects text by movement.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -1914,7 +1909,7 @@ declare namespace inputMethod {
      */
     onDeleteRight(callback: Callback<int>): void;
   /**
-   * Unreister the callback of deleteRight.
+   * Unregister the callback of deleteRight.
    *
    * @param { Callback<int> } [callback] - the callback called when the input method deletes text
    *     to the right of the cursor.
@@ -1935,7 +1930,7 @@ declare namespace inputMethod {
    /**
     * Unregister the callback of sendKeyboardStatus.
     *
-    * @param { Callback<Keyboardstatus> } [callback] - the callback called when the inputmethod
+    * @param { Callback<Keyboardstatus> } [callback] - the callback called when the inputmethod send
     *     keyboard's status.
     * @syscap SystemCapability.MiscServices.InputMethodFramework
     * @since 23 static
@@ -2910,7 +2905,7 @@ declare namespace inputMethod {
   }
 
   /**
-   * Callback function on receiveing a custom message.
+   * Callback function on receiving a custom message.
    * 
    * @typedef { function } OnMessageCallback.
    * @param { string } msgId - the identifier of the message.

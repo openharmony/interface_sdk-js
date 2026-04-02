@@ -3478,6 +3478,49 @@ declare namespace huks {
    */
   function anonAttestKeyItemAsUser(userId: number, keyAlias: string, huksOptions: HuksOptions): Promise<HuksReturnResult>;
 
+    /**
+   * Obtains an anonymous attestation certificate offline. This API uses a promise to return the result. This
+   * operation does not require network connection each time.
+   * It has higher performance than the anonAttestKeyItemAsUser function.
+   *
+   * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+   * @param { number } userId  - User ID.
+   * @param { string } keyAlias  - Alias of the key.
+   * @param { HuksParam[] } params  - Key attestation operation options.
+   * @returns { Promise<HuksReturnResult> } Promise used to return the result. If the operation is successful,
+   *     certChains in HuksReturnResult contains the obtained certificate chain.
+   * @throws { BusinessError } 201  - The app does not have sufficient permissions. Possible causes: The
+   *     cross-account permission is not granted, the system is not unlocked by the user, or the user does not
+   * exist.
+   * @throws { BusinessError } 202  - Non-system apps use system APIs.
+   * @throws { BusinessError } 801  - The API is not supported.
+   * @throws { BusinessError } 12000001  - The function is not supported. Possible causes:
+   *     1. The algorithm mode is not supported.
+   *     2. The group key is not supported.
+   *     3. The extended encryption key is not supported.
+   * @throws { BusinessError } 12000002  - The algorithm parameter is missing.
+   * @throws { BusinessError } 12000003  - The algorithm parameter is invalid.
+   * @throws { BusinessError } 12000004  - The file operation failed.
+   * @throws { BusinessError } 12000005  - The IPC communication failed.
+   * @throws { BusinessError } 12000006  - The encryption engine is faulty.
+   * @throws { BusinessError } 12000011  - The queried entity does not exist.
+   * @throws { BusinessError } 12000012  - The device environment or input parameter is abnormal.
+   * @throws { BusinessError } 12000014  - The memory is insufficient.
+   * @throws { BusinessError } 12000018  - The parameter is incorrect. Possible causes:
+   *     1. A mandatory parameter is left empty.
+   *     2. The parameter type is incorrect.
+   *     3. The parameter verification failed.
+   * @throws { BusinessError } 12000024  - The operation times out. This may be caused by network jitter.
+   *     You can try again later.
+   * @throws { BusinessError } 12000027  - The network is unavailable. Check network connections.
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @systemapi This method can be used only by system applications.
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function anonAttestKeyItemOfflineAsUser(userId: number, keyAlias: string,
+      params: HuksParam[]): Promise<HuksReturnResult>;
+
   /**
    * Obtains the certificate for anonymous attestation. This API uses a promise to return the result. This
    * operation requires Internet access and takes time. If error code 12000012 is returned, the network is abnormal. If
@@ -3559,6 +3602,38 @@ declare namespace huks {
    * @since 23
    */
   function anonAttestKeyItem(keyAlias: string, options: HuksOptions): Promise<HuksReturnResult>;
+
+    /**
+   * Obtains an anonymous attestation certificate offline. This API uses a promise to return the result.
+   * This operation does not require network connection each time. The execution speed is
+   * faster than the anonAttestKeyItem function.
+   *
+   * @param { string } keyAlias  - Alias of the key. The certificate to be obtained is associated with this key.
+   * @param { HuksParam[] } params  - Key attestation operation parameters.
+   * @returns { Promise<HuksReturnResult> } Promise used to return the result. If the operation is successful,
+   *     certChains in HuksReturnResult contains the obtained certificate chain.
+   * @throws { BusinessError } 801  - The API is not supported.
+   * @throws { BusinessError } 12000001  - The algorithm mode is not supported.
+   * @throws { BusinessError } 12000004  - The file operation failed.
+   * @throws { BusinessError } 12000005  - The IPC communication failed.
+   * @throws { BusinessError } 12000006  - The encryption engine is faulty.
+   * @throws { BusinessError } 12000011  - The queried entity does not exist.
+   * @throws { BusinessError } 12000012  - The device environment or input parameter is abnormal.
+   * @throws { BusinessError } 12000014  - The memory is insufficient.
+   * @throws { BusinessError } 12000018  - The parameter is incorrect. Possible causes:
+   *     1. A mandatory parameter is left empty.
+   *     2. The parameter type is incorrect.
+   *     3. The parameter verification failed.
+   *     4. The group ID specified by the access group tag is invalid.
+   * @throws { BusinessError } 12000024  - The operation times out. This may be caused by network jitter.
+   *     You can try again later.
+   * @throws { BusinessError } 12000027  - The network is unavailable. Check network connections.
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0
+   */
+  function anonAttestKeyItemOffline(keyAlias: string, params: HuksParam[]): Promise<HuksReturnResult>;
 
   /**
    * Obtains the SDK version of the current system.
@@ -4690,7 +4765,25 @@ declare namespace huks {
      * @atomicservice
      * @since 22
      */
-    HUKS_ERR_CODE_EXCEED_LIMIT = 12000025
+    HUKS_ERR_CODE_EXCEED_LIMIT = 12000025,
+     /**
+     * The secure element is faulty.
+     *
+     * @syscap SystemCapability.Security.Huks.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0
+     */
+    HUKS_ERR_CODE_SE_FAULT = 12000026,
+    /**
+     * The network is unavailable.
+     *
+     * @syscap SystemCapability.Security.Huks.Extension
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0
+     */
+    HUKS_ERR_CODE_NETWORK_UNAVAILABLE = 12000027
   }
 
   /**
@@ -7491,6 +7584,15 @@ declare namespace huks {
      * @since 23
      */
     HUKS_TAG_KEY_ACCESS_GROUP = HuksTagType.HUKS_TAG_TYPE_BYTES | 523,
+    /**
+     * The tag indicates the additional authenticated data for GCM or CCM modes.
+     *
+     * @syscap SystemCapability.Security.Huks.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24
+     */
+    HUKS_TAG_AAD = HuksTagType.HUKS_TAG_TYPE_BYTES | 527,
 
     /*
      * Other reserved TAG: 601 - 1000

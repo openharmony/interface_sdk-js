@@ -577,7 +577,7 @@ declare class UiDriver {
    * @param { By } by The attribute requirements of the target {@link UiComponent}.
    * @returns { Promise<void> }
    * @throws {BusinessError} 401 - if the input parameters are invalid.
-   * @throws {BusinessError} 17000002 - if the async function was not called with await.
+   * @throws {BusinessError} 17000002 - The API does not support concurrent calls.
    * @throws {BusinessError} 17000003 - if the assertion failed.
    * @syscap SystemCapability.Test.UiTest
    * @since 8 dynamiconly
@@ -1116,7 +1116,7 @@ declare interface Point {
    */
   y: int;
   /**
-   * The displayId to which the coordinate point belongs, default is the displayId of the main scrren.
+   * The displayId to which the coordinate point belongs, default is the displayId of the main screen.
    *
    * @type { ?int }
    * @syscap SystemCapability.Test.UiTest
@@ -1318,14 +1318,14 @@ declare interface Rect {
 }
 
 /**
- * Represents filer condition to get the window .
+ * Represents filter condition to get the window .
  *
  * @typedef WindowFilter
  * @syscap SystemCapability.Test.UiTest
  * @since 9
  */
 /**
- * Represents filer condition to get the window .
+ * Represents filter condition to get the window .
  *
  * @typedef WindowFilter
  * @syscap SystemCapability.Test.UiTest
@@ -1512,7 +1512,7 @@ declare enum ComponentEventType {
    */
   COMPONENT_CLICKED = 1,
   /**
-   * A component is longclicked.
+   * A component is long-clicked.
    * 
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
@@ -1566,7 +1566,7 @@ declare enum ComponentEventType {
 declare interface WindowChangeOptions {
   /**
    * Listening timeout in milliseconds, it is recommended that the value of timeout be greater than 500
-   * to prevent listening failures casued by event notification delay, default is 10000.
+   * to prevent listening failures caused by event notification delay, default is 10000.
    * @type { ?int }
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
@@ -1576,7 +1576,7 @@ declare interface WindowChangeOptions {
    */
   timeout?: int;
   /**
-   * Bundlename of the listening window, default to listen on all application windows.
+   * BundleName of the listening window, default to listen on all application windows.
    * @type { ?string }
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
@@ -1600,7 +1600,7 @@ declare interface WindowChangeOptions {
 declare interface ComponentEventOptions {
   /**
    * Listening timeout in milliseconds, it is recommended that the value of timeout be greater than 500
-   * to prevent listening failures casued by event notification delay, default is 10000.
+   * to prevent listening failures caused by event notification delay, default is 10000.
    * @type { ?int }
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
@@ -1610,7 +1610,7 @@ declare interface ComponentEventOptions {
    */
   timeout?: int;
   /**
-   * The attribute requirements of target compoinent to be listened on, default to listen on all components in screen.
+   * The attribute requirements of target component to be listened on, default to listen on all components in screen.
    * @type { ?On }
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
@@ -1660,7 +1660,7 @@ declare interface UIElementInfo {
    */
   readonly bundleName: string;
   /**
-   * The component type, set it as 'window' if it's a window.
+   * The component type, set it to an empty string if it's a window.
    * @type { string }
    * @readonly 
    * @syscap SystemCapability.Test.UiTest
@@ -1668,7 +1668,7 @@ declare interface UIElementInfo {
    * @test
    */
   /**
-   * The component type, set it as 'window' if it's a window.
+   * The component type, set it to an empty string if it's a window.
    * @type { string }
    * @readonly
    * @syscap SystemCapability.Test.UiTest
@@ -1679,7 +1679,7 @@ declare interface UIElementInfo {
    */
   readonly type: string;
   /**
-   * The text of component, set it as window's title if it's a window.
+   * The text of component, set it to an empty string if it's a window.
    * @type { string }
    * @readonly 
    * @syscap SystemCapability.Test.UiTest
@@ -1687,7 +1687,7 @@ declare interface UIElementInfo {
    * @test
    */
   /**
-   * The text of component, set it as window's title if it's a window.
+   * The text of component, set it to an empty string if it's a window.
    * @type { string }
    * @readonly
    * @syscap SystemCapability.Test.UiTest
@@ -2070,14 +2070,14 @@ declare enum MouseButton {
    */
   MOUSE_BUTTON_LEFT = 0,
   /**
-   * Right button of the mouse..
+   * Right button of the mouse.
    *
    * @syscap SystemCapability.Test.UiTest
    * @since 10
    * @test
    */
   /**
-   * Right button of the mouse..
+   * Right button of the mouse.
    *
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
@@ -2127,7 +2127,8 @@ declare interface TouchPadSwipeOptions {
   stay?: boolean;
 
   /**
-   * Speed(pixels per second) of touchpad multi-finger swipe, default is 2000, the value ranges from 200 to 40000,set it 2000 if out of range.
+   * The speed ranges from 200 to 40000(pixels per second). Set it default 2000 if out of range or null or undefined.
+   * Throws parameter error if negative.
    * @type { ?int }
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
@@ -2169,6 +2170,95 @@ declare interface InputTextMode {
    * @test
    */
   addition?: boolean;
+}
+
+/**
+ * Common options for touch operations.
+ *
+ * @typedef TouchOptions
+ * @syscap SystemCapability.Test.UiTest
+ * @FaAndStageModel
+ * @atomicservice
+ * @since 26.0.0 dynamic&static
+ * @test
+ */
+declare interface TouchOptions {
+    /**
+     * Speed of the operation (pixels per second), the value ranges from 200 to 40000.
+     * Set to default 600 if out of range or null or undefined.
+     * Throws 17000007 if negative.
+     * 
+     * @type { ?int }
+     * @syscap SystemCapability.Test.UiTest
+     * @FaAndStageModel
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     * @test
+     */
+    speed?: int;
+    /**
+     * Duration of the operation in milliseconds, the minimum and default values are 1500.
+     * Throws 17000007 if the value is less than 1500. Use the default value when it is null or undefined. 
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Test.UiTest
+     * @FaAndStageModel
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     * @test
+     */
+    duration?: int;
+    /**
+     * The pressure of the touch, the value ranges from 0 to 1, default is 0.
+     * Throws 17000007 if the value is out of range. Use the default value when it is null or undefined. 
+     *
+     * @type { ?double }
+     * @syscap SystemCapability.Test.UiTest
+     * @FaAndStageModel
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     * @test
+     */
+    pressure?: double;
+}
+
+/**
+ * Represents the options for key operations.
+ *
+ * @typedef KeyOptions
+ * @syscap SystemCapability.Test.UiTest
+ * @FaAndStageModel
+ * @atomicservice
+ * @since 26.0.0 dynamic&static
+ * @test
+ */
+declare interface KeyOptions {
+    /**
+     * The first keyCode to press during the operation.
+     * If not set, no key event will be injected.
+     * Setting only key2 without key1 will result in a BussinessError 17000007.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Test.UiTest
+     * @FaAndStageModel
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     * @test
+     */
+    key1?: int;
+    /**
+     * The second keyCode to press during the operation.
+     * If not set, no key event will be injected.
+     * Setting only key2 without key1 will result in a BussinessError 17000007.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Test.UiTest
+     * @FaAndStageModel
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     * @test
+     */
+    key2?: int;
 }
 
 /**
@@ -2818,7 +2908,7 @@ declare class Component {
    * Click this {@link Component}.
    *
    * @returns { Promise<void> }
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - if the component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @since 9
@@ -2828,7 +2918,7 @@ declare class Component {
    * Click this {@link Component}.
    *
    * @returns { Promise<void> }
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - if the component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
@@ -2839,7 +2929,7 @@ declare class Component {
    * Click this {@link Component}.
    *
    * @returns { Promise<void> }
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
@@ -2854,7 +2944,7 @@ declare class Component {
    * Double click this {@link Component}.
    *
    * @returns { Promise<void> }
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - if the component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @since 9
@@ -2864,7 +2954,7 @@ declare class Component {
    * Double click this {@link Component}.
    *
    * @returns { Promise<void> }
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - if the component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
@@ -2875,7 +2965,7 @@ declare class Component {
    * Double click this {@link Component}.
    *
    * @returns { Promise<void> }
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
@@ -2890,7 +2980,7 @@ declare class Component {
    * Long click this {@link Component}.
    *
    * @returns { Promise<void> }
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - if the component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @since 9
@@ -2900,7 +2990,7 @@ declare class Component {
    * Long click this {@link Component}.
    *
    * @returns { Promise<void> }
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - if the component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
@@ -2911,7 +3001,7 @@ declare class Component {
    * Long click this {@link Component}.
    *
    * @returns { Promise<void> }
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
@@ -2926,7 +3016,7 @@ declare class Component {
    * Get the id attribute value.
    *
    * @returns { Promise<string> } the id value.
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - if the component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @since 9
@@ -2936,7 +3026,7 @@ declare class Component {
    * Get the id attribute value.
    *
    * @returns { Promise<string> } the id value.
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - if the component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
@@ -2947,7 +3037,7 @@ declare class Component {
    * Get the id attribute value.
    *
    * @returns { Promise<string> } the id value.
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
@@ -2962,7 +3052,7 @@ declare class Component {
    * Get the displayId to which the component belongs.
    *
    * @returns { Promise<int> } the displayId value.
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
@@ -2976,7 +3066,7 @@ declare class Component {
    * Get the text attribute value.
    *
    * @returns { Promise<string> } the text value.
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - if the component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @since 9
@@ -2986,7 +3076,7 @@ declare class Component {
    * Get the text attribute value.
    *
    * @returns { Promise<string> } the text value.
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - if the component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
@@ -2997,7 +3087,7 @@ declare class Component {
    * Get the text attribute value.
    *
    * @returns { Promise<string> } the text value.
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
@@ -3012,7 +3102,7 @@ declare class Component {
    * Get the type name.
    *
    * @returns { Promise<string> } the type name.
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - if the component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @since 9
@@ -3022,7 +3112,7 @@ declare class Component {
    * Get the type name.
    *
    * @returns { Promise<string> } the type name.
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - if the component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
@@ -3033,7 +3123,7 @@ declare class Component {
    * Get the type name.
    *
    * @returns { Promise<string> } the type name.
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
@@ -3048,7 +3138,7 @@ declare class Component {
    * Get the clickable status of this {@link Component}.
    *
    * @returns { Promise<boolean> } the clickable status.
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - if the component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @since 9
@@ -3058,7 +3148,7 @@ declare class Component {
    * Get the clickable status of this {@link Component}.
    *
    * @returns { Promise<boolean> } the clickable status.
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - if the component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
@@ -3069,7 +3159,7 @@ declare class Component {
    * Get the clickable status of this {@link Component}.
    *
    * @returns { Promise<boolean> } the clickable status.
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
@@ -3084,7 +3174,7 @@ declare class Component {
    * Get the longClickable status of this {@link Component}.
    *
    * @returns { Promise<boolean> } the longClickable status.
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - if the component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @since 9
@@ -3094,7 +3184,7 @@ declare class Component {
    * Get the longClickable status of this {@link Component}.
    *
    * @returns { Promise<boolean> } the longClickable status.
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - if the component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
@@ -3105,7 +3195,7 @@ declare class Component {
    * Get the clickable status of this {@link Component}.
    *
    * @returns { Promise<boolean> } the clickable status.
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
@@ -3120,7 +3210,7 @@ declare class Component {
    * Get the scrollable status of this {@link Component}.
    *
    * @returns { Promise<boolean> } the scrollable status.
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - if the component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @since 9
@@ -3130,7 +3220,7 @@ declare class Component {
    * Get the scrollable status of this {@link Component}.
    *
    * @returns { Promise<boolean> } the scrollable status.
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - if the component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
@@ -3141,7 +3231,7 @@ declare class Component {
    * Get the scrollable status of this {@link Component}.
    *
    * @returns { Promise<boolean> } the scrollable status.
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
@@ -3156,7 +3246,7 @@ declare class Component {
    * Get the enabled status of this {@link Component}.
    *
    * @returns { Promise<boolean> } the enabled status.
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - if the component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @since 9
@@ -3166,7 +3256,7 @@ declare class Component {
    * Get the enabled status of this {@link Component}.
    *
    * @returns { Promise<boolean> } the enabled status.
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - if the component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
@@ -3177,7 +3267,7 @@ declare class Component {
    * Get the enabled status of this {@link Component}.
    *
    * @returns { Promise<boolean> } the enabled status.
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
@@ -3192,7 +3282,7 @@ declare class Component {
    * Get the focused status of this {@link Component}.
    *
    * @returns { Promise<boolean> } the focused status.
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - if the component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @since 9
@@ -3202,7 +3292,7 @@ declare class Component {
    * Get the focused status of this {@link Component}.
    *
    * @returns { Promise<boolean> } the focused status.
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - if the component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
@@ -3213,7 +3303,7 @@ declare class Component {
    * Get the focused status of this {@link Component}.
    *
    * @returns { Promise<boolean> } the focused status.
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
@@ -3228,7 +3318,7 @@ declare class Component {
    * Get the selected status of this {@link Component}.
    *
    * @returns { Promise<boolean> } the selected status.
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - if the component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @since 9
@@ -3238,7 +3328,7 @@ declare class Component {
    * Get the selected status of this {@link Component}.
    *
    * @returns { Promise<boolean> } the selected status.
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - if the component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
@@ -3249,7 +3339,7 @@ declare class Component {
    * Get the selected status of this {@link Component}.
    *
    * @returns { Promise<boolean> } the selected status.
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
@@ -3264,7 +3354,7 @@ declare class Component {
    * Get the checked status of this {@link Component}.
    *
    * @returns { Promise<boolean> } the checked status.
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - if the component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @since 9
@@ -3274,7 +3364,7 @@ declare class Component {
    * Get the checked status of this {@link Component}.
    *
    * @returns { Promise<boolean> } the checked status.
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - if the component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
@@ -3285,7 +3375,7 @@ declare class Component {
    * Get the checked status of this {@link Component}.
    *
    * @returns { Promise<boolean> } the checked status.
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
@@ -3300,7 +3390,7 @@ declare class Component {
    * Get the checkable status of this {@link Component}.
    *
    * @returns { Promise<boolean> } the checkable status.
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - if the component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @since 9
@@ -3310,7 +3400,7 @@ declare class Component {
    * Get the checkable status of this {@link Component}.
    *
    * @returns { Promise<boolean> } the checkable status.
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - if the component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
@@ -3321,7 +3411,7 @@ declare class Component {
    * Get the checkable status of this {@link Component}.
    *
    * @returns { Promise<boolean> } the checkable status.
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
@@ -3338,7 +3428,7 @@ declare class Component {
    * @param { string } text The text to inject.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - if the input parameters are invalid.
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - if the component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @since 9
@@ -3350,7 +3440,7 @@ declare class Component {
    * @param { string } text The text to inject.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - if the input parameters are invalid.
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - if the component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
@@ -3363,7 +3453,7 @@ declare class Component {
    * @param { string } text - the text to inject.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
@@ -3382,7 +3472,7 @@ declare class Component {
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported, function can not work correctly due to limited device capabilities.
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
@@ -3396,7 +3486,7 @@ declare class Component {
    * Clear text of this {@link Component},applicable to TextInput.
    *
    * @returns { Promise<void> }
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - if the component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @since 9
@@ -3406,7 +3496,7 @@ declare class Component {
    * Clear text of this {@link Component},applicable to TextInput.
    *
    * @returns { Promise<void> }
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - if the component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
@@ -3417,7 +3507,7 @@ declare class Component {
    * Clear text of this {@link Component},applicable to TextInput.
    *
    * @returns { Promise<void> }
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
@@ -3434,7 +3524,7 @@ declare class Component {
    * @param { number } speed The speed of swipe (pixels per second),default is 600,the value ranges from 200 to 40000,set it 600 if out of range.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - if the input parameters are invalid.
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - if the component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @since 9
@@ -3446,7 +3536,7 @@ declare class Component {
    * @param { number } speed The speed of swipe (pixels per second),default is 600,the value ranges from 200 to 40000,set it 600 if out of range.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - if the input parameters are invalid.
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - if the component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
@@ -3456,10 +3546,12 @@ declare class Component {
   /**
    * Scroll on this {@link Component} to the top,applicable to scrollable one.
    *
-   * @param { int } [speed] - the speed of swipe(pixels per second),ranges from 200 to 40000.Set it default 600 if out of range or null or undefined.
+   * @param { int } [speed] - The speed ranges from 200 to 40000(pixels per second).
+   *                          Set it default 600 if out of range or null or undefined.
+   *                          Throws error code 401 if negative.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types; 2. Parameter verification failed.
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
@@ -3476,7 +3568,7 @@ declare class Component {
    * @param { number } speed The speed of swipe (pixels per second),default is 600,the value ranges from 200 to 40000,set it 600 if out of range.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - if the input parameters are invalid.
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - if the component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @since 9
@@ -3488,7 +3580,7 @@ declare class Component {
    * @param { number } speed The speed of swipe (pixels per second),default is 600,the value ranges from 200 to 40000,set it 600 if out of range.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - if the input parameters are invalid.
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - if the component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
@@ -3498,10 +3590,12 @@ declare class Component {
   /**
    * Scroll on this {@link Component} to the bottom,applicable to scrollable one.
    *
-   * @param { int } [speed] - the speed of swipe(pixels per second),ranges from 200 to 40000. Set it default 600 if out of range or null or undefined.
+   * @param { int } [speed] - The speed ranges from 200 to 40000(pixels per second).
+   *                          Set it default 600 if out of range or null or undefined.
+   *                          Throws error code 401 if negative.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types; 2. Parameter verification failed.
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
@@ -3516,7 +3610,7 @@ declare class Component {
    * Get the bounds rect of this {@link Component}.
    *
    * @returns { Promise<Rect> } the bounds rect object.
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - if the component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @since 9
@@ -3526,7 +3620,7 @@ declare class Component {
    * Get the bounds rect of this {@link Component}.
    *
    * @returns { Promise<Rect> } the bounds rect object.
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - if the component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
@@ -3537,7 +3631,7 @@ declare class Component {
    * Get the bounds rect of this {@link Component}.
    *
    * @returns { Promise<Rect> } the bounds rect object.
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
@@ -3554,7 +3648,7 @@ declare class Component {
    * @param { On } on The attribute requirements of the target {@link Component}.
    * @returns { Promise<Component> } the found result,or undefined if not found.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - if the component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @since 9
@@ -3566,7 +3660,7 @@ declare class Component {
    * @param { On } on The attribute requirements of the target {@link Component}.
    * @returns { Promise<Component> } the found result,or undefined if not found.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - if the component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
@@ -3579,7 +3673,7 @@ declare class Component {
    * @param { On } on - the attribute requirements of the target {@link Component}.
    * @returns { Promise<Component> } the found result,or undefined if not found.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
@@ -3593,7 +3687,7 @@ declare class Component {
    * Get the boundsCenter of this {@link Component}.
    *
    * @returns { Promise<Point> } the boundsCenter object.
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - if the component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @since 9
@@ -3603,7 +3697,7 @@ declare class Component {
    * Get the boundsCenter of this {@link Component}.
    *
    * @returns { Promise<Point> } the boundsCenter object.
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - if the component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
@@ -3614,7 +3708,7 @@ declare class Component {
    * Get the boundsCenter of this {@link Component}.
    *
    * @returns { Promise<Point> } the boundsCenter object.
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
@@ -3631,7 +3725,7 @@ declare class Component {
    * @param { Component } target The target {@link Component}.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - if the input parameters are invalid.
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - if the component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @since 9
@@ -3643,7 +3737,7 @@ declare class Component {
    * @param { Component } target - the target {@link Component}.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
@@ -3659,7 +3753,7 @@ declare class Component {
     * @param { number } scale The scale of the pinch enlarge this {@link Component}'s size.
     * @returns { Promise<void> }
     * @throws { BusinessError } 401 - if the input parameters are invalid.
-    * @throws { BusinessError } 17000002 - if the async function was not called with await.
+    * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
     * @throws { BusinessError } 17000004 - if the component is invisible or destroyed.
     * @syscap SystemCapability.Test.UiTest
     * @since 9
@@ -3671,7 +3765,7 @@ declare class Component {
     * @param { double } scale - the scale of the pinch enlarge this {@link Component}'s size, ranges greater than 1.
     * @returns { Promise<void> }
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-    * @throws { BusinessError } 17000002 - The async function is not called with await.
+    * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
     * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
@@ -3687,7 +3781,7 @@ declare class Component {
     * @param { number } scale The scale of the pinch shrink this {@link Component}'s size.
     * @returns { Promise<void> }
     * @throws { BusinessError } 401 - if the input parameters are invalid.
-    * @throws { BusinessError } 17000002 - if the async function was not called with await.
+    * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
     * @throws { BusinessError } 17000004 - if the component is invisible or destroyed.
     * @syscap SystemCapability.Test.UiTest
     * @since 9
@@ -3699,7 +3793,7 @@ declare class Component {
     * @param { double } scale - the scale of the pinch shrink this {@link Component}'s size, ranges from 0 to 1.
     * @returns { Promise<void> }
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-    * @throws { BusinessError } 17000002 - The async function is not called with await.
+    * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
     * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
@@ -3714,7 +3808,7 @@ declare class Component {
    * Get the description attribute value.
    *
    * @returns { Promise<string> } the description value.
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
@@ -3727,7 +3821,7 @@ declare class Component {
    * Get the hint attribute value.
    *
    * @returns { Promise<string> } the hint value.
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
@@ -3744,7 +3838,7 @@ declare class Component {
    * @param { number } [offset] - Offset from the swipe start/end point to the component border, default is 80.
    * @returns { Promise<Component> } the found result,or undefined if not found.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
@@ -3760,7 +3854,7 @@ declare class Component {
     * @param { int } [offset] - Offset from the swipe start/end point to the component border, default is 80.
     * @returns { Promise<Component | null> } the found result,or null if not found.
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-    * @throws { BusinessError } 17000002 - The async function is not called with await.
+    * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
     * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
     * @syscap SystemCapability.Test.UiTest
     * @since 23 static
@@ -3774,7 +3868,7 @@ declare class Component {
    * if the component does not set the above accessibility property, this method has no difference with {@link Component.getText}
    *
    * @returns { Promise<string> } the original text value.
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
@@ -3854,7 +3948,7 @@ declare class Driver {
    * @param { number } duration The delay duration in milliseconds.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - if the input parameters are invalid.
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @since 9
    * @test
@@ -3865,7 +3959,7 @@ declare class Driver {
    * @param { number } duration The delay duration in milliseconds.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - if the input parameters are invalid.
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @since 10
@@ -3877,7 +3971,7 @@ declare class Driver {
    * @param { int } duration - the delay duration in milliseconds, not less than 0.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
@@ -3893,7 +3987,7 @@ declare class Driver {
    * @param { On } on The attribute requirements of the target {@link Component}.
    * @returns { Promise<Component> } the first matched {@link Component} or undefined.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @since 9
    * @test
@@ -3904,7 +3998,7 @@ declare class Driver {
    * @param { On } on The attribute requirements of the target {@link Component}.
    * @returns { Promise<Component> } the first matched {@link Component} or undefined.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @since 10
@@ -3916,7 +4010,7 @@ declare class Driver {
    * @param { On } on - the attribute requirements of the target {@link Component}.
    * @returns { Promise<Component> } the first matched {@link Component} or undefined.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
@@ -3930,7 +4024,7 @@ declare class Driver {
     * @param { On } on - the attribute requirements of the target {@link Component}.
     * @returns { Promise<Component | null> } the first matched {@link Component} or undefined.
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-    * @throws { BusinessError } 17000002 - The async function is not called with await.
+    * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
     * @syscap SystemCapability.Test.UiTest
     * @since 23 static
     * @test
@@ -3939,10 +4033,10 @@ declare class Driver {
   /**
    * Find the first matched {@link UiWindow} window.
    *
-   * @param { WindowFilter } filter The filer condition of the target {@link UiWindow}.
+   * @param { WindowFilter } filter The filter condition of the target {@link UiWindow}.
    * @returns { Promise<UiWindow> } the first matched {@link UiWindow} or undefined.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @since 9
    * @test
@@ -3950,10 +4044,10 @@ declare class Driver {
   /**
    * Find the first matched {@link UiWindow} window.
    *
-   * @param { WindowFilter } filter - the filer condition of the target {@link UiWindow}.
+   * @param { WindowFilter } filter - the filter condition of the target {@link UiWindow}.
    * @returns { Promise<UiWindow> } the first matched {@link UiWindow} or undefined.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
    * @since 11 dynamic
@@ -3963,10 +4057,10 @@ declare class Driver {
    /**
     * Find the first matched {@link UiWindow} window.
     *
-    * @param { WindowFilter } filter - the filer condition of the target {@link UiWindow}.
+    * @param { WindowFilter } filter - the filter condition of the target {@link UiWindow}.
     * @returns { Promise<UiWindow | null> } the first matched {@link UiWindow} or undefined.
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-    * @throws { BusinessError } 17000002 - The async function is not called with await.
+    * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
     * @syscap SystemCapability.Test.UiTest
     * @since 23 static
     * @test
@@ -3979,7 +4073,7 @@ declare class Driver {
    * @param { number } time Duration of finding in milliseconds
    * @returns { Promise<Component> } the first matched {@link Component} or undefined.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @since 9
    * @test
@@ -3991,7 +4085,7 @@ declare class Driver {
    * @param { number } time - duration of finding in milliseconds, not less than 0.
    * @returns { Promise<Component> } the first matched {@link Component} or undefined.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
    * @since 11 dynamic
@@ -4005,7 +4099,7 @@ declare class Driver {
     * @param { int } time - duration of finding in milliseconds, not less than 0.
     * @returns { Promise<Component | null> } the first matched {@link Component} or undefined.
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-    * @throws { BusinessError } 17000002 - The async function is not called with await.
+    * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
     * @syscap SystemCapability.Test.UiTest
     * @since 23 static
     * @test
@@ -4017,7 +4111,7 @@ declare class Driver {
    * @param { On } on The attribute requirements of the target {@link Component}.
    * @returns { Promise<Array<Component>> } the matched {@link Component}s list.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @since 9
    * @test
@@ -4028,7 +4122,7 @@ declare class Driver {
    * @param { On } on The attribute requirements of the target {@link Component}.
    * @returns { Promise<Array<Component>> } the matched {@link Component}s list.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @since 10
@@ -4040,7 +4134,7 @@ declare class Driver {
    * @param { On } on - the attribute requirements of the target {@link Component}.
    * @returns { Promise<Array<Component>> } the matched {@link Component}s list.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
@@ -4054,31 +4148,31 @@ declare class Driver {
     * @param { On } on - the attribute requirements of the target {@link Component}.
     * @returns { Promise<Array<Component> | null> } the matched {@link Component}s list.
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-    * @throws { BusinessError } 17000002 - The async function is not called with await.
+    * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
     * @syscap SystemCapability.Test.UiTest
     * @since 23 static
     * @test
     */
   findComponents(on: On): Promise<Array<Component> | null>;
   /**
-   * Assert t the matched {@link Component}s exists on current UI;if not,assertError will be raised.
+   * Assert the matched {@link Component}s exists on current UI;if not,assertError will be raised.
    *
    * @param { On } on The attribute requirements of the target {@link Component}.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - if the input parameters are invalid.
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000003 - if the assertion failed.
    * @syscap SystemCapability.Test.UiTest
    * @since 9
    * @test
    */
   /**
-   * Assert t the matched {@link Component}s exists on current UI;if not,assertError will be raised.
+   * Assert the matched {@link Component}s exists on current UI;if not,assertError will be raised.
    *
    * @param { On } on The attribute requirements of the target {@link Component}.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - if the input parameters are invalid.
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000003 - if the assertion failed.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
@@ -4086,12 +4180,12 @@ declare class Driver {
    * @test
    */
   /**
-   * Assert t the matched {@link Component}s exists on current UI;if not,assertError will be raised.
+   * Assert the matched {@link Component}s exists on current UI;if not,assertError will be raised.
    *
    * @param { On } on - the attribute requirements of the target {@link Component}.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000003 - Assertion failed.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
@@ -4106,7 +4200,7 @@ declare class Driver {
    * Press the BACK key.
    *
    * @returns { Promise<void> }
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @since 9
    * @test
@@ -4115,7 +4209,7 @@ declare class Driver {
    * Press the BACK key.
    *
    * @returns { Promise<void> }
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @since 10
@@ -4125,7 +4219,7 @@ declare class Driver {
    * Press the BACK key.
    *
    * @returns { Promise<void> }
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
@@ -4140,7 +4234,7 @@ declare class Driver {
    *
    * @param { int } displayId - the Id of the specified display.
    * @returns { Promise<void> }
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
@@ -4156,7 +4250,7 @@ declare class Driver {
    * @param { number } keyCode the target keyCode.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - if the input parameters are invalid.
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @since 9
    * @test
@@ -4167,7 +4261,7 @@ declare class Driver {
    * @param { int } keyCode - the target keyCode.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
@@ -4184,7 +4278,7 @@ declare class Driver {
    * @param { int } displayId - the Id of the specified display.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
    * @since 20 dynamic
@@ -4201,7 +4295,7 @@ declare class Driver {
    * @param { number } key2 the third keyCode.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - if the input parameters are invalid.
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @since 9
    * @test
@@ -4214,7 +4308,7 @@ declare class Driver {
    * @param { number } [key2] - the third keyCode,set it default 0 if null or undefined.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
@@ -4232,7 +4326,7 @@ declare class Driver {
    * @param { int } [displayId] - the Id of the specified display, default is the displayId of the main screen.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
    * @since 20 dynamic
@@ -4248,7 +4342,7 @@ declare class Driver {
    * @param { number } y The y-coordinate.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - if the input parameters are invalid.
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @since 9
    * @test
@@ -4260,7 +4354,7 @@ declare class Driver {
    * @param { number } y The y-coordinate.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - if the input parameters are invalid.
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @since 10
@@ -4273,7 +4367,7 @@ declare class Driver {
    * @param { int } y - the y-coordinate, not less than 0.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
@@ -4290,7 +4384,7 @@ declare class Driver {
    * @param { number } y The y-coordinate.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - if the input parameters are invalid.
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @since 9
    * @test
@@ -4302,7 +4396,7 @@ declare class Driver {
    * @param { number } y The y-coordinate.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - if the input parameters are invalid.
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @since 10
@@ -4315,7 +4409,7 @@ declare class Driver {
    * @param { int } y - the y-coordinate, not less than 0.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
@@ -4332,7 +4426,7 @@ declare class Driver {
    * @param { number } y The y-coordinate.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - if the input parameters are invalid.
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @since 9
    * @test
@@ -4344,7 +4438,7 @@ declare class Driver {
    * @param { number } y The y-coordinate.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - if the input parameters are invalid.
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @since 10
@@ -4357,7 +4451,7 @@ declare class Driver {
    * @param { int } y - the y-coordinate, not less than 0.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
@@ -4377,7 +4471,7 @@ declare class Driver {
    * @param { number } speed The speed of swipe (pixels per second),default is 600,the value ranges from 200 to 40000,set it 600 if out of range.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - if the input parameters are invalid.
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @since 9
    * @test
@@ -4392,7 +4486,7 @@ declare class Driver {
    * @param { number } speed The speed of swipe (pixels per second),default is 600,the value ranges from 200 to 40000,set it 600 if out of range.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - if the input parameters are invalid.
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @since 10
@@ -4405,10 +4499,12 @@ declare class Driver {
    * @param { int } starty - the y-coordinate of the starting point, not less than 0.
    * @param { int } endx - the x-coordinate of the ending point, not less than 0.
    * @param { int } endy - the y-coordinate of the ending point, not less than 0.
-   * @param { int } [speed] - the speed of swipe(pixels per second),ranges from 200 to 40000. Set it default 600 if out of range or null or undefined.
+   * @param { int } [speed]  The speed ranges from 200 to 40000(pixels per second).
+   *                          Set it default 600 if out of range or null or undefined.
+   *                          Throws error code 401 if negative.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
@@ -4428,7 +4524,7 @@ declare class Driver {
    * @param { number } speed The speed of swipe (pixels per second),default is 600,the value ranges from 200 to 40000,set it 600 if out of range.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - if the input parameters are invalid.
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @since 9
    * @test
@@ -4440,10 +4536,11 @@ declare class Driver {
    * @param { int } starty - the y-coordinate of the starting point, not less than 0.
    * @param { int } endx - the x-coordinate of the ending point, not less than 0.
    * @param { int } endy - the y-coordinate of the ending point, not less than 0.
-   * @param { int } [speed] the speed of drag(pixels per second),ranges from 200 to 40000. Set it default 600 if out of range or null or undefined.
+   * @param { int } [speed] - The speed ranges from 200 to 40000(pixels per second).
+   *                          Set it default 600 if out of range or null or undefined.
+   *                          Throws error code 401 if negative.
    * @returns { Promise<void> }
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
    * @since 11 dynamic
@@ -4457,7 +4554,7 @@ declare class Driver {
    *
    * @param { Point } point - the coordinate point where the finger touches the screen.
    * @returns { Promise<void> }
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
@@ -4468,11 +4565,30 @@ declare class Driver {
   clickAt(point: Point): Promise<void>;
 
   /**
+   * Click on the specified location on the screen, with optional touch options.
+   *
+   * @param { Point } point - the coordinate point where the finger touches the screen.
+   * @param { TouchOptions } [options] - the options for the click operation.
+   *                                     Only the 'pressure' property is applicable for this method.
+   *                                     Setting other properties will result in a BusinessError 17000007.
+   *                                     Default value: Refer to the default value of TouchOptions.
+   * @returns { Promise<void> }
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
+   * @throws { BusinessError } 17000007 - Parameter verification failed.
+   * @syscap SystemCapability.Test.UiTest
+   * @FaAndStageModel
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   * @test
+   */
+  clickAt(point: Point, options?: TouchOptions): Promise<void>;
+
+  /**
    * DoubleClick on the specified location on the screen.
    *
    * @param { Point } point - the coordinate point where the finger touches the screen.
    * @returns { Promise<void> }
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
@@ -4488,7 +4604,7 @@ declare class Driver {
    * @param { Point } point - the coordinate point where the finger touches the screen.
    * @param { int } [duration] - duration of longClick in millisecond, the minimum and default are 1500.
    * @returns { Promise<void> }
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
@@ -4497,16 +4613,36 @@ declare class Driver {
    * @test
    */
   longClickAt(point: Point, duration?: int): Promise<void>;
+
+  /**
+   * LongClick on the specified location on the screen, with optional touch settings.
+   *
+   * @param { Point } point - the coordinate point where the finger touches the screen.
+   * @param { TouchOptions } [options] - the options for the long click operation. 
+   *                                     Only the 'duration' and 'pressure' properties are applicable for this method.
+   *                                     Setting other properties will result in a BusinessError 17000007.
+   *                                     Default value: Refer to the default value of TouchOptions.
+   * @returns { Promise<void> }
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
+   * @throws { BusinessError } 17000007 - Parameter verification failed.
+   * @syscap SystemCapability.Test.UiTest
+   * @FaAndStageModel
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   * @test
+   */
+  longClickAt(point: Point, options?: TouchOptions): Promise<void>;
   
   /**
    * Swipe on the screen between the specified points.
    *
    * @param { Point } from - the coordinate point where the finger touches the screen.
    * @param { Point } to - the coordinate point where the finger leaves the screen.
-   * @param { int } [speed] - speed of swipe(pixels per second),the value ranges from 200 to 40000.
-   *                          Set it default 600 if out out of range or null or undefined.
+   * @param { int } [speed] - The speed ranges from 200 to 40000(pixels per second).
+   *                          Set it default 600 if out of range or null or undefined.
+   *                          Throws error code 17000007 if negative.
    * @returns { Promise<void> }
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
@@ -4517,16 +4653,37 @@ declare class Driver {
   swipeBetween(from: Point, to: Point, speed?: int): Promise<void>;
 
   /**
+   * Swipe on the screen between the specified points with optional touch options.
+   *
+   * @param { Point } from - the coordinate point where the finger touches the screen.
+   * @param { Point } to - the coordinate point where the finger leaves the screen.
+   * @param { TouchOptions } [options] - the options for the swipe operation.
+   *                                     Only the 'speed' and 'pressure' properties are applicable for this method.
+   *                                     Setting other properties will result in a BusinessError 17000007.
+   *                                     Default value: Refer to the default value of TouchOptions.
+   * @returns { Promise<void> }
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
+   * @throws { BusinessError } 17000007 - Parameter verification failed.
+   * @syscap SystemCapability.Test.UiTest
+   * @FaAndStageModel
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   * @test
+   */
+  swipeBetween(from: Point, to: Point, options?: TouchOptions): Promise<void>;
+
+  /**
    * Drag on the screen between the specified points.
    *
    * @param { Point } from - the coordinate point where the finger touches the screen.
    * @param { Point } to - the coordinate point where the finger leaves the screen.
-   * @param { int } [speed] - speed of drag(pixels per second),the value ranges from 200 to 40000.
-   *                          Set it default 600 if out out of range or null or undefined.   
+   * @param { int } [speed] - The speed ranges from 200 to 40000(pixels per second).
+   *                          Set it default 600 if out of range or null or undefined.
+   *                          Throws error code 17000007 if negative.
    * @param { int } [duration] - duration of longClick before drag in millisecond,
    *                             the minimum and default values are 1500.
    * @returns { Promise<void> }
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
@@ -4537,12 +4694,32 @@ declare class Driver {
   dragBetween(from: Point, to: Point, speed?: int, duration?: int): Promise<void>;
 
   /**
+   * Drag on the screen between the specified points with optional touch options.
+   *
+   * @param { Point } from - the coordinate point where the finger touches the screen.
+   * @param { Point } to - the coordinate point where the finger leaves the screen.
+   * @param { TouchOptions } [options] - the options for the drag operation.
+   *                                     Only the 'pressure', 'speed', and 'duration' properties are applicable for this method.
+   *                                     Setting other properties will result in a BusinessError 17000007.
+   *                                     Default value: Refer to the default value of TouchOptions.
+   * @returns { Promise<void> }
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
+   * @throws { BusinessError } 17000007 - Parameter verification failed.
+   * @syscap SystemCapability.Test.UiTest
+   * @FaAndStageModel
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   * @test
+   */
+  dragBetween(from: Point, to: Point, options?: TouchOptions): Promise<void>;
+
+  /**
    * Capture current screen and save as picture which PNG format.
    *
    * @param { string } savePath the path where to store the picture.
    * @returns { Promise<boolean> } true if screen-capturing and file-storing are completed successfully,false otherwise.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @since 9
    * @test
@@ -4553,7 +4730,7 @@ declare class Driver {
    * @param { string } savePath - the path where to store the picture, must be in the application sandbox directory.
    * @returns { Promise<boolean> } true if screen-capturing and file-storing are completed successfully,false otherwise.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
    * @since 11 dynamic
@@ -4569,7 +4746,7 @@ declare class Driver {
    * @param { int } displayId - the Id of the specified display.
    * @returns { Promise<boolean> } true if screen-capturing and file-storing are completed successfully,false otherwise.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
    * @since 20 dynamic
@@ -4579,12 +4756,27 @@ declare class Driver {
   screenCap(savePath: string, displayId: int): Promise<boolean>;
 
   /**
+   * Get the current layout information and save as file with json format.
+   * @param { string } savePath - the path where to store the json, must be in the application sandbox directory.
+   * @param { int } [displayId] - the Id of the specified display, default is the displayId of the main screen.
+   * @returns { Promise<boolean> } true if screen-capturing and file-storing are completed successfully,false otherwise.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
+   * @throws { BusinessError } 17000007 - Parameter verification failed.
+   * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   * @test
+   */
+  dumpLayout(savePath: string, displayId?: int): Promise<boolean>;
+
+
+  /**
    * Set the rotation of the device display.
    *
    * @param { DisplayRotation } rotation The target rotation to set.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - if the input parameters are invalid.
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @since 9
    * @test
@@ -4595,7 +4787,7 @@ declare class Driver {
    * @param { DisplayRotation } rotation - the target rotation to set.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
    * @since 11 dynamic
@@ -4608,7 +4800,7 @@ declare class Driver {
    * Get the rotation of the device display.
    *
    * @returns { Promise<DisplayRotation> } the current display rotation.
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @since 9
    * @test
@@ -4617,7 +4809,7 @@ declare class Driver {
    * Get the rotation of the device display.
    *
    * @returns { Promise<DisplayRotation> } the current display rotation.
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
    * @since 11 dynamic
@@ -4631,7 +4823,7 @@ declare class Driver {
    *
    * @param { int } displayId - the Id of the specified display.
    * @returns { Promise<DisplayRotation> } the current display rotation.
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
@@ -4647,7 +4839,7 @@ declare class Driver {
    * @param { boolean } enabled Enable the rotation or not.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - if the input parameters are invalid.
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @since 9
    * @test
@@ -4658,7 +4850,7 @@ declare class Driver {
    * @param { boolean } enabled - enable the rotation or not.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
    * @since 11 dynamic
@@ -4671,7 +4863,7 @@ declare class Driver {
    * Get the size of the device display.
    *
    * @returns { Promise<Point> } the size of the device display.
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @since 9
    * @test
@@ -4680,7 +4872,7 @@ declare class Driver {
    * Get the size of the device display.
    *
    * @returns { Promise<Point> } the size of the device display.
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
    * @since 11 dynamic
@@ -4694,7 +4886,7 @@ declare class Driver {
    *
    * @param { int } displayId - the Id of the specified display.
    * @returns { Promise<Point> } the size of the device display.
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
@@ -4708,7 +4900,7 @@ declare class Driver {
    * Get the density of the device display.
    *
    * @returns { Promise<Point> } the density of the device display.
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @since 9
    * @test
@@ -4717,7 +4909,7 @@ declare class Driver {
    * Get the density of the device display.
    *
    * @returns { Promise<Point> } the density of the device display.
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
    * @since 11 dynamic
@@ -4731,7 +4923,7 @@ declare class Driver {
    *
    * @param { int } displayId - the Id of the specified display.
    * @returns { Promise<Point> } the density of the device display.
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
@@ -4745,7 +4937,7 @@ declare class Driver {
    * Wake up the device display.
    *
    * @returns { Promise<void> }
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @since 9
    * @test
@@ -4754,7 +4946,7 @@ declare class Driver {
    * Wake up the device display.
    *
    * @returns { Promise<void> }
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
    * @since 11 dynamic
@@ -4767,7 +4959,7 @@ declare class Driver {
    * Press the home key.
    *
    * @returns { Promise<void> }
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @since 9
    * @test
@@ -4776,7 +4968,7 @@ declare class Driver {
    * Press the home key.
    *
    * @returns { Promise<void> }
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
    * @since 11 dynamic
@@ -4790,7 +4982,7 @@ declare class Driver {
    *
    * @param { int } displayId - the Id of the specified display.
    * @returns { Promise<void> }
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
@@ -4807,7 +4999,7 @@ declare class Driver {
    * @param { number } timeout The maximum time to wait for idle, in millisecond.
    * @returns { Promise<boolean> } true if wait for idle succeed in the timeout, false otherwise.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @since 9
    * @test
@@ -4819,7 +5011,7 @@ declare class Driver {
    * @param { int } timeout - the maximum time to wait for idle, in millisecond, not less than 0.
    * @returns { Promise<boolean> } true if wait for idle succeed in the timeout, false otherwise.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
    * @since 11 dynamic
@@ -4837,7 +5029,7 @@ declare class Driver {
    * @param { number } speed The speed of fling (pixels per second),default is 600,the value ranges from 200 to 40000,set it 600 if out of range.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - if the input parameters are invalid.
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @since 9
    * @test
@@ -4851,7 +5043,7 @@ declare class Driver {
    * @param { number } speed The speed of fling (pixels per second),default is 600,the value ranges from 200 to 40000,set it 600 if out of range.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - if the input parameters are invalid.
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @since 10
@@ -4863,10 +5055,11 @@ declare class Driver {
    * @param { Point } from - the coordinate point where the finger touches the screen.
    * @param { Point } to - the coordinate point where the finger leaves the screen.
    * @param { int } stepLen - the length of each step, in pixels.
-   * @param { int } [speed] - the speed of fling(pixels per second),ranges from 200 to 40000. Set it default 600 if out of range or null or undefined.
+   * @param { int } speed - The speed ranges from 200 to 40000(pixels per second).
+   *                          Set it default 600 if out of range. Throws error code 401 if negative.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
@@ -4883,7 +5076,7 @@ declare class Driver {
    * @param { number } speed The speed of swipe (pixels per second),default is 600,the value ranges from 200 to 40000,set it 600 if out of range.
    * @returns { Promise<boolean> } true if the operation finished, false
    * @throws { BusinessError } 401 - if the input parameters are invalid.
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @since 9
    * @test
@@ -4892,10 +5085,12 @@ declare class Driver {
    * Inject multi-pointer action on the device display.
    *
    * @param { PointerMatrix } pointers - the two-dimensional array of pointers to inject.
-   * @param { int } [speed] - the speed of swipe(pixels per second),ranges from 200 to 40000. Set it default 600 if out of range or null or undefined.
+   * @param { int } [speed] - The speed ranges from 200 to 40000(pixels per second).
+   *                          Set it default 600 if out of range or null or undefined.
+   *                          Throws error code 401 if negative.
    * @returns { Promise<boolean> } true if the operation finished, false
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
@@ -4912,7 +5107,7 @@ declare class Driver {
    * @param { number } speed The speed of fling (pixels per second),default is 600,the value ranges from 200 to 40000,set it 600 if out of range.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - if the input parameters are invalid.
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @since 10
    * @test
@@ -4924,7 +5119,7 @@ declare class Driver {
    * @param { number } speed - the speed of fling (pixels per second),default is 600,the value ranges from 200 to 40000,set it 600 if out of range.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
    * @since 11
@@ -4934,10 +5129,11 @@ declare class Driver {
    * Inject fling on the device display.
    *
    * @param { UiDirection } direction - the direction of this action.
-   * @param { int } speed - the speed of fling (pixels per second),default is 600,the value ranges from 200 to 40000,set it 600 if out of range.
+   * @param { int } speed - The speed ranges from 200 to 40000(pixels per second).
+   *                        Set it default 600 if out of range. Throws error code 401 if negative.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
@@ -4951,11 +5147,12 @@ declare class Driver {
    * Inject fling on the specified device display.
    *
    * @param { UiDirection } direction - the direction of this action.
-   * @param { int } speed - the speed of fling (pixels per second),default is 600,the value ranges from 200 to 40000,set it 600 if out of range.
+   * @param { int } speed - The speed ranges from 200 to 40000(pixels per second).
+   *                        Set it default 600 if out of range. Throws error code 401 if negative.
    * @param { int } displayId - the Id of the specified display.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
    * @since 20 dynamic
@@ -4973,7 +5170,7 @@ declare class Driver {
    * @param { number } key2 the second keyCode.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - if the input parameters are invalid.
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @since 10
    * @test
@@ -4987,7 +5184,7 @@ declare class Driver {
    * @param { int } [key2] - the second keyCode,set it default 0 if null or undefined.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
    * @since 11 dynamic
@@ -5002,7 +5199,7 @@ declare class Driver {
    * @param { Point } p The coordinate of the specified location.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - if the input parameters are invalid.
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @since 10
    * @test
@@ -5013,7 +5210,7 @@ declare class Driver {
    * @param { Point } p - the coordinate of the specified location.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
    * @since 11 dynamic
@@ -5032,7 +5229,7 @@ declare class Driver {
    * @param { number } key2 the second keyCode.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - if the input parameters are invalid.
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @since 10
    * @test
@@ -5047,7 +5244,7 @@ declare class Driver {
    * @param { number } [key2] - the second keyCode,set it default 0 if null or undefined.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
    * @since 11 dynamic
@@ -5063,10 +5260,12 @@ declare class Driver {
    * @param { int } d - the number of cells that the mouse wheel scrolls, each cell will make the target point shift 120 pixels.
    * @param { int } [key1] - the first keyCode,set it default 0 if null or undefined.
    * @param { int } [key2] - the second keyCode,set it default 0 if null or undefined.
-   * @param { int } [speed] - The Speed of mouse wheel rolls(cells per second),ranges from 1 to 500.Set it default 20 if out of range or null or undefined.
+   * @param { int } [speed] - The speed ranges from 1 to 500(cells per second).
+   *                          Set it default 20 if out of range or null or undefined.
+   *                          Throws error code 401 if negative.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
    * @since 11 dynamic
@@ -5082,7 +5281,7 @@ declare class Driver {
    * @param { Rect } rect The specified area of current screen, default to full screen.
    * @returns { Promise<boolean> } true if screen-capturing and file-storing are completed successfully,false otherwise.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @since 10
    * @test
@@ -5094,7 +5293,7 @@ declare class Driver {
    * @param { Rect } [rect] - the specified area of current screen, default to full screen.Set it default if null or undefined.
    * @returns { Promise<boolean> } true if screen-capturing and file-storing are completed successfully,false otherwise.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
    * @since 11 dynamic
@@ -5107,7 +5306,7 @@ declare class Driver {
    * Create an {@link UIEventObserver} object.
    *
    * @returns { UIEventObserver } the {@link UIEventObserver} object.
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @since 10
    * @test
@@ -5116,7 +5315,7 @@ declare class Driver {
    * Create an {@link UIEventObserver} object.
    *
    * @returns { UIEventObserver } the {@link UIEventObserver} object.
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
    * @since 11 dynamic
@@ -5134,7 +5333,7 @@ declare class Driver {
    * @param { int } [key2] - the second keyCode,set it default 0 if null or undefined.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
    * @since 11 dynamic
@@ -5152,7 +5351,7 @@ declare class Driver {
    * @param { number } [key2] - the second keyCode,set it default 0 if null or undefined.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
    * @since 11 dynamic
@@ -5170,7 +5369,7 @@ declare class Driver {
    * @param { int } [duration] - duration of mouse longClick in millisecond, the minimum and default are 1500.   
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
    * @since 20 dynamic
@@ -5184,10 +5383,12 @@ declare class Driver {
    *
    * @param { Point } from - the starting point.
    * @param { Point } to - the ending point.
-   * @param { int } [speed] - speed of swipe (pixels per second),the value ranges from 200 to 40000.Set it default 600 if out of range or null or undefined.
+   * @param { int } [speed] - The speed ranges from 200 to 40000(pixels per second).
+   *                          Set it default 600 if out of range or null or undefined.
+   *                          Throws error code 401 if negative.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
    * @since 11 dynamic
@@ -5201,10 +5402,12 @@ declare class Driver {
    *
    * @param { Point } from - the starting point.
    * @param { Point } to - the ending point.
-   * @param { number } [speed] - speed of drag (pixels per second),the value ranges from 200 to 40000,Set it default 600 if out of range or null or undefined.
+   * @param { int } [speed] - The speed ranges from 200 to 40000(pixels per second).
+   *                          Set it default 600 if out of range or null or undefined.
+   *                          Throws error code 401 if negative.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
    * @since 11 dynamic
@@ -5217,12 +5420,13 @@ declare class Driver {
    *
    * @param { Point } from - the starting point.
    * @param { Point } to - the ending point.
-   * @param { int } [speed] - speed of drag (pixels per second),the value ranges from 200 to 40000,
+   * @param { int } [speed] - The speed ranges from 200 to 40000(pixels per second).
    *                          Set it default 600 if out of range or null or undefined.
+   *                          Throws error code 401 if negative.
    * @param { int } [duration] - duration of longClick before drag in millisecond, the minimum and default are 1500.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
    * @since 20 dynamic
@@ -5232,13 +5436,38 @@ declare class Driver {
   mouseDrag(from: Point, to: Point, speed?: int, duration?: int): Promise<void>;
 
   /**
+   * Holds down the left mouse button and drag on the screen between the specified points,
+   * with optional touch and key settings.
+   * 
+   * Note: touchOptions only supports speed and duration properties. Using other properties will result in error 17000007.
+   *
+   * @param { Point } from - the starting point.
+   * @param { Point } to - the ending point.
+   * @param {TouchOptions} [touchOptions] - the touch options for speed and duration settings.
+   *                                        Only 'speed' and 'duration' properties are valid in this method.
+   *                                        Setting other properties will cause BusinessError 17000007.
+   *                                        Default value: Refer to the default value of TouchOptions.
+   * @param {KeyOptions} [keyOptions] - the Key options for key codes to press during drag.
+   *                                    Default value: Refer to the default value of KeyOptions.
+   * @returns { Promise<void> }
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
+   * @throws { BusinessError } 17000007 - Parameter verification failed.
+   * @syscap SystemCapability.Test.UiTest
+   * @FaAndStageModel
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   * @test
+   */
+  mouseDrag(from: Point, to: Point, touchOptions?: TouchOptions, keyOptions?: KeyOptions): Promise<void>;
+
+  /**
    * Inject text on the specified location.
    *
    * @param { Point } p - the coordinate of the specified location.
    * @param { string } text - the text to inject.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
    * @since 11 dynamic
@@ -5256,7 +5485,7 @@ declare class Driver {
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not support, function can not work correctly due to limited device capabilities.
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
    * @since 20 dynamic
@@ -5272,7 +5501,7 @@ declare class Driver {
    * @param { TouchPadSwipeOptions } [options] Additional options touchpad multi-finger swipe gestures, set its parameters to default values if null or undefined.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 17000002 The async function is not called with await.
+   * @throws { BusinessError } 17000002 The API does not support concurrent calls.
    * @throws { BusinessError } 17000005 This operation is not supported.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
@@ -5287,7 +5516,7 @@ declare class Driver {
    * @param { Point } point Coordinate of the specified location.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 17000002 The async function is not called with await.
+   * @throws { BusinessError } 17000002 The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
    * @since 18 dynamic
@@ -5302,7 +5531,7 @@ declare class Driver {
    * @param { double } [pressure] Pressure of pen long click operation, default is 1.0, the value ranges from 0.0 to 1.0.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 17000002 The async function is not called with await.
+   * @throws { BusinessError } 17000002 The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
    * @since 18 dynamic
@@ -5316,7 +5545,7 @@ declare class Driver {
    * @param { Point } point Coordinate of the specified location.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 17000002 The async function is not called with await.
+   * @throws { BusinessError } 17000002 The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
    * @since 18 dynamic
@@ -5329,11 +5558,13 @@ declare class Driver {
    * Simulate pen swipe operation.
    * @param { Point } startPoint Coordinate of the specified location.
    * @param { Point } endPoint Coordinate of the specified location.
-   * @param { int } [speed] Speed(pixels per second) of pen swipe, default is 600,the value ranges from 200 to 40000,set it 600 if out of range.
+   * @param { int } [speed] - The speed ranges from 200 to 40000(pixels per second).
+   *                          Set it default 600 if out of range or null or undefined.
+   *                          Throws error code 401 if negative.
    * @param { double } [pressure] Pressure of pen swipe operation, default is 1.0, the value ranges from 0.0 to 1.0.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 17000002 The async function is not called with await.
+   * @throws { BusinessError } 17000002 The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
    * @since 18 dynamic
@@ -5345,11 +5576,13 @@ declare class Driver {
   /**
    * Inject pen multi-pointer action on the device display.
    * @param { PointerMatrix } pointers The two-dimensional array of pointers to inject.
-   * @param { int } [speed] Speed(pixels per second) of inject pen pointer action, default is 600,the value ranges from 200 to 40000,set it 600 if out of range.
+   * @param { int } [speed] - The speed ranges from 200 to 40000(pixels per second).
+   *                          Set it default 600 if out of range or null or undefined.
+   *                          Throws error code 401 if negative.
    * @param { double } [pressure] Pressure of inject pen pointer action operation, default is 1.0, the value ranges from 0.0 to 1.0.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 17000002 The async function is not called with await.
+   * @throws { BusinessError } 17000002 The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
    * @since 18 dynamic
@@ -5363,11 +5596,12 @@ declare class Driver {
    *
    * @param { int } d The number of cells that watch rotates.Positive value indicate clockwise rotation,
    *                  negative value indicate counterclockwise rotation.
-   * @param { int } [speed] The speed of watch crown rotates(cells per second),ranges from 1 to 500.
-   *                        Set it default 20 if out of range or undefined or null.
+   * @param { int } [speed] - The speed ranges from 1 to 500(cells per second).
+   *                          Set it default 20 if out of range or undefined or null.
+   *                          Throws error code 17000007 if negative.
    * @returns { Promise<void> }
    * @throws { BusinessError } 801 - Capability not support, function can not work correctly due to limited device capabilities.
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
@@ -5386,7 +5620,7 @@ declare class Driver {
    * @param { int } [duration] - Duration of longClick before drag in millisecond,
    *                             the minimum and default values are 1500.
    * @returns { Promise<boolean> }
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
@@ -5402,12 +5636,13 @@ declare class Driver {
    * @param { On } on - The attribute requirements of the target {@link Component}.
    * @param { Point } from - The coordinate point where the finger touches the screen.
    * @param { Point } to - The coordinate point where the finger leaves the screen.
-   * @param { int } [speed] - Speed of drag(pixels per second), the value ranges from 200 to 40000.
-   *                          Set it default 600 if out out of range or null or undefined.   
+   * @param { int } [speed] - The speed ranges from 200 to 40000(pixels per second).
+   *                          Set it default 600 if out of range or null or undefined.
+   *                          Throws error code 17000007 if negative.
    * @param { int } [duration] - Duration of longClick before drag in millisecond,
    *                             the minimum and default values are 1500.
    * @returns { Promise<boolean> }
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
@@ -5423,10 +5658,11 @@ declare class Driver {
    * @param { On } on - The attribute requirements of the target {@link Component}.
    * @param { Point } from - The coordinate point where the finger touches the screen.
    * @param { Point } to - The coordinate point where the finger leaves the screen.
-   * @param { int } [speed] - Speed of swipe(pixels per second), the value ranges from 200 to 40000.
-   *                          Set it default 600 if out out of range or null or undefined.
+   * @param { int } [speed] - The speed ranges from 200 to 40000(pixels per second).
+   *                          Set it default 600 if out of range or null or undefined.
+   *                          Throws error code 17000007 if negative.
    * @returns { Promise<boolean> }
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
@@ -5442,10 +5678,11 @@ declare class Driver {
    * @param { UiDirection } direction - Direction of touchpad two fingers scroll.
    * @param { int } d - The number of cells for two fingers scroll on the touchpad.
    *                    Each cell will make the target point shift 120 pixels.
-   * @param { int } [speed] - The Speed of touchpad two fingers scroll(cells per second), ranges from 1 to 500.
+   * @param { int } [speed] - The speed ranges from 1 to 500(cells per second).
    *                          Set it default 20 if out of range or null or undefined.
+   *                          Throws error code 17000007 if negative.
    * @returns { Promise<void> }
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000005 - This operation is not supported.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
@@ -5463,7 +5700,7 @@ declare class Driver {
    * @param { int } times - The times of knuckle knock. The value ranges from 1 to 2,
    *                        the interval between knock is 200ms.
    * @returns { Promise<void> }
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000005 - This operation is not supported.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
@@ -5478,10 +5715,11 @@ declare class Driver {
    * Inject multi-pointer knuckle action on the device display.
    * @param { PointerMatrix } pointers - The two-dimensional array of pointers to inject.
    *                                     The number of fingers in this method can only be 1.
-   * @param { int } [speed] - The speed of swipe (pixels per second), ranges from 200 to 40000.
+   * @param { int } [speed] - The speed ranges from 200 to 40000(pixels per second).
    *                          Set it default 600 if out of range or null or undefined.
+   *                          Throws error code 17000007 if negative.
    * @returns { Promise<void> }
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000005 - This operation is not supported.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
@@ -5512,7 +5750,7 @@ declare class UiWindow {
    * Get the bundle name of this {@link UiWindow}.
    *
    * @returns { Promise<string> } the bundle name.
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - if the window is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @since 9
@@ -5522,7 +5760,7 @@ declare class UiWindow {
    * Get the bundle name of this {@link UiWindow}.
    *
    * @returns { Promise<string> } the bundle name.
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
@@ -5536,7 +5774,7 @@ declare class UiWindow {
    * Get the bounds rect of this {@link UiWindow}.
    *
    * @returns { Promise<Rect> } the bounds rect object.
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - if the window is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @since 9
@@ -5546,7 +5784,7 @@ declare class UiWindow {
    * Get the bounds rect of this {@link UiWindow}.
    *
    * @returns { Promise<Rect> } the bounds rect object.
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
@@ -5561,7 +5799,7 @@ declare class UiWindow {
    * Get the title of this {@link UiWindow}.
    *
    * @returns { Promise<string> } the title value.
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - if the window is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @since 9
@@ -5571,7 +5809,7 @@ declare class UiWindow {
    * Get the title of this {@link UiWindow}.
    *
    * @returns { Promise<string> } the title value.
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
@@ -5585,7 +5823,7 @@ declare class UiWindow {
    * Get the window mode of this {@link UiWindow}.
    *
    * @returns { Promise<WindowMode> } the {@link WindowMode} object
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - if the window is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @since 9
@@ -5595,7 +5833,7 @@ declare class UiWindow {
    * Get the window mode of this {@link UiWindow}.
    *
    * @returns { Promise<WindowMode> } the {@link WindowMode} object
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
@@ -5609,7 +5847,7 @@ declare class UiWindow {
    * Get the focused status of this {@link UiWindow}.
    *
    * @returns { Promise<boolean> } the focused status
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - if the window is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @since 9
@@ -5619,7 +5857,7 @@ declare class UiWindow {
    * Get the focused status of this {@link UiWindow}.
    *
    * @returns { Promise<boolean> } the focused status
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
@@ -5633,7 +5871,7 @@ declare class UiWindow {
    * Get the active status of this {@link UiWindow}.
    *
    * @returns { Promise<boolean> } the actived status
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - if the window is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @since 9
@@ -5643,7 +5881,7 @@ declare class UiWindow {
    * Get the active status of this {@link UiWindow}.
    *
    * @returns { Promise<boolean> } the actived status
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @since 11 dynamiconly
@@ -5657,7 +5895,7 @@ declare class UiWindow {
    * Set the focused status of this {@link UiWindow}.
    *
    * @returns { Promise<void> }
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - if the window is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @since 9
@@ -5667,7 +5905,7 @@ declare class UiWindow {
    * Set the focused status of this {@link UiWindow}.
    *
    * @returns { Promise<void> }
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
@@ -5684,7 +5922,7 @@ declare class UiWindow {
    * @param { number } y The y coordinate of destination.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - if the input parameters are invalid.
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - if the window is invisible or destroyed.
    * @throws { BusinessError } 17000005 - if the action is not supported on this window.
    * @syscap SystemCapability.Test.UiTest
@@ -5698,7 +5936,7 @@ declare class UiWindow {
    * @param { int } y - the y coordinate of destination, not less than 0.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
    * @throws { BusinessError } 17000005 - This operation is not supported.
    * @syscap SystemCapability.Test.UiTest
@@ -5717,7 +5955,7 @@ declare class UiWindow {
    * @param { ResizeDirection } direction The expected direction of the window after resizing.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - if the input parameters are invalid.
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - if the window is invisible or destroyed.
    * @throws { BusinessError } 17000005 - if the action is not supported on this window.
    * @syscap SystemCapability.Test.UiTest
@@ -5732,7 +5970,7 @@ declare class UiWindow {
    * @param { ResizeDirection } direction - the expected direction of the window after resizing.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
    * @throws { BusinessError } 17000005 - This operation is not supported.
    * @syscap SystemCapability.Test.UiTest
@@ -5747,7 +5985,7 @@ declare class UiWindow {
    * Change this {@link UiWindow} into split screen mode.
    *
    * @returns { Promise<void> }
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - if the window is invisible or destroyed.
    * @throws { BusinessError } 17000005 - if the action is not supported on this window.
    * @syscap SystemCapability.Test.UiTest
@@ -5758,7 +5996,7 @@ declare class UiWindow {
    * Change this {@link UiWindow} into split screen mode.
    *
    * @returns { Promise<void> }
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
    * @throws { BusinessError } 17000005 - This operation is not supported.
    * @syscap SystemCapability.Test.UiTest
@@ -5773,7 +6011,7 @@ declare class UiWindow {
    * Maximize this {@link UiWindow}.
    *
    * @returns { Promise<void> }
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - if the window is invisible or destroyed.
    * @throws { BusinessError } 17000005 - if the action is not supported on this window.
    * @syscap SystemCapability.Test.UiTest
@@ -5784,7 +6022,7 @@ declare class UiWindow {
    * Maximize this {@link UiWindow}.
    *
    * @returns { Promise<void> }
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
    * @throws { BusinessError } 17000005 - This operation is not supported.
    * @syscap SystemCapability.Test.UiTest
@@ -5799,7 +6037,7 @@ declare class UiWindow {
    * Minimize this {@link UiWindow}.
    *
    * @returns { Promise<void> }
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - if the window is invisible or destroyed.
    * @throws { BusinessError } 17000005 - if the action is not supported on this window.
    * @syscap SystemCapability.Test.UiTest
@@ -5810,7 +6048,7 @@ declare class UiWindow {
    * Minimize this {@link UiWindow}.
    *
    * @returns { Promise<void> }
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
    * @throws { BusinessError } 17000005 - This operation is not supported.
    * @syscap SystemCapability.Test.UiTest
@@ -5825,7 +6063,7 @@ declare class UiWindow {
    * Resume this {@link UiWindow}.
    *
    * @returns { Promise<void> }
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - if the window is invisible or destroyed.
    * @throws { BusinessError } 17000005 - if the action is not supported on this window.
    * @syscap SystemCapability.Test.UiTest
@@ -5836,7 +6074,7 @@ declare class UiWindow {
    * Resume this {@link UiWindow}.
    *
    * @returns { Promise<void> }
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
    * @throws { BusinessError } 17000005 - This operation is not supported.
    * @syscap SystemCapability.Test.UiTest
@@ -5851,7 +6089,7 @@ declare class UiWindow {
    * Close this {@link UiWindow}.
    *
    * @returns { Promise<void> }
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - if the window is invisible or destroyed.
    * @throws { BusinessError } 17000005 - if the action is not supported on this window.
    * @syscap SystemCapability.Test.UiTest
@@ -5862,7 +6100,7 @@ declare class UiWindow {
    * Close this {@link UiWindow}.
    *
    * @returns { Promise<void> }
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
    * @throws { BusinessError } 17000005 - This operation is not supported.
    * @syscap SystemCapability.Test.UiTest
@@ -5877,7 +6115,7 @@ declare class UiWindow {
    * Get the active status of this {@link UiWindow}.
    *
    * @returns { Promise<boolean> } the active status.
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
@@ -5891,7 +6129,7 @@ declare class UiWindow {
    * Get the displayId to which the window belongs.
    *
    * @returns { Promise<int> } the displayId value.
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
@@ -6289,5 +6527,7 @@ export {
   WindowChangeType,
   ComponentEventType,
   WindowChangeOptions,
-  ComponentEventOptions
+  ComponentEventOptions,
+  TouchOptions,
+  KeyOptions
 };

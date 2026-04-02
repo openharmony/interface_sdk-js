@@ -38,12 +38,13 @@ import { ComponentContent, FrameNode, Frame } from '@ohos.arkui.node';
 import { ComponentContentBase } from 'arkui.ComponentContent';
 import { AnimatorOptions, AnimatorResult } from './@ohos.animator';
 import { ClickEvent, ExpectedFrameRateRange, DragItemInfo, AnimateParam, KeyframeAnimateParam, KeyframeState,
-  SheetOptions, PopupCommonOptions, MenuOptions, KeyEvent,
+  SheetOptions, PopupCommonOptions, MenuOptions, KeyEvent, MouseEvent, TouchEvent,
   ContentCoverOptions } from '@ohos.arkui.component';
+import { InputEventMonitor, InputEventListener } from '@ohos.arkui.component';
 import { CustomBuilder, CustomBuilderT } from '@ohos.arkui.component';
 import { GestureEvent, GestureRecognizer } from '@ohos.arkui.component';
 import { ResourceStr, SizeOptions, VoidCallback } from '@ohos.arkui.component';
-import { Nullable, Color, FontStyle, WidthBreakpoint, HeightBreakpoint, PixelRoundMode } from '@ohos.arkui.component';
+import { Nullable, Color, FontStyle, WidthBreakpoint, HeightBreakpoint, PixelRoundMode, RawInputEventType } from '@ohos.arkui.component';
 import { TimePickerDialogOptions } from '@ohos.arkui.component';
 import { AlertDialogParamWithConfirm, AlertDialogParamWithButtons, AlertDialogParamWithOptions } from '@ohos.arkui.component';
 import { ActionSheetOptions } from '@ohos.arkui.component';
@@ -2826,6 +2827,16 @@ export declare class ComponentSnapshot {
    */
   getWithRange(start: NodeIdentity, end: NodeIdentity, isStartRect: boolean,
     options?: componentSnapshot.SnapshotOptions): Promise<image.PixelMap> | null;
+
+  /**
+   * Query the size limitation for taking a component snapshot.
+   *
+   * @returns { componentSnapshot.SnapshotSizeLimitation } The size limitation for taking a component snapshot.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  getSizeLimitation(): componentSnapshot.SnapshotSizeLimitation;
 }
 
 /**
@@ -2913,6 +2924,12 @@ export declare class ResolvedUIContext extends UIContext {
  * @since 23 static
  */
 export declare class UIContext {
+  /**
+   * UIContext constructor
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 24 static
+   */
+  constructor();
 
   /**
    * Gets the UIContext associated with the current calling scope.
@@ -3376,6 +3393,87 @@ export declare class UIContext {
   getCursorController(): CursorController;
 
   /**
+   * Registers a local input event monitor.
+   *
+   * Parameters:
+   * - eventMask: Event type mask, specifying the types of events to monitor through bitwise operations.
+   * - listener: Event listener callback function.
+   *
+   * Returns:
+   * - InputEventMonitor: Unique identifier object for the monitor, used for subsequent cancellation of registration.
+   *
+   * **Performance Warning**: Do not perform time-consuming operations in the callback!
+   *
+   * **Naming Notes**: The "Local" in the interface name indicates that the monitor is only valid within the current UIContext (i.e., the current window),
+   * and does not affect other UIContext instances. Each UIContext maintains its own independent list of monitors.
+   *
+   * **Monitor Object Notes**:
+   * - The returned Monitor object is a unique identifier created by the system.
+   * - Developers cannot actively construct or forge this object.
+   * - Must save the returned object reference for subsequent cancellation.
+   * - It is recommended to use a variable to save it to avoid losing the reference.
+   *
+   * **Usage Examples**:
+   * ```typescript
+   * // Monitor a single event type
+   * const monitor1 = uiContext.addLocalInputEventMonitor(
+   *   InputEventSubTypeMask.LEFT_MOUSE_DOWN,
+   *   (wrapper: RawInputEventWrapper) => {
+   *     if (wrapper.isMouseEvent()) {
+   *       const mouseEvent = wrapper.asMouseEvent();
+   *       console.log(`Mouse: (${mouseEvent.windowX}, ${mouseEvent.windowY})`);
+   *       return { action: InputEventInterceptAction.CONTINUE };  // Allow event to continue
+   *     }
+   *     return { action: InputEventInterceptAction.BLOCK };  // Block event
+   *   }
+   * );
+   *
+   * // Monitor multiple event types (using bitwise operations)
+   * const monitor2 = uiContext.addLocalInputEventMonitor(
+   *   InputEventSubTypeMask.LEFT_MOUSE_DOWN | InputEventSubTypeMask.RIGHT_MOUSE_DOWN,
+   *   (wrapper: RawInputEventWrapper) => {
+   *     if (wrapper.isMouseEvent()) {
+   *       const mouseEvent = wrapper.asMouseEvent()!;
+   *       console.log(`Mouse button: ${mouseEvent.button}`);
+   *       return { action: InputEventInterceptAction.BLOCK };
+   *     }
+   *     return { action: InputEventInterceptAction.CONTINUE };
+   *   }
+   * );
+   *
+   * // When unregistering the monitor, use the returned Monitor object
+   * uiContext.removeLocalInputEventMonitor(monitor1);
+   * uiContext.removeLocalInputEventMonitor(monitor2);
+   * ```
+   *
+   * @param { number } eventMask - Event type mask, specifying the types of events to monitor through bitwise operations.
+   * @param { InputEventListener } listener - Event listener callback function.
+   * @returns { InputEventMonitor } Unique identifier object for the monitor, used for subsequent cancellation of registration.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  addLocalInputEventMonitor(eventMask: number, listener: InputEventListener): InputEventMonitor;
+
+  /**
+   * Removes a local input event monitor.
+   *
+   * Parameters:
+   * - monitor: Monitor identifier object (returned by addLocalInputEventMonitor).
+   *
+   * **Important Notes**:
+   * - Only Monitor objects returned by addLocalInputEventMonitor can be removed.
+   * - Cannot unregister a monitor by manually constructing an object.
+   * - If an invalid object is passed, the system silently ignores it.
+   *
+   * @param { InputEventMonitor } monitor - Monitor identifier object (returned by addLocalInputEventMonitor).
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  removeLocalInputEventMonitor(monitor: InputEventMonitor): void;
+
+  /**
    * Get object context menu controller.
    *
    * @returns { ContextMenuController } object context menu controller.
@@ -3800,6 +3898,17 @@ export declare class UIContext {
    * @since 24 static
    */
   isEasySplit(): boolean;
+
+  /**
+   * Whether to enable or disable event passthrough.
+   *
+   * @param { boolean | undefined } enabled - enable or disable event passthrough. The default value is false.
+   * @param { RawInputEventType } eventType - the type of raw input event.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  enableEventPassthrough(enabled: boolean | undefined, eventType: RawInputEventType): void;
 }
 
 /**

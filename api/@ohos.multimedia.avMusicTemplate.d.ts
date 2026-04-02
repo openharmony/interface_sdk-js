@@ -1216,7 +1216,7 @@ declare namespace avMusicTemplate {
      * @throws { BusinessError } 801 - Capability not supported.function setUserInfo
      *     can not work correctly due to limited device capabilities.
      * @throws { BusinessError } 35000005 - AVMusicTemplate does not exist.
-     * @throws { BusinessError } 35000011 - Thr data write error, data is invalid.
+     * @throws { BusinessError } 35000011 - The data write error, data is invalid.
      * @syscap SystemCapability.Multimedia.AVSession.AVMusicTemplate
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -1232,7 +1232,7 @@ declare namespace avMusicTemplate {
      * @throws { BusinessError } 801 - Capability not supported.function setDialogCommand
      *     can not work correctly due to limited device capabilities.
      * @throws { BusinessError } 35000005 - AVMusicTemplate does not exist.
-     * @throws { BusinessError } 35000011 - Thr data write error, data is invalid.
+     * @throws { BusinessError } 35000011 - The data write error, data is invalid.
      * @syscap SystemCapability.Multimedia.AVSession.AVMusicTemplate
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -1247,7 +1247,7 @@ declare namespace avMusicTemplate {
      * @throws { BusinessError } 801 - Capability not supported.function setCurrentSingle
      *     can not work correctly due to limited device capabilities.
      * @throws { BusinessError } 35000005 - AVMusicTemplate does not exist.
-     * @throws { BusinessError } 35000011 - Thr data write error, data is invalid.
+     * @throws { BusinessError } 35000011 - The data write error, data is invalid.
      * @syscap SystemCapability.Multimedia.AVSession.AVMusicTemplate
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -1262,7 +1262,7 @@ declare namespace avMusicTemplate {
      * @throws { BusinessError } 801 - Capability not supported.function setMediaEntities
      *     can not work correctly due to limited device capabilities.
      * @throws { BusinessError } 35000005 - AVMusicTemplate does not exist.
-     * @throws { BusinessError } 35000011 - Thr data write error, data is invalid.
+     * @throws { BusinessError } 35000011 - The data write error, data is invalid.
      * @syscap SystemCapability.Multimedia.AVSession.AVMusicTemplate
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -1278,7 +1278,7 @@ declare namespace avMusicTemplate {
      * @throws { BusinessError } 801 - Capability not supported.function setTabContent
      *     can not work correctly due to limited device capabilities.
      * @throws { BusinessError } 35000005 - AVMusicTemplate does not exist.
-     * @throws { BusinessError } 35000011 - Thr data write error, data is invalid.
+     * @throws { BusinessError } 35000011 - The data write error, data is invalid.
      * @syscap SystemCapability.Multimedia.AVSession.AVMusicTemplate
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -1293,7 +1293,7 @@ declare namespace avMusicTemplate {
      * @throws { BusinessError } 801 - Capability not supported.function setPlaylist
      *     can not work correctly due to limited device capabilities.
      * @throws { BusinessError } 35000005 - AVMusicTemplate does not exist.
-     * @throws { BusinessError } 35000011 - Thr data write error, data is invalid.
+     * @throws { BusinessError } 35000011 - The data write error, data is invalid.
      * @syscap SystemCapability.Multimedia.AVSession.AVMusicTemplate
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -1308,7 +1308,7 @@ declare namespace avMusicTemplate {
      * @throws { BusinessError } 801 - Capability not supported.function setDownloadMediaEntityStatus
      *     can not work correctly due to limited device capabilities.
      * @throws { BusinessError } 35000005 - AVMusicTemplate does not exist.
-     * @throws { BusinessError } 35000011 - Thr data write error, data is invalid.
+     * @throws { BusinessError } 35000011 - The data write error, data is invalid.
      * @syscap SystemCapability.Multimedia.AVSession.AVMusicTemplate
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -1325,7 +1325,7 @@ declare namespace avMusicTemplate {
      * @throws { BusinessError } 801 - Capability not supported.function setCustomElements
      *     can not work correctly due to limited device capabilities.
      * @throws { BusinessError } 35000005 - AVMusicTemplate does not exist.
-     * @throws { BusinessError } 35000011 - Thr data write error, data is invalid.
+     * @throws { BusinessError } 35000011 - The data write error, data is invalid.
      * @syscap SystemCapability.Multimedia.AVSession.AVMusicTemplate
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -1341,7 +1341,7 @@ declare namespace avMusicTemplate {
      * @throws { BusinessError } 801 - Capability not supported.function setSettings
      *     can not work correctly due to limited device capabilities.
      * @throws { BusinessError } 35000005 - AVMusicTemplate does not exist.
-     * @throws { BusinessError } 35000011 - Thr data write error, data is invalid.
+     * @throws { BusinessError } 35000011 - The data write error, data is invalid.
      * @syscap SystemCapability.Multimedia.AVSession.AVMusicTemplate
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -1357,7 +1357,7 @@ declare namespace avMusicTemplate {
      * @throws { BusinessError } 801 - Capability not supported.function reportExecuteAction
      *     can not work correctly due to limited device capabilities.
      * @throws { BusinessError } 35000005 - AVMusicTemplate does not exist.
-     * @throws { BusinessError } 35000011 - Thr data write error, data is invalid.
+     * @throws { BusinessError } 35000011 - The data write error, data is invalid.
      * @syscap SystemCapability.Multimedia.AVSession.AVMusicTemplate
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -1371,7 +1371,7 @@ declare namespace avMusicTemplate {
      * @returns { Promise<void> } void promise when executed successfully
      * @throws { BusinessError } 801 - capability not supported.
      * @throws { BusinessError } 35000005 - AVMusicTemplate does not exist.
-     * @throws { BusinessError } 35000011 - Thr data write error, data is invalid.
+     * @throws { BusinessError } 35000011 - The data write error, data is invalid.
      * @syscap SystemCapability.Multimedia.AVSession.AVMusicTemplate
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -2161,7 +2161,7 @@ declare namespace avMusicTemplate {
   /**
    * Action type add & remove.
    *
-   * @typedef { add' | 'remove } ActionType
+   * @typedef { 'add' | 'remove' } ActionType
    * @syscap SystemCapability.Multimedia.AVSession.AVMusicTemplate
    * @stagemodelonly
    * @since 23 dynamic&static
@@ -2457,7 +2457,7 @@ declare namespace avMusicTemplate {
    * The definition of pagination object.
    *
    * @extends OperResult
-   * @interface Compilation
+   * @interface PageMediaEntity
    * @syscap SystemCapability.Multimedia.AVSession.AVMusicTemplate
    * @stagemodelonly
    * @since 23 dynamic&static
@@ -2870,7 +2870,7 @@ declare namespace avMusicTemplate {
   /**
    * The definition of play information.
    *
-   * @interface MediaElement
+   * @interface PlayInfo
    * @syscap SystemCapability.Multimedia.AVSession.AVMusicTemplate
    * @stagemodelonly
    * @since 23 dynamic&static
@@ -3100,7 +3100,7 @@ declare namespace avMusicTemplate {
   /**
    * The definition of User information.
    *
-   * @interface MediaElement
+   * @interface UserInfo
    * @syscap SystemCapability.Multimedia.AVSession.AVMusicTemplate
    * @stagemodelonly
    * @since 23 dynamic&static
@@ -3170,7 +3170,7 @@ declare namespace avMusicTemplate {
   /**
    * The definition of member purchase information.
    *
-   * @interface MediaElement
+   * @interface MemberPurchaseInfo
    * @syscap SystemCapability.Multimedia.AVSession.AVMusicTemplate
    * @stagemodelonly
    * @since 23 dynamic&static
@@ -4403,7 +4403,7 @@ declare namespace avMusicTemplate {
     ERR_CODE_EXCEED_MAX_DATA_SIZE = 35000010,
 
     /**
-     * Thr data write error, data is invalid.
+     * The data write error, data is invalid.
      *
      * @syscap SystemCapability.Multimedia.AVSession.AVMusicTemplate
      * @stagemodelonly

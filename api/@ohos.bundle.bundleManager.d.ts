@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2024 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -1045,6 +1045,22 @@ declare namespace bundleManager {
     PARTNER_AGENT = 36,
 
     /**
+     * Indicates extension info with type of the agent.
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    AGENT = 37,
+
+    /**
+     * Indicates extension info with type of the agent UI extension.
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    AGENT_UI = 38,
+
+    /**
      * Indicates extension info with type of unspecified
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -1917,7 +1933,17 @@ declare namespace bundleManager {
      * @since 11 dynamic
      * @since 23 static
      */
-    INTENT_PROFILE = 1
+    INTENT_PROFILE = 1,
+
+    /**
+     * Indicates the JSON profile of the cloud.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    CLOUD_PROFILE = 8,
   }
 
   /**
@@ -2905,7 +2931,7 @@ declare namespace bundleManager {
   function cleanBundleCacheFilesForSelf(): Promise<void>;
 
   /**
-   * Get the all bundle cache size of the current user.
+   * Get the all bundle cache size of the current user,the unit is bytes.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @returns { Promise<long> } Returns all bundle cache size.
@@ -4667,6 +4693,22 @@ declare namespace bundleManager {
    * @since 24 dynamic&static
    */
   function isApplicationDisableForbidden(bundleName: string, userId: int, appIndex: int): boolean;
+
+  /**
+   * Obtains the label of a specified application.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { string } bundleName - Indicates the bundle name of the application.
+   * @param { int } appIndex - Indicates the index of clone app.
+   * @returns { Promise<string> } Returns label of specified application.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700061 - The specified app index is invalid.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Resource
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function getApplicationLabel(bundleName: string, appIndex: int): Promise<string>;
 
   /**
    * Obtains configuration information about an application.

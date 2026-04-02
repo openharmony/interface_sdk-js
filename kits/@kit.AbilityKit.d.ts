@@ -121,6 +121,7 @@ import systemConfiguration from '@ohos.app.ability.systemConfiguration';
 import AgentExtensionAbility from '@ohos.app.agent.AgentExtensionAbility';
 import AgentUIExtensionAbility from '@ohos.app.agent.AgentUIExtensionAbility';
 import agentManager from '@ohos.app.agent.agentManager';
+import hyperSnapManager from '@ohos.app.ability.hyperSnapManager';
 
 export {
   Ability, AbilityConstant, AbilityLifecycleCallback, AbilityStage, ActionExtensionAbility,
@@ -142,7 +143,7 @@ export {
   InsightIntentLink, InsightIntentPage, InsightIntentFunctionMethod, InsightIntentFunction, InsightIntentEntryExecutor,
   InsightIntentEntry, LinkParamCategory, CompletionHandler, AppServiceExtensionAbility, InsightIntentForm, InsightIntentEntity, kioskManager,
   CompletionHandlerForAtomicService, CompletionHandlerForAbilityStartCallback, AbilityStartFailureCode, FailureCode, InteropAbilityLifecycleCallback,
-  systemConfiguration, AgentExtensionAbility, AgentUIExtensionAbility, agentManager
+  systemConfiguration, AgentExtensionAbility, AgentUIExtensionAbility, agentManager,hyperSnapManager
 };
 
 /*** if arkts static */
@@ -188,6 +189,7 @@ import dialogSession from '@ohos.app.ability.dialogSession';
 import insightIntent from '@ohos.app.ability.insightIntent';
 import insightIntentDriver from '@ohos.app.ability.insightIntentDriver';
 import insightIntentProvider from '@ohos.app.ability.insightIntentProvider';
+import { InsightIntentLink, InsightIntentPage, InsightIntentFunctionMethod, InsightIntentFunction, InsightIntentEntry, LinkParamCategory, LinkIntentParamMapping, InsightIntentForm } from '@ohos.app.ability.InsightIntentDecorator';
 import missionManager from '@ohos.app.ability.missionManager';
 import wantAgent, { WantAgent } from '@ohos.app.ability.wantAgent';
 import Ability from '@ohos.app.ability.Ability';
@@ -227,6 +229,7 @@ import systemConfiguration from '@ohos.app.ability.systemConfiguration';
 import AgentExtensionAbility from '@ohos.app.agent.AgentExtensionAbility';
 import AgentUIExtensionAbility from '@ohos.app.agent.AgentUIExtensionAbility';
 import agentManager from '@ohos.app.agent.agentManager';
+import hyperSnapManager from '@ohos.app.ability.hyperSnapManager';
 
 export {
   appControl, bundleManager, bundleMonitor, bundleResourceManager, defaultAppManager, distributedBundleManager,
@@ -245,6 +248,7 @@ export {
   UIServiceExtensionAbility, CompletionHandler, AppServiceExtensionAbility, kioskManager,
   CompletionHandlerForAbilityStartCallback, AbilityStartFailureCode, StartupConfig, StartupConfigEntry, StartupListener, 
   StartupTask, startupManager, systemConfiguration, PhotoEditorExtensionAbility, AgentExtensionAbility, 
-  AgentUIExtensionAbility, agentManager
+  AgentUIExtensionAbility, agentManager, InsightIntentLink, InsightIntentPage, InsightIntentFunctionMethod, InsightIntentFunction, 
+  InsightIntentEntry, LinkParamCategory, LinkIntentParamMapping, InsightIntentForm, hyperSnapManager
 };
 /*** endif */

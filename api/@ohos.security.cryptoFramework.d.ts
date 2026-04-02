@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -149,6 +149,16 @@ declare namespace cryptoFramework {
      * @since 23 static
      */
     ERR_PARAMETER_CHECK_FAILED = 17620003,
+
+    /**
+     * Indicates that invalid function call.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    ERR_INVALID_CALL = 17620004,
 
     /**
      * Indicates that crypto operation error.
@@ -601,6 +611,58 @@ declare namespace cryptoFramework {
   }
 
   /**
+   * The aead algorithm parameters.
+   * 
+   * Currently, it only supports the AES-CCM algorithm.
+   *
+   * @extends ParamsSpec
+   * @typedef AeadParamsSpec
+   * @syscap SystemCapability.Security.CryptoFramework.Cipher
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  interface AeadParamsSpec extends ParamsSpec {
+    /**
+     * The cryptographic nonce.
+     *
+     * @type { Uint8Array }
+     * @syscap SystemCapability.Security.CryptoFramework.Cipher
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    nonce: Uint8Array;
+
+    /**
+     * The Additional Authenticated Data.
+     *
+     * @type { ?Uint8Array }
+     * @syscap SystemCapability.Security.CryptoFramework.Cipher
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    authenticatedData?: Uint8Array;
+
+    /**
+     * The length of the authentication tag.
+     * 
+     * For encryption, the tag will be added to the end of the ciphertext. 
+     * For decryption, the tag should be at the end of the ciphertext.
+     *
+     * For AES-CCM, the default value is 12.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Security.CryptoFramework.Cipher
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    tagLen?: int;
+  }
+
+  /**
    * Enum for obtain the crypto operation.
    *
    * @enum { int }
@@ -777,6 +839,20 @@ declare namespace cryptoFramework {
      * @since 23 static
      */
     getEncoded(): DataBlob;
+
+    /**
+     * Get the key size, in bits.
+     *
+     * @returns { int } the key size in bits.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Key
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    getKeySize(): int;
 
     /**
      * Indicates the format of the key object.
@@ -4808,8 +4884,10 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob } data - the data need to be signed.
      * @param { AsyncCallback<void> } callback - the call back function return nothing.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -4821,8 +4899,10 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob } data - the data need to be signed.
      * @param { AsyncCallback<void> } callback - the call back function return nothing.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -4836,8 +4916,10 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob } data - the data need to be signed.
      * @param { AsyncCallback<void> } callback - the call back function return nothing.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -4846,6 +4928,25 @@ declare namespace cryptoFramework {
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
+     */
+    /**
+     * Used to append the message that needs to be signed.
+     * This API can be called only after the Sign instance is initialized by using init.
+     *
+     * @param { DataBlob } data - the data that needs to be signed.
+     * @param { AsyncCallback<void> } callback - the callback of update.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17620004 - invalid function call.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Signature
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
      */
     update(data: DataBlob, callback: AsyncCallback<void>): void;
 
@@ -4854,8 +4955,10 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob } data - the data need to be signed.
      * @returns { Promise<void> } return nothing.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -4867,8 +4970,10 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob } data - the data need to be signed.
      * @returns { Promise<void> } return nothing.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -4882,8 +4987,10 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob } data - the data need to be signed.
      * @returns { Promise<void> } return nothing.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -4893,6 +5000,25 @@ declare namespace cryptoFramework {
      * @since 12 dynamic
      * @since 23 static
      */
+    /**
+     * Used to append the message that needs to be signed.
+     * This API can be called only after the Sign instance is initialized by using init.
+     *
+     * @param { DataBlob } data - the data that needs to be signed.
+     * @returns { Promise<void> } returns nothing.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17620004 - invalid function call.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Signature
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
     update(data: DataBlob): Promise<void>;
 
     /**
@@ -4900,8 +5026,10 @@ declare namespace cryptoFramework {
      * This API can be called only after the Sign instance is initialized by using init.
      *
      * @param { DataBlob } data - the data need to be signed.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified; 
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed. 
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -4910,6 +5038,24 @@ declare namespace cryptoFramework {
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
+     */
+    /**
+     * Used to append the message that needs to be signed.
+     * This API can be called only after the Sign instance is initialized by using init.
+     *
+     * @param { DataBlob } data - the data that needs to be signed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17620004 - invalid function call.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Signature
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
      */
     updateSync(data: DataBlob): void;
 
@@ -5409,8 +5555,10 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob } data - the data need to be verified.
      * @param { AsyncCallback<void> } callback - return nothing.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -5422,8 +5570,10 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob } data - the data need to be verified.
      * @param { AsyncCallback<void> } callback - return nothing.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -5436,8 +5586,10 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob } data - the data need to be verified.
      * @param { AsyncCallback<void> } callback - return nothing.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -5446,6 +5598,24 @@ declare namespace cryptoFramework {
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
+     */
+    /**
+     * Used to append the message that needs to be verified.
+     *
+     * @param { DataBlob } data - the data that needs to be verified.
+     * @param { AsyncCallback<void> } callback - the callback of update.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17620004 - invalid function call.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Signature
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
      */
     update(data: DataBlob, callback: AsyncCallback<void>): void;
 
@@ -5454,8 +5624,10 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob } data - the data need to be verified.
      * @returns { Promise<void> } return nothing.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -5467,8 +5639,10 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob } data - the data need to be verified.
      * @returns { Promise<void> } return nothing.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -5481,8 +5655,10 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob } data - the data need to be verified.
      * @returns { Promise<void> } return nothing.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -5492,14 +5668,34 @@ declare namespace cryptoFramework {
      * @since 12 dynamic
      * @since 23 static
      */
+    /**
+     * Used to append the message that needs to be verified.
+     *
+     * @param { DataBlob } data - the data that needs to be verified.
+     * @returns { Promise<void> } returns nothing.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17620004 - invalid function call.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Signature
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
     update(data: DataBlob): Promise<void>;
 
     /**
      * Used to append the message need to be verified.
      *
      * @param { DataBlob } data - the data need to be verified.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -5508,6 +5704,23 @@ declare namespace cryptoFramework {
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
+     */
+    /**
+     * Used to append the message that needs to be verified.
+     *
+     * @param { DataBlob } data - the data that needs to be verified.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17620004 - invalid function call.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Signature
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
      */
     updateSync(data: DataBlob): void;
 
@@ -5726,8 +5939,10 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob } signatureData - the signature data.
      * @returns { Promise<DataBlob | null> } the promise used to return the recovered data.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -5737,6 +5952,25 @@ declare namespace cryptoFramework {
      * @since 12 dynamic
      * @since 23 static
      */
+    /**
+     * Used to recover signed data.
+     * Currently, only RSA is supported.
+     *
+     * @param { DataBlob } signatureData - the signature data.
+     * @returns { Promise<DataBlob | null> } the promise used to return the recovered data.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17620004 - invalid function call.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Signature
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
     recover(signatureData: DataBlob): Promise<DataBlob | null>;
 
     /**
@@ -5744,9 +5978,11 @@ declare namespace cryptoFramework {
      * Currently, only RSA is supported.
      *
      * @param { DataBlob } signatureData - the signature data.
-     * @returns { DataBlob | null } return the recovered data.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @returns { DataBlob | null } returns the recovered data.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -5755,6 +5991,25 @@ declare namespace cryptoFramework {
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
+     */
+    /**
+     * Used to recover signed data.
+     * Currently, only RSA is supported.
+     *
+     * @param { DataBlob } signatureData - the signature data.
+     * @returns { DataBlob | null } returns the recovered data.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17620004 - invalid function call.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Signature
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
      */
     recoverSync(signatureData: DataBlob): DataBlob | null;
 

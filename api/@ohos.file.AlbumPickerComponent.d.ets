@@ -110,14 +110,14 @@ export declare class AlbumPickerOptions {
   filterType?: photoAccessHelper.PhotoViewMIMETypes;
 
   /**
-   * The size of the font displayed in the album. When `fontSize` is a int type, must use 'fp' unit
+   * The size of the font displayed in the album. When `fontSize` is a number type, must use 'fp' unit
    *
-   * @type { ?(int | string) }
+   * @type { ?(number | string) }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 20 dynamic
    */
-  fontSize?: int | string;
+  fontSize?: number | string;
 }
 
 
@@ -163,10 +163,10 @@ export declare class AlbumPickerController {
   /**
    * Set font size to album picker component
    *
-   * @param { int | string } fontSize - font size of album picker component
+   * @param { number | string } fontSize - font size of album picker component
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 20 dynamic
    */
-  setFontSize(fontSize: int | string): void;
+  setFontSize(fontSize: number | string): void;
 }

@@ -233,7 +233,7 @@ interface PolylineInterface {
    * Uses new to create Polyline.
    * Anonymous Object Rectification.
    *
-   * @param { PolylineOptions } [options] - Poly line options
+   * @param { PolylineOptions } [options] - Polyline options
    * @returns { PolylineAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -290,7 +290,7 @@ interface PolylineInterface {
    * Called when using the draw fold.
    * Anonymous Object Rectification.
    *
-   * @param { PolylineOptions } [options] - Poly line options
+   * @param { PolylineOptions } [options] - Polyline options
    * @returns { PolylineAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel

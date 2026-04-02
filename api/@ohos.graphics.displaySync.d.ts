@@ -70,14 +70,14 @@ declare namespace displaySync {
   interface DisplaySync {
     /**
      * The expected frame rate of dynamical rate range.
-     * If the function isn't be called. The DisplaySync's
+     * If the function is not called. The DisplaySync's
      * minimum/maximum/expected rate default value is 60.
      * @param { ExpectedFrameRateRange } rateRange - Indicates ExpectedFrameRateRange.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 
      * <br> 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameters types.
      * <br> 3. Parameter verification failed.
-     * or check ExpectedFrameRateRange if valid.
+     * check if ExpectedFrameRateRange is valid.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 11 dynamic
      * @since 23 static
@@ -87,7 +87,7 @@ declare namespace displaySync {
     /**
      * Registers a callback with the corresponding query condition by using the handle.
      * This callback is triggered when DisplaySync dispatching.
-     * @param { 'frame' } type - The type of event to remove the listener for. Must be 'frame'.
+     * @param { 'frame' } type - The type of event to register the listener for. Must be 'frame'.
      * @param { Callback<IntervalInfo> } callback - The callback function to be called when DisplaySync dispatching.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 11 dynamic
@@ -126,7 +126,7 @@ declare namespace displaySync {
 
     /**
      * Add DisplaySync to Pipeline. It means that
-     * the callback function be enabled.
+     * the callback function will be enabled.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 11 dynamic
      * @since 23 static
@@ -135,7 +135,7 @@ declare namespace displaySync {
 
     /**
      * Delete DisplaySync from Pipeline. It means that
-     * the callback function be disabled.
+     * the callback function will be disabled.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 11 dynamic
      * @since 23 static

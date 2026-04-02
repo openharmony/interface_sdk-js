@@ -142,6 +142,7 @@ declare namespace workScheduler {
     storageRequest?: StorageRequest;
     /**
      * The interval at which the work is repeated.
+     * <br>Unit:ms
      *
      * @type { ?int }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
@@ -182,6 +183,7 @@ declare namespace workScheduler {
     isDeepIdle?: boolean;
     /**
      * The idle wait time based on which the work is triggered.
+     * <br>Unit:ms
      *
      * @type { ?int }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
@@ -202,6 +204,7 @@ declare namespace workScheduler {
     parameters?: Record<string, int | double | string | boolean>;
     /**
      * From now on, the earliest time work can be triggered.
+     * <br>Unit:ms
      *
      * @type { ?int }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler

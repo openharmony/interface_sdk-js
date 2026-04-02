@@ -2693,6 +2693,15 @@ export declare enum KeyCode {
   KEYCODE_MOUSE_INTELLIGENCE_SELECTION = 2733,
 
   /**
+   * KEYCODE_AOD_SINGLE_CLICK
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  KEYCODE_AOD_SINGLE_CLICK = 2740,
+
+  /**
    * KEYCODE_FRONT
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core

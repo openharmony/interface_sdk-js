@@ -163,7 +163,7 @@ export declare enum SwipeDirection {
      */
     Horizontal,
     /**
-     * Sliding Vertical
+     * Sliding vertically
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
@@ -2029,6 +2029,15 @@ export declare class EventTargetInfo {
      * @since 23 static
      */
     getId(): string;
+    /**
+     * Returns the component's unique id.
+     * 
+     * @returns { int } - the unique id of the component
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    getUniqueId(): int;
 }
 /**
  * Defines the touch recognizer.
@@ -2055,6 +2064,16 @@ export declare class TouchRecognizer {
      * @since 24 static
      */
     cancelTouch(): void;
+    /**
+     * Check whether the current gesture binding node is a descendant of the passed-in component.
+     *
+     * @param { int } uniqueId - the unique id of the component.
+     * @returns { boolean } - the query result.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    isHostBelongsTo(uniqueId: int): boolean;
 }
 /**
  * Defines the gesture recognizer.
@@ -2156,6 +2175,16 @@ export declare class GestureRecognizer {
      * @since 23 static
      */
     preventBegin(): void;
+    /**
+     * Check whether the current gesture binding node is a descendant of the passed-in component.
+     *
+     * @param { int } uniqueId - the unique id of the component.
+     * @returns { boolean } - the query result.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    isHostBelongsTo(uniqueId: int): boolean;
 }
 /**
  * Defines the tap gesture recognizer.

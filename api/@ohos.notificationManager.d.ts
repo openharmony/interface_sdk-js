@@ -46,6 +46,7 @@ import { NotificationParameters as _NotificationParameters } from './notificatio
 import { Geofence as _Geofence } from './notification/notificationRequest';
 import { CoordinateSystemType as _CoordinateSystemType } from './notification/notificationRequest';
 import { MonitorEvent as _MonitorEvent } from './notification/notificationRequest';
+import { GroupInfo as _GroupInfo } from './notification/notificationRequest';
 
 /*** if arkts dynamic */
 import { AsyncCallback } from './@ohos.base';
@@ -4557,6 +4558,22 @@ declare namespace notificationManager {
   function openNotificationSettings(context: UIAbilityContext): Promise<void>;
 
   /**
+   * Opens the notification settings page of the application, which is displayed in semi-modal mode and can be used to set
+   * the notification enabling and notification mode. This API uses a promise to return the result.
+   *
+   * @param { UIAbilityContext } context - Ability context bound to the notification settings page.
+   * @returns { Promise<NotificationSetting> } Returns notificationsetting of this application.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600018 - The notification settings window is already displayed.
+   * @syscap SystemCapability.Notification.NotificationSettings
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function openNotificationSettingsWithResult(context: UIAbilityContext): Promise<NotificationSetting>;
+
+  /**
    * Get do not disturb profile by id.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
@@ -5062,6 +5079,23 @@ declare namespace notificationManager {
    * @since 23 dynamic&static
    */
   function isGeofenceEnabled(): Promise<boolean>;
+
+  /**
+   * Obtains the notification statistics of the bundleOptions.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { BundleOption[] } bundles - The list of bundle option.
+   * @returns { Promise<BundleNotificationStatistics[]> } Returns the list of notificationStatistics.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 26.0.0 dynamic&static
+   */
+  function getNotificationStatisticsByBundle(bundles: BundleOption[]): Promise<BundleNotificationStatistics[]>;
 
   /**
    * Represents the state of a switch,
@@ -6445,6 +6479,66 @@ declare namespace notificationManager {
   }
 
   /**
+   * Describes a BundleNotificationStatistics instance.
+   *
+   * @typedef BundleNotificationStatistics
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 26.0.0 dynamic&static
+   */
+ 	export interface BundleNotificationStatistics {
+ 	  /**
+     * Whether the bundleOption.
+     *
+     * @type { BundleOption }
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 26.0.0 dynamic&static
+     */
+    bundle: BundleOption;
+ 	 
+    /**
+     * Whether the last notification sending time of the bundle.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 26.0.0 dynamic
+     */
+    lastTime: number;
+
+    /**
+     * Whether the last notification sending time of the bundle.
+     *
+     * @type { long }
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 26.0.0 static
+     */
+    lastTime: long;
+ 	 
+    /**
+     * Whether the count of notifications which sending by bundle.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 26.0.0 dynamic
+     */
+    recentCount: number;
+
+    /**
+     * Whether the count of notifications which sending by bundle.
+     *
+     * @type { int }
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 26.0.0 static
+     */
+    recentCount: int;
+ 	}
+
+  /**
    * Describes a bundleOption in a notification.
    *
    * @typedef { _BundleOption } BundleOption
@@ -6821,6 +6915,16 @@ declare namespace notificationManager {
    * @since 23 dynamic&static
    */
   export type MonitorEvent = _MonitorEvent;
+
+  /**
+   * The type of group notification customization information
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export type GroupInfo = _GroupInfo;
 }
 
 export default notificationManager;

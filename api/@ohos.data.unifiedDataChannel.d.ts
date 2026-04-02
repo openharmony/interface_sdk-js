@@ -18,9 +18,13 @@
  * @kit ArkData
  */
 
-import { AsyncCallback, RecordData } from './@ohos.base';
+import { AsyncCallback } from './@ohos.base';
 import image from "./@ohos.multimedia.image";
 import Want from "./@ohos.app.ability.Want";
+
+/*** if arkts static */
+import { RecordData } from './@ohos.base';
+/*** endif */
 
 /**
  * As a part of the Unified Data Management Framework (UDMF), the unifiedDataChannel module provides unified data

@@ -2731,6 +2731,52 @@ declare namespace hiAppEvent {
      * @since 24 dynamic&static
      */
     pageSwitchLogEnable?: boolean;
+
+    /**
+     * The policy for APP_CRASH event
+     * The value true means to print the memory values of the 248 bytes before and 256 bytes after
+     * the PC and LR in the 64-bit system, or print the memory values of the 124 bytes before and 128 bytes
+     * after the PC and LR in the 32-bit system.
+     * The value false means to print the memory values of the 16 bytes before and 232 bytes after
+     * the PC and LR in the 64-bit system, or print the memory values of the 8 bytes before and 116 bytes
+     * after the PC and LR in the 32-bit system.
+     * If not set the param, the default value is false.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @FaAndStageModel
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    extendPcLrPrinting?: boolean;
+
+    /**
+     * The policy for APP_CRASH event
+     * The value ranges from 0 to 5242880, in bytes. The crash log is truncated to the specified size
+     * when this parameter is set. Otherwise, the default value 0 is used, which means no truncation.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @FaAndStageModel
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    logFileCutoffSzBytes?: int;
+
+    /**
+     * The policy for APP_CRASH event
+     * The value true means to print only the Virtual Memory Area (VMA) mapping information of the addresses
+     * in the crash log, that is, Maps in the crash log, to reduce the log size.
+     * The value false means to print all VMA mapping information.
+     * Default value: false.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @FaAndStageModel
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    simplifyVmaPrinting?: boolean;
   }
 
   /**
@@ -2777,6 +2823,21 @@ declare namespace hiAppEvent {
      * @since 24 dynamic&static
      */
     pageSwitchLogEnable?: boolean;
+
+    /**
+     * The policy for RESOURCE_OVERLIMIT event
+     * event: No heap snapshot is transferred when an OOM error occurs.
+     * event_rawheap: The system generates and transfers a heap snapshot when an OOM error occurs.
+     * Note: Only the preceding two values are supported. If other values are passed in,
+     * the API fails to be called and takes no effect.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @FaAndStageModel
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    jsHeapLogtype?: string;
   }
 
   /**

@@ -92,6 +92,17 @@ declare type WindowAnimationCurveParam = Array<double>;
 declare type TransitionControllerCallback = (context: window.TransitionContext) => void;
 
 /**
+ * Callback function for window event
+ * 
+ * @param { int } windowId - The id of the window which triggers the event
+ * @param { window.WindowEventType } event - Window callback event type
+ * @syscap SystemCapability.Window.SessionManager
+ * @stagemodelonly
+ * @since 24 dynamic&static
+ */
+declare type WindowEventListener = (windowId: int, event: window.WindowEventType) => void;
+
+/**
  * Window manager.
  *
  * @namespace window
@@ -1519,6 +1530,98 @@ declare namespace window {
   }
 
   /**
+   * Describes the parameters of a window anchor used to maintain the relative position to the target window.
+   *
+   * @interface WindowAnchorInfo
+   * @syscap SystemCapability.Window.SessionManager
+   * @systemapi Hide this for inner system use.
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  interface WindowAnchorInfo {
+    /**
+     * Type of anchor point used to maintain the relative position to the target window.
+     *
+     * @type { WindowAnchor }
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    anchorType: WindowAnchor;
+
+    /**
+     * The x-axis offset between the anchor points of two windows that are in a layout attachment, measured in px.
+     * The default value is 0.
+     *
+     * @type { ?int }
+     * @default 0
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    offsetX?: int;
+
+    /**
+     * The y-axis offset between the anchor points of two windows that are in a layout attachment, measured in px.
+     * The default value is 0.
+     * 
+     * @type { ?int }
+     * @default 0
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    offsetY?: int;
+  }
+
+  /**
+   * Describes the parameters of subwindow layout attachment operation.
+   * 
+   * @interface SubWindowAttachOptions
+   * @syscap SystemCapability.Window.SessionManager
+   * @systemapi Hide this for inner system use.
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  interface SubWindowAttachOptions {
+    /**
+     * Current layout mode of the subwindow.
+     * 
+     * @type { ?string }
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    currentLayoutMode?: string;
+
+    /**
+     * The callback of windowSizeChange event of the parent window.
+     * 
+     * @type { ?Callback<Size> }
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    parentWindowSizeChangeCallback?: Callback<Size>;
+
+    /**
+     * The callback of windowStatusChange event of the parent window.
+     * 
+     * @type { ?Callback<WindowStatusType> }
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    parentWindowStatusChangeCallback?: Callback<WindowStatusType>;
+  }
+
+  /**
    * Avoid area
    *
    * @interface AvoidArea
@@ -1976,6 +2079,24 @@ declare namespace window {
      * @since 23 static
      */
     isFocused?: boolean;
+
+    /**
+     * Indicates the ID of the display where the window is located.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    displayId?: int;
+
+    /**
+     * Indicates the actual display size and position of the window.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    globalRect?: Rect;
   }
 
   /**
@@ -3779,7 +3900,9 @@ declare namespace window {
    * @param { AsyncCallback<Window> } callback - Callback used to return the top window obtained.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
    *                                                                  2. Incorrect parameter types.
-   * @throws { BusinessError } 1300002 - This window state is abnormal. Top window or main window is null or destroyed.
+   * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
+   *     1. Top window or main window is null or destroyed;
+   *     2. This window context is abnormal.
    * @throws { BusinessError } 1300006 - This window context is abnormal.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @crossplatform
@@ -3822,7 +3945,9 @@ declare namespace window {
    * @returns { Promise<Window> } Promise used to return the top window obtained.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
    *                                                                  2. Incorrect parameter types.
-   * @throws { BusinessError } 1300002 - This window state is abnormal. Top window or main window is null or destroyed.
+   * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
+   *     1. Top window or main window is null or destroyed;
+   *     2. This window context is abnormal.
    * @throws { BusinessError } 1300006 - This window context is abnormal.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @crossplatform
@@ -4617,6 +4742,36 @@ declare namespace window {
    */
   function getMainWindowSnapshot(windowId: Array<int>, config: WindowSnapshotConfiguration):
     Promise<Array<image.PixelMap | undefined>>;
+
+  /**
+   * Create a subwindow with a specific name and bind parent.
+   * The parent window only supports main window.
+   * The subwindow follows the parent window to show/hide, but does not follow the parent window to destroy.
+   * The subwindow listens to the parent window lifecycle changes through the callback function.
+   *
+   * @param { string } name - Indicates window name.
+   * @param { int } parentId - Indicates parent window id. The window id is a non-negative number and exists.
+   * @param { BaseContext } ctx - Indicates the context on which the window depends.
+   * @param { WindowEventListener } parentWindowEventListener - Indicates the event listener of parent window.
+   * @returns { Promise<Window> } The interface for creating a window returns a promise.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *     This can not work correctly due to limited device capabilities.
+   * @throws { BusinessError } 1300001 - Repeated operation.
+   *     Possible cause: The window has been created and can not be created again.
+   * @throws { BusinessError } 1300002 - This window state is abnormal.
+   *     Possible cause: 1. Internal task error.
+   *                     2. The number of windows has reached the limit.
+   * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+   * @throws { BusinessError } 1300009 - The parent window is invalid.
+   *     Possible cause: The parent window does not exist or has been destroyed.
+   * @syscap SystemCapability.Window.SessionManager
+   * @systemapi Hide this for inner system use.
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  function createSubWindowAndBindParent(name: string, parentId: int, ctx: BaseContext,
+    parentWindowEventListener: WindowEventListener): Promise<Window>;
 
   /**
    * Display orientation
@@ -5423,6 +5578,18 @@ declare namespace window {
      * @since 23 dynamic&static
      */
     needAnimation?: boolean;
+
+    /**
+     * Whether to override system window limits.
+     * If true, the main window of the current ability can set a window limit that exceeds system restrictions.
+     *
+     * @default false
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    isWindowLimitsForcible?: boolean;
   }
 
   /**
@@ -6341,6 +6508,61 @@ declare namespace window {
      */
     setRelativePositionToParentWindowEnabled(enabled: boolean, anchor?: WindowAnchor,
         offsetX?: int, offsetY?: int): Promise<void>;
+
+    /**
+     * Attach to the main window.
+     * After attachment, the current window will maintain a fixed relative position with the main window.
+     *
+     * @param { WindowAnchorInfo } [anchorInfo] - Defines the window anchor point
+     *      used to maintain a fixed relative position between the current subwindow and the main window.
+     *      If undefined, the anchor point defaults to the top-left corner of the main window with no offset.
+     * @param { SubWindowAttachOptions } [attachOptions] - Defines optional behaviors for the layout attachment.
+     *      If undefined, no extra behaviors will be applied.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *      Function attachLayoutToParentWindow can not work correctly due to limited device capabilities.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     *      Possible cause: 1. The window is not created or destroyed;
+     *                      2. Internal task error.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     *      Possible cause: 1. Invalid window type. Only subwindows are supported;
+     *                      2. The current window's parent window is not a main window;
+     *                      3. Only level-1 subwindows are supported.
+     * @throws { BusinessError } 1300010 - The operation in the current window status is invalid.
+     *      Possible cause: 1. The subwindow is following its parent window's layout.
+     *                      2. The subwindow is maximized.
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    attachLayoutToParentWindow(anchorInfo?: WindowAnchorInfo, attachOptions?: SubWindowAttachOptions): Promise<void>;
+
+    /**
+     * Detach from the main window.
+     * After detachment, the current window's position will no longer follow the main window.
+     *
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *      Function detachLayoutToParentWindow cannot work correctly due to limited device capabilities.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     *      Possible cause: 1. The window is not created or destroyed;
+     *                      2. Internal task error.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     *      Possible cause: 1. Invalid window type. Only subwindows are supported;
+     *                      2. Only level-1 subwindows are supported.
+     * @throws { BusinessError } 1300010 - The operation in the current window status is invalid.
+     *      Possible cause: The subwindow is not attached to the main window.
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    detachLayoutToParentWindow(): Promise<void>;
 
     /**
      * Set the type of a window.
@@ -11668,7 +11890,8 @@ declare namespace window {
     setSingleFrameComposerEnabled(enable: boolean): Promise<void>;
 
     /**
-     * When get focused, keep the keyboard created by other windows, support system window and app subwindow.
+     * When get focused, keep the keyboard created by other windows,
+     * support system window, app subwindow, float window, and dialog window.
      *
      * @param { boolean } keepKeyboardFlag - keep the keyboard if true, otherwise means the opposite.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
@@ -11680,7 +11903,8 @@ declare namespace window {
      * @since 11
      */
     /**
-     * When get focused, keep the keyboard created by other windows, support system window and app subwindow.
+     * When get focused, keep the keyboard created by other windows,
+     * support system window, app subwindow, float window, and dialog window.
      *
      * @param { boolean } keepKeyboardFlag - Whether to keep the soft keyboard created by others.
      * The value true means to keep the soft keyboard, and false means the opposite.
@@ -12027,17 +12251,38 @@ declare namespace window {
      * If touchable areas are set in the window, touch events outside the areas will be transparent transmitted.
      * If the window area changes, you need to reset it.
      *
-     * @param { Array<Rect> } rects - Touchable areas. The maximum size cannot exceed 10, touchable area cannot exceed the window's area.
+     * @param { Array<Rect> } rects - Touchable areas.
+     *     The maximum size cannot exceed 10, touchable area cannot exceed the window's area.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
      *                                                                  2. Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi
      * @since 12 dynamic
      * @since 23 static
+     */
+    /**
+     * Set touchable areas. By default, the entire window area is touchable.
+     * If touchable areas are set in the window, touch events outside the areas will be transparent transmitted.
+     * If the window area changes, you need to reset it.
+     *
+     * @permission ohos.permission.SET_WINDOW_TOUCH_AREAS
+     * @param { Array<Rect> } rects - Touchable areas.
+     *     The maximum size cannot exceed 10, touchable area cannot exceed the window's area.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have
+     *     the permission required or to call the API.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
+     *                                                                  2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 26.0.0 dynamic&static
      */
     setTouchableAreas(rects: Array<Rect>): void;
 	

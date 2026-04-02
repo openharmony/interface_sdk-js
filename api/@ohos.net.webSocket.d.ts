@@ -259,6 +259,15 @@ declare namespace webSocket {
      * @since 24 dynamic&static
      */
     pongTimeout?: int;
+
+    /**
+     * The minimum support version of TLS protocol.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    minSupportTlsProtocol?: TlsProtocol;
   }
 
   /**
@@ -349,6 +358,52 @@ declare namespace webSocket {
      * @since 23 static
      */
     keyPassword?: string;
+  }
+
+  /**
+   * Enumerates TLS protocols.
+   *
+   * @interface ClientCert
+   * @syscap SystemCapability.Communication.NetStack
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export enum TlsProtocol {
+    /**
+     * TLS1.0.
+     * 
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    TLS_V_1_0 = 0,
+
+    /**
+     * TLS1.1.
+     * 
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    TLS_V_1_1 = 1,
+
+    /**
+     * TLS1.2.
+     * 
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    TLS_V_1_2 = 2,
+
+    /**
+     * TLS1.3.
+     * 
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    TLS_V_1_3 = 3
   }
 
   /**
