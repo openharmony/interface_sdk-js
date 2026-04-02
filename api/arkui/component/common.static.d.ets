@@ -11256,6 +11256,16 @@ export declare interface CommonMethod {
      */
     default overlay(value: string | CustomBuilder | ComponentContent<Object> | undefined, options?: OverlayOptions): this;
     /**
+     * Config toolbar for current component.
+     *
+     * @param { CustomBuilder | undefined } value
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 24 static
+     */
+    default toolbar(value: CustomBuilder | undefined): this;
+    /**
      * Linear Gradient
      * angle: Angle of Linear Gradient. The default value is 180;
      * direction: Direction of Linear Gradient. The default value is GradientDirection.Bottom;

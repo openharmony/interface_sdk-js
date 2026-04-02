@@ -138,6 +138,7 @@ export * from './arkui/component/textPicker';
 export * from './arkui/component/textTimer';
 export * from './arkui/component/timePicker';
 export * from './arkui/component/toggle';
+export * from './arkui/component/toolbar';
 export * from './arkui/component/uiExtensionComponent';
 export * from './arkui/component/units';
 export * from './arkui/component/video';
