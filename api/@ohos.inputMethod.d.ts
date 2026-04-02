@@ -107,10 +107,10 @@ declare namespace inputMethod {
   function getDefaultInputMethod(): InputMethodProperty;
 
   /**
-   * Get default input method of a specified user
+   * Get default input method of a specified user.
    *
-   * @param { int } [userId] - the user ID.If not provided.
-   *     If the caller is ont a user 0 application, the value defaults to the caller's user ID.
+   * @param { int } [userId] - the user ID.If not provided:
+   *     If the caller is not a user 0 application, the value defaults to the caller's user ID.
    *     If the caller is a user 0 application, the value defaults to the foreground user ID of the main screen.
    * @returns { InputMethodProperty } property of the default input method.
    * @throws { BusinessError } 202 - not system application.
@@ -140,10 +140,10 @@ declare namespace inputMethod {
   function getSystemInputMethodConfigAbility(): ElementName;
 
   /**
-   * Get system input method config ability of a specified user
+   * Get system input method config ability of a specified user.
    *
-   * @param { int } [userId] - the user ID.If not provided.
-   *     If the caller is ont a user 0 application, the value defaults to the caller's user ID.
+   * @param { int } [userId] - the user ID.If not provided:
+   *     If the caller is not a user 0 application, the value defaults to the caller's user ID.
    *     If the caller is a user 0 application, the value defaults to the foreground user ID of the main screen.
    * @returns { ElementName } the information of system input method config ability.
    * @throws { BusinessError } 202 - not system application.
@@ -233,12 +233,12 @@ declare namespace inputMethod {
   function getCurrentInputMethod(): InputMethodProperty;
 
   /**
-   * Get current input method of a specified user
+   * Get current input method of a specified user.
    *
-   * @param { int } [userId] - the user ID.If not provided.
-   *     If the caller is ont a user 0 application, the value defaults to the caller's user ID.
+   * @param { int } [userId] - the user ID.If not provided:
+   *     If the caller is not a user 0 application, the value defaults to the caller's user ID.
    *     If the caller is a user 0 application, the value defaults to the foreground user ID of the main screen.
-   * @returns { InputMethodProperty } the property of current inputmethod.
+   * @returns { InputMethodProperty } the property of the current inputmethod.
    * @throws { BusinessError } 202 - not system application.
    * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
    *     a system error, such as null pointer, IPC exception.
@@ -356,10 +356,10 @@ declare namespace inputMethod {
   function getCurrentInputMethodSubtype(): InputMethodSubtype;
 
   /**
-   * Get the current input method subtype of a specified user
+   * Get the current input method subtype of a specified user.
    *
-   * @param { int } [userId] - the user ID.If not provided.
-   *     If the caller is ont a user 0 application, the value defaults to the caller's user ID.
+   * @param { int } [userId] - the user ID.If not provided:
+   *     If the caller is not a user 0 application, the value defaults to the caller's user ID.
    *     If the caller is a user 0 application, the value defaults to the foreground user ID of the main screen.
    * @returns { InputMethodSubtype } the subtype of the current input method.
    * @throws { BusinessError } 202 - not system application.
@@ -761,10 +761,10 @@ declare namespace inputMethod {
      * get subtypes of a specified input method of a specified user.
      *
      * @param { string } bundleName - the bundle name of the specified input method.
-     * @param { int } [userId] - the user ID.If not provided.
-     *     If the caller is ont a user 0 application, the value defaults to the caller's user ID.
+     * @param { int } [userId] - the user ID.If not provided:
+     *     If the caller is not a user 0 application, the value defaults to the caller's user ID.
      *     If the caller is a user 0 application, the value defaults to the foreground user ID of the main screen.
-     * @returns { Array<InputMethodsubtype> } the subtypes of target input method.
+     * @returns { Array<InputMethodsubtype> } the subtype of target input method.
      * @throws { BusinessError } 202 - not system application.
      * @throws { BusinessError } 12800001 - bundle manager error.
      * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
@@ -835,14 +835,14 @@ declare namespace inputMethod {
     getInputMethodsSync(enable: boolean): Array<InputMethodProperty>;
 
     /**
-     * List enabled or disabled input methods sync of a specified user
+     * List enabled or disabled input methods sync of a specified user.
      *
      * @param { boolean } enable - If true, collect enabled input methods.
      *     If false, collect disabled input methods.
-     * @param { int } [userId] - the user ID.If not provided.
-     *     If the caller is ont a user 0 application, the value defaults to the caller's user ID.
+     * @param { int } [userId] - the user ID.If not provided:
+     *     If the caller is not a user 0 application, the value defaults to the caller's user ID.
      *     If the caller is a user 0 application, the value defaults to the foreground user ID of the main screen.
-     * @returns { Array<InputMethodProperty> } the list of inputmethod.
+     * @returns { Array<InputMethodProperty> } the list of input methods.
      * @throws { BusinessError } 202 - not system application.
      * @throws { BusinessError } 12800001 - bundle manager error.
      * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
@@ -898,12 +898,12 @@ declare namespace inputMethod {
     getAllInputMethodsSync(): Array<InputMethodProperty>;
 
     /**
-     * Get all input methods sync of a specified user
+     * Get all input methods sync of a specified user.
      *
-     * @param { int } [userId] - the user ID.If not provided.
-     *     If the caller is ont a user 0 application, the value defaults to the caller's user ID.
+     * @param { int } [userId] - the user ID.If not provided:
+     *     If the caller is not a user 0 application, the value defaults to the caller's user ID.
      *     If the caller is a user 0 application, the value defaults to the foreground user ID of the main screen.
-     * @returns { Array<InputMethodProperty> } the list of all inputmethod.
+     * @returns { Array<InputMethodProperty> } the list of all input methods.
      * @throws { BusinessError } 202 - not system application.
      * @throws { BusinessError } 12800001 - bundle manager error.
      * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
@@ -1017,15 +1017,14 @@ declare namespace inputMethod {
     enableInputMethod(bundleName: string, extensionName: string, enabledState: EnabledState): Promise<void>;
 
     /**
-     * 
-     * Change the enabled status of an input method of a specified user.
+     * Change the enabled state of an input method of a specified user.
      *
      * @permission ohos.permission.CONNECT_IME_ABILITY
      * @param { string } bundleName - Indicates the bundleName of the inputmethod.
      * @param { string } extensionName - Indicates the extensionName of the inputmethod.
      * @param { EnabledState } enabledState - Indicates the enabledState to be changed.
      * @param { int } [userId] - the user ID.If not provided.
-     *     If the caller is ont a user 0 application, the value defaults to the caller's user ID.
+     *     If the caller is not a user 0 application, the value defaults to the caller's user ID.
      *     If the caller is a user 0 application, the value defaults to the foreground user ID of the main screen.
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 201 - permissions check fails.
@@ -1033,7 +1032,8 @@ declare namespace inputMethod {
      * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
      *     a system error, such as null pointer, IPC exception.
      * @throws { BusinessError } 12800018 - input method is not found.
-     * @throws { BusinessError } 12800019 - current operation cannot be applied to the preconfigured default input method.
+     * @throws { BusinessError } 12800019 - current operation cannot be applied to the preconfigured
+     *     default input method.
      * @throws { BusinessError } 12800023 - the specified user does not exist.
      * @throws { BusinessError } 12800024 - the specified user is not in the foreground.
      * @throws { BusinessError } 12800025 - cross-user operation denied.
@@ -1081,7 +1081,7 @@ declare namespace inputMethod {
      * Unsubscribe from the input method change event.
      *
      * @param { ImeChangeWithUserIdCallback } [callback] - the callback called when the current input method changes,
-     *     when subscriber unsubscribes all callback, this parameter can be left blank.
+     *     when the subscriber unsubscribes all callbacks, this parameter can be left blank.
      * @throws { BusinessError } 202 - not system application.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
