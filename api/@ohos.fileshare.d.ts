@@ -207,6 +207,47 @@ declare namespace fileShare {
   }
 
   /**
+   * The directory information shared with the system by the application.
+   *
+   * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export interface SharedDirectoryInfo {
+    /**
+     * Indicates the bundle name of the application.
+     *
+     * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    bundleName: string;
+
+    /**
+     * Indicates the path of the application's shared directory.
+     *
+     * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    path: string;
+
+    /**
+     * Indicates the permission for the application's shared directory, e.g., { OperationMode.READ_MODE }
+     * or { OperationMode.READ_MODE | OperationMode.WRITE_MODE }
+     *
+     * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    permissionMode: OperationMode;
+  }
+
+  /**
    * Policy information to manager permissions on a path.
    *
    * @interface PathPolicyInfo
@@ -450,6 +491,52 @@ declare namespace fileShare {
    * @since 23 static
    */
   function checkPathPermission(tokenID: int, policies: Array<PathPolicyInfo>, policyType: PolicyType): Promise<Array<boolean>>;
+
+  /**
+   * Gets the shared sandbox directories of applications
+   *
+   * @permission ohos.permission.ACCESS_SHARED_FILE
+   * @returns { Array<SharedDirectoryInfo> } Returns the shared sandbox directories on paths.
+   * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+   * @throws { BusinessError } 202 - The caller is not a system application.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 13900001 - Operation not permitted.
+   * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function getSharedDirectoryInfo(): Array<SharedDirectoryInfo>;
+
+  /**
+   * Provides a permission grant for application-shared directories
+   *
+   * @permission ohos.permission.ACCESS_SHARED_FILE
+   * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+   * @throws { BusinessError } 202 - The caller is not a system application.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 13900001 - Operation not permitted.
+   * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function grantSharedDirectoryPermission(): void;
+
+  /**
+   * Revokes permission for application-shared directories
+   *
+   * @permission ohos.permission.ACCESS_SHARED_FILE
+   * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+   * @throws { BusinessError } 202 - The caller is not a system application.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 13900001 - Operation not permitted.
+   * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function revokeSharedDirectoryPermission(): void;
 }
 
 export default fileShare;
