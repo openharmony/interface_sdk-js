@@ -5209,6 +5209,16 @@ declare namespace geoLocationManager {
      * @since 23 static
      */
     address: string;
+
+    /**
+     * Additional information about the POI.
+     *
+     * @syscap SystemCapability.Location.Location.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    additionalInfo?: string;
   }
 
 
