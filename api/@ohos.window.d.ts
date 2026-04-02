@@ -1266,20 +1266,20 @@ declare namespace window {
   interface Rect {
 
     /**
-     * The left of the Rect.
+     * The left of the Rect, measured in px.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
     /**
-     * The left of the Rect.
+     * The left of the Rect, measured in px.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @since 10
      */
     /**
-     * The left of the Rect.
+     * The left of the Rect, measured in px.
      *
      * @type { int }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -1291,20 +1291,20 @@ declare namespace window {
     left: int;
 
     /**
-     * The top of the Rect.
+     * The top of the Rect, measured in px.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
     /**
-     * The top of the Rect.
+     * The top of the Rect, measured in px.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @since 10
      */
     /**
-     * The top of the Rect.
+     * The top of the Rect, measured in px.
      *
      * @type { int }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -1316,20 +1316,20 @@ declare namespace window {
     top: int;
 
     /**
-     * The width of the Rect.
+     * The width of the Rect, measured in px.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
     /**
-     * The width of the Rect.
+     * The width of the Rect, measured in px.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @since 10
      */
     /**
-     * The width of the Rect.
+     * The width of the Rect, measured in px.
      *
      * @type { int }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -1341,20 +1341,20 @@ declare namespace window {
     width: int;
 
     /**
-     * The height of the Rect.
+     * The height of the Rect, measured in px.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
     /**
-     * The height of the Rect.
+     * The height of the Rect, measured in px.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @since 10
      */
     /**
-     * The height of the Rect.
+     * The height of the Rect, measured in px.
      *
      * @type { int }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -1666,14 +1666,14 @@ declare namespace window {
     visible: boolean;
 
     /**
-     * Rectangle on the left of the screen
+     * Rectangle on the left of the screen, measured in px.
      *
      * @type { Rect }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
     /**
-     * Rectangle on the left of the screen
+     * Rectangle on the left of the screen, measured in px.
      *
      * @type { Rect }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -1681,7 +1681,7 @@ declare namespace window {
      * @since 11
      */
     /**
-     * Rectangle on the left of the screen
+     * Rectangle on the left of the screen, measured in px.
      *
      * @type { Rect }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -1693,14 +1693,14 @@ declare namespace window {
     leftRect: Rect;
 
     /**
-     * Rectangle on the top of the screen
+     * Rectangle on the top of the screen, measured in px.
      *
      * @type { Rect }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
     /**
-     * Rectangle on the top of the screen
+     * Rectangle on the top of the screen, measured in px.
      *
      * @type { Rect }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -1708,7 +1708,7 @@ declare namespace window {
      * @since 11
      */
     /**
-     * Rectangle on the top of the screen
+     * Rectangle on the top of the screen, measured in px.
      *
      * @type { Rect }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -1720,14 +1720,14 @@ declare namespace window {
     topRect: Rect;
 
     /**
-     * Rectangle on the right of the screen
+     * Rectangle on the right of the screen, measured in px.
      *
      * @type { Rect }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
     /**
-     * Rectangle on the right of the screen
+     * Rectangle on the right of the screen, measured in px.
      *
      * @type { Rect }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -1735,7 +1735,7 @@ declare namespace window {
      * @since 11
      */
     /**
-     * Rectangle on the right of the screen
+     * Rectangle on the right of the screen, measured in px.
      *
      * @type { Rect }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -1747,14 +1747,14 @@ declare namespace window {
     rightRect: Rect;
 
     /**
-     * Rectangle on the bottom of the screen
+     * Rectangle on the bottom of the screen, measured in px.
      *
      * @type { Rect }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
     /**
-     * Rectangle on the bottom of the screen
+     * Rectangle on the bottom of the screen, measured in px.
      *
      * @type { Rect }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -1762,7 +1762,7 @@ declare namespace window {
      * @since 11
      */
     /**
-     * Rectangle on the bottom of the screen
+     * Rectangle on the bottom of the screen, measured in px.
      *
      * @type { Rect }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -1855,14 +1855,14 @@ declare namespace window {
    */
   interface Size {
     /**
-     * The width of the window.
+     * The width of the window, measured in px.
      *
      * @type { int }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
     /**
-     * The width of the window.
+     * The width of the window, measured in px.
      *
      * @type { int }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -1870,7 +1870,7 @@ declare namespace window {
      * @since 10
      */
     /**
-     * The width of the window.
+     * The width of the window, measured in px.
      *
      * @type { int }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -1882,13 +1882,13 @@ declare namespace window {
     width: int;
 
     /**
-     * The height of the window.
+     * The height of the window, measured in px.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
     /**
-     * The height of the window.
+     * The height of the window, measured in px.
      *
      * @type { int }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -1896,7 +1896,7 @@ declare namespace window {
      * @since 10
      */
     /**
-     * The height of the window.
+     * The height of the window, measured in px.
      *
      * @type { int }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -1955,7 +1955,7 @@ declare namespace window {
    */
   interface WindowInfo {
     /**
-     * The position and size of the window
+     * The position and size of the window, measured in px.
      *
      * @type { Rect }
      * @syscap SystemCapability.Window.SessionManager
@@ -1963,7 +1963,7 @@ declare namespace window {
      * @since 12
      */
     /**
-     * The position and size of the window
+     * The position and size of the window, measured in px.
      *
      * @type { Rect }
      * @syscap SystemCapability.Window.SessionManager
@@ -1973,7 +1973,7 @@ declare namespace window {
     rect: Rect;
 
     /**
-     * Global display rect.
+     * Global display rect, measured in px.
      *
      * @type { ?Rect } 
      * @syscap SystemCapability.Window.SessionManager
@@ -2485,7 +2485,7 @@ declare namespace window {
     colorMode?: ConfigurationConstant.ColorMode;
 
     /**
-     * button background size when hover.
+     * button background size when hover, measured in vp.
      *
      * @type { ?int }
      * @syscap SystemCapability.Window.SessionManager
@@ -2496,7 +2496,7 @@ declare namespace window {
     buttonBackgroundSize? : int;
 
     /**
-     * button spacing.
+     * button spacing, measured in vp.
      *
      * @type { ?int }
      * @syscap SystemCapability.Window.SessionManager
@@ -2507,7 +2507,7 @@ declare namespace window {
     spacingBetweenButtons? : int;
 
     /**
-     * close button right Margin.
+     * close button right Margin, measured in vp.
      *
      * @type { ?int }
      * @syscap SystemCapability.Window.SessionManager
@@ -2518,7 +2518,7 @@ declare namespace window {
     closeButtonRightMargin? : int;
 
     /**
-     * button icon size.
+     * button icon size, measured in vp.
      *
      * @type { ?int }
      * @syscap SystemCapability.Window.SessionManager
@@ -2529,7 +2529,7 @@ declare namespace window {
     buttonIconSize? : int;
 
     /**
-     * corner radius of button background when hover.
+     * corner radius of button background when hover, measured in vp.
      *
      * @type { ?int }
      * @syscap SystemCapability.Window.SessionManager
@@ -3073,14 +3073,16 @@ declare namespace window {
   interface WindowLimits {
     
     /**
-     * The maximum width of the window.
+     * The maximum width of the window(unit: px or vp, depends on pixelUnit).
+     * Defaults to px if pixelUnit is not specified.
      *
      * @type { ?int }
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
     /**
-     * The maximum width of the window.
+     * The maximum width of the window(unit: px or vp, depends on pixelUnit).
+     * Defaults to px if pixelUnit is not specified.
      *
      * @type { ?int }
      * @syscap SystemCapability.Window.SessionManager
@@ -3091,14 +3093,16 @@ declare namespace window {
     maxWidth?: int;
 
     /**
-     * The maximum height of the window.
+     * The maximum height of the window(unit: px or vp, depends on pixelUnit).
+     * Defaults to px if pixelUnit is not specified.
      *
      * @type { ?int }
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
     /**
-     * The maximum height of the window.
+     * The maximum height of the window(unit: px or vp, depends on pixelUnit).
+     * Defaults to px if pixelUnit is not specified.
      *
      * @type { ?int }
      * @syscap SystemCapability.Window.SessionManager
@@ -3109,14 +3113,16 @@ declare namespace window {
     maxHeight?: int;
 
     /**
-     * The minimum width of the window.
+     * The minimum width of the window(unit: px or vp, depends on pixelUnit).
+     * Defaults to px if pixelUnit is not specified.
      *
      * @type { ?int }
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
     /**
-     * The minimum width of the window.
+     * The minimum width of the window(unit: px or vp, depends on pixelUnit).
+     * Defaults to px if pixelUnit is not specified.
      *
      * @type { ?int }
      * @syscap SystemCapability.Window.SessionManager
@@ -3127,14 +3133,16 @@ declare namespace window {
     minWidth?: int;
 
     /**
-     * The minimum height of the window.
+     * The minimum height of the window(unit: px or vp, depends on pixelUnit).
+     * Defaults to px if pixelUnit is not specified.
      *
      * @type { ?int }
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
     /**
-     * The minimum height of the window.
+     * The minimum height of the window(unit: px or vp, depends on pixelUnit).
+     * Defaults to px if pixelUnit is not specified.
      *
      * @type { ?int }
      * @syscap SystemCapability.Window.SessionManager
@@ -3145,7 +3153,7 @@ declare namespace window {
     minHeight?: int;
 
     /**
-     * The unit of window limits.
+     * The unit of window limits (default: px).
      *
      * @type { ?PixelUnit }
      * @syscap SystemCapability.Window.SessionManager
@@ -3174,14 +3182,14 @@ declare namespace window {
   interface TitleButtonRect {
 
     /**
-     * The right of the Rect.
+     * The right of the Rect, measured in vp.
      *
      * @type { int }
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
     /**
-     * The right of the Rect.
+     * The right of the Rect, measured in vp.
      *
      * @type { int }
      * @syscap SystemCapability.Window.SessionManager
@@ -3192,14 +3200,14 @@ declare namespace window {
     right: int;
 
     /**
-     * The top of the Rect.
+     * The top of the Rect, measured in vp.
      *
      * @type { int }
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
     /**
-     * The top of the Rect.
+     * The top of the Rect, measured in vp.
      *
      * @type { int }
      * @syscap SystemCapability.Window.SessionManager
@@ -3210,14 +3218,14 @@ declare namespace window {
     top: int;
 
     /**
-     * The width of the Rect.
+     * The width of the Rect, measured in vp.
      *
      * @type { int }
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
     /**
-     * The width of the Rect.
+     * The width of the Rect, measured in vp.
      *
      * @type { int }
      * @syscap SystemCapability.Window.SessionManager
@@ -3228,14 +3236,14 @@ declare namespace window {
     width: int;
 
     /**
-     * The height of the Rect.
+     * The height of the Rect, measured in vp.
      *
      * @type { int }
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
     /**
-     * The height of the Rect.
+     * The height of the Rect, measured in vp.
      *
      * @type { int }
      * @syscap SystemCapability.Window.SessionManager
@@ -4371,10 +4379,12 @@ declare namespace window {
    * @param { long } displayId - Indicate the id of display.
    * @param { int } [windowNumber] - Indicate the Number of query windows. If the value is less than or equal to 0,
    *    the function returns all visible windows at the target coordinate in the display. Default Value: 0.
-   * @param { int } [x] - Indicate the X-coordinate of the window. If the value is less than or equal to 0,
-   *    the function returns all visible windows in the display. Default Value: -1.
-   * @param { int } [y] - Indicate the Y-coordinate of the window. If the value is less than or equal to 0,
-   *    the function returns all visible windows in the display. Default Value: -1.
+   * @param { int } [x] - Indicate the X-coordinate of the window, measured in px. 
+   *    If the value is less than or equal to 0, the function returns all visible windows in the display.
+   *    Default Value: -1.
+   * @param { int } [y] - Indicate the Y-coordinate of the window, measured in px.
+   *    If the value is less than or equal to 0, the function returns all visible windows in the display.
+   *    Default Value: -1.
    * @returns { Promise<Array<Window>> } Promise used to return the window.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
    *                                                                  2. Incorrect parameter types;
@@ -5434,7 +5444,7 @@ declare namespace window {
     curve: WindowAnimationCurve;
 
     /**
-     * Duration of the animation
+     * Duration of the animation, measured in ms.
      *
      * @type { ?long }
      * @syscap SystemCapability.Window.SessionManager
@@ -6086,8 +6096,8 @@ declare namespace window {
     /**
      * Set the position of a window.
      *
-     * @param { number } x - Indicate the X-coordinate of the window.
-     * @param { number } y - Indicate the Y-coordinate of the window.
+     * @param { number } x - Indicate the X-coordinate of the window, measured in px.
+     * @param { number } y - Indicate the Y-coordinate of the window, measured in px.
      * @returns { Promise<void> } Promise that returns no value.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7 dynamiconly
@@ -6099,8 +6109,8 @@ declare namespace window {
     /**
      * Set the position of a window.
      *
-     * @param { number } x - Indicate the X-coordinate of the window.
-     * @param { number } y - Indicate the Y-coordinate of the window.
+     * @param { number } x - Indicate the X-coordinate of the window, measured in px.
+     * @param { number } y - Indicate the Y-coordinate of the window, measured in px.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7 dynamiconly
@@ -6112,8 +6122,8 @@ declare namespace window {
     /**
      * Set the position of a window.
      *
-     * @param { int } x - Indicate the X-coordinate of the window.
-     * @param { int } y - Indicate the Y-coordinate of the window.
+     * @param { int } x - Indicate the X-coordinate of the window, measured in px.
+     * @param { int } y - Indicate the Y-coordinate of the window, measured in px.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
@@ -6125,8 +6135,8 @@ declare namespace window {
     /**
      * Set the position of a window.
      *
-     * @param { int } x - Indicate the X-coordinate of the window.
-     * @param { int } y - Indicate the Y-coordinate of the window.
+     * @param { int } x - Indicate the X-coordinate of the window, measured in px.
+     * @param { int } y - Indicate the Y-coordinate of the window, measured in px.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
@@ -6139,8 +6149,8 @@ declare namespace window {
     /**
      * Set the position of a window.
      *
-     * @param { int } x - Indicate the X-coordinate of the window.
-     * @param { int } y - Indicate the Y-coordinate of the window.
+     * @param { int } x - Indicate the X-coordinate of the window, measured in px.
+     * @param { int } y - Indicate the Y-coordinate of the window, measured in px.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
@@ -6157,8 +6167,8 @@ declare namespace window {
     /**
      * Set the position of a window.
      *
-     * @param { int } x - Indicate the X-coordinate of the window.
-     * @param { int } y - Indicate the Y-coordinate of the window.
+     * @param { int } x - Indicate the X-coordinate of the window, measured in px.
+     * @param { int } y - Indicate the Y-coordinate of the window, measured in px.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
@@ -6170,8 +6180,8 @@ declare namespace window {
     /**
      * Set the position of a window.
      *
-     * @param { int } x - Indicate the X-coordinate of the window.
-     * @param { int } y - Indicate the Y-coordinate of the window.
+     * @param { int } x - Indicate the X-coordinate of the window, measured in px.
+     * @param { int } y - Indicate the Y-coordinate of the window, measured in px.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
@@ -6184,8 +6194,8 @@ declare namespace window {
     /**
      * Set the position of a window.
      *
-     * @param { int } x - Indicate the X-coordinate of the window.
-     * @param { int } y - Indicate the Y-coordinate of the window.
+     * @param { int } x - Indicate the X-coordinate of the window, measured in px.
+     * @param { int } y - Indicate the Y-coordinate of the window, measured in px.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
@@ -6202,8 +6212,8 @@ declare namespace window {
     /**
      * Move window to the position.
      *
-     * @param { int } x - Indicates the X-coordinate of the window.
-     * @param { int } y - Indicates the Y-coordinate of the window.
+     * @param { int } x - Indicates the X-coordinate of the window, measured in px.
+     * @param { int } y - Indicates the Y-coordinate of the window, measured in px.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 801 - Capability not supported.
      *     Failed to call the API due to limited device capabilities.
@@ -6223,8 +6233,8 @@ declare namespace window {
     /**
      * Move window to the position.
      *
-     * @param { int } x - Indicates the X-coordinate of the window.
-     * @param { int } y - Indicates the Y-coordinate of the window.
+     * @param { int } x - Indicates the X-coordinate of the window, measured in px.
+     * @param { int } y - Indicates the Y-coordinate of the window, measured in px.
      * @param { MoveConfiguration } [moveConfiguration] - Indicate the window move configuration.
      *     If not provided, the window stays on the current display.
      * @returns { Promise<void> } Promise that returns no value.
@@ -6246,8 +6256,8 @@ declare namespace window {
     /**
      * Move window to the position relative to current screen.
      *
-     * @param { int } x - Indicates the X-coordinate of the window relative to current screen.
-     * @param { int } y - Indicates the Y-coordinate of the window relative to current screen.
+     * @param { int } x - Indicates the X-coordinate of the window relative to current screen, measured in px.
+     * @param { int } y - Indicates the Y-coordinate of the window relative to current screen, measured in px.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 801 - Capability not supported.
      *     Failed to call the API due to limited device capabilities.
@@ -6267,8 +6277,8 @@ declare namespace window {
     /**
      * Move window to the position relative to current screen.
      *
-     * @param { int } x - Indicates the X-coordinate of the window relative to current screen.
-     * @param { int } y - Indicates the Y-coordinate of the window relative to current screen.
+     * @param { int } x - Indicates the X-coordinate of the window relative to current screen, measured in px.
+     * @param { int } y - Indicates the Y-coordinate of the window relative to current screen, measured in px.
      * @param { MoveConfiguration } [moveConfiguration] - Indicate the window move configuration.
      *     If not provided, the window stays on the current display.
      * @returns { Promise<void> } Promise that returns no value.
@@ -6312,8 +6322,8 @@ declare namespace window {
     /**
      * Set the size of a window .
      *
-     * @param { number } width - Indicates the width of the window.
-     * @param { number } height - Indicates the height of the window.
+     * @param { number } width - Indicates the width of the window, measured in px.
+     * @param { number } height - Indicates the height of the window, measured in px.
      * @returns { Promise<void> } Promise that returns no value.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7 dynamiconly
@@ -6325,8 +6335,8 @@ declare namespace window {
     /**
      * Set the size of a window .
      *
-     * @param { number } width - Indicates the width of the window.
-     * @param { number } height - Indicates the height of the window.
+     * @param { number } width - Indicates the width of the window, measured in px.
+     * @param { number } height - Indicates the height of the window, measured in px.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7 dynamiconly
@@ -6338,8 +6348,8 @@ declare namespace window {
     /**
      * Set the size of a window .
      *
-     * @param { int } width - Indicates the width of the window. The width should be greater than 0.
-     * @param { int } height - Indicates the height of the window. The height should be greater than 0.
+     * @param { int } width - Indicates the width of the window, measured in px. The width should be greater than 0.
+     * @param { int } height - Indicates the height of the window, measured in px. The height should be greater than 0.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
@@ -6352,8 +6362,8 @@ declare namespace window {
     /**
      * Set the size of a window .
      *
-     * @param { int } width - Indicates the width of the window. The width should be greater than 0.
-     * @param { int } height - Indicates the height of the window. The height should be greater than 0.
+     * @param { int } width - Indicates the width of the window, measured in px. The width should be greater than 0.
+     * @param { int } height - Indicates the height of the window, measured in px. The height should be greater than 0.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
@@ -6367,8 +6377,8 @@ declare namespace window {
     /**
      * Set the size of a window .
      *
-     * @param { int } width - Indicates the width of the window. The width should be greater than 0.
-     * @param { int } height - Indicates the height of the window. The height should be greater than 0.
+     * @param { int } width - Indicates the width of the window, measured in px. The width should be greater than 0.
+     * @param { int } height - Indicates the height of the window, measured in px. The height should be greater than 0.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
@@ -6386,8 +6396,8 @@ declare namespace window {
     /**
      * Set the size of a window .
      *
-     * @param { int } width - Indicates the width of the window. The width should be greater than 0.
-     * @param { int } height - Indicates the height of the window. The height should be greater than 0.
+     * @param { int } width - Indicates the width of the window, measured in px. The width should be greater than 0.
+     * @param { int } height - Indicates the height of the window, measured in px. The height should be greater than 0.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
@@ -6400,8 +6410,8 @@ declare namespace window {
     /**
      * Set the size of a window .
      *
-     * @param { int } width - Indicates the width of the window. The width should be greater than 0.
-     * @param { int } height - Indicates the height of the window. The height should be greater than 0.
+     * @param { int } width - Indicates the width of the window, measured in px. The width should be greater than 0.
+     * @param { int } height - Indicates the height of the window, measured in px. The height should be greater than 0.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
@@ -6415,8 +6425,8 @@ declare namespace window {
     /**
      * Set the size of a window .
      *
-     * @param { int } width - Indicates the width of the window. The width should be greater than 0.
-     * @param { int } height - Indicates the height of the window. The height should be greater than 0.
+     * @param { int } width - Indicates the width of the window, measured in px. The width should be greater than 0.
+     * @param { int } height - Indicates the height of the window, measured in px. The height should be greater than 0.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
@@ -6434,8 +6444,8 @@ declare namespace window {
     /**
      * Set the size of a window.
      *
-     * @param { int } width - Indicates the width of the window. The width should be greater than 0.
-     * @param { int } height - Indicates the height of the window. The height should be greater than 0.
+     * @param { int } width - Indicates the width of the window, measured in px. The width should be greater than 0.
+     * @param { int } height - Indicates the height of the window, measured in px. The height should be greater than 0.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: Invalid parameter range.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -6487,10 +6497,10 @@ declare namespace window {
      *     when the relative position between the primary sub window and the main window remains unchanged. The
      *     default value is window.WindowAnchor.TOP_Start, meaning the default anchor point is the top-left corner
      *     of the window.
-     * @param { int } [offsetX] - The x-axis offset
+     * @param { int } [offsetX] - The x-axis offset, measured in px.
      *     between the anchor point of the first level sub window and the anchor point of the main window.
      *     The default value is 0.
-     * @param { int } [offsetY] - The y-axis offset
+     * @param { int } [offsetY] - The y-axis offset, measured in px.
      *     between the anchor point of the first level sub window and the anchor point of the main window.
      *     The default value is 0.
      * @returns { Promise<void> } Promise that returns no value.
@@ -11041,7 +11051,7 @@ declare namespace window {
     /**
      * Sets the window blur radius.
      *
-     * @param { double } radius the blur radius.
+     * @param { double } radius the blur radius, measured in px.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
      *                                                                  3. Parameter verification failed.
@@ -11054,7 +11064,7 @@ declare namespace window {
     /**
      * Sets the window blur radius.
      *
-     * @param { double } radius the blur radius.
+     * @param { double } radius the blur radius, measured in px.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
@@ -11071,7 +11081,7 @@ declare namespace window {
     /**
      * Sets the window backdrop blur radius.
      *
-     * @param { double } radius the blur radius.
+     * @param { double } radius the blur radius, measured in px.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
      *                                                                  3. Parameter verification failed.
@@ -11086,7 +11096,7 @@ declare namespace window {
      * The window background refers to the lower-layer area covered by the window, which is the same as the window size.
      * To make the blur effect visible, you must set the window background transparent by calling setWindowBackgroundColor.
      *
-     * @param { double } radius the blur radius.
+     * @param { double } radius the blur radius, measured in px.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
@@ -11133,10 +11143,10 @@ declare namespace window {
     /**
      * Sets shadow.
      *
-     * @param { double } radius the radius of the shadow.
+     * @param { double } radius the radius of the shadow, measured in px.
      * @param { string } color the color of the shadow.
-     * @param { double } offsetX the offset of the shadow on the x-axis.
-     * @param { double } offsetY the offset of the shadow on the y-axis.
+     * @param { double } offsetX the offset of the shadow on the x-axis, measured in px.
+     * @param { double } offsetY the offset of the shadow on the y-axis, measured in px.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
      *                                                                  3. Parameter verification failed.
@@ -11149,10 +11159,10 @@ declare namespace window {
     /**
      * Sets the shadow for the window borders.
      *
-     * @param { double } radius the radius of the shadow.
+     * @param { double } radius the radius of the shadow, measured in px.
      * @param { string } color the color of the shadow.
-     * @param { double } offsetX the offset of the shadow on the x-axis.
-     * @param { double } offsetY the offset of the shadow on the y-axis.
+     * @param { double } offsetX the offset of the shadow on the x-axis, measured in px.
+     * @param { double } offsetY the offset of the shadow on the y-axis, measured in px.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
@@ -11189,7 +11199,7 @@ declare namespace window {
     /**
      * Sets corner radius.
      *
-     * @param { double } cornerRadius the corner radius.
+     * @param { double } cornerRadius the corner radius, measured in px.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
      *                                                                  3. Parameter verification failed.
@@ -11202,7 +11212,7 @@ declare namespace window {
     /**
      * Sets the radius of the rounded corners for this window.
      *
-     * @param { double } cornerRadius the corner radius.
+     * @param { double } cornerRadius the corner radius, measured in px.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
@@ -12750,8 +12760,8 @@ declare namespace window {
     /**
      * Convert the window coordinates to the global coordinates.
      *
-     * @param { int } winX - Indicates the X-coordinate of the component relative to the current window.
-     * @param { int } winY - Indicates the Y-coordinate of the component relative to the current window.
+     * @param { int } winX - Indicates the X-coordinate of the component relative to the current window, measured in px.
+     * @param { int } winY - Indicates the Y-coordinate of the component relative to the current window, measured in px.
      * @returns { Position } Position - The pair {x, y} represents respectively the X-coordinate
      *     and Y-coordinate of the window relative to the primary display, measured in px.
      *     This parameter only accepts integer values; any floating-point input will be rounded down.
@@ -12768,8 +12778,10 @@ declare namespace window {
     /**
      * Convert the global coordinates to the window coordinates.
      *
-     * @param { int } globalDisplayX - Indicates the X-coordinate of the component relative to the primary display.
-     * @param { int } globalDisplayY - Indicates the Y-coordinate of the component relative to the primary display.
+     * @param { int } globalDisplayX - Indicates the X-coordinate of the component relative to the primary display,
+     *     measured in px.
+     * @param { int } globalDisplayY - Indicates the Y-coordinate of the component relative to the primary display,
+     *     measured in px.
      * @returns { Position } Position - The pair {x, y} represents respectively the X-coordinate
      *     and Y-coordinate of the window relative to the current screen, measured in px.
      *     This parameter only accepts integer values; any floating-point input will be rounded down.
