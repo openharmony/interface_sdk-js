@@ -1176,23 +1176,23 @@ declare namespace hidebug {
    *
    * @param { boolean } needGC - Whether do GC before dump, default is true.
    * @param { boolean } needClean - Whether to release the snapshot cache before dumping the heap snapshot.
-   *     The default value is false.
-  * @param { boolean } processDump - Whether to dump the heap of whole process.
-  *     The default value is false.
-  * @returns { Promise<Array<string>> } Returns a list of the full path of raw heap snapshot file.
-  * @throws { BusinessError } 11400106 - Quota exceeded.
-  * @throws { BusinessError } 11400107 - Fork operation failed.
-  * @throws { BusinessError } 11400108 - Failed to wait for the child process to finish.
-  * @throws { BusinessError } 11400109 - Timeout while waiting for the child process to finish.
-  * @throws { BusinessError } 11400110 - Disk remaining space too low.
-  * @throws { BusinessError } 11400111 - Napi interface call exception.
-  * @throws { BusinessError } 11400112 - Repeated data dump.
-  * @throws { BusinessError } 11400113 - Failed to create dump file.
-  * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-  * @stagemodelonly
-  * @atomicservice
-  * @since 26.0.0 dynamic&static
-  */
+   * The default value is false.
+   * @param { boolean } processDump - Whether to dump the heap of whole process.
+   * The default value is false.
+   * @returns { Promise<Array<string>> } Returns a list of the full path of raw heap snapshot file.
+   * @throws { BusinessError } 11400106 - Quota exceeded.
+   * @throws { BusinessError } 11400107 - Fork operation failed.
+   * @throws { BusinessError } 11400108 - Failed to wait for the child process to finish.
+   * @throws { BusinessError } 11400109 - Timeout while waiting for the child process to finish.
+   * @throws { BusinessError } 11400110 - Disk remaining space too low.
+   * @throws { BusinessError } 11400111 - Napi interface call exception.
+   * @throws { BusinessError } 11400112 - Repeated data dump.
+   * @throws { BusinessError } 11400113 - Failed to create dump file.
+   * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
   function dumpJsRawHeapData(needGC: boolean, needClean: boolean, processDump: boolean): Promise<Array<string>>
 
   /**
