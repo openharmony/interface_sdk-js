@@ -28,7 +28,7 @@ import BaseContext from './application/BaseContext';
  *
  * @namespace distributedKVStore
  * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
- * @stagemodelonly[staticonly]
+ * @stagemodelonly [staticonly]
  * @since 9 dynamic
  * @since 23 static
  */
@@ -37,7 +37,7 @@ import BaseContext from './application/BaseContext';
  *
  * @namespace distributedKVStore
  * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
- * @stagemodelonly[staticonly]
+ * @stagemodelonly [staticonly]
  * @crossplatform
  * @since 24 dynamic&static
  */
