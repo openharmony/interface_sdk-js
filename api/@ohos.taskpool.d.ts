@@ -481,7 +481,7 @@ declare namespace taskpool {
     onStartExecution(callback: CallbackFunction): void;
 
     /**
-     * Register a callback function and call it when a task fails to be executed.
+     * Register a callback function and call it when a task fails to be executed(Periodic tasks are not supported).
      * The registration must be carried out before the task is executed. Otherwise, an exception is thrown.
      *
      * @param { CallbackFunctionWithError } [callback] - Callback function to register.
@@ -1779,7 +1779,7 @@ declare namespace taskpool {
    * after being canceled, and an exception indicating task cancellation is returned. If the task has been distributed to
    * the worker thread of the task pool, canceling the task does not affect the task execution, and the execution result
    * is returned in the catch branch. You can use isCanceled() to check the task cancellation status. In other words,
-   * taskpool.cancel takes effect before taskpool.execute or taskpool.executeDelayed is called.
+   * taskpool.cancel takes effect before taskpool.execute taskpool.executePeriodically or taskpool.executeDelayed is called.
    *
    * @param { Task } task - Task to cancel.
    * @throws { BusinessError } 10200015 - The task to cancel does not exist.
