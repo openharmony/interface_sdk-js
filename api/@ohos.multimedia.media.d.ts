@@ -7266,7 +7266,7 @@ declare namespace media {
      * @throws { BusinessError } 5400102 - Operation not allowed.
      * @throws { BusinessError } 5400108 - Parameter check failed.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
-     * @since 26 dynamic & static
+     * @since 26.0.0 dynamic & static
      * @example
      * let meta: Record<string, string> = {
      *   'com.openharmony.userdefine': '10',
