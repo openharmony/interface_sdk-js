@@ -986,7 +986,7 @@ export interface Animation extends SceneResource {
   speed?: double;
 
   /**
-   * The duration of the animation.
+   * The duration of the animation, the unit is second.
    *
    * @type { double }
    * @readonly
@@ -1241,7 +1241,7 @@ export interface Environment extends SceneResource {
  */
 export interface Image extends SceneResource {
   /**
-   * The width of the image.
+   * The width of the image, the unit is pixel.
    *
    * @type { int }
    * @readonly
@@ -1252,7 +1252,7 @@ export interface Image extends SceneResource {
   readonly width: int;
 
   /**
-   * The height of the image.
+   * The height of the image, the unit is pixel.
    *
    * @type { int }
    * @readonly
