@@ -1870,7 +1870,7 @@ declare namespace camera {
      *
      * @param { Profile } profile - Preview output profile.
      * @returns { PreviewOutput } the PreviewOutput instance.
-     * @throws { BusinessError } 7400101 - profile is missing or incorrect.
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
