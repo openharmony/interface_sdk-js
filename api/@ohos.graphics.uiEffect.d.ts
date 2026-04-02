@@ -289,6 +289,41 @@ declare namespace uiEffect {
     directionLight(direction: common2D.Point3d, color: Color, intensity: double, mask?: Mask, factor?: double): Filter;
 
     /**
+     * Applies heat distortion effect to simulate hot air distortion.
+     * This effect creates a wavy distortion similar to heat shimmer or hot air rising.
+     *
+     * @param { double } intensity - The intensity of the distortion effect.
+     *     Value range: [0.0, 5.0].
+     *     Larger values create stronger distortion effects.
+     *     Typical usage: 0.5 for mild heat (30-33°C), 1.0 for moderate (33-37°C), 2.0 for intense (37°C+).
+     * @param { double } riseSpeed - The speed of the rising heat wave animation.
+     *     Value range: [0.0, 5.0].
+     *     Controls how fast the heat waves rise upward.
+     *     Recommended range: 1.0-1.5 for natural effect.
+     * @param { double } noiseScale - The scale factor for the noise texture.
+     *     Value range: [0.1, 5.0].
+     *     Controls the coarseness of the noise texture.
+     *     Larger values create finer noise details.
+     *     Recommended range: 1.0-2.0.
+     * @param { double } noiseSpeed - The speed of noise texture evolution over time.
+     *     Value range: [0.0, 5.0].
+     *     Controls how quickly the noise pattern changes.
+     *     Recommended range: 0.4-0.8 for natural heat shimmer.
+     * @param { double } riseWeight - The weight of the rising heat effect in the overall distortion.
+     *     Value range: [0.0, 1.0].
+     *     Higher values make the rising heat wave more prominent.
+     *     Recommended: 0.6-0.8 for noticeable upward motion.
+     * @returns { Filter } - Returns the heat distortion Filter.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @since 25 dynamic
+     * @since 25 static
+     */
+    heatDistortion(intensity: double, riseSpeed: double, noiseScale: double, noiseSpeed: double,
+      riseWeight: double): Filter;
+
+    /**
      * Applies Transition with alpha mask
      * 
      * @param { Mask } alphaMask - Animatable mask object
