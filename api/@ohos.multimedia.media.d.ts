@@ -11643,6 +11643,38 @@ declare namespace media {
      * @since 23 static
      */
     SCREENCAPTURE_STATE_STOPPED_BY_USER_SWITCHES = 10,
+    /**
+     * Screen capture paused by user.
+     *
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    SCREENCAPTURE_STATE_PAUSED_BY_USER = 11,
+    /**
+     * Screen capture resumed by user.
+     *
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    SCREENCAPTURE_STATE_RESUMED_BY_USER = 12,
+    /**
+     * Screen capture paused by app.
+     *
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    SCREENCAPTURE_STATE_PAUSED_BY_APP = 13,
+    /**
+     * Screen capture resumed by app.
+     *
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    SCREENCAPTURE_STATE_RESUMED_BY_APP = 14,
   }
 
   /**
@@ -11697,6 +11729,14 @@ declare namespace media {
      * @since 23 dynamic&static
      */
     privacyMaskMode?: int;
+
+    /**
+     * Enable pausing the screen capture. The default value is false.
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @stagemodelonly
+     * @since 26 dynamic&static
+     */
+    enablePause?: boolean;
   }
 
   /**
