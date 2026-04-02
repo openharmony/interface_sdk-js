@@ -107,9 +107,9 @@ declare namespace inputMethod {
   function getDefaultInputMethod(): InputMethodProperty;
 
   /**
-   * Get default input method of a specified user.
+   * Get the default input method of a specified user.
    *
-   * @param { int } [userId] - the user ID.If not provided:
+   * @param { int } [userId] - the user ID. If not provided:
    *     If the caller is not a user 0 application, the value defaults to the caller's user ID.
    *     If the caller is a user 0 application, the value defaults to the foreground user ID of the main screen.
    * @returns { InputMethodProperty } property of the default input method.
@@ -142,7 +142,7 @@ declare namespace inputMethod {
   /**
    * Get the system input method config ability of a specified user.
    *
-   * @param { int } [userId] - the user ID.If not provided:
+   * @param { int } [userId] - the user ID. If not provided:
    *     If the caller is not a user 0 application, the value defaults to the caller's user ID.
    *     If the caller is a user 0 application, the value defaults to the foreground user ID of the main screen.
    * @returns { ElementName } the information of system input method config ability.
@@ -235,10 +235,10 @@ declare namespace inputMethod {
   /**
    * Get the current input method of a specified user.
    *
-   * @param { int } [userId] - the user ID.If not provided:
+   * @param { int } [userId] - the user ID. If not provided:
    *     If the caller is not a user 0 application, the value defaults to the caller's user ID.
    *     If the caller is a user 0 application, the value defaults to the foreground user ID of the main screen.
-   * @returns { InputMethodProperty } the property of the current inputmethod.
+   * @returns { InputMethodProperty } the property of the current input method.
    * @throws { BusinessError } 202 - not system application.
    * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
    *     a system error, such as null pointer, IPC exception.
@@ -358,7 +358,7 @@ declare namespace inputMethod {
   /**
    * Get the current input method subtype of a specified user.
    *
-   * @param { int } [userId] - the user ID.If not provided:
+   * @param { int } [userId] - the user ID. If not provided:
    *     If the caller is not a user 0 application, the value defaults to the caller's user ID.
    *     If the caller is a user 0 application, the value defaults to the foreground user ID of the main screen.
    * @returns { InputMethodSubtype } the subtype of the current input method.
@@ -546,7 +546,7 @@ declare namespace inputMethod {
    * The callback of the inputmethod change event which carries the user ID whose inputmethod is changed.
    *
    * @param { InputMethodProperty } inputMethodProperty - the property of current inputmethod.
-   * @param { InputMethodSubtype } inputMethodsubtype - the subtype of current inputmethod.
+   * @param { InputMethodSubtype } inputMethodSubtype - the subtype of current inputmethod.
    * @param { int } userId - the user ID whose inputmethod is changed.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @systemapi
@@ -758,13 +758,13 @@ declare namespace inputMethod {
     listCurrentInputMethodSubtype(): Promise<Array<InputMethodSubtype>>;
 
     /**
-     * get subtypes of a specified input method of a specified user.
+     * Get subtypes of a specified input method of a specified user.
      *
      * @param { string } bundleName - the bundle name of the specified input method.
-     * @param { int } [userId] - the user ID.If not provided:
+     * @param { int } [userId] - the user ID. If not provided:
      *     If the caller is not a user 0 application, the value defaults to the caller's user ID.
      *     If the caller is a user 0 application, the value defaults to the foreground user ID of the main screen.
-     * @returns { Array<InputMethodsubtype> } the subtype of target input method.
+     * @returns { Array<InputMethodSubtype> } the subtype of target input method.
      * @throws { BusinessError } 202 - not system application.
      * @throws { BusinessError } 12800001 - bundle manager error.
      * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
@@ -839,7 +839,7 @@ declare namespace inputMethod {
      *
      * @param { boolean } enable - If true, collect enabled input methods.
      *     If false, collect disabled input methods.
-     * @param { int } [userId] - the user ID.If not provided:
+     * @param { int } [userId] - the user ID. If not provided:
      *     If the caller is not a user 0 application, the value defaults to the caller's user ID.
      *     If the caller is a user 0 application, the value defaults to the foreground user ID of the main screen.
      * @returns { Array<InputMethodProperty> } the list of input methods.
@@ -900,7 +900,7 @@ declare namespace inputMethod {
     /**
      * Get all input methods sync of a specified user.
      *
-     * @param { int } [userId] - the user ID.If not provided:
+     * @param { int } [userId] - the user ID. If not provided:
      *     If the caller is not a user 0 application, the value defaults to the caller's user ID.
      *     If the caller is a user 0 application, the value defaults to the foreground user ID of the main screen.
      * @returns { Array<InputMethodProperty> } the list of all input methods.
@@ -1020,10 +1020,10 @@ declare namespace inputMethod {
      * Change the enabled state of an input method of a specified user.
      *
      * @permission ohos.permission.CONNECT_IME_ABILITY
-     * @param { string } bundleName - Indicates the bundleName of the inputmethod.
-     * @param { string } extensionName - Indicates the extensionName of the inputmethod.
+     * @param { string } bundleName - Indicates the bundle name of the input method.
+     * @param { string } extensionName - Indicates the extension name of the input method.
      * @param { EnabledState } enabledState - Indicates the enabledState to be changed.
-     * @param { int } [userId] - the user ID.If not provided:
+     * @param { int } [userId] - the user ID. If not provided:
      *     If the caller is not a user 0 application, the value defaults to the caller's user ID.
      *     If the caller is a user 0 application, the value defaults to the foreground user ID of the main screen.
      * @returns { Promise<void> } the promise returned by the function.
@@ -1089,7 +1089,7 @@ declare namespace inputMethod {
      * @since 24 dynamic&static
      */
     offImeChangeWithUserId(callback?: ImeChangeWithUserIdCallback): void;
-  
+
     /**
      * Subscribes to input window show events.
      *
