@@ -884,6 +884,27 @@ declare namespace inputMethod {
      * @since 23 static
      */
     offImeHide(callback?: Callback<Array<InputWindowInfo>>): void;
+
+    /**
+     * Get the cursor infomation of a specified user.
+     *
+     * @param { int } [userId] - the ID of the specified user, defaults to the foreground user ID of the screen.,
+     * @returns { CursorInfo } the promise returned by the function.
+     * @throws { BusinessError } 202 - not system application.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1. No edit box is bound to the current input method application under the specified user.
+     * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
+     *     a system error, such as null pointer, IPC exception.
+     * @throws { BusinessError } 12800023 - the specified user does not exit.
+     * @throws { BusinessError } 12800024 - the specified user is not in the foregeound.
+     * @throws { BusinessError } 12800025 - cross-user operation denied.
+     *     Only user 0 applications are authorized for this operation.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&&static
+     */
+    getCursorInfo(userId?: int): CursorInfo;
   }
 
   /**
@@ -2689,6 +2710,16 @@ declare namespace inputMethod {
      * @since 23 static
      */
     height: double;
+
+    /**
+     * Indicates the id of the display where the input window is shown.
+     *
+     * @type { ?long }
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @statemodeonly
+     * @since 26.0.0 dynamic&&static
+     */
+    displayId: long;
   }
 
   /**
