@@ -2735,7 +2735,7 @@ declare namespace inputMethod {
      * @statemodeonly
      * @since 26.0.0 dynamic&&static
      */
-    displayId: long;
+    displayId?: long;
   }
 
   /**
