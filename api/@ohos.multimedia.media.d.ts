@@ -11880,6 +11880,46 @@ declare namespace media {
     stopRecording(): Promise<void>;
 
     /**
+     * Pause screen capture. This API uses a promise to return the result.
+     *
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 5400102 - Operation not be permitted. Return by promise.
+     * @throws { BusinessError } 5400103 - IO error. Return by promise.
+     * @throws { BusinessError } 5400105 - Service died. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCaptureRecorder
+     * @since 26 dynamic&static
+     * @example
+     * import { BusinessError } from '@kit.BasicServicesKit';
+     *
+     * avScreenCaptureRecorder.pauseRecording().then(() => {
+     *     console.info('Succeeded in pausing avScreenCaptureRecorder');
+     * }).catch((err: BusinessError) => {
+     *     console.info('Failed to pause avScreenCaptureRecorder, error: ' + err.message);
+     * })
+     */
+    pauseRecording(): Promise<void>;
+
+    /**
+     * Resume screen capture. This API uses a promise to return the result.
+     *
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 5400102 - Operation not be permitted. Return by promise.
+     * @throws { BusinessError } 5400103 - IO error. Return by promise.
+     * @throws { BusinessError } 5400105 - Service died. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCaptureRecorder
+     * @since 26 dynamic&static
+     * @example
+     * import { BusinessError } from '@kit.BasicServicesKit';
+     *
+     * avScreenCaptureRecorder.resumeRecording().then(() => {
+     *     console.info('Succeeded in resuming avScreenCaptureRecorder');
+     * }).catch((err: BusinessError) => {
+     *     console.info('Failed to resume avScreenCaptureRecorder, error: ' + err.message);
+     * })
+     */
+    resumeRecording(): Promise<void>;
+
+    /**
      * During screen capture, the application can exempt its privacy windows from security purposes.
      * This API uses a promise to return the result.
      * For example, if a user enters a password in this application during screen capture,
