@@ -5212,7 +5212,6 @@ declare namespace geoLocationManager {
 
     /**
      * Additional information about the POI.
-     *
      * @syscap SystemCapability.Location.Location.Core
      * @stagemodelonly
      * @atomicservice
