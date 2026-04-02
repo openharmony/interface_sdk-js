@@ -82,7 +82,7 @@ declare namespace certificateManagerDialog {
     ERROR_DEVICE_NOT_SUPPORTED = 29700004,
 
     /**
-     * Indicates that the operation does not comply with the device security policy, such as the device does not allow users to manage the ca certificate of the global user..
+     * Indicates that the operation does not comply with the device security policy, such as the device does not allow users to manage the ca certificate of the global user.
      *
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
