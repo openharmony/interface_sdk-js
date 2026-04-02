@@ -475,16 +475,16 @@ declare namespace inputMethod {
    * Switch input method and subtype of a specified user.
    *
    * @permission ohos.permission.CONNECT_IME_ABILITY
-   * @param { string } bundleName - indicates the bundleName of the target input method.
-   * @param { string } [subtypeId] - indicates the id of the input method subtype. 
+   * @param { string } bundleName - indicates the bundle name of the target input method.
+   * @param { string } [subtypeId] - indicates the id of the input method subtype.
    *     If the param is not set, switch to the target input method with a default subtype.
-   * @param { int } [userId] - the user ID.If not provided:
+   * @param { int } [userId] - the user ID. If not provided:
    *     If the caller is not a user 0 application, the value defaults to the caller's user ID.
    *     If the caller is a user 0 application, the value defaults to the foreground user ID of the main screen.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 201 - permissions check fails.
    * @throws { BusinessError } 202 - not system application.
-   * @throws { BusinessError } 12800005- configuration persistence error.
+   * @throws { BusinessError } 12800005 - configuration persistence error.
    * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
    *     a system error, such as null pointer, IPC exception.
    * @throws { BusinessError } 12800023 - the specified user does not exist.
