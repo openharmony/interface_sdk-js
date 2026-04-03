@@ -1695,28 +1695,27 @@ declare namespace update {
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
-    export enum FactoryResetScope {
-      /**
-       * The factory reset scope is data.
-       *
-       * @syscap SystemCapability.Update.UpdateService
-       * @systemapi hide for inner use.
-       * @stagemodelonly
-       * @since 26.0.0 dynamic&static
-       */
-      DATA = 1,
+  export enum FactoryResetScope {
+    /**
+     * The factory reset scope is data.
+     *
+     * @syscap SystemCapability.Update.UpdateService
+     * @systemapi hide for inner use.
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    DATA = 1,
   
-      /**
-       * The factory reset scope includes data and the OS.
-       *
-       * @syscap SystemCapability.Update.UpdateService
-       * @systemapi hide for inner use.
-       * @stagemodelonly
-       * @since 26.0.0 dynamic&static
-       */
-      DATA_AND_OS = 2
-    } 
-  }
+    /**
+     * The factory reset scope includes data and the OS.
+     *
+     * @syscap SystemCapability.Update.UpdateService
+     * @systemapi hide for inner use.
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    DATA_AND_OS = 2
+  } 
 
   /**
    * Represents factory reset info.
@@ -2443,7 +2442,5 @@ declare namespace update {
      */
     EVENT_UPGRADE_FAIL = 0x01000010
   }
-
-
 
 export default update;
