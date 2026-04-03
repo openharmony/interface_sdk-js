@@ -6055,7 +6055,7 @@ declare namespace webview {
     getCustomUserAgent(): string;
 
     /**
-     * Set web engine socket connection timeout.
+     * Set web engine socket connection timeout. Unit: seconds.
      * @param { number } timeout - Socket connection timeout.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3. Parameter verification failed.
@@ -8313,7 +8313,7 @@ declare namespace webview {
      */
     initialize(): Promise<void>;
     /**
-     * Read the data stream to the buffer.
+     * Read the data stream to the buffer. Unit: bytes.
      *
      * @param { number } size - Read size.
      * @returns { Promise<ArrayBuffer> } Read array buffer of result.
@@ -8325,7 +8325,7 @@ declare namespace webview {
      */
     read(size: number): Promise<ArrayBuffer>;
     /**
-     * Get the total size of the data stream. When data is chunked, always return zero.
+     * Get the total size of the data stream. When data is chunked, always return zero. Unit: bytes.
      *
      * @returns { number } Return size of data stream size.
      * @syscap SystemCapability.Web.Webview.Core
@@ -8334,7 +8334,7 @@ declare namespace webview {
      */
     getSize(): number;
     /**
-     * Get the current position of the data stream.
+     * Get the current position of the data stream. Unit: bytes.
      *
      * @returns { number } Return position in post data stream.
      * @syscap SystemCapability.Web.Webview.Core
@@ -10161,7 +10161,7 @@ declare namespace webview {
 
     /**
      * Set the lifetime in seconds in the BackForwardCache.
-     * Default is 600.
+     * Unit: seconds. Default is 600.
      *
      * @type { number }
      * @syscap SystemCapability.Web.Webview.Core
@@ -10187,7 +10187,7 @@ declare namespace webview {
     /**
      * ‌Set prefetch page interval limit.
      * <p><strong>API Note</strong>:<br>
-     * Default 500ms (ensures only one successful prefetch within 500ms).
+     * The value should be an integer.Unit: ms. Default 500ms (ensures only one successful prefetch within 500ms).
      * The interval throttles prefetch frequency to balance performance and resource usage.
      *
      * @type { number }

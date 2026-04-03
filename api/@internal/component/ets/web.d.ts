@@ -6803,7 +6803,7 @@ declare interface OnDownloadStartEvent {
   mimetype: string;
 
   /**
-   * The contentLength of page.
+   * The contentLength of page. Unit: bytes.
    *
    * @type { number }
    * @syscap SystemCapability.Web.Webview.Core

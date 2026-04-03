@@ -3303,8 +3303,10 @@ declare namespace webview {
         getCustomUserAgent(): string;
 
         /**
-         * Set web engine socket connection timeout.
+         * Set web engine socket connection timeout. Unit: seconds.
+         * 
          * @param { int } timeout - Socket connection timeout.
+         *     The value should be an integer.
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
          * <br>2. Incorrect parameter types. 3. Parameter verification failed.
          * @syscap SystemCapability.Web.Webview.Core
@@ -4989,9 +4991,10 @@ declare namespace webview {
          */
         initialize(): Promise<void>;
         /**
-         * Read the data stream to the buffer.
+         * Read the data stream to the buffer. Unit: bytes.
          *
          * @param { int } size - Read size.
+         *     The value should be an integer.
          * @returns { Promise<ArrayBuffer> } Read array buffer of result.
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
          * <br>2. Incorrect parameter types. 3.Parameter verification failed.
@@ -5000,7 +5003,7 @@ declare namespace webview {
          */
         read(size: int): Promise<ArrayBuffer>;
         /**
-         * Get the total size of the data stream. When data is chunked, always return zero.
+         * Get the total size of the data stream. When data is chunked, always return zero. Unit: bytes.
          *
          * @returns { long } Return size of data stream size.
          * @syscap SystemCapability.Web.Webview.Core
@@ -5008,7 +5011,7 @@ declare namespace webview {
          */
         getSize(): long;
         /**
-         * Get the current position of the data stream.
+         * Get the current position of the data stream. Unit: bytes.
          *
          * @returns { long } Return position in post data stream.
          * @syscap SystemCapability.Web.Webview.Core
@@ -6392,7 +6395,7 @@ declare namespace webview {
 
         /**
          * Set the lifetime in seconds in the BackForwardCache.
-         * Default is 600.
+         * The value should be an integer.Unit: seconds. Default is 600.
          *
          * @type { int }
          * @syscap SystemCapability.Web.Webview.Core
@@ -6418,7 +6421,7 @@ declare namespace webview {
         /**
          * ‌Set prefetch page interval limit.
          * <p><strong>API Note</strong>:<br>
-         * Default 500ms (ensures only one successful prefetch within 500ms).
+         * Unit: ms. Default 500ms (ensures only one successful prefetch within 500ms).
          * The interval throttles prefetch frequency to balance performance and resource usage.
          *
          * @type { int }

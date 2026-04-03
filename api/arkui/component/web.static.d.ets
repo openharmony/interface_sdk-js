@@ -3639,7 +3639,7 @@ export declare interface OnDownloadStartEvent {
      */
     mimetype: string;
     /**
-     * The contentLength of page.
+     * The contentLength of page. Unit: bytes.
      *
      * @type { long }
      * @syscap SystemCapability.Web.Webview.Core
