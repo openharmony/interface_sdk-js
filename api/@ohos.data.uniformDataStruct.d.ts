@@ -200,6 +200,16 @@ declare namespace uniformDataStruct {
      * @since 23 static
      */
     details?: Record<string, string>;
+
+    /**
+     * Defines URI authorization policies for drag intention.
+     *
+     * @type { ?Array<int> }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    uriAuthorizationPolicies?: Array<int>;
   }
 
   /**
@@ -498,6 +508,16 @@ declare namespace uniformDataStruct {
      * @since 23 static
      */
     details?: Record<string, int | long | double | string | Uint8Array>;
+
+    /**
+     * Defines URI authorization policies for drag intention.
+     *
+     * @type { ?Array<int> }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    uriAuthorizationPolicies?: Array<int>;
   }
 
   /**
