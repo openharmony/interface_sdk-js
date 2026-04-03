@@ -5148,10 +5148,10 @@ declare namespace image {
    * The following pixel formats are not supported for PixelMap creation:
    * RGBA_1010102, YCBCR_P010, YCRCB_P010, ASTC_4x4.
    *
-   * @param { ArrayBuffer } pixels The pixel data buffer used to initialize the PixelMap.
+   * @param { ArrayBuffer } pixels - The pixel data buffer used to initialize the PixelMap.
    *     The format of the pixel data can be specified by InitializationOptions.srcPixelFormat.
    *     The size of the buffer should be: image width * image height * bytes per pixel.
-   * @param { InitializationOptions } param Initialization options for the PixelMap.
+   * @param { InitializationOptions } param - Initialization options for the PixelMap.
    *     If InitializationOptions.pixelFormat is set to ASTC_4x4, it will be reset to the default value RGBA_8888.
    *     If InitializationOptions.srcPixelFormat is set to ASTC_4x4, it will be reset to the default value BGRA_8888.
    * @returns { Promise<PixelMap> } A Promise of the new PixelMap created.
@@ -5180,10 +5180,10 @@ declare namespace image {
    * The following pixel formats are not supported for PixelMap creation:
    * RGBA_1010102, YCBCR_P010, YCRCB_P010, ASTC_4x4.
    *
-   * @param { ArrayBuffer } pixels The pixel data buffer used to initialize the PixelMap.
+   * @param { ArrayBuffer } pixels - The pixel data buffer used to initialize the PixelMap.
    *     The format of the pixel data can be specified by InitializationOptions.srcPixelFormat.
    *     The size of the buffer should be: image width * image height * bytes per pixel.
-   * @param { InitializationOptions } param Initialization options for the PixelMap.
+   * @param { InitializationOptions } param - Initialization options for the PixelMap.
    *     If InitializationOptions.pixelFormat is set to ASTC_4x4, it will be reset to the default value RGBA_8888.
    *     If InitializationOptions.srcPixelFormat is set to ASTC_4x4, it will be reset to the default value BGRA_8888.
    * @returns { PixelMap } The new PixelMap created.
@@ -5315,7 +5315,7 @@ declare namespace image {
    * 
    * The following pixel format is not supported for PixelMap creation: ASTC_4x4.
    *
-   * @param { InitializationOptions } param Initialization options for the PixelMap.
+   * @param { InitializationOptions } param - Initialization options for the PixelMap.
    *     If InitializationOptions.pixelFormat is set to ASTC_4x4, it will be reset to the default value RGBA_8888.
    * @returns { PixelMap } The new PixelMap created.
    * @throws { BusinessError } 7600206 - Invalid parameter.
@@ -6148,7 +6148,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Reads all the pixel data from the PixelMap and writes the data to a buffer.
      * The resulting data will be in the same pixel format as the PixelMap.
      *
-     * @param { ArrayBuffer } dst The buffer to receive the pixel data from the PixelMap.
+     * @param { ArrayBuffer } dst - The buffer to receive the pixel data from the PixelMap.
      * @returns { Promise<void> } A Promise that resolves when the operation completes.
      * @throws { BusinessError } 7600104 - Failed to get image data.
      *     Possible cause: Internal data is corrupted. Please check the logs for detailed information.
@@ -6169,7 +6169,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Reads all the pixel data from the PixelMap and writes the data to a buffer.
      * The resulting data will be in the same pixel format as the PixelMap.
      *
-     * @param { ArrayBuffer } dst The buffer to receive the pixel data from the PixelMap.
+     * @param { ArrayBuffer } dst - The buffer to receive the pixel data from the PixelMap.
      * @throws { BusinessError } 7600104 - Failed to get image data.
      *     Possible cause: Internal data is corrupted. Please check the logs for detailed information.
      * @throws { BusinessError } 7600105 - The PixelMap has been released.
@@ -6300,7 +6300,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Reads pixel data from a certain area of the PixelMap to a buffer. The resulting data will be in BGRA_8888 format.
      *
-     * @param { PositionArea } area Area of the PixelMap to read the data.
+     * @param { PositionArea } area - Area of the PixelMap to read the data.
      *     Data will be read from the PixelMap and copied into PositionArea.pixels.
      * @returns { Promise<void> } A Promise that resolves when the operation completes.
      * @throws { BusinessError } 7600104 - Failed to get image data.
@@ -6322,7 +6322,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Reads pixel data from a certain area of the PixelMap to a buffer. The resulting data will be in BGRA_8888 format.
      *
-     * @param { PositionArea } area Area of the PixelMap to read the data.
+     * @param { PositionArea } area - Area of the PixelMap to read the data.
      *     Data will be read from the PixelMap and copied into PositionArea.pixels.
      * @throws { BusinessError } 7600104 - Failed to get image data.
      *     Possible cause: Internal data is corrupted. Please check the logs for detailed information.
@@ -6446,7 +6446,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Writes data from a buffer to a certain area of the PixelMap. The source data must be in BGRA_8888 format.
      *
-     * @param { PositionArea } area Area of the PixelMap to write the data.
+     * @param { PositionArea } area - Area of the PixelMap to write the data.
      *     Data will be copied from PositionArea.pixels to the PixelMap.
      * @returns { Promise<void> } A Promise that resolves when the operation completes.
      * @throws { BusinessError } 7600104 - Failed to get image data.
@@ -6469,7 +6469,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Writes data from a buffer to a certain area of the PixelMap. The source data must be in BGRA_8888 format.
      *
-     * @param { PositionArea } area Area of the PixelMap to write the data.
+     * @param { PositionArea } area - Area of the PixelMap to write the data.
      *     Data will be copied from PositionArea.pixels to the PixelMap.
      * @throws { BusinessError } 7600104 - Failed to get image data.
      *     Possible cause: Internal data is corrupted. Please check the logs for detailed information.
@@ -6604,7 +6604,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Reads the pixel data from a buffer and writes the data to the PixelMap.
      * The source data must be in the same pixel format as the PixelMap.
      *
-     * @param { ArrayBuffer } src The buffer that contains pixel data to be written to the PixelMap.
+     * @param { ArrayBuffer } src - The buffer that contains pixel data to be written to the PixelMap.
      * @returns { Promise<void> } A Promise that resolves when the operation completes.
      * @throws { BusinessError } 7600104 - Failed to get image data.
      *     Possible cause: Internal data is corrupted. Please check the logs for detailed information.
@@ -6626,7 +6626,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Reads the pixel data from a buffer and writes the data to the PixelMap.
      * The source data must be in the same pixel format as the PixelMap.
      *
-     * @param { ArrayBuffer } src The buffer that contains pixel data to be written to the PixelMap.
+     * @param { ArrayBuffer } src - The buffer that contains pixel data to be written to the PixelMap.
      * @throws { BusinessError } 7600104 - Failed to get image data.
      *     Possible cause: Internal data is corrupted. Please check the logs for detailed information.
      * @throws { BusinessError } 7600105 - The PixelMap has been released.
@@ -6971,7 +6971,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Sets opacity of the PixelMap. Every pixel will be set to the same opacity value.
      *
-     * @param { double } value The target opacity value to be set.
+     * @param { double } value - The target opacity value to be set.
      *     The valid range is (0.0, 1.0] where 1.0 is fully opaque and becoming more transparent as it approaches 0.0.
      * @returns { Promise<void> } A Promise that resolves when the operation completes.
      * @throws { BusinessError } 7600104 - Failed to get image data.
@@ -6993,7 +6993,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Sets opacity of the PixelMap. Every pixel will be set to the same opacity value.
      *
-     * @param { double } value The target opacity value to be set.
+     * @param { double } value - The target opacity value to be set.
      *     The valid range is (0.0, 1.0] where 1.0 is fully opaque and becoming more transparent as it approaches 0.0.
      * @throws { BusinessError } 7600104 - Failed to get image data.
      *     Possible cause: Internal data is corrupted. Please check the logs for detailed information.
@@ -7253,9 +7253,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Scales the PixelMap in the horizontal and/or vertical dimensions.
      *
-     * @param { double } x The scale ratio of width.
-     * @param { double } y The scale ratio of height.
-     * @param { AntiAliasingLevel } [level] The anti-aliasing algorithm to be used.
+     * @param { double } x - The scale ratio of width.
+     * @param { double } y - The scale ratio of height.
+     * @param { AntiAliasingLevel } [level] - The anti-aliasing algorithm to be used.
      *     The default value is AntiAliasingLevel.NONE.
      * @returns { Promise<void> } A Promise that resolves when the operation completes.
      * @throws { BusinessError } 7600104 - Failed to get image data.
@@ -7277,9 +7277,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Scales the PixelMap in the horizontal and/or vertical dimensions.
      *
-     * @param { double } x The scale ratio of width.
-     * @param { double } y The scale ratio of height.
-     * @param { AntiAliasingLevel } [level] The anti-aliasing algorithm to be used.
+     * @param { double } x - The scale ratio of width.
+     * @param { double } y - The scale ratio of height.
+     * @param { AntiAliasingLevel } [level] - The anti-aliasing algorithm to be used.
      *     The default value is AntiAliasingLevel.NONE.
      * @throws { BusinessError } 7600104 - Failed to get image data.
      *     Possible cause: Internal data is corrupted. Please check the logs for detailed information.
@@ -7484,8 +7484,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Repositions the PixelMap in the horizontal and/or vertical directions.
      *
-     * @param { double } x The distance in pixels to move in the horizontal direction.
-     * @param { double } y The distance in pixels to move in the vertical direction.
+     * @param { double } x - The distance in pixels to move in the horizontal direction.
+     * @param { double } y - The distance in pixels to move in the vertical direction.
      * @returns { Promise<void> } A Promise that resolves when the operation completes.
      * @throws { BusinessError } 7600104 - Failed to get image data.
      *     Possible cause: Internal data is corrupted. Please check the logs for detailed information.
@@ -7506,8 +7506,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Repositions the PixelMap in the horizontal and/or vertical directions.
      *
-     * @param { double } x The distance in pixels to move in the horizontal direction.
-     * @param { double } y The distance in pixels to move in the vertical direction.
+     * @param { double } x - The distance in pixels to move in the horizontal direction.
+     * @param { double } y - The distance in pixels to move in the vertical direction.
      * @throws { BusinessError } 7600104 - Failed to get image data.
      *     Possible cause: Internal data is corrupted. Please check the logs for detailed information.
      * @throws { BusinessError } 7600105 - The PixelMap has been released.
@@ -7641,7 +7641,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * 
      * Note: YUV format PixelMaps only support rotation angles that are multiples of 90 degrees.
      *
-     * @param { double } angle The rotation angle in degrees.
+     * @param { double } angle - The rotation angle in degrees.
      * @returns { Promise<void> } A Promise that resolves when the operation completes.
      * @throws { BusinessError } 7600104 - Failed to get image data.
      *     Possible cause: Internal data is corrupted. Please check the logs for detailed information.
@@ -7664,7 +7664,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * 
      * Note: YUV format PixelMaps only support rotation angles that are multiples of 90 degrees.
      *
-     * @param { double } angle The rotation angle in degrees.
+     * @param { double } angle - The rotation angle in degrees.
      * @throws { BusinessError } 7600104 - Failed to get image data.
      *     Possible cause: Internal data is corrupted. Please check the logs for detailed information.
      * @throws { BusinessError } 7600105 - The PixelMap has been released.
@@ -7787,8 +7787,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Flips the PixelMap in the horizontal and/or vertical directions.
      *
-     * @param { boolean } horizontal Whether to flip horizontally.
-     * @param { boolean } vertical Whether to flip vertically.
+     * @param { boolean } horizontal - Whether to flip horizontally.
+     * @param { boolean } vertical - Whether to flip vertically.
      * @returns { Promise<void> } A Promise that resolves when the operation completes.
      * @throws { BusinessError } 7600104 - Failed to get image data.
      *     Possible cause: Internal data is corrupted. Please check the logs for detailed information.
@@ -7808,8 +7808,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Flips the PixelMap in the horizontal and/or vertical directions.
      *
-     * @param { boolean } horizontal Whether to flip horizontally.
-     * @param { boolean } vertical Whether to flip vertically.
+     * @param { boolean } horizontal - Whether to flip horizontally.
+     * @param { boolean } vertical - Whether to flip vertically.
      * @throws { BusinessError } 7600104 - Failed to get image data.
      *     Possible cause: Internal data is corrupted. Please check the logs for detailed information.
      * @throws { BusinessError } 7600105 - The PixelMap has been released.
@@ -7940,7 +7940,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Crops the PixelMap.
      *
-     * @param { Region } region The region to crop.
+     * @param { Region } region - The region to crop.
      * @returns { Promise<void> } A Promise that resolves when the operation completes.
      * @throws { BusinessError } 7600104 - Failed to get image data.
      *     Possible cause: Internal data is corrupted. Please check the logs for detailed information.
@@ -7962,7 +7962,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Crops the PixelMap.
      *
-     * @param { Region } region The region to crop.
+     * @param { Region } region - The region to crop.
      * @throws { BusinessError } 7600104 - Failed to get image data.
      *     Possible cause: Internal data is corrupted. Please check the logs for detailed information.
      * @throws { BusinessError } 7600105 - The PixelMap has been released.
