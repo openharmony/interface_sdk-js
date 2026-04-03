@@ -153,7 +153,7 @@ export declare enum NativeEmbedParamStatus {
      */
     UPDATE = 1,
     /**
-     *The param element is deleted.
+     * The param element is deleted.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
@@ -1856,7 +1856,7 @@ export declare enum NativeEmbedStatus {
      */
     UPDATE = 1,
     /**
-     *The same-layer tag is destroyed.
+     * The same-layer tag is destroyed.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
@@ -2945,7 +2945,9 @@ export declare interface NativeEmbedInfo {
      */
     position?: Position;
     /**
-     * The embed tag width, in px.
+     * The embed tag width.
+     * The value should be an integer.
+     * <br>Unit:px.
      *
      * @type { ?int }
      * @syscap SystemCapability.Web.Webview.Core
@@ -2954,6 +2956,8 @@ export declare interface NativeEmbedInfo {
     width?: int;
     /**
      * The embed tag height, in px.
+     * The value should be an integer.
+     * <br>Unit:px.
      *
      * @type { ?int }
      * @syscap SystemCapability.Web.Webview.Core
@@ -3129,7 +3133,8 @@ export declare interface NativeEmbedMouseInfo {
  */
 export declare interface FirstMeaningfulPaint {
     /**
-     * Start time of navigation, in microseconds.
+     * Start time of navigation.
+     * <br>Unit:microseconds.
      *
      * @type { ?long }
      * @syscap SystemCapability.Web.Webview.Core
@@ -3137,7 +3142,8 @@ export declare interface FirstMeaningfulPaint {
      */
     navigationStartTime?: long;
     /**
-     * Paint time of first meaningful content, in milliseconds.
+     * Paint time of first meaningful content.
+     * <br>Unit:microseconds.
      *
      * @type { ?long }
      * @syscap SystemCapability.Web.Webview.Core
@@ -3155,6 +3161,7 @@ export declare interface FirstMeaningfulPaint {
 export declare interface LargestContentfulPaint {
     /**
      * Start time of navigation, in microseconds.
+     * <br>Unit:microseconds.
      *
      * @type { ?long }
      * @syscap SystemCapability.Web.Webview.Core
@@ -3162,7 +3169,8 @@ export declare interface LargestContentfulPaint {
      */
     navigationStartTime?: long;
     /**
-     * Paint time of largest image, in milliseconds.
+     * Paint time of largest image.
+     * <br>Unit:milliseconds.
      *
      * @type { ?long }
      * @syscap SystemCapability.Web.Webview.Core
@@ -3170,7 +3178,8 @@ export declare interface LargestContentfulPaint {
      */
     largestImagePaintTime?: long;
     /**
-     * Paint time of largest text, in milliseconds.
+     * Paint time of largest text.
+     * <br>Unit:milliseconds.
      *
      * @type { ?long }
      * @syscap SystemCapability.Web.Webview.Core
@@ -3186,7 +3195,8 @@ export declare interface LargestContentfulPaint {
      */
     imageBPP?: double;
     /**
-     * Load start time of largest image, in milliseconds.
+     * Load start time of largest image.
+     * <br>Unit:milliseconds.
      *
      * @type { ?long }
      * @syscap SystemCapability.Web.Webview.Core
@@ -3194,7 +3204,8 @@ export declare interface LargestContentfulPaint {
      */
     largestImageLoadStartTime?: long;
     /**
-     * Load end time of largest image, in milliseconds.
+     * Load end time of largest image.
+     * <br>Unit:milliseconds.
      *
      * @type { ?long }
      * @syscap SystemCapability.Web.Webview.Core
@@ -4813,6 +4824,7 @@ export declare interface BlankScreenDetectionConfig {
     /**
      * The settings of the timing when web try to detect current page is blank or not.
      * The timing is the duration after web navigation.
+     * <br>Length range:[0,+∞).Unit: second.Default value:[1.0,3.0,5.0].
      *
      * @type { ?double[] }
      * @syscap SystemCapability.Web.Webview.Core
@@ -4847,6 +4859,7 @@ export declare interface BlankScreenDetectionConfig {
 export declare interface FirstScreenPaint {
     /**
      * The url of first screen paint info.
+     * <br>Unit:milliseconds.
      *
      * @type { string }
      * @syscap SystemCapability.Web.Webview.Core
@@ -4855,6 +4868,7 @@ export declare interface FirstScreenPaint {
     url: string;
     /**
      * The navigation start time of the url.
+     * <br>Unit:milliseconds.
      *
      * @type { long }
      * @syscap SystemCapability.Web.Webview.Core
@@ -5678,10 +5692,10 @@ export declare interface WebAttribute extends CommonMethod {
     /**
      * Sets the default font size for the web page.
      *
-     * @param { int | undefined } size Default fixed font size to set, in px.
-     *    The value ranges from -2^31 to 2^31-1. In actual rendering,
-     *    values greater than 72 are handled as 72, and values less than 1 are handled as 1.
-     *    Default value: 13.
+     * @param { int | undefined } size - Font size.
+     *     <br>Value constraint:In actual rendering, the value that exceeds 72px is rendered as 72px,
+     *     and the value that is less than 1px is rendered as 1px.Unit:px.
+     *     <br>Value range:[-2^31, 2^31-1].Unit:px.
      * @returns { WebAttribute }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
@@ -5690,9 +5704,10 @@ export declare interface WebAttribute extends CommonMethod {
     /**
      * Sets the default font size for the web page.
      *
-     * @param { int | undefined } size Default font size to set, in px.
-     *    The value ranges from -2^31 to 2^31-1. In actual rendering, values greater than 72 are handled as 72,
-     *    and values less than 1 are handled as 1. Default value: 16.
+     * @param { int | undefined } size - Font size.
+     *     <br>Value constraint:In actual rendering, the value that exceeds 72px is rendered as 72px,
+     *     and the value that is less than 1px is rendered as 1px.Unit:px.
+     *     <br>Value range:[-2^31, 2^31-1].Unit:px.
      * @returns { WebAttribute }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
@@ -5701,10 +5716,10 @@ export declare interface WebAttribute extends CommonMethod {
     /**
      * Sets the minimum font size for the web page.
      *
-     * @param { int | undefined } size Minimum font size to set, in px.
-     *    The value ranges from -2^31 to 2^31-1. In actual rendering,
-     *    values greater than 72 are handled as 72, and values less than 1 are handled as 1.
-     *    Default value: 8
+     * @param { int | undefined } size - Font size.
+     *     <br>Value constraint:In actual rendering, the value that exceeds 72px is rendered as 72px,
+     *     and the value that is less than 1px is rendered as 1px.Unit:px.
+     *     <br>Value range:[-2^31, 2^31-1].Unit:px.
      * @returns { WebAttribute }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
@@ -5713,10 +5728,10 @@ export declare interface WebAttribute extends CommonMethod {
     /**
      * Sets the minimum logical font size for the web page.
      *
-     * @param { int | undefined } size Minimum logical font size to set, in px.
-     *    The value ranges from -2^31 to 2^31-1. In actual rendering,
-     *    values greater than 72 are handled as 72, and values less than 1 are handled as 1.
-     *    Default value: 8
+     * @param { int | undefined } size - Font size.
+     *     <br>Value constraint:In actual rendering, the value that exceeds 72px is rendered as 72px,
+     *     and the value that is less than 1px is rendered as 1px.Unit:px.
+     *     <br>Value range:[-2^31, 2^31-1].Unit:px.
      * @returns { WebAttribute }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
