@@ -652,6 +652,42 @@ declare namespace bundleManager {
   }
 
   /**
+   * Statistics of the bundle.
+   *
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  interface BundleStorageStats {
+    /**
+     * The bundle name of the application.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    bundleName: string;
+
+    /**
+     * The size of the application's installation data.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    appSize: number;
+
+    /**
+     * The size of the application's local data, distributed data, and database data.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    dataSize: number;
+  }
+
+  /**
    * Add appid list of bundles that can be installed in the device.
    * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
    *
@@ -2474,7 +2510,27 @@ declare namespace bundleManager {
    * @since 22
    */
   function installMarketApps(admin: Want, bundleNames: Array<string>): void;
-  
+
+  /**
+   * Get the storage statistics of installed bundles on the device.
+   *
+   * @permission ohos.permission.ENTERPRISE_GET_ALL_BUNDLE_INFO
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   * @param { Array<string> } bundleNames - bundleNames indicates the list of application bundle names.
+   * @param { number } accountId - accountId indicates the local ID of the OS account.
+   *     <br>Value range:[0, +∞)
+   * @returns { Promise<Array<BundleStorageStats>> } Returns the bundle statistics of the installed applications.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function getInstalledBundleStorageStats(admin: Want, bundleNames: Array<string>, accountId: number): Promise<Array<BundleStorageStats>>;
+
   /**
    * App distribution type.
    * 
