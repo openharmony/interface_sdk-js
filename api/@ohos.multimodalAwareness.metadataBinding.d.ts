@@ -1,24 +1,24 @@
 /*
-  * Copyright (c) 2025 Huawei Device Co., Ltd.
-  * Licensed under the Apache License, Version 2.0 (the "License"),
-  * you may not use this file except in compliance with the License.
-  * You may obtain a copy of the License at
-  *
-  *     http://www.apache.org/licenses/LICENSE-2.0
-  *
-  * Unless required by applicable law or agreed to in writing, software
-  * distributed under the License is distributed on an "AS IS" BASIS,
-  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  * See the License for the specific language governing permissions and
-  * limitations under the License.
-  */
+ * Copyright (c) 2025 Huawei Device Co., Ltd.
+ * Licensed under the Apache License, Version 2.0 (the "License"),
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 /**
  * @file
  * @kit MultimodalAwarenessKit
  */
 
-import type image from '@ohos.multimedia.image';
+import type { image } from '@ohos.multimedia.image';
 import type { Callback } from './@ohos.base';
  
 /**
@@ -36,8 +36,10 @@ declare namespace metadataBinding {
    * @param { string } metadata - Coded metadata
    * @returns { Promise<image.PixelMap> } encoded image
    * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API.
-   * @throws { BusinessError } 32100001 - Internal handling failed. File creation failed
-   * @throws { BusinessError } 32100002 - Encode process fail. Possible causes: 1. Image processing error; 2. Channel coding error
+   * @throws { BusinessError } 32100001 - Internal handling failed.
+   * @throws { BusinessError } 32100002 - Encode process fail. Possible causes:
+   *     <br>1. Image processing error.
+   *     <br>2. Channel coding error.
    * @syscap SystemCapability.MultimodalAwareness.MetadataBinding
    * @systemapi
    * @since 18 dynamic
@@ -50,21 +52,23 @@ declare namespace metadataBinding {
    * @param { image.PixelMap } encodedImage - Encoded image
    * @returns { Promise<string> } decode result
    * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API.
-   * @throws { BusinessError } 32100001 - Internal handling failed. File read failed.
-   * @throws { BusinessError } 32100003 - Decode process fail. Possible causes: 1. Image is not an encoded Image; 2. Image destroyed, decoding failed
+   * @throws { BusinessError } 32100001 - Internal handling failed.
+   * @throws { BusinessError } 32100003 - Decode process fail. Possible causes:
+   *     <br>1. Image is not an encoded Image.
+   *     <br>2. Image destroyed, decoding failed.
    * @syscap SystemCapability.MultimodalAwareness.MetadataBinding
    * @systemapi
    * @since 18 dynamic
    * @since 23 static
    */
-   function decodeImage(encodedImage: image.PixelMap): Promise<string>;
+  function decodeImage(encodedImage: image.PixelMap): Promise<string>;
 
   /**
    * Obtaining the metadata of a Third-Party App
    * @param { string } bundleName - Bundle name of a third-party application
    * @returns { Promise<string> } third-party app callback the meta data
    * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API.
-   * @throws { BusinessError } 32100001 - Internal handling failed. Obtain metadata failed.
+   * @throws { BusinessError } 32100001 - Internal handling failed.
    * @syscap SystemCapability.MultimodalAwareness.MetadataBinding
    * @systemapi
    * @since 18 dynamic
@@ -88,9 +92,11 @@ declare namespace metadataBinding {
    * @param { 'operationSubmitMetadata' } type - Event Type
    * @param { string } bundleName - Bundle name of a third-party application
    * @param { Callback<int> } callback - Call back the screenshot event
-   * @throws { BusinessError } 32100001 - Internal handling failed. Service exception.
-   * @throws { BusinessError } 32100004 - Subscribe Failed. Possible causes: 1. Abnormal system capability; 2. IPC communication abnormality;
-   * <br>3. Algorithm loading exception.
+   * @throws { BusinessError } 32100001 - Internal handling failed.
+   * @throws { BusinessError } 32100004 - Subscribe Failed. Possible causes:
+   *     <br>1. Abnormal system capability.
+   *     <br>2. IPC communication abnormality.
+   *     <br>3. Algorithm loading exception.
    * @syscap SystemCapability.MultimodalAwareness.MetadataBinding
    * @atomicservice
    * @since 18 dynamic
@@ -98,12 +104,14 @@ declare namespace metadataBinding {
   function on(type: 'operationSubmitMetadata', bundleName: string, callback: Callback<int>): void;
  
   /**
-   * Unsubscribes from system events that are used to obtain the encoded metadata. 
+   * Unsubscribes from system events that are used to obtain the encoded metadata.
    * @param { 'operationSubmitMetadata' } type - Event Type
    * @param { string } bundleName - Bundle name of a third-party application
    * @param { Callback<int> } callback - Call back the screenshot event
-   * @throws { BusinessError } 32100001 - Internal handling failed. Service exception.
-   * @throws { BusinessError } 32100005 - Unsubscribe Failed. Possible causes: 1. Abnormal system capability; 2. IPC communication abnormality
+   * @throws { BusinessError } 32100001 - Internal handling failed.
+   * @throws { BusinessError } 32100005 - Unsubscribe Failed. Possible causes:
+   *     <br> 1. Abnormal system capability.
+   *     <br> 2. IPC communication abnormality.
    * @syscap SystemCapability.MultimodalAwareness.MetadataBinding
    * @atomicservice
    * @since 18 dynamic
@@ -111,22 +119,29 @@ declare namespace metadataBinding {
   function off(type: 'operationSubmitMetadata', bundleName: string, callback?: Callback<int>): void;
 
   /**
-   * Subscribes to a system event to obtain the encoded metadata. 
+   * Subscribes to a system event to obtain the encoded metadata.
+   *
    * @param { string } bundleName - Bundle name of a third-party application
    * @param { Callback<int> } callback - Call back the screenshot event
-   * @throws { BusinessError } 32100001 - Internal handling failed. Service exception.
-   * @throws { BusinessError } 32100004 - Subscribe Failed.
+   * @throws { BusinessError } 32100001 - Internal handling failed.
+   * @throws { BusinessError } 32100004 - Subscribe Failed. Possible causes:
+   *     <br>1. Abnormal system capability.
+   *     <br>2. IPC communication abnormality.
+   *     <br>3. Algorithm loading exception.
    * @syscap SystemCapability.MultimodalAwareness.MetadataBinding
    * @since 23 static
    */
   function onOperationSubmitMetadata(bundleName: string, callback: Callback<int>): void;
 
   /**
-   * Unsubscribes from system events that are used to obtain the encoded metadata. 
+   * Unsubscribes from system events that are used to obtain the encoded metadata.
+   *
    * @param { string } bundleName - Bundle name of a third-party application
    * @param { Callback<int> } [callback] - Call back the screenshot event
-   * @throws { BusinessError } 32100001 - Internal handling failed. Service exception.
-   * @throws { BusinessError } 32100005 - Unsubscribe Failed.
+   * @throws { BusinessError } 32100001 - Internal handling failed.
+   * @throws { BusinessError } 32100005 - Unsubscribe Failed. Possible causes:
+   *     <br>1. Abnormal system capability.
+   *     <br>2. IPC communication abnormality.
    * @syscap SystemCapability.MultimodalAwareness.MetadataBinding
    * @since 23 static
    */
