@@ -6814,6 +6814,21 @@ declare namespace window {
      * @since 20 dynamic
      * @since 23 static
      */
+    /**
+     * Set window container color in the active and inactive states.
+     *
+     * @permission ohos.permission.SET_WINDOW_ALPHA
+     * @param { string } activeColor - window container color in active.
+     * @param { string } inactiveColor - window container color in inactive.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have
+     *     the permission required or a non-system application calls the API.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 26.0.0 dynamic&static
+     */
     setWindowContainerModalColor(activeColor: string, inactiveColor: string): void;
 
     /**
