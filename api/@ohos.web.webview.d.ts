@@ -7216,9 +7216,10 @@ declare namespace webview {
      * <br>In this case, the keyboardAvoidMode will be OVERLAYS_CONTENT.
      * When setting zero, web page content can be restored and the keyboardAvoidMode will be the value set by keyboardAvoidMode().
      *
-     * @param { number } avoidHeight - the height value of the visible viewport avoidance. Unit: vp.
-     * <br>The valid interval of avoidHeight is [0, the height of web component].
-     * <br>When avoidHeight is out of the valid interval, it takes the boundary value of the interval.
+     * @param { number } avoidHeight - the height value of the visible viewport avoidance.
+     *     The valid interval of avoidHeight is [0, the height of web component].
+     *     When avoidHeight is out of the valid interval, it takes the boundary value of the interval.
+     *     <br>Unit: vp.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @throws { BusinessError } 801 - Capability not supported.
