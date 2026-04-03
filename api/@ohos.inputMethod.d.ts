@@ -2667,7 +2667,7 @@ declare namespace inputMethod {
    */
   export interface CursorInfo {
     /**
-     * Indicates the left point of the cursor info and must be absolute coordinate of the physical screen.
+     * Indicates the left point of the cursor info and must be absolute coordinate of the physical screen, unit is px.
      *
      * @type { double }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -2677,7 +2677,7 @@ declare namespace inputMethod {
     left: double;
 
     /**
-     * Indicates the top point of the cursor info and must be absolute coordinate of the physical screen.
+     * Indicates the top point of the cursor info and must be absolute coordinate of the physical screen, unit is px.
      *
      * @type { double }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -2687,7 +2687,7 @@ declare namespace inputMethod {
     top: double;
 
     /**
-     * Indicates the width point of the cursor info.
+     * Indicates the width point of the cursor info, unit is px.
      *
      * @type { double }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -2697,7 +2697,7 @@ declare namespace inputMethod {
     width: double;
 
     /**
-     * Indicates the height point of the cursor info.
+     * Indicates the height point of the cursor info, unit is px.
      *
      * @type { double }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -2844,7 +2844,7 @@ declare namespace inputMethod {
     name: string;
 
     /**
-     * Indicates the abscissa of the upper-left vertex of input window.
+     * Indicates the abscissa of the upper-left vertex of input window, unit is px.
      *
      * @type { int }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -2854,7 +2854,7 @@ declare namespace inputMethod {
     left: int;
 
     /**
-     * Indicates the ordinate of the upper-left vertex of input window.
+     * Indicates the ordinate of the upper-left vertex of input window, unit is px.
      *
      * @type { int }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -2864,7 +2864,7 @@ declare namespace inputMethod {
     top: int;
 
     /**
-     * Indicates the width of the input window.
+     * Indicates the width of the input window, unit is px.
      *
      * @type { long }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -2874,7 +2874,7 @@ declare namespace inputMethod {
     width: long;
 
     /**
-     * Indicates the height of the input window.
+     * Indicates the height of the input window, unit is px.
      *
      * @type { long }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
