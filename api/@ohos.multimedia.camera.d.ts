@@ -16761,6 +16761,45 @@ declare namespace camera {
      * @since 21 dynamic
     */
     setPhotoQualityPrioritization(qualityPrioritization: PhotoQualityPrioritization): void;
+
+    /**
+     * Confirm if original image generation supported.
+     *
+     * @returns { boolean } TRUE if the original image generation is supported.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    isOriginalImageGenerationSupported(): boolean;
+
+    /**
+     * Enable original image generation.
+     *
+     * @param { boolean } enabled - enable original image generation if TRUE.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    enableOriginalImageGeneration(enabled: boolean): void;
+
+    /**
+     * Set edit data.
+     *
+     * @param { string } editData - The edit data.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    setEditData(editData: string): void;
   }
 
   /**
