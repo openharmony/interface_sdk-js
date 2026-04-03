@@ -1705,7 +1705,7 @@ declare namespace update {
      * @since 26.0.0 dynamic&static
      */
     DATA = 1,
-  
+
     /**
      * The factory reset scope includes data and the OS.
      *
@@ -2442,5 +2442,6 @@ declare namespace update {
      */
     EVENT_UPGRADE_FAIL = 0x01000010
   }
+}
 
 export default update;
