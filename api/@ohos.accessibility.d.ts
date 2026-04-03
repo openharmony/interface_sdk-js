@@ -956,7 +956,17 @@ export enum AccessibilityEventType {
    * @systemapi
    * @since 23 dynamic&static
    */
-  TYPE_PAGE_ACTIVE = 69
+  TYPE_PAGE_ACTIVE = 69,
+
+  /**
+   * notification update type
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  TYPE_NOTIFICATION_UPDATE = 70
 }
 
 /**
@@ -1119,11 +1129,26 @@ declare namespace accessibility {
   * @atomicservice
   * @since 23 dynamic&static
   */
+  /**
+   * The type of the accessibility event.
+   * windowsChange/windowContentChange/windowStateChange/announcement/notificationChange/textTraversedAtMove
+   * value range: { 'accessibilityFocus' | 'accessibilityFocusClear' |
+   * 'click' | 'longClick' | 'focus' | 'select' | 'hoverEnter' | 'hoverExit' |
+   * 'textUpdate' | 'textSelectionUpdate' | 'scroll' | 'requestFocusForAccessibility' |
+   * 'announceForAccessibility' | 'requestFocusForAccessibilityNotInterrupt' |
+   * 'announceForAccessibilityNotInterrupt' | 'scrolling' | 'pageActive' | 'notificationUpdate' }
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
   type EventType = 'accessibilityFocus' | 'accessibilityFocusClear' |
   'click' | 'longClick' | 'focus' | 'select' | 'hoverEnter' | 'hoverExit' |
   'textUpdate' | 'textSelectionUpdate' | 'scroll' | 'requestFocusForAccessibility' |
   'announceForAccessibility' | 'requestFocusForAccessibilityNotInterrupt' |
-  'announceForAccessibilityNotInterrupt' | 'scrolling' | 'pageActive';
+  'announceForAccessibilityNotInterrupt' | 'scrolling' | 'pageActive' | 'notificationUpdate';
 
   /**
    * The change type of the windowsChange event.
