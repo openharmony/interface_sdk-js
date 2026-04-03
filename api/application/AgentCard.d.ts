@@ -142,13 +142,12 @@ export interface AgentCard {
   /**
    * A url to an icon for the agent.
    *
-   * @type { ?string }
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @stagemodelonly
    * @atomicservice
    * @since 24 dynamic&static
    */
-  iconUrl?: string;
+  iconUrl: string;
 
   /**
    * The category of this agent.
