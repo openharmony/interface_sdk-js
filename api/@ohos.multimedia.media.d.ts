@@ -11734,7 +11734,7 @@ declare namespace media {
      * Enable pausing the screen capture. The default value is false.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @stagemodelonly
-     * @since 26 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     enablePause?: boolean;
   }
@@ -11926,11 +11926,11 @@ declare namespace media {
      * @throws { BusinessError } 5400102 - Operation not be permitted. Return by promise.
      * @throws { BusinessError } 5400103 - IO error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
-     * @syscap SystemCapability.Multimedia.Media.AVScreenCaptureRecorder
-     * @since 26 dynamic&static
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
      * @example
      * import { BusinessError } from '@kit.BasicServicesKit';
-     *
      * avScreenCaptureRecorder.pauseRecording().then(() => {
      *     console.info('Succeeded in pausing avScreenCaptureRecorder');
      * }).catch((err: BusinessError) => {
@@ -11946,11 +11946,11 @@ declare namespace media {
      * @throws { BusinessError } 5400102 - Operation not be permitted. Return by promise.
      * @throws { BusinessError } 5400103 - IO error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
-     * @syscap SystemCapability.Multimedia.Media.AVScreenCaptureRecorder
-     * @since 26 dynamic&static
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
      * @example
      * import { BusinessError } from '@kit.BasicServicesKit';
-     *
      * avScreenCaptureRecorder.resumeRecording().then(() => {
      *     console.info('Succeeded in resuming avScreenCaptureRecorder');
      * }).catch((err: BusinessError) => {
