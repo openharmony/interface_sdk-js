@@ -79,7 +79,7 @@ declare namespace metadataBinding {
   /**
    * set the Metadata to the screenshot app
    * @param { string } metadata - the Metadata of a Third-Party App
-   * @throws { BusinessError } 32100001 - Internal handling failed. Set Meta data to screenshot app fail.
+   * @throws { BusinessError } 32100001 - Internal handling failed.
    * @syscap SystemCapability.MultimodalAwareness.MetadataBinding
    * @atomicservice
    * @since 18 dynamic
