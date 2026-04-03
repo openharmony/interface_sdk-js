@@ -2290,6 +2290,72 @@ declare namespace webview {
         callback?: Callback<BlanklessFrameInterpolationInfo>;
     }
 
+  /**
+   * Defines the parameters for enableAdvancedSecurityMode.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  interface SecurityParams {  
+    /**
+     * Decide whether JIT is disabled, the default value is false.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    disableJITCompilation?: boolean;
+    /**
+     * Decide whether WASM is disabled, the default value is false.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    disableWebAssembly?: boolean;
+    /**
+     * Decide whether WebGL is disabled, the default value is false.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    disableWebGL?: boolean;
+    /**
+     * Decide whether PDFViewer is disabled, the default value is false.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    disablePDFViewer?: boolean;
+    /**
+     * Decide whether MathML is disabled, the default value is false.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    disableMathML?: boolean;
+    /**
+     * Decide whether ServiceWorker is disabled, the default value is false.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    disableServiceWorker?: boolean;
+    /**
+     * Decide whether NonProxyUDP is disabled, the default value is false.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    disableNonProxyUDP?: boolean;
+  }
+
     /**
      * WebviewController can control various behaviors of Web components
      * (including page navigation, declaring cycle state, JavaScript interaction and so on).
@@ -4460,6 +4526,16 @@ declare namespace webview {
          * @since 23 static
          */
         static setScrollbarMode(scrollbarMode: ScrollbarMode): void;
+
+        /**
+         * Enable the application disable some features such as PDFViewer to enhance the security level of web application
+         *
+         * @param { SecurityParams } securityParams - The options means which supported option or item will be disabled.
+         * @syscap SystemCapability.Web.Webview.Core
+         * @stagemodelonly
+         * @since 26.0.0 static
+         */
+        static enableAdvancedSecurityMode(securityParams: SecurityParams): void;
 
         /**
          * Resume current microphone.

@@ -3958,6 +3958,72 @@ declare namespace webview {
   }
 
   /**
+   * Defines the parameters for enableAdvancedSecurityMode.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  interface SecurityParams {  
+    /**
+     * Decide whether JIT is disabled, the default value is false.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     */
+    disableJITCompilation?: boolean;
+    /**
+     * Decide whether WASM is disabled, the default value is false.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     */
+    disableWebAssembly?: boolean;
+    /**
+     * Decide whether WebGL is disabled, the default value is false.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     */
+    disableWebGL?: boolean;
+    /**
+     * Decide whether PDFViewer is disabled, the default value is false.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     */
+    disablePDFViewer?: boolean;
+    /**
+     * Decide whether MathML is disabled, the default value is false.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     */
+    disableMathML?: boolean;
+    /**
+     * Decide whether ServiceWorker is disabled, the default value is false.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     */
+    disableServiceWorker?: boolean;
+    /**
+     * Decide whether NonProxyUDP is disabled, the default value is false.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     */
+    disableNonProxyUDP?: boolean;
+  }
+
+  /**
    * Provides methods for controlling the web controller.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 9
@@ -7453,6 +7519,16 @@ declare namespace webview {
      * @since 23 dynamic
      */
     static setScrollbarMode(scrollbarMode: ScrollbarMode): void;
+
+    /**
+     * Enable the application disable some features such as PDFViewer to enhance the security level of web application
+     *
+     * @param { SecurityParams } securityParams - The parameters means which supported option or item will be disabled.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     */
+    static enableAdvancedSecurityMode(securityParams: SecurityParams): void;
 
     /**
      * Resume current microphone.
