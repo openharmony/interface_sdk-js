@@ -7407,7 +7407,7 @@ declare namespace window {
      * Specifies whether to enable the avoid area for the float navigation type. When enabled, the actual value of the
      * avoid area can be obtained by calling getWindowAvoidArea(AvoidAreaType.TYPE_FLOAT_NAVIGATION) or listening for
      * AvoidAreaType of TYPE_FLOAT_NAVIGATION via on('avoidAreaChange') or declaring environment variables.
-     * When disabled, the float avoid area obtained throught the above methods will always be 0.
+     * When disabled, the float avoid area obtained through the above methods will always be 0.
      *
      * @param { boolean } enabled - The value true means to enable float navigation avoid area,
      *     and false means the opposite.
@@ -7415,28 +7415,28 @@ declare namespace window {
      * @throws { BusinessError } 801 - Capability not supported.
      *     Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
-     *     Possible cause: 1. The window is not created or destroyed.
+     *     Possible cause: 1. The window is not created or destroyed;
      *                     2. Create js value failed.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    setGestureBackEnabled(enabled: boolean): Promise<void>;
+    setFloatNavigationAvoidAreaEnabled(enabled: boolean): Promise<void>;
 
     /**
      * Get whether the float navigation avoid area can be obtained.
      *
-     * @returns { boolean } enabled - If true, the float navigation avoid area can be obtained.
+     * @returns { boolean } enable - If true, the float navigation avoid area can be obtained.
      *     If false, the float navigation avoid area can not be obtained.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
-     *     Possible cause: 1. The window is not created or destroyed.
+     *     Possible cause: 1. The window is not created or destroyed;
      *                     2. Create js value failed.
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    isGestureBackEnabled(): boolean;
+    isFloatNavigationAvoidAreaEnabled(): boolean;
 
     /**
      * Set the preferred orientation config of the window
