@@ -3257,5 +3257,5 @@ export declare enum KeyCode {
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
-  KEYCODE_XKEY = 3232,
+  KEYCODE_XKEY = 3232
 }
