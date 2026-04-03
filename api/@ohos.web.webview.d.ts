@@ -3871,6 +3871,8 @@ declare namespace webview {
      * Time when a frame is interpolated or removed.
      *
      * Device behavior differences: Only the mobile phone is supported. For other devices, 801 is returned.
+     * The value must be an integer.
+     * <br>Unit: ms.
      *
      * @type { number }
      * @syscap SystemCapability.Web.Webview.Core
@@ -3917,10 +3919,12 @@ declare namespace webview {
     enable: boolean;
 
     /**
-     * Duration of the frame interpolation, in ms.
+     * Duration of the frame interpolation.
      * The valid range is the union of {0} and [200, 2000].
      *
      * Device behavior differences: Only the mobile phone is supported. For other devices, 801 is returned.
+     * The value must be an integer.
+     * <br>Unit: ms.
      *
      * @type { ?number }
      * @syscap SystemCapability.Web.Webview.Core
@@ -3935,7 +3939,7 @@ declare namespace webview {
      * {0}. 0 indicates that the expiration time is not specified and the default expiration time (7 days) is used.
      *
      * Device behavior differences: Only the mobile phone is supported. For other devices, 801 is returned.
-     *
+     * 
      * @type { ?number }
      * @syscap SystemCapability.Web.Webview.Core
      * @stagemodelonly
