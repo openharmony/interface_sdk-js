@@ -2410,7 +2410,7 @@ declare namespace formInfo {
   }
 
   /**
-   * Provides OverflowInfo about funInteraction or sceneAniamtion form
+   * Provides OverflowInfo about funInteraction or sceneAnimation form
    *
    * @typedef { OverflowInfo }
    * @syscap SystemCapability.Ability.Form
