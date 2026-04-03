@@ -4223,6 +4223,24 @@ declare namespace window {
   function setWaterMarkImage(pixelMap: image.PixelMap, enable: boolean, callback: AsyncCallback<void>): void;
 
   /**
+   * Set watermark image.
+   *
+   * @param { image.PixelMap } pixelMap - Watermark image.
+   * @param { boolean } enable - Show watermark if true.
+   * @param { int } priority - Specifies the priority level for the incoming watermark image to take effect. A smaller
+   *     value of this parameter indicates a higher priority. The value range must be greater than or equal to 0.
+   * @returns { Promise<void> } - Promise that returns no value.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+   * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1. Invalid parameter range.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function setWaterMarkImage(pixelMap: image.PixelMap, enable: boolean, priority: int): Promise<void>;
+
+  /**
    * Shift window focus within the same application. And the window type contains only main window and subwindow.
    *
    * @param { int } sourceWindowId - Window id which the focus shift from.
