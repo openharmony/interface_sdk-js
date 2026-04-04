@@ -582,6 +582,7 @@ declare namespace window {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
+     * @atomicservice
      * @since 26.0.0 dynamic&static
      */
     TYPE_FLOAT_NAVIGATION = 5
