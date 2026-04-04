@@ -16463,8 +16463,9 @@ declare interface SheetOptions extends BindOptions {
     *
     * @type { ?SystemUiMaterial }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @systemapi
     * @stagemodelonly
+    * @crossplatform
+    * @atomicservice
     * @since 26.0.0 dynamic
     */
   systemMaterial?: SystemUiMaterial;
@@ -29798,6 +29799,22 @@ declare class CommonMethod<T> {
    * @form
    * @since 23 dynamic
    */
+  /**
+    * Set system-styled materials for the component. The material effect behaves differently on devices with different
+    * level of computing powers. On devices with lower computing power, it affects attributes such as the
+    * backgroundColor, borderWidth, borderColor, shadow. On devices with higher computing power, it adds a filter effect
+    * at the system material layer, which can produce an effect similar to glass.
+    *
+    * @param { SystemUiMaterial | undefined } material - System-styled material. Undefined indicates reverting to
+    *     the effect of no system material.
+    * @returns { T }
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @crossplatform
+    * @form
+    * @atomicservice
+    * @since 26.0.0 dynamic
+    */
   systemMaterial(material: SystemUiMaterial | undefined): T;
 
   /**
