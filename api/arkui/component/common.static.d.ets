@@ -6622,7 +6622,6 @@ export declare interface SheetOptions extends BindOptions {
       *
       * @type { ?SystemUiMaterial }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
-      * @systemapi
       * @stagemodelonly
       * @since 26.0.0 static
       */
@@ -12202,6 +12201,19 @@ export declare interface CommonMethod {
      * @stagemodelonly
      * @since 23 static
      */
+    /**
+     * Set system-styled materials for the component. The material effect behaves differently on devices with different
+     * level of computing powers. On devices with lower computing power, it affects attributes such as the
+     * backgroundColor, borderWidth, borderColor, shadow. On devices with higher computing power, it adds a filter effect
+     * at the system material layer, which can produce an effect similar to glass.
+     *
+     * @param { SystemUiMaterial | undefined } material - System-styled material. Undefined indicates reverting to
+     *     the effect of no system material.
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
     default systemMaterial(material: SystemUiMaterial | undefined): this;
     /**
      * Called when component is focused, the return value indicates whether keyboard is needed.
@@ -12842,6 +12854,14 @@ export type Filter = uiEffect.Filter;
  * @systemapi
  * @stagemodelonly
  * @since 23 static
+ */
+/**
+ * SystemUiMaterial
+ *
+ * @typedef { uiMaterial.Material } SystemUiMaterial
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
  */
 export type SystemUiMaterial = uiMaterial.Material;
 
