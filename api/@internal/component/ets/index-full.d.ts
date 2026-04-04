@@ -39,6 +39,7 @@
 /// <reference path="./custom_dialog_controller.d.ts" />
 /// <reference path="./data_panel.d.ts" />
 /// <reference path="./date_picker.d.ts" />
+/// <reference path="./depth_component.d.ts" />
 /// <reference path="./divider.d.ts" />
 /// <reference path="./ellipse.d.ts" />
 /// <reference path="./enums.d.ts" />
