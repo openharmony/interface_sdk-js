@@ -598,6 +598,21 @@ export interface MonitorOptions {
    * @since 20 dynamic
    */
   isSynchronous?: boolean;
+
+  /**
+   * Enables the wildcard feature.
+   * Set to true to enable wildcard feature, and set to false to disable it.
+   * Default value is false.
+   *
+   * @type { ?boolean } enableWildcard
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  enableWildcard?: boolean;
 }
 
 /**

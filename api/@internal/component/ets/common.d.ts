@@ -1334,7 +1334,49 @@ declare const Monitor: MonitorDecorator;
  * @atomicservice
  * @since 23 dynamic
  */
-declare type MonitorDecorator = (value: string, ...args: string[]) => MethodDecorator;
+/**
+ * Defines Monitor Decorator type
+ *
+ * @typedef { function } MonitorDecorator
+ * @param { string | MonitorDecoratorOptions } value - Monitored path input by the user or config options.
+ * @param { string[] } args - Monitored path(s) input by the user
+ * @returns { MethodDecorator } Monitor decorator
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ * @noninterop
+ */
+declare type MonitorDecorator = (value: string | MonitorDecoratorOptions, ...args: string[]) => MethodDecorator;
+
+/**
+ * Defines MonitorDecoratorOptions interface
+ *
+ * @interface MonitorDecoratorOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare interface MonitorDecoratorOptions {
+  /**
+   * Enables wildcard feature.
+   * Set to true to enable wildcard feature, set to false to disable it.
+   * The default value is true.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  enableWildcard?: boolean;
+}
 
 /**
  * Define IMonitor interface
