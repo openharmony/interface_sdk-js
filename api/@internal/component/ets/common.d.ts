@@ -17859,7 +17859,6 @@ declare interface PopupCommonOptions {
    *
    * @type { ?SystemUiMaterial }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
    * @stagemodelonly
    * @atomicservice
    * @since 26.0.0 dynamic
@@ -18723,7 +18722,6 @@ declare interface PopupOptions {
    *
    * @type { ?SystemUiMaterial }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
    * @stagemodelonly
    * @atomicservice
    * @since 26.0.0 dynamic
@@ -19389,7 +19387,6 @@ declare interface CustomPopupOptions {
    *
    * @type { ?SystemUiMaterial }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
    * @stagemodelonly
    * @atomicservice
    * @since 26.0.0 dynamic

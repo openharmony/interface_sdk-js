@@ -26,6 +26,7 @@ import { DismissDialogAction } from '@ohos.arkui.component';
 import { BorderStyle, Alignment } from '@ohos.arkui.component';
 import { Resource } from 'global.resource';
 import { LengthMetrics } from 'arkui.Graphics';
+import uiMaterial from '@ohos.arkui.uiMaterial';
 /**
  * Define the display mode of all kind of dialog
  *
@@ -613,6 +614,19 @@ declare namespace promptAction {
          * @since 23 static
          */
         levelOrder?: LevelOrder;
+        /**
+         * Set system-styled materials for dialog. Different materials have different effects, which can influence
+         * backgroundColor, border, shadow, and other visual attributes of dialog.
+         * 
+         * Device Behavior Differences:The effect of same material may vary across different devices depending on
+         * their computing power.
+         *
+         * @type { ?uiMaterial.Material }
+         * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
+         * @since 26.0.0 static
+         */
+        systemMaterial?: uiMaterial.Material;
     }
     /**
      * Enum for state.
@@ -935,6 +949,19 @@ declare namespace promptAction {
          * @since 23 static
          */
         focusable?: boolean;
+        /**
+         * Set system-styled materials for dialog. Different materials have different effects, which can influence
+         * backgroundColor, border, shadow, and other visual attributes of dialog.
+         * 
+         * Device Behavior Differences:The effect of same material may vary across different devices depending on
+         * their computing power.
+         *
+         * @type { ?uiMaterial.Material }
+         * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
+         * @since 26.0.0 static
+         */
+        systemMaterial?: uiMaterial.Material;
     }
     
     /**
@@ -1282,6 +1309,19 @@ declare namespace promptAction {
          * @since 23 static
          */
         onWillDisappear?: VoidCallback;
+        /**
+         * Set system-styled materials for dialog. Different materials have different effects, which can influence
+         * backgroundColor, border, shadow, and other visual attributes of dialog.
+         * 
+         * Device Behavior Differences:The effect of same material may vary across different devices depending on
+         * their computing power.
+         *
+         * @type { ?uiMaterial.Material }
+         * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
+         * @since 26.0.0 static
+         */
+        systemMaterial?: uiMaterial.Material;
     }
     /**
      * Displays the notification text.
