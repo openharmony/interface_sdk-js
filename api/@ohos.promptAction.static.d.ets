@@ -19,7 +19,7 @@
  */
 import { ResourceColor, Offset, Dimension, EdgeStyles, EdgeColors, EdgeWidths, BorderRadiuses, VoidCallback } from '@ohos.arkui.component';
 import { AsyncCallback, Callback } from '@ohos.base';
-import { BlurStyle, ShadowOptions, ShadowStyle, HoverModeAreaType, Rectangle, TransitionEffect, KeyboardAvoidMode, DismissReason, BackgroundBlurStyleOptions, BackgroundEffectOptions } from '@ohos.arkui.component';
+import { BlurStyle, ShadowOptions, ShadowStyle, HoverModeAreaType, Rectangle, TransitionEffect, KeyboardAvoidMode, DismissReason, BackgroundBlurStyleOptions, BackgroundEffectOptions, SystemUiMaterial } from '@ohos.arkui.component';
 import { CustomBuilder } from '@ohos.arkui.component';
 import { DialogAlignment } from '@ohos.arkui.component';
 import { DismissDialogAction } from '@ohos.arkui.component';
@@ -226,6 +226,16 @@ declare namespace promptAction {
          * @since 23 static
          */
         hoverModeArea?: HoverModeAreaType;
+        /**
+ 	     * Set system-styled materials for toast. Different materials have different effects, which can influence
+         * backgroundColor, border, shadow, and other visual attributes of toast.
+         *
+         * @type { ?SystemUiMaterial }
+         * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
+         * @since 26.0.0 static
+         */
+        systemMaterial?: SystemUiMaterial;
     }
     
     /**
