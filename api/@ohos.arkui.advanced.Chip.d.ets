@@ -846,7 +846,7 @@ export interface ChipOptions {
   allowClose?: boolean;
 
   /**
-   * Set options for default close icon when 'allowaClose' is true.
+   * Set options for default close icon when 'allowClose' is true.
    *
    * @type { ?CloseOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
