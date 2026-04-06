@@ -120,8 +120,9 @@ declare namespace configPolicy {
    * Obtains the path of the configuration file with the highest priority based on the provided follow mode. This API 
    * uses an asynchronous callback to return the result.
    * For example, if the paths of **config.xml** on the device are **\/system/etc/config.xml**, 
-   * **\/sys_pod/etc/config.xml**, and **\/sys_pod/etc/carrier/46060/etc/config.xml** in ascending order of priority, the 
-   * default opkey of the device is **46060**, and **followMode** is set to **configPolicy.FollowXMode.SIM_DEFAULT**, 
+   * **\/sys_pod/etc/config.xml**, and **\/sys_pod/etc/carrier/46060/etc/config.xml** in ascending order of priority, 
+   * the default opkey of the device is **46060**, 
+   * and **followMode** is set to **configPolicy.FollowXMode.SIM_DEFAULT**, 
    * the final return value is **\/sys_pod/etc/carrier/46060/etc/config.xml**.
    *
    * @param { string } relPath - Name of the configuration file.
@@ -141,9 +142,9 @@ declare namespace configPolicy {
    * Obtains the path of the configuration file with the highest priority based on the provided follow mode. This API 
    * uses an asynchronous callback to return the result.
    * For example, if the paths of **config.xml** on the device are **\/system/etc/config.xml**, 
-   * **\/sys_pod/etc/config.xml**, and **\/sys_pod/etc/carrier/46060/etc/config.xml** in ascending order of priority, the 
-   * opkey of the device card 1 is **46060**, **followMode** is set to **configPolicy.FollowXMode.USER_DEFINED**, and 
-   * the custom follow rule is **"etc/carrier/${telephony.sim.opkey0}"**, the final return value is 
+   * **\/sys_pod/etc/config.xml**, and **\/sys_pod/etc/carrier/46060/etc/config.xml** in ascending order of priority, 
+   * the opkey of the device card 1 is **46060**, **followMode** is set to **configPolicy.FollowXMode.USER_DEFINED**, 
+   * and the custom follow rule is **"etc/carrier/${telephony.sim.opkey0}"**, the final return value is 
    * **\/sys_pod/etc/carrier/46060/etc/config.xml**.
    *
    * @param { string } relPath - Name of the configuration file.
