@@ -27,17 +27,20 @@ import { AsyncCallback } from './@ohos.base';
  * > **NOTE**
  * >
  * > The APIs provided by this module are system APIs.
- *
+ * 
+ * @namespace configPolicy
  * @syscap SystemCapability.Customization.ConfigPolicy
  * @systemapi
- * @since 8
+ * @since 8 dynamic
+ * @since 23 static
  */
 declare namespace configPolicy {
   /**
-   *
+   * @enum { number }
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
+   * @since 23 static
    */
   export enum FollowXMode {
     /**
@@ -46,7 +49,8 @@ declare namespace configPolicy {
      *
      * @syscap SystemCapability.Customization.ConfigPolicy
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
+     * @since 23 static
      */
     DEFAULT = 0,
 
@@ -55,7 +59,8 @@ declare namespace configPolicy {
      *
      * @syscap SystemCapability.Customization.ConfigPolicy
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
+     * @since 23 static
      */
     NO_RULE_FOLLOWED = 1,
 
@@ -65,7 +70,8 @@ declare namespace configPolicy {
      *
      * @syscap SystemCapability.Customization.ConfigPolicy
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
+     * @since 23 static
      */
     SIM_DEFAULT = 10,
 
@@ -74,7 +80,8 @@ declare namespace configPolicy {
      *
      * @syscap SystemCapability.Customization.ConfigPolicy
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
+     * @since 23 static
      */
     SIM_1 = 11,
 
@@ -83,7 +90,8 @@ declare namespace configPolicy {
      *
      * @syscap SystemCapability.Customization.ConfigPolicy
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
+     * @since 23 static
      */
     SIM_2 = 12,
 
@@ -93,7 +101,8 @@ declare namespace configPolicy {
      *
      * @syscap SystemCapability.Customization.ConfigPolicy
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
+     * @since 23 static
      */
     USER_DEFINED = 100
   }
@@ -112,7 +121,8 @@ declare namespace configPolicy {
    *     <br>2.Incorrect parameter types.
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
+   * @since 23 static
    */
   function getOneCfgFile(relPath: string, callback: AsyncCallback<string>);
 
@@ -121,8 +131,8 @@ declare namespace configPolicy {
    * uses an asynchronous callback to return the result.
    * For example, if the paths of **config.xml** on the device are **\/system/etc/config.xml**, 
    * **\/sys_pod/etc/config.xml**, and **\/sys_pod/etc/carrier/46060/etc/config.xml** in ascending order of priority, 
-   * the default opkey of the device is **46060**, 
-   * and **followMode** is set to **configPolicy.FollowXMode.SIM_DEFAULT**, 
+   * the default opkey of the device is **46060**, and **followMode** is set to 
+   * **configPolicy.FollowXMode.SIM_DEFAULT**, 
    * the final return value is **\/sys_pod/etc/carrier/46060/etc/config.xml**.
    *
    * @param { string } relPath - Name of the configuration file.
@@ -134,7 +144,8 @@ declare namespace configPolicy {
    *     <br>2.Incorrect parameter types.
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
-   * @since 11
+   * @since 11 dynamic
+   * @since 23 static
    */
   function getOneCfgFile(relPath: string, followMode: FollowXMode, callback: AsyncCallback<string>);
 
@@ -158,7 +169,8 @@ declare namespace configPolicy {
    *     <br>2.Incorrect parameter types.
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
-   * @since 11
+   * @since 11 dynamic
+   * @since 23 static
    */
   function getOneCfgFile(relPath: string, followMode: FollowXMode, extra: string, callback: AsyncCallback<string>);
 
@@ -171,7 +183,8 @@ declare namespace configPolicy {
    *     <br>2.Incorrect parameter types.
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
+   * @since 23 static
    */
   function getOneCfgFile(relPath: string): Promise<string>;
 
@@ -188,7 +201,8 @@ declare namespace configPolicy {
    *     <br>2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
-   * @since 11
+   * @since 11 dynamic
+   * @since 23 static
    */
   function getOneCfgFile(relPath: string, followMode: FollowXMode, extra?: string): Promise<string>;
 
@@ -205,7 +219,8 @@ declare namespace configPolicy {
    *     <br>2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
-   * @since 11
+   * @since 11 dynamic
+   * @since 23 static
    */
   function getOneCfgFileSync(relPath: string, followMode?: FollowXMode, extra?: string): string;
 
@@ -213,79 +228,85 @@ declare namespace configPolicy {
    * Obtains a list of all files with the specified names, in ascending order of priority. This API uses an asynchronous
    * callback to return the result.
    * For example, if the paths of **config.xml** on the device are **\/system/etc/config.xml** and 
-   * **\/sys_pod/etc/config.xml** in ascending order of priority, **\/system/etc/config.xml, /sys_pod/etc/config.xml** is 
-   * returned.
+   * **\/sys_pod/etc/config.xml** in ascending order of priority, **\/system/etc/config.xml, 
+   * /sys_pod/etc/config.xml** is returned.
    *
    * @param { string } relPath - Name of the configuration file.
-   * @param { AsyncCallback<Array<string>> } callback - Callback used to return the result. If the file list is
+   * @param { AsyncCallback<string[]> } callback - Callback used to return the result. If the file list is
    *     successfully obtained, **err** is **undefined**, and **data** is the obtained file list. Otherwise, **err** is
    *     an error object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
    *     <br>2.Incorrect parameter types.
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
+   * @since 23 static
    */
-  function getCfgFiles(relPath: string, callback: AsyncCallback<Array<string>>);
+  function getCfgFiles(relPath: string, callback: AsyncCallback<string[]>);
 
   /**
    * Obtains a list of all files of a specified file name based on the provided follow mode, in ascending order of 
    * priority. This API uses an asynchronous callback to return the result.
    * For example, if the paths of **config.xml** on the device are **\/system/etc/config.xml**, 
-   * **\/sys_pod/etc/config.xml**, and **\/sys_pod/etc/carrier/46060/etc/config.xml** in ascending order of priority, the 
-   * default opkey of the device is **46060**, and **followMode** is set to **configPolicy.FollowXMode.SIM_DEFAULT**, 
-   * the return value is **\/system/etc/config.xml, /sys_pod/etc/config.xml, /sys_pod/etc/carrier/46060/etc/config.xml**.
+   * **\/sys_pod/etc/config.xml**, and **\/sys_pod/etc/carrier/46060/etc/config.xml** in ascending order of priority, 
+   * the default opkey of the device is **46060**, and **followMode** is set to 
+   * **configPolicy.FollowXMode.SIM_DEFAULT**, 
+   * the return value is **\/system/etc/config.xml, /sys_pod/etc/config.xml, 
+   * /sys_pod/etc/carrier/46060/etc/config.xml**.
    *
    * @param { string } relPath - Name of the configuration file.
    * @param { FollowXMode } followMode - Follow mode.
-   * @param { AsyncCallback<Array<string>> } callback - Callback used to return the result. If the file list is
+   * @param { AsyncCallback<string[]> } callback - Callback used to return the result. If the file list is
    *     successfully obtained, **err** is **undefined**, and **data** is the obtained file list. Otherwise, **err** is
    *     an error object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
    *     <br>2.Incorrect parameter types.
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
-   * @since 11
+   * @since 11 dynamic
+   * @since 23 static
    */
-  function getCfgFiles(relPath: string, followMode: FollowXMode, callback: AsyncCallback<Array<string>>);
+  function getCfgFiles(relPath: string, followMode: FollowXMode, callback: AsyncCallback<string[]>);
 
   /**
    * Obtains a list of all files of a specified file name based on the provided follow mode, in ascending order of 
    * priority. This API uses an asynchronous callback to return the result.
    * For example, if the paths of **config.xml** on the device are **\/system/etc/config.xml**, 
-   * **\/sys_pod/etc/config.xml**, and **\/sys_pod/etc/carrier/46060/etc/config.xml** in ascending order of priority, the 
-   * opkey of the device card 1 is **46060**, **followMode** is set to **configPolicy.FollowXMode.USER_DEFINED**, and 
-   * the custom follow rule is **"etc/carrier/${telephony.sim.opkey0}"**, the return value is 
+   * **\/sys_pod/etc/config.xml**, and **\/sys_pod/etc/carrier/46060/etc/config.xml** in ascending order of priority, 
+   * the opkey of the device card 1 is **46060**, **followMode** is set to **configPolicy.FollowXMode.USER_DEFINED**, 
+   * and the custom follow rule is **"etc/carrier/${telephony.sim.opkey0}"**, the return value is 
    * **\/system/etc/config.xml, /sys_pod/etc/config.xml, /sys_pod/etc/carrier/46060/etc/config.xml**.
    *
    * @param { string } relPath - Name of the configuration file.
    * @param { FollowXMode } followMode - Follow mode.
    * @param { string } extra - Custom follow rule. This parameter is valid only when **followMode** is set to
    *     [USER_DEFINED]{@link configPolicy.FollowXMode}.
-   * @param { AsyncCallback<Array<string>> } callback - Callback used to return the result. If the file list is
+   * @param { AsyncCallback<string[]> } callback - Callback used to return the result. If the file list is
    *     successfully obtained, **err** is **undefined**, and **data** is the obtained file list. Otherwise, **err** is
    *     an error object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
    *     <br>2.Incorrect parameter types.
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
-   * @since 11
+   * @since 11 dynamic
+   * @since 23 static
    */
-  function getCfgFiles(relPath: string, followMode: FollowXMode, extra: string, callback: AsyncCallback<Array<string>>);
+  function getCfgFiles(relPath: string, followMode: FollowXMode, extra: string, callback: AsyncCallback<string[]>);
 
   /**
    * Obtains a list of all files with the specified names, in ascending order of priority. This API uses a promise to 
    * return the result.
    *
    * @param { string } relPath - Name of the configuration file.
-   * @returns { Promise<Array<string>> } Promise used to return the file list.
+   * @returns { Promise<string[]> } Promise used to return the file list.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
    *     <br>2.Incorrect parameter types.
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
+   * @since 23 static
    */
-  function getCfgFiles(relPath: string): Promise<Array<string>>;
+  function getCfgFiles(relPath: string): Promise<string[]>;
 
   /**
    * Obtains a list of all files of a specified file name based on the provided follow mode, in ascending order of 
@@ -295,14 +316,15 @@ declare namespace configPolicy {
    * @param { FollowXMode } followMode - Follow mode.
    * @param { string } extra - Custom follow rule. This parameter is valid only when **followMode** is set to
    *     [USER_DEFINED]{@link configPolicy.FollowXMode}.
-   * @returns { Promise<Array<string>> } Promise used to return the file list.
+   * @returns { Promise<string[]> } Promise used to return the file list.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
    *     <br>2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
-   * @since 11
+   * @since 11 dynamic
+   * @since 23 static
    */
-  function getCfgFiles(relPath: string, followMode: FollowXMode, extra?: string): Promise<Array<string>>;
+  function getCfgFiles(relPath: string, followMode: FollowXMode, extra?: string): Promise<string[]>;
 
   /**
    * Obtains a list of all files of a specified file name based on the provided follow mode, in ascending order of 
@@ -313,51 +335,55 @@ declare namespace configPolicy {
    *     this parameter is not set.
    * @param { string } extra - Custom follow rule. This parameter is valid only when **followMode** is set to
    *     [USER_DEFINED]{@link configPolicy.FollowXMode}.
-   * @returns { Array<string> } List of configuration files obtained.
+   * @returns { string[] } List of configuration files obtained.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
    *     <br>2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
-   * @since 11
+   * @since 11 dynamic
+   * @since 23 static
    */
-  function getCfgFilesSync(relPath: string, followMode?: FollowXMode, extra?: string): Array<string>;
+  function getCfgFilesSync(relPath: string, followMode?: FollowXMode, extra?: string): string[];
 
   /**
    * Obtains a list of configuration level directories, in ascending order of priority. This API uses an asynchronous 
    * callback to return the result.
    *
-   * @param { AsyncCallback<Array<string>> } callback - Callback used to return the result. If the list of configuration
+   * @param { AsyncCallback<string[]> } callback - Callback used to return the result. If the list of configuration
    *     level directories is successfully obtained, **err** is **undefined**, and **data** is the obtained list.
    *     Otherwise, **err** is an error object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
    *     <br>2.Incorrect parameter types.
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
+   * @since 23 static
    */
-  function getCfgDirList(callback: AsyncCallback<Array<string>>);
+  function getCfgDirList(callback: AsyncCallback<string[]>);
 
   /**
    * Obtains a list of configuration level directories, in ascending order of priority. This API uses a promise to 
    * return the result.
    *
-   * @returns { Promise<Array<string>> } Promise used to return the list of configuration level directories.
+   * @returns { Promise<string[]> } Promise used to return the list of configuration level directories.
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
+   * @since 23 static
    */
-  function getCfgDirList(): Promise<Array<string>>;
+  function getCfgDirList(): Promise<string[]>;
 
   /**
    * Obtains a list of configuration level directories, in ascending order of priority.
    *
-   * @returns { Array<string> } Obtains the list of configuration level directories. This API returns the result
+   * @returns { string[] } Obtains the list of configuration level directories. This API returns the result
    *     synchronously.
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
-   * @since 11
+   * @since 11 dynamic
+   * @since 23 static
    */
-  function getCfgDirListSync(): Array<string>;
+  function getCfgDirListSync(): string[];
 }
 
 export default configPolicy;
