@@ -2697,9 +2697,9 @@ declare function createRandomAccessFileSync(file: string | File, mode?: number,
  *
  * @param { string } path - Path of the file.
  * @param { ReadStreamOptions } [options] - The options are as follows:
- *     <br>start (number): start position of the data to read in the file. This parameter is optional.
+ *     <br>start (number): start position of the data to read in the file, in bytes. This parameter is optional.
  *     <br>By default, data is read from the current position.
- *     <br>end (number): end position of the data to read in the file. This parameter is optional.
+ *     <br>end (number): end position of the data to read in the file, in bytes. This parameter is optional.
  *     <br>The default value is the end of the file.
  * @returns { ReadStream } ReadStream instance obtained.
  * @throws { BusinessError } 401 - Parameter error
@@ -2756,7 +2756,7 @@ declare function createReadStream(path: string, options?: ReadStreamOptions): Re
  *
  * @param { string } path - Path of the file.
  * @param { WriteStreamOptions } [options] - The options are as follows:
- *     <br>start (number): start position to write the data in the file. This parameter is optional.
+ *     <br>start (number): start position to write the data in the file, in bytes. This parameter is optional.
  *     <br>By default, data is written from the current position.
  *     <br>mode (number): mode for creating the writeable stream. This parameter is optional.
  *     <br>The default value is the write-only mode.
@@ -3564,7 +3564,7 @@ declare function listFileSync(
  * @param { number } offset - Number of bytes to move the offset.
  * @param { WhenceType } [whence = WhenceType.SEEK_SET] - Where to start the offset.
  *     <br>If this parameter is not specified, the file start position is used by default.
- * @returns { number } Returns the file offset relative to starting position of file.
+ * @returns { number } Returns the file offset relative to starting position of file, in bytes.
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900020 - Invalid argument
  * @throws { BusinessError } 13900026 - Illegal seek
@@ -5615,9 +5615,9 @@ declare function openSync(path: string, mode?: number): File;
  * @param { number } fd - FD of the file.
  * @param { ArrayBuffer } buffer - Buffer used to store the file data read.
  * @param { ReadOptions } [options] - The options are as follows:
- *     <br>length (number): length of the data to read. This parameter is optional.
+ *     <br>length (number):  length of the data to read, in bytes. This parameter is optional.
  *     <br>The default value is the buffer length.
- *     <br>offset (number): start position to read the data (it is determined by filePointer plus offset).
+ *     <br>offset (number): start position to read the data, in bytes. (it is determined by filePointer plus offset).
  *     <br>This parameter is optional. By default, data is read from the filePointer.
  * @returns { Promise<number> } Promise used to return the length of the data read, in bytes.
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -5745,9 +5745,9 @@ declare function read(fd: number, buffer: ArrayBuffer, callback: AsyncCallback<n
  * @param { number } fd - FD of the file.
  * @param { ArrayBuffer } buffer - Buffer used to store the file data read.
  * @param { ReadOptions } [options] - The options are as follows:
- *     <br>length (number): length of the data to read. This parameter is optional.
+ *     <br>length (number): length of the data to read, in bytes. This parameter is optional.
  *     <br>The default value is the buffer length.
- *     <br>offset (number): start position to read the data (it is determined by filePointer plus offset).
+ *     <br>offset (number): start position to read the data, in bytes. (it is determined by filePointer plus offset).
  *     <br>This parameter is optional. By default, data is read from the filePointer.
  * @param { AsyncCallback<number> } callback - Callback used to return the length of the data read, in bytes.
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -5837,9 +5837,9 @@ declare function read(
  * @param { number } fd - FD of the file.
  * @param { ArrayBuffer } buffer - Buffer used to store the file data read.
  * @param { ReadOptions } [options] - The options are as follows:
- *     <br>length (number): length of the data to read. This parameter is optional.
+ *     <br>length (number): length of the data to read, in bytes. This parameter is optional.
  *     <br>The default value is the buffer length.
- *     <br>offset (number): start position to read the data (it is determined by filePointer plus offset).
+ *     <br>offset (number): start position to read the data, in bytes. (it is determined by filePointer plus offset).
  *     <br>This parameter is optional. By default, data is read from the filePointer.
  * @returns { number } Length of the data read, in bytes.
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -6179,9 +6179,9 @@ declare function readLinesSync(filePath: string, options?: Options): ReaderItera
  *
  * @param { string } filePath - Application sandbox path of the file.
  * @param { ReadTextOptions } [options] - The options are as follows:
- *     <br>offset (number): start position to read the data. This parameter is optional.
+ *     <br>offset (number): start position to read the data, in bytes. This parameter is optional.
  *     <br>By default, data is read from the current position.
- *     <br>length (number): length of the data to read. This parameter is optional.
+ *     <br>length (number): length of the data to read, in bytes. This parameter is optional.
  *     <br>The default value is the file length.
  *     <br>encoding (string): format of the data to be encoded. It is valid only when the data is of the string type.
  *     <br>The default value is 'utf-8', which is the only value supported.
@@ -6328,9 +6328,9 @@ declare function readText(filePath: string, callback: AsyncCallback<string>): vo
  *
  * @param { string } filePath - Application sandbox path of the file.
  * @param { ReadTextOptions } [options] - The options are as follows:
- *     <br>offset (number): start position to read the data. This parameter is optional.
+ *     <br>offset (number): start position to read the data, in bytes. This parameter is optional.
  *     <br>By default, data is read from the current position.
- *     <br>length (number): length of the data to read. This parameter is optional.
+ *     <br>length (number): length of the data to read, in bytes. This parameter is optional.
  *     <br>The default value is the file length.
  *     <br>encoding (string): format of the data to be encoded. It is valid only when the data is of the string type.
  *     <br>The default value is 'utf-8', which is the only value supported.
@@ -6433,9 +6433,9 @@ declare function readText(
  *
  * @param { string } filePath - Application sandbox path of the file.
  * @param { ReadTextOptions } [options] - The options are as follows:
- *     <br>offset (number): start position to read the data. This parameter is optional.
+ *     <br>offset (number): start position to read the data, in bytes. This parameter is optional.
  *     <br>By default, data is read from the current position.
- *     <br>length (number): length of the data to read. This parameter is optional.
+ *     <br>length (number): length of the data to read, in bytes. This parameter is optional.
  *     <br>The default value is the file length.
  *     <br>encoding (string): format of the data to be encoded. It is valid only when the data is of the string type.
  *     <br>The default value is 'utf-8', which is the only value supported.
@@ -7887,7 +7887,13 @@ declare function utimes(path: string, mtime: number): void;
  *
  * @param { number } fd - FD of the file.
  * @param { ArrayBuffer | string } buffer - Data to write. It can be a string or data from a buffer.
- * @param { WriteOptions } [options] - Defines the options use din write(). It inherits from Options.
+ * @param { WriteOptions } [options] - The options are as follows:
+ *     <br>length (number): length of the data to write, in bytes. This parameter is optional.
+ *     <br>The default value is the buffer length.
+ *     <br>offset (number): start position to write the data in the file, in bytes. This parameter is optional.
+ *     <br>By default, data is written from the current position.
+ *     <br>encoding (string): format of the data to be encoded when the data is a string.
+ *     <br>The default value is 'utf-8', which is the only value supported.
  * @returns { Promise<number> } Returns the number of bytes written to the file in promise mode.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -7960,7 +7966,7 @@ declare function write(
  *
  * @param { number } fd - FD of the file.
  * @param { ArrayBuffer | string } buffer - Data to write. It can be a string or data from a buffer.
- * @param { AsyncCallback<number> } callback - Callback used to return the result.
+ * @param { AsyncCallback<number> } callback - Callback used to return the result, in bytes.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -8031,9 +8037,9 @@ declare function write(fd: number, buffer: ArrayBuffer | string, callback: Async
  * @param { number } fd - FD of the file.
  * @param { ArrayBuffer | string } buffer - Data to write. It can be a string or data from a buffer.
  * @param { WriteOptions } [options] - The options are as follows:
- *     <br>length (number): length of the data to write. This parameter is optional.
+ *     <br>length (number): length of the data to write, in bytes. This parameter is optional.
  *     <br>The default value is the buffer length.
- *     <br>offset (number): start position to write the data in the file. This parameter is optional.
+ *     <br>offset (number): start position to write the data in the file, in bytes. This parameter is optional.
  *     <br>By default, data is written from the current position.
  *     <br>encoding (string): format of the data to be encoded when the data is a string.
  *     <br>The default value is 'utf-8', which is the only value supported.
@@ -8113,9 +8119,9 @@ declare function write(
  * @param { number } fd - FD of the file.
  * @param { ArrayBuffer | string } buffer - Data to write. It can be a string or data from a buffer.
  * @param { WriteOptions } [options] - The options are as follows:
- *     <br>length (number): length of the data to write. This parameter is optional.
+ *     <br>length (number): length of the data to write, in bytes. This parameter is optional.
  *     <br>The default value is the buffer length.
- *     <br>offset (number): start position to write the data in the file. This parameter is optional.
+ *     <br>offset (number): start position to write the data in the file, in bytes. This parameter is optional.
  *     <br>By default, data is written from the current position.
  *     <br>encoding (string): format of the data to be encoded when the data is a string.
  *     <br>The default value is 'utf-8', which is the only value supported.
@@ -8354,7 +8360,7 @@ declare function getxattrSync(path: string, key: string): string;
  */
 interface Progress {
   /**
-   * Size of the copied data.
+   * Size of the copied data, in bytes.
    *
    * @type { number }
    * @readonly
@@ -8364,7 +8370,7 @@ interface Progress {
   readonly processedSize: number;
 
   /**
-   * Total size of the data to be copied.
+   * Total size of the data to be copied, in bytes.
    *
    * @type { number }
    * @readonly
@@ -8670,7 +8676,7 @@ declare interface RandomAccessFile {
    * @since 10
    */
   /**
-   * Offset pointer to the RandomAccessFile instance.
+   * Offset pointer to the RandomAccessFile instance, in bytes.
    *
    * @type { number }
    * @readonly
@@ -8695,7 +8701,7 @@ declare interface RandomAccessFile {
   /**
    * Sets the file offset pointer.
    *
-   * @param { number } filePointer - Offset pointer to the RandomAccessFile instance.
+   * @param { number } filePointer - Offset pointer to the RandomAccessFile instance, in bytes.
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -8786,8 +8792,8 @@ declare interface RandomAccessFile {
    *
    * @param { ArrayBuffer | string } buffer - Data to write. It can be a string or data from a buffer.
    * @param { WriteOptions } [options] - The options are as follows:
-   *     <br>length (number): length of the data to write. The default value is the buffer length.
-   *     <br>offset (number): start position to write the data (it is determined by filePointer plus offset).
+   *     <br>length (number): length of the data to write, in bytes. The default value is the buffer length.
+   *     <br>offset (number): start position to write the data, in bytes. (it is determined by filePointer plus offset).
    *     <br>This parameter is optional. By default, data is written from the filePointer.
    *     <br>encoding (string): format of the data to be encoded when the data is a string.
    *     <br>The default value is 'utf-8', which is the only value supported.
@@ -8837,7 +8843,7 @@ declare interface RandomAccessFile {
    * Writes data to a file. This API uses an asynchronous callback to return the result.
    *
    * @param { ArrayBuffer | string } buffer - Data to write. It can be a string or data from a buffer.
-   * @param { AsyncCallback<number> } callback - Callback used to return the result.
+   * @param { AsyncCallback<number> } callback - Callback used to return the result, in bytes.
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -8908,12 +8914,12 @@ declare interface RandomAccessFile {
    *
    * @param { ArrayBuffer | string } buffer - Data to write. It can be a string or data from a buffer.
    * @param { WriteOptions } [options] - The options are as follows:
-   *     <br>length (number): length of the data to write. The default value is the buffer length.
-   *     <br>offset (number): start position to write the data (it is determined by filePointer plus offset).
+   *     <br>length (number): length of the data to write, in bytes. The default value is the buffer length.
+   *     <br>offset (number): start position to write the data, in bytes. (it is determined by filePointer plus offset).
    *     <br>This parameter is optional. By default, data is written from the filePointer.
    *     <br>encoding (string): format of the data to be encoded when the data is a string.
    *     <br>The default value is 'utf-8', which is the only value supported.
-   * @param { AsyncCallback<number> } callback - Callback used to return the result.
+   * @param { AsyncCallback<number> } callback - Callback used to return the result, in bytes..
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -8988,12 +8994,12 @@ declare interface RandomAccessFile {
    *
    * @param { ArrayBuffer | string } buffer - Data to write. It can be a string or data from a buffer.
    * @param { WriteOptions } [options] - The options are as follows:
-   *     <br>length (number): length of the data to write. The default value is the buffer length.
-   *     <br>offset (number): start position to write the data (it is determined by filePointer plus offset).
+   *     <br>length (number): length of the data to write, in bytes. The default value is the buffer length.
+   *     <br>offset (number): start position to write the data, in bytes. (it is determined by filePointer plus offset).
    *     <br>This parameter is optional. By default, data is written from the filePointer.
    *     <br>encoding (string): format of the data to be encoded when the data is a string.
    *     <br>The default value is 'utf-8', which is the only value supported.
-   * @returns { number } Length of the data written in the file.
+   * @returns { number } Length of the data written in the file, in bytes.
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -9079,11 +9085,11 @@ declare interface RandomAccessFile {
    *
    * @param { ArrayBuffer } buffer - Buffer used to store the file read.
    * @param { ReadOptions } [options] - The options are as follows:
-   *     <br>length (number): length of the data to read. This parameter is optional.
+   *     <br>length (number): length of the data to read, in bytes. This parameter is optional.
    *     <br>The default value is the buffer length.
-   *     <br>offset (number): start position to read the data (it is determined by filePointer plus offset).
+   *     <br>offset (number): start position to read the data, in bytes. (it is determined by filePointer plus offset).
    *     <br>This parameter is optional. By default, data is read from the filePointer.
-   * @returns { Promise<number> } Promise used to return the data read.
+   * @returns { Promise<number> } Promise used to return the data read, in bytes.
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -9124,7 +9130,7 @@ declare interface RandomAccessFile {
    * Reads data from a file. This API uses an asynchronous callback to return the result.
    *
    * @param { ArrayBuffer } buffer - Buffer used to store the file read.
-   * @param { AsyncCallback<number> } callback - Callback used to return the result.
+   * @param { AsyncCallback<number> } callback - The callback is used to return the number of bytes written to the file.
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -9185,11 +9191,11 @@ declare interface RandomAccessFile {
    *
    * @param { ArrayBuffer } buffer - Buffer used to store the file read.
    * @param { ReadOptions } [options] - The options are as follows:
-   *     <br>length (number): length of the data to read. This parameter is optional.
+   *     <br>length (number): length of the data to read, in bytes. This parameter is optional.
    *     <br>The default value is the buffer length.
-   *     <br>offset (number): start position to read the data (it is determined by filePointer plus offset).
+   *     <br>offset (number): start position to read the data, in bytes. (it is determined by filePointer plus offset).
    *     <br>This parameter is optional. By default, data is read from the filePointer.
-   * @param { AsyncCallback<number> } callback - Callback used to return the result.
+   * @param { AsyncCallback<number> } callback - Callback used to return the result, in bytes.
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -9273,11 +9279,11 @@ declare interface RandomAccessFile {
    *
    * @param { ArrayBuffer } buffer - Buffer used to store the file read.
    * @param { ReadOptions } [options] - The options are as follows:
-   *     <br>length (number): length of the data to read. This parameter is optional.
+   *     <br>length (number): length of the data to read, in bytes. This parameter is optional.
    *     <br>The default value is the buffer length.
-   *     <br>offset (number): start position to read the data (it is determined by filePointer plus offset).
+   *     <br>offset (number): start position to read the data, in bytes. (it is determined by filePointer plus offset).
    *     <br>This parameter is optional. By default, data is read from the filePointer.
-   * @returns { number } Returns the number of file bytes read to buffer.
+   * @returns { number } Returns the number of file bytes read to buffer, in bytes.
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -9425,7 +9431,7 @@ declare class ReadStream extends stream.Readable {
    * @param { number } offset - Number of bytes to move the offset.
    * @param { WhenceType } [whence = WhenceType.SEEK_SET] - Where to start the offset. The default value is SEEK_SET,
    *     <br>which indicates the beginning of the file.
-   * @returns { number } Returns the offset relative to starting position of stream.
+   * @returns { number } Returns the offset relative to starting position of stream, in bytes.
    * @throws { BusinessError } 401 - Parameter error
    * @throws { BusinessError } 13900020 - Invalid argument
    * @throws { BusinessError } 13900026 - Illegal seek
@@ -10540,12 +10546,12 @@ declare interface Stream {
    *
    * @param { ArrayBuffer | string } buffer - Data to write. It can be a string or data from a buffer.
    * @param { WriteOptions } [options] - The options are as follows:
-   *     <br>length (number): length of the data to write. The default value is the buffer length.
-   *     <br>offset (number): start position to write the data in the file. This parameter is optional.
+   *     <br>length (number): length of the data to write, in bytes. The default value is the buffer length.
+   *     <br>offset (number): start position to write the data in the file, in bytes. This parameter is optional.
    *     <br>By default, data is written from the current position.
    *     <br>encoding (string): format of the data to be encoded when the data is a string.
    *     <br>The default value is 'utf-8', which is the only value supported.
-   * @returns { Promise<number> } Promise used to return the length of the data written.
+   * @returns { Promise<number> } Promise used to return the length of the data written, in bytes.
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -10667,12 +10673,12 @@ declare interface Stream {
    *
    * @param { ArrayBuffer | string } buffer - Data to write. It can be a string or data from a buffer.
    * @param { WriteOptions } [options] - The options are as follows:
-   *     <br>length (number): length of the data to write. The default value is the buffer length.
-   *     <br>offset (number): start position to write the data in the file. This parameter is optional.
+   *     <br>length (number): length of the data to write, in bytes. The default value is the buffer length.
+   *     <br>offset (number): start position to write the data in the file, in bytes. This parameter is optional.
    *     <br>By default, data is written from the current position.
    *     <br>encoding (string): format of the data to be encoded when the data is a string.
    *     <br>The default value is 'utf-8', which is the only value supported.
-   * @param { AsyncCallback<number> } callback - Callback used to return the result.
+   * @param { AsyncCallback<number> } callback - Callback used to return the result, in bytes.
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -10748,12 +10754,12 @@ declare interface Stream {
    *
    * @param { ArrayBuffer | string } buffer - Data to write. It can be a string or data from a buffer.
    * @param { WriteOptions } [options] - The options are as follows:
-   *     <br>length (number): length of the data to write. The default value is the buffer length.
-   *     <br>offset (number): start position to write the data in the file. This parameter is optional.
+   *     <br>length (number): length of the data to write, in bytes. The default value is the buffer length.
+   *     <br>offset (number): start position to write the data in the file, in bytes. This parameter is optional.
    *     <br>By default, data is written from the current position.
    *     <br>encoding (string): format of the data to be encoded when the data is a string.
    *     <br>The default value is 'utf-8', which is the only value supported.
-   * @returns { number } Length of the data written in the file.
+   * @returns { number } Length of the data written in the file, in bytes.
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -10840,11 +10846,11 @@ declare interface Stream {
    *
    * @param { ArrayBuffer } buffer - Buffer used to store the file read.
    * @param { ReadOptions } [options] - The options are as follows:
-   *     <br>length (number): length of the data to read. This parameter is optional.
+   *     <br>length (number): length of the data to read, in bytes. This parameter is optional.
    *     <br>The default value is the buffer length.
-   *     <br>offset (number): start position to read the data. This parameter is optional. By default,
+   *     <br>offset (number): start position to read the data, in bytes. This parameter is optional. By default,
    *     <br>data is read from the current position.
-   * @returns { Promise<number> } Promise used to return the data read.
+   * @returns { Promise<number> } Promise used to return the data read, in bytes.
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -10886,7 +10892,7 @@ declare interface Stream {
    * Reads data from this stream. This API uses an asynchronous callback to return the result.
    *
    * @param { ArrayBuffer } buffer - Buffer used to store the file read.
-   * @param { AsyncCallback<number> } callback - Callback used to return the result.
+   * @param { AsyncCallback<number> } callback - Callback used to return the result, in bytes.
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -10948,11 +10954,11 @@ declare interface Stream {
    *
    * @param { ArrayBuffer } buffer - Buffer used to store the file read.
    * @param { ReadOptions } [options] - The options are as follows:
-   *     <br>length (number): length of the data to read. This parameter is optional.
+   *     <br>length (number): length of the data to read, in bytes. This parameter is optional.
    *     <br>The default value is the buffer length.
-   *     <br>offset (number): start position to read the data. This parameter is optional. By default,
+   *     <br>offset (number): start position to read the data, in bytes. This parameter is optional. By default,
    *     <br>data is read from the current position.
-   * @param { AsyncCallback<number> } callback - Callback used to return the result.
+   * @param { AsyncCallback<number> } callback - Callback used to return the result, in bytes.
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -11037,11 +11043,11 @@ declare interface Stream {
    *
    * @param { ArrayBuffer } buffer - Buffer used to store the file read.
    * @param { ReadOptions } [options] - The options are as follows:
-   *     <br>length (number): length of the data to read. This parameter is optional.
+   *     <br>length (number): length of the data to read, in bytes. This parameter is optional.
    *     <br>The default value is the buffer length.
-   *     <br>offset (number): start position to read the data. This parameter is optional. By default,
+   *     <br>offset (number): start position to read the data, in bytes. This parameter is optional. By default,
    *     <br>data is read from the current position.
-   * @returns { number } Length of the data read.
+   * @returns { number } Length of the data read, in bytes.
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -11474,7 +11480,7 @@ export interface Filter {
    * @since 10
    */
   /**
-   * Locate files that are greater than or equal to the specified size.
+   * Locate files that are greater than or equal to the specified size, in Bytes
    *
    * @type { ?number }
    * @syscap SystemCapability.FileManagement.File.FileIO
