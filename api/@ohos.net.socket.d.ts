@@ -1476,6 +1476,15 @@ declare namespace socket {
      * @since 24 dynamic&static
      */
     getSocketFd(): Promise<int>;
+    /**
+     * Sets whether the multicast socket supports address reuse.
+     *
+     * @param { boolean } reuse - whether the multicast socket supports address reuse.
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    setReuseAddress(reuse: boolean): void;
   }
 
   /**
