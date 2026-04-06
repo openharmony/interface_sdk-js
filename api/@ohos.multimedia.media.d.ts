@@ -236,6 +236,31 @@ declare namespace media {
   function createAudioRecorder(): AudioRecorder;
 
   /**
+   * Creates a media source from file descriptor.
+   *
+   * @param { AVFileDescriptor } fdSrc - file descriptor handler.
+   *     <br>file descriptor handler.
+   * @returns { MediaSource | undefined } MediaSource instance if the operation is successful; returns null otherwise.
+   * @syscap SystemCapability.Multimedia.Media.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  function createMediaSourceWithFd(fdSrc: AVFileDescriptor): MediaSource | undefined;
+
+  /**
+   * Creates a media source from a custom data source.
+   *
+   * @param { AVDataSrcDescriptor } dataSrc - Interface definition for obtaining media data.
+   * @returns { MediaSource | undefined } MediaSource instance if the operation is successful; returns null otherwise.
+   * @syscap SystemCapability.Multimedia.Media.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  function createMediaSourceWithDataSource(dataSrc: AVDataSrcDescriptor): MediaSource | undefined;
+
+  /**
    * Create MediaSource from url.
    * @param { string } url : The location for the media source.
    * @param { Record<string, string> } headers : Headers attached to network request while player request data.
@@ -250,7 +275,7 @@ declare namespace media {
    * Creates a media source for streaming media to be pre-downloaded.
    * @param { string } url : Url of the media source. The following streaming media formats are supported: HLS,
    *  HTTP-FLV, DASH, and HTTPS.
-   * @param { Record<string, string> } headers : Headers attached to network request while player request data.
+   * @param { Record<string, string> } [headers] : Headers attached to network request while player request data.
    * @returns { MediaSource } MediaSource instance if the operation is successful; returns null otherwise.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3.Parameter verification failed.
@@ -3786,6 +3811,114 @@ declare namespace media {
     setVideoWindowSize(width: int, height: int) : Promise<void>;
 
     /**
+     * Ends playback of the current mediasource and starts playback of the next mediasource in the mediasource list.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 5400102 - Operation not allowed . Return by promise.
+	   * @throws { BusinessError } 5400108 - The previous mediasource does not exist in the playlist. Returned via promise.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    advanceToNextMediaSource() : Promise<void>;
+
+    /**
+     * Ends playback of the current mediasource and starts playback of the previous mediasource in the mediasource list.
+     *
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+	   * @throws { BusinessError } 5400108 - The next mediasource does not exist in the playlist. Returned via promise.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    advanceToPrevMediaSource(): Promise<void>;
+
+    /**
+     * Return the current mediasource.
+     *
+     * @returns { MediaSource | undefined } current mediasource if the operation is successful; returns null otherwise.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    getCurrentMediaSource(): MediaSource | undefined;
+
+    /**
+     * Add a new playback source to the player's playlist.
+     *
+     * @param { MediaSource } src - Playback source to be added to the playlist.
+     * @param { string } [id] - Indicates the ID of a media source in the playlist.
+     *     The newly added media source is inserted before the specified media source.
+     *     <br>Default value:if empty, it means adding to the end of the list
+     * @returns { Promise<string> } Promise used to return the result,
+     *     if success, a unique ID corresponding to the media resource will be returned.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @throws { BusinessError } 5400108 - The media source ID does not exist in the playlist. Returned by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    addPlaybackMediaSource(src: MediaSource, id?: string): Promise<string>;
+
+    /**
+     * Removes the specified playback media source from the player's playlist.
+     * If the id does not exist in the current playlist, the method returns immediately.
+     *
+     * @param { string } id - ID returned after a media source is added to the playlist.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @throws { BusinessError } 5400108 - The media source ID does not exist in the playlist. Returned via promise.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    removePlaybackMediaSource(id: string): Promise<void>;
+
+    /**
+     * Clears all the items in the player's playlist. Currently playing media will be terminated immediately.
+     *
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 5400102 - Operation not allowed or no next mediasource in the list. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    clearPlaybackList(): Promise<void>;
+
+    /**
+     * Ends playback of the current mediasource and starts playback of the specified mediasource in the mediasource list.
+     *
+     * @param { string } id - Indicates the ID of the media source to play.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @throws { BusinessError } 5400108 - The mediasource does not exist in the playlist. Returned via promise.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    advanceToMediaSource(id: string): Promise<void>;
+
+    /**
+     * Return the array of mediasources in the playlist.
+     *
+     * @returns { Array<MediaSource | undefined> } array of mediasources in the playlist.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    getMediaSources(): Array<MediaSource | undefined>;
+
+    /**
      * Media URI. Mainstream media formats are supported.
      * Network:http://xxx
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -3896,6 +4029,17 @@ declare namespace media {
      * @since 23 static
      */
     loop: boolean;
+
+    /**
+     * Set the loopmode when playing the media source playlist.
+     * <br>Default value:PLAYLIST_LOOP_MODE_ALL, which means loops all items in the playlist.
+     *
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    playlistLoopMode?: PlaylistLoopMode;
 
     /**
      * Describes audio interrupt mode, refer to {@link #audio.InterruptMode}. If it is not
@@ -5698,6 +5842,80 @@ declare namespace media {
      * @since 23 static
      */
     offSeiMessageReceived(payloadTypes?: Array<int>, callback?: OnSeiMessageHandle): void;
+
+    /**
+     * Registers a listener to detect when the playback content has changed.
+     * The value carried in the callback function is the ID of the media source that is being played in the playlist.
+     *
+     * @param { Callback<string> } callback - Callback invoked when the event is triggered.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    onPlaybackContentChanged(callback: Callback<string>):void;
+
+    /**
+     * Unregisters listener to detect when changes occur in the playback content.
+     *
+     * @param { Callback<string> } [callback] - Callback invoked when the event is triggered.
+     *     <br>Default value:If this parameter is not specified, all callback functions for the event are unsubscribed.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    offPlaybackContentChanged(callback?: Callback<string>):void;
+  }
+
+  /**
+   * Enumerates loop mode keys for playback.
+   *
+   * @syscap SystemCapability.Multimedia.Media.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  enum PlaylistLoopMode {  
+    /**
+     * loops all items in the playlist
+     *
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    PLAYLIST_LOOP_MODE_ALL = 1,
+ 
+    /**
+     * Loops a single playback item.
+     *
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    PLAYLIST_LOOP_MODE_ONE = 2,
+
+    /**
+     * Loops shuffle playback item.
+     *
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    PLAYLIST_LOOP_MODE_SHUFFLE = 3,
+  
+    /**
+     * No looping
+     *
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    PLAYLIST_LOOP_MODE_NONE = 4
   }
 
   /**
@@ -6381,6 +6599,18 @@ declare namespace media {
      * @since 23 static
      */
     setMediaResourceLoaderDelegate(resourceLoader: MediaSourceLoader): void;
+
+    /**
+     * Gets the identifier of the media source.
+     *
+     * @returns { string } Identifier of the media source.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    getID(): string;
   }
 
   /**
