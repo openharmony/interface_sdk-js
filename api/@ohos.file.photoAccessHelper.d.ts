@@ -9692,6 +9692,17 @@ declare namespace photoAccessHelper {
      * @since 26.0.0 static
      */
     showDateOnScrollbar?: boolean;
+
+    /**
+     * Configuration for asset compatibility capabilities.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    assetCompatibleCapability?: AssetCompatibleCapability;
   }
 
   /**
