@@ -18,7 +18,7 @@
  * @kit MultimodalAwarenessKit
  */
 
-import type { image } from '@ohos.multimedia.image';
+import type image from '@ohos.multimedia.image';
 import type { Callback } from './@ohos.base';
  
 /**
