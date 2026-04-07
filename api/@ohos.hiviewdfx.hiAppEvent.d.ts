@@ -2777,6 +2777,19 @@ declare namespace hiAppEvent {
      * @since 24 dynamic&static
      */
     simplifyVmaPrinting?: boolean;
+
+    /**
+     * Policy for the APP_CRASH event
+     * the value true means to the minidump capture capability is enabled.
+     * the value false means to the minidump capture function is disabled.
+     * <br>Default value:false.
+     *
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @FaAndStageModel
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    collectMinidump?: boolean;
   }
 
   /**
