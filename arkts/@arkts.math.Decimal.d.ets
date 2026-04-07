@@ -104,14 +104,13 @@ type Value = string | double | Decimal;
 /**
  * Provides configuration for decimal.
  *
- * @interface DecimalConfig
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
  * @since 23 static
  */
-interface DecimalConfig {
+export interface DecimalConfig {
   /**
    * The maximum number of significant digits of the result of an operation.
    * Default value: 20
