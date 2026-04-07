@@ -94,12 +94,11 @@ declare namespace trash {
 
     /**
      * Indicates the size of the file.
+     * <br>Unit: Byte.
      *
-     * @type { number }
-     * @readonly
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 10 dynamiconly
      * @deprecated since 23
      */
@@ -107,12 +106,11 @@ declare namespace trash {
     
     /**
      * Indicates the mtime of the file.
+     * <br>Unit: ms.
      *
-     * @type { number }
-     * @readonly
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 10 dynamiconly
      * @deprecated since 23
      */
@@ -120,12 +118,11 @@ declare namespace trash {
 
     /**
      * Indicates the ctime of the file.
+     * <br>Unit: second.
      *
-     * @type { number }
-     * @readonly
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 10 dynamiconly
      * @deprecated since 23
      */
