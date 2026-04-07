@@ -4669,3 +4669,31 @@ export declare enum InputEventInterceptAction {
    */
   BLOCK
 }
+
+/**
+ * Enumerates the component animation modes under the UI material effect.
+ *
+ * enum { int }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare enum UIMaterialAnimationMode {
+  /**
+   * When the material is enabled for the component, the animation effect is automatically enabled.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  IMMERSIVE = 0,
+
+  /**
+   * Disable the animation effect.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  NONE = 1
+}
