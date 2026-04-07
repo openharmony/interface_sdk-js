@@ -8554,9 +8554,10 @@ declare namespace audio {
     /**
      * Checks whether the personalized spatialization is enabled by the specified device.
      * @param { AudioDeviceDescriptor } selectedAudioDevice - Audio device description.
-     * @returns { boolean } Returns <b>true</b> if the Personalized spatialization is successfully enabled;
-     *     returns <b>false</b> otherwise.
+     * @returns { boolean } Returns true if the Personalized spatialization is successfully enabled;
+     *     returns false otherwise.
      * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @stagemodelonly
