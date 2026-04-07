@@ -113,6 +113,42 @@ declare namespace applicationManager {
   }
 
   /**
+   * The bundle statistics information.
+   *
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  interface BundleStatsInfo {
+    /**
+     * The bundle name of the application.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    bundleName: string;
+
+    /**
+     * The index of the application.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    appIndex: number;
+
+    /**
+     * The total duration, in milliseconds.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    abilityInFgTotalTime: number;
+  }
+
+  /**
    * Add appid list of bundles that is disallowed to run in the device.
    * This function can be called by a super administrator.
    *
@@ -1387,6 +1423,31 @@ declare namespace applicationManager {
    * @since 26.0.0
    */
   function getAllowedNotificationBundles(admin: Want | null, accountId: number): Array<string>;
+
+  /**
+   * Queries bundle statistics information of applications.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   * @param { number } startTime - startTime indicates the start time of the query period, in milliseconds.
+   *   <br>Value range:[0, +∞)
+   *   <br>Unit: ms
+   * @param { number } endTime - endTime indicates the end time of the query period, in milliseconds.
+   *   <br>Value range:[0, +∞)
+   *   <br>Unit: ms
+   * @param { number } accountId - accountId indicates the ID of OS account.
+   *   <br>Value range:[0, +∞)
+   * @returns { Array<BundleStatsInfo> } return the bundle statistics information of the applications.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function queryBundleStatsInfos(admin: Want, startTime: number, endTime: number, accountId: number): Array<BundleStatsInfo>;
 }
 
 export default applicationManager;
