@@ -50,6 +50,16 @@ declare namespace uiMaterial {
    * @form
    * @since 23 dynamic
    */
+  /**
+   * Enum of the type of material.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
   enum MaterialType {
     /**
      * Material type with no effect.
@@ -71,7 +81,100 @@ declare namespace uiMaterial {
      * @since 23 dynamic
      */
     SEMI_TRANSPARENT = 1,
+    /**
+     * Material type for immersive style.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    IMMERSIVE = 2,
   }
+
+  /**
+   * Enum of the material state configuration.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  enum MaterialState {
+    /**
+     * Default mode: Dialog, Toast, AlphabetIndexer, Text selection menu use immersive material by default.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    DEFAULT = 0,
+    /**
+     * Enable mode: The component uses immersive material by default.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    ENABLE = 1,
+    /**
+     * Disable mode: All components disable immersive material.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    DISABLE = 2,
+  }
+
+  /**
+   * Material information containing state and type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  interface MaterialInfo {
+    /**
+     * The material state configuration.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    state: MaterialState;
+
+    /**
+     * Currently configured material type.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    type: MaterialType;
+  }
+
+  /**
+   * Get material information from application configuration.
+   * 
+   * @returns { MaterialInfo } The material information containing state and type.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  function getMaterialInfo(): MaterialInfo;
 
   /**
    * The enumeration of material styles. Different material styles have different thicknesses.
@@ -280,6 +383,17 @@ declare namespace uiMaterial {
      * @since 23 dynamic
      */
     constructor(options?: MaterialOptions);
+    /**
+     * Disables the material effect
+     *
+     * @returns { Material }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    static get empty(): Material;
   }
 
   /**
@@ -304,7 +418,7 @@ declare namespace uiMaterial {
      * @since 26.0.0 dynamic
      */
     constructor(options?: ImmersiveOptions)
-  }  
+  }
 }
 
 /**
