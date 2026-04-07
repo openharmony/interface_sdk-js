@@ -255,6 +255,62 @@ export enum ThreadWorkerPriority {
 }
 
 /**
+ * Enumerates the priorities available for EventHandler.
+ * For details about the mappings between priorities and EventHandler levels, see EventHandler Level.
+ *
+ * @syscap SystemCapability.Utils.Lang
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamiconly
+ */
+export enum Priority {
+  /**
+   * IMMEDIATE priority, corresponding to EventHandler IMMEDIATE priority.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamiconly
+   */
+  IMMEDIATE = 1,
+
+  /**
+   * HIGH priority, corresponding to EventHandler HIGH priority.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamiconly
+   */
+  HIGH = 2,
+
+  /**
+   * Low priority, corresponding to EventHandler LOW priority.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamiconly
+   */
+  LOW = 3,
+
+  /**
+   * IDLE priority, corresponding to EventHandler IDLE priority.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamiconly
+   */
+  IDLE = 4
+}
+
+/**
  * @typedef Event
  * Defines the event.
  * @syscap SystemCapability.Utils.Lang
@@ -1518,6 +1574,28 @@ export interface ThreadWorkerGlobalScope extends GlobalScope {
    * @since 12 dynamiconly
    */
   callGlobalCallObjectMethod(instanceName: string, methodName: string, timeout: number, ...args: Object[]): Object;
+
+  /**
+   * Sends a message from the Worker thread to the main thread by transferring object ownership,
+   * and inserted into the head of the corresponding priority queue.Except for the worker thread to the main thread,
+   * this interface has the same function as postMessage.
+   *
+   * @param { Object } message - Data to be sent to the main thread. The data object must be sequenceable or sendable.
+   *     For details about the supported sequenceable types, see Sequenceable Data Types.
+   *     For details about the supported sendable types, see Sendable Data Types.
+   * @param { Priority } priority - Priority of the Worker EventHandler.
+   * @param { ArrayBuffer[] } [transfer] - ArrayBuffer instance holding an array of objects for which the ownership
+   *     is transferred to the main thread. After the transfer, the objects are available only in the main thread.
+   *     The array cannot be null.
+   * @throws { BusinessError } 10200004 - The Worker instance is not running.
+   * @throws { BusinessError } 10200006 - An exception occurred during serialization.
+   * @syscap SystemCapability.Utils.Lang
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamiconly
+   */
+  postMessageAtFront?(message: Object, priority: Priority, transfer?: ArrayBuffer[]): void;
 }
 
 /**
