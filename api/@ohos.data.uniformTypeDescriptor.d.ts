@@ -2451,7 +2451,7 @@ declare namespace uniformTypeDescriptor {
    * @returns { TypeDescriptor } Returns the uniform type descriptor corresponding to the uniform data type ID or null
    * <br>if the uniform data type does not exist.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
-   * <br>2.Incorrect paramete types.
+   * <br>2.Incorrect parameter types.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @crossplatform
    * @since 20 dynamic
