@@ -73,6 +73,9 @@ import { GridObjectSortComponentType, GridObjectSortComponentItem, GridObjectSor
 import {
   Popup, PopupButtonOptions, PopupIconOptions, PopupOptions, PopupTextOptions
 } from '@ohos.arkui.advanced.Popup';
+import {
+  PopupV2, PopupV2InitInfo, PopupV2Button
+} from '@ohos.arkui.advanced.PopupV2';
 import { ProgressButton } from '@ohos.arkui.advanced.ProgressButton';
 import { ProgressButtonV2, ProgressButtonV2Color, ProgressButtonV2ColorOptions } from '@ohos.arkui.advanced.ProgressButtonV2';
 import {
@@ -329,5 +332,5 @@ export {
   ComponentInit, ComponentAppear, ComponentBuilt, ComponentReuse, ComponentRecycle, ComponentDisappear,
   CollectionType, ConnectOptionsCollections, uiMaterial,
   RowLayoutAlgorithm, ColumnLayoutAlgorithm, StackLayoutAlgorithm, GridLayoutAlgorithm, CustomLayoutAlgorithm, LayoutAlgorithm, DynamicLayout, DynamicLayoutAttribute,
-  LazyVWaterFlowLayout, LazyVWaterFlowLayoutAttribute, LazyWaterFlowLayoutAttribute, CustomComponentContext, IReusePool, IReusableInfo
+  LazyVWaterFlowLayout, LazyVWaterFlowLayoutAttribute, LazyWaterFlowLayoutAttribute, CustomComponentContext, IReusePool, IReusableInfo, PopupV2, PopupV2InitInfo, PopupV2Button
 };
