@@ -7981,7 +7981,7 @@ declare namespace audio {
     * @since 26.0.0 dynamic&static
     */
   interface AudioPersonalizedSpatialEnabledChangeForAnyDevice {
-     /**
+    /**
      * Audio device description.
      * @type { AudioDeviceDescriptor }
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
@@ -7991,7 +7991,7 @@ declare namespace audio {
      */
      deviceDescriptor: AudioDeviceDescriptor;
 
-     /**
+    /**
       * Personalized spatialization enable state.
       * @type { boolean }
       * @syscap SystemCapability.Multimedia.Audio.Spatialization
@@ -8001,6 +8001,35 @@ declare namespace audio {
       */
      enabled: boolean;
   }
+
+  /**
+    * Anonymous personalzied HRTF file descriptor for cross-process transfer.
+    * @interface AudioHRTFAnonymousDescriptor
+    * @syscap SystemCapability.Multimedia.Audio.Spatialization
+    * @systemapi
+    * @since 26.0.0 dynamic&static
+    */
+  interface AudioHRTFAnonymousDescriptor {
+    /**
+     * The file descriptor of personalzied HRTF.
+     * @type { int }
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    fd: int;
+
+    /**
+     * Total size of personalzied HRTF data in bytes.
+     * @type { long }
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    length: long;
+    }
 
   /**
    * Implements audio spatialization management.
@@ -8577,6 +8606,21 @@ declare namespace audio {
      */
     offPersonalizedSpatializationEnabledChangeForAnyDevice(
         callback?: Callback<AudioPersonalizedSpatialEnabledChangeForAnyDevice>): void;
+
+    /**
+     * Downloads personalized HRTF data from anonymous file descriptor.
+     * @param { AudioHRTFAnonymousDescriptor } hrtfDescriptor - Personalized HRTF data descriptor.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 801 - Capability not supported on the device.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800105 - Time out when saving HRTF on disk.
+     * @throws { BusinessError } 6800301 - System error, fail to save HRTF on disk.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    downloadPersonalizedHRTF(hrtfDescriptor: AudioHRTFAnonymousDescriptor): void;
   }
 
   /**
