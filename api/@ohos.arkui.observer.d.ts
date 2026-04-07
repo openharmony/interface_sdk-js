@@ -297,7 +297,7 @@ declare namespace uiObserver {
    */
     export enum ScrollEventType {
       /**
-       * When the ScrollEvent start.
+       * When the ScrollEvent starts.
        *
        * @syscap SystemCapability.ArkUI.ArkUI.Full
        * @crossplatform
@@ -307,7 +307,7 @@ declare namespace uiObserver {
       SCROLL_START = 0,
   
       /**
-       * When the ScrollEvent stop.
+       * When the ScrollEvent stops.
        *
        * @syscap SystemCapability.ArkUI.ArkUI.Full
        * @crossplatform
