@@ -266,7 +266,6 @@ declare namespace errorManager {
    * @param { UnhandledRejectionObserver } observer - The unhandled rejection observer.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16200001 - If the caller is invalid.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 24 static
    */
@@ -307,7 +306,6 @@ declare namespace errorManager {
    * @param { UnhandledRejectionObserver } [observer] - the registered observer
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16200001 - If the caller is invalid.
    * @throws { BusinessError } 16300004 - If the observer does not exist
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 24 static
@@ -454,6 +452,7 @@ declare namespace errorManager {
    * @param { FreezeObserver } observer - The freeze event observer.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 16200001 - If the caller is invalid.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 24 static
    */
@@ -642,7 +641,8 @@ declare namespace errorManager {
    * @param { FreezeObserver } [observer] - The freeze event observer.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16300004 - If the observer does not exist
+   * @throws { BusinessError } 16200001 - If the caller is invalid.
+   * @throws { BusinessError } 16300004 - If the observer does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 24 static
    */
