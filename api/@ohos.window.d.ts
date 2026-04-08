@@ -7591,7 +7591,7 @@ declare namespace window {
      * on 2-in-1 devices or for the child window.
      *
      * @param { Orientation } orientation - The orientation config of the window
-     * @returns { Promise<void> } Promise that returns no value.
+     * @returns { Promise<OrientationResult> } Promise used to return the OrientationResult.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
      *     capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
