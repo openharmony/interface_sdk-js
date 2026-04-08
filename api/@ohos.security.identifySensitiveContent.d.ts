@@ -102,7 +102,7 @@
   /**
    * Identify sensitive content from file based on policy.
    * @permission ohos.permission.ENTERPRISE_DATA_IDENTIFY_FILE
-   * @param { string } filePath - To be idetified file path
+   * @param { string } filePath - To be identified file path
    * @param { Array<Policy> } identifyPolicies - Identify Policy
    * @returns { Promise<Array<MatchResult>> } Identify result of Sensitive content
    * @throws { BusinessError } 201 - permission denied.
