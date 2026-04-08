@@ -244,7 +244,7 @@ import imageGeneration from '@ohos.arkui.intelligence.imageGeneration';
 import uiMaterial from '@ohos.arkui.uiMaterial';
 import { RowLayoutAlgorithm, ColumnLayoutAlgorithm, StackLayoutAlgorithm, GridLayoutAlgorithm, CustomLayoutAlgorithm, LayoutAlgorithm } from '@ohos.arkui.layoutAlgorithm';
 import { DynamicLayout, DynamicLayoutAttribute } from '@ohos.arkui.components.ArkDynamicLayout';
-import { ContainerReader, ContainerReaderAttribute, BreakpointOptions } from '@ohos.arkui.components.ArkContainerReader';
+import { ContainerReader, ContainerReaderAttribute, BreakpointOptions } from '@ohos.arkui.components.ContainerReader';
 export {
   AtomicServiceSearch, InputFilterParams, SearchButtonParams, MenuAlignParams, SearchParams, SelectParams, OperationParams,
   AddFormMenuItem, AddFormOptions, AlertDialog, Animator, AnimatorOptions, AnimatorResult, SimpleAnimatorOptions, App, AppResponse, AtomicServiceBar,
