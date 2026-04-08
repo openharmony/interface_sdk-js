@@ -8610,10 +8610,11 @@ declare namespace audio {
 
     /**
      * Downloads personalized HRTF data from anonymous file descriptor.
+     * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
      * @param { AudioHRTFAnonymousDescriptor } hrtfDescriptor - Personalized HRTF data descriptor.
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 801 - Capability not supported on the device.
-     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800101 - Parameter verification failed, fd or length wrong.
      * @throws { BusinessError } 6800105 - Time out when saving HRTF on disk.
      * @throws { BusinessError } 6800301 - System error, fail to save HRTF on disk.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
@@ -8621,7 +8622,7 @@ declare namespace audio {
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    downloadPersonalizedHRTF(hrtfDescriptor: AudioHRTFAnonymousDescriptor): void;
+    downloadPersonalizedHRTF(hrtfDescriptor: AudioHRTFAnonymousDescriptor): Promise<void>;
   }
 
   /**
