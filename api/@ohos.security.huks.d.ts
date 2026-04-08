@@ -5799,6 +5799,33 @@ declare namespace huks {
      * @since 12
      */
     HUKS_3DES_KEY_SIZE_192 = 192,
+    /**
+     * ML-DSA-44 parameter set.
+     *
+     * @syscap SystemCapability.Security.Huks.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0
+     */
+    HUKS_ML_DSA_KEY_PARAM_SET_44 = 44,
+    /**
+     * ML-DSA-65 parameter set.
+     *
+     * @syscap SystemCapability.Security.Huks.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0
+     */
+    HUKS_ML_DSA_KEY_PARAM_SET_65 = 65,
+    /**
+     * ML-DSA-87 parameter set.
+     *
+     * @syscap SystemCapability.Security.Huks.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0
+     */
+    HUKS_ML_DSA_KEY_PARAM_SET_87 = 87
   }
 
   /**
@@ -6039,7 +6066,16 @@ declare namespace huks {
      * @atomicservice
      * @since 12
      */
-    HUKS_ALG_CMAC = 162
+    HUKS_ALG_CMAC = 162,
+    /**
+     * ML-DSA.
+     *
+     * @syscap SystemCapability.Security.Huks.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0
+     */
+    HUKS_ALG_ML_DSA = 201
   }
 
   /**
@@ -7780,6 +7816,15 @@ declare namespace huks {
      * @since 24
      */
     HUKS_TAG_AAD = HuksTagType.HUKS_TAG_TYPE_BYTES | 527,
+    /**
+     * The tag indicates the context for crypto operations, such as ML-DSA, etc.
+     *
+     * @syscap SystemCapability.Security.Huks.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0
+     */
+    HUKS_TAG_CONTEXT = HuksTagType.HUKS_TAG_TYPE_BYTES | 528,
     /*
      * Other reserved TAG: 601 - 1000
      *
