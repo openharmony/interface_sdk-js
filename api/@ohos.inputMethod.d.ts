@@ -2731,7 +2731,7 @@ declare namespace inputMethod {
      * Indicates the ID of the display where the cursor locates.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @statemodeonly
+     * @stagemodelonly
      * @since 26.0.0 dynamic&&static
      */
     displayId?: long;
