@@ -797,7 +797,7 @@ declare namespace picker {
      * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection
      * @stagemodelonly
      * @atomicservice
-     * @since 24 dynamic
+     * @since 26.0.0 dynamic
      */
     allowsMulFolderSelection?: boolean;
   }
@@ -1055,7 +1055,7 @@ declare namespace picker {
      *
      * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     allowsMulFolderSelection?: boolean;
   }
