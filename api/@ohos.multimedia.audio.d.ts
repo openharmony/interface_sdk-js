@@ -2509,7 +2509,7 @@ declare namespace audio {
     rendererFlags: int;
     /**
      * Audio volume mode config. If volumeMode is set to {@link AudioVolumeMode.APP_INDIVIDUAL}, this audio renderer
-     * will be affeted by app volume percentage setted by {@link setAppVolumePercentage}
+     * will be affected by app volume percentage set by {@link setAppVolumePercentage}
      * @type { ?AudioVolumeMode }
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 19 dynamic
@@ -3959,7 +3959,7 @@ declare namespace audio {
   }
 
   /**
-   * Desribes audio device block status. By default, the device is consider as unblocked.
+   * Describes audio device block status. By default, the device is considered as unblocked.
    * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Device
    * @since 13 dynamic
@@ -3983,7 +3983,7 @@ declare namespace audio {
   }
 
   /**
-   * Desribes audio device block status info.
+   * Describes audio device block status info.
    * @typedef DeviceBlockStatusInfo
    * @syscap SystemCapability.Multimedia.Audio.Device
    * @since 13 dynamic
@@ -6096,7 +6096,7 @@ declare namespace audio {
 
     /**
      * Temporarily changes the current audio device
-     * This function applys on audiorenderers whose StreamUsage are
+     * This function applies on audiorenderers whose StreamUsage are
      * STREAM_USAGE_VOICE_COMMUNICATION/STREAM_USAGE_VIDEO_COMMUNICATION/STREAM_USAGE_VOICE_MESSAGE.
      * Setting the device will only takes effect if no other accessory such as headphones are in use
      * @param { DeviceType } deviceType - the available deviceTypes are
@@ -10828,7 +10828,7 @@ declare namespace audio {
 
     /**
      * Sets the playback speed.
-     * @param { double } speed -  Audio playback speed. The value type is float, form 0.25 to 4.0.
+     * @param { double } speed -  Audio playback speed. The value type is float, from 0.25 to 4.0.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters are left unspecified;
      *                                 2.Incorrect parameter types.
@@ -10838,7 +10838,7 @@ declare namespace audio {
      */
     /**
      * Sets the playback speed.
-     * @param { double } speed -  Audio playback speed. The value type is float, form 0.25 to 4.0.
+     * @param { double } speed -  Audio playback speed. The value type is float, from 0.25 to 4.0.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters are left unspecified;
      *                                 2.Incorrect parameter types.
@@ -10956,14 +10956,14 @@ declare namespace audio {
 
     /**
      * Sets the volume for this stream. This method uses an asynchronous callback to return the result.
-     * @param { double } volume - Volume to set. The value type is float, form 0.0 to 1.0.
+     * @param { double } volume - Volume to set. The value type is float, from 0.0 to 1.0.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 9
      */
     /**
      * Sets the volume for this stream. This method uses an asynchronous callback to return the result.
-     * @param { double } volume - Volume to set. The value type is float, form 0.0 to 1.0.
+     * @param { double } volume - Volume to set. The value type is float, from 0.0 to 1.0.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
@@ -10973,14 +10973,14 @@ declare namespace audio {
     setVolume(volume: double, callback: AsyncCallback<void>): void;
     /**
      * Sets the volume for a stream. This method uses a promise to return the result.
-     * @param { double } volume - Volume to set. The value type is float, form 0.0 to 1.0.
+     * @param { double } volume - Volume to set. The value type is float, from 0.0 to 1.0.
      * @returns { Promise<void> } Promise used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 9
      */
     /**
      * Sets the volume for a stream. This method uses a promise to return the result.
-     * @param { double } volume - Volume to set. The value type is float, form 0.0 to 1.0.
+     * @param { double } volume - Volume to set. The value type is float, from 0.0 to 1.0.
      * @returns { Promise<void> } Promise used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
@@ -11000,7 +11000,7 @@ declare namespace audio {
 
     /**
      * Changes the volume with ramp for a duration.
-     * @param { double } volume - Volume to set. The value type is float, form 0.0 to 1.0.
+     * @param { double } volume - Volume to set. The value type is float, from 0.0 to 1.0.
      * @param { int } duration -  Duration for volume ramp, in millisecond.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters are left unspecified;
@@ -11011,7 +11011,7 @@ declare namespace audio {
      */
     /**
      * Changes the volume with ramp for a duration.
-     * @param { double } volume - Volume to set. The value type is float, form 0.0 to 1.0.
+     * @param { double } volume - Volume to set. The value type is float, from 0.0 to 1.0.
      * @param { int } duration -  Duration for volume ramp, in millisecond.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters are left unspecified;
@@ -11262,8 +11262,8 @@ declare namespace audio {
 
     /**
      * Temporarily changes the current audio device
-     * This function applys on audiorenderers whose StreamUsage are
-     * STREAM_USAGE_VOICE_COMMUNICATIN/STREAM_USAGE_VIDEO_COMMUNICATION/STREAM_USAGE_VOICE_MESSAGE.
+     * This function applies on audiorenderers whose StreamUsage are
+     * STREAM_USAGE_VOICE_COMMUNICATION/STREAM_USAGE_VIDEO_COMMUNICATION/STREAM_USAGE_VOICE_MESSAGE.
      * Setting the device will only takes effect if no other accessory such as headphones are in use
      * @param { DeviceType } deviceType - the available deviceTypes are
      *                                    EARPIECE: Built-in earpiece
@@ -14851,7 +14851,7 @@ declare namespace audio {
      * Sets the volume for audio loopback. This volume does not affect other audio streams or the system volume.
      * @param { double } volume Volume to set. The value type is float, ranging from 0.0 to 1.0.
      * @returns { Promise<void> } Promise used to return the result.
-     * @throws { BusinessError } 6800101 - Parameter verification failed, form 0.0 to 1.0.
+     * @throws { BusinessError } 6800101 - Parameter verification failed, from 0.0 to 1.0.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 20 dynamic
      * @since 23 static
