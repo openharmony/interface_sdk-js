@@ -7568,11 +7568,10 @@ declare namespace window {
     /**
      * Sets the preferred orientation for the main window.
      * This API uses an asynchronous callback to return the result.
-     * It does not take effect on devices that do not support rotation with the sensor,
-     * on 2-in-1 devices or for the child window.
+     * It does not take effect on devices that do not support rotation with the sensor, on 2-in-1 devices or for the child window.
      *
      * @param { Orientation } orientation - The orientation config of the window
-     * @param { Promise<> } callback - Callback used to return the result.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: Invalid parameter value range.
      * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
      *                                          1. The window is not created or destroyed;
