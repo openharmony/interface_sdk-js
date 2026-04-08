@@ -2728,9 +2728,8 @@ declare namespace inputMethod {
     height: double;
 
     /**
-     * Indicates the id of the display where the input window is shown.
+     * Indicates the ID of the display where the cursor locates.
      *
-     * @type { ?long }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @statemodeonly
      * @since 26.0.0 dynamic&&static
