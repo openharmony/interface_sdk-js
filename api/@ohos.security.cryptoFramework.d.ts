@@ -1299,6 +1299,40 @@ declare namespace cryptoFramework {
      * @since 23 static
      */
     getEncodedPem(format: string): string;
+
+    /**
+     * Get the key data from the public key.
+     *
+     * @param { AsyKeyDataItem } itemType - indicates the specified parameters type.
+     *     <br>AsyKeyDataItem Enumeration
+     * @returns { Promise<Uint8Array> } the promise returned by the function.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17620003 - parameter check failed.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    getKeyData(itemType: AsyKeyDataItem): Promise<Uint8Array>;
+
+    /**
+     * Get the key data from the public key.
+     *
+     * @param { AsyKeyDataItem } itemType - indicates the specified parameters type.
+     *     <br>AsyKeyDataItem Enumeration
+     * @returns { Uint8Array } the key data.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17620003 - parameter check failed.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    getKeyDataSync(itemType: AsyKeyDataItem): Uint8Array;
   }
 
   /**
