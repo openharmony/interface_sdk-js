@@ -1478,7 +1478,7 @@ declare namespace appManager {
    * Obtains memory usage of one process by its pid.
    *
    * @param { int } pid - Indicates the pid of the process.
-   * @returns { Promise<int> } Returns the memory usage of the process in KB.
+   * @returns { Promise<int> } Returns the memory usage of the process, in KB.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
@@ -1494,7 +1494,7 @@ declare namespace appManager {
    * Obtains memory usage of one process by its pid.
    *
    * @param { int } pid - Indicates the pid of the process.
-   * @param { AsyncCallback<int> } callback - Indicates the callback of getting process memory by pid result.
+   * @param { AsyncCallback<int> } callback - Indicates the callback of getting process memory by pid result, in KB.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
