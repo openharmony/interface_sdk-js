@@ -3514,6 +3514,7 @@ function getxattrSync(path: string, key: string): string;
 interface Progress {
   /**
    * Size of the copied data, in bytes.
+   * <br>Unit: Byte.
    *
    * @type { long }
    * @readonly
@@ -3524,6 +3525,7 @@ interface Progress {
 
   /**
    * Total size of the data to be copied, in bytes.
+   * <br>Unit: Byte.
    *
    * @type { long }
    * @readonly
