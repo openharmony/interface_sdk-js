@@ -7568,10 +7568,11 @@ declare namespace window {
     /**
      * Sets the preferred orientation for the main window.
      * This API uses an asynchronous callback to return the result.
-     * It does not take effect on devices that do not support rotation with the sensor, on 2-in-1 devices or for the child window.
+     * It does not take effect on devices that do not support rotation with the sensor,
+     * on 2-in-1 devices or for the child window.
      *
      * @param { Orientation } orientation - The orientation config of the window
-     * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     * @param { Promise<> } callback - Callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: Invalid parameter value range.
      * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
      *                                          1. The window is not created or destroyed;
@@ -7583,6 +7584,27 @@ declare namespace window {
      * @since 23 static
      */
     setPreferredOrientation(orientation: Orientation, callback: AsyncCallback<void>): void;
+
+    /**
+     * Sets the preferred orientation for the main window.
+     * This API uses a promise to return the result.
+     * It does not take effect on devices that do not support rotation with the sensor,
+     * on 2-in-1 devices or for the child window.
+     *
+     * @param { Orientation } orientation - The orientation config of the window
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
+     *     capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
+     *                                          1. The window is not created or destroyed;
+     *                                          2. Internal task error.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    setPreferredOrientationWithResult(orientation: Orientation): Promise<OrientationResult>;
 
     /**
      * Obtains the orientation of the main window.
@@ -15320,6 +15342,64 @@ declare namespace window {
      * @since 23 static
      */
     FULL_OCCLUSION = 2
+  }
+
+  /**
+   * Type of execution result of setting preferred orientation
+   *
+   * @syscap SystemCapability.Window.SessionManager
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  enum OrientationExecutionResult {
+    /**
+     * Orientation policy is applied.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    ORIENTATION_APPLIED = 0,
+    /**
+     * Orientation policy is ignored.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    ORIENTATION_IGNORED = 1,
+    /**
+     * Orientation policy is pending and will be applied soon.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    ORIENTATION_PENDDING = 2,
+  }
+
+  /**
+   * Result of setting preferred orientation
+   *
+   * @syscap SystemCapability.Window.SessionManager
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  interface OrientationResult {
+    /**
+     * Execution result of setting preferred orientation.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    executionResult : OrientationExecutionResult;
   }
 
   /**
