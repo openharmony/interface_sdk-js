@@ -550,6 +550,19 @@ export declare class UIUtils {
    * @since 23 dynamic
    */
   static getLifecycle<T extends BaseCustomComponent>(customComponent: T): CustomComponentLifecycle;
+
+  /**
+   * The getCustomComponentContext function gets the custom component context.
+   * 
+   * @param { T } customComponent - custom component instance
+   * @returns { CustomComponentContext } The lifecycle that the custom component belongs to.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  static getCustomComponentContext<T extends BaseCustomComponent>(customComponent: T): CustomComponentContext;
 }
 
 /**
@@ -1169,3 +1182,116 @@ export declare const ComponentRecycle: MethodDecorator;
  * @since 23 dynamic
  */
 export declare const ComponentDisappear: MethodDecorator;
+
+/**
+ * CustomComponentContext is a state managemen tool class for operating the observed data.
+ * 
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+export declare interface CustomComponentContext {
+  /**
+   * The getCustomComponentReusePool function gets the reuse pool.
+   * 
+   * @returns { IReusePool | undefined } Returns the recyclepool instance.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  getCustomComponentReusePool(): IReusePool | undefined;
+}
+
+/**
+ * IReusePool is a reuse pool interface for custom component.
+ * 
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+export declare interface IReusePool {
+  /**
+   * The getReusableInfo function gets IReusableInfo for given Component/V2 in the pool.
+   * 
+   * @param { ReusableComponentConstructor } constructor - @ReusableV2 @ComponentV2 or @Reusable @Component.
+   * @param { number } [reuseId] - the reuse-id.
+   * @returns { IReusableInfo[] | IReusableInfo | undefined } returns undefined if this pool does not
+   *     accepts given component.
+   *     returns IReusableInfo if this pool accepts given Component/V2, reuseId was not used to recycle instances.
+   *     returns IReusableInfo[] if this pool acce[ts given Component/V2, reuseId was used to recycle instances.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  getReusableInfo(constructor: ReusableComponentConstructor,
+    reuseId?: number): IReusableInfo[] | IReusableInfo | undefined;
+
+  /**
+   * The preRender function pre-render n instances and add to pool.
+   * 
+   * @param { WrappedBuilder<[]> } builder - builder a WrappedBuilder containing a @Builder
+   *     function that accepts no parameter.
+   * @param { number } times - number of times to exec the given @Builder function.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  preRender(builder: WrappedBuilder<[]>, times: number): void;
+}
+
+/**
+ * IReusableInfo is a reuse pool information interface for custom component.
+ * 
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+export declare interface IReusableInfo {
+  /**
+   * Current number of @Reusable/V2 component instances in pool.
+   * count is usually <= maxCount. It is allowed to be larger for short time
+   * because pool clean happens asynchronously.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  readonly count: number;
+
+  /**
+   * Maximum number of permissible @Reusable/V2 component instances
+   * the default in infinite number.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  maxCount: number;
+
+  /**
+   * reuse id.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  readonly reuseId?: string;
+}
