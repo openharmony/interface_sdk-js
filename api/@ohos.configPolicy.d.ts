@@ -35,7 +35,6 @@ import { AsyncCallback } from './@ohos.base';
  */
 declare namespace configPolicy {
   /**
-   * Define followXMode.
    * 
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi
