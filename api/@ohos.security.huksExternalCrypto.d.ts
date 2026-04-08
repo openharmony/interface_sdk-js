@@ -92,7 +92,15 @@ declare namespace huksExternalCrypto {
      * @syscap SystemCapability.Security.Huks.CryptoExtension
      * @since 22
      */
-    HUKS_EXT_CRYPTO_TAG_PURPOSE = HuksExternalCryptoTagType.HUKS_EXT_CRYPTO_TAG_TYPE_INT | 200005
+    HUKS_EXT_CRYPTO_TAG_PURPOSE = HuksExternalCryptoTagType.HUKS_EXT_CRYPTO_TAG_TYPE_INT | 200005,
+    /**
+     * Specifies the ability configuration for the custom PIN dialog.
+     *
+     * @syscap SystemCapability.Security.Huks.CryptoExtension
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    HUKS_EXT_CRYPTO_TAG_ABILITY_INFO = HuksExternalCryptoTagType.HUKS_EXT_CRYPTO_TAG_TYPE_BYTES | 200008,
   }
 
   /**
