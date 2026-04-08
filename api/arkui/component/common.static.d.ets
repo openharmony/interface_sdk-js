@@ -294,16 +294,6 @@ export declare interface ReuseOptions {
  */
 export type Context = OriginalContext;
 /**
- * Post Card Action.
- *
- * @param { Object } component - indicate the card entry component.
- * @param { Object } action - indicate the router, message or call event.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 23 static
- */
-export declare function postCardAction(component: Object, action: Object): void;
-/**
  * Defines the data type of the interface restriction.
  *
  * @interface Configuration
