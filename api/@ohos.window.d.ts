@@ -7598,7 +7598,7 @@ declare namespace window {
      *                                          1. The window is not created or destroyed;
      *                                          2. Internal task error.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
      * @atomicservice
      * @since 26.0.0 dynamic&static
@@ -15378,7 +15378,7 @@ declare namespace window {
      * @atomicservice
      * @since 26.0.0 dynamic&static
      */
-    ORIENTATION_PENDDING = 2,
+    ORIENTATION_PENDING = 2,
   }
 
   /**
