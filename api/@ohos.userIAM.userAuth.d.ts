@@ -21,14 +21,7 @@
 /*** if arkts dynamic */
 import type { AsyncCallback } from './@ohos.base';
 /*** endif */
-
-/*** if arkts 1.1 */
-import type { AsyncCallback } from './@ohos.base';
-/*** endif */
 /*** if arkts static */
-import Context from './application/Context';
-/*** endif */
-/*** if arkts 1.2 */
 import Context from './application/Context';
 /*** endif */
 
@@ -1436,9 +1429,12 @@ declare namespace userAuth {
     skipLockedBiometricAuth?: boolean;
 
     /**
-     * Specify the credentials used for comparison.
+     * List of credential IDs. If the credential ID list is not empty, the specified credential ID is authenticated.
      *
-     * @type { ?Uint8Array[] }
+     * This is a system API.
+     *
+     * This API can be used only in the stage model.
+     *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
