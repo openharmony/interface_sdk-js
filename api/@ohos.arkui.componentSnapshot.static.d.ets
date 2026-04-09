@@ -226,7 +226,6 @@ declare namespace componentSnapshot {
         /**
          * Defines the rect region type of the snapshot.
          *
-         * @type {?SnapshotRegionType}
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 23 static
          */
