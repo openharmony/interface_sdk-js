@@ -487,6 +487,17 @@ declare class TextStyle {
      * @since 24 dynamic
      */
     readonly fontConfigs?: FontConfigs;
+
+    /**
+     * Get the font variation of the StyledString.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    readonly fontVariations?: Array<FontVariation>;
 }
 
 /**
@@ -598,6 +609,17 @@ declare interface TextStyleInterface {
      * @since 24 dynamic
      */
     fontConfigs?: FontConfigs;
+
+    /**
+     * The font variation value of the text.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    fontVariations?: Array<FontVariation>;
 }
 
 /**
