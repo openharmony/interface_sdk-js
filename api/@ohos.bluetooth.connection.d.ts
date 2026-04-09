@@ -1947,6 +1947,44 @@ declare namespace connection {
   function offScanModeChange(callback?: Callback<ScanMode>): void;
 
   /**
+   * Subscribe the event of acl state changed from a remote device.
+   * If the application has ohos.permission.GET_BLUETOOTH_PEERS_MAC, the type of the peer device address is real.
+   * Otherwise, the type of the peer device address is virtual.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH or (ohos.permission.ACCESS_BLUETOOTH and
+   *     ohos.permission.GET_BLUETOOTH_PEERS_MAC)
+   * @param { Callback<AclStateResult> } callback - Callback used to listen.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *     Failed to call the API when the short-range chip is not inserted on 2in1 device.
+   * @throws { BusinessError } 2900099 - Internal system error. For example, IPC error.
+   *     Detailed error messages can be used to assist in locating the problem.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function onAclStateChange(callback: Callback<AclStateResult>): void;
+  
+  /**
+   * Unsubscribe the event of acl state changed from a remote device.
+   * If the application has ohos.permission.GET_BLUETOOTH_PEERS_MAC, the type of the peer device address is real.
+   * Otherwise, the type of the peer device address is virtual.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH or (ohos.permission.ACCESS_BLUETOOTH and
+   *     ohos.permission.GET_BLUETOOTH_PEERS_MAC)
+   * @param { Callback<AclStateResult> } [callback] - Callback used to listen.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *     Failed to call the API when the short-range chip is not inserted on 2in1 device.
+   * @throws { BusinessError } 2900099 - Internal system error. For example, IPC error.
+   *     Detailed error messages can be used to assist in locating the problem.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function offAclStateChange(callback?: Callback<AclStateResult>): void;
+
+  /**
    * Describes the class of a bluetooth device.
    *
    * @typedef BondStateParam
@@ -3335,6 +3373,58 @@ declare namespace connection {
      * @since 24 dynamic&static
      */
     HASH_ALGORITHM_SHA256 = 0
+  }
+
+  /**
+   * Acl state change result.
+   *
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface AclStateResult {
+    /**
+     * The virtual address of a Bluetooth device. For example, "11:22:33:AA:BB:FF".
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    deviceId: string;
+    /**
+     * Acl state of the device.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    state: AclState;
+  }
+  
+  /**
+  * The enum of acl state.
+  *
+  * @syscap SystemCapability.Communication.Bluetooth.Core
+  * @stagemodelonly
+  * @since 26.0.0 dynamic&static
+  */
+  export enum AclState {
+    /**
+    * acl is connected
+    *
+    * @syscap SystemCapability.Communication.Bluetooth.Core
+    * @stagemodelonly
+    * @since 26.0.0 dynamic&static
+    */
+    STATE_CONNECTED = 0,
+    /**
+    * acl is disconnected
+    *
+    * @syscap SystemCapability.Communication.Bluetooth.Core
+    * @stagemodelonly
+    * @since 26.0.0 dynamic&static
+    */
+    STATE_DISCONNECTED = 1
   }
 }
 export default connection;
