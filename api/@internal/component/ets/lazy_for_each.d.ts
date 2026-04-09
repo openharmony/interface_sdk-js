@@ -19,6 +19,39 @@
  */
 
 /**
+ * Defines a type for memory optimization strategy.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare enum LazyForEachMemOptStrategy {
+  /**
+   * No memory optimization.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  DEFAULT = 0,
+  /**
+   * LazyForEach handle the memory optimization.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  ENABLE_AUTO_CACHE_OPTIMIZATION = 1 << 0
+}
+
+/**
  * Enumerates the data operation types.
  *
  * @enum { string }
@@ -182,6 +215,18 @@ declare enum LazyForEachCustomComponentFreezeMode {
  * @since 26.0.0 dynamic
  */
 declare interface LazyForEachOptions {
+  /**
+   * Memory optimization strategy for LazyForEach
+   *
+   * @type { ?LazyForEachMemOptStrategy }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  memoryOptimizationStrategy?: LazyForEachMemOptStrategy;
+
   /**
    * Freeze mode for cached custom nodes that have been removed from the
    * component tree. Default value: LazyForEachCustomComponentFreezeMode.AUTO.
