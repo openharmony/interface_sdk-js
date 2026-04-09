@@ -1813,7 +1813,7 @@ declare namespace resourceManager {
     getRawFileDescriptor(path: string): Promise<RawFileDescriptor>;
 
     /**
-     * Obtains close raw file resource descriptor corresponding to the specified resource path in callback mode.
+     * Close raw file resource descriptor corresponding to the specified resource path in callback mode.
      *
      * @param { string } path - Indicates the resource relative path.
      * @param { AsyncCallback<void> } callback - Indicates the asynchronous callback used to return result close raw file resource descriptor.
@@ -1825,7 +1825,7 @@ declare namespace resourceManager {
     closeRawFileDescriptor(path: string, callback: AsyncCallback<void>): void;
 
     /**
-     * Obtains close raw file resource descriptor corresponding to the specified resource path in Promise mode.
+     * Close raw file resource descriptor corresponding to the specified resource path in Promise mode.
      *
      * @param { string } path - Indicates the resource relative path.
      * @returns { Promise<void> } The result close raw file resource descriptor corresponding to the specified resource path.
@@ -3915,7 +3915,7 @@ declare namespace resourceManager {
     getRawFd(path: string): Promise<RawFileDescriptor>;
 
     /**
-     * Obtains close raw file resource descriptor corresponding to the specified resource path in callback mode.
+     * Close raw file resource descriptor corresponding to the specified resource path in callback mode.
      *
      * @param { string } path - Indicates the resource relative path.
      * @param { _AsyncCallback<void> } callback - Indicates the asynchronous callback used to return result close raw file resource descriptor.
@@ -3925,7 +3925,7 @@ declare namespace resourceManager {
      * @since 9
      */
     /**
-     * Obtains close raw file resource descriptor corresponding to the specified resource path in callback mode.
+     * Close raw file resource descriptor corresponding to the specified resource path in callback mode.
      *
      * @param { string } path - Indicates the resource relative path.
      * @param { _AsyncCallback<void> } callback - Indicates the asynchronous callback used to return result close raw file resource descriptor.
@@ -3936,7 +3936,7 @@ declare namespace resourceManager {
      * @since 10
      */
     /**
-     * Obtains close raw file resource descriptor corresponding to the specified resource path in callback mode.
+     * Close raw file resource descriptor corresponding to the specified resource path in callback mode.
      *
      * @param { string } path - Indicates the resource relative path.
      * @param { _AsyncCallback<void> } callback - Indicates the asynchronous callback used to return result close raw file resource descriptor.
@@ -3951,7 +3951,7 @@ declare namespace resourceManager {
     closeRawFd(path: string, callback: _AsyncCallback<void>): void;
 
     /**
-     * Obtains close raw file resource descriptor corresponding to the specified resource path in Promise mode.
+     * Close raw file resource descriptor corresponding to the specified resource path in Promise mode.
      *
      * @param { string } path - Indicates the resource relative path.
      * @returns { Promise<void> } The result close raw file resource descriptor corresponding to the specified resource path.
@@ -3961,7 +3961,7 @@ declare namespace resourceManager {
      * @since 9
      */
     /**
-     * Obtains close raw file resource descriptor corresponding to the specified resource path in Promise mode.
+     * Close raw file resource descriptor corresponding to the specified resource path in Promise mode.
      *
      * @param { string } path - Indicates the resource relative path.
      * @returns { Promise<void> } The result close raw file resource descriptor corresponding to the specified resource path.
@@ -3972,7 +3972,7 @@ declare namespace resourceManager {
      * @since 10
      */
     /**
-     * Obtains close raw file resource descriptor corresponding to the specified resource path in Promise mode.
+     * Close raw file resource descriptor corresponding to the specified resource path in Promise mode.
      *
      * @param { string } path - Indicates the resource relative path.
      * @returns { Promise<void> } The result close raw file resource descriptor corresponding to the specified resource path.
