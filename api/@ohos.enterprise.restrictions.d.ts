@@ -44,7 +44,15 @@ declare namespace restrictions {
      * @stagemodelonly
      * @since 24
      */
-    WIFI_P2P = 0
+    WIFI_P2P = 0,
+    /**
+     * Core dump
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    CORE_DUMP = 6
   }
 
   /**

@@ -255,6 +255,99 @@ declare namespace contextConstant {
      */
     SCENARIO_BACK_TO_CALLER_ABILITY_WITH_RESULT = 0x00000004
   }
+
+  /**
+   * Context type
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  export enum ContextType {
+    /**
+     * Application context type.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    APPLICATION_CONTEXT = 0,
+
+    /**
+     * Ability stage context type.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    ABILITY_STAGE_CONTEXT = 1,
+
+    /**
+     * UI ability context type.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    UIABILITY_CONTEXT = 2,
+
+    /**
+     * Form extension context type.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    FORM_EXTENSION_CONTEXT = 3,
+
+    /**
+     * App service extension context type.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    APP_SERVICE_EXTENSION_CONTEXT = 4,
+
+    /**
+     * Service extension context type.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    SERVICE_EXTENSION_CONTEXT = 5,
+
+    /**
+     * UI service extension context type.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core\
+     * @systemapi
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    UI_SERVICE_EXTENSION_CONTEXT = 6,
+
+    /**
+     * Auto fill extension context type.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    AUTO_FILL_EXTENSION_CONTEXT = 7
+  }
 }
 
 export default contextConstant;

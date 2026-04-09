@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -84,6 +84,8 @@ declare namespace fileIo {
   export { getxattrSync };
   export { listFile };
   export { listFileSync };
+  export { listFileExt };
+  export { listFileExtSync };
   export { lseek };
   export { lstat };
   export { lstatSync };
@@ -3540,6 +3542,48 @@ declare function listFile(
 declare function listFileSync(
   path: string,
   options?: ListFileOptions
+): string[];
+
+/**
+ * Lists all file names in a directory. This API uses a promise to return the result.
+ * This API supports recursive listing of all file names and custom file name filtering.
+ * The returned result starts with a slash (/) and contains the subdirectory.
+ *
+ * @param { string } path - Application sandbox path of the directory.
+ * @param { ListFileExtOptions } [options] - Options for filtering files. The files are not filtered by default.
+ * @returns { Promise<string[]> } Promise used to return the file names listed.
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @stagemodelonly
+ * @since 26.0.0 dynamic
+ */
+declare function listFileExt(
+  path: string,
+  options?: ListFileExtOptions
+): Promise<string[]>;
+
+/**
+ * Lists all file names in a directory. This API returns the result synchronously.
+ * This API supports recursive listing of all file names and custom file name filtering.
+ * The returned result starts with a slash (/) and contains the subdirectory.
+ *
+ * @param { string } path - Application sandbox path of the directory.
+ * @param { ListFileExtOptions } [options] - Options for filtering files. The files are not filtered by default.
+ * @returns { string[] } List of the file names obtained.
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @stagemodelonly
+ * @since 26.0.0 dynamic
+ */
+declare function listFileExtSync(
+  path: string,
+  options?: ListFileExtOptions
 ): string[];
 
 /**
@@ -11834,6 +11878,71 @@ export interface ListFileOptions {
    * @since 11 dynamic
    */
   filter?: Filter;
+}
+
+/**
+ * Defines the file name filtering interface used by listFile().
+ *
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @stagemodelonly
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+export interface FileFilter {
+  /**
+   * Filtering function, which determines whether the specified file name should be included in the file list.
+   *
+   * Note: This function is frequently invoked. Avoid time-consuming operations, such as file I/O and network requests.
+   *
+   * @param { string } name - Name of the file to be filtered.
+   * @returns { boolean } Returns true if the file should be included, false otherwise.
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  filter(name: string): boolean;
+}
+
+/**
+ * Defines the options used in listFileExt().
+ *
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @stagemodelonly
+ * @since 26.0.0 dynamic
+ */
+export interface ListFileExtOptions {
+  /**
+   * Whether to list all files in the subdirectories recursively. This parameter is optional.
+   * The default value is false. If recursion is false, the names of files and directories that meet the filtering
+   * requirements in the current directory are returned. If recursion is true, relative paths (starting with /)
+   * of all files that meet the specified conditions in the current directory are returned.
+   *
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  recursion?: boolean;
+
+  /**
+   * Number of file names to list. This parameter is optional. The default value is 0, which means to list all files.
+   * The value should be an integer.
+   *
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  listNum?: number;
+
+  /**
+   * File name filtering interface. This parameter is optional.
+   * Filtering rules can be defined based on file names.
+   *
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  fileFilter?: FileFilter;
 }
 
 /**

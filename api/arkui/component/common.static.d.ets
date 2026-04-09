@@ -3229,6 +3229,33 @@ export declare enum ThemeColorMode {
 }
 
 /**
+ * enum color mode of pointing popup
+
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare enum AnchoredColorMode {
+    /**
+     * Defines the mode which is follow up with system.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+    */
+    FOLLOW_SYSTEM = 0,
+    /**
+     * Defines the mode which is follow up with target.
+     * 
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+    */
+    FOLLOW_TARGET = 1
+}
+
+/**
  * Defines adaptive color
  *
  * @enum { number }
@@ -7428,6 +7455,16 @@ export declare interface PopupCommonOptions {
      */
     borderLinearGradient?: PopupBorderLinearGradient;
     /**
+ 	 * Define the popup theme color mode.
+ 	 * 
+ 	 * @type { ?AnchoredColorMode }
+ 	 * @default AnchoredColorMode.FOLLOW_TARGET
+ 	 * @syscap SystemCapability.ArkUI.ArkUI.Full
+ 	 * @stagemodelonly
+ 	 * @since 26.0.0 static
+ 	 */
+ 	colorMode?: AnchoredColorMode;
+    /**
      * Set system-styled materials for popup. Different materials have different effects, which can influence
      * the backgroundColor, border, shadow, and other visual attributes of popup.
      *
@@ -7856,7 +7893,16 @@ export declare interface PopupOptions {
      * @since 23 static
      */
     borderLinearGradient?: PopupBorderLinearGradient;
-
+    /**
+ 	 * Define the popup theme color mode.
+ 	 * 
+ 	 * @type { ?AnchoredColorMode }
+ 	 * @default AnchoredColorMode.FOLLOW_TARGET
+ 	 * @syscap SystemCapability.ArkUI.ArkUI.Full
+ 	 * @stagemodelonly
+ 	 * @since 26.0.0 static
+ 	 */
+ 	colorMode?: AnchoredColorMode;
     /**
      * Set system-styled materials for popup. Different materials have different effects, which can influence
      * the backgroundColor, border, shadow, and other visual attributes of popup.
@@ -8200,7 +8246,16 @@ export declare interface CustomPopupOptions {
      * @since 23 static
      */
     borderLinearGradient?: PopupBorderLinearGradient;
-
+    /**
+ 	 * Define the popup theme color mode.
+ 	 * 
+ 	 * @type { ?AnchoredColorMode }
+ 	 * @default AnchoredColorMode.FOLLOW_TARGET
+ 	 * @syscap SystemCapability.ArkUI.ArkUI.Full
+ 	 * @stagemodelonly
+ 	 * @since 26.0.0 static
+ 	 */
+ 	colorMode?: AnchoredColorMode;
     /**
      * Set system-styled materials for popup. Different materials have different effects, which can influence
      * the backgroundColor, border, shadow, and other visual attributes of popup.
@@ -8796,7 +8851,16 @@ export declare interface ContextMenuOptions {
      * @since 23 static
      */
     anchorPosition?: Position;
-
+    /**
+ 	 * Define the popup theme color mode.
+ 	 * 
+ 	 * @type { ?AnchoredColorMode }
+ 	 * @default AnchoredColorMode.FOLLOW_TARGET
+ 	 * @syscap SystemCapability.ArkUI.ArkUI.Full
+ 	 * @stagemodelonly
+ 	 * @since 26.0.0 static
+ 	 */
+ 	colorMode?: AnchoredColorMode;
     /**
      * Determine the mode of menu how to avoid keyboard.
      *
