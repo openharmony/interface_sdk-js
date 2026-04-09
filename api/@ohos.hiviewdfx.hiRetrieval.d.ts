@@ -19,7 +19,7 @@
  */
 
 /**
- * Provide interfaces and functions for HiRetrieval feature
+ * Provide interfaces and functions for HiRetrieval feature.
  *
  * @syscap SystemCapability.HiviewDFX.HiRetrieval
  * @FaAndStageModel
@@ -37,7 +37,7 @@ declare namespace hiRetrieval {
    */
   interface HiRetrievalConfig {
     /**
-     * custom user type set by developers.
+     * Custom user type set by developers.
      *
      * @syscap SystemCapability.HiviewDFX.HiRetrieval
      * @FaAndStageModel
@@ -47,7 +47,7 @@ declare namespace hiRetrieval {
     userType: string;
 
     /**
-     * custom device type set by developers.
+     * Custom device type set by developers.
      *
      * @syscap SystemCapability.HiviewDFX.HiRetrieval
      * @FaAndStageModel
@@ -57,7 +57,7 @@ declare namespace hiRetrieval {
     deviceType: string;
 
     /**
-     * custom device model set by developers.
+     * Custom device model set by developers.
      *
      * @syscap SystemCapability.HiviewDFX.HiRetrieval
      * @FaAndStageModel
@@ -68,7 +68,7 @@ declare namespace hiRetrieval {
   }
 
   /**
-   * init the HiRetrieval functionality.
+   * Init the HiRetrieval functionality.
    *
    * @syscap SystemCapability.HiviewDFX.HiRetrieval
    * @FaAndStageModel
@@ -78,7 +78,7 @@ declare namespace hiRetrieval {
   function init(): void;
 
   /**
-   * participate the HiRetrieval project with given HiRetrievalConfig.
+   * Participate the HiRetrieval project with given HiRetrievalConfig.
    *
    * @param { HiRetrievalConfig } config - The config set by the developers.
    * @throws { BusinessError } 36000001 - Initialization error.
@@ -91,7 +91,7 @@ declare namespace hiRetrieval {
   function participate(config: HiRetrievalConfig): void;
 
   /**
-   * quit the HiRetrieval project. this operation clears the current HiRetrieval config.
+   * Quit the HiRetrieval project. This operation clears the current HiRetrieval config.
    *
    * @throws { BusinessError } 36000001 - Initialization error.
    *                                      Possibly caused by invoking this function before invoking init function.
@@ -116,7 +116,7 @@ declare namespace hiRetrieval {
   function isParticipant(): boolean;
 
   /**
-   * query the UNIX timestamp of the last participating time.
+   * Query the UNIX timestamp of the last participating time.
    *
    * @returns { long } Returns the timestamp of the last participating time in milliseconds,
    *                   if never participated return 0.
@@ -130,7 +130,7 @@ declare namespace hiRetrieval {
   function getLastParticipationTimestamp(): long;
 
   /**
-   * trigger the HiRetrieval functionality, make is start working.
+   * Trigger the HiRetrieval functionality, make is start working.
    *
    * @throws { BusinessError } 36000001 - Initialization error.
    *                                      Possibly caused by invoking this function before invoking init function.
@@ -142,7 +142,7 @@ declare namespace hiRetrieval {
   function run(): void;
 
   /**
-   * query the current HiRetrieval config.
+   * Query the current HiRetrieval config.
    *
    * @returns { HiRetrievalConfig } Returns the current HiRetrieval config.
    * @throws { BusinessError } 36000001 - Initialization error.
