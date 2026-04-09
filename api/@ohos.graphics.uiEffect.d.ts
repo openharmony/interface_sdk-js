@@ -294,11 +294,9 @@ declare namespace uiEffect {
      *
      * @param { HeatDistortionEffectParam } param - the heat distortion effect parameters.
      * @returns { Filter } - Returns the heat distortion Filter.
-     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
-     * @since 25 dynamic
-     * @since 25 static
+     * @since 26.0.0 dynamic&static
      */
     heatDistortion(param: HeatDistortionEffectParam): Filter;
 
@@ -308,11 +306,9 @@ declare namespace uiEffect {
      *
      * @param { BlurBubblesRiseEffectParam } param - the blur bubbles rise effect parameters.
      * @returns { Filter } - Returns the blur bubbles rise Filter.
-     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
-     * @since 25 dynamic
-     * @since 25 static
+     * @since 26.0.0 dynamic&static
      */
     blurBubblesRise(param: BlurBubblesRiseEffectParam): Filter;
 
@@ -655,8 +651,7 @@ declare namespace uiEffect {
    * @typedef HeatDistortionEffectParam
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
-   * @since 25 dynamic
-   * @since 25 static
+   * @since 26.0.0 dynamic&static
    */
   interface HeatDistortionEffectParam {
     /**
@@ -665,8 +660,7 @@ declare namespace uiEffect {
      * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
-     * @since 25 dynamic
-     * @since 25 static
+     * @since 26.0.0 dynamic&static
      */
     intensity : double;
 
@@ -676,8 +670,7 @@ declare namespace uiEffect {
      * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
-     * @since 25 dynamic
-     * @since 25 static
+     * @since 26.0.0 dynamic&static
      */
     noiseScale : double;
 
@@ -687,8 +680,7 @@ declare namespace uiEffect {
      * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
-     * @since 25 dynamic
-     * @since 25 static
+     * @since 26.0.0 dynamic&static
      */
     riseWeight : double;
 
@@ -698,8 +690,7 @@ declare namespace uiEffect {
      * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
-     * @since 25 dynamic
-     * @since 25 static
+     * @since 26.0.0 dynamic&static
      */
     progress : double;
   }
@@ -709,8 +700,7 @@ declare namespace uiEffect {
    * @typedef BlurBubblesRiseEffectParam
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
-   * @since 25 dynamic
-   * @since 25 static
+   * @since 26.0.0 dynamic&static
    */
   interface BlurBubblesRiseEffectParam {
     /**
@@ -719,8 +709,7 @@ declare namespace uiEffect {
      * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
-     * @since 25 dynamic
-     * @since 25 static
+     * @since 26.0.0 dynamic&static
      */
     blurRadius : double;
 
@@ -730,8 +719,7 @@ declare namespace uiEffect {
      * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
-     * @since 25 dynamic
-     * @since 25 static
+     * @since 26.0.0 dynamic&static
      */
     mixStrength : double;
 
@@ -741,8 +729,7 @@ declare namespace uiEffect {
      * @type { int }
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
-     * @since 25 dynamic
-     * @since 25 static
+     * @since 26.0.0 dynamic&static
      */
     invertMask : int;
 
@@ -752,8 +739,7 @@ declare namespace uiEffect {
      * @type { int }
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
-     * @since 25 dynamic
-     * @since 25 static
+     * @since 26.0.0 dynamic&static
      */
     maskChannel : int;
 
@@ -763,8 +749,7 @@ declare namespace uiEffect {
      * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
-     * @since 25 dynamic
-     * @since 25 static
+     * @since 26.0.0 dynamic&static
      */
     progress : double;
 
@@ -774,8 +759,7 @@ declare namespace uiEffect {
      * @type { image.PixelMap | null }
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
-     * @since 25 dynamic
-     * @since 25 static
+     * @since 26.0.0 dynamic&static
      */
     maskImage : image.PixelMap | null;
   }
