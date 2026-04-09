@@ -206,7 +206,7 @@ export declare class MultiNavPathStack extends NavPathStack {
     name: string, param: Object, onPop?: base.Callback<PopInfo>, animated?: boolean, policy?: SplitPolicy): void;
 
   /**
-   * Replace the current NavDestination with the one specificed by NavPathInfo.
+   * Replace the current NavDestination with the one specified by NavPathInfo.
    * The current NavDestination will be destroyed.
    *
    * @param { NavPathInfo } info - Indicates the new NavDestination in top of the stack.
@@ -221,7 +221,7 @@ export declare class MultiNavPathStack extends NavPathStack {
   replacePath(info: NavPathInfo, animated?: boolean): void;
 
   /**
-   * Replace the current NavDestination with the one specificed by NavPathInfo.
+   * Replace the current NavDestination with the one specified by NavPathInfo.
    * The current NavDestination will be destroyed.
    *
    * @param { NavPathInfo } info - Indicates the new NavDestination in top of the stack.
@@ -234,7 +234,7 @@ export declare class MultiNavPathStack extends NavPathStack {
   replacePath(info: NavPathInfo, options?: NavigationOptions): void;
 
   /**
-   * Replace the current NavDestination with the one specificed by name.
+   * Replace the current NavDestination with the one specified by name.
    * The current NavDestination will be destroyed.
    * 
    * @param { string } name - Indicates name of the new NavDestination in top of stack.

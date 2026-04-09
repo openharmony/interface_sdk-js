@@ -101,14 +101,14 @@ declare enum SelectedMode {
 declare enum LayoutMode {
 
   /**
-   * The the content is laid vertically or horizontally, according to its width.
+   * The content is laid vertically or horizontally, according to its width.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
-   * The the content is laid vertically or horizontally, according to its width.
+   * The content is laid vertically or horizontally, according to its width.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -117,14 +117,14 @@ declare enum LayoutMode {
    */
   AUTO = 0,
   /**
-   * The the content is laid vertically
+   * The content is laid vertically
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
-   * The the content is laid vertically
+   * The content is laid vertically
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -134,14 +134,14 @@ declare enum LayoutMode {
   VERTICAL = 1,
 
   /**
-   * The the content is laid horizontally
+   * The content is laid horizontally
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
-   * The the content is laid horizontally
+   * The content is laid horizontally
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
