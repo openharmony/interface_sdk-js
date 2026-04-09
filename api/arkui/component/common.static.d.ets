@@ -7559,6 +7559,15 @@ export declare interface TipsOptions {
      * @since 23 static
      */
     showAtAnchor?: TipsAnchorType;
+    /**
+     * Set system-styled materials for tips. Different materials have different effects, which can influence
+     * backgroundColor, border, shadow, and other visual attributes of tips.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    systemMaterial?: SystemUiMaterial;
 }
 /**
  * Defines the popup button.

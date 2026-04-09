@@ -17978,6 +17978,17 @@ declare interface TipsOptions {
    * @since 20 dynamic
    */
   showAtAnchor?: TipsAnchorType;
+  /**
+   * Set system-styled materials for tips. Different materials have different effects, which can influence
+   * backgroundColor, border, shadow, and other visual attributes of tips.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  systemMaterial?: SystemUiMaterial;
 }
 
 /**
