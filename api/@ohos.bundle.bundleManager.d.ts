@@ -4702,7 +4702,7 @@ declare namespace bundleManager {
    * @param { int } appIndex - Indicates the index of clone app.
    * @returns { Promise<string> } Returns label of specified application.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700001 - The specified bundle is not found.
    * @throws { BusinessError } 17700061 - The specified app index is invalid.
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @stagemodelonly
