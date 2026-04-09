@@ -18,12 +18,14 @@
  * @file
  * @kit ArkUI
  */
-import { Resource, Dimension, BorderRadiuses, SizeOptions } from './units';
+import { Resource, Dimension, BorderRadiuses, SizeOptions, ResourceColor } from './units';
 import { ButtonType } from './button';
 import { ClickEvent, AttributeModifier, CommonMethod } from './common';
 import { SecurityComponentMethod } from './securityComponent';
 import { BusinessError } from '../../@ohos.base';
 import { ComponentBuilder } from './builder';
+import { FontWeight } from './enums';
+import { SymbolRenderingStrategy } from './symbolglyph';
 /**
  * Enumerates the icon styles.
  *
@@ -217,7 +219,7 @@ export declare enum SaveButtonOnClickResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
-  CANCELED_BY_USER = 2,
+  CANCELED_BY_USER = 2
 }
 /**
  * Callback function when the save button is clicked.
@@ -315,6 +317,42 @@ export declare interface SaveButtonAttribute extends SecurityComponentMethod {
    * @since 23 static
    */
   userCancelEvent(enabled: boolean | undefined): this;
+  
+  /**
+ 	 * Sets the color of the symbol icon.
+ 	 *
+ 	 * @permission ohos.permission.CUSTOMIZE_SAVE_BUTTON
+ 	 * @param { ResourceColor | Array<ResourceColor> | undefined } color - Color of the symbol icon.
+ 	 * @returns { SaveButtonAttribute } Returns the attributes of the save button.
+ 	 * @syscap SystemCapability.ArkUI.ArkUI.Full
+ 	 * @stagemodelonly
+ 	 * @since 26.0.0 static
+ 	 */
+ 	symbolIconColor(color: Array<ResourceColor> | undefined): this;
+
+ 	/**
+ 	 * Sets the rendering policy of the symbol icon.
+ 	 *
+ 	 * @permission ohos.permission.CUSTOMIZE_SAVE_BUTTON
+ 	 * @param { SymbolRenderingStrategy | undefined } strategy - Rendering policy of the symbol icon.
+ 	 * @returns { SaveButtonAttribute } Returns the attributes of the save button.
+ 	 * @syscap SystemCapability.ArkUI.ArkUI.Full
+ 	 * @stagemodelonly
+ 	 * @since 26.0.0 static
+ 	 */
+ 	symbolRenderingStrategy(strategy: SymbolRenderingStrategy | undefined): this;
+
+ 	/**
+ 	 * Sets the font weight of the symbol icon.
+ 	 *
+ 	 * @permission ohos.permission.CUSTOMIZE_SAVE_BUTTON
+ 	 * @param { int | FontWeight | string | Resource | undefined } fontWeight - Font weight of the symbol icon.
+ 	 * @returns { SaveButtonAttribute } Returns the attributes of the save button.
+ 	 * @syscap SystemCapability.ArkUI.ArkUI.Full
+ 	 * @stagemodelonly
+ 	 * @since 26.0.0 static
+ 	 */
+ 	symbolFontWeight(fontWeight: int | FontWeight | string | Resource | undefined): this;
 }
 
 

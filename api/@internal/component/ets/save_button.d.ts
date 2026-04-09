@@ -377,7 +377,7 @@ declare enum SaveButtonOnClickResult {
    * @atomicservice
    * @since 21 dynamic
    */
-  CANCELED_BY_USER = 2,
+  CANCELED_BY_USER = 2
 }
 
 /**
@@ -562,6 +562,45 @@ declare class SaveButtonAttribute extends SecurityComponentMethod<SaveButtonAttr
    * @since 21 dynamic
    */
   userCancelEvent(enabled: boolean): SaveButtonAttribute;
+
+  /**
+   * Sets the color of the symbol icon.
+   *
+   * @permission ohos.permission.CUSTOMIZE_SAVE_BUTTON
+   * @param { ResourceColor | Array<ResourceColor> } color  - Color of the symbol icon.
+   * @returns { SaveButtonAttribute } Returns the attributes of the save button.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  symbolIconColor(color: Array<ResourceColor>): SaveButtonAttribute;
+
+  /**
+   * Sets the rendering policy of the symbol icon.
+   *
+   * @permission ohos.permission.CUSTOMIZE_SAVE_BUTTON
+   * @param { SymbolRenderingStrategy } strategy  - Rendering policy of the symbol icon.
+   * @returns { SaveButtonAttribute } Returns the attributes of the save button.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  symbolRenderingStrategy(strategy: SymbolRenderingStrategy): SaveButtonAttribute;
+
+  /**
+   * Sets the font weight of the symbol icon.
+   *
+   * @permission ohos.permission.CUSTOMIZE_SAVE_BUTTON
+   * @param { number | FontWeight | string | Resource } fontWeight - Font weight of the symbol icon.
+   * @returns { SaveButtonAttribute } Returns the attributes of the save button.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  symbolFontWeight(fontWeight: number | FontWeight | string | Resource): SaveButtonAttribute;
 }
 
 /**
