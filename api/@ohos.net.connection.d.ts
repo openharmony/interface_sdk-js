@@ -474,7 +474,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 9 dynamic
-   * @since 26 static
+   * @since 26.0.0 static
    */
   function isDefaultNetMetered(callback: AsyncCallback<boolean>): void;
 
@@ -487,7 +487,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 9 dynamic
-   * @since 26 static
+   * @since 26.0.0 static
    */
   function isDefaultNetMetered(): Promise<boolean>;
 
@@ -500,7 +500,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10 dynamic
-   * @since 26 static
+   * @since 26.0.0 static
    */
   function isDefaultNetMeteredSync(): boolean;
 
@@ -648,7 +648,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 8 dynamic
-   * @since 26 static
+   * @since 26.0.0 static
    */
   function reportNetConnected(netHandle: NetHandle, callback: AsyncCallback<void>): void;
 
@@ -664,7 +664,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 8 dynamic
-   * @since 26 static
+   * @since 26.0.0 static
    */
   function reportNetConnected(netHandle: NetHandle): Promise<void>;
 
@@ -680,7 +680,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 8 dynamic
-   * @since 26 static
+   * @since 26.0.0 static
    */
   function reportNetDisconnected(netHandle: NetHandle, callback: AsyncCallback<void>): void;
 
@@ -696,7 +696,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 8 dynamic
-   * @since 26 static
+   * @since 26.0.0 static
    */
   function reportNetDisconnected(netHandle: NetHandle): Promise<void>;
 
@@ -712,7 +712,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 8 dynamic
-   * @since 26 static
+   * @since 26.0.0 static
    */
   function getAddressesByName(host: string, callback: AsyncCallback<Array<NetAddress>>): void;
 
@@ -728,7 +728,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 8 dynamic
-   * @since 26 static
+   * @since 26.0.0 static
    */
   function getAddressesByName(host: string): Promise<Array<NetAddress>>;
  
@@ -759,7 +759,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 9 dynamic
-   * @since 26 static
+   * @since 26.0.0 static
    */
   function getAppNet(callback: AsyncCallback<NetHandle>): void;
 
@@ -770,7 +770,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 9 dynamic
-   * @since 26 static
+   * @since 26.0.0 static
    */
   function getAppNet(): Promise<NetHandle>;
 
@@ -781,7 +781,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10 dynamic
-   * @since 26 static
+   * @since 26.0.0 static
    */
   function getAppNetSync(): NetHandle;
 
@@ -962,7 +962,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 15 dynamic
-   * @since 26 static
+   * @since 26.0.0 static
    */
   function setPacUrl(pacUrl: string): void;
 
@@ -973,7 +973,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 15 dynamic
-   * @since 26 static
+   * @since 26.0.0 static
    */
   function getPacUrl(): string;
 
@@ -1061,7 +1061,7 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @atomicservice
    * @since 15 dynamic
-   * @since 26 static
+   * @since 26.0.0 static
    */
   function addCustomDnsRule(host: string, ip: Array<string>, callback: AsyncCallback<void>): void;
 
@@ -1093,7 +1093,7 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @atomicservice
    * @since 15 dynamic
-   * @since 26 static
+   * @since 26.0.0 static
    */
   function addCustomDnsRule(host: string, ip: Array<string>): Promise<void>;
 
@@ -1123,7 +1123,7 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @atomicservice
    * @since 15 dynamic
-   * @since 26 static
+   * @since 26.0.0 static
    */
   function removeCustomDnsRule(host: string, callback: AsyncCallback<void>): void;
 
@@ -1153,7 +1153,7 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @atomicservice
    * @since 15 dynamic
-   * @since 26 static
+   * @since 26.0.0 static
    */
   function removeCustomDnsRule(host: string): Promise<void>;
 
@@ -1168,7 +1168,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 11 dynamic
-   * @since 26 static
+   * @since 26.0.0 static
    */
   function clearCustomDnsRules(callback: AsyncCallback<void>): void;
 
@@ -1182,7 +1182,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 11 dynamic
-   * @since 26 static
+   * @since 26.0.0 static
    */
   function clearCustomDnsRules(): Promise<void>;
 
