@@ -51,7 +51,7 @@ export default interface PageNodeInfo {
   id: int;
 
   /**
-   * The depth of page node.
+   * The depth of page node, in px.
    *
    * @type { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
