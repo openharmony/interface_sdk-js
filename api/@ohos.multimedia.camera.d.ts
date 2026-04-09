@@ -5942,6 +5942,14 @@ declare namespace camera {
    * @since 12 dynamic
    * @since 23 static
    */
+  /**
+   * ZoomPointInfo object.
+   *
+   * @typedef ZoomPointInfo
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
   interface ZoomPointInfo {
     /**
      * The zoom ratio value.
@@ -5952,6 +5960,15 @@ declare namespace camera {
      * @systemapi
      * @since 12 dynamic
      * @since 23 static
+     */
+    /**
+     * The zoom ratio value.
+     *
+     * @type { double }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
      */
     readonly zoomRatio: double;
 
@@ -5964,6 +5981,15 @@ declare namespace camera {
      * @systemapi
      * @since 12 dynamic
      * @since 23 static
+     */
+    /**
+     * The equivalent focal Length.
+     *
+     * @type { int }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
      */
     readonly equivalentFocalLength: int;
   }
@@ -6025,6 +6051,15 @@ declare namespace camera {
      * @systemapi
      * @since 12 dynamic
      * @since 23 static
+     */
+    /**
+     * Gets all important zoom ratio infos.
+     *
+     * @returns { Array<ZoomPointInfo> } The zoom point infos.
+     * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
      */
     getZoomPointInfos(): Array<ZoomPointInfo>;
 
