@@ -4920,6 +4920,26 @@ declare namespace webview {
         getSuggestedFileName(): string;
 
         /**
+         * Get the original url of the web download.
+         *
+         * @returns { string } - Returns the original url of the download.
+         * @syscap SystemCapability.Web.Webview.Core
+         * @stagemodelonly
+         * @since 24 static
+         */
+        getOriginalUrl(): string;
+
+        /**
+         * Get the referrer url of the web download.
+         *
+         * @returns { string } - Returns the referrer url of the download.
+         * @syscap SystemCapability.Web.Webview.Core
+         * @stagemodelonly
+         * @since 24 static
+         */
+        getReferrerUrl(): string;
+
+        /**
          * Start the web download.
          * Used in onBeforeDownload, If you want to start the current download, call this function.
          * @param { string } downloadPath - The content will be downloaded to this file.

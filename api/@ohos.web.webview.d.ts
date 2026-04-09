@@ -8228,6 +8228,26 @@ declare namespace webview {
     getFullPath(): string;
 
     /**
+     * Get the original url of the web download.
+     *
+     * @returns { string } - Returns the original url of the download.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 24 dynamic
+     */
+    getOriginalUrl(): string;
+
+    /**
+     * Get the referrer url of the web download.
+     *
+     * @returns { string } - Returns the referrer url of the download.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 24 dynamic
+     */
+    getReferrerUrl(): string;
+
+    /**
      * Serialize web download to typed array.
      * @returns { Uint8Array } - Returns the serialized data.
      * @syscap SystemCapability.Web.Webview.Core
