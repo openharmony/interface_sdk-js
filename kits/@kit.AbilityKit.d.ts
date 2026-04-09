@@ -189,7 +189,8 @@ import dialogSession from '@ohos.app.ability.dialogSession';
 import insightIntent from '@ohos.app.ability.insightIntent';
 import insightIntentDriver from '@ohos.app.ability.insightIntentDriver';
 import insightIntentProvider from '@ohos.app.ability.insightIntentProvider';
-import { InsightIntentLink, InsightIntentPage, InsightIntentFunctionMethod, InsightIntentFunction, InsightIntentEntry, LinkParamCategory, LinkIntentParamMapping, InsightIntentForm } from '@ohos.app.ability.InsightIntentDecorator';
+import { InsightIntentLink, InsightIntentPage, InsightIntentFunctionMethod, InsightIntentFunction, InsightIntentEntry, LinkParamCategory, LinkIntentParamMapping, InsightIntentEntity, InsightIntentForm } from '@ohos.app.ability.InsightIntentDecorator';
+import InsightIntentEntryExecutor from '@ohos.app.ability.InsightIntentEntryExecutor';
 import missionManager from '@ohos.app.ability.missionManager';
 import wantAgent, { WantAgent } from '@ohos.app.ability.wantAgent';
 import Ability from '@ohos.app.ability.Ability';
@@ -249,6 +250,6 @@ export {
   CompletionHandlerForAbilityStartCallback, AbilityStartFailureCode, StartupConfig, StartupConfigEntry, StartupListener, 
   StartupTask, startupManager, systemConfiguration, PhotoEditorExtensionAbility, AgentExtensionAbility, 
   AgentUIExtensionAbility, agentManager, InsightIntentLink, InsightIntentPage, InsightIntentFunctionMethod, InsightIntentFunction, 
-  InsightIntentEntry, LinkParamCategory, LinkIntentParamMapping, InsightIntentForm, hyperSnapManager
+  InsightIntentEntry, LinkParamCategory, LinkIntentParamMapping, InsightIntentEntity, InsightIntentEntryExecutor, InsightIntentForm, hyperSnapManager
 };
 /*** endif */
