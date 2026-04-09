@@ -126,6 +126,17 @@ export declare interface CrossLanguageOptions {
    * @since 23 static
    */
   attributeSetting?: boolean;
+
+  /**
+   * Defines if it enables tree operations cross-language. Default value is false.
+   * Tree operations include appendChild, removeChild, insertChildAfter, etc.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  treeOperating?: boolean;
 }
 
 /**
