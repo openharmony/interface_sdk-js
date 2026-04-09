@@ -2486,7 +2486,7 @@ declare namespace formInfo {
     isOverflow: boolean;
 
     /**
-     * The form's overflow animation paramter
+     * The form's overflow animation parameter
      *
      * @type { ?OverflowInfo }
      * @syscap SystemCapability.Ability.Form
