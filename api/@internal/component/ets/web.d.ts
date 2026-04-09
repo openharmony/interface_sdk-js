@@ -670,23 +670,7 @@ declare enum MessageLevel {
    * @atomicservice
    * @since 11 dynamic
    */
-  Debug,
-
-  /**
-   * Error level.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Error level.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  Error,
+  Debug = 1,
 
   /**
    * Info level.
@@ -702,23 +686,7 @@ declare enum MessageLevel {
    * @atomicservice
    * @since 11 dynamic
    */
-  Info,
-
-  /**
-   * Log level.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Log level.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  Log,
+  Info = 2,
 
   /**
    * Warn level.
@@ -734,7 +702,40 @@ declare enum MessageLevel {
    * @atomicservice
    * @since 11 dynamic
    */
-  Warn
+  Warn = 3,
+
+  /**
+   * Error level.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 8
+   */
+  /**
+   * Error level.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11 dynamic
+   */
+  Error = 4,
+
+  /**
+   * Log level.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 8
+   */
+  /**
+   * Log level.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11 dynamic
+   * @deprecated since 26.0.0
+   */
+  Log = 5
 }
 
 /**
