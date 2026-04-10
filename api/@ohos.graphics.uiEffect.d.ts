@@ -704,14 +704,14 @@ declare namespace uiEffect {
    */
   interface BlurBubblesRiseEffectParam {
     /**
-     * Defines gaussian blur radius for blur bubbles rise effect.
+     * Defines gaussian blur intensity for blur bubbles rise effect.
      *
      * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @since 26.0.0 dynamic&static
      */
-    blurRadius : double;
+    blurIntensity : double;
 
     /**
      * Defines mix strength between original and blurred images.
