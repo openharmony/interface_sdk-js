@@ -125,6 +125,8 @@ declare namespace notificationSubscribe {
    * @systemapi
    * @since 9 dynamic
    * @since 23 static
+   * @deprecated since 26.0.0
+   * @useinstead subscribeNotification
    */
   function subscribe(subscriber: NotificationSubscriber, callback: AsyncCallback<void>): void;
 
@@ -166,6 +168,8 @@ declare namespace notificationSubscribe {
    * @systemapi
    * @since 9 dynamic
    * @since 23 static
+   * @deprecated since 26.0.0
+   * @useinstead subscribeNotification
    */
   function subscribe(
     subscriber: NotificationSubscriber,
@@ -192,6 +196,8 @@ declare namespace notificationSubscribe {
    * @systemapi
    * @since 9 dynamic
    * @since 23 static
+   * @deprecated since 26.0.0
+   * @useinstead subscribeNotification
    */
   function subscribe(subscriber: NotificationSubscriber, info?: NotificationSubscribeInfo): Promise<void>;
 
