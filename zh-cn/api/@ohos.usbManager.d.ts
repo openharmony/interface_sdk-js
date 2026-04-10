@@ -21,20 +21,17 @@
 import { AsyncCallback } from './@ohos.base';
 
 /**
- * The **usbManager** module provides USB device management functions, including USB device list query, bulk data
- * transfer, control transfer, and permission control on the host side as well as USB interface management,
- * and function switch and query on the device side.
- *
- * > **NOTE**
+ * 本模块主要提供管理USB设备的相关功能，包括主设备上查询USB设备列表、批量数据传输、控制命令传输、权限控制等；从设备上端口管理、功能切换及查询等。
+ * 
+ * > **使用说明**
  * >
- * > Perform the following steps when using the APIs with the [usbManager.USBDevicePipe]{@link usbManager.USBDevicePipe} parameter:
- * > **Before use**:
- * > 1. Call [usbManager.getDevices]{@link usbManager.getDevices()} to obtain the USB device list.
- * > 2. Call [usbManager.requestRight]{@link usbManager.requestRight(deviceName: string)} to request the temporary device access permission.
- * > 3. Call [usbManager.connectDevice]{@link usbManager.connectDevice(device: USBDevice)} to obtain [usbManager.USBDevicePipe]{@link usbManager.USBDevicePipe} as an input parameter.
- * > **After use**:
- * > Call [usbManager.closePipe]{@link usbManager.closePipe(USBDevicePipe: pipe)} to close a USB device pipe.
- * >
+ * > 凡是参数类型为[usbManager.USBDevicePipe]{@link usbManager.USBDevicePipe}的接口,都需要执行如下操作：
+ * > **在使用接口前：**
+ * > 1. 调用[usbManager.getDevices]{@link usbManager.getDevices()}获取设备列表。
+ * > 2. 调用[usbManager.requestRight]{@link usbManager.requestRight(deviceName: string)}获取请求权限。
+ * > 3. 调用[usbManager.connectDevice]{@link usbManager.connectDevice(device: USBDevice)}得到[usbManager.USBDevicePipe]{@link usbManager.USBDevicePipe}作为参数。
+ * > **在使用接口后：**
+ * > 调用[usbManager.closePipe]{@link usbManager.closePipe(USBDevicePipe: pipe)}关闭设备消息控制通道。
  *
  * @syscap SystemCapability.USB.USBManager
  * @since 9 dynamic
@@ -42,15 +39,14 @@ import { AsyncCallback } from './@ohos.base';
  */
 declare namespace usbManager {
   /**
-   * Obtains the list of USB devices connected to the host.
-   *
-   * > **NOTE**
+   * 获取接入主设备的USB设备列表。
+   * 
+   * > **说明：**
    * >
-   * > Third-party applications are not allowed to obtain the device serial number from the **serial** field unless they
-   * > request permission using [usbManager.requestRight]{@link usbManager.requestRight(deviceName: string)}
-   * > and then initiate a control transfer to obtain it.
+   * > 三方应用没有权限获取serial字段读取设备序列号，需要通过
+   * > [usbManager.requestRight]{@link usbManager.requestRight(deviceName: string)}申请权限后，自行发起控制传输获取。
    *
-   * @returns { Array<Readonly<USBDevice>> } USB device list.
+   * @returns { Array<Readonly<USBDevice>> } 设备信息列表。
    * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @syscap SystemCapability.USB.USBManager
    * @since 9 dynamic
@@ -59,15 +55,13 @@ declare namespace usbManager {
   function getDevices(): Array<Readonly<USBDevice>>;
 
   /**
-   * Connects to the USB device based on the device information returned by **getDevices()**. If the USB service is
-   * abnormal, **undefined** may be returned. Check whether the return value of the API is empty.
+   * 根据getDevices()返回的设备信息打开USB设备。如果USB服务异常，可能返回`undefined`，注意需要对接口返回值做判空处理。
+   * 
+   * 1. 需要调用[usbManager.getDevices]{@link usbManager.getDevices()}获取设备信息以及device;
+   * 2. 调用[usbManager.requestRight]{@link usbManager.requestRight(deviceName: string)}请求使用该设备的权限。
    *
-   * 1. Call [usbManager.getDevices]{@link usbManager.getDevices()} to obtain the USB device list.
-   * 2. Call [usbManager.requestRight]{@link usbManager.requestRight(deviceName: string)} to request the device access permission.
-   *
-   * @param { USBDevice } device - USB device. The **busNum** and **devAddress** parameters obtained by
-   *     [usbManager.getDevices]{@link usbManager.getDevices()} are used to determine a USB device. Other parameters are passed transparently.
-   * @returns { Readonly<USBDevicePipe> } USB device pipe for data transfer.
+   * @param { USBDevice } device - USB设备信息，用[usbManager.getDevices]{@link usbManager.getDevices()}获取的busNum和devAddress确定设备，当前其他属性不做处理。
+   * @returns { Readonly<USBDevicePipe> } 指定的传输通道对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *
    *     <br>1.Mandatory parameters are left unspecified.
@@ -86,13 +80,11 @@ declare namespace usbManager {
   function connectDevice(device: USBDevice): Readonly<USBDevicePipe>;
 
   /**
-   * Checks whether the application has the permission to access the device.
-   * Checks whether the user, for example, the application or system, has the device access permissions. The value **
-   * true** is returned if the user has the device access permissions; the value **false** is returned otherwise.
+   * 判断是否有权访问该设备。
+   * 如果“使用者”（如各种App或系统）有权访问设备则返回true；无权访问设备则返回false。
    *
-   * @param { string } deviceName - Device name, which is name of USBDevice, obtained from the device list returned by [usbManager.getDevices]{@link usbManager.getDevices()}.
-   * @returns { boolean } Returns **true** if the application has the permission to access the device; returns **false**
-   *     otherwise.
+   * @param { string } deviceName - 设备名称，来自[usbManager.getDevices]{@link usbManager.getDevices()}获取的设备列表USBDevice的name。
+   * @returns { boolean } true表示有访问设备的权限，false表示没有访问设备的权限。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *
    *     <br>1.Mandatory parameters are left unspecified.
@@ -106,13 +98,10 @@ declare namespace usbManager {
   function hasRight(deviceName: string): boolean;
 
   /**
-   * Requests the temporary device access permission for the application. This API uses a promise to return the result.
-   * System applications are granted the device access permission by default, and you do not need to apply for the
-   * permission separately.
+   * 请求软件包的临时权限以访问设备。使用Promise异步回调。系统应用默认拥有访问设备权限，无需调用此接口申请。
    *
-   * @param { string } deviceName - Device name, which is name of USBDevice, obtained from the device list returned by [usbManager.getDevices]{@link usbManager.getDevices()}.
-   * @returns { Promise<boolean> } Promise used to return the result. The value **true** indicates that the temporary device
-   *     access permissions are granted; and the value **false** indicates the opposite.
+   * @param { string } deviceName - 设备名称，来自[usbManager.getDevices]{@link usbManager.getDevices()}获取的设备列表USBDevice的name。
+   * @returns { Promise<boolean> } Promise对象，返回临时权限的申请结果。返回true表示临时权限申请成功；返回false则表示临时权限申请失败。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *
    *     <br>1.Mandatory parameters are left unspecified.
@@ -126,12 +115,10 @@ declare namespace usbManager {
   function requestRight(deviceName: string): Promise<boolean>;
 
   /**
-   * Removes the device access permission for the application. System applications are granted the device access
-   * permission by default, and calling this API will not revoke the permission.
+   * 移除软件包访问设备的权限。系统应用默认拥有访问设备权限，调用此接口不会产生影响。
    *
-   * @param { string } deviceName - Device name, which is name of USBDevice, obtained from the device list returned by [usbManager.getDevices]{@link usbManager.getDevices()}.
-   * @returns { boolean } Permission removal result. The value **true** indicates that the access permission is removed
-   *     successfully; and the value **false** indicates the opposite.
+   * @param { string } deviceName - 设备名称，来自[usbManager.getDevices]{@link usbManager.getDevices()}获取的设备列表USBDevice的name。
+   * @returns { boolean } 返回权限移除结果。返回true表示权限移除成功；返回false则表示权限移除失败。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *
    *     <br>1.Mandatory parameters are left unspecified.
@@ -145,15 +132,12 @@ declare namespace usbManager {
   function removeRight(deviceName: string): boolean;
 
   /**
-   * Adds the device access permission for the application. System applications are granted the device access permission
-   *  by default, and calling this API will not revoke the permission.
-   * [usbManager.requestRight]{(@link usbManager.requestRight)} triggers a dialog box to request for user authorization, whereas addRight adds the access
-   * permission directly without displaying a dialog box.
+   * 添加软件包访问设备的权限。系统应用默认拥有访问设备权限，调用此接口不会产生影响。
+   * [usbManager.requestRight]{(@link usbManager.requestRight)}会触发弹框请求用户授权；addRight不会触发弹框，而是直接添加软件包访问设备的权限。
    *
-   * @param { string } bundleName - Bundle name of the application.
-   * @param { string } deviceName - Device name.
-   * @returns { boolean } Permission addition result. The value **true** indicates that the access permission is added
-   *     successfully; and the value **false** indicates the opposite.
+   * @param { string } bundleName - 软件包名称。
+   * @param { string } deviceName - 设备名称。
+   * @returns { boolean } 返回权限添加结果。返回true表示权限添加成功；返回false则表示权限添加失败。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *
    *     <br>1.Mandatory parameters are left unspecified.
@@ -168,10 +152,10 @@ declare namespace usbManager {
   function addRight(bundleName: string, deviceName: string): boolean;
 
   /**
-   * Converts the USB function list in the string format to a numeric mask in Device mode.
+   * 在设备模式下，将字符串形式的USB功能列表转化为数字掩码。
    *
-   * @param { string } funcs - Function list in string format.
-   * @returns { number } Function list in numeric mask format.
+   * @param { string } funcs - 字符串形式的功能列表。
+   * @returns { number } 转化后的数字掩码。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *
    *     <br>1.Mandatory parameters are left unspecified.
@@ -186,10 +170,10 @@ declare namespace usbManager {
   function usbFunctionsFromString(funcs: string): number;
 
   /**
-   * Converts the USB function list in the numeric mask format to a string in Device mode.
+   * 在设备模式下，将数字掩码形式的USB功能列表转化为字符串。
    *
-   * @param { FunctionType } funcs - USB function list in numeric mask format.
-   * @returns { string } Function list in string format.
+   * @param { FunctionType } funcs - USB功能数字掩码。
+   * @returns { string } 转化后的字符串形式的功能列表。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *
    *     <br>1.Mandatory parameters are left unspecified.
@@ -204,10 +188,10 @@ declare namespace usbManager {
   function usbFunctionsToString(funcs: FunctionType): string;
 
   /**
-   * Sets the current USB function list in Device mode. This API uses a promise to return the result.
+   * 在设备模式下，设置当前的USB功能列表。使用Promise异步回调。
    *
-   * @param { FunctionType } funcs - USB function list in numeric mask format.
-   * @returns { Promise<void> } Promise used to return the result.
+   * @param { FunctionType } funcs - USB功能数字掩码。
+   * @returns { Promise<void> } Promise对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *
    *     <br>1.Mandatory parameters are left unspecified.
@@ -223,10 +207,9 @@ declare namespace usbManager {
   function setCurrentFunctions(funcs: FunctionType): Promise<void>;
 
   /**
-   * Obtains the numeric mask combination for the USB function list in Device mode. When the developer mode is disabled,
-   *  **undefined** may be returned if no device is connected. Check whether the return value of the API is empty.
+   * 在设备模式下，获取当前的USB功能列表的数字组合掩码。开发者模式关闭时，如果没有设备接入，接口可能返回`undefined`，注意需要对接口返回值做判空处理。
    *
-   * @returns { FunctionType } Numeric mask combination for the USB function list.
+   * @returns { FunctionType } 当前的USB功能列表的数字组合掩码。
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
    * @since 9 dynamiconly
@@ -236,10 +219,9 @@ declare namespace usbManager {
   function getCurrentFunctions(): FunctionType;
 
   /**
-   * Obtains the list of all physical USB ports. When the developer mode is disabled, **undefined** may be returned if
-   * no device is connected. Check whether the return value of the API is empty.
+   * 获取所有物理USB端口描述信息。开发者模式关闭时，如果没有设备接入，接口可能返回`undefined`，注意需要对接口返回值做判空处理。
    *
-   * @returns { Array<USBPort> } List of physical USB ports.
+   * @returns { Array<USBPort> } USB端口描述信息列表。
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
    * @since 9 dynamiconly
@@ -249,10 +231,10 @@ declare namespace usbManager {
   function getPorts(): Array<USBPort>;
 
   /**
-   * Obtains the mask combination for the supported mode list of a given USB port.
+   * 获取指定的端口支持的模式列表的组合掩码。
    *
-   * @param { number } portId - Port number.
-   * @returns { PortModeType } Mask combination for the supported mode list.
+   * @param { number } portId - 端口号。
+   * @returns { PortModeType } 支持的模式列表的组合掩码。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *
    *     <br>1.Mandatory parameters are left unspecified.
@@ -267,16 +249,13 @@ declare namespace usbManager {
   function getSupportedModes(portId: number): PortModeType;
 
   /**
-   * Adds the device access permission for the application. System applications are granted the device access permission
-   *  by default, and calling this API will not revoke the permission.
-   * [usbManager.requestRight]{(@link usbManager.requestRight)} triggers a dialog box to request for user authorization, whereas addDeviceAccessRight adds
-   * the access permission directly without displaying a dialog box.
+   * 添加软件包访问设备的权限。系统应用默认拥有访问设备权限，调用此接口不会产生影响。
+   * [usbManager.requestRight]{(@link usbManager.requestRight)}会触发弹框请求用户授权；addDeviceAccessRight不会触发弹框，而是直接添加软件包访问设备的权限。
    *
    * @permission ohos.permission.MANAGE_USB_CONFIG
-   * @param { string } tokenId - Token ID of the software package.
-   * @param { string } deviceName - Device name.
-   * @returns { boolean } Permission addition result. The value **true** indicates that the access permission is added
-   *     successfully; and the value **false** indicates the opposite.
+   * @param { string } tokenId - 软件包tokenId。
+   * @param { string } deviceName - 设备名称。
+   * @returns { boolean } 返回权限添加结果。返回true表示权限添加成功；返回false则表示权限添加失败。
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to
    *     call the API. [since 18]
    * @throws { BusinessError } 202 - Permission denied. Normal application do not have permission to use system api.
@@ -294,11 +273,11 @@ declare namespace usbManager {
   function addDeviceAccessRight(tokenId: string, deviceName: string): boolean;
 
   /**
-   * Converts the USB function list in the string format to a numeric mask in Device mode.
+   * 在设备模式下，将字符串形式的USB功能列表转化为数字掩码。
    *
    * @permission ohos.permission.MANAGE_USB_CONFIG
-   * @param { string } funcs - Function list in string format.
-   * @returns { int } Function list in numeric mask format
+   * @param { string } funcs - 字符串形式的功能列表。
+   * @returns { int } 转化后的数字掩码。
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to
    *     call the API. [since 18].
    * @throws { BusinessError } 202 - Permission denied. Normal application do not have permission to use system api.
@@ -316,11 +295,11 @@ declare namespace usbManager {
   function getFunctionsFromString(funcs: string): int;
 
   /**
-   * Converts the USB function list in the numeric mask format to a string in Device mode.
+   * 在设备模式下，将数字掩码形式的USB功能列表转化为字符串。
    *
    * @permission ohos.permission.MANAGE_USB_CONFIG
-   * @param { FunctionType } funcs - USB function list in numeric mask format.
-   * @returns { string } Function list in string format.
+   * @param { FunctionType } funcs - USB功能数字掩码。
+   * @returns { string } 转化后的字符串形式的功能列表。
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to
    *     call the API. [since 18]
    * @throws { BusinessError } 202 - Permission denied. Normal application do not have permission to use system api.
@@ -352,11 +331,11 @@ declare namespace usbManager {
   function getStringFromFunctions(funcs: int): string;
 
   /**
-   * Sets the current USB function list in Device mode. This API uses a promise to return the result.
+   * 在设备模式下，设置当前的USB功能列表。使用Promise异步回调。
    *
    * @permission ohos.permission.MANAGE_USB_CONFIG
-   * @param { FunctionType } funcs - USB function list in numeric mask format.
-   * @returns { Promise<void> } Promise used to return the result.
+   * @param { FunctionType } funcs - USB功能数字掩码。
+   * @returns { Promise<void> } Promise对象。
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to
    *     call the API. [since 18]
    * @throws { BusinessError } 202 - Permission denied. Normal application do not have permission to use system api.
@@ -392,11 +371,10 @@ declare namespace usbManager {
   function setDeviceFunctions(funcs: int): Promise<void>;
 
   /**
-   * Obtains the numeric mask combination for the USB function list in Device mode. When the developer mode is disabled,
-   *  **undefined** may be returned if no device is connected. Check whether the return value of the API is empty.
+   * 在设备模式下，获取当前的USB功能列表的数字组合掩码。开发者模式关闭时，如果没有设备接入，接口可能返回`undefined`，注意需要对接口返回值做判空处理。
    *
    * @permission ohos.permission.MANAGE_USB_CONFIG
-   * @returns { FunctionType } Numeric mask combination for the USB function list.
+   * @returns { FunctionType } 当前的USB功能列表的数字组合掩码。
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to
    *     call the API. [since 18]
    * @throws { BusinessError } 202 - Permission denied. Normal application do not have permission to use system api.
@@ -423,11 +401,10 @@ declare namespace usbManager {
   function getDeviceFunctions(): int;
 
   /**
-   * Obtains the list of all physical USB ports. When the developer mode is disabled, **undefined** may be returned if
-   * no device is connected. Check whether the return value of the API is empty.
+   * 获取所有物理USB端口描述信息。开发者模式关闭时，如果没有设备接入，接口可能返回`undefined`，注意需要对接口返回值做判空处理。
    *
    * @permission ohos.permission.MANAGE_USB_CONFIG
-   * @returns { Array<USBPort> } List of physical USB ports.
+   * @returns { Array<USBPort> } USB端口描述信息列表。
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to
    *     call the API. [since 18]
    * @throws { BusinessError } 202 - Permission denied. Normal application do not have permission to use system api.
@@ -443,11 +420,11 @@ declare namespace usbManager {
   function getPortList(): Array<USBPort>;
 
   /**
-   * Obtains the mask combination for the supported mode list of a given USB port.
+   * 获取指定的端口支持的模式列表的组合掩码。
    *
    * @permission ohos.permission.MANAGE_USB_CONFIG
-   * @param { int } portId - Port number.
-   * @returns { PortModeType } Mask combination for the supported mode list.
+   * @param { int } portId - 端口号。
+   * @returns { PortModeType } 支持的模式列表的组合掩码。
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to
    *     call the API. [since 18]
    * @throws { BusinessError } 202 - Permission denied. Normal application do not have permission to use system api.
@@ -465,14 +442,13 @@ declare namespace usbManager {
   function getPortSupportModes(portId: int): PortModeType;
 
   /**
-   * Sets the role types supported by a specified port, which can be **powerRole** (for charging) and **dataRole** (for
-   * data transfer). This API uses a promise to return the result.
+   * 设置指定的端口支持的角色模式，包含充电角色、数据传输角色。使用Promise异步回调。
    *
    * @permission ohos.permission.MANAGE_USB_CONFIG
-   * @param { int } portId - Port number.
-   * @param { PowerRoleType } powerRole - Role for charging.
-   * @param { DataRoleType } dataRole - Role for data transfer.
-   * @returns { Promise<void> } Promise used to return the result.
+   * @param { int } portId - 端口号。
+   * @param { PowerRoleType } powerRole - 充电的角色。
+   * @param { DataRoleType } dataRole - 数据传输的角色。
+   * @returns { Promise<void> } Promise对象。
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to
    *     call the API. [since 18]
    * @throws { BusinessError } 202 - Permission denied. Normal application do not have permission to use system api.
@@ -491,13 +467,12 @@ declare namespace usbManager {
   function setPortRoleTypes(portId: int, powerRole: PowerRoleType, dataRole: DataRoleType): Promise<void>;
 
   /**
-   * Adds the permission to applications for accessing USB accessories.
-   * [usbManager.requestAccessoryRight]{(@link usbManager.requestAccessoryRight)} triggers a dialog box to request user authorization. **addAccessoryRight** does
-   * not trigger a dialog box but directly adds the device access permission for the application.
+   * 为应用程序添加访问USB配requestAccessoryRight件权限。
+   * [usbManager.]{(@link usbManager.requestAccessoryRight)}会触发弹窗请求用户授权；addAccessoryRight不会触发弹窗，而是直接添加应用程序访问设备的权限。
    *
    * @permission ohos.permission.MANAGE_USB_CONFIG
-   * @param { int } tokenId - Token ID of the application.
-   * @param { USBAccessory } accessory - USB accessory.
+   * @param { int } tokenId - 应用程序tokenId。
+   * @param { USBAccessory } accessory - USB配件。
    * @throws { BusinessError } 201 - The permission check failed.
    * @throws { BusinessError } 202 - Permission denied. Normal application do not have permission to use system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -518,31 +493,25 @@ declare namespace usbManager {
   function addAccessoryRight(tokenId: int, accessory: USBAccessory): void;
 
   /**
-   * Claims a USB device interface.
-   *
-   * > **NOTE**
+   * 声明对USB设备某个接口的控制权。
+   * 
+   * > **说明：**
    * >
-   * > In USB programming, **claimInterface** is a common operation, which indicates that an application requests the
-   * > operating system to release a USB interface from the kernel driver and hand over the USB interface to a user
-   * > space program for control.<br>
-   * > > All the **claim** communication interfaces used below refer to the claim interface operations.
+   * > 在USB编程中，claim interface是一个常见操作，指的是应用程序请求操作系统将某个USB接口从内核驱动中释放并交由用户空间程序控制。<br>
+   * > > 下面用到的claim通信接口都表示claim interface操作。
    *
-   * @param { USBDevicePipe } pipe - USB device pipe, which is used to determine the bus number and device address. You need
-   *     to call [usbManager.connectDevice]{@link usbManager.connectDevice(device: USBDevice)} to obtain its value.
-   * @param { USBInterface } iface - USB interface. You can use [usbManager.getDevices]{@link usbManager.getDevices()}
-   *     to obtain device information and identify the USB interface based on the ID.
-   * @param { boolean } [force] - Whether to forcibly claim a USB interface. The default value is **false**, which means not
-   *     to forcibly claim a USB interface. You can set the value as required.
-   * @returns { int } Returns **0** if the **claim** interface is called successfully; returns an error code otherwise. The
-   *     error codes are as follows:
-   *
-   *     - 88080389: The service is not started. Possible causes: 1. No device is inserted. 2. The service exits abnormally.
-   *
-   *     - 88080486: The service is being initialized. Try again later.
-   *
-   *     - 88080488: No device access permission. Call the [usbManager.requestRight]{@link usbManager.requestRight(deviceName: string)} API to request authorization.
-   *
-   *     - -1: The driver is abnormal.
+   * @param { USBDevicePipe } pipe - 用于确定总线号和设备地址，需要调用[usbManager.connectDevice]{@link usbManager.connectDevice(device: USBDevice)}获取。
+   * @param { USBInterface } iface - 用于确定需要获取接口的索引，需要调用[usbManager.getDevices]{@link usbManager.getDevices()}获取设备信息并通过id确定唯一接口。
+   * @param { boolean } [force] - 可选参数，是否强制获取。默认值为false?，表示不强制获取，用户按需选择。
+   * @returns { int } claim通信接口成功返回0；claim通信接口失败返回其他错误码如下：
+   *     
+   *     - 88080389：服务未启动，可能原因：1.无设备插入；2.服务异常退出。
+   *     
+   *     - 88080486：服务初始化中，请稍后重试。
+   *     
+   *     - 88080488：无设备访问权限，请先调用[usbManager.requestRight]{@link usbManager.requestRight(deviceName: string)}接口申请授权。
+   *     
+   *     - -1：驱动异常。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *
    *     <br>1.Mandatory parameters are left unspecified.
@@ -556,28 +525,25 @@ declare namespace usbManager {
   function claimInterface(pipe: USBDevicePipe, iface: USBInterface, force?: boolean): int;
 
   /**
-   * Releases the claimed communication interface.
-   *
-   * > **NOTE**
+   * 释放claim过的通信接口。
+   * 
+   * > **说明：**
    * >
-   * > Before calling this API, call the
+   * > 在调用该接口前需要通过
    * > [usbManager.claimInterface]{@link usbManager.claimInterface(pipe: USBDevicePipe, iface: USBInterface, force?: boolean)}
-   * >  API to claim a communication interface.
+   * > claim通信接口。
    *
-   * @param { USBDevicePipe } pipe - USB device pipe, which is used to determine the bus number and device address. You need
-   *     to call [usbManager.connectDevice]{@link usbManager.connectDevice(device: USBDevice)} to obtain its value.
-   * @param { USBInterface } iface - USB interface. You can use [usbManager.getDevices]{@link usbManager.getDevices()}
-   *     to obtain device information and identify the USB interface based on the ID.
-   * @returns { int } Returns **0** if the USB interface is successfully released; returns an error code otherwise. The error
-   *     codes are as follows:
-   *
-   *     - 88080389: The service is not started. Possible causes: 1. No device is inserted. 2. The service exits abnormally.
-   *
-   *     - 88080486: The service is being initialized. Try again later.
-   *
-   *     - 88080488: No device access permission. Call the [usbManager.requestRight]{@link usbManager.requestRight(deviceName: string)} API to request authorization.
-   *
-   *     - -1: The driver is abnormal.
+   * @param { USBDevicePipe } pipe - 用于确定总线号和设备地址，需要调用[usbManager.connectDevice]{@link usbManager.connectDevice(device: USBDevice)}获取。
+   * @param { USBInterface } iface - 用于确定需要释放接口的索引，需要调用[usbManager.getDevices]{@link usbManager.getDevices()}获取设备信息并通过id确定唯一接口。
+   * @returns { int } 释放接口成功返回0；释放接口失败返回其他错误码如下：
+   *     
+   *     - 88080389：服务未启动，可能原因：1.无设备插入；2.服务异常退出。
+   *     
+   *     - 88080486：服务初始化中，请稍后重试。
+   *     
+   *     - 88080488：无设备访问权限，请先调用[usbManager.requestRight]{@link usbManager.requestRight(deviceName: string)}接口申请授权。
+   *     
+   *     - -1：驱动异常。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *
    *     <br>1.Mandatory parameters are left unspecified.
@@ -591,24 +557,21 @@ declare namespace usbManager {
   function releaseInterface(pipe: USBDevicePipe, iface: USBInterface): int;
 
   /**
-   * Sets the device configuration.
+   * 设置设备配置。
    *
-   * @param { USBDevicePipe } pipe - USB device pipe, which is used to determine the bus number and device address. You need
-   *     to call [usbManager.connectDevice]{@link usbManager.connectDevice(device: USBDevice)} to obtain its value.
-   * @param { USBConfiguration } config - USB configuration. You can use [usbManager.getDevices]{@link usbManager.getDevices()}
-   *     to obtain device information and identify the USB configuration based on the ID.
-   * @returns { int } Returns **0** if the USB configuration is successfully set; returns an error code otherwise. The error
-   *     codes are as follows:
-   *
-   *     - 88080389: The service is not started. Possible causes: 1. No device is inserted. 2. The service exits abnormally.
-   *
-   *     - 88080486: The service is being initialized. Try again later.
-   *
-   *     - 88080488: No device access permission. Call the [usbManager.requestRight]{@link usbManager.requestRight(deviceName: string)} API to request authorization.
-   *
-   *     - -1: The driver is abnormal.
-   *
-   *     - -17: I/O failure.
+   * @param { USBDevicePipe } pipe - 用于确定总线号和设备地址，需要调用[usbManager.connectDevice]{@link usbManager.connectDevice(device: USBDevice)}获取。
+   * @param { USBConfiguration } config - 用于确定需要设置的配置，需要调用[usbManager.getDevices]{@link usbManager.getDevices()}获取设备信息并通过id用于确定唯一设置。
+   * @returns { int } 设置设备配置成功返回0；设置设备配置失败返回其他错误码如下：
+   *     
+   *     - 88080389：服务未启动，可能原因：1.无设备插入；2.服务异常退出。
+   *     
+   *     - 88080486：服务初始化中，请稍后重试。
+   *     
+   *     - 88080488：无设备访问权限，请先调用[usbManager.requestRight]{@link usbManager.requestRight(deviceName: string)}接口申请授权。
+   *     
+   *     - -1：驱动异常。
+   *     
+   *     - -17：I/O失败。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *
    *     <br>1.Mandatory parameters are left unspecified.
@@ -622,31 +585,27 @@ declare namespace usbManager {
   function setConfiguration(pipe: USBDevicePipe, config: USBConfiguration): int;
 
   /**
-   * Sets a USB interface.
-   *
-   * > **NOTE**
+   * 设置设备接口。
+   * 
+   * > **说明：**
    * >
-   * > A USB interface may have multiple selection modes and supports dynamic switching. It is used to reset the
-   * > endpoint to match the transmission type during data transmission.
+   * > 一个USB接口可能存在多重选择模式，支持动态切换。使用的场景：数据传输时，通过该接口可重新设置端点，使端点与传输类型匹配。
    * >
-   * > Before calling this API, call the
+   * > 在调用该接口前需要通过
    * > [usbManager.claimInterface]{@link usbManager.claimInterface(pipe: USBDevicePipe, iface: USBInterface, force?: boolean)}
-   * >  API to claim a communication interface.
+   * > claim通信接口。
    *
-   * @param { USBDevicePipe } pipe - USB device pipe, which is used to determine the bus number and device address. You need
-   *     to call [usbManager.connectDevice]{@link usbManager.connectDevice(device: USBDevice)} to obtain its value.
-   * @param { USBInterface } iface - USB interface. You can use [usbManager.getDevices]{@link usbManager.getDevices()}
-   *     to obtain device information and identify the USB interface based on its **id** and **alternateSetting**.
-   * @returns { int } Returns **0** if the USB interface is successfully set; returns an error code otherwise. The error
-   *     codes are as follows:
-   *
-   *     - 88080389: The service is not started. Possible causes: 1. No device is inserted. 2. The service exits abnormally.
-   *
-   *     - 88080486: The service is being initialized. Try again later.
-   *
-   *     - 88080488: No device access permission. Call the [usbManager.requestRight]{@link usbManager.requestRight(deviceName: string)} API to request authorization.
-   *
-   *     - -1: The driver is abnormal.
+   * @param { USBDevicePipe } pipe - 用于确定总线号和设备地址，需要调用[usbManager.connectDevice]{@link usbManager.connectDevice(device: USBDevice)}获取。
+   * @param { USBInterface } iface - 用于确定需要设置的接口，需要调用[usbManager.getDevices]{@link usbManager.getDevices()}获取设备信息并通过id和alternateSetting确定唯一接口。
+   * @returns { int } 设置设备接口成功返回0；设置设备接口失败返回其他错误码如下：
+   *     
+   *     - 88080389：服务未启动，可能原因：1.无设备插入；2.服务异常退出。
+   *     
+   *     - 88080486：服务初始化中，请稍后重试。
+   *     
+   *     - 88080488：无设备访问权限，请先调用[usbManager.requestRight]{@link usbManager.requestRight(deviceName: string)}接口申请授权。
+   *     
+   *     - -1：驱动异常 。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *
    *     <br>1.Mandatory parameters are left unspecified.
@@ -660,12 +619,10 @@ declare namespace usbManager {
   function setInterface(pipe: USBDevicePipe, iface: USBInterface): int;
 
   /**
-   * Obtains a raw USB descriptor. If the USB service is abnormal, **undefined** may be returned. Check whether the
-   * return value of the API is empty.
+   * 获取原始的USB描述符。如果USB服务异常，可能返回`undefined`，注意需要对接口返回值做判空处理。
    *
-   * @param { USBDevicePipe } pipe - USB device pipe, which is used to determine the bus number and device address. You need
-   *     to call [usbManager.connectDevice]{@link usbManager.connectDevice(device: USBDevice)} to obtain its value.
-   * @returns { Uint8Array } Returns a raw USB descriptor if the operation is successful; returns **undefined** otherwise.
+   * @param { USBDevicePipe } pipe - 用于确定总线号和设备地址，需要调用[usbManager.connectDevice]{@link usbManager.connectDevice(device: USBDevice)}获取。
+   * @returns { Uint8Array } 返回获取的原始数据；失败返回undefined。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *
    *     <br>1.Mandatory parameters are left unspecified.
@@ -684,18 +641,16 @@ declare namespace usbManager {
   function getRawDescriptor(pipe: USBDevicePipe): Uint8Array;
 
   /**
-   * Obtains a file descriptor.
+   * 获取文件描述符。
    *
-   * @param { USBDevicePipe } pipe - USB device pipe, which is used to determine the bus number and device address. You need
-   *     to call [usbManager.connectDevice]{@link usbManager.connectDevice(device: USBDevice)} to obtain its value.
-   * @returns { int } Returns a file descriptor of the USB device if the operation is successful; returns an error code otherwise. The error
-   *     codes are as follows:
-   *
-   *     - 88080486: The service is being initialized. Try again later.
-   *
-   *     - 88080488: No device access permission. Call the [usbManager.requestRight]{@link usbManager.requestRight(deviceName: string)} API to request authorization.
-   *
-   *     - -1: The driver is abnormal.
+   * @param { USBDevicePipe } pipe - 用于确定总线号和设备地址，需要调用[usbManager.connectDevice]{@link usbManager.connectDevice(device: USBDevice)}获取。
+   * @returns { int } 返回设备对应的文件描述符，失败返回其它错误码如下：
+   *     
+   *     - 88080486：服务初始化中，请稍后重试。
+   *     
+   *     - 88080488：无设备访问权限，请先调用[usbManager.requestRight]{@link usbManager.requestRight(deviceName: string)}接口申请授权。
+   *     
+   *     - -1：驱动异常 。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *
    *     <br>1.Mandatory parameters are left unspecified.
@@ -709,19 +664,14 @@ declare namespace usbManager {
   function getFileDescriptor(pipe: USBDevicePipe): int;
 
   /**
-   * Performs control transfer. This API uses a promise to return the result.
+   * 控制传输。使用Promise异步回调。
    *
-   * @param { USBDevicePipe } pipe - USB device pipe. You need to call [usbManager.connectDevice]{@link usbManager.connectDevice(device: USBDevice)} to obtain its value.
-   * @param { USBControlParams } controlparam - Control transfer parameters. Set the parameters as required. For details, see
-   *     the USB protocol.
-   * @param { number } [timeout] - Timeout interval, in milliseconds. This parameter is optional. If the control transfer is
-   *     complete within the specified time, the size of the transferred or received data block is returned; otherwise, a
-   *     timeout error is returned. The default value is **0**, indicating that the system waits infinitely until the control
-   *     transfer is complete. Set this parameter as required.
-   * @returns { Promise<number> } Promise used to return the result, which is the size of the transferred or received data
-   *     block if the transfer is successful. If the API call fails, the following error codes are returned:
-   *
-   *     - -1: The driver is abnormal.
+   * @param { USBDevicePipe } pipe - 用于确定设备，需要调用[usbManager.connectDevice]{@link usbManager.connectDevice(device: USBDevice)}获取。
+   * @param { USBControlParams } controlparam - 控制传输参数，按需设置参数，参数传参类型请参考USB协议。
+   * @param { number } [timeout] - 超时时间（单位：毫秒），可选参数，指定时间内等待控制传输完成，若在指定时间内传输完成则正常返回，否则返回超时；默认为0时无限等待直到传输完成。用户按需选择。
+   * @returns { Promise<number> } Promise对象，获取传输或接收到的数据块大小。失败返回其他错误码如下：
+   *     
+   *     - -1：驱动异常。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *
    *     <br>1.Mandatory parameters are left unspecified.
@@ -735,19 +685,14 @@ declare namespace usbManager {
   function controlTransfer(pipe: USBDevicePipe, controlparam: USBControlParams, timeout?: number): Promise<number>;
 
   /**
-   * Performs control transfer. This API uses a promise to return the result.
+   * 控制传输。使用Promise异步回调。
    *
-   * @param { USBDevicePipe } pipe - USB device pipe. You need to call [usbManager.connectDevice]{@link usbManager.connectDevice(device: USBDevice)} to obtain its value.
-   * @param { USBDeviceRequestParams } requestparam - Control transfer parameters. Set the parameters as required. For
-   *     details, see the USB protocol.
-   * @param { int } [timeout] - Timeout interval.Unit: milliseconds. This parameter is optional. If the control transfer is
-   *     complete within the specified time, the size of the transferred or received data block is returned; otherwise, a
-   *     timeout error is returned. The default value is **0**, indicating that the system waits infinitely until the control
-   *     transfer is complete. Set this parameter as required.
-   * @returns { Promise<int> } Promise used to return the result, which is the size of the transferred or received data block
-   *     if the transfer is successful. If the API call fails, the following error codes are returned:
-   *
-   *     - -1: The driver is abnormal.
+   * @param { USBDevicePipe } pipe - 用于确定设备，需要调用[usbManager.connectDevice]{@link usbManager.connectDevice(device: USBDevice)}获取。
+   * @param { USBDeviceRequestParams } requestparam - 控制传输参数，按需设置参数，参数传参类型请参考USB协议。
+   * @param { int } [timeout] - 超时时间（单位：毫秒），可选参数，指定时间内等待控制传输完成，若在指定时间内传输完成则正常返回，否则返回超时；默认为0时无限等待直到传输完成。用户按需选择。
+   * @returns { Promise<int> } Promise对象，获取传输或接收到的数据块大小。失败返回其他错误码如下：
+   *     
+   *     - -1：驱动异常。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *
    *     <br>1.Mandatory parameters are left unspecified.
@@ -761,31 +706,24 @@ declare namespace usbManager {
   function usbControlTransfer(pipe: USBDevicePipe, requestparam: USBDeviceRequestParams, timeout?: int): Promise<int>;
 
   /**
-   * Performs bulk transfer. This API uses a promise to return the result.
-   *
-   * > **NOTE**
+   * 批量传输。使用Promise异步回调。
+   * 
+   * > **说明：** 
    * >
-   * > The total size of data (including **pipe**, **endpoint**, **buffer**, and **timeout**) to be transferred in a
-   * > single bulk transfer must be less than 200 KB. Otherwise, the transfer fails and **-1** is returned.
+   * > 单次批量传输的传输数据总量（包括pipe、endpoint、buffer、timeout）请控制在200KB以下，数据总量过大会导致传输失败返回-1。
    * >
-   * > Before calling this API, call the
+   * > 在调用接口前需要通过
    * > [usbManager.claimInterface]{@link usbManager.claimInterface(pipe: USBDevicePipe, iface: USBInterface, force?: boolean)}
-   * >  API to claim a communication interface.
+   * > claim通信接口。
    *
-   * @param { USBDevicePipe } pipe - USB device pipe. You need to call [usbManager.connectDevice]{@link usbManager.connectDevice(device: USBDevice)} to obtain its value.
-   * @param { USBEndpoint } endpoint - USB endpoint, which is used to determine the USB interface for data transfer. You need
-   *     to call [usbManager.getDevices]{@link usbManager.getDevices()} to obtain the device information list and endpoint. Wherein, **address** is used to determine
-   *     the endpoint address, **direction** is used to determine the endpoint direction, and **interfaceId** is used to
-   *     determine the USB interface to which the endpoint belongs. Other parameters are passed transparently.
-   * @param { Uint8Array } buffer - Buffer for writing or reading data.
-   * @param { int } [timeout] - Timeout interval.Unit: milliseconds. This parameter is optional. If the bulk transfer is
-   *     complete within the specified time, the size of the transferred or received data block is returned; otherwise, a
-   *     timeout error is returned. The default value is **0**, indicating that the system waits infinitely until the control
-   *     transfer is complete. Set this parameter as required.
-   * @returns { Promise<int> } Promise used to return the result, which is the size of the transferred or received data block
-   *     if the transfer is successful. If the API call fails, the following error codes are returned:
-   *
-   *     - -1: The driver is abnormal.
+   * @param { USBDevicePipe } pipe - 用于确定设备，需要调用[usbManager.connectDevice]{@link usbManager.connectDevice(device: USBDevice)}获取。
+   * @param { USBEndpoint } endpoint - 用于确定传输的端口，需要调用[usbManager.getDevices]{@link usbManager.getDevices()}获取设备信息列表以及endpoint，
+   *     address用于确定端点地址，direction用于确定端点的方向，interfaceId用于确定所属接口，当前其他属性不做处理。
+   * @param { Uint8Array } buffer - 用于写入或读取数据的缓冲区。
+   * @param { int } [timeout] - 超时时间（单位：毫秒），可选参数，指定时间内等待批量传输完成，若在指定时间内传输完成则正常返回，否则返回超时；默认为0时无限等待直到传输完成。用户按需选择。
+   * @returns { Promise<int> } Promise对象，获取传输或接收到的数据块大小。失败返回其他错误码如下：
+   *     
+   *     - -1：驱动异常。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *
    *     <br>1.Mandatory parameters are left unspecified.
@@ -805,16 +743,14 @@ declare namespace usbManager {
 
 
   /**
-   * Resets a USB peripheral.
-   *
-   * > **NOTE**
+   * 重置USB外设。
+   * 
+   * > **说明：**
    * >
-   * > Previous configurations and APIs will be reset. Ensure that the related services have been completed before
-   * > calling this API.
+   * > 本接口调用后会重置此前设置的配置和替换接口，请在调用之前确认相关业务已结束。
    *
-   * @param { USBDevicePipe } pipe - USB device pipe, which is used to determine the bus number and device address. You need
-   *     to call [usbManager.connectDevice]{@link usbManager.connectDevice(device: USBDevice)} to obtain its value.
-   * @returns { boolean } Returns **true** if the device is reset successfully; returns **false** otherwise.
+   * @param { USBDevicePipe } pipe - 用于确定总线号和设备地址，需要调用[usbManager.connectDevice]{@link usbManager.connectDevice(device: USBDevice)}获取。
+   * @returns { boolean } true表示重置设备成功，false表示重置设备失败。
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 14400001 - Access right denied. Call requestRight to get the USBDevicePipe access right first.
    * @throws { BusinessError } 14400004 -Service exception. Possible causes: 1. No accessory is plugged in.
@@ -834,18 +770,16 @@ declare namespace usbManager {
   function resetUsbDevice(pipe: USBDevicePipe): boolean;
 
   /**
-   * Closes a USB device pipe.
+   * 关闭设备消息控制通道。
+   * 
+   * 1. 需要调用[usbManager.getDevices]{@link usbManager.getDevices()}获取设备列表；
+   * 2. 调用[usbManager.requestRight]{@link usbManager.requestRight(deviceName: string)}获取设备请求权限；
+   * 3. 调用[usbManager.connectDevice]{@link usbManager.connectDevice(device: USBDevice)}得到devicepipe作为参数。
    *
-   * 1. Call [usbManager.getDevices]{@link usbManager.getDevices()} to obtain the USB device list.
-   * 2. Call [usbManager.requestRight]{@link usbManager.requestRight(deviceName: string)} to request the device access permission.
-   * 3. Call [usbManager.connectDevice]{@link usbManager.connectDevice(device: USBDevice)} to obtain **devicepipe** as an input parameter.
-   *
-   * @param { USBDevicePipe } pipe - USB device pipe, which is used to determine the message control channel. You need to
-   *     call [usbManager.connectDevice]{@link usbManager.connectDevice(device: USBDevice)} to obtain its value.
-   * @returns { int } Returns **0** if the USB device pipe is closed successfully; returns an error code otherwise. The error
-   *     codes are as follows:
-   *
-   *     - 22: The service is abnormal.
+   * @param { USBDevicePipe } pipe - 用于确定USB设备消息控制通道，需要调用[usbManager.connectDevice]{@link usbManager.connectDevice(device: USBDevice)}获取。
+   * @returns { int } 关闭设备消息控制通道成功返回0；关闭设备消息控制通道失败返回其他错误码如下：
+   *     
+   *     - 22：服务异常。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *
    *     <br>1.Mandatory parameters are left unspecified.
@@ -859,14 +793,12 @@ declare namespace usbManager {
   function closePipe(pipe: USBDevicePipe): int;
 
   /**
-   * Checks whether the application has the permission to access the USB accessory.
-   * You need to call [usbManager.getAccessoryList]{@link usbManager.getAccessoryList()} to obtain the accessory list
-   * and use [USBAccessory]{@link usbManager.USBAccessory} as a parameter.
+   * 检查应用程序是否有权访问USB配件。
+   * 需要调用[usbManager.getAccessoryList]{@link usbManager.getAccessoryList()}获取配件列表，得到
+   * [USBAccessory]{@link usbManager.USBAccessory}作为参数。
    *
-   * @param { USBAccessory } accessory - USB accessory, which is obtained through
-   *     [getAccessoryList]{@link usbManager.getAccessoryList()}.
-   * @returns { boolean } The value **true** indicates that the application has the permission to access the USB accessory; *
-   *     *false** indicates the opposite.
+   * @param { USBAccessory } accessory - USB配件，需要通过[getAccessoryList]{@link usbManager.getAccessoryList()}获取。
+   * @returns { boolean } true表示应用程序有权访问USB配件，false表示应用程序无权访问USB配件。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *
    *     <br>1. Mandatory parameters are left unspecified.
@@ -885,15 +817,12 @@ declare namespace usbManager {
   function hasAccessoryRight(accessory: USBAccessory): boolean;
 
   /**
-   * Requests the permission to access a USB accessory for a specified application. This API uses a promise to return
-   * the result.
-   * You need to call [usbManager.getAccessoryList]{@link usbManager.getAccessoryList()} to obtain the accessory list
-   * and use [USBAccessory]{@link usbManager.USBAccessory} as a parameter.
+   * 为指定应用程序申请访问USB配件的访问权限。使用Promise异步回调。
+   * 需要调用[usbManager.getAccessoryList]{@link usbManager.getAccessoryList()}获取配件列表，得到
+   * [USBAccessory]{@link usbManager.USBAccessory}作为参数。
    *
-   * @param { USBAccessory } accessory - USB accessory, which is obtained through
-   *     [getAccessoryList]{@link usbManager.getAccessoryList()}.
-   * @returns { Promise<boolean> } Promise used to return the application result. The value **true** indicates that the
-   *     device access permissions are granted; **false** indicates the opposite.
+   * @param { USBAccessory } accessory - USB配件，需要通过[getAccessoryList]{@link usbManager.getAccessoryList()}获取。
+   * @returns { Promise<boolean> } Promise对象，返回应用程序访问配件权限的申请结果。返回true表示权限申请成功；返回false表示权限申请失败。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *
    *     <br>1. Mandatory parameters are left unspecified.
@@ -912,12 +841,11 @@ declare namespace usbManager {
   function requestAccessoryRight(accessory: USBAccessory): Promise<boolean>;
 
   /**
-   * Cancels the permission of the current application to access USB accessories.
-   * You need to call [usbManager.getAccessoryList]{@link usbManager.getAccessoryList()} to obtain the accessory list
-   * and use [USBAccessory]{@link usbManager.USBAccessory} as a parameter.
+   * 取消当前应用程序访问USB配件的权限。
+   * 需要调用[usbManager.getAccessoryList]{@link usbManager.getAccessoryList()}获取配件列表，得到
+   * [USBAccessory]{@link usbManager.USBAccessory}作为参数。
    *
-   * @param { USBAccessory } accessory - USB accessory, which is obtained through
-   *     [getAccessoryList]{@link usbManager.getAccessoryList()}.
+   * @param { USBAccessory } accessory - USB配件，需要通过[getAccessoryList]{@link usbManager.getAccessoryList()}获取。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *
    *     <br>1. Mandatory parameters are left unspecified.
@@ -936,10 +864,9 @@ declare namespace usbManager {
   function cancelAccessoryRight(accessory: USBAccessory): void;
 
   /**
-   * Obtains the list of USB accessories connected to the host.
+   * 获取当前已接入主机的USB配件列表。
    *
-   * @returns { Array<Readonly<USBAccessory>> } List of USB accessories (read-only). Currently, only one USB accessory is
-   *     contained in the list.
+   * @returns { Array<Readonly<USBAccessory>> } 只读的USB配件列表。当前仅支持列表中包含1个USB配件。
    * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @throws { BusinessError } 14400004 - Service exception. Possible causes:
    *
@@ -951,14 +878,12 @@ declare namespace usbManager {
   function getAccessoryList(): Array<Readonly<USBAccessory>>;
 
   /**
-   * Obtains the accessory handle and opens the accessory file descriptor. Then, the host can communicate with the
-   * accessory through the **read** and **write** APIs provided by Core File Kit.
-   * You need to call [usbManager.getAccessoryList]{@link usbManager.getAccessoryList()} to obtain the accessory list
-   * and use [USBAccessory]{@link usbManager.USBAccessory} as a parameter.
+   * 获取配件句柄并打开配件文件描述符。之后可以通过CoreFileKit提供的read/write接口和配件进行通信。
+   * 需要调用[usbManager.getAccessoryList]{@link usbManager.getAccessoryList()}获取配件列表，得到
+   * [USBAccessory]{@link usbManager.USBAccessory}作为参数。
    *
-   * @param { USBAccessory } accessory - USB accessory, which is obtained through
-   *     [getAccessoryList]{@link usbManager.getAccessoryList()}.
-   * @returns { USBAccessoryHandle } USB accessory handle.
+   * @param { USBAccessory } accessory - USB配件，需要通过[getAccessoryList]{@link usbManager.getAccessoryList()}获取。
+   * @returns { USBAccessoryHandle } USB配件句柄。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *
    *     <br>1. Mandatory parameters are left unspecified.
@@ -979,12 +904,12 @@ declare namespace usbManager {
   function openAccessory(accessory: USBAccessory): USBAccessoryHandle;
 
   /**
-   * Closes the accessory file descriptor.
-   * You need to call [usbManager.openAccessory]{@link usbManager.openAccessory(accessory: USBAccessory)} to obtain the
-   * accessory list and use [USBAccessoryHandle]{@link usbManager.USBAccessoryHandle} as a parameter.
+   * 关闭配件文件描述符。
+   * 需要调用[usbManager.openAccessory]{@link usbManager.openAccessory(accessory: USBAccessory)}获取配件列表，得到
+   * [USBAccessoryHandle]{@link usbManager.USBAccessoryHandle}作为参数。
    *
-   * @param { USBAccessoryHandle } accessoryHandle - USB accessory handle, which is obtained through
-   *     [openAccessory]{@link usbManager.openAccessory(accessory: USBAccessory)}.
+   * @param { USBAccessoryHandle } accessoryHandle - USB配件句柄。需要通过
+   *     [openAccessory]{@link usbManager.openAccessory(accessory: USBAccessory)}获取。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *
    *     <br>1. Mandatory parameters are left unspecified.
@@ -1001,14 +926,13 @@ declare namespace usbManager {
   function closeAccessory(accessoryHandle: USBAccessoryHandle): void;
 
   /**
-   * Represents the USB endpoint from which data is sent or received. You can obtain the USB endpoint through
-   * [USBInterface]{@link usbManager.USBInterface}.
-   *
-   * > **NOTE**
+   * 通过USB发送和接收数据的端口。通过[USBInterface]{@link usbManager.USBInterface}获取。
+   * 
+   * > **说明：**
    * >
-   * > The host controller schedules the endpoint based on the endpoint type.
+   * > 主机控制器按照Endpoint类型调度。
    * >
-   * > The transmission characteristics are determined by the type during protocol layer packaging.
+   * > 协议层打包时依赖type决定传输特性。
    *
    * @syscap SystemCapability.USB.USBManager
    * @since 9 dynamic
@@ -1016,7 +940,7 @@ declare namespace usbManager {
    */
   interface USBEndpoint {
     /**
-     * Endpoint address.
+     * 端点地址。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
@@ -1025,7 +949,7 @@ declare namespace usbManager {
     address: int;
 
     /**
-     * Endpoint attributes.
+     * 端点属性。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
@@ -1034,7 +958,7 @@ declare namespace usbManager {
     attributes: int;
 
     /**
-     * Endpoint interval.
+     * 端点间隔。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
@@ -1043,7 +967,7 @@ declare namespace usbManager {
     interval: int;
 
     /**
-     * Maximum size of data packets on the endpoint.
+     * 端点最大数据包大小。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
@@ -1052,7 +976,7 @@ declare namespace usbManager {
     maxPacketSize: int;
 
     /**
-     * Endpoint direction.
+     * 端点的方向。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
@@ -1061,7 +985,7 @@ declare namespace usbManager {
     direction: USBRequestDirection;
 
     /**
-     * Endpoint number.
+     * 端点号。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
@@ -1069,7 +993,7 @@ declare namespace usbManager {
     number: number;
 
     /**
-     * Endpoint address.
+     * Endpoint address
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 23 static
@@ -1077,7 +1001,7 @@ declare namespace usbManager {
     endpointAddr: int;
 
     /**
-     * Endpoint type. For details, see [UsbEndpointTransferType]{@link usbManager.UsbEndpointTransferType}.
+     * 端点类型。取值见[UsbEndpointTransferType]{@link usbManager.UsbEndpointTransferType}
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
@@ -1086,7 +1010,7 @@ declare namespace usbManager {
     type: int;
 
     /**
-     * Unique ID of the interface to which the endpoint belongs.
+     * 端点所属的接口的唯一标识。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
@@ -1096,8 +1020,7 @@ declare namespace usbManager {
   }
 
   /**
-   * Represents a USB interface. One [USBConfiguration]{@link usbManager.USBConfiguration} object can contain multiple *
-   * *USBInterface** instances, each providing a specific function.
+   * 一个[USBConfiguration]{@link usbManager.USBConfiguration}中可以含有多个USBInterface，每个USBInterface提供一个功能。
    *
    * @syscap SystemCapability.USB.USBManager
    * @since 9 dynamic
@@ -1105,7 +1028,7 @@ declare namespace usbManager {
    */
   interface USBInterface {
     /**
-     * Unique ID of the USB interface.
+     * 接口的唯一标识。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
@@ -1114,7 +1037,7 @@ declare namespace usbManager {
     id: int;
 
     /**
-     * Interface protocol.
+     * 接口的协议。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
@@ -1123,7 +1046,7 @@ declare namespace usbManager {
     protocol: int;
 
     /**
-     * Device type.
+     * 设备类型。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
@@ -1132,7 +1055,7 @@ declare namespace usbManager {
     clazz: int;
 
     /**
-     * Device subclass.
+     * 设备子类。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
@@ -1141,8 +1064,7 @@ declare namespace usbManager {
     subClass: int;
 
     /**
-     * Settings for alternating between descriptors of the same USB interface. The value size indicates the number of
-     * optional modes. The value 0 indicates that no optional mode is supported.
+     * 在同一个接口中的多个描述符中进行切换设置。值的大小表示支持可选模式个数，其中0表示不支持可选模式。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
@@ -1151,7 +1073,7 @@ declare namespace usbManager {
     alternateSetting: int;
 
     /**
-     * Interface name.
+     * 接口名称。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
@@ -1160,7 +1082,7 @@ declare namespace usbManager {
     name: string;
 
     /**
-     * Endpoints that belong to the USB interface.
+     * 当前接口所包含的端点。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
@@ -1170,8 +1092,7 @@ declare namespace usbManager {
   }
 
   /**
-   * Represents the USB configuration. One [USBDevice]{@link usbManager.USBDevice} can contain multiple **USBConfig**
-   * instances.
+   * USB配置，一个[USBDevice]{@link usbManager.USBDevice}中可以含有多个配置。
    *
    * @syscap SystemCapability.USB.USBManager
    * @since 9 dynamic
@@ -1179,7 +1100,7 @@ declare namespace usbManager {
    */
   interface USBConfiguration {
     /**
-     * Unique ID of the USB configuration.
+     * 配置的唯一标识。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
@@ -1188,7 +1109,7 @@ declare namespace usbManager {
     id: int;
 
     /**
-     * Configuration attributes.
+     * 配置的属性。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
@@ -1197,7 +1118,7 @@ declare namespace usbManager {
     attributes: int;
 
     /**
-     * Maximum power consumption.Unit: mA.
+     * 最大功耗。（单位：毫安）。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
@@ -1206,7 +1127,7 @@ declare namespace usbManager {
     maxPower: int;
 
     /**
-     * Configuration name, which can be left empty.
+     * 配置的名称，可以为空。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
@@ -1215,8 +1136,7 @@ declare namespace usbManager {
     name: string;
 
     /**
-     * Whether remote wakeup is supported. The value **true** indicates that the remote wakeup is supported, and **false
-     * ** indicates the opposite.
+     * 检查当前配置是否支持远程唤醒。true表示支持，false表示不支持。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
@@ -1225,8 +1145,7 @@ declare namespace usbManager {
     isRemoteWakeup: boolean;
 
     /**
-     * Whether an independent power supply is supported. The value **true** indicates that an independent power supply
-     * is supported, and **false** indicates the opposite.
+     * 检查当前配置是否支持独立电源。true表示支持，false表示不支持。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
@@ -1235,7 +1154,7 @@ declare namespace usbManager {
     isSelfPowered: boolean;
 
     /**
-     * Supported interface attributes.
+     * 配置支持的接口属性。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
@@ -1245,7 +1164,7 @@ declare namespace usbManager {
   }
 
   /**
-   * Represents the USB device information.
+   * USB设备信息。
    *
    * @syscap SystemCapability.USB.USBManager
    * @since 9 dynamic
@@ -1253,7 +1172,7 @@ declare namespace usbManager {
    */
   interface USBDevice {
     /**
-     * Bus address.
+     * 总线地址。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
@@ -1262,7 +1181,7 @@ declare namespace usbManager {
     busNum: int;
 
     /**
-     * Device address.
+     * 设备地址。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
@@ -1271,7 +1190,7 @@ declare namespace usbManager {
     devAddress: int;
 
     /**
-     * Sequence number.
+     * 序列号。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
@@ -1280,7 +1199,7 @@ declare namespace usbManager {
     serial: string;
 
     /**
-     * Device name.
+     * 设备名字。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
@@ -1289,7 +1208,7 @@ declare namespace usbManager {
     name: string;
 
     /**
-     * Device manufacturer.
+     * 产商信息。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
@@ -1298,7 +1217,7 @@ declare namespace usbManager {
     manufacturerName: string;
 
     /**
-     * Product name.
+     * 产品信息。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
@@ -1307,7 +1226,7 @@ declare namespace usbManager {
     productName: string;
 
     /**
-     * Version number.
+     * 版本。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
@@ -1316,7 +1235,7 @@ declare namespace usbManager {
     version: string;
 
     /**
-     * Vendor ID.
+     * 厂商ID。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
@@ -1325,7 +1244,7 @@ declare namespace usbManager {
     vendorId: int;
 
     /**
-     * Product ID.
+     * 产品ID。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
@@ -1334,7 +1253,7 @@ declare namespace usbManager {
     productId: int;
 
     /**
-     * Device class.
+     * 设备类。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
@@ -1343,7 +1262,7 @@ declare namespace usbManager {
     clazz: int;
 
     /**
-     * Device subclass.
+     * 设备子类。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
@@ -1352,7 +1271,7 @@ declare namespace usbManager {
     subClass: int;
 
     /**
-     * Device protocol code.
+     * 设备协议码。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
@@ -1361,7 +1280,7 @@ declare namespace usbManager {
     protocol: int;
 
     /**
-     * Device configuration descriptor information.
+     * 设备配置描述符信息。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
@@ -1371,7 +1290,7 @@ declare namespace usbManager {
   }
 
   /**
-   * Represents a USB device pipe, which is used to determine a USB device.
+   * USB设备消息传输通道，用于确定设备。
    *
    * @syscap SystemCapability.USB.USBManager
    * @since 9 dynamic
@@ -1379,7 +1298,7 @@ declare namespace usbManager {
    */
   interface USBDevicePipe {
     /**
-     * Bus address.
+     * 总线地址。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
@@ -1388,7 +1307,7 @@ declare namespace usbManager {
     busNum: int;
 
     /**
-     * Device address.
+     * 设备地址。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
@@ -1407,7 +1326,7 @@ declare namespace usbManager {
    */
   export enum PowerRoleType {
     /**
-     * No function.
+     * 没有功能。
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
@@ -1447,7 +1366,7 @@ declare namespace usbManager {
    */
   export enum DataRoleType {
     /**
-     * No function.
+     * 没有功能。
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
@@ -1487,7 +1406,7 @@ declare namespace usbManager {
    */
   export enum PortModeType {
     /**
-     * No function.
+     * 没有功能。
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
@@ -1538,7 +1457,7 @@ declare namespace usbManager {
   }
 
   /**
-   * Enumerates USB port roles.
+   * USB设备端口角色信息。
    *
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
@@ -1547,7 +1466,7 @@ declare namespace usbManager {
    */
   interface USBPortStatus {
     /**
-     * Current USB mode.
+     * 当前的USB模式。
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
@@ -1557,7 +1476,7 @@ declare namespace usbManager {
     currentMode: int;
 
     /**
-     * Current power role.
+     * 当前设备充电模式。
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
@@ -1567,7 +1486,7 @@ declare namespace usbManager {
     currentPowerRole: int;
 
     /**
-     * Current data role.
+     * 当前设备数据传输模式。
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
@@ -1578,7 +1497,7 @@ declare namespace usbManager {
   }
 
   /**
-   * Represents a USB port.
+   * USB设备端口。
    *
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
@@ -1587,7 +1506,7 @@ declare namespace usbManager {
    */
   interface USBPort {
     /**
-     * Unique identifier of a USB port.
+     * USB端口唯一标识。
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
@@ -1597,7 +1516,7 @@ declare namespace usbManager {
     id: int;
 
     /**
-     * Numeric mask combination for the supported mode list.
+     * USB端口所支持的模式的数字组合掩码。
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
@@ -1607,7 +1526,7 @@ declare namespace usbManager {
     supportedModes: PortModeType;
 
     /**
-     * USB port role.
+     * USB端口角色。
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
@@ -1618,7 +1537,7 @@ declare namespace usbManager {
   }
 
   /**
-   * Represents control transfer parameters.
+   * 控制传输参数。
    *
    * @syscap SystemCapability.USB.USBManager
    * @since 12 dynamic
@@ -1626,7 +1545,7 @@ declare namespace usbManager {
    */
   interface USBDeviceRequestParams {
     /**
-     * Control request type.
+     * 请求控制类型。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 12 dynamic
@@ -1635,7 +1554,7 @@ declare namespace usbManager {
     bmRequestType: int;
 
     /**
-     * Request type.
+     * 请求类型。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 12 dynamic
@@ -1644,7 +1563,7 @@ declare namespace usbManager {
     bRequest: int;
 
     /**
-     * Request parameter.
+     * 请求参数。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 12 dynamic
@@ -1653,7 +1572,7 @@ declare namespace usbManager {
     wValue: int;
 
     /**
-     * Index of the request parameter.
+     * 请求参数value对应的索引值。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 12 dynamic
@@ -1662,7 +1581,7 @@ declare namespace usbManager {
     wIndex: int;
 
     /**
-     * Length of the requested data.Unit: bytes.
+     * 请求数据的长度。（单位：字节）。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 12 dynamic
@@ -1671,7 +1590,7 @@ declare namespace usbManager {
     wLength: int;
 
     /**
-     * Buffer for writing or reading data.
+     * 用于写入或读取的缓冲区。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 12 dynamic
@@ -1689,7 +1608,7 @@ declare namespace usbManager {
    */
   export enum USBRequestTargetType {
     /**
-     * Device.
+     * 设备。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
@@ -1698,7 +1617,7 @@ declare namespace usbManager {
     USB_REQUEST_TARGET_DEVICE = 0,
 
     /**
-     * Interface.
+     * 接口。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
@@ -1707,7 +1626,7 @@ declare namespace usbManager {
     USB_REQUEST_TARGET_INTERFACE = 1,
 
     /**
-     * Endpoint.
+     * 端点。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
@@ -1716,7 +1635,7 @@ declare namespace usbManager {
     USB_REQUEST_TARGET_ENDPOINT = 2,
 
     /**
-     * Other.
+     * 其他。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
@@ -1734,7 +1653,7 @@ declare namespace usbManager {
    */
   export enum USBControlRequestType {
     /**
-     * Standard.
+     * 标准。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
@@ -1743,7 +1662,7 @@ declare namespace usbManager {
     USB_REQUEST_TYPE_STANDARD = 0,
 
     /**
-     * Class.
+     * 类。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
@@ -1752,7 +1671,7 @@ declare namespace usbManager {
     USB_REQUEST_TYPE_CLASS = 1,
 
     /**
-     * Vendor.
+     * 厂商。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
@@ -1770,7 +1689,7 @@ declare namespace usbManager {
    */
   export enum USBRequestDirection {
     /**
-     * Request for writing data from the host to the device.
+     * 写数据，主设备往从设备。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
@@ -1779,7 +1698,7 @@ declare namespace usbManager {
     USB_REQUEST_DIR_TO_DEVICE = 0,
 
     /**
-     * Request for reading data from the device to the host.
+     * 读数据，从设备往主设备。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
@@ -1798,7 +1717,7 @@ declare namespace usbManager {
    */
   export enum FunctionType {
     /**
-     * No function.
+     * 没有功能。
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
@@ -1808,7 +1727,7 @@ declare namespace usbManager {
     NONE = 0,
 
     /**
-     * ACM function.
+     * acm功能。
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
@@ -1818,7 +1737,7 @@ declare namespace usbManager {
     ACM = 1,
 
     /**
-     * ECM function.
+     * ecm功能。
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
@@ -1828,7 +1747,7 @@ declare namespace usbManager {
     ECM = 2,
 
     /**
-     * HDC function.
+     * hdc功能。
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
@@ -1838,7 +1757,7 @@ declare namespace usbManager {
     HDC = 4,
 
     /**
-     * Media transmission.
+     * 媒体传输。
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
@@ -1848,7 +1767,7 @@ declare namespace usbManager {
     MTP = 8,
 
     /**
-     * Image transmission.
+     * 图片传输。
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
@@ -1858,7 +1777,7 @@ declare namespace usbManager {
     PTP = 16,
 
     /**
-     * Network sharing.
+     * 网络共享。
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
@@ -1868,7 +1787,7 @@ declare namespace usbManager {
     RNDIS = 32,
 
     /**
-     * MIDI function.
+     * midi功能。
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
@@ -1878,7 +1797,7 @@ declare namespace usbManager {
     MIDI = 64,
 
     /**
-     * Audio function.
+     * 音频功能。
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
@@ -1888,7 +1807,7 @@ declare namespace usbManager {
     AUDIO_SOURCE = 128,
 
     /**
-     * NCM transmission.
+     * ncm传输。
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
@@ -1899,7 +1818,7 @@ declare namespace usbManager {
   }
 
   /**
-   * Describes the USB accessory information.
+   * USB配件信息。
    *
    * @syscap SystemCapability.USB.USBManager
    * @since 14 dynamic
@@ -1907,7 +1826,7 @@ declare namespace usbManager {
    */
   interface USBAccessory {
     /**
-     * Manufacturer of an accessory.
+     * 配件的生产厂商。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 14 dynamic
@@ -1916,7 +1835,7 @@ declare namespace usbManager {
     manufacturer: string;
 
     /**
-     * Product type of an accessory.
+     * 配件的产品类型。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 14 dynamic
@@ -1925,7 +1844,7 @@ declare namespace usbManager {
     product: string;
 
     /**
-     * Description of an accessory.
+     * 配件的描述。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 14 dynamic
@@ -1934,7 +1853,7 @@ declare namespace usbManager {
     description: string;
 
     /**
-     * Version of an accessory.
+     * 配件的版本。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 14 dynamic
@@ -1943,7 +1862,7 @@ declare namespace usbManager {
     version: string;
 
     /**
-     * SN of an accessory.
+     * 配件的SN号。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 14 dynamic
@@ -1953,7 +1872,7 @@ declare namespace usbManager {
   }
 
   /**
-   * Describes the USB accessory handle.
+   * USB配件句柄。
    *
    * @syscap SystemCapability.USB.USBManager
    * @since 14 dynamic
@@ -1961,7 +1880,7 @@ declare namespace usbManager {
    */
   interface USBAccessoryHandle {
     /**
-     * Accessory file descriptor. A valid **accessoryFd** is a positive integer.
+     * 配件文件描述符。合法的accessoryFd是正整数。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 14 dynamic
@@ -1979,7 +1898,7 @@ declare namespace usbManager {
    */
   export enum UsbTransferFlags {
     /**
-     * Reports short frames as errors.
+     * 将短帧报告为错误。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 18 dynamic
@@ -1988,7 +1907,7 @@ declare namespace usbManager {
     USB_TRANSFER_SHORT_NOT_OK = 0,
 
     /**
-     * Automatically releases the transfer buffer.
+     * 自动释放传输缓冲区。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 18 dynamic
@@ -1997,7 +1916,7 @@ declare namespace usbManager {
     USB_TRANSFER_FREE_BUFFER = 1,
 
     /**
-     * Automatically transfers after the callback is complete.
+     * 完成回调后自动传输。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 18 dynamic
@@ -2006,7 +1925,7 @@ declare namespace usbManager {
     USB_TRANSFER_FREE_TRANSFER = 2,
 
     /**
-     * Adds an additional data packet to the transfer.
+     * 传输将增加一个额外的数据包。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 18 dynamic
@@ -2024,7 +1943,7 @@ declare namespace usbManager {
    */
   export enum UsbTransferStatus {
     /**
-     * Transfer completed.
+     * 传输完成。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 18 dynamic
@@ -2033,7 +1952,7 @@ declare namespace usbManager {
     TRANSFER_COMPLETED = 0,
 
     /**
-     * Transfer failed.
+     * 传输失败。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 18 dynamic
@@ -2042,7 +1961,7 @@ declare namespace usbManager {
     TRANSFER_ERROR = 1,
 
     /**
-     * Transfer timeout.
+     * 传输超时。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 18 dynamic
@@ -2051,7 +1970,7 @@ declare namespace usbManager {
     TRANSFER_TIMED_OUT = 2,
 
     /**
-     * Transfer canceled.
+     * 传输已被取消。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 18 dynamic
@@ -2060,7 +1979,7 @@ declare namespace usbManager {
     TRANSFER_CANCELED = 3,
 
     /**
-     * Transfer stalled (at bulk/interrupt endpoint).
+     * 检测到暂停（批量/中断端点）。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 18 dynamic
@@ -2069,7 +1988,7 @@ declare namespace usbManager {
     TRANSFER_STALL = 4,
 
     /**
-     * Device disconnected.
+     * 设备已断开。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 18 dynamic
@@ -2078,7 +1997,7 @@ declare namespace usbManager {
     TRANSFER_NO_DEVICE = 5,
 
     /**
-     * Data overflow.
+     * 设备发送的数据比请求的多。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 18 dynamic
@@ -2096,7 +2015,7 @@ declare namespace usbManager {
    */
   export enum UsbEndpointTransferType {
     /**
-     * Real-time transfer.
+     * 实时传输。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 18 dynamic
@@ -2105,7 +2024,7 @@ declare namespace usbManager {
     TRANSFER_TYPE_ISOCHRONOUS = 0x1,
 
     /**
-     * Performs bulk transfer.
+     * 批量传输。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 18 dynamic
@@ -2114,17 +2033,25 @@ declare namespace usbManager {
     TRANSFER_TYPE_BULK = 0x2,
 
     /**
-     * Interrupt transfer.
+     * 中断传输。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 18 dynamic
      * @since 23 static
      */
     TRANSFER_TYPE_INTERRUPT = 0x3,
+
+    /**
+     * Control endpoint
+     *
+     * @syscap SystemCapability.USB.USBManager
+     * @since 18
+     */
+    TRANSFER_TYPE_CONTROL = 0x0
   }
 
   /**
-   * Describes packet information returned in real time by the transfer callback.
+   * 实时传输模式回调返回的分包信息。
    *
    * @syscap SystemCapability.USB.USBManager
    * @since 18 dynamic
@@ -2132,7 +2059,7 @@ declare namespace usbManager {
    */
   interface UsbIsoPacketDescriptor {
     /**
-     * Expected length of the read or written data.Unit: bytes.
+     * 读写操作的期望长度值。（单位：字节）。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 18 dynamic
@@ -2141,7 +2068,7 @@ declare namespace usbManager {
     length: int;
 
     /**
-     * Actual length of the read or written data.Unit: bytes.
+     * 读写操作的实际长度值。（单位：字节）。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 18 dynamic
@@ -2150,7 +2077,7 @@ declare namespace usbManager {
     actualLength: int;
 
     /**
-     * Status returned by callback.
+     * 实时传输分包的状态码。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 18 dynamic
@@ -2160,7 +2087,7 @@ declare namespace usbManager {
   }
 
   /**
-   * As a USB data transfer interface, it is required for a client to initiate a transfer request.
+   * 作为通用USB数据传输接口，客户端需要填充这个对象中的参数，用以发起传输请求。
    *
    * @syscap SystemCapability.USB.USBManager
    * @since 18 dynamic
@@ -2168,8 +2095,7 @@ declare namespace usbManager {
    */
   interface UsbDataTransferParams {
     /**
-     * USB device pipe, which is used to determine the bus number and device address. You need to call
-     * [usbManager.connectDevice]{@link usbManager.connectDevice(device: USBDevice)}to obtain its value.
+     * 用于确定总线地址和设备地址，需要调用[usbManager.connectDevice]{@link usbManager.connectDevice(device: USBDevice)}获取。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 18 dynamic
@@ -2178,7 +2104,7 @@ declare namespace usbManager {
     devPipe: USBDevicePipe;
 
     /**
-     * USB transfer flag.
+     * USB传输标志。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 18 dynamic
@@ -2187,7 +2113,7 @@ declare namespace usbManager {
     flags: UsbTransferFlags;
 
     /**
-     * Endpoint address, which is a positive integer.
+     * 端点地址，正整数。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 18 dynamic
@@ -2196,7 +2122,7 @@ declare namespace usbManager {
     endpoint: int;
 
     /**
-     * Transfer type.
+     * 传输类型。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 18 dynamic
@@ -2205,7 +2131,7 @@ declare namespace usbManager {
     type: UsbEndpointTransferType;
 
     /**
-     * Timeout duration.Unit: milliseconds.
+     * 超时时间。（单位：毫秒）。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 18 dynamic
@@ -2214,7 +2140,7 @@ declare namespace usbManager {
     timeout: int;
 
     /**
-     * Length of the data buffer.Unit: bytes. The value must be a non-negative number (expected length).
+     * 数据缓冲区的长度，必须是非负数（期望长度）。（单位：字节）。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 18 dynamic
@@ -2223,7 +2149,7 @@ declare namespace usbManager {
     length: int;
 
     /**
-     * Information returned by the callback.
+     * 传输完成时的回调信息。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 18 dynamic
@@ -2232,7 +2158,7 @@ declare namespace usbManager {
     callback: AsyncCallback<SubmitTransferCallback>;
 
     /**
-     * User data.
+     * 用户上下文数据。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 18 dynamic
@@ -2241,7 +2167,7 @@ declare namespace usbManager {
     userData: Uint8Array;
 
     /**
-     * Buffer, which is used to store data for read or write requests.
+     * 用于存储读或者写请求时的数据。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 18 dynamic
@@ -2250,29 +2176,64 @@ declare namespace usbManager {
     buffer: Uint8Array;
 
     /**
-     * Number of data packets during real-time transfer, used only for I/Os with real-time transfer endpoints. The value
-     *  must be a non-negative number.
+     * 实时传输时数据包的数量，仅用于具有实时传输端点的I/O。必须是非负数，（单位：个数）。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 18 dynamic
      * @since 23 static
      */
     isoPacketCount: int;
+
+    /**
+     * The status of the transfer. Read-only, and only for use within transfer callback function.
+     *
+     * @type { UsbTransferStatus }
+     * @syscap SystemCapability.USB.USBManager
+     * @since 18
+     */
+    status: UsbTransferStatus;
+
+    /**
+     * Actual length of data that was transferred. Read-only, and only for
+     * use within transfer callback function. Not valid for isochronous endpoint transfers.
+     *
+     * @type { number }
+     * @syscap SystemCapability.USB.USBManager
+     * @since 18
+     */
+    actualLength: number;
+
+    /**
+     * Callback function. This will be invoked when the transfer completes, fails, or is canceled.
+     *
+     * @type { AsyncCallback<UsbDataTransferParams> }
+     * @syscap SystemCapability.USB.USBManager
+     * @since 18
+     */
+    callback: AsyncCallback<UsbDataTransferParams>;
+
+    /**
+     * Isochronous packet descriptors, for isochronous transfers only.
+     *
+     * @type { Array<Readonly<UsbIsoPacketDescriptor>> }
+     * @syscap SystemCapability.USB.USBManager
+     * @since 18
+     */
+    isoPacketDesc: Array<Readonly<UsbIsoPacketDescriptor>>;
   }
 
   /**
-   * Requests a USB data transfer.
-   *
-   * > **NOTE**
+   * 提交异步传输请求。
+   * 
+   * > **说明：**
    * >
-   * > This API uses an asynchronous callback to return the result.
+   * > 本接口为异步接口，调用后立刻返回，实际读写操作的结果以回调的方式返回。
    * >
-   * > Before calling this API, call the
+   * > 在调用该接口前需要通过
    * > [usbManager.claimInterface]{@link usbManager.claimInterface(pipe: USBDevicePipe, iface: USBInterface, force?: boolean)}
-   * >  API to claim a communication interface.
+   * > claim通信接口。
    *
-   * @param { UsbDataTransferParams } transfer - As a USB data transfer interface, it is required for a client to initiate a
-   *     transfer request.
+   * @param { UsbDataTransferParams } transfer - 作为通用USB数据传输接口，客户端需要填充这个对象中的参数，用以发起传输请求。
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 14400001 - Access right denied. Call requestRight to get the USBDevicePipe access right first.
    * @throws { BusinessError } 14400007 - Resource busy. Possible causes:
@@ -2292,18 +2253,17 @@ declare namespace usbManager {
   function usbSubmitTransfer(transfer: UsbDataTransferParams): void;
 
   /**
-   * Cancels an asynchronous USB data transfer request.
-   *
-   * > **NOTE**
+   * 取消异步传输请求。
+   * 
+   * > **说明：**
    * >
-   * > This API is used to proactively cancel an unfinished USB data transfer request (for example, the one submitted by
-   * > **usbSubmitTransfer**).
-   * > Before calling this API, call the
+   * > 该接口的主要作用是主动取消尚未完成的USB数据传输请求（如usbSubmitTransfer提交的传输）。<br>
+   * > > 在调用该接口前需要通过
    * > [usbManager.claimInterface]{@link usbManager.claimInterface(pipe: USBDevicePipe, iface: USBInterface, force?: boolean)}
-   * >  API to claim a communication interface.
+   * > claim通信接口。
    *
-   * @param { UsbDataTransferParams } transfer - Only the [USBDevicePipe]{@link usbManager.USBDevicePipe} and
-   *     [USBEndpoint]{@link usbManager.USBEndpoint} parameters should be specified in this API.
+   * @param { UsbDataTransferParams } transfer - 在取消传输的接口中，只需要填充[USBDevicePipe]{@link usbManager.USBDevicePipe}和
+   *     [USBEndpoint]{@link usbManager.USBEndpoint}即可。
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 14400001 - Access right denied. Call requestRight to get the USBDevicePipe access right first.
    * @throws { BusinessError } 14400008 - No such device (it may have been disconnected).
@@ -2318,13 +2278,12 @@ declare namespace usbManager {
   function usbCancelTransfer(transfer: UsbDataTransferParams): void;
 
   /**
-   * Sets the role types supported by a specified port, which can be **powerRole** (for charging) and **dataRole** (for
-   * data transfer). This API uses a promise to return the result.
+   * 设置指定的端口支持的角色模式，包含充电角色、数据传输角色。使用Promise异步回调。
    *
-   * @param { number } portId - Port number.
-   * @param { PowerRoleType } powerRole - Role for charging.
-   * @param { DataRoleType } dataRole - Role for data transfer.
-   * @returns { Promise<void> } Promise used to return the result.
+   * @param { number } portId - 端口号。
+   * @param { PowerRoleType } powerRole - 充电的角色。
+   * @param { DataRoleType } dataRole - 数据传输的角色。
+   * @returns { Promise<void> } Promise对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *
    *     <br>1.Mandatory parameters are left unspecified.
@@ -2339,7 +2298,7 @@ declare namespace usbManager {
   function setPortRoles(portId: number, powerRole: PowerRoleType, dataRole: DataRoleType): Promise<void>;
 
   /**
-   * Transfers USB data packets in an asynchronous manner.
+   * Usb异步传输回调。
    *
    * @syscap SystemCapability.USB.USBManager
    * @since 18 dynamic
@@ -2347,7 +2306,7 @@ declare namespace usbManager {
    */
   interface SubmitTransferCallback {
     /**
-     * Status after reading or writing is complete.
+     * 读写操作完成的状态。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 18 dynamic
@@ -2356,7 +2315,7 @@ declare namespace usbManager {
     status: UsbTransferStatus;
 
     /**
-     * Packet information transferred in real time.
+     * 实时传输的分包信息。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 18 dynamic
@@ -2365,7 +2324,7 @@ declare namespace usbManager {
     isoPacketDescs: Array<Readonly<UsbIsoPacketDescriptor>>;
 
     /**
-     * Actual length of the read or written data.Unit: bytes.
+     * 读写操作的实际长度值。（单位：字节）。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 18 dynamic
@@ -2375,7 +2334,7 @@ declare namespace usbManager {
   }
 
   /**
-   * Represents control transfer parameters.
+   * 控制传输参数。
    *
    * @syscap SystemCapability.USB.USBManager
    * @since 9 dynamiconly
@@ -2384,7 +2343,7 @@ declare namespace usbManager {
    */
   interface USBControlParams {
     /**
-     * Index of the request parameter.
+     * 请求参数value对应的索引值。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamiconly
@@ -2394,7 +2353,7 @@ declare namespace usbManager {
     index: number;
 
     /**
-     * Control request type.
+     * 请求控制类型。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamiconly
@@ -2404,7 +2363,7 @@ declare namespace usbManager {
     reqType: USBControlRequestType;
 
     /**
-     * Request target type.
+     * 请求目标类型。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamiconly
@@ -2414,7 +2373,7 @@ declare namespace usbManager {
     target: USBRequestTargetType;
 
     /**
-     * Request parameter.
+     * 请求参数。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamiconly
@@ -2424,7 +2383,7 @@ declare namespace usbManager {
     value: number;
 
     /**
-     * Request type.
+     * 请求类型。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamiconly
@@ -2434,7 +2393,7 @@ declare namespace usbManager {
     request: number;
 
     /**
-     * Buffer for writing or reading data.
+     * 用于写入或读取的缓冲区。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamiconly
