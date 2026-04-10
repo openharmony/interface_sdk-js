@@ -422,6 +422,9 @@ declare namespace cloudSyncManager {
 
     /**
      * Total number of files located in the cloud.
+     * The value should be an interger.
+     * <br>Unit:Pcs.
+     * 
      * @type { int }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
@@ -431,6 +434,8 @@ declare namespace cloudSyncManager {
 
     /**
      * Total size of files located in the cloud, in units of bytes.
+     * <br>Unit:Byte.
+     * 
      * @type { long }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
@@ -440,6 +445,9 @@ declare namespace cloudSyncManager {
 
     /**
      * Total number of files located locally.
+     * The value should be an interger.
+     * <br>Unit:Pcs.
+     * 
      * @type { int }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
@@ -449,6 +457,8 @@ declare namespace cloudSyncManager {
 
     /**
      * Total size of files located locally, in units of bytes.
+     * <br>Unit:Byte.
+     * 
      * @type { long }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
@@ -458,6 +468,9 @@ declare namespace cloudSyncManager {
 
     /**
      * Total number of files located both locally and in the cloud.
+     * The value should be an interger.
+     * <br>Unit:Pcs.
+     * 
      * @type { int }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
@@ -467,6 +480,8 @@ declare namespace cloudSyncManager {
 
     /**
      * Total size of files located both locally and in the cloud, in units of bytes.
+     * <br>Unit:Byte.
+     * 
      * @type { long }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
@@ -494,6 +509,9 @@ declare namespace cloudSyncManager {
 
     /**
      * The number of files that downloaded successfully
+     * The value should be an interger.
+     * <br>Unit:Pcs.
+     * 
      * @type { int }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
@@ -503,6 +521,9 @@ declare namespace cloudSyncManager {
 
     /**
      * The number of files that fail to be downloaded.
+     * The value should be an interger.
+     * <br>Unit:Pcs.
+     * 
      * @type { int }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
@@ -512,6 +533,9 @@ declare namespace cloudSyncManager {
 
     /**
      * Total number of all files to be downloaded.
+     * The value should be an interger.
+     * <br>Unit:Pcs.
+     * 
      * @type { int }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
@@ -521,6 +545,8 @@ declare namespace cloudSyncManager {
 
     /**
      * Total size of downloaded files.
+     * <br>Unit:Byte.
+     * 
      * @type { long }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
@@ -530,6 +556,8 @@ declare namespace cloudSyncManager {
 
     /**
      * Total size of all files to be downloaded.
+     * <br>Unit:Byte.
+     * 
      * @type { long }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
