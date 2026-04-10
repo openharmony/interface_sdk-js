@@ -50,7 +50,7 @@ export { Mat4x4, CylinderGeometry } from './graphics3d/SceneTypes';
  * @since 23 static
  */
 export { SceneResourceType, SceneResource, Shader, MaterialType, Material, ShaderMaterial,
-  SubMesh, Mesh, Animation, EnvironmentBackgroundType, Environment, Image, CullMode, Blend,
+  SubMesh, Mesh, Animation, EnvironmentBackgroundType, Environment, Image, ImageStream, CullMode, Blend,
   RenderSort, MaterialProperty, MetallicRoughnessMaterial, MeshResource, Morpher,
   Sampler, SamplerFilter, SamplerAddressMode, Effect } from './graphics3d/SceneResources';
 
