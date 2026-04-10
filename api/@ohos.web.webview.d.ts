@@ -9485,7 +9485,7 @@ declare namespace webview {
      *  duration: float
      *   value range: [0 - infinity]
      *
-     * @param { number } duration - Duration time (in seconds) of media.
+     * @param { number } duration - Duration time of media, Unit: seconds.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -9497,7 +9497,7 @@ declare namespace webview {
      *  currentPlayTime: float
      *   value range: [0 - duration]
      *
-     * @param { number } currentPlayTime - Current playing time (in seconds) of media.
+     * @param { number } currentPlayTime - Current playing time of media, Unit: seconds.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -9509,7 +9509,7 @@ declare namespace webview {
      *  bufferedEndTime: float
      *   value range: [0 - duration]
      *
-     * @param { number } bufferedEndTime - Buffered end time (in seconds) of media.
+     * @param { number } bufferedEndTime - Buffered end time of media, Unit: seconds.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -9587,8 +9587,8 @@ declare namespace webview {
     /**
      * Handle size of video.
      *
-     * @param { number } width - Width of video.
-     * @param { number } height - Height of video.
+     * @param { number } width - Width of video, Unit: px.
+     * @param { number } height - Height of video, Unit: px.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -9639,10 +9639,10 @@ declare namespace webview {
     /**
      * Notify native media player that the rect of video tag has changed.
      *
-     * @param { number } x - The x position of video tag in web component.
-     * @param { number } y - The y position of video tag in web component.
-     * @param { number } width - The width of video tag.
-     * @param { number } height - The height of video tag.
+     * @param { number } x - The x position of video tag in web component, Unit: px.
+     * @param { number } y - The y position of video tag in web component, Unit: px.
+     * @param { number } width - The width of video tag, Unit: px.
+     * @param { number } height - The height of video tag, Unit: px.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -9672,7 +9672,7 @@ declare namespace webview {
      *  targetTime: float
      *   value range: [0 - duration]
      *
-     * @param { number } targetTime - The target time (in seconds) to FF/BF to.
+     * @param { number } targetTime - The target time to FF/BF to, Unit: seconds.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -9852,7 +9852,7 @@ declare namespace webview {
    */
   interface RectEvent {
     /**
-     * X coordinator of top left point.
+     * X coordinator of top left point, Unit: px.
      *
      * @type { number }
      * @syscap SystemCapability.Web.Webview.Core
@@ -9860,7 +9860,7 @@ declare namespace webview {
      */
     x: number;
     /**
-     * Y coordinator of top left point.
+     * Y coordinator of top left point, Unit: px.
      *
      * @type { number }
      * @syscap SystemCapability.Web.Webview.Core
@@ -9868,7 +9868,7 @@ declare namespace webview {
      */
     y: number;
     /**
-     * Width of this rectangle.
+     * Width of this rectangle, Unit: px.
      *
      * @type { number }
      * @syscap SystemCapability.Web.Webview.Core
@@ -9876,7 +9876,7 @@ declare namespace webview {
      */
     width: number;
     /**
-     * Height of this rectangle.
+     * Height of this rectangle, Unit: px.
      *
      * @type { number }
      * @syscap SystemCapability.Web.Webview.Core
