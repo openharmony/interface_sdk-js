@@ -497,6 +497,8 @@ declare namespace cloudSync {
     /**
      * The processed data size for current file.
      *
+     * <br>Unit:Byte.
+     * 
      * @type { long }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 11 dynamic
@@ -506,6 +508,8 @@ declare namespace cloudSync {
     /**
      * The size of current file.
      *
+     * <br>Unit:Byte.
+     * 
      * @type { long }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 11 dynamic
@@ -614,6 +618,9 @@ declare namespace cloudSync {
     taskId: long;
     /**
      * The number of files that downloaded successfully
+     * The value should be an interger.
+     * <br>Unit:Pcs.
+     * 
      * @type { int }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 20 dynamic
@@ -622,6 +629,9 @@ declare namespace cloudSync {
     successfulCount: int;
     /**
      * The number of files that fail to be downloaded.
+     * The value should be an interger.
+     * <br>Unit:Pcs.
+     * 
      * @type { int }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 20 dynamic
@@ -638,6 +648,8 @@ declare namespace cloudSync {
     totalCount: int;
     /**
      * Total size of downloaded files.
+     * <br>Unit:Byte.
+     * 
      * @type { long }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 20 dynamic
@@ -646,6 +658,8 @@ declare namespace cloudSync {
     downloadedSize: long;
     /**
      * Total size of the batch files.
+     * <br>Unit:Byte.
+     * 
      * @type { long }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 20 dynamic
@@ -1725,6 +1739,9 @@ declare namespace cloudSync {
 
     /**
      * The percentage of clearing files.
+     * The value should be an interger.
+     * <br>Unit:Pcs.
+     * 
      * @permission ohos.permission.CLOUDFILE_SYNC
      * @type { int }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
@@ -1746,7 +1763,9 @@ declare namespace cloudSync {
   interface OptimizeSpaceParam {
 
     /**
-     * The total size(Unit:byte) of clean space.
+     * The total size of clean space.
+     * <br>Unit:Byte.
+     * 
      * @permission ohos.permission.CLOUDFILE_SYNC
      * @type { long }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
@@ -1757,7 +1776,10 @@ declare namespace cloudSync {
     totalSize: long;
 
     /**
-     * Clean files that are not accessed agingDays(unit:day) ago.
+     * Clean files that are not accessed agingDays ago.
+     * The value should be an interger.
+     * <br>Unit:day.
+     * 
      * @permission ohos.permission.CLOUDFILE_SYNC
      * @type { int }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
@@ -1778,6 +1800,8 @@ declare namespace cloudSync {
   interface HistoryVersion {
     /**
      * The time when the content of this version file is edited.
+     * <br>Unit:Timestamp.
+     * 
      * @type { long }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 20 dynamic
@@ -1786,6 +1810,8 @@ declare namespace cloudSync {
     editedTime: long;
     /**
      * The size of this history version file.
+     * <br>Unit:Byte.
+     * 
      * @type { long }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 20 dynamic
@@ -1844,6 +1870,9 @@ declare namespace cloudSync {
     state: State;
     /**
      * The percentage of downloaded files.
+     * The value should be an interger.
+     * <br>Unit:Percent.
+     * 
      * @type { int }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 20 dynamic
@@ -1880,9 +1909,16 @@ declare namespace cloudSync {
     constructor();
     /**
      * Get the specified number of most recent historical versions of the file specified by the URI.
+     * where:
+     * - the prefix is exactly "file://"；
+     * - <bundleName> is the name of the bundle (alphanumeric and underscores);
+     * - <path_of_file> is the absolute path inside the cloud storage, may contain '/' separators.
+     * The URI conforms to the regular expression: ^file:\/\/[^\/]+\/data\/storage\/el2\/cloud\/.*$
      *
-     * @param { string } uri - uri of file.
+     * @param { string } uri - uri of file, must follow a valid URI scheme (e.g., "file://<bundleName>/data/storage/el2/cloud/<path_of_file>").
      * @param { int } versionNumLimit - Maximum number of historical versions you want to obtained.
+     *     The value should be an integer.
+     *     <br>Unit:Pcs.
      * @returns { Promise<Array<HistoryVersion>> } - Return the most recent history version list of the specified file.
      * @throws { BusinessError } 13600001 - IPC error. Possible causes:
      *     <br>1.IPC failed or timed out. 2.Failed to load the service.
