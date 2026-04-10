@@ -109,7 +109,7 @@ declare namespace systemDateTime {
   function setTime(time: long): Promise<void>;
 
   /**
-   * Obtains the number of milliseconds that have elapsed since the Unix epoch.
+   * Obtains the time elapsed since the Unix epoch.
    *
    * @param { boolean } isNano - True if the result is in nanoseconds, otherwise in milliseconds
    * @param { AsyncCallback<number> } callback - The callback of getCurrentTime
@@ -134,7 +134,7 @@ declare namespace systemDateTime {
   function getCurrentTime(callback: AsyncCallback<number>): void;
 
   /**
-   * Obtains the number of milliseconds that have elapsed since the Unix epoch.
+   * Obtains the time elapsed since the Unix epoch.
    *
    * @param { boolean } isNano - True if the result is in nanoseconds, otherwise in milliseconds
    * @returns { Promise<number> } The promise returned by the function
@@ -167,7 +167,7 @@ declare namespace systemDateTime {
   function getTime(isNanoseconds?: boolean): long;
 
   /**
-   * Obtains the number of milliseconds elapsed since the system was booted, not including deep sleep time.
+   * Obtains the time elapsed since the system was booted, not including deep sleep time.
    *
    * @param { boolean } isNano - True if the result is in nanoseconds., otherwise in milliseconds
    * @param { AsyncCallback<number> } callback - The callback of getRealActiveTime
@@ -192,7 +192,7 @@ declare namespace systemDateTime {
   function getRealActiveTime(callback: AsyncCallback<number>): void;
 
   /**
-   * Obtains the number of milliseconds elapsed since the system was booted, not including deep sleep time.
+   * Obtains the time elapsed since the system was booted, not including deep sleep time.
    *
    * @param { boolean } [isNano] - True if the result is in nanoseconds, otherwise in milliseconds
    * @returns { Promise<number> } The promise returned by the function
@@ -205,7 +205,7 @@ declare namespace systemDateTime {
   function getRealActiveTime(isNano?: boolean): Promise<number>;
 
   /**
-   * Obtains the number of milliseconds elapsed since the system was booted, including deep sleep time.
+   * Obtains the time elapsed since the system was booted, including deep sleep time.
    *
    * @param { boolean } isNano - True if the result is in nanoseconds, otherwise in milliseconds
    * @param { AsyncCallback<number> } callback - The callback of getRealTime
@@ -230,7 +230,7 @@ declare namespace systemDateTime {
   function getRealTime(callback: AsyncCallback<number>): void;
 
   /**
-   * Obtains the number of milliseconds elapsed since the system was booted, including deep sleep time.
+   * Obtains the time elapsed since the system was booted, including deep sleep time.
    *
    * @param { boolean } [isNano] - True if the result is in nanoseconds, otherwise in milliseconds
    * @returns { Promise<number> } The promise returned by the function
@@ -314,7 +314,7 @@ declare namespace systemDateTime {
    * @since 12
    */
   /**
-   * Obtains the number of milliseconds since the system has been running.
+   * Obtains the time elapsed since the system has been running.
    *
    * @param { TimeType } timeType - indicates the type of get uptime. It can only be `STARTUP` or `ACTIVE`.
    * @param { boolean } [ isNanoseconds ] - True if the result is in nanoseconds, otherwise in milliseconds

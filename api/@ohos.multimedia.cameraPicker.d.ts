@@ -36,13 +36,13 @@ import type camera from './@ohos.multimedia.camera';
 declare namespace cameraPicker {
 
   /**
-   * Picker profile settings for take photo and record video.
+   * Picker profile settings for taking photos and recording videos.
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @since 11
    */
   /**
-   * Picker profile settings for take photo and record video.
+   * Picker profile settings for taking photos and recording videos.
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
@@ -123,13 +123,13 @@ declare namespace cameraPicker {
    */
   enum PickerMediaType {
     /**
-     * Type image, picker provide an ability to take photo.
+     * Type image, picker provides an ability to take photos.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 11
      */
     /**
-     * Type image, picker provide an ability to take photo.
+     * Type image, picker provides an ability to take photos.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
@@ -139,13 +139,13 @@ declare namespace cameraPicker {
     PHOTO = 'photo',
 
     /**
-     * Type video, picker provide an ability to record video.
+     * Type video, picker provides an ability to record videos.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 11
      */
     /**
-     * Type video, picker provide an ability to record video.
+     * Type video, picker provides an ability to record videos.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
@@ -226,7 +226,7 @@ declare namespace cameraPicker {
   }
 
   /**
-   * Launch the camera picker and configure it to photo or video mode base on the incoming media type.
+   * Launch the camera picker and configure it to photo or video mode based on the incoming media type.
    * The photo or video result will be returned via a Promise upon completion of the operation.
    *
    * @param { Context } context - From UIExtensionAbility.

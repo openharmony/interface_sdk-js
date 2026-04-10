@@ -4899,6 +4899,46 @@ declare namespace contact {
    * @since 23
    */
   function addContacts(context: Context, contacts: Array<Contact>): Promise<Array<int>>;
+
+  /**
+   * Check whether there are any calls that meet the specified condition.
+   * 
+   * By default, the system queries call records generated within 6 hours.
+   *
+   * @permission ohos.permission.CHECK_CALL_LOG
+   * @param { Context } context - Indicates the context of the application or capability.
+   * @param { string } phoneNumber - Indicates the phone number.
+   * @param { int } minDuration - Indicates the minimum call duration in seconds.
+   * @returns { Promise<boolean> } Returns true if any matching call is found, false otherwise.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 16700001 - General error.
+   * @throws { BusinessError } 16700002 - Invalid parameter value. 
+   * @syscap SystemCapability.Applications.ContactsData
+   * @stagemodelonly
+   * @atomicservice
+   * @since 24
+   */
+  function hasMatchedCallLog(context: Context, phoneNumber: string, minDuration: int): Promise<boolean>;
+
+  /**
+   * Check whether there are any calls that meet the specified condition.
+   * 
+   * @permission ohos.permission.CHECK_CALL_LOG
+   * @param { Context } context - Indicates the context of the application or capability.
+   * @param { string } phoneNumber - Indicates the phone number.
+   * @param { int } minDuration - Indicates the minimum call duration in seconds.
+   * @param { int } withinTime - Indicates the period of time prior to the current time that the start and end time
+   *     of calls should be within, in seconds. Up to 6 hours.
+   * @returns { Promise<boolean> } Returns true if any matching call is found, false otherwise.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 16700001 - General error.
+   * @throws { BusinessError } 16700002 - Invalid parameter value. 
+   * @syscap SystemCapability.Applications.ContactsData
+   * @stagemodelonly
+   * @atomicservice
+   * @since 24
+   */
+  function hasMatchedCallLog(context: Context, phoneNumber: string, minDuration: int, withinTime: int): Promise<boolean>;
 }
 
 export default contact;

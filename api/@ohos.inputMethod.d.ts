@@ -107,6 +107,27 @@ declare namespace inputMethod {
   function getDefaultInputMethod(): InputMethodProperty;
 
   /**
+   * Get the default input method of a specified user.
+   *
+   * @param { int } [userId] - the user ID. If not provided:
+   *     If the caller is not a user 0 application, the value defaults to the caller's user ID.
+   *     If the caller is a user 0 application, the value defaults to the foreground user ID of the main screen.
+   * @returns { InputMethodProperty } property of the default input method.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
+   *     a system error, such as null pointer, IPC exception.
+   * @throws { BusinessError } 12800023 - the specified user does not exist.
+   * @throws { BusinessError } 12800024 - the specified user is not in the foreground.
+   * @throws { BusinessError } 12800025 - cross-user operation denied.
+   *     Only user 0 applications are authorized for this operation.
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @systemapi
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  function getDefaultInputMethod(userId?: int): InputMethodProperty;
+
+  /**
    * Get system input method config ability
    *
    * @returns { ElementName } the information of system input method config ability.
@@ -117,6 +138,27 @@ declare namespace inputMethod {
    * @since 23 static
    */
   function getSystemInputMethodConfigAbility(): ElementName;
+
+  /**
+   * Get the system input method config ability of a specified user.
+   *
+   * @param { int } [userId] - the user ID. If not provided:
+   *     If the caller is not a user 0 application, the value defaults to the caller's user ID.
+   *     If the caller is a user 0 application, the value defaults to the foreground user ID of the main screen.
+   * @returns { ElementName } the information of system input method config ability.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
+   *     a system error, such as null pointer, IPC exception.
+   * @throws { BusinessError } 12800023 - the specified user does not exist.
+   * @throws { BusinessError } 12800024 - the specified user is not in the foreground.
+   * @throws { BusinessError } 12800025 - cross-user operation denied.
+   *     Only user 0 applications are authorized for this operation.
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @systemapi
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  function getSystemInputMethodConfigAbility(userId?: int): ElementName;
 
   /**
    * Switch input method
@@ -189,6 +231,27 @@ declare namespace inputMethod {
    * @since 23 static
    */
   function getCurrentInputMethod(): InputMethodProperty;
+
+  /**
+   * Get the current input method of a specified user.
+   *
+   * @param { int } [userId] - the user ID. If not provided:
+   *     If the caller is not a user 0 application, the value defaults to the caller's user ID.
+   *     If the caller is a user 0 application, the value defaults to the foreground user ID of the main screen.
+   * @returns { InputMethodProperty } the property of the current input method.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
+   *     a system error, such as null pointer, IPC exception.
+   * @throws { BusinessError } 12800023 - the specified user does not exist.
+   * @throws { BusinessError } 12800024 - the specified user is not in the foreground.
+   * @throws { BusinessError } 12800025 - cross-user operation denied.
+   *     Only user 0 applications are authorized for this operation.
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @systemapi
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  function getCurrentInputMethod(userId?: int): InputMethodProperty;
 
   /**
    * Switch current input method subtype
@@ -293,6 +356,27 @@ declare namespace inputMethod {
   function getCurrentInputMethodSubtype(): InputMethodSubtype;
 
   /**
+   * Get the current input method subtype of a specified user.
+   *
+   * @param { int } [userId] - the user ID. If not provided:
+   *     If the caller is not a user 0 application, the value defaults to the caller's user ID.
+   *     If the caller is a user 0 application, the value defaults to the foreground user ID of the main screen.
+   * @returns { InputMethodSubtype } the subtype of the current input method.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
+   *     a system error, such as null pointer, IPC exception.
+   * @throws { BusinessError } 12800023 - the specified user does not exist.
+   * @throws { BusinessError } 12800024 - the specified user is not in the foreground.
+   * @throws { BusinessError } 12800025 - cross-user operation denied.
+   *     Only user 0 applications are authorized for this operation.
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @systemapi
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  function getCurrentInputMethodSubtype(userId?: int): InputMethodSubtype;
+
+  /**
    * Switch input method and subtype. If the caller is an input method, it must be the current inputmethod.
    *
    * @permission ohos.permission.CONNECT_IME_ABILITY
@@ -388,6 +472,33 @@ declare namespace inputMethod {
   function switchInputMethod(bundleName: string, subtypeId?: string): Promise<void>;
 
   /**
+   * Switch input method and subtype of a specified user.
+   *
+   * @permission ohos.permission.CONNECT_IME_ABILITY
+   * @param { string } bundleName - indicates the bundle name of the target input method.
+   * @param { string } [subtypeId] - indicates the id of the input method subtype.
+   *     If the param is not set, switch to the target input method with a default subtype.
+   * @param { int } [userId] - the user ID. If not provided:
+   *     If the caller is not a user 0 application, the value defaults to the caller's user ID.
+   *     If the caller is a user 0 application, the value defaults to the foreground user ID of the main screen.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 201 - permissions check fails.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 12800005 - configuration persistence error.
+   * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
+   *     a system error, such as null pointer, IPC exception.
+   * @throws { BusinessError } 12800023 - the specified user does not exist.
+   * @throws { BusinessError } 12800024 - the specified user is not in the foreground.
+   * @throws { BusinessError } 12800025 - cross-user operation denied.
+   *     Only user 0 applications are authorized for this operation.
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @systemapi
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  function switchInputMethodWithUserId(bundleName: string, subtypeId?: string, userId?: int): Promise<void>;
+
+  /**
    * Set simple keyboard mode.
    *
    * @param { boolean } enable - indicates enable simple keyboard or not.
@@ -430,6 +541,20 @@ declare namespace inputMethod {
    * @since 23 static
    */
   export type ImeChangeCallback = (inputMethodProperty: InputMethodProperty, inputMethodSubtype: InputMethodSubtype) => void;
+
+  /**
+   * The callback of the inputmethod change event which carries the user ID whose inputmethod is changed.
+   *
+   * @param { InputMethodProperty } inputMethodProperty - the property of current inputmethod.
+   * @param { InputMethodSubtype } inputMethodSubtype - the subtype of current inputmethod.
+   * @param { int } userId - the user ID whose inputmethod is changed.
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @systemapi
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  export type ImeChangeWithUserIdCallback =
+      (inputMethodProperty: InputMethodProperty, inputMethodSubtype: InputMethodSubtype, userId: int) => void;
 
   /**
    * The callback of 'getLeftTextOfCursor' or 'getRightTextOfCursor' event.
@@ -633,6 +758,29 @@ declare namespace inputMethod {
     listCurrentInputMethodSubtype(): Promise<Array<InputMethodSubtype>>;
 
     /**
+     * Get subtypes of a specified input method of a specified user.
+     *
+     * @param { string } bundleName - the bundle name of the specified input method.
+     * @param { int } [userId] - the user ID. If not provided:
+     *     If the caller is not a user 0 application, the value defaults to the caller's user ID.
+     *     If the caller is a user 0 application, the value defaults to the foreground user ID of the main screen.
+     * @returns { Array<InputMethodSubtype> } the subtype of target input method.
+     * @throws { BusinessError } 202 - not system application.
+     * @throws { BusinessError } 12800001 - bundle manager error.
+     * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
+     *     a system error, such as null pointer, IPC exception.
+     * @throws { BusinessError } 12800023 - the specified user does not exist.
+     * @throws { BusinessError } 12800024 - the specified user is not in the foreground.
+     * @throws { BusinessError } 12800025 - cross-user operation denied.
+     *     Only user 0 applications are authorized for this operation.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    getInputMethodSubtypes(bundleName: string, userId?: int): Array<InputMethodSubtype>;
+
+    /**
      * List input methods
      *
      * @param { boolean } enable -
@@ -687,6 +835,30 @@ declare namespace inputMethod {
     getInputMethodsSync(enable: boolean): Array<InputMethodProperty>;
 
     /**
+     * List enabled or disabled input methods sync of a specified user.
+     *
+     * @param { boolean } enable - If true, collect enabled input methods.
+     *     If false, collect disabled input methods.
+     * @param { int } [userId] - the user ID. If not provided:
+     *     If the caller is not a user 0 application, the value defaults to the caller's user ID.
+     *     If the caller is a user 0 application, the value defaults to the foreground user ID of the main screen.
+     * @returns { Array<InputMethodProperty> } the list of input methods.
+     * @throws { BusinessError } 202 - not system application.
+     * @throws { BusinessError } 12800001 - bundle manager error.
+     * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
+     *     a system error, such as null pointer, IPC exception.
+     * @throws { BusinessError } 12800023 - the specified user does not exist.
+     * @throws { BusinessError } 12800024 - the specified user is not in the foreground.
+     * @throws { BusinessError } 12800025 - cross-user operation denied.
+     *     Only user 0 applications are authorized for this operation.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    getInputMethodsSync(enable: boolean, userId?: int): Array<InputMethodProperty>;
+
+    /**
      * List all input methods
      *
      * @param { AsyncCallback<Array<InputMethodProperty>> } callback - the callback of getInputMethods.
@@ -724,6 +896,28 @@ declare namespace inputMethod {
      * @since 23 static
      */
     getAllInputMethodsSync(): Array<InputMethodProperty>;
+
+    /**
+     * Get all input methods sync of a specified user.
+     *
+     * @param { int } [userId] - the user ID. If not provided:
+     *     If the caller is not a user 0 application, the value defaults to the caller's user ID.
+     *     If the caller is a user 0 application, the value defaults to the foreground user ID of the main screen.
+     * @returns { Array<InputMethodProperty> } the list of all input methods.
+     * @throws { BusinessError } 202 - not system application.
+     * @throws { BusinessError } 12800001 - bundle manager error.
+     * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
+     *     a system error, such as null pointer, IPC exception.
+     * @throws { BusinessError } 12800023 - the specified user does not exist.
+     * @throws { BusinessError } 12800024 - the specified user is not in the foreground.
+     * @throws { BusinessError } 12800025 - cross-user operation denied.
+     *     Only user 0 applications are authorized for this operation.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    getAllInputMethodsSync(userId?: int): Array<InputMethodProperty>;
 
     /**
      * @param { AsyncCallback<Array<InputMethodProperty>> } callback - the callback of listInputMethod.
@@ -823,6 +1017,36 @@ declare namespace inputMethod {
     enableInputMethod(bundleName: string, extensionName: string, enabledState: EnabledState): Promise<void>;
 
     /**
+     * Change the enabled state of an input method of a specified user.
+     *
+     * @permission ohos.permission.CONNECT_IME_ABILITY
+     * @param { string } bundleName - Indicates the bundle name of the input method.
+     * @param { string } extensionName - Indicates the extension name of the input method.
+     * @param { EnabledState } enabledState - Indicates the enabledState to be changed.
+     * @param { int } [userId] - the user ID. If not provided:
+     *     If the caller is not a user 0 application, the value defaults to the caller's user ID.
+     *     If the caller is a user 0 application, the value defaults to the foreground user ID of the main screen.
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 201 - permissions check fails.
+     * @throws { BusinessError } 202 - not system application.
+     * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
+     *     a system error, such as null pointer, IPC exception.
+     * @throws { BusinessError } 12800018 - input method is not found.
+     * @throws { BusinessError } 12800019 - current operation cannot be applied to the preconfigured
+     *     default input method.
+     * @throws { BusinessError } 12800023 - the specified user does not exist.
+     * @throws { BusinessError } 12800024 - the specified user is not in the foreground.
+     * @throws { BusinessError } 12800025 - cross-user operation denied.
+     *     Only user 0 applications are authorized for this operation.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    enableInputMethod(
+      bundleName: string, extensionName: string, enabledState: EnabledState, userId?: int): Promise<void>;
+
+    /**
      * Subscribe input method or subtype change.
      *
      * @param { ImeChangeCallback } callback - the callback called when the current input method changes.
@@ -840,6 +1064,31 @@ declare namespace inputMethod {
      * @since 23 static
      */
     offImeChange(callback?: ImeChangeCallback): void;
+
+    /**
+     * Subscribe to the input method change event.
+     *
+     * @param { ImeChangeWithUserIdCallback } callback - the callback called when the current input method changes.
+     * @throws { BusinessError } 202 - not system application.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    onImeChangeWithUserId(callback: ImeChangeWithUserIdCallback): void;
+
+    /**
+     * Unsubscribe from the input method change event.
+     *
+     * @param { ImeChangeWithUserIdCallback } [callback] - the callback called when the current input method changes,
+     *     when the subscriber unsubscribes all callbacks, this parameter can be left blank.
+     * @throws { BusinessError } 202 - not system application.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    offImeChangeWithUserId(callback?: ImeChangeWithUserIdCallback): void;
 
     /**
      * Subscribes to input window show events.
@@ -884,6 +1133,43 @@ declare namespace inputMethod {
      * @since 23 static
      */
     offImeHide(callback?: Callback<Array<InputWindowInfo>>): void;
+
+    /**
+     * Get the cursor infomation of a specified user.
+     *
+     * @param { int } [userId] - the ID of the specified user, defaults to the foreground user ID of the screen.
+     * @returns { CursorInfo } the promise returned by the function.
+     * @throws { BusinessError } 202 - not system application.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1. No edit box is bound to the current input method application under the specified user.
+     * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
+     *     a system error, such as null pointer, IPC exception.
+     * @throws { BusinessError } 12800023 - the specified user does not exit.
+     * @throws { BusinessError } 12800024 - the specified user is not in the foregeound.
+     * @throws { BusinessError } 12800025 - cross-user operation denied.
+     *     Only user 0 applications are authorized for this operation.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&&static
+     */
+    getCursorInfo(userId?: int): CursorInfo;
+
+    /**
+     * <p>Get the default input method ability.</p>
+     * <p>To optimize performance, only the 'name' and 'id' properties which can uniquely identify an input method ability
+     *  are included in the returned InputMethodProperty object.</p>
+     *
+     * @returns { InputMethodProperty } property of the default input method.Only contains 'name' and 'id' properties.
+     * @throws { BusinessError } 202 - not system application.
+     * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
+     *     a system error, such as null pointer, IPC exception.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    getDefaultInputMethodAbility(): InputMethodProperty;
   }
 
   /**
@@ -2651,7 +2937,7 @@ declare namespace inputMethod {
    */
   export interface CursorInfo {
     /**
-     * Indicates the left point of the cursor info and must be absolute coordinate of the physical screen.
+     * Indicates the left point of the cursor info and must be absolute coordinate of the physical screen, unit is px.
      *
      * @type { double }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -2661,7 +2947,7 @@ declare namespace inputMethod {
     left: double;
 
     /**
-     * Indicates the top point of the cursor info and must be absolute coordinate of the physical screen.
+     * Indicates the top point of the cursor info and must be absolute coordinate of the physical screen, unit is px.
      *
      * @type { double }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -2671,7 +2957,7 @@ declare namespace inputMethod {
     top: double;
 
     /**
-     * Indicates the width point of the cursor info.
+     * Indicates the width point of the cursor info, unit is px.
      *
      * @type { double }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -2681,7 +2967,7 @@ declare namespace inputMethod {
     width: double;
 
     /**
-     * Indicates the height point of the cursor info.
+     * Indicates the height point of the cursor info, unit is px.
      *
      * @type { double }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -2689,6 +2975,15 @@ declare namespace inputMethod {
      * @since 23 static
      */
     height: double;
+
+    /**
+     * Indicates the ID of the display where the cursor locates.
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&&static
+     */
+    displayId?: long;
   }
 
   /**
@@ -2828,7 +3123,7 @@ declare namespace inputMethod {
     name: string;
 
     /**
-     * Indicates the abscissa of the upper-left vertex of input window.
+     * Indicates the abscissa of the upper-left vertex of input window, unit is px.
      *
      * @type { int }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -2838,7 +3133,7 @@ declare namespace inputMethod {
     left: int;
 
     /**
-     * Indicates the ordinate of the upper-left vertex of input window.
+     * Indicates the ordinate of the upper-left vertex of input window, unit is px.
      *
      * @type { int }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -2848,7 +3143,7 @@ declare namespace inputMethod {
     top: int;
 
     /**
-     * Indicates the width of the input window.
+     * Indicates the width of the input window, unit is px.
      *
      * @type { long }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -2858,7 +3153,7 @@ declare namespace inputMethod {
     width: long;
 
     /**
-     * Indicates the height of the input window.
+     * Indicates the height of the input window, unit is px.
      *
      * @type { long }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -2876,6 +3171,15 @@ declare namespace inputMethod {
      * @since 23 dynamic&static
      */
     displayId?: long;
+
+    /**
+     * Indicates the ID of the user whose input window is shown.
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    userId?: int;
   }
 
   /**

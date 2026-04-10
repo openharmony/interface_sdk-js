@@ -210,6 +210,56 @@ declare namespace camera {
   }
 
   /**
+   * Sensor color filter arrangement enum.
+   *
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 24 dynamic&static
+   */
+  enum SensorColorFilterArrangement {  
+    /**
+     * Blue-Green-Green-Red (BGGR) filter arrangement
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    BGGR = 0,
+
+    /**
+     * Green-Blue-Red-Green (GBRG) filter arrangement
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    GBRG = 1,
+
+    /**
+     * Green-Red-Green-Blue (GRBG) filter arrangement
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    GRBG = 2,
+
+    /**
+     * Red-Green-Green-Blue (RGGB) filter arrangement
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    RGGB = 3
+  }
+
+  /**
    * Profile for camera streams.
    *
    * @typedef Profile
@@ -1488,7 +1538,7 @@ declare namespace camera {
     /**
      * Subscribes fold status change event callback.
      *
-     * @param { 'foldStatusChanged' } type - Event type.
+     * @param { 'foldStatusChange' } type - Event type.
      * @param { AsyncCallback<FoldStatusInfo> } callback - Callback used to get the fold status change.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 12
@@ -1499,7 +1549,7 @@ declare namespace camera {
      * Description: Currently, it is not allowed to use off() to unregister the callback
      * within the callback method of on().
      *
-     * @param { 'foldStatusChanged' } type - Event type.
+     * @param { 'foldStatusChange' } type - Event type.
      * @param { AsyncCallback<FoldStatusInfo> } callback - Callback used to get the fold status change.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
@@ -1519,7 +1569,7 @@ declare namespace camera {
     /**
      * Unsubscribes from fold status change event callback.
      *
-     * @param { 'foldStatusChanged' } type - Event type.
+     * @param { 'foldStatusChange' } type - Event type.
      * @param { AsyncCallback<FoldStatusInfo> } callback - Callback used to get the fold status change.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 12
@@ -1527,7 +1577,7 @@ declare namespace camera {
     /**
      * Unsubscribes from fold status change event callback.
      *
-     * @param { 'foldStatusChanged' } type - Event type.
+     * @param { 'foldStatusChange' } type - Event type.
      * @param { AsyncCallback<FoldStatusInfo> } callback - Callback used to get the fold status change.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
@@ -1805,7 +1855,18 @@ declare namespace camera {
      * @since 12 dynamic
      * @since 23 static
      */
-    createDeferredPreviewOutput(profile?: Profile): PreviewOutput;
+    /**
+     * Creates a deferred PreviewOutput instance.
+     *
+     * @param { Profile } profile - Preview output profile.
+     * @returns { PreviewOutput } the PreviewOutput instance.
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    createDeferredPreviewOutput(profile: Profile): PreviewOutput;
 
     /**
      * Check if the device has a torch.
@@ -1911,6 +1972,15 @@ declare namespace camera {
      * @stagemodelonly
      * @since 23 dynamic&static
      */
+    /**
+     * Checks whether torch level control is supported.
+     *
+     * @returns { boolean } Is torch level control supported.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
     isTorchLevelControlSupported(): boolean;
 
     /**
@@ -1924,6 +1994,17 @@ declare namespace camera {
      * @systemapi
      * @stagemodelonly
      * @since 23 dynamic&static
+     */
+    /**
+     * Sets the torch mode to {@link TorchMode.ON} with the specified torch level.
+     *
+     * @param { double } torchLevel - the specified torch level.
+     * @throws { BusinessError } 7400102 - Operation not allowed.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
      */
     setTorchModeOnWithLevel(torchLevel: double): void;
 
@@ -2847,7 +2928,106 @@ declare namespace camera {
      * @since 20 dynamic
      * @since 23 static
      */
+     /**
+     * Camera lens equivalent focal length
+     *
+     * @type { ?Array<int> }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
     readonly lensEquivalentFocalLength?: Array<int>;
+
+    /**
+     * Indicates if this is a logical camera (composed of multiple physical cameras).
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    readonly isLogicalCamera?: boolean;
+
+    /**
+     * List of physical cameras that make up this logical camera.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    readonly constituentCameraDevices?: Array<CameraDevice>;
+
+    /**
+     * Actual focal length of the lens.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    readonly lensFocalLength?: double;
+
+    /**
+     * Minimum focus distance of the camera.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    readonly minimumFocusDistance?: double;
+
+    /**
+     * Lens distortion parameters array.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    readonly lensDistortion?: Array<double>;
+
+    /**
+     * Lens intrinsic calibration parameters array.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    readonly lensIntrinsicCalibration?: Array<double>;
+
+    /**
+     * Physical size of the sensor (width and height).
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    readonly sensorPhysicalSize?: Array<double>;
+
+    /**
+     * Pixel array size of the sensor (width and height in pixels).
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    readonly sensorPixelArraySize?: Array<int>;
+
+    /**
+     * Color filter arrangement of the sensor.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    readonly sensorColorFilterArrangement?: SensorColorFilterArrangement;
   }
 
   /**
@@ -3574,6 +3754,13 @@ declare namespace camera {
      * @since 12 dynamic
      * @since 23 static
      */
+    /**
+     * Digital negative Format.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
     CAMERA_FORMAT_DNG = 4,
 
     /**
@@ -3969,6 +4156,68 @@ declare namespace camera {
      * @since 23 static
      */
     enableLcdFlash(enabled: boolean): void;
+
+    /**
+     * Subscribes flash state change event callback.
+     *
+     * @param { Callback<FlashState> } callback - Callback used to get the flash state change.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    onFlashStateChange(callback: Callback<FlashState>): void;
+
+    /**
+     * Unsubscribes flash state change event callback.
+     *
+     * @param { Callback<FlashState> } [callback] - Callback used to get the flash state change.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    offFlashStateChange(callback?: Callback<FlashState>): void;
+  }
+
+  /**
+   * Enum for flash state.
+   *
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 24 dynamic&static
+   */
+  enum FlashState {
+    /**
+     * Flash is unavailable, default value.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    FLASH_STATE_UNAVAILABLE = 0,
+
+    /**
+     * This status indicates that the flash is available.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    FLASH_STATE_READY = 1,
+
+    /**
+     * This status indicates that flashing can be performed.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    FLASH_STATE_FLASHING = 2
   }
 
   /**
@@ -3990,14 +4239,14 @@ declare namespace camera {
   enum ExposureMode {
     /**
      * Unspecified exposure mode.
-     * 
+     *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @stagemodelonly
      * @atomicservice
      * @since 24 dynamic&static
      */
     EXPOSURE_MODE_UNSPECIFIED = -1,
-    
+
     /**
      * Lock exposure mode.
      *
@@ -4054,6 +4303,13 @@ declare namespace camera {
      * @since 12 dynamic
      * @since 23 static
      */
+    /**
+     * Manual exposure mode.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
     EXPOSURE_MODE_MANUAL = 3
   }
 
@@ -4066,6 +4322,14 @@ declare namespace camera {
    * @since 12 dynamic
    * @since 23 static
    */
+  /**
+   * Enum for exposure metering mode.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @atomicservice
+   * @since 24 dynamic&static
+   */
   enum ExposureMeteringMode {
     /**
      * Matrix metering.
@@ -4074,6 +4338,13 @@ declare namespace camera {
      * @systemapi
      * @since 12 dynamic
      * @since 23 static
+     */
+    /**
+     * Matrix metering mode: Measures the light in the whole frame, ideal for shooting natural landscapes.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 24 dynamic&static
      */
     MATRIX = 0,
 
@@ -4085,6 +4356,13 @@ declare namespace camera {
      * @since 12 dynamic
      * @since 23 static
      */
+    /**
+     * Center metering mode: Focuses in on light near the center of the screen, ideal for shooting portraits.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
     CENTER = 1,
 
     /**
@@ -4095,8 +4373,15 @@ declare namespace camera {
      * @since 12 dynamic
      * @since 23 static
      */
+    /**
+     * Spot metering mode: Focuses in on light from a specific tiny region, such as a subject's eyes.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
     SPOT = 2,
- 
+
     /**
      * Center highlight weighted metering mode: Focuses in on highlight area near the center of the screen.
      *
@@ -4200,6 +4485,16 @@ declare namespace camera {
      * @systemapi
      * @since 12 dynamic
      * @since 23 static
+     */
+    /**
+     * Checks whether a specified exposure metering mode is supported.
+     *
+     * @param { ExposureMeteringMode } aeMeteringMode - Exposure metering mode
+     * @returns { boolean } Is the exposure metering mode supported.
+     * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 24 dynamic&static
      */
     isExposureMeteringModeSupported(aeMeteringMode: ExposureMeteringMode): boolean;
   }
@@ -4365,12 +4660,22 @@ declare namespace camera {
      * @since 12 dynamic
      * @since 23 static
      */
+    /**
+     * Gets current exposure metering mode.
+     *
+     * @returns { ExposureMeteringMode } The current exposure metering mode.
+     * @throws { BusinessError } 7400102 - Operation not allowed, the inputDevice or the session is abnormal.
+     * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
     getExposureMeteringMode(): ExposureMeteringMode;
 
     /**
      * Sets exposure metering mode.
      *
-     * @param { ExposureMeteringMode } aeMeteringMode - Exposure metering mode
+     * @param { ExposureMeteringMode } aeMeteringMode - Exposure metering mode.
      * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
@@ -4378,6 +4683,16 @@ declare namespace camera {
      * @systemapi
      * @since 12 dynamic
      * @since 23 static
+     */
+    /**
+     * Sets exposure metering mode.
+     *
+     * @param { ExposureMeteringMode } aeMeteringMode - Exposure metering mode.
+     * @throws { BusinessError } 7400102 - Operation not allowed, the inputDevice or the session is abnormal.
+     * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 24 dynamic&static
      */
     setExposureMeteringMode(aeMeteringMode: ExposureMeteringMode): void;
   }
@@ -4955,6 +5270,27 @@ declare namespace camera {
   }
 
   /**
+   * Manual Focus Query object.
+   *
+   * @interface ManualFocusQuery
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @atomicservice
+   * @since 24 dynamic&static
+   */
+  interface ManualFocusQuery {
+    /**
+     * Checks whether a focus distance is supported.
+     *
+     * @returns { boolean } Is focus distance supported.
+     * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    isFocusDistanceSupported(): boolean;
+  }
+
+  /**
    * ManualFocus object.
    *
    * @interface ManualFocus
@@ -4963,7 +5299,16 @@ declare namespace camera {
    * @since 12 dynamic
    * @since 23 static
    */
-  interface ManualFocus {
+  /**
+   * ManualFocus object.
+   *
+   * @extends ManualFocusQuery
+   * @interface ManualFocus
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @atomicservice
+   * @since 24 dynamic&static
+   */
+  interface ManualFocus extends ManualFocusQuery {
     /**
      * Gets current focus distance.
      *
@@ -4974,6 +5319,17 @@ declare namespace camera {
      * @systemapi
      * @since 12 dynamic
      * @since 23 static
+     */
+    /**
+     * Gets current focus distance, ranging from 0.0 to 1.0, with 0.0 being shortest
+     * distance at which the lens can focus and 1.0 the furthest. The default value is 1.0.
+     *
+     * @returns { double } The current focus distance.
+     * @throws { BusinessError } 7400102 - Operation not allowed, the inputDevice or the session is abnormal.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 24 dynamic&static
      */
     getFocusDistance(): double;
 
@@ -4988,6 +5344,17 @@ declare namespace camera {
      * @systemapi
      * @since 12 dynamic
      * @since 23 static
+     */
+    /**
+     * Sets focus distance. Possible distance values range from 0.0 to 1.0, with 0.0 being shortest
+     * distance at which the lens can focus and 1.0 the furthest. The default value is 1.0.
+     *
+     * @param { double } distance - Focus distance.
+     * @throws { BusinessError } 7400102 - Operation not allowed, the inputDevice or the session is abnormal.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 24 dynamic&static
      */
     setFocusDistance(distance: double): void;
   }
@@ -5315,6 +5682,14 @@ declare namespace camera {
    * @since 12 dynamic
    * @since 23 static
    */
+  /**
+   * Manual ISO Query object.
+   *
+   * @interface ManualIsoQuery
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @atomicservice
+   * @since 24 dynamic&static
+   */
   interface ManualIsoQuery {
     /**
      * Checks whether ISO is supported.
@@ -5341,6 +5716,18 @@ declare namespace camera {
      * @since 23 static
      */
     getIsoRange(): Array<int>;
+
+    /**
+     * Get a array of supported standard ISO sensitivity values, as defined in ISO 12232:2006.
+     *
+     * @returns { int[] } The array of ISO sensitivity values.
+     * @throws {BusinessError} 7400102 - Operation not allowed, the inputDevice or the session is abnormal.
+     * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    getSupportedIsoRange(): int[];
   }
 
   /**
@@ -5353,6 +5740,15 @@ declare namespace camera {
    * @since 12 dynamic
    * @since 23 static
    */
+  /**
+   * ManualIso object.
+   *
+   * @extends ManualIsoQuery
+   * @interface ManualIso
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @atomicservice
+   * @since 24 dynamic&static
+   */
   interface ManualIso extends ManualIsoQuery {
     /**
      * Gets current ISO.
@@ -5364,6 +5760,16 @@ declare namespace camera {
      * @systemapi
      * @since 12 dynamic
      * @since 23 static
+     */
+    /**
+     * Gets current ISO.
+     *
+     * @returns { int } The current ISO.
+     * @throws { BusinessError } 7400102 - Operation not allowed, the inputDevice or the session is abnormal.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 24 dynamic&static
      */
     getIso(): int;
 
@@ -5378,6 +5784,17 @@ declare namespace camera {
      * @systemapi
      * @since 12 dynamic
      * @since 23 static
+     */
+    /**
+     * Sets ISO sensitivity value, within the range of getSupportedIsoRange. This control is only effective if
+     * ExposureMode is set to EXPOSURE_MODE_LOCKED.
+     *
+     * @param { int } iso - ISO
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @throws { BusinessError } 7400102 - Operation not allowed, the inputDevice or the session is abnormal.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 24 dynamic&static
      */
     setIso(iso: int): void;
   }
@@ -5461,6 +5878,14 @@ declare namespace camera {
    * @since 12 dynamic
    * @since 23 static
    */
+  /**
+   * ZoomPointInfo object.
+   *
+   * @typedef ZoomPointInfo
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
   interface ZoomPointInfo {
     /**
      * The zoom ratio value.
@@ -5471,6 +5896,15 @@ declare namespace camera {
      * @systemapi
      * @since 12 dynamic
      * @since 23 static
+     */
+    /**
+     * The zoom ratio value.
+     *
+     * @type { double }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
      */
     readonly zoomRatio: double;
 
@@ -5483,6 +5917,15 @@ declare namespace camera {
      * @systemapi
      * @since 12 dynamic
      * @since 23 static
+     */
+    /**
+     * The equivalent focal Length.
+     *
+     * @type { int }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
      */
     readonly equivalentFocalLength: int;
   }
@@ -5545,6 +5988,15 @@ declare namespace camera {
      * @since 12 dynamic
      * @since 23 static
      */
+    /**
+     * Gets all important zoom ratio infos.
+     *
+     * @returns { Array<ZoomPointInfo> } The zoom point infos.
+     * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
     getZoomPointInfos(): Array<ZoomPointInfo>;
 
     /**
@@ -5559,6 +6011,19 @@ declare namespace camera {
      * @since 23 static
      */
     isZoomCenterPointSupported(): boolean;
+
+    /**
+     * Gets supported zoom ratio range during raw-capture.
+     *
+     * @returns { Array<double> } The zoom ratio range.
+     * @throws {BusinessError} 7400102 - Operation not allowed, the inputDevice or the session is abnormal.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    getRAWCaptureZoomRatioRange(): Array<double>;
   }
 
   /**
@@ -8508,7 +8973,15 @@ declare namespace camera {
    * @since 20 dynamic
    * @since 23 static
    */
-  interface PhotoSession extends Session, Flash, AutoExposure, WhiteBalance, Focus, Zoom, ColorManagement, AutoDeviceSwitch, Macro {
+  /**
+   * Implements a photo capture session.
+   * 
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @atomicservice
+   * @since 24 dynamic&static
+   */
+  interface PhotoSession extends Session, Flash, AutoExposure, WhiteBalance, Focus, Zoom, ColorManagement,
+      AutoDeviceSwitch, Macro, ManualExposure, ManualFocus, ManualIso, OIS, Aperture {
     /**
      * Gets whether the choosed preconfig type can be used to configure photo session.
      * Must choose preconfig type from {@link PreconfigType}.
@@ -9074,6 +9547,53 @@ declare namespace camera {
      * @since 23 static
      */
     getSessionConflictFunctions(): Array<PhotoConflictFunctions>;
+
+    /**
+     * Subscribes ISO info change event callback.
+     *
+     * @param { Callback<IsoInfo> } callback - Callback used to get the ISO info change.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    onIsoInfoChange(callback: Callback<IsoInfo>): void;
+
+    /**
+     * Unsubscribes from ISO info change event callback.
+     *
+     * @param { Callback<IsoInfo> } [callback] - Callback used to get the ISO info change.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    offIsoInfoChange(callback?: Callback<IsoInfo>): void;
+
+    /**
+     * Subscribes exposure info change event callback.
+     *     After exposure parameters are changed, the system will returns the updated exposure infos.
+     *
+     * @param { Callback<ExposureInfo> } callback - Callback used to get the exposure value change.
+     *     <br>Exposure information callback listening.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    onExposureInfoChange(callback: Callback<ExposureInfo>): void;
+
+    /**
+     * Unsubscribes exposure info change event callback. Invoke this method after finishing camera operations.
+     *
+     * @param { Callback<ExposureInfo> } [callback] - Callback used to get the exposure value change.
+     *     <br>Callback listening for canceling exposure information.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    offExposureInfoChange(callback?: Callback<ExposureInfo>): void;
   }
 
   /**
@@ -10169,6 +10689,14 @@ declare namespace camera {
    * @since 11 dynamic
    * @since 23 static
    */
+  /**
+   * Zoom range.
+   *
+   * @typedef ZoomRange
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @atomicservice
+   * @since 24 dynamic&static
+   */
   interface ZoomRange {
     /**
      * Min zoom value.
@@ -10179,6 +10707,15 @@ declare namespace camera {
      * @systemapi
      * @since 11 dynamic
      * @since 23 static
+     */
+     /**
+     * Min zoom value.
+     *
+     * @type { double }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 24 dynamic&static
      */
     readonly min: double;
 
@@ -10192,6 +10729,15 @@ declare namespace camera {
      * @since 11 dynamic
      * @since 23 static
      */
+    /**
+     * Max zoom value.
+     *
+     * @type { double }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
     readonly max: double;
   }
 
@@ -10204,6 +10750,14 @@ declare namespace camera {
    * @since 11 dynamic
    * @since 23 static
    */
+  /**
+   * Physical Aperture object
+   *
+   * @typedef PhysicalAperture
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @atomicservice
+   * @since 24 dynamic&static
+   */
   interface PhysicalAperture {
     /**
      * Zoom Range of the specific physical aperture.
@@ -10213,6 +10767,14 @@ declare namespace camera {
      * @systemapi
      * @since 11 dynamic
      * @since 23 static
+     */
+     /**
+     * Zoom Range of the specific physical aperture.
+     *
+     * @type { ZoomRange }
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 24 dynamic&static
      */
     zoomRange: ZoomRange;
 
@@ -10225,6 +10787,14 @@ declare namespace camera {
      * @since 11 dynamic
      * @since 23 static
      */
+    /**
+     * The supported physical apertures.
+     *
+     * @type { Array<double> }
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
     apertures: Array<double>;
   }
 
@@ -10236,6 +10806,14 @@ declare namespace camera {
    * @systemapi
    * @since 12 dynamic
    * @since 23 static
+   */
+  /**
+   * Aperture Query object.
+   *
+   * @interface ApertureQuery
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @atomicservice
+   * @since 24 dynamic&static
    */
   interface ApertureQuery {
     /**
@@ -10284,6 +10862,17 @@ declare namespace camera {
      * @since 12 dynamic
      * @since 23 static
      */
+    /**
+     * Gets the supported physical apertures.
+     * Move to ApertureQuery interface from Aperture since 12.
+     *
+     * @returns { Array<PhysicalAperture> } The array of supported physical apertures.
+     * @throws {BusinessError} 7400102 - Operation not allowed, the inputDevice or the session is abnormal.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
     getSupportedPhysicalApertures(): Array<PhysicalAperture>;
   }
 
@@ -10296,6 +10885,15 @@ declare namespace camera {
    * @systemapi
    * @since 11 dynamic
    * @since 23 static
+   */
+  /**
+   * Aperture object.
+   *
+   * @extends ApertureQuery
+   * @interface Aperture
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @atomicservice
+   * @since 24 dynamic&static
    */
   interface Aperture extends ApertureQuery {
     /**
@@ -10335,6 +10933,16 @@ declare namespace camera {
      * @since 11 dynamic
      * @since 23 static
      */
+    /**
+     * Gets current physical aperture value.
+     *
+     * @returns { double } The current physical aperture value.
+     * @throws {BusinessError} 7400102 - Operation not allowed, the inputDevice or the session is abnormal.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
     getPhysicalAperture(): double;
 
     /**
@@ -10347,6 +10955,16 @@ declare namespace camera {
      * @systemapi
      * @since 11 dynamic
      * @since 23 static
+     */
+    /**
+     * Sets physical aperture value.
+     *
+     * @param { double } aperture - physical aperture value.
+     * @throws {BusinessError} 7400102 - Operation not allowed, the inputDevice or the session is abnormal.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 24 dynamic&static
      */
     setPhysicalAperture(aperture: double): void;
   }
@@ -10720,6 +11338,14 @@ declare namespace camera {
    * @since 12 dynamic
    * @since 23 static
    */
+  /**
+   * ManualExposure Query object.
+   *
+   * @interface ManualExposureQuery
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @atomicservice
+   * @since 24 dynamic&static
+   */
   interface ManualExposureQuery {
     /**
      * Gets the supported manual exposure range.
@@ -10745,6 +11371,31 @@ declare namespace camera {
      * @since 23 static
      */
     getSupportedExposureRange(): Array<int>;
+
+    /**
+     * Gets the supported manual exposure duration range, units: microseconds.
+     *
+     * @returns { Array<int> } The array of manual exposure range.
+     * @throws { BusinessError } 7400102 - Operation not allowed, session or inputdevice maybe abnormal.
+     * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    getSupportedExposureDurationRange(): Array<int>;
+
+    /**
+     * Get exposure bias step.
+     *
+     * @returns { double } exposure bias step.
+     * @throws { BusinessError } 7400102 - Operation not allowed, session or inputdevice maybe abnormal.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    getExposureBiasStep(): double;
   }
 
   /**
@@ -10756,6 +11407,15 @@ declare namespace camera {
    * @systemapi
    * @since 11 dynamic
    * @since 23 static
+   */
+  /**
+   * ManualExposure object.
+   *
+   * @extends ManualExposureQuery
+   * @interface ManualExposure
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @atomicservice
+   * @since 24 dynamic&static
    */
   interface ManualExposure extends ManualExposureQuery {
     /**
@@ -10783,6 +11443,18 @@ declare namespace camera {
     getExposure(): int;
 
     /**
+     * Gets current exposure value.
+     *
+     * @returns { int } The current exposure value.
+     * @throws { BusinessError } 7400102 - Operation not allowed, session or inputdevice maybe abnormal.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    getExposureDuration(): int;
+
+    /**
      * Sets Exposure value.
      *
      * @param { int } exposure - Exposure value
@@ -10805,6 +11477,17 @@ declare namespace camera {
      * @since 23 static
      */
     setExposure(exposure: int): void;
+
+    /**
+     * Sets Exposure duration value, units: microseconds.
+     *
+     * @param { int } exposureDuration - Exposure duration value
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    setExposureDuration(exposureDuration: int): void;
   }
 
   /**
@@ -11040,6 +11723,14 @@ declare namespace camera {
    * @since 12 dynamic
    * @since 23 static
    */
+  /**
+   * Exposure info object
+   *
+   * @typedef ExposureInfo
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @atomicservice
+   * @since 24 dynamic&static
+   */
   interface ExposureInfo {
     /**
      * Exposure time value.
@@ -11051,7 +11742,16 @@ declare namespace camera {
      * @since 12 dynamic
      * @since 23 static
      */
-     readonly exposureTime?: int;
+    /**
+     * Exposure time value, units: microseconds.
+     *
+     * @type { ?int }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    readonly exposureTime?: int;
   }
 
   /**
@@ -13874,6 +14574,15 @@ declare namespace camera {
      * @since 13 dynamic
      * @since 23 static
      */
+    /**
+     * Adds a deferred surface.
+     *
+     * @param { string } surfaceId - Surface object id used in camera photo output.
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 24 dynamic&static
+     */ 
     addDeferredSurface(surfaceId: string): void;
 
     /**
@@ -16025,6 +16734,45 @@ declare namespace camera {
      * @since 21 dynamic
     */
     setPhotoQualityPrioritization(qualityPrioritization: PhotoQualityPrioritization): void;
+
+    /**
+     * Confirm if original image generation supported.
+     *
+     * @returns { boolean } TRUE if the original image generation is supported.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    isOriginalImageGenerationSupported(): boolean;
+
+    /**
+     * Enable original image generation.
+     *
+     * @param { boolean } enabled - enable original image generation if TRUE.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    enableOriginalImageGeneration(enabled: boolean): void;
+
+    /**
+     * Set edit data.
+     *
+     * @param { string } editData - The edit data.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    setEditData(editData: string): void;
   }
 
   /**
@@ -19299,6 +20047,191 @@ declare namespace camera {
      */
     CONTRACT_LENS = 0
    }
+  /**
+   * Optical Image Stabilization (OIS) mode enum
+   *
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 24 dynamic&static
+   */
+  enum OISMode {  
+    /**
+     * OIS is disabled
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    OFF = 0,
+
+    /**
+     * OIS is controlled automatically
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    AUTO = 1,
+
+    /**
+     * OIS is controlled by the application
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    CUSTOM = 2
+  }
+  /**
+   * Optical Image Stabilization (OIS) axes enum
+   *
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 24 dynamic&static
+   */
+  enum OISAxes {  
+    /**
+     * Up-and-down rotation of the camera body (pointing the camera nose upward or downward).
+     * This is a rotational movement around the horizontal axis running through the lens.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    PITCH = 0,
+
+    /**
+     * Side-to-side rotation of the camera body (pointing the camera nose leftward or rightward).
+     * This is a rotational movement around the vertical axis.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    YAW = 1
+  }
+  /**
+   * OIS (Optical Image Stabilization) query interface.
+   *
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 24 dynamic&static
+   */
+  interface OISQuery {  
+    /**
+     * Checks if the specified OIS mode is supported.
+     *
+     * @param { OISMode } mode - The OIS mode to check.
+     * @returns { boolean } Whether the mode is supported.
+     * @throws { BusinessError } 7400102 - Operation not allowed, the inputDevice or the session is abnormal.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    isOISModeSupported(mode: OISMode): boolean;
+
+    /**
+     * Gets the supported bias range for the specified OIS axis.
+     *
+     * @param { OISAxes } oisAxis - The OIS axis.
+     * @returns { Array<double> } The bias range.
+     * @throws { BusinessError } 7400102 - Operation not allowed, the inputDevice or the session is abnormal.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    getSupportedOISBiasRange(oisAxis: OISAxes): Array<double>;
+
+    /**
+     * Gets the bias step for the specified OIS axis.
+     *
+     * @param { OISAxes } oisAxis - The OIS axis.
+     * @returns { double } The bias step value.
+     * @throws { BusinessError } 7400102 - Operation not allowed, the inputDevice or the session is abnormal.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    getSupportedOISBiasStep(oisAxis: OISAxes): double;
+
+    /**
+     * Gets the current OIS mode.
+     *
+     * @returns { OISMode } The current OIS mode.
+     * @throws { BusinessError } 7400102 - Operation not allowed, the inputDevice or the session is abnormal.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    getCurrentOISMode(): OISMode;
+
+    /**
+     * Gets the current custom bias value for the specified OIS axis.
+     *
+     * @param { OISAxes } oisAxis - The OIS axis
+     * @returns { double } The current bias value.
+     * @throws { BusinessError } 7400102 - Operation not allowed, the inputDevice or the session is abnormal.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    getCurrentCustomOISBias(oisAxis: OISAxes): double;
+  }
+
+  /**
+   * OIS (Optical Image Stabilization) interface.
+   *
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 24 dynamic&static
+   */
+  interface OIS extends OISQuery {  
+    /**
+     * Sets the OIS mode.
+     *
+     * @param { OISMode } mode - The OIS mode to set.
+     * @throws { BusinessError } 7400102 - Operation not allowed, the inputDevice or the session is abnormal.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    setOISMode(mode: OISMode): void;
+
+    /**
+     * Sets custom OIS bias values for each axis.
+     *
+     * @param { double } pitch - Bias value for pitch axis.
+     * @param { double } yaw - Bias value for yaw axis.
+     * @throws { BusinessError } 7400102 - Operation not allowed, the inputDevice or the session is abnormal.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    setOISModeCustom(pitch: double, yaw: double): void;
+  }  
 }
 
 export default camera;

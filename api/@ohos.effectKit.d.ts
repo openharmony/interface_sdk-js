@@ -555,7 +555,171 @@ declare namespace effectKit {
      * @since 23 static
      */
     isBlackOrWhiteOrGrayColor(color: long): boolean;
+
+    /**
+     * Gets the Morandi shadow color from the dominant color.
+     *
+     * @returns { Color } - returns the Morandi shadow color converted from the dominant color.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @stagemodelonly
+     * @form
+     * @since 26.0.0 dynamic&static
+     */
+    getMorandiShadowColor(): Color;
+
+    /**
+     * Generates a stronger immersion color that merges with the background color and is deeper than
+     * the background color.
+     *
+     * @returns { Color } - returns the stronger immersion color that both blends with the background
+     *     and appears deeper than the background.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @stagemodelonly
+     * @form
+     * @since 26.0.0 dynamic&static
+     */
+    getDeepenImmersionColor(): Color;
+
+    /**
+     * Generates an immersive background color that creates an immersive visual effect.
+     *
+     * @returns { Color } - returns the immersive background color.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @stagemodelonly
+     * @form
+     * @since 26.0.0 dynamic&static
+     */
+    getImmersiveBackgroundColor(): Color;
+
+    /**
+     * Generates an immersive foreground color that creates an immersive visual effect for text and content.
+     *
+     * @returns { Color } - returns the immersive foreground color.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @stagemodelonly
+     * @form
+     * @since 26.0.0 dynamic&static
+     */
+    getImmersiveForegroundColor(): Color;
+
+    /**
+     * Discriminates the light and dark degree of the picture.
+     *
+     * @returns { PictureLightDegree } - returns the picture light and dark degree.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @stagemodelonly
+     * @form
+     * @since 26.0.0 dynamic&static
+     */
+    discriminatePictureLightDegree(): PictureLightDegree;
+
+    /**
+     * Gets the reverse color based on the discriminatePictureLightDegree result.
+     * When the picture light degree is EXTREMELY_LIGHT_COLOR_PICTURE, returns black color.
+     * For other picture light degree types, returns white color.
+     *
+     * @returns { Color } - returns the reverse color for UI themes or contrast calculations.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @stagemodelonly
+     * @form
+     * @since 26.0.0 dynamic&static
+     */
+    getReverseColor(): Color;
   }
+
+  /**
+   * The picture light color degree.
+   *
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @systemapi
+   * @stagemodelonly
+   * @form
+   * @since 26.0.0 dynamic&static
+   */
+  enum PictureLightDegree {
+    /**
+     * Unknown light color degree picture.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @stagemodelonly
+     * @form
+     * @since 26.0.0 dynamic&static
+     */
+    UNKNOWN_LIGHT_COLOR_DEGREE_PICTURE = 0,
+ 	 
+    /**
+     * Extremely light color picture.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @stagemodelonly
+     * @form
+     * @since 26.0.0 dynamic&static
+     */
+    EXTREMELY_LIGHT_COLOR_PICTURE = 1,
+
+    /**
+     * Light color picture.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @stagemodelonly
+     * @form
+     * @since 26.0.0 dynamic&static
+     */
+    LIGHT_COLOR_PICTURE = 2,
+ 	 
+    /**
+     * Dark color picture.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @stagemodelonly
+     * @form
+     * @since 26.0.0 dynamic&static
+     */
+    DARK_COLOR_PICTURE = 3,
+ 	 
+    /**
+     * Extremely dark color picture.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @stagemodelonly
+     * @form
+     * @since 26.0.0 dynamic&static
+     */
+    EXTREMELY_DARK_COLOR_PICTURE = 4,
+ 	 
+    /**
+     * Flowery picture.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @stagemodelonly
+     * @form
+     * @since 26.0.0 dynamic&static
+     */
+    FLOWERY_PICTURE = 5,
+ 	 
+    /**
+     * Extremely flowery picture.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @stagemodelonly
+     * @form
+     * @since 26.0.0 dynamic&static
+     */
+    EXTREMELY_FLOWERY_PICTURE = 6
+ 	}
 
   /**
    * The color param.

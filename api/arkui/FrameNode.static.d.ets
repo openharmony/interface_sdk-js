@@ -74,7 +74,7 @@ import { AnimateParam } from '@ohos.arkui.component';
 import { AnimationPropertyType, EventQueryType } from './component/enums';
 
 /**
- * Layout constraint, include the max size, the min size and the reference size for children to calculate percent.
+ * Layout constraint, including the max size, the min size and the reference size for children to calculate percent.
  *
  * @interface LayoutConstraint
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -126,17 +126,27 @@ export declare interface CrossLanguageOptions {
    * @since 23 static
    */
   attributeSetting?: boolean;
+
+  /**
+   * Defines if it enables tree operations cross-language. Default value is false.
+   * Tree operations include appendChild, removeChild, insertChildAfter, etc.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  treeOperating?: boolean;
 }
 
 /**
  * The interaction event binding status information on the component.
  *
- * @interface InteractionEventBindingInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 24 static
  */
-declare interface InteractionEventBindingInfo {
+export declare interface InteractionEventBindingInfo {
   /**
    * Whether to bind events declaratively.
    *
@@ -1105,6 +1115,49 @@ export declare class FrameNode {
   isOnMainTree(): boolean;
 
   /**
+   * Create a specified number of FrameNode objects and return them.
+   *
+   * @param { UIContext } uiContext - uiContext used to create the FrameNode
+   * @param { int } count - the number of FrameNode objects to create.
+   *     Returns an empty array if count <= 0 or is not an integer.
+   * @returns { FrameNode[] } the array of created FrameNode objects.
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  static createFrameNodes(uiContext: UIContext, count: int): FrameNode[];
+
+  /**
+   * Get FrameNode by id.
+   *
+   * @param { string } id - The id of FrameNode.
+   * @returns { FrameNode | null } The first child node with the specified ID, or null if not found.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  getFrameNodeById(id: string): FrameNode | null;
+
+  /**
+   * Get FrameNode by uniqueId.
+   * Obtains the entity node, FrameNode, of a component on the component tree using its uniqueId.
+   * The return value depends on the type of component associated with the uniqueId.
+   * 1. If the uniqueId corresponds to a built-in component, the associated FrameNode is returned.
+   * 2. If the uniqueId corresponds to a custom component: If the component has rendered content, its root node is
+   * returned, with the type __Common__; if the component has no rendered content, the FrameNode of its first child
+   * component is returned.
+   * 3. If the uniqueId does not correspond to any component, null is returned.
+   *
+   * @param { int } id - The uniqueId of the FrameNode.
+   * @returns { FrameNode | null } - The FrameNode with the target uniqueId, or null if the frameNode is not existed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  getFrameNodeByUniqueId(id: int): FrameNode | null;
+
+  /**
    * Triggers node updates in the current frame.
    * 
    * When node attributes are modified after the current frame's build phase,
@@ -1832,8 +1885,8 @@ export declare namespace typeNode {
    * @param { Scroller } controller - the controller which is bind to the target FrameNode.
    * @throws { BusinessError } 100023 - Parameter error. Possible causes: 1. The component type of the node
    *     is incorrect. 2. The node is null or undefined. 3. The controller is null or undefined.
-   * @throws { BusinessError } 100021 - The FrameNode is not modifiable. Introduced in API 24 and will not be threw
-   *    above API 25. [since 24 - 25]
+   * @throws { BusinessError } 100021 - The FrameNode is not modifiable. Introduced in API version 24 and will not be
+   *     threw above API version 24. [since 24 - 24]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 24 static
@@ -2080,8 +2133,8 @@ export declare namespace typeNode {
    * @param { Scroller } controller - the controller which is bind to the target FrameNode.
    * @throws { BusinessError } 100023 - Parameter error. Possible causes: 1. The component type of the node
    *     is incorrect. 2. The node is null or undefined. 3. The controller is null or undefined.
-   * @throws { BusinessError } 100021 - The FrameNode is not modifiable. Introduced in API 24 and will not be threw
-   *    above API 25. [since 24 - 25]
+   * @throws { BusinessError } 100021 - The FrameNode is not modifiable. Introduced in API version 24 and will not be
+   *     threw above API version 24. [since 24 - 24]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 24 static
    */
@@ -2269,8 +2322,8 @@ export declare namespace typeNode {
    * @param { Scroller } controller - the controller which is bind to the target FrameNode.
    * @throws { BusinessError } 100023 - Parameter error. Possible causes: 1. The component type of the node
    *     is incorrect. 2. The node is null or undefined. 3. The controller is null or undefined.
-   * @throws { BusinessError } 100021 - The FrameNode is not modifiable. Introduced in API 24 and will not be threw
-   *    above API 25. [since 24 - 25]
+   * @throws { BusinessError } 100021 - The FrameNode is not modifiable. Introduced in API version 24 and will not be
+   *     threw above API version 24. [since 24 - 24]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 24 static
@@ -2417,8 +2470,8 @@ export declare namespace typeNode {
    * @param { Scroller } controller - the controller which is bind to the target FrameNode.
    * @throws { BusinessError } 100023 - Parameter error. Possible causes: 1. The component type of the node
    *     is incorrect. 2. The node is null or undefined. 3. The controller is null or undefined.
-   * @throws { BusinessError } 100021 - The FrameNode is not modifiable. Introduced in API 24 and will not be threw
-   *    above API 25. [since 24 - 25]
+   * @throws { BusinessError } 100021 - The FrameNode is not modifiable. Introduced in API version 24 and will not be
+   *     threw above API version 24. [since 24 - 24]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 24 static

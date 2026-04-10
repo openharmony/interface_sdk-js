@@ -35,11 +35,12 @@ declare namespace storageStatistics {
    * @permission ohos.permission.STORAGE_MANAGER
    * @param { string } volumeUuid - The uuid of the volume
    * @param { AsyncCallback<long> } callback - callback
+   *     <br>Unit: Byte.
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory
-parameters are left unspecified;
-   * <br>2.Incorrect parameter types.
+   *     parameters are left unspecified;
+   *     <br>2.Incorrect parameter types.
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13600008 - No such object.
    * @throws { BusinessError } 13900042 - Unknown error.
@@ -55,12 +56,12 @@ parameters are left unspecified;
    *
    * @permission ohos.permission.STORAGE_MANAGER
    * @param { string } volumeUuid - The uuid of the volume
-   * @returns { Promise<long> } return Promise
+   * @returns { Promise<long> } return Promise (Unit: Byte)
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory
-parameters are left unspecified;
-   * <br>2.Incorrect parameter types.
+   *     parameters are left unspecified;
+   *     <br>2.Incorrect parameter types.
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13600008 - No such object.
    * @throws { BusinessError } 13900042 - Unknown error.
@@ -76,11 +77,12 @@ parameters are left unspecified;
    * @permission ohos.permission.STORAGE_MANAGER
    * @param { string } volumeUuid - The uuid of the volume
    * @param { AsyncCallback<long> } callback - callback
+   *     <br>Unit: Byte.
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory
-parameters are left unspecified;
-   * <br>2.Incorrect parameter types.
+         parameters are left unspecified;
+   *     <br>2.Incorrect parameter types.
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13600008 - No such object.
    * @throws { BusinessError } 13900042 - Unknown error.
@@ -96,12 +98,12 @@ parameters are left unspecified;
    *
    * @permission ohos.permission.STORAGE_MANAGER
    * @param { string } volumeUuid - The uuid of the volume
-   * @returns { Promise<long> } return Promise
+   * @returns { Promise<long> } return Promise (Unit: Byte)
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory
-parameters are left unspecified;
-   * <br>2.Incorrect parameter types.
+   *     parameters are left unspecified;
+   *     <br>2.Incorrect parameter types.
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13600008 - No such object.
    * @throws { BusinessError } 13900042 - Unknown error.
@@ -123,6 +125,7 @@ parameters are left unspecified;
   export interface BundleStats {
     /**
      * The size of application installation data.
+     * <br>Unit: Byte.
      *
      * @type { long }
      * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
@@ -133,6 +136,7 @@ parameters are left unspecified;
 
     /**
      * The size of application cache data.
+     * <br>Unit: Byte.
      *
      * @type { long }
      * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
@@ -143,6 +147,7 @@ parameters are left unspecified;
 
     /**
      * The size of application local data, distributed data and database data.
+     * <br>Unit: Byte.
      *
      * @type { long }
      * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
@@ -260,10 +265,11 @@ parameters are left unspecified;
    *
    * @permission ohos.permission.STORAGE_MANAGER
    * @param { AsyncCallback<long> } callback - callback
+   *     <br>Unit: Byte.
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:Mandatory
-parameters are left unspecified;
+   *     parameters are left unspecified;
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
@@ -277,11 +283,11 @@ parameters are left unspecified;
    * Get the system size.
    *
    * @permission ohos.permission.STORAGE_MANAGER
-   * @returns { Promise<long> } return Promise
+   * @returns { Promise<long> } return Promise (Unit: Byte)
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:Mandatory
-parameters are left unspecified;
+   *     parameters are left unspecified;
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
@@ -303,6 +309,7 @@ parameters are left unspecified;
   export interface StorageStats {
     /**
      * The total size of device.
+     * <br>Unit: Byte.
      *
      * @type { long }
      * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
@@ -314,6 +321,7 @@ parameters are left unspecified;
 
     /**
      * The size of audio file.
+     * <br>Unit: Byte.
      *
      * @type { long }
      * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
@@ -325,6 +333,7 @@ parameters are left unspecified;
 
     /**
      * The size of video file.
+     * <br>Unit: Byte.
      *
      * @type { long }
      * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
@@ -336,6 +345,7 @@ parameters are left unspecified;
 
     /**
      * The size of image file.
+     * <br>Unit: Byte.
      *
      * @type { long }
      * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
@@ -347,6 +357,7 @@ parameters are left unspecified;
 
     /**
      * The size of other file.
+     * <br>Unit: Byte.
      *
      * @type { long }
      * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
@@ -358,6 +369,7 @@ parameters are left unspecified;
 
     /**
      * The size of application.
+     * <br>Unit: Byte.
      *
      * @type { long }
      * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
@@ -467,8 +479,9 @@ parameters are left unspecified;
    * Get the total size.
    *
    * @param { AsyncCallback<long> } callback - callback
+   *     <br>Unit: Byte.
    * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:Mandatory
-parameters are left unspecified;
+   *     parameters are left unspecified;
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
@@ -495,7 +508,7 @@ parameters are left unspecified;
   /**
    * Get the total size.
    *
-   * @returns { Promise<long> } return Promise
+   * @returns { Promise<long> } return Promise (Unit: Byte)
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
@@ -522,7 +535,7 @@ parameters are left unspecified;
   /**
    * Get the total size with sync interface
    *
-   * @returns { long } return the total size
+   * @returns { long } return the total size (Unit: Byte)
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
@@ -550,15 +563,16 @@ parameters are left unspecified;
    * Get the free size.
    *
    * @param { AsyncCallback<long> } callback - callback
+   *     <br>Unit: Byte.
    * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:Mandatory
-parameters are left unspecified;
+   *     parameters are left unspecified;
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @since 15 dynamic
    * @since 23 static
    */
-function getFreeSize(callback: AsyncCallback<long>): void;
+   function getFreeSize(callback: AsyncCallback<long>): void;
 
   /**
    * Get the free size.
@@ -578,7 +592,7 @@ parameters are left unspecified;
   /**
    * Get the free size.
    *
-   * @returns { Promise<long> } return Promise
+   * @returns { Promise<long> } return Promise (Unit: Byte)
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
@@ -605,7 +619,7 @@ parameters are left unspecified;
   /**
    * Get the free size with sync interface.
    *
-   * @returns { long } return the free size
+   * @returns { long } return the free size (Unit: Byte)
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
@@ -637,6 +651,7 @@ parameters are left unspecified;
 
     /**
     * The business size.
+    * <br>Unit: Byte.
     *
     * @type { long }
     * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
@@ -734,6 +749,7 @@ parameters are left unspecified;
    path: string;
    /**
     * The size of user data dirs.
+    * <br>Unit: Byte.
     *
     * @type { long }
     * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
@@ -800,7 +816,6 @@ parameters are left unspecified;
   * @returns { Promise<long> } return Promise
   * @throws { BusinessError } 13600001 - IPC error.
   * @throws { BusinessError } 13600002 - File system not supported.
-  * @throws { BusinessError } 13600010 - The input parameter is invalid.
   * @throws { BusinessError } 13600017 - Failed to query the inode information of the application.
   * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
   * @stagemodelonly
@@ -812,7 +827,7 @@ parameters are left unspecified;
   * Get the system data size.
   *
   * @permission ohos.permission.STORAGE_MANAGER
-  * @returns { Promise<long> } return Promise
+  * @returns { Promise<long> } return Promise (Unit: Byte)
   * @throws { BusinessError } 201 - Permission verification failed.
   * @throws { BusinessError } 202 - The caller is not a system application.
   * @throws { BusinessError } 13600001 - IPC error.

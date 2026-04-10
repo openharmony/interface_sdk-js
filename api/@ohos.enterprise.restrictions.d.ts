@@ -30,6 +30,32 @@ import type Want from '@ohos.app.ability.Want';
  */
 declare namespace restrictions {
   /**
+   * The feature of device.
+   *
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 24
+   */
+  enum FeatureForDevice {
+    /**
+     * Wi-Fi P2P
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 24
+     */
+    WIFI_P2P = 0,
+    /**
+     * Core dump
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    CORE_DUMP = 6
+  } 
+
+  /**
    * Disable or enable the printing function of the device
    * This function can be called by a super administrator.
    *
@@ -833,6 +859,48 @@ declare namespace restrictions {
    * @since 23
    */
   function getUserRestrictedForAccount(admin: Want | null, settingsItem: string, accountId: int): boolean;
+
+  /**
+   * Disallows the specific feature of the device.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS or ohos.permission.PERSONAL_MANAGE_RESTRICTIONS
+   * @param { Want } admin - admin indicates the administrator ability information.
+   *     The admin must have the corresponding permission.
+   * @param { FeatureForDevice } feature - feature indicates the specific feature to be disallowed or allowed.
+   * @param { boolean } disallow - true if disallow the specific feature of device, otherwise false.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200010 - A conflict policy has been configured.
+   * @throws { BusinessError } 9200013 - The enterprise management policy has been successfully set,
+   *    but the function has not taken effect in real time.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *     Failed to call the API due to limited device capabilities.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 24
+   */
+  function setDisallowedPolicy(admin: Want, feature: FeatureForDevice, disallow: boolean): void;
+
+  /**
+   * Queries whether the specific feature of the device is disallowed.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS or ohos.permission.PERSONAL_MANAGE_RESTRICTIONS
+   * @param { Want | null } admin - admin indicates the enterprise admin extension ability information.
+   *     If the admin is not empty, it must have the corresponding permission.
+   * @param { FeatureForDevice } feature - feature indicates the specific feature to be queried.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *     Failed to call the API due to limited device capabilities.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 24
+   */
+  function getDisallowedPolicy(admin: Want | null, feature: FeatureForDevice): boolean;
 }
 
 export default restrictions;

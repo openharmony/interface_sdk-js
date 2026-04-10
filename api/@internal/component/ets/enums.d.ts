@@ -405,14 +405,14 @@ declare enum Color {
   Orange,
 
   /**
-   * color.
+   * Pink.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @since 7
    */
   /**
-   * color.
+   * Pink.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -420,7 +420,7 @@ declare enum Color {
    * @since 9
    */
   /**
-   * color.
+   * Pink.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -429,7 +429,7 @@ declare enum Color {
    * @since 10
    */
   /**
-   * color.
+   * Pink.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -2801,6 +2801,17 @@ declare enum KeyType {
    * @since 11 dynamic
    */
   Up,
+
+  /**
+   * The key event is canceled.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  CANCEL = 3,
 }
 
 /**
@@ -11484,6 +11495,16 @@ declare enum ColorSpace {
    * @since 20 dynamic
    */
   DISPLAY_P3 = 1,
+
+  /**
+   * BT2020 ColorSpace.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 24 dynamic
+   */
+  BT2020 = 2,
 }
 
 /**
@@ -11627,6 +11648,194 @@ declare enum AxisType {
   PINCH_AXIS = 2,
 }
 
+/**
+ * Defines the input event subtype mask for monitoring.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare enum InputEventSubTypeMask {
+  /**
+   * Mouse left button down.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  LEFT_MOUSE_DOWN = 1 << 0,
+
+  /**
+   * Mouse left button up.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  LEFT_MOUSE_UP = 1 << 1,
+
+  /**
+   * Mouse right button down.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  RIGHT_MOUSE_DOWN = 1 << 2,
+
+  /**
+   * Mouse right button up.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  RIGHT_MOUSE_UP = 1 << 3,
+
+  /**
+   * Mouse middle button down.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  MIDDLE_MOUSE_DOWN = 1 << 4,
+
+  /**
+   * Mouse middle button up.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  MIDDLE_MOUSE_UP = 1 << 5,
+
+  /**
+   * Mouse left button dragging.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  LEFT_MOUSE_DRAGGING = 1 << 6,
+
+  /**
+   * Mouse right button dragging.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  RIGHT_MOUSE_DRAGGING = 1 << 7,
+
+  /**
+   * Mouse middle button dragging.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  MIDDLE_MOUSE_DRAGGING = 1 << 8,
+
+  /**
+   * Touch down.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  TOUCH_DOWN = 1 << 9,
+
+  /**
+   * Touch up.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  TOUCH_UP = 1 << 10,
+
+  /**
+   * Physical keyboard key down.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  KEY_DOWN = 1 << 11,
+
+  /**
+   * Physical keyboard key up.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  KEY_UP = 1 << 12
+}
+
+/**
+ * Defines the input event intercept action.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare enum InputEventInterceptAction {
+  /**
+   * Continue to deliver the event to the UI framework.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  CONTINUE,
+
+  /**
+   * Block the event from being delivered to the UI framework.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  BLOCK
+}
   /**
    * Defines whether a competition for gesture recognition results should occur between the event injector and the
    * gesture recognizers of the target component.
@@ -11667,3 +11876,142 @@ declare enum AxisType {
      */
     COMPETITION = 1,
   }
+
+/**
+ * Define the gesture and events collection intervention operations.
+ *
+ * @enum {number}
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare enum GestureCollectIntervention {
+  /**
+   * Continue the normal collection process. No intervention will be applied.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  CONTINUE = 0,
+
+  /**
+   * Discard all pending lower-priority gestures and events.
+   * This includes gestures from left sibling nodes and ancestor nodes (parent and above).
+   * Only the already collected gestures from the current node and higher-priority nodes will be retained.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  DISCARD_LOWER = 1,
+
+  /**
+   * Discard already collected higher-priority gestures and events.
+   * This removes gestures from right sibling nodes that have been collected.
+   * The collection will continue with lower-priority gestures (left siblings and ancestors).
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  DISCARD_HIGHER = 2,
+
+  /**
+   * Discard gestures and events from the current node itself.
+   * The current node's gestures and events will be excluded from the gesture tree.
+   * Gestures from sibling nodes (both left and right) and ancestor nodes will still be collected.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  DISCARD_SELF = 3,
+
+  /**
+   * Discard gestures and events from left sibling nodes that are pending collection.
+   * Gestures and events from the current node and already collected right sibling nodes will be retained.
+   * The collection will continue with ancestor nodes.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  DISCARD_LOWER_PRIORITY_SIBLINGS = 4,
+}
+
+/**
+ * Define the type of raw input event.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare enum RawInputEventType {
+  /**
+   * Touch events.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  TOUCH = 0,
+
+  /**
+   * Mouse events.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  MOUSE = 1
+}
+
+/**
+ * Enumerates the component animation modes under the UI material effect.
+ *
+ * @enum { int }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare enum UIMaterialAnimationMode {
+  /**
+   * When the material is enabled for the component, the animation effect is automatically enabled.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  IMMERSIVE = 0,
+
+  /**
+   * Disable the animation effect.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  NONE = 1
+}

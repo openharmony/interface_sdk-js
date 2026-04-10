@@ -469,6 +469,7 @@ declare namespace print {
   interface PrintMargin {
     /**
      * Top margin.
+     * Unit: millimeter
      * @type { ?int }
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi
@@ -477,6 +478,7 @@ declare namespace print {
      */
     /**
      * Top margin.
+     * Unit: millimeter
      * @type { ?int }
      * @syscap SystemCapability.Print.PrintFramework
      * @since 24 dynamic&static
@@ -485,6 +487,7 @@ declare namespace print {
 
     /**
      * Bottom margin.
+     * Unit: millimeter
      * @type { ?int }
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi
@@ -493,6 +496,7 @@ declare namespace print {
      */
     /**
      * Bottom margin.
+     * Unit: millimeter
      * @type { ?int }
      * @syscap SystemCapability.Print.PrintFramework
      * @since 24 dynamic&static
@@ -501,6 +505,7 @@ declare namespace print {
 
     /**
      * Left margin.
+     * Unit: millimeter
      * @type { ?int }
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi
@@ -509,6 +514,7 @@ declare namespace print {
      */
     /**
      * Left margin.
+     * Unit: millimeter
      * @type { ?int }
      * @syscap SystemCapability.Print.PrintFramework
      * @since 24 dynamic&static
@@ -517,6 +523,7 @@ declare namespace print {
 
     /**
      * Right margin.
+     * Unit: millimeter
      * @type { ?int }
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi
@@ -525,6 +532,7 @@ declare namespace print {
      */
     /**
      * Right margin.
+     * Unit: millimeter
      * @type { ?int }
      * @syscap SystemCapability.Print.PrintFramework
      * @since 24 dynamic&static
@@ -677,6 +685,7 @@ declare namespace print {
 
     /**
      * Horizontal DPI.
+     * Unit: DPI
      * @type { int }
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi
@@ -685,6 +694,7 @@ declare namespace print {
      */
     /**
      * Horizontal DPI.
+     * Unit: DPI
      * @type { int }
      * @syscap SystemCapability.Print.PrintFramework
      * @since 24 dynamic&static
@@ -693,6 +703,7 @@ declare namespace print {
 
     /**
      * Vertical DPI.
+     * Unit: DPI
      * @type { int }
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi
@@ -701,6 +712,7 @@ declare namespace print {
      */
     /**
      * Vertical DPI.
+     * Unit: DPI
      * @type { int }
      * @syscap SystemCapability.Print.PrintFramework
      * @since 24 dynamic&static
@@ -4511,7 +4523,7 @@ declare namespace print {
 
   /**
    * Add a printer to system.
-   * @permission ohos.permission.MANAGE_PRINT_JOB
+   * @permission ohos.permission.MANAGE_PRINT_JOB or ohos.permission.PRINTER_DRIVER
    * @param { string } printerName - Indicates the printer name.
    *     <br>Name of the printer to be added.
    * @param { string } uri - Indicates the printer uri.

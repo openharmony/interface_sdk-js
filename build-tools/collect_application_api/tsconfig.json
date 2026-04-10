@@ -29,6 +29,7 @@
         "Counter",
         "DataPanel",
         "DatePicker",
+        "DepthComponent",
         "Divider",
         "Ellipse",
         "Flex",
@@ -223,6 +224,11 @@
             "name": "DatePicker",
             "type": "DatePickerAttribute",
             "instance": "DatePickerInstance"
+          },
+          {
+            "name": "DepthComponent",
+            "type": "DepthComponentAttribute",
+            "instance": "DepthComponentInstance"
           },
           {
             "name": "Divider",

@@ -46,7 +46,7 @@ export interface SegmentButtonV2ItemOptions {
 
     /**
      * Sets the image icon of the segmented button item.
-     * This field will be useless if the symbol field is sets.
+     * This field will be useless if the symbol field is set.
      * 
      * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -193,7 +193,7 @@ export declare class SegmentButtonV2Item {
 
     /**
      * Sets the image icon of the segmented button item.
-     * This field will be useless if the symbol field is sets.
+     * This field will be useless if the symbol field is set.
      * 
      * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -292,7 +292,7 @@ export declare class SegmentButtonV2Item {
     @Trace accessibilityLevel?: string;
 
     /**
-     * The constructor of SegmentedButtonItem
+     * The constructor of SegmentButtonV2Item
      * 
      * @param { SegmentedButtonItemOptions } options - the options of the segmented button item
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -326,7 +326,7 @@ export declare class SegmentButtonV2Item {
 @ObservedV2
 export declare class SegmentButtonV2Items extends Array<SegmentButtonV2Item> {
     /**
-     * The constructor of SegmentedButtonItems
+     * The constructor of SegmentButtonV2Item
      * 
      * @param { SegmentButtonV2ItemOptions[] } items - the options array of the segmented button items
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1293,7 +1293,7 @@ export declare struct CapsuleSegmentButtonV2 {
 /**
  * Defines the segmented button with capsule style.
  * 
- * @struct CapsuleSegmentButtonV2
+ * @struct MultiCapsuleSegmentButtonV2
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
@@ -1330,7 +1330,7 @@ export declare struct MultiCapsuleSegmentButtonV2 {
     readonly selectedIndexes: number[];
 
     /**
-     * Sets the callback function will be invoked when the selectedInexes field of the segmented button is changed.
+     * Sets the callback function will be invoked when the selectedIndexes field of the segmented button is changed.
      * 
      * @type { ?OnSelectedIndexesChange } OnSelectedIndexesChange
      * @readonly

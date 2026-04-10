@@ -21,6 +21,7 @@
 import type { AsyncCallback } from './@ohos.base';
 import type Want from './@ohos.app.ability.Want';
 import common from './@ohos.enterprise.common';
+import statistics from './@ohos.net.statistics';
 
 /**
  * This module provides the capability to manage the applications of the enterprise devices.
@@ -74,6 +75,78 @@ declare namespace applicationManager {
      * @since 24
      */
     ALLOW_SIDE_DOCK = 4
+  }
+
+  /**
+   * The application information in the Dock.
+   *
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 24
+   */
+  interface DockInfo {
+    /**
+     * The bundle name of the application.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 24
+     */
+    bundleName: string;
+
+    /**
+     * The ability name of the application.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 24
+     */
+    abilityName: string;
+
+    /**
+     * The index of the application in the Dock.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 24
+     */
+    index: number;
+  }
+
+  /**
+   * The bundle statistics information.
+   *
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  interface BundleStatsInfo {
+    /**
+     * The bundle name of the application.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    bundleName: string;
+
+    /**
+     * The index of the application.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    appIndex: number;
+
+    /**
+     * The total duration, in milliseconds.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    abilityInFgTotalTime: number;
   }
 
   /**
@@ -613,6 +686,26 @@ declare namespace applicationManager {
    * @stagemodelonly
    * @since 12
    */
+  /**
+   * Adds auto start applications.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *     The admin must have the corresponding permission.
+   * @param { Array<Want> } autoStartApps - autoStartApps indicates the information of auto start app ability.
+   *      Allows configuring whether the UI is hidden when the application auto-starts.
+   *     The bundleName and abilityName of the want cannot be non-exist.
+   *     The size of the array after setting cannot be greater than 10.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 24
+   */
   function addAutoStartApps(admin: Want, autoStartApps: Array<Want>): void;
 
   /**
@@ -634,6 +727,27 @@ declare namespace applicationManager {
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 20
+   */
+  /**
+   * Adds auto start applications which are not allowed to modify their auto start settings.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *     The admin must have the corresponding permission.
+   * @param { Array<Want> } autoStartApps - autoStartApps indicates the information of auto start app ability.
+   *      Allows configuring whether the UI is hidden when the application auto-starts.
+   *     The bundleName and abilityName of the want cannot be non-exist.
+   *     The size of the array after setting cannot be greater than 10.
+   * @param { number } accountId - accountId indicates the local ID of the OS account.
+   * @param { boolean } disallowModify - disallowModify specifies whether the applications are 
+   *     disallowed to modify their auto start setting.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. 
+   *     The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 24
    */
    function addAutoStartApps(admin: Want, autoStartApps: Array<Want>, accountId: number, disallowModify: boolean): void;
 
@@ -695,6 +809,23 @@ declare namespace applicationManager {
    * @stagemodelonly
    * @since 12
    */
+  /**
+   * Gets information of auto start applications.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *     The admin must have the corresponding permission.
+   * @returns { Array<Want> } the information with whether the UI is hidden of auto start applications.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 24
+   */
   function getAutoStartApps(admin: Want): Array<Want>;
 
   /**
@@ -712,6 +843,22 @@ declare namespace applicationManager {
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 20
+   */
+  /**
+   * Gets information of auto start applications.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *     The admin must have the corresponding permission.
+   * @param { number } accountId - accountId indicates the local ID of the OS account.
+   * @returns { Array<Want> } the information with whether the UI is hidden of auto start applications.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 24
    */
   function getAutoStartApps(admin: Want, accountId: number): Array<Want>;
 
@@ -1149,6 +1296,181 @@ declare namespace applicationManager {
    * @since 23
    */
   function isAbilityDisabled(admin: Want, bundleName: string, accountId: number, abilityName: string): boolean;
+
+  /**
+   * Adds an application to the Dock.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *     The admin must have the corresponding permission.
+   * @param { string } bundleName - bundleName indicates the bundle name of the application.
+   * @param { string } abilityName - abilityName indicates the ability name of the application.
+   * @param { number } [index] - index indicates the position of the application in the Dock.
+   *     <br>Value range:[0,100) Default value:99
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 9200015 - The ability does not exist.
+   * @throws { BusinessError } 9201013 - The number of applications in the Dock has reached the maximum.
+   * @throws { BusinessError } 9201014 - The application is already in the Dock.
+   * @throws { BusinessError } 9201015 - The application is not installed.
+   * @throws { BusinessError } 9201018 - The application is inoperable.
+   * @throws { BusinessError } 9201019 - The location is inoperable.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *     Failed to call the API due to limited device capabilities.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 24
+   */
+  function addDockApp(admin: Want, bundleName: string, abilityName: string, index?: number): void;
+
+  /**
+   * Removes an application from the Dock.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *     The admin must have the corresponding permission.
+   * @param { string } bundleName - bundleName indicates the bundle name of the application.
+   * @param { string } abilityName - abilityName indicates the ability name of the application.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9201016 - The application has not been added to the Dock.
+   * @throws { BusinessError } 9201018 - The application is inoperable.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *     Failed to call the API due to limited device capabilities.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 24
+   */
+  function removeDockApp(admin: Want, bundleName: string, abilityName: string): void;
+
+  /**
+   * Gets the applications in the Dock.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *     The admin must have the corresponding permission.
+   * @returns { Array<DockInfo> } returns the information of applications in the Dock.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *     Failed to call the API due to limited device capabilities.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 24
+   */
+  function getDockApps(admin: Want): Array<DockInfo>;
+
+  /**
+   * Adds applications that are allowed to send notifications.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   * @param { Array<string> } bundleNames - bundleName indicates the list of bundle names of the applications.
+   * @param { number } accountId - accountId indicates the ID of OS account.
+   *   <br>Value range:[0, +∞]
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200010 - A conflict policy has been configured.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function addAllowedNotificationBundles(admin: Want, bundleNames: Array<string>, accountId: number): void;
+
+  /**
+   * Removes applications that are allowed to send notifications.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   * @param { Array<string> } bundleNames - bundleName indicates the list of bundle names of the applications.
+   * @param { number } accountId - accountId indicates the ID of OS account.
+   *   <br>Value range:[0, +∞]
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function removeAllowedNotificationBundles(admin: Want, bundleNames: Array<string>, accountId: number): void;
+
+  /**
+   * Gets applications that are allowed to send notifications.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   * @param { number } accountId - accountId indicates the ID of OS account.
+   *   <br>Value range:[0, +∞]
+   * @returns { Array<string> } return the list of bundle names of the applications.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function getAllowedNotificationBundles(admin: Want | null, accountId: number): Array<string>;
+
+  /**
+   * Queries bundle statistics information of applications.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   * @param { number } startTime - startTime indicates the start time of the query period, in milliseconds.
+   *   <br>Value range:[0, +∞)
+   *   <br>Unit: ms
+   * @param { number } endTime - endTime indicates the end time of the query period, in milliseconds.
+   *   <br>Value range:[0, +∞)
+   *   <br>Unit: ms
+   * @param { number } accountId - accountId indicates the ID of OS account.
+   *   <br>Value range:[0, +∞)
+   * @returns { Array<BundleStatsInfo> } return the bundle statistics information of the applications.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function queryBundleStatsInfos(admin: Want, startTime: number, endTime: number, accountId: number): Array<BundleStatsInfo>;
+
+  /**
+   * Queries usage statistics of application traffic.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   * @param { string } bundleName - bundleName indicates the bundle name of application to be queried.
+   * @param { number } appIndex - appIndex indicates the index of the bundle.
+   * @param { number } accountId - accountId indicates the local ID of the OS account.
+   *   <br>Value range:[0, +∞)
+   * @param { statistics.NetworkInfo } networkInfo - networkInfo indicates the network information.
+   * @returns { Promise<statistics.NetStatsInfo> } return the detailed network statistics information.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function queryTrafficStats(admin: Want, bundleName: string, appIndex: number, accountId: number, networkInfo: statistics.NetworkInfo): Promise<statistics.NetStatsInfo>;
 }
 
 export default applicationManager;

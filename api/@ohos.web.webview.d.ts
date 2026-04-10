@@ -681,7 +681,7 @@ declare namespace webview {
    */
   interface PdfConfiguration {
     /**
-     * Number of the width.
+     * Number of the width. Unit: in.
      *
      * @type { number }
      * @syscap SystemCapability.Web.Webview.Core
@@ -691,7 +691,7 @@ declare namespace webview {
     width: number;
 
     /**
-     * Number of the height.
+     * Number of the height. Unit: in.
      *
      * @type { number }
      * @syscap SystemCapability.Web.Webview.Core
@@ -701,7 +701,7 @@ declare namespace webview {
     height: number;
 
     /**
-     * Number of the marginTop.
+     * Number of the marginTop. Unit: in.
      *
      * @type { number }
      * @syscap SystemCapability.Web.Webview.Core
@@ -711,7 +711,7 @@ declare namespace webview {
     marginTop: number;
 
     /**
-     * Number of the marginBottom.
+     * Number of the marginBottom. Unit: in.
      *
      * @type { number }
      * @syscap SystemCapability.Web.Webview.Core
@@ -721,7 +721,7 @@ declare namespace webview {
     marginBottom: number;
 
     /**
-     * Number of the marginRight.
+     * Number of the marginRight. Unit: in.
      *
      * @type { number }
      * @syscap SystemCapability.Web.Webview.Core
@@ -731,7 +731,7 @@ declare namespace webview {
     marginRight: number;
 
     /**
-     * Number of the marginLeft.
+     * Number of the marginLeft. Unit: in.
      *
      * @type { number }
      * @syscap SystemCapability.Web.Webview.Core
@@ -825,7 +825,7 @@ declare namespace webview {
      * @since 9
      */
     /**
-     * Specify the amount of storage for the source.
+     * Specify the amount of storage for the source. Unit: byte.
      *
      * @type { number }
      * @syscap SystemCapability.Web.Webview.Core
@@ -833,7 +833,7 @@ declare namespace webview {
      * @since 11
      */
 	/**
-     * Specify the amount of storage for the source.
+     * Specify the amount of storage for the source. Unit: byte.
      *
      * @type { number }
      * @syscap SystemCapability.Web.Webview.Core
@@ -849,7 +849,7 @@ declare namespace webview {
      * @since 9
      */
     /**
-     * the callback of getOriginUsage.
+     * the callback of getOriginUsage. Unit: byte.
      *
      * @type { number }
      * @syscap SystemCapability.Web.Webview.Core
@@ -857,7 +857,7 @@ declare namespace webview {
      * @since 11
      */
 	/**
-     * the callback of getOriginUsage.
+     * the callback of getOriginUsage. Unit: byte.
      *
      * @type { number }
      * @syscap SystemCapability.Web.Webview.Core
@@ -919,7 +919,7 @@ declare namespace webview {
      * The horizontal scroll offset of the web page. The value is the difference between
      * the x-coordinate of the left border of the web page and the x-coordinate of the
      * left border of the Web component. When the web page scrolls to the right,
-     * the value range is negative. 
+     * the value range is negative.
      * When the web page is not over-scrolled or the web page is over-scrolled to the left,
      * the value is 0 or a positive value. Unit: vp.
      *
@@ -931,8 +931,8 @@ declare namespace webview {
     x: number;
 
     /**
-     * The vertical scroll offset of the web page. The value is the difference between 
-     * the y-coordinate of the upper border of the web page and the y-coordinate of the 
+     * The vertical scroll offset of the web page. The value is the difference between
+     * the y-coordinate of the upper border of the web page and the y-coordinate of the
      * upper boundary of the Web component. When the web page is scrolled down,
      * the value range is negative.
      * When the web page is not over-scrolled or the web page is over-scrolled to the up,
@@ -1132,7 +1132,7 @@ declare namespace webview {
     /**
      * Get the web storage quota with the origin.
      * @param { string } origin -  The origin which to be inquired.
-     * @returns { Promise<number> } - the promise returned by the function
+     * @returns { Promise<number> } - the promise returned by the function. Unit: byte.
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100011 - Invalid origin.
      * @syscap SystemCapability.Web.Webview.Core
@@ -1141,7 +1141,7 @@ declare namespace webview {
     /**
      * Get the web storage quota with the origin.
      * @param { string } origin -  The origin which to be inquired.
-     * @returns { Promise<number> } - the promise returned by the function
+     * @returns { Promise<number> } - the promise returned by the function. Unit: byte.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100011 - Invalid origin.
@@ -1152,7 +1152,7 @@ declare namespace webview {
     /**
      * Get the web storage quota with the origin.
      * @param { string } origin -  The origin which to be inquired.
-     * @returns { Promise<number> } - the promise returned by the function
+     * @returns { Promise<number> } - the promise returned by the function. Unit: byte.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100011 - Invalid origin.
@@ -1167,7 +1167,7 @@ declare namespace webview {
     /**
      * Get the web storage quota with the origin.
      * @param { string } origin -  The origin which to be inquired.
-     * @param { AsyncCallback<number> } callback - the callback of getOriginQuota.
+     * @param { AsyncCallback<number> } callback - the callback of getOriginQuota. Unit: byte.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100011 - Invalid origin.
@@ -1177,7 +1177,7 @@ declare namespace webview {
     /**
      * Get the web storage quota with the origin.
      * @param { string } origin -  The origin which to be inquired.
-     * @param { AsyncCallback<number> } callback - the callback of getOriginQuota.
+     * @param { AsyncCallback<number> } callback - the callback of getOriginQuota. Unit: byte.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100011 - Invalid origin.
@@ -1188,7 +1188,7 @@ declare namespace webview {
     /**
      * Get the web storage quota with the origin.
      * @param { string } origin -  The origin which to be inquired.
-     * @param { AsyncCallback<number> } callback - the callback of getOriginQuota.
+     * @param { AsyncCallback<number> } callback - the callback of getOriginQuota. Unit: byte.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100011 - Invalid origin.
@@ -1203,7 +1203,7 @@ declare namespace webview {
     /**
      * Get the web amount of storage with the origin.
      * @param { string } origin -  The origin which to be inquired.
-     * @returns { Promise<number> } - the promise returned by the function
+     * @returns { Promise<number> } - the promise returned by the function. Unit: byte.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100011 - Invalid origin.
@@ -1213,7 +1213,7 @@ declare namespace webview {
     /**
      * Get the web amount of storage with the origin.
      * @param { string } origin -  The origin which to be inquired.
-     * @returns { Promise<number> } - the promise returned by the function
+     * @returns { Promise<number> } - the promise returned by the function. Unit: byte.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100011 - Invalid origin.
@@ -1224,7 +1224,7 @@ declare namespace webview {
     /**
      * Get the web amount of storage with the origin.
      * @param { string } origin -  The origin which to be inquired.
-     * @returns { Promise<number> } - the promise returned by the function
+     * @returns { Promise<number> } - the promise returned by the function. Unit: byte.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100011 - Invalid origin.
@@ -1239,7 +1239,7 @@ declare namespace webview {
     /**
      * Get the web amount of storage with the origin.
      * @param { string } origin -  The origin which to be inquired.
-     * @param { AsyncCallback<number> } callback - the callback of getOriginUsage.
+     * @param { AsyncCallback<number> } callback - the callback of getOriginUsage. Unit: byte.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100011 - Invalid origin.
@@ -1249,7 +1249,7 @@ declare namespace webview {
     /**
      * Get the web amount of storage with the origin.
      * @param { string } origin -  The origin which to be inquired.
-     * @param { AsyncCallback<number> } callback - the callback of getOriginUsage.
+     * @param { AsyncCallback<number> } callback - the callback of getOriginUsage. Unit: byte.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100011 - Invalid origin.
@@ -1260,7 +1260,7 @@ declare namespace webview {
     /**
      * Get the web amount of storage with the origin.
      * @param { string } origin -  The origin which to be inquired.
-     * @param { AsyncCallback<number> } callback - the callback of getOriginUsage.
+     * @param { AsyncCallback<number> } callback - the callback of getOriginUsage. Unit: byte.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100011 - Invalid origin.
@@ -3782,7 +3782,7 @@ declare namespace webview {
      * @since 22 dynamic
      */
     DEFAULT = 0,
- 
+
     /**
      * Soft keyboard will not be hidden or shown automatically when web comes into pause/continue state
      * @syscap SystemCapability.Web.Webview.Core
@@ -3871,6 +3871,8 @@ declare namespace webview {
      * Time when a frame is interpolated or removed.
      *
      * Device behavior differences: Only the mobile phone is supported. For other devices, 801 is returned.
+     * The value must be an integer.
+     * <br>Unit: ms.
      *
      * @type { number }
      * @syscap SystemCapability.Web.Webview.Core
@@ -3917,10 +3919,12 @@ declare namespace webview {
     enable: boolean;
 
     /**
-     * Duration of the frame interpolation, in ms.
+     * Duration of the frame interpolation.
      * The valid range is the union of {0} and [200, 2000].
      *
      * Device behavior differences: Only the mobile phone is supported. For other devices, 801 is returned.
+     * The value must be an integer.
+     * <br>Unit: ms.
      *
      * @type { ?number }
      * @syscap SystemCapability.Web.Webview.Core
@@ -3935,7 +3939,7 @@ declare namespace webview {
      * {0}. 0 indicates that the expiration time is not specified and the default expiration time (7 days) is used.
      *
      * Device behavior differences: Only the mobile phone is supported. For other devices, 801 is returned.
-     *
+     * 
      * @type { ?number }
      * @syscap SystemCapability.Web.Webview.Core
      * @stagemodelonly
@@ -3955,6 +3959,72 @@ declare namespace webview {
      * @since 23 dynamic
      */
     callback?: Callback<BlanklessFrameInterpolationInfo>;
+  }
+
+  /**
+   * Defines the parameters for enableAdvancedSecurityMode.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  interface SecurityParams {  
+    /**
+     * Decide whether JIT is disabled, the default value is false.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     */
+    disableJITCompilation?: boolean;
+    /**
+     * Decide whether WASM is disabled, the default value is false.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     */
+    disableWebAssembly?: boolean;
+    /**
+     * Decide whether WebGL is disabled, the default value is false.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     */
+    disableWebGL?: boolean;
+    /**
+     * Decide whether PDFViewer is disabled, the default value is false.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     */
+    disablePDFViewer?: boolean;
+    /**
+     * Decide whether MathML is disabled, the default value is false.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     */
+    disableMathML?: boolean;
+    /**
+     * Decide whether ServiceWorker is disabled, the default value is false.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     */
+    disableServiceWorker?: boolean;
+    /**
+     * Decide whether NonProxyUDP is disabled, the default value is false.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     */
+    disableNonProxyUDP?: boolean;
   }
 
   /**
@@ -5732,8 +5802,8 @@ declare namespace webview {
     /**
      * Slide by the speed.
      *
-     * @param { number } vx - the x speed of the speed.
-     * @param { number } vy - the y speed of the speed.
+     * @param { number } vx - the x speed of the speed. The unit is vp/s.
+     * @param { number } vy - the y speed of the speed. The unit is vp/s.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100001 - Init error.
@@ -6055,7 +6125,7 @@ declare namespace webview {
     getCustomUserAgent(): string;
 
     /**
-     * Set web engine socket connection timeout.
+     * Set web engine socket connection timeout. Unit: seconds.
      * @param { number } timeout - Socket connection timeout.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3. Parameter verification failed.
@@ -7013,8 +7083,8 @@ declare namespace webview {
     /**
      * Scrolls by the specified delta position and returns a result indicating whether the scrolling operation was successful or not.
      *
-     * @param { number } deltaX - the delta x of the position.
-     * @param { number } deltaY - the delta y of the position.
+     * @param { number } deltaX - the delta x of the position. The unit is vp.
+     * @param { number } deltaY - the delta y of the position. The unit is vp.
      * @returns { boolean } true if the scroll operation is successful, otherwise false.
      * Return value scenario: when the Web page is in the touch state, return false, otherwise return true.
      * In the same layer rendering scene, when the same layer rendering area of ​​the Web is in the touching state, the return value is true.
@@ -7115,16 +7185,16 @@ declare namespace webview {
      * This User-Agent metadata will be used to populate the User-Agent client hints, They can provide the client's
      * branding and version information, the underlying  operating system's branding and major version, as well as
      * details about the underlying device.
-     * 
+     *
      * The User-Agent can be set with setCustomUserAgent or setAppCustomUserAgent or setUserAgentForHosts.
-     * 
+     *
      * If the UserAgentMetadata is not found according to the overridden User-Agent and the overridden User-Agent
      * contains the system default User-Agent, the system default value will be used.
      *
      * If the UserAgentMetadata is not found according to the overridden User-Agent but the overridden User-Agent
      * does not contain the system default User-Agent, only the low-entry User-Agent client hints will be generated.
      * </p>
-     * 
+     *
      * @param { string } userAgent - The User-Agent string.
      * @param { UserAgentMetadata } metaData - The UserAgentMetadata for the userAgent.
      * @syscap SystemCapability.Web.Webview.Core
@@ -7216,9 +7286,10 @@ declare namespace webview {
      * <br>In this case, the keyboardAvoidMode will be OVERLAYS_CONTENT.
      * When setting zero, web page content can be restored and the keyboardAvoidMode will be the value set by keyboardAvoidMode().
      *
-     * @param { number } avoidHeight - the height value of the visible viewport avoidance. Unit: vp.
-     * <br>The valid interval of avoidHeight is [0, the height of web component].
-     * <br>When avoidHeight is out of the valid interval, it takes the boundary value of the interval.
+     * @param { number } avoidHeight - the height value of the visible viewport avoidance.
+     *     The valid interval of avoidHeight is [0, the height of web component].
+     *     When avoidHeight is out of the valid interval, it takes the boundary value of the interval.
+     *     <br>Unit: vp.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -7435,7 +7506,7 @@ declare namespace webview {
     /**
      * Set the WebSoftKeyboardBehaviorMode to decide whether the keyboard will be shown/hidden automatically
      * in particular situation, for example, when web is inactive or active.
-     * 
+     *
      * @param { WebSoftKeyboardBehaviorMode } mode - The WebSoftKeyboardBehaviorMode of this web.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
@@ -7453,6 +7524,16 @@ declare namespace webview {
      * @since 23 dynamic
      */
     static setScrollbarMode(scrollbarMode: ScrollbarMode): void;
+
+    /**
+     * Enable the application disable some features such as PDFViewer to enhance the security level of web application
+     *
+     * @param { SecurityParams } securityParams - The parameters means which supported option or item will be disabled.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     */
+    static enableAdvancedSecurityMode(securityParams: SecurityParams): void;
 
     /**
      * Resume current microphone.
@@ -8147,6 +8228,26 @@ declare namespace webview {
     getFullPath(): string;
 
     /**
+     * Get the original url of the web download.
+     *
+     * @returns { string } - Returns the original url of the download.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 24 dynamic
+     */
+    getOriginalUrl(): string;
+
+    /**
+     * Get the referrer url of the web download.
+     *
+     * @returns { string } - Returns the referrer url of the download.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 24 dynamic
+     */
+    getReferrerUrl(): string;
+
+    /**
      * Serialize web download to typed array.
      * @returns { Uint8Array } - Returns the serialized data.
      * @syscap SystemCapability.Web.Webview.Core
@@ -8312,7 +8413,7 @@ declare namespace webview {
      */
     initialize(): Promise<void>;
     /**
-     * Read the data stream to the buffer.
+     * Read the data stream to the buffer. Unit: bytes.
      *
      * @param { number } size - Read size.
      * @returns { Promise<ArrayBuffer> } Read array buffer of result.
@@ -8324,7 +8425,7 @@ declare namespace webview {
      */
     read(size: number): Promise<ArrayBuffer>;
     /**
-     * Get the total size of the data stream. When data is chunked, always return zero.
+     * Get the total size of the data stream. When data is chunked, always return zero. Unit: bytes.
      *
      * @returns { number } Return size of data stream size.
      * @syscap SystemCapability.Web.Webview.Core
@@ -8333,7 +8434,7 @@ declare namespace webview {
      */
     getSize(): number;
     /**
-     * Get the current position of the data stream.
+     * Get the current position of the data stream. Unit: bytes.
      *
      * @returns { number } Return position in post data stream.
      * @syscap SystemCapability.Web.Webview.Core
@@ -10160,7 +10261,7 @@ declare namespace webview {
 
     /**
      * Set the lifetime in seconds in the BackForwardCache.
-     * Default is 600.
+     * Unit: seconds. Default is 600.
      *
      * @type { number }
      * @syscap SystemCapability.Web.Webview.Core
@@ -10186,7 +10287,7 @@ declare namespace webview {
     /**
      * ‌Set prefetch page interval limit.
      * <p><strong>API Note</strong>:<br>
-     * Default 500ms (ensures only one successful prefetch within 500ms).
+     * The value should be an integer.Unit: ms. Default 500ms (ensures only one successful prefetch within 500ms).
      * The interval throttles prefetch frequency to balance performance and resource usage.
      *
      * @type { number }
@@ -10710,7 +10811,7 @@ declare namespace webview {
      * @since 23 dynamic
      */
     NONE = 0,
-    
+
     /**
      * Allow specific cross-site requests to carry cookies.
      *
@@ -10718,7 +10819,7 @@ declare namespace webview {
      * @since 23 dynamic
      */
     LAX = 1,
-    
+
     /**
      * Prohibit cross-site requests from carrying cookies.
      *
@@ -10736,7 +10837,7 @@ declare namespace webview {
    * @stagemodelonly
    * @since 24 dynamic
    */
-  enum UserAgentFormFactor {  
+  enum UserAgentFormFactor {
     /**
      * Form factor option: Automotive.
      *
@@ -11109,7 +11210,7 @@ declare namespace webview {
      */
     getWow64(): boolean;
   }
-  
+
   /**
    * Defines the Web's HTTPCookie.
    * <p><strong>API Note</strong>:<br>
@@ -11129,7 +11230,7 @@ declare namespace webview {
      * @since 23 dynamic
      */
     samesitePolicy: WebHttpCookieSameSitePolicy;
-    
+
     /**
      * Gets the cookie's expiration date.
      *
@@ -11138,7 +11239,7 @@ declare namespace webview {
      * @since 23 dynamic
      */
     expiresDate: string;
-    
+
     /**
      * Gets the cookie's name.
      *
@@ -11147,7 +11248,7 @@ declare namespace webview {
      * @since 23 dynamic
      */
     name: string;
-    
+
     /**
      * Gets if the cookie is session cookie.
      *
@@ -11156,7 +11257,7 @@ declare namespace webview {
      * @since 23 dynamic
      */
     isSessionCookie: boolean;
-    
+
     /**
      * Gets the cookie's value.
      *
@@ -11165,7 +11266,7 @@ declare namespace webview {
      * @since 23 dynamic
      */
     value: string;
-    
+
     /**
      * Gets the cookie's path.
      *
@@ -11174,7 +11275,7 @@ declare namespace webview {
      * @since 23 dynamic
      */
     path: string;
-    
+
     /**
      * Gets whether the current cookie is marked as HttpOnly.
      *
@@ -11183,7 +11284,7 @@ declare namespace webview {
      * @since 23 dynamic
      */
     isHttpOnly: boolean;
-    
+
     /**
      * Gets whether the current cookie is marked as Secure.
      *
@@ -11192,7 +11293,7 @@ declare namespace webview {
      * @since 23 dynamic
      */
     isSecure: boolean;
-    
+
     /**
      * Gets the domain of the cookie.
      *

@@ -240,7 +240,7 @@ declare namespace linkEnhance {
   }
 
   /**
-   * Create an server instance.
+   * Create a server instance.
    *
    * @permission ohos.permission.DISTRIBUTED_DATASYNC
    * @param { string } name - Name of the server.
@@ -257,7 +257,7 @@ declare namespace linkEnhance {
 
   /**
    * Manages connection.
-   * Before calling any connection methods, you must use {@link createServer} to create an instance,
+   * Before calling any connection methods, you must use {@link createConnection} to create an instance,
    * or get a connection from {@link acceptConnect} of server.
    *
    * @typedef Connection
@@ -341,7 +341,7 @@ declare namespace linkEnhance {
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { 'connectResult' } type - Type of result event to listen for.
-     * @param { Callback<ConnectResult> } callback - Callback used to listen for result  event.
+     * @param { Callback<ConnectResult> } callback - Callback used to listen for result event.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 32390206 - Invalid parameter.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
@@ -355,7 +355,7 @@ declare namespace linkEnhance {
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { 'connectResult' } type - Type of result event to listen for.
-     * @param { Callback<ConnectResult> } callback - Callback used to listen for result  event.
+     * @param { Callback<ConnectResult> } callback - Callback used to listen for result event.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 32390206 - Invalid parameter.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
@@ -368,7 +368,7 @@ declare namespace linkEnhance {
      * Subscribe connect result event.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { Callback<ConnectResult> } callback - Callback used to listen for result  event.
+     * @param { Callback<ConnectResult> } callback - Callback used to listen for result event.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 32390206 - Invalid parameter.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
@@ -381,7 +381,7 @@ declare namespace linkEnhance {
      * Unsubscribe connect result event.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { Callback<ConnectResult> } [callback] - Callback used to listen for result  event.
+     * @param { Callback<ConnectResult> } [callback] - Callback used to listen for result event.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 32390206 - Invalid parameter.
      * @syscap SystemCapability.DistributedSched.AppCollaboration

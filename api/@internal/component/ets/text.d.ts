@@ -1411,6 +1411,20 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   onCopy(callback: (value: string) => void): TextAttribute;
 
   /**
+   * Called before using the Clipboard copy menu.
+   * Currently, only text can be copied.
+   *
+   * @param { Callback<string, boolean> } callback - Callback used to check whether copy is allowed.
+   * @returns { TextAttribute } The attribute of the text.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  onWillCopy(callback: Callback<string, boolean>): TextAttribute;
+
+  /**
    * Text selection is achieved by specifying the start and end positions of the text.
    *
    * <p><strong>NOTE</strong>:
@@ -1857,6 +1871,19 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @since 23 dynamic
    */
   textDirection(direction: TextDirection | undefined): TextAttribute;
+
+  /**
+   * Whether to avoid an orphan word on the last line of the paragraph.
+   *
+   * @param { Optional<boolean> } enabled - The default value is false,
+   *     indicates the flag whether to enable this feature.
+   * @returns { TextAttribute } returns the instance of the TextAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  orphanCharOptimization(enabled: Optional<boolean>): TextAttribute;
 }
 
 /**
@@ -2148,17 +2175,6 @@ declare enum MarqueeState {
    * @since 18 dynamic
    */
   FINISH = 2,
-
-  /**
-   * The marquee is stoped.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
-   */
-  STOP = 3,
 }
 
 /**

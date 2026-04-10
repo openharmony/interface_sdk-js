@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2025-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -27,6 +27,17 @@
  * @stagemodelonly
  * @form
  * @since 23 dynamic
+ */
+/**
+ * Define the namespace for uiMaterial, which contains the definitions of HarmonyOS-style material objects.
+ *
+ * @namespace uiMaterial
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 26.0.0 dynamic
  */
 declare namespace uiMaterial {
   /**
@@ -63,6 +74,156 @@ declare namespace uiMaterial {
   }
 
   /**
+   * The enumeration of material styles. Different material styles have different thicknesses.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  enum ImmersiveStyle {
+    /**
+     * Ultra thin style. The material layer is ultra thin, with a very strong transparency effect.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    ULTRA_THIN = 0,
+    /**
+     * Thin style. The material layer is thin, with a strong transparency effect.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    THIN = 1,
+    /**
+     * Regular style. The material layer is regular.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    REGULAR = 2,
+    /**
+     * Thick style. The blur effect is strong.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    THICK = 3,
+    /**
+     * Ultra thick style.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    ULTRA_THICK = 4,
+  }
+
+  /**
+   * The parameters of immersive material.
+   *
+   * @interface
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+  */
+  interface ImmersiveOptions {
+    /**
+     * The style of the material. Different styles correspond to different material parameters, which affect the
+     * thickness of the material.
+     *
+     * @default uiMaterial.MaterialStyle.REGULAR
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    style?: ImmersiveStyle,
+    /**
+     * The extra color of material level. This parameter will add a specified color effect to the material.
+     *
+     * @type { ?ResourceColor }
+     * @default Color.Transparent
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    materialColor?: ResourceColor,
+    /**
+     * It determines whether the child tree of a node that has a material object set automatically adapts the material
+     * to the background color. If it is false, the color will not be automatically inverted. If it is true, the color
+     * will be automatically inverted only when other conditions are met, for example, the material style is THIN or
+     * ULTRA_THIN.
+     *
+     * @type { ?boolean }
+     * @default false
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    colorInvert?: boolean,
+    /**
+     * It determines whether to add shadows of the material effect.
+     *
+     * @type { ?boolean }
+     * @default true
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    applyShadow?: boolean,
+    /**
+     * It determines whether enable the spatial animation related to the material effect.
+     *
+     * @type { ?boolean }
+     * @default true
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    enableAnimation?: boolean,
+    /**
+     * Whether the material supports interactive.
+     *
+     * @type { ?boolean }
+     * @default true
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    interactive?: boolean,
+  }
+ 	
+  /**
    * Define the interface containing various material parameters.
    *
    * @interface MaterialOptions
@@ -96,6 +257,16 @@ declare namespace uiMaterial {
    * @form
    * @since 23 dynamic
    */
+  /**
+   * Define the class of material.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
   class Material {
     /**
      * Constructor of material class.
@@ -110,6 +281,30 @@ declare namespace uiMaterial {
      */
     constructor(options?: MaterialOptions);
   }
+
+  /**
+   * Define the class of immersive material.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  class ImmersiveMaterial extends Material {
+    /**
+     * Constructor of ImmersiveMaterial class
+     *
+     * @param { ImmersiveOptions } [options] - the options to construct an immersive material.
+     *     If this parameter is left blank. the default ImmersiveOptions is used.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    constructor(options?: ImmersiveOptions)
+  }  
 }
 
 /**
@@ -120,5 +315,15 @@ declare namespace uiMaterial {
  * @stagemodelonly
  * @form
  * @since 23 dynamic
+ */
+/**
+ * export uiMaterial namespace.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 26 dynamic
  */
 export default uiMaterial;

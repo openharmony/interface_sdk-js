@@ -86,7 +86,7 @@ declare namespace batteryInfo {
   function isBatteryConfigSupported(sceneName: string): boolean;
 
   /**
-   * Battery state of charge (SoC) of the current device, in percent.
+   * Battery state of charge (SoC) of the current device in percent, which ranges from 0 to 100.
    *
    * @constant
    * @syscap SystemCapability.PowerManager.BatteryManager.Core

@@ -1032,9 +1032,9 @@ declare namespace commonEventManager {
 
     /**
      * Remind new user of that the service has been switched to new user.
+     * This API can be called only by system applications.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * This API can be called only by system applications.
      * @since 9 dynamic
      * @since 23 static
      */
@@ -1042,9 +1042,9 @@ declare namespace commonEventManager {
 
     /**
      * Remind new user of that the service has been starting.
+     * This API can be called only by system applications.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * This API can be called only by system applications.
      * @since 9 dynamic
      * @since 23 static
      */
@@ -1083,9 +1083,9 @@ declare namespace commonEventManager {
 
     /**
      * Remind new user of that the service has been stopping.
+     * This API can be called only by system applications.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * This API can be called only by system applications.
      * @since 9 dynamic
      * @since 23 static
      */
@@ -1770,9 +1770,9 @@ declare namespace commonEventManager {
 
     /**
      * User added.
+     * This API can be called only by system applications.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * This API can be called only by system applications.
      * @since 9 dynamic
      * @since 23 static
      */
@@ -1780,9 +1780,9 @@ declare namespace commonEventManager {
 
     /**
      * User removed.
+     * This API can be called only by system applications.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * This API can be called only by system applications.
      * @since 9 dynamic
      * @since 23 static
      */
@@ -2124,9 +2124,9 @@ declare namespace commonEventManager {
     /**
      * Account was deleted.
      * This is a protected common event that can only be sent by system.
+     * This API can be called only by system applications.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * This API can be called only by system applications.
      * @since 9 dynamic
      * @since 23 static
      */
@@ -2141,6 +2141,18 @@ declare namespace commonEventManager {
      * @since 23 static
      */
     COMMON_EVENT_FOUNDATION_READY = 'common.event.FOUNDATION_READY',
+
+    /**
+     * Indicates that a common event is published when the application is launched for the first time after installation.
+     * This common event is published when the UIAbility is started for the first time after installation.
+     * This is a protected common event, which can be sent only by the system.
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    COMMON_EVENT_APP_FIRST_LAUNCH = 'usual.event.APP_FIRST_LAUNCH',
 
     /**
      * Indicates the common event Action indicating that the airplane mode status of the device changes.
@@ -2719,7 +2731,7 @@ declare namespace commonEventManager {
      * @since 24 dynamic&static
      */
     COMMON_EVENT_BLUETOOTH_A2DPSOURCE_PLAY_STATE_CHANGE =
-        "usual.event.bluetooth.a2dpsource.PLAY_STATE_CHANGE",
+        'usual.event.bluetooth.a2dpsource.PLAY_STATE_CHANGE',
 
     /**
      * Indicates the action of a common event that bluetooth remote device sco state change.
@@ -2730,7 +2742,7 @@ declare namespace commonEventManager {
      * @since 24 dynamic&static
      */
     COMMON_EVENT_BLUETOOTH_SCO_CONNECT_STATE_CHANGE = 
-        "usual.event.bluetooth.SCO_CONNECT_STATE_CHANGE",
+        'usual.event.bluetooth.SCO_CONNECT_STATE_CHANGE',
 
     /**
      * Indicates the action of a common event that bluetooth remote device acl state change.

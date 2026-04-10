@@ -283,7 +283,7 @@ declare namespace AbilityConstant {
     exitMsg: string;
 
     /**
-     * RSS value of the process.
+     * RSS value of the process, in KB.
      *
      * @type { int }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -295,7 +295,7 @@ declare namespace AbilityConstant {
     rss: int;
 
     /**
-     * PSS value of the process.
+     * PSS value of the process, in KB.
      *
      * @type { int }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core

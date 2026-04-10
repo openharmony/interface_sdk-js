@@ -359,7 +359,167 @@ declare namespace cert {
      * @since 18 dynamic
      * @since 23 static
      */
-    ERR_MAYBE_WRONG_PASSWORD = 19030008
+    ERR_MAYBE_WRONG_PASSWORD = 19030008,
+
+    /**
+     * Untrusted certificate.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    ERR_CERT_UNTRUSTED = 19030009,
+
+    /**
+     * The certificate has been revoked.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    ERR_CERT_HAS_REVOKED = 19030010,
+
+    /**
+     * Unsupported critical extension.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    ERR_UNKNOWN_CRITICAL_EXTENSION = 19030011,
+
+    /**
+     * Host name mismatch in the certificate.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    ERR_CERT_HOSTNAME_MISMATCH = 19030012,
+
+    /**
+     * Email address mismatch in the certificate.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    ERR_CERT_EMAIL_ADDRESS_MISMATCH = 19030013,
+
+    /**
+     * Key usage mismatch in the certificate.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    ERR_CERT_KEYUSAGE_MISMATCH = 19030014,
+
+    /**
+     * Failed to obtain the certificate revocation list.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    ERR_CRL_NOT_FOUND = 19030015,
+
+    /**
+     * The certificate revocation list does not take effect.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    ERR_CRL_NOT_YET_VALID = 19030016,
+
+    /**
+     * The certificate revocation list has expired.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    ERR_CRL_HAS_EXPIRED = 19030017,
+
+    /**
+     * Failed to verify the signature of certificate revocation list.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    ERR_CRL_SIGNATURE_FAILURE = 19030018,
+
+    /**
+     * Failed to obtain the issuer of certificate revocation list.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    ERR_CRL_ISSUER_NOT_FOUND = 19030019,
+
+    /**
+     * Failed to obtain the OCSP response.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    ERR_OCSP_RESPONSE_NOT_FOUND = 19030020,
+
+    /**
+     * Invalid OCSP response.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    ERR_OCSP_RESPONSE_INVALID = 19030021,
+
+    /**
+     * Failed to verify the OCSP signature.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    ERR_OCSP_SIGNATURE_FAILURE = 19030022,
+
+    /**
+     * Unknown OCSP certificate status.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    ERR_OCSP_CERT_STATUS_UNKNOWN = 19030023,
+
+    /**
+     * Network connection timed out.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    ERR_NETWORK_TIMEOUT = 19030024,
   }
 
   /**
@@ -4096,6 +4256,414 @@ declare namespace cert {
   function createX509CRL(inStream: EncodingBlob): Promise<X509CRL>;
 
   /**
+   * Enumerates the certificate revocation flag.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Security.Cert
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  enum CertRevocationFlag {
+    /**
+     * Whether to prefer OCSP over CRL to check the certificate revocation status.
+     *
+     * **NOTE**
+     * - By default, if both CERT_REVOCATION_CRL_CHECK and CERT_REVOCATION_OCSP_CHECK are set, CRL is used first to
+     * check the certificate revocation status. If the CRL cannot be obtained, OCSP is then used to check the
+     * certificate revocation status.
+     * - If CERT_REVOCATION_PREFER_OCSP is set, OCSP is used first to check the certificate revocation status.
+     * If OCSP cannot be obtained, CRL is then used to check the certificate revocation status.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    CERT_REVOCATION_PREFER_OCSP = 0,
+
+    /**
+     * Uses CRL to check the certificate revocation status.
+     *
+     * **NOTE**
+     * - If CERT_REVOCATION_CRL_CHECK is set and CERT_REVOCATION_CHECK_ALL_CERT is not set,
+     * only the revocation status of the first certificate is checked.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    CERT_REVOCATION_CRL_CHECK = 1,
+
+    /**
+     * Uses OCSP to check the certificate revocation status.
+     *
+     * **NOTE**
+     * - If CERT_REVOCATION_OCSP_CHECK is set and CERT_REVOCATION_CHECK_ALL_CERT is not set,
+     * only the revocation status of the first certificate is checked.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    CERT_REVOCATION_OCSP_CHECK = 2,
+
+    /**
+     *  Checks the revocation status of all certificates except the self-signed certificate.
+     *
+     * **NOTE**
+     * - Must be used in conjunction with CERT_REVOCATION_CRL_CHECK or CERT_REVOCATION_OCSP_CHECK.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    CERT_REVOCATION_CHECK_ALL_CERT = 3,
+  }
+
+  /**
+   * Enumerates the OCSP digest algorithm.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Security.Cert
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  enum OcspDigest {
+    /**
+     * SHA1 digest algorithm.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    SHA1 = 0,
+
+    /**
+     * SHA224 digest algorithm.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    SHA224 = 1,
+
+    /**
+     * SHA256 digest algorithm.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    SHA256 = 2,
+
+    /**
+     * SHA384 digest algorithm.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    SHA384 = 3,
+
+    /**
+     * SHA512 digest algorithm.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    SHA512 = 4,
+  }
+
+  /**
+   * Parameters for checking a certificate revocation status.
+   *
+   * @typedef X509CertRevokedParams
+   * @syscap SystemCapability.Security.Cert
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  interface X509CertRevokedParams {
+    /**
+     * The flags to use for checking the certificate.
+     *
+     * @type { Array<CertRevocationFlag> }
+     * @syscap SystemCapability.Security.Cert
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    revocationFlags: Array<CertRevocationFlag>;
+
+    /**
+     * CRLs to verify the certificate revocation status.
+     *
+     * @type { ?Array<X509CRL> }
+     * @syscap SystemCapability.Security.Cert
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    crls?: Array<X509CRL>;
+
+    /**
+     * Whether to allow downloading CRLs from the network.
+     *
+     * **NOTE**
+     * - If a matching CRL exists in crls, skip downloading.
+     *
+     * @type { ?boolean }
+     * @default false
+     * @syscap SystemCapability.Security.Cert
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    allowDownloadCrl?: boolean;
+
+    /**
+     * OCSP response data to verify the certificate.
+     *
+     * @type { ?Array<Uint8Array> }
+     * @syscap SystemCapability.Security.Cert
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    ocspResponses?: Array<Uint8Array>;
+
+    /**
+     * Whether to allow online OCSP check.
+     *
+     * **NOTE**
+     * - If a matching OCSP response is found in the ocspResponses, the online OCSP check is skipped.
+     *
+     * @type { ?boolean }
+     * @default false
+     * @syscap SystemCapability.Security.Cert
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    allowOcspCheckOnline?: boolean;
+
+    /**
+     * The digest algorithm to use for OCSP request.
+     *
+     * @type { ?OcspDigest }
+     * @default SHA256
+     * @syscap SystemCapability.Security.Cert
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    ocspDigest?: OcspDigest;
+  }
+
+  /**
+   * Parameters for validating a certificate.
+   *
+   * @typedef X509CertValidatorParams
+   * @syscap SystemCapability.Security.Cert
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  interface X509CertValidatorParams {
+    /**
+     * Untrusted certificates, used to build a certificate chain.
+     *
+     * @type { ?Array<X509Cert> }
+     * @syscap SystemCapability.Security.Cert
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    untrustedCerts?: Array<X509Cert>;
+
+    /**
+     * Trusted certificates, used to verify the certificate chain.
+     *
+     * @type { ?Array<X509Cert> }
+     * @syscap SystemCapability.Security.Cert
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    trustedCerts?: Array<X509Cert>;
+
+    /**
+     * Whether to trust system CA certificates to verify the certificate chain.
+     *
+     * @type { ?boolean }
+     * @default false
+     * @syscap SystemCapability.Security.Cert
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    trustSystemCa?: boolean;
+
+    /**
+     * Whether to allow partial certificate chain verification.
+     *
+     * @type { ?boolean }
+     * @default false
+     * @syscap SystemCapability.Security.Cert
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    partialChain?: boolean;
+
+    /**
+     * Whether to allow downloading intermediate CA certificates from the network.
+     *
+     * @type { ?boolean }
+     * @default false
+     * @syscap SystemCapability.Security.Cert
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    allowDownloadIntermediateCa?: boolean;
+
+    /**
+     * The date is used to check the certificate's or CRL's validity date.
+     *
+     * **NOTE**
+     * - The format is YYMMDDHHMMSSZ or YYYYMMDDHHMMSSZ.
+     * - By default, the current system time is used.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Security.Cert
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    date?: string;
+
+    /**
+     * Whether to check the certificate's or crl's validity date.
+     *
+     * @type { ?boolean }
+     * @default true
+     * @syscap SystemCapability.Security.Cert
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    validateDate?: boolean;
+
+    /**
+     * Ignores the specified error.
+     *
+     * **NOTE**
+     * - For example, you can use CertResult.ERR_CERT_HAS_EXPIRED to ignore the certificate expiration error.
+     *
+     * @type { ?Array<CertResult> }
+     * @syscap SystemCapability.Security.Cert
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    ignoreErrs?: Array<CertResult>;
+
+    /**
+     * The hostnames to validate the certificate.
+     *
+     * @type { ?Array<string> }
+     * @syscap SystemCapability.Security.Cert
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    hostnames?: Array<string>;
+
+    /**
+     * The email address to validate the certificate. Now only supports single email address.
+     *
+     * @type { ?Array<string> }
+     * @syscap SystemCapability.Security.Cert
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    emailAddresses?: Array<string>;
+
+    /**
+     * The key usage to validate the certificate.
+     *
+     * @type { ?Array<KeyUsageType> }
+     * @syscap SystemCapability.Security.Cert
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    keyUsage?: Array<KeyUsageType>;
+
+    /**
+     * If you are verifying an SM2 certificate, you can configure the SM2 user ID using this parameter.
+     *
+     * **NOTE**
+     * - The most common SM2 user ID is
+     * [0x31, 0x32, 0x33, 0x34, 0x35, 0x36, 0x37, 0x38, 0x31, 0x32, 0x33, 0x34, 0x35, 0x36, 0x37, 0x38]
+     *
+     * @type { ?Uint8Array }
+     * @syscap SystemCapability.Security.Cert
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    userId?: Uint8Array;
+
+    /**
+     * Parameters for checking a certificate revocation status.
+     *
+     * @type { ?X509CertRevokedParams }
+     * @syscap SystemCapability.Security.Cert
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    revokedParams?: X509CertRevokedParams;
+  }
+
+  /**
+   * The result of certificate verification.
+   *
+   * @typedef VerifyCertResult
+   * @syscap SystemCapability.Security.Cert
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  interface VerifyCertResult {
+    /**
+     * The verified certificate chain.
+     *
+     * @type { Array<X509Cert> }
+     * @readonly
+     * @syscap SystemCapability.Security.Cert
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    readonly certChain: Array<X509Cert>;
+  }
+
+  /**
    * Certification chain validator.
    *
    * @typedef CertChainValidator
@@ -4254,6 +4822,48 @@ declare namespace cert {
     validate(certChain: CertChainData): Promise<void>;
 
     /**
+     * Verifies the certificate, returns the certificate chain that is successfully built and verified.
+     *
+     * @param { X509Cert } cert - indicates the certificate to verify.
+     * @param { X509CertValidatorParams } params - indicates the certificate validator parameters.
+     * @returns { Promise<VerifyCertResult> } the promise returned by the function.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to convert parameters between ArkTS and C.
+     * @throws { BusinessError } 19020003 - the parameter check failed.
+     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030002 - the certificate signature verification failed.
+     * @throws { BusinessError } 19030003 - the certificate has not taken effect.
+     * @throws { BusinessError } 19030004 - the certificate has expired.
+     * @throws { BusinessError } 19030005 - failed to obtain the certificate issuer.
+     * @throws { BusinessError } 19030006 - the key cannot be used for signing a certificate.
+     * @throws { BusinessError } 19030007 - the key cannot be used for a digital signature.
+     * @throws { BusinessError } 19030009 - untrusted certificate.
+     * @throws { BusinessError } 19030010 - the certificate has been revoked.
+     * @throws { BusinessError } 19030011 - unsupported critical extension.
+     * @throws { BusinessError } 19030012 - hostname mismatch in the certificate.
+     * @throws { BusinessError } 19030013 - email address mismatch in the certificate.
+     * @throws { BusinessError } 19030014 - key usage mismatch in the certificate.
+     * @throws { BusinessError } 19030015 - failed to obtain the certificate revocation list.
+     * @throws { BusinessError } 19030016 - the certificate revocation list does not take effect.
+     * @throws { BusinessError } 19030017 - the certificate revocation list has expired.
+     * @throws { BusinessError } 19030018 - failed to verify the signature of the certificate revocation list.
+     * @throws { BusinessError } 19030019 - failed to find the issuer of the certificate revocation list.
+     * @throws { BusinessError } 19030020 - failed to obtain the OCSP response.
+     * @throws { BusinessError } 19030021 - invalid OCSP response.
+     * @throws { BusinessError } 19030022 - failed to verify the OCSP signature.
+     * @throws { BusinessError } 19030023 - unknown OCSP certificate status.
+     * @throws { BusinessError } 19030024 - network connection timed out.
+     * @syscap SystemCapability.Security.Cert
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    validate(cert: X509Cert, params: X509CertValidatorParams): Promise<VerifyCertResult>;
+
+    /**
      * The cert chain related algorithm.
      *
      * @type { string }
@@ -4316,9 +4926,9 @@ declare namespace cert {
    * @since 11
    */
   /**
-   * Provides to create certificate chain object. The returned object provides the verification capability.
+   * Used to create a certificate chain validator. The returned object provides the verification capability.
    *
-   * @param { string } algorithm - indicates the cert chain validator type.
+   * @param { string } algorithm - indicates the cert chain validator type. Currently only supports "PKIX".
    * @returns { CertChainValidator } the cert chain validator instance.
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -4850,6 +5460,20 @@ declare namespace cert {
      * @since 23 static
      */
     publicKeyAlgID?: string;
+
+    /**
+     * The public key corresponding to the private key must match the public key of the certificate.
+     * [Rule]
+     * null : Do not match.
+     * NOT null : match ok if the public key corresponding to the private key is equal to [publicKey of cert].
+     *
+     * @type { ?(string | Uint8Array) }
+     * @syscap SystemCapability.Security.Cert
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    privateKey?: string | Uint8Array;
   }
 
   /**
@@ -5773,6 +6397,25 @@ declare namespace cert {
      * @since 23 static
      */
     getName(type: string): Array<string>;
+
+    /**
+     * Gets distinguished name strings by type.
+     *
+     * @param { string } type - the specified type name.
+     * @param { EncodingType } encodingType - the specified encoding type.
+     * @returns { Array<string> } distinguished name strings.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
+     * @throws { BusinessError } 19020003 - parameter check failed. Possible causes:
+     * <br>1. The value of encodingType is invalid.
+     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @syscap SystemCapability.Security.Cert
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    getName(type: string, encodingType: EncodingType): Array<string>;
 
     /**
      * Get distinguished name in der coding format.

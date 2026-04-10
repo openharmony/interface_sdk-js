@@ -789,6 +789,17 @@ declare namespace picker {
      * @since 18 dynamic
      */
     themeColor?: CustomColors;
+
+    /**
+     * Whether to support for selecting folders, Only 2-in-1 devices are supported.
+     * The value false (default) means not support folder selection;
+     *
+     * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    allowsMulFolderSelection?: boolean;
   }
 
   /**
@@ -1037,6 +1048,16 @@ declare namespace picker {
      * @since 23 static
      */
     themeColor?: CustomColors;
+
+    /**
+     * Whether to support for selecting folders, Only 2-in-1 devices are supported.
+     * The value false (default) means not support folder selection;
+     *
+     * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    allowsMulFolderSelection?: boolean;
   }
 
   /**

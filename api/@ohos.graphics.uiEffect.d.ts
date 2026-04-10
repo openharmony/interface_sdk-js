@@ -747,7 +747,14 @@ declare namespace uiEffect {
    * @since 20 dynamic
    * @since 23 static
    */
-  type Blender = BrightnessBlender | HdrBrightnessBlender;
+    /**
+   * Defines the blending effect.
+   * @typedef { BrightnessBlender | HdrBrightnessBlender | HdrDarkenBlender }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @systemapi
+   * @since 26.0.0 dynamic&static
+   */
+  type Blender = BrightnessBlender | HdrBrightnessBlender | HdrDarkenBlender;
 
   /**
    * The Blender of backgroundColorEffect.
@@ -937,6 +944,39 @@ declare namespace uiEffect {
    * @since 23 static
    */
   interface HdrBrightnessBlender extends BrightnessBlender {}
+
+  /**
+   * The HDR-adaptive darken blender.
+   * @syscap SystemCapability.Graphics.Drawing
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface HdrDarkenBlender {
+    /**
+     * Defines the HDR brightness ratio of src.
+     *
+     * @property { double }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    hdrBrightnessRatio: double;
+
+    /**
+     * Defines the grayscale factor for converting dst's RGB channels to grayscale.
+     * Formula: grayscale = dot(grayscaleFactor, dst).
+     *
+     * @property { ?[double, double, double] }
+     * @default [0.299, 0.587, 0.114]
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    grayscaleFactor?: [double, double, double];
+  }
 
   /**
    * The Color of Light.
@@ -1144,6 +1184,20 @@ declare namespace uiEffect {
    * @since 23 static
    */
   function createHdrBrightnessBlender(param: BrightnessBlenderParam): HdrBrightnessBlender;
+
+  /**
+   * Create an HdrDarkenBlender, which is used to apply HDR-adaptive darken blender on UI components.
+   * @param { double } hdrBrightnessRatio - The HDR brightness ratio of the src.
+   * @param { [double, double, double] } [grayscaleFactor] - The grayscale factor for converting dst's RGB channels to
+   *     grayscale. Formula: grayscale = dot(grayscaleFactor, dst).
+   * @returns { HdrDarkenBlender } Returns the blender.
+   * @syscap SystemCapability.Graphics.Drawing
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function createHdrDarkenBlender(hdrBrightnessRatio: double,
+    grayscaleFactor?: [double, double, double]): HdrDarkenBlender; 
 }
 
 /**

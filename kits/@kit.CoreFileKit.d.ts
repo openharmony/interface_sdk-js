@@ -30,8 +30,8 @@ import fileAccess from '@ohos.file.fileAccess';
 import fileExtensionInfo from '@ohos.file.fileExtensionInfo';
 import fileUri from '@ohos.file.fileuri';
 import fileIo, {
-  ConflictFiles, Filter, Options, ReaderIteratorResult, WatchEvent, WatchEventListener,
-  Watcher, ReadOptions, ReadTextOptions, WriteOptions, ListFileOptions, DfsListeners, TaskSignal
+  ConflictFiles, FileFilter, Filter, Options, ReaderIteratorResult, WatchEvent, WatchEventListener,
+  Watcher, ReadOptions, ReadTextOptions, WriteOptions, ListFileExtOptions, ListFileOptions, DfsListeners, TaskSignal
 } from '@ohos.file.fs';
 import hash from '@ohos.file.hash';
 import picker from '@ohos.file.picker';
@@ -44,13 +44,14 @@ import volumeManager from '@ohos.file.volumeManager';
 import keyManager from '@ohos.file.keyManager';
 import userFileManager from '@ohos.filemanagement.userFileManager';
 import fileShare from '@ohos.fileshare';
+import encryptedVolumeManager from '@ohos.file.encryptedVolumeManager';
 
 export {
-  BackupExtensionAbility, BackupExtensionContext, BundleVersion, ConflictFiles, Environment, Filter, Options, ReaderIteratorResult,
-  WatchEvent, WatchEventListener, Watcher, ReadOptions, ReadTextOptions, WriteOptions, ListFileOptions,
+  BackupExtensionAbility, BackupExtensionContext, BundleVersion, ConflictFiles, Environment, FileFilter, Filter, Options, ReaderIteratorResult,
+  WatchEvent, WatchEventListener, Watcher, ReadOptions, ReadTextOptions, WriteOptions, ListFileExtOptions, ListFileOptions,
   backup, cloudSync, cloudSyncManager, cloudDiskManager, fileAccess, fileExtensionInfo,
   fileIo, fileShare, fileUri, hash, picker, recent, securityLabel, statfs,
-  storageStatistics, trash, userFileManager, volumeManager, keyManager, DfsListeners, TaskSignal
+  storageStatistics, trash, userFileManager, volumeManager, keyManager, DfsListeners, TaskSignal, encryptedVolumeManager
 };
 /*** endif */
 
@@ -63,8 +64,8 @@ import Environment from '@ohos.file.environment';
 import fileUri from '@ohos.file.fileuri';
 import fileIo from '@ohos.file.fs'
 import {
-  ConflictFiles, Filter, Options, ReaderIteratorResult, WatchEvent, WatchEventListener,
-  Watcher, ReadOptions, ReadTextOptions, WriteOptions, ListFileOptions, TaskSignal
+  ConflictFiles, FileFilter, Filter, Options, ReaderIteratorResult, WatchEvent, WatchEventListener,
+  Watcher, ReadOptions, ReadTextOptions, WriteOptions, ListFileExtOptions, ListFileOptions, TaskSignal
 } from '@ohos.file.fs';
 import hash from '@ohos.file.hash';
 import securityLabel from '@ohos.file.securityLabel';
@@ -73,11 +74,12 @@ import storageStatistics from '@ohos.file.storageStatistics';
 import volumeManager from '@ohos.file.volumeManager';
 import keyManager from '@ohos.file.keyManager';
 import fileShare from '@ohos.fileshare';
+import encryptedVolumeManager from '@ohos.file.encryptedVolumeManager';
 
 export {
-  BackupExtensionAbility, BundleVersion, ConflictFiles, Environment, Filter, Options, ReaderIteratorResult,
-  WatchEvent, WatchEventListener, Watcher, ReadOptions, ReadTextOptions, WriteOptions, ListFileOptions,
+  BackupExtensionAbility, BundleVersion, ConflictFiles, Environment, FileFilter, Filter, Options, ReaderIteratorResult,
+  WatchEvent, WatchEventListener, Watcher, ReadOptions, ReadTextOptions, WriteOptions, ListFileExtOptions, ListFileOptions,
   cloudSync, cloudSyncManager, fileIo, fileShare, fileUri, hash, securityLabel, statfs,
-  storageStatistics, volumeManager, keyManager, TaskSignal
+  storageStatistics, volumeManager, keyManager, TaskSignal, encryptedVolumeManager
 };
 /*** endif */

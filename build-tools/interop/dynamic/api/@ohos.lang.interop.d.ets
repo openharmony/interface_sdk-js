@@ -240,14 +240,14 @@ declare namespace es {
          */
         at(index: number): T | undefined;
         /**
-         * Returns a new array that is the concatenation of this array and the given value.
+         * Returns a new array that is the concatenation of this array and the given value or array.
          *
-         * @param {T} val - The value to concatenate.
+         * @param {T | Array<T>} item - The value or array to concatenate.
          * @returns {Array<T>} Returns a new array containing the concatenated elements.
          * @syscap SystemCapability.ArkTS.ArkTS
          * @since 24
          */
-        concat(val: T): Array<T>;
+        concat(item: T | Array<T>): Array<T>;
         /**
          * Copies a sequence of array elements within the array.
          *
