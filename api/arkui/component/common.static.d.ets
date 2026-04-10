@@ -8861,7 +8861,7 @@ export declare interface ContextMenuOptions {
      */
     anchorPosition?: Position;
     /**
- 	 * Define the popup theme color mode.
+ 	 * Define the menu theme color mode.
  	 * 
  	 * @type { ?AnchoredColorMode }
  	 * @default AnchoredColorMode.FOLLOW_TARGET

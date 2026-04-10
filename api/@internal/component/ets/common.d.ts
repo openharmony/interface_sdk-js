@@ -20302,7 +20302,7 @@ declare interface ContextMenuOptions {
   outlineWidth?: Dimension | EdgeOutlineWidths;
 
   /**
-   * Define the popup theme color mode.
+   * Define the menu theme color mode.
    * 
    * @type { ?AnchoredColorMode }
    * @default AnchoredColorMode.FOLLOW_TARGET
