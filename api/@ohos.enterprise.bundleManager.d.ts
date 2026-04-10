@@ -2409,6 +2409,53 @@ declare namespace bundleManager {
   function install(admin: Want, hapFilePaths: Array<string>, installParam?: InstallParam): Promise<void>;
 
   /**
+   * Install an application.
+   *
+   * @permission ohos.permission.ENTERPRISE_INSTALL_BUNDLE
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
+   * @param { Array<string> } hapFilePaths - indicates the path of the application to be installed.
+   * @param { InstallParam } [installParam] - installParam indicates the installation parameters.
+   *                                        It may contain two fields: userId and installFlag.
+   *                                        The flag can only be one of correct flags.
+   * @returns { Promise<void> } the promise of installing application result.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9201002 - Failed to install the application.
+   * @throws { BusinessError } 9201022 - Failed to install the HAP because of insufficient system disk space.
+   * @throws { BusinessError } 9201023 - Failed to install the HAP because enterprise device management disallows the
+   *     installation.
+   * @throws { BusinessError } 9201024 - Failed to install the HAP because the HAP fails to be parsed.
+   * @throws { BusinessError } 9201025 - Failed to install the HAP because the HAP signature fails to be verified.
+   * @throws { BusinessError } 9201026 - Failed to install the HAP because the HAP path is invalid or
+   *     the HAP is too large.
+   * @throws { BusinessError } 9201027 - Failed to install the HAPs because they have different configuration
+   *     information.
+   * @throws { BusinessError } 9201028 - Failed to install the HAP because the isolationMode configured is not
+   *     supported.
+   * @throws { BusinessError } 9201029 - Failed to install the HAP since the version of the HAP to install is too early.
+   * @throws { BusinessError } 9201030 - Failed to install the HAP because the VersionCode to be updated is not greater
+   *     than the current VersionCode.
+   * @throws { BusinessError } 9201031 - Installation failed because the dependant module does not exist.
+   * @throws { BusinessError } 9201032 - The specified user ID is not found.
+   * @throws { BusinessError } 9201033 - Failed to install the HAP because the overlay check failed.
+   * @throws { BusinessError } 9201034 - Failed to install the HSP due to missing required permissions.
+   * @throws { BusinessError } 9201035 - Installation failed because the installation of cross-app shared libraries is
+   *     not allowed.
+   * @throws { BusinessError } 9201036 - Failed to install the HAP due to incorrect URI in the data proxy.
+   * @throws { BusinessError } 9201037 - Failed to install the HAP due to incorrect permission configuration in
+   *     the data proxy.
+   * @throws { BusinessError } 9201038 - Failed to install the HAP due to code signature verification failure.
+   * @throws { BusinessError } 9201039 - Failed to install the HAP due to enterprise device verification failure.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @StageModelOnly
+   * @since 26.0.0
+   */
+  function installForResult(admin: Want, hapFilePaths: Array<string>, installParam?: InstallParam): Promise<void>;
+
+  /**
    * Get the list of install bundles in the device.
    *
    * @permission ohos.permission.ENTERPRISE_GET_ALL_BUNDLE_INFO
