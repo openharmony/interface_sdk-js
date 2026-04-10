@@ -2469,6 +2469,159 @@ declare namespace relationalStore {
   }
 
   /**
+   * Describes the status of device sync.
+   *
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  enum SyncResultCode {  
+    /**
+     * Indicates sync success.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    SUCCESS = 0,
+
+    /**
+     * Indicates sync fail, for detailed reasons, please refer to the message.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    FAIL = 1,
+
+    /**
+     * Indicates that the device is offline.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    OFFLINE = 2,
+
+    /**
+     *  Indicates parameter is invalid.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    INVALID_ARGS = 3,
+
+    /**
+     * Indicates that a distributed table is not set.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    DISTRIBUTED_TABLE_NOT_SET = 4,
+
+    /**
+     * Indicates that the synchronization field of the peer device is inconsistent with that of the local device.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    TABLE_FIELD_MISMATCH = 5,
+
+    /**
+     * Indicates that the schema field of the peer device is inconsistent with that of the local device.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    DISTRIBUTED_SCHEMA_MISMATCH = 6,
+
+    /**
+     * Indicates that the database is busy.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    BUSY = 7,
+
+    /**
+     * Indicates that the database is corrupted.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    CORRUPTED = 8,
+
+    /**
+     * Indicates synchronization timeout.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    TIMEOUT = 9,
+
+    /**
+     * Indicates that the table structure changed during the synchronization process.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    SCHEMA_CHANGED = 10,
+
+    /**
+     * Indicates a violation of constraints when synchronizing data.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    CONSTRAINT_VIOLATION = 11,
+  }
+
+  /**
+   * Indicates synchronization result.
+   *
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface SyncResult {  
+    /**
+     * Indicates the synchronization deviceId.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly device:string;
+
+    /**
+     * Indicates the synchronization result code.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly code:SyncResultCode;
+
+    /**
+     * Indicates detailed information about the synchronization results.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly message:string;
+  }
+
+  /**
    * Defines the predicates for a Relational Database.
    * This class determines whether the conditional expression for the Relational Database is true or false.
    *
@@ -8922,6 +9075,28 @@ declare namespace relationalStore {
      * @since 23 static
      */
     sync(mode: SyncMode, predicates: RdbPredicates): Promise<Array<[string, int]>>;
+
+    /**
+     * Sync data between devices.
+     *
+     * 1. The difference between the sync interface and the syncEx interface is that they can return more error codes,
+     *     but their functionality is similar.
+     * 2. Before invoking synchronization, call setdistributedTable to set the distributed table.
+     *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
+     * @param { SyncMode } mode - Indicates the database synchronization mode.
+     *     <br>Only SYNC_MODE_PUSH and SYNC_MODE_PULL are supported.
+     * @param { RdbPredicates } predicates - The specified sync condition by the instance object
+     *     of {@link RdbPredicates}.
+     * @returns { Promise<Array<SyncResult>> } 201 - the application does not have permission to call this function.
+     * @throws { BusinessError } 201 - the application does not have permission to call this function.
+     * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of valid range.
+     * @throws { BusinessError } 14800014 - The target instance is already closed.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    syncEx(mode: SyncMode, predicates: RdbPredicates): Promise<Array<SyncResult>>;
 
     /**
      * Sync data to cloud.
