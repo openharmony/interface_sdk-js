@@ -4403,6 +4403,7 @@ declare namespace http {
    * @crossplatform
    * @atomicservice
    * @since 15 dynamic
+   * @since 26.0.0 static
    */
   export interface DataReceiveProgressInfo {
     /**
@@ -4425,6 +4426,7 @@ declare namespace http {
      * @crossplatform
      * @atomicservice
      * @since 15 dynamic
+     * @since 26.0.0 static
      */
     receiveSize: int;
     /**
@@ -4447,6 +4449,7 @@ declare namespace http {
      * @crossplatform
      * @atomicservice
      * @since 15 dynamic
+     * @since 26.0.0 static
      */
     totalSize: int;
   }
@@ -4471,6 +4474,7 @@ declare namespace http {
    * @crossplatform
    * @atomicservice
    * @since 15 dynamic
+   * @since 26.0.0 static
    */
   export interface DataSendProgressInfo {
     /**
@@ -4493,7 +4497,7 @@ declare namespace http {
      * @crossplatform
      * @atomicservice
      * @since 15 dynamic
-     * @since 23 static
+     * @since 26.0.0 static
      */
     sendSize: int;
     /**
@@ -4516,7 +4520,7 @@ declare namespace http {
      * @crossplatform
      * @atomicservice
      * @since 15 dynamic
-     * @since 23 static
+     * @since 26.0.0 static
      */
     totalSize: int;
   }
