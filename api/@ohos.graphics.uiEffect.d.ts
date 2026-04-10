@@ -704,7 +704,8 @@ declare namespace uiEffect {
    */
   interface BlurBubblesRiseEffectParam {
     /**
-     * Defines gaussian blur intensity for blur bubbles rise effect.
+     * Defines gaussian blur intensity for blur bubbles rise effect. 
+     * Value range [0, 1], where 1 represents the highest degree of blur.
      *
      * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
