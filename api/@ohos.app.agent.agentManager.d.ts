@@ -61,6 +61,37 @@ declare namespace agentManager {
    * @stagemodelonly
    * @since 24 dynamic&static
    */
+  /**
+   * Connects to an AgentExtensionAbility.
+   *
+   * @permission ohos.permission.CONNECT_AGENT
+   * @param { Want } want - Indicates the want info to connect.
+   * @param { string } agentId - The agent id to connect.
+   * @param { AgentExtensionConnectCallback } callback - The callback of connection.
+   * @returns { Promise<AgentProxy> } The promise to get AgentProxy.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 16000001 - The specified ability does not exist.
+   * @throws { BusinessError } 16000002 - Incorrect ability type.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
+   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
+   * @throws { BusinessError } 16000008 - The crowdtesting application expires.
+   * @throws { BusinessError } 16000012 - The application is controlled.
+   * @throws { BusinessError } 16000013 - The application is controlled by enterprise device management (EDM).
+   * @throws { BusinessError } 16000050 - Internal error. Possible causes: 1.Connect to system service failed.
+   * 2.System service failed to communicate with dependency module.
+   * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
+   * @throws { BusinessError } 16000055 - Installation-free timed out.
+   * @throws { BusinessError } 16000073 - The app clone index is invalid.
+   * @throws { BusinessError } 35600001 - The specified agentId does not exist.
+   * @throws { BusinessError } 35600003 - Maximum connections from the same caller have been reached.
+   * Please disconnect at least one agent extension beforehand.
+   * @throws { BusinessError } 35600007 - The specified LOW_CODE agent is already active and is not yet completed.
+   * @syscap SystemCapability.Ability.AgentRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
   function connectAgentExtensionAbility(want: Want, agentId: string,
     callback: AgentExtensionConnectCallback): Promise<AgentProxy>;
 
@@ -134,6 +165,72 @@ declare namespace agentManager {
    * @since 24 dynamic&static
    */
   function getAgentCardByAgentId(bundleName: string, agentId: string): Promise<AgentCard>;
+
+  /**
+   * Updates the AgentCard within specified agent id.
+   *
+   * @permission ohos.permission.MODIFY_AGENT_CARD
+   * @param { AgentCard } agentCard - The agent card information to update.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 16000001 - The specified ability does not exist.
+   * @throws { BusinessError } 16000002 - Incorrect ability type.
+   * @throws { BusinessError } 16000050 - Internal error. Possible causes: 1.Connect to system service failed.
+   * 2.System service failed to communicate with dependency module.
+   * @throws { BusinessError } 18500001 - The bundle does not exist or no patch has been applied.
+   * @throws { BusinessError } 35600001 - The specified agentId does not exist.
+   * @throws { BusinessError } 35600004 - The specified agent card version is older than the current version.
+   * @throws { BusinessError } 35600005 - The specified agent card version is invalid.
+   * @syscap SystemCapability.Ability.AgentRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function updateAgentCard(agentCard: AgentCard): Promise<void>;
+
+  /**
+   * Deletes the AgentCard within specified agent id.
+   *
+   * @permission ohos.permission.MODIFY_AGENT_CARD
+   * @param { string } bundleName - The bundle name of the agent card belongs to.
+   * @param { string } agentId - The agent id the agent card belongs to.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 16000050 - Internal error. Possible causes: 1.Connect to system service failed.
+   * 2.System service failed to communicate with dependency module.
+   * @throws { BusinessError } 35600001 - The specified agentId does not exist.
+   * @syscap SystemCapability.Ability.AgentRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function deleteAgentCard(bundleName: string, agentId: string): Promise<void>;
+
+  /**
+   * Registers an AgentCard.
+   * If `agentCard.type` is not specified, it defaults to `agentConstant.AgentCardType.APP`.
+   * When the type is `APP` or `LOW_CODE`, `appInfo` is validated, especially `bundleName` and `abilityName`.
+   *
+   * @permission ohos.permission.MODIFY_AGENT_CARD
+   * @param { AgentCard } agentCard - The agent card information to register.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 16000001 - The specified ability does not exist.
+   * @throws { BusinessError } 16000002 - Incorrect ability type.
+   * @throws { BusinessError } 16000050 - Internal error. Possible causes: 1.Connect to system service failed.
+   * 2.System service failed to communicate with dependency module.
+   * @throws { BusinessError } 18500001 - The bundle does not exist or no patch has been applied.
+   * @throws { BusinessError } 35600005 - The specified agent card version is invalid.
+   * @throws { BusinessError } 35600006 - The specified agent card has already been registered. Use updateAgentCard instead.
+   * @syscap SystemCapability.Ability.AgentRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function registerAgentCard(agentCard: AgentCard): Promise<void>;
 }
 
 export default agentManager;
