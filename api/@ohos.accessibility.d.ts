@@ -240,9 +240,18 @@ export enum AccessibilityAction {
    * @since 20 dynamic
    * @since 23 static
    */
-  SPAN_CLICK = 20
-}
+  SPAN_CLICK = 20,
 
+  /**
+   * Inject action on an accessibility focus element.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  INJECT_ACTION = 21
+}
 
 /**
  * AccessibilityEvent type
@@ -3030,4 +3039,42 @@ export enum FocusMoveResultCode {
    * @since 23 dynamic&static
    */
   SEARCH_FAILURE_IN_SCROLL = 8
+}
+
+/**
+ * The action inject on accessibility focus element.
+ *
+ * @syscap SystemCapability.BarrierFree.Accessibility.Core
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.0.0 dynamic&static
+ */
+export enum InjectActionType {
+  /**
+   * Click type.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  CLICK = 1,
+  /**
+   * Double click type.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  DOUBLE_CLICK = 2,
+  /**
+   * Long click type.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  LONG_CLICK = 3
 }
