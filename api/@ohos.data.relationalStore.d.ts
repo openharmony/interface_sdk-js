@@ -109,7 +109,16 @@ declare namespace relationalStore {
      * @since 10 dynamic
      * @since 23 static
      */
-    ASSET_DOWNLOADING
+    ASSET_DOWNLOADING,
+
+    /**
+     * ASSET_TO_DOWNLOAD: means the asset will be downloaded.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    ASSET_TO_DOWNLOAD
   }
 
   /**
@@ -1139,7 +1148,16 @@ declare namespace relationalStore {
      * @since 12 dynamic
      * @since 23 static
      */
-    BLOCKED_BY_NETWORK_STRATEGY = 7
+    BLOCKED_BY_NETWORK_STRATEGY = 7,
+
+    /**
+     * STOP_CLOUD_SYNC: means cloud synchronization has been stopped.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    STOP_CLOUD_SYNC = 8
   }
 
   /**
@@ -1170,6 +1188,15 @@ declare namespace relationalStore {
      * @since 23 static
      */
     code: ProgressCode;
+
+    /**
+     * Indicates the code message.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    message?: string;
 
     /**
      * The statistic details of the tables.
@@ -1711,6 +1738,42 @@ declare namespace relationalStore {
   }
 
   /**
+   * Describes the asset conflict policy.
+   *
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  enum AssetConflictPolicy {
+    /**
+     * Indicates the default conflict policy.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    CONFLICT_POLICY_DEFAULT = 0,
+
+    /**
+     * Indicates the time-first conflict policy.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    CONFLICT_POLICY_TIME_FIRST = 1,
+
+    /**
+     * Indicates the temporary path conflict policy.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    CONFLICT_POLICY_TEMP_PATH = 2
+  }
+
+  /**
    * Indicates the reference between tables.
    *
    * @interface Reference
@@ -1812,6 +1875,42 @@ declare namespace relationalStore {
      * @since 23 dynamic&static
      */
     tableType?: DistributedTableType;
+
+    /**
+     * Specifies the asset conflict policy.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    assetConflictPolicy?: AssetConflictPolicy;
+
+    /**
+     * Specifies the asset temp path.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    assetTempPath?: string;
+
+    /**
+     * Specifies whether to download assets on demand.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    assetDownloadOnDemand?: boolean;
+
+    /**
+     * Specifies the auto synchronization switch.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    autoSyncSwitch?: boolean;
   }
 
   /**
@@ -1845,6 +1944,52 @@ declare namespace relationalStore {
      * @since 24 dynamic&static
      */
     oriDevice?: string;
+  }
+
+  /**
+   * Cloud sync configuration.
+   *
+   * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface CloudSyncConfig {
+    /**
+     * Indicates the database synchronization mode.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    mode: relationalStore.SyncMode;
+
+    /**
+     * Indicates whether the sync operation should be download‑only.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    downloadOnly?: boolean;
+
+    /**
+     * Indicates the table-level synchronization switch.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    enablePredicate?: boolean;
+
+    /**
+     * Indicates the table-level synchronization predicate.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    predicate?: RdbPredicates;
   }
 
   /**
@@ -9161,7 +9306,49 @@ declare namespace relationalStore {
      * @since 12 dynamic
      * @since 23 static
      */
+    /**
+     * Sync data to cloud.
+     *
+     * @param { SyncMode } mode - indicates the database synchronization mode.
+     * @param { RdbPredicates } predicates -
+     *     The specified sync condition by the instance object of {@link RdbPredicates}.
+     * @param { Callback<ProgressDetails> } progress -
+     *     Callback used to return the {@link ProgressDetails} result.
+     * @returns { Promise<void> } : The promise returned by the function.
+     * @throws { BusinessError } 801 - Capability not supported
+     *     because the device does not support the device-cloud capability.
+     * @throws { BusinessError } 14800014 - The target instance is already closed.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 26.0.0 dynamic&static
+     */
     cloudSync(mode: SyncMode, predicates: RdbPredicates, progress: Callback<ProgressDetails>): Promise<void>;
+
+    /**
+     * Synchronizes data to the cloud.
+     *
+     * @param { CloudSyncConfig } config - indicates the cloud synchronization config.
+     * @param { Callback<ProgressDetails> } progress - Callback used to return the {@link ProgressDetails} result.
+     * @returns { Promise<void> } : The promise returned by the function.
+     *  @throws { BusinessError } 14800014 - The target instance is already closed.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    cloudSync(config: CloudSyncConfig, progress: Callback<ProgressDetails>): Promise<void>;
+
+    /**
+     * Stops synchronizing data with the cloud.
+     *
+     * @returns { Promise<void> } : The promise returned by the function.
+     * @throws { BusinessError } 801 - Capability not supported
+     *     because the device does not support the cloud synchronization capability.
+     * @throws { BusinessError } 14800000 - Internal error.
+     * @throws { BusinessError } 14800014 - The target instance is already closed.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    stopCloudSync(): Promise<void>;
 
     /**
      * Queries remote data in the database based on specified conditions before Synchronizing Data.
