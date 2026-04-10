@@ -693,6 +693,22 @@ declare namespace errorManager {
   function setDefaultResourceUsageObserver(defaultObserver?: ResourceUsageObserver): ResourceUsageObserver;
 
   /**
+   * Set the default freeze observer, This function will be executed right after the callback function registered
+   * through errorManager.on is executed. You can use it to implement chain calls instead of errorManager.on.
+   * If an empty observer is set for a certain module, it will cause the call chain to be interrupted.
+   * This API must be called in the main thread.
+   *
+   * @param { FreezeObserver } [defaultObserver] - The default freeze observer.
+   * @returns { FreezeObserver } - Returns the original default freeze observer.
+   * @throws { BusinessError } 16000205 - The API is not called on the main thread.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  function setDefaultFreezeObserver(defaultObserver?: FreezeObserver) : FreezeObserver;
+
+  /**
    * The ErrorHandler will be called when the ArkTS runtime throws an exception that is not caught by the user.
    *
    * @typedef { function }
