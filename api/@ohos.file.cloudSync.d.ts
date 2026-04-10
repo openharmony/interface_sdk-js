@@ -169,7 +169,24 @@ declare namespace cloudSync {
      * @since 23 static
      */
     REMOTE_SERVER_ABNORMAL = 8,
-    
+    /**
+     * upload aborted due to cloud response time out.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    RESPONSE_TIME_OUT = 9,
+    /**
+     * upload aborted due to unknown error.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    UNKNOWN_ERROR  = 10
   }
 
   /**
@@ -418,6 +435,71 @@ declare namespace cloudSync {
   }
 
   /**
+   * Describes the State type of file upload.
+   *
+   * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  enum UploadState {
+    /**
+     * Indicates that the upload task in waiting now.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    WAITING = 0,
+    /**
+     * Indicates that the upload task in process now.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    RUNNING = 1,
+    /**
+     * Indicates that the upload task finished.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    COMPLETED = 2,
+    /**
+     * Indicates that the upload task failed.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    FAILED = 3,
+    /**
+     * Indicates that the upload task stopped.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    STOPPED = 4,
+    /**
+     * Indicates that the upload task paused.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    PAUSED = 5
+  }
+
+  /**
    * Describes the download Error type.
    *
    * @enum { int }
@@ -530,6 +612,62 @@ declare namespace cloudSync {
      * @since 23 static
      */
     error: DownloadErrorType;
+  }
+
+  /**
+   * The UploadProgress data structure.
+   *
+   * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface UploadProgress {
+    /**
+     * The current upload state.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    state: UploadState;
+    /**
+     * the processed data size for current file.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    processed: long;
+    /**
+     * The size of current file.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    size: long;
+    /**
+     * The uri of current file.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    uri: string;
+    /**
+     * The error type of upload.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    error: ErrorType;
   }
 
   /**
@@ -1009,6 +1147,54 @@ declare namespace cloudSync {
      * @since 23 static
      */
     getLastSyncTime(callback: AsyncCallback<long>): void;
+    /**
+     * Registers to cloud file upload progress change. This method uses a callback to get upload progress changes.
+     *
+     * @permission ohos.permission.CLOUDFILE_SYNC
+     * @param { Callback<UploadProgress> } callback - Callback function.
+     * @throws { BusinessError } 201 - Permission verification failed.
+     * @throws { BusinessError } 202 - The caller is not a system application.
+     * @throws { BusinessError } 13900010 - Try again.
+     * @throws { BusinessError } 13900020 - Invalid argument. Possible causes:
+     *     <br>1.Mandatory parameters are left unspecified; 
+     *     <br>2.The number of instances registered at the same time exceeds the upper limit.
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    registerUploadProgress(callback: Callback<UploadProgress>): void;
+    /**
+     * Unregisters to cloud file upload progress change.
+     *
+     * @permission ohos.permission.CLOUDFILE_SYNC
+     * @throws { BusinessError } 201 - Permission verification failed.
+     * @throws { BusinessError } 202 - The caller is not a system application.
+     * @throws { BusinessError } 13900010 - Try again.
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    unregisterUploadProgress(): void;
+    /**
+     * Query the upload state of the cloud file list.
+     *
+     * @permission ohos.permission.CLOUDFILE_SYNC
+     * @param { Array<string> } uris - uris of queryed files.
+     * @returns { Promise<Array<UploadProgress>> } - Return Promise
+     * @throws { BusinessError } 201 - Permission verification failed.
+     * @throws { BusinessError } 202 - The caller is not a system application.
+     * @throws { BusinessError } 13900010 - Try again.
+     * @throws { BusinessError } 13900020 - Invalid argument. Possible causes:
+     *     <br>1.Mandatory parameters are left unspecified. 2.The number of instances registered at the same time exceeds the upper limit.
+     *     <br>3.The input parameter contains an invalid uri.
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    getUploadList(uris: Array<string>): Promise<Array<UploadProgress>>;
   }
   /**
    * CloudFileCache object.
@@ -1279,6 +1465,24 @@ declare namespace cloudSync {
      * @since 23 static
      */
      cleanFileCache(uri: string): void;
+     /**
+     * Query the download state of the cloud file list.
+     *
+     * @permission ohos.permission.CLOUDFILE_SYNC
+     * @param { Array<string> } uris - uris of queryed files.
+     * @returns { Promise<Array<DownloadProgress>> } - Return Promise
+     * @throws { BusinessError } 201 - Permission verification failed.
+     * @throws { BusinessError } 202 - The caller is not a system application.
+     * @throws { BusinessError } 13900010 - Try again.
+     * @throws { BusinessError } 13900020 - Invalid argument. Possible causes:
+     *     <br>1.Mandatory parameters are left unspecified. 2.The number of instances registered at the same time exceeds the upper limit.
+     *     <br>3.The input parameter contains an invalid uri.
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    getDownloadList(uris: Array<string>): Promise<Array<DownloadProgress>>;
   }
 
   /**
