@@ -460,6 +460,17 @@ export declare interface TextAttribute extends CommonMethod {
      */
     default onCopy(callback: ((value: string) => void) | undefined): this;
     /**
+     * Called before using the Clipboard copy menu.
+     * Currently, only text can be copied.
+     *
+     * @param { Callback<string, boolean> | undefined } callback - Callback used to check whether copy is allowed.
+     * @returns { TextAttribute } The attribute of the text.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default onWillCopy(callback: Callback<string, boolean> | undefined): this;
+    /**
      * Text selection is achieved by specifying the start and end positions of the text.
      *
      * <p><strong>NOTE</strong>:
@@ -872,6 +883,17 @@ export declare interface TextAttribute extends CommonMethod {
      * @since 23 static
      */
     default textDirection(direction: TextDirection | undefined): this;
+
+    /**
+     * Whether to avoid an orphan word on the last line of the paragraph.
+     *
+     * @param { boolean | undefined } enabled - The default value is false,
+     *     indicates the flag whether to enable this feature.
+     * @returns { TextAttribute } returns the instance of the TextAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 26.0.0 static
+     */
+    default orphanCharOptimization(enabled: boolean | undefined): this;
 }
 /**
  * Defines span type.
@@ -1001,15 +1023,7 @@ export declare enum MarqueeState {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
      */
-    FINISH = 2,
-    /**
-     * The marquee is stoped.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 static
-     */
-    STOP = 3
+    FINISH = 2
 }
 /**
  * Defines marquee start policy.

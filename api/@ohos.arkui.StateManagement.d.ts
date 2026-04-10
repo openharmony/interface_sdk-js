@@ -89,7 +89,7 @@ export class ConnectOptions<T extends object> {
 
   /**
    * Define encrypted partition for data storage.
-   * if not passed in, the defaule value is El2
+   * if not passed in, the default value is El2
    * 
    * @type { ?contextConstant.AreaMode} 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -168,14 +168,14 @@ export declare class AppStorageV2 {
  * Function that returns reason type when error.
  *
  * @typedef { function }
- * @param { string } key persisted key when error
- * @param { 'quota' | 'serialization' | 'unknown' } reason reason type when error
- * @param { string } message more message when error
+ * @param { string } key - persisted key when error
+ * @param { 'quota' | 'serialization' | 'unknown' } reason - reason type when error
+ * @param { string } message - more message when error
  * @param { string } [oldValue] - Returns the value before the persistence failure.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 24 dynamic
+ * @since 26.0.0 dynamic
  */
 export declare type PersistenceErrorCallback = (key: string, reason: 'quota' | 'serialization' | 'unknown', 
     message: string, oldValue?: string) => void;
@@ -598,6 +598,21 @@ export interface MonitorOptions {
    * @since 20 dynamic
    */
   isSynchronous?: boolean;
+
+  /**
+   * Enables the wildcard feature.
+   * Set to true to enable wildcard feature, and set to false to disable it.
+   * Default value is false.
+   *
+   * @type { ?boolean } enableWildcard
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  enableWildcard?: boolean;
 }
 
 /**

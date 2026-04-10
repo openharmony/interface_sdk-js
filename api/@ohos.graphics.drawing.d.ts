@@ -2557,6 +2557,46 @@ declare namespace drawing {
     buildFromSvgString(str: string): boolean;
 
     /**
+     * Converts path to an SVG string.
+     *
+     * @returns { string } The SVG string of the path.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    convertToSvgString(): string;
+
+    /**
+     * Gets path point data.
+     *
+     * @returns { Array<common2D.Point> } path points array.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    getPointData(): Array<common2D.Point>;
+
+     /**
+     * Gets path verb data.
+     *
+     * @returns { Array<PathIteratorVerb> } path verbs array.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    getVerbData(): Array<PathIteratorVerb>;
+
+     /**
+     * Gets path conic weight data.
+     *
+     * @returns { Array<double> } path conic weight array.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    getConicWeightData(): Array<double>;
+
+    /**
      * Get pathIterator from path.
      *
      * @returns { PathIterator } Indicates the pointer to an pathIterator object.
@@ -2659,6 +2699,36 @@ declare namespace drawing {
      * @since 23 dynamic&static
      */
     toggleInverseFillType(): void;
+
+    /**
+     * Gets the last point of the path.
+     * 
+     * @returns { common2D.Point } Returns the last point of the path.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     */
+    getLastPoint(): common2D.Point;
+
+    /**
+     * Gets the last point of the path.
+     * 
+     * @returns { common2D.Point | undefined } Returns the last point of the path, or undefined if the path is empty.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    getLastPoint(): common2D.Point | undefined;
+
+    /**
+     * Checks if two paths are equal.
+     * @param { Path } path - Another Path object to compare.
+     * @returns { boolean } Returns true if the two paths are equal, otherwise returns false.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    isEqual(path: Path): boolean;
   }
 
   /**
@@ -4379,6 +4449,15 @@ declare namespace drawing {
      * @since 23 static
      */
     resetMatrix(): void;
+
+    /**
+     * Resets the clip status.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    resetClip(): void;
 
     /**
      * Checks whether the path is not intersecting with the canvas area. The canvas area includes its boundaries.
@@ -10473,24 +10552,12 @@ declare namespace drawing {
     /**
      * Checks whether this matrix is equal to another matrix.
      * @param { Matrix } matrix - Matrix to compare.
-     * @returns { Boolean } Returns true if the two matrices are equal; returns false otherwise.
+     * @returns { boolean } Returns true if the two matrices are equal; returns false otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    /**
-     * Checks whether this matrix is equal to another matrix.
-     * @param { Matrix } matrix - Matrix to compare.
-     * @returns { Boolean } Returns true if the two matrices are equal; returns false otherwise.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types.
-     * @syscap SystemCapability.Graphics.Drawing
-     * @crossplatform
-     * @since 20 dynamic
-     */
-    isEqual(matrix: Matrix): Boolean;
-
     /**
      * Checks whether this matrix is equal to another matrix.
      * @param { Matrix } matrix - Matrix to compare.
@@ -10498,34 +10565,11 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic
      * @since 23 static
      */
     isEqual(matrix: Matrix): boolean;
-
-    /**
-     * Inverts this matrix and returns the result.
-     * @param { Matrix } matrix - Matrix object used to store the inverted matrix.
-     * @returns { Boolean } Check result. The value true means that the matrix is revertible
-     *     and the matrix object is set to its inverse,
-     *     and false means that the matrix is not revertible and the matrix object remains unchanged.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types.
-     * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
-     */
-    /**
-     * Inverts this matrix and returns the result.
-     * @param { Matrix } matrix - Matrix object used to store the inverted matrix.
-     * @returns { Boolean } Check result. The value true means that the matrix is revertible
-     *     and the matrix object is set to its inverse,
-     *     and false means that the matrix is not revertible and the matrix object remains unchanged.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types.
-     * @syscap SystemCapability.Graphics.Drawing
-     * @crossplatform
-     * @since 20 dynamic
-     */
-    invert(matrix: Matrix): Boolean;
 
     /**
      * Inverts this matrix and returns the result.
@@ -10536,25 +10580,38 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    /**
+     * Inverts this matrix and returns the result.
+     * @param { Matrix } matrix - Matrix object used to store the inverted matrix.
+     * @returns { boolean } Check result. The value true means that the matrix is revertible
+     *     and the matrix object is set to its inverse,
+     *     and false means that the matrix is not revertible and the matrix object remains unchanged.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic
      * @since 23 static
      */
     invert(matrix: Matrix): boolean;
 
     /**
      * Checks whether this matrix is an identity matrix.
-     * @returns { Boolean } Returns true if matrix is identity; returns false otherwise.
+     * @returns { boolean } Returns true if matrix is identity; returns false otherwise.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     /**
      * Checks whether this matrix is an identity matrix.
-     * @returns { Boolean } Returns true if matrix is identity; returns false otherwise.
+     * @returns { boolean } Returns true if matrix is identity; returns false otherwise.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20 dynamic
      * @since 23 static
      */
-    isIdentity(): Boolean;
+    isIdentity(): boolean;
 
     /**
      * Obtains the value of a given index in this matrix. The index ranges from 0 to 8.
@@ -12050,6 +12107,37 @@ declare namespace drawing {
      * @since 23 static
      */
     static isEqual(rect: common2D.Rect, other: common2D.Rect): boolean;
+  }
+
+  /**
+   * This class offers a comprehensive set of operations for handling common2D Point objects.
+   *
+   * @syscap SystemCapability.Graphics.Drawing
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  class PointUtils {
+    /**
+     * Negates the point's coordinates.
+     *
+     * @param { common2D.Point } point - Specifies the point to be negated.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    static negate(point: common2D.Point): void;
+
+    /**
+     * Offsets the point's coordinates by dx, dy.
+     *
+     * @param { common2D.Point } point - Specifies the point to be offset.
+     * @param { double } dx - Indicates the distance to offset on the x-axis in pixels.
+     * @param { double } dy - Indicates the distance to offset on the y-axis in pixels.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    static offset(point: common2D.Point, dx: double, dy: double): void;
   }
 }
 

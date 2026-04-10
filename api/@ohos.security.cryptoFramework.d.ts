@@ -611,6 +611,58 @@ declare namespace cryptoFramework {
   }
 
   /**
+   * The aead algorithm parameters.
+   * 
+   * Currently, it only supports the AES-CCM algorithm.
+   *
+   * @extends ParamsSpec
+   * @typedef AeadParamsSpec
+   * @syscap SystemCapability.Security.CryptoFramework.Cipher
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  interface AeadParamsSpec extends ParamsSpec {
+    /**
+     * The cryptographic nonce.
+     *
+     * @type { Uint8Array }
+     * @syscap SystemCapability.Security.CryptoFramework.Cipher
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    nonce: Uint8Array;
+
+    /**
+     * The Additional Authenticated Data.
+     *
+     * @type { ?Uint8Array }
+     * @syscap SystemCapability.Security.CryptoFramework.Cipher
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    authenticatedData?: Uint8Array;
+
+    /**
+     * The length of the authentication tag.
+     * 
+     * For encryption, the tag will be added to the end of the ciphertext. 
+     * For decryption, the tag should be at the end of the ciphertext.
+     *
+     * For AES-CCM, the default value is 12.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Security.CryptoFramework.Cipher
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    tagLen?: int;
+  }
+
+  /**
    * Enum for obtain the crypto operation.
    *
    * @enum { int }
@@ -787,6 +839,20 @@ declare namespace cryptoFramework {
      * @since 23 static
      */
     getEncoded(): DataBlob;
+
+    /**
+     * Get the key size, in bits.
+     *
+     * @returns { int } the key size in bits.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Key
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    getKeySize(): int;
 
     /**
      * Indicates the format of the key object.
@@ -1085,6 +1151,45 @@ declare namespace cryptoFramework {
      * @since 23 dynamic&static
      */
     getPubKeySync(): PubKey;
+
+    /**
+     * Get the key data from the private key.
+     *
+     * @param { AsyKeyDataItem } itemType - indicates the specified parameters type.
+     *     <br>AsyKeyDataItem Enumerated value
+     * @returns { Promise<Uint8Array> } the promise returned by the function.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17620003 - parameter check failed.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    getKeyData(itemType: AsyKeyDataItem): Promise<Uint8Array>;
+
+    /**
+     * Get the key data from the private key.
+     *
+     * <br><br>**NOTE**
+     * <br> It is recommended to prioritize the use of asynchronous API, {@link getKeyData}. Synchronous API may
+     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
+     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
+     *
+     * @param { AsyKeyDataItem } itemType - indicates the specified parameters type.
+     *     <br>AsyKeyDataItem Enumeration
+     * @returns { Uint8Array } the key data.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17620003 - parameter check failed.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    getKeyDataSync(itemType: AsyKeyDataItem): Uint8Array;
   }
 
   /**
@@ -1194,6 +1299,40 @@ declare namespace cryptoFramework {
      * @since 23 static
      */
     getEncodedPem(format: string): string;
+
+    /**
+     * Get the key data from the public key.
+     *
+     * @param { AsyKeyDataItem } itemType - indicates the specified parameters type.
+     *     <br>AsyKeyDataItem Enumeration
+     * @returns { Promise<Uint8Array> } the promise returned by the function.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17620003 - parameter check failed.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    getKeyData(itemType: AsyKeyDataItem): Promise<Uint8Array>;
+
+    /**
+     * Get the key data from the public key.
+     *
+     * @param { AsyKeyDataItem } itemType - indicates the specified parameters type.
+     *     <br>AsyKeyDataItem Enumeration
+     * @returns { Uint8Array } the key data.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17620003 - parameter check failed.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    getKeyDataSync(itemType: AsyKeyDataItem): Uint8Array;
   }
 
   /**
@@ -5873,8 +6012,10 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob } signatureData - the signature data.
      * @returns { Promise<DataBlob | null> } the promise used to return the recovered data.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -5884,6 +6025,25 @@ declare namespace cryptoFramework {
      * @since 12 dynamic
      * @since 23 static
      */
+    /**
+     * Used to recover signed data.
+     * Currently, only RSA is supported.
+     *
+     * @param { DataBlob } signatureData - the signature data.
+     * @returns { Promise<DataBlob | null> } the promise used to return the recovered data.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17620004 - invalid function call.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Signature
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
     recover(signatureData: DataBlob): Promise<DataBlob | null>;
 
     /**
@@ -5891,9 +6051,11 @@ declare namespace cryptoFramework {
      * Currently, only RSA is supported.
      *
      * @param { DataBlob } signatureData - the signature data.
-     * @returns { DataBlob | null } return the recovered data.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @returns { DataBlob | null } returns the recovered data.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -5902,6 +6064,25 @@ declare namespace cryptoFramework {
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
+     */
+    /**
+     * Used to recover signed data.
+     * Currently, only RSA is supported.
+     *
+     * @param { DataBlob } signatureData - the signature data.
+     * @returns { DataBlob | null } returns the recovered data.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17620004 - invalid function call.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Signature
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
      */
     recoverSync(signatureData: DataBlob): DataBlob | null;
 
@@ -7058,6 +7239,67 @@ declare namespace cryptoFramework {
      * @since 23 static
      */
     X25519_PK_BN = 602
+  }
+  
+  /**
+   * Enum for asymmetric key data item type.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  enum AsyKeyDataItem {
+    /**
+     * Indicates the K of the EC private key.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    EC_PRIVATE_K = 6,
+
+    /**
+     * Indicates the 04||X||Y||K of the EC private key.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    EC_PRIVATE_04_X_Y_K = 7,
+
+    /**
+     * Indicates the X||Y of the EC public key.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    EC_PUBLIC_X_Y = 8,
+
+    /**
+     * Indicates the 04||X||Y of the EC public key.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    EC_PUBLIC_04_X_Y = 9,
+
+    /**
+     * Indicates the 02||X or 03||X of the EC public key.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    EC_PUBLIC_COMPRESS_X = 10
   }
 
   /**

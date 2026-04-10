@@ -227,6 +227,16 @@ declare namespace shortcutManager {
   function getShortcutInfoByAbility(bundleName: string, moduleName: string, abilityName: string, userId?: int, appIndex?: int): Array<ShortcutInfo>;
 
   /**
+   * Checks whether the shortcut capability is supported.
+   * @returns { boolean } Returns true if the shortcut capability is supported; returns false otherwise.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   * 
+   */
+  function isShortcutSupported(): boolean;
+
+  /**
    * Provides information about a shortcut, including the shortcut ID and label.
    *
    * @typedef { _ShortcutInfo }

@@ -181,4 +181,17 @@ export interface ProcessInformation {
    * @since 23 static
    */
   appCloneIndex?: int;
+
+  /**
+   * Indicates whether the process is in the preload state.
+   * - `true`: The process is currently in the preload state.
+   * - `false`: The process is either not a preload process, or its preload state has been consumed.
+   * 
+   * @type { ?boolean }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  isPreload?: boolean;
 }

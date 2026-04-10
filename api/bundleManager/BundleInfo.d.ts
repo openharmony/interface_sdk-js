@@ -407,7 +407,7 @@ export interface BundleInfo {
    * @since 9
    */
   /**
-   * Indicates the hap install time
+   * Indicates the hap install time,the unit is millisecond.
    *
    * @type { long }
    * @readonly
@@ -427,7 +427,7 @@ export interface BundleInfo {
    * @since 9
    */
   /**
-   * Indicates the hap update time
+   * Indicates the hap update time,the unit is millisecond.
    *
    * @type { long }
    * @readonly
@@ -462,7 +462,7 @@ export interface BundleInfo {
   readonly appIndex: int;
 
   /**
-   * Indicates the hap first install time
+   * Indicates the hap first install time,the unit is millisecond.
    *
    * @type { ?long }
    * @readonly

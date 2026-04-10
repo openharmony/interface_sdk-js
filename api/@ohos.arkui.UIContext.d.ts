@@ -3150,6 +3150,19 @@ export interface AtomicServiceBar {
    * @since 15 dynamic
    */
   getBarRect(): Frame;
+
+  /**
+   * When size and position of the bar changed, callback will be called.
+   *
+   * @param { Callback<Frame> } callback - Callback that param contains the Frame.
+   *     The parameters of the callback function cannot be undefined or null.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  onBarRectChange(callback: Callback<Frame>): void;
 }
 
 /**
@@ -3722,6 +3735,20 @@ export class CursorController {
    * @since 12 dynamic
    */
   setCursor(value: PointerStyle): void;
+  /**
+   * Sets the custom cursor style.
+   *
+   * @param { image.PixelMap } value - custom cursor style.
+   * @param { int } [focusX] - Focus x of the custom cursor. The value is greater than or equal to 0. The default
+   *     value is 0.
+   * @param { int } [focusY] - Focus y of the custom cursor. The value is greater than or equal to 0. The default
+   *     value is 0.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  setCustomCursor(value: image.PixelMap, focusX?: int, focusY?: int): void;
 }
 
 /**
@@ -4165,6 +4192,17 @@ export class ComponentSnapshot {
    */
   getWithRange(start: NodeIdentity, end: NodeIdentity, isStartRect: boolean,
     options?: componentSnapshot.SnapshotOptions): Promise<image.PixelMap>;
+  /**
+   * Query the size limitation for taking a component snapshot.
+   *
+   * @returns { componentSnapshot.SnapshotSizeLimitation } The size limitation for taking a component snapshot.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+   getSizeLimitation(): componentSnapshot.SnapshotSizeLimitation;
 }
 
 /**
@@ -5046,6 +5084,91 @@ export class UIContext {
   getCursorController(): CursorController;
 
   /**
+   * Registers a local input event monitor.
+   *
+   * Parameters:
+   * - eventMask: Event type mask, specifying the types of events to monitor through bitwise operations.
+   * - listener: Event listener callback function.
+   *
+   * Returns:
+   * - InputEventMonitor: Unique identifier object for the monitor, used for subsequent cancellation of registration.
+   *
+   * **Performance Warning**: Do not perform time-consuming operations in the callback!
+   *
+   * **Naming Notes**: The "Local" in the interface name indicates that the monitor is only valid within the current UIContext (i.e., the current window),
+   * and does not affect other UIContext instances. Each UIContext maintains its own independent list of monitors.
+   *
+   * **Monitor Object Notes**:
+   * - The returned Monitor object is a unique identifier created by the system.
+   * - Developers cannot actively construct or forge this object.
+   * - Must save the returned object reference for subsequent cancellation.
+   * - It is recommended to use a variable to save it to avoid losing the reference.
+   *
+   * **Usage Examples**:
+   * ```typescript
+   * // Monitor a single event type
+   * const monitor1 = uiContext.addLocalInputEventMonitor(
+   *   InputEventSubTypeMask.LEFT_MOUSE_DOWN,
+   *   (wrapper: RawInputEventWrapper) => {
+   *     if (wrapper.isMouseEvent()) {
+   *       const mouseEvent = wrapper.asMouseEvent();
+   *       console.log(`Mouse: (${mouseEvent.windowX}, ${mouseEvent.windowY})`);
+   *       return { action: InputEventInterceptAction.CONTINUE };  // Allow event to continue
+   *     }
+   *     return { action: InputEventInterceptAction.BLOCK };  // Block event
+   *   }
+   * );
+   *
+   * // Monitor multiple event types (using bitwise operations)
+   * const monitor2 = uiContext.addLocalInputEventMonitor(
+   *   InputEventSubTypeMask.LEFT_MOUSE_DOWN | InputEventSubTypeMask.RIGHT_MOUSE_DOWN,
+   *   (wrapper: RawInputEventWrapper) => {
+   *     if (wrapper.isMouseEvent()) {
+   *       const mouseEvent = wrapper.asMouseEvent()!;
+   *       console.log(`Mouse button: ${mouseEvent.button}`);
+   *       return { action: InputEventInterceptAction.BLOCK };
+   *     }
+   *     return { action: InputEventInterceptAction.CONTINUE };
+   *   }
+   * );
+   *
+   * // When unregistering the monitor, use the returned Monitor object
+   * uiContext.removeLocalInputEventMonitor(monitor1);
+   * uiContext.removeLocalInputEventMonitor(monitor2);
+   * ```
+   *
+   * @param { number } eventMask - Event type mask, specifying the types of events to monitor through bitwise operations.
+   * @param { InputEventListener } listener - Event listener callback function.
+   * @returns { InputEventMonitor } Unique identifier object for the monitor, used for subsequent cancellation of registration.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  addLocalInputEventMonitor(eventMask: number, listener: InputEventListener): InputEventMonitor;
+
+  /**
+   * Removes a local input event monitor.
+   *
+   * Parameters:
+   * - monitor: Monitor identifier object (returned by addLocalInputEventMonitor).
+   *
+   * **Important Notes**:
+   * - Only Monitor objects returned by addLocalInputEventMonitor can be removed.
+   * - Cannot unregister a monitor by manually constructing an object.
+   * - If an invalid object is passed, the system silently ignores it.
+   *
+   * @param { InputEventMonitor } monitor - Monitor identifier object (returned by addLocalInputEventMonitor).
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  removeLocalInputEventMonitor(monitor: InputEventMonitor): void;
+
+  /**
    * Get object context menu controller.
    *
    * @returns { ContextMenuController } object context menu controller.
@@ -5662,6 +5785,31 @@ export class UIContext {
     * @since 24 dynamic
     */
    isEasySplit(): boolean;
+
+  /**
+   * Whether to enable or disable event passthrough.
+   *
+   * @param { boolean } enabled - enable or disable event passthrough. The default value is false.
+   * @param { RawInputEventType } eventType - the type of raw input event.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservicet
+   * @since 26.0.0 dynamic
+   */
+  enableEventPassthrough(enabled: boolean, eventType: RawInputEventType): void;
+
+  /**
+   * Sets the text selection clear policy for text component.
+   * Default policy: **TextSelectionClearPolicy.KEEP_SELECTED_TEXT_ON_EXTERNAL_TOUCH**
+   *
+   * @param { TextSelectionClearPolicy } policy - The text selection clear policy.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  setTextSelectionClearPolicy(policy: TextSelectionClearPolicy): void;
 }
 
 /**
@@ -5719,6 +5867,39 @@ export const enum KeyboardAvoidMode {
   * @since 14 dynamic
   */
   NONE = 4,
+}
+
+/**
+ * Enum of TextSelectionClearPolicy
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+export const enum TextSelectionClearPolicy {
+  /**
+  * Keep the selected text when touch outside of text component.
+  *
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @stagemodelonly
+  * @crossplatform
+  * @atomicservice
+  * @since 26.0.0 dynamic
+  */
+  KEEP_SELECTED_TEXT_ON_EXTERNAL_TOUCH = 0,
+
+  /**
+   * Clear the selected text when touch outside of text component.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  CLEAR_SELECTED_TEXT_ON_EXTERNAL_TOUCH = 1,
 }
 
 /**

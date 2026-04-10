@@ -189,7 +189,7 @@ declare namespace cacheDownload {
      */
     interface ResourceInfo {
         /**
-         * The decompressed size of the downloaded resource.
+         * The decompressed size of the downloaded resource, in bytes.
          * If the value is -1, it means the resource is not downloaded successfully.
          * 
          * @type { long }

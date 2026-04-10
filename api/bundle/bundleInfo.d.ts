@@ -149,7 +149,7 @@ export interface BundleInfo {
 
   /**
    * @type { number }
-   * @default Indicates the hap install time
+   * @default Indicates the hap install time,the unit is millisecond.
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -159,7 +159,8 @@ export interface BundleInfo {
 
   /**
    * @type { number }
-   * @default Indicates the hap update time
+   * @default Indicates the hap update time,the unit is millisecond.
+   * 
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7 dynamiconly
    * @deprecated since 9

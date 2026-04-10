@@ -20,6 +20,7 @@
 
 import { HapModuleInfo } from '../bundleManager/HapModuleInfo';
 import { Configuration } from '../@ohos.app.ability.Configuration';
+import { ElementName } from '../bundleManager/ElementName';
 import Context from './Context';
 
 /**
@@ -112,6 +113,16 @@ declare class AbilityStageContext extends Context {
    * @since 23 static
    */
   config: Configuration;
+
+  /**
+   * Indicates launch ElementName object of the abilityStage.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 24 dynamic&static
+   */
+  launchElement?: ElementName;
 }
 
 export default AbilityStageContext;

@@ -97,7 +97,7 @@ export interface LauncherAbilityInfo {
   readonly userId: number;
 
   /**
-   * Obtains installTime about an launcher ability.
+   * Obtains installTime about an launcher ability,the unit is millisecond.
    *
    * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework

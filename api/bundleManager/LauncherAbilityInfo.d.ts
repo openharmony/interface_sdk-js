@@ -86,7 +86,7 @@ export interface LauncherAbilityInfo {
   readonly userId: int;
 
   /**
-   * Obtains installTime about an launcher ability.
+   * Obtains installTime about an launcher ability,the unit is millisecond.
    *
    * @type { long }
    * @readonly

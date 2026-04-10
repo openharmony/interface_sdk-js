@@ -178,7 +178,7 @@ declare namespace batteryStats {
    * Obtains power consumption information(Percent) for a given uid.
    *
    * @param { int } uid Indicates the uid.
-   * @returns { double } Power consumption information(Percent).
+   * @returns { double } Power consumption information in percent, which ranges from 0.00 to 1.00.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Parameter verification failed.
    * @throws { BusinessError } 4600101 - Failed to connect to the service.
@@ -210,7 +210,7 @@ declare namespace batteryStats {
    *
    * @param { ConsumptionType } type Indicates the hardware type.
    * the ConsumptionType type is an enumeration class.
-   * @returns { double } Power consumption information(Percent).
+   * @returns { double } Power consumption information in percent, which ranges from 0.00 to 1.00.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Parameter verification failed.
    * @throws { BusinessError } 4600101 - Failed to connect to the service.

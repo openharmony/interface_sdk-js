@@ -128,14 +128,14 @@ declare interface FlexOptions {
   wrap?: FlexWrap;
 
   /**
-   * The alignment format of the subassembly on the Flex container spindle.
+   * The alignment format of the subassembly on the Flex container main axis.
    *
    * @type { ?FlexAlign }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
-   * The alignment format of the subassembly on the Flex container spindle.
+   * The alignment format of the subassembly on the Flex container main axis.
    *
    * @type { ?FlexAlign }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -143,7 +143,7 @@ declare interface FlexOptions {
    * @since 9
    */
   /**
-   * The alignment format of the subassembly on the Flex container spindle.
+   * The alignment format of the subassembly on the Flex container main axis.
    *
    * @type { ?FlexAlign }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -287,14 +287,14 @@ declare interface FlexSpaceOptions {
 }
 
 /**
- * Provides a monthly view component to display information such as date, shift break, and schedule.
+ * Provides a Flex container component for flexible layout of child components.
  *
  * @interface FlexInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
- * Provides a monthly view component to display information such as date, shift break, and schedule.
+ * Provides a Flex container component for flexible layout of child components.
  *
  * @interface FlexInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -302,7 +302,7 @@ declare interface FlexSpaceOptions {
  * @since 9
  */
 /**
- * Provides a monthly view component to display information such as date, shift break, and schedule.
+ * Provides a Flex container component for flexible layout of child components.
  *
  * @interface FlexInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -311,7 +311,7 @@ declare interface FlexSpaceOptions {
  * @since 10
  */
 /**
- * Provides a monthly view component to display information such as date, shift break, and schedule.
+ * Provides a Flex container component for flexible layout of child components.
  *
  * @interface FlexInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full

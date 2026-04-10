@@ -269,12 +269,13 @@ declare namespace fileAccess {
     mode: number;
     /**
      * Indicates the size of the file.
+     * <br>Unit: Byte.
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
      * @type { number }
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9 dynamiconly
      * @deprecated since 23
      */

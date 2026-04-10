@@ -517,9 +517,9 @@ declare namespace inputMethodEngine {
    * The callback of 'cursorContextChange' event.
    *
    * @typedef { function } CursorContextChangeCallback.
-   * @param { double } x - the left point of the cursor.
-   * @param { double } y - the top point of the cursor.
-   * @param { double } height - the height of the cursor.
+   * @param { double } x - the left point of the cursor, unit is px.
+   * @param { double } y - the top point of the cursor, unit is px.
+   * @param { double } height - the height of the cursor, unit is px.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 23 static
    */
@@ -2480,7 +2480,7 @@ declare namespace inputMethodEngine {
   interface ImmersiveEffect {
 
     /**
-     * The height of the gradient effect.
+     * The height of the gradient effect, unit is px.
      *
      * @type { int }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -2620,8 +2620,8 @@ declare namespace inputMethodEngine {
     /**
      * Resizes a panel.
      *
-     * @param { long } width - the new width of the panel.
-     * @param { long } height - the new height of the panel.
+     * @param { long } width - the new width of the panel, unit is px.
+     * @param { long } height - the new height of the panel, unit is px.
      * @param { AsyncCallback<void> } callback - the callback of resize.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
@@ -2634,8 +2634,8 @@ declare namespace inputMethodEngine {
     /**
      * Resizes a panel.
      *
-     * @param { long } width - the new width of the panel.
-     * @param { long } height - the new height of the panel.
+     * @param { long } width - the new width of the panel, unit is px.
+     * @param { long } height - the new height of the panel, unit is px.
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
@@ -2649,8 +2649,8 @@ declare namespace inputMethodEngine {
      * Moves a panel.
      * <p>It's unusable for SOFT_KEYBOARD panel with FLG_FIXED.</p>
      *
-     * @param { int } x - the x-coordinate of the new position.
-     * @param { int } y - the y-coordinate of the new position.
+     * @param { int } x - the x-coordinate of the new position, unit is px.
+     * @param { int } y - the y-coordinate of the new position, unit is px.
      * @param { AsyncCallback<void> } callback - the callback of moveTo.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
@@ -2664,8 +2664,8 @@ declare namespace inputMethodEngine {
      * Moves a panel.
      * <p>It's unusable for SOFT_KEYBOARD panel with FLG_FIXED.</p>
      *
-     * @param { int } x - the x-coordinate of the new position.
-     * @param { int } y - the y-coordinate of the new position.
+     * @param { int } x - the x-coordinate of the new position, unit is px.
+     * @param { int } y - the y-coordinate of the new position, unit is px.
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
@@ -3171,7 +3171,7 @@ declare namespace inputMethodEngine {
    */
   interface SystemPanelInsets {
     /**
-     * Distance on the left.
+     * Distance on the left, unit is px.
      *
      * @type { int }
      * @readonly
@@ -3181,7 +3181,7 @@ declare namespace inputMethodEngine {
      */
     readonly left: int;
     /**
-     * Distance on the right.
+     * Distance on the right, unit is px.
      *
      * @type { int }
      * @readonly
@@ -3191,7 +3191,7 @@ declare namespace inputMethodEngine {
      */
     readonly right: int;
     /**
-     * Distance on the bottom.
+     * Distance on the bottom, unit is px.
      *
      * @type { int }
      * @readonly
@@ -3805,7 +3805,7 @@ declare namespace inputMethodEngine {
      */
     portraitRect?: window.Rect;
     /**
-     * The distance between the top of the panel and the top of the avoidance area in landscape orientation.
+     * The distance between the top of the panel and the top of the avoidance area in landscape orientation, unit is px.
      * <p>It's only used for SOFT_KEYBOARD panel with fixed flag or floating flag.</p>
      *
      * @type { ?int }
@@ -3827,7 +3827,7 @@ declare namespace inputMethodEngine {
      */
     landscapeInputRegion?: Array<window.Rect>;
     /**
-     * The distance between the top of the panel and the top of the avoidance area in portrait orientation.
+     * The distance between the top of the panel and the top of the avoidance area in portrait orientation, unit is px.
      * <p>It's only used for SOFT_KEYBOARD panel with fixed flag or floating flag.</p>
      *
      * @type { ?int }
@@ -3871,7 +3871,7 @@ declare namespace inputMethodEngine {
    */
   export interface KeyboardArea {
     /**
-     * Top of the keyboard area in the panel.
+     * Top of the keyboard area in the panel, unit is px.
      *
      * @type { int }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -3880,7 +3880,7 @@ declare namespace inputMethodEngine {
      */
     top: int;
     /**
-     * Bottom of the keyboard area in the panel.
+     * Bottom of the keyboard area in the panel, unit is px.
      *
      * @type { int }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -3889,7 +3889,7 @@ declare namespace inputMethodEngine {
      */
     bottom: int;
     /**
-     * Left of the keyboard area in the panel.
+     * Left of the keyboard area in the panel, unit is px.
      *
      * @type { int }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -3898,7 +3898,7 @@ declare namespace inputMethodEngine {
      */
     left: int;
     /**
-     * Right of the keyboard area in the panel.
+     * Right of the keyboard area in the panel, unit is px.
      *
      * @type { int }
      * @syscap SystemCapability.MiscServices.InputMethodFramework

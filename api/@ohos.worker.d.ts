@@ -1499,7 +1499,7 @@ export interface ThreadWorkerGlobalScope extends GlobalScope {
    * @param { string } instanceName - Key used for registration. It is used to search for the object in the host thread.
    * @param { string } methodName - Name of the method to call. Note that the method cannot be modified by async or generator,
    *     or return results asynchronously by using the asynchronous mechanism at the bottom layer. Otherwise, an exception is thrown.
-   * @param { number } timeout - Maximum duration that the current synchronous invoking waits, in ms.
+   * @param { number } timeout - Maximum duration that the current synchronous invoking waits (ms).
    *     The value is an integer ranging from 1 to 5000. The value 0 means that the 5000 ms duration is used.
    * @param { Object[] } args - the method argument called on registered globalCallObject.
    * @returns { Object } Return the result of method if it has a return value, otherwise return void.

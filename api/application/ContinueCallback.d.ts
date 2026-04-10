@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -14,6 +14,10 @@
  */
 
 /**
+ * The ContinueCallback module defines the callback function that indicates the result of mission continuation. For 
+ * details about mission continuation, see 
+ * [continueMission]{@link @ohos.distributedMissionManager:distributedMissionManager.continueMission(parameter: ContinueDeviceInfo, options: ContinueCallback, callback: AsyncCallback<void>)}
+ *
  * @file
  * @kit AbilityKit
  */
@@ -25,7 +29,7 @@
  * @param { int } result - The result code of continue mission.
  * @syscap SystemCapability.Ability.AbilityRuntime.Mission
  * @systemapi
- * @stagemodelonly 
+ * @stagemodelonly
  * @since 9 dynamic
  * @since 23 static
  */
@@ -45,7 +49,6 @@ export interface ContinueCallback {
   /**
    * Called by system when continue mission done.
    *
-   * @type { OnContinueDoneCallback }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @stagemodelonly

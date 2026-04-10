@@ -545,14 +545,16 @@ declare namespace image {
    */
   interface Size {
     /**
-     * Height, in px
+     * Height
+     * <br>Unit:px.
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 6
      */
     /**
-     * Height, in px
+     * Height
+     * <br>Unit:px.
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -560,7 +562,8 @@ declare namespace image {
      * @since 10
      */
     /**
-     * Height, in px
+     * Height
+     * <br>Unit:px.
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -569,7 +572,8 @@ declare namespace image {
      * @since 11
      */
     /**
-     * Height, in px
+     * Height
+     * <br>Unit:px.
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -582,14 +586,16 @@ declare namespace image {
     height: int;
 
     /**
-     * Width, in px
+     * Width
+     * <br>Unit:px.
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 6
      */
     /**
-     * Width, in px
+     * Width
+     * <br>Unit:px.
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -597,7 +603,8 @@ declare namespace image {
      * @since 10
      */
     /**
-     * Width, in px
+     * Width
+     * <br>Unit:px.
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -606,7 +613,8 @@ declare namespace image {
      * @since 11
      */
     /**
-     * Width, in px
+     * Width
+     * <br>Unit:px.
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -985,7 +993,7 @@ declare namespace image {
     ISO_SPEED = 'ISOSpeedRatings',
  
     /**
-     * The lens aperture. The unit is the APEX((Additive System of Photographic Exposure) value.
+     * The lens aperture, expressed as an APEX (Additive System of Photographic Exposure) value.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 10 dynamic
@@ -1535,7 +1543,7 @@ declare namespace image {
     SHUTTER_SPEED = 'ShutterSpeedValue',
 
     /**
-     * The brightness value of the image, in APEX units.
+     * The brightness value of the image, expressed as an APEX (Additive System of Photographic Exposure) value.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -3235,14 +3243,16 @@ declare namespace image {
     size: Size;
 
     /**
-     * x-coordinate at the upper left corner of the image, in px.
+     * x-coordinate at the upper left corner of the image.
+     * <br>Unit:px.
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 7
      */
     /**
-     * x-coordinate at the upper left corner of the image, in px.
+     * x-coordinate at the upper left corner of the image.
+     * <br>Unit:px.
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -3250,7 +3260,8 @@ declare namespace image {
      * @since 10
      */
     /**
-     * x-coordinate at the upper left corner of the image, in px.
+     * x-coordinate at the upper left corner of the image.
+     * <br>Unit:px.
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -3259,7 +3270,8 @@ declare namespace image {
      * @since 11
      */
     /**
-     * x-coordinate at the upper left corner of the image, in px.
+     * x-coordinate at the upper left corner of the image.
+     * <br>Unit:px.
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -3272,14 +3284,16 @@ declare namespace image {
     x: int;
 
     /**
-     * y-coordinate at the upper left corner of the image, in px.
+     * y-coordinate at the upper left corner of the image.
+     * <br>Unit:px.
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 7
      */
     /**
-     * y-coordinate at the upper left corner of the image, in px.
+     * y-coordinate at the upper left corner of the image.
+     * <br>Unit:px.
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -3287,7 +3301,8 @@ declare namespace image {
      * @since 10
      */
     /**
-     * y-coordinate at the upper left corner of the image, in px.
+     * y-coordinate at the upper left corner of the image.
+     * <br>Unit:px.
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -3296,7 +3311,8 @@ declare namespace image {
      * @since 11
      */
     /**
-     * y-coordinate at the upper left corner of the image, in px.
+     * y-coordinate at the upper left corner of the image.
+     * <br>Unit:px.
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -3407,7 +3423,7 @@ declare namespace image {
      * @since 11
      */
     /**
-     * Offset for data reading.
+     * Offset for data reading, in bytes.
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -3568,14 +3584,16 @@ declare namespace image {
     size: Size;
 
     /**
-     * Indicates image default density, in ppi.
+     * Indicates image default density.
+     * <br>Unit:ppi.
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9
      */
     /**
-     * Indicates image default density, in ppi.
+     * Indicates image default density.
+     * <br>Unit:ppi.
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -3583,7 +3601,8 @@ declare namespace image {
      * @since 10
      */
     /**
-     * Indicates image default density, in ppi.
+     * Indicates image default density.
+     * <br>Unit:ppi.
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -3592,7 +3611,8 @@ declare namespace image {
      * @since 11
      */
     /**
-     * Indicates image default density, in ppi.
+     * Indicates image default density.
+     * <br>Unit:ppi.
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -3783,7 +3803,8 @@ declare namespace image {
     /**
      * BufferSize of the target image.
      * If this bufferSize is less than or equal to 0, it will be converted to 10MB.
-     *
+     * <br>Unit:bytes.Default value:25MB.
+     * 
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @since 9
@@ -3791,7 +3812,8 @@ declare namespace image {
     /**
      * BufferSize of the target image.
      * If this bufferSize is less than or equal to 0, it will be converted to 10MB.
-     *
+     * <br>Unit:bytes.Default value:25MB.
+     * 
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @crossplatform
@@ -3800,7 +3822,8 @@ declare namespace image {
     /**
      * BufferSize of the target image.
      * If this bufferSize is less than or equal to 0, it will be converted to 10MB.
-     *
+     * <br>Unit:bytes.Default value:25MB.
+     * 
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @crossplatform
@@ -4090,23 +4113,26 @@ declare namespace image {
     sampleSize?: int;
 
     /**
-     * Rotation angle of the image pixel map. The value ranges from 0 to 360.
+     * Rotation angle of the image pixel map.
+     * <br>Value range:[0,360].Unit:deg.
      *
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @since 7
      */
     /**
-     * Rotation angle of the image pixel map. The value ranges from 0 to 360.
-     *
+     * Rotation angle of the image pixel map.
+     * <br>Value range:[0,360].Unit:deg.
+     * 
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 10
      */
     /**
-     * Rotation angle of the image pixel map. The value ranges from 0 to 360.
-     *
+     * Rotation angle of the image pixel map.
+     * <br>Value range:[0,360].Unit:deg.
+     * 
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
@@ -4114,8 +4140,9 @@ declare namespace image {
      * @since 11
      */
     /**
-     * Rotation angle of the image pixel map. The value ranges from 0 to 360.
-     *
+     * Rotation angle of the image pixel map.
+     * <br>Value range:[0,360].Unit:deg.
+     * 
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
@@ -4280,6 +4307,7 @@ declare namespace image {
 
     /**
      * The density for image pixel map.
+     * <br>Unit:ppi.
      *
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
@@ -4287,7 +4315,8 @@ declare namespace image {
      */
     /**
      * The density for image pixel map.
-     *
+     * <br>Unit:ppi.
+     * 
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
@@ -4295,6 +4324,7 @@ declare namespace image {
      */
     /**
      * The density for image pixel map.
+     * <br>Unit:ppi.
      *
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
@@ -4304,6 +4334,7 @@ declare namespace image {
      */
     /**
      * The density for image pixel map.
+     * <br>Unit:ppi.
      *
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
@@ -4380,6 +4411,7 @@ declare namespace image {
 
     /**
      * Row stride.
+     * <br>Unit:bytes.
      *
      * @type { int }
      * @readonly
@@ -4391,6 +4423,7 @@ declare namespace image {
 
     /**
      * Pixel stride.
+     * <br>Unit:bytes.
      *
      * @type { int }
      * @readonly
@@ -4682,6 +4715,7 @@ declare namespace image {
   interface SourceOptions {
     /**
      * The density for ImageSource.
+     * <br>Unit:ppi.
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -4689,6 +4723,7 @@ declare namespace image {
      */
     /**
      * The density for ImageSource.
+     * <br>Unit:ppi.
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -4697,6 +4732,7 @@ declare namespace image {
      */
     /**
      * The density for ImageSource.
+     * <br>Unit:ppi.
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -4706,6 +4742,7 @@ declare namespace image {
      */
     /**
      * The density for ImageSource.
+     * <br>Unit:ppi.
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -4850,6 +4887,7 @@ declare namespace image {
     /**
      * Maximum luminance of the image's primary display.
      * The value is measured in units of 1, with a maximum allowed value of 65,535.
+     * <br>Unit:nit.
      *
      * @type { double }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -4861,6 +4899,7 @@ declare namespace image {
     /**
      * Minimum luminance of the image's primary display.
      * The value is measured in units of 0.0001, with a maximum allowed value of 6.55535.
+     * <br>Unit:nit.
      *
      * @type { double }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -4872,7 +4911,8 @@ declare namespace image {
     /**
      * Maximum brightness of displayed content.
      * The value is measured in units of 1, with a maximum allowed value of 65,535.
-     *
+     * <br>Unit:nit.
+     * 
      * @type { double }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 12 dynamic
@@ -4883,7 +4923,8 @@ declare namespace image {
     /**
      * Maximum average brightness of displayed content.
      * The value is measured in units of 1, with a maximum allowed value of 65,535.
-     *
+     * <br>Unit:nit.
+     * 
      * @type { double }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 12 dynamic
@@ -8335,6 +8376,15 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 24 dynamic&static
      */
     DNG_METADATA = 16,
+
+    /**
+     * Metadata of a WebP image.
+     * 
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    WEBP_METADATA = 17,
   }
 
   /**
@@ -9388,7 +9438,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @param { Record<string, string | null> } records Property records whose values are to be set.
      * @returns { Promise<void> } A Promise instance used to return the operation result.
-     * @throws { BusinessError } 7600202 - Unsupported metadata. Possible causes: unsupported metadata type
+     * @throws { BusinessError } 7600202 - Unsupported metadata. Possible causes: unsupported metadata type.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -9552,6 +9602,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
  
     /**
      * Image width.
+     * <br>Unit:px.
      *
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -9562,6 +9613,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * Image length.
+     * <br>Unit:px.
      *
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -10060,6 +10112,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * The direction of GPS receiver movement.
+     * <br>Unit:deg.
      *
      * @type { ?double }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -10080,6 +10133,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * The direction of the image when captured.
+     * <br>Unit:deg.
      *
      * @type { ?double }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -10219,7 +10273,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     gpsDifferential?: int;
 
     /**
-     * This tag indicates horizontal positioning errors in meters.
+     * This tag indicates horizontal positioning errors.
+     * <br>Unit:m.
      *
      * @type { ?double }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -10290,6 +10345,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * ISO speed latitude yyy value of the camera or input device, which is defined in ISO 12232.
+     * <br>Unit:EV.
      *
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -10300,6 +10356,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * ISO speed latitude zzz value of the camera or input device, which is defined in ISO 12232.
+     * <br>Unit:EV.
      *
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -10382,7 +10439,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     componentsConfiguration?: string;
 
     /**
-     * The compression mode used for a compressed image, in unit bits per pixel.
+     * The compression mode used for a compressed image.
+     * <br>Unit:bits per pixel.
      *
      * @type { ?double }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -10402,7 +10460,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     shutterSpeedValue?: double;
 
     /**
-     * The lens aperture. The unit is the APEX(Additive System of Photographic Exposure) value.
+     * The lens aperture, expressed as an APEX (Additive System of Photographic Exposure) value.
      *
      * @type { ?double }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -10412,7 +10470,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     apertureValue?: double;
 
     /**
-     * The brightness value of the image, in APEX units.
+     * The brightness value of the image, expressed as an APEX (Additive System of Photographic Exposure) value.
      *
      * @type { ?double }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -10442,7 +10500,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     maxApertureValue?: double;
 
     /**
-     * The distance to the subject, measured in meters.
+     * The distance to the subject.
+     * <br>Unit:m.
      *
      * @type { ?double }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -10482,7 +10541,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     flash?: int;
 
     /**
-     * Focal length
+     * Focal length 
+     * <br>Unit:mm.
      *
      * @type { ?double }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -10602,7 +10662,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     relatedSoundFile?: string;
 	
     /**
-     * Strobe energy at image capture, in BCPS.
+     * Strobe energy at image capture.
+     * <br>Unit:BCPS.
      *
      * @type { ?double }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -10753,6 +10814,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 	
     /**
      * Focal length in 35mm film.
+     * <br>Unit:mm.
      *
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -12472,6 +12534,118 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   }
 
   /**
+   * Enumerates the properties available for the metadata of a WebP image.
+   *
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  enum WebPPropertyKey {
+    /**
+     * Canvas Width.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    CANVAS_WIDTH = 'WebPCanvasWidth',
+
+    /**
+     * Canvas Height.
+     * 
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    CANVAS_HEIGHT = 'WebPCanvasHeight',
+
+    /**
+     * Delay of each frame in milliseconds.
+     * 
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    DELAY_TIME = 'WebPDelayTime',
+
+    /**
+     * Unclamped delay of each frame in milliseconds.
+     * 
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    UNCLAMPED_DELAY_TIME = 'WebPUnclampedDelayTime',
+
+    /**
+     * Loop count.
+     * 
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    LOOP_COUNT = 'WebPLoopCount',
+  }
+
+  /**
+   * WebP metadata.
+   * 
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  class WebPMetadata {
+    /**
+     * Canvas Width.
+     * <br>Unit:px.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly canvasWidth?: int;
+
+    /**
+     * Canvas Height.
+     * <br>Unit:px.
+     * 
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly canvasHeight?: int;
+
+    /**
+     * Delay of each frame.
+     * <br>Unit:ms.
+     * 
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly delayTime?: int;
+
+    /**
+     * Unclamped delay of each frame.
+     * <br>Unit:ms.
+     * 
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly unclampedDelayTime?: int;
+
+    /**
+     * Loop count.
+     * 
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    readonly loopCount?: int;
+  }
+
+  /**
    * Metadata set of an image.
    *
    * @typedef ImageMetadata
@@ -12519,6 +12693,15 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 24 dynamic&static
      */
     dngMetadata?: DngMetadata;
+
+    /**
+     * WebP metadata.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    webPMetadata?: WebPMetadata;
   }
 
   /**
@@ -13817,12 +14000,33 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     modifyImagePropertiesEnhanced(records: Record<string, string | null>): Promise<void>;
 
     /**
+     * Modify the value of properties in an image with the specified keys.The HwMnote read-only key is supported.
+     *
+     * @param { Record<string, string|null> } records - Property Records whose values are to be modified,
+     *     when the value is set to null the tag will be removed.
+     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails,
+     *     an error message is returned.
+     * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
+     * @throws { BusinessError } 7700102 - Unsupported MIME type.
+     * @throws { BusinessError } 7700202 - Unsupported metadata. For example, the property key is not supported,
+     *     or the property value is invalid.
+     * @throws { BusinessError } 7700304 - Failed to write image properties to the file.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    modifyImageAllProperties(records: Record<string, string|null>): Promise<void>;
+
+    /**
      * Update the data in the incremental ImageSource.
      *
      * @param { ArrayBuffer } buf The data to be updated.
      * @param { boolean } isFinished If is it finished.
      * @param { number } value The offset of data.
+     * <br>Unit:bytes.
      * @param { number } length The length fo buf.
+     * <br>Unit:bytes.
      * @returns { Promise<void> } A Promise instance used to return the property value.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @since 9
@@ -13833,7 +14037,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { ArrayBuffer } buf The data to be updated.
      * @param { boolean } isFinished If is it finished.
      * @param { number } value The offset of data.
+     * <br>Unit:bytes.
      * @param { number } length The length fo buf.
+     * <br>Unit:bytes.
      * @returns { Promise<void> } A Promise instance used to return the property value.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
@@ -13845,7 +14051,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { ArrayBuffer } buf The data to be updated.
      * @param { boolean } isFinished If is it finished.
      * @param { int } offset The offset of data.
+     * <br>Unit:bytes.
      * @param { int } length The length fo buf.
+     * <br>Unit:bytes.
      * @returns { Promise<void> } A Promise instance used to return the property value.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
@@ -13860,7 +14068,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { ArrayBuffer } buf The data to be updated.
      * @param { boolean } isFinished If is it finished.
      * @param { number } value The offset of data.
+     * <br>Unit:bytes.
      * @param { number } length The length fo buf.
+     * <br>Unit:bytes.
      * @param { AsyncCallback<void> } callback Callback to return the operation result.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @since 9
@@ -13871,7 +14081,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { ArrayBuffer } buf The data to be updated.
      * @param { boolean } isFinished If is it finished.
      * @param { number } value The offset of data.
+     * <br>Unit:bytes.
      * @param { number } length The length fo buf.
+     * <br>Unit:bytes.
      * @param { AsyncCallback<void> } callback Callback to return the operation result.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
@@ -13883,7 +14095,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { ArrayBuffer } buf The data to be updated.
      * @param { boolean } isFinished If is it finished.
      * @param { int } offset The offset of data.
+     * <br>Unit:bytes.
      * @param { int } length The length fo buf.
+     * <br>Unit:bytes.
      * @param { AsyncCallback<void> } callback Callback to return the operation result.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
@@ -14628,6 +14842,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * Image timestamp.
+     * <br>Unit:ns.
      *
      * @type { long }
      * @readonly

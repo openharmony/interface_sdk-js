@@ -855,7 +855,7 @@ export interface WindowSize {
    * @since 11
    */
   /**
-   * Indicates maximum width of window under free window status.
+   * Indicates maximum width of window under free window status,the unit is vp.
    *
    * @type { long }
    * @readonly
@@ -885,7 +885,7 @@ export interface WindowSize {
    * @since 11
    */
   /**
-   * Indicates minimum width of window under free window status.
+   * Indicates minimum width of window under free window status,the unit is vp.
    *
    * @type { long }
    * @readonly
@@ -915,7 +915,7 @@ export interface WindowSize {
    * @since 11
    */
   /**
-   * Indicates maximum height of window under free window status.
+   * Indicates maximum height of window under free window status,the unit is vp.
    *
    * @type { long }
    * @readonly
@@ -945,7 +945,7 @@ export interface WindowSize {
    * @since 11
    */
   /**
-   * Indicates minimum height of window under free window status.
+   * Indicates minimum height of window under free window status,the unit is vp.
    *
    * @type { long }
    * @readonly

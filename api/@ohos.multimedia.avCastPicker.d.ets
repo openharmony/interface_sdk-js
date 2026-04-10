@@ -23,12 +23,12 @@ import { AVCastPickerStyle } from './@ohos.multimedia.avCastPickerParam';
 import { AVCastPickerColorMode } from './@ohos.multimedia.avCastPickerParam';
 
 /**
- * A picker view to show availale streaming device list.
+ * A picker view to show available streaming device list.
  * @syscap SystemCapability.Multimedia.AVSession.AVCast
  * @since 10
  */
  /**
- * A picker view to show availale streaming device list.
+ * A picker view to show available streaming device list.
  * @syscap SystemCapability.Multimedia.AVSession.AVCast
  * @atomicservice
  * @since 12 dynamic

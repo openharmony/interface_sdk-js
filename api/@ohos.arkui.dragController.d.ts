@@ -460,6 +460,19 @@ declare namespace dragController {
      * @since 18 dynamic
      */
     previewOptions?: DragPreviewOptions;
+
+    /**
+     * Components to be automatically hidden during drag by uniqueId.
+     * You can pass a single uniqueId or an array. If the drag source itself also needs to be hidden,
+     * pass its uniqueId as well.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    autoHideComponentUniqueIds?: int | int[];
     
     /**
      * Provide a data representation to the system instead of providing a complete data
@@ -616,7 +629,7 @@ declare namespace dragController {
   }
 
   /**
-   * Define the drag event paramters
+   * Define the drag event parameters
    * 
    * @interface DragEventParam
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -624,7 +637,7 @@ declare namespace dragController {
    * @since 12
    */
   /**
-   * Define the drag event paramters
+   * Define the drag event parameters
    * 
    * @interface DragEventParam
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -829,20 +842,20 @@ declare namespace dragController {
 
   /**
    * Get drag preview object.
-   * @returns { DragPreview } An drag preview object.
+   * @returns { DragPreview } A drag preview object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
   /**
    * Get drag preview object.
-   * @returns { DragPreview } An drag preview object.
+   * @returns { DragPreview } A drag preview object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
    */
   /**
    * Get drag preview object.
-   * @returns { DragPreview } An drag preview object.
+   * @returns { DragPreview } A drag preview object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice

@@ -18,7 +18,7 @@
  * @kit ArkUI
  */
 
-import { Callback, ShadowOptions, ClickEvent, TouchEvent, PixelMap, AttributeModifier, CommonMethod } from './common';
+import { Callback, ShadowOptions, ClickEvent, TouchEvent, PixelMap, AttributeModifier, CommonMethod, LayoutPolicy } from './common';
 import { TextAlign, FontStyle, FontWeight, TextDecorationType, TextDecorationStyle, WordBreak, TextOverflow, ImageFit, ImageSpanAlignment } from './enums';
 import { ResourceStr, ResourceColor, LengthMetrics, SizeOptions, Margin, Padding, BorderRadiuses, ColorFilter } from './units';
 import { TextBackgroundStyle } from './span';
@@ -1684,6 +1684,25 @@ export declare interface CustomSpanMeasureInfo {
      * @since 23 static
      */
     fontSize: double;
+    /**
+     * The max width constraint of custom span.
+     * The unit is px.
+     *
+     * @type { ?double }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    maxWidth?: double;
+    /**
+     * The layoutPolicy of custom span.
+     *
+     * @type { ?LayoutPolicy }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    layoutPolicy?: LayoutPolicy;
 }
 /**
  * Defines CustomSpan.

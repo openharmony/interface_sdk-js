@@ -27,7 +27,7 @@ import { TouchEvent } from '@ohos.arkui.component';
 
 
 /**
- * Defined the controller of node container.Provides lifecycle callbacks for the associated NodeContainer
+ * Defines the controller of the node container. Provides lifecycle callbacks for the associated NodeContainer
  * and methods to control the child node of the NodeContainer.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -37,7 +37,7 @@ import { TouchEvent } from '@ohos.arkui.component';
  */
 export declare abstract class NodeController {
   /**
-   * MakeNode Method. Used to build a node tree and return the a FrameNode or null, and
+   * MakeNode Method. Used to build a node tree and return a FrameNode or null, and
    * attach the return result to the associated NodeContainer.
    * Executed when the associated NodeContainer is created or the rebuild function is called.
    *
@@ -82,7 +82,7 @@ export declare abstract class NodeController {
   aboutToDisappear(): void;
 
   /**
-   * Rebuild Method. Used to re invoke the makeNode method.
+   * Rebuild Method. Used to re-invoke the makeNode method.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -134,7 +134,7 @@ export declare abstract class NodeController {
   onWillBind(containerId: long): void;
 
   /**
-   * OnWillUnbind Method. Executed before the NodeController is unbind with the NodeContainer.
+   * OnWillUnbind Method. Executed before the NodeController is unbound with the NodeContainer.
    *
    * @param { long } containerId - the uniqueId of the NodeContainer.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -156,7 +156,7 @@ export declare abstract class NodeController {
   onBind(containerId: long): void;
 
   /**
-   * OnUnbind Method. Executed when the NodeController is unbind with the NodeContainer.
+   * OnUnbind Method. Executed when the NodeController is unbound with the NodeContainer.
    *
    * @param { long } containerId - the uniqueId of the NodeContainer.
    * @syscap SystemCapability.ArkUI.ArkUI.Full

@@ -41,14 +41,14 @@
  */
 export default class ErrorObserver {
   /**
-   * Will be called when the js runtime throws an exception which doesn't caught by user.
+   * Will be called when the js runtime throws an exception which hasn't been caught by user.
    *
    * @param { string } errMsg - the message and error stacktrace about the exception.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
    */
   /**
-   * Will be called when the js runtime throws an exception which doesn't caught by user.
+   * Will be called when the js runtime throws an exception which hasn't been caught by user.
    *
    * @param { string } errMsg - the message and error stacktrace about the exception.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -56,7 +56,7 @@ export default class ErrorObserver {
    * @since 11
    */
   /**
-   * Will be called when the js runtime throws an exception which doesn't caught by user.
+   * Will be called when the js runtime throws an exception which hasn't been caught by user.
    *
    * @param { string } errMsg - the message and error stacktrace about the exception.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -67,14 +67,14 @@ export default class ErrorObserver {
   onUnhandledException(errMsg: string): void;
 
   /**
-   * Will be called when the js runtime throws an exception which doesn't caught by user.
+   * Will be called when the js runtime throws an exception which hasn't been caught by user.
    *
    * @param { Error } errObject - the error object about the exception.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 10
    */
   /**
-   * Will be called when the js runtime throws an exception which doesn't caught by user.
+   * Will be called when the js runtime throws an exception which hasn't been caught by user.
    *
    * @param { Error } errObject - the error object about the exception.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -82,7 +82,7 @@ export default class ErrorObserver {
    * @since 11
    */
   /**
-   * Will be called when the js runtime throws an exception which doesn't caught by user.
+   * Will be called when the js runtime throws an exception which hasn't been caught by user.
    *
    * @param { Error } errObject - the error object about the exception.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core

@@ -31,9 +31,9 @@ import { DynamicNode } from './common'
  */
 type RepeatArray<T> = Array<T> | ReadonlyArray<T> | Readonly<Array<T>>;
 /**
- * Function that return typed string to render one template.
+ * Function that returns typed string to render one template.
  *
- * @typedef {function} TemplateTypedFunc<T>
+ * @typedef { function } TemplateTypedFunc<T>
  * @param { T } item - data item.
  * @param { int } index - data index in array.
  * @returns { string } template type.
@@ -42,9 +42,9 @@ type RepeatArray<T> = Array<T> | ReadonlyArray<T> | Readonly<Array<T>>;
  */
 type TemplateTypedFunc<T> = (item: T, index: int) => string;
 /**
- * Define builder function to render one template type.
+ * Defines builder function to render one template type.
  *
- * @typedef {function} RepeatItemBuilder<T>
+ * @typedef { function } RepeatItemBuilder<T>
  * @param { RepeatItem<T> } repeatItem - the repeat item builder function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 23 static
@@ -81,7 +81,7 @@ export interface RepeatItem<T> {
 /**
  * Function that is used to do lazy loading.
  *
- * @typedef {function} OnLazyLoadingFunc
+ * @typedef { function } OnLazyLoadingFunc
  * @param { int } index - data index.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 23 static
@@ -89,9 +89,9 @@ export interface RepeatItem<T> {
 type OnLazyLoadingFunc = (index: int) => void;
 
 /**
- * Define key generator function.
+ * Defines key generator function.
  *
- * @typedef {function} KeyGeneratorFunc<T>
+ * @typedef { function } KeyGeneratorFunc<T>
  * @param { T } item - data item.
  * @param { int } index - data index in array.
  * @returns { string } key value.
@@ -103,15 +103,15 @@ type KeyGeneratorFunc<T> = (item: T, index: int) => string;
 /**
  * Function that is used to get total count.
  *
- * @typedef {function} OnTotalCountFunc
- * @returns { int } Returns the total data count
+ * @typedef { function } OnTotalCountFunc
+ * @returns { int } Returns the total data count.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 23 static
  */
 type OnTotalCountFunc = () => int;
 
 /**
- * Define the options of repeat virtualScroll to implement reuse and lazy loading.
+ * Defines the options of repeat virtualScroll to implement reuse and lazy loading.
  *
  * @interface VirtualScrollOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -163,7 +163,7 @@ export interface VirtualScrollOptions {
 }
 
 /**
- * Define a builder template option parameter.
+ * Defines a builder template option parameter.
  *
  * @interface TemplateOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -232,7 +232,7 @@ export interface RepeatAttribute<T> extends DynamicNode {
   /**
    * Typed function to render specific type of data item.
    *
-   * @param { TemplateTypedFunc<T> } typedFunc that define template typed function.
+   * @param { TemplateTypedFunc<T> } typedFunc that defines template typed function.
    * @returns { this } RepeatAttribute instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static

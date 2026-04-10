@@ -43,7 +43,7 @@ export declare interface SystemTonePlayer {
 
   /**
    * Sets the volume scale of audio.
-   * @param { double } scale - Audio volume scale, should be float in [0,1]
+   * @param { double } scale - Audio volume scale, should be float in [0,1].
    * @throws { BusinessError } 202 - Caller is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1.Mandatory parameters are left unspecified;
@@ -59,7 +59,7 @@ export declare interface SystemTonePlayer {
 
   /**
    * Gets the volume scale of audio.
-   * @returns { double } Audio volume scale.
+   * @returns { double } Audio volume scale, should be float in [0,1].
    * @throws { BusinessError } 202 - Caller is not a system application.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi

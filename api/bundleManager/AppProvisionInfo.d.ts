@@ -197,7 +197,7 @@ export interface AppProvisionInfo {
  */
 export interface Validity {
   /**
-   * Indicates the earliest validity of the profile file.
+   * Indicates the earliest validity of the profile file,the unit is seconds.
    *
    * @type { long }
    * @readonly
@@ -209,7 +209,7 @@ export interface Validity {
   readonly notBefore: long;
 
   /**
-   * Indicates the latest validity of the profile file.
+   * Indicates the latest validity of the profile file,the unit is seconds.
    *
    * @type { long }
    * @readonly

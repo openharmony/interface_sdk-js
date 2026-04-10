@@ -39,7 +39,7 @@ export interface BatteryResponse {
   charging: boolean;
 
   /**
-   * Current battery level, which ranges from 0.00 to 1.00.
+   * Current battery level in percent, which ranges from 0.00 to 1.00.
    *
    * @type { number }
    * @syscap SystemCapability.PowerManager.BatteryManager.Lite

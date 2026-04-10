@@ -1993,7 +1993,6 @@ declare namespace certificateManager {
    * @returns { Promise<CMResult> } Indicates the USB key certificate list.
    * @throws { BusinessError } 201 - Permission verification failed.
    *     <br>The application does not have the permission required to call the API.
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
    *     <br>2. Memory operation error; 3. File operation error.

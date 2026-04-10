@@ -18,7 +18,7 @@
  */
 import { BaseEvent, SourceTool, Callback } from './common';
 import { InteractionHand } from './enums';
-import { VoidCallback } from "./units";
+import { VoidCallback, Coordinate2D } from "./units";
 /**
  * Creating an Object
  *
@@ -163,7 +163,7 @@ export declare enum SwipeDirection {
      */
     Horizontal,
     /**
-     * Sliding Vertical
+     * Sliding vertically
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
@@ -484,15 +484,26 @@ export declare interface EventLocationInfo {
      * @since 24 static
      */
     globalDisplayY?: double;
+
+ 	/**
+ 	 * Gets the coordinates of the top-left corner of the current component based on its real-time position.
+ 	 *
+ 	 * @returns { Coordinate2D } - return the coordinates of the top-left corner of the current component based on its
+ 	 * real-time position.
+ 	 * @syscap SystemCapability.ArkUI.ArkUI.Full
+ 	 * @stagemodelonly
+ 	 * @since 26.0.0 static
+ 	 */
+ 	default getCurrentLocalPosition(): Coordinate2D;
 }
 /**
  * Type of the finger information.
  *
- * @interface FingerInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stageModelOnly
  * @since 23 static
  */
-export interface FingerInfo {
+export declare interface FingerInfo {
     /**
      * Finger unique identifier.
      *
@@ -576,6 +587,17 @@ export interface FingerInfo {
      * @since 23 static
      */
     hand?: InteractionHand;
+
+ 	/**
+ 	 * Gets the coordinates of the top-left corner of the current component based on its real-time position.
+ 	 *
+ 	 * @returns { Coordinate2D } - return the coordinates of the top-left corner of the current component based on its
+ 	 * real-time position.
+ 	 * @syscap SystemCapability.ArkUI.ArkUI.Full
+ 	 * @stagemodelonly
+ 	 * @since 26.0.0 static
+ 	 */
+ 	default getCurrentLocalPosition(): Coordinate2D;
 }
 /**
  * Defines the Gesture Type.
@@ -2029,6 +2051,15 @@ export declare class EventTargetInfo {
      * @since 23 static
      */
     getId(): string;
+    /**
+     * Returns the component's unique id.
+     * 
+     * @returns { int } - the unique id of the component
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    getUniqueId(): int;
 }
 /**
  * Defines the touch recognizer.
@@ -2055,6 +2086,16 @@ export declare class TouchRecognizer {
      * @since 24 static
      */
     cancelTouch(): void;
+    /**
+     * Check whether the current gesture binding node is a descendant of the passed-in component.
+     *
+     * @param { int } uniqueId - the unique id of the component.
+     * @returns { boolean } - the query result.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    isHostBelongsTo(uniqueId: int): boolean;
 }
 /**
  * Defines the gesture recognizer.
@@ -2156,6 +2197,16 @@ export declare class GestureRecognizer {
      * @since 23 static
      */
     preventBegin(): void;
+    /**
+     * Check whether the current gesture binding node is a descendant of the passed-in component.
+     *
+     * @param { int } uniqueId - the unique id of the component.
+     * @returns { boolean } - the query result.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    isHostBelongsTo(uniqueId: int): boolean;
 }
 /**
  * Defines the tap gesture recognizer.

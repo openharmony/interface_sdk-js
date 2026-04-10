@@ -481,7 +481,7 @@ declare namespace taskpool {
     onStartExecution(callback: CallbackFunction): void;
 
     /**
-     * Register a callback function and call it when a task fails to be executed.
+     * Register a callback function and call it when a task fails to be executed(Periodic tasks are not supported).
      * The registration must be carried out before the task is executed. Otherwise, an exception is thrown.
      *
      * @param { CallbackFunctionWithError } [callback] - Callback function to register.
@@ -1642,7 +1642,7 @@ declare namespace taskpool {
   /**
    * Verifies the passed-in parameter types and return value type of a concurrent function, and executes the generic task with a delay.
    *
-   * @param { number } delayTime - Delay, in ms.
+   * @param { number } delayTime - Delay duration (ms).
    * @param { GenericsTask<A, R> } task - Generic task to be executed with a delay.
    * @param { Priority } [priority] - Priority of the task. The default value is taskpool.Priority.MEDIUM.
    * @returns { Promise<R> }
@@ -1680,7 +1680,7 @@ declare namespace taskpool {
    * Executes a task periodically. In this execution mode, you can set the task priority and call cancel() to cancel the execution.
    * A periodic task cannot be a task in a task group, serial queue, or asynchronous queue. It cannot call execute() again or have a dependency relationship.
    *
-   * @param { number } period - Execution period, in ms.
+   * @param { number } period - Execution period (ms).
    * @param { Task } task - Task to be executed.
    * @param { Priority } [priority] - Priority of the task. The default value is taskpool.Priority.MEDIUM.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -1718,7 +1718,7 @@ declare namespace taskpool {
    * Verifies the passed-in parameter types and return value type of a concurrent function, and executes the generic task
    * periodically at an interval specified by period.
    *
-   * @param { number } period - Execution period, in ms.
+   * @param { number } period - Execution period (ms).
    * @param { GenericsTask<A, R> } task - Generic task to be executed periodically.
    * @param { Priority } [priority] - Priority of the task. The default value is taskpool.Priority.MEDIUM.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
@@ -1779,7 +1779,7 @@ declare namespace taskpool {
    * after being canceled, and an exception indicating task cancellation is returned. If the task has been distributed to
    * the worker thread of the task pool, canceling the task does not affect the task execution, and the execution result
    * is returned in the catch branch. You can use isCanceled() to check the task cancellation status. In other words,
-   * taskpool.cancel takes effect before taskpool.execute or taskpool.executeDelayed is called.
+   * taskpool.cancel takes effect before taskpool.execute taskpool.executePeriodically or taskpool.executeDelayed is called.
    *
    * @param { Task } task - Task to cancel.
    * @throws { BusinessError } 10200015 - The task to cancel does not exist.

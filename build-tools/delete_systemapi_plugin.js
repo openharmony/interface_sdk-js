@@ -971,7 +971,12 @@ function getCopyrightComment(fileFullText) {
 function removeSystemapiDoc(result) {
   result.split;
   return result.replace(/\/\*\*[\s\S]*?\*\//g, (substring, p1) => {
-    return /@systemapi/g.test(substring) ? '' : substring;
+    // 如果systemapi转为publicapi，则需要进行版本变更，否则保持原样处理不变
+    if(!/@systemapi/g.test(substring)){
+      return substring
+    }else{
+      return isAbsoluteSystemApi(substring) ? '' : convertSystemApiVersion(substring)
+    }
   });
 }
 
@@ -1441,7 +1446,7 @@ function isSystemapi(node) {
   const notesArr = notesContent.split(/\/\*\*/);
   const notesStr = notesArr[notesArr.length - 1];
   if (notesStr.length !== 0) {
-    return /@systemapi/g.test(notesStr);
+    return isAbsoluteSystemApi(notesStr)
   }
   return false;
 }
@@ -1480,6 +1485,103 @@ function isEmptyFile(node) {
     etsDeleteFiles.push(fileName);
   }
   return isEmpty;
+}
+
+/**
+ * 判断systemapi后面是否带区间版本
+ * @param {string} notesStr 
+ */
+function isAbsoluteSystemApi(notesStr){
+  if(!/@systemapi/g.test(notesStr)){
+    return false
+  }else{
+    return getPublicApiVersion(notesStr) === ''
+  }
+}
+
+/**
+ * 变更systemapi为publicapi
+ * @param {string} substring 
+ */
+function convertSystemApiVersion(substring){
+  let sourceString = substring
+  let finalVersion
+  let publicApiVersion = getPublicApiVersion(substring)
+
+  let sinceVersionRes = substring.match(/@since\s*([\d\.\(\)]*)/i)
+  if(sinceVersionRes && sinceVersionRes.length > 1){
+    finalVersion = getFinalVersion(sinceVersionRes[1], publicApiVersion)
+  }
+
+  deletedSourceString = sourceString.replace(/[^\S\n]*\*\s*(@since\s*).*\n/gi, '')
+  deletedSourceString = deletedSourceString.replace(/@publicapi\s*[^\n]*/i, `@since ${finalVersion}`)
+  finalResult = deletedSourceString.replace(/[^\S\n]*\*\s*@systemapi.*(\n)/g, '')
+  return finalResult
+}
+
+/**
+ * 比较原始版本和public版本，得到最终版本
+ * @param {string} originalVersion 
+ * @param {string} publicVersion 
+ */
+function getFinalVersion(originalVersion, publicVersion){
+  return compareVersions(originalVersion, publicVersion) > -1 ? originalVersion : publicVersion
+}
+
+/**
+ * 版本比较
+ * @param {*} version1 
+ * @param {*} version2 
+ */
+function compareVersions(version1, version2){
+  // 处理闭源格式：提取x.y.z并计算权重值
+  const extractClosedVersion = (str) => {
+    const match = str.match(/^(\d+)\.(\d+)\.(\d+)\((\d+)\)$/)
+    if(match){
+      const x = parseInt(match[1])
+      const y = parseInt(match[2])
+      const z = parseInt(match[3])
+      return x * 10000 + y * 100 + z;
+    }
+    return null
+  }
+
+  // 处理开源格式：提取数字或x.y.z格式
+  const extractOpenVersion = (str) => {
+    // 先尝试提取数字
+    const num = parseFloat(str);
+    if(!isNaN(num)) return num * 10000;
+
+    // 尝试提取x.y.z格式
+    const parts = str.split('.').map(Number);
+    if(parts.length === 3){
+      return parts[0] * 10000 + parts[1] * 100 + parts[2]
+    }
+    return null;
+  };
+
+  // 提取版本号
+  const v1 = extractClosedVersion(version1) || extractOpenVersion(version1)
+  const v2 = extractClosedVersion(version2) || extractOpenVersion(version2)
+
+  // 比较版本号
+  if(v1 === v2){
+    return 0;
+  }
+  return v1 > v2 ? 1 : -1
+}
+
+/**
+ * 通过@publicapi获取public版本
+ * @param {string} substring 
+ */
+function getPublicApiVersion(substring){
+  let result = substring.match(/@publicapi\s*\[\s*since\s*([^\s]+)\s*\]/)
+  if(result && result[1]){
+    return result[1]
+  }
+
+  return ''
 }
 
 let outputPath = '';

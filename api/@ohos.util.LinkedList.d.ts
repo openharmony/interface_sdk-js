@@ -14,6 +14,30 @@
  */
 
 /**
+ * LinkedList is implemented based on the doubly linked list. Each node of the doubly linked list has references 
+ * pointing to the previous element and the next element. When querying an element, the system traverses the list from 
+ * the beginning or end. LinkedList offers efficient insertion and removal operations but supports low query efficiency.
+ * LinkedList allows null elements.
+ * Unlike [List]{@link @ohos.util.List}, which is a singly linked list, LinkedList is a doubly linked list that supports
+ * insertion and removal at both ends.
+ * LinkedList is more efficient in data insertion than [ArrayList]{@link @ohos.util.ArrayList}, but less efficient in 
+ * data access.
+ * 
+ * > **NOTE**
+ * >
+ * > Accessing elements in a LinkedList using the \[index\] syntax may lead to undefined results. You are advised to use
+ * > **get()** instead.
+ * > **Recommended use case**: Use LinkedList for frequent insertion and removal operations when a doubly linked list is
+ * > required.
+ * > This topic uses the following to identify the use of generics:
+ * 
+ * - T: Type
+ * 
+ * > **NOTE**
+ * >
+ * > - Container classes, implemented in static languages, have restrictions on storage locations and properties, and do
+ * > not support custom properties or methods.
+ *
  * @file
  * @kit ArkTS
  */
@@ -21,88 +45,39 @@
 /**
  * LinkedList is implemented based on the doubly linked list. Each node of the doubly linked list has
  * references pointing to the previous element and the next element. When querying an element,
- * the system traverses the list from the beginning or end. 
+ * the system traverses the list from the beginning or end.
  *
  * @syscap SystemCapability.Utils.Lang
- * @since 8
- */
-/**
- * LinkedList is implemented based on the doubly linked list. Each node of the doubly linked list has
- * references pointing to the previous element and the next element. When querying an element,
- * the system traverses the list from the beginning or end. 
- *
- * @syscap SystemCapability.Utils.Lang
- * @crossplatform
- * @since 10
- */
-/**
- * LinkedList is implemented based on the doubly linked list. Each node of the doubly linked list has
- * references pointing to the previous element and the next element. When querying an element,
- * the system traverses the list from the beginning or end. 
- *
- * @syscap SystemCapability.Utils.Lang
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 12]
+ * @since 8 dynamic
  * @since 23 static
  */
 declare class LinkedList<T> {
   /**
-   * A constructor used to create a LinkedList object.
+   * A constructor used to create a **LinkedList** instance.
    *
    * @throws { BusinessError } 10200012 - The LinkedList's constructor cannot be directly invoked.
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * A constructor used to create a LinkedList object.
-   *
-   * @throws { BusinessError } 10200012 - The LinkedList's constructor cannot be directly invoked.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * A constructor used to create a LinkedList object.
-   *
-   * @throws { BusinessError } 10200012 - The LinkedList's constructor cannot be directly invoked.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
    * @since 23 static
    */
   constructor();
   /**
-   * Gets the element number of the LinkedList. This is a number one higher than the highest index in the linkedlist.
+   * Number of elements in a LinkedList.
    *
-   * @type { number }
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * Gets the element number of the LinkedList. This is a number one higher than the highest index in the linkedlist.
-   *
-   * @type { number }
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Gets the element number of the LinkedList. This is a number one higher than the highest index in the linkedlist.
-   *
-   * @type { number }
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
    */
   length: number;
 
-    /**
+  /**
    * Gets the element number of the LinkedList.
    *
-   * @type { int }
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -111,188 +86,79 @@ declare class LinkedList<T> {
   get length(): int;
 
   /**
-   * Appends the specified element to the end of this linkedlist.
+   * Adds an element at the end of this LinkedList.
    *
-   * @param { T } element - element element to be appended to this linkedlist
-   * @returns { boolean } the boolean type, returns true if the addition is successful, and returns false if it fails.
+   * @param { T } element - Target element.
+   * @returns { boolean } Operation result. The value **true** is returned if the element is added; otherwise, **false**
+   *     is returned.
    * @throws { BusinessError } 10200011 - The add method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * Appends the specified element to the end of this linkedlist.
-   *
-   * @param { T } element - element element to be appended to this linkedlist
-   * @returns { boolean } the boolean type, returns true if the addition is successful, and returns false if it fails.
-   * @throws { BusinessError } 10200011 - The add method cannot be bound.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Appends the specified element to the end of this linkedlist.
-   *
-   * @param { T } element - element element to be appended to this linkedlist
-   * @returns { boolean } the boolean type, returns true if the addition is successful, and returns false if it fails.
-   * @throws { BusinessError } 10200011 - The add method cannot be bound.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
    * @since 23 static
    */
   add(element: T): boolean;
   /**
-   * Inserts the specified element at the specified position in this linkedlist.
+   * Inserts an element at the specified position in this LinkedList.
    *
-   * @param { number } index - index index index at which the specified element is to be inserted
-   * @param { T } element - element element element to be inserted
+   * @param { int } index - Index of the position where the element is to be inserted. The value must be less than or
+   *     equal to int32_max, that is, 2147483647.
+   * @param { T } element - Target element.
    * @throws { BusinessError } 10200011 - The insert method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types;
-   * 3.Parameter verification failed.
+   *     1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types;
+   *     3.Parameter verification failed.
    * @throws { BusinessError } 10200001 - The value of index is out of range.
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * Inserts the specified element at the specified position in this linkedlist.
-   *
-   * @param { number } index - index index index at which the specified element is to be inserted
-   * @param { T } element - element element element to be inserted
-   * @throws { BusinessError } 10200011 - The insert method cannot be bound.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types;
-   * 3.Parameter verification failed.
-   * @throws { BusinessError } 10200001 - The value of index is out of range.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Inserts the specified element at the specified position in this linkedlist.
-   *
-   * @param { int } index - index index index at which the specified element is to be inserted
-   * @param { T } element - element element element to be inserted
-   * @throws { BusinessError } 10200011 - The insert method cannot be bound.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types;
-   * 3.Parameter verification failed.
-   * @throws { BusinessError } 10200001 - The value of index is out of range.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
    * @since 23 static
    */
   insert(index: int, element: T): void;
   /**
-   * Returns the element at the specified position in this linkedlist,
-   * or returns undefined if this linkedlist is empty
+   * Obtains an element at the specified position in this LinkedList.
    *
-   * @param { number } index - index index specified position
-   * @returns { T } the T type
+   * @param { int } index - Position index of the target element. The value must be less than or equal to int32_max,
+   *     that is, 2147483647.
+   * @returns { T } Element obtained. If the element does not exist, **undefined** is returned.
    * @throws { BusinessError } 10200011 - The get method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
+   *     1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types.
+   * @throws { BusinessError } 10200001 - The value of index is out of range. [since 23] [staticonly]
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * Returns the element at the specified position in this linkedlist,
-   * or returns undefined if this linkedlist is empty
-   *
-   * @param { number } index - index index specified position
-   * @returns { T } the T type
-   * @throws { BusinessError } 10200011 - The get method cannot be bound.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Returns the element at the specified position in this linkedlist,
-   * or returns undefined if this linkedlist is empty
-   *
-   * @param { int } index - index index specified position
-   * @returns { T } the T type
-   * @throws { BusinessError } 10200001 - The value of index is out of range.[staticonly]
-   * @throws { BusinessError } 10200011 - The get method cannot be bound.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
    * @since 23 static
    */
   get(index: int): T;
 
   /**
-   * Inserts the specified element at the beginning of this LinkedList.
+   * Adds an element at the top of this LinkedList.
    *
-   * @param { T } element - element element the element to add
+   * @param { T } element - Target element.
    * @throws { BusinessError } 10200011 - The addFirst method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * Inserts the specified element at the beginning of this LinkedList.
-   *
-   * @param { T } element - element element the element to add
-   * @throws { BusinessError } 10200011 - The addFirst method cannot be bound.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Inserts the specified element at the beginning of this LinkedList.
-   *
-   * @param { T } element - element element the element to add
-   * @throws { BusinessError } 10200011 - The addFirst method cannot be bound.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
    * @since 23 static
    */
   addFirst(element: T): void;
   /**
-   * Retrieves and removes the head (first element) of this linkedlist.
+   * Removes the first element from this LinkedList.
    *
-   * @returns { T } the head of this list
+   * @returns { T } Element removed.
    * @throws { BusinessError } 10200011 - The removeFirst method cannot be bound.
    * @throws { BusinessError } 10200010 - Container is empty.
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * Retrieves and removes the head (first element) of this linkedlist.
-   *
-   * @returns { T } the head of this list
-   * @throws { BusinessError } 10200011 - The removeFirst method cannot be bound.
-   * @throws { BusinessError } 10200010 - Container is empty.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Retrieves and removes the head (first element) of this linkedlist.
-   *
-   * @returns { T } the head of this list
-   * @throws { BusinessError } 10200011 - The removeFirst method cannot be bound.
-   * @throws { BusinessError } 10200010 - Container is empty.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
    */
   removeFirst(): T;
 
@@ -309,34 +175,15 @@ declare class LinkedList<T> {
   removeFirst(): T | undefined;
 
   /**
-   * Removes and returns the last element from this linkedlist.
+   * Removes the last element from this LinkedList.
    *
-   * @returns { T } the head of this list
+   * @returns { T } Element removed.
    * @throws { BusinessError } 10200011 - The removeLast method cannot be bound.
    * @throws { BusinessError } 10200010 - Container is empty.
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * Removes and returns the last element from this linkedlist.
-   *
-   * @returns { T } the head of this list
-   * @throws { BusinessError } 10200011 - The removeLast method cannot be bound.
-   * @throws { BusinessError } 10200010 - Container is empty.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Removes and returns the last element from this linkedlist.
-   *
-   * @returns { T } the head of this list
-   * @throws { BusinessError } 10200011 - The removeLast method cannot be bound.
-   * @throws { BusinessError } 10200010 - Container is empty.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
    */
   removeLast(): T;
 
@@ -353,124 +200,53 @@ declare class LinkedList<T> {
   removeLast(): T | undefined;
 
   /**
-   * Check if linkedlist contains the specified element
+   * Checks whether this LinkedList has the specified element.
    *
-   * @param { T } element - element element element to be contained
-   * @returns { boolean } the boolean type,if linkedList contains the specified element,return true,else return false
+   * @param { T } element - Target element.
+   * @returns { boolean } Operation result. The value **true** is returned if the specified element is contained;
+   *     otherwise, **false** is returned.
    * @throws { BusinessError } 10200011 - The has method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * Check if linkedlist contains the specified element
-   *
-   * @param { T } element - element element element to be contained
-   * @returns { boolean } the boolean type,if linkedList contains the specified element,return true,else return false
-   * @throws { BusinessError } 10200011 - The has method cannot be bound.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Check if linkedlist contains the specified element
-   *
-   * @param { T } element - element element element to be contained
-   * @returns { boolean } the boolean type,if linkedList contains the specified element,return true,else return false
-   * @throws { BusinessError } 10200011 - The has method cannot be bound.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
    * @since 23 static
    */
   has(element: T): boolean;
   /**
-   * Returns the index of the first occurrence of the specified element
-   * in this linkedlist, or -1 if this linkedlist does not contain the element.
+   * Obtains the index of the first occurrence of the specified element in this LinkedList.
    *
-   * @param { T } element - element element element to be contained
-   * @returns { number } the number type ,returns the lowest index such that or -1 if there is no such index.
+   * @param { T } element - Target element.
+   * @returns { int } Index of the element. If no match is found, **-1** is returned.
    * @throws { BusinessError } 10200011 - The getIndexOf method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * Returns the index of the first occurrence of the specified element
-   * in this linkedlist, or -1 if this linkedlist does not contain the element.
-   *
-   * @param { T } element - element element element to be contained
-   * @returns { number } the number type ,returns the lowest index such that or -1 if there is no such index.
-   * @throws { BusinessError } 10200011 - The getIndexOf method cannot be bound.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Returns the index of the first occurrence of the specified element
-   * in this linkedlist, or -1 if this linkedlist does not contain the element.
-   *
-   * @param { T } element - element element element to be contained
-   * @returns { int } the int type ,returns the lowest index such that or -1 if there is no such index.
-   * @throws { BusinessError } 10200011 - The getIndexOf method cannot be bound.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
    * @since 23 static
    */
   getIndexOf(element: T): int;
   /**
-   * Find the corresponding element according to the index.
+   * Searches for an element based on its index and then removes it.
    *
-   * @param { number } index - index index the index in the linkedlist
-   * @returns { T } the T type ,returns undefined if linkedlist is empty,If the index is
-   * out of bounds (greater than or equal to length or less than 0), throw an exception
+   * @param { number } index - Position index of the target element. The value must be less than or equal to int32_max,
+   *     that is, 2147483647.
+   * @returns { T } Element removed. If the element does not exist, **undefined** is returned.
    * @throws { BusinessError } 10200011 - The removeByIndex method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types;
-   * 3.Parameter verification failed.
+   *     1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types;
+   *     3.Parameter verification failed.
    * @throws { BusinessError } 10200001 - The value of index is out of range.
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * Find the corresponding element according to the index.
-   *
-   * @param { number } index - index index the index in the linkedlist
-   * @returns { T } the T type ,returns undefined if linkedlist is empty,If the index is
-   * out of bounds (greater than or equal to length or less than 0), throw an exception
-   * @throws { BusinessError } 10200011 - The removeByIndex method cannot be bound.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types;
-   * 3.Parameter verification failed.
-   * @throws { BusinessError } 10200001 - The value of index is out of range.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Find the corresponding element according to the index.
-   *
-   * @param { number } index - index index the index in the linkedlist
-   * @returns { T } the T type ,returns undefined if linkedlist is empty,If the index is
-   * out of bounds (greater than or equal to length or less than 0), throw an exception
-   * @throws { BusinessError } 10200011 - The removeByIndex method cannot be bound.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types;
-   * 3.Parameter verification failed.
-   * @throws { BusinessError } 10200001 - The value of index is out of range.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
    */
   removeByIndex(index: number): T;
 
   /**
-   * Find the corresponding element according to the index.
+   * Removes and returns the element at the specified index in this linkedlist.
    *
    * @param { int } index - the index in the linkedList
    * @returns { T | undefined } the T type, if the index is
@@ -486,345 +262,128 @@ declare class LinkedList<T> {
   removeByIndex(index: int): T | undefined;
 
   /**
-   * Removes the first occurrence of the specified element from this linkedlist,
-   * if it is present.  If the linkedlist does not contain the element, it is
-   * unchanged.  More formally, removes the element with the lowest index
+   * Removes the first occurrence of the specified element from this LinkedList.
    *
-   * @param { T } element - element element element to remove
-   * @returns { boolean } the boolean type ,If there is no such element, return false
+   * @param { T } element - Target element.
+   * @returns { boolean } Operation result. The value **true** is returned if the element is removed; otherwise,
+   *     **false** is returned.
    * @throws { BusinessError } 10200011 - The remove method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * Removes the first occurrence of the specified element from this linkedlist,
-   * if it is present.  If the linkedlist does not contain the element, it is
-   * unchanged.  More formally, removes the element with the lowest index
-   *
-   * @param { T } element - element element element to remove
-   * @returns { boolean } the boolean type ,If there is no such element, return false
-   * @throws { BusinessError } 10200011 - The remove method cannot be bound.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Removes the first occurrence of the specified element from this linkedlist,
-   * if it is present.  If the linkedlist does not contain the element, it is
-   * unchanged.  More formally, removes the element with the lowest index
-   *
-   * @param { T } element - element element element to remove
-   * @returns { boolean } the boolean type ,If there is no such element, return false
-   * @throws { BusinessError } 10200011 - The remove method cannot be bound.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
    * @since 23 static
    */
   remove(element: T): boolean;
   /**
-   * Removes the first occurrence of the specified element from this linkedlist,
-   * if it is present.  If the linkedlist does not contain the element, it is
-   * unchanged.  More formally, removes the element with the lowest index
+   * Removes the first occurrence of the specified element from this LinkedList.
    *
-   * @param { T } element - element element element to remove
-   * @returns { boolean } the boolean type ,If there is no such element, return false
+   * @param { T } element - Target element.
+   * @returns { boolean } Returns **true** if the element is removed; returns **false** if the element fails to be
+   *     removed or does not exist.
    * @throws { BusinessError } 10200011 - The removeFirstFound method cannot be bound.
    * @throws { BusinessError } 10200010 - Container is empty.
    * @throws { BusinessError } 10200017 - The element does not exist in this container.
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * Removes the first occurrence of the specified element from this linkedlist,
-   * if it is present.  If the linkedlist does not contain the element, it is
-   * unchanged.  More formally, removes the element with the lowest index
-   *
-   * @param { T } element - element element element to remove
-   * @returns { boolean } the boolean type ,If there is no such element, return false
-   * @throws { BusinessError } 10200011 - The removeFirstFound method cannot be bound.
-   * @throws { BusinessError } 10200010 - Container is empty.
-   * @throws { BusinessError } 10200017 - The element does not exist in this container.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Removes the first occurrence of the specified element from this linkedlist,
-   * if it is present.  If the linkedlist does not contain the element, it is
-   * unchanged.  More formally, removes the element with the lowest index
-   *
-   * @param { T } element - element element element to remove
-   * @returns { boolean } the boolean type ,If there is no such element, return false
-   * @throws { BusinessError } 10200011 - The removeFirstFound method cannot be bound.
-   * @throws { BusinessError } 10200010 - Container is empty.
-   * @throws { BusinessError } 10200017 - The element does not exist in this container.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
    * @since 23 static
    */
   removeFirstFound(element: T): boolean;
   /**
-   * Removes the last occurrence of the specified element from this linkedlist,
-   * if it is present.  If the linkedlist does not contain the element, it is
-   * unchanged.  More formally, removes the element with the lowest index
+   * Removes the last occurrence of the specified element from this LinkedList.
    *
-   * @param { T } element - element element element to remove
-   * @returns { boolean } the boolean type ,If there is no such element, return false
+   * @param { T } element - Target element.
+   * @returns { boolean } Returns **true** if the element is removed; returns **false** if the element fails to be
+   *     removed or does not exist.
    * @throws { BusinessError } 10200011 - The removeLastFound method cannot be bound.
    * @throws { BusinessError } 10200010 - Container is empty.
    * @throws { BusinessError } 10200017 - The element does not exist in this container.
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * Removes the last occurrence of the specified element from this linkedlist,
-   * if it is present.  If the linkedlist does not contain the element, it is
-   * unchanged.  More formally, removes the element with the lowest index
-   *
-   * @param { T } element - element element element to remove
-   * @returns { boolean } the boolean type ,If there is no such element, return false
-   * @throws { BusinessError } 10200011 - The removeLastFound method cannot be bound.
-   * @throws { BusinessError } 10200010 - Container is empty.
-   * @throws { BusinessError } 10200017 - The element does not exist in this container.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Removes the last occurrence of the specified element from this linkedlist,
-   * if it is present.  If the linkedlist does not contain the element, it is
-   * unchanged.  More formally, removes the element with the lowest index
-   *
-   * @param { T } element - element element element to remove
-   * @returns { boolean } the boolean type ,If there is no such element, return false
-   * @throws { BusinessError } 10200011 - The removeLastFound method cannot be bound.
-   * @throws { BusinessError } 10200010 - Container is empty.
-   * @throws { BusinessError } 10200017 - The element does not exist in this container.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
    * @since 23 static
    */
   removeLastFound(element: T): boolean;
   /**
-   * Returns in the index of the last occurrence of the specified element in this linkedlist ,
-   * or -1 if the linkedlist does not contain the element.
+   * Obtains the index of the last occurrence of the specified element in this LinkedList.
    *
-   * @param { T } element - element element element to find
-   * @returns { number } the number type
+   * @param { T } element - Target element.
+   * @returns { int } Index of the element. If no match is found, **-1** is returned.
    * @throws { BusinessError } 10200011 - The getLastIndexOf method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * Returns in the index of the last occurrence of the specified element in this linkedlist ,
-   * or -1 if the linkedlist does not contain the element.
-   *
-   * @param { T } element - element element element to find
-   * @returns { number } the number type
-   * @throws { BusinessError } 10200011 - The getLastIndexOf method cannot be bound.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Returns in the index of the last occurrence of the specified element in this linkedlist ,
-   * or -1 if the linkedlist does not contain the element.
-   *
-   * @param { T } element - element element element to find
-   * @returns { int } the int type
-   * @throws { BusinessError } 10200011 - The getLastIndexOf method cannot be bound.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
    * @since 23 static
    */
   getLastIndexOf(element: T): int;
   /**
-   * Returns the first element (the item at index 0) of this linkedlist.
-   * or returns undefined if linkedlist is empty
+   * Obtains the first element in this LinkedList.
    *
-   * @returns { T } the T type ,returns undefined if linkedList is empty
+   * @returns { T } Element obtained. If the element is empty, **undefined** is returned.
    * @throws { BusinessError } 10200011 - The getFirst method cannot be bound.
+   * @throws { BusinessError } 10200010 - Container is empty. [since 23] [staticonly]
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * Returns the first element (the item at index 0) of this linkedlist.
-   * or returns undefined if linkedlist is empty
-   *
-   * @returns { T } the T type ,returns undefined if linkedList is empty
-   * @throws { BusinessError } 10200011 - The getFirst method cannot be bound.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Returns the first element (the item at index 0) of this linkedlist.
-   * or returns undefined if linkedlist is empty
-   *
-   * @returns { T } the T type ,returns undefined if linkedList is empty
-   * @throws { BusinessError } 10200010 - Container is empty.[staticonly]
-   * @throws { BusinessError } 10200011 - The getFirst method cannot be bound.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
    * @since 23 static
    */
   getFirst(): T;
 
   /**
-   * Returns the Last element (the item at index length-1) of this linkedlist.
-   * or returns undefined if linkedlist is empty
+   * Obtains the last element in this LinkedList.
    *
-   * @returns { T } the T type ,returns undefined if linkedList is empty
+   * @returns { T } Element obtained. If the element is empty, **undefined** is returned.
    * @throws { BusinessError } 10200011 - The getLast method cannot be bound.
+   * @throws { BusinessError } 10200010 - Container is empty. [since 23] [staticonly]
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * Returns the Last element (the item at index length-1) of this linkedlist.
-   * or returns undefined if linkedlist is empty
-   *
-   * @returns { T } the T type ,returns undefined if linkedList is empty
-   * @throws { BusinessError } 10200011 - The getLast method cannot be bound.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Returns the Last element (the item at index length-1) of this linkedlist.
-   * or returns undefined if linkedlist is empty
-   *
-   * @returns { T } the T type ,returns undefined if linkedList is empty
-   * @throws { BusinessError } 10200010 - Container is empty.[staticonly]
-   * @throws { BusinessError } 10200011 - The getLast method cannot be bound.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
    * @since 23 static
    */
   getLast(): T;
 
   /**
-   * Replaces the element at the specified position in this Vector with the specified element
+   * Replaces an element at the specified position in this LinkedList with a given element.
    *
-   * @param { number } index - index index index to find
-   * @param { T } element - element element replaced element
-   * @returns { T } the T type ,returns undefined if linkedList is empty
+   * @param { int } index - Position index of the target element. The value must be less than or equal to int32_max,
+   *     that is, 2147483647.
+   * @param { T } element - Element to be used for replacement.
+   * @returns { T } New element. If the element is empty, **undefined** is returned.
    * @throws { BusinessError } 10200011 - The set method cannot be bound.
    * @throws { BusinessError } 10200001 - The value of index is out of range.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types;
-   * 3.Parameter verification failed.
+   *     1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types;
+   *     3.Parameter verification failed.
+   * @throws { BusinessError } 10200010 - Container is empty. [since 23] [staticonly]
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * Replaces the element at the specified position in this Vector with the specified element
-   *
-   * @param { number } index - index index index to find
-   * @param { T } element - element element replaced element
-   * @returns { T } the T type ,returns undefined if linkedList is empty
-   * @throws { BusinessError } 10200011 - The set method cannot be bound.
-   * @throws { BusinessError } 10200001 - The value of index is out of range.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types;
-   * 3.Parameter verification failed.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Replaces the element at the specified position in this Vector with the specified element
-   *
-   * @param { int } index - index index index to find
-   * @param { T } element - element element replaced element
-   * @returns { T } the T type ,returns undefined if linkedList is empty
-   * @throws { BusinessError } 10200011 - The set method cannot be bound.
-   * @throws { BusinessError } 10200001 - The value of index is out of range.
-   * @throws { BusinessError } 10200010 - Container is empty.[staticonly]
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types;
-   * 3.Parameter verification failed.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
    * @since 23 static
    */
   set(index: int, element: T): T;
 
   /**
-   * Replaces each element of this linkedlist with the result of applying the operator to that element.
+   * Uses a callback to traverse the elements in this LinkedList and obtain their indexes.
    *
-   * @param { function } callbackFn - callbackFn
-   * callbackFn (required) A function that accepts up to three arguments.
-   * The function to be called for each element.
-   * Value (required) current element
-   * Index (Optional) The index value of the current element.
-   * LinkedList (Optional) The linkedlist object to which the current element belongs.
-   * @param { Object } [thisArg] - thisArg
-   * thisArg (Optional) The value to be used as this value for when callbackFn is called.
-   * If thisArg is omitted, undefined is used as the this value.
+   * @param { function } callbackFn - Callback invoked to traverse the elements in the LinkedList.
+   * @param { Object } [thisArg] - Value of **this** to use when **callbackFn** is invoked. The default value is this
+   *     instance.
    * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
+   *     1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * Replaces each element of this linkedlist with the result of applying the operator to that element.
-   *
-   * @param { function } callbackFn - callbackFn
-   * callbackFn (required) A function that accepts up to three arguments.
-   * The function to be called for each element.
-   * Value (required) current element
-   * Index (Optional) The index value of the current element.
-   * LinkedList (Optional) The linkedlist object to which the current element belongs.
-   * @param { Object } [thisArg] - thisArg
-   * thisArg (Optional) The value to be used as this value for when callbackFn is called.
-   * If thisArg is omitted, undefined is used as the this value.
-   * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Replaces each element of this linkedlist with the result of applying the operator to that element.
-   *
-   * @param { function } callbackFn - callbackFn
-   * callbackFn (required) A function that accepts up to three arguments.
-   * The function to be called for each element.
-   * Value (required) current element
-   * Index (Optional) The index value of the current element.
-   * LinkedList (Optional) The linkedlist object to which the current element belongs.
-   * @param { Object } [thisArg] - thisArg
-   * thisArg (Optional) The value to be used as this value for when callbackFn is called.
-   * If thisArg is omitted, undefined is used as the this value.
-   * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
    */
   forEach(callbackFn: (value: T, index?: number, LinkedList?: LinkedList<T>) => void, thisArg?: Object): void;
 
@@ -840,89 +399,38 @@ declare class LinkedList<T> {
   forEach(callbackfn: LinkedListForEachCb<T>): void;
 
   /**
-   * Removes all of the elements from this linkedlist.The linkedlist will
-   * be empty after this call returns.length becomes 0
+   * Clears this LinkedList and sets its length to **0**.
    *
    * @throws { BusinessError } 10200011 - The clear method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * Removes all of the elements from this linkedlist.The linkedlist will
-   * be empty after this call returns.length becomes 0
-   *
-   * @throws { BusinessError } 10200011 - The clear method cannot be bound.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Removes all of the elements from this linkedlist.The linkedlist will
-   * be empty after this call returns.length becomes 0
-   *
-   * @throws { BusinessError } 10200011 - The clear method cannot be bound.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
    * @since 23 static
    */
   clear(): void;
   /**
-   * Returns a shallow copy of this instance. (The elements themselves are not copied.)
+   * Clones an instance identical to this **LinkedList** and returns it. The modification to the copy does not affect
+   * the original instance.
    *
-   * @returns { LinkedList<T> } this linkedlist instance
+   * @returns { LinkedList<T> } New **LinkedList** instance obtained.
    * @throws { BusinessError } 10200011 - The clone method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * Returns a shallow copy of this instance. (The elements themselves are not copied.)
-   *
-   * @returns { LinkedList<T> } this linkedlist instance
-   * @throws { BusinessError } 10200011 - The clone method cannot be bound.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Returns a shallow copy of this instance. (The elements themselves are not copied.)
-   *
-   * @returns { LinkedList<T> } this linkedlist instance
-   * @throws { BusinessError } 10200011 - The clone method cannot be bound.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
    * @since 23 static
    */
   clone(): LinkedList<T>;
   /**
-   * convert linkedlist to array
+   * Converts this LinkedList into an array and returns the array.
    *
-   * @returns { Array<T> } the Array type
+   * @returns { Array<T> } Array obtained.
    * @throws { BusinessError } 10200011 - The convertToArray method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * convert linkedlist to array
-   *
-   * @returns { Array<T> } the Array type
-   * @throws { BusinessError } 10200011 - The convertToArray method cannot be bound.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * convert linkedlist to array
-   *
-   * @returns { Array<T> } the Array type
-   * @throws { BusinessError } 10200011 - The convertToArray method cannot be bound.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
    * @since 23 static
    */
   convertToArray(): Array<T>;
@@ -932,26 +440,9 @@ declare class LinkedList<T> {
    * @returns { IterableIterator<T> }
    * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * returns an iterator.Each item of the iterator is a Javascript Object
-   *
-   * @returns { IterableIterator<T> }
-   * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * returns an iterator.Each item of the iterator is a Javascript Object
-   *
-   * @returns { IterableIterator<T> }
-   * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
    */
   [Symbol.iterator](): IterableIterator<T>;
 
@@ -970,15 +461,16 @@ declare class LinkedList<T> {
 /**
  * The type of LinkedList callback function.
  *
- * @typedef { function } LinkedListForEachCb
  * @param { T } value - The value of current element
  * @param { int } index - The index of current element
+ *     The value should be an integer.
  * @param { LinkedList<T> } linkedList - The LinkedList instance being traversed
  * @returns { void } This callback does not return a value
  * @syscap SystemCapability.Utils.Lang
+ * @stagemodelonly
  * @atomicservice
  * @since 23 static
  */
-export type LinkedListForEachCb<T> = (value: T, index: int, linkedList: LinkedList<T>) => void
+export type LinkedListForEachCb<T> = (value: T, index: int, linkedList: LinkedList<T>) => void;
 
 export default LinkedList;

@@ -48,7 +48,8 @@ export declare class ComponentContent<T = undefined> extends ComponentContentBas
    * Constructor.
    *
    * @param { UIContext } uiContext - uiContext used to create the ComponentContent
-   * @param { WrappedBuilder<CustomBuilder> } builder - Defined the builder will be called to build ComponentContent.
+   * @param { WrappedBuilder<CustomBuilder> } builder - Defines the builder
+   *     that will be called to build ComponentContent.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
@@ -58,7 +59,8 @@ export declare class ComponentContent<T = undefined> extends ComponentContentBas
    * Constructor.
    *
    * @param { UIContext } uiContext - uiContext used to create the ComponentContent
-   * @param { WrappedBuilder<CustomBuilderT<T>> } builder - Defined the builder will be called to build
+   * @param { WrappedBuilder<CustomBuilderT<T>> } builder - Defines the builder
+   *     that will be called to build ComponentContent.
    * ComponentContent.
    * @param { T } args - Parameters used to update the ComponentContent.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -70,10 +72,11 @@ export declare class ComponentContent<T = undefined> extends ComponentContentBas
    * Constructor.
    *
    * @param { UIContext } uiContext - uiContext used to create the ComponentContent
-   * @param { WrappedBuilder<CustomBuilderT<T>> } builder - Defined the builder will be called to build
+   * @param { WrappedBuilder<CustomBuilderT<T>> } builder - Defines the builder
+   *     that will be called to build ComponentContent.
    * ComponentContent.
    * @param { T } args - Parameters used to update the ComponentContent.
-   * @param { BuildOptions } options - Defined the options will be used when build.
+   * @param { BuildOptions } options - Defines the options that will be used when building.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
@@ -156,8 +159,8 @@ export declare class ReactiveComponentContent extends ComponentContentBase {
    * Constructor.
    *
    * @param { UIContext } uiContext - uiContext used to create the ReactiveComponentContent
-   * @param { CustomBuilder } builder - Defined the builder will be called to build ReactiveComponentContent.
-   * @param { BuildOptions } [options] - Defined the options will be used when build.
+   * @param { CustomBuilder } builder - Defines the builder that will be called to build ReactiveComponentContent.
+   * @param { BuildOptions } [options] - Defines the options that will be used when building.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 24 static
    */
@@ -211,7 +214,7 @@ export declare class ReactiveComponentContent extends ComponentContentBase {
 
   /**
    * Flushes the current state changes to update the ReactiveComponentContent immediately.
-   * This forces a synchronous update of the compponent with the latest state values.
+   * This forces a synchronous update of the component with the latest state values.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 24 static

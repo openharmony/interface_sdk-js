@@ -19,7 +19,7 @@
  */
 
 /**
- * declare ForEachAttribute
+ * Declare ForEachAttribute.
  *
  * @extends DynamicNode<ForEachAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -32,7 +32,7 @@ declare class ForEachAttribute extends DynamicNode<ForEachAttribute> {
 }
 
 /**
- * looping function.
+ * Looping function.
  *
  * @interface ForEachInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -40,7 +40,7 @@ declare class ForEachAttribute extends DynamicNode<ForEachAttribute> {
  * @since 7
  */
 /**
- * looping function.
+ * Looping function.
  *
  * @interface ForEachInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -49,7 +49,7 @@ declare class ForEachAttribute extends DynamicNode<ForEachAttribute> {
  * @since 9
  */
 /**
- * looping function.
+ * Looping function.
  *
  * @interface ForEachInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -59,7 +59,7 @@ declare class ForEachAttribute extends DynamicNode<ForEachAttribute> {
  * @since 10
  */
 /**
- * looping function.
+ * Looping function.
  *
  * @interface ForEachInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full

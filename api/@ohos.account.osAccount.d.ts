@@ -65,7 +65,7 @@ declare namespace osAccount {
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
-  function isDomainAccountSupported(): Promise<boolean>
+  function isDomainAccountSupported(): Promise<boolean>;
 
   /**
    * Provides abilities for you to manage and perform operations on your OS accounts.
@@ -891,6 +891,22 @@ declare namespace osAccount {
     getOsAccountName(): Promise<string>;
 
     /**
+     * Gets the name of target OS account by its local ID.
+     *
+     * @permission ohos.permission.GET_LOCAL_ACCOUNT_IDENTIFIERS
+     * @param { int } localId - Indicates the local ID of the target OS account.
+     * @returns { Promise<string> } Returns the name of the target OS account.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300003 - Account not found.
+     * @throws { BusinessError } 12300008 - Restricted Account.
+     * @syscap SystemCapability.Account.OsAccount
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    getOsAccountNameByLocalId(localId: int): Promise<string>;
+
+    /**
      * Gets the local IDs of all non-system-level OS accounts.
      *
      * Non-system-level OS accounts are visible to users, and are usually used for login and other operations.
@@ -903,7 +919,7 @@ declare namespace osAccount {
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    getOsAccountLocalIds(): Promise<int[]>
+    getOsAccountLocalIds(): Promise<int[]>;
 
     /**
      * Obtains the number of all OS accounts created on a device.
@@ -931,6 +947,7 @@ declare namespace osAccount {
 
     /**
      * Obtains the number of all OS accounts created on a device.
+     * This API can be called only by system applications.
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
      * @param { AsyncCallback<int> } callback - Returns the number of created OS accounts.
@@ -939,7 +956,6 @@ declare namespace osAccount {
      * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
-     * This API can be called only by system applications.
      * @since 9 dynamic
      * @since 23 static
      */
@@ -947,13 +963,13 @@ declare namespace osAccount {
 
     /**
      * Obtains the number of all OS accounts created on a device.
+     * This API can be called only by system applications.
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
      * @returns { Promise<int> } Returns the number of created OS accounts.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
-     * This API can be called only by system applications.
      * @since 9 dynamic
      * @since 23 static
      */
@@ -1101,6 +1117,7 @@ declare namespace osAccount {
 
     /**
      * Gets the local ID of the OS account associated with the specified domain account.
+     * This API can be called only by system applications.
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
      * @param { DomainAccountInfo } domainInfo - Indicates the domain account info.
@@ -1112,7 +1129,6 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid domainInfo.
      * @syscap SystemCapability.Account.OsAccount
-     * This API can be called only by system applications.
      * @since 9 dynamic
      * @since 23 static
      */
@@ -1120,6 +1136,7 @@ declare namespace osAccount {
 
     /**
      * Gets the local ID of the OS account associated with the specified domain account.
+     * This API can be called only by system applications.
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
      * @param { DomainAccountInfo } domainInfo - Indicates the domain account info.
@@ -1130,7 +1147,6 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid domainInfo.
      * @syscap SystemCapability.Account.OsAccount
-     * This API can be called only by system applications.
      * @since 9 dynamic
      * @since 23 static
      */
@@ -2786,7 +2802,7 @@ declare namespace osAccount {
     photo: string;
 
     /**
-     * Os account create time.
+     * OS account create time, given in the form of Unix timestamp. Unit: s.
      *
      * @type { long }
      * @syscap SystemCapability.Account.OsAccount
@@ -2796,7 +2812,7 @@ declare namespace osAccount {
     createTime: long;
 
     /**
-     * The last time to log in.
+     * The last time to log in, given in the form of Unix timestamp. Unit: s.
      *
      * @type { long }
      * @syscap SystemCapability.Account.OsAccount
@@ -3126,6 +3142,22 @@ declare namespace osAccount {
      * @since 23 static
      */
     serverConfigId?: string;
+
+    /**
+     * Indicates the additional information about the domain acount
+     * @syscap SystemCapability.Account.OsAccount
+     * @stagemodelonly
+     * @since 26.0.0 dynamic 
+     */
+    additionalInfo?: Record<string, Object>;
+
+    /**
+     * Indicates the additional information about the domain acount
+     * @syscap SystemCapability.Account.OsAccount
+     * @stagemodelonly
+     * @since 26.0.0 static 
+     */
+    additionalInfo?: Record<string, RecordData>;
   }
 
   /**
@@ -3419,7 +3451,7 @@ declare namespace osAccount {
     isReused?: boolean;
 
     /**
-     * Indicates the validity period of the authorization.
+     * Indicates the validity period of the authorization. Unit: s.
      *
      * @type { ?int }
      * @syscap SystemCapability.Account.OsAccount
@@ -4247,7 +4279,7 @@ declare namespace osAccount {
     remainTimes: int;
 
     /**
-     * Indicates the freezing time before performing the next authentication.
+     * Indicates the freezing time before performing the next authentication. Unit: ms.
      *
      * @type { int }
      * @syscap SystemCapability.Account.OsAccount
@@ -6574,7 +6606,7 @@ declare namespace osAccount {
     remainTimes?: int;
 
     /**
-     * Indicates the freezing times.
+     * Indicates the freezing times. Unit: ms.
      *
      * @type { ?int }
      * @syscap SystemCapability.Account.OsAccount
@@ -6585,7 +6617,7 @@ declare namespace osAccount {
     freezingTime?: int;
 
     /**
-     * Indicates next phase freezing time.
+     * Indicates next phase freezing time. Unit: ms.
      *
      * @type { ?int }
      * @syscap SystemCapability.Account.OsAccount
@@ -6662,7 +6694,7 @@ declare namespace osAccount {
     remainTimes?: int;
 
     /**
-     * Indicates the freezing times.
+     * Indicates the freezing times. Unit: ms.
      *
      * @type { ?int }
      * @syscap SystemCapability.Account.OsAccount
@@ -6673,7 +6705,7 @@ declare namespace osAccount {
     freezingTime?: int;
 
     /**
-     * Indicates next phase freezing time.
+     * Indicates next phase freezing time. Unit: ms.
      *
      * @type { ?int }
      * @syscap SystemCapability.Account.OsAccount
@@ -6706,7 +6738,7 @@ declare namespace osAccount {
     accountId?: int;
 
     /**
-     * Indicates the validity period after which the PIN will expire.
+     * Indicates the validity period after which the PIN will expire. Unit: ms.
      *
      * @type { ?long }
      * @syscap SystemCapability.Account.OsAccount
@@ -6869,7 +6901,7 @@ declare namespace osAccount {
     isAbandoned?: boolean;
 
     /**
-     * Indicates the validity period.
+     * Indicates the validity period. Unit: ms.
      *
      * @type { ?long }
      * @syscap SystemCapability.Account.OsAccount

@@ -26,7 +26,13 @@ import display from '@ohos.display';
 import screen from '@ohos.screen';
 import screenshot from '@ohos.screenshot';
 import uiExtensionHost from '@ohos.uiExtensionHost';
-import { ComponentContent } from '@ohos.arkui.node';
+import { ComponentContent,
+    NodeRenderType, RenderOptions, BuilderNode, ReactiveBuilderNode, BuildOptions, NodeController,
+    Size, NodeOffset, NodePosition, Pivot, Scale, Translation, Matrix4, Rotation, Frame, RoundRect,
+    CommandPath, ShapeMask, ShapeClip, NodeBorderRadiuses, CornerRadius, NodeEdges, edgeColors,
+    edgeWidths, borderStyles, borderRadiuses, LengthUnit, SizeT, PositionT, RenderNode, Content,
+    NodeContent
+} from '@ohos.arkui.node';
 import componentSnapshot from '@ohos.arkui.componentSnapshot';
 import componentUtils from '@ohos.arkui.componentUtils';
 import dragController from '@ohos.arkui.dragController';
@@ -34,7 +40,13 @@ import floatingBall from '@ohos.window.floatingBall';
 import PiPWindow from '@ohos.PiPWindow';
 import { sendTouchEvent, sendKeyEvent, sendMouseEvent } from '@ohos.arkui.Test';
 import uiMaterial from '@ohos.arkui.uiMaterial';
-export { promptAction, LevelOrder, ComponentContent };
+export { promptAction, LevelOrder, ComponentContent,
+    NodeRenderType, RenderOptions, BuilderNode, ReactiveBuilderNode, BuildOptions, NodeController,
+    Size, NodeOffset, NodePosition, Pivot, Scale, Translation, Matrix4, Rotation, Frame, RoundRect,
+    CommandPath, ShapeMask, ShapeClip, NodeBorderRadiuses, CornerRadius, NodeEdges, edgeColors,
+    edgeWidths, borderStyles, borderRadiuses, LengthUnit, SizeT, PositionT, RenderNode, Content,
+    NodeContent
+};
 
 export * from '@ohos.arkui.component';
 export * from '@ohos.arkui.stateManagement';

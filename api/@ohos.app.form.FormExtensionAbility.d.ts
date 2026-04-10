@@ -79,14 +79,14 @@ type OnAcquireFormStateFn = (want: Want) => formInfo.FormState;
 type OnStopFn = () => void;
 
 /**
- * class of form extension.
+ * Form extension ability class.
  *
  * @syscap SystemCapability.Ability.Form
  * @stagemodelonly
  * @since 9
  */
 /**
- * class of form extension.
+ * Form extension ability class.
  *
  * @syscap SystemCapability.Ability.Form
  * @stagemodelonly

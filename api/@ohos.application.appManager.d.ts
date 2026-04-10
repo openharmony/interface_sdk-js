@@ -259,7 +259,7 @@ declare namespace appManager {
   /**
    * Get the memory size of the application
    *
-   * @returns { Promise<number> } application memory size.
+   * @returns { Promise<number> } application memory size, in M.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7
    * @deprecated since 9
@@ -270,7 +270,7 @@ declare namespace appManager {
   /**
    * Get the memory size of the application
    *
-   * @param { AsyncCallback<number> } callback - application memory size in M.
+   * @param { AsyncCallback<number> } callback - application memory size, in M.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7
    * @deprecated since 9

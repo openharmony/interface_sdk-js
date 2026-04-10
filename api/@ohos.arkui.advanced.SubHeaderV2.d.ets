@@ -82,8 +82,8 @@ export interface SubHeaderV2TitleOptions {
    * @since 18 dynamic
    */
   secondaryTitleModifier?: TextModifier;
-   /**
-   * Set the ability to customize the broadcast of the title.
+  /**
+   * The accessibility text for broadcasting the title.
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -92,6 +92,16 @@ export interface SubHeaderV2TitleOptions {
    * @since 23 dynamic
    */
   titleAccessibilityText?: ResourceStr;
+  /**
+   * Set the id of the title.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 24 dynamic
+   */
+  id?: string;
 }
 
 /**
@@ -145,8 +155,7 @@ export declare class SubHeaderV2Title {
    */
   @Trace secondaryTitleModifier?: TextModifier;
   /**
-   * Set the ability to customize the broadcast of the title.
-   *
+   * The accessibility text for broadcasting the title.
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -155,6 +164,17 @@ export declare class SubHeaderV2Title {
    * @since 23 dynamic
    */
   @Trace titleAccessibilityText?: ResourceStr;
+  /**
+   * Set the id of the title.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 24 dynamic
+   */
+  @Trace
+  id?: string;
   /**
    * The constructor of SubHeaderV2Title
    *
@@ -258,6 +278,16 @@ export interface SubHeaderV2SelectOptions {
    * @since 18 dynamic
    */
   defaultFocus?: boolean;
+  /**
+   * Set the id for the SubHeaderV2SelectOptions.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 24 dynamic
+   */
+  id?: string;
 }
 
 /**
@@ -335,6 +365,17 @@ export declare class SubHeaderV2Select {
    * @since 18 dynamic
    */
   @Trace defaultFocus?: boolean;
+  /**
+   * Set the id for the SubHeaderV2Select.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 24 dynamic
+   */
+  @Trace
+  id?: string;
   /**
    * The constructor of SubHeaderV2Select
    *
@@ -498,6 +539,16 @@ export interface SubHeaderV2OperationItemOptions {
    * @since 18 dynamic
    */
   defaultFocus?: boolean;
+  /**
+   * Set the id for SubHeaderV2OperationItemOptions.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 24 dynamic
+   */
+  id?: string;
 }
 
 /**
@@ -588,6 +639,17 @@ export declare class SubHeaderV2OperationItem {
    * @since 18 dynamic
    */
   @Trace defaultFocus?: boolean;
+  /**
+   * Set the id for SubHeaderV2OperationItem.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 24 dynamic
+   */
+  @Trace
+  id?: string;
 }
 
 /**

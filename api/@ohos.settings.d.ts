@@ -1543,6 +1543,133 @@ declare namespace settings {
    * @since 23 dynamic&static
    */
   function openInputMethodDetail(context: Context, bundleName: string, inputMethodId: string): void;
+
+  /**
+   * Open the mobile network settings page.
+   *
+   * @param { Context } context - Application context. Only UIAbilityContext and ExtensionContext are supported.
+   * @throws { BusinessError } 16900010 - Parameter error.
+   * @throws { BusinessError } 16900020 - Failed to open the settings page via redirection.
+   * @syscap SystemCapability.Applications.Settings.Core
+   * @StageModelOnly
+   * @since 26.0.0 dynamic&static
+   */
+  function openMobileNetworkSettingsPage(context: Context): void;
+
+  /**
+   * Open the display settings page.
+   *
+   * @param { Context } context - Application context. Only UIAbilityContext and ExtensionContext are supported.
+   * @throws { BusinessError } 16900010 - Parameter error.
+   * @throws { BusinessError } 16900020 - Failed to open the settings page via redirection.
+   * @syscap SystemCapability.Applications.Settings.Core
+   * @StageModelOnly
+   * @since 26.0.0 dynamic&static
+   */
+  function openDisplaySettingsPage(context: Context): void;
+
+  /**
+   * Open the screen refresh rate settings page.
+   *
+   * @param { Context } context - Application context. Only UIAbilityContext and ExtensionContext are supported.
+   * @throws { BusinessError } 16900010 - Parameter error.
+   * @throws { BusinessError } 16900020 - Failed to open the settings page via redirection.
+   * @syscap SystemCapability.Applications.Settings.Core
+   * @StageModelOnly
+   * @since 26.0.0 dynamic&static
+   */
+  function openScreenRefreshRateSettingsPage(context: Context): void;
+
+  /**
+   * Open the sound settings page.
+   *
+   * @param { Context } context - Application context. Only UIAbilityContext and ExtensionContext are supported.
+   * @throws { BusinessError } 16900010 - Parameter error.
+   * @throws { BusinessError } 16900020 - Failed to open the settings page via redirection.
+   * @syscap SystemCapability.Applications.Settings.Core
+   * @StageModelOnly
+   * @since 26.0.0 dynamic&static
+   */
+  function openSoundSettingsPage(context: Context): void;
+
+  /**
+   * Open the biometrics and password settings page.
+   *
+   * @param { Context } context - Application context. Only UIAbilityContext and ExtensionContext are supported.
+   * @throws { BusinessError } 16900010 - Parameter error.
+   * @throws { BusinessError } 16900020 - Failed to open the settings page via redirection.
+   * @syscap SystemCapability.Applications.Settings.Core
+   * @StageModelOnly
+   * @since 24 dynamic&static
+   */
+  function openBiometricsSettingsPage(context: Context): void;
+
+  /**
+   * Open the about device settings page.
+   *
+   * @param { Context } context - Application context. Only UIAbilityContext and ExtensionContext are supported.
+   * @throws { BusinessError } 16900010 - Parameter error.
+   * @throws { BusinessError } 16900020 - Failed to open the settings page via redirection.
+   * @syscap SystemCapability.Applications.Settings.Core
+   * @StageModelOnly
+   * @since 26.0.0 dynamic&static
+   */
+  function openAboutDeviceSettingsPage(context: Context): void;
+
+  /**
+   * Open the NFC settings page.
+   *
+   * @param { Context } context - Application context. Only UIAbilityContext and ExtensionContext are supported.
+   * @throws { BusinessError } 16900010 - Parameter error.
+   * @throws { BusinessError } 16900020 - Failed to open the settings page via redirection.
+   * @syscap SystemCapability.Applications.Settings.Core
+   * @StageModelOnly
+   * @since 24 dynamic&static
+   */
+  function openNfcSettingsPage(context: Context): void;
+
+  /**
+   * Open the app detail settings page.
+   *
+   * @param { Context } context - Application context. Only UIAbilityContext and ExtensionContext are supported.
+   * @param { string } bundleName - Application bundle name.
+   * @param { int } [appIndex] - Application index.
+   * @throws { BusinessError } 16900010 - Parameter error.
+   * @throws { BusinessError } 16900020 - Failed to open the settings page via redirection.
+   * @syscap SystemCapability.Applications.Settings.Core
+   * @StageModelOnly
+   * @since 26.0.0 dynamic&static
+   */
+  function openAppDetailSettingsPage(context: Context, bundleName: string, appIndex?: int): void;
+
+  /**
+   * 1. Opens the settings page for double-pressing the Down key.
+   * 2. This API is used to set the default application started by double-pressing the Down key.
+   *
+   * @param { Context } context - 1. Application context.
+   *     2. Specify this parameter to set the application started by double-pressing the Down key.
+   * @throws { BusinessError } 16900010 - 1. The parameter is incorrect.
+   *     2. The parameter is not transferred or the transferred parameter is invalid.
+   * @throws { BusinessError } 16900020 - 1. The setting page cannot be opened through redirection.
+   *     2. Internal error
+   * @syscap SystemCapability.Applications.Settings.Core
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  function openDoubleClickSettingsPage(context: Context): void;
+ 
+  /**
+   * 1. Checks whether the application started by double-pressing the Down key is the application itself.
+   * 2. This API is triggered to check whether double-pressing the Down key starts the application itself.
+   *
+   *
+   * @returns { Promise<boolean> } Check result.
+   *     {@code true} is returned if the specified application is started. Otherwise, {@code false} is returned.
+   * @syscap SystemCapability.Applications.Settings.Core
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  function isDoubleClickAppForSelf(): Promise<boolean>;
 }
 
 export default settings;

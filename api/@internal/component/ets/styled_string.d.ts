@@ -2128,7 +2128,7 @@ declare interface CustomSpanMeasureInfo {
     /**
      * Current component's fontSize value.
      * The unit is fp.
-     * 
+     *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
@@ -2136,6 +2136,29 @@ declare interface CustomSpanMeasureInfo {
      * @since 12 dynamic
      */
     fontSize: number;
+    /**
+     * The max width constraint of custom span.
+     * The unit is px.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    maxWidth?: number;
+    /**
+     * The layoutPolicy of custom span.
+     *
+     * @type { ?LayoutPolicy }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    layoutPolicy?: LayoutPolicy;
 }
 
 /**

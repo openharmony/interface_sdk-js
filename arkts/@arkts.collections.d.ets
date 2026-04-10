@@ -5292,7 +5292,9 @@ declare namespace collections {
     /**
      * A constructor used to create an Uint8Array.
      *
-     * @param { ArrayLike<number> | ArrayBuffer } array - An array is initialized with the given elements
+     * @param { ArrayLike<number> | ArrayBuffer } array - An array is initialized with the given elements.
+     *     When the parameter type is ArrayBuffer, the number of bytes occupied by the buffer must be
+     *     an integer multiple of 4.
      * @throws { BusinessError } 10200012 - The Uint8Array's constructor cannot be directly invoked.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
@@ -7837,7 +7839,9 @@ declare namespace collections {
     /**
      * A constructor used to create an Uint16Array.
      *
-     * @param { ArrayLike<number> | ArrayBuffer } array - An array is initialized with the given elements
+     * @param { ArrayLike<number> | ArrayBuffer } array - An array is initialized with the given elements.
+     *     When the parameter type is ArrayBuffer, the number of bytes occupied by the buffer must be
+     *     an integer multiple of 4.
      * @throws { BusinessError } 10200012 - The Uint16Array's constructor cannot be directly invoked.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
@@ -9098,7 +9102,9 @@ declare namespace collections {
     /**
      * A constructor used to create an Int32Array.
      *
-     * @param { ArrayLike<number> | ArrayBuffer } array - An array is initialized with the given elements
+     * @param { ArrayLike<number> | ArrayBuffer } array - An array is initialized with the given elements.
+     *     When the parameter type is ArrayBuffer, the number of bytes occupied by the buffer must be
+     *     an integer multiple of 4.
      * @throws { BusinessError } 10200012 - The Int32Array's constructor cannot be directly invoked.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
@@ -10361,7 +10367,9 @@ declare namespace collections {
     /**
      * A constructor used to create an Uint32Array.
      *
-     * @param { ArrayLike<number> | ArrayBuffer } array - An array is initialized with the given elements
+     * @param { ArrayLike<number> | ArrayBuffer } array - An array is initialized with the given elements.
+     *     When the parameter type is ArrayBuffer, the number of bytes occupied by the buffer must be
+     *     an integer multiple of 4.
      * @throws { BusinessError } 10200012 - The Uint32Array's constructor cannot be directly invoked.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
@@ -11624,7 +11632,9 @@ declare namespace collections {
     /**
      * A constructor used to create an Float32Array.
      *
-     * @param { ArrayLike<number> | ArrayBuffer } array - An array is initialized with the given elements
+     * @param { ArrayLike<number> | ArrayBuffer } array - An array is initialized with the given elements.
+     *     When the parameter type is ArrayBuffer, the number of bytes occupied by the buffer must be
+     *     an integer multiple of 4.
      * @throws { BusinessError } 10200012 - The Float32Array's constructor cannot be directly invoked.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang

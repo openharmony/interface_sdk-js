@@ -19,7 +19,7 @@
  * @kit ArkUI
  */
 import { ComponentV2 } from '@ohos.arkui.component';
-import { ResourceStr, ResourceColor, LocalizedPadding, SizeOptions } from '@ohos.arkui.component';
+import { ResourceStr, ResourceColor, LocalizedPadding, SizeOptions, TextAlign } from '@ohos.arkui.component';
 import { ButtonStyleMode, ButtonRole } from '@ohos.arkui.component';
 import { PixelMap, ThemeColorMode, CustomPopupOptions } from '@ohos.arkui.component';
 import { Local, Param, ObservedV2, Require, Trace, Event } from '@ohos.arkui.stateManagement';
@@ -132,6 +132,17 @@ export declare class AdvancedDialogV2Button {
   @Trace
   public enabled?: boolean;
   /**
+   * Set the alignment mode for the button label.
+   *
+   * @type { ?TextAlign }
+   * @default { TextAlign.Start }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  @Trace
+  public textAlign?: TextAlign;
+  /**
    * The constructor used to create a AdvancedDialogV2Button object.
    *
    * @param { AdvancedDialogV2ButtonOptions } options - button info.
@@ -227,6 +238,16 @@ export declare interface AdvancedDialogV2ButtonOptions {
    * @since 23 static
    */
   enabled?: boolean;
+  /**
+   * Set the alignment mode for the button label.
+   *
+   * @type { ?TextAlign }
+   * @default { TextAlign.Start }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  textAlign?: TextAlign;
 }
 /**
  * Declare the callback when the checkbox of dialog is changed.

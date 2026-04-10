@@ -861,6 +861,19 @@ declare class Scroller {
    * @since 22 dynamic
    */
   contentSize() : SizeResult;
+
+  /**
+   * Obtains the FrameNode corresponding to this scroller.
+   *
+   * @returns { FrameNode | undefined } Returns the FrameNode bound to this scroller.
+   *     If the scroller not bound to a component, the return value is undefined.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  getFrameNode(): FrameNode | undefined;
 }
 
 /**

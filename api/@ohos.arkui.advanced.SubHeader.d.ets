@@ -258,6 +258,17 @@ export declare class OperationOption {
    * @since 18 dynamic
    */
   defaultFocus?: boolean;
+
+  /**
+   * Set the id for the operation.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 24 dynamic
+   */
+  id?: string;
 }
 
 /**
@@ -406,6 +417,17 @@ export declare class SelectOptions {
    * @since 18 dynamic
    */
   defaultFocus?: boolean;
+
+  /**
+   * Set the id for the select.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 24 dynamic
+   */
+  id?: string;
 }
 
 /**
@@ -854,4 +876,16 @@ export declare struct SubHeader {
    * @since 23 dynamic
    */
   @Prop titleAccessibilityText?: ResourceStr;
+
+  /**
+   * Set the titleId for title.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 24 dynamic
+   */
+  @Prop
+  titleId?: string;
 }

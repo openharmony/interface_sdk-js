@@ -498,24 +498,24 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
   /**
    * Support to set max photo select number
    *
-   * @type { ?int }
+   * @type { ?number }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
    */
-  maxPhotoSelectNumber?: int;
+  maxPhotoSelectNumber?: number;
 
   /**
    * Support to set max video select number
    *
-   * @type { ?int }
+   * @type { ?number }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
    */
-  maxVideoSelectNumber?: int;
+  maxVideoSelectNumber?: number;
 
   /**
    * Support to set sliding selection
@@ -530,12 +530,12 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
   /**
    * Support to set photo browser checkbox position
    *
-   * @type { ?[double, double] }
+   * @type { ?[number, number] }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 13 dynamic
    */
-  photoBrowserCheckboxPosition?: [double, double];
+  photoBrowserCheckboxPosition?: [number, number];
 
   /**
    * Support set photoBrowserMargin
@@ -580,32 +580,32 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
   /**
    * Support to set offset between first grid item and the top of grid
    *
-   * @type { ?int  }
+   * @type { ?number  }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 20 dynamic
    */
-  gridStartOffset?: int;
+  gridStartOffset?: number;
 
   /**
    * Support to set offset between last grid item and the bottom of grid
    *
-   * @type { ?int  }
+   * @type { ?number  }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 20 dynamic
    */
-  gridEndOffset?: int;
+  gridEndOffset?: number;
 
   /**
    * Support to set a serial number to distinguish different picker components. Default value is -1.
    *
-   * @type { ?int }
+   * @type { ?number }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 21 dynamic
    */
-  pickerIndex?: int;
+  pickerIndex?: number;
 
   /**
    * Support automatically selecting the user-selected image/video on the PhotoPickerComponent
@@ -662,6 +662,16 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
    * @since 23 dynamic
    */
   appAlbumFilters?: Array<string>;
+  
+  /**
+   * Support setting background opacity.
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 24 dynamic
+   */
+  backgroundOpacity?: number;
 }
 
 /**
@@ -695,43 +705,43 @@ export declare class BaseItemInfo {
   /**
    * Width. if the itemType is CAMERA, it will be null
    *
-   * @type { ?int }
+   * @type { ?number }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 12 dynamic
    */
-  width?: int;
+  width?: number;
 
   /**
    * Height. if the itemType is CAMERA, it will be null
    *
-   * @type { ?int }
+   * @type { ?number }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 12 dynamic
    */
-  height?: int;
+  height?: number;
 
   /**
    * Size. if the itemType is CAMERA, it will be null
    *
-   * @type { ?int }
+   * @type { ?number }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
    */
-  size?: int;
+  size?: number;
 
   /**
    * Duration. if the itemType is CAMERA, it will be null; if photos, return -1
    *
-   * @type { ?int }
+   * @type { ?number }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 12 dynamic
    */
-  duration?: int;
+  duration?: number;
 
   /**
    * PhotoSubtype. Asset subtype, non-special type images default to DEFAULT(0).
@@ -757,12 +767,12 @@ export declare class BaseItemInfo {
   /**
    * Orientation. Image/Video orientation information.
    *
-   * @type { ?int }
+   * @type { ?number }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 21 dynamic
    */
-  orientation?: int;
+  orientation?: number;
 
   /**
    * MovingPhotoBadgeState. Badge state of moving photo.
@@ -835,12 +845,12 @@ export declare class AnimatorParams {
   /**
    * Animate duration
    *
-   * @type { ?int }
+   * @type { ?number }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 12 dynamic
    */
-  duration?: int;
+  duration?: number;
 
   /**
    * Animate curve
@@ -864,12 +874,12 @@ export declare class MaxSelected {
   /**
    * data. support to set max_total_count, max_photo_count and max_video_count.
    *
-   * @type { ?Map<MaxCountType, int> }
+   * @type { ?Map<MaxCountType, number> }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 12 dynamic
    */
-  data?: Map<MaxCountType, int>;
+  data?: Map<MaxCountType, number>;
 }
 
 /**
@@ -932,12 +942,12 @@ export declare class PreselectedInfo {
   /**
    * PreselectablePickerIndex. Serial number of the picker component that will automatically select this media file.
    *
-   * @type { ?int }
+   * @type { ?number }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 21 dynamic
    */
-  preselectablePickerIndex?: int;
+  preselectablePickerIndex?: number;
 }
 
 /**
@@ -1000,32 +1010,32 @@ export declare class UpdatablePickerConfigs {
   /**
    * Maximum number of assets for a single selection.
    *
-   * @type { ?int }
+   * @type { ?number }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 22 dynamic
    */
-  maxSelectNumber?: int;
+  maxSelectNumber?: number;
 
   /**
    * Maximum number of photos for a single selection.
    *
-   * @type { ?int }
+   * @type { ?number }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 22 dynamic
    */
-  maxPhotoSelectNumber?: int;
+  maxPhotoSelectNumber?: number;
 
   /**
    * Maximum number of videos for a single selection.
    *
-   * @type { ?int }
+   * @type { ?number }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 22 dynamic
    */
-  maxVideoSelectNumber?: int;
+  maxVideoSelectNumber?: number;
 
   /**
    * Select mode of the picker.
@@ -1161,6 +1171,16 @@ export declare class UpdatablePickerConfigs {
    * @since 23 dynamic
    */
   appAlbumFilters?: Array<string>;
+  
+  /**
+   * Support setting background opacity.
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 24 dynamic
+   */
+  backgroundOpacity?: number;
 }
 
 /**
@@ -1218,13 +1238,13 @@ export declare class PickerError {
   /**
    * Code of the error.
    *
-   * @type { int }
+   * @type { number }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
    * @atomicservice
    * @since 23 dynamic
    */
-  errorCode: int;
+  errorCode: number;
 
   /**
    * Message of the error.
@@ -1241,7 +1261,7 @@ export declare class PickerError {
 /**
  * DataType represents the type of the data set to picker component
  *
- * @enum { int } DataType
+ * @enum { number } DataType
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @atomicservice
  * @since 12 dynamic
@@ -1297,7 +1317,7 @@ export declare enum DataType {
 /**
  * ItemType. include CAMERA and THUMBNAIL
  *
- * @enum { int } ItemType
+ * @enum { number } ItemType
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @atomicservice
  * @since 12 dynamic
@@ -1325,7 +1345,7 @@ export declare enum ItemType {
 /**
  * ClickType. include SELECTED and DESELECTED
  *
- * @enum { int } ClickType
+ * @enum { number } ClickType
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @atomicservice
  * @since 12 dynamic
@@ -1353,7 +1373,7 @@ export declare enum ClickType {
 /**
  * PickerOrientation. include VERTICAL and HORIZONTAL
  *
- * @enum { int } PickerOrientation
+ * @enum { number } PickerOrientation
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @atomicservice
  * @since 12 dynamic
@@ -1381,7 +1401,7 @@ export declare enum PickerOrientation {
 /**
  * SelectMode. include SINGLE_SELECT and MULTI_SELECT
  *
- * @enum { int } SelectMode
+ * @enum { number } SelectMode
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @atomicservice
  * @since 12 dynamic
@@ -1409,7 +1429,7 @@ export declare enum SelectMode {
 /**
  * PickerColorMode. include AUTO, LIGHT and DARK
  *
- * @enum { int } PickerColorMode
+ * @enum { number } PickerColorMode
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @atomicservice
  * @since 12 dynamic
@@ -1446,7 +1466,7 @@ export declare enum PickerColorMode {
 /**
  * ReminderMode, include NONE, TOAST and MASK
  *
- * @enum { int } ReminderMode
+ * @enum { number } ReminderMode
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @atomicservice
  * @since 12 dynamic
@@ -1483,7 +1503,7 @@ export declare enum ReminderMode {
 /**
  * MaxCountType. include TOTAL_MAX_COUNT, PHOTO_MAX_COUNT and VIDEO_MAX_COUNT
  *
- * @enum { int } MaxCountType
+ * @enum { number } MaxCountType
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @atomicservice
  * @since 12 dynamic
@@ -1520,7 +1540,7 @@ export declare enum MaxCountType {
 /**
  * PhotoBrowserRange. include ALL and SELECTED_ONLY
  *
- * @enum { int } PhotoBrowserRange
+ * @enum { number } PhotoBrowserRange
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @atomicservice
  * @since 12 dynamic
@@ -1548,7 +1568,7 @@ export declare enum PhotoBrowserRange {
 /**
  * PhotoBrowserUIElement. include CHECKBOX and BACK_BUTTON
  *
- * @enum { int } PhotoBrowserUIElement
+ * @enum { number } PhotoBrowserUIElement
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @atomicservice
  * @since 13 dynamic
@@ -1576,7 +1596,7 @@ export declare enum PhotoBrowserUIElement {
 /**
  * VideoPlayerState. include PLAYING, PAUSED, STOPPED, SEEK_START and SEEK_FINISH
  *
- * @enum { int } VideoPlayerState
+ * @enum { number } VideoPlayerState
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @atomicservice
  * @since 14 dynamic
@@ -1631,7 +1651,7 @@ export declare enum VideoPlayerState {
 /**
  * Enumeration type of save mode.
  *
- * @enum { int } SaveMode
+ * @enum { number } SaveMode
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @atomicservice
  * @since 15 dynamic
@@ -1660,7 +1680,7 @@ export declare enum SaveMode {
 /**
  * Enumerates the aspect ratios of the grid item display, including 1:1 and the original image's aspect ratio.
  *
- * @enum { int } Grid item display aspect ratio.
+ * @enum { number } Grid item display aspect ratio.
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @atomicservice
  * @since 20 dynamic
@@ -1688,7 +1708,7 @@ export declare enum ItemDisplayRatio {
 /**
  * BadgeType.
  *
- * @enum { int } BadgeType
+ * @enum { number } BadgeType
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @atomicservice
  * @since 21 dynamic

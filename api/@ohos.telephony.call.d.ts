@@ -227,6 +227,24 @@ declare namespace call {
   /**
    * Go to the dial screen and the called number is displayed.
    *
+   * @param { string } phoneNumber - Indicates the called number.
+   * @param { MakeCallOptions } [options] - Indicates additional information carried in the call.
+   *     <br>Default value: false.
+   * @returns { Promise<void> } - The promise returned by the makeCall.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Applications.Contacts
+   * @FaAndStageModel
+   * @atomicservice
+   * @since 24 dynamic
+   */
+  function makeCall(phoneNumber: string, options?: MakeCallOptions): Promise<void>;
+
+  /**
+   * Go to the dial screen and the called number is displayed.
+   *
    * @param { Context } context - Indicates the context.
    * @param { string } phoneNumber - Indicates the called number.
    * @returns { Promise<void> } The promise returned by the makeCall.
@@ -4881,6 +4899,27 @@ declare namespace call {
     dialType?: DialType;
   }
 
+  /**
+   * Indicates the options of make call.
+   *
+   * @syscap SystemCapability.Applications.Contacts
+   * @FaAndStageModel
+   * @atomicservice
+   * @since 24 dynamic
+   */
+  export interface MakeCallOptions {
+    /**
+     * Whether to hide the dialer screen after call ends.
+     * <br>Default value: false.
+     *
+     * @syscap SystemCapability.Applications.Contacts
+     * @FaAndStageModel
+     * @atomicservice
+     * @since 24 dynamic
+     */
+    isHideDialScreen?: boolean;
+  }
+  
   /**
    * Indicates the options for initiating a call.
    *

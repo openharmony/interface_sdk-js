@@ -446,6 +446,16 @@ declare namespace avSession {
      * @since 24 static
      */
     CATEGORY_ALL = 3,
+
+    /**
+     * The session category for HiPlay casting AVSession.
+     * 
+     * @syscap SystemCapability.Multimedia.AVSession.Manager
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    CATEGORY_HIPLAY = 4,
   }
 
   /**
@@ -877,6 +887,25 @@ declare namespace avSession {
   function sendSystemControlCommand(command: AVControlCommand): Promise<void>;
 
   /**
+   * Send system control command. The system automatically selects the recipient.
+   * 
+   * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
+   * @param { string } command - The command name to be sent.
+   * @param { ExtraInfo } args - The parameters of command info
+   * @returns { Promise<string> } callback info for sync command
+   * @throws { BusinessError } 201 - permission denied
+   * @throws { BusinessError } 202 - Not System App.
+   * @throws { BusinessError } 6600101 - Session service exception.
+   * @throws { BusinessError } 6600105 - Invalid session command.
+   * @throws { BusinessError } 6600107 - Too many commands or events.
+   * @syscap SystemCapability.Multimedia.AVSession.Manager
+   * @systemapi
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  function sendSystemCommonCommand(command: string, args: ExtraInfo): Promise<string>;
+
+  /**
    * Defines the basic callback.
    *
    * @typedef { function } NoParamCallback
@@ -965,7 +994,7 @@ declare namespace avSession {
     TYPE_DLNA = 4,
 
     /**
-     * This type indicates the device supports audio casting with high defination to get a better sound quality.
+     * This type indicates the device supports audio casting with high definition to get a better sound quality.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
      * @since 20 dynamic
@@ -1559,6 +1588,32 @@ declare namespace avSession {
    * @since 23 static
    */
   function offDeviceStateChanged(callback?: Callback<DeviceState>): void;
+
+  /**
+   * Register system common event callback
+   * 
+   * @param { EventProcess } callback - Used to handle event when the common command is received
+   * @throws { BusinessError } 202 - Not System App.
+   * @throws { BusinessError } 6600101 - Session service exception.
+   * @syscap SystemCapability.Multimedia.AVSession.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  function onSystemCommonEvent(callback: EventProcess): void;
+
+  /**
+   * Unregister system common event callback
+   * 
+   * @param { EventProcess } [callback] - Used to handle event when the common command is received
+   * @throws { BusinessError } 202 - Not System App.
+   * @throws { BusinessError } 6600101 - Session service exception.
+   * @syscap SystemCapability.Multimedia.AVSession.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  function offSystemCommonEvent(callback?: EventProcess): void;
 
   /**
    * Session type, support audio & video
@@ -2185,6 +2240,22 @@ declare namespace avSession {
     offDesktopLyricStateChanged(callback?: Callback<DesktopLyricState>): void;
 
     /**
+     * Set the background playback mode.
+     * It is recommended that you associate it with the background playback switch in the app.
+     * If not set, the default value for 'audio' session is {@link ENABLE_BACKGROUND_PLAY} and
+     * the default value for 'video' session is {@link DISENABLE_BACKGROUND_PLAY}.
+     *
+     * @param { BackgroundPlayMode } mode - Background play mode
+     * @returns { Promise<void> } void promise when executed successfully.
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    setBackgroundPlayMode(mode: BackgroundPlayMode): Promise<void>;
+
+    /**
      * Get the current session's own controller
      * @param { AsyncCallback<AVSessionController> } callback - async callback for the AVSessionController.
      * @throws { BusinessError } 6600101 - Session service exception.
@@ -2599,7 +2670,7 @@ declare namespace avSession {
      * Each playback command only supports registering one callback,
      * and the new callback will replace the previous one.
      * @param { 'fastForward' } type - Command to register 'fastForward'.
-     * @param { function } callback - Used to handle ('fastForward') command
+     * @param { function } callback - Used to handle ('fastForward') command, described by milliseconds.
      * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
      * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
@@ -2613,7 +2684,7 @@ declare namespace avSession {
     /**
      * Register fastForward command callback.
      * The application will receive forward time and {@link CommandInfo} from a controller.
-     * @param { TwoParamCallback<long, CommandInfo> } callback - Used to handle ('fastForward') command
+     * @param { TwoParamCallback<long, CommandInfo> } callback - Used to handle ('fastForward') command, described by milliseconds.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -2646,7 +2717,7 @@ declare namespace avSession {
      * Each playback command only supports registering one callback,
      * and the new callback will replace the previous one.
      * @param { 'rewind' } type - Command to register 'rewind'.
-     * @param { function } callback - Used to handle ('rewind') command
+     * @param { function } callback - Used to handle ('rewind') command, described by milliseconds.
      * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
      * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
@@ -2660,7 +2731,7 @@ declare namespace avSession {
     /**
      * Register rewind command callback.
      * The application will receive rewind time and {@link CommandInfo} from a controller.
-     * @param { TwoParamCallback<long, CommandInfo> } callback - Used to handle ('rewind') command
+     * @param { TwoParamCallback<long, CommandInfo> } callback - Used to handle ('rewind') command, described by milliseconds.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -5757,7 +5828,7 @@ declare namespace avSession {
    */
   interface MenuPosition {
     /**
-     * Coordinate x of the position of the component.
+     * Coordinate x of the position of the component, uint is vp.
      * @type { int }
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
@@ -5767,7 +5838,7 @@ declare namespace avSession {
     x: int;
 
     /**
-     * Coordinate y of the position of the component.
+     * Coordinate y of the position of the component, uint is vp.
      * @type { int }
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
@@ -5777,7 +5848,7 @@ declare namespace avSession {
     y: int;
 
     /**
-     * Component width.
+     * Component width, uint is vp.
      * @type { int }
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
@@ -5787,7 +5858,7 @@ declare namespace avSession {
     width: int;
 
     /**
-     * Component height.
+     * Component height, uint is vp.
      * @type { int }
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
@@ -6174,6 +6245,67 @@ declare namespace avSession {
   }
 
   /**
+    * Define some common extra keys used in different scenarios.
+   *
+   * @syscap SystemCapability.Multimedia.AVSession.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  enum ExtraKey {
+    /**
+     * Set required abilities to the system.
+     *
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    REQUIRE_ABILITY_LIST = 'requireAbilityList',
+
+    /**
+    * Informs the system that the app supports URL casting.
+     *
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    SUPPORT_URL_CASTING = 'url-cast',
+
+    /**
+     * Inform the system that the live view card should be hidden on the keyguard.
+     *
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @systemapi
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    LIVE_VIEW_HIDDEN_WHEN_KEYGUARD = 'hw_live_view_hidden_when_keyguard',
+
+    /**
+     * Key for DLNA CurrentURIMetadata extra parameter.
+     *
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    DLNA_CURRENT_URI_METADATA = 'CurrentURIMetadata',
+
+    /**
+     * Key for DLNA DIDL-Lite extra parameter.
+     *
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    DLNA_DIDL_LITE = 'DIDL-Lite'
+  }
+
+  /**
    * The metadata of the current media.Used to set the properties of the current media file
    * @interface AVMetadata
    * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -6321,13 +6453,13 @@ declare namespace avSession {
     composer?: string;
 
     /**
-     * The duration of this media, used to automatically calculate playback position
+     * The duration of this media, used to automatically calculate playback position, described by milliseconds.
      * @type { ?long }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
     /**
-     * The duration of this media, used to automatically calculate playback position
+     * The duration of this media, used to automatically calculate playback position, described by milliseconds.
      * @type { ?long }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
@@ -6390,13 +6522,13 @@ declare namespace avSession {
     subtitle?: string;
 
     /**
-     * The discription of the media, used for display
+     * The description of the media, used for display
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
     /**
-     * The discription of the media, used for display
+     * The description of the media, used for display
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
@@ -6513,6 +6645,7 @@ declare namespace avSession {
      * See {@link SkipIntervals}
      * @type { ?SkipIntervals }
      * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
     rewindSkipIntervals?: SkipIntervals;
@@ -6524,6 +6657,7 @@ declare namespace avSession {
      * See {@link SkipIntervals}
      * @type { ?SkipIntervals }
      * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
     fastForwardSkipIntervals?: SkipIntervals;
@@ -6815,13 +6949,13 @@ declare namespace avSession {
     drmScheme?: string;
 
     /**
-     * The duration of this media
+     * The duration of this media, described by milliseconds.
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
     /**
-     * The duration of this media
+     * The duration of this media, described by milliseconds.
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
@@ -7019,13 +7153,13 @@ declare namespace avSession {
     position?: PlaybackPosition;
 
     /**
-     * The current buffered time, the maximum playable position
+     * The current buffered time, the maximum playable position, described by milliseconds.
      * @type { ?long }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
     /**
-     * The current buffered time, the maximum playable position
+     * The current buffered time, the maximum playable position, described by milliseconds.
      * @type { ?long }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
@@ -7131,7 +7265,7 @@ declare namespace avSession {
     muted?: boolean;
 
     /**
-     * The duration of this media asset.
+     * The duration of this media asset, described by milliseconds.
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 11 dynamic
@@ -7213,13 +7347,13 @@ declare namespace avSession {
    */
   interface PlaybackPosition {
     /**
-     * Elapsed time(position) of this media set by the app.
+     * Elapsed time(position) of this media set by the app, described by milliseconds.
      * @type { long }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
     /**
-     * Elapsed time(position) of this media set by the app.
+     * Elapsed time(position) of this media set by the app, described by milliseconds.
      * @type { long }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
@@ -7229,13 +7363,13 @@ declare namespace avSession {
     elapsedTime: long;
 
     /**
-     * Record the system time when elapsedTime is set.
+     * Record the system time when elapsedTime is set, described by milliseconds.
      * @type { long }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
     /**
-     * Record the system time when elapsedTime is set.
+     * Record the system time when elapsedTime is set, described by milliseconds.
      * @type { long }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
@@ -7591,6 +7725,55 @@ declare namespace avSession {
   }
 
   /**
+   * HiPlay Device Information Definition
+   * 
+   * @syscap SystemCapability.Multimedia.AVSession.AVCast
+   * @systemapi
+   * @stagemodelonly
+   * @atomicservice
+   * @since 24 dynamic&static
+   */
+  interface HiPlayDeviceInfo {
+    /**
+     * HiPlay device supports cast mode.
+     * when device both support device level cast and app level cast, support cast mode is DEVICE_LEVEL_CAST|APP_LEVEL_CAST
+     * 1: DEVICE_LEVEL_CAST
+     * 2: APP_LEVEL_CAST
+     * 
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @systemapi
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    supportCastMode?: int;
+
+    /**
+     * HiPlay device cast mode.
+     * 1: DEVICE_LEVEL_CAST
+     * 2: APP_LEVEL_CAST
+     * 
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @systemapi
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    castMode?: int;
+
+    /**
+     * HiPlay device current cast uid.
+     * 
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @systemapi
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    castUid?: int;
+  }
+
+  /**
    * Device Information Definition
    * @interface DeviceInfo
    * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -7801,6 +7984,17 @@ declare namespace avSession {
      * @since 23 static
      */
     audioCapabilities?: AudioCapabilities;
+
+    /**
+     * HiPlayDeviceInfo is used to obtain device-specific information for HiPlay.
+     * transmit info during casting.
+     * 
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    hiPlayDeviceInfo?: HiPlayDeviceInfo;
   }
 
   /**
@@ -7950,6 +8144,34 @@ declare namespace avSession {
      * @since 23 static
      */
     SECONDS_30 = 30,
+  }
+
+  /**
+   * Supported background play mode definitions.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.AVSession.Core
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  enum BackgroundPlayMode {
+    /**
+     * Enable background playback
+     *
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    ENABLE_BACKGROUND_PLAY = 0,
+
+    /**
+     * Disable background playback
+     *
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    DISABLE_BACKGROUND_PLAY = 1
   }
 
   /**

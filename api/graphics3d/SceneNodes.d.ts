@@ -121,7 +121,7 @@ export enum NodeType {
  */
 export interface Container<T> {
   /**
-   * Append a item to the container.
+   * Append an item to the container.
    *
    * @param { T } item - the item append to the end of container
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -131,7 +131,7 @@ export interface Container<T> {
   append(item: T): void;
 
   /**
-   * Insert a item.
+   * Insert an item.
    *
    * @param { T } item - the item insert to the container
    * @param { T | null } sibling - insert after this item, insert to the head if sibling is null
@@ -142,7 +142,7 @@ export interface Container<T> {
   insertAfter(item: T, sibling: T | null): void;
 
   /**
-   * Remove a item from Container's children.
+   * Remove an item from Container's children.
    *
    * @param { T } item - the item to be removed
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -193,7 +193,7 @@ export interface Container<T> {
  */
 export interface Node extends SceneResource {
   /**
-   * position of the node.
+   * position of the node, the unit is the scene unit in the world coordinate system (e.g., cm, m, km).
    *
    * @type { Position3 }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -392,7 +392,7 @@ export interface Light extends Node {
   color: Color;
 
   /**
-   * The intensity of the light.
+   * The intensity of the light, the unit is candela.
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -433,7 +433,7 @@ export interface Light extends Node {
  */
 export interface SpotLight extends Light {
   /**
-   * The inner angle of the spot light
+   * The inner angle of the spot light, the unit is radian.
    * 
    * @type { ?double }
    * @default 0
@@ -443,7 +443,7 @@ export interface SpotLight extends Light {
   innerAngle?: double;
 
   /**
-   * The outer angle of the spot light
+   * The outer angle of the spot light, the unit is radian.
    * 
    * @type { ?double }
    * @default PI / 4.0
@@ -476,7 +476,7 @@ export interface DirectionalLight extends Light {
  */
 export interface Camera extends Node {
   /**
-   * Field of view of the camera.
+   * Field of view of the camera, the unit is radian.
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -486,7 +486,7 @@ export interface Camera extends Node {
   fov: double;
 
   /**
-   * Near plane of the directional light.
+   * Near plane of the camera, the unit is the scene unit in the world coordinate system (e.g., cm, m, km).
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -496,7 +496,7 @@ export interface Camera extends Node {
   nearPlane: double;
 
   /**
-   * Far plane of the directional light.
+   * Far plane of the camera, the unit is the scene unit in the world coordinate system (e.g., cm, m, km).
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -506,7 +506,7 @@ export interface Camera extends Node {
   farPlane: double;
 
   /**
-   * Whether enabled the camera.
+   * Whether the camera is enabled.
    *
    * @type { boolean }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -582,7 +582,7 @@ export interface Camera extends Node {
   raycast(viewPosition: Vec2, params: RaycastParameters): Promise<RaycastResult[]>;
 
   /**
-   * get the view matrix of this camera
+   * Get the view matrix of this camera.
    * @returns { Mat4x4 } -- the view matrix of this camera
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 23 dynamic&static
@@ -590,7 +590,7 @@ export interface Camera extends Node {
   getViewMatrix(): Mat4x4;
 
   /**
-   * get the projection matrix of this camera
+   * Get the projection matrix of this camera.
    * @returns { Mat4x4 } -- the projection matrix of this camera
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 23 dynamic&static

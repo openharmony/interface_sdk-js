@@ -258,7 +258,7 @@ interface LoadingProgressInterface {
  */
 declare class LoadingProgressAttribute extends CommonMethod<LoadingProgressAttribute> {
   /**
-   * Load the color of the progress bar.
+   * Sets the color of the loading progress bar.
    *
    * @param { ResourceColor } value
    * @returns { LoadingProgressAttribute }
@@ -266,7 +266,7 @@ declare class LoadingProgressAttribute extends CommonMethod<LoadingProgressAttri
    * @since 8
    */
   /**
-   * Load the color of the progress bar.
+   * Sets the color of the loading progress bar.
    *
    * @param { ResourceColor } value
    * @returns { LoadingProgressAttribute }
@@ -275,7 +275,7 @@ declare class LoadingProgressAttribute extends CommonMethod<LoadingProgressAttri
    * @since 9
    */
   /**
-   * Load the color of the progress bar.
+   * Sets the color of the loading progress bar.
    *
    * @param { ResourceColor } value
    * @returns { LoadingProgressAttribute }
@@ -285,7 +285,7 @@ declare class LoadingProgressAttribute extends CommonMethod<LoadingProgressAttri
    * @since 10
    */
   /**
-   * Load the color of the progress bar.
+   * Sets the color of the loading progress bar.
    *
    * @param { ResourceColor } value
    * @returns { LoadingProgressAttribute }

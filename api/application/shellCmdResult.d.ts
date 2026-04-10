@@ -19,14 +19,14 @@
  */
 
 /**
- * A object that records the result of shell command executes.
+ * An object that records the result of shell command execution.
  *
  * @typedef ShellCmdResult
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @since 8
  */
 /**
- * A object that records the result of shell command executes.
+ * An object that records the result of shell command execution.
  *
  * @typedef ShellCmdResult
  * @syscap SystemCapability.Ability.AbilityRuntime.Core

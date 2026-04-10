@@ -74,7 +74,6 @@ export declare enum GridObjectSortComponentType {
 
 /**
  * Declaration of the GridObjectSortComponent item.
- * @interface GridObjectSortComponentIteml
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -82,7 +81,6 @@ export declare enum GridObjectSortComponentType {
  */
  /**
  * Declaration of the GridObjectSortComponent item.
- * @interface GridObjectSortComponentIteml
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform

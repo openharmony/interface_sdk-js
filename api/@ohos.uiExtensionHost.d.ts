@@ -222,6 +222,8 @@ declare namespace uiExtensionHost {
      * @throws { BusinessError } 1300002 - This window state is abnormal. Possible causes:
      * <br> 1. The window is not created or destroyed.
      * <br> 2. Internal task error.
+     * @throws { BusinessError } 1300035 - Creating a subwindow is not allowed in the current context. Possible cause:
+     * <br> 1. An AgentUIExtensionAbility cannot create a subwindow.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @StageModelOnly
@@ -245,6 +247,8 @@ declare namespace uiExtensionHost {
      * @throws { BusinessError } 1300002 - This window state is abnormal. Possible causes:
      *     1. The window is not created or destroyed.
      *     2. Internal task error.
+     * @throws { BusinessError } 1300035 - Creating a subwindow is not allowed in the current context. Possible cause:
+     *     1. An AgentUIExtensionAbility cannot create a subwindow.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly

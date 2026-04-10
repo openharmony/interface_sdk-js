@@ -16,19 +16,19 @@
 /**
  * @file
  * @kit UserAuthenticationKit
+ * @arkts 1.1&1.2
  */
 
 /**
- * This module provides the capability to manage face auth.
+ * The **userIAM.faceAuth** module provides APIs for face enrollment.
  *
- * @namespace faceAuth
  * @syscap SystemCapability.UserIAM.UserAuth.FaceAuth
  * @since 9 dynamic
  * @since 23 static
  */
 declare namespace faceAuth {
   /**
-   * Provides the abilities for face authentication.
+   * Provides APIs for facial authentication management.
    *
    * @syscap SystemCapability.UserIAM.UserAuth.FaceAuth
    * @systemapi Hide this for inner system use.
@@ -37,7 +37,7 @@ declare namespace faceAuth {
    */
   class FaceAuthManager {
     /**
-     * Constructor to get the FaceAuthManager class instance.
+     * A constructor used to create a **FaceAuthManager** object.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.FaceAuth
      * @systemapi Hide this for inner system use.
@@ -47,10 +47,14 @@ declare namespace faceAuth {
     constructor();
 
     /**
-     * Set XComponent surface id for camera preview during enroll.
+     * Sets an
+     * [XComponent surface ID]{@link ./@internal/component/ets/xcomponent:XComponentController#getXComponentSurfaceId}
+     * for the face preview page in the face enrollment process. This API must be used with
+     * [addCredential]{@link @ohos.account.osAccount:osAccount.UserIdentityManager#addCredential}.
      *
      * @permission ohos.permission.MANAGE_USER_IDM
-     * @param { string } surfaceId Indicates surface id for face enroll preview.
+     * @param { string } surfaceId - ID of the surface held by
+     *     [XComponent]{@link ./@internal/component/ets/xcomponent:XComponentController#getXComponentSurfaceId}.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission denied. Called by non-system application.
      * @throws { BusinessError } 12700001 - The service is unavailable.

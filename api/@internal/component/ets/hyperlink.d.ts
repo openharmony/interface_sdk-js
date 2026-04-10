@@ -45,8 +45,8 @@
 interface HyperlinkInterface {
   /**
    * Return to get Hyperlink.
-   * adress: Web page redirected by the hyperlink component.
-   * content: Hyperlinks in the hyperlink component display text.
+   * address: Web page redirected by the hyperlink component.
+   * content: The text displayed in the hyperlink component.
    *
    * @param { string | Resource } address
    * @param { string | Resource } content
@@ -56,8 +56,8 @@ interface HyperlinkInterface {
    */
   /**
    * Return to get Hyperlink.
-   * adress: Web page redirected by the hyperlink component.
-   * content: Hyperlinks in the hyperlink component display text.
+   * address: Web page redirected by the hyperlink component.
+   * content: The text displayed in the hyperlink component.
    *
    * @param { string | Resource } address
    * @param { string | Resource } content
@@ -68,8 +68,8 @@ interface HyperlinkInterface {
    */
   /**
    * Return to get Hyperlink.
-   * adress: Web page redirected by the hyperlink component.
-   * content: Hyperlinks in the hyperlink component display text.
+   * address: Web page redirected by the hyperlink component.
+   * content: The text displayed in the hyperlink component.
    *
    * @param { string | Resource } address
    * @param { string | Resource } content

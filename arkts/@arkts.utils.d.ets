@@ -709,7 +709,7 @@ declare namespace utils {
       /**
        * Waits for the ConditionVariable to be notified, or until the specified time limit is reached.
        *
-       * @param { number } timeout - The maximum time to wait.
+       * @param { number } timeout - The maximum time to wait (ms).
        * @returns { Promise<void> } A promise that will be resolved once the ConditionVariable is notified or the
        * specified time limit is reached.
        * @syscap SystemCapability.Utils.Lang
@@ -719,7 +719,7 @@ declare namespace utils {
       /**
        * Waits for the ConditionVariable to be notified, or until the specified time limit is reached.
        *
-       * @param { number } timeout - The maximum time to wait.
+       * @param { number } timeout - The maximum time to wait (ms).
        * @returns { Promise<void> } A promise that will be resolved once the ConditionVariable is notified or the
        *      specified time limit is reached.
        * @syscap SystemCapability.Utils.Lang
@@ -729,14 +729,14 @@ declare namespace utils {
        */
       waitFor(timeout: number): Promise<void>;
       /**
-       * Notify all waiting promise.
+       * Notify all waiting promises.
        *
        * @syscap SystemCapability.Utils.Lang
        * @atomicservice
        * @since 18 dynamiconly
        */
       /**
-       * Notify all waiting promise.
+       * Notify all waiting promises.
        *
        * @syscap SystemCapability.Utils.Lang
        * @crossplatform
@@ -1052,14 +1052,14 @@ declare namespace utils {
   }
 
   /**
-  * Object used for store least recently used sendable Object.
+  * Object used for storing least recently used sendable object.
   *
   * @syscap SystemCapability.Utils.Lang
   * @atomicservice
   * @since 18 dynamiconly
   */
  /**
-  * Object used for store least recently used sendable Object.
+  * Object used for storing least recently used sendable object.
   *
   * @syscap SystemCapability.Utils.Lang
   * @crossplatform
@@ -1197,19 +1197,19 @@ declare namespace utils {
      */
     remove(key: K): V | undefined;
     /**
-     * Check whether the given key exists in the SendableLruCache. If exists, returns true; otherwise, returns false.
+     * Check whether the given key exists in the SendableLruCache. If it exists, returns true; otherwise, returns false.
      *
      * @param { K } key - The key to check.
-     * @returns { boolean } The result of the checked.
+     * @returns { boolean } The result of the check.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
      * @since 18 dynamiconly
      */
     /**
-     * Check whether the given key exists in the SendableLruCache. If exists, returns true; otherwise, returns false.
+     * Check whether the given key exists in the SendableLruCache. If it exists, returns true; otherwise, returns false.
      *
      * @param { K } key - The key to check.
-     * @returns { boolean } The result of the checked.
+     * @returns { boolean } The result of the check.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice

@@ -131,7 +131,7 @@ declare class StepperAttribute extends CommonMethod<StepperAttribute> {
    * @atomicservice
    * @since 11 dynamiconly
    * @deprecated since 22
-   * @useinstead Swiper.SwiperAttibute#onChange
+   * @useinstead Swiper.SwiperAttribute#onChange
    */
   onFinish(callback: () => void): StepperAttribute;
 
@@ -193,7 +193,7 @@ declare class StepperAttribute extends CommonMethod<StepperAttribute> {
    * @atomicservice
    * @since 11 dynamiconly
    * @deprecated since 22
-   * @useinstead Swiper.SwiperAttribite#onChange
+   * @useinstead Swiper.SwiperAttribute#onChange
    */
   onChange(callback: (prevIndex: number, index: number) => void): StepperAttribute;
 
@@ -224,7 +224,7 @@ declare class StepperAttribute extends CommonMethod<StepperAttribute> {
    * @atomicservice
    * @since 11 dynamiconly
    * @deprecated since 22
-   * @useinstead Swiper.SwiperAttribite#onChange
+   * @useinstead Swiper.SwiperAttribute#onChange
    */
   onNext(callback: (index: number, pendingIndex: number) => void): StepperAttribute;
 
