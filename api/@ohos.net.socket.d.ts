@@ -1476,6 +1476,7 @@ declare namespace socket {
      * @since 24 dynamic&static
      */
     getSocketFd(): Promise<int>;
+
     /**
      * Sets whether the multicast socket supports address reuse.
      *
