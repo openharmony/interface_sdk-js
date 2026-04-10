@@ -14886,6 +14886,16 @@ declare namespace audio {
     setVolume(volume: double): Promise<void>;
 
     /**
+     * Gets the output volume for audio loopback.
+     * 
+     * @returns { double } Current audio loopback output volume value.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    getVolume(): double;
+
+    /**
      * Subscribes to audio loopback status changes.
      * @param { 'statusChange' } type Type of the event to listen for. Only the statusChange event is supported.
      * @param { Callback<AudioLoopbackStatus> } callback Callback used to return the audio loopback status
