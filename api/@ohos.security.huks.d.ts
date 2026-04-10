@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -3884,6 +3884,23 @@ declare namespace huks {
    * @syscap SystemCapability.Security.Huks.Core
    * @since 20
    */
+  /**
+   * Export the wrapped key protected by a specific key.
+   *
+   * @param { string } keyAlias - keyAlias indicates the key's name.
+   * @param { HuksOptions } params - params indicates the export properties.
+   * @returns { Promise<HuksReturnResult> } the promise returned by the function.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000018 - the input parameter is invalid
+   * @syscap SystemCapability.Security.Huks.Core
+   * @atomicservice
+   * @since 26.0.0
+   */
   function wrapKeyItem(keyAlias: string, params: HuksOptions): Promise<HuksReturnResult>;
 
   /**
@@ -3902,6 +3919,24 @@ declare namespace huks {
    * @throws { BusinessError } 12000018 - the input parameter is invalid
    * @syscap SystemCapability.Security.Huks.Core
    * @since 20
+   */
+  /**
+   * Import the wrapped key protected by a specific key
+   *
+   * @param { string } keyAlias - keyAlias indicates the key's name.
+   * @param { HuksOptions } params - params indicates the import properties.
+   * @param { Uint8Array } wrappedKey -indicates the wrapped key.
+   * @returns { Promise<HuksReturnResult> } the promise returned by the function.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
+   * @throws { BusinessError } 12000018 - the input parameter is invalid
+   * @syscap SystemCapability.Security.Huks.Core
+   * @atomicservice
+   * @since 26.0.0
    */
   function unwrapKeyItem(keyAlias: string, params: HuksOptions, wrappedKey: Uint8Array): Promise<HuksReturnResult>;
 
@@ -6507,6 +6542,13 @@ declare namespace huks {
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 20
      */
+    /**
+     * Tui pin auth type.
+     *
+     * @syscap SystemCapability.Security.Huks.Extension
+     * @atomicservice
+     * @since 26.0.0
+     */
     HUKS_USER_AUTH_TYPE_TUI_PIN = 1 << 5
   }
 
@@ -6917,6 +6959,36 @@ declare namespace huks {
      */
     HUKS_KEY_WRAP_TYPE_HUK_BASED = 2,
   }
+
+  /**
+   * Enumerates the security level of the key.
+   *
+   * @syscap SystemCapability.Security.Huks.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0
+   */
+  export enum HuksKeySecurityLevel {
+    /**
+     * The key is generated and used in a trusted execution environment.
+     *
+     * @syscap SystemCapability.Security.Huks.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0
+     */
+    HUKS_KEY_SECURITY_LEVEL_TEE = 0,
+    /**
+     * The key is generated and used in a secure element.
+     *
+     * @syscap SystemCapability.Security.Huks.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0
+     */
+    HUKS_KEY_SECURITY_LEVEL_SE = 1,
+  }
+
   /**
    * Enumerates the tag data types.
    *
@@ -7807,6 +7879,15 @@ declare namespace huks {
      * @since 23
      */
     HUKS_TAG_KEY_ACCESS_GROUP = HuksTagType.HUKS_TAG_TYPE_BYTES | 523,
+    /**
+     * The tag indicates the security level of the key. For details, see {@link HuksKeySecurityLevel}.
+     *
+     * @syscap SystemCapability.Security.Huks.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0
+     */
+    HUKS_TAG_KEY_SECURITY_LEVEL = HuksTagType.HUKS_TAG_TYPE_UINT | 526,
     /**
      * The tag indicates the additional authenticated data for GCM or CCM modes.
      *
