@@ -652,6 +652,7 @@ declare namespace window {
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
    * @since 23 static
+   * @deprecated since 26.0.0
    */
   enum WindowLayoutMode {
     /**
@@ -661,6 +662,7 @@ declare namespace window {
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
      * @since 23 static
+     * @deprecated since 26.0.0
      */
     WINDOW_LAYOUT_MODE_CASCADE,
     /**
@@ -670,6 +672,7 @@ declare namespace window {
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
      * @since 23 static
+     * @deprecated since 26.0.0
      */
     WINDOW_LAYOUT_MODE_TILE
   }
@@ -4131,6 +4134,7 @@ declare namespace window {
    * @systemapi Hide this for inner system use.
    * @since 12 dynamic
    * @since 23 static
+   * @deprecated since 26.0.0
    */
   function setWindowLayoutMode(mode: WindowLayoutMode, callback: AsyncCallback<void>): void;
 
@@ -4161,6 +4165,7 @@ declare namespace window {
    * @systemapi Hide this for inner system use.
    * @since 12 dynamic
    * @since 23 static
+   * @deprecated since 26.0.0
    */
   function setWindowLayoutMode(mode: WindowLayoutMode): Promise<void>;
 
@@ -10931,6 +10936,7 @@ declare namespace window {
      * @systemapi
      * @since 9 dynamic
      * @since 23 static
+     * @deprecated since 26.0.0
      */
     setForbidSplitMove(isForbidSplitMove: boolean, callback: AsyncCallback<void>): void;
 
@@ -10948,6 +10954,7 @@ declare namespace window {
      * @systemapi
      * @since 9 dynamic
      * @since 23 static
+     * @deprecated since 26.0.0
      */
     setForbidSplitMove(isForbidSplitMove: boolean): Promise<void>;
 
@@ -11924,7 +11931,7 @@ declare namespace window {
     hideNonSystemFloatingWindows(shouldHide: boolean): Promise<void>;
 
     /**
-     * Get the window limits of current window measrued in px.
+     * Get the window limits of current window measured in px.
      *
      * @returns { WindowLimits } - The limits of window.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
@@ -11933,7 +11940,7 @@ declare namespace window {
      * @since 11
      */
     /**
-     * Get the window limits of current window measrued in px.
+     * Get the window limits of current window measured in px.
      *
      * @returns { WindowLimits } - The limits of window.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
@@ -11946,7 +11953,7 @@ declare namespace window {
     getWindowLimits(): WindowLimits;
 
     /**
-     * Get the window limits of current window measrued in vp.
+     * Get the window limits of current window measured in vp.
      *
      * @returns { WindowLimits } - The limits of window.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
