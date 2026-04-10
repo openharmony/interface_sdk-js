@@ -4600,6 +4600,15 @@ declare namespace wifiManager {
      * @since 23 static
      */
     wifiLinkType?: WifiLinkType;
+
+    /**
+     * Whether Wi-Fi Tx and Rx are both working properly
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    wifiTxRxValid?: boolean;
   }
 
   /**
