@@ -724,26 +724,6 @@ declare namespace uiEffect {
     mixStrength : double;
 
     /**
-     * Defines whether to invert mask image.
-     *
-     * @type { int }
-     * @syscap SystemCapability.Graphics.Drawing
-     * @systemapi
-     * @since 26.0.0 dynamic&static
-     */
-    invertMask : int;
-
-    /**
-     * Defines mask channel for blur bubbles rise effect.
-     *
-     * @type { int }
-     * @syscap SystemCapability.Graphics.Drawing
-     * @systemapi
-     * @since 26.0.0 dynamic&static
-     */
-    maskChannel : int;
-
-    /**
      * Defines animation progress for blur bubbles rise effect.
      *
      * @type { double }
@@ -756,12 +736,12 @@ declare namespace uiEffect {
     /**
      * Defines mask image for blur bubbles rise effect.
      *
-     * @type { image.PixelMap | null }
+     * @type { image.PixelMap }
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @since 26.0.0 dynamic&static
      */
-    maskImage : image.PixelMap | null;
+    maskImage : image.PixelMap;
   }
 
   /**
