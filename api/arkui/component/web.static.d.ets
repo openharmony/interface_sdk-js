@@ -908,7 +908,7 @@ export declare enum ThreatType {
  */
 export declare interface WebMediaOptions {
     /**
-     * Validity period for automatically resuming a paused web audio, in seconds.
+     * Validity period for automatically resuming a paused web audio, Unit: seconds.
      * The maximum validity period is 60 seconds. Due to the approximate value,
      * the validity period may have a deviation of less than 1 second.
      *
@@ -991,7 +991,7 @@ export declare interface FullScreenEnterEvent {
      */
     handler: FullScreenExitHandler;
     /**
-     * The intrinsic width of the video if the fullscreen element contains video element, expressed in CSS pixels.
+     * The intrinsic width of the video if the fullscreen element contains video element, expressed in CSS pixels, Unit: px.
      *
      * @type { ?int }
      * @syscap SystemCapability.Web.Webview.Core
@@ -999,7 +999,7 @@ export declare interface FullScreenEnterEvent {
      */
     videoWidth?: int;
     /**
-     * The intrinsic height of the video if the fullscreen element contains video element, expressed in CSS pixels.
+     * The intrinsic height of the video if the fullscreen element contains video element, expressed in CSS pixels, Unit: px.
      *
      * @type { ?int }
      * @syscap SystemCapability.Web.Webview.Core
