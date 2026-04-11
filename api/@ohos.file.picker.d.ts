@@ -1298,6 +1298,4 @@ declare namespace picker {
   }
 }
 
-import window from './@ohos.window';
-
 export default picker;
