@@ -3043,6 +3043,7 @@ declare namespace inputMethod {
      * Indicates the ID of the user whose input window is shown.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @systemapi
      * @stagemodelonly
      * @since 24 dynamic&static
      */
