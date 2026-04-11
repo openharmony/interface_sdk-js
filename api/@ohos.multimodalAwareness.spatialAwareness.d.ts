@@ -313,11 +313,14 @@ declare namespace spatialAwareness {
 
   /**
    * Subscribe to distance measurement result data.
-   * @param { DistanceMeasurementConfigParams } configParams - Configuration parameters for distance measurement.
-   * @param { Callback<DistanceMeasurementResponse> } callback - Callback distance measurement results.
+   * 
+   * @permission ohos.permission.ACCESS_SENSING_WITH_ULTRASOUND
+   * @param { DistanceMeasurementConfigParams } configParams - Configuration parameters of the distance measurement.
+   * @param { Callback<DistanceMeasurementResponse> } callback - Callback of the ranging result
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
-   * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
-   *     device capabilities.
+   * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to
+   *     <br> limited device capabilities.
    * @throws { BusinessError } 35100001 - Service exception.
    * @throws { BusinessError } 35100002 - Subscription failed.
    * @throws { BusinessError } 35100004 - Parameter invalid.
@@ -330,12 +333,15 @@ declare namespace spatialAwareness {
     callback: Callback<DistanceMeasurementResponse>): void;
 
   /**
-   * Unsubscribe to distance measurement result data.
-   * @param { DistanceMeasurementConfigParams } configParams - Configuration parameters for distance measurement.
-   * @param { Callback<DistanceMeasurementResponse> } [callback] - Callback distance measurement results.
+   * Unsubscribe from distance measurement result data.
+   * 
+   * @permission ohos.permission.ACCESS_SENSING_WITH_ULTRASOUND
+   * @param { DistanceMeasurementConfigParams } configParams - Configuration parameters of the distance measurement.
+   * @param { Callback<DistanceMeasurementResponse> } [callback] - Callback of the ranging result
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
-   * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
-   *     device capabilities.
+   * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to
+   *     <br> limited device capabilities.
    * @throws { BusinessError } 35100001 - Service exception.
    * @throws { BusinessError } 35100003 - UnSubscription failed.
    * @throws { BusinessError } 35100004 - Parameter invalid.
@@ -349,11 +355,15 @@ declare namespace spatialAwareness {
    
   /**
    * Subscribe to the results of indoorand outdoor identification.
-   * @param { DistanceMeasurementConfigParams } configParams - Configuration parameters for distance measurement.
-   * @param { Callback<DoorPositionResponse> } callback - Callback indoor and outdoor identification results.
+   * 
+   * @permission ohos.permission.ACCESS_SENSING_WITH_ULTRASOUND
+   * @param { DistanceMeasurementConfigParams } configParams - Configuration parameters for identification inside and
+   *     <br> outside the door.
+   * @param { Callback<DoorPositionResponse> } callback - Callback for identification inside and outside the door.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
-   * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
-   *     device capabilities.
+   * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to
+   *     <br> limited device capabilities.
    * @throws { BusinessError } 35100001 - Service exception.
    * @throws { BusinessError } 35100002 - Subscription failed.
    * @throws { BusinessError } 35100004 - Parameter invalid.
@@ -366,12 +376,16 @@ declare namespace spatialAwareness {
     callback: Callback<DoorPositionResponse>): void;
    
   /**
-   * Unsubscribe to the results of indoor and outdoor recognition.
-   * @param { DistanceMeasurementConfigParams } configParams - Configuration parameters for distance measurement.
-   * @param { Callback<DoorPositionResponse> } [callback] - Callback indoor and outdoor identification results.
+   * Unsubscribe from the results of indoor and outdoor recognition.
+   * 
+   * @permission ohos.permission.ACCESS_SENSING_WITH_ULTRASOUND
+   * @param { DistanceMeasurementConfigParams } configParams - Configuration parameters for identification inside and
+   *     <br> outside the door
+   * @param { Callback<DoorPositionResponse> } [callback] - Callback for identification inside and outside the door
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
-   * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
-   *     device capabilities.
+   * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to
+   *     <br> limited device capabilities.
    * @throws { BusinessError } 35100001 - Service exception.
    * @throws { BusinessError } 35100003 - Unsubscription failed.
    * @throws { BusinessError } 35100004 - Parameter invalid.
