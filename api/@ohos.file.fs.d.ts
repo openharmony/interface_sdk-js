@@ -93,6 +93,8 @@ declare namespace fileIo {
   export { mkdirSync };
   export { mkdtemp };
   export { mkdtempSync };
+  export { mmap };
+  export { mmapSync };
   export { moveDir };
   export { moveDirSync };
   export { moveFile };
@@ -125,6 +127,8 @@ declare namespace fileIo {
   export { AccessModeType };
   export { AccessFlagType };
   export { File };
+  export { FileMapping };
+  export { MappingMode };
   export { OpenMode };
   export { RandomAccessFile };
   export { ReaderIterator };
@@ -4360,6 +4364,86 @@ declare function mkdtemp(prefix: string, callback: AsyncCallback<string>): void;
  * @since 10 dynamic
  */
 declare function mkdtempSync(prefix: string): string;
+
+/**
+ * Creates a file mapping object based on a file descriptor or file object, using promise asynchronous callback. Maps
+ * file contents to memory for efficient read and write access to files.
+ * Note: In the read/write mode (MappingMode.READ_WRITE), if the mapping range exceeds the raw file size, the file size
+ * will be automatically expanded.
+ *
+ * @param { number | File } file - File object or open file descriptor fd that has been opened.
+ * @param { MappingMode } mode - Option to create a file memory-mapped object. You must specify one of the following
+ *     options:
+ *      <br>MappingMode.READ_ONLY(0): read-only mode. The file mapping area is not writable. An exception is thrown
+ * when the file mapping area is modified.
+ *      <br>MappingMode.READ_WRITE(1): read/write mode. The modification is written to the file mapping area and then
+ * synchronized to the file by the operating system (non-real-time).
+ *      <br>MappingMode.PRIVATE(2): private mode. It is a copy-on-write mapping mechanism. Modifications to the mapping
+ * area are visible only to the current process and do not affect the original file.
+ * @param { number } offset - Start position of the file mapping area.
+ * @param { number } size - Size of the file mapping area, in bytes.
+ * @returns { Promise<FileMapping> } Promise object. Returns a FileMapping object.
+ * @throws { BusinessError } 13900001 - Operation not permitted
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900010 - Try again
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900015 - File exists
+ * @throws { BusinessError } 13900017 - No such device
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900021 - File table overflow
+ * @throws { BusinessError } 13900023 - Text file busy
+ * @throws { BusinessError } 13900024 - File too large
+ * @throws { BusinessError } 13900038 - Value too large for defined data type
+ * @throws { BusinessError } 13900050 - Internal resource error
+ * @throws { BusinessError } 13900056 - Mmap does not support mapping this file
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @stagemodelonly
+ * @since 26.0.0 dynamic
+ */
+declare function mmap(file: number | File, mode: MappingMode, offset: number, size: number): Promise<FileMapping>;
+
+/**
+ * Creates a file mapping object based on a file descriptor or file object by using the synchronization method. Maps
+ * file contents to memory for efficient read and write access to files.
+ * Note: In the read/write mode (MappingMode.READ_WRITE), if the mapping range exceeds the raw file size, the file size
+ * will be automatically expanded.
+ *
+ * @param { number | File } file - File object or open file descriptor fd that has been opened.
+ * @param { MappingMode } mode - Option to create a file memory-mapped object. You must specify one of the following
+ *     options:
+ *      <br>MappingMode.READ_ONLY(0): read-only mode. The file mapping area is not writable. An exception is thrown
+ * when the file mapping area is modified.
+ *      <br>MappingMode.READ_WRITE(1): read/write mode. The modification is written to the file mapping area and then
+ * synchronized to the file by the operating system (non-real-time).
+ *      <br>MappingMode.PRIVATE(2): private mode. It is a copy-on-write mapping mechanism. Modifications to the mapping
+ * area are visible only to the current process and do not affect the original file.
+ * @param { number } offset - Start position of the file mapping area.
+ * @param { number } size - Size of the file mapping area, in bytes.
+ * @returns { FileMapping } - FileMapping object.
+ * @throws { BusinessError } 13900001 - Operation not permitted
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900010 - Try again
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900015 - File exists
+ * @throws { BusinessError } 13900017 - No such device
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900021 - File table overflow
+ * @throws { BusinessError } 13900023 - Text file busy
+ * @throws { BusinessError } 13900024 - File too large
+ * @throws { BusinessError } 13900038 - Value too large for defined data type
+ * @throws { BusinessError } 13900050 - Internal resource error
+ * @throws { BusinessError } 13900056 - Mmap does not support mapping this file
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @stagemodelonly
+ * @since 26.0.0 dynamic
+ */
+declare function mmapSync(file: number | File, mode: MappingMode, offset: number, size: number): FileMapping;
 
 /**
  * Moves the source directory to the destination directory. This API uses a promise to return the result.
@@ -8845,6 +8929,288 @@ declare interface File {
 }
 
 /**
+ * File mapping object. Before invoking the FileMapping method, you need to use the mmap() method (synchronous or
+ * asynchronous) to construct a FileMapping instance.
+ *
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @stagemodelonly
+ * @since 26.0.0 dynamic
+ */
+declare interface FileMapping {
+  /**
+   * Sets the current location of the file mapping area.
+   *
+   * @param { number } position - Target location. The value must be a non-negative number and cannot be greater than
+   *     the current upper bound (limit).
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900050 - Internal resource error
+   * @throws { BusinessError } 13900052 - Mmap buffer released
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  setPosition(position: number): void;
+
+  /**
+   * Gets the current location of the file mapping area.
+   *
+   * @returns { number } - Current location of the file mapping area.
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900050 - Internal resource error
+   * @throws { BusinessError } 13900052 - Mmap buffer released
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  getPosition(): number;
+
+  /**
+   * Obtains the capacity of the file mapping area.
+   *
+   * @returns { number } - Size of the file mapping area, in bytes.
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900050 - Internal resource error
+   * @throws { BusinessError } 13900052 - Mmap buffer released
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  capacity(): number;
+
+  /**
+   * Sets the upper bound of the readable and writable area of the file mapping area. The upper bound does not exceed
+   * the total capacity of the mapping area (0 �? limit �? capacity).
+   *
+   * @param { number } limit - Upper bound of the readable and writable area to be set. If the current position is
+   *     greater than the new upper bound, the value is automatically adjusted to limit.
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900050 - Internal resource error
+   * @throws { BusinessError } 13900052 - Mmap buffer released
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  setLimit(limit: number): void;
+
+  /**
+   * Obtains the upper bound of the readable and writable area of the file mapping area.
+   *
+   * @returns { number } - Upper bound of the current readable and writable area.
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900050 - Internal resource error
+   * @throws { BusinessError } 13900052 - Mmap buffer released
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  getLimit(): number;
+
+  /**
+   * Mode reversal. That is, the limit attribute is set to the current position, and then the current position is set
+   * to 0.
+   *
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900050 - Internal resource error
+   * @throws { BusinessError } 13900052 - Mmap buffer released
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  flip(): void;
+
+  /**
+   * Obtains the number of remaining bytes between the current position (position) and the upper bound (limit) of the
+   * readable and writable area.
+   *
+   * @returns { number } - Number of remaining readable or writable bytes.
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900050 - Internal resource error
+   * @throws { BusinessError } 13900052 - Mmap buffer released
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  remaining(): number;
+
+  /**
+   * Reads data from the current position and moves the position backward by the number of bytes actually read.
+   *
+   * @param { ArrayBuffer } buffer - Buffer for storing the read file data.
+   * @param { number } [length] - Length of the data to be read. This parameter is optional. The default value is the
+   *     buffer length.
+   * @returns { number } - Length of the actually read data, in bytes.
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900050 - Internal resource error
+   * @throws { BusinessError } 13900051 - Buffer read/write out of bounds
+   * @throws { BusinessError } 13900052 - Mmap buffer released
+   * @throws { BusinessError } 13900054 - Mmap buffer is inaccessible
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  read(buffer: ArrayBuffer, length?: number): number;
+
+  /**
+   * Reads data from the specified location without affecting the current location.
+   *
+   * @param { number } position - Start position to read from.
+   * @param { ArrayBuffer } buffer - Buffer for storing the read file data.
+   * @param { number } [length] - Length of the data to be read. This parameter is optional. The default value is the
+   *     buffer length.
+   * @returns { number } - Length of the actually read data, in bytes.
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900050 - Internal resource error
+   * @throws { BusinessError } 13900051 - Buffer read/write out of bounds
+   * @throws { BusinessError } 13900052 - Mmap buffer released
+   * @throws { BusinessError } 13900054 - Mmap buffer is inaccessible
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  read(position: number, buffer: ArrayBuffer, length?: number): number;
+
+  /**
+   * Writes data from the current location and moves the location backward by the number of bytes actually written.
+   *
+   * @param { ArrayBuffer } data - Buffer data to be written to the file.
+   * @param { number } [length] - Length of the data to be written. This parameter is optional. The default value is
+   *     the buffer length.
+   * @returns { number } - Length of the data written.
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900050 - Internal resource error
+   * @throws { BusinessError } 13900051 - Buffer read/write out of bounds
+   * @throws { BusinessError } 13900052 - Mmap buffer released
+   * @throws { BusinessError } 13900053 - Read-only mmap buffer
+   * @throws { BusinessError } 13900054 - Mmap buffer is inaccessible
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  write(data: ArrayBuffer, length?: number): number;
+
+  /**
+   * Writes data from the specified location without affecting the current location.
+   *
+   * @param { number } position - Start position of the expected write.
+   * @param { ArrayBuffer } data - Buffer data to be written to the file.
+   * @param { number } [length] - Length of the data to be written. This parameter is optional. The default value is
+   *     the buffer length.
+   * @returns { number } - Length of the data written.
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900050 - Internal resource error
+   * @throws { BusinessError } 13900051 - Buffer read/write out of bounds
+   * @throws { BusinessError } 13900052 - Mmap buffer released
+   * @throws { BusinessError } 13900053 - Read-only mmap buffer
+   * @throws { BusinessError } 13900054 - Mmap buffer is inaccessible
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  write(position: number, data: ArrayBuffer, length?: number): number;
+
+  /**
+   * Synchronizes the dirty page data in the entire file mapping area to the disk file and uses the promise
+   * asynchronous callback function.
+   * Note: If the file is not stored on the local device, calling this API does not ensure that all changes are
+   * stored persistently.
+   *
+   * @returns { Promise<void> } - Promise object. No return value.
+   * @throws { BusinessError } 13900011 - Out of memory
+   * @throws { BusinessError } 13900014 - Device or resource busy
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900050 - Internal resource error
+   * @throws { BusinessError } 13900052 - Mmap buffer released
+   * @throws { BusinessError } 13900055 - Mmap operation not supported
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  msync(): Promise<void>;
+
+  /**
+   * Synchronizes the dirty page data in the specified range of the file mapping area to the disk file and uses the
+   * promise asynchronous callback function.
+   * Note: If the file is not stored on the local device, calling this API does not ensure that all changes are
+   * stored persistently.
+   *
+   * @param { number } position - Start position to synchronize from.
+   * @param { number } length - Length of the data to be synchronized.
+   * @returns { Promise<void> } - Promise object. No return value.
+   * @throws { BusinessError } 13900011 - Out of memory
+   * @throws { BusinessError } 13900014 - Device or resource busy
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900050 - Internal resource error
+   * @throws { BusinessError } 13900052 - Mmap buffer released
+   * @throws { BusinessError } 13900055 - Mmap operation not supported
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  msync(position: number, length: number): Promise<void>;
+
+  /**
+   * Synchronizes the dirty page data of the entire file mapping area to the disk file by using the synchronization
+   * method.
+   * Note: If the file is not stored on the local device, calling this API does not ensure that all changes are
+   * stored persistently.
+   *
+   * @throws { BusinessError } 13900011 - Out of memory
+   * @throws { BusinessError } 13900014 - Device or resource busy
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900050 - Internal resource error
+   * @throws { BusinessError } 13900052 - Mmap buffer released
+   * @throws { BusinessError } 13900055 - Mmap operation not supported
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  msyncSync(): void;
+
+  /**
+   * Synchronize the dirty page data in the specified range of the file mapping area to the disk file by using the
+   * synchronization method.
+   * Note: If the file is not stored on the local device, calling this API does not ensure that all changes are
+   * stored persistently.
+   *
+   * @param { number } position - Start position to synchronize from.
+   * @param { number } length - Length of the data to be synchronized.
+   * @throws { BusinessError } 13900011 - Out of memory
+   * @throws { BusinessError } 13900014 - Device or resource busy
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900050 - Internal resource error
+   * @throws { BusinessError } 13900052 - Mmap buffer released
+   * @throws { BusinessError } 13900055 - Mmap operation not supported
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  msyncSync(position: number, length: number): void;
+
+  /**
+   * Releases the file mapping area and use the promise asynchronous callback function.
+   *
+   * @returns { Promise<void> } - Promise object. No return value.
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900050 - Internal resource error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  unmap(): Promise<void>;
+
+  /**
+   * Releases the file mapping area by using the synchronization method.
+   *
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900050 - Internal resource error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  unmapSync(): void;
+}
+
+/**
  * Provides APIs for randomly reading and writing a stream. Before invoking any API of RandomAccessFile,
  * you need to use createRandomAccessFile() to create a RandomAccessFile instance synchronously or asynchronously
  *
@@ -12291,6 +12657,45 @@ export interface DfsListeners {
    * @since 12 dynamic
    */
   onStatus(networkId: string, status: number): void;
+}
+
+/**
+ * Enumerated type of the file memory mapping mode, which can be used by the mmap API.
+ *
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @stagemodelonly
+ * @since 26.0.0 dynamic
+ */
+declare enum MappingMode {
+  /**
+   * Read-only mode. The file mapping area is not writable. An exception is thrown when the file mapping area is
+   * modified.
+   *
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  READ_ONLY = 0,
+
+  /**
+   * Read/Write mode. The modification is written to the file mapping area and then synchronized to the file by the
+   * operating system (non-real-time).
+   *
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  READ_WRITE = 1,
+
+  /**
+   * Private mode. It is a copy-on-write mapping mechanism. Modifications to the mapping area are visible only to the
+   * current process and do not affect the raw file.
+   *
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  PRIVATE = 2
 }
 
 /**
