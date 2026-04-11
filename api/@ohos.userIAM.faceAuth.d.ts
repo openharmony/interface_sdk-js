@@ -16,7 +16,6 @@
 /**
  * @file
  * @kit UserAuthenticationKit
- * @arkts 1.1&1.2
  */
 
 /**
