@@ -832,43 +832,8 @@ declare function close(file: number | File, callback: AsyncCallback<void>): void
 declare function closeSync(file: number | File): void;
 
 /**
- * Copy file or directory.
- *
- * @param { string } srcUri - src uri.
- * @param { string } destUri - dest uri.
- * @param { CopyOptions } [options] - options.
- * @returns { Promise<void> } The promise returned by the function.
- * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
- *     <br>2.Incorrect parameter types.
- * @throws { BusinessError } 13900001 - Operation not permitted
- * @throws { BusinessError } 13900002 - No such file or directory
- * @throws { BusinessError } 13900004 - Interrupted system call
- * @throws { BusinessError } 13900005 - I/O error
- * @throws { BusinessError } 13900008 - Bad file descriptor
- * @throws { BusinessError } 13900010 - Try again
- * @throws { BusinessError } 13900011 - Out of memory
- * @throws { BusinessError } 13900012 - Permission denied by the file system
- * @throws { BusinessError } 13900015 - File exists
- * @throws { BusinessError } 13900018 - Not a directory
- * @throws { BusinessError } 13900019 - Is a directory
- * @throws { BusinessError } 13900020 - Invalid argument
- * @throws { BusinessError } 13900021 - File table overflow
- * @throws { BusinessError } 13900022 - Too many open files
- * @throws { BusinessError } 13900024 - File too large
- * @throws { BusinessError } 13900025 - No space left on device
- * @throws { BusinessError } 13900027 - Read-only file system
- * @throws { BusinessError } 13900028 - Too many links
- * @throws { BusinessError } 13900030 - File name too long
- * @throws { BusinessError } 13900031 - Function not implemented
- * @throws { BusinessError } 13900034 - Operation would block
- * @throws { BusinessError } 13900038 - Value too large for defined data type
- * @throws { BusinessError } 13900041 - Quota exceeded
- * @throws { BusinessError } 13900042 - Unknown error
- * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 11
- */
-/**
  * Copies a file or directory. This API uses a promise to return the result.
+ *
  * File copy across devices is supported. This API forcibly overwrites the file or directory.
  * The input parameter can be the URI of the file or directory. A maximum of 10 cross-device copy tasks
  * are allowed at the same time, and the number of files to be copied at a time cannot exceed 500.
@@ -904,17 +869,18 @@ declare function closeSync(file: number | File): void;
  * @throws { BusinessError } 13900038 - Value too large for defined data type
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
- * @throws { BusinessError } 13900044 - Network is unreachable
+ * @throws { BusinessError } 13900044 - Network is unreachable [since 12]
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 12 dynamic
+ * @since 11 dynamic
  */
 declare function copy(srcUri: string, destUri: string, options?: CopyOptions): Promise<void>;
 
 /**
- * Copies a file or directory. This API uses an asynchronous callback to return the result.
+ * Copies a file or directory. This API uses a promise to return the result.
+ *
  * File copy across devices is supported. This API forcibly overwrites the file or directory.
- * The file or directory URI is supported. A maximum of 10 cross-device copy tasks are allowed at the same time,
- * and the number of files to be copied at a time cannot exceed 500.
+ * The input parameter can be the URI of the file or directory. A maximum of 10 cross-device copy tasks
+ * are allowed at the same time, and the number of files to be copied at a time cannot exceed 500.
  *
  * @param { string } srcUri - URI of the file or directory to copy.
  * @param { string } destUri - URI of the destination file or directory.
@@ -951,10 +917,11 @@ declare function copy(srcUri: string, destUri: string, options?: CopyOptions): P
 declare function copy(srcUri: string, destUri: string, callback: AsyncCallback<void>): void;
 
 /**
- * Copies a file or directory. This API uses an asynchronous callback to return the result.
+ * Copies a file or directory. This API uses a promise to return the result.
+ *
  * File copy across devices is supported. This API forcibly overwrites the file or directory.
- * The file or directory URI is supported. A maximum of 10 cross-device copy tasks are allowed at the same time,
- * and the number of files to be copied at a time cannot exceed 500.
+ * The input parameter can be the URI of the file or directory. A maximum of 10 cross-device copy tasks
+ * are allowed at the same time, and the number of files to be copied at a time cannot exceed 500.
  *
  * @param { string } srcUri - URI of the file or directory to copy.
  * @param { string } destUri - URI of the destination file or directory.
@@ -8194,14 +8161,18 @@ declare function writeSync(
 ): number;
 
 /**
- * Connect Distributed File System.
+ * Triggers connection. If the peer device is abnormal, [onStatus]{@link DfsListeners.onStatus}
+ * in DfsListeners will be called to notify the application.
  *
  * @permission ohos.permission.DISTRIBUTED_DATASYNC
- * @param { string } networkId - The networkId of device.
- * @param { DfsListeners } listeners - The listeners of Distributed File System.
- * @returns { Promise<void> } The promise returned by the function.
+ * @param { string } networkId - Network ID of the device. The device network ID can be obtained from
+ *     [DeviceBasicInfo]{@link @ohos.distributedDeviceManager:distributedDeviceManager.DeviceBasicInfo}
+ *     using the related [distributedDeviceManager]{@link @ohos.distributedDeviceManager} API.
+ * @param { DfsListeners } listeners - Listeners for distributed file system status.
+ * @returns { Promise<void> } Promise that returns no value.
  * @throws { BusinessError } 201 - Permission denied.
- * @throws { BusinessError } 401 - The parameter check failed.Possible causes:1.Mandatory parameters are left unspecified;
+ * @throws { BusinessError } 401 - The parameter check failed.Possible causes:
+ *     1.Mandatory parameters are left unspecified;
  *     <br>2.Incorrect parameter types.
  * @throws { BusinessError } 13900045 - Connection failed.
  * @throws { BusinessError } 13900046 - Software caused connection abort.
@@ -8211,13 +8182,16 @@ declare function writeSync(
 declare function connectDfs(networkId: string, listeners: DfsListeners): Promise<void>;
 
 /**
- * Disconnect Distributed File System.
+ * Triggers disconnection.
  *
  * @permission ohos.permission.DISTRIBUTED_DATASYNC
- * @param { string } networkId - The networkId of device.
- * @returns { Promise<void> } The promise returned by the function.
+ * @param { string } networkId - Network ID of the device. The device network ID can be obtained from
+ *     [DeviceBasicInfo]{@link @ohos.distributedDeviceManager:distributedDeviceManager.DeviceBasicInfo}
+ *     using the related [distributedDeviceManager]{@link @ohos.distributedDeviceManager} API.
+ * @returns { Promise<void> } Promise that returns no value.
  * @throws { BusinessError } 201 - Permission denied.
- * @throws { BusinessError } 401 - The parameter check failed.Possible causes:1.Mandatory parameters are left unspecified;
+ * @throws { BusinessError } 401 - The parameter check failed.Possible causes:
+ *     1.Mandatory parameters are left unspecified;
  *     <br>2.Incorrect parameter types.
  * @throws { BusinessError } 13600004 - Unmount failed.
  * @syscap SystemCapability.FileManagement.File.FileIO
@@ -8447,7 +8421,7 @@ export class TaskSignal {
   /**
    * Subscribes to the event reported when a copy task is canceled.
    *
-   * @returns { Promise<string> } Return the result of the cancel event.
+   * @returns { Promise<string> } Promise used to return the path of the last file copied.
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900008 - Bad file descriptor
    * @throws { BusinessError } 13900042 - Unknown error
@@ -8461,7 +8435,6 @@ export class TaskSignal {
 /**
  * Defines the callback for listening for the copy progress.
  *
- * @typedef CopyOptions
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 11 dynamic
  */
@@ -8469,7 +8442,6 @@ interface CopyOptions {
   /**
    * Listener used to observe the copy progress.
    *
-   * @type { ?ProgressListener }
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 11 dynamic
    */
@@ -8477,7 +8449,6 @@ interface CopyOptions {
   /**
    * Signal used to cancel a copy task.
    *
-   * @type { ?TaskSignal }
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 12 dynamic
    */
@@ -8485,9 +8456,8 @@ interface CopyOptions {
 }
 
 /**
- * Signal used to cancel a copy task.
+ * Listener used to observe the copy progress.
  *
- * @typedef { function } ProgressListener
  * @param { Progress } progress - indicates the progress data of copyFile
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 11 dynamic
@@ -12106,18 +12076,19 @@ export interface WriteStreamOptions {
 }
 
 /**
- * The listeners of Distributed File System.
+ * Provides APIs for observing events. listening for the distributed file system status.
  *
- * @typedef DfsListeners
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 12 dynamic
  */
 export interface DfsListeners {
   /**
-   * The Listener of Distributed File System status
+   * Called to return the specified status. Its parameters are passed in by [connectDfs]{@link connectDfs}.
    *
-   * @param { string } networkId - The networkId of device.
-   * @param { number } status - The status code of Distributed File System.
+   * @param { string } networkId - Network ID of the device.
+   * @param { number } status - Status code of the distributed file system. The status code is the error code returned
+   *     by **onStatus** invoked by **connectDfs**. If the device is abnormal when **connectDfs()** is called,
+   *     **onStatus** will be called to return the error code:- 13900046: The connection is interrupted by software.
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 12 dynamic
    */
