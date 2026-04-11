@@ -130,7 +130,7 @@ declare namespace certificateManager {
      * @since 26.0.0 dynamiconly
      */
     CM_ERROR_PASSWORD_IS_ERR = 17500008,
-
+    
     /**
      * The device does not support the specified certificate storage path.
      *
@@ -1534,6 +1534,25 @@ declare namespace certificateManager {
   }
 
   /**
+   * Obtains the list of CA certificates trusted by the system. This API is called only by the certificate management 
+   * application. This API uses a promise to return the result.
+   *
+   * @permission ohos.permission.ACCESS_CERT_MANAGER and ohos.permission.ACCESS_CERT_MANAGER_INTERNAL
+   * @returns { Promise<CMResult> } Promise used to return the operation result, that is, **certList** in the
+   *     [CMResult]{@link @ohos.security.certManager:certificateManager.CMResult} object.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     <br>The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
+   *     <br>2. Memory operation error; 3. File operation error. Please try again.
+   * @syscap SystemCapability.Security.CertificateManager
+   * @systemapi
+   * @FaAndStageModel
+   * @since 26.0.0 dynamiconly
+   */
+  function getSystemTrustedCertificateList(): Promise<CMResult>;
+  
+  /**
    * Obtains details about a CA certificate trusted by the system. This API is called only by the certificate management
    * application. This API uses a promise to return the result.
    *
@@ -1556,25 +1575,6 @@ declare namespace certificateManager {
    * @since 26.0.0 dynamiconly
    */
   function getSystemTrustedCertificate(certUri: string): Promise<CMResult>;
-
-  /**
-   * Obtains the list of CA certificates trusted by the system. This API is called only by the certificate management 
-   * application. This API uses a promise to return the result.
-   *
-   * @permission ohos.permission.ACCESS_CERT_MANAGER and ohos.permission.ACCESS_CERT_MANAGER_INTERNAL
-   * @returns { Promise<CMResult> } Promise used to return the operation result, that is, **certList** in the
-   *     [CMResult]{@link @ohos.security.certManager:certificateManager.CMResult} object.
-   * @throws { BusinessError } 201 - Permission verification failed.
-   *     <br>The application does not have the permission required to call the API.
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
-   *     <br>2. Memory operation error; 3. File operation error. Please try again.
-   * @syscap SystemCapability.Security.CertificateManager
-   * @systemapi
-   * @FaAndStageModel
-   * @since 26.0.0 dynamiconly
-   */
-  function getSystemTrustedCertificateList(): Promise<CMResult>;
 
   /**
    * Sets the status of a CA certificate. Currently, only the status of a user's CA certificate can be set. This API is 
@@ -1610,26 +1610,26 @@ declare namespace certificateManager {
    * @FaAndStageModel
    * @since 26.0.0 dynamic&static
    */
-  export enum CertFileFormat {
-      /**
-       * The certificate file format is PEM or DER.
-       *
-       * @syscap SystemCapability.Security.CertificateManager
-       * @FaAndStageModel
-       * @since 26.0.0 dynamic&static
-       */
-      PEM_DER = 0,
-
-      /**
-       * The certificate file format is P7B.
-       *
-       * @syscap SystemCapability.Security.CertificateManager
-       * @FaAndStageModel
-       * @since 26.0.0 dynamic&static
-       */
-      P7B = 1,
+  export enum CertFileFormat {  
+    /**
+     * The certificate file format is PEM or DER.
+     *
+     * @syscap SystemCapability.Security.CertificateManager
+     * @FaAndStageModel
+     * @since 26.0.0 dynamic&static
+     */
+    PEM_DER = 0,
+    
+    /**
+     * The certificate file format is P7B.
+     *
+     * @syscap SystemCapability.Security.CertificateManager
+     * @FaAndStageModel
+     * @since 26.0.0 dynamic&static
+     */
+    P7B = 1
   }
-
+  
   /**
    * Represents the certificate data in binary format.
    *
@@ -1637,39 +1637,39 @@ declare namespace certificateManager {
    * @FaAndStageModel
    * @since 26.0.0 dynamic&static
    */
-  export interface CertBlob {
-      /**
-       * Certificate file data.
-       *
-       * @syscap SystemCapability.Security.CertificateManager
-       * @FaAndStageModel
-       * @since 26.0.0 dynamic&static
-       */
-      certData: Uint8Array;
-
-      /**
-       * Certificate file format.
-       *
-       * @syscap SystemCapability.Security.CertificateManager
-       * @FaAndStageModel
-       * @since 26.0.0 dynamic&static
-       */
-      certFormat? : CertFileFormat;
-
-      /**
-       * Scope of the CA certificate.
-       *
-       * @syscap SystemCapability.Security.CertificateManager
-       * @FaAndStageModel
-       * @since 26.0.0 dynamic&static
-       */
-      certScope? : CertScope;
+  export interface CertBlob {  
+    /**
+     * Certificate file data.
+     *
+     * @syscap SystemCapability.Security.CertificateManager
+     * @FaAndStageModel
+     * @since 26.0.0 dynamic&static
+     */
+    certData: Uint8Array;
+    
+    /**
+     * Certificate file format.
+     *
+     * @syscap SystemCapability.Security.CertificateManager
+     * @FaAndStageModel
+     * @since 26.0.0 dynamic&static
+     */
+    certFormat? : CertFileFormat;
+    
+    /**
+     * Scope of the CA certificate.
+     *
+     * @syscap SystemCapability.Security.CertificateManager
+     * @FaAndStageModel
+     * @since 26.0.0 dynamic&static
+     */
+    certScope? : CertScope;
   }
 
   /**
    * Installs a user CA certificate. This API uses a promise to return the result.
    *
-   * @permission ohos.permission.ACCESS_ENTERPRISE_USER_TRUSTED_CERTorohos.permission.ACCESS_USER_TRUSTED_CERT
+   * @permission ohos.permission.ACCESS_ENTERPRISE_USER_TRUSTED_CERT or ohos.permission.ACCESS_USER_TRUSTED_CERT
    * @param { CertBlob } certificate - Certificate information.
    * @returns { Promise<CMResult> } Promise used to return the operation result, that is, **uri** in the
    *     [CMResult]{@link certificateManager.CMResult} object.
@@ -1980,6 +1980,33 @@ declare namespace certificateManager {
    * @since 26.0.0 dynamiconly
    */
   function uninstallAllAppCertificate() : Promise<void>;
+
+  /**
+   * Import the certificate to the USB key.
+   *
+   * @permission ohos.permission.ACCESS_CERT_MANAGER
+   * @param { string } keyUri - Indicates the USB key certificate URI.
+   *     <br>The keyUri parameter identifies a certificate entity, which can be obtained
+   *     <br>by calling the getUkeyCertificateList interface.
+   * @param { Uint8Array } cert - Indicates the certificate data to be imported.
+   *     <br>The certificate data format complies with the SKF specification.
+   * @param { UkeyInfo } ukeyInfo - Indicates USB key certificate attribute information.
+   *     <br>The value of <br>UkeyInfo.CertificatePurpose must be PURPOSE_SIGN or PURPOSE_ENCRYPT.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
+   *     <br>2. Memory operation error; 3. File operation error. Please try again.
+   * @throws { BusinessError } 17500002 - Indicates that the certificate does not exist.
+   * @throws { BusinessError } 17500010 - Indicates that access USB key service failed.
+   * @throws { BusinessError } 17500011 - Indicates that the input parameters validation failed.
+   *     For example, the parameter format is incorrect or the value range is invalid.
+   * @syscap SystemCapability.Security.CertificateManager
+   * @FaAndStageModel
+   * @since 26.0.0 dynamic&static
+   */
+  function importUkeyCertificate(keyUri: string, cert: Uint8Array, ukeyInfo: UkeyInfo): Promise<void>;
 }
 
 export default certificateManager;

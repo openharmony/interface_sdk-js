@@ -211,7 +211,7 @@ declare namespace certificateManagerDialog {
      * @since 22 dynamic
      * @since 23 static
      */
-    CREDENTIAL_USER = 2, 
+    CREDENTIAL_USER = 2,
 
     /**
      * Private credential of an application.
@@ -221,9 +221,9 @@ declare namespace certificateManagerDialog {
      * @since 22 dynamic
      * @since 23 static
      */    
-    CREDENTIAL_APP = 3, 
+    CREDENTIAL_APP = 3,
 
-    /**
+   /**
      * USB credential.
      *
      * @syscap SystemCapability.Security.CertificateManagerDialog
@@ -233,14 +233,14 @@ declare namespace certificateManagerDialog {
      */
     CREDENTIAL_UKEY = 4,
 
-    /**
-     * System credential.
-     *
-     * @syscap SystemCapability.Security.CertificateManagerDialog
-     * @stagemodelonly
-     * @since 23 dynamic&static
-     */
-    CREDENTIAL_SYSTEM = 5
+   /**
+    * System credential.
+    *
+    * @syscap SystemCapability.Security.CertificateManagerDialog
+    * @stagemodelonly
+    * @since 23 dynamic&static
+    */
+   CREDENTIAL_SYSTEM = 5
   }
 
   /**
