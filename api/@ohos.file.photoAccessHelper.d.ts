@@ -3583,7 +3583,25 @@ declare namespace photoAccessHelper {
      * @stagemodelonly
      * @since 24 dynamic&static
      */
-    DATE_ADDED_DAY = 'date_added_day'
+    DATE_ADDED_DAY = 'date_added_day',
+    /**
+     * Status of thumbnail, read only
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    THUMB_STATUS = 'thumb_status',
+    /**
+    * Size of lcd file, read only
+    *
+    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+    * @systemapi
+    * @stagemodelonly
+    * @since 24 dynamic&static
+    */
+    LCD_FILE_SIZE = 'lcd_file_size'
   }
 
   /**
