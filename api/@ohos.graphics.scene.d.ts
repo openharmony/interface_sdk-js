@@ -94,3 +94,17 @@ export { SceneResourceParameters, SceneNodeParameters, SceneResourceFactory, Sce
  * @since 23 dynamic&static
  */
 export { RenderConfiguration } from './graphics3d/Scene';
+
+/**
+ * Export scene types
+ * @syscap SystemCapability.ArkUi.Graphics3D
+ * @since 26 dynamic&static
+ */
+export { ShadowAlgorithmType } from './graphics3d/SceneTypes';
+
+/**
+ * Export scene
+ * @syscap SystemCapability.ArkUi.Graphics3D
+ * @since 26 dynamic&static
+ */
+export { SoftShadowConfig, PCFConfig } from './graphics3d/Scene';
