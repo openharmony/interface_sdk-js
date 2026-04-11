@@ -25,335 +25,170 @@ import { AbilityStageMonitor as _AbilityStageMonitor } from './application/Abili
 import { ShellCmdResult as _ShellCmdResult } from './application/shellCmdResult';
 
 /**
- * A global register used to store the AbilityDelegator and AbilityDelegatorArgs objects registered
- * during application startup.
+ * **AbilityDelegatorRegistry**, a module of the automatic test framework, is used to obtain 
+ * [AbilityDelegator]{@link application/AbilityDelegator:AbilityDelegator} and 
+ * [AbilityDelegatorArgs]{@link application/abilityDelegatorArgs:AbilityDelegatorArgs} objects. **AbilityDelegator** 
+ * provides APIs for creating [AbilityMonitor]{@link application/AbilityMonitor:AbilityMonitor} objects, which can be 
+ * used to listen for ability lifecycle changes. **AbilityDelegatorArgs** provides APIs for obtaining test parameters.
+ * 
+* > **NOTE**
+ * 
+ * >The APIs of this module can be used only in 
+ * >
+ * >
+ * > [JsUnit](docroot://application-test/unittest-guidelines.md)
+ * >
+ * >
+ * > .
  *
- * @namespace abilityDelegatorRegistry
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @since 9
- */
-/**
- * A global register used to store the AbilityDelegator and AbilityDelegatorArgs objects registered
- * during application startup.
- *
- * @namespace abilityDelegatorRegistry
- * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @crossplatform
- * @since 10
- */
-/**
- * A global register used to store the AbilityDelegator and AbilityDelegatorArgs objects registered
- * during application startup.
- *
- * @namespace abilityDelegatorRegistry
- * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  * @since 23 static
  */
 declare namespace abilityDelegatorRegistry {
   /**
-   * Get the AbilityDelegator object of the application.
+   * Obtains an [AbilityDelegator]{@link application/AbilityDelegator:AbilityDelegator} object.
    *
-   * @returns { AbilityDelegator } Return the AbilityDelegator object initialized when the application is started.
+   * @returns { AbilityDelegator } [AbilityDelegator]{@link application/AbilityDelegator:AbilityDelegator} object, which can 
+   *     be used to schedule the functionalities of the test framework.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
-   */
-  /**
-   * Get the AbilityDelegator object of the application.
-   *
-   * @returns { AbilityDelegator } Return the AbilityDelegator object initialized when the application is started.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Get the AbilityDelegator object of the application.
-   *
-   * @returns { AbilityDelegator } Return the AbilityDelegator object initialized when the application is started.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   function getAbilityDelegator(): AbilityDelegator;
 
   /**
-   * Get unit test arguments stored in the AbilityDelegatorArgs object.
+   * Obtains an [AbilityDelegatorArgs]{@link application/abilityDelegatorArgs:AbilityDelegatorArgs} object.
    *
-   * @returns { AbilityDelegatorArgs } Return the previously registered AbilityDelegatorArgs object.
+   * @returns { AbilityDelegatorArgs } [AbilityDelegatorArgs]{@link application/abilityDelegatorArgs:AbilityDelegatorArgs} 
+   *     object, which can be used to obtain test parameters.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
-   */
-  /**
-   * Get unit test arguments stored in the AbilityDelegatorArgs object.
-   *
-   * @returns { AbilityDelegatorArgs } Return the previously registered AbilityDelegatorArgs object.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Get unit test arguments stored in the AbilityDelegatorArgs object.
-   *
-   * @returns { AbilityDelegatorArgs } Return the previously registered AbilityDelegatorArgs object.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   function getArguments(): AbilityDelegatorArgs;
 
   /**
-   * Describes all lifecycle states of an ability.
+   * Enumerates the ability lifecycle states. It can be used in 
+   * [getAbilityState(ability)]{@link application/AbilityDelegator:AbilityDelegator.getAbilityState} of 
+   * [AbilityDelegator]{@link application/AbilityDelegator:AbilityDelegator} to return different ability lifecycle 
+   * states.
    *
-   * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
-   */
-  /**
-   * Describes all lifecycle states of an ability.
-   *
-   * @enum { number }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Describes all lifecycle states of an ability.
-   *
-   * @enum { number }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   export enum AbilityLifecycleState {
     /**
-     * Ability is in invalid state.
+     * The ability is in an invalid state.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 9
-     */
-    /**
-     * Ability is in invalid state.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Ability is in invalid state.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     UNINITIALIZED,
 
     /**
-     * Ability is in the created state.
+     * 	The ability is created.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 9
-     */
-    /**
-     * Ability is in the created state.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Ability is in the created state.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     CREATE,
 
     /**
-     * Ability is in the foreground state.
+     * 	The ability is running in the foreground.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 9
-     */
-    /**
-     * Ability is in the foreground state.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Ability is in the foreground state.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     FOREGROUND,
 
     /**
-     * Ability is in the background state.
+     * The ability is running in the background.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 9
-     */
-    /**
-     * Ability is in the background state.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Ability is in the background state.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     BACKGROUND,
 
     /**
-     * Ability is in a destroyed state.
+     * The ability is destroyed.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 9
-     */
-    /**
-     * Ability is in a destroyed state.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Ability is in a destroyed state.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     DESTROY
   }
 
   /**
-   * A global test utility interface used for adding AbilityMonitor objects and control lifecycle states of abilities.
+   * Represents the **AbilityDelegator** module.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
-   */
-  /**
-   * A global test utility interface used for adding AbilityMonitor objects and control lifecycle states of abilities.
-   *
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * A global test utility interface used for adding AbilityMonitor objects and control lifecycle states of abilities.
-   *
-   * @typedef { _AbilityDelegator }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   export type AbilityDelegator = _AbilityDelegator;
 
   /**
-   * Store unit testing-related parameters, including test case names, and test runner name.
+   * Represents the **AbilityDelegatorArgs** module.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
-   */
-  /**
-   * Store unit testing-related parameters, including test case names, and test runner name.
-   *
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Store unit testing-related parameters, including test case names, and test runner name.
-   *
-   * @typedef { _AbilityDelegatorArgs }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   export type AbilityDelegatorArgs = _AbilityDelegatorArgs;
 
   /**
-   * Provide methods for matching monitored Ability objects that meet specified conditions.
-   * The most recently matched Ability objects will be saved in the AbilityMonitor object.
+   * Represents the **AbilityMonitor** module.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
-   */
-  /**
-   * Provide methods for matching monitored Ability objects that meet specified conditions.
-   * The most recently matched Ability objects will be saved in the AbilityMonitor object.
-   *
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Provide methods for matching monitored Ability objects that meet specified conditions.
-   * The most recently matched Ability objects will be saved in the AbilityMonitor object.
-   *
-   * @typedef { _AbilityMonitor }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   export type AbilityMonitor = _AbilityMonitor;
 
   /**
-   * A object that records the result of shell command executes.
+   * Represents the **ShellCmdResult** module.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
-   */
-  /**
-   * A object that records the result of shell command executes.
-   *
-   * @typedef { _ShellCmdResult }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   export type ShellCmdResult = _ShellCmdResult;
 
   /**
-   * Provide methods for matching monitored AbilityStage objects that meet specified conditions.
-   * The most recently matched AbilityStage objects will be saved in the AbilityStageMonitor object.
+   * Represents the **AbilityStageMonitor** module.
    *
-   * @typedef { _AbilityStageMonitor }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice

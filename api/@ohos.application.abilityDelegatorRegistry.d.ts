@@ -15,6 +15,7 @@
 
 /**
  * @file
+ * @kit API10LessDeprecatedModules
  */
 
 import { AbilityDelegator } from './application/AbilityDelegator';
@@ -23,10 +24,18 @@ import { AbilityMonitor } from './application/AbilityMonitor';
 import { ShellCmdResult } from './application/shellCmdResult';
 
 /**
- * A global register used to store the AbilityDelegator and AbilityDelegatorArgs objects registered
- * during application startup.
+ * The **AbilityDelegatorRegistry** module provides APIs for storing global registers of the registered 
+ * [AbilityDelegator]{@link application/AbilityDelegator:AbilityDelegator} and 
+ * [AbilityDelegatorArgs]{@link application/abilityDelegatorArgs:AbilityDelegatorArgs} objects, including obtaining the 
+ * **AbilityDelegator** and **AbilityDelegatorArgs** objects. The APIs can be used only in the test framework.
+ * 
+ * > **NOTE**
+ * >
+ * > The APIs of this module are supported since API version 8 and deprecated since API version 9. You are advised to 
+ * > use 
+ * > [@ohos.app.ability.abilityDelegatorRegistry]{@link @ohos.app.ability.abilityDelegatorRegistry:abilityDelegatorRegistry}
+ * >  instead. Newly added APIs will be marked with a superscript to indicate their earliest API version.
  *
- * @namespace abilityDelegatorRegistry
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @since 8
  * @deprecated since 9
@@ -34,9 +43,10 @@ import { ShellCmdResult } from './application/shellCmdResult';
  */
 declare namespace abilityDelegatorRegistry {
   /**
-   * Get the AbilityDelegator object of the application.
+   * Obtains the **AbilityDelegator** object of the application.
    *
-   * @returns { AbilityDelegator } the AbilityDelegator object initialized when the application is started.
+   * @returns { AbilityDelegator } [AbilityDelegator]{@link application/AbilityDelegator:AbilityDelegator} object, which can 
+   *     be used to schedule functions related to the test framework.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 8
    * @deprecated since 9
@@ -45,9 +55,10 @@ declare namespace abilityDelegatorRegistry {
   function getAbilityDelegator(): AbilityDelegator;
 
   /**
-   * Get unit test parameters stored in the AbilityDelegatorArgs object.
+   * Obtains the **AbilityDelegatorArgs** object of the application.
    *
-   * @returns { AbilityDelegatorArgs } the previously registered AbilityDelegatorArgs object.
+   * @returns { AbilityDelegatorArgs } [AbilityDelegatorArgs]{@link application/abilityDelegatorArgs:AbilityDelegatorArgs}
+   *     object, which can be used to obtain test parameters.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 8
    * @deprecated since 9
@@ -56,9 +67,8 @@ declare namespace abilityDelegatorRegistry {
   function getArguments(): AbilityDelegatorArgs;
 
   /**
-   * Describes all lifecycle states of an ability.
+   * Enumerates the ability lifecycle states.
    *
-   * @enum { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 8
    * @deprecated since 9
@@ -66,18 +76,18 @@ declare namespace abilityDelegatorRegistry {
    */
   export enum AbilityLifecycleState {
     /**
-     * Indicates an invalid state.
+     * The ability is in an invalid state.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 8
      * @deprecated since 9
      * @useinstead ohos.app.ability.abilityDelegatorRegistry/abilityDelegatorRegistry.AbilityLifecycleState
-     *             #UNINITIALIZED
+     *     #UNINITIALIZED
      */
     UNINITIALIZED,
 
     /**
-     * Indicates that the Ability is in the created state.
+     * The ability is created.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 8
@@ -87,7 +97,7 @@ declare namespace abilityDelegatorRegistry {
     CREATE,
 
     /**
-     * Indicates that Ability is in the foreground state.
+     * The ability is running in the foreground.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 8
@@ -97,7 +107,7 @@ declare namespace abilityDelegatorRegistry {
     FOREGROUND,
 
     /**
-     * Indicates that the Ability is in the background state.
+     * The ability is running in the background.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 8
@@ -107,7 +117,7 @@ declare namespace abilityDelegatorRegistry {
     BACKGROUND,
 
     /**
-     * Indicates that the Ability is in a destroyed state.
+     * The ability is destroyed.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 8

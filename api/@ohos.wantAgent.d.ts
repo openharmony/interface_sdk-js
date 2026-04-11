@@ -14,6 +14,15 @@
  */
 
 /**
+ * The WantAgent module provides APIs for creating and comparing WantAgent objects, and obtaining the user ID and bundle
+ *  name of a WantAgent object.
+ * 
+ * > **NOTE**
+ * >
+ * > The APIs of this module are supported since API version 7 and deprecated since API version 9. You are advised to 
+ * > use [@ohos.app.ability.wantAgent]{@link @ohos.app.ability.wantAgent} instead. Newly added APIs will be marked with 
+ * > a superscript to indicate their earliest API version.
+ *
  * @file
  * @kit API10LessDeprecatedModules
 */
@@ -24,23 +33,12 @@ import { WantAgentInfo } from './wantAgent/wantAgentInfo';
 import { TriggerInfo } from './wantAgent/triggerInfo';
 
 /**
- * Provide the method obtain trigger, cancel, and compare and to obtain
- * the bundle name, UID of an {@link WantAgent} object.
+ * The WantAgent module provides APIs for creating and comparing WantAgent objects, and obtaining the user ID and bundle
+ *  name of a WantAgent object.
  *
- * @namespace wantAgent
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @atomicservice [since 12]
  * @since 7
- * @deprecated since 9
- * @useinstead ohos.app.ability.wantAgent/wantAgent
- */
-/**
- * Provide the method obtain trigger, cancel, and compare and to obtain
- * the bundle name, UID of an {@link WantAgent} object.
- *
- * @namespace wantAgent
- * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @atomicservice
- * @since 12
  * @deprecated since 9
  * @useinstead ohos.app.ability.wantAgent/wantAgent
  */
@@ -51,18 +49,8 @@ declare namespace wantAgent {
    * @param { WantAgent } agent - whose bundle name to obtain.
    * @param { AsyncCallback<string> } callback - A callback method to obtain the package name of the WantAgent instance.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice [since 12]
    * @since 7
-   * @deprecated since 9
-   * @useinstead ohos.app.ability.wantAgent/wantAgent#getBundleName
-   */
-  /**
-   * Obtains the bundle name of a WantAgent.
-   *
-   * @param { WantAgent } agent - whose bundle name to obtain.
-   * @param { AsyncCallback<string> } callback - A callback method to obtain the package name of the WantAgent instance.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @atomicservice
-   * @since 12
    * @deprecated since 9
    * @useinstead ohos.app.ability.wantAgent/wantAgent#getBundleName
    */
@@ -74,18 +62,8 @@ declare namespace wantAgent {
    * @param { WantAgent } agent - whose bundle name to obtain.
    * @returns { Promise<string> } Returns the bundle name of the {@link WantAgent} if any.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice [since 12]
    * @since 7
-   * @deprecated since 9
-   * @useinstead ohos.app.ability.wantAgent/wantAgent#getBundleName
-   */
-  /**
-   * Obtains the bundle name of a WantAgent.
-   *
-   * @param { WantAgent } agent - whose bundle name to obtain.
-   * @returns { Promise<string> } Returns the bundle name of the {@link WantAgent} if any.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @atomicservice
-   * @since 12
    * @deprecated since 9
    * @useinstead ohos.app.ability.wantAgent/wantAgent#getBundleName
    */
@@ -97,18 +75,8 @@ declare namespace wantAgent {
    * @param { WantAgent } agent - whose UID to obtain.
    * @param { AsyncCallback<number> } callback - Create a callback method for WantAgent.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice [since 12]
    * @since 7
-   * @deprecated since 9
-   * @useinstead ohos.app.ability.wantAgent/wantAgent#getUid
-   */
-  /**
-   * Obtains the UID of a WantAgent.
-   *
-   * @param { WantAgent } agent - whose UID to obtain.
-   * @param { AsyncCallback<number> } callback - Create a callback method for WantAgent.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @atomicservice
-   * @since 12
    * @deprecated since 9
    * @useinstead ohos.app.ability.wantAgent/wantAgent#getUid
    */
@@ -120,18 +88,8 @@ declare namespace wantAgent {
    * @param { WantAgent } agent - whose UID to obtain.
    * @returns { Promise<number> } Returns the UID of the {@link WantAgent} if any; returns {@code -1} otherwise.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice [since 12]
    * @since 7
-   * @deprecated since 9
-   * @useinstead ohos.app.ability.wantAgent/wantAgent#getUid
-   */
-  /**
-   * Obtains the UID of a WantAgent.
-   *
-   * @param { WantAgent } agent - whose UID to obtain.
-   * @returns { Promise<number> } Returns the UID of the {@link WantAgent} if any; returns {@code -1} otherwise.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @atomicservice
-   * @since 12
    * @deprecated since 9
    * @useinstead ohos.app.ability.wantAgent/wantAgent#getUid
    */
@@ -169,18 +127,8 @@ declare namespace wantAgent {
    * @param { WantAgent } agent - to cancel.
    * @param { AsyncCallback<void> } callback - Cancel the callback method for Want in WantAgent.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice [since 12]
    * @since 7
-   * @deprecated since 9
-   * @useinstead ohos.app.ability.wantAgent/wantAgent#cancel
-   */
-  /**
-   * Cancel a WantAgent. Only the application that creates the WantAgent can cancel it.
-   *
-   * @param { WantAgent } agent - to cancel.
-   * @param { AsyncCallback<void> } callback - Cancel the callback method for Want in WantAgent.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @atomicservice
-   * @since 12
    * @deprecated since 9
    * @useinstead ohos.app.ability.wantAgent/wantAgent#cancel
    */
@@ -192,18 +140,8 @@ declare namespace wantAgent {
    * @param { WantAgent } agent - to cancel.
    * @returns { Promise<void> } The promise returned by the function.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice [since 12]
    * @since 7
-   * @deprecated since 9
-   * @useinstead ohos.app.ability.wantAgent/wantAgent#cancel
-   */
-  /**
-   * Cancel a WantAgent. Only the application that creates the WantAgent can cancel it.
-   *
-   * @param { WantAgent } agent - to cancel.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @atomicservice
-   * @since 12
    * @deprecated since 9
    * @useinstead ohos.app.ability.wantAgent/wantAgent#cancel
    */
@@ -215,22 +153,10 @@ declare namespace wantAgent {
    * @param { WantAgent } agent - to trigger.
    * @param { TriggerInfo } triggerInfo - parameters.
    * @param { Callback<CompleteData> } [callback] - Indicates the callback method to be called after
-   *                                                the {@link WantAgent} is triggered.
+   *     the {@link WantAgent} is triggered.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice [since 12]
    * @since 7
-   * @deprecated since 9
-   * @useinstead ohos.app.ability.wantAgent/wantAgent#trigger
-   */
-  /**
-   * Triggers a WantAgent.
-   *
-   * @param { WantAgent } agent - to trigger.
-   * @param { TriggerInfo } triggerInfo - parameters.
-   * @param { Callback<CompleteData> } [callback] - Indicates the callback method to be called after
-   *                                                the {@link WantAgent} is triggered.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @atomicservice
-   * @since 12
    * @deprecated since 9
    * @useinstead ohos.app.ability.wantAgent/wantAgent#trigger
    */
@@ -242,22 +168,10 @@ declare namespace wantAgent {
    * @param { WantAgent } agent - to compare.
    * @param { WantAgent } otherAgent - WantAgent Object.
    * @param { AsyncCallback<boolean> } callback - Callback method for determining whether two WantAgent instances are
-   *                                              equal.
+   *     equal.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice [since 12]
    * @since 7
-   * @deprecated since 9
-   * @useinstead ohos.app.ability.wantAgent/wantAgent#equal
-   */
-  /**
-   * Checks whether two WantAgent objects are equal.
-   *
-   * @param { WantAgent } agent - to compare.
-   * @param { WantAgent } otherAgent - WantAgent Object.
-   * @param { AsyncCallback<boolean> } callback - Callback method for determining whether two WantAgent instances are
-   *                                              equal.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @atomicservice
-   * @since 12
    * @deprecated since 9
    * @useinstead ohos.app.ability.wantAgent/wantAgent#equal
    */
@@ -270,19 +184,8 @@ declare namespace wantAgent {
    * @param { WantAgent } otherAgent - WantAgent Object.
    * @returns { Promise<boolean> } Returns {@code true} If the two objects are the same; returns {@code false} otherwise.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice [since 12]
    * @since 7
-   * @deprecated since 9
-   * @useinstead ohos.app.ability.wantAgent/wantAgent#equal
-   */
-  /**
-   * Checks whether two WantAgent objects are equal.
-   *
-   * @param { WantAgent } agent - to compare.
-   * @param { WantAgent } otherAgent - WantAgent Object.
-   * @returns { Promise<boolean> } Returns {@code true} If the two objects are the same; returns {@code false} otherwise.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @atomicservice
-   * @since 12
    * @deprecated since 9
    * @useinstead ohos.app.ability.wantAgent/wantAgent#equal
    */
@@ -294,18 +197,8 @@ declare namespace wantAgent {
    * @param { WantAgentInfo } info - about the WantAgent object to obtain.
    * @param { AsyncCallback<WantAgent> } callback - Callback method for obtaining the user ID of WantAgent instance.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice [since 12]
    * @since 7
-   * @deprecated since 9
-   * @useinstead ohos.app.ability.wantAgent/wantAgent#getWantAgent
-   */
-  /**
-   * Obtains a WantAgent object.
-   *
-   * @param { WantAgentInfo } info - about the WantAgent object to obtain.
-   * @param { AsyncCallback<WantAgent> } callback - Callback method for obtaining the user ID of WantAgent instance.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @atomicservice
-   * @since 12
    * @deprecated since 9
    * @useinstead ohos.app.ability.wantAgent/wantAgent#getWantAgent
    */
@@ -317,18 +210,8 @@ declare namespace wantAgent {
    * @param { WantAgentInfo } info - about the WantAgent object to obtain.
    * @returns { Promise<WantAgent> } Returns the created {@link WantAgent} object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice [since 12]
    * @since 7
-   * @deprecated since 9
-   * @useinstead ohos.app.ability.wantAgent/wantAgent#getWantAgent
-   */
-  /**
-   * Obtains a WantAgent object.
-   *
-   * @param { WantAgentInfo } info - about the WantAgent object to obtain.
-   * @returns { Promise<WantAgent> } Returns the created {@link WantAgent} object.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @atomicservice
-   * @since 12
    * @deprecated since 9
    * @useinstead ohos.app.ability.wantAgent/wantAgent#getWantAgent
    */
@@ -337,19 +220,9 @@ declare namespace wantAgent {
   /**
    * Enumerates flags for using a WantAgent.
    *
-   * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice [since 12]
    * @since 7
-   * @deprecated since 9
-   * @useinstead ohos.app.ability.wantAgent/wantAgent#WantAgentFlags
-   */
-  /**
-   * Enumerates flags for using a WantAgent.
-   *
-   * @enum { number }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @atomicservice
-   * @since 12
    * @deprecated since 9
    * @useinstead ohos.app.ability.wantAgent/wantAgent#WantAgentFlags
    */
@@ -359,17 +232,8 @@ declare namespace wantAgent {
      * This flag is valid only when OperationType is set to START_ABILITY, START_SERVICE, or SEND_COMMON_EVENT.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @atomicservice [since 12]
      * @since 7
-     * @deprecated since 9
-     * @useinstead ohos.app.ability.wantAgent/wantAgent.WantAgentFlags#ONE_TIME_FLAG
-     */
-    /**
-     * Indicates that the WantAgent can be used only once.
-     * This flag is valid only when OperationType is set to START_ABILITY, START_SERVICE, or SEND_COMMON_EVENT.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @atomicservice
-     * @since 12
      * @deprecated since 9
      * @useinstead ohos.app.ability.wantAgent/wantAgent.WantAgentFlags#ONE_TIME_FLAG
      */
@@ -380,17 +244,8 @@ declare namespace wantAgent {
      * This flag is valid only when OperationType is set to START_ABILITY, START_SERVICE, or SEND_COMMON_EVENT.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @atomicservice [since 12]
      * @since 7
-     * @deprecated since 9
-     * @useinstead ohos.app.ability.wantAgent/wantAgent.WantAgentFlags#NO_BUILD_FLAG
-     */
-    /**
-     * Indicates that null is returned if the WantAgent does not exist.
-     * This flag is valid only when OperationType is set to START_ABILITY, START_SERVICE, or SEND_COMMON_EVENT.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @atomicservice
-     * @since 12
      * @deprecated since 9
      * @useinstead ohos.app.ability.wantAgent/wantAgent.WantAgentFlags#NO_BUILD_FLAG
      */
@@ -401,17 +256,8 @@ declare namespace wantAgent {
      * This flag is valid only when OperationType is set to START_ABILITY, START_SERVICE, or SEND_COMMON_EVENT.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @atomicservice [since 12]
      * @since 7
-     * @deprecated since 9
-     * @useinstead ohos.app.ability.wantAgent/wantAgent.WantAgentFlags#CANCEL_PRESENT_FLAG
-     */
-    /**
-     * Indicates that the existing WantAgent should be canceled before a new object is generated.
-     * This flag is valid only when OperationType is set to START_ABILITY, START_SERVICE, or SEND_COMMON_EVENT.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @atomicservice
-     * @since 12
      * @deprecated since 9
      * @useinstead ohos.app.ability.wantAgent/wantAgent.WantAgentFlags#CANCEL_PRESENT_FLAG
      */
@@ -422,17 +268,8 @@ declare namespace wantAgent {
      * This flag is valid only when OperationType is set to START_ABILITY, START_SERVICE, or SEND_COMMON_EVENT.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @atomicservice [since 12]
      * @since 7
-     * @deprecated since 9
-     * @useinstead ohos.app.ability.wantAgent/wantAgent.WantAgentFlags#UPDATE_PRESENT_FLAG
-     */
-    /**
-     * Indicates that the system only replaces the extra data of the existing WantAgent with that of the new object.
-     * This flag is valid only when OperationType is set to START_ABILITY, START_SERVICE, or SEND_COMMON_EVENT.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @atomicservice
-     * @since 12
      * @deprecated since 9
      * @useinstead ohos.app.ability.wantAgent/wantAgent.WantAgentFlags#UPDATE_PRESENT_FLAG
      */
@@ -442,16 +279,8 @@ declare namespace wantAgent {
      * Indicates that the created WantAgent should be immutable.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @atomicservice [since 12]
      * @since 7
-     * @deprecated since 9
-     * @useinstead ohos.app.ability.wantAgent/wantAgent.WantAgentFlags#CONSTANT_FLAG
-     */
-    /**
-     * Indicates that the created WantAgent should be immutable.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @atomicservice
-     * @since 12
      * @deprecated since 9
      * @useinstead ohos.app.ability.wantAgent/wantAgent.WantAgentFlags#CONSTANT_FLAG
      */
@@ -461,16 +290,8 @@ declare namespace wantAgent {
      * Indicates that the current value of element can be replaced when the WantAgent is triggered.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @atomicservice [since 12]
      * @since 7
-     * @deprecated since 9
-     * @useinstead ohos.app.ability.wantAgent/wantAgent.WantAgentFlags#REPLACE_ELEMENT
-     */
-    /**
-     * Indicates that the current value of element can be replaced when the WantAgent is triggered.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @atomicservice
-     * @since 12
      * @deprecated since 9
      * @useinstead ohos.app.ability.wantAgent/wantAgent.WantAgentFlags#REPLACE_ELEMENT
      */
@@ -480,16 +301,8 @@ declare namespace wantAgent {
      * Indicates that the current value of action can be replaced when the WantAgent is triggered.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @atomicservice [since 12]
      * @since 7
-     * @deprecated since 9
-     * @useinstead ohos.app.ability.wantAgent/wantAgent.WantAgentFlags#REPLACE_ACTION
-     */
-    /**
-     * Indicates that the current value of action can be replaced when the WantAgent is triggered.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @atomicservice
-     * @since 12
      * @deprecated since 9
      * @useinstead ohos.app.ability.wantAgent/wantAgent.WantAgentFlags#REPLACE_ACTION
      */
@@ -499,16 +312,8 @@ declare namespace wantAgent {
      * Indicates that the current value of uri can be replaced when the WantAgent is triggered.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @atomicservice [since 12]
      * @since 7
-     * @deprecated since 9
-     * @useinstead ohos.app.ability.wantAgent/wantAgent.WantAgentFlags#REPLACE_URI
-     */
-    /**
-     * Indicates that the current value of uri can be replaced when the WantAgent is triggered.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @atomicservice
-     * @since 12
      * @deprecated since 9
      * @useinstead ohos.app.ability.wantAgent/wantAgent.WantAgentFlags#REPLACE_URI
      */
@@ -518,16 +323,8 @@ declare namespace wantAgent {
      * Indicates that the current value of entities can be replaced when the WantAgent is triggered.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @atomicservice [since 12]
      * @since 7
-     * @deprecated since 9
-     * @useinstead ohos.app.ability.wantAgent/wantAgent.WantAgentFlags#REPLACE_ENTITIES
-     */
-    /**
-     * Indicates that the current value of entities can be replaced when the WantAgent is triggered.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @atomicservice
-     * @since 12
      * @deprecated since 9
      * @useinstead ohos.app.ability.wantAgent/wantAgent.WantAgentFlags#REPLACE_ENTITIES
      */
@@ -537,16 +334,8 @@ declare namespace wantAgent {
      * Indicates that the current value of packageName can be replaced when the WantAgent is triggered.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @atomicservice [since 12]
      * @since 7
-     * @deprecated since 9
-     * @useinstead ohos.app.ability.wantAgent/wantAgent.WantAgentFlags#REPLACE_BUNDLE
-     */
-    /**
-     * Indicates that the current value of packageName can be replaced when the WantAgent is triggered.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @atomicservice
-     * @since 12
      * @deprecated since 9
      * @useinstead ohos.app.ability.wantAgent/wantAgent.WantAgentFlags#REPLACE_BUNDLE
      */
@@ -556,19 +345,9 @@ declare namespace wantAgent {
   /**
    * Identifies the operation for using a WantAgent, such as starting an ability or sending a common event.
    *
-   * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice [since 12]
    * @since 7
-   * @deprecated since 9
-   * @useinstead ohos.app.ability.wantAgent/wantAgent#OperationType
-   */
-  /**
-   * Identifies the operation for using a WantAgent, such as starting an ability or sending a common event.
-   *
-   * @enum { number }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @atomicservice
-   * @since 12
    * @deprecated since 9
    * @useinstead ohos.app.ability.wantAgent/wantAgent#OperationType
    */
@@ -577,16 +356,8 @@ declare namespace wantAgent {
      * Unknown operation.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @atomicservice [since 12]
      * @since 7
-     * @deprecated since 9
-     * @useinstead ohos.app.ability.wantAgent/wantAgent.OperationType#UNKNOWN_TYPE
-     */
-    /**
-     * Unknown operation.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @atomicservice
-     * @since 12
      * @deprecated since 9
      * @useinstead ohos.app.ability.wantAgent/wantAgent.OperationType#UNKNOWN_TYPE
      */
@@ -596,16 +367,8 @@ declare namespace wantAgent {
      * Starts an ability with a UI.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @atomicservice [since 12]
      * @since 7
-     * @deprecated since 9
-     * @useinstead ohos.app.ability.wantAgent/wantAgent.OperationType#START_ABILITY
-     */
-    /**
-     * Starts an ability with a UI.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @atomicservice
-     * @since 12
      * @deprecated since 9
      * @useinstead ohos.app.ability.wantAgent/wantAgent.OperationType#START_ABILITY
      */
@@ -615,16 +378,8 @@ declare namespace wantAgent {
      * Starts multiple abilities with a UI.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @atomicservice [since 12]
      * @since 7
-     * @deprecated since 9
-     * @useinstead ohos.app.ability.wantAgent/wantAgent.OperationType#START_ABILITIES
-     */
-    /**
-     * Starts multiple abilities with a UI.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @atomicservice
-     * @since 12
      * @deprecated since 9
      * @useinstead ohos.app.ability.wantAgent/wantAgent.OperationType#START_ABILITIES
      */
@@ -634,16 +389,8 @@ declare namespace wantAgent {
      * Starts an ability without a UI.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @atomicservice [since 12]
      * @since 7
-     * @deprecated since 9
-     * @useinstead ohos.app.ability.wantAgent/wantAgent.OperationType#START_SERVICE
-     */
-    /**
-     * Starts an ability without a UI.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @atomicservice
-     * @since 12
      * @deprecated since 9
      * @useinstead ohos.app.ability.wantAgent/wantAgent.OperationType#START_SERVICE
      */
@@ -653,16 +400,8 @@ declare namespace wantAgent {
      * Sends a common event.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @atomicservice [since 12]
      * @since 7
-     * @deprecated since 9
-     * @useinstead ohos.app.ability.wantAgent/wantAgent.OperationType#SEND_COMMON_EVENT
-     */
-    /**
-     * Sends a common event.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @atomicservice
-     * @since 12
      * @deprecated since 9
      * @useinstead ohos.app.ability.wantAgent/wantAgent.OperationType#SEND_COMMON_EVENT
      */
@@ -672,39 +411,20 @@ declare namespace wantAgent {
   /**
    * Describes the data returned by after wantAgent.trigger is called.
    *
-   * @typedef CompleteData
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice [since 12]
    * @since 7
    * @deprecated since 9
    * @useinstead ohos.app.ability.wantAgent/wantAgent#CompleteData
    */
-  /**
-   * Describes the data returned by after wantAgent.trigger is called.
-   *
-   * @typedef CompleteData
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @atomicservice
-   * @since 12
-   * @deprecated since 9
-   * @useinstead ohos.app.ability.wantAgent/wantAgent#CompleteData
-   */
+
   export interface CompleteData {
     /**
      * Triggered WantAgent.
      *
-     * @type { WantAgent }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @atomicservice [since 12]
      * @since 7
-     * @deprecated since 9
-     * @useinstead ohos.app.ability.wantAgent/wantAgent.CompleteData#info
-     */
-    /**
-     * Triggered WantAgent.
-     *
-     * @type { WantAgent }
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @atomicservice
-     * @since 12
      * @deprecated since 9
      * @useinstead ohos.app.ability.wantAgent/wantAgent.CompleteData#info
      */
@@ -713,19 +433,9 @@ declare namespace wantAgent {
     /**
      * Existing Want that is triggered.
      *
-     * @type { Want }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @atomicservice [since 12]
      * @since 7
-     * @deprecated since 9
-     * @useinstead ohos.app.ability.wantAgent/wantAgent.CompleteData#want
-     */
-    /**
-     * Existing Want that is triggered.
-     *
-     * @type { Want }
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @atomicservice
-     * @since 12
      * @deprecated since 9
      * @useinstead ohos.app.ability.wantAgent/wantAgent.CompleteData#want
      */
@@ -734,19 +444,9 @@ declare namespace wantAgent {
     /**
      * Request code used to trigger the WantAgent.
      *
-     * @type { number }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @atomicservice [since 12]
      * @since 7
-     * @deprecated since 9
-     * @useinstead ohos.app.ability.wantAgent/wantAgent.CompleteData#finalCode
-     */
-    /**
-     * Request code used to trigger the WantAgent.
-     *
-     * @type { number }
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @atomicservice
-     * @since 12
      * @deprecated since 9
      * @useinstead ohos.app.ability.wantAgent/wantAgent.CompleteData#finalCode
      */
@@ -755,19 +455,9 @@ declare namespace wantAgent {
     /**
      * Final data collected by the common event.
      *
-     * @type { string }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @atomicservice [since 12]
      * @since 7
-     * @deprecated since 9
-     * @useinstead ohos.app.ability.wantAgent/wantAgent.CompleteData#finalData
-     */
-    /**
-     * Final data collected by the common event.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @atomicservice
-     * @since 12
      * @deprecated since 9
      * @useinstead ohos.app.ability.wantAgent/wantAgent.CompleteData#finalData
      */
@@ -776,19 +466,9 @@ declare namespace wantAgent {
     /**
      * Extra data collected by the common event.
      *
-     * @type { ?object }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @atomicservice [since 12]
      * @since 7
-     * @deprecated since 9
-     * @useinstead ohos.app.ability.wantAgent/wantAgent.CompleteData#extraInfo
-     */
-    /**
-     * Extra data collected by the common event.
-     *
-     * @type { ?object }
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @atomicservice
-     * @since 12
      * @deprecated since 9
      * @useinstead ohos.app.ability.wantAgent/wantAgent.CompleteData#extraInfo
      */
@@ -797,19 +477,11 @@ declare namespace wantAgent {
 }
 
 /**
- * WantAgent object.
+ * Defines the WantAgent object.
  *
- * @typedef { object }
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @since 7
- */
-/**
- * WantAgent object.
- *
- * @typedef { object }
- * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @atomicservice
- * @since 12 dynamiconly
+ * @atomicservice [since 12]
+ * @since 7 dynamiconly
  * @deprecated since 23
  * @useinstead ohos.app.ability.wantAgent/wantAgent.WantAgent
  */
