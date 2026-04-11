@@ -94,3 +94,12 @@ export { SceneResourceParameters, SceneNodeParameters, SceneResourceFactory, Sce
  * @since 23 dynamic&static
  */
 export { RenderConfiguration } from './graphics3d/Scene';
+
+/**
+ * Export BoidsSim
+ * @syscap SystemCapability.ArkUi.Graphics3D
+ * @since 26
+ */
+export {
+    BoidsSimPlugin, BoidsSimWorld, BoidsSimParameters, BoidsSimGravityParameters,
+    BoidsSimRepulsionParameters } from './graphics3d/SceneBoidsSim';
