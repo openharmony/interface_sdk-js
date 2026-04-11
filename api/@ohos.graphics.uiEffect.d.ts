@@ -289,30 +289,6 @@ declare namespace uiEffect {
     directionLight(direction: common2D.Point3d, color: Color, intensity: double, mask?: Mask, factor?: double): Filter;
 
     /**
-     * Applies heat distortion effect to simulate hot air distortion.
-     * This effect creates a wavy distortion similar to heat shimmer or hot air rising.
-     *
-     * @param { HeatDistortionEffectParam } param - the heat distortion effect parameters.
-     * @returns { Filter } - Returns the heat distortion Filter.
-     * @syscap SystemCapability.Graphics.Drawing
-     * @systemapi
-     * @since 26.0.0 dynamic&static
-     */
-    heatDistortion(param: HeatDistortionEffectParam): Filter;
-
-    /**
-     * Applies blur bubbles rise effect to simulate rising bubbles with blur.
-     * This effect creates a dreamy, bubbly distortion similar to rising bubbles in liquid.
-     *
-     * @param { BlurBubblesRiseEffectParam } param - the blur bubbles rise effect parameters.
-     * @returns { Filter } - Returns the blur bubbles rise Filter.
-     * @syscap SystemCapability.Graphics.Drawing
-     * @systemapi
-     * @since 26.0.0 dynamic&static
-     */
-    blurBubblesRise(param: BlurBubblesRiseEffectParam): Filter;
-
-    /**
      * Applies Transition with alpha mask
      * 
      * @param { Mask } alphaMask - Animatable mask object
@@ -326,6 +302,32 @@ declare namespace uiEffect {
      * @since 23 static
      */
     maskTransition(alphaMask: Mask, factor?: double, inverse?: boolean): Filter;
+
+    /**
+     * Applies heat distortion effect to simulate hot air distortion.
+     * This effect creates a wavy distortion similar to heat shimmer or hot air rising.
+     *
+     * @param { HeatDistortionEffectParam } param - the heat distortion effect parameters.
+     * @returns { Filter } - Returns the heat distortion Filter.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    heatDistortion(param: HeatDistortionEffectParam): Filter;
+
+    /**
+     * Applies blur bubbles rise effect to simulate rising bubbles with blur.
+     * This effect creates a dreamy, bubbly distortion similar to rising bubbles in liquid.
+     *
+     * @param { BlurBubblesRiseEffectParam } param - the blur bubbles rise effect parameters.
+     * @returns { Filter } - Returns the blur bubbles rise Filter.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    blurBubblesRise(param: BlurBubblesRiseEffectParam): Filter;
   }
 
   /**
@@ -648,18 +650,20 @@ declare namespace uiEffect {
 
   /**
    * The parameters of heat distortion effect.
-   * @typedef HeatDistortionEffectParam
+   *
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
+   * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
   interface HeatDistortionEffectParam {
     /**
      * Defines distortion intensity for heat distortion effect.
-     *
-     * @type { double }
+     * Value range [0, 1], where 1 represents the highest degree of distortion.
+     * 
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
+     * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
     intensity : double;
@@ -667,9 +671,9 @@ declare namespace uiEffect {
     /**
      * Defines noise scale for heat distortion effect.
      *
-     * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
+     * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
     noiseScale : double;
@@ -677,9 +681,9 @@ declare namespace uiEffect {
     /**
      * Defines rise weight for heat distortion effect.
      *
-     * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
+     * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
     riseWeight : double;
@@ -687,9 +691,9 @@ declare namespace uiEffect {
     /**
      * Defines animation progress for heat distortion effect.
      *
-     * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
+     * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
     progress : double;
@@ -697,9 +701,10 @@ declare namespace uiEffect {
 
   /**
    * The parameters of blur bubbles rise effect.
-   * @typedef BlurBubblesRiseEffectParam
+   *
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
+   * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
   interface BlurBubblesRiseEffectParam {
@@ -707,9 +712,9 @@ declare namespace uiEffect {
      * Defines gaussian blur intensity for blur bubbles rise effect. 
      * Value range [0, 1], where 1 represents the highest degree of blur.
      *
-     * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
+     * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
     blurIntensity : double;
@@ -717,9 +722,9 @@ declare namespace uiEffect {
     /**
      * Defines mix strength between original and blurred images.
      *
-     * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
+     * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
     mixStrength : double;
@@ -727,9 +732,9 @@ declare namespace uiEffect {
     /**
      * Defines animation progress for blur bubbles rise effect.
      *
-     * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
+     * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
     progress : double;
@@ -737,9 +742,9 @@ declare namespace uiEffect {
     /**
      * Defines mask image for blur bubbles rise effect.
      *
-     * @type { image.PixelMap }
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
+     * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
     maskImage : image.PixelMap;
