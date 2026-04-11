@@ -666,7 +666,7 @@ declare namespace uiEffect {
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    intensity : double;
+    intensity: double;
 
     /**
      * Defines noise scale for heat distortion effect.
@@ -676,7 +676,7 @@ declare namespace uiEffect {
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    noiseScale : double;
+    noiseScale: double;
 
     /**
      * Defines rise weight for heat distortion effect.
@@ -686,7 +686,7 @@ declare namespace uiEffect {
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    riseWeight : double;
+    riseWeight: double;
 
     /**
      * Defines animation progress for heat distortion effect.
@@ -696,7 +696,7 @@ declare namespace uiEffect {
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    progress : double;
+    progress: double;
   }
 
   /**
@@ -717,7 +717,7 @@ declare namespace uiEffect {
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    blurIntensity : double;
+    blurIntensity: double;
 
     /**
      * Defines mix strength between original and blurred images.
@@ -727,7 +727,7 @@ declare namespace uiEffect {
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    mixStrength : double;
+    mixStrength: double;
 
     /**
      * Defines animation progress for blur bubbles rise effect.
@@ -737,7 +737,7 @@ declare namespace uiEffect {
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    progress : double;
+    progress: double;
 
     /**
      * Defines mask image for blur bubbles rise effect.
@@ -747,7 +747,7 @@ declare namespace uiEffect {
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    maskImage : image.PixelMap;
+    maskImage: image.PixelMap;
   }
 
   /**
