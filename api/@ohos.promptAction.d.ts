@@ -336,6 +336,17 @@ declare namespace promptAction {
          * @since 14 dynamic
          */
         hoverModeArea?: HoverModeAreaType;
+        /**
+ 	     * Set system-styled materials for toast. Different materials have different effects, which can influence
+ 	     * backgroundColor, border, shadow, and other visual attributes of toast.
+ 	     *
+ 	     * @type { ?SystemUiMaterial }
+ 	     * @syscap SystemCapability.ArkUI.ArkUI.Full
+ 	     * @stagemodelonly
+ 	     * @atomicservice
+ 	     * @since 26.0.0 dynamic
+ 	     */
+ 	    systemMaterial?: SystemUiMaterial;
     }
     /**
      * Enum for the toast showMode.
