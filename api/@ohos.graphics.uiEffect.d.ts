@@ -659,7 +659,8 @@ declare namespace uiEffect {
   interface HeatDistortionEffectParam {
     /**
      * Defines distortion intensity for heat distortion effect.
-     * Value range [0, 1], where 1 represents the highest degree of distortion.
+     * Value range [0, 1], and values outside the range will be clamped.
+     * 0 means no distortion, and 1 represents the maximum distortion level.
      * 
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -669,8 +670,10 @@ declare namespace uiEffect {
     intensity: double;
 
     /**
-     * Defines noise scale for heat distortion effect.
-     *
+     * Defines noise scale for heat distortion effect, controls the fineness of the noise texture.
+     * Value range [0.1, 5.0], and values outside the range will be clamped.
+     * The larger the value, the finer the noise texture.
+     * 
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @stagemodelonly
@@ -679,7 +682,9 @@ declare namespace uiEffect {
     noiseScale: double;
 
     /**
-     * Defines rise weight for heat distortion effect.
+     * Defines rise weight for heat distortion effect, controls the rising speed of bubbles.
+     * Value range [0, 1], and values outside the range will be clamped.
+     * The larger the value, the more obvious the upward movement.
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -690,7 +695,9 @@ declare namespace uiEffect {
 
     /**
      * Defines animation progress for heat distortion effect.
-     *
+     * Value range [0, 1], and values outside the range will be clamped.
+     * 0 corresponds to the start of the animation, and 1 corresponds to the end of the animation.
+     * 
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @stagemodelonly
@@ -710,8 +717,9 @@ declare namespace uiEffect {
   interface BlurBubblesRiseEffectParam {
     /**
      * Defines gaussian blur intensity for blur bubbles rise effect. 
-     * Value range [0, 1], where 1 represents the highest degree of blur.
-     *
+     * Value range [0, 1], and values outside the range will be clamped.
+     * 0 means no blur, and 1 represents the maximum blur level.
+     * 
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @stagemodelonly
@@ -721,7 +729,9 @@ declare namespace uiEffect {
 
     /**
      * Defines mix strength between original and blurred images.
-     *
+     * Value range [0, 1], and values outside the range will be clamped.
+     * 0 corresponds to the original image, and 1 corresponds to the blurred image.
+     * 
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @stagemodelonly
@@ -731,7 +741,9 @@ declare namespace uiEffect {
 
     /**
      * Defines animation progress for blur bubbles rise effect.
-     *
+     * Value range [0, 1], and values outside the range will be clamped.
+     * 0 corresponds to the start of the animation, and 1 corresponds to the end of the animation.
+     * 
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @stagemodelonly
@@ -740,8 +752,9 @@ declare namespace uiEffect {
     progress: double;
 
     /**
-     * Defines mask image for blur bubbles rise effect.
-     *
+     * Defines mask image for blur bubbles rise effect, controls the blur bubbles area.
+     * The masked area has a blur effect, while the unmasked area has no blur effect.
+     * 
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @stagemodelonly
