@@ -304,6 +304,7 @@ function closeSync(file: int | File): void;
 
   /**
    * Copies a file or directory. This API uses a promise to return the result.
+   * 
    * File copy across devices is supported. This API forcibly overwrites the file or directory.
    * The input parameter can be the URI of the file or directory. A maximum of 10 cross-device copy tasks
    * are allowed at the same time, and the number of files to be copied at a time cannot exceed 500.
@@ -347,9 +348,10 @@ function closeSync(file: int | File): void;
 
   /**
    * Copies a file or directory. This API uses an asynchronous callback to return the result.
+   * 
    * File copy across devices is supported. This API forcibly overwrites the file or directory.
-   * The file or directory URI is supported. A maximum of 10 cross-device copy tasks are allowed at the same time,
-   * and the number of files to be copied at a time cannot exceed 500.
+   * The input parameter can be the URI of the file or directory. A maximum of 10 cross-device copy tasks
+   * are allowed at the same time, and the number of files to be copied at a time cannot exceed 500.
    *
    * @param { string } srcUri - URI of the file or directory to copy.
    * @param { string } destUri - URI of the destination file or directory.
@@ -387,9 +389,10 @@ function closeSync(file: int | File): void;
 
   /**
    * Copies a file or directory. This API uses an asynchronous callback to return the result.
+   * 
    * File copy across devices is supported. This API forcibly overwrites the file or directory.
-   * The file or directory URI is supported. A maximum of 10 cross-device copy tasks are allowed at the same time,
-   * and the number of files to be copied at a time cannot exceed 500.
+   * The input parameter can be the URI of the file or directory. A maximum of 10 cross-device copy tasks
+   * are allowed at the same time, and the number of files to be copied at a time cannot exceed 500.
    *
    * @param { string } srcUri - URI of the file or directory to copy.
    * @param { string } destUri - URI of the destination file or directory.
