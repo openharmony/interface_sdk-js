@@ -2120,7 +2120,7 @@ declare namespace usbManager {
      * @since 18 dynamic
      * @since 23 static
      */
-    TRANSFER_TYPE_INTERRUPT = 0x3,
+    TRANSFER_TYPE_INTERRUPT = 0x3
   }
 
   /**
@@ -2444,7 +2444,5 @@ declare namespace usbManager {
     data: Uint8Array;
   }
 }
-
-import type { AsyncCallback } from './@ohos.base';
 
 export default usbManager;
