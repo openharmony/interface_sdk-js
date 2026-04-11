@@ -382,6 +382,15 @@ declare namespace fileIo {
      * @since 10 dynamic
      */
     const SYNC = 0o4010000;
+    /**
+     * UNCACHE IO.
+     *
+     * @syscap SystemCapability.FileManagement.File.FileIO
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    const UNCACHE = 0o10000000000;
   }
 }
 
@@ -5191,6 +5200,59 @@ declare function moveFileSync(src: string, dest: string, mode?: number): void;
  * @atomicservice
  * @since 12 dynamic
  */
+/**
+ * Opens a file or directory. This API uses a promise to return the result. This API supports the use of a URI.
+ *
+ * @param { string } path - Application sandbox path or URI of the file.
+ * @param { number } [mode = OpenMode.READ_ONLY] - Mode for opening the file.
+ *     <br>You must specify one of the following options. By default, the file is opened in read-only mode.
+ *     <br>OpenMode.READ_ONLY(0o0): Open the file in read-only mode.
+ *     <br>OpenMode.WRITE_ONLY(0o1): Open the file in write-only mode.
+ *     <br>OpenMode.READ_WRITE(0o2): Open the file in read/write mode.
+ *     <br>You can add the following function options in bitwise OR mode. By default, no additional option is added.
+ *     <br>OpenMode.CREATE(0o100): Create a file if the file does not exist.
+ *     <br>OpenMode.TRUNC(0o1000): If the file exists and is opened in write mode, truncate the file length to 0.
+ *     <br>OpenMode.APPEND(0o2000): Open the file in append mode. New data will be added to the end of the file.
+ *     <br>OpenMode.NONBLOCK(0o4000): If path points to a named pipe (also known as a FIFO), block special file,
+ *     <br>or character special file, perform non-blocking operations on the opened file and in subsequent I/Os.
+ *     <br>OpenMode.DIR(0o200000): If path does not point to a directory, throw an exception.
+ *     <br>The write permission is not allowed.
+ *     <br>OpenMode.NOFOLLOW(0o400000): If path points to a symbolic link, throw an exception.
+ *     <br>OpenMode.SYNC(0o4010000): Open the file in synchronous I/O mode.
+ *     <br>OpenMode.UNCACHE(0o10000000000): Open the file in uncache I/O mode.
+ * @returns { Promise<File> } Promise used to return the File object.
+ * @throws { BusinessError } 13900001 - Operation not permitted
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900006 - No such device or address
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900014 - Device or resource busy
+ * @throws { BusinessError } 13900015 - File exists
+ * @throws { BusinessError } 13900017 - No such device
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900022 - Too many open files
+ * @throws { BusinessError } 13900023 - Text file busy
+ * @throws { BusinessError } 13900024 - File too large
+ * @throws { BusinessError } 13900025 - No space left on device
+ * @throws { BusinessError } 13900027 - Read-only file system
+ * @throws { BusinessError } 13900029 - Resource deadlock would occur
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900034 - Operation would block
+ * @throws { BusinessError } 13900038 - Value too large for defined data type
+ * @throws { BusinessError } 13900041 - Quota exceeded
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @throws { BusinessError } 13900044 - Network is unreachable
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
 declare function open(path: string, mode?: number): Promise<File>;
 
 /**
@@ -5429,6 +5491,60 @@ declare function open(path: string, callback: AsyncCallback<File>): void;
  * @atomicservice
  * @since 11 dynamic
  */
+/**
+ * Opens a file or directory with the specified mode. This API uses an asynchronous callback to return the result.
+ * This API supports the use of a URI.
+ *
+ * @param { string } path - Application sandbox path or URI of the file.
+ * @param { number } [mode = OpenMode.READ_ONLY] - Mode for opening the file.
+ *     <br>You must specify one of the following options. By default, the file is opened in read-only mode.
+ *     <br>OpenMode.READ_ONLY(0o0): Open the file in read-only mode.
+ *     <br>OpenMode.WRITE_ONLY(0o1): Open the file in write-only mode.
+ *     <br>OpenMode.READ_WRITE(0o2): Open the file in read/write mode.
+ *     <br>You can add the following function options in bitwise OR mode. By default, no additional option is added.
+ *     <br>OpenMode.CREATE(0o100): Create a file if the file does not exist.
+ *     <br>OpenMode.TRUNC(0o1000): If the file exists and is opened in write mode, truncate the file length to 0.
+ *     <br>OpenMode.APPEND(0o2000): Open the file in append mode. New data will be added to the end of the file.
+ *     <br>OpenMode.NONBLOCK(0o4000): If path points to a named pipe (also known as a FIFO), block special file,
+ *     <br>or character special file, perform non-blocking operations on the opened file and in subsequent I/Os.
+ *     <br>OpenMode.DIR(0o200000): If path does not point to a directory, throw an exception.
+ *     <br>The write permission is not allowed.
+ *     <br>OpenMode.NOFOLLOW(0o400000): If path points to a symbolic link, throw an exception.
+ *     <br>OpenMode.SYNC(0o4010000): Open the file in synchronous I/O mode.
+ *     <br>OpenMode.UNCACHE(0o10000000000): Open the file in uncache I/O mode.
+ * @param { AsyncCallback<File> } callback - The callback is used to return the File object to record
+ *     <br>the file descriptor.
+ * @throws { BusinessError } 13900001 - Operation not permitted
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900006 - No such device or address
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900014 - Device or resource busy
+ * @throws { BusinessError } 13900015 - File exists
+ * @throws { BusinessError } 13900017 - No such device
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900022 - Too many open files
+ * @throws { BusinessError } 13900023 - Text file busy
+ * @throws { BusinessError } 13900024 - File too large
+ * @throws { BusinessError } 13900025 - No space left on device
+ * @throws { BusinessError } 13900027 - Read-only file system
+ * @throws { BusinessError } 13900029 - Resource deadlock would occur
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900034 - Operation would block
+ * @throws { BusinessError } 13900038 - Value too large for defined data type
+ * @throws { BusinessError } 13900041 - Quota exceeded
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
 declare function open(path: string, mode: number, callback: AsyncCallback<File>): void;
 
 /**
@@ -5590,6 +5706,59 @@ declare function open(path: string, mode: number, callback: AsyncCallback<File>)
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
+ */
+/**
+ * Opens a file or directory. This API returns the result synchronously. This API supports the use of a URI.
+ *
+ * @param { string } path - Application sandbox path or file URI of the file to open.
+ * @param { number } [mode = OpenMode.READ_ONLY] - Mode for opening the file.
+ *     <br>You must specify one of the following options. By default, the file is opened in read-only mode.
+ *     <br>OpenMode.READ_ONLY(0o0): Open the file in read-only mode.
+ *     <br>OpenMode.WRITE_ONLY(0o1): Open the file in write-only mode.
+ *     <br>OpenMode.READ_WRITE(0o2): Open the file in read/write mode.
+ *     <br>You can add the following function options in bitwise OR mode. By default, no additional option is added.
+ *     <br>OpenMode.CREATE(0o100): Create a file if the file does not exist.
+ *     <br>OpenMode.TRUNC(0o1000): If the file exists and is opened in write mode, truncate the file length to 0.
+ *     <br>OpenMode.APPEND(0o2000): Open the file in append mode. New data will be added to the end of the file.
+ *     <br>OpenMode.NONBLOCK(0o4000): If path points to a named pipe (also known as a FIFO), block special file,
+ *     <br>or character special file, perform non-blocking operations on the opened file and in subsequent I/Os.
+ *     <br>OpenMode.DIR(0o200000): If path does not point to a directory, throw an exception.
+ *     <br>The write permission is not allowed.
+ *     <br>OpenMode.NOFOLLOW(0o400000): If path points to a symbolic link, throw an exception.
+ *     <br>OpenMode.SYNC(0o4010000): Open the file in synchronous I/O mode.
+ *     <br>OpenMode.UNCACHE(0o10000000000): Open the file in uncache I/O mode.
+ * @returns { File } Returns the File object to record the file descriptor.
+ * @throws { BusinessError } 13900001 - Operation not permitted
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900006 - No such device or address
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900014 - Device or resource busy
+ * @throws { BusinessError } 13900015 - File exists
+ * @throws { BusinessError } 13900017 - No such device
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900022 - Too many open files
+ * @throws { BusinessError } 13900023 - Text file busy
+ * @throws { BusinessError } 13900024 - File too large
+ * @throws { BusinessError } 13900025 - No space left on device
+ * @throws { BusinessError } 13900027 - Read-only file system
+ * @throws { BusinessError } 13900029 - Resource deadlock would occur
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900034 - Operation would block
+ * @throws { BusinessError } 13900038 - Value too large for defined data type
+ * @throws { BusinessError } 13900041 - Quota exceeded
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @throws { BusinessError } 13900044 - Network is unreachable
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
  */
 declare function openSync(path: string, mode?: number): File;
 
