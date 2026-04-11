@@ -699,7 +699,7 @@ declare namespace serialManager {
      * @since 19 dynamic
      * @since 23 static
      */
-    DATABIT_5 = 5,
+    DATABIT_5 = 5
  }
   /**
    * Enumerates the parity check modes.
@@ -780,7 +780,7 @@ declare namespace serialManager {
      * @since 19 dynamic
      * @since 23 static
      */
-    STOPBIT_2 = 1,
+    STOPBIT_2 = 1
  }
 }
 
