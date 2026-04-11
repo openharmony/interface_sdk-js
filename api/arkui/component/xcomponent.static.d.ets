@@ -143,7 +143,7 @@ export declare enum HdrType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   EDR = 2
 }
