@@ -425,6 +425,18 @@ declare namespace relationalStore {
     autoCleanDirtyData?: boolean;
 
     /**
+     * Specifies whether to clean up dirty data that is synchronized to
+     * the local but deleted on the remote device.
+     * <br>Default value:true.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    autoCleanDeviceDirtyData?: boolean
+
+    /**
      * Specifies whether data can be searched.
      *
      * @type { ?boolean }
@@ -2020,7 +2032,30 @@ declare namespace relationalStore {
      * @stagemodelonly
      * @since 24 dynamic&static
      */
-    ORIGIN_ORIDEVICE = '#_ori_device'
+    ORIGIN_ORIDEVICE = '#_ori_device',
+
+    /**
+     * Cursor field.
+     *
+     * This parameter can be used as the input parameter of the predicate of the query interface
+     * and as the query filter condition.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    CURSOR_FIELD = '#_cursor',
+
+    /**
+     * Indicates whether data has been deleted.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    DELETED_FLAG_FIELD = '#_deleted_flag'
   }
   
   
@@ -7754,6 +7789,34 @@ declare namespace relationalStore {
      * @since 23 static
      */
     cleanDirtyData(table: string, cursor?: long): Promise<void>;
+
+    /**
+     * Cleans dirty data deleted in the cross-device sync.
+     *
+     * If a cursor is specified, data with a cursor smaller than the specified cursor will be cleaned up.
+     * otherwise clean all.
+     *
+     * @param { string } table - Indicates the name of the table to check.
+     *     <br>Length range:[1， 256].Value constraint:Only letters, digits, and underscores (_) are allowed.
+     * @param { long } [cursor] - Indicates the cursor.
+     *     <br>Value range:>0.Default value:Default behavior: Clear all dirty data.
+     * @returns { Promise<void> } -The promise returned by the function.
+     * @throws { BusinessError } 202 - Permission verification failed,
+     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of valid range.
+     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
+     * @throws { BusinessError } 14800014 - The target instance is already closed.
+     * @throws { BusinessError } 14800015 - The database does not respond.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+     * @throws { BusinessError } 14800043 - DB is not support this scenario. Possible causes: 1. DB type is not support;
+     *     <br>2. Table type is not support; 3. This is a readonly db.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    cleanDeviceDirtyData(table: string, cursor?: long): Promise<void>
 
     /**
      * Obtains sharing resource of rows corresponding to the predicates.
