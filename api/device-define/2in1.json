@@ -84,6 +84,7 @@
     "SystemCapability.PowerManager.BatteryManager.Core",
     "SystemCapability.PowerManager.PowerManager.Core",
     "SystemCapability.HiviewDFX.HiSysEvent",
+    "SystemCapability.HiviewDFX.HiRetrieval",
     "SystemCapability.PowerManager.BatteryStatistics",
     "SystemCapability.DistributedDataManager.DataShare.Provider",
     "SystemCapability.DistributedDataManager.DataShare.Core",
