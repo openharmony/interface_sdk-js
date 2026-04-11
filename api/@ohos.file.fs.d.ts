@@ -876,7 +876,7 @@ declare function closeSync(file: number | File): void;
 declare function copy(srcUri: string, destUri: string, options?: CopyOptions): Promise<void>;
 
 /**
- * Copies a file or directory. This API uses a promise to return the result.
+ * Copies a file or directory. This API uses an asynchronous callback to return the result.
  *
  * File copy across devices is supported. This API forcibly overwrites the file or directory.
  * The input parameter can be the URI of the file or directory. A maximum of 10 cross-device copy tasks
@@ -917,7 +917,7 @@ declare function copy(srcUri: string, destUri: string, options?: CopyOptions): P
 declare function copy(srcUri: string, destUri: string, callback: AsyncCallback<void>): void;
 
 /**
- * Copies a file or directory. This API uses a promise to return the result.
+ * Copies a file or directory. This API uses an asynchronous callback to return the result.
  *
  * File copy across devices is supported. This API forcibly overwrites the file or directory.
  * The input parameter can be the URI of the file or directory. A maximum of 10 cross-device copy tasks
