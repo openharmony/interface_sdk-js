@@ -588,5 +588,15 @@ declare namespace deviceInfo {
      * @since 24 static
      */
     get bootCount(): int;
+
+    /**
+     * Obtain the device color represented by a string. If it cannot be obtained, return an empty string
+     *
+     * @returns { string }
+     * @syscap SystemCapability.Startup.SystemInfo
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    get deviceColor(): string;
 }
 export default deviceInfo;
