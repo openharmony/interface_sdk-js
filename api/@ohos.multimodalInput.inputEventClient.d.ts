@@ -327,6 +327,8 @@ declare namespace inputEventClient {
    * @since 23 static
    */
    function permitInjection(result: boolean): void;
+
+
 }
 
 export default inputEventClient;
