@@ -13949,6 +13949,15 @@ declare namespace window {
      */
     outlineEnabled?: boolean;
 
+    /**
+    * Indicates whether loose the restriction of sub window z-level above parent.
+    *
+    * @syscap SystemCapability.Window.SessionManager
+    * @stagemodelonly
+    * @atomicservice
+    * @since 26.0.0 dynamic&static
+    */
+    zLevelAboveParentLoosened?: boolean;
   }
   /**
    * WindowStage
