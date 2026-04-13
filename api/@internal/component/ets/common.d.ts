@@ -84,7 +84,54 @@ declare interface ComponentOptions {
    * @since 12 dynamic
    */
   freezeWhenInactive : boolean,
+
+  /**
+   * the reuse type of a custom component.
+   * 
+   * @default perInstance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  reusePool?: ReusePoolOwnership;
+
+  /**
+   * Collection of custom components to be reused.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  poolAccepts?: ReusableComponentConstructor[];
 }
+
+/**
+ * Defining the reuse type of a custom component.
+ * 
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare type ReusePoolOwnership = 'shared' | 'perInstance';
+
+/**
+ * Defining custom component constructor.
+ * 
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare type ReusableComponentConstructor = Function;
 
 /**
  * Define the ratio of characters entered by the percentage of InputCounterOptions.
