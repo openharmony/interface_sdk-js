@@ -127,7 +127,7 @@ export interface DecimalConfig {
   toExpNeg?: double;
   /**
    * The positive exponent value at and above which toString returns exponential notation.
-   * Default value: 20
+   * Default value: 21
    *
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 18]
