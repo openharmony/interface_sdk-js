@@ -3601,7 +3601,16 @@ declare namespace photoAccessHelper {
     * @stagemodelonly
     * @since 24 dynamic&static
     */
-    LCD_FILE_SIZE = 'lcd_file_size'
+    LCD_FILE_SIZE = 'lcd_file_size',
+    /**
+     * Hidden time of asset.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    HIDDEN_TIME = 'hidden_time'
   }
 
   /**
@@ -8718,6 +8727,28 @@ declare namespace photoAccessHelper {
      * @since 23 dynamic&static
      */
     albumChangeInfos?: AlbumChangeInfo[] | null;
+
+    /**
+     * The hidden time of asset.
+     * <br>Unit:milliseconds.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    hiddenTime?: long;
+
+    /**
+     * The modified time of asset.
+     * <br>Unit:milliseconds.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    dateModifiedMs?: long;
   }
 
   /**
@@ -8969,6 +9000,15 @@ declare namespace photoAccessHelper {
      * @since 23 dynamic&static
      */
     hidden?: boolean;
+    /**
+     * The virtual path of album.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+    */
+    lpath?: string;
   }
 
   /**
