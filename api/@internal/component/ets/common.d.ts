@@ -4465,14 +4465,14 @@ declare interface MotionPathOptions {
 }
 
 /**
- * Defines the shard transition function params.
+ * Defines the shared transition function params.
  *
  * @interface sharedTransitionOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
- * Defines the shard transition function params.
+ * Defines the shared transition function params.
  *
  * @interface sharedTransitionOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -4480,7 +4480,7 @@ declare interface MotionPathOptions {
  * @since 10
  */
 /**
- * Defines the shard transition function params.
+ * Defines the shared transition function params.
  *
  * @interface sharedTransitionOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
