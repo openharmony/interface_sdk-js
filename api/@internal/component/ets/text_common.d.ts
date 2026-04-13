@@ -959,6 +959,17 @@ declare type Paragraph = import('../api/@ohos.graphics.text').default.Paragraph;
 declare type InputMethodExtraConfig = import('../api/@ohos.inputMethod.ExtraConfig').InputMethodExtraConfig;
 
 /**
+ * Define the FontVariation type
+ * 
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare type FontVariation = import('../api/@ohos.graphics.text').default.FontVariation;
+
+/**
  * Defines the cursor style
  *
  * @interface CaretStyle
