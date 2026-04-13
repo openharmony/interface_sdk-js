@@ -1602,7 +1602,6 @@ declare enum MouseButton {
 /**
  * Pen key type enum.
  *
- * @enum {int}
  * @syscap SystemCapability.Test.UiTest
  * @FaAndStageModel
  * @atomicservice
@@ -1645,7 +1644,6 @@ declare enum PenKey {
 /**
  * Pen mode enum.
  *
- * @enum {int}
  * @syscap SystemCapability.Test.UiTest
  * @FaAndStageModel
  * @atomicservice
@@ -1678,7 +1676,6 @@ declare enum PenMode {
 /**
  * Pen key operation type enum.
  *
- * @enum {int}
  * @syscap SystemCapability.Test.UiTest
  * @FaAndStageModel
  * @atomicservice
@@ -1722,7 +1719,6 @@ declare interface PenKeyOperationOptions {
   /**
    * The coordinate point for air mouse mode operations. Required when key is AIR_MOUSE in air mouse mode.
    *
-   * @type { ?Point }
    * @syscap SystemCapability.Test.UiTest
    * @FaAndStageModel
    * @atomicservice
@@ -1808,7 +1804,6 @@ declare interface InputTextMode {
 /**
  * Represents the options for key operations.
  *
- * @typedef KeyOptions
  * @syscap SystemCapability.Test.UiTest
  * @FaAndStageModel
  * @atomicservice
@@ -1821,7 +1816,6 @@ declare interface KeyOptions {
    * If not set, no key event will be injected.
    * Setting only key2 without key1 will result in a BusinessError 17000007.
    *
-   * @type { ?int }
    * @syscap SystemCapability.Test.UiTest
    * @FaAndStageModel
    * @atomicservice
@@ -1834,7 +1828,6 @@ declare interface KeyOptions {
    * If not set, no key event will be injected.
    * Setting only key2 without key1 will result in a BusinessError 17000007.
    *
-   * @type { ?int }
    * @syscap SystemCapability.Test.UiTest
    * @FaAndStageModel
    * @atomicservice
@@ -1847,7 +1840,6 @@ declare interface KeyOptions {
 /**
  * Common options for touch operations.
  *
- * @typedef TouchOptions
  * @syscap SystemCapability.Test.UiTest
  * @FaAndStageModel
  * @atomicservice
@@ -1860,7 +1852,6 @@ declare interface TouchOptions {
    * Set to default 600 if out of range or null or undefined.
    * Throws 17000007 if negative.
    *
-   * @type { ?int }
    * @syscap SystemCapability.Test.UiTest
    * @FaAndStageModel
    * @atomicservice
@@ -1872,7 +1863,6 @@ declare interface TouchOptions {
    * Duration of the operation in milliseconds, the minimum and default values are 1500.
    * Throws 17000007 if the value is less than 1500. Use the default value when it is null or undefined.
    *
-   * @type { ?int }
    * @syscap SystemCapability.Test.UiTest
    * @FaAndStageModel
    * @atomicservice
@@ -1884,7 +1874,6 @@ declare interface TouchOptions {
    * The pressure of the touch, the value ranges from 0 to 1, default is 0.
    * Throws 17000007 if the value is out of range. Use the default value when it is null or undefined.
    *
-   * @type { ?double }
    * @syscap SystemCapability.Test.UiTest
    * @FaAndStageModel
    * @atomicservice
@@ -2123,19 +2112,21 @@ declare class On {
    * @since 23 static
    * @test
    */
-  isBefore(on: On): On;/**
- 	    * Requires that the target Component is before another Component that is specified by the given {@link Component}
- 	    * object, used to locate Component relatively.
- 	    *
- 	    * @param { Component } com - Describes the Component which the target one is in front of.
- 	    * @returns { On } this {@link On} object.
- 	    * @throws { BusinessError } 17000007 - Parameter verification failed.
- 	    * @syscap SystemCapability.Test.UiTest
- 	    * @FaAndStageModel
- 	    * @atomicservice
- 	    * @since 26.0.0 dynamic&static
- 	    * @test
- 	    */
+  isBefore(on: On): On;
+
+  /**
+   * Requires that the target Component is before another Component that is specified by the given {@link Component}
+   * object, used to locate Component relatively.
+   *
+   * @param { Component } com - Describes the Component which the target one is in front of.
+   * @returns { On } this {@link On} object.
+   * @throws { BusinessError } 17000007 - Parameter verification failed.
+   * @syscap SystemCapability.Test.UiTest
+   * @FaAndStageModel
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   * @test
+  */
   isBefore(com: Component): On;
 
   /**
@@ -2315,19 +2306,6 @@ declare class On {
    * @test
    */
   originalText(text: string, pattern?: MatchPattern): On;
-  /**
-   * Specifies the type of the target Component.
-   *
-   * @param { string } tp - The type value.
-   * @param { MatchPattern } pattern - the {@link MatchPattern} of the text value,Set it default {@link MatchPattern.EQUALS} if null or undefined.
-   * @returns { On } this {@link On} object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.Test.UiTest
-   * @atomicservice
-   * @since 18
-   * @test
-   */
-  type(tp: string, pattern: MatchPattern): On;
 }
 
 /**
