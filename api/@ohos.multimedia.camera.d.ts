@@ -6847,7 +6847,16 @@ declare namespace camera {
      * @atomicservice
      * @since 24 dynamic&static
      */
-    AUTO_FRAMING = 2
+    AUTO_FRAMING = 2,
+
+    /**
+     * XMAGE type.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 20 dynamic&static
+     */
+    XMAGE = 3
   }
 
   /**
@@ -19245,7 +19254,7 @@ declare namespace camera {
    * @since 20 dynamic
    * @since 23 static
    */
-  interface ControlCenterSession extends Beauty, Aperture {
+  interface ControlCenterSession extends Beauty, Aperture, ColorEffect {
     /**
      * Release control center session object.
      *
