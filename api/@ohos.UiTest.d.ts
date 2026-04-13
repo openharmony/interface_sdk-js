@@ -5092,41 +5092,6 @@ declare namespace ON {
   export function originalText(text: string, pattern?: MatchPattern): On;
 }
 
-export {
-  UiComponent,
-  UiDriver,
-  BY,
-  By
-};
-
-export {
-  Component,
-  Driver,
-  UiWindow,
-  ON,
-  On,
-  MatchPattern,
-  DisplayRotation,
-  ResizeDirection,
-  WindowMode,
-  Point,
-  WindowFilter,
-  Rect,
-  PointerMatrix,
-  UiDirection,
-  MouseButton,
-  UIElementInfo,
-  UIEventObserver,
-  TouchPadSwipeOptions,
-  InputTextMode,
-  WindowChangeType,
-  ComponentEventType,
-  WindowChangeOptions,
-  ComponentEventOptions,
-  KeyOptions,
-  TouchOptions
-};
-
 /*** if arkts 1.1 */
 export {
   UiComponent,
