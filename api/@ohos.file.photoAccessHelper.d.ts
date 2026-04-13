@@ -7327,6 +7327,36 @@ declare namespace photoAccessHelper {
     stopAssetAnalysis(config: AnalysisConfig): void;
 
     /**
+     * Subscribes to changes of medialibrary availability.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { Callback<MediaLibraryAvailability> } callback - Callback used to return the MediaLibraryAvailability.
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 23800151 - Scenario-specific parameters are incorrect. Possible causes are as follows:
+     * <br>1. The input parameter is null or undefined.
+     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
+     * <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    onMediaLibraryAvailability(callback: Callback<MediaLibraryAvailability>): void;
+
+    /**
+     * Unsubscribes to changes of medialibrary availability.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { Callback<MediaLibraryAvailability> } [callback] - Callback used to return the MediaLibraryAvailability.
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
+     * <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    offMediaLibraryAvailability(callback?: Callback<MediaLibraryAvailability>): void;
+
+    /**
      * Obtains album information by album IDs. This API uses a promise to return the result.
      *
      * @permission ohos.permission.READ_IMAGEVIDEO
@@ -15621,6 +15651,58 @@ declare namespace photoAccessHelper {
      * @since 26.0.0 dynamic&static
      */
     WIFI = 2
+  }
+
+  /**
+   * MediaLibrary availability.
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface MediaLibraryAvailability {
+    /**
+     * MediaLibrary availability status.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    availabilityStatus: AvailabilityStatus;
+    /**
+     * MediaLibrary unavailability reason.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    unavailabilityReason: string;
+  }
+
+  /**
+   * Enumeration of medialibrary availability status.
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  enum AvailabilityStatus {
+    /**
+     * MediaLibrary available.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    AVAILABLE = 'available',
+    /**
+     * MediaLibrary unavailable.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    UNAVAILABLE = 'unavailable'
   }
 }
 
