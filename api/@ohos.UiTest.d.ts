@@ -5098,7 +5098,7 @@ declare namespace ON {
   export function originalText(text: string, pattern?: MatchPattern): On;
 }
 
-/*** if arkts 1.1 */
+/*** if arkts dynamic */
 export {
   UiComponent,
   UiDriver,
