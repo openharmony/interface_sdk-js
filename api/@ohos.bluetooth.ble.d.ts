@@ -5908,6 +5908,15 @@ declare namespace ble {
      * @since 23 static
      */
     connectable?: boolean;
+    /**
+     * Indicates whether the advertisement is extended, default is {@code false}
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    isExtended?: boolean;
   }
 
   /**
@@ -6889,6 +6898,15 @@ declare namespace ble {
      * @since 23 static
      */
     reportMode?: ScanReportMode;
+    /**
+     * Indicates whether the scan is extended, default is {@code false}
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    isExtended?: boolean;
   }
 
   /**
