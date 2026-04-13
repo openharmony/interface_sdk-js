@@ -123,7 +123,7 @@ declare namespace inputMethod {
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @systemapi
    * @stagemodelonly
-   * @since 24 dynamic&static
+   * @since 26.0.0 dynamic&static
    */
   function getDefaultInputMethod(userId?: int): InputMethodProperty;
 
@@ -156,7 +156,7 @@ declare namespace inputMethod {
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @systemapi
    * @stagemodelonly
-   * @since 24 dynamic&static
+   * @since 26.0.0 dynamic&static
    */
   function getSystemInputMethodConfigAbility(userId?: int): ElementName;
 
@@ -223,7 +223,7 @@ declare namespace inputMethod {
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @systemapi
    * @stagemodelonly
-   * @since 24 dynamic&static
+   * @since 26.0.0 dynamic&static
    */
   function getCurrentInputMethod(userId?: int): InputMethodProperty;
 
@@ -290,7 +290,7 @@ declare namespace inputMethod {
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @systemapi
    * @stagemodelonly
-   * @since 24 dynamic&static
+   * @since 26.0.0 dynamic&static
    */
   function getCurrentInputMethodSubtype(userId?: int): InputMethodSubtype;
 
@@ -383,7 +383,7 @@ declare namespace inputMethod {
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @systemapi
    * @stagemodelonly
-   * @since 24 dynamic&static
+   * @since 26.0.0 dynamic&static
    */
   function switchInputMethodWithUserId(bundleName: string, subtypeId?: string, userId?: int): Promise<void>;
 
@@ -439,7 +439,7 @@ declare namespace inputMethod {
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @systemapi
    * @stagemodelonly
-   * @since 24 dynamic&static
+   * @since 26.0.0 dynamic&static
    */
   export type ImeChangeWithUserIdCallback =
       (inputMethodProperty: InputMethodProperty, inputMethodSubtype: InputMethodSubtype, userId: int) => void;
@@ -672,7 +672,7 @@ declare namespace inputMethod {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
      * @stagemodelonly
-     * @since 24 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     getInputMethodSubtypes(bundleName: string, userId?: int): Array<InputMethodSubtype>;
 
@@ -750,7 +750,7 @@ declare namespace inputMethod {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
      * @stagemodelonly
-     * @since 24 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     getInputMethodsSync(enable: boolean, userId?: int): Array<InputMethodProperty>;
 
@@ -811,7 +811,7 @@ declare namespace inputMethod {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
      * @stagemodelonly
-     * @since 24 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     getAllInputMethodsSync(userId?: int): Array<InputMethodProperty>;
 
@@ -941,7 +941,7 @@ declare namespace inputMethod {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
      * @stagemodelonly
-     * @since 24 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     enableInputMethod(
       bundleName: string, extensionName: string, enabledState: EnabledState, userId?: int): Promise<void>;
@@ -973,7 +973,7 @@ declare namespace inputMethod {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
      * @stagemodelonly
-     * @since 24 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     onImeChangeWithUserId(callback: ImeChangeWithUserIdCallback): void;
 
@@ -986,7 +986,7 @@ declare namespace inputMethod {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
      * @stagemodelonly
-     * @since 24 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     offImeChangeWithUserId(callback?: ImeChangeWithUserIdCallback): void;
 
@@ -3045,7 +3045,7 @@ declare namespace inputMethod {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
      * @stagemodelonly
-     * @since 24 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     userId?: int;
   }
