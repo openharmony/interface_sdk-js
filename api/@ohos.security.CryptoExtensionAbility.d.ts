@@ -202,6 +202,15 @@ export interface HuksCryptoExtensionResult {
    * @since 22
    */
   outData?: Uint8Array;
+
+  /**
+   * The returned resource ID.
+   *
+   * @syscap SystemCapability.Security.Huks.CryptoExtension
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  resourceId?: string;
 }
 
 /**
@@ -211,6 +220,24 @@ export interface HuksCryptoExtensionResult {
  * @since 22
  */
 declare class CryptoExtensionAbility {
+  /**
+   *  Callback to get the resource ID of the crypto extension.
+   *
+   * @param { huksExternalCrypto.HuksExternalCryptoParam[] } params - Indicates the needed properties of
+   *     the get resource ID operation.
+   * @returns { Promise<HuksCryptoExtensionResult> } The promise returned by the function.
+   *     If the function execution fails, the extension needs to set the detailed error information in
+   *     HuksCryptoExtensionResult.errInfo.
+   *     HuksCryptoExtensionResult.resultCode may have the following values:
+   *     0 - The operation is successful.
+   *     34800000 - An error occurred in the crypto extension. Possible causes:
+   *                1. The input parameter is invalid.
+   *                2. The crypto extension encountered an unresolvable error state.
+   * @syscap SystemCapability.Security.Huks.CryptoExtension
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  onGetResourceId(params: huksExternalCrypto.HuksExternalCryptoParam[]):Promise<HuksCryptoExtensionResult>;
 
   /**
    * Callback to be called to open the resource handle before crypto operations.
