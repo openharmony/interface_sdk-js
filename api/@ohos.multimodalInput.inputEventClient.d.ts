@@ -327,6 +327,134 @@ declare namespace inputEventClient {
    * @since 23 static
    */
    function permitInjection(result: boolean): void;
+
+  /**
+   * The TouchPoint interface represents a single contact point on a display.
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface TouchPoint {  
+    /**
+     * Unique ID of the touch point
+     * <br>Value range:[0, 9].The value should be an integer.
+     *
+     * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    id: int;
+
+    /**
+     * Unique ID of the display for the touch point.
+     *
+     * The value should be an integer.
+     *
+     * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    displayId: int;
+
+    /**
+     * The X coordinate of the touch point relative to the left edge of the display.
+     * The value should be an integer.
+     * <br>Unit:px.
+     *
+     * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    displayX: int;
+
+    /**
+     * The Y coordinate of the touch point relative to the top edge of the display.
+     * The value should be an integer.
+     * <br>Unit:px.
+     *
+     * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    displayY: int;
+  }
+
+  /**
+   * The TouchController interface provides functions for simulating touch operations. 
+   * Simulated touch operation sequences must meet the following requirements:
+   * 1. The display ID of all touch points must be the same.
+   * 2. Each touch point shall start with a down event, end with an up event,
+   *     and may contain multiple move events in between.
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface TouchController { 
+    /**
+     * Touch down. Use Promise asynchronous callbacks.
+     *
+     * @permission ohos.permission.CONTROL_DEVICE
+     * @param { TouchPoint } touch - The touch point to make contact with the display.
+     * @returns { Promise<void> } Promise object, which returns no result.
+     * @throws { BusinessError } 201 - Permission verification failed.
+     *     The application does not have the permission required to call the API.
+     * @throws { BusinessError } 4300002 - The touch point is touching the display.
+     * @throws { BusinessError } 3800001 - Input service exception.
+     * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    touchDown(touch: TouchPoint): Promise<void>;
+
+    /**
+     * Touch move. Use Promise asynchronous callbacks.
+     *
+     * @permission ohos.permission.CONTROL_DEVICE
+     * @param { TouchPoint } touch - The touch point to move.
+     * @returns {Promise<void>} Promise object, which returns no result.
+     * @throws { BusinessError } 201 - Permission verification failed.
+     *     The application does not have the permission required to call the API.
+     * @throws { BusinessError } 4300002 - The touch point is not touching the display.
+     * @throws { BusinessError } 3800001 - Input service exception.
+     * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    touchMove(touch: TouchPoint): Promise<void>;
+
+    /**
+     * Touch up. Use Promise asynchronous callbacks.
+     *
+     * @permission ohos.permission.CONTROL_DEVICE
+     * @param { TouchPoint } touch - The touch point that is about to leave the display.
+     * @returns {Promise<void>} Promise object, which returns no result.
+     * @throws { BusinessError } 201 - Permission verification failed.
+     *     The application does not have the permission required to call the API.
+     * @throws { BusinessError } 4300002 - The touch point is not touching the display.
+     * @throws { BusinessError } 3800001 - Input service exception.
+     * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    touchUp(touch: TouchPoint): Promise<void>;
+  }
+
+  /**
+   * Create a TouchController instance. Use Promise asynchronous callbacks.
+   *
+   * @permission ohos.permission.CONTROL_DEVICE
+   * @returns { Promise<TouchController> } Promise object, return TouchController.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3800001 - Input service exception.
+   * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function createTouchController(): Promise<TouchController>;
 }
 
 export default inputEventClient;
