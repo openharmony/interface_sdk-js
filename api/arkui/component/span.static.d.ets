@@ -24,7 +24,8 @@ import { Resource } from './../../../api/global/resource';
 import { FontStyle, FontWeight, TextCase } from "./enums";
 import { DecorationStyleInterface } from "./styledString";
 import { ComponentBuilder, CustomBuilder } from './builder';
-import { FontConfigs, FontWeightConfigs } from "./textCommon"
+import { FontConfigs, FontWeightConfigs, FontVariation } from "./textCommon"
+
 /**
  * Define the background style of span.
  *
@@ -281,6 +282,16 @@ export declare interface SpanAttribute {
      * @since 23 static
      */
     default onHover(event: HoverCallback | undefined): this;
+    /**
+     * Set the font variation.
+     *
+     * @param { Array<FontVariation> | undefined } fontVariations - Indicates the span font variation.
+     * @returns { SpanAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default fontVariations(fontVariations: Array<FontVariation> | undefined): this;
     /**
      * Sets the attribute modifier.
      *
