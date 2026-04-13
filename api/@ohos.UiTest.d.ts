@@ -4308,7 +4308,7 @@ declare class Driver {
      * @throws { BusinessError } 17000005 - This operation is not supported.
      * @throws { BusinessError } 17000007 - Parameter verification failed. Unsupported key, mode, and operation combination.
      * @syscap SystemCapability.Test.UiTest
-  * @FaAndStageModel
+     * @FaAndStageModel
      * @atomicservice
      * @since 26.0.0 dynamic&static
      * @test
