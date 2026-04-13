@@ -4080,7 +4080,7 @@ declare namespace intl {
      * @since 10
      */
     /**
-     * Format of the output message. The value can be "always" or "auto".
+     * Format of the output message. The value can be "always" or "auto".11
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
