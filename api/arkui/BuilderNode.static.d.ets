@@ -429,4 +429,17 @@ export declare class ReactiveBuilderNode {
    * @since 24 static
    */
   postInputEvent(event: InputEventType): boolean;
+
+  /**
+   * Dispatch event to targetNode with competition strategy.
+   *
+   * @param { InputEventType  } event - The event which will be sent to the targetNode.
+   * @param { CompetitionStrategy  } competitionStrategy - The competition strategy.
+   * @returns { boolean } - Returns true if the event has been successfully posted to the targetNode,
+   *    false otherwise.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  postInputEventWithStrategy(event: InputEventType, competitionStrategy?: CompetitionStrategy): boolean;
 }
