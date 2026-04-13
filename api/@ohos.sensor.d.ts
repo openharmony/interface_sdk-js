@@ -21,65 +21,51 @@
 import { AsyncCallback, Callback } from './@ohos.base';
 
 /**
- * This module provides the capability to subscribe to sensor data.
- * @namespace sensor
+ * The **Sensor** module provides APIs for obtaining the sensor list and subscribing to sensor data. It also provides
+ * some common sensor algorithms.
+ *
  * @syscap SystemCapability.Sensors.Sensor
- * @since 8
- */
-/**
- * This module provides the capability to subscribe to sensor data.
- * @namespace sensor
- * @syscap SystemCapability.Sensors.Sensor
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  * @since 23 static
  */
 declare namespace sensor {
   /**
-   * Enum for obtain the type of sensor.
-   * @enum { number }
+   * Enumerates the sensor types.
+   *
    * @syscap SystemCapability.Sensors.Sensor
-   * @since 9
-   */
-  /**
-   * Enum for obtain the type of sensor.
-   * @enum { int }
-   * @syscap SystemCapability.Sensors.Sensor
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   enum SensorId {
     /**
      * Acceleration sensor.
+     *
+     * This API can be used in atomic services since API version 11.
+     *
      * @syscap SystemCapability.Sensors.Sensor
-     * @since 9
-     */
-    /**
-     * Acceleration sensor.
-     * @syscap SystemCapability.Sensors.Sensor
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     ACCELEROMETER = 1,
 
     /**
      * Gyroscope sensor.
+     *
+     * This API can be used in atomic services since API version 11.
+     *
      * @syscap SystemCapability.Sensors.Sensor
-     * @since 9
-     */
-    /**
-     * Gyroscope sensor.
-     * @syscap SystemCapability.Sensors.Sensor
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     GYROSCOPE = 2,
 
     /**
      * Ambient light sensor.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9 dynamic
      * @since 23 static
@@ -88,6 +74,7 @@ declare namespace sensor {
 
     /**
      * Magnetic field sensor.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9 dynamic
      * @since 23 static
@@ -95,7 +82,8 @@ declare namespace sensor {
     MAGNETIC_FIELD = 6,
 
     /**
-     * Barometric pressure sensor.
+     * Barometer sensor.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9 dynamic
      * @since 23 static
@@ -104,6 +92,7 @@ declare namespace sensor {
 
     /**
      * Hall effect sensor.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9 dynamic
      * @since 23 static
@@ -112,6 +101,7 @@ declare namespace sensor {
 
     /**
      * Proximity sensor.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9 dynamic
      * @since 23 static
@@ -120,6 +110,7 @@ declare namespace sensor {
 
     /**
      * Humidity sensor.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9 dynamic
      * @since 23 static
@@ -128,6 +119,9 @@ declare namespace sensor {
 
     /**
      * Color sensor.
+     *
+     * System API: This is a system API.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @systemapi
      * @since 10 dynamic
@@ -136,7 +130,10 @@ declare namespace sensor {
     COLOR = 14,
 
     /**
-     * Sar sensor.
+     * Sodium Adsorption Ratio (SAR) sensor.
+     *
+     * System API: This is a system API.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @systemapi
      * @since 10 dynamic
@@ -146,20 +143,19 @@ declare namespace sensor {
 
     /**
      * Orientation sensor.
+     *
+     * This API can be used in atomic services since API version 11.
+     *
      * @syscap SystemCapability.Sensors.Sensor
-     * @since 9
-     */
-    /**
-     * Orientation sensor.
-     * @syscap SystemCapability.Sensors.Sensor
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     ORIENTATION = 256,
 
     /**
      * Gravity sensor.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9 dynamic
      * @since 23 static
@@ -168,6 +164,7 @@ declare namespace sensor {
 
     /**
      * Linear acceleration sensor.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9 dynamic
      * @since 23 static
@@ -176,6 +173,7 @@ declare namespace sensor {
 
     /**
      * Rotation vector sensor.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9 dynamic
      * @since 23 static
@@ -184,6 +182,7 @@ declare namespace sensor {
 
     /**
      * Ambient temperature sensor.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9 dynamic
      * @since 23 static
@@ -192,6 +191,7 @@ declare namespace sensor {
 
     /**
      * Uncalibrated magnetic field sensor.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9 dynamic
      * @since 23 static
@@ -200,6 +200,7 @@ declare namespace sensor {
 
     /**
      * Uncalibrated gyroscope sensor.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9 dynamic
      * @since 23 static
@@ -208,6 +209,7 @@ declare namespace sensor {
 
     /**
      * Significant motion sensor.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9 dynamic
      * @since 23 static
@@ -216,6 +218,7 @@ declare namespace sensor {
 
     /**
      * Pedometer detection sensor.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9 dynamic
      * @since 23 static
@@ -224,6 +227,7 @@ declare namespace sensor {
 
     /**
      * Pedometer sensor.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9 dynamic
      * @since 23 static
@@ -232,6 +236,7 @@ declare namespace sensor {
 
     /**
      * Heart rate sensor.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9 dynamic
      * @since 23 static
@@ -240,6 +245,7 @@ declare namespace sensor {
 
     /**
      * Wear detection sensor.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9 dynamic
      * @since 23 static
@@ -248,6 +254,7 @@ declare namespace sensor {
 
     /**
      * Uncalibrated acceleration sensor.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9 dynamic
      * @since 23 static
@@ -255,7 +262,10 @@ declare namespace sensor {
     ACCELEROMETER_UNCALIBRATED = 281,
 
     /**
-     * Fusion pressure sensor.
+     * Fused pressure sensor.
+     *
+     * This sensor is available only on smart watches.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 22 dynamic
      * @since 23 static
@@ -265,6 +275,7 @@ declare namespace sensor {
 
   /**
    * Subscribe to orientation sensor data, {@code SensorId.ORIENTATION}.
+   *
    * @param { Callback<OrientationResponse> } callback - callback orientation data.
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported,
    *     <br> {@code Options}.
@@ -275,9 +286,10 @@ declare namespace sensor {
    * @since 23 static
    */
   function onOrientationChange(callback: Callback<OrientationResponse>, options?: Options): void;
-  
+
   /**
    * Subscribe to color sensor data, {@code SensorId.COLOR}.
+   *
    * @param { Callback<ColorResponse> } callback - callback color data.
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported,
    *     <br> {@code Options}.
@@ -293,6 +305,7 @@ declare namespace sensor {
 
   /**
    * Subscribe to SAR sensor data, {@code SensorId.SAR}.
+   *
    * @param { Callback<SarResponse> } callback - callback sar data.
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported,
    *     <br> {@code Options}.
@@ -308,6 +321,7 @@ declare namespace sensor {
 
   /**
    * Subscribe to accelerometer sensor data, {@code SensorId.ACCELEROMETER}.
+   *
    * @permission ohos.permission.ACCELEROMETER
    * @param { Callback<AccelerometerResponse> } callback - callback accelerometer data.
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported,
@@ -323,6 +337,7 @@ declare namespace sensor {
 
   /**
    * Subscribe to uncalibrated accelerometer sensor data, {@code SensorId.ACCELEROMETER_UNCALIBRATED}.
+   *
    * @permission ohos.permission.ACCELEROMETER
    * @param { Callback<AccelerometerUncalibratedResponse> } callback - callback uncalibrated accelerometer data.
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported,
@@ -338,6 +353,7 @@ declare namespace sensor {
 
   /**
    * Subscribe to ambient light sensor data, {@code SensorId.AMBIENT_LIGHT}.
+   *
    * @param { Callback<LightResponse> } callback - callback ambient light data.
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported,
    *     <br> {@code Options}.
@@ -351,6 +367,7 @@ declare namespace sensor {
 
   /**
    * Subscribe to ambient temperature sensor data, {@code SensorId.AMBIENT_TEMPERATURE}.
+   *
    * @param { Callback<AmbientTemperatureResponse> } callback - callback ambient temperature data.
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported,
    *     <br> {@code Options}.
@@ -364,6 +381,7 @@ declare namespace sensor {
 
   /**
    * Subscribe to barometer sensor data, {@code SensorId.BAROMETER}.
+   *
    * @param { Callback<BarometerResponse> } callback - callback barometer data.
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported,
    *     <br> {@code Options}.
@@ -377,6 +395,7 @@ declare namespace sensor {
 
   /**
    * Subscribe to gravity sensor data, {@code SensorId.GRAVITY}.
+   *
    * @param { Callback<GravityResponse> } callback - callback gravity data.
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported,
    *     <br> {@code Options}.
@@ -390,6 +409,7 @@ declare namespace sensor {
 
   /**
    * Subscribe to gyroscope sensor data, {@code SensorId.GYROSCOPE}.
+   *
    * @permission ohos.permission.GYROSCOPE
    * @param { Callback<GyroscopeResponse> } callback - callback gyroscope data.
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported,
@@ -405,6 +425,7 @@ declare namespace sensor {
 
   /**
    * Subscribe to uncalibrated gyroscope sensor data, {@code SensorId.GYROSCOPE_UNCALIBRATED}.
+   *
    * @permission ohos.permission.GYROSCOPE
    * @param { Callback<GyroscopeUncalibratedResponse> } callback - callback uncalibrated gyroscope data.
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported,
@@ -420,6 +441,7 @@ declare namespace sensor {
 
   /**
    * Subscribe to hall sensor data, {@code SensorId.HALL}.
+   *
    * @param { Callback<HallResponse> } callback - callback hall data.
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported,
    *     <br> {@code Options}.
@@ -433,6 +455,7 @@ declare namespace sensor {
 
   /**
    * Subscribe to heart rate sensor data, {@code SensorId.HEART_RATE}.
+   *
    * @permission ohos.permission.READ_HEALTH_DATA
    * @param { Callback<HeartRateResponse> } callback - callback heart rate data.
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported,
@@ -448,6 +471,7 @@ declare namespace sensor {
 
   /**
    * Subscribe to humidity sensor data, {@code SensorId.HUMIDITY}.
+   *
    * @param { Callback<HumidityResponse> } callback - callback humidity data.
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported,
    *     <br> {@code Options}.
@@ -461,6 +485,7 @@ declare namespace sensor {
 
   /**
    * Subscribe to linear acceleration sensor data, {@code SensorId.LINEAR_ACCELEROMETER}.
+   *
    * @permission ohos.permission.ACCELEROMETER
    * @param { Callback<LinearAccelerometerResponse> } callback - callback linear accelerometer data.
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported,
@@ -476,6 +501,7 @@ declare namespace sensor {
 
   /**
    * Subscribe to magnetic field sensor data, {@code SensorId.MAGNETIC_FIELD}.
+   *
    * @param { Callback<MagneticFieldResponse> } callback - callback magnetic field data.
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported,
    *     <br> {@code Options}.
@@ -489,6 +515,7 @@ declare namespace sensor {
 
   /**
    * Subscribe to uncalibrated magnetic field sensor data, {@code SensorId.MAGNETIC_FIELD_UNCALIBRATED}.
+   *
    * @param { Callback<MagneticFieldUncalibratedResponse> } callback - callback uncalibrated magnetic field data.
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported,
    *     <br> {@code Options}.
@@ -502,6 +529,7 @@ declare namespace sensor {
 
   /**
    * Subscribe to pedometer sensor data, {@code SensorId.PEDOMETER}.
+   *
    * @permission ohos.permission.ACTIVITY_MOTION
    * @param { Callback<PedometerResponse> } callback - callback pedometer data.
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported,
@@ -517,6 +545,7 @@ declare namespace sensor {
 
   /**
    * Subscribe to pedometer detection sensor data, {@code SensorId.PEDOMETER_DETECTION}.
+   *
    * @permission ohos.permission.ACTIVITY_MOTION
    * @param { Callback<PedometerDetectionResponse> } callback - callback pedometer detection data.
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported,
@@ -532,6 +561,7 @@ declare namespace sensor {
 
   /**
    * Subscribe to proximity sensor data, {@code SensorId.PROXIMITY}.
+   *
    * @param { Callback<ProximityResponse> } callback - callback proximity data.
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported,
    *     <br> {@code Options}.
@@ -545,6 +575,7 @@ declare namespace sensor {
 
   /**
    * Subscribe to rotation vector sensor data, {@code SensorId.ROTATION_VECTOR}.
+   *
    * @param { Callback<RotationVectorResponse> } callback - callback rotation vector data.
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported,
    *     <br> {@code Options}.
@@ -558,6 +589,7 @@ declare namespace sensor {
 
   /**
    * Subscribe to significant motion sensor data, {@code SensorId.SIGNIFICANT_MOTION}.
+   *
    * @param { Callback<SignificantMotionResponse> } callback - callback significant motion data.
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported,
    *     <br> {@code Options}.
@@ -571,6 +603,7 @@ declare namespace sensor {
 
   /**
    * Subscribe to wear detection sensor data, {@code SensorId.WEAR_DETECTION}.
+   *
    * @param { Callback<WearDetectionResponse> } callback - callback wear detection data.
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported,
    *     <br> {@code Options}.
@@ -584,6 +617,7 @@ declare namespace sensor {
 
   /**
    * Subscribe to fusion pressure sensor data, {@code SensorId.FUSION_PRESSURE}.
+   *
    * @param { Callback<FusionPressureResponse> } callback - callback fusion pressure percent data.
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported,
    *     <br> {@code Options}.
@@ -597,6 +631,7 @@ declare namespace sensor {
 
   /**
    * Subscribe to orientation sensor data once, {@code SensorId.ORIENTATION}.
+   *
    * @param { Callback<OrientationResponse> } callback - callback orientation data.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
@@ -608,8 +643,8 @@ declare namespace sensor {
 
   /**
    * Subscribe to accelerometer sensor data once, {@code SensorId.ACCELEROMETER}.
+   *
    * @permission ohos.permission.ACCELEROMETER
-   * @param { 'accelerometerChange' } type - Indicate the sensor type to listen for.
    * @param { Callback<AccelerometerResponse> } callback - callback accelerometer data.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -622,6 +657,7 @@ declare namespace sensor {
 
   /**
    * Subscribe to uncalibrated accelerometer sensor data once, {@code SensorId.ACCELEROMETER_UNCALIBRATED}.
+   *
    * @permission ohos.permission.ACCELEROMETER
    * @param { Callback<AccelerometerUncalibratedResponse> } callback - callback uncalibrated accelerometer data.
    * @throws { BusinessError } 201 - Permission denied.
@@ -635,6 +671,7 @@ declare namespace sensor {
 
   /**
    * Subscribe to ambient light sensor data once, {@code SensorId.AMBIENT_LIGHT}.
+   *
    * @param { Callback<LightResponse> } callback - callback ambient light data.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
@@ -646,6 +683,7 @@ declare namespace sensor {
 
   /**
    * Subscribe to ambient temperature sensor data once, {@code SensorId.AMBIENT_TEMPERATURE}.
+   *
    * @param { Callback<AmbientTemperatureResponse> } callback - callback ambient temperature data.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
@@ -657,6 +695,7 @@ declare namespace sensor {
 
   /**
    * Subscribe to barometer sensor data once, {@code SensorId.BAROMETER}.
+   *
    * @param { Callback<BarometerResponse> } callback - callback barometer data.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
@@ -668,6 +707,7 @@ declare namespace sensor {
 
   /**
    * Subscribe to gravity sensor data once, {@code SensorId.GRAVITY}.
+   *
    * @param { Callback<GravityResponse> } callback - callback gravity data.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
@@ -679,6 +719,7 @@ declare namespace sensor {
 
   /**
    * Subscribe to gyroscope sensor data once, {@code SensorId.GYROSCOPE}.
+   *
    * @permission ohos.permission.GYROSCOPE
    * @param { Callback<GyroscopeResponse> } callback - callback gyroscope data.
    * @throws { BusinessError } 201 - Permission denied.
@@ -692,6 +733,7 @@ declare namespace sensor {
 
   /**
    * Subscribe to uncalibrated gyroscope sensor data once, {@code SensorId.GYROSCOPE_UNCALIBRATED}.
+   *
    * @permission ohos.permission.GYROSCOPE
    * @param { Callback<GyroscopeUncalibratedResponse> } callback - callback uncalibrated gyroscope data.
    * @throws { BusinessError } 201 - Permission denied.
@@ -705,6 +747,7 @@ declare namespace sensor {
 
   /**
    * Subscribe to hall sensor data once, {@code SensorId.HALL}.
+   *
    * @param { Callback<HallResponse> } callback - callback hall data.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
@@ -716,6 +759,7 @@ declare namespace sensor {
 
   /**
    * Subscribe to heart rate sensor data once, {@code SensorId.HEART_RATE}.
+   *
    * @permission ohos.permission.READ_HEALTH_DATA
    * @param { Callback<HeartRateResponse> } callback - callback heart rate data.
    * @throws { BusinessError } 201 - Permission denied.
@@ -729,6 +773,7 @@ declare namespace sensor {
 
   /**
    * Subscribe to humidity sensor data once, {@code SensorId.HUMIDITY}.
+   *
    * @param { Callback<HumidityResponse> } callback - callback humidity data.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
@@ -740,6 +785,7 @@ declare namespace sensor {
 
   /**
    * Subscribe to linear acceleration sensor data once, {@code SensorId.LINEAR_ACCELEROMETER}.
+   *
    * @permission ohos.permission.ACCELEROMETER
    * @param { Callback<LinearAccelerometerResponse> } callback - callback linear accelerometer data.
    * @throws { BusinessError } 201 - Permission denied.
@@ -753,6 +799,7 @@ declare namespace sensor {
 
   /**
    * Subscribe to magnetic field sensor data once, {@code SensorId.MAGNETIC_FIELD}.
+   *
    * @param { Callback<MagneticFieldResponse> } callback - callback magnetic field data.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
@@ -764,6 +811,7 @@ declare namespace sensor {
 
   /**
    * Subscribe to uncalibrated magnetic field sensor data once, {@code SensorId.MAGNETIC_FIELD_UNCALIBRATED}.
+   *
    * @param { Callback<MagneticFieldUncalibratedResponse> } callback - callback uncalibrated magnetic field data.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
@@ -775,6 +823,7 @@ declare namespace sensor {
 
   /**
    * Subscribe to pedometer sensor data once, {@code SensorId.PEDOMETER}.
+   *
    * @permission ohos.permission.ACTIVITY_MOTION
    * @param { Callback<PedometerResponse> } callback - callback pedometer data.
    * @throws { BusinessError } 201 - Permission denied.
@@ -788,6 +837,7 @@ declare namespace sensor {
 
   /**
    * Subscribe to pedometer detection sensor data once, {@code SensorId.PEDOMETER_DETECTION}.
+   *
    * @permission ohos.permission.ACTIVITY_MOTION
    * @param { Callback<PedometerDetectionResponse> } callback - callback pedometer detection data.
    * @throws { BusinessError } 201 - Permission denied.
@@ -801,6 +851,7 @@ declare namespace sensor {
 
   /**
    * Subscribe to proximity sensor data once, {@code SensorId.PROXIMITY}.
+   *
    * @param { Callback<ProximityResponse> } callback - callback proximity data.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
@@ -812,6 +863,7 @@ declare namespace sensor {
 
   /**
    * Subscribe to rotation vector sensor data once, {@code SensorId.ROTATION_VECTOR}.
+   *
    * @param { Callback<RotationVectorResponse> } callback - callback rotation vector data.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
@@ -823,6 +875,7 @@ declare namespace sensor {
 
   /**
    * Subscribe to significant motion sensor data once, {@code SensorId.SIGNIFICANT_MOTION}.
+   *
    * @param { Callback<SignificantMotionResponse> } callback - callback significant motion data.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
@@ -834,6 +887,7 @@ declare namespace sensor {
 
   /**
    * Subscribe to wear detection sensor data once, {@code SensorId.WEAR_DETECTION}.
+   *
    * @param { Callback<WearDetectionResponse> } callback - callback wear detection data.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
@@ -845,6 +899,7 @@ declare namespace sensor {
 
   /**
    * Unsubscribe to orientation sensor data, {@code SensorId.ORIENTATION}.
+   *
    * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
    * @param { Callback<OrientationResponse> } [callback] - callback orientation data.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -857,6 +912,7 @@ declare namespace sensor {
 
   /**
    * Unsubscribe to color sensor data, {@code SensorId.COLOR}.
+   *
    * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
    * @param { Callback<ColorResponse> } [callback] - callback color data.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -871,6 +927,7 @@ declare namespace sensor {
 
   /**
    * Unsubscribe to sar sensor data, {@code SensorId.SAR}.
+   *
    * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
    * @param { Callback<SarResponse> } [callback] - callback sar data.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -885,6 +942,7 @@ declare namespace sensor {
 
   /**
    * Unsubscribe to accelerometer sensor data, {@code SensorId.ACCELEROMETER}.
+   *
    * @permission ohos.permission.ACCELEROMETER
    * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
    * @param { Callback<AccelerometerResponse> } [callback] - callback accelerometer data.
@@ -899,6 +957,7 @@ declare namespace sensor {
 
   /**
    * Unsubscribe to uncalibrated accelerometer sensor data, {@code SensorId.ACCELEROMETER_UNCALIBRATED}.
+   *
    * @permission ohos.permission.ACCELEROMETER
    * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
    * @param { Callback<AccelerometerUncalibratedResponse> } [callback] - callback uncalibrated accelerometer data.
@@ -913,6 +972,7 @@ declare namespace sensor {
 
   /**
    * Unsubscribe to ambient light sensor data, {@code SensorId.AMBIENT_LIGHT}.
+   *
    * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
    * @param { Callback<LightResponse> } [callback] - callback ambient light data.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -924,7 +984,8 @@ declare namespace sensor {
   function offAmbientLightChange(sensorInfoParam?: SensorInfoParam, callback?: Callback<LightResponse>): void;
 
   /**
-   * Unsubscribe to ambient temperature sensor dataï¼Œ {@code SensorId.AMBIENT_TEMPERATURE}.
+   * Unsubscribe to ambient temperature sensor data£¬ {@code SensorId.AMBIENT_TEMPERATURE}.
+   *
    * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
    * @param { Callback<AmbientTemperatureResponse> } [callback] - callback ambient temperature data.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -937,6 +998,7 @@ declare namespace sensor {
 
   /**
    * Unsubscribe to barometer sensor data, {@code SensorId.BAROMETER}.
+   *
    * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
    * @param { Callback<BarometerResponse> } [callback] - callback barometer data.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -949,6 +1011,7 @@ declare namespace sensor {
 
   /**
    * Unsubscribe to gravity sensor data, {@code SensorId.GRAVITY}.
+   *
    * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
    * @param { Callback<GravityResponse> } [callback] - callback gravity data.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -961,6 +1024,7 @@ declare namespace sensor {
 
   /**
    * Unsubscribe to gyroscope sensor data, {@code SensorId.GYROSCOPE}.
+   *
    * @permission ohos.permission.GYROSCOPE
    * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
    * @param { Callback<GyroscopeResponse> } [callback] - callback gyroscope data.
@@ -975,6 +1039,7 @@ declare namespace sensor {
 
   /**
    * Unsubscribe to uncalibrated gyroscope sensor data, {@code SensorId.GYROSCOPE_UNCALIBRATED}.
+   *
    * @permission ohos.permission.GYROSCOPE
    * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
    * @param { Callback<GyroscopeUncalibratedResponse> } [callback] - callback uncalibrated gyroscope data.
@@ -989,6 +1054,7 @@ declare namespace sensor {
 
   /**
    * Unsubscribe to hall sensor data, {@code SensorId.HALL}.
+   *
    * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
    * @param { Callback<HallResponse> } [callback] - callback hall data.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -1001,6 +1067,7 @@ declare namespace sensor {
 
   /**
    * Unsubscribe to heart rate sensor data, {@code SensorId.HEART_RATE}.
+   *
    * @permission ohos.permission.READ_HEALTH_DATA
    * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
    * @param { Callback<HeartRateResponse> } [callback] - callback heart rate data.
@@ -1015,6 +1082,7 @@ declare namespace sensor {
 
   /**
    * Unsubscribe to humidity sensor data, {@code SensorId.HUMIDITY}.
+   *
    * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
    * @param { Callback<HumidityResponse> } [callback] - callback humidity data.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -1027,6 +1095,7 @@ declare namespace sensor {
 
   /**
    * Unsubscribe to linear acceleration sensor data, {@code SensorId.LINEAR_ACCELEROMETER}.
+   *
    * @permission ohos.permission.ACCELEROMETER
    * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
    * @param { Callback<LinearAccelerometerResponse> } [callback] - callback linear accelerometer data.
@@ -1041,6 +1110,7 @@ declare namespace sensor {
 
   /**
    * Unsubscribe to magnetic field sensor data, {@code SensorId.MAGNETIC_FIELD}.
+   *
    * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
    * @param { Callback<MagneticFieldResponse> } [callback] - callback magnetic field data.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -1053,6 +1123,7 @@ declare namespace sensor {
 
   /**
    * Unsubscribe to uncalibrated magnetic field sensor data, {@code SensorId.MAGNETIC_FIELD_UNCALIBRATED}.
+   *
    * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
    * @param { Callback<MagneticFieldUncalibratedResponse> } [callback] - callback uncalibrated magnetic field data.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -1065,6 +1136,7 @@ declare namespace sensor {
 
   /**
    * Unsubscribe to pedometer sensor data, {@code SensorId.PEDOMETER}.
+   *
    * @permission ohos.permission.ACTIVITY_MOTION
    * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
    * @param { Callback<PedometerResponse> } [callback] - callback pedometer data.
@@ -1079,6 +1151,7 @@ declare namespace sensor {
 
   /**
    * Unsubscribe to pedometer detection sensor data, {@code SensorId.PEDOMETER_DETECTION}.
+   *
    * @permission ohos.permission.ACTIVITY_MOTION
    * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
    * @param { Callback<PedometerDetectionResponse> } [callback] - callback pedometer detection data.
@@ -1093,6 +1166,7 @@ declare namespace sensor {
 
   /**
    * Unsubscribe to proximity sensor data, {@code SensorId.PROXIMITY}.
+   *
    * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
    * @param { Callback<ProximityResponse> } [callback] - callback proximity data.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -1105,6 +1179,7 @@ declare namespace sensor {
 
   /**
    * Unsubscribe to rotation vector sensor data, {@code SensorId.ROTATION_VECTOR}.
+   *
    * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
    * @param { Callback<RotationVectorResponse> } [callback] - callback rotation vector data.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -1117,6 +1192,7 @@ declare namespace sensor {
 
   /**
    * Unsubscribe to significant motion sensor data, {@code SensorId.SIGNIFICANT_MOTION}.
+   *
    * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
    * @param { Callback<SignificantMotionResponse> } [callback] - callback significant motion data.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -1129,6 +1205,7 @@ declare namespace sensor {
 
   /**
    * Unsubscribe to wear detection sensor data, {@code SensorId.WEAR_DETECTION}.
+   *
    * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
    * @param { Callback<WearDetectionResponse> } [callback] - callback wear detection data.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -1141,6 +1218,7 @@ declare namespace sensor {
 
   /**
    * Unsubscribe to fusion pressure sensor data, {@code SensorId.FUSION_PRESSURE}.
+   *
    * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
    * @param { Callback<FusionPressureResponse> } [callback] - callback fusion pressure percent data.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -1152,106 +1230,79 @@ declare namespace sensor {
   function offFusionPressureChange(sensorInfoParam?: SensorInfoParam, callback?: Callback<FusionPressureResponse>): void;
 
   /**
-   * Subscribe to color sensor data.
-   * @param { SensorId.COLOR } type - Indicate the sensor type to listen for, {@code SensorId.COLOR}.
-   * @param { Callback<ColorResponse> } callback - callback color data.
-   * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
+   * Subscribes to data of the color sensor.
+   *
+   * @param { SensorId.COLOR } type - Sensor type. The value is fixed at **SensorId.COLOR**.
+   * @param { Callback<ColorResponse> } callback - Callback used to report the sensor data, which is a **ColorResponse**
+   *     object.
+   * @param { Options } [options] - List of optional parameters. This parameter is used to set the data reporting
+   *     frequency. The default value is 200,000,000 ns.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API. [since 11]
    * @syscap SystemCapability.Sensors.Sensor
    * @systemapi
-   * @since 10
-   */
-  /**
-   * Subscribe to color sensor data.
-   * @param { SensorId.COLOR } type - Indicate the sensor type to listen for, {@code SensorId.COLOR}.
-   * @param { Callback<ColorResponse> } callback - callback color data.
-   * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
-   * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API.
-   * @syscap SystemCapability.Sensors.Sensor
-   * @systemapi
-   * @since 11 dynamic
+   * @since 10 dynamic
    */
   function on(type: SensorId.COLOR, callback: Callback<ColorResponse>, options?: Options): void;
 
   /**
-   * Subscribe to SAR sensor data.
-   * @param { SensorId.SAR } type - Indicate the sensor type to listen for, {@code SensorId.SAR}.
-   * @param { Callback<SarResponse> } callback - callback sar data.
-   * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
+   * Subscribes to data of the Sodium Adsorption Ratio (SAR) sensor.
+   *
+   * @param { SensorId.SAR } type - Sensor type. The value is fixed at **SensorId.SAR**.
+   * @param { Callback<SarResponse> } callback - Callback used to report the sensor data, which is a **SarResponse**
+   *     object.
+   * @param { Options } [options] - List of optional parameters. This parameter is used to set the data reporting
+   *     frequency. The default value is 200,000,000 ns.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API. [since 11]
    * @syscap SystemCapability.Sensors.Sensor
    * @systemapi
-   * @since 10
-   */
-  /**
-   * Subscribe to SAR sensor data.
-   * @param { SensorId.SAR } type - Indicate the sensor type to listen for, {@code SensorId.SAR}.
-   * @param { Callback<SarResponse> } callback - callback sar data.
-   * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
-   * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API.
-   * @syscap SystemCapability.Sensors.Sensor
-   * @systemapi
-   * @since 11 dynamic
+   * @since 10 dynamic
    */
   function on(type: SensorId.SAR, callback: Callback<SarResponse>, options?: Options): void;
 
   /**
-   * Subscribe to accelerometer sensor data.
+   * Subscribes to data of the acceleration sensor.
+   *
    * @permission ohos.permission.ACCELEROMETER
-   * @param { SensorId.ACCELEROMETER } type - Indicate the sensor type to listen for, {@code SensorId.ACCELEROMETER}.
-   * @param { Callback<AccelerometerResponse> } callback - callback accelerometer data.
-   * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
+   * @param { SensorId.ACCELEROMETER } type - Sensor type. The value is fixed at **SensorId.ACCELEROMETER**.
+   * @param { Callback<AccelerometerResponse> } callback - Callback used to report the sensor data, which is an
+   *     **AccelerometerResponse** object.
+   * @param { Options } [options] - List of optional parameters. This parameter is used to set the data reporting
+   *     frequency. The default value is 200,000,000 ns.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
-   * @since 9
-   */
-  /**
-   * Subscribe to accelerometer sensor data.
-   * @permission ohos.permission.ACCELEROMETER
-   * @param { SensorId.ACCELEROMETER } type - Indicate the sensor type to listen for, {@code SensorId.ACCELEROMETER}.
-   * @param { Callback<AccelerometerResponse> } callback - callback accelerometer data.
-   * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
-   * @syscap SystemCapability.Sensors.Sensor
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   function on(type: SensorId.ACCELEROMETER, callback: Callback<AccelerometerResponse>,
     options?: Options): void;
 
   /**
-   * Subscribe to uncalibrated accelerometer sensor data.
+   * Subscribes to data of the uncalibrated acceleration sensor.
+   *
    * @permission ohos.permission.ACCELEROMETER
-   * @param { SensorId.ACCELEROMETER_UNCALIBRATED } type - Indicate the sensor type to listen for,{@code SensorId.ACCELEROMETER_UNCALIBRATED}.
-   * @param { Callback<AccelerometerUncalibratedResponse> } callback - callback uncalibrated accelerometer data.
-   * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
+   * @param { SensorId.ACCELEROMETER_UNCALIBRATED } type - Sensor type. The value is fixed at
+   *     **SensorId.ACCELEROMETER_UNCALIBRATED**.
+   * @param { Callback<AccelerometerUncalibratedResponse> } callback - Callback used to report the sensor data, which is
+   *     an **AccelerometerUncalibratedResponse** object.
+   * @param { Options } [options] - List of optional parameters. This parameter is used to set the data reporting
+   *     frequency. The default value is 200,000,000 ns.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
    */
@@ -1259,28 +1310,34 @@ declare namespace sensor {
     options?: Options): void;
 
   /**
-   * Subscribe to ambient light sensor data.
-   * @param { SensorId.AMBIENT_LIGHT } type - Indicate the sensor type to listen for, {@code SensorId.AMBIENT_LIGHT}.
-   * @param { Callback<LightResponse> } callback - callback ambient data.
-   * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
+   * Subscribes to data of the ambient light sensor.
+   *
+   * @param { SensorId.AMBIENT_LIGHT } type - Sensor type. The value is fixed at **SensorId.AMBIENT_LIGHT**.
+   * @param { Callback<LightResponse> } callback - Callback used to report the sensor data, which is a **LightResponse**
+   *     object.
+   * @param { Options } [options] - List of optional parameters. This parameter is used to set the data reporting
+   *     frequency. The default value is 200,000,000 ns.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
    */
   function on(type: SensorId.AMBIENT_LIGHT, callback: Callback<LightResponse>, options?: Options): void;
 
   /**
-   * Subscribe to ambient temperature sensor data.
-   * @param { SensorId.AMBIENT_TEMPERATURE } type - Indicate the sensor type to listen for, {@code SensorId.AMBIENT_TEMPERATURE}.
-   * @param { Callback<AmbientTemperatureResponse> } callback - callback temperature data.
-   * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
+   * Subscribes to data of the ambient temperature sensor.
+   *
+   * @param { SensorId.AMBIENT_TEMPERATURE } type - Sensor type. The value is fixed at **SensorId.AMBIENT_TEMPERATURE**.
+   * @param { Callback<AmbientTemperatureResponse> } callback - Callback used to report the sensor data, which is an
+   *     **AmbientTemperatureResponse** object.
+   * @param { Options } [options] - List of optional parameters. This parameter is used to set the data reporting
+   *     frequency. The default value is 200,000,000 ns.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
    */
@@ -1288,28 +1345,34 @@ declare namespace sensor {
     options?: Options): void;
 
   /**
-   * Subscribe to barometer sensor data.
-   * @param { SensorId.BAROMETER } type - Indicate the sensor type to listen for, {@code SensorId.BAROMETER}.
-   * @param { Callback<BarometerResponse> } callback - callback barometer data.
-   * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
+   * Subscribes to data of the barometer sensor.
+   *
+   * @param { SensorId.BAROMETER } type - Sensor type. The value is fixed at **SensorId.BAROMETER**.
+   * @param { Callback<BarometerResponse> } callback - Callback used to report the sensor data, which is a
+   *     **BarometerResponse** object.
+   * @param { Options } [options] - List of optional parameters. This parameter is used to set the data reporting
+   *     frequency. The default value is 200,000,000 ns.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
    */
   function on(type: SensorId.BAROMETER, callback: Callback<BarometerResponse>, options?: Options): void;
 
   /**
-   * Subscribe to gravity sensor data.
-   * @param { SensorId.GRAVITY } type - Indicate the sensor type to listen for, {@code SensorId.GRAVITY}.
-   * @param { Callback<GravityResponse> } callback - callback gravity data.
-   * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
+   * Subscribes to data of the gravity sensor.
+   *
+   * @param { SensorId.GRAVITY } type - Sensor type. The value is fixed at **SensorId.GRAVITY**.
+   * @param { Callback<GravityResponse> } callback - Callback used to report the sensor data, which is a
+   *     **GravityResponse** object.
+   * @param { Options } [options] - List of optional parameters. This parameter is used to set the data reporting
+   *     frequency. The default value is 200,000,000 ns.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
    */
@@ -1317,48 +1380,41 @@ declare namespace sensor {
     options?: Options): void;
 
   /**
-   * Subscribe to gyroscope sensor data.
+   * Subscribes to data of the gyroscope sensor.
+   *
    * @permission ohos.permission.GYROSCOPE
-   * @param { SensorId.GYROSCOPE } type - Indicate the sensor type to listen for, {@code SensorId.GYROSCOPE}.
-   * @param { Callback<GyroscopeResponse> } callback - callback gyroscope data.
-   * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
+   * @param { SensorId.GYROSCOPE } type - Sensor type. The value is fixed at **SensorId.GYROSCOPE**.
+   * @param { Callback<GyroscopeResponse> } callback - Callback used to report the sensor data, which is a
+   *     **GyroscopeResponse** object.
+   * @param { Options } [options] - List of optional parameters. This parameter is used to set the data reporting
+   *     frequency. The default value is 200,000,000 ns.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
-   * @since 9
-   */
-  /**
-   * Subscribe to gyroscope sensor data.
-   * @permission ohos.permission.GYROSCOPE
-   * @param { SensorId.GYROSCOPE } type - Indicate the sensor type to listen for, {@code SensorId.GYROSCOPE}.
-   * @param { Callback<GyroscopeResponse> } callback - callback gyroscope data.
-   * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
-   * @syscap SystemCapability.Sensors.Sensor
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   function on(type: SensorId.GYROSCOPE, callback: Callback<GyroscopeResponse>,
     options?: Options): void;
 
   /**
-   * Subscribe to uncalibrated gyroscope sensor data.
+   * Subscribes to data of the uncalibrated gyroscope sensor.
+   *
    * @permission ohos.permission.GYROSCOPE
-   * @param { SensorId.GYROSCOPE_UNCALIBRATED } type - Indicate the sensor type to listen for, {@code SensorId.GYROSCOPE_UNCALIBRATED}.
-   * @param { Callback<GyroscopeUncalibratedResponse> } callback - callback uncalibrated gyroscope data.
-   * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
+   * @param { SensorId.GYROSCOPE_UNCALIBRATED } type - Sensor type. The value is fixed at
+   *     **SensorId.GYROSCOPE_UNCALIBRATED**.
+   * @param { Callback<GyroscopeUncalibratedResponse> } callback - Callback used to report the sensor data, which is a
+   *     **GyroscopeUncalibratedResponse** object.
+   * @param { Options } [options] - List of optional parameters. This parameter is used to set the data reporting
+   *     frequency. The default value is 200,000,000 ns.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
    */
@@ -1366,30 +1422,36 @@ declare namespace sensor {
     options?: Options): void;
 
   /**
-   * Subscribe to hall sensor data.
-   * @param { SensorId.HALL } type - Indicate the sensor type to listen for, {@code SensorId.HALL}.
-   * @param { Callback<HallResponse> } callback - callback uncalibrated gyroscope data.
-   * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
+   * Subscribes to data of the Hall effect sensor.
+   *
+   * @param { SensorId.HALL } type - Sensor type. The value is fixed at **SensorId.HALL**.
+   * @param { Callback<HallResponse> } callback - Callback used to report the sensor data, which is a **HallResponse**
+   *     object.
+   * @param { Options } [options] - List of optional parameters. The default value is 200,000,000 ns. This parameter is
+   *     used to set the data reporting frequency when Hall effect events are frequently triggered.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
    */
   function on(type: SensorId.HALL, callback: Callback<HallResponse>, options?: Options): void;
 
   /**
-   * Subscribe to heart rate sensor data.
+   * Subscribes to data of the heart rate sensor.
+   *
    * @permission ohos.permission.READ_HEALTH_DATA
-   * @param { SensorId.HEART_RATE } type - Indicate the sensor type to listen for, {@code SensorId.HEART_RATE}.
-   * @param { Callback<HeartRateResponse> } callback - callback heart rate data.
-   * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
+   * @param { SensorId.HEART_RATE } type - Sensor type. The value is fixed at **SensorId.HEART_RATE**.
+   * @param { Callback<HeartRateResponse> } callback - Callback used to report the sensor data, which is a
+   *     **HeartRateResponse** object.
+   * @param { Options } [options] - List of optional parameters. This parameter is used to set the data reporting
+   *     frequency. The default value is 200,000,000 ns.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
    */
@@ -1397,14 +1459,17 @@ declare namespace sensor {
     options?: Options): void;
 
   /**
-   * Subscribe to humidity sensor data.
-   * @param { SensorId.HUMIDITY } type - Indicate the sensor type to listen for, {@code SensorId.HUMIDITY}.
-   * @param { Callback<HumidityResponse> } callback - callback humidity data.
-   * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
+   * Subscribes to data of the humidity sensor.
+   *
+   * @param { SensorId.HUMIDITY } type - Sensor type. The value is fixed at **SensorId.HUMIDITY**.
+   * @param { Callback<HumidityResponse> } callback - Callback used to report the sensor data, which is a
+   *     **HumidityResponse** object.
+   * @param { Options } [options] - List of optional parameters. This parameter is used to set the data reporting
+   *     frequency. The default value is 200,000,000 ns.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
    */
@@ -1412,16 +1477,20 @@ declare namespace sensor {
     options?: Options): void;
 
   /**
-   * Subscribe to linear acceleration sensor data.
+   * Subscribes to data of the linear acceleration sensor.
+   *
    * @permission ohos.permission.ACCELEROMETER
-   * @param { SensorId.LINEAR_ACCELEROMETER } type - Indicate the sensor type to listen for, {@code SensorId.LINEAR_ACCELEROMETER}.
-   * @param { Callback<LinearAccelerometerResponse> } callback - callback linear acceleration data.
-   * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
+   * @param { SensorId.LINEAR_ACCELEROMETER } type - Sensor type. The value is fixed at
+   *     **SensorId.LINEAR_ACCELEROMETER**.
+   * @param { Callback<LinearAccelerometerResponse> } callback - Callback used to report the sensor data, which is a
+   *     **LinearAccelerometerResponse** object.
+   * @param { Options } [options] - List of optional parameters. This parameter is used to set the data reporting
+   *     frequency. The default value is 200,000,000 ns.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
    */
@@ -1429,14 +1498,17 @@ declare namespace sensor {
     options?: Options): void;
 
   /**
-   * Subscribe to magnetic field sensor data.
-   * @param { SensorId.MAGNETIC_FIELD } type - Indicate the sensor type to listen for, {@code SensorId.MAGNETIC_FIELD}.
-   * @param { Callback<MagneticFieldResponse> } callback - callback magnetic field data.
-   * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
+   * Subscribes to data of the magnetic field sensor.
+   *
+   * @param { SensorId.MAGNETIC_FIELD } type - Sensor type. The value is fixed at **SensorId.MAGNETIC_FIELD**.
+   * @param { Callback<MagneticFieldResponse> } callback - Callback used to report the sensor data, which is a
+   *     **MagneticFieldResponse** object.
+   * @param { Options } [options] - List of optional parameters. This parameter is used to set the data reporting
+   *     frequency. The default value is 200,000,000 ns.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
    */
@@ -1444,15 +1516,18 @@ declare namespace sensor {
     options?: Options): void;
 
   /**
-   * Subscribe to uncalibrated magnetic field sensor data.
-   * @param { SensorId.MAGNETIC_FIELD_UNCALIBRATED } type - Indicate the sensor type to listen for,
-   *        {@code SensorId.MAGNETIC_FIELD_UNCALIBRATED}.
-   * @param { Callback<MagneticFieldUncalibratedResponse> } callback - callback uncalibrated magnetic field data.
-   * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
+   * Subscribes to data of the uncalibrated magnetic field sensor.
+   *
+   * @param { SensorId.MAGNETIC_FIELD_UNCALIBRATED } type - Sensor type. The value is fixed at
+   *     **SensorId.MAGNETIC_FIELD_UNCALIBRATED**.
+   * @param { Callback<MagneticFieldUncalibratedResponse> } callback - Callback used to report the sensor data, which is
+   *     a **MagneticFieldUncalibratedResponse** object.
+   * @param { Options } [options] - List of optional parameters. This parameter is used to set the data reporting
+   *     frequency. The default value is 200,000,000 ns.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
    */
@@ -1460,61 +1535,64 @@ declare namespace sensor {
     options?: Options): void;
 
   /**
-   * Subscribe to orientation sensor data.
-   * @param { SensorId.ORIENTATION } type - Indicate the sensor type to listen for, {@code SensorId.ORIENTATION}.
-   * @param { Callback<OrientationResponse> } callback - callback orientation data.
-   * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
+   * Subscribes to data of the orientation sensor.
+   *
+   * > **NOTE**
+   * >
+   * > Applications or services invoking this API can prompt users to use figure-8 calibration to improve the accuracy
+   * > of the direction sensor. The sensor has a theoretical error of ¡À5 degrees, but the specific precision may vary
+   * > depending on different driver implementations and algorithmic designs.
+   *
+   * @param { SensorId.ORIENTATION } type - Sensor type. The value is fixed at **SensorId.ORIENTATION**.
+   * @param { Callback<OrientationResponse> } callback - Callback used to report the sensor data, which is a
+   *     **OrientationResponse** object.
+   * @param { Options } [options] - List of optional parameters. This parameter is used to set the data reporting
+   *     frequency. The default value is 200,000,000 ns.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
-   * @since 9
-   */
-  /**
-   * Subscribe to orientation sensor data.
-   * @param { SensorId.ORIENTATION } type - Indicate the sensor type to listen for, {@code SensorId.ORIENTATION}.
-   * @param { Callback<OrientationResponse> } callback - callback orientation data.
-   * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
-   * @syscap SystemCapability.Sensors.Sensor
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   function on(type: SensorId.ORIENTATION, callback: Callback<OrientationResponse>,
     options?: Options): void;
 
-
   /**
-   * Subscribe to pedometer sensor data.
+   * Subscribes to data of the pedometer sensor. The step counter sensor's data reporting is subject to some delay, and
+   * the delay is determined by specific product implementations.
+   *
    * @permission ohos.permission.ACTIVITY_MOTION
-   * @param { SensorId.PEDOMETER } type - Indicate the sensor type to listen for, {@code SensorId.PEDOMETER}.
-   * @param { Callback<PedometerResponse> } callback - callback pedometer data.
-   * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
+   * @param { SensorId.PEDOMETER } type - Sensor type. The value is fixed at **SensorId.PEDOMETER**.
+   * @param { Callback<PedometerResponse> } callback - Callback used to report the sensor data, which is a
+   *     **PedometerResponse** object.
+   * @param { Options } [options] - List of optional parameters. This parameter is used to set the data reporting
+   *     frequency. The default value is 200,000,000 ns.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
    */
   function on(type: SensorId.PEDOMETER, callback: Callback<PedometerResponse>, options?: Options): void;
 
   /**
-   * Subscribe to pedometer detection sensor data.
+   * Subscribes to data of the pedometer detection sensor.
+   *
    * @permission ohos.permission.ACTIVITY_MOTION
-   * @param { SensorId.PEDOMETER_DETECTION } type - Indicate the sensor type to listen for, {@code SensorId.PEDOMETER_DETECTION}.
-   * @param { Callback<PedometerDetectionResponse> } callback - callback pedometer detection data.
-   * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
+   * @param { SensorId.PEDOMETER_DETECTION } type - Sensor type. The value is fixed at **SensorId.PEDOMETER_DETECTION**.
+   * @param { Callback<PedometerDetectionResponse> } callback - Callback used to report the sensor data, which is a
+   *     **PedometerDetectionResponse** object.
+   * @param { Options } [options] - List of optional parameters. This parameter is used to set the data reporting
+   *     frequency. The default value is 200,000,000 ns.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
    */
@@ -1522,28 +1600,34 @@ declare namespace sensor {
     options?: Options): void;
 
   /**
-   * Subscribe to proximity sensor data.
-   * @param { SensorId.PROXIMITY } type - Indicate the sensor type to listen for, {@code SensorId.PROXIMITY}.
-   * @param { Callback<ProximityResponse> } callback - callback proximity data.
-   * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
+   * Subscribes to data of the proximity sensor.
+   *
+   * @param { SensorId.PROXIMITY } type - Sensor type. The value is fixed at **SensorId.PROXIMITY**.
+   * @param { Callback<ProximityResponse> } callback - Callback used to report the sensor data, which is a
+   *     **ProximityResponse** object.
+   * @param { Options } [options] - List of optional parameters. The default value is 200,000,000 ns. This parameter is
+   *     used to set the data reporting frequency when proximity sensor events are frequently triggered.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
    */
   function on(type: SensorId.PROXIMITY, callback: Callback<ProximityResponse>, options?: Options): void;
 
   /**
-   * Subscribe to rotation vector sensor data.
-   * @param { SensorId.ROTATION_VECTOR } type - Indicate the sensor type to listen for, {@code SensorId.ROTATION_VECTOR}.
-   * @param { Callback<RotationVectorResponse> } callback - callback rotation vector data.
-   * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
+   * Subscribes to data of the rotation vector sensor.
+   *
+   * @param { SensorId.ROTATION_VECTOR } type - Sensor type. The value is fixed at **SensorId.ROTATION_VECTOR**.
+   * @param { Callback<RotationVectorResponse> } callback - Callback used to report the sensor data, which is a
+   *     **RotationVectorResponse** object.
+   * @param { Options } [options] - List of optional parameters. This parameter is used to set the data reporting
+   *     frequency. The default value is 200,000,000 ns.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
    */
@@ -1551,14 +1635,17 @@ declare namespace sensor {
     options?: Options): void;
 
   /**
-   * Subscribe to significant motion sensor data.
-   * @param { SensorId.SIGNIFICANT_MOTION } type - Indicate the sensor type to listen for, {@code SensorId.SIGNIFICANT_MOTION}.
-   * @param { Callback<SignificantMotionResponse> } callback - callback significant motion data.
-   * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
+   * Subscribes to the significant motion sensor data.
+   *
+   * @param { SensorId.SIGNIFICANT_MOTION } type - Sensor type. The value is fixed at **SensorId.SIGNIFICANT_MOTION**.
+   * @param { Callback<SignificantMotionResponse> } callback - Callback used to report the sensor data, which is a
+   *     **SignificantMotionResponse** object.
+   * @param { Options } [options] - List of optional parameters. This parameter is used to set the data reporting
+   *     frequency. The default value is 200,000,000 ns.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
    */
@@ -1566,14 +1653,17 @@ declare namespace sensor {
     options?: Options): void;
 
   /**
-   * Subscribe to wear detection sensor data.
-   * @param { SensorId.WEAR_DETECTION } type - Indicate the sensor type to listen for, {@code SensorId.WEAR_DETECTION}.
-   * @param { Callback<WearDetectionResponse> } callback - callback wear detection data.
-   * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
+   * Subscribes to data of the wear detection sensor.
+   *
+   * @param { SensorId.WEAR_DETECTION } type - Sensor type. The value is fixed at **SensorId.WEAR_DETECTION**.
+   * @param { Callback<WearDetectionResponse> } callback - Callback used to report the sensor data, which is a
+   *     **WearDetectionResponse** object.
+   * @param { Options } [options] - List of optional parameters. This parameter is used to set the data reporting
+   *     frequency. The default value is 200,000,000 ns.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
    */
@@ -1581,16 +1671,17 @@ declare namespace sensor {
     options?: Options): void;
 
   /**
-   * Subscribe to fusion pressure sensor data.
-   * @param { SensorId.FUSION_PRESSURE } type - Indicate the sensor type to listen for,
-   * <br> {@code SensorId.FUSION_PRESSURE}.
-   * @param { Callback<FusionPressureResponse> } callback - callback fusion pressure percent data.
-   * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported,
-   * <br> {@code Options}.
+   * Subscribes to the fused pressure sensor data.
+   *
+   * @param { SensorId.FUSION_PRESSURE } type - Sensor type. The value is fixed at SensorId.FUSION_PRESSURE.
+   * @param { Callback<FusionPressureResponse> } callback - Callback used to report the sensor data, which is a
+   *     **FusionPressureResponse** object.
+   * @param { Options } [options] - List of optional parameters. This parameter is used to set the data reporting
+   *     frequency. The default value is 200,000,000 ns.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 22 dynamic
    */
@@ -1598,327 +1689,366 @@ declare namespace sensor {
     options?: Options): void;
 
   /**
-   * Subscribe to accelerometer sensor data once.
+   * Obtains data of the acceleration sensor once.
+   *
    * @permission ohos.permission.ACCELEROMETER
-   * @param { SensorId.ACCELEROMETER } type - Indicate the sensor type to listen for, {@code SensorId.ACCELEROMETER}.
-   * @param { Callback<AccelerometerResponse> } callback - callback accelerometer data.
+   * @param { SensorId.ACCELEROMETER } type - Sensor type. The value is fixed at **SensorId.ACCELEROMETER**.
+   * @param { Callback<AccelerometerResponse> } callback - Callback used to report the sensor data, which is an
+   *     **AccelerometerResponse** object.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
    */
   function once(type: SensorId.ACCELEROMETER, callback: Callback<AccelerometerResponse>): void;
 
   /**
-   * Subscribe to uncalibrated accelerometer sensor data once.
+   * Obtains data of the uncalibrated acceleration sensor once.
+   *
    * @permission ohos.permission.ACCELEROMETER
-   * @param { SensorId.ACCELEROMETER_UNCALIBRATED } type - Indicate the sensor type to listen for,{@code SensorId.ACCELEROMETER_UNCALIBRATED}.
-   * @param { Callback<AccelerometerUncalibratedResponse> } callback - callback uncalibrated accelerometer data.
+   * @param { SensorId.ACCELEROMETER_UNCALIBRATED } type - Sensor type. The value is fixed at
+   *     **SensorId.ACCELEROMETER_UNCALIBRATED**.
+   * @param { Callback<AccelerometerUncalibratedResponse> } callback - Callback used to report the sensor data, which is
+   *     an **AccelerometerUncalibratedResponse** object.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
    */
   function once(type: SensorId.ACCELEROMETER_UNCALIBRATED, callback: Callback<AccelerometerUncalibratedResponse>): void;
 
   /**
-   * Subscribe to ambient light sensor data once.
-   * @param { SensorId.AMBIENT_LIGHT } type - Indicate the sensor type to listen for, {@code SensorId.AMBIENT_LIGHT}.
-   * @param { Callback<LightResponse> } callback - callback ambient data.
+   * Obtains data of the ambient light sensor once.
+   *
+   * @param { SensorId.AMBIENT_LIGHT } type - Sensor type. The value is fixed at **SensorId.AMBIENT_LIGHT**.
+   * @param { Callback<LightResponse> } callback - Callback used to report the sensor data, which is a **LightResponse**
+   *     object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
    */
   function once(type: SensorId.AMBIENT_LIGHT, callback: Callback<LightResponse>): void;
 
   /**
-   * Subscribe to ambient temperature sensor data once.
-   * @param { SensorId.AMBIENT_TEMPERATURE } type - Indicate the sensor type to listen for, {@code SensorId.AMBIENT_TEMPERATURE}.
-   * @param { Callback<AmbientTemperatureResponse> } callback - callback temperature data.
+   * Obtains data of the temperature sensor once.
+   *
+   * @param { SensorId.AMBIENT_TEMPERATURE } type - Sensor type. The value is fixed at **SensorId.AMBIENT_TEMPERATURE**.
+   * @param { Callback<AmbientTemperatureResponse> } callback - Callback used to report the sensor data, which is an
+   *     **AmbientTemperatureResponse** object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
    */
   function once(type: SensorId.AMBIENT_TEMPERATURE, callback: Callback<AmbientTemperatureResponse>): void;
 
   /**
-   * Subscribe to barometer sensor data once.
-   * @param { SensorId.BAROMETER } type - Indicate the sensor type to listen for, {@code SensorId.BAROMETER}.
-   * @param { Callback<BarometerResponse> } callback - callback barometer data.
+   * Obtains data of the barometer sensor once.
+   *
+   * @param { SensorId.BAROMETER } type - Sensor type. The value is fixed at **SensorId.BAROMETER**.
+   * @param { Callback<BarometerResponse> } callback - Callback used to report the sensor data, which is a
+   *     **BarometerResponse** object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
    */
   function once(type: SensorId.BAROMETER, callback: Callback<BarometerResponse>): void;
 
   /**
-   * Subscribe to gravity sensor data once.
-   * @param { SensorId.GRAVITY } type - Indicate the sensor type to listen for, {@code SensorId.GRAVITY}.
-   * @param { Callback<GravityResponse> } callback - callback gravity data.
+   * Obtains data of the gravity sensor once.
+   *
+   * @param { SensorId.GRAVITY } type - Sensor type. The value is fixed at **SensorId.GRAVITY**.
+   * @param { Callback<GravityResponse> } callback - Callback used to report the sensor data, which is a
+   *     **GravityResponse** object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
    */
   function once(type: SensorId.GRAVITY, callback: Callback<GravityResponse>): void;
 
   /**
-   * Subscribe to gyroscope sensor data once.
+   * Obtains data of the gyroscope sensor once.
+   *
    * @permission ohos.permission.GYROSCOPE
-   * @param { SensorId.GYROSCOPE } type - Indicate the sensor type to listen for, {@code SensorId.GYROSCOPE}.
-   * @param { Callback<GyroscopeResponse> } callback - callback gyroscope data.
+   * @param { SensorId.GYROSCOPE } type - Sensor type. The value is fixed at **SensorId.GYROSCOPE**.
+   * @param { Callback<GyroscopeResponse> } callback - Callback used to report the sensor data, which is a
+   *     **GyroscopeResponse** object.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
    */
   function once(type: SensorId.GYROSCOPE, callback: Callback<GyroscopeResponse>): void;
 
   /**
-   * Subscribe to uncalibrated gyroscope sensor data once.
+   * Obtains data of the uncalibrated gyroscope sensor once.
+   *
    * @permission ohos.permission.GYROSCOPE
-   * @param { SensorId.GYROSCOPE_UNCALIBRATED } type - Indicate the sensor type to listen for,{@code SensorId.GYROSCOPE_UNCALIBRATED}.
-   * @param { Callback<GyroscopeUncalibratedResponse> } callback - callback uncalibrated gyroscope data.
+   * @param { SensorId.GYROSCOPE_UNCALIBRATED } type - Sensor type. The value is fixed at
+   *     **SensorId.GYROSCOPE_UNCALIBRATED**.
+   * @param { Callback<GyroscopeUncalibratedResponse> } callback - Callback used to report the sensor data, which is a
+   *     **GyroscopeUncalibratedResponse** object.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
    */
   function once(type: SensorId.GYROSCOPE_UNCALIBRATED, callback: Callback<GyroscopeUncalibratedResponse>): void;
 
   /**
-   * Subscribe to hall sensor data once.
-   * @param { SensorId.HALL } type - Indicate the sensor type to listen for, {@code SensorId.HALL}.
-   * @param { Callback<HallResponse> } callback - callback uncalibrated gyroscope data.
+   * Obtains data of the Hall effect sensor once.
+   *
+   * @param { SensorId.HALL } type - Sensor type. The value is fixed at **SensorId.HALL**.
+   * @param { Callback<HallResponse> } callback - Callback used to report the sensor data, which is a **HallResponse**
+   *     object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
    */
   function once(type: SensorId.HALL, callback: Callback<HallResponse>): void;
 
   /**
-   * Subscribe to heart rate sensor data once.
+   * Obtains data of the heart rate sensor once.
+   *
    * @permission ohos.permission.READ_HEALTH_DATA
-   * @param { SensorId.HEART_RATE } type - Indicate the sensor type to listen for, {@code SensorId.HEART_RATE}.
-   * @param { Callback<HeartRateResponse> } callback - callback heart rate data.
+   * @param { SensorId.HEART_RATE } type - Sensor type. The value is fixed at **SensorId.HEART_RATE**.
+   * @param { Callback<HeartRateResponse> } callback - Callback used to report the sensor data, which is a
+   *     **HeartRateResponse** object.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
    */
   function once(type: SensorId.HEART_RATE, callback: Callback<HeartRateResponse>): void;
 
   /**
-   * Subscribe to humidity sensor data once.
-   * @param { SensorId.HUMIDITY } type - Indicate the sensor type to listen for, {@code SensorId.HUMIDITY}.
-   * @param { Callback<HumidityResponse> } callback - callback humidity data.
+   * Obtains data of the humidity sensor once.
+   *
+   * @param { SensorId.HUMIDITY } type - Sensor type. The value is fixed at **SensorId.HUMIDITY**.
+   * @param { Callback<HumidityResponse> } callback - Callback used to report the sensor data, which is a
+   *     **HumidityResponse** object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
    */
   function once(type: SensorId.HUMIDITY, callback: Callback<HumidityResponse>): void;
 
   /**
-   * Subscribe to linear acceleration sensor data once.
+   * Obtains data of the linear acceleration sensor once.
+   *
    * @permission ohos.permission.ACCELEROMETER
-   * @param { SensorId.LINEAR_ACCELEROMETER } type - Indicate the sensor type to listen for, {@code SensorId.LINEAR_ACCELEROMETER}.
-   * @param { Callback<LinearAccelerometerResponse> } callback - callback linear acceleration data.
+   * @param { SensorId.LINEAR_ACCELEROMETER } type - Sensor type. The value is fixed at
+   *     **SensorId.LINEAR_ACCELEROMETER**.
+   * @param { Callback<LinearAccelerometerResponse> } callback - Callback used to report the sensor data, which is a
+   *     **LinearAccelerometerResponse** object.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
    */
   function once(type: SensorId.LINEAR_ACCELEROMETER, callback: Callback<LinearAccelerometerResponse>): void;
 
   /**
-   * Subscribe to magnetic field sensor data once.
-   * @param { SensorId.MAGNETIC_FIELD } type - Indicate the sensor type to listen for, {@code SensorId.MAGNETIC_FIELD}.
-   * @param { Callback<MagneticFieldResponse> } callback - callback magnetic field data.
+   * Obtains data of the magnetic field sensor once.
+   *
+   * @param { SensorId.MAGNETIC_FIELD } type - Sensor type. The value is fixed at **SensorId.MAGNETIC_FIELD**.
+   * @param { Callback<MagneticFieldResponse> } callback - Callback used to report the sensor data, which is a
+   *     **MagneticFieldResponse** object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
    */
   function once(type: SensorId.MAGNETIC_FIELD, callback: Callback<MagneticFieldResponse>): void;
 
   /**
-   * Subscribe to uncalibrated magnetic field sensor data once.
-   * @param { SensorId.MAGNETIC_FIELD_UNCALIBRATED } type - Indicate the sensor type to listen for,
-   *        {@code SensorId.MAGNETIC_FIELD_UNCALIBRATED}.
-   * @param { Callback<MagneticFieldUncalibratedResponse> } callback - callback uncalibrated magnetic field data.
+   * Obtains data of the uncalibrated magnetic field sensor once.
+   *
+   * @param { SensorId.MAGNETIC_FIELD_UNCALIBRATED } type - Sensor type. The value is fixed at
+   *     **SensorId.MAGNETIC_FIELD_UNCALIBRATED**.
+   * @param { Callback<MagneticFieldUncalibratedResponse> } callback - Callback used to report the sensor data, which is
+   *     a **MagneticFieldUncalibratedResponse** object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
    */
   function once(type: SensorId.MAGNETIC_FIELD_UNCALIBRATED, callback: Callback<MagneticFieldUncalibratedResponse>): void;
 
   /**
-   * Subscribe to orientation sensor data once.
-   * @param { SensorId.ORIENTATION } type - Indicate the sensor type to listen for, {@code SensorId.ORIENTATION}.
-   * @param { Callback<OrientationResponse> } callback - callback orientation data.
+   * Obtains data of the orientation sensor once.
+   *
+   * @param { SensorId.ORIENTATION } type - Sensor type. The value is fixed at **SensorId.ORIENTATION**.
+   * @param { Callback<OrientationResponse> } callback - Callback used to report the sensor data, which is a
+   *     **OrientationResponse** object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
    */
   function once(type: SensorId.ORIENTATION, callback: Callback<OrientationResponse>): void;
 
   /**
-   * Subscribe to pedometer sensor data once.
+   * Obtains data of the pedometer sensor once. The step counter sensor's data reporting is subject to some delay, and
+   * the delay is determined by specific product implementations.
+   *
    * @permission ohos.permission.ACTIVITY_MOTION
-   * @param { SensorId.PEDOMETER } type - Indicate the sensor type to listen for, {@code SensorId.PEDOMETER}.
-   * @param { Callback<PedometerResponse> } callback - callback pedometer data.
+   * @param { SensorId.PEDOMETER } type - Sensor type. The value is fixed at **SensorId.PEDOMETER**.
+   * @param { Callback<PedometerResponse> } callback - Callback used to report the sensor data, which is a
+   *     **PedometerResponse** object.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
    */
   function once(type: SensorId.PEDOMETER, callback: Callback<PedometerResponse>): void;
 
   /**
-   * Subscribe to pedometer detection sensor data once.
+   * Obtains data of the pedometer sensor once.
+   *
    * @permission ohos.permission.ACTIVITY_MOTION
-   * @param { SensorId.PEDOMETER_DETECTION } type - Indicate the sensor type to listen for, {@code SensorId.PEDOMETER_DETECTION}.
-   * @param { Callback<PedometerDetectionResponse> } callback - callback pedometer detection data.
+   * @param { SensorId.PEDOMETER_DETECTION } type - Sensor type. The value is fixed at **SensorId.PEDOMETER_DETECTION**.
+   * @param { Callback<PedometerDetectionResponse> } callback - Callback used to report the sensor data, which is a
+   *     **PedometerDetectionResponse** object.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
    */
   function once(type: SensorId.PEDOMETER_DETECTION, callback: Callback<PedometerDetectionResponse>): void;
 
   /**
-   * Subscribe to proximity sensor data once.
-   * @param { SensorId.PROXIMITY } type - Indicate the sensor type to listen for, {@code SensorId.PROXIMITY}.
-   * @param { Callback<ProximityResponse> } callback - callback proximity data.
+   * Obtains data of the proximity sensor once.
+   *
+   * @param { SensorId.PROXIMITY } type - Sensor type. The value is fixed at **SensorId.PROXIMITY**.
+   * @param { Callback<ProximityResponse> } callback - Callback used to report the sensor data, which is a
+   *     **ProximityResponse** object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
    */
   function once(type: SensorId.PROXIMITY, callback: Callback<ProximityResponse>): void;
 
   /**
-   * Subscribe to rotation vector sensor data once.
-   * @param { SensorId.ROTATION_VECTOR } type - Indicate the sensor type to listen for, {@code SensorId.ROTATION_VECTOR}.
-   * @param { Callback<RotationVectorResponse> } callback - callback rotation vector data.
+   * Obtains data of the rotation vector sensor once.
+   *
+   * @param { SensorId.ROTATION_VECTOR } type - Sensor type. The value is fixed at **SensorId.ROTATION_VECTOR**.
+   * @param { Callback<RotationVectorResponse> } callback - Callback used to report the sensor data, which is a
+   *     **RotationVectorResponse** object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
    */
   function once(type: SensorId.ROTATION_VECTOR, callback: Callback<RotationVectorResponse>): void;
 
   /**
-   * Subscribe to significant motion sensor data once.
-   * @param { SensorId.SIGNIFICANT_MOTION } type - Indicate the sensor type to listen for, {@code SensorId.SIGNIFICANT_MOTION}.
-   * @param { Callback<SignificantMotionResponse> } callback - callback significant motion data.
+   * Obtains the significant motion sensor data once.
+   *
+   * @param { SensorId.SIGNIFICANT_MOTION } type - Sensor type. The value is fixed at **SensorId.SIGNIFICANT_MOTION**.
+   * @param { Callback<SignificantMotionResponse> } callback - Callback used to report the sensor data, which is a
+   *     **SignificantMotionResponse** object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
    */
   function once(type: SensorId.SIGNIFICANT_MOTION, callback: Callback<SignificantMotionResponse>): void;
 
   /**
-   * Subscribe to wear detection sensor data once.
-   * @param { SensorId.WEAR_DETECTION } type - Indicate the sensor type to listen for, {@code SensorId.WEAR_DETECTION}.
-   * @param { Callback<WearDetectionResponse> } callback - callback wear detection data.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   * Obtains data of the wear detection sensor once.
    *
+   * @param { SensorId.WEAR_DETECTION } type - Sensor type. The value is fixed at **SensorId.WEAR_DETECTION**.
+   * @param { Callback<WearDetectionResponse> } callback - Callback used to report the sensor data, which is a
+   *     **WearDetectionResponse** object.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
    */
   function once(type: SensorId.WEAR_DETECTION, callback: Callback<WearDetectionResponse>): void;
 
   /**
-   * Unsubscribe to color sensor data.
-   * @param { SensorId.COLOR } type - Indicate the sensor type to listen for, {@code SensorId.COLOR}.
-   * @param { Callback<ColorResponse> } callback - callback color data.
+   * Unsubscribes from data of the color sensor.
+   *
+   * @param { SensorId.COLOR } type - Sensor type. The value is fixed at **SensorId.COLOR**.
+   * @param { Callback<ColorResponse> } callback - Callback used for unsubscription. If this parameter is not specified,
+   *     all callbacks of the specified sensor type are unsubscribed from.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API. [since 11]
    * @syscap SystemCapability.Sensors.Sensor
    * @systemapi
-   * @since 10
-   */
-  /**
-   * Unsubscribe to color sensor data.
-   * @param { SensorId.COLOR } type - Indicate the sensor type to listen for, {@code SensorId.COLOR}.
-   * @param { Callback<ColorResponse> } callback - callback color data.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API.
-   * @syscap SystemCapability.Sensors.Sensor
-   * @systemapi
-   * @since 11 dynamic
+   * @since 10 dynamic
    */
   function off(type: SensorId.COLOR, callback?: Callback<ColorResponse>): void;
 
   /**
-   * Unsubscribe to color sensor data.
-   * @param { SensorId.COLOR } type - Indicate the sensor type to listen for, {@code SensorId.COLOR}.
-   * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
-   * @param { Callback<ColorResponse> } [callback] - callback color data.
+   * Unsubscribes from data of the color sensor.
+   *
+   * @param { SensorId.COLOR } type - Sensor type. The value is fixed at **SensorId.COLOR**.
+   * @param { SensorInfoParam } [sensorInfoParam] - Sensor parameters, including **deviceId** and **sensorIndex**.
+   * @param { Callback<ColorResponse> } [callback] - Callback used for unsubscription. If this parameter is not
+   *     specified, all callbacks of the specified sensor type are unsubscribed from.
    * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @systemapi
    * @since 19 dynamic
@@ -1926,36 +2056,30 @@ declare namespace sensor {
   function off(type: SensorId.COLOR, sensorInfoParam?: SensorInfoParam, callback?: Callback<ColorResponse>): void;
 
   /**
-   * Unsubscribe to sar sensor data.
-   * @param { SensorId.SAR } type - Indicate the sensor type to listen for, {@code SensorId.SAR}.
-   * @param { Callback<SarResponse> } callback - callback sar data.
+   * Unsubscribes from data of the SAR sensor.
+   *
+   * @param { SensorId.SAR } type - Sensor type. The value is fixed at **SensorId.SAR**.
+   * @param { Callback<SarResponse> } callback - Callback used for unsubscription. If this parameter is not specified,
+   *     all callbacks of the specified sensor type are unsubscribed from.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API. [since 11]
    * @syscap SystemCapability.Sensors.Sensor
    * @systemapi
-   * @since 10
-   */
-  /**
-   * Unsubscribe to sar sensor data.
-   * @param { SensorId.SAR } type - Indicate the sensor type to listen for, {@code SensorId.SAR}.
-   * @param { Callback<SarResponse> } callback - callback sar data.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API.
-   * @syscap SystemCapability.Sensors.Sensor
-   * @systemapi
-   * @since 11 dynamic
+   * @since 10 dynamic
    */
   function off(type: SensorId.SAR, callback?: Callback<SarResponse>): void;
 
   /**
-   * Unsubscribe to sar sensor data.
-   * @param { SensorId.SAR } type - Indicate the sensor type to listen for, {@code SensorId.SAR}.
-   * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
-   * @param { Callback<SarResponse> } [callback] - callback sar data.
+   * Unsubscribes from data of the SAR sensor.
+   *
+   * @param { SensorId.SAR } type - Sensor type. The value is fixed at **SensorId.SAR**.
+   * @param { SensorInfoParam } [sensorInfoParam] - Sensor parameters, including **deviceId** and **sensorIndex**.
+   * @param { Callback<SarResponse> } [callback] - Callback used for unsubscription. If this parameter is not specified,
+   *     all callbacks of the specified sensor type are unsubscribed from.
    * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @systemapi
    * @since 19 dynamic
@@ -1963,39 +2087,32 @@ declare namespace sensor {
   function off(type: SensorId.SAR, sensorInfoParam?: SensorInfoParam, callback?: Callback<SarResponse>): void;
 
   /**
-   * Unsubscribe to accelerometer sensor data.
+   * Unsubscribes from data of the acceleration sensor.
+   *
    * @permission ohos.permission.ACCELEROMETER
-   * @param { SensorId.ACCELEROMETER } type - Indicate the sensor type to listen for, {@code SensorId.ACCELEROMETER}.
-   * @param { Callback<AccelerometerResponse> } callback - callback accelerometer data.
+   * @param { SensorId.ACCELEROMETER } type - Sensor type. The value is fixed at **SensorId.ACCELEROMETER**.
+   * @param { Callback<AccelerometerResponse> } callback - Callback used for unsubscription. If this parameter is not
+   *     specified, all callbacks of the specified sensor type are unsubscribed from.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Sensors.Sensor
-   * @since 9
-   */
-  /**
-   * Unsubscribe to accelerometer sensor data.
-   * @permission ohos.permission.ACCELEROMETER
-   * @param { SensorId.ACCELEROMETER } type - Indicate the sensor type to listen for, {@code SensorId.ACCELEROMETER}.
-   * @param { Callback<AccelerometerResponse> } callback - callback accelerometer data.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.Sensors.Sensor
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   function off(type: SensorId.ACCELEROMETER, callback?: Callback<AccelerometerResponse>): void;
 
   /**
-   * Unsubscribe to accelerometer sensor data.
+   * Unsubscribes from data of the acceleration sensor.
+   *
    * @permission ohos.permission.ACCELEROMETER
-   * @param { SensorId.ACCELEROMETER } type - Indicate the sensor type to listen for, {@code SensorId.ACCELEROMETER}.
-   * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
-   * @param { Callback<AccelerometerResponse> } [callback] - callback accelerometer data.
+   * @param { SensorId.ACCELEROMETER } type - Sensor type. The value is fixed at **SensorId.ACCELEROMETER**.
+   * @param { SensorInfoParam } [sensorInfoParam] - Sensor parameters, including **deviceId** and **sensorIndex**.
+   * @param { Callback<AccelerometerResponse> } [callback] - Callback used for unsubscription. If this parameter is not
+   *     specified, all callbacks of the specified sensor type are unsubscribed from.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @atomicservice
    * @since 19 dynamic
@@ -2003,160 +2120,173 @@ declare namespace sensor {
   function off(type: SensorId.ACCELEROMETER, sensorInfoParam?: SensorInfoParam, callback?: Callback<AccelerometerResponse>): void;
 
   /**
-   * Unsubscribe to uncalibrated accelerometer sensor data.
+   * Unsubscribes from data of the uncalibrated acceleration sensor.
+   *
    * @permission ohos.permission.ACCELEROMETER
-   * @param { SensorId.ACCELEROMETER_UNCALIBRATED } type - Indicate the sensor type to listen for,
-   *        {@code SensorId.ACCELEROMETER_UNCALIBRATED}.
-   * @param { Callback<AccelerometerUncalibratedResponse> } callback - callback uncalibrated accelerometer data.
+   * @param { SensorId.ACCELEROMETER_UNCALIBRATED } type - Sensor type. The value is fixed at
+   *     **SensorId.ACCELEROMETER_UNCALIBRATED**.
+   * @param { Callback<AccelerometerUncalibratedResponse> } callback - Callback used for unsubscription. If this
+   *     parameter is not specified, all callbacks of the specified sensor type are unsubscribed from.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
    */
   function off(type: SensorId.ACCELEROMETER_UNCALIBRATED, callback?: Callback<AccelerometerUncalibratedResponse>): void;
 
   /**
-   * Unsubscribe to uncalibrated accelerometer sensor data.
+   * Unsubscribes from data of the uncalibrated acceleration sensor.
+   *
    * @permission ohos.permission.ACCELEROMETER
-   * @param { SensorId.ACCELEROMETER_UNCALIBRATED } type - Indicate the sensor type to listen for,
-   *        {@code SensorId.ACCELEROMETER_UNCALIBRATED}.
-   * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
-   * @param { Callback<AccelerometerUncalibratedResponse> } [callback] - callback uncalibrated accelerometer data.
+   * @param { SensorId.ACCELEROMETER_UNCALIBRATED } type - Sensor type. The value is fixed at
+   *     **SensorId.ACCELEROMETER_UNCALIBRATED**.
+   * @param { SensorInfoParam } [sensorInfoParam] - Sensor parameters, including **deviceId** and **sensorIndex**.
+   * @param { Callback<AccelerometerUncalibratedResponse> } [callback] - Callback used for unsubscription. If this
+   *     parameter is not specified, all callbacks of the specified sensor type are unsubscribed from.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 19 dynamic
    */
   function off(type: SensorId.ACCELEROMETER_UNCALIBRATED, sensorInfoParam?: SensorInfoParam, callback?: Callback<AccelerometerUncalibratedResponse>): void;
 
   /**
-   * Unsubscribe to ambient light sensor data.
-   * @param { SensorId.AMBIENT_LIGHT } type - Indicate the sensor type to listen for, {@code SensorId.AMBIENT_LIGHT}.
-   * @param { Callback<LightResponse> } callback - callback ambient data.
+   * Unsubscribes from data of the ambient light sensor.
+   *
+   * @param { SensorId.AMBIENT_LIGHT } type - Sensor type. The value is fixed at **SensorId.AMBIENT_LIGHT**.
+   * @param { Callback<LightResponse> } callback - Callback used for unsubscription. If this parameter is not specified,
+   *     all callbacks of the specified sensor type are unsubscribed from.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
    */
   function off(type: SensorId.AMBIENT_LIGHT, callback?: Callback<LightResponse>): void;
 
   /**
-   * Unsubscribe to ambient light sensor data.
-   * @param { SensorId.AMBIENT_LIGHT } type - Indicate the sensor type to listen for, {@code SensorId.AMBIENT_LIGHT}.
-   * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
-   * @param { Callback<LightResponse> } [callback] - callback ambient data.
+   * Unsubscribes from data of the ambient light sensor.
+   *
+   * @param { SensorId.AMBIENT_LIGHT } type - Sensor type. The value is fixed at **SensorId.AMBIENT_LIGHT**.
+   * @param { SensorInfoParam } [sensorInfoParam] - Sensor parameters, including **deviceId** and **sensorIndex**.
+   * @param { Callback<LightResponse> } [callback] - Callback used for unsubscription. If this parameter is not
+   *     specified, all callbacks of the specified sensor type are unsubscribed from.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 19 dynamic
    */
   function off(type: SensorId.AMBIENT_LIGHT, sensorInfoParam?: SensorInfoParam, callback?: Callback<LightResponse>): void;
 
   /**
-   * Unsubscribe to ambient temperature sensor data.
-   * @param { SensorId.AMBIENT_TEMPERATURE } type - Indicate the sensor type to listen for, {@code SensorId.AMBIENT_TEMPERATURE}.
-   * @param { Callback<AmbientTemperatureResponse> } callback - callback temperature data.
+   * Unsubscribes from data of the ambient temperature sensor.
+   *
+   * @param { SensorId.AMBIENT_TEMPERATURE } type - Sensor type. The value is fixed at **SensorId.AMBIENT_TEMPERATURE**.
+   * @param { Callback<AmbientTemperatureResponse> } callback - Callback used for unsubscription. If this parameter is
+   *     not specified, all callbacks of the specified sensor type are unsubscribed from.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
    */
   function off(type: SensorId.AMBIENT_TEMPERATURE, callback?: Callback<AmbientTemperatureResponse>): void;
 
   /**
-   * Unsubscribe to ambient temperature sensor data.
-   * @param { SensorId.AMBIENT_TEMPERATURE } type - Indicate the sensor type to listen for, {@code SensorId.AMBIENT_TEMPERATURE}.
-   * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
-   * @param { Callback<AmbientTemperatureResponse> } [callback] - callback temperature data.
+   * Unsubscribes from data of the ambient temperature sensor.
+   *
+   * @param { SensorId.AMBIENT_TEMPERATURE } type - Sensor type. The value is fixed at **SensorId.AMBIENT_TEMPERATURE**.
+   * @param { SensorInfoParam } [sensorInfoParam] - Sensor parameters, including **deviceId** and **sensorIndex**.
+   * @param { Callback<AmbientTemperatureResponse> } [callback] - Callback used for unsubscription. If this parameter is
+   *     not specified, all callbacks of the specified sensor type are unsubscribed from.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 19 dynamic
    */
   function off(type: SensorId.AMBIENT_TEMPERATURE, sensorInfoParam?: SensorInfoParam, callback?: Callback<AmbientTemperatureResponse>): void;
 
   /**
-   * Unsubscribe to barometer sensor data.
-   * @param { SensorId.BAROMETER } type - Indicate the sensor type to listen for, {@code SensorId.BAROMETER}.
-   * @param { Callback<BarometerResponse> } callback - callback barometer data.
+   * Unsubscribes from data of the barometer sensor.
+   *
+   * @param { SensorId.BAROMETER } type - Sensor type. The value is fixed at **SensorId.BAROMETER**.
+   * @param { Callback<BarometerResponse> } callback - Callback used for unsubscription. If this parameter is not
+   *     specified, all callbacks of the specified sensor type are unsubscribed from.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
    */
   function off(type: SensorId.BAROMETER, callback?: Callback<BarometerResponse>): void;
 
   /**
-   * Unsubscribe to barometer sensor data.
-   * @param { SensorId.BAROMETER } type - Indicate the sensor type to listen for, {@code SensorId.BAROMETER}.
-   * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
-   * @param { Callback<BarometerResponse> } [callback] - callback barometer data.
+   * Unsubscribes from data of the barometer sensor.
+   *
+   * @param { SensorId.BAROMETER } type - Sensor type. The value is fixed at **SensorId.BAROMETER**.
+   * @param { SensorInfoParam } [sensorInfoParam] - Sensor parameters, including **deviceId** and **sensorIndex**.
+   * @param { Callback<BarometerResponse> } [callback] - Callback used for unsubscription. If this parameter is not
+   *     specified, all callbacks of the specified sensor type are unsubscribed from.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 19 dynamic
    */
   function off(type: SensorId.BAROMETER, sensorInfoParam?: SensorInfoParam, callback?: Callback<BarometerResponse>): void;
 
   /**
-   * Unsubscribe to gravity sensor data.
-   * @param { SensorId.GRAVITY } type - Indicate the sensor type to listen for, {@code SensorId.GRAVITY}.
-   * @param { Callback<GravityResponse> } callback - callback gravity data.
+   * Unsubscribes from data of the gravity sensor.
+   *
+   * @param { SensorId.GRAVITY } type - Sensor type. The value is fixed at **SensorId.GRAVITY**.
+   * @param { Callback<GravityResponse> } callback - Callback used for unsubscription. If this parameter is not
+   *     specified, all callbacks of the specified sensor type are unsubscribed from.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
    */
   function off(type: SensorId.GRAVITY, callback?: Callback<GravityResponse>): void;
 
   /**
-   * Unsubscribe to gravity sensor data.
-   * @param { SensorId.GRAVITY } type - Indicate the sensor type to listen for, {@code SensorId.GRAVITY}.
-   * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
-   * @param { Callback<GravityResponse> } [callback] - callback gravity data.
+   * Unsubscribes from data of the gravity sensor.
+   *
+   * @param { SensorId.GRAVITY } type - Sensor type. The value is fixed at **SensorId.GRAVITY**.
+   * @param { SensorInfoParam } [sensorInfoParam] - Sensor parameters, including **deviceId** and **sensorIndex**.
+   * @param { Callback<GravityResponse> } [callback] - Callback used for unsubscription. If this parameter is not
+   *     specified, all callbacks of the specified sensor type are unsubscribed from.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 19 dynamic
    */
   function off(type: SensorId.GRAVITY, sensorInfoParam?: SensorInfoParam, callback?: Callback<GravityResponse>): void;
 
   /**
-   * Unsubscribe to gyroscope sensor data.
+   * Unsubscribes from data of the gyroscope sensor.
+   *
    * @permission ohos.permission.GYROSCOPE
-   * @param { SensorId.GYROSCOPE } type - Indicate the sensor type to listen for, {@code SensorId.GYROSCOPE}.
-   * @param { Callback<GyroscopeResponse> } callback - callback gyroscope data.
+   * @param { SensorId.GYROSCOPE } type - Sensor type. The value is fixed at **SensorId.GYROSCOPE**.
+   * @param { Callback<GyroscopeResponse> } callback - Callback used for unsubscription. If this parameter is not
+   *     specified, all callbacks of the specified sensor type are unsubscribed from.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Sensors.Sensor
-   * @since 9
-   */
-  /**
-   * Unsubscribe to gyroscope sensor data.
-   * @permission ohos.permission.GYROSCOPE
-   * @param { SensorId.GYROSCOPE } type - Indicate the sensor type to listen for, {@code SensorId.GYROSCOPE}.
-   * @param { Callback<GyroscopeResponse> } callback - callback gyroscope data.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.Sensors.Sensor
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   function off(type: SensorId.GYROSCOPE, callback?: Callback<GyroscopeResponse>): void;
 
   /**
-   * Unsubscribe to gyroscope sensor data.
+   * Unsubscribes from data of the gyroscope sensor.
+   *
    * @permission ohos.permission.GYROSCOPE
-   * @param { SensorId.GYROSCOPE } type - Indicate the sensor type to listen for, {@code SensorId.GYROSCOPE}.
-   * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
-   * @param { Callback<GyroscopeResponse> } [callback] - callback gyroscope data.
+   * @param { SensorId.GYROSCOPE } type - Sensor type. The value is fixed at **SensorId.GYROSCOPE**.
+   * @param { SensorInfoParam } [sensorInfoParam] - Sensor parameters, including **deviceId** and **sensorIndex**.
+   * @param { Callback<GyroscopeResponse> } [callback] - Callback used for unsubscription. If this parameter is not
+   *     specified, all callbacks of the specified sensor type are unsubscribed from.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @atomicservice
    * @since 19 dynamic
@@ -2164,208 +2294,235 @@ declare namespace sensor {
   function off(type: SensorId.GYROSCOPE, sensorInfoParam?: SensorInfoParam, callback?: Callback<GyroscopeResponse>): void;
 
   /**
-   * Unsubscribe to uncalibrated gyroscope sensor data.
+   * Unsubscribes from data of the uncalibrated gyroscope sensor.
+   *
    * @permission ohos.permission.GYROSCOPE
-   * @param { SensorId.GYROSCOPE_UNCALIBRATED } type - Indicate the sensor type to listen for, {@code SensorId.GYROSCOPE_UNCALIBRATED}.
-   * @param { Callback<GyroscopeUncalibratedResponse> } callback - callback uncalibrated gyroscope data.
+   * @param { SensorId.GYROSCOPE_UNCALIBRATED } type - Sensor type. The value is fixed at
+   *     **SensorId.GYROSCOPE_UNCALIBRATED**.
+   * @param { Callback<GyroscopeUncalibratedResponse> } callback - Callback used for unsubscription. If this parameter
+   *     is not specified, all callbacks of the specified sensor type are unsubscribed from.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
    */
   function off(type: SensorId.GYROSCOPE_UNCALIBRATED, callback?: Callback<GyroscopeUncalibratedResponse>): void;
 
   /**
-   * Unsubscribe to uncalibrated gyroscope sensor data.
+   * Unsubscribes from data of the uncalibrated gyroscope sensor.
+   *
    * @permission ohos.permission.GYROSCOPE
-   * @param { SensorId.GYROSCOPE_UNCALIBRATED } type - Indicate the sensor type to listen for, {@code SensorId.GYROSCOPE_UNCALIBRATED}.
-   * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
-   * @param { Callback<GyroscopeUncalibratedResponse> } [callback] - callback uncalibrated gyroscope data.
+   * @param { SensorId.GYROSCOPE_UNCALIBRATED } type - Sensor type. The value is fixed at
+   *     **SensorId.GYROSCOPE_UNCALIBRATED**.
+   * @param { SensorInfoParam } [sensorInfoParam] - Sensor parameters, including **deviceId** and **sensorIndex**.
+   * @param { Callback<GyroscopeUncalibratedResponse> } [callback] - Callback used for unsubscription. If this parameter
+   *     is not specified, all callbacks of the specified sensor type are unsubscribed from.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 19 dynamic
    */
   function off(type: SensorId.GYROSCOPE_UNCALIBRATED, sensorInfoParam?: SensorInfoParam, callback?: Callback<GyroscopeUncalibratedResponse>): void;
 
   /**
-   * Unsubscribe to hall sensor data.
-   * @param { SensorId.HALL } type - Indicate the sensor type to listen for, {@code SensorId.HALL}.
-   * @param { Callback<HallResponse> } callback - callback uncalibrated gyroscope data.
+   * Unsubscribes from data of the Hall effect sensor.
+   *
+   * @param { SensorId.HALL } type - Sensor type. The value is fixed at **SensorId.HALL**.
+   * @param { Callback<HallResponse> } callback - Callback used for unsubscription. If this parameter is not specified,
+   *     all callbacks of the specified sensor type are unsubscribed from.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
    */
   function off(type: SensorId.HALL, callback?: Callback<HallResponse>): void;
 
   /**
-   * Unsubscribe to hall sensor data.
-   * @param { SensorId.HALL } type - Indicate the sensor type to listen for, {@code SensorId.HALL}.
-   * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
-   * @param { Callback<HallResponse> } [callback] - callback uncalibrated gyroscope data.
+   * Unsubscribes from data of the Hall effect sensor.
+   *
+   * @param { SensorId.HALL } type - Sensor type. The value is fixed at **SensorId.HALL**.
+   * @param { SensorInfoParam } [sensorInfoParam] - Sensor parameters, including **deviceId** and **sensorIndex**.
+   * @param { Callback<HallResponse> } [callback] - Callback used for unsubscription. If this parameter is not specified
+   *     , all callbacks of the specified sensor type are unsubscribed from.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 19 dynamic
    */
   function off(type: SensorId.HALL, sensorInfoParam?: SensorInfoParam, callback?: Callback<HallResponse>): void;
 
   /**
-   * Unsubscribe to heart rate sensor data.
+   * Unsubscribes from data of the heart rate sensor.
+   *
    * @permission ohos.permission.READ_HEALTH_DATA
-   * @param { SensorId.HEART_RATE } type - Indicate the sensor type to listen for, {@code SensorId.HEART_RATE}.
-   * @param { Callback<HeartRateResponse> } callback - callback heart rate data.
+   * @param { SensorId.HEART_RATE } type - Sensor type. The value is fixed at **SensorId.HEART_RATE**.
+   * @param { Callback<HeartRateResponse> } callback - Callback used for unsubscription. If this parameter is not
+   *     specified, all callbacks of the specified sensor type are unsubscribed from.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
    */
   function off(type: SensorId.HEART_RATE, callback?: Callback<HeartRateResponse>): void;
 
   /**
-   * Unsubscribe to heart rate sensor data.
+   * Unsubscribes from data of the heart rate sensor.
+   *
    * @permission ohos.permission.READ_HEALTH_DATA
-   * @param { SensorId.HEART_RATE } type - Indicate the sensor type to listen for, {@code SensorId.HEART_RATE}.
-   * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
-   * @param { Callback<HeartRateResponse> } [callback] - callback heart rate data.
+   * @param { SensorId.HEART_RATE } type - Sensor type. The value is fixed at **SensorId.HEART_RATE**.
+   * @param { SensorInfoParam } [sensorInfoParam] - Sensor parameters, including **deviceId** and **sensorIndex**.
+   * @param { Callback<HeartRateResponse> } [callback] - Callback used for unsubscription. If this parameter is not
+   *     specified, all callbacks of the specified sensor type are unsubscribed from.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 19 dynamic
    */
   function off(type: SensorId.HEART_RATE, sensorInfoParam?: SensorInfoParam, callback?: Callback<HeartRateResponse>): void;
 
   /**
-   * Unsubscribe to humidity sensor data.
-   * @param { SensorId.HUMIDITY } type - Indicate the sensor type to listen for, {@code SensorId.HUMIDITY}.
-   * @param { Callback<HumidityResponse> } callback - callback humidity data.
+   * Unsubscribes from data of the humidity sensor.
+   *
+   * @param { SensorId.HUMIDITY } type - Sensor type. The value is fixed at **SensorId.HUMIDITY**.
+   * @param { Callback<HumidityResponse> } callback - Callback used for unsubscription. If this parameter is not
+   *     specified, all callbacks of the specified sensor type are unsubscribed from.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
    */
   function off(type: SensorId.HUMIDITY, callback?: Callback<HumidityResponse>): void;
 
   /**
-   * Unsubscribe to humidity sensor data.
-   * @param { SensorId.HUMIDITY } type - Indicate the sensor type to listen for, {@code SensorId.HUMIDITY}.
-   * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
-   * @param { Callback<HumidityResponse> } [callback] - callback humidity data.
+   * Unsubscribes from data of the humidity sensor.
+   *
+   * @param { SensorId.HUMIDITY } type - Sensor type. The value is fixed at **SensorId.HUMIDITY**.
+   * @param { SensorInfoParam } [sensorInfoParam] - Sensor parameters, including **deviceId** and **sensorIndex**.
+   * @param { Callback<HumidityResponse> } [callback] - Callback used for unsubscription. If this parameter is not
+   *     specified, all callbacks of the specified sensor type are unsubscribed from.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 19 dynamic
    */
   function off(type: SensorId.HUMIDITY, sensorInfoParam?: SensorInfoParam, callback?: Callback<HumidityResponse>): void;
 
   /**
-   * Unsubscribe to linear acceleration sensor data.
+   * Unsubscribes from data of the linear acceleration sensor.
+   *
    * @permission ohos.permission.ACCELEROMETER
-   * @param { SensorId.LINEAR_ACCELEROMETER } type - Indicate the sensor type to listen for, {@code SensorId.LINEAR_ACCELEROMETER}.
-   * @param { Callback<LinearAccelerometerResponse> } callback - callback linear acceleration data.
+   * @param { SensorId.LINEAR_ACCELEROMETER } type - Sensor type. The value is fixed at
+   *     **SensorId.LINEAR_ACCELERATION**.
+   * @param { Callback<LinearAccelerometerResponse> } callback - Callback used for unsubscription. If this parameter is
+   *     not specified, all callbacks of the specified sensor type are unsubscribed from.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
    */
   function off(type: SensorId.LINEAR_ACCELEROMETER, callback?: Callback<LinearAccelerometerResponse>): void;
 
   /**
-   * Unsubscribe to linear acceleration sensor data.
+   * Unsubscribes from data of the linear acceleration sensor.
+   *
    * @permission ohos.permission.ACCELEROMETER
-   * @param { SensorId.LINEAR_ACCELEROMETER } type - Indicate the sensor type to listen for, {@code SensorId.LINEAR_ACCELEROMETER}.
-   * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
-   * @param { Callback<LinearAccelerometerResponse> } [callback] - callback linear acceleration data.
+   * @param { SensorId.LINEAR_ACCELEROMETER } type - Sensor type. The value is fixed at
+   *     **SensorId.LINEAR_ACCELERATION**.
+   * @param { SensorInfoParam } [sensorInfoParam] - Sensor parameters, including **deviceId** and **sensorIndex**.
+   * @param { Callback<LinearAccelerometerResponse> } [callback] - Callback used for unsubscription. If this parameter
+   *     is not specified, all callbacks of the specified sensor type are unsubscribed from.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 19 dynamic
    */
   function off(type: SensorId.LINEAR_ACCELEROMETER, sensorInfoParam?: SensorInfoParam, callback?: Callback<LinearAccelerometerResponse>): void;
 
   /**
-   * Unsubscribe to magnetic field sensor data.
-   * @param { SensorId.MAGNETIC_FIELD } type - Indicate the sensor type to listen for, {@code SensorId.MAGNETIC_FIELD}.
-   * @param { Callback<MagneticFieldResponse> } callback - callback magnetic field data.
+   * Unsubscribes from data of the magnetic field sensor.
+   *
+   * @param { SensorId.MAGNETIC_FIELD } type - Sensor type. The value is fixed at **SensorId.MAGNETIC_FIELD**.
+   * @param { Callback<MagneticFieldResponse> } callback - Callback used for unsubscription. If this parameter is not
+   *     specified, all callbacks of the specified sensor type are unsubscribed from.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
    */
   function off(type: SensorId.MAGNETIC_FIELD, callback?: Callback<MagneticFieldResponse>): void;
 
   /**
-   * Unsubscribe to magnetic field sensor data.
-   * @param { SensorId.MAGNETIC_FIELD } type - Indicate the sensor type to listen for, {@code SensorId.MAGNETIC_FIELD}.
-   * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
-   * @param { Callback<MagneticFieldResponse> } [callback] - callback magnetic field data.
+   * Unsubscribes from data of the magnetic field sensor.
+   *
+   * @param { SensorId.MAGNETIC_FIELD } type - Sensor type. The value is fixed at **SensorId.MAGNETIC_FIELD**.
+   * @param { SensorInfoParam } [sensorInfoParam] - Sensor parameters, including **deviceId** and **sensorIndex**.
+   * @param { Callback<MagneticFieldResponse> } [callback] - Callback used for unsubscription. If this parameter is not
+   *     specified, all callbacks of the specified sensor type are unsubscribed from.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 19 dynamic
    */
   function off(type: SensorId.MAGNETIC_FIELD, sensorInfoParam?: SensorInfoParam, callback?: Callback<MagneticFieldResponse>): void;
 
   /**
-   * Unsubscribe to uncalibrated magnetic field sensor data.
-   * @param { SensorId.MAGNETIC_FIELD_UNCALIBRATED } type - Indicate the sensor type to listen for,
-   *        {@code SensorId.MAGNETIC_FIELD_UNCALIBRATED}.
-   * @param { Callback<MagneticFieldUncalibratedResponse> } callback - callback uncalibrated magnetic field data.
+   * Unsubscribes from data of the uncalibrated magnetic field sensor.
+   *
+   * @param { SensorId.MAGNETIC_FIELD_UNCALIBRATED } type - Sensor type. The value is fixed at
+   *     **SensorId.MAGNETIC_FIELD_UNCALIBRATED**.
+   * @param { Callback<MagneticFieldUncalibratedResponse> } callback - Callback used for unsubscription. If this
+   *     parameter is not specified, all callbacks of the specified sensor type are unsubscribed from.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
    */
   function off(type: SensorId.MAGNETIC_FIELD_UNCALIBRATED, callback?: Callback<MagneticFieldUncalibratedResponse>): void;
 
   /**
-   * Unsubscribe to uncalibrated magnetic field sensor data.
-   * @param { SensorId.MAGNETIC_FIELD_UNCALIBRATED } type - Indicate the sensor type to listen for,
-   *        {@code SensorId.MAGNETIC_FIELD_UNCALIBRATED}.
-   * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
-   * @param { Callback<MagneticFieldUncalibratedResponse> } [callback] - callback uncalibrated magnetic field data.
+   * Unsubscribes from data of the uncalibrated magnetic field sensor.
+   *
+   * @param { SensorId.MAGNETIC_FIELD_UNCALIBRATED } type - Sensor type. The value is fixed at
+   *     **SensorId.MAGNETIC_FIELD_UNCALIBRATED**.
+   * @param { SensorInfoParam } [sensorInfoParam] - Sensor parameters, including **deviceId** and **sensorIndex**.
+   * @param { Callback<MagneticFieldUncalibratedResponse> } [callback] - Callback used for unsubscription. If this
+   *     parameter is not specified, all callbacks of the specified sensor type are unsubscribed from.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 19 dynamic
    */
   function off(type: SensorId.MAGNETIC_FIELD_UNCALIBRATED, sensorInfoParam?: SensorInfoParam, callback?: Callback<MagneticFieldUncalibratedResponse>): void;
 
   /**
-   * Unsubscribe to orientation sensor data.
-   * @param { SensorId.ORIENTATION } type - Indicate the sensor type to listen for, {@code SensorId.ORIENTATION}.
-   * @param { Callback<OrientationResponse> } callback - callback orientation data.
+   * Unsubscribes from data of the orientation sensor.
+   *
+   * @param { SensorId.ORIENTATION } type - Sensor type. The value is fixed at **SensorId.ORIENTATION**.
+   * @param { Callback<OrientationResponse> } callback - Callback used for unsubscription. If this parameter is not
+   *     specified, all callbacks of the specified sensor type are unsubscribed from.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Sensors.Sensor
-   * @since 9
-   */
-  /**
-   * Unsubscribe to orientation sensor data.
-   * @param { SensorId.ORIENTATION } type - Indicate the sensor type to listen for, {@code SensorId.ORIENTATION}.
-   * @param { Callback<OrientationResponse> } callback - callback orientation data.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.Sensors.Sensor
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   function off(type: SensorId.ORIENTATION, callback?: Callback<OrientationResponse>): void;
 
   /**
-   * Unsubscribe to orientation sensor data.
-   * @param { SensorId.ORIENTATION } type - Indicate the sensor type to listen for, {@code SensorId.ORIENTATION}.
-   * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
-   * @param { Callback<OrientationResponse> } [callback] - callback orientation data.
+   * Unsubscribes from data of the orientation sensor.
+   *
+   * @param { SensorId.ORIENTATION } type - Sensor type. The value is fixed at **SensorId.ORIENTATION**.
+   * @param { SensorInfoParam } [sensorInfoParam] - Sensor parameters, including **deviceId** and **sensorIndex**.
+   * @param { Callback<OrientationResponse> } [callback] - Callback used for unsubscription. If this parameter is not
+   *     specified, all callbacks of the specified sensor type are unsubscribed from.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @atomicservice
    * @since 19 dynamic
@@ -2373,990 +2530,1185 @@ declare namespace sensor {
   function off(type: SensorId.ORIENTATION, sensorInfoParam?: SensorInfoParam, callback?: Callback<OrientationResponse>): void;
 
   /**
-   * Unsubscribe to pedometer sensor data.
+   * Unsubscribes from data of the pedometer sensor.
+   *
    * @permission ohos.permission.ACTIVITY_MOTION
-   * @param { SensorId.PEDOMETER } type - Indicate the sensor type to listen for, {@code SensorId.PEDOMETER}.
-   * @param { Callback<PedometerResponse> } callback - callback pedometer data.
+   * @param { SensorId.PEDOMETER } type - Sensor type. The value is fixed at **SensorId.PEDOMETER**.
+   * @param { Callback<PedometerResponse> } callback - Callback used for unsubscription. If this parameter is not
+   *     specified, all callbacks of the specified sensor type are unsubscribed from.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
    */
   function off(type: SensorId.PEDOMETER, callback?: Callback<PedometerResponse>): void;
 
   /**
-   * Unsubscribe to pedometer sensor data.
+   * Unsubscribes from data of the pedometer sensor.
+   *
    * @permission ohos.permission.ACTIVITY_MOTION
-   * @param { SensorId.PEDOMETER } type - Indicate the sensor type to listen for, {@code SensorId.PEDOMETER}.
-   * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
-   * @param { Callback<PedometerResponse> } [callback] - callback pedometer data.
+   * @param { SensorId.PEDOMETER } type - Sensor type. The value is fixed at **SensorId.PEDOMETER**.
+   * @param { SensorInfoParam } [sensorInfoParam] - Sensor parameters, including **deviceId** and **sensorIndex**.
+   * @param { Callback<PedometerResponse> } [callback] - Callback used for unsubscription. If this parameter is not
+   *     specified, all callbacks of the specified sensor type are unsubscribed from.
    * @throws { BusinessError } 201 - Permission denied
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 19 dynamic
    */
   function off(type: SensorId.PEDOMETER, sensorInfoParam?: SensorInfoParam, callback?: Callback<PedometerResponse>): void;
 
   /**
-   * Unsubscribe to pedometer detection sensor data.
+   * Unsubscribes from data of the pedometer detection sensor.
+   *
    * @permission ohos.permission.ACTIVITY_MOTION
-   * @param { SensorId.PEDOMETER_DETECTION } type - Indicate the sensor type to listen for, {@code SensorId.PEDOMETER_DETECTION}.
-   * @param { Callback<PedometerDetectionResponse> } callback - callback pedometer detection data.
+   * @param { SensorId.PEDOMETER_DETECTION } type - Sensor type. The value is fixed at **SensorId.PEDOMETER_DETECTION**.
+   * @param { Callback<PedometerDetectionResponse> } callback - Callback used for unsubscription. If this parameter is
+   *     not specified, all callbacks of the specified sensor type are unsubscribed from.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
    */
   function off(type: SensorId.PEDOMETER_DETECTION, callback?: Callback<PedometerDetectionResponse>): void;
 
   /**
-   * Unsubscribe to pedometer detection sensor data.
+   * Unsubscribes from data of the pedometer detection sensor.
+   *
    * @permission ohos.permission.ACTIVITY_MOTION
-   * @param { SensorId.PEDOMETER_DETECTION } type - Indicate the sensor type to listen for, {@code SensorId.PEDOMETER_DETECTION}.
-   * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
-   * @param { Callback<PedometerDetectionResponse> } [callback] - callback pedometer detection data.
+   * @param { SensorId.PEDOMETER_DETECTION } type - Sensor type. The value is fixed at **SensorId.PEDOMETER_DETECTION**.
+   * @param { SensorInfoParam } [sensorInfoParam] - Sensor parameters, including **deviceId** and **sensorIndex**.
+   * @param { Callback<PedometerDetectionResponse> } [callback] - Callback used for unsubscription. If this parameter is
+   *     not specified, all callbacks of the specified sensor type are unsubscribed from.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 19 dynamic
    */
   function off(type: SensorId.PEDOMETER_DETECTION, sensorInfoParam?: SensorInfoParam, callback?: Callback<PedometerDetectionResponse>): void;
 
   /**
-   * Unsubscribe to proximity sensor data.
-   * @param { SensorId.PROXIMITY } type - Indicate the sensor type to listen for, {@code SensorId.PROXIMITY}.
-   * @param { Callback<ProximityResponse> } callback - callback proximity data.
+   * Unsubscribes from data of the proximity sensor.
+   *
+   * @param { SensorId.PROXIMITY } type - Sensor type. The value is fixed at **SensorId.PROXIMITY**.
+   * @param { Callback<ProximityResponse> } callback - Callback used for unsubscription. If this parameter is not
+   *     specified, all callbacks of the specified sensor type are unsubscribed from.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
    */
   function off(type: SensorId.PROXIMITY, callback?: Callback<ProximityResponse>): void;
-  
+
   /**
-   * Unsubscribe to proximity sensor data.
-   * @param { SensorId.PROXIMITY } type - Indicate the sensor type to listen for, {@code SensorId.PROXIMITY}.
-   * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
-   * @param { Callback<ProximityResponse> } [callback] - callback proximity data.
+   * Unsubscribes from data of the proximity sensor.
+   *
+   * @param { SensorId.PROXIMITY } type - Sensor type. The value is fixed at **SensorId.PROXIMITY**.
+   * @param { SensorInfoParam } [sensorInfoParam] - Sensor parameters, including **deviceId** and **sensorIndex**.
+   * @param { Callback<ProximityResponse> } [callback] - Callback used for unsubscription. If this parameter is not
+   *     specified, all callbacks of the specified sensor type are unsubscribed from.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 19 dynamic
    */
   function off(type: SensorId.PROXIMITY, sensorInfoParam?: SensorInfoParam, callback?: Callback<ProximityResponse>): void;
 
   /**
-   * Unsubscribe to rotation vector sensor data.
-   * @param { SensorId.ROTATION_VECTOR } type - Indicate the sensor type to listen for, {@code SensorId.ROTATION_VECTOR}.
-   * @param { Callback<RotationVectorResponse> } callback - callback rotation vector data.
+   * Unsubscribes from data of the rotation vector sensor.
+   *
+   * @param { SensorId.ROTATION_VECTOR } type - Sensor type. The value is fixed at **SensorId.ROTATION_VECTOR**.
+   * @param { Callback<RotationVectorResponse> } callback - Callback used for unsubscription. If this parameter is not
+   *     specified, all callbacks of the specified sensor type are unsubscribed from.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
    */
   function off(type: SensorId.ROTATION_VECTOR, callback?: Callback<RotationVectorResponse>): void;
 
   /**
-   * Unsubscribe to rotation vector sensor data.
-   * @param { SensorId.ROTATION_VECTOR } type - Indicate the sensor type to listen for, {@code SensorId.ROTATION_VECTOR}.
-   * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
-   * @param { Callback<RotationVectorResponse> } [callback] - callback rotation vector data.
+   * Unsubscribes from data of the rotation vector sensor.
+   *
+   * @param { SensorId.ROTATION_VECTOR } type - Sensor type. The value is fixed at **SensorId.ROTATION_VECTOR**.
+   * @param { SensorInfoParam } [sensorInfoParam] - Sensor parameters, including **deviceId** and **sensorIndex**.
+   * @param { Callback<RotationVectorResponse> } [callback] - Callback used for unsubscription. If this parameter is not
+   *     specified, all callbacks of the specified sensor type are unsubscribed from.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 19 dynamic
    */
   function off(type: SensorId.ROTATION_VECTOR, sensorInfoParam?: SensorInfoParam, callback?: Callback<RotationVectorResponse>): void;
 
   /**
-   * Unsubscribe to significant motion sensor data.
-   * @param { SensorId.SIGNIFICANT_MOTION } type - Indicate the sensor type to listen for, {@code SensorId.SIGNIFICANT_MOTION}.
-   * @param { Callback<SignificantMotionResponse> } callback - callback significant motion data.
+   * Unsubscribes from valid motion sensor data.
+   *
+   * @param { SensorId.SIGNIFICANT_MOTION } type - Sensor type. The value is fixed at **SensorId.SIGNIFICANT_MOTION**.
+   * @param { Callback<SignificantMotionResponse> } callback - Callback used for unsubscription. If this parameter is
+   *     not specified, all callbacks of the specified sensor type are unsubscribed from.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
    */
   function off(type: SensorId.SIGNIFICANT_MOTION, callback?: Callback<SignificantMotionResponse>): void;
 
   /**
-   * Unsubscribe to significant motion sensor data.
-   * @param { SensorId.SIGNIFICANT_MOTION } type - Indicate the sensor type to listen for, {@code SensorId.SIGNIFICANT_MOTION}.
-   * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
-   * @param { Callback<SignificantMotionResponse> } [callback] - callback significant motion data.
+   * Unsubscribes from valid motion sensor data.
+   *
+   * @param { SensorId.SIGNIFICANT_MOTION } type - Sensor type. The value is fixed at **SensorId.SIGNIFICANT_MOTION**.
+   * @param { SensorInfoParam } [sensorInfoParam] - Sensor parameters, including **deviceId** and **sensorIndex**.
+   * @param { Callback<SignificantMotionResponse> } [callback] - Callback used for unsubscription. If this parameter is
+   *     not specified, all callbacks of the specified sensor type are unsubscribed from.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 19 dynamic
    */
   function off(type: SensorId.SIGNIFICANT_MOTION, sensorInfoParam?: SensorInfoParam, callback?: Callback<SignificantMotionResponse>): void;
 
   /**
-   * Unsubscribe to wear detection sensor data.
-   * @param { SensorId.WEAR_DETECTION } type - Indicate the sensor type to listen for, {@code SensorId.WEAR_DETECTION}.
-   * @param { Callback<WearDetectionResponse> } callback - callback wear detection data.
+   * Unsubscribes from data of the wear detection sensor.
+   *
+   * @param { SensorId.WEAR_DETECTION } type - Sensor type. The value is fixed at **SensorId.WEAR_DETECTION**.
+   * @param { Callback<WearDetectionResponse> } callback - Callback used for unsubscription. If this parameter is not
+   *     specified, all callbacks of the specified sensor type are unsubscribed from.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
    */
   function off(type: SensorId.WEAR_DETECTION, callback?: Callback<WearDetectionResponse>): void;
 
   /**
-   * Unsubscribe to fusion pressure sensor data.
-   * @param { SensorId.FUSION_PRESSURE } type - Indicate the sensor type to listen for, {@code SensorId.FUSION_PRESSURE}.
-   * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
-   * @param { Callback<FusionPressureResponse> } callback - callback fusion pressure percent data.
+   * Unsubscribes from the fused pressure sensor data.
+   *
+   * @param { SensorId.FUSION_PRESSURE } type - Sensor type. The value is fixed at SensorId.FUSION_PRESSURE.
+   * @param { SensorInfoParam } [sensorInfoParam] - Sensor parameters, including **deviceId** and **sensorIndex**.
+   * @param { Callback<FusionPressureResponse> } callback - Callback used for unsubscription. If this parameter is not
+   *     specified, all callbacks of the specified sensor type are unsubscribed from.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 22 dynamic
    */
   function off(type: SensorId.FUSION_PRESSURE, sensorInfoParam?: SensorInfoParam, callback?: Callback<FusionPressureResponse>): void;
 
   /**
-   * Unsubscribe to wear detection sensor data.
-   * @param { SensorId.WEAR_DETECTION } type - Indicate the sensor type to listen for, {@code SensorId.WEAR_DETECTION}.
-   * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
-   * @param { Callback<WearDetectionResponse> } [callback] - callback wear detection data.
+   * Unsubscribes from data of the wear detection sensor.
+   *
+   * @param { SensorId.WEAR_DETECTION } type - Sensor type. The value is fixed at **SensorId.WEAR_DETECTION**.
+   * @param { SensorInfoParam } [sensorInfoParam] - Sensor parameters, including **deviceId** and **sensorIndex**.
+   * @param { Callback<WearDetectionResponse> } [callback] - Callback used for unsubscription. If this parameter is not
+   *     specified, all callbacks of the specified sensor type are unsubscribed from.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 19 dynamic
    */
   function off(type: SensorId.WEAR_DETECTION, sensorInfoParam?: SensorInfoParam, callback?: Callback<WearDetectionResponse>): void;
 
   /**
-   * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
+   * Subscribes to data changes of the acceleration sensor. If this API is called multiple times for the same
+   * application, the last call takes effect.
+   *
    * @permission ohos.permission.ACCELEROMETER
-   * @param { SensorType.SENSOR_TYPE_ID_ACCELEROMETER } type - Indicate the sensor type to listen for, 
-   *        {@code SensorType.SENSOR_TYPE_ID_ACCELEROMETER}.
-   * @param { Callback<AccelerometerResponse> } callback - callback accelerometer data.
-   * @param { Options } options - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
+   * @param { SensorType.SENSOR_TYPE_ID_ACCELEROMETER } type - Type of the sensor to subscribe to, which is
+   *     **SENSOR_TYPE_ID_ACCELEROMETER**.
+   * @param { Callback<AccelerometerResponse> } callback - Callback used to return the acceleration sensor data. The
+   *     reported data type in the callback is **AccelerometerResponse**.
+   * @param { Options } options - List of optional parameters. This parameter is used to set the data reporting
+   *     frequency. The default value is 200,000,000 ns.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead sensor.SensorId#ACCELEROMETER
+   * @useinstead sensor.on(type: SensorId.ACCELEROMETER, callback: Callback<AccelerometerResponse>, options?: Options)
    */
   function on(type: SensorType.SENSOR_TYPE_ID_ACCELEROMETER, callback: Callback<AccelerometerResponse>,
     options?: Options): void;
 
   /**
-   * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
+   * Subscribes to data changes of the uncalibrated acceleration sensor. If this API is called multiple times for the
+   * same application, the last call takes effect.
+   *
    * @permission ohos.permission.ACCELEROMETER
-   * @param { SensorType.SENSOR_TYPE_ID_ACCELEROMETER_UNCALIBRATED } type - Indicate the sensor type to listen for, 
-   *        {@code SensorType.SENSOR_TYPE_ID_ACCELEROMETER_UNCALIBRATED}.
-   * @param { Callback<AccelerometerUncalibratedResponse> } callback - callback accelerometer uncalibrated data.
-   * @param { Options } options - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
+   * @param { SensorType.SENSOR_TYPE_ID_ACCELEROMETER_UNCALIBRATED } type - Type of the sensor to subscribe to, which is
+   *     **SENSOR_TYPE_ID_ACCELEROMETER_UNCALIBRATED**.
+   * @param { Callback<AccelerometerUncalibratedResponse> } callback - Callback used to return the uncalibrated
+   *     acceleration sensor data. The reported data type in the callback is **AccelerometerUncalibratedResponse**.
+   * @param { Options } options - List of optional parameters. This parameter is used to set the data reporting
+   *     frequency. The default value is 200,000,000 ns.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead sensor.SensorId#ACCELEROMETER_UNCALIBRATED
+   * @useinstead sensor.on(type: SensorId.ACCELEROMETER_UNCALIBRATED, callback: Callback<AccelerometerUncalibratedResponse>, options?: Options)
    */
   function on(type: SensorType.SENSOR_TYPE_ID_ACCELEROMETER_UNCALIBRATED, callback: Callback<AccelerometerUncalibratedResponse>,
     options?: Options): void;
 
   /**
-   * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
-   * @param { SensorType.SENSOR_TYPE_ID_AMBIENT_LIGHT } type - type Indicate the sensor type to listen for, 
-   *        {@code SensorType.SENSOR_TYPE_ID_AMBIENT_LIGHT}.
-   * @param { Callback<LightResponse> } callback - callback light data.
-   * @param { Options } options - options Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
+   * Subscribes to data changes of the ambient light sensor. If this API is called multiple times for the same
+   * application, the last call takes effect.
+   *
+   * @param { SensorType.SENSOR_TYPE_ID_AMBIENT_LIGHT } type - Type of the sensor to subscribe to, which is
+   *     **SENSOR_TYPE_ID_AMBIENT_LIGHT**.
+   * @param { Callback<LightResponse> } callback - Callback used to return the ambient light sensor data. The reported
+   *     data type in the callback is **LightResponse**.
+   * @param { Options } options - List of optional parameters. This parameter is used to set the data reporting
+   *     frequency. The default value is 200,000,000 ns.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead sensor.SensorId#AMBIENT_LIGHT
+   * @useinstead sensor.on(type: SensorId.AMBIENT_LIGHT, callback: Callback<LightResponse>, options?: Options)
    */
   function on(type: SensorType.SENSOR_TYPE_ID_AMBIENT_LIGHT, callback: Callback<LightResponse>,
     options?: Options): void;
 
   /**
-   * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
-   * @param { SensorType.SENSOR_TYPE_ID_AMBIENT_TEMPERATURE } type - type Indicate the sensor type to listen for, 
-   *        {@code SensorType.SENSOR_TYPE_ID_AMBIENT_TEMPERATURE}.
-   * @param { Callback<AmbientTemperatureResponse> } callback - callback ambient temperature data.
-   * @param { Options } options - options Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
+   * Subscribes to data changes of the ambient temperature sensor. If this API is called multiple times for the same
+   * application, the last call takes effect.
+   *
+   * @param { SensorType.SENSOR_TYPE_ID_AMBIENT_TEMPERATURE } type - Type of the sensor to subscribe to, which is
+   *     **SENSOR_TYPE_ID_AMBIENT_TEMPERATURE**.
+   * @param { Callback<AmbientTemperatureResponse> } callback - Callback used to return the ambient temperature sensor
+   *     data. The reported data type in the callback is **AmbientTemperatureResponse**.
+   * @param { Options } options - List of optional parameters. This parameter is used to set the data reporting
+   *     frequency. The default value is 200,000,000 ns.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead sensor.SensorId#AMBIENT_TEMPERATURE
+   * @useinstead sensor.on(type: SensorId.AMBIENT_TEMPERATURE, callback: Callback<AmbientTemperatureResponse>, options?: Options)
    */
   function on(type: SensorType.SENSOR_TYPE_ID_AMBIENT_TEMPERATURE, callback: Callback<AmbientTemperatureResponse>,
     options?: Options): void;
 
   /**
-   * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
-   * @param { SensorType.SENSOR_TYPE_ID_BAROMETER } type - type Indicate the sensor type to listen for, 
-   *        {@code SensorType.SENSOR_TYPE_ID_BAROMETER}.
-   * @param { Callback<BarometerResponse> } callback - callback barometer data.
-   * @param { Options } options - options Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
+   * Subscribes to data changes of the barometer sensor. If this API is called multiple times for the same application,
+   * the last call takes effect.
+   *
+   * @param { SensorType.SENSOR_TYPE_ID_BAROMETER } type - Type of the sensor to subscribe to, which is
+   *     **SENSOR_TYPE_ID_BAROMETER**.
+   * @param { Callback<BarometerResponse> } callback - Callback used to return the barometer sensor data. The reported
+   *     data type in the callback is **BarometerResponse**.
+   * @param { Options } options - List of optional parameters. This parameter is used to set the data reporting
+   *     frequency. The default value is 200,000,000 ns.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead sensor.SensorId#BAROMETER
+   * @useinstead sensor.on(type: SensorId.BAROMETER, callback: Callback<BarometerResponse>, options?: Options)
    */
   function on(type: SensorType.SENSOR_TYPE_ID_BAROMETER, callback: Callback<BarometerResponse>,
     options?: Options): void;
 
   /**
-   * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
-   * @param { SensorType.SENSOR_TYPE_ID_GRAVITY } type - type Indicate the sensor type to listen for, 
-   *        {@code SensorType.SENSOR_TYPE_ID_GRAVITY}.
-   * @param { Callback<GravityResponse> } callback - callback gravity data.
-   * @param { Options } options - options Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
+   * Subscribes to data changes of the gravity sensor. If this API is called multiple times for the same application,
+   * the last call takes effect.
+   *
+   * @param { SensorType.SENSOR_TYPE_ID_GRAVITY } type - Type of the sensor to subscribe to, which is
+   *     **SENSOR_TYPE_ID_GRAVITY**.
+   * @param { Callback<GravityResponse> } callback - Callback used to return the gravity sensor data. The reported data
+   *     type in the callback is **GravityResponse**.
+   * @param { Options } options - List of optional parameters. This parameter is used to set the data reporting
+   *     frequency. The default value is 200,000,000 ns.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead sensor.SensorId#GRAVITY
+   * @useinstead sensor.on(type: SensorId.GRAVITY, callback: Callback<GravityResponse>, options?: Options)
    */
   function on(type: SensorType.SENSOR_TYPE_ID_GRAVITY, callback: Callback<GravityResponse>,
     options?: Options): void;
 
   /**
-   * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
+   * Subscribes to data changes of the gyroscope sensor. If this API is called multiple times for the same application,
+   * the last call takes effect.
+   *
    * @permission ohos.permission.GYROSCOPE
-   * @param { SensorType.SENSOR_TYPE_ID_GYROSCOPE } type - type Indicate the sensor type to listen for, 
-   *        {@code SensorType.SENSOR_TYPE_ID_GYROSCOPE}.
-   * @param { Callback<GyroscopeResponse> } callback - callback gyroscope data.
-   * @param { Options } options - options Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
+   * @param { SensorType.SENSOR_TYPE_ID_GYROSCOPE } type - Type of the sensor to subscribe to, which is
+   *     **SENSOR_TYPE_ID_GYROSCOPE**.
+   * @param { Callback<GyroscopeResponse> } callback - Callback used to return the gyroscope sensor data. The reported
+   *     data type in the callback is **GyroscopeResponse**.
+   * @param { Options } options - List of optional parameters. This parameter is used to set the data reporting
+   *     frequency. The default value is 200,000,000 ns.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead sensor.SensorId#GYROSCOPE
+   * @useinstead sensor.on(type: SensorId.GYROSCOPE, callback: Callback<GyroscopeResponse>, options?: Options)
    */
   function on(type: SensorType.SENSOR_TYPE_ID_GYROSCOPE, callback: Callback<GyroscopeResponse>,
     options?: Options): void;
 
   /**
-   * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
+   * Subscribes to data changes of the uncalibrated gyroscope sensor. If this API is called multiple times for the same
+   * application, the last call takes effect.
+   *
    * @permission ohos.permission.GYROSCOPE
-   * @param { SensorType.SENSOR_TYPE_ID_GYROSCOPE_UNCALIBRATED } type - type Indicate the sensor type to listen for, 
-   *        {@code SensorType.SENSOR_TYPE_ID_GYROSCOPE_UNCALIBRATED}.
-   * @param { Callback<GyroscopeUncalibratedResponse> } callback - callback gyroscope uncalibrated data.
-   * @param { Options } options - options Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
+   * @param { SensorType.SENSOR_TYPE_ID_GYROSCOPE_UNCALIBRATED } type - Type of the sensor to subscribe to, which is
+   *     **SENSOR_TYPE_ID_GYROSCOPE_UNCALIBRATED**.
+   * @param { Callback<GyroscopeUncalibratedResponse> } callback - Callback used to return the uncalibrated gyroscope
+   *     sensor data. The reported data type in the callback is **GyroscopeUncalibratedResponse**.
+   * @param { Options } options - List of optional parameters. This parameter is used to set the data reporting
+   *     frequency. The default value is 200,000,000 ns.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead sensor.SensorId#GYROSCOPE_UNCALIBRATED
+   * @useinstead sensor.on(type: SensorId.GYROSCOPE_UNCALIBRATED, callback: Callback<GyroscopeUncalibratedResponse>, options?: Options)
    */
   function on(type: SensorType.SENSOR_TYPE_ID_GYROSCOPE_UNCALIBRATED, callback: Callback<GyroscopeUncalibratedResponse>,
     options?: Options): void;
 
   /**
-   * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
-   * @param { SensorType.SENSOR_TYPE_ID_HALL } type - type Indicate the sensor type to listen for, 
-   *        {@code SensorType.SENSOR_TYPE_ID_HALL}.
-   * @param { Callback<HallResponse> } callback - callback hall data.
-   * @param { Options } options - options Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
+   * Subscribes to data changes of the Hall effect sensor. If this API is called multiple times for the same application
+   * , the last call takes effect.
+   *
+   * @param { SensorType.SENSOR_TYPE_ID_HALL } type - Type of the sensor to subscribe to, which is
+   *     **SENSOR_TYPE_ID_HALL**.
+   * @param { Callback<HallResponse> } callback - Callback used to return the Hall effect sensor data. The reported data
+   *     type in the callback is **HallResponse**.
+   * @param { Options } options - List of optional parameters. The default value is 200,000,000 ns. This parameter is
+   *     used to set the data reporting frequency when Hall effect events are frequently triggered.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead sensor.SensorId#HALL
+   * @useinstead sensor.on(type: SensorId.HALL, callback: Callback<HallResponse>, options?: Options)
    */
   function on(type: SensorType.SENSOR_TYPE_ID_HALL, callback: Callback<HallResponse>,
     options?: Options): void;
 
   /**
-   * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
+   * Subscribes to data changes of the heart rate sensor. If this API is called multiple times for the same application,
+   * the last call takes effect.
+   *
    * @permission ohos.permission.HEALTH_DATA
-   * @param { SensorType.SENSOR_TYPE_ID_HEART_RATE } type - type Indicate the sensor type to listen for, 
-   *        {@code SensorType.SENSOR_TYPE_ID_HEART_RATE}.
-   * @param { Callback<HeartRateResponse> } callback - callback heart rate data.
-   * @param { Options } options - options Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
+   * @param { SensorType.SENSOR_TYPE_ID_HEART_RATE } type - Type of the sensor to subscribe to, which is
+   *     **SENSOR_TYPE_ID_HEART_RATE**.
+   * @param { Callback<HeartRateResponse> } callback - Callback used to return the heart rate sensor data. The reported
+   *     data type in the callback is **HeartRateResponse**.
+   * @param { Options } options - List of optional parameters. This parameter is used to set the data reporting
+   *     frequency. The default value is 200,000,000 ns.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead sensor.SensorId#HEART_RATE
+   * @useinstead sensor.on(type: SensorId.HEART_RATE, callback: Callback<HeartRateResponse>, options?: Options)
    */
   function on(type: SensorType.SENSOR_TYPE_ID_HEART_RATE, callback: Callback<HeartRateResponse>,
     options?: Options): void;
 
   /**
-   * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
-   * @param { SensorType.SENSOR_TYPE_ID_HUMIDITY } type - type Indicate the sensor type to listen for, 
-   *        {@code SensorType.SENSOR_TYPE_ID_HUMIDITY}.
-   * @param { Callback<HumidityResponse> } callback - callback humidity data.
-   * @param { Options } options - options Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
+   * Subscribes to data changes of the humidity sensor. If this API is called multiple times for the same application,
+   * the last call takes effect.
+   *
+   * @param { SensorType.SENSOR_TYPE_ID_HUMIDITY } type - Type of the sensor to subscribe to, which is
+   *     **SENSOR_TYPE_ID_HUMIDITY**.
+   * @param { Callback<HumidityResponse> } callback - Callback used to return the humidity sensor data. The reported
+   *     data type in the callback is **HumidityResponse**.
+   * @param { Options } options - List of optional parameters. This parameter is used to set the data reporting
+   *     frequency. The default value is 200,000,000 ns.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead sensor.SensorId#HUMIDITY
+   * @useinstead sensor.on(type: SensorId.HUMIDITY, callback: Callback<HumidityResponse>, options?: Options)
    */
   function on(type: SensorType.SENSOR_TYPE_ID_HUMIDITY, callback: Callback<HumidityResponse>,
     options?: Options): void;
 
   /**
-   * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
+   * Subscribes to data changes of the linear acceleration sensor. If this API is called multiple times for the same
+   * application, the last call takes effect.
+   *
    * @permission ohos.permission.ACCELEROMETER
-   * @param { SensorType.SENSOR_TYPE_ID_LINEAR_ACCELERATION } type - type Indicate the sensor type to listen for, 
-   *        {@code SensorType.SENSOR_TYPE_ID_LINEAR_ACCELERATION}.
-   * @param { Callback<LinearAccelerometerResponse> } callback - callback linear accelerometer data.
-   * @param { Options } options - options Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
+   * @param { SensorType.SENSOR_TYPE_ID_LINEAR_ACCELERATION } type - Type of the sensor to subscribe to, which is
+   *     **SENSOR_TYPE_ID_LINEAR_ACCELERATION**.
+   * @param { Callback<LinearAccelerometerResponse> } callback - Callback used to return the linear acceleration sensor
+   *     data. The reported data type in the callback is **LinearAccelerometerResponse**.
+   * @param { Options } options - List of optional parameters. This parameter is used to set the data reporting
+   *     frequency. The default value is 200,000,000 ns.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead sensor.SensorId#LINEAR_ACCELEROMETER
+   * @useinstead sensor.on(type: SensorId.LINEAR_ACCELEROMETER, callback: Callback<LinearAccelerometerResponse>, options?: Options)
    */
   function on(type: SensorType.SENSOR_TYPE_ID_LINEAR_ACCELERATION, callback: Callback<LinearAccelerometerResponse>,
     options?: Options): void;
 
   /**
-   * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
-   * @param { SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD } type - type Indicate the sensor type to listen for, 
-   *        {@code SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD}.
-   * @param { Callback<MagneticFieldResponse> } callback - callback magnetic field data.
-   * @param { Options } options - options Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
+   * Subscribes to data changes of the magnetic field sensor. If this API is called multiple times for the same
+   * application, the last call takes effect.
+   *
+   * @param { SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD } type - Type of the sensor to subscribe to, which is
+   *     **SENSOR_TYPE_ID_MAGNETIC_FIELD**.
+   * @param { Callback<MagneticFieldResponse> } callback - Callback used to return the magnetic field sensor data. The
+   *     reported data type in the callback is **MagneticFieldResponse**.
+   * @param { Options } options - List of optional parameters. This parameter is used to set the data reporting
+   *     frequency. The default value is 200,000,000 ns.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead sensor.SensorId#MAGNETIC_FIELD
+   * @useinstead sensor.on(type: SensorId.MAGNETIC_FIELD, callback: Callback<MagneticFieldResponse>, options?: Options)
    */
   function on(type: SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD, callback: Callback<MagneticFieldResponse>,
     options?: Options): void;
 
   /**
-   * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
-   * @param { SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD_UNCALIBRATED } type - type Indicate the sensor type to listen for, 
-   *        {@code SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD_UNCALIBRATED}.
-   * @param { Callback<MagneticFieldUncalibratedResponse> } callback - callback magnetic field uncalibrated data.
-   * @param { Options } options - options Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
+   * Subscribes to data changes of the uncalibrated magnetic field sensor. If this API is called multiple times for the
+   * same application, the last call takes effect.
+   *
+   * @param { SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD_UNCALIBRATED } type - Type of the sensor to subscribe to, which
+   *     is **SENSOR_TYPE_ID_MAGNETIC_FIELD_UNCALIBRATED**.
+   * @param { Callback<MagneticFieldUncalibratedResponse> } callback - Callback used to return the uncalibrated magnetic
+   *     field sensor data. The reported data type in the callback is **MagneticFieldUncalibratedResponse**.
+   * @param { Options } options - List of optional parameters. This parameter is used to set the data reporting
+   *     frequency. The default value is 200,000,000 ns.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead sensor.SensorId#MAGNETIC_FIELD_UNCALIBRATED
+   * @useinstead sensor.on(type: SensorId.MAGNETIC_FIELD_UNCALIBRATED, callback: Callback<MagneticFieldUncalibratedResponse>, options?: Options)
    */
   function on(type: SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD_UNCALIBRATED, callback: Callback<MagneticFieldUncalibratedResponse>,
     options?: Options): void;
 
   /**
-   * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
-   * @param { SensorType.SENSOR_TYPE_ID_ORIENTATION } type - type Indicate the sensor type to listen for, 
-   *        {@code SensorType.SENSOR_TYPE_ID_ORIENTATION}.
-   * @param { Callback<OrientationResponse> } callback - callback orientation data.
-   * @param { Options } options - options Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
+   * Subscribes to data changes of the orientation sensor. If this API is called multiple times for the same application
+   * , the last call takes effect.
+   *
+   * @param { SensorType.SENSOR_TYPE_ID_ORIENTATION } type - Type of the sensor to subscribe to, which is
+   *     **SENSOR_TYPE_ID_ORIENTATION**.
+   * @param { Callback<OrientationResponse> } callback - Callback used to return the orientation sensor data. The
+   *     reported data type in the callback is **OrientationResponse**.
+   * @param { Options } options - List of optional parameters. This parameter is used to set the data reporting
+   *     frequency. The default value is 200,000,000 ns.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead sensor.SensorId#ORIENTATION
+   * @useinstead sensor.on(type: SensorId.ORIENTATION, callback: Callback<OrientationResponse>, options?: Options)
    */
   function on(type: SensorType.SENSOR_TYPE_ID_ORIENTATION, callback: Callback<OrientationResponse>,
     options?: Options): void;
 
   /**
-   * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
+   * Subscribes to data changes of the pedometer sensor. If this API is called multiple times for the same application,
+   * the last call takes effect.
+   *
    * @permission ohos.permission.ACTIVITY_MOTION
-   * @param { SensorType.SENSOR_TYPE_ID_PEDOMETER } type - type Indicate the sensor type to listen for, 
-   *        {@code SensorType.SENSOR_TYPE_ID_PEDOMETER}.
-   * @param { Callback<PedometerResponse> } callback - callback pedometer data.
-   * @param { Options } options - options Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
+   * @param { SensorType.SENSOR_TYPE_ID_PEDOMETER } type - Type of the sensor to subscribe to, which is
+   *     **SENSOR_TYPE_ID_PEDOMETER**.
+   * @param { Callback<PedometerResponse> } callback - Callback used to return the pedometer sensor data. The reported
+   *     data type in the callback is **PedometerResponse**.
+   * @param { Options } options - List of optional parameters. This parameter is used to set the data reporting
+   *     frequency. The default value is 200,000,000 ns.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead sensor.SensorId#PEDOMETER
+   * @useinstead sensor.on(type: SensorId.PEDOMETER, callback: Callback<PedometerResponse>, options?: Options)
    */
   function on(type: SensorType.SENSOR_TYPE_ID_PEDOMETER, callback: Callback<PedometerResponse>,
     options?: Options): void;
 
   /**
-   * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
+   * Subscribes to data changes of the pedometer detection sensor. If this API is called multiple times for the same
+   * application, the last call takes effect.
+   *
    * @permission ohos.permission.ACTIVITY_MOTION
-   * @param { SensorType.SENSOR_TYPE_ID_PEDOMETER_DETECTION } type - type Indicate the sensor type to listen for, 
-   *        {@code SensorType.SENSOR_TYPE_ID_PEDOMETER_DETECTION}.
-   * @param { Callback<PedometerDetectionResponse> } callback - callback pedometer detection data.
-   * @param { Options } options - options Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
+   * @param { SensorType.SENSOR_TYPE_ID_PEDOMETER_DETECTION } type - Type of the sensor to subscribe to, which is
+   *     **SENSOR_TYPE_ID_PEDOMETER_DETECTION**.
+   * @param { Callback<PedometerDetectionResponse> } callback - Callback used to return the pedometer detection sensor
+   *     data. The reported data type in the callback is **PedometerDetectionResponse**.
+   * @param { Options } options - List of optional parameters. This parameter is used to set the data reporting
+   *     frequency. The default value is 200,000,000 ns.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead sensor.SensorId#PEDOMETER_DETECTION
+   * @useinstead sensor.on(type: SensorId.PEDOMETER_DETECTION, callback: Callback<PedometerDetectionResponse>, options?: Options)
    */
   function on(type: SensorType.SENSOR_TYPE_ID_PEDOMETER_DETECTION, callback: Callback<PedometerDetectionResponse>,
     options?: Options): void;
 
   /**
-   * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
-   * @param { SensorType.SENSOR_TYPE_ID_PROXIMITY } type - type Indicate the sensor type to listen for, 
-   *        {@code SensorType.SENSOR_TYPE_ID_PROXIMITY}.
-   * @param { Callback<ProximityResponse> } callback - callback proximity data.
-   * @param { Options } options - options Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
+   * Subscribes to data changes of the proximity sensor. If this API is called multiple times for the same application,
+   * the last call takes effect.
+   *
+   * @param { SensorType.SENSOR_TYPE_ID_PROXIMITY } type - Type of the sensor to subscribe to, which is
+   *     **SENSOR_TYPE_ID_PROXIMITY**.
+   * @param { Callback<ProximityResponse> } callback - Callback used to return the proximity sensor data. The reported
+   *     data type in the callback is **ProximityResponse**.
+   * @param { Options } options - List of optional parameters. The default value is 200,000,000 ns. This parameter is
+   *     used to set the data reporting frequency when proximity sensor events are frequently triggered.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead sensor.SensorId#PROXIMITY
+   * @useinstead sensor.on(type: SensorId.PROXIMITY, callback: Callback<ProximityResponse>, options?: Options)
    */
   function on(type: SensorType.SENSOR_TYPE_ID_PROXIMITY, callback: Callback<ProximityResponse>,
     options?: Options): void;
 
   /**
-   * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
-   * @param { SensorType.SENSOR_TYPE_ID_ROTATION_VECTOR } type - type Indicate the sensor type to listen for, 
-   *        {@code SensorType.SENSOR_TYPE_ID_ROTATION_VECTOR}.
-   * @param { Callback<RotationVectorResponse> } callback - callback rotation vector data.
-   * @param { Options } options - options Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
+   * Subscribes to data changes of the rotation vector sensor. If this API is called multiple times for the same
+   * application, the last call takes effect.
+   *
+   * @param { SensorType.SENSOR_TYPE_ID_ROTATION_VECTOR } type - Type of the sensor to subscribe to, which is
+   *     **SENSOR_TYPE_ID_ROTATION_VECTOR**.
+   * @param { Callback<RotationVectorResponse> } callback - Callback used to return the rotation vector sensor data. The
+   *     reported data type in the callback is **RotationVectorResponse**.
+   * @param { Options } options - List of optional parameters. This parameter is used to set the data reporting
+   *     frequency. The default value is 200,000,000 ns.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead sensor.SensorId#ROTATION_VECTOR
+   * @useinstead sensor.on(type: SensorId.ROTATION_VECTOR, callback: Callback<RotationVectorResponse>, options?: Options)
    */
   function on(type: SensorType.SENSOR_TYPE_ID_ROTATION_VECTOR, callback: Callback<RotationVectorResponse>,
     options?: Options): void;
 
   /**
-   * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
-   * @param { SensorType.SENSOR_TYPE_ID_SIGNIFICANT_MOTION } type - type Indicate the sensor type to listen for, 
-   *        {@code SensorType.SENSOR_TYPE_ID_SIGNIFICANT_MOTION}.
-   * @param { Callback<SignificantMotionResponse> } callback - callback significant motion data.
-   * @param { Options } options - options Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
+   * Subscribes to data changes of the significant motion sensor. If this API is called multiple times for the same
+   * application, the last call takes effect.
+   *
+   * @param { SensorType.SENSOR_TYPE_ID_SIGNIFICANT_MOTION } type - Type of the sensor to subscribe to, which is
+   *     **SENSOR_TYPE_ID_SIGNIFICANT_MOTION**.
+   * @param { Callback<SignificantMotionResponse> } callback - Callback used to return the significant motion sensor
+   *     data. The reported data type in the callback is **SignificantMotionResponse**.
+   * @param { Options } options - List of optional parameters. This parameter is used to set the data reporting
+   *     frequency. The default value is 200,000,000 ns.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead sensor.SensorId#SIGNIFICANT_MOTION
+   * @useinstead sensor.on(type: SensorId.SIGNIFICANT_MOTION, callback: Callback<SignificantMotionResponse>, options?: Options)
    */
   function on(type: SensorType.SENSOR_TYPE_ID_SIGNIFICANT_MOTION, callback: Callback<SignificantMotionResponse>,
     options?: Options): void;
 
   /**
-   * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
-   * @param { SensorType.SENSOR_TYPE_ID_WEAR_DETECTION } type - type Indicate the sensor type to listen for, 
-   *        {@code SensorType.SENSOR_TYPE_ID_WEAR_DETECTION}.
-   * @param { Callback<WearDetectionResponse> } callback - callback wear detection data.
-   * @param { Options } options - options Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
+   * Subscribes to data changes of the wear detection sensor. If this API is called multiple times for the same
+   * application, the last call takes effect.
+   *
+   * @param { SensorType.SENSOR_TYPE_ID_WEAR_DETECTION } type - Type of the sensor to subscribe to, which is
+   *     **SENSOR_TYPE_ID_WEAR_DETECTION**.
+   * @param { Callback<WearDetectionResponse> } callback - Callback used to return the wear detection sensor data. The
+   *     reported data type in the callback is **WearDetectionResponse**.
+   * @param { Options } options - List of optional parameters. This parameter is used to set the data reporting
+   *     frequency. The default value is 200,000,000 ns.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead sensor.SensorId#WEAR_DETECTION
+   * @useinstead sensor.on(type: SensorId.WEAR_DETECTION, callback: Callback<WearDetectionResponse>, options?: Options)
    */
   function on(type: SensorType.SENSOR_TYPE_ID_WEAR_DETECTION, callback: Callback<WearDetectionResponse>,
     options?: Options): void;
 
   /**
-   * Subscribe to sensor data once.
+   * Subscribes to only one data change of the acceleration sensor.
+   *
    * @permission ohos.permission.ACCELEROMETER
-   * @param { SensorType.SENSOR_TYPE_ID_ACCELEROMETER } type - type Indicate the sensor type to listen for, 
-   *        {@code SensorType.SENSOR_TYPE_ID_ACCELEROMETER}.
-   * @param { Callback<AccelerometerResponse> } callback - callback accelerometer data.
+   * @param { SensorType.SENSOR_TYPE_ID_ACCELEROMETER } type - Type of the sensor to subscribe to, which is
+   *     **SENSOR_TYPE_ID_ACCELEROMETER**.
+   * @param { Callback<AccelerometerResponse> } callback - One-shot callback used to return the acceleration sensor
+   *     data. The reported data type in the callback is **AccelerometerResponse**.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead sensor.SensorId#ACCELEROMETER
+   * @useinstead sensor.once(type: SensorId.ACCELEROMETER, callback: Callback<AccelerometerResponse>)
    */
   function once(type: SensorType.SENSOR_TYPE_ID_ACCELEROMETER, callback: Callback<AccelerometerResponse>): void;
 
   /**
-   * Subscribe to sensor data once.
+   * Subscribes to only one data change of the uncalibrated acceleration sensor.
+   *
    * @permission ohos.permission.ACCELEROMETER
-   * @param { SensorType.SENSOR_TYPE_ID_ACCELEROMETER_UNCALIBRATED } type - type Indicate the sensor type to listen for, 
-   *        {@code SensorType.SENSOR_TYPE_ID_ACCELEROMETER_UNCALIBRATED}.
-   * @param { Callback<AccelerometerUncalibratedResponse> } callback - callback accelerometer uncalibrated data.
+   * @param { SensorType.SENSOR_TYPE_ID_ACCELEROMETER_UNCALIBRATED } type - Type of the sensor to subscribe to, which is
+   *     **SENSOR_TYPE_ID_ACCELEROMETER_UNCALIBRATED**.
+   * @param { Callback<AccelerometerUncalibratedResponse> } callback - One-shot callback used to return the uncalibrated
+   *     acceleration sensor data. The reported data type in the callback is **AccelerometerUncalibratedResponse**.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead sensor.SensorId#ACCELEROMETER_UNCALIBRATED
+   * @useinstead sensor.once(type: SensorId.ACCELEROMETER_UNCALIBRATED, callback: Callback<AccelerometerUncalibratedResponse>)
    */
   function once(type: SensorType.SENSOR_TYPE_ID_ACCELEROMETER_UNCALIBRATED, callback: Callback<AccelerometerUncalibratedResponse>): void;
 
   /**
-   * Subscribe to sensor data once.
-   * @param { SensorType.SENSOR_TYPE_ID_AMBIENT_LIGHT } type - type Indicate the sensor type to listen for, 
-   *        {@code SensorType.SENSOR_TYPE_ID_AMBIENT_LIGHT}.
-   * @param { Callback<LightResponse> } callback - callback light data.
+   * Subscribes to only one data change of the ambient light sensor.
+   *
+   * @param { SensorType.SENSOR_TYPE_ID_AMBIENT_LIGHT } type - Type of the sensor to subscribe to, which is
+   *     **SENSOR_TYPE_ID_AMBIENT_LIGHT**.
+   * @param { Callback<LightResponse> } callback - One-shot callback used to return the ambient light sensor data. The
+   *     reported data type in the callback is **LightResponse**.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead sensor.SensorId#AMBIENT_LIGHT
+   * @useinstead sensor.once(type: SensorId.AMBIENT_LIGHT, callback: Callback<LightResponse>)
    */
   function once(type: SensorType.SENSOR_TYPE_ID_AMBIENT_LIGHT, callback: Callback<LightResponse>): void;
 
   /**
-   * Subscribe to sensor data once.
-   * @param { SensorType.SENSOR_TYPE_ID_AMBIENT_TEMPERATURE } type - type Indicate the sensor type to listen for, 
-   *        {@code SensorType.SENSOR_TYPE_ID_AMBIENT_TEMPERATURE}.
-   * @param { Callback<AmbientTemperatureResponse> } callback - callback ambient temperature data.
+   * Subscribes to only one data change of the ambient temperature sensor.
+   *
+   * @param { SensorType.SENSOR_TYPE_ID_AMBIENT_TEMPERATURE } type - Type of the sensor to subscribe to, which is
+   *     **SENSOR_TYPE_ID_AMBIENT_TEMPERATURE**.
+   * @param { Callback<AmbientTemperatureResponse> } callback - One-shot callback used to return the ambient temperature
+   *     sensor data. The reported data type in the callback is **AmbientTemperatureResponse**.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead sensor.SensorId#AMBIENT_TEMPERATURE
+   * @useinstead sensor.once(type: SensorId.AMBIENT_TEMPERATURE, callback: Callback<AmbientTemperatureResponse>)
    */
   function once(type: SensorType.SENSOR_TYPE_ID_AMBIENT_TEMPERATURE, callback: Callback<AmbientTemperatureResponse>): void;
 
   /**
-   * Subscribe to sensor data once.
-   * @param { SensorType.SENSOR_TYPE_ID_BAROMETER } type - type Indicate the sensor type to listen for, 
-   *        {@code SensorType.SENSOR_TYPE_ID_BAROMETER}.
-   * @param { Callback<BarometerResponse> } callback - callback barometer data.
+   * Subscribes to only one data change of the barometer sensor.
+   *
+   * @param { SensorType.SENSOR_TYPE_ID_BAROMETER } type - Type of the sensor to subscribe to, which is
+   *     **SENSOR_TYPE_ID_BAROMETER**.
+   * @param { Callback<BarometerResponse> } callback - One-shot callback used to return the barometer sensor data. The
+   *     reported data type in the callback is **BarometerResponse**.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead sensor.SensorId#BAROMETER
+   * @useinstead sensor.once(type: SensorId.BAROMETER, callback: Callback<BarometerResponse>)
    */
   function once(type: SensorType.SENSOR_TYPE_ID_BAROMETER, callback: Callback<BarometerResponse>): void;
 
   /**
-   * Subscribe to sensor data once.
-   * @param { SensorType.SENSOR_TYPE_ID_GRAVITY } type - type Indicate the sensor type to listen for, 
-   *        {@code SensorType.SENSOR_TYPE_ID_GRAVITY}.
-   * @param { Callback<GravityResponse> } callback - callback gravity data.
+   * Subscribes to only one data change of the gravity sensor.
+   *
+   * @param { SensorType.SENSOR_TYPE_ID_GRAVITY } type - Type of the sensor to subscribe to, which is
+   *     **SENSOR_TYPE_ID_GRAVITY**.
+   * @param { Callback<GravityResponse> } callback - One-shot callback used to return the gravity sensor data. The
+   *     reported data type in the callback is **GravityResponse**.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead sensor.SensorId#GRAVITY
+   * @useinstead sensor.once(type: SensorId.GRAVITY, callback: Callback<GravityResponse>)
    */
   function once(type: SensorType.SENSOR_TYPE_ID_GRAVITY, callback: Callback<GravityResponse>): void;
 
   /**
-   * Subscribe to sensor data once.
+   * Subscribes to only one data change of the gyroscope sensor.
+   *
    * @permission ohos.permission.GYROSCOPE
-   * @param { SensorType.SENSOR_TYPE_ID_GYROSCOPE } type - type Indicate the sensor type to listen for, 
-   *        {@code SensorType.SENSOR_TYPE_ID_GYROSCOPE}.
-   * @param { Callback<GyroscopeResponse> } callback - callback gyroscope data.
+   * @param { SensorType.SENSOR_TYPE_ID_GYROSCOPE } type - Type of the sensor to subscribe to, which is
+   *     **SENSOR_TYPE_ID_GYROSCOPE**.
+   * @param { Callback<GyroscopeResponse> } callback - One-shot callback used to return the gyroscope sensor data. The
+   *     reported data type in the callback is **GyroscopeResponse**.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead sensor.SensorId#GYROSCOPE
+   * @useinstead sensor.once(type: SensorId.GYROSCOPE, callback: Callback<GyroscopeResponse>)
    */
   function once(type: SensorType.SENSOR_TYPE_ID_GYROSCOPE, callback: Callback<GyroscopeResponse>): void;
 
   /**
-   * Subscribe to sensor data once.
+   * Subscribes to only one data change of the uncalibrated gyroscope sensor.
+   *
    * @permission ohos.permission.GYROSCOPE
-   * @param { SensorType.SENSOR_TYPE_ID_GYROSCOPE_UNCALIBRATED } type - type Indicate the sensor type to listen for, 
-   *        {@code SensorType.SENSOR_TYPE_ID_GYROSCOPE_UNCALIBRATED}.
-   * @param { Callback<GyroscopeUncalibratedResponse> } callback - callback gyroscope uncalibrated data.
+   * @param { SensorType.SENSOR_TYPE_ID_GYROSCOPE_UNCALIBRATED } type - Type of the sensor to subscribe to, which is
+   *     **SENSOR_TYPE_ID_GYROSCOPE_UNCALIBRATED**.
+   * @param { Callback<GyroscopeUncalibratedResponse> } callback - One-shot callback used to return the uncalibrated
+   *     gyroscope sensor data. The reported data type in the callback is **GyroscopeUncalibratedResponse**.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead sensor.SensorId#GYROSCOPE_UNCALIBRATED
+   * @useinstead sensor.once(type: SensorId.GYROSCOPE_UNCALIBRATED, callback: Callback<GyroscopeUncalibratedResponse>)
    */
   function once(type: SensorType.SENSOR_TYPE_ID_GYROSCOPE_UNCALIBRATED, callback: Callback<GyroscopeUncalibratedResponse>): void;
 
   /**
-   * Subscribe to sensor data once.
-   * @param { SensorType.SENSOR_TYPE_ID_HALL } type - type Indicate the sensor type to listen for, 
-   *        {@code SensorType.SENSOR_TYPE_ID_HALL}.
-   * @param { Callback<HallResponse> } callback - callback hall data.
+   * Subscribes to only one data change of the Hall effect sensor.
+   *
+   * @param { SensorType.SENSOR_TYPE_ID_HALL } type - Type of the sensor to subscribe to, which is
+   *     **SENSOR_TYPE_ID_HALL**.
+   * @param { Callback<HallResponse> } callback - One-shot callback used to return the Hall effect sensor data. The
+   *     reported data type in the callback is **HallResponse**.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead sensor.SensorId#HALL
+   * @useinstead sensor.once(type: SensorId.HALL, callback: Callback<HallResponse>)
    */
   function once(type: SensorType.SENSOR_TYPE_ID_HALL, callback: Callback<HallResponse>): void;
 
   /**
-   * Subscribe to sensor data once.
+   * Subscribes to only one data change of the heart rate sensor.
+   *
    * @permission ohos.permission.HEART_RATE
-   * @param { SensorType.SENSOR_TYPE_ID_HEART_RATE } type - type Indicate the sensor type to listen for, 
-   *        {@code SensorType.SENSOR_TYPE_ID_HEART_RATE}.
-   * @param { Callback<HeartRateResponse> } callback - callback heart rate data.
+   * @param { SensorType.SENSOR_TYPE_ID_HEART_RATE } type - Type of the sensor to subscribe to, which is
+   *     **SENSOR_TYPE_ID_HEART_RATE**.
+   * @param { Callback<HeartRateResponse> } callback - One-shot callback used to return the heart rate sensor data. The
+   *     reported data type in the callback is **HeartRateResponse**.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead sensor.SensorId#HEART_RATE
+   * @useinstead sensor.once(type: SensorId.HEART_RATE, callback: Callback<HeartRateResponse>)
    */
   function once(type: SensorType.SENSOR_TYPE_ID_HEART_RATE, callback: Callback<HeartRateResponse>): void;
 
   /**
-   * Subscribe to sensor data once.
-   * @param { SensorType.SENSOR_TYPE_ID_HUMIDITY } type - type Indicate the sensor type to listen for, 
-   *        {@code SensorType.SENSOR_TYPE_ID_HUMIDITY}.
-   * @param { Callback<HumidityResponse> } callback - callback humidity data.
+   * Subscribes to only one data change of the humidity sensor.
+   *
+   * @param { SensorType.SENSOR_TYPE_ID_HUMIDITY } type - Type of the sensor to subscribe to, which is
+   *     **SENSOR_TYPE_ID_HUMIDITY**.
+   * @param { Callback<HumidityResponse> } callback - One-shot callback used to return the humidity sensor data. The
+   *     reported data type in the callback is **HumidityResponse**.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead sensor.SensorId#HUMIDITY
+   * @useinstead sensor.once(type: SensorId.HUMIDITY, callback: Callback<HumidityResponse>)
    */
   function once(type: SensorType.SENSOR_TYPE_ID_HUMIDITY, callback: Callback<HumidityResponse>): void;
 
   /**
-   * Subscribe to sensor data once.
+   * Subscribes to only one data change of the linear acceleration sensor.
+   *
    * @permission ohos.permission.ACCELERATION
-   * @param { SensorType.SENSOR_TYPE_ID_LINEAR_ACCELERATION } type - type Indicate the sensor type to listen for, 
-   *        {@code SensorType.SENSOR_TYPE_ID_LINEAR_ACCELERATION}.
-   * @param { Callback<LinearAccelerometerResponse> } callback - callback linear accelerometer data.
+   * @param { SensorType.SENSOR_TYPE_ID_LINEAR_ACCELERATION } type - Type of the sensor to subscribe to, which is
+   *     **SENSOR_TYPE_ID_LINEAR_ACCELERATION**.
+   * @param { Callback<LinearAccelerometerResponse> } callback - One-shot callback used to return the linear
+   *     acceleration sensor data. The reported data type in the callback is **LinearAccelerometerResponse**.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead sensor.SensorId#LINEAR_ACCELEROMETER
+   * @useinstead sensor.once(type: SensorId.LINEAR_ACCELEROMETER, callback: Callback<LinearAccelerometerResponse>)
    */
   function once(type: SensorType.SENSOR_TYPE_ID_LINEAR_ACCELERATION, callback: Callback<LinearAccelerometerResponse>): void;
 
   /**
-   * Subscribe to sensor data once.
-   * @param { SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD } type - type Indicate the sensor type to listen for, 
-   *        {@code SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD}.
-   * @param { Callback<MagneticFieldResponse> } callback - callback magnetic field data.
+   * Subscribes to only one data change of the magnetic field sensor.
+   *
+   * @param { SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD } type - Type of the sensor to subscribe to, which is
+   *     **SENSOR_TYPE_ID_MAGNETIC_FIELD**.
+   * @param { Callback<MagneticFieldResponse> } callback - One-shot callback used to return the magnetic field sensor
+   *     data. The reported data type in the callback is **MagneticFieldResponse**.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead sensor.SensorId#MAGNETIC_FIELD
+   * @useinstead sensor.once(type: SensorId.MAGNETIC_FIELD, callback: Callback<MagneticFieldResponse>)
    */
   function once(type: SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD, callback: Callback<MagneticFieldResponse>): void;
 
   /**
-   * Subscribe to sensor data once.
-   * @param { SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD_UNCALIBRATED } type - type Indicate the sensor type to listen for, 
-   *        {@code SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD_UNCALIBRATED}.
-   * @param { Callback<MagneticFieldUncalibratedResponse> } callback - callback magnetic field uncalibrated data.
+   * Subscribes to only one data change of the uncalibrated magnetic field sensor.
+   *
+   * @param { SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD_UNCALIBRATED } type - Type of the sensor to subscribe to, which
+   *     is **SENSOR_TYPE_ID_MAGNETIC_FIELD_UNCALIBRATED**.
+   * @param { Callback<MagneticFieldUncalibratedResponse> } callback - One-shot callback used to return the uncalibrated
+   *     magnetic field sensor data. The reported data type in the callback is **MagneticFieldUncalibratedResponse**.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead sensor.SensorId#MAGNETIC_FIELD_UNCALIBRATED
+   * @useinstead sensor.once(type: SensorId.MAGNETIC_FIELD_UNCALIBRATED, callback: Callback<MagneticFieldUncalibratedResponse>)
    */
   function once(type: SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD_UNCALIBRATED, callback: Callback<MagneticFieldUncalibratedResponse>): void;
 
   /**
-   * Subscribe to sensor data once.
-   * @param { SensorType.SENSOR_TYPE_ID_ORIENTATION } type - type Indicate the sensor type to listen for, 
-   *        {@code SensorType.SENSOR_TYPE_ID_ORIENTATION}.
-   * @param { Callback<OrientationResponse> } callback - callback orientation data.
+   * Subscribes to only one data change of the orientation sensor.
+   *
+   * @param { SensorType.SENSOR_TYPE_ID_ORIENTATION } type - Type of the sensor to subscribe to, which is
+   *     **SENSOR_TYPE_ID_ORIENTATION**.
+   * @param { Callback<OrientationResponse> } callback - One-shot callback used to return the orientation sensor data.
+   *     The reported data type in the callback is **OrientationResponse**.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead sensor.SensorId#ORIENTATION
+   * @useinstead sensor.once(type: SensorId.ORIENTATION, callback: Callback<OrientationResponse>)
    */
   function once(type: SensorType.SENSOR_TYPE_ID_ORIENTATION, callback: Callback<OrientationResponse>): void;
 
   /**
-   * Subscribe to sensor data once.
+   * Subscribes to only one data change of the pedometer sensor.
+   *
    * @permission ohos.permission.ACTIVITY_MOTION
-   * @param { SensorType.SENSOR_TYPE_ID_PEDOMETER } type - type Indicate the sensor type to listen for, 
-   *        {@code SensorType.SENSOR_TYPE_ID_PEDOMETER}.
-   * @param { Callback<PedometerResponse> } callback - callback pedometer data.
+   * @param { SensorType.SENSOR_TYPE_ID_PEDOMETER } type - Type of the sensor to subscribe to, which is
+   *     **SENSOR_TYPE_ID_PEDOMETER**.
+   * @param { Callback<PedometerResponse> } callback - One-shot callback used to return the pedometer sensor data. The
+   *     reported data type in the callback is **PedometerResponse**.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead sensor.SensorId#PEDOMETER
+   * @useinstead sensor.once(type: SensorId.PEDOMETER, callback: Callback<PedometerResponse>)
    */
   function once(type: SensorType.SENSOR_TYPE_ID_PEDOMETER, callback: Callback<PedometerResponse>): void;
 
   /**
-   * Subscribe to sensor data once.
+   * Subscribes to only one data change of the pedometer detection sensor.
+   *
    * @permission ohos.permission.ACTIVITY_MOTION
-   * @param { SensorType.SENSOR_TYPE_ID_PEDOMETER_DETECTION } type - type Indicate the sensor type to listen for, 
-   *        {@code SensorType.SENSOR_TYPE_ID_PEDOMETER_DETECTION}.
-   * @param { Callback<PedometerDetectionResponse> } callback - callback pedometer detection data.
+   * @param { SensorType.SENSOR_TYPE_ID_PEDOMETER_DETECTION } type - Type of the sensor to subscribe to, which is
+   *     **SENSOR_TYPE_ID_PEDOMETER_DETECTION**.
+   * @param { Callback<PedometerDetectionResponse> } callback - One-shot callback used to return the pedometer detection
+   *     sensor data. The reported data type in the callback is **PedometerDetectionResponse**.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead sensor.SensorId#PEDOMETER_DETECTION
+   * @useinstead sensor.once(type: SensorId.PEDOMETER_DETECTION, callback: Callback<PedometerDetectionResponse>)
    */
   function once(type: SensorType.SENSOR_TYPE_ID_PEDOMETER_DETECTION, callback: Callback<PedometerDetectionResponse>): void;
 
   /**
-   * Subscribe to sensor data once.
-   * @param { SensorType.SENSOR_TYPE_ID_PROXIMITY } type - type Indicate the sensor type to listen for, 
-   *        {@code SensorType.SENSOR_TYPE_ID_PROXIMITY}.
-   * @param { Callback<ProximityResponse> } callback - callback proximity data.
+   * Subscribes to only one data change of the proximity sensor.
+   *
+   * @param { SensorType.SENSOR_TYPE_ID_PROXIMITY } type - Type of the sensor to subscribe to, which is
+   *     **SENSOR_TYPE_ID_PROXIMITY**.
+   * @param { Callback<ProximityResponse> } callback - One-shot callback used to return the proximity sensor data. The
+   *     reported data type in the callback is **ProximityResponse**.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead sensor.SensorId#PROXIMITY
+   * @useinstead sensor.once(type: SensorId.PROXIMITY, callback: Callback<ProximityResponse>)
    */
   function once(type: SensorType.SENSOR_TYPE_ID_PROXIMITY, callback: Callback<ProximityResponse>): void;
 
   /**
-   * Subscribe to sensor data once.
-   * @param { SensorType.SENSOR_TYPE_ID_ROTATION_VECTOR } type - type Indicate the sensor type to listen for, 
-   *        {@code SensorType.SENSOR_TYPE_ID_ROTATION_VECTOR}.
-   * @param { Callback<RotationVectorResponse> } callback - callback rotation vector data.
+   * Subscribes to only one data change of the rotation vector sensor.
+   *
+   * @param { SensorType.SENSOR_TYPE_ID_ROTATION_VECTOR } type - Type of the sensor to subscribe to, which is
+   *     **SENSOR_TYPE_ID_ROTATION_VECTOR**.
+   * @param { Callback<RotationVectorResponse> } callback - One-shot callback used to return the rotation vector sensor
+   *     data. The reported data type in the callback is **RotationVectorResponse**.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead sensor.SensorId#ROTATION_VECTOR
+   * @useinstead sensor.once(type: SensorId.ROTATION_VECTOR, callback: Callback<RotationVectorResponse>)
    */
   function once(type: SensorType.SENSOR_TYPE_ID_ROTATION_VECTOR, callback: Callback<RotationVectorResponse>): void;
 
   /**
-   * Subscribe to sensor data once.
-   * @param { SensorType.SENSOR_TYPE_ID_SIGNIFICANT_MOTION } type - type Indicate the sensor type to listen for, 
-   *        {@code SensorType.SENSOR_TYPE_ID_SIGNIFICANT_MOTION}.
-   * @param { Callback<SignificantMotionResponse> } callback - callback significant motion data.
+   * Subscribes to only one data change of the significant motion sensor.
+   *
+   * @param { SensorType.SENSOR_TYPE_ID_SIGNIFICANT_MOTION } type - Type of the sensor to subscribe to, which is
+   *     **SENSOR_TYPE_ID_SIGNIFICANT_MOTION**.
+   * @param { Callback<SignificantMotionResponse> } callback - One-shot callback used to return the significant motion
+   *     sensor data. The reported data type in the callback is **SignificantMotionResponse**.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead sensor.SensorId#SIGNIFICANT_MOTION
+   * @useinstead sensor.once(type: SensorId.SIGNIFICANT_MOTION, callback: Callback<SignificantMotionResponse>)
    */
   function once(type: SensorType.SENSOR_TYPE_ID_SIGNIFICANT_MOTION, callback: Callback<SignificantMotionResponse>): void;
 
   /**
-   * Subscribe to sensor data once.
-   * @param { SensorType.SENSOR_TYPE_ID_WEAR_DETECTION } type - type Indicate the sensor type to listen for, 
-   *        {@code SensorType.SENSOR_TYPE_ID_WEAR_DETECTION}.
-   * @param { Callback<WearDetectionResponse> } callback - callback wear detection data.
+   * Subscribes to only one data change of the wear detection sensor.
+   *
+   * @param { SensorType.SENSOR_TYPE_ID_WEAR_DETECTION } type - Type of the sensor to subscribe to, which is
+   *     **SENSOR_TYPE_ID_WEAR_DETECTION**.
+   * @param { Callback<WearDetectionResponse> } callback - One-shot callback used to return the wear detection sensor
+   *     data. The reported data type in the callback is **WearDetectionResponse**.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead sensor.SensorId#WEAR_DETECTION
+   * @useinstead sensor.once(type: SensorId.WEAR_DETECTION, callback: Callback<WearDetectionResponse>)
    */
   function once(type: SensorType.SENSOR_TYPE_ID_WEAR_DETECTION, callback: Callback<WearDetectionResponse>): void;
 
   /**
-   * Unsubscribe to sensor data.
+   * Unsubscribes from sensor data changes.
+   *
    * @permission ohos.permission.ACCELEROMETER
-   * @param { SensorType.SENSOR_TYPE_ID_ACCELEROMETER } type - type Indicate the sensor type to unsubscribe, 
-   *        {@code SensorType.SENSOR_TYPE_ID_ACCELEROMETER}.
-   * @param { Callback<AccelerometerResponse> } callback - callback accelerometer data.
+   * @param { SensorType.SENSOR_TYPE_ID_ACCELEROMETER } type - Type of the sensor to unsubscribe from, which is
+   *     **SENSOR_TYPE_ID_ACCELEROMETER**.
+   * @param { Callback<AccelerometerResponse> } callback - Callback used for unsubscription. If this parameter is not
+   *     specified, all callbacks of the specified sensor type are unsubscribed from.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead sensor.SensorId#ACCELEROMETER
+   * @useinstead sensor.off(type: SensorId.ACCELEROMETER, callback?: Callback<AccelerometerResponse>)
    */
   function off(type: SensorType.SENSOR_TYPE_ID_ACCELEROMETER, callback?: Callback<AccelerometerResponse>): void;
 
   /**
-   * Unsubscribe to sensor data.
+   * Unsubscribes from sensor data changes.
+   *
    * @permission ohos.permission.ACCELEROMETER
-   * @param { SensorType.SENSOR_TYPE_ID_ACCELEROMETER_UNCALIBRATED } type - type Indicate the sensor type to unsubscribe, 
-   *        {@code SensorType.SENSOR_TYPE_ID_ACCELEROMETER_UNCALIBRATED}.
-   * @param { Callback<AccelerometerUncalibratedResponse> } callback - callback accelerometer uncalibrated data.
+   * @param { SensorType.SENSOR_TYPE_ID_ACCELEROMETER_UNCALIBRATED } type - Type of the sensor to unsubscribe from,
+   *     which is **SENSOR_TYPE_ID_ACCELEROMETER_UNCALIBRATED**.
+   * @param { Callback<AccelerometerUncalibratedResponse> } callback - Callback used for unsubscription. If this
+   *     parameter is not specified, all callbacks of the specified sensor type are unsubscribed from.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead sensor.SensorId#ACCELEROMETER_UNCALIBRATED
+   * @useinstead sensor.off(type: SensorId.ACCELEROMETER_UNCALIBRATED, callback?: Callback<AccelerometerUncalibratedResponse>)
    */
   function off(type: SensorType.SENSOR_TYPE_ID_ACCELEROMETER_UNCALIBRATED,
     callback?: Callback<AccelerometerUncalibratedResponse>): void;
 
   /**
-   * Unsubscribe to sensor data.
-   * @param { SensorType.SENSOR_TYPE_ID_AMBIENT_LIGHT } type - type Indicate the sensor type to unsubscribe, 
-   *        {@code SensorType.SENSOR_TYPE_ID_AMBIENT_LIGHT}.
-   * @param { Callback<LightResponse> } callback - callback light data.
+   * Unsubscribes from sensor data changes.
+   *
+   * @param { SensorType.SENSOR_TYPE_ID_AMBIENT_LIGHT } type - Type of the sensor to unsubscribe from, which is
+   *     **SENSOR_TYPE_ID_AMBIENT_LIGHT**.
+   * @param { Callback<LightResponse> } callback - Callback used for unsubscription. If this parameter is not specified,
+   *     all callbacks of the specified sensor type are unsubscribed from.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead sensor.SensorId#AMBIENT_LIGHT
+   * @useinstead sensor.off(type: SensorId.AMBIENT_LIGHT, callback?: Callback<LightResponse>)
    */
   function off(type: SensorType.SENSOR_TYPE_ID_AMBIENT_LIGHT, callback?: Callback<LightResponse>): void;
 
   /**
-   * Unsubscribe to sensor data.
-   * @param { SensorType.SENSOR_TYPE_ID_AMBIENT_TEMPERATURE } type - type Indicate the sensor type to unsubscribe, 
-   *        {@code SensorType.SENSOR_TYPE_ID_AMBIENT_TEMPERATURE}.
-   * @param { Callback<AmbientTemperatureResponse> } callback - callback ambient temperature data.
+   * Unsubscribes from sensor data changes.
+   *
+   * @param { SensorType.SENSOR_TYPE_ID_AMBIENT_TEMPERATURE } type - Type of the sensor to unsubscribe from, which is
+   *     **SENSOR_TYPE_ID_AMBIENT_TEMPERATURE**.
+   * @param { Callback<AmbientTemperatureResponse> } callback - Callback used for unsubscription. If this parameter is
+   *     not specified, all callbacks of the specified sensor type are unsubscribed from.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead sensor.SensorId#AMBIENT_TEMPERATURE
+   * @useinstead sensor.off(type: SensorId.AMBIENT_TEMPERATURE, callback?: Callback<AmbientTemperatureResponse>)
    */
   function off(type: SensorType.SENSOR_TYPE_ID_AMBIENT_TEMPERATURE, callback?: Callback<AmbientTemperatureResponse>): void;
 
   /**
-   * Unsubscribe to sensor data.
-   * @param { SensorType.SENSOR_TYPE_ID_BAROMETER } type - type Indicate the sensor type to unsubscribe, 
-   *        {@code SensorType.SENSOR_TYPE_ID_BAROMETER}.
-   * @param { Callback<BarometerResponse> } callback - callback barometer response data.
+   * Unsubscribes from sensor data changes.
+   *
+   * @param { SensorType.SENSOR_TYPE_ID_BAROMETER } type - Type of the sensor to unsubscribe from, which is
+   *     **SENSOR_TYPE_ID_BAROMETER**.
+   * @param { Callback<BarometerResponse> } callback - Callback used for unsubscription. If this parameter is not
+   *     specified, all callbacks of the specified sensor type are unsubscribed from.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead sensor.SensorId#BAROMETER
+   * @useinstead sensor.off(type: SensorId.BAROMETER, callback?: Callback<BarometerResponse>)
    */
   function off(type: SensorType.SENSOR_TYPE_ID_BAROMETER, callback?: Callback<BarometerResponse>): void;
 
   /**
-   * Unsubscribe to sensor data.
-   * @param { SensorType.SENSOR_TYPE_ID_GRAVITY } type - type Indicate the sensor type to unsubscribe, 
-   *        {@code SensorType.SENSOR_TYPE_ID_GRAVITY}.
-   * @param { Callback<GravityResponse> } callback - callback gravity data.
+   * Unsubscribes from sensor data changes.
+   *
+   * @param { SensorType.SENSOR_TYPE_ID_GRAVITY } type - Type of the sensor to unsubscribe from, which is
+   *     **SENSOR_TYPE_ID_GRAVITY**.
+   * @param { Callback<GravityResponse> } callback - Callback used for unsubscription. If this parameter is not
+   *     specified, all callbacks of the specified sensor type are unsubscribed from.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead sensor.SensorId#GRAVITY
+   * @useinstead sensor.off(type: SensorId.GRAVITY, callback?: Callback<GravityResponse>)
    */
   function off(type: SensorType.SENSOR_TYPE_ID_GRAVITY, callback?: Callback<GravityResponse>): void;
 
   /**
-   * Unsubscribe to sensor data.
+   * Unsubscribes from sensor data changes.
+   *
    * @permission ohos.permission.GYROSCOPE
-   * @param { SensorType.SENSOR_TYPE_ID_GYROSCOPE } type - type Indicate the sensor type to unsubscribe, 
-   *        {@code SensorType.SENSOR_TYPE_ID_GYROSCOPE}.
-   * @param { Callback<GyroscopeResponse> } callback - callback gyroscope data.
+   * @param { SensorType.SENSOR_TYPE_ID_GYROSCOPE } type - Type of the sensor to unsubscribe from, which is
+   *     **SENSOR_TYPE_ID_GYROSCOPE**.
+   * @param { Callback<GyroscopeResponse> } callback - Callback used for unsubscription. If this parameter is not
+   *     specified, all callbacks of the specified sensor type are unsubscribed from.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead sensor.SensorId#GYROSCOPE
+   * @useinstead sensor.off(type: SensorId.GYROSCOPE, callback?: Callback<GyroscopeResponse>)
    */
   function off(type: SensorType.SENSOR_TYPE_ID_GYROSCOPE, callback?: Callback<GyroscopeResponse>): void;
 
   /**
-   * Unsubscribe to sensor data.
+   * Unsubscribes from sensor data changes.
+   *
    * @permission ohos.permission.GYROSCOPE
-   * @param { SensorType.SENSOR_TYPE_ID_GYROSCOPE_UNCALIBRATED } type - type Indicate the sensor type to unsubscribe, 
-   *        {@code SensorType.SENSOR_TYPE_ID_GYROSCOPE_UNCALIBRATED}.
-   * @param { Callback<GyroscopeUncalibratedResponse> } callback - callback gyroscope uncalibrated data.
+   * @param { SensorType.SENSOR_TYPE_ID_GYROSCOPE_UNCALIBRATED } type - Type of the sensor to unsubscribe from, which is
+   *     **SENSOR_TYPE_ID_GYROSCOPE_UNCALIBRATED**.
+   * @param { Callback<GyroscopeUncalibratedResponse> } callback - Callback used for unsubscription. If this parameter
+   *     is not specified, all callbacks of the specified sensor type are unsubscribed from.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead sensor.SensorId#GYROSCOPE_UNCALIBRATED
+   * @useinstead sensor.off(type: SensorId.GYROSCOPE_UNCALIBRATED, callback?: Callback<GyroscopeUncalibratedResponse>)
    */
   function off(type: SensorType.SENSOR_TYPE_ID_GYROSCOPE_UNCALIBRATED, callback?: Callback<GyroscopeUncalibratedResponse>): void;
 
   /**
-   * Unsubscribe to sensor data.
-   * @param { SensorType.SENSOR_TYPE_ID_HALL } type - type Indicate the sensor type to unsubscribe, 
-   *        {@code SensorType.SENSOR_TYPE_ID_HALL}.
-   * @param { Callback<HallResponse> } callback - callback hall data.
+   * Unsubscribes from sensor data changes.
+   *
+   * @param { SensorType.SENSOR_TYPE_ID_HALL } type - Type of the sensor to unsubscribe from, which is
+   *     **SENSOR_TYPE_ID_HALL**.
+   * @param { Callback<HallResponse> } callback - Callback used for unsubscription. If this parameter is not specified,
+   *     all callbacks of the specified sensor type are unsubscribed from.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead sensor.SensorId#HALL
+   * @useinstead sensor.off(type: SensorId.HALL, callback?: Callback<HallResponse>)
    */
   function off(type: SensorType.SENSOR_TYPE_ID_HALL, callback?: Callback<HallResponse>): void;
 
   /**
-   * Unsubscribe to sensor data.
+   * Unsubscribes from sensor data changes.
+   *
    * @permission ohos.permission.HEALTH_DATA
-   * @param { SensorType.SENSOR_TYPE_ID_HEART_RATE } type - type Indicate the sensor type to unsubscribe, 
-   *        {@code SensorType.SENSOR_TYPE_ID_HEART_RATE}.
-   * @param { Callback<HeartRateResponse> } callback - callback heart rate data.
+   * @param { SensorType.SENSOR_TYPE_ID_HEART_RATE } type - Type of the sensor to unsubscribe from, which is
+   *     **SENSOR_TYPE_ID_HEART_RATE**.
+   * @param { Callback<HeartRateResponse> } callback - Callback used for unsubscription. If this parameter is not
+   *     specified, all callbacks of the specified sensor type are unsubscribed from.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead sensor.SensorId#HEART_RATE
+   * @useinstead sensor.off(type: SensorId.HEART_RATE, callback?: Callback<HeartRateResponse>)
    */
   function off(type: SensorType.SENSOR_TYPE_ID_HEART_RATE, callback?: Callback<HeartRateResponse>): void;
 
   /**
-   * Unsubscribe to sensor data.
-   * @param { SensorType.SENSOR_TYPE_ID_HUMIDITY } type - type Indicate the sensor type to unsubscribe, 
-   *        {@code SensorType.SENSOR_TYPE_ID_HUMIDITY}.
-   * @param { Callback<HumidityResponse> } callback - callback humidity data.
+   * Unsubscribes from sensor data changes.
+   *
+   * @param { SensorType.SENSOR_TYPE_ID_HUMIDITY } type - Type of the sensor to unsubscribe from, which is
+   *     **SENSOR_TYPE_ID_HUMIDITY**.
+   * @param { Callback<HumidityResponse> } callback - Callback used for unsubscription. If this parameter is not
+   *     specified, all callbacks of the specified sensor type are unsubscribed from.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead sensor.SensorId#HUMIDITY
+   * @useinstead sensor.off(type: SensorId.HUMIDITY, callback?: Callback<HumidityResponse>)
    */
   function off(type: SensorType.SENSOR_TYPE_ID_HUMIDITY, callback?: Callback<HumidityResponse>): void;
 
   /**
-   * Unsubscribe to sensor data.
+   * Unsubscribes from sensor data changes.
+   *
    * @permission ohos.permission.ACCELEROMETER
-   * @param { SensorType.SENSOR_TYPE_ID_LINEAR_ACCELERATION } type - type Indicate the sensor type to unsubscribe, 
-   *        {@code SensorType.SENSOR_TYPE_ID_LINEAR_ACCELERATION}.
-   * @param { Callback<LinearAccelerometerResponse> } callback - callback linear accelerometer data.
+   * @param { SensorType.SENSOR_TYPE_ID_LINEAR_ACCELERATION } type - Type of the sensor to unsubscribe from, which is
+   *     **SENSOR_TYPE_ID_LINEAR_ACCELERATION**.
+   * @param { Callback<LinearAccelerometerResponse> } callback - Callback used for unsubscription. If this parameter is
+   *     not specified, all callbacks of the specified sensor type are unsubscribed from.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead sensor.SensorId#LINEAR_ACCELEROMETER
+   * @useinstead sensor.off(type: SensorId.LINEAR_ACCELEROMETER, callback?: Callback<LinearAccelerometerResponse>)
    */
   function off(type: SensorType.SENSOR_TYPE_ID_LINEAR_ACCELERATION, callback?: Callback<LinearAccelerometerResponse>): void;
 
   /**
-   * Unsubscribe to sensor data.
-   * @param { SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD } type - type Indicate the sensor type to unsubscribe, 
-   *        {@code SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD}.
-   * @param { Callback<MagneticFieldResponse> } callback - callback magnetic field data.
+   * Unsubscribes from sensor data changes.
+   *
+   * @param { SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD } type - Type of the sensor to unsubscribe from, which is
+   *     **SENSOR_TYPE_ID_MAGNETIC_FIELD**.
+   * @param { Callback<MagneticFieldResponse> } callback - Callback used for unsubscription. If this parameter is not
+   *     specified, all callbacks of the specified sensor type are unsubscribed from.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead sensor.SensorId#MAGNETIC_FIELD
+   * @useinstead sensor.off(type: SensorId.MAGNETIC_FIELD, callback?: Callback<MagneticFieldResponse>)
    */
   function off(type: SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD, callback?: Callback<MagneticFieldResponse>): void;
 
   /**
-   * Unsubscribe to sensor data.
-   * @param { SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD_UNCALIBRATED } type - type Indicate the sensor type to unsubscribe, 
-   *        {@code SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD_UNCALIBRATED}.
-   * @param { Callback<MagneticFieldUncalibratedResponse> } callback - callback magnetic field uncalibrated data.
+   * Unsubscribes from sensor data changes.
+   *
+   * @param { SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD_UNCALIBRATED } type - Type of the sensor to unsubscribe from,
+   *     which is **SENSOR_TYPE_ID_MAGNETIC_FIELD_UNCALIBRATED**.
+   * @param { Callback<MagneticFieldUncalibratedResponse> } callback - Callback used for unsubscription. If this
+   *     parameter is not specified, all callbacks of the specified sensor type are unsubscribed from.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead sensor.SensorId#MAGNETIC_FIELD_UNCALIBRATED
+   * @useinstead sensor.off(type: SensorId.MAGNETIC_FIELD_UNCALIBRATED, callback?: Callback<MagneticFieldUncalibratedResponse>)
    */
   function off(type: SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD_UNCALIBRATED, callback?: Callback<MagneticFieldUncalibratedResponse>): void;
 
   /**
-   * Unsubscribe to sensor data.
-   * @param { SensorType.SENSOR_TYPE_ID_ORIENTATION } type - type Indicate the sensor type to unsubscribe, 
-   *        {@code SensorType.SENSOR_TYPE_ID_ORIENTATION}.
-   * @param { Callback<OrientationResponse> } callback - callback orientation data.
+   * Unsubscribes from sensor data changes.
+   *
+   * @param { SensorType.SENSOR_TYPE_ID_ORIENTATION } type - Type of the sensor to unsubscribe from, which is
+   *     **SENSOR_TYPE_ID_ORIENTATION**.
+   * @param { Callback<OrientationResponse> } callback - Callback used for unsubscription. If this parameter is not
+   *     specified, all callbacks of the specified sensor type are unsubscribed from.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead sensor.SensorId#ORIENTATION
+   * @useinstead sensor.off(type: SensorId.ORIENTATION, callback?: Callback<OrientationResponse>)
    */
   function off(type: SensorType.SENSOR_TYPE_ID_ORIENTATION, callback?: Callback<OrientationResponse>): void;
 
   /**
-   * Unsubscribe to sensor data.
+   * Unsubscribes from sensor data changes.
+   *
    * @permission ohos.permission.ACTIVITY_MOTION
-   * @param { SensorType.SENSOR_TYPE_ID_PEDOMETER } type - type Indicate the sensor type to unsubscribe, {@code SensorType.SENSOR_TYPE_ID_PEDOMETER}.
-   * @param { Callback<PedometerResponse> } callback - callback pedometer data.
+   * @param { SensorType.SENSOR_TYPE_ID_PEDOMETER } type - Type of the sensor to unsubscribe from, which is
+   *     **SENSOR_TYPE_ID_PEDOMETER**.
+   * @param { Callback<PedometerResponse> } callback - Callback used for unsubscription. If this parameter is not
+   *     specified, all callbacks of the specified sensor type are unsubscribed from.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead sensor.SensorId#PEDOMETER
+   * @useinstead sensor.off(type: SensorId.PEDOMETER, callback?: Callback<PedometerResponse>)
    */
   function off(type: SensorType.SENSOR_TYPE_ID_PEDOMETER, callback?: Callback<PedometerResponse>): void;
 
   /**
-   * Unsubscribe to sensor data.
+   * Unsubscribes from sensor data changes.
+   *
    * @permission ohos.permission.ACTIVITY_MOTION
-   * @param { SensorType.SENSOR_TYPE_ID_PEDOMETER_DETECTION } type - type Indicate the sensor type to unsubscribe, 
-   *        {@code SensorType.SENSOR_TYPE_ID_PEDOMETER_DETECTION}.
-   * @param { Callback<PedometerDetectionResponse> } callback - callback pedometer detection data.
+   * @param { SensorType.SENSOR_TYPE_ID_PEDOMETER_DETECTION } type - Type of the sensor to unsubscribe from, which is
+   *     **SENSOR_TYPE_ID_PEDOMETER_DETECTION**.
+   * @param { Callback<PedometerDetectionResponse> } callback - Callback used for unsubscription. If this parameter is
+   *     not specified, all callbacks of the specified sensor type are unsubscribed from.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead sensor.SensorId#PEDOMETER_DETECTION
+   * @useinstead sensor.off(type: SensorId.PEDOMETER_DETECTION, callback?: Callback<PedometerDetectionResponse>)
    */
   function off(type: SensorType.SENSOR_TYPE_ID_PEDOMETER_DETECTION, callback?: Callback<PedometerDetectionResponse>): void;
 
   /**
-   * Unsubscribe to sensor data.
-   * @param { SensorType.SENSOR_TYPE_ID_PROXIMITY } type - type Indicate the sensor type to unsubscribe, 
-   *        {@code SensorType.SENSOR_TYPE_ID_PROXIMITY}.
-   * @param { Callback<ProximityResponse> } callback - callback proximity data.
+   * Unsubscribes from sensor data changes.
+   *
+   * @param { SensorType.SENSOR_TYPE_ID_PROXIMITY } type - Type of the sensor to unsubscribe from, which is
+   *     **SENSOR_TYPE_ID_PROXIMITY**.
+   * @param { Callback<ProximityResponse> } callback - Callback used for unsubscription. If this parameter is not
+   *     specified, all callbacks of the specified sensor type are unsubscribed from.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead sensor.SensorId#PROXIMITY
+   * @useinstead sensor.off(type: SensorId.PROXIMITY, callback?: Callback<ProximityResponse>)
    */
   function off(type: SensorType.SENSOR_TYPE_ID_PROXIMITY, callback?: Callback<ProximityResponse>): void;
 
   /**
-   * Unsubscribe to sensor data.
-   * @param { SensorType.SENSOR_TYPE_ID_ROTATION_VECTOR } type - type Indicate the sensor type to unsubscribe, 
-   *        {@code SensorType.SENSOR_TYPE_ID_ROTATION_VECTOR}.
-   * @param { Callback<RotationVectorResponse> } callback - callback rotation vector data.
+   * Unsubscribes from sensor data changes.
+   *
+   * @param { SensorType.SENSOR_TYPE_ID_ROTATION_VECTOR } type - Type of the sensor to unsubscribe from, which is
+   *     **SENSOR_TYPE_ID_ROTATION_VECTOR**.
+   * @param { Callback<RotationVectorResponse> } callback - Callback used for unsubscription. If this parameter is not
+   *     specified, all callbacks of the specified sensor type are unsubscribed from.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead sensor.SensorId#ROTATION_VECTOR
+   * @useinstead sensor.off(type: SensorId.ROTATION_VECTOR, callback?: Callback<RotationVectorResponse>)
    */
   function off(type: SensorType.SENSOR_TYPE_ID_ROTATION_VECTOR, callback?: Callback<RotationVectorResponse>): void;
 
   /**
-   * Unsubscribe to sensor data.
-   * @param { SensorType.SENSOR_TYPE_ID_SIGNIFICANT_MOTION } type - type Indicate the sensor type to unsubscribe, 
-   *        {@code SensorType.SENSOR_TYPE_ID_SIGNIFICANT_MOTION}.
-   * @param { Callback<SignificantMotionResponse> } callback - callback significant motion data.
+   * Unsubscribes from valid motion sensor data.
+   *
+   * @param { SensorType.SENSOR_TYPE_ID_SIGNIFICANT_MOTION } type - Type of the sensor to unsubscribe from, which is
+   *     **SENSOR_TYPE_ID_SIGNIFICANT_MOTION**.
+   * @param { Callback<SignificantMotionResponse> } callback - Callback used for unsubscription. If this parameter is
+   *     not specified, all callbacks of the specified sensor type are unsubscribed from.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead sensor.SensorId#SIGNIFICANT_MOTION
+   * @useinstead sensor.off(type: SensorId.SIGNIFICANT_MOTION, callback?: Callback<SignificantMotionResponse>)
    */
   function off(type: SensorType.SENSOR_TYPE_ID_SIGNIFICANT_MOTION, callback?: Callback<SignificantMotionResponse>): void;
 
   /**
-   * Unsubscribe to sensor data.
-   * @param { SensorType.SENSOR_TYPE_ID_WEAR_DETECTION } type - type Indicate the sensor type to unsubscribe, 
-   *        {@code SensorType.SENSOR_TYPE_ID_WEAR_DETECTION}.
-   * @param { Callback<WearDetectionResponse> } callback - callback wear detection data.
+   * Unsubscribes from sensor data changes.
+   *
+   * @param { SensorType.SENSOR_TYPE_ID_WEAR_DETECTION } type - Type of the sensor to unsubscribe from, which is
+   *     **SENSOR_TYPE_ID_WEAR_DETECTION**.
+   * @param { Callback<WearDetectionResponse> } callback - Callback used for unsubscription. If this parameter is not
+   *     specified, all callbacks of the specified sensor type are unsubscribed from.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead sensor.SensorId#WEAR_DETECTION
+   * @useinstead sensor.off(type: SensorId.WEAR_DETECTION, callback?: Callback<WearDetectionResponse>)
    */
   function off(type: SensorType.SENSOR_TYPE_ID_WEAR_DETECTION, callback?: Callback<WearDetectionResponse>): void;
 
   /**
-   * Indicates sensor information.
-   * @typedef Sensor
+   * Describes the sensor information.
+   *
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
    * @since 23 static
@@ -3364,7 +3716,7 @@ declare namespace sensor {
   interface Sensor {
     /**
      * Sensor name.
-     * @type { string }
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9 dynamic
      * @since 23 static
@@ -3372,8 +3724,8 @@ declare namespace sensor {
     sensorName:string;
 
     /**
-     * Sensor vendor.
-     * @type { string }
+     * Vendor of the sensor.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9 dynamic
      * @since 23 static
@@ -3381,8 +3733,8 @@ declare namespace sensor {
     vendorName:string;
 
     /**
-     * Sensor firmware version.
-     * @type { string }
+     * Firmware version of the sensor.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9 dynamic
      * @since 23 static
@@ -3390,8 +3742,8 @@ declare namespace sensor {
     firmwareVersion:string;
 
     /**
-     * Sensor hardware version.
-     * @type { string }
+     * Hardware version of the sensor.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9 dynamic
      * @since 23 static
@@ -3399,8 +3751,8 @@ declare namespace sensor {
     hardwareVersion:string;
 
     /**
-     * Sensor type ID, {@code SensorType}.
-     * @type { int }
+     * Sensor type ID.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9 dynamic
      * @since 23 static
@@ -3409,7 +3761,7 @@ declare namespace sensor {
 
     /**
      * Maximum measurement range of the sensor.
-     * @type { double }
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9 dynamic
      * @since 23 static
@@ -3417,8 +3769,8 @@ declare namespace sensor {
     maxRange:double;
 
     /**
-     * Minimum sample period allowed, in ns.
-     * @type { long }
+     * Minimum sampling period.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9 dynamic
      * @since 23 static
@@ -3426,8 +3778,8 @@ declare namespace sensor {
     minSamplePeriod:long;
 
     /**
-     * Maximum sample period allowed, in ns.
-     * @type { long }
+     * Maximum sampling period.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9 dynamic
      * @since 23 static
@@ -3435,8 +3787,8 @@ declare namespace sensor {
     maxSamplePeriod:long;
 
     /**
-     * Sensor accuracy.
-     * @type { double }
+     * Precision of the sensor.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9 dynamic
      * @since 23 static
@@ -3444,8 +3796,8 @@ declare namespace sensor {
     precision:double;
 
     /**
-     * Sensor power.
-     * @type { double }
+     * Estimated sensor power, in mA.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9 dynamic
      * @since 23 static
@@ -3453,8 +3805,8 @@ declare namespace sensor {
     power:double;
 
     /**
-     * Index of sensors of the same type.
-     * @type { ?int }
+     * Sensor index.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 19 dynamic
      * @since 23 static
@@ -3462,8 +3814,8 @@ declare namespace sensor {
     sensorIndex?: int;
 
     /**
-     * Device ID which the sensors attached.
-     * @type { ?int }
+     * Device ID.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 19 dynamic
      * @since 23 static
@@ -3471,9 +3823,8 @@ declare namespace sensor {
     deviceId?: int;
 
     /**
-     * Name of the device.
+     * Device name.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 19 dynamic
      * @since 23 static
@@ -3481,8 +3832,9 @@ declare namespace sensor {
     deviceName?: string;
 
     /**
-     * Is the device a local device or an external device
-     * @type { ?boolean }
+     * Whether the sensor is a local sensor. The value **true** indicates a local sensor, and the value **false**
+     * indicates the opposite.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 19 dynamic
      * @since 23 static
@@ -3490,8 +3842,9 @@ declare namespace sensor {
     isLocalSensor?: boolean;
 
     /**
-     * Is the device a mock device or a real device
-     * @type { ?boolean }
+     * Whether the sensor is a mock sensor. The value **true** indicates a mock sensor, and the value **false**
+     * indicates the opposite.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 23 dynamic&static
      */
@@ -3499,65 +3852,47 @@ declare namespace sensor {
   }
 
   /**
-   * Obtains the sensor information of a specified type.
-   * @param { SensorId } type - Indicate the sensor type, {@code SensorId}.
-   * @param { AsyncCallback<Sensor> } callback - callback sensor info.
+   * Obtains information about the sensor of a specific type. This API uses an asynchronous callback to return the
+   * result.
+   *
+   * @param { SensorId } type - Sensor type.
+   * @param { AsyncCallback<Sensor> } callback - Callback used to return the sensor information.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   * @throws { BusinessError } 14500102 - The sensor is not supported by the device. [since 12]
    * @syscap SystemCapability.Sensors.Sensor
-   * @since 9
-   */
-  /**
-   * Obtains the sensor information of a specified type.
-   * @param { SensorId } type - Indicate the sensor type, {@code SensorId}.
-   * @param { AsyncCallback<Sensor> } callback - callback sensor info.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
-   * @throws { BusinessError } 14500102 - The sensor is not supported by the device.
-   * @syscap SystemCapability.Sensors.Sensor
-   * @since 12 dynamic
+   * @since 9 dynamic
    * @since 23 static
    */
   function getSingleSensor(type: SensorId, callback: AsyncCallback<Sensor>): void;
 
   /**
-   * Obtains the sensor information of a specified type.
-   * @param { SensorId } type - Indicate the sensor type, {@code SensorId}.
-   * @returns { Promise<Sensor> } Promise used to return the result.
+   * Obtains information about the sensor of a specific type. This API uses a promise to return the result.
+   *
+   * @param { SensorId } type - Sensor type.
+   * @returns { Promise<Sensor> } Promise used to return the sensor information.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   * @throws { BusinessError } 14500102 - The sensor is not supported by the device. [since 12]
    * @syscap SystemCapability.Sensors.Sensor
-   * @since 9
-   */
-  /**
-   * Obtains the sensor information of a specified type.
-   * @param { SensorId } type - Indicate the sensor type, {@code SensorId}.
-   * @returns { Promise<Sensor> } Promise used to return the result.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
-   * @throws { BusinessError } 14500102 - The sensor is not supported by the device.
-   * @syscap SystemCapability.Sensors.Sensor
-   * @since 12 dynamic
+   * @since 9 dynamic
    * @since 23 static
    */
   function getSingleSensor(type: SensorId): Promise<Sensor>;
 
   /**
-   * Synchronously obtains the sensor information of a specified type.
-   * @param { SensorId } type - Indicate the sensor type, {@code SensorId}.
-   * @returns { Sensor } Returns sensor information.
+   * Obtains information about the sensor of a specific type. This API returns the result synchronously.
+   *
+   * @param { SensorId } type - Sensor type.
+   * @returns { Sensor } Sensor information.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @throws { BusinessError } 14500102 - The sensor is not supported by the device.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 12 dynamic
@@ -3566,10 +3901,14 @@ declare namespace sensor {
   function getSingleSensorSync(type: SensorId): Sensor;
 
   /**
-   * Synchronously obtains the sensor information of the specified device and type.
-   * @param { SensorId } type - Indicate the sensor type, {@code SensorId}.
-   * @param { int } [deviceId] - Device ID which the sensors attached. If not specified, the local device will be used.
-   * @returns { Array<Sensor> } Returns sensor information.
+   * Obtains information about the sensor of a specific type.
+   *
+   * @param { SensorId } type - Sensor type.
+   * @param { int } [deviceId] - Device ID. The default value is **-1**, indicating the local device. You can use
+   *     [getSensorList]{@link sensor.getSensorList(callback: AsyncCallback<Array<Sensor>>)} or
+   *     [sensorStatusChange]{@link sensor.on(type: 'sensorStatusChange', callback: Callback<SensorStatusEvent>)} to
+   *     obtain the device ID.
+   * @returns { Array<Sensor> } Sensor attribute list.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 19 dynamic
    * @since 23 static
@@ -3577,12 +3916,13 @@ declare namespace sensor {
   function getSingleSensorByDeviceSync(type: SensorId, deviceId?: int): Array<Sensor>;
 
   /**
-   * Obtains all sensor information on the device.
-   * @param { AsyncCallback<Array<Sensor>> } callback - callback sensor list.
+   * Obtains information about all sensors on the device. This API uses an asynchronous callback to return the result.
+   *
+   * @param { AsyncCallback<Array<Sensor>> } callback - Callback used to return the sensor list.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
    * @since 23 static
@@ -3590,12 +3930,13 @@ declare namespace sensor {
   function getSensorList(callback: AsyncCallback<Array<Sensor>>): void;
 
   /**
-   * Obtains all sensor information on the device.
-   * @returns { Promise<Array<Sensor>> } Promise used to return the result.
+   * Obtains information about all sensors on the device. This API uses a promise to return the result.
+   *
+   * @returns { Promise<Array<Sensor>> } Promise used to return the sensor list.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
    * @since 23 static
@@ -3603,10 +3944,11 @@ declare namespace sensor {
   function getSensorList(): Promise<Array<Sensor>>;
 
   /**
-   * Synchronously obtains all sensor information on the device.
-   * @returns { Array<Sensor> } Return a list of sensor information.
+   * Obtains information about all sensors on the device. This API returns the result synchronously.
+   *
+   * @returns { Array<Sensor> } List of sensor attributes.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 12 dynamic
    * @since 23 static
@@ -3614,9 +3956,13 @@ declare namespace sensor {
   function getSensorListSync(): Array<Sensor>;
 
   /**
-   * Synchronously obtains all sensor information on the device.
-   * @param { int } [deviceId] - Device ID which the sensors attached. If not specified, the local device will be used.
-   * @returns { Array<Sensor> } Return a list of sensor information.
+   * Obtains the information about all sensors on the device.
+   *
+   * @param { int } [deviceId] - Device ID. The default value is **-1**, indicating the local device. You can use
+   *     [getSensorList]{@link sensor.getSensorList(callback: AsyncCallback<Array<Sensor>>)} or
+   *     [sensorStatusChange]{@link sensor.on(type: 'sensorStatusChange', callback: Callback<SensorStatusEvent>)} to
+   *     obtain the device ID.
+   * @returns { Array<Sensor> } Sensor attribute list.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 19 dynamic
    * @since 23 static
@@ -3624,16 +3970,16 @@ declare namespace sensor {
   function getSensorListByDeviceSync(deviceId?: int): Array<Sensor>;
 
   /**
-   * Indicates geomagnetic field data.
-   * @typedef GeomagneticResponse
+   * Describes a geomagnetic response object.
+   *
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamic
    * @since 23 static
    */
   interface GeomagneticResponse {
     /**
-     * Geomagnetic x-axis component.
-     * @type { double }
+     * North component of the geomagnetic field, in nT.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
      * @since 23 static
@@ -3641,8 +3987,8 @@ declare namespace sensor {
     x: double;
 
     /**
-     * Geomagnetic y-axis component.
-     * @type { double }
+     * East component of the geomagnetic field, in nT.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
      * @since 23 static
@@ -3650,8 +3996,8 @@ declare namespace sensor {
     y: double;
 
     /**
-     * Geomagnetic z-axis component.
-     * @type { double }
+     * Vertical component of the geomagnetic field, in nT.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
      * @since 23 static
@@ -3659,8 +4005,9 @@ declare namespace sensor {
     z: double;
 
     /**
-     * The Angle between the earth's magnetic field lines and the horizontal plane.
-     * @type { double }
+     * Magnetic dip, also called magnetic inclination, which is the angle measured from the horizontal plane to the
+     * magnetic field vector, in degrees.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
      * @since 23 static
@@ -3668,8 +4015,9 @@ declare namespace sensor {
     geomagneticDip: double;
 
     /**
-     * The Angle of magnetic north and true north on a horizontal plane.
-     * @type { double }
+     * Magnetic declination, which is the angle between true north (geographic north) and the magnetic north (the
+     * horizontal component of the field), in degrees.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
      * @since 23 static
@@ -3677,8 +4025,8 @@ declare namespace sensor {
     deflectionAngle: double;
 
     /**
-     * The horizontal strength of the geomagnetic field.
-     * @type { double }
+     * Horizontal intensity of the magnetic field vector field, in nT.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
      * @since 23 static
@@ -3686,8 +4034,8 @@ declare namespace sensor {
     levelIntensity: double;
 
     /**
-     * The total strength of the geomagnetic field.
-     * @type { double }
+     * Total intensity of the magnetic field vector, in nT.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
      * @since 23 static
@@ -3696,16 +4044,16 @@ declare namespace sensor {
   }
 
   /**
-   * Indicates geographic location.
-   * @typedef LocationOptions
+   * Describes the geographical location.
+   *
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamic
    * @since 23 static
    */
   interface LocationOptions {
     /**
-     * Specifies the latitude of the point.
-     * @type { double }
+     * Latitude, in degrees.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
      * @since 23 static
@@ -3713,8 +4061,8 @@ declare namespace sensor {
     latitude: double;
 
     /**
-     * Specifies the longitude of the point.
-     * @type { double }
+     * Longitude, in degrees.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
      * @since 23 static
@@ -3722,8 +4070,8 @@ declare namespace sensor {
     longitude: double;
 
     /**
-     * Specifies the altitude of the point.
-     * @type { double }
+     * Altitude, in m.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
      * @since 23 static
@@ -3732,41 +4080,43 @@ declare namespace sensor {
   }
 
   /**
-   * Implements the calculation of the geomagnetic field at a specific location on Earth.
-   * @param { LocationOptions } locationOptions - Indicates geographic location, {@code LocationOptions}.
-   * @param { number } timeMillis - Indicates the time at which the magnetic declination is to be obtained, 
-   * in milliseconds since the Unix epoch.
-   * @param { AsyncCallback<GeomagneticResponse> } callback - callback geomagnetic field.
+   * Obtains the geomagnetic field of a geographic location. This API uses an asynchronous callback to return the
+   * result.
+   *
+   * @param { LocationOptions } locationOptions - Geographic location.
+   * @param { number } timeMillis - Time for obtaining the magnetic declination, in milliseconds.
+   * @param { AsyncCallback<GeomagneticResponse> } callback - Callback used to return the geomagnetic field.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead sensor#getGeomagneticInfo
+   * @useinstead sensor.getGeomagneticInfo(locationOptions: LocationOptions, timeMillis: long, callback: AsyncCallback<GeomagneticResponse>)
    */
   function getGeomagneticField(locationOptions: LocationOptions, timeMillis: number, callback: AsyncCallback<GeomagneticResponse>): void;
 
   /**
-   * Implements the calculation of the geomagnetic field at a specific location on Earth.
-   * @param { LocationOptions } locationOptions - LocationOptions Indicates geographic location, {@code LocationOptions}.
-   * @param { number } timeMillis - timeMillis Indicates the time at which the magnetic declination is to be obtained, 
-   * in milliseconds since the Unix epoch.
-   * @returns { Promise<GeomagneticResponse> } Returns the geomagnetic field data, {@code GeomagneticResponse}.
+   * Obtains the geomagnetic field of a geographic location. This API uses a promise to return the result.
+   *
+   * @param { LocationOptions } locationOptions - Geographic location.
+   * @param { number } timeMillis - Time for obtaining the magnetic declination, in milliseconds.
+   * @returns { Promise<GeomagneticResponse> } Promise used to return the geomagnetic field.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead sensor#getGeomagneticInfo
+   * @useinstead sensor.getGeomagneticInfo(locationOptions: LocationOptions, timeMillis: long)
    */
   function getGeomagneticField(locationOptions: LocationOptions, timeMillis: number): Promise<GeomagneticResponse>;
 
   /**
-   * Obtains the geomagnetic field at a specific location on the Earth.
-   * @param { LocationOptions } locationOptions - LocationOptions Indicates geographic location, {@code LocationOptions}.
-   * @param { long } timeMillis - timeMillis Indicates the time at which the magnetic declination is to be obtained, 
-   * in milliseconds since the Unix epoch.
-   * @param { AsyncCallback<GeomagneticResponse> } callback - callback geomagnetic field.
+   * Obtains the geomagnetic field of a geographic location at a certain time. This API uses an asynchronous callback to
+   * return the result.
+   *
+   * @param { LocationOptions } locationOptions - Geographic location, including the longitude, latitude, and altitude.
+   * @param { long } timeMillis - Time when the magnetic declination is obtained. The value is a Unix timestamp, in ms.
+   * @param { AsyncCallback<GeomagneticResponse> } callback - Callback used to return the geomagnetic field.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
    * @since 23 static
@@ -3774,15 +4124,16 @@ declare namespace sensor {
   function getGeomagneticInfo(locationOptions: LocationOptions, timeMillis: long, callback: AsyncCallback<GeomagneticResponse>): void;
 
   /**
-   * Obtains the geomagnetic field at a specific location on the Earth.
-   * @param { LocationOptions } locationOptions - LocationOptions Indicates geographic location, {@code LocationOptions}.
-   * @param { long } timeMillis - timeMillis Indicates the time at which the magnetic declination is to be obtained, 
-   * in milliseconds since the Unix epoch.
-   * @returns { Promise<GeomagneticResponse> } Promise used to return the result.
+   * Obtains the geomagnetic field of a geographic location at a certain time. This API uses a promise to return the
+   * result.
+   *
+   * @param { LocationOptions } locationOptions - Geographic location, including the longitude, latitude, and altitude.
+   * @param { long } timeMillis - Time when the magnetic declination is obtained. The value is a Unix timestamp, in ms.
+   * @returns { Promise<GeomagneticResponse> } Promise used to return the geomagnetic field.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
    * @since 23 static
@@ -3790,38 +4141,44 @@ declare namespace sensor {
   function getGeomagneticInfo(locationOptions: LocationOptions, timeMillis: long): Promise<GeomagneticResponse>;
 
   /**
-   * Obtains the altitude at which the device is located based on the current atmospheric pressure.
-   * @param { number } seaPressure - Indicates the sea level pressure, in hPa.
-   * @param { number } currentPressure - Indicates the atmospheric pressure measured by the barometer, in hPa.
-   * @param { AsyncCallback<number> } callback - callback device altitude.
+   * Obtains the altitude at which the device is located based on the sea-level atmospheric pressure and the current
+   * atmospheric pressure. This API uses an asynchronous callback to return the result.
+   *
+   * @param { number } seaPressure - Sea-level atmospheric pressure, in hPa.
+   * @param { number } currentPressure - Atmospheric pressure at the altitude where the device is located, in hPa.
+   * @param { AsyncCallback<number> } callback - Callback used to return the altitude, in meters.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead sensor#getDeviceAltitude
+   * @useinstead sensor.getDeviceAltitude(seaPressure: double, currentPressure: double, callback: AsyncCallback<double>)
    */
   function getAltitude(seaPressure: number, currentPressure: number, callback: AsyncCallback<number>): void;
 
   /**
-   * Obtains the altitude at which the device is located based on the current atmospheric pressure.
-   * @param { number } seaPressure - seaPressure Indicates the sea level pressure, in hPa.
-   * @param { number } currentPressure - currentPressure Indicates the atmospheric pressure measured by the barometer, in hPa.
-   * @returns { Promise<number> } Returns the altitude in meters at which the device is located.
+   * Obtains the altitude at which the device is located based on the sea-level atmospheric pressure and the current
+   * atmospheric pressure. This API uses a promise to return the result.
+   *
+   * @param { number } seaPressure - Sea-level atmospheric pressure, in hPa.
+   * @param { number } currentPressure - Atmospheric pressure at the altitude where the device is located, in hPa.
+   * @returns { Promise<number> } Promise used to return the altitude, in meters.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead sensor#getDeviceAltitude
+   * @useinstead sensor.getDeviceAltitude(seaPressure: double, currentPressure: double)
    */
   function getAltitude(seaPressure: number, currentPressure: number): Promise<number>;
 
   /**
-   * Obtains the altitude at which the device is located based on the current atmospheric pressure.
-   * @param { double } seaPressure - seaPressure Indicates the sea level pressure, in hPa.
-   * @param { double } currentPressure - currentPressure Indicates the atmospheric pressure measured by the barometer, in hPa.
-   * @param { AsyncCallback<double> } callback - callback device altitude.
+   * Obtains the altitude based on the atmospheric pressure. This API uses an asynchronous callback to return the
+   * result.
+   *
+   * @param { double } seaPressure - Sea-level atmospheric pressure, in hPa.
+   * @param { double } currentPressure - Specified atmospheric pressure, in hPa.
+   * @param { AsyncCallback<double> } callback - Callback used to return the altitude, in meters.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
    * @since 23 static
@@ -3829,14 +4186,15 @@ declare namespace sensor {
   function getDeviceAltitude(seaPressure: double, currentPressure: double, callback: AsyncCallback<double>): void;
 
   /**
-   * Obtains the altitude at which the device is located based on the current atmospheric pressure.
-   * @param { double } seaPressure - seaPressure Indicates the sea level pressure, in hPa.
-   * @param { double } currentPressure - currentPressure Indicates the atmospheric pressure measured by the barometer, in hPa.
-   * @returns { Promise<double> } Promise used to return the result.
+   * Obtains the altitude based on the atmospheric pressure. This API uses a promise to return the result.
+   *
+   * @param { double } seaPressure - Sea-level atmospheric pressure, in hPa.
+   * @param { double } currentPressure - Specified atmospheric pressure, in hPa.
+   * @returns { Promise<double> } Promise used to return the altitude, in meters.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
    * @since 23 static
@@ -3844,35 +4202,40 @@ declare namespace sensor {
   function getDeviceAltitude(seaPressure: double, currentPressure: double): Promise<double>;
 
   /**
-   * Computes the geomagnetic inclination angle in radians from the inclination matrix.
-   * @param { Array<number> } inclinationMatrix - Indicates the inclination matrix.
-   * @param { AsyncCallback<number> } callback - callback geomagnetic inclination data.
+   * Obtains the magnetic dip based on the inclination matrix. This API uses an asynchronous callback to return the
+   * result.
+   *
+   * @param { Array<number> } inclinationMatrix - Inclination matrix.
+   * @param { AsyncCallback<number> } callback - Callback used to return the magnetic dip, in radians.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead sensor#getInclination
+   * @useinstead sensor.getInclination(inclinationMatrix: Array<double>, callback: AsyncCallback<double>)
    */
   function getGeomagneticDip(inclinationMatrix: Array<number>, callback: AsyncCallback<number>): void;
 
   /**
-   * Computes the geomagnetic inclination angle in radians from the inclination matrix.
-   * @param { Array<number> } inclinationMatrix - Indicates the inclination matrix.
-   * @returns { Promise<number> } Returns the geomagnetic inclination angle in radians.
+   * Obtains the magnetic dip based on the inclination matrix. This API uses a promise to return the result.
+   *
+   * @param { Array<number> } inclinationMatrix - Inclination matrix.
+   * @returns { Promise<number> } Promise used to return the magnetic dip, in radians.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead sensor#getInclination
+   * @useinstead sensor.getInclination(inclinationMatrix: Array<double>)
    */
   function getGeomagneticDip(inclinationMatrix: Array<number>): Promise<number>;
 
   /**
-   * Computes the geomagnetic inclination in radians from the inclination matrix.
-   * @param { Array<double> } inclinationMatrix - Indicates the inclination matrix.
-   * @param { AsyncCallback<double> } callback - callback inclination in radians.
+   * Obtains the magnetic dip based on the inclination matrix. This API uses an asynchronous callback to return the
+   * result.
+   *
+   * @param { Array<double> } inclinationMatrix - Inclination matrix.
+   * @param { AsyncCallback<double> } callback - Callback used to return the magnetic dip, in radians.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
    * @since 23 static
@@ -3880,13 +4243,14 @@ declare namespace sensor {
   function getInclination(inclinationMatrix: Array<double>, callback: AsyncCallback<double>): void;
 
   /**
-   * Computes the geomagnetic inclination in radians from the inclination matrix.
-   * @param { Array<double> } inclinationMatrix - Indicates the inclination matrix.
-   * @returns { Promise<double> } Promise used to return the result.
+   * Obtains the magnetic dip based on the inclination matrix. This API uses a promise to return the result.
+   *
+   * @param { Array<double> } inclinationMatrix - Inclination matrix.
+   * @returns { Promise<double> } Promise used to return the magnetic dip, in radians.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
    * @since 23 static
@@ -3894,39 +4258,47 @@ declare namespace sensor {
   function getInclination(inclinationMatrix: Array<double>): Promise<double>;
 
   /**
-   * Get the angle change between two rotation matrices.
-   * @param { Array<number> } currentRotationMatrix - Indicates the current rotation matrix.
-   * @param { Array<number> } preRotationMatrix - Indicates the current rotation matrix.
-   * @param { AsyncCallback<Array<number>> } callback - callback angle variation.
+   * Obtains the angle change between two rotation matrices. This API uses an asynchronous callback to return the
+   * result.
+   *
+   * @param { Array<number> } currentRotationMatrix - Current rotation matrix.
+   * @param { Array<number> } preRotationMatrix - The other rotation matrix.
+   * @param { AsyncCallback<Array<number>> } callback - Callback used to return the angle change around the z, x, and y
+   *     axes, in degrees.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead sensor#getAngleVariation
+   * @useinstead sensor.getAngleVariation(currentRotationMatrix: Array<double>, preRotationMatrix: Array<double>, callback: AsyncCallback<Array<double>>)
    */
   function getAngleModify(currentRotationMatrix: Array<number>, preRotationMatrix: Array<number>,
     callback: AsyncCallback<Array<number>>): void;
 
   /**
-   * Get the angle change between two rotation matrices.
-   * @param { Array<number> } currentRotationMatrix - currentRotationMatrix Indicates the current rotation matrix.
-   * @param { Array<number> } preRotationMatrix - preRotationMatrix Indicates the current rotation matrix.
-   * @returns { Promise<Array<number>> } Returns the array of number(z, x and y) in which the angle variety.
+   * Obtains the angle change between two rotation matrices. This API uses a promise to return the result.
+   *
+   * @param { Array<number> } currentRotationMatrix - Current rotation matrix.
+   * @param { Array<number> } preRotationMatrix - The other rotation matrix.
+   * @returns { Promise<Array<number>> } Promise used to return the angle change around the z, x, and y axes, in
+   *     degrees.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead sensor#getAngleVariation
+   * @useinstead sensor.getAngleVariation(currentRotationMatrix: Array<double>, preRotationMatrix: Array<double>)
    */
   function getAngleModify(currentRotationMatrix: Array<number>, preRotationMatrix: Array<number>): Promise<Array<number>>;
 
   /**
-   * Get the angle variation between two rotation matrices.
-   * @param { Array<double> } currentRotationMatrix - currentRotationMatrix Indicates the current rotation matrix.
-   * @param { Array<double> } preRotationMatrix - preRotationMatrix Indicates the current rotation matrix.
-   * @param { AsyncCallback<Array<double>> } callback - callback angle variation.
+   * Obtains the angle change between two rotation matrices. This API uses an asynchronous callback to return the
+   * result.
+   *
+   * @param { Array<double> } currentRotationMatrix - Current rotation matrix.
+   * @param { Array<double> } preRotationMatrix - The other rotation matrix.
+   * @param { AsyncCallback<Array<double>> } callback - Callback used to return the angle change around the z, x, and y
+   *     axes, in degrees.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
    * @since 23 static
@@ -3935,14 +4307,16 @@ declare namespace sensor {
     callback: AsyncCallback<Array<double>>): void;
 
   /**
-   * Get the angle variation between two rotation matrices.
-   * @param { Array<double> } currentRotationMatrix -  Indicates the current rotation matrix.
-   * @param { Array<double> } preRotationMatrix - preRotationMatrix Indicates the current rotation matrix.
-   * @returns { Promise<Array<double>> } Promise used to return the result.
+   * Obtains the angle change between two rotation matrices. This API uses a promise to return the result.
+   *
+   * @param { Array<double> } currentRotationMatrix - Current rotation matrix.
+   * @param { Array<double> } preRotationMatrix - The other rotation matrix.
+   * @returns { Promise<Array<double>> } Promise used to return the angle change around the z, x, and y axes, in
+   *     degrees.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
    * @since 23 static
@@ -3950,35 +4324,38 @@ declare namespace sensor {
   function getAngleVariation(currentRotationMatrix: Array<double>, preRotationMatrix: Array<double>): Promise<Array<double>>;
 
   /**
-   * Convert rotation vector to rotation matrix.
-   * @param { Array<number> } rotationVector - Indicates the rotation vector.
-   * @param { AsyncCallback<Array<number>> } callback - callback rotation matrix.
+   * Converts a rotation vector into a rotation matrix. This API uses an asynchronous callback to return the result.
+   *
+   * @param { Array<number> } rotationVector - Rotation vector to convert.
+   * @param { AsyncCallback<Array<number>> } callback - Callback used to return the rotation matrix.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead sensor#getRotationMatrix
+   * @useinstead sensor.getRotationMatrix(rotationVector: Array<double>, callback: AsyncCallback<Array<double>>)
    */
   function createRotationMatrix(rotationVector: Array<number>, callback: AsyncCallback<Array<number>>): void;
 
   /**
-   * Convert rotation vector to rotation matrix.
-   * @param { Array<number> } rotationVector - rotationVector Indicates the rotation vector.
-   * @returns { Promise<Array<number>> } Returns the rotation matrix.
+   * Converts a rotation vector into a rotation matrix. This API uses a promise to return the result.
+   *
+   * @param { Array<number> } rotationVector - Rotation vector to convert.
+   * @returns { Promise<Array<number>> } Promise used to return the rotation matrix.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead sensor#getRotationMatrix
+   * @useinstead sensor.getRotationMatrix(rotationVector: Array<double>)
    */
   function createRotationMatrix(rotationVector: Array<number>): Promise<Array<number>>;
 
   /**
-   * Convert rotation vector to rotation matrix.
-   * @param { Array<double> } rotationVector - rotationVector Indicates the rotation vector.
-   * @param { AsyncCallback<Array<double>> } callback - callback rotation matrix.
+   * Obtains the rotation matrix from a rotation vector. This API uses an asynchronous callback to return the result.
+   *
+   * @param { Array<double> } rotationVector - Rotation vector.
+   * @param { AsyncCallback<Array<double>> } callback - Callback used to return the rotation matrix.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
    * @since 23 static
@@ -3986,13 +4363,14 @@ declare namespace sensor {
   function getRotationMatrix(rotationVector: Array<double>, callback: AsyncCallback<Array<double>>): void;
 
   /**
-   * Convert rotation vector to rotation matrix.
-   * @param { Array<double> } rotationVector - rotationVector Indicates the rotation vector.
-   * @returns { Promise<Array<double>> } Promise used to return the result.
+   * Obtains the rotation matrix from a rotation vector. This API uses a promise to return the result.
+   *
+   * @param { Array<double> } rotationVector - Rotation vector.
+   * @returns { Promise<Array<double>> } Promise used to return the rotation matrix.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
    * @since 23 static
@@ -4000,23 +4378,25 @@ declare namespace sensor {
   function getRotationMatrix(rotationVector: Array<double>): Promise<Array<double>>;
 
   /**
-   * Indicates the axis of the new coordinate system that coincides with the XY axis of the original coordinate system.
-   * @typedef CoordinatesOptions
+   * Describes the coordinate options.
+   *
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamic
    * @since 23 static
    */
   interface CoordinatesOptions {
-    /** Indicates the axis of the new coordinate system that coincides with the X axis of the original coordinate system. 
-     * @type { int }
+    /**
+     * X coordinate direction.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
      * @since 23 static
      */
     x: int;
 
-    /** Indicates the axis of the new coordinate system that coincides with the Y axis of the original coordinate system. 
-     * @type { int }
+    /**
+     * Y coordinate direction.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
      * @since 23 static
@@ -4025,39 +4405,46 @@ declare namespace sensor {
   }
 
   /**
-   * Rotate the provided rotation matrix so that it can be represented in a different way Coordinate System.
-   * @param { Array<number> } inRotationVector - Indicates the rotation matrix to be transformed.
-   * @param { CoordinatesOptions } coordinates - Indicates coordinate system guidance, {@code CoordinatesOptions}.
-   * @param { AsyncCallback<Array<number>> } callback - callback rotation matrix.
+   * Rotates a rotation vector so that it can represent the coordinate system in different ways. This API uses an
+   * asynchronous callback to return the result.
+   *
+   * @param { Array<number> } inRotationVector - Rotation vector.
+   * @param { CoordinatesOptions } coordinates - Direction of the coordinate system.
+   * @param { AsyncCallback<Array<number>> } callback - Callback used to return the rotation vector after being rotated.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead sensor#transformRotationMatrix
+   * @useinstead sensor.transformRotationMatrix(inRotationVector: Array<double>, coordinates: CoordinatesOptions, callback: AsyncCallback<Array<double>>)
    */
   function transformCoordinateSystem(inRotationVector: Array<number>, coordinates: CoordinatesOptions,
     callback: AsyncCallback<Array<number>>): void;
 
   /**
-   * Rotate the provided rotation matrix so that it can be represented in a different way Coordinate System.
-   * @param { Array<number> } inRotationVector - inRotationVector Indicates the rotation matrix to be transformed.
-   * @param { CoordinatesOptions } coordinates - coordinates Indicates coordinate system guidance, {@code CoordinatesOptions}.
-   * @returns { Promise<Array<number>> } Returns the transformed rotation matrix.
+   * Rotates a rotation vector so that it can represent the coordinate system in different ways. This API uses a promise
+   * to return the result.
+   *
+   * @param { Array<number> } inRotationVector - Rotation vector.
+   * @param { CoordinatesOptions } coordinates - Direction of the coordinate system.
+   * @returns { Promise<Array<number>> } Promise used to return the rotation vector after being rotated.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead sensor#transformRotationMatrix
+   * @useinstead sensor.transformRotationMatrix(inRotationVector: Array<double>, coordinates: CoordinatesOptions)
    */
   function transformCoordinateSystem(inRotationVector: Array<number>, coordinates: CoordinatesOptions): Promise<Array<number>>;
 
   /**
-   * Rotate the provided rotation matrix so that it can be represented in a different way coordinate System.
-   * @param { Array<double> } inRotationVector - inRotationVector Indicates the rotation matrix to be transformed.
-   * @param { CoordinatesOptions } coordinates - coordinates Indicates coordinate system guidance, {@code CoordinatesOptions}.
-   * @param { AsyncCallback<Array<double>> } callback - callback rotation matrix.
+   * Transforms a rotation vector based on the coordinate system. This API uses an asynchronous callback to return the
+   * result.
+   *
+   * @param { Array<double> } inRotationVector - Rotation vector.
+   * @param { CoordinatesOptions } coordinates - Rotation vector to transform.
+   * @param { AsyncCallback<Array<double>> } callback - Callback used to return the rotation vector after being
+   *     transformed.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
    * @since 23 static
@@ -4066,14 +4453,15 @@ declare namespace sensor {
     callback: AsyncCallback<Array<double>>): void;
 
   /**
-   * Rotate the provided rotation matrix so that it can be represented in a different way coordinate System.
-   * @param { Array<double> } inRotationVector - inRotationVector Indicates the rotation matrix to be transformed.
-   * @param { CoordinatesOptions } coordinates - coordinates Indicates coordinate system guidance, {@code CoordinatesOptions}.
-   * @returns { Promise<Array<double>> } Promise used to return the result.
+   * Transforms a rotation vector based on the coordinate system. This API uses a promise to return the result.
+   *
+   * @param { Array<double> } inRotationVector - Rotation vector.
+   * @param { CoordinatesOptions } coordinates - Rotation vector to transform.
+   * @returns { Promise<Array<double>> } Promise used to return the rotation vector after being transformed.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
    * @since 23 static
@@ -4081,35 +4469,38 @@ declare namespace sensor {
   function transformRotationMatrix(inRotationVector: Array<double>, coordinates: CoordinatesOptions): Promise<Array<double>>;
 
   /**
-   * convert a rotation vector to a normalized quaternion.
-   * @param { Array<number> } rotationVector - Indicates the rotation vector.
-   * @param { AsyncCallback<Array<number>> } callback - callback a normalized quaternion.
+   * Converts a rotation vector into a quaternion. This API uses an asynchronous callback to return the result.
+   *
+   * @param { Array<number> } rotationVector - Rotation vector to convert.
+   * @param { AsyncCallback<Array<number>> } callback - Callback used to return the quaternion.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead sensor#getQuaternion
+   * @useinstead sensor.getQuaternion(rotationVector: Array<double>, callback: AsyncCallback<Array<double>>)
    */
   function createQuaternion(rotationVector: Array<number>, callback: AsyncCallback<Array<number>>): void;
 
   /**
-   * convert a rotation vector to a normalized quaternion.
-   * @param { Array<number> } rotationVector - rotationVector Indicates the rotation vector.
-   * @returns { Promise<Array<number>> } Returns the normalized quaternion.
+   * Converts a rotation vector into a quaternion. This API uses a promise to return the result.
+   *
+   * @param { Array<number> } rotationVector - Rotation vector to convert.
+   * @returns { Promise<Array<number>> } Promise used to return the quaternion.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead sensor#getQuaternion
+   * @useinstead sensor.getQuaternion(rotationVector: Array<double>)
    */
   function createQuaternion(rotationVector: Array<number>): Promise<Array<number>>;
 
   /**
-   * convert a rotation vector to a normalized quaternion.
-   * @param { Array<double> } rotationVector - rotationVector Indicates the rotation vector.
-   * @param { AsyncCallback<Array<double>> } callback - callback a normalized quaternion.
+   * Obtains the quaternion from a rotation vector. This API uses an asynchronous callback to return the result.
+   *
+   * @param { Array<double> } rotationVector - Rotation vector.
+   * @param { AsyncCallback<Array<double>> } callback - Callback used to return the quaternion.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
    * @since 23 static
@@ -4117,13 +4508,14 @@ declare namespace sensor {
   function getQuaternion(rotationVector: Array<double>, callback: AsyncCallback<Array<double>>): void;
 
   /**
-   * convert a rotation vector to a normalized quaternion.
-   * @param { Array<double> } rotationVector - rotationVector Indicates the rotation vector.
-   * @returns { Promise<Array<double>> } Promise used to return the result.
+   * Obtains the quaternion from a rotation vector. This API uses a promise to return the result.
+   *
+   * @param { Array<double> } rotationVector - Rotation vector.
+   * @returns { Promise<Array<double>> } Promise used to return the quaternion.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
    * @since 23 static
@@ -4131,35 +4523,43 @@ declare namespace sensor {
   function getQuaternion(rotationVector: Array<double>): Promise<Array<double>>;
 
   /**
-   * Computes the device's orientation based on the rotation matrix.
-   * @param { Array<number> } rotationMatrix - Indicates the rotation matrix.
-   * @param { AsyncCallback<Array<number>> } callback - callback the angle of rotation around the z, x, y axis.
+   * Obtains the device direction based on the rotation matrix. This API uses an asynchronous callback to return the
+   * result.
+   *
+   * @param { Array<number> } rotationMatrix - Rotation matrix.
+   * @param { AsyncCallback<Array<number>> } callback - Callback used to return the rotation angle around the z, x, and
+   *     y axes, in degrees.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead sensor#getOrientation
+   * @useinstead sensor.getOrientation(rotationMatrix: Array<double>, callback: AsyncCallback<Array<double>>)
    */
   function getDirection(rotationMatrix: Array<number>, callback: AsyncCallback<Array<number>>): void;
 
   /**
-   * Computes the device's orientation based on the rotation matrix.
-   * @param { Array<number> } rotationMatrix - rotationMatrix Indicates the rotation matrix.
-   * @returns { Promise<Array<number>> } Returns the array is the angle of rotation around the z, x, y axis.
+   * Obtains the device direction based on the rotation matrix. This API uses a promise to return the result.
+   *
+   * @param { Array<number> } rotationMatrix - Rotation matrix.
+   * @returns { Promise<Array<number>> } Promise used to return the rotation angle around the z, x, and y axes, in
+   *     degrees.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead sensor#getOrientation
+   * @useinstead sensor.getOrientation(rotationMatrix: Array<double>)
    */
   function getDirection(rotationMatrix: Array<number>): Promise<Array<number>>;
 
   /**
-   * Computes the device's orientation based on the rotation matrix.
-   * @param { Array<double> } rotationMatrix - rotationMatrix Indicates the rotation matrix.
-   * @param { AsyncCallback<Array<double>> } callback - callback the angle of rotation around the z, x, y axis.
+   * Obtains the device direction based on the rotation matrix. This API uses an asynchronous callback to return the
+   * result.
+   *
+   * @param { Array<double> } rotationMatrix - Rotation matrix.
+   * @param { AsyncCallback<Array<double>> } callback - Callback used to return the rotation angle around the z, x, and
+   *     y axes, in degrees.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
    * @since 23 static
@@ -4167,13 +4567,15 @@ declare namespace sensor {
   function getOrientation(rotationMatrix: Array<double>, callback: AsyncCallback<Array<double>>): void;
 
   /**
-   * Computes the device's orientation based on the rotation matrix.
-   * @param { Array<double> } rotationMatrix - rotationMatrix Indicates the rotation matrix.
-   * @returns { Promise<Array<double>> } Promise used to return the result.
+   * Obtains the device direction based on the rotation matrix. This API uses a promise to return the result.
+   *
+   * @param { Array<double> } rotationMatrix - Rotation matrix.
+   * @returns { Promise<Array<double>> } Promise used to return the rotation angle around the z, x, and y axes, in
+   *     degrees.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
    * @since 23 static
@@ -4181,16 +4583,16 @@ declare namespace sensor {
   function getOrientation(rotationMatrix: Array<double>): Promise<Array<double>>;
 
   /**
-   * Indicates the response of rotation matrix.
-   * @typedef RotationMatrixResponse
+   * Describes the response for setting the rotation matrix.
+   *
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamic
    * @since 23 static
    */
   interface RotationMatrixResponse {
     /**
-     * rotation matrix. 
-     * @type { Array<double> }
+     * Rotation matrix.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
      * @since 23 static
@@ -4198,48 +4600,54 @@ declare namespace sensor {
     rotation: Array<double>;
 
     /**
-     * inclination matrix. 
-     * @type { Array<double> }
+     * Inclination matrix.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
      * @since 23 static
      */
-    inclination: Array<double>
+    inclination: Array<double>;
   }
 
   /**
-   * Calculate rotation matrix based on gravity vector and geomagnetic vector.
-   * @param { Array<number> } gravity - Indicates the gravity vector.
-   * @param { Array<number> } geomagnetic - Indicates the geomagnetic vector.
-   * @param { AsyncCallback<RotationMatrixResponse> } callback - callback rotation matrix and inclination matrix.
+   * Obtains the rotation matrix based on a gravity vector and geomagnetic vector. This API uses an asynchronous
+   * callback to return the result.
+   *
+   * @param { Array<number> } gravity - Gravity vector.
+   * @param { Array<number> } geomagnetic - Geomagnetic vector.
+   * @param { AsyncCallback<RotationMatrixResponse> } callback - Callback used to return the rotation matrix.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead sensor#getRotationMatrix
+   * @useinstead sensor.getRotationMatrix(gravity: Array<double>, geomagnetic: Array<double>, callback: AsyncCallback<RotationMatrixResponse>)
    */
   function createRotationMatrix(gravity: Array<number>, geomagnetic: Array<number>, callback: AsyncCallback<RotationMatrixResponse>): void;
 
   /**
-   * Calculate rotation matrix based on gravity vector and geomagnetic vector.
-   * @param { Array<number> } gravity - gravity Indicates the gravity vector.
-   * @param { Array<number> } geomagnetic - geomagnetic Indicates the geomagnetic vector.
-   * @returns { Promise<RotationMatrixResponse> } Returns the rotation matrix, {@code RotationMatrixResponse}.
+   * Obtains the rotation matrix based on a gravity vector and geomagnetic vector. This API uses a promise to return the
+   * result.
+   *
+   * @param { Array<number> } gravity - Gravity vector.
+   * @param { Array<number> } geomagnetic - Geomagnetic vector.
+   * @returns { Promise<RotationMatrixResponse> } Promise used to return the rotation matrix.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead sensor#getRotationMatrix
+   * @useinstead sensor.getRotationMatrix(gravity: Array<double>, geomagnetic: Array<double>)
    */
   function createRotationMatrix(gravity: Array<number>, geomagnetic: Array<number>,): Promise<RotationMatrixResponse>;
 
   /**
-   * Calculate rotation matrix based on gravity vector and geomagnetic vector.
-   * @param { Array<double> } gravity - gravity Indicates the gravity vector.
-   * @param { Array<double> } geomagnetic - geomagnetic Indicates the geomagnetic vector.
-   * @param { AsyncCallback<RotationMatrixResponse> } callback - callback rotation matrix and inclination matrix.
+   * Obtains the rotation matrix based on a gravity vector and geomagnetic vector. This API uses an asynchronous
+   * callback to return the result.
+   *
+   * @param { Array<double> } gravity - Gravity vector.
+   * @param { Array<double> } geomagnetic - Geomagnetic vector.
+   * @param { AsyncCallback<RotationMatrixResponse> } callback - Callback used to return the rotation matrix.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
    * @since 23 static
@@ -4247,14 +4655,16 @@ declare namespace sensor {
   function getRotationMatrix(gravity: Array<double>, geomagnetic: Array<double>, callback: AsyncCallback<RotationMatrixResponse>): void;
 
   /**
-   * Calculate rotation matrix based on gravity vector and geomagnetic vector.
-   * @param { Array<double> } gravity - gravity Indicates the gravity vector.
-   * @param { Array<double> } geomagnetic - geomagnetic Indicates the geomagnetic vector.
-   * @returns { Promise<RotationMatrixResponse> } Promise used to return the result.
+   * Obtains the rotation matrix based on a gravity vector and geomagnetic vector. This API uses a promise to return the
+   * result.
+   *
+   * @param { Array<double> } gravity - Gravity vector.
+   * @param { Array<double> } geomagnetic - Geomagnetic vector.
+   * @returns { Promise<RotationMatrixResponse> } Promise used to return the rotation matrix.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
    * @since 23 static
@@ -4262,39 +4672,34 @@ declare namespace sensor {
   function getRotationMatrix(gravity: Array<double>, geomagnetic: Array<double>): Promise<RotationMatrixResponse>;
 
   /**
-   * Subscribe to the sensor's optional parameters.
-   * @typedef Options
+   * Describes the sensor data reporting frequency.
+   *
    * @syscap SystemCapability.Sensors.Sensor
-   * @since 8
-   */
-  /**
-   * Subscribe to the sensor's optional parameters.
-   * @typedef Options
-   * @syscap SystemCapability.Sensors.Sensor
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    * @since 23 static
    */
   interface Options {
     /**
-     * Sensor event reporting event interval.
-     * @type { ?number }
+     * Frequency at which a sensor reports data. The default value is 200,000,000 ns. The maximum and minimum values of
+     * this parameter are determined by the reporting frequency supported by the hardware. If the configured frequency
+     * is greater than the maximum value, the maximum value is used for data reporting. If the configured frequency is
+     * less than the minimum value, the minimum value is used for data reporting.
+     *
+     * @type { ?number } [since 8 - 10]
+     * @type { ?(long | SensorFrequency) } [since 11]
      * @syscap SystemCapability.Sensors.Sensor
-     * @since 8
-     */
-    /**
-     * Sensor event reporting event interval.
-     * @type { ?(long | SensorFrequency) }
-     * @syscap SystemCapability.Sensors.Sensor
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 8 dynamic
      * @since 23 static
      */
     interval?: long | SensorFrequency;
 
     /**
-     * Parameters of sensor on the device.
-     * @type { ?SensorInfoParam }
+     * Sensor parameters, including **deviceId** and **sensorIndex**.
+     *
+     * This API can be used in atomic services since API version 19.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @atomicservice
      * @since 19 dynamic
@@ -4304,9 +4709,15 @@ declare namespace sensor {
   }
 
   /**
-   * The sensor reporting frequency is divided into three modes.
-   * @typedef {'game' | 'ui' | 'normal'}
+   * Defines the reporting frequency mode of the sensor.
+   *
    * @syscap SystemCapability.Sensors.Sensor
+   * @unionmember { 'game' } Game mode, which specifies a sensor data reporting frequency of 20,000,000 ns. This
+   *     parameter takes effect only when the frequency is within the frequency range supported by the hardware.
+   * @unionmember { 'ui' } UI mode, which specifies a sensor data reporting frequency of 60,000,000 ns. This parameter
+   *     takes effect only when the frequency is within the frequency range supported by the hardware.
+   * @unionmember { 'normal' } Normal mode, which specifies a sensor data reporting frequency of 200,000,000 ns. This
+   *     parameter takes effect only when the frequency is within the frequency range supported by the hardware.
    * @atomicservice
    * @since 11 dynamic
    * @since 23 static
@@ -4314,8 +4725,8 @@ declare namespace sensor {
   type SensorFrequency = 'game' | 'ui' | 'normal';
 
   /**
-   * The type of number.
-   * @enum { number }
+   * Enumerates the sensor types.
+   *
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -4324,6 +4735,7 @@ declare namespace sensor {
   enum SensorType {
     /**
      * Acceleration sensor.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -4333,6 +4745,7 @@ declare namespace sensor {
 
     /**
      * Gyroscope sensor.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -4342,6 +4755,7 @@ declare namespace sensor {
 
     /**
      * Ambient light sensor.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -4351,6 +4765,7 @@ declare namespace sensor {
 
     /**
      * Magnetic field sensor.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -4359,7 +4774,8 @@ declare namespace sensor {
     SENSOR_TYPE_ID_MAGNETIC_FIELD = 6,
 
     /**
-     * Barometric pressure sensor.
+     * Barometer sensor.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -4369,6 +4785,7 @@ declare namespace sensor {
 
     /**
      * Hall effect sensor.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -4378,6 +4795,7 @@ declare namespace sensor {
 
     /**
      * Proximity sensor.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -4387,6 +4805,7 @@ declare namespace sensor {
 
     /**
      * Humidity sensor.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -4396,6 +4815,7 @@ declare namespace sensor {
 
     /**
      * Orientation sensor.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -4405,6 +4825,7 @@ declare namespace sensor {
 
     /**
      * Gravity sensor.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -4414,6 +4835,7 @@ declare namespace sensor {
 
     /**
      * Linear acceleration sensor.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -4423,6 +4845,7 @@ declare namespace sensor {
 
     /**
      * Rotation vector sensor.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -4432,6 +4855,7 @@ declare namespace sensor {
 
     /**
      * Ambient temperature sensor.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -4441,6 +4865,7 @@ declare namespace sensor {
 
     /**
      * Uncalibrated magnetic field sensor.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -4450,6 +4875,7 @@ declare namespace sensor {
 
     /**
      * Uncalibrated gyroscope sensor.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -4459,6 +4885,7 @@ declare namespace sensor {
 
     /**
      * Significant motion sensor.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -4468,6 +4895,7 @@ declare namespace sensor {
 
     /**
      * Pedometer detection sensor.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -4477,6 +4905,7 @@ declare namespace sensor {
 
     /**
      * Pedometer sensor.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -4486,6 +4915,7 @@ declare namespace sensor {
 
     /**
      * Heart rate sensor.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -4495,6 +4925,7 @@ declare namespace sensor {
 
     /**
      * Wear detection sensor.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -4504,6 +4935,7 @@ declare namespace sensor {
 
     /**
      * Uncalibrated acceleration sensor.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -4513,8 +4945,8 @@ declare namespace sensor {
   }
 
   /**
-   * Enumerates the accuracy levels of data reported by a sensor.
-   * @enum { int }
+   * Enumerates the accuracy levels of sensor data.
+   *
    * @syscap SystemCapability.Sensors.Sensor
    * @atomicservice
    * @since 11 dynamic
@@ -4522,7 +4954,8 @@ declare namespace sensor {
    */
   enum SensorAccuracy {
     /**
-     * The sensor data is unreliable. It is possible that the sensor does not contact with the device to measure.
+     * The sensor data is unreliable.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @atomicservice
      * @since 11 dynamic
@@ -4531,7 +4964,8 @@ declare namespace sensor {
     ACCURACY_UNRELIABLE = 0,
 
     /**
-     * The sensor data is at a low accuracy level. The data must be calibrated based on the environment before being used.
+     * The sensor data is at a low accuracy level.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @atomicservice
      * @since 11 dynamic
@@ -4540,7 +4974,8 @@ declare namespace sensor {
     ACCURACY_LOW = 1,
 
     /**
-     * The sensor data is at a medium accuracy level. You are advised to calibrate the data based on the environment before using it.
+     * The sensor data is at a medium accuracy level.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @atomicservice
      * @since 11 dynamic
@@ -4549,7 +4984,8 @@ declare namespace sensor {
     ACCURACY_MEDIUM = 2,
 
     /**
-     * The sensor data is at a high accuracy level. The data can be used directly.
+     * The sensor data is at a high accuracy level.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @atomicservice
      * @since 11 dynamic
@@ -4559,39 +4995,27 @@ declare namespace sensor {
   }
 
   /**
-   * The basic data structure of the sensor event.
-   * @typedef Response
+   * Describes the timestamp of the sensor data.
+   *
    * @syscap SystemCapability.Sensors.Sensor
-   * @since 8
-   */
-  /**
-   * The basic data structure of the sensor event.
-   * @typedef Response
-   * @syscap SystemCapability.Sensors.Sensor
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    * @since 23 static
    */
   interface Response {
     /**
-     * The timestamp of the reported sensor data.
-     * @type { number }
+     * Timestamp when the sensor reports data. Time from device startup to data reporting, in nanoseconds.
+     *
      * @syscap SystemCapability.Sensors.Sensor
-     * @since 8
-     */
-    /**
-     * The timestamp of the reported sensor data.
-     * @type { long }
-     * @syscap SystemCapability.Sensors.Sensor
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 8 dynamic
      * @since 23 static
      */
     timestamp: long;
 
     /**
-     * The accuracy levels of data reported by a sensor.
-     * @type { SensorAccuracy }
+     * Accuracy of the sensor data.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @atomicservice
      * @since 11 dynamic
@@ -4601,80 +5025,56 @@ declare namespace sensor {
   }
 
   /**
-   * Acceleration sensor event data.
-   * @typedef AccelerometerResponse
+   * Describes the acceleration sensor data. It extends from [Response]{@link sensor.Response}.
+   *
    * @syscap SystemCapability.Sensors.Sensor
-   * @since 8
-   */
-  /**
-   * Acceleration sensor event data.
-   * @typedef AccelerometerResponse
-   * @syscap SystemCapability.Sensors.Sensor
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    * @since 23 static
    */
   interface AccelerometerResponse extends Response {
     /**
-     * Acceleration x-axis component.
-     * @type { number }
+     * Acceleration along the x-axis of the device, in m/s?. The value is equal to the reported physical quantity.
+     *
      * @syscap SystemCapability.Sensors.Sensor
-     * @since 8
-     */
-    /**
-     * Acceleration x-axis component.
-     * @type { double }
-     * @syscap SystemCapability.Sensors.Sensor
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 8 dynamic
      * @since 23 static
      */
     x: double;
 
     /**
-     * Acceleration y-axis component.
-     * @type { number }
+     * Acceleration along the y-axis of the device, in m/s?. The value is equal to the reported physical quantity.
+     *
      * @syscap SystemCapability.Sensors.Sensor
-     * @since 8
-     */
-    /**
-     * Acceleration y-axis component.
-     * @type { double }
-     * @syscap SystemCapability.Sensors.Sensor
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 8 dynamic
      * @since 23 static
      */
     y: double;
 
     /**
-     * Acceleration z-axis component
-     * @type { number }
+     * Acceleration along the z-axis of the device, in m/s?. The value is equal to the reported physical quantity.
+     *
      * @syscap SystemCapability.Sensors.Sensor
-     * @since 8
-     */
-    /**
-     * Acceleration z-axis component
-     * @type { double }
-     * @syscap SystemCapability.Sensors.Sensor
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 8 dynamic
      * @since 23 static
      */
     z: double;
   }
 
   /**
-   * Linear acceleration sensor event data.
-   * @typedef LinearAccelerometerResponse
+   * Describes the linear acceleration sensor data. It extends from [Response]{@link sensor.Response}.
+   *
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamic
    * @since 23 static
    */
   interface LinearAccelerometerResponse extends Response {
     /**
-     * Linear acceleration x-axis component.
-     * @type { double }
+     * Linear acceleration along the x-axis of the device, in m/s?.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
      * @since 23 static
@@ -4682,8 +5082,8 @@ declare namespace sensor {
     x: double;
 
     /**
-     * Linear acceleration y-axis component.
-     * @type { double }
+     * Linear acceleration along the y-axis of the device, in m/s?.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
      * @since 23 static
@@ -4691,8 +5091,8 @@ declare namespace sensor {
     y: double;
 
     /**
-     * Linear acceleration z-axis component.
-     * @type { double }
+     * Linear acceleration along the z-axis of the device, in m/s?.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
      * @since 23 static
@@ -4701,16 +5101,16 @@ declare namespace sensor {
   }
 
   /**
-   * Acceleration uncalibrated sensor event data.
-   * @typedef AccelerometerUncalibratedResponse
+   * Describes the uncalibrated acceleration sensor data. It extends from [Response]{@link sensor.Response}.
+   *
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamic
    * @since 23 static
    */
   interface AccelerometerUncalibratedResponse extends Response {
     /**
-     * Acceleration uncalibrated x-axis component.
-     * @type { double }
+     * Uncalibrated acceleration along the x-axis of the device, in m/s?.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
      * @since 23 static
@@ -4718,8 +5118,8 @@ declare namespace sensor {
     x: double;
 
     /**
-     * Acceleration uncalibrated y-axis component.
-     * @type { double }
+     * Uncalibrated acceleration along the y-axis of the device, in m/s?.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
      * @since 23 static
@@ -4727,8 +5127,8 @@ declare namespace sensor {
     y: double;
 
     /**
-     * Acceleration uncalibrated z-axis component.
-     * @type { double }
+     * Uncalibrated acceleration along the z-axis of the device, in m/s?.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
      * @since 23 static
@@ -4736,9 +5136,8 @@ declare namespace sensor {
     z: double;
 
     /**
-     * Acceleration uncalibrated x-axis offset.
-     * 
-     * @type { double }
+     * Uncalibrated acceleration bias along the x-axis of the device, in m/s?.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
      * @since 23 static
@@ -4746,9 +5145,8 @@ declare namespace sensor {
     biasX: double;
 
     /**
-     * Acceleration uncalibrated y-axis offset.
-     * 
-     * @type { double }
+     * Uncalibrated acceleration bias along the y-axis of the device, in m/s?.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
      * @since 23 static
@@ -4756,9 +5154,8 @@ declare namespace sensor {
     biasY: double;
 
     /**
-     * Acceleration uncalibrated z-axis offset.
-     * 
-     * @type { double }
+     * Uncalibrated acceleration bias along the z-axis of the device, in m/s?.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
      * @since 23 static
@@ -4767,16 +5164,16 @@ declare namespace sensor {
   }
 
   /**
-   * Gravity sensor event data.
-   * @typedef GravityResponse
+   * Describes the gravity sensor data. It extends from [Response]{@link sensor.Response}.
+   *
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamic
    * @since 23 static
    */
   interface GravityResponse extends Response {
     /**
-     * Gravity x-axis component.
-     * @type { double }
+     * Gravitational acceleration along the x-axis of the device, in m/s?.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
      * @since 23 static
@@ -4784,8 +5181,8 @@ declare namespace sensor {
     x: double;
 
     /**
-     * Gravity y-axis component.
-     * @type { double }
+     * Gravitational acceleration along the y-axis of the device, in m/s?.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
      * @since 23 static
@@ -4793,8 +5190,8 @@ declare namespace sensor {
     y: double;
 
     /**
-     * Gravity z-axis component.
-     * @type { double }
+     * Gravitational acceleration along the z-axis of the device, in m/s?.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
      * @since 23 static
@@ -4803,80 +5200,56 @@ declare namespace sensor {
   }
 
   /**
-   * Orientation sensor event data.
-   * @typedef OrientationResponse
+   * Describes the orientation sensor data. It extends from [Response]{@link sensor.Response}.
+   *
    * @syscap SystemCapability.Sensors.Sensor
-   * @since 8
-   */
-  /**
-   * Orientation sensor event data.
-   * @typedef OrientationResponse
-   * @syscap SystemCapability.Sensors.Sensor
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    * @since 23 static
    */
   interface OrientationResponse extends Response {
     /**
-     * The device rotates at an angle around the Z axis.
-     * @type { number }
+     * Rotation angle of the device around the z-axis, in degrees. The value ranges from 0 to 360.
+     *
      * @syscap SystemCapability.Sensors.Sensor
-     * @since 8
-     */
-    /**
-     * The device rotates at an angle around the Z axis.
-     * @type { double }
-     * @syscap SystemCapability.Sensors.Sensor
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 8 dynamic
      * @since 23 static
      */
     alpha: double;
 
     /**
-     * The device rotates at an angle around the X axis.
-     * @type { number }
+     * Rotation angle of the device around the x-axis, in degrees. The value ranges from 0 to ¡À180.
+     *
      * @syscap SystemCapability.Sensors.Sensor
-     * @since 8
-     */
-    /**
-     * The device rotates at an angle around the X axis.
-     * @type { double }
-     * @syscap SystemCapability.Sensors.Sensor
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 8 dynamic
      * @since 23 static
      */
     beta: double;
 
     /**
-     * The device rotates at an angle around the Y axis.
-     * @type { number }
+     * Rotation angle of the device around the y-axis, in degrees. The value ranges from 0 to ¡À90.
+     *
      * @syscap SystemCapability.Sensors.Sensor
-     * @since 8
-     */
-    /**
-     * The device rotates at an angle around the Y axis.
-     * @type { double }
-     * @syscap SystemCapability.Sensors.Sensor
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 8 dynamic
      * @since 23 static
      */
     gamma: double;
   }
 
   /**
-   * Rotation vector sensor event data.
-   * @typedef RotationVectorResponse
+   * Describes the rotation vector sensor data. It extends from [Response]{@link sensor.Response}.
+   *
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamic
    * @since 23 static
    */
   interface RotationVectorResponse extends Response {
     /**
-     * Rotation vector x-axis component.
-     * @type { double }
+     * X-component of the rotation vector.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
      * @since 23 static
@@ -4884,8 +5257,8 @@ declare namespace sensor {
     x: double;
 
     /**
-     * Rotation vector y-axis component.
-     * @type { double }
+     * Y-component of the rotation vector.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
      * @since 23 static
@@ -4893,8 +5266,8 @@ declare namespace sensor {
     y: double;
 
     /**
-     * Rotation vector z-axis component.
-     * @type { double }
+     * Z-component of the rotation vector.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
      * @since 23 static
@@ -4902,8 +5275,8 @@ declare namespace sensor {
     z: double;
 
     /**
-     * Scalar quantity.
-     * @type { double }
+     * Scalar, which describes the rotation status of the device relative to a reference direction, in radians
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
      * @since 23 static
@@ -4912,80 +5285,59 @@ declare namespace sensor {
   }
 
   /**
-   * Gyroscope sensor event data.
-   * @typedef GyroscopeResponse
+   * Describes the gyroscope sensor data. It extends from [Response]{@link sensor.Response}.
+   *
    * @syscap SystemCapability.Sensors.Sensor
-   * @since 8
-   */
-  /**
-   * Gyroscope sensor event data.
-   * @typedef GyroscopeResponse
-   * @syscap SystemCapability.Sensors.Sensor
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    * @since 23 static
    */
   interface GyroscopeResponse extends Response {
     /**
-     * Gyroscope x-axis component.
-     * @type { number }
+     * Angular velocity of rotation around the x-axis of the device, in rad/s. The value is equal to the reported
+     * physical quantity.
+     *
      * @syscap SystemCapability.Sensors.Sensor
-     * @since 8
-     */
-    /**
-     * Gyroscope x-axis component.
-     * @type { double }
-     * @syscap SystemCapability.Sensors.Sensor
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 8 dynamic
      * @since 23 static
      */
     x: double;
 
     /**
-     * Gyroscope y-axis component.
-     * @type { number }
+     * Angular velocity of rotation around the y-axis of the device, in rad/s. The value is equal to the reported
+     * physical quantity.
+     *
      * @syscap SystemCapability.Sensors.Sensor
-     * @since 8
-     */
-    /**
-     * Gyroscope y-axis component.
-     * @type { double }
-     * @syscap SystemCapability.Sensors.Sensor
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 8 dynamic
      * @since 23 static
      */
     y: double;
 
     /**
-     * Gyroscope z-axis component.
-     * @type { number }
+     * Angular velocity of rotation around the z-axis of the device, in rad/s. The value is equal to the reported
+     * physical quantity.
+     *
      * @syscap SystemCapability.Sensors.Sensor
-     * @since 8
-     */
-    /**
-     * Gyroscope z-axis component.
-     * @type { double }
-     * @syscap SystemCapability.Sensors.Sensor
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 8 dynamic
      * @since 23 static
      */
     z: double;
   }
 
   /**
-   * Gyroscope uncalibrated sensor event data.
-   * @typedef GyroscopeUncalibratedResponse
+   * Describes the uncalibrated gyroscope sensor data. It extends from [Response]{@link sensor.Response}.
+   *
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamic
    * @since 23 static
    */
   interface GyroscopeUncalibratedResponse extends Response {
     /**
-     * Gyroscope uncalibrated x-axis component.
-     * @type { double }
+     * Uncalibrated angular velocity of rotation around the x-axis of the device, in rad/s.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
      * @since 23 static
@@ -4993,8 +5345,8 @@ declare namespace sensor {
     x: double;
 
     /**
-     * Gyroscope uncalibrated y-axis component.
-     * @type { double }
+     * Uncalibrated angular velocity of rotation around the y-axis of the device, in rad/s.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
      * @since 23 static
@@ -5002,8 +5354,8 @@ declare namespace sensor {
     y: double;
 
     /**
-     * Gyroscope uncalibrated z-axis component.
-     * @type { double }
+     * Uncalibrated angular velocity of rotation around the z-axis of the device, in rad/s.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
      * @since 23 static
@@ -5011,8 +5363,8 @@ declare namespace sensor {
     z: double;
 
     /**
-     * Gyroscope uncalibrated x-axis offset.
-     * @type { double }
+     * Uncalibrated angular velocity bias of rotation around the x-axis of the device, in rad/s.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
      * @since 23 static
@@ -5020,8 +5372,8 @@ declare namespace sensor {
     biasX: double;
 
     /**
-     * Gyroscope uncalibrated y-axis offset.
-     * @type { double }
+     * Uncalibrated angular velocity bias of rotation around the y-axis of the device, in rad/s.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
      * @since 23 static
@@ -5029,8 +5381,8 @@ declare namespace sensor {
     biasY: double;
 
     /**
-     * Gyroscope uncalibrated z-axis offset.
-     * @type { double }
+     * Uncalibrated angular velocity bias of rotation around the z-axis of the device, in rad/s.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
      * @since 23 static
@@ -5039,18 +5391,17 @@ declare namespace sensor {
   }
 
   /**
-   * Significant motion sensor event data.
-   * @typedef SignificantMotionResponse
+   * Describes the significant motion sensor data. It extends from [Response]{@link sensor.Response}.
+   *
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamic
    * @since 23 static
    */
   interface SignificantMotionResponse extends Response {
     /**
-     * The degree of significant motion.
-     * Whether the device has a significant motion.
-     * The value 1 means that the device has a significant motion, and 0 means the opposite.
-     * @type { double }
+     * Intensity of a motion. This parameter specifies whether a device has a significant motion on three physical axes
+     * (X, Y, and Z). The value **1** is reported when the device has a significant motion.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
      * @since 23 static
@@ -5059,16 +5410,17 @@ declare namespace sensor {
   }
 
   /**
-   * Proximity sensor event data.
-   * @typedef ProximityResponse
+   * Describes the proximity sensor data. It extends from [Response]{@link sensor.Response}.
+   *
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamic
    * @since 23 static
    */
   interface ProximityResponse extends Response {
     /**
-     * Indicates the degree of proximity, event 0 indicates proximity, and greater than 0 indicates distance.
-     * @type { double }
+     * Proximity between the visible object and the device monitor. The value **0** means the two are close to each
+     * other, and a value greater than 0 means that they are far away from each other.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
      * @since 23 static
@@ -5077,16 +5429,16 @@ declare namespace sensor {
   }
 
   /**
-   * Light sensor event data.
-   * @typedef LightResponse
+   * Describes the ambient light sensor data. It extends from [Response]{@link sensor.Response}.
+   *
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamic
    * @since 23 static
    */
   interface LightResponse extends Response {
     /**
-     * Indicates light intensity, in lux.
-     * @type { double }
+     * Illumination, in lux.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
      * @since 23 static
@@ -5094,8 +5446,9 @@ declare namespace sensor {
     intensity: double;
 
     /**
-     * Indicates color temperature, in kelvin.
-     * @type { ?double }
+     * Color temperature, in Kelvin. This parameter is optional. If this parameter is not supported, a fixed value (
+     * customized by the sensor) is returned. If this parameter is supported, a normal value is returned.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 12 dynamic
      * @since 23 static
@@ -5103,8 +5456,9 @@ declare namespace sensor {
     colorTemperature?: double;
 
     /**
-     * Indicates infrared luminance, in cd/m2.
-     * @type { ?double }
+     * Infrared luminance, in cd/m?. This parameter is optional. If this parameter is not supported, a fixed value (
+     * customized by the sensor) is returned. If this parameter is supported, a normal value is returned.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 12 dynamic
      * @since 23 static
@@ -5113,16 +5467,17 @@ declare namespace sensor {
   }
 
   /**
-   * Hall sensor event data.
-   * @typedef HallResponse
+   * Describes the Hall effect sensor data. It extends from [Response]{@link sensor.Response}.
+   *
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamic
    * @since 23 static
    */
   interface HallResponse extends Response {
     /**
-     * Indicates hall status, 0 indicates open, and greater than 0 indicates suction.
-     * @type { double }
+     * Hall effect sensor status. This parameter specifies whether a magnetic field exists around a device. The value
+     * **0** means that a magnetic field does not exist, and a value greater than **0** means the opposite.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
      * @since 23 static
@@ -5131,16 +5486,16 @@ declare namespace sensor {
   }
 
   /**
-   * Magnetic field sensor event data.
-   * @typedef MagneticFieldResponse
+   * Describes the magnetic field sensor data. It extends from [Response]{@link sensor.Response}.
+   *
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamic
    * @since 23 static
    */
   interface MagneticFieldResponse extends Response {
     /**
-     * Magnetic field x-axis component.
-     * @type { double }
+     * Magnetic field strength on the x-axis, in ¦ÌT.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
      * @since 23 static
@@ -5148,8 +5503,8 @@ declare namespace sensor {
     x: double;
 
     /**
-     * Magnetic field y-axis component.
-     * @type { double }
+     * Magnetic field strength on the y-axis, in ¦ÌT.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
      * @since 23 static
@@ -5157,8 +5512,8 @@ declare namespace sensor {
     y: double;
 
     /**
-     * Magnetic field z-axis component.
-     * @type { double }
+     * Magnetic field strength on the z-axis, in ¦ÌT.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
      * @since 23 static
@@ -5167,16 +5522,16 @@ declare namespace sensor {
   }
 
   /**
-   * Magnetic field uncalibrated sensor event data.
-   * @typedef MagneticFieldUncalibratedResponse
+   * Describes the uncalibrated magnetic field sensor data. It extends from [Response]{@link sensor.Response}.
+   *
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamic
    * @since 23 static
    */
   interface MagneticFieldUncalibratedResponse extends Response {
     /**
-     * Magnetic field uncalibrated x-axis component.
-     * @type { double }
+     * Uncalibrated magnetic field strength on the x-axis, in ¦ÌT.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
      * @since 23 static
@@ -5184,8 +5539,8 @@ declare namespace sensor {
     x: double;
 
     /**
-     * Magnetic field uncalibrated y-axis component.
-     * @type { double }
+     * Uncalibrated magnetic field strength on the y-axis, in ¦ÌT.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
      * @since 23 static
@@ -5193,8 +5548,8 @@ declare namespace sensor {
     y: double;
 
     /**
-     * Magnetic field uncalibrated z-axis component.
-     * @type { double }
+     * Uncalibrated magnetic field strength on the z-axis, in ¦ÌT.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
      * @since 23 static
@@ -5202,8 +5557,8 @@ declare namespace sensor {
     z: double;
 
     /**
-     * Magnetic field uncalibrated x-axis offset.
-     * @type { double }
+     * Bias of the uncalibrated magnetic field strength on the x-axis, in ¦ÌT.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
      * @since 23 static
@@ -5211,8 +5566,8 @@ declare namespace sensor {
     biasX: double;
 
     /**
-     * Magnetic field uncalibrated y-axis offset.
-     * @type { double }
+     * Bias of the uncalibrated magnetic field strength on the y-axis, in ¦ÌT.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
      * @since 23 static
@@ -5220,8 +5575,8 @@ declare namespace sensor {
     biasY: double;
 
     /**
-     * Magnetic field uncalibrated z-axis offset.
-     * @type { double }
+     * Bias of the uncalibrated magnetic field strength on the z-axis, in ¦ÌT.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
      * @since 23 static
@@ -5230,16 +5585,16 @@ declare namespace sensor {
   }
 
   /**
-   * Pedometer sensor event data.
-   * @typedef PedometerResponse
+   * Describes the pedometer sensor data. It extends from [Response]{@link sensor.Response}.
+   *
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamic
    * @since 23 static
    */
   interface PedometerResponse extends Response {
     /**
-     * Indicates the number of steps.
-     * @type { double }
+     * Number of steps a user has walked.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
      * @since 23 static
@@ -5248,16 +5603,16 @@ declare namespace sensor {
   }
 
   /**
-   * Humidity sensor event data.
-   * @typedef HumidityResponse
+   * Describes the humidity sensor data. It extends from [Response]{@link sensor.Response}.
+   *
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamic
    * @since 23 static
    */
   interface HumidityResponse extends Response {
     /**
-     * Indicates the number of humidity.
-     * @type { double }
+     * Ambient relative humidity, in a percentage (%).
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
      * @since 23 static
@@ -5266,17 +5621,17 @@ declare namespace sensor {
   }
 
   /**
-   * Pedometer detection sensor event data.
-   * @typedef PedometerDetectionResponse
+   * Describes the pedometer detection sensor data. It extends from [Response]{@link sensor.Response}.
+   *
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamic
    * @since 23 static
    */
   interface PedometerDetectionResponse extends Response {
     /**
-     * Indicates the pedometer detection status, 1 indicates that a walking action has occurred,
-     * and 0 indicates that no movement has occurred.
-     * @type { double }
+     * Pedometer detection. This parameter specifies whether a user takes a step. The value **0** means that the user
+     * does not take a step, and **1** means that the user takes a step.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
      * @since 23 static
@@ -5285,16 +5640,16 @@ declare namespace sensor {
   }
 
   /**
-   * Ambient temperature sensor event data.
-   * @typedef  AmbientTemperatureResponse
+   * Describes the ambient temperature sensor data. It extends from [Response]{@link sensor.Response}.
+   *
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamic
    * @since 23 static
    */
   interface AmbientTemperatureResponse extends Response {
     /**
-     * Indicates ambient temperature, in celsius.
-     * @type { double }
+     * Ambient temperature, in degree Celsius.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
      * @since 23 static
@@ -5303,16 +5658,16 @@ declare namespace sensor {
   }
 
   /**
-   * Barometer sensor event data.
-   * @typedef BarometerResponse
+   * Describes the barometer sensor data. It extends from [Response]{@link sensor.Response}.
+   *
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamic
    * @since 23 static
    */
   interface BarometerResponse extends Response {
     /**
-     * Indicates the number of barometer, in hpa.
-     * @type { double }
+     * Atmospheric pressure, in units of hPa.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
      * @since 23 static
@@ -5321,16 +5676,16 @@ declare namespace sensor {
   }
 
   /**
-   * Heart rate sensor event data.
-   * @typedef HeartRateResponse
+   * Describes the heart rate sensor data. It extends from [Response]{@link sensor.Response}.
+   *
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamic
    * @since 23 static
    */
   interface HeartRateResponse extends Response {
     /**
-     * Indicates the number of heart rate.
-     * @type { double }
+     * Heart rate, in beats per minute (bpm).
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
      * @since 23 static
@@ -5339,16 +5694,17 @@ declare namespace sensor {
   }
 
   /**
-   * Wear detection sensor event data.
-   * @typedef WearDetectionResponse
+   * Describes the wear detection sensor data. It extends from [Response]{@link sensor.Response}.
+   *
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamic
    * @since 23 static
    */
   interface WearDetectionResponse extends Response {
     /**
-     * Indicates the status of wear detection, 1 for wearing, 0 for wearing not.
-     * @type { double }
+     * Whether the device is being worn. The value **1** means that the device is being worn, and **0** means the
+     * opposite.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
      * @since 23 static
@@ -5357,8 +5713,8 @@ declare namespace sensor {
   }
 
   /**
-   * Color sensor event data.
-   * @typedef ColorResponse
+   * Describes the color sensor data. It extends from [Response]{@link @ohos.sensor:sensor.Response}.
+   *
    * @syscap SystemCapability.Sensors.Sensor
    * @systemapi
    * @since 10 dynamic
@@ -5366,17 +5722,17 @@ declare namespace sensor {
    */
   interface ColorResponse extends Response {
     /**
-     * Indicates the intensity of light, in lux.
-     * @type { double }
-     * @syscap SystemCapability.Sensors.Sensor      
+     * Intensity of light, in lux.
+     *
+     * @syscap SystemCapability.Sensors.Sensor
      * @systemapi
      * @since 10 dynamic
      * @since 23 static
      */
     lightIntensity: double;
     /**
-     * Indicates the color temperature, in kelvin.
-     * @type { double }
+     * Color temperature, in Kelvin.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @systemapi
      * @since 10 dynamic
@@ -5386,8 +5742,8 @@ declare namespace sensor {
   }
 
   /**
-   * Sar sensor event data.
-   * @typedef SarResponse
+   * Describes the SAR sensor data. It extends from [Response]{@link @ohos.sensor:sensor.Response}.
+   *
    * @syscap SystemCapability.Sensors.Sensor
    * @systemapi
    * @since 10 dynamic
@@ -5395,8 +5751,8 @@ declare namespace sensor {
    */
   interface SarResponse extends Response {
     /**
-     * Indicates the specific absorption rate, in W/kg.
-     * @type { double }
+     * Absorption ratio, in W/kg.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @systemapi
      * @since 10 dynamic
@@ -5406,16 +5762,16 @@ declare namespace sensor {
   }
 
   /**
-   * fusion pressure sensor event data.
-   * @typedef FusionPressureResponse
+   * Describes the fusion pressure sensor data. It extends from [Response]{@link sensor.Response}.
+   *
    * @syscap SystemCapability.Sensors.Sensor
    * @since 22 dynamic
    * @since 23 static
    */
   interface FusionPressureResponse extends Response {
     /**
-     * Indicates the pressure percent data.
-     * @type { double }
+     * Pressure percentage on the fused pressure sensor, in percentage (%)
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 22 dynamic
      * @since 23 static
@@ -5424,22 +5780,27 @@ declare namespace sensor {
   }
 
   /**
-   * Start listening on device status changes.
-   * @param { 'sensorStatusChange' } type - event of the listening.
-   * @param { Callback<SensorStatusEvent> } callback - callback of sensor status.
+   * Enables listening for sensor status changes. This API asynchronously returns the result through a callback.
+   *
+   * @param { 'sensorStatusChange' } type - Event type. The value **sensorStatusChange** indicates the sensor status
+   *     change event.
+   * @param { Callback<SensorStatusEvent> } callback - Callback used to return the sensor status change event.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 19 dynamic
    */
   function on(type: 'sensorStatusChange', callback: Callback<SensorStatusEvent>): void;
 
   /**
-   * Stop listening on device status changes.
-   * @param { 'sensorStatusChange' } type - event of the listening.
-   * @param { Callback<SensorStatusEvent> } [callback] - callback of sensor status.
+   * Disables listening for sensor status changes.
+   *
+   * @param { 'sensorStatusChange' } type - Event type. The value **sensorStatusChange** indicates the sensor status
+   *     change event.
+   * @param { Callback<SensorStatusEvent> } [callback] - Callback passed to **sensor.on**. If this parameter is left
+   *     unspecified, listening will be disabled for all callbacks.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 19 dynamic
    */
@@ -5447,9 +5808,10 @@ declare namespace sensor {
 
   /**
    * Start listening on device status changes.
+   *
    * @param { Callback<SensorStatusEvent> } callback - callback of sensor status.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 23 static
    */
@@ -5457,25 +5819,26 @@ declare namespace sensor {
 
   /**
    * Stop listening on device status changes.
+   *
    * @param { Callback<SensorStatusEvent> } [callback] - callback of sensor status.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
-   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 23 static
    */
   function offSensorStatusChange(callback?: Callback<SensorStatusEvent>): void;
 
   /**
-   * Defines the data structure of the device status change event.
-   * @typedef SensorStatusEvent
+   * Defines a device status change event.
+   *
    * @syscap SystemCapability.Sensors.Sensor
    * @since 19 dynamic
    * @since 23 static
    */
   interface SensorStatusEvent {
     /**
-     * Indicates the timestamp of the status change.
-     * @type { long }
+     * Timestamp when an event occurs, in ms.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 19 dynamic
      * @since 23 static
@@ -5483,8 +5846,8 @@ declare namespace sensor {
     timestamp: long;
 
     /**
-     * Sensor type id.
-     * @type { int }
+     * Sensor ID.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 19 dynamic
      * @since 23 static
@@ -5492,8 +5855,8 @@ declare namespace sensor {
     sensorId: int;
 
     /**
-     * Index of sensors of the same type.
-     * @type { int }
+     * Sensor index.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 19 dynamic
      * @since 23 static
@@ -5501,9 +5864,9 @@ declare namespace sensor {
     sensorIndex: int;
 
     /**
-     * Whether the device is online, true indicates online, false indicates offline.
+     * Sensor status. The value **true** indicates that the sensor is online, and the value **false** indicates the
+     * opposite.
      *
-     * @type { boolean }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 19 dynamic
      * @since 23 static
@@ -5512,7 +5875,7 @@ declare namespace sensor {
 
     /**
      * Device ID.
-     * @type { int }
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 19 dynamic
      * @since 23 static
@@ -5521,7 +5884,7 @@ declare namespace sensor {
 
     /**
      * Device name.
-     * @type { string }
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 19 dynamic
      * @since 23 static
@@ -5530,19 +5893,20 @@ declare namespace sensor {
   }
 
   /**
-  * Parameters of sensor on the device.
-  * @typedef SensorInfoParam
-  * @syscap SystemCapability.Sensors.Sensor
-  * @atomicservice
-  * @since 19 dynamic
-  * @since 23 static
-  */
+   * Defines sensor parameters, including **deviceId** and **sensorIndex**.
+   *
+   * @syscap SystemCapability.Sensors.Sensor
+   * @atomicservice
+   * @since 19 dynamic
+   * @since 23 static
+   */
   interface SensorInfoParam {
     /**
-     * Unique identifier for the device that contains one or multiple sensors.
-     * By default, deviceId may default to querying or controlling the local default sensor.
+     * Device ID. The default value is -1, indicating the local device. You can use
+     * [getSensorList]{@link sensor.getSensorList(callback: AsyncCallback<Array<Sensor>>)} or
+     * [sensorStatusChange]{@link sensor.on(type: 'sensorStatusChange', callback: Callback<SensorStatusEvent>)} to
+     * obtain the device ID.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Sensors.Sensor
      * @atomicservice
      * @since 19 dynamic
@@ -5551,8 +5915,11 @@ declare namespace sensor {
     deviceId?: int;
 
     /**
-     * Index of sensors of the same type. By default, it controls default sensors of the sensor type.
-     * @type { ?int }
+     * Sensor index. The default value is **0**, indicating the default sensor on the device. You can use
+     * [getSensorList]{@link sensor.getSensorList(callback: AsyncCallback<Array<Sensor>>)} or
+     * [sensorStatusChange]{@link sensor.on(type: 'sensorStatusChange', callback: Callback<SensorStatusEvent>)} to
+     * obtain the sensor index.
+     *
      * @syscap SystemCapability.Sensors.Sensor
      * @atomicservice
      * @since 19 dynamic

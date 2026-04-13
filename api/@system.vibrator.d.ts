@@ -14,12 +14,31 @@
  */
 
 /**
+ * The **Vibrator** module provides APIs for controlling LED lights and vibrators. You can use the APIs to query the LED
+ * light list, vibrator list, and vibration effect, and turn on or off the LED light and the vibrator.
+ * The **Vibrator** module provides APIs for controlling LED lights and vibrators. You can use the APIs to query the LED
+ * light list, vibrator list, and vibration effect, and turn on or off the LED light and the vibrator.
+ * 
+ * Misc devices refer to LED lights and vibrators on devices. LED lights are mainly used for indication (for example, 
+ * indicating the charging state) and blinking (such as tri-colored lights). Vibrators are mainly used in scenarios such
+ * as the alarm clock, power-on/off, and incoming call vibration.
+ * 
+ * > **NOTE**
+ * >
+ * > - Module maintenance policy:
+ * > >   - For lite wearables, this module is constantly maintained and available.
+ * > >   - For other device types, this module is no longer maintained since API version 8, and You are advised to use 
+ * > the new [@ohos.vibrator]{@link @ohos.vibrator:vibrator} module.
+ * >
+ * > - This module requires hardware support and can only be debugged on real devices.
+ *
  * @file
  * @kit SensorServiceKit
  */
 
 /**
- * @interface VibrateOptions
+ * Defines the vibration options.
+ *
  * @permission ohos.permission.VIBRATE
  * @syscap SystemCapability.Sensors.MiscDevice.Lite
  * @since 3 dynamiconly
@@ -29,11 +48,10 @@
  */
 export interface VibrateOptions {
   /**
-   * Vibration mode. The value long  indicates long vibration, and short indicates short vibration.
-   * The default value is long.
+   * Vibration mode. The value **long** indicates long vibration, and **short** indicates short vibration. The default
+   * value is **long**.
    *
    * @permission ohos.permission.VIBRATE
-   * @type { ?('long' | 'short') }
    * @syscap SystemCapability.Sensors.MiscDevice.Lite
    * @since 3 dynamiconly
    * @deprecated since 8
@@ -43,10 +61,9 @@ export interface VibrateOptions {
   mode?: 'long' | 'short';
 
   /**
-   * Called when success to trigger vibration.
+   * Called when the vibrator data changes.
    *
    * @permission ohos.permission.VIBRATE
-   * @type { function }
    * @syscap SystemCapability.Sensors.MiscDevice.Lite
    * @since 3 dynamiconly
    * @deprecated since 8
@@ -56,10 +73,9 @@ export interface VibrateOptions {
   success: () => void;
 
   /**
-   * Called when fail to trigger vibration.
+   * Called when the API call fails.
    *
    * @permission ohos.permission.VIBRATE
-   * @type { ?function }
    * @syscap SystemCapability.Sensors.MiscDevice.Lite
    * @since 3 dynamiconly
    * @deprecated since 8
@@ -69,10 +85,9 @@ export interface VibrateOptions {
   fail?: (data: string, code: number) => void;
 
   /**
-   * Called when the execution is completed.
+   * Called when the API call is complete.
    *
    * @permission ohos.permission.VIBRATE
-   * @type { ?function }
    * @syscap SystemCapability.Sensors.MiscDevice.Lite
    * @since 3 dynamiconly
    * @deprecated since 8
@@ -83,6 +98,7 @@ export interface VibrateOptions {
 }
 
 /**
+ *
  * @permission ohos.permission.VIBRATE
  * @syscap SystemCapability.Sensors.MiscDevice.Lite
  * @since 3 dynamiconly
@@ -92,15 +108,21 @@ export interface VibrateOptions {
  */
 export default class Vibrator {
   /**
-   * Triggers vibration.
+   * Triggers device vibration.
+   *
+   * > **NOTE**
+   * >
+   * > Except for lite wearables. You are advised to use
+   * > [vibrator.startVibration()]{@link @ohos.vibrator:vibrator.startVibration(effect: VibrateEffect, attribute: VibrateAttribute, callback: AsyncCallback<void>)}
+   * > instead.
    *
    * @permission ohos.permission.VIBRATE
-   * @param { VibrateOptions } options Options.
+   * @param { VibrateOptions } options - Vibration options.
    * @syscap SystemCapability.Sensors.MiscDevice.Lite
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
-   * @useinstead ohos.vibrator/vibrator#startVibration
+   * @useinstead @ohos.vibrator:vibrator.startVibration(effect: VibrateEffect, attribute: VibrateAttribute, callback: AsyncCallback<void>)
    */
   static vibrate(options?: VibrateOptions): void;
 }
