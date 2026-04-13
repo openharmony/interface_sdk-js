@@ -2144,6 +2144,7 @@ declare class On {
    * @test
    */
   isAfter(on: On): On;
+
   /**
    * Requires that the target Component which is after another Component specified by the given {@link Component}
    * object, used to locate Component relatively.
@@ -2173,20 +2174,22 @@ declare class On {
    * @since 23 static
    * @test
    */
+
   within(on: On): On;
   /**
-       * Requires that the target Component which is inside of another Component specified by the given {@link Component}
-       * object, used to locate Component relatively.
-       *
-       * @param { Component } com - Describes the Component which the target one is inside of.
-       * @returns { On } this {@link On} object.
-       * @throws { BusinessError } 17000007 - Parameter verification failed.
-       * @syscap SystemCapability.Test.UiTest
-       * @FaAndStageModel
-       * @atomicservice
-       * @since 26.0.0 dynamic&static
-       * @test
-       */
+   * Requires that the target Component which is inside of another Component specified by the given {@link Component}
+   * object, used to locate Component relatively.
+   *
+   * @param { Component } com - Describes the Component which the target one is inside of.
+   * @returns { On } this {@link On} object.
+   * @throws { BusinessError } 17000007 - Parameter verification failed.
+   * @syscap SystemCapability.Test.UiTest
+   * @FaAndStageModel
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   * @test
+   */
+
   within(com: Component): On;
   /**
    * Specifies that the target component is located within the given application window.
@@ -2237,6 +2240,7 @@ declare class On {
    * @test
    */
   description(val: string, pattern?: MatchPattern): On;
+
   /**
    * Specifies the **id** attribute and match pattern of the target component.
    *
@@ -2252,6 +2256,7 @@ declare class On {
    * @test
    */
   id(id: string, pattern: MatchPattern): On;
+
   /**
    * Specifies the **type** attribute and match pattern of the target component.
    *
@@ -2267,6 +2272,7 @@ declare class On {
    * @test
    */
   type(tp: string, pattern: MatchPattern): On;
+  
   /**
    * Obtains the component object of the specified hint text and returns the **On** object.
    *
