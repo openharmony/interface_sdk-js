@@ -1929,8 +1929,7 @@ declare namespace accessibility {
    *
    * @returns { CaptionsManager } Returns the captions manager.
    * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
-   * @since 8 dynamic
-   * @since 23 static
+   * @since 8 dynamiconly
    * @deprecated since 12
    */
   function getCaptionsManager(): CaptionsManager;
