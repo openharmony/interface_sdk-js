@@ -4492,6 +4492,26 @@ declare namespace window {
   function getAllWindowLayoutInfo(displayId: long): Promise<Array<WindowLayoutInfo>>;
 
   /**
+   * Obtains the array of window layout info visible on a specified screen.
+   * The width and height of each rect are calculated after scaling. The array is sorted by the current window level.
+   * The index of the array corresponding to the highest level is 0.
+   *
+   * @param { long } displayId - Indicate the id of display.
+   * @param { WindowInfoOptions } [option] - Filter criteria for window information.
+   * @returns { Promise<Array<WindowLayoutInfo>> } Promise used to return the WindowLayoutInfo.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *     Function getAllWindowLayoutInfo can not work correctly due to limited device capabilities.
+   * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+   *     Possible cause: Internal task error.
+   * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1. Invalid parameter range.
+   * @syscap SystemCapability.Window.SessionManager
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  function getAllWindowLayoutInfo(displayId: long, option?: WindowInfoOptions): Promise<Array<WindowLayoutInfo>>
+
+  /**
    * List the window modes of the foreground window on the specified display.
    *
    * @param { long } [displayId] - Indicate the id of display.
@@ -15262,6 +15282,64 @@ declare namespace window {
      * @since 23 static
      */
     windowRect: Rect;
+
+    /**
+     * The window's alpha fade level. This number is in the range 0.0 to 1.0,
+     * where 0.0 is fully transparent and 1.0 is fully opaque.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    windowAlpha?: double;
+  }
+
+  /**
+   * Filter criteria for window information.
+   *
+   * @syscap SystemCapability.Window.SessionManager
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  interface WindowInfoOptions {
+    /**
+     * Whether the result excludes system windows.
+     * If true, the result list does not include system windows;
+     * if false, the result list includes system windows.
+     *
+     * @default false
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    excludeSystemWindows?: boolean;
+    
+    /**
+     * Only include windows with a higher z-order than the specified window ID.
+     * When this field is set to the default value 0, this field is not used as a filter criterion.
+     *
+     * @default 0
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    foregroundAboveWindow?: int;
+    
+    /**
+     * Only include windows with a lower z-order than the specified window ID.
+     * When this field is set to the default value 0, this field is not used as a filter criterion.
+     *
+     * @default 0
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    foregroundBelowWindow?: int;
   }
 
   /**
