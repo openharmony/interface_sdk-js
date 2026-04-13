@@ -188,14 +188,14 @@ declare enum SideBarPosition {
  */
 declare interface ButtonIconOptions {
   /**
-   * Defines the icon displayed when then sidebar is shown..
+   * Defines the icon displayed when the sidebar is shown.
    *
    * @type { string | PixelMap | Resource }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
-   * Defines the icon displayed when then sidebar is shown..
+   * Defines the icon displayed when the sidebar is shown.
    *
    * @type { string | PixelMap | Resource }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -203,7 +203,7 @@ declare interface ButtonIconOptions {
    * @since 10
    */
   /**
-   * Defines the icon displayed when then sidebar is shown..
+   * Defines the icon displayed when the sidebar is shown.
    *
    * @type { string | PixelMap | Resource }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -212,7 +212,7 @@ declare interface ButtonIconOptions {
    * @since 11
    */
   /**
-   * Defines the icon displayed when then sidebar is shown..
+   * Defines the icon displayed when the sidebar is shown.
    *
    * Anonymous Object Rectification.
    * @type { string | PixelMap | Resource }
@@ -224,14 +224,14 @@ declare interface ButtonIconOptions {
   shown: string | PixelMap | Resource;
 
   /**
-   * Defines the icon displayed when then sidebar is hidden..
+   * Defines the icon displayed when the sidebar is hidden.
    *
    * @type { string | PixelMap | Resource }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
-   * Defines the icon displayed when then sidebar is hidden..
+   * Defines the icon displayed when the sidebar is hidden.
    *
    * @type { string | PixelMap | Resource }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -239,7 +239,7 @@ declare interface ButtonIconOptions {
    * @since 10
    */
   /**
-   * Defines the icon displayed when then sidebar is hidden..
+   * Defines the icon displayed when the sidebar is hidden.
    *
    * @type { string | PixelMap | Resource }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -248,7 +248,7 @@ declare interface ButtonIconOptions {
    * @since 11
    */
   /**
-   * Defines the icon displayed when then sidebar is hidden..
+   * Defines the icon displayed when the sidebar is hidden.
    *
    * Anonymous Object Rectification.
    * @type { string | PixelMap | Resource }
