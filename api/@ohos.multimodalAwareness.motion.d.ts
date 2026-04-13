@@ -286,5 +286,5 @@ declare namespace motion {
    * @since 23 static
    */
   function offHoldingHandChanged(callback?: Callback<HoldingHandStatus>): void;
-  }
+}
 export default motion;
