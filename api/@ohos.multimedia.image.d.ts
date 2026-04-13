@@ -6966,7 +6966,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 7600105 - The PixelMap has been released.
      * @throws { BusinessError } 7600106 - The PixelMap has been passed to another thread.
      * @throws { BusinessError } 7600201 - Unsupported operation because the PixelMap is locked.
-     * @throws { BusinessError } 7600206 - Invalid parameter because the rate is out of range.
+     * @throws { BusinessError } 7600206 - Invalid parameter. Possible cause: The specified value is out of range.
      * @throws { BusinessError } 7600207 - Unsupported data format. Possible cause: Alpha type is not supported.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
@@ -6987,7 +6987,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 7600105 - The PixelMap has been released.
      * @throws { BusinessError } 7600106 - The PixelMap has been passed to another thread.
      * @throws { BusinessError } 7600201 - Unsupported operation because the PixelMap is locked.
-     * @throws { BusinessError } 7600206 - Invalid parameter because the rate is out of range.
+     * @throws { BusinessError } 7600206 - Invalid parameter. Possible cause: The specified value is out of range.
      * @throws { BusinessError } 7600207 - Unsupported data format. Possible cause: Alpha type is not supported.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
@@ -7250,6 +7250,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 7600105 - The PixelMap has been released.
      * @throws { BusinessError } 7600106 - The PixelMap has been passed to another thread.
      * @throws { BusinessError } 7600201 - Unsupported operation because the PixelMap is locked.
+     * @throws { BusinessError } 7600206 - Invalid parameter.
      * @throws { BusinessError } 7600301 - Failed to allocate memory.
      *     Possible causes: 1. The resulting PixelMap size is too large. 2. The system is out of memory.
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -7273,6 +7274,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 7600105 - The PixelMap has been released.
      * @throws { BusinessError } 7600106 - The PixelMap has been passed to another thread.
      * @throws { BusinessError } 7600201 - Unsupported operation because the PixelMap is locked.
+     * @throws { BusinessError } 7600206 - Invalid parameter.
      * @throws { BusinessError } 7600301 - Failed to allocate memory.
      *     Possible causes: 1. The resulting PixelMap size is too large. 2. The system is out of memory.
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -7479,6 +7481,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 7600105 - The PixelMap has been released.
      * @throws { BusinessError } 7600106 - The PixelMap has been passed to another thread.
      * @throws { BusinessError } 7600201 - Unsupported operation because the PixelMap is locked.
+     * @throws { BusinessError } 7600206 - Invalid parameter.
      * @throws { BusinessError } 7600301 - Failed to allocate memory.
      *     Possible causes: 1. The resulting PixelMap size is too large. 2. The system is out of memory.
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -7500,6 +7503,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 7600105 - The PixelMap has been released.
      * @throws { BusinessError } 7600106 - The PixelMap has been passed to another thread.
      * @throws { BusinessError } 7600201 - Unsupported operation because the PixelMap is locked.
+     * @throws { BusinessError } 7600206 - Invalid parameter.
      * @throws { BusinessError } 7600301 - Failed to allocate memory.
      *     Possible causes: 1. The resulting PixelMap size is too large. 2. The system is out of memory.
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -7635,6 +7639,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 7600105 - The PixelMap has been released.
      * @throws { BusinessError } 7600106 - The PixelMap has been passed to another thread.
      * @throws { BusinessError } 7600201 - Unsupported operation because the PixelMap is locked.
+     * @throws { BusinessError } 7600206 - Invalid parameter.
      * @throws { BusinessError } 7600301 - Failed to allocate memory.
      *     Possible causes: 1. The resulting PixelMap size is too large. 2. The system is out of memory.
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -7657,6 +7662,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 7600105 - The PixelMap has been released.
      * @throws { BusinessError } 7600106 - The PixelMap has been passed to another thread.
      * @throws { BusinessError } 7600201 - Unsupported operation because the PixelMap is locked.
+     * @throws { BusinessError } 7600206 - Invalid parameter.
      * @throws { BusinessError } 7600301 - Failed to allocate memory.
      *     Possible causes: 1. The resulting PixelMap size is too large. 2. The system is out of memory.
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -7782,6 +7788,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 7600105 - The PixelMap has been released.
      * @throws { BusinessError } 7600106 - The PixelMap has been passed to another thread.
      * @throws { BusinessError } 7600201 - Unsupported operation because the PixelMap is locked.
+     * @throws { BusinessError } 7600206 - Invalid parameter.
      * @throws { BusinessError } 7600301 - Failed to allocate memory. Possible cause: The system is out of memory.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
@@ -7802,6 +7809,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 7600105 - The PixelMap has been released.
      * @throws { BusinessError } 7600106 - The PixelMap has been passed to another thread.
      * @throws { BusinessError } 7600201 - Unsupported operation because the PixelMap is locked.
+     * @throws { BusinessError } 7600206 - Invalid parameter.
      * @throws { BusinessError } 7600301 - Failed to allocate memory. Possible cause: The system is out of memory.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
