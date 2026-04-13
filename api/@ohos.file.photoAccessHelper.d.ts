@@ -8226,6 +8226,41 @@ declare namespace photoAccessHelper {
      * @since 24 dynamic&static
      */
     getAssetCompatibleCapability(bundleName: string): Promise<AssetCompatibleCapability>
+
+    /**
+     * Configure the preferred compatible mode configured by the application based on bundleName.
+     * There are three application types. For details, see PreferredCompatibleMode.
+     *
+     * @param { string } bundleName - The app bundleName.
+     * @param { PreferredCompatibleMode } compatibleMode - Preferred compatible mode of the application.
+     * @returns { Promise<void> } Returns void.
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 23800151 - The bundleName is invalid, such as null, undefined and empty.
+     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
+     *     Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    setPreferredCompatibleMode(bundleName: string, compatibleMode: PreferredCompatibleMode): Promise<void>;
+
+    /**
+     * Obtains the preferred compatible mode configured by the application based on bundleName.
+     * There are three application types. For details, see PreferredCompatibleMode.
+     *
+     * @param { string } bundleName - The app bundleName.
+     * @returns { Promise<PreferredCompatibleMode> } Preferred compatible mode of the application.
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 23800151 - The bundleName is invalid, such as null, undefined and empty.
+     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
+     *     Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    getPreferredCompatibleMode(bundleName: string): Promise<PreferredCompatibleMode>;
   }
 
   /**
@@ -15441,6 +15476,45 @@ declare namespace photoAccessHelper {
       */ 
     supportedMimeType?: Array<string>;
   }
+
+  /**
+   * Preferred compatible mode.
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  enum PreferredCompatibleMode {
+    /**
+     * Performs transcoding based on the configured asset compatibility capabilities.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    DEFAULT = 0,
+    /**
+     * No transcoding is performed. The asset is returned in its original format.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    CURRENT = 1,
+    /**
+     * All assets are transcoded to the most widely compatible format.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    COMPATIBLE = 2
+  }
+
   /**
    * Knowledge Content class, used for geting related entity.
    *
