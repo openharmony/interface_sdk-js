@@ -46,7 +46,7 @@ import { StyledString, TextStyle } from './arkui/component/styledString';
  */
 declare namespace i18n {
   /**
-   * Obtains the localized name of the specified country/region.
+   * Obtains the localized name of the specified country/region.11
    *
    * @param { string } country - Specified country.
    * @param { string } locale - System locale, which consists of the language, script, and country/region.
