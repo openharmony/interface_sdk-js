@@ -8187,10 +8187,10 @@ declare namespace photoAccessHelper {
      * @stagemodelonly
      * @since 24 dynamic&static
      */
-    setAssetCompatibleCapability(capability: AssetCompatibleCapability):Promise<void>;
+    setAssetCompatibleCapability(capability: AssetCompatibleCapability): Promise<void>;
 
     /**
-     * Configure the asset compatibility capability based on TokenId.
+     * Configure the asset compatibility capability based on bundleName.
      * You can obtain compatibility capabilities and determine whether to
      * perform compatibility conversion based on the compatibility capabilities.
      *
@@ -8207,10 +8207,10 @@ declare namespace photoAccessHelper {
      * @stagemodelonly
      * @since 24 dynamic&static
      */
-    setAssetCompatibleCapability(bundleName: string, capability: AssetCompatibleCapability):Promise<void>;
+    setAssetCompatibleCapability(bundleName: string, capability: AssetCompatibleCapability): Promise<void>;
 
     /**
-     * Obtains the asset compatibility capability based on TokenId. When you serve a file to an application,
+     * Obtains the asset compatibility capability based on bundleName. When you serve a file to an application,
      * You can obtain compatibility capabilities and determine whether to 
      * perform compatibility conversion based on the compatibility capabilities.
      *
@@ -15439,7 +15439,7 @@ declare namespace photoAccessHelper {
       * @atomicservice 
       * @since 26.0.0 dynamic&static 
       */ 
-    supportedMimeType: Array<string>;  
+    supportedMimeType?: Array<string>;
   }
   /**
    * Knowledge Content class, used for geting related entity.
