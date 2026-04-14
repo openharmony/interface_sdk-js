@@ -189,7 +189,6 @@ declare namespace http {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 23 static
      */
     extraData?: string | Object | ArrayBuffer;
 
@@ -4202,7 +4201,8 @@ declare namespace http {
      *
      * @type { ?ConnectionExtraInfo }
      * @syscap SystemCapability.Communication.NetStack
-     * @since 24 dynamic&static
+     * @since 24 dynamic
+     * @since 26.0.0 static
      */
     connectionExtraInfo?: ConnectionExtraInfo;
   }
@@ -4864,7 +4864,8 @@ declare namespace http {
    * @interface ConnectionExtraInfo
    * @syscap SystemCapability.Communication.NetStack
    * @stagemodelonly
-   * @since 24 dynamic&static
+   * @since 24 dynamic
+   * @since 26.0.0 static
    */
   export interface ConnectionExtraInfo {
     /**
@@ -4872,7 +4873,8 @@ declare namespace http {
      *
      * @syscap SystemCapability.Communication.NetStack
      * @stagemodelonly
-     * @since 24 dynamic&static
+     * @since 24 dynamic
+     * @since 26.0.0 static
      */
     networkProtocolName: string;
 
@@ -4881,7 +4883,8 @@ declare namespace http {
      *
      * @syscap SystemCapability.Communication.NetStack
      * @stagemodelonly
-     * @since 24 dynamic&static
+     * @since 24 dynamic
+     * @since 26.0.0 static
      */
     tlsVersion?: TlsVersion;
 
@@ -4890,7 +4893,8 @@ declare namespace http {
      *
      * @syscap SystemCapability.Communication.NetStack
      * @stagemodelonly
-     * @since 24 dynamic&static
+     * @since 24 dynamic
+     * @since 26.0.0 static
      */
     cipherSuite?: CipherSuite;
 
@@ -4899,7 +4903,8 @@ declare namespace http {
      *
      * @syscap SystemCapability.Communication.NetStack
      * @stagemodelonly
-     * @since 24 dynamic&static
+     * @since 24 dynamic
+     * @since 26.0.0 static
      */
     localAddress: string;
 
@@ -4908,7 +4913,8 @@ declare namespace http {
      *
      * @syscap SystemCapability.Communication.NetStack
      * @stagemodelonly
-     * @since 24 dynamic&static
+     * @since 24 dynamic
+     * @since 26.0.0 static
      */
     remoteAddress: string;
 
@@ -4917,7 +4923,8 @@ declare namespace http {
      *
      * @syscap SystemCapability.Communication.NetStack
      * @stagemodelonly
-     * @since 24 dynamic&static
+     * @since 24 dynamic
+     * @since 26.0.0 static
      */
     localPort: int;
 
@@ -4926,7 +4933,8 @@ declare namespace http {
      *
      * @syscap SystemCapability.Communication.NetStack
      * @stagemodelonly
-     * @since 24 dynamic&static
+     * @since 24 dynamic
+     * @since 26.0.0 static
      */
     remotePort: int;
 
@@ -4935,7 +4943,8 @@ declare namespace http {
      *
      * @syscap SystemCapability.Communication.NetStack
      * @stagemodelonly
-     * @since 24 dynamic&static
+     * @since 24 dynamic
+     * @since 26.0.0 static
      */
     isReusedConnection: boolean;
 
@@ -4944,7 +4953,8 @@ declare namespace http {
      *
      * @syscap SystemCapability.Communication.NetStack
      * @stagemodelonly
-     * @since 24 dynamic&static
+     * @since 24 dynamic
+     * @since 26.0.0 static
      */
     isProxyConnection: boolean;
 
@@ -4953,7 +4963,8 @@ declare namespace http {
      *
      * @syscap SystemCapability.Communication.NetStack
      * @stagemodelonly
-     * @since 24 dynamic&static
+     * @since 24 dynamic
+     * @since 26.0.0 static
      */
     isCacheHit: boolean;
 
@@ -4962,7 +4973,8 @@ declare namespace http {
      *
      * @syscap SystemCapability.Communication.NetStack
      * @stagemodelonly
-     * @since 24 dynamic&static
+     * @since 24 dynamic
+     * @since 26.0.0 static
      */
     redirectCount: int;
   }
