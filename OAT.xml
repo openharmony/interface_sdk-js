@@ -65,6 +65,9 @@ Note:If the text contains special characters, please escape them according to th
             </policy>
         </policylist>
         <filefilterlist>
+            <filefilter name="copyrightPolicyFilter" desc="compatibility，license文件头校验策略的过滤条件" >
+                <filteritem type="filepath" name="arkts/builtin/dynamic/.*" desc="三方开源接口文件，无法修改版权头"/>
+            </filefilter>
             <filefilter name="copyrightPolicyFilter" desc="copyright文件头校验策略的过滤条件" >
                 <filteritem type="filepath" name="ace_engine/.*" desc="经过编译的文件，无法添加版权头"/>
             </filefilter>

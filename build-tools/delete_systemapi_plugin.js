@@ -1316,6 +1316,9 @@ function resolveReferences(url) {
     element.match(PATT.GET_REFERENCEURL);
     let referencePath = RegExp.$2;
     referencePath = referencesToOthers(referencePath, REFERENCE_TYPE.TOLOCAL);
+    if (referencePath === '') {
+      continue;
+    }
     let fullReferencePath = path.resolve(path.dirname(url), referencePath);
     if (fs.existsSync(fullReferencePath) && !referencesModuleMap.has(fullReferencePath)) {
       const content = fs.readFileSync(fullReferencePath, 'utf-8'); //文件内容
