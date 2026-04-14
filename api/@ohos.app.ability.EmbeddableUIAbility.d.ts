@@ -21,7 +21,7 @@
 import UIAbility from './@ohos.app.ability.UIAbility';
 import type EmbeddableUIAbilityContext from './application/EmbeddableUIAbilityContext';
 /**
- * class of embeddable UIAbility.
+ * The class of an embeddable UIAbility.
  *
  * @extends UIAbility
  * @syscap SystemCapability.Ability.AbilityRuntime.Core

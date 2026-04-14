@@ -55,7 +55,18 @@ export declare interface WithThemeOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 23 static
  */
-export declare interface WithThemeAttribute {}
+export declare interface WithThemeAttribute {
+  /**
+   * Set the component's source code redirection information. 
+   * @param { string } sourceLine - the source code line.
+   * @param { string } [moduleName] - module to which the component belongs.
+   * @returns { this }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 staticonly
+   */
+  default debugLine(sourceLine: string, moduleName?: string): this;
+}
 
 /**
  * Defines WithTheme Component

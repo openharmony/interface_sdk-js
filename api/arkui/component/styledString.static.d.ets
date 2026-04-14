@@ -18,7 +18,7 @@
  * @kit ArkUI
  */
 
-import { Callback, ShadowOptions, ClickEvent, TouchEvent, PixelMap, AttributeModifier, CommonMethod } from './common';
+import { Callback, ShadowOptions, ClickEvent, TouchEvent, PixelMap, AttributeModifier, CommonMethod, LayoutPolicy } from './common';
 import { TextAlign, FontStyle, FontWeight, TextDecorationType, TextDecorationStyle, WordBreak, TextOverflow, ImageFit, ImageSpanAlignment } from './enums';
 import { ResourceStr, ResourceColor, LengthMetrics, SizeOptions, Margin, Padding, BorderRadiuses, ColorFilter } from './units';
 import { TextBackgroundStyle } from './span';
@@ -28,7 +28,7 @@ import { LeadingMarginPlaceholder } from './richEditor';
 import image from '../../@ohos.multimedia.image';
 import drawing from '../../@ohos.graphics.drawing';
 import { DrawContext } from '../../arkui/Graphics';
-import { TextDirection, SuperscriptStyle, TextVerticalAlign, FontConfigs } from './textCommon';
+import { TextDirection, SuperscriptStyle, TextVerticalAlign, FontConfigs, FontVariation } from './textCommon';
 
 /**
  * Defines the StyledStringMarshallingValue Type.
@@ -402,6 +402,15 @@ export declare class TextStyle {
  	 * @since 24 static
  	 */
  	readonly strokeColor?: ResourceColor;
+
+    /**
+ 	 * Get the font variation of the StyledString.
+ 	 *
+ 	 * @syscap SystemCapability.ArkUI.ArkUI.Full
+ 	 * @stagemodelonly
+ 	 * @since 26.0.0 static
+ 	 */
+ 	readonly fontVariations?: Array<FontVariation>;
 }
 /**
  * TextStyleInterface
@@ -487,6 +496,15 @@ export declare interface TextStyleInterface {
  	 * @since 24 static
  	 */
  	strokeColor?: ResourceColor;
+
+    /**
+ 	 * The font variation of the text.
+ 	 *
+ 	 * @syscap SystemCapability.ArkUI.ArkUI.Full
+ 	 * @stagemodelonly
+ 	 * @since 26.0.0 static
+ 	 */
+ 	fontVariations?: Array<FontVariation>;
 }
 /**
  * Defines DecorationStyle.
@@ -1684,6 +1702,25 @@ export declare interface CustomSpanMeasureInfo {
      * @since 23 static
      */
     fontSize: double;
+    /**
+     * The max width constraint of custom span.
+     * The unit is px.
+     *
+     * @type { ?double }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    maxWidth?: double;
+    /**
+     * The layoutPolicy of custom span.
+     *
+     * @type { ?LayoutPolicy }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    layoutPolicy?: LayoutPolicy;
 }
 /**
  * Defines CustomSpan.

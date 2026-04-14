@@ -177,7 +177,7 @@ export type FocusMoveResult = _FocusMoveResult;
 export { AccessibilityExtensionContext };
 
 /**
- * class of accessibility extension ability.
+ * Class of accessibility extension ability.
  *
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 9 dynamic
@@ -223,7 +223,7 @@ declare class AccessibilityExtensionAbility {
   onAccessibilityEvent(event: AccessibilityEvent): void;
 
   /**
-   * Called when a physical key is pressed, such as when the user presses the volume button .
+   * Called when a physical key is pressed, such as when the user presses the volume button.
    *
    * @param { KeyEvent } keyEvent Indicates the physical key event.
    * @returns { boolean }
@@ -274,7 +274,7 @@ declare class AccessibilityExtensionAbility {
   onAccessibilityEventInfo(event: AccessibilityEventInfo): void;
 
   /**
-   * Called when a physical key is pressed, such as when the user presses the volume button .
+   * Called when a physical key is pressed, such as when the user presses the volume button.
    *
    * @permission ohos.permission.ACCESSIBILITY_EXTENSION_ABILITY
    * @param { KeyEvent } keyEvent Indicates the physical key event.
@@ -325,7 +325,7 @@ export declare interface AccessibilityEventInfo {
   target?: AccessibilityElement;
 
   /**
-   * TimeStamp
+   * TimeStamp, in units of ms.
    *
    * @type { ?long }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
@@ -375,7 +375,7 @@ export declare interface AccessibilityEvent {
   target?: AccessibilityElement;
 
   /**
-   * TimeStamp
+   * TimeStamp, in units of ms.
    *
    * @type { ?long }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core

@@ -1,7 +1,6 @@
-'use static'
 /*
  * Copyright (c) 2025 Huawei Device Co., Ltd.
- * Licensed under the Apache License, Version 2.0 (the "License"),
+ * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
@@ -15,6 +14,21 @@
  */
 
 /**
- * @file
- * @kit ArkUI
+ * @since 20
  */
+export interface OldFormatInterface {
+  /**
+   * @since 20
+   */
+  method1(): void;
+
+  /**
+   * @since 21
+   */
+  method2(): void;
+
+  /**
+   * @since 25
+   */
+  method3(): void;
+}

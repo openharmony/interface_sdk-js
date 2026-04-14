@@ -684,7 +684,8 @@ declare namespace appControl {
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
    * @stagemodelonly
-   * @since 23 dynamiconly
+   * @since 23 dynamic
+   * @since 24 static
    */
   function getDisposedRulesByBundle(bundleName: string): Array<DisposedRuleConfiguration>;
 }

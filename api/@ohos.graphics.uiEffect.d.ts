@@ -234,6 +234,7 @@ declare namespace uiEffect {
 
     /**
     * Applies a high dynamic range (HDR) brightness enhancement filter to the component.
+    * 
     * @param { double } ratio - The brightness multiplier ratio (1.0 = original, >1.0 = brighter).
     * @returns { Filter } - Returns hdr brightness Filter.
     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -241,6 +242,17 @@ declare namespace uiEffect {
     * @systemapi
     * @since 20 dynamic
     * @since 23 static
+    */
+   /**
+    * Applies a high dynamic range (HDR) brightness enhancement filter to the component.
+    * 
+    * @permission ohos.permission.HDR_BRIGHTNESS
+    * @param { double } ratio - The brightness multiplier ratio (1.0 = original, >1.0 = brighter).
+    * @returns { Filter } - Returns hdr brightness Filter.
+    * @throws { BusinessError } 201 - Permission verification failed.
+    *     The application does not have the permission required to call the API.
+    * @syscap SystemCapability.Graphics.Drawing
+    * @since 24 dynamic&static
     */
     hdrBrightnessRatio(ratio: double): Filter;
 
@@ -290,6 +302,32 @@ declare namespace uiEffect {
      * @since 23 static
      */
     maskTransition(alphaMask: Mask, factor?: double, inverse?: boolean): Filter;
+
+    /**
+     * Applies heat distortion effect to simulate hot air distortion.
+     * This effect creates a wavy distortion similar to heat shimmer or hot air rising.
+     *
+     * @param { HeatDistortionEffectParam } param - the heat distortion effect parameters.
+     * @returns { Filter } - Returns the heat distortion Filter.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    heatDistortion(param: HeatDistortionEffectParam): Filter;
+
+    /**
+     * Applies blur bubbles rise effect to simulate rising bubbles with blur.
+     * This effect creates a dreamy, bubbly distortion similar to rising bubbles in liquid.
+     *
+     * @param { BlurBubblesRiseEffectParam } param - the blur bubbles rise effect parameters.
+     * @returns { Filter } - Returns the blur bubbles rise Filter.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    blurBubblesRise(param: BlurBubblesRiseEffectParam): Filter;
   }
 
   /**
@@ -611,6 +649,121 @@ declare namespace uiEffect {
   }
 
   /**
+   * The parameters of heat distortion effect.
+   *
+   * @syscap SystemCapability.Graphics.Drawing
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface HeatDistortionEffectParam {
+    /**
+     * Defines distortion intensity for heat distortion effect.
+     * Value range [0, 1], and values outside the range will be clamped.
+     * 0 means no distortion, and 1 represents the maximum distortion level.
+     * 
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    intensity: double;
+
+    /**
+     * Defines noise scale for heat distortion effect, controls the fineness of the noise texture.
+     * Value range [0.1, 5.0], and values outside the range will be clamped.
+     * The larger the value, the finer the noise texture.
+     * 
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    noiseScale: double;
+
+    /**
+     * Defines rise weight for heat distortion effect, controls the rising speed of bubbles.
+     * Value range [0, 1], and values outside the range will be clamped.
+     * The larger the value, the more obvious the upward movement.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    riseWeight: double;
+
+    /**
+     * Defines animation progress for heat distortion effect.
+     * Value range [0, 1], and values outside the range will be clamped.
+     * 0 corresponds to the start of the animation, and 1 corresponds to the end of the animation.
+     * 
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    progress: double;
+  }
+
+  /**
+   * The parameters of blur bubbles rise effect.
+   *
+   * @syscap SystemCapability.Graphics.Drawing
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface BlurBubblesRiseEffectParam {
+    /**
+     * Defines gaussian blur intensity for blur bubbles rise effect. 
+     * Value range [0, 1], and values outside the range will be clamped.
+     * 0 means no blur, and 1 represents the maximum blur level.
+     * 
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    blurIntensity: double;
+
+    /**
+     * Defines mix strength between original and blurred images.
+     * Value range [0, 1], and values outside the range will be clamped.
+     * 0 corresponds to the original image, and 1 corresponds to the blurred image.
+     * 
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    mixStrength: double;
+
+    /**
+     * Defines animation progress for blur bubbles rise effect.
+     * Value range [0, 1], and values outside the range will be clamped.
+     * 0 corresponds to the start of the animation, and 1 corresponds to the end of the animation.
+     * 
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    progress: double;
+
+    /**
+     * Defines mask image for blur bubbles rise effect, controls the blur bubbles area.
+     * The masked area has a blur effect, while the unmasked area has no blur effect.
+     * 
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    maskImage: image.PixelMap;
+  }
+
+  /**
    * The parameters of liquid material effect.
    * @typedef LiquidMaterialEffectParam
    * @syscap SystemCapability.Graphics.Drawing
@@ -735,7 +888,14 @@ declare namespace uiEffect {
    * @since 20 dynamic
    * @since 23 static
    */
-  type Blender = BrightnessBlender | HdrBrightnessBlender;
+    /**
+   * Defines the blending effect.
+   * @typedef { BrightnessBlender | HdrBrightnessBlender | HdrDarkenBlender }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @systemapi
+   * @since 26.0.0 dynamic&static
+   */
+  type Blender = BrightnessBlender | HdrBrightnessBlender | HdrDarkenBlender;
 
   /**
    * The Blender of backgroundColorEffect.
@@ -927,6 +1087,39 @@ declare namespace uiEffect {
   interface HdrBrightnessBlender extends BrightnessBlender {}
 
   /**
+   * The HDR-adaptive darken blender.
+   * @syscap SystemCapability.Graphics.Drawing
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface HdrDarkenBlender {
+    /**
+     * Defines the HDR brightness ratio of src.
+     *
+     * @property { double }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    hdrBrightnessRatio: double;
+
+    /**
+     * Defines the grayscale factor for converting dst's RGB channels to grayscale.
+     * Formula: grayscale = dot(grayscaleFactor, dst).
+     *
+     * @property { ?[double, double, double] }
+     * @default [0.299, 0.587, 0.114]
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    grayscaleFactor?: [double, double, double];
+  }
+
+  /**
    * The Color of Light.
    * @typedef Color
    * @syscap SystemCapability.Graphics.Drawing
@@ -1092,6 +1285,13 @@ declare namespace uiEffect {
    * @since 12 dynamic
    * @since 23 static
    */
+  /**
+   * Create a VisualEffect to add multiple effects to the component.
+   * @returns { VisualEffect } Returns the head node of visualEffect.
+   * @syscap SystemCapability.Graphics.Drawing
+   * @form
+   * @since 24 dynamic&static
+   */
   function createEffect(): VisualEffect;
 
   /**
@@ -1125,6 +1325,20 @@ declare namespace uiEffect {
    * @since 23 static
    */
   function createHdrBrightnessBlender(param: BrightnessBlenderParam): HdrBrightnessBlender;
+
+  /**
+   * Create an HdrDarkenBlender, which is used to apply HDR-adaptive darken blender on UI components.
+   * @param { double } hdrBrightnessRatio - The HDR brightness ratio of the src.
+   * @param { [double, double, double] } [grayscaleFactor] - The grayscale factor for converting dst's RGB channels to
+   *     grayscale. Formula: grayscale = dot(grayscaleFactor, dst).
+   * @returns { HdrDarkenBlender } Returns the blender.
+   * @syscap SystemCapability.Graphics.Drawing
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function createHdrDarkenBlender(hdrBrightnessRatio: double,
+    grayscaleFactor?: [double, double, double]): HdrDarkenBlender; 
 }
 
 /**

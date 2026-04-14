@@ -42,9 +42,11 @@ import { NotificationTemplate as _NotificationTemplate } from './notification/no
 import { NotificationUserInput as _NotificationUserInput } from './notification/notificationUserInput';
 import { TriggerType as _TriggerType } from './notification/notificationRequest';
 import { Trigger as _Trigger } from './notification/notificationRequest';
+import { NotificationParameters as _NotificationParameters } from './notification/notificationRequest';
 import { Geofence as _Geofence } from './notification/notificationRequest';
 import { CoordinateSystemType as _CoordinateSystemType } from './notification/notificationRequest';
 import { MonitorEvent as _MonitorEvent } from './notification/notificationRequest';
+import { GroupInfo as _GroupInfo } from './notification/notificationRequest';
 
 /*** if arkts dynamic */
 import { AsyncCallback } from './@ohos.base';
@@ -2060,6 +2062,40 @@ declare namespace notificationManager {
    * @since 23 static
    */
   function getActiveNotificationByFilter(filter: NotificationFilter): Promise<NotificationRequest|null>;
+
+  /**
+   * Get information that cannot be directly obtained through NotificationRequest, which is passed in
+   * by the user when creating the notification.
+   *
+   * @param { number } id - ID of the notification to query, which must be unique in the application.
+   * @param { string } [label] - Label of the notification to query.
+   * @returns { Promise<NotificationParameters> } The promise returned by the function.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600007 - The notification does not exist.
+   * @syscap SystemCapability.Notification.Notification
+   * @stagemodelonly
+   * @since 24 dynamic
+   */
+  function getNotificationParameters(id: number, label?: string): Promise<NotificationParameters>;
+
+  /**
+   * Get information that cannot be directly obtained through NotificationRequest, which is passed in
+   * by the user when creating the notification.
+   *
+   * @param { int } id - ID of the notification to query, which must be unique in the application.
+   * @param { string } [label] - Label of the notification to query.
+   * @returns { Promise<NotificationParameters | null> } The promise returned by the function.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600007 - The notification does not exist.
+   * @syscap SystemCapability.Notification.Notification
+   * @stagemodelonly
+   * @since 24 static
+   */
+  function getNotificationParameters(id: int, label?: string): Promise<NotificationParameters | null>;
 
   /**
    * Cancels notifications under a notification group of this application. This API uses an asynchronous callback to return the result.
@@ -4522,6 +4558,22 @@ declare namespace notificationManager {
   function openNotificationSettings(context: UIAbilityContext): Promise<void>;
 
   /**
+   * Opens the notification settings page of the application, which is displayed in semi-modal mode and can be used to set
+   * the notification enabling and notification mode. This API uses a promise to return the result.
+   *
+   * @param { UIAbilityContext } context - Ability context bound to the notification settings page.
+   * @returns { Promise<NotificationSetting> } Returns notificationsetting of this application.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600018 - The notification settings window is already displayed.
+   * @syscap SystemCapability.Notification.NotificationSettings
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function openNotificationSettingsWithResult(context: UIAbilityContext): Promise<NotificationSetting>;
+
+  /**
    * Get do not disturb profile by id.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
@@ -5029,6 +5081,23 @@ declare namespace notificationManager {
   function isGeofenceEnabled(): Promise<boolean>;
 
   /**
+   * Obtains the notification statistics of the bundleOptions.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { BundleOption[] } bundles - The list of bundle option.
+   * @returns { Promise<BundleNotificationStatistics[]> } Returns the list of notificationStatistics.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 26.0.0 dynamic&static
+   */
+  function getNotificationStatisticsByBundle(bundles: BundleOption[]): Promise<BundleNotificationStatistics[]>;
+
+  /**
    * Represents the state of a switch,
    * distinguishing system defaults from user modifications.
    *
@@ -5297,6 +5366,46 @@ declare namespace notificationManager {
      * @since 23 static
      */
     soundEnabled: boolean;
+
+    /**
+     * Indicates whether lockScreen is enabled.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Notification.Notification
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    lockScreenEnabled?: boolean;
+ 	 
+    /**
+     * Indicates whether banner is enabled.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Notification.Notification
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    bannerEnabled?: boolean;
+ 	 
+    /**
+     * Indicates whether badgeNumber show is enabled.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Notification.Notification
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    badgeNumberEnabled?: boolean;
+
+    /**
+     * Indicates whether notification is enabled.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Notification.Notification
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    notificationEnabled?: boolean;
   }
 
   /**
@@ -6370,6 +6479,66 @@ declare namespace notificationManager {
   }
 
   /**
+   * Describes a BundleNotificationStatistics instance.
+   *
+   * @typedef BundleNotificationStatistics
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 26.0.0 dynamic&static
+   */
+ 	export interface BundleNotificationStatistics {
+ 	  /**
+     * Whether the bundleOption.
+     *
+     * @type { BundleOption }
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 26.0.0 dynamic&static
+     */
+    bundle: BundleOption;
+ 	 
+    /**
+     * Whether the last notification sending time of the bundle.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 26.0.0 dynamic
+     */
+    lastTime: number;
+
+    /**
+     * Whether the last notification sending time of the bundle.
+     *
+     * @type { long }
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 26.0.0 static
+     */
+    lastTime: long;
+ 	 
+    /**
+     * Whether the count of notifications which sending by bundle.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 26.0.0 dynamic
+     */
+    recentCount: number;
+
+    /**
+     * Whether the count of notifications which sending by bundle.
+     *
+     * @type { int }
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 26.0.0 static
+     */
+    recentCount: int;
+ 	}
+
+  /**
    * Describes a bundleOption in a notification.
    *
    * @typedef { _BundleOption } BundleOption
@@ -6706,6 +6875,15 @@ declare namespace notificationManager {
   export type Trigger = _Trigger;
 
   /**
+   * Defines Notification Parameters to describe the key information of wantAgent in the notification.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  export type NotificationParameters = _NotificationParameters;
+
+  /**
    * Describes a geofence.
    *
    * @typedef { _Geofence } Geofence
@@ -6737,6 +6915,16 @@ declare namespace notificationManager {
    * @since 23 dynamic&static
    */
   export type MonitorEvent = _MonitorEvent;
+
+  /**
+   * The type of group notification customization information
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export type GroupInfo = _GroupInfo;
 }
 
 export default notificationManager;

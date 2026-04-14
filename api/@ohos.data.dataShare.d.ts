@@ -1997,6 +1997,17 @@ declare namespace dataShare {
      * @since 20 dynamic
      * @since 23 static
      */
+    /**
+     * Value of the proxy data. The default maximum length is 4096 bytes, which can be modified by
+     * {@link DataProxyConfig#maxValueLength}.
+     * When the proxy data is first published, if it is not filled in, it is set to an empty string by default.
+     * When updating the proxy data, if it is not filled in, the value of the proxy data is not updated.
+     *
+     * @type { ?ValueType }
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
     value?: ValueType;
 
     /**
@@ -2222,6 +2233,33 @@ declare namespace dataShare {
   }
 
   /**
+   * The maximum length of {@link ProxyData#value}, {@link DataProxyChangeInfo#value}, {@link DataProxyGetResult#value}.
+   *
+   * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  enum DataProxyMaxValueLength {  
+    /**
+     * The maximum length of value is 4096 bytes.
+     *
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    MAX_LENGTH_4K = 4096,
+
+    /**
+     * The maximum length of value is 102400 bytes.
+     *
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    MAX_LENGTH_100K = 102400
+  }
+
+  /**
    * Structure that indicates the configuration for data proxy operation.
    *
    * @interface DataProxyConfig
@@ -2241,6 +2279,19 @@ declare namespace dataShare {
      * @since 23 static
      */
     type: DataProxyType;
+
+    /**
+     * Sets the maximum length of the data proxy value. The default value is MAX_LENGTH_4K, indicating that the maximum
+     * value length is 4096 bytes.
+     * If the length of the value that is actually transferred or obtained exceeds the maximum value length specified by
+     * this parameter, the publish or get operation will fail.
+     * <br>Default value:MAX_LENGTH_4K.
+     *
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    maxValueLength?: DataProxyMaxValueLength;
   }
 
   /**
@@ -2372,6 +2423,21 @@ declare namespace dataShare {
      * @since 23 static
      */
     delete(uris: string[], config: DataProxyConfig): Promise<DataProxyResult[]>;
+
+    /**
+     * Deletes all the data published by the publisher.
+     * Only the data publisher can delete the data.
+     *
+     * @param { DataProxyConfig } config - Configuration of the data proxy operation.
+     * @returns { Promise<DataProxyResult[]> } Promise used to return the operation result.
+     * @throws { BusinessError } 15700000 - Inner error. Possible causes: The service is not ready or is
+     *     being restarted abnormally.
+     * @throws { BusinessError } 15700014 - The parameter format is incorrect or the value range is invalid.
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    delete(config: DataProxyConfig): Promise<DataProxyResult[]>;
 
     /**
      * Gets published data specified by the URIs.

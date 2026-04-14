@@ -75,7 +75,8 @@ declare namespace batteryInfo {
   /**
    * Battery state of charge (SoC) of the current device, in percent.
    *
-   * @returns { int } Returns the battery state of charge (SoC) of the current device, in percent.
+   * @returns { int } Returns the battery state of charge (SoC) of the current device in percent,
+   *     which ranges from 0 to 100.
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @since 23 static
    */

@@ -850,6 +850,23 @@ declare class WaterFlowAttribute extends ScrollableCommonMethod<WaterFlowAttribu
   syncLoad(enable: boolean): WaterFlowAttribute;
 
   /**
+   * Sets whether empty branches are supported in lazy loading.
+   *
+   * @param { boolean | undefined } supported - Indicates whether empty branches are supported in lazy loading.
+   *     <br>Default value: false, passing undefined will restore the default value.
+   *     <br>If set to false, LazyForEach or Repeat with virtualScroll does not allow empty branches.
+   *     <br>If set to true, an empty branch of LazyForEach or Repeat with virtualScroll is treated as a node of
+   *     zero size.
+   * @returns { WaterFlowAttribute } the attribute of the WaterFlow.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  supportEmptyBranchInLazyLoading(supported: boolean | undefined): WaterFlowAttribute;
+
+  /**
    * Called when the water flow begins to arrive.
    *
    * @param { function } event

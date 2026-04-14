@@ -195,8 +195,8 @@ declare namespace screenshot {
    * @throws { BusinessError } 201 - Permission verification failed.
    *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified.
-   *     2.Incorrect parameter types.
+   *     1.Incorrect parameter types.
+   *     2.Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported on this device.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -211,6 +211,9 @@ declare namespace screenshot {
    * @returns { Promise<image.PixelMap> } Promise used to return a PixelMap object.
    * @throws { BusinessError } 201 - Permission verification failed.
    *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Incorrect parameter types.
+   *     2.Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported on this device.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -277,7 +280,7 @@ declare namespace screenshot {
    */
   interface Rect {
     /**
-     * The X-axis coordinate of the upper left vertex of the rectangle.
+     * The X-axis coordinate of the upper left vertex of the rectangle, measured in px.
      *
      * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -288,7 +291,7 @@ declare namespace screenshot {
     left: long;
 
     /**
-     * The Y-axis coordinate of the upper left vertex of the rectangle.
+     * The Y-axis coordinate of the upper left vertex of the rectangle, measured in px.
      *
      * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -299,7 +302,7 @@ declare namespace screenshot {
     top: long;
 
     /**
-     * Width of the rectangle.
+     * Width of the rectangle, measured in px.
      *
      * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -310,7 +313,7 @@ declare namespace screenshot {
     width: long;
 
     /**
-     * Height of the rectangle.
+     * Height of the rectangle, measured in px.
      *
      * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -332,7 +335,7 @@ declare namespace screenshot {
    */
   interface Size {
     /**
-     * Defines the width property.
+     * Defines the width property, measured in px.
      *
      * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -343,7 +346,7 @@ declare namespace screenshot {
     width: long;
 
     /**
-     * Defines the height property.
+     * Defines the height property, measured in px.
      *
      * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core

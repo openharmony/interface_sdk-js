@@ -1,6 +1,6 @@
 /*
- * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Copyright (c) 2026 Huawei Device Co., Ltd.
+ * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
@@ -573,6 +573,17 @@ declare namespace formInfo {
      * @since 23 dynamic&static
      */
     readonly isPrivacySensitive?: boolean;
+
+    /**
+     * Obtains whether the font scaling factor follows system settings.
+     * <br>Default value:The default value is true.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    isFontScaleFollowSystem?: boolean;
   }
 
   /**
@@ -848,6 +859,36 @@ declare namespace formInfo {
      * @since 23 static
      */
     READY = 1
+  }
+
+  /**
+   * Form update reason.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Ability.Form
+   * @stagemodelonly
+   * @atomicservice
+   * @since 24 dynamic&static
+   */
+  enum FormUpdateReason {
+    /**
+     * The reason for the form update is unknown.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    UNKNOWN = -1,
+    /**
+     * The reason for the form update is node reuse.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    FORM_NODE_REUSE = 0
   }
 
   /**
@@ -1381,7 +1422,55 @@ declare namespace formInfo {
      * @systemapi
      * @since 23 dynamic&static
      */
-    TEMPLATE_FORM_DESCRIPTION = 'ohos.extra.param.key.template_form_description'
+    TEMPLATE_FORM_DESCRIPTION = 'ohos.extra.param.key.template_form_description',
+
+    /**
+     * Indicates the key specifying the reason for the form update.
+     * which is represented as
+     * want: {
+     *   "parameters": {
+     *       UPDATE_FORM_REASON_KEY: FormUpdateReason.FORM_NODE_REUSE
+     *    }
+     * }
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    UPDATE_FORM_REASON_KEY = 'ohos.extra.param.key.update_form_reason',
+
+    /**
+     * Indicates the key specifying font size scale of the form.
+     * which is represented as
+     * want: {
+     *   "parameters": {
+     *       FORM_FONT_SIZE_SCALE_KEY: 1.0
+     *    }
+     * }
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    FORM_FONT_SIZE_SCALE_KEY = 'ohos.extra.param.key.form_font_size_scale',
+
+    /**
+     * Indicates the key specifying font weight scale of the form.
+     * which is represented as
+     * want: {
+     *   "parameters": {
+     *       FORM_FONT_WEIGHT_SCALE_KEY: 1.0
+     *    }
+     * }
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    FORM_FONT_WEIGHT_SCALE_KEY = 'ohos.extra.param.key.form_font_weight_scale'
   }
 
   /**
@@ -2364,7 +2453,7 @@ declare namespace formInfo {
   }
 
   /**
-   * Provides OverflowInfo about funInteraction or sceneAniamtion form
+   * Provides OverflowInfo about funInteraction or sceneAnimation form
    *
    * @typedef { OverflowInfo }
    * @syscap SystemCapability.Ability.Form
@@ -2440,7 +2529,7 @@ declare namespace formInfo {
     isOverflow: boolean;
 
     /**
-     * The form's overflow animation paramter
+     * The form's overflow animation parameter
      *
      * @type { ?OverflowInfo }
      * @syscap SystemCapability.Ability.Form

@@ -34,13 +34,13 @@
  */
 declare namespace drm {
 /**
- * Enumerates drm error code.
+ * Enumerates DRM error codes.
  * @enum { number }
  * @syscap SystemCapability.Multimedia.Drm.Core
  * @since 11
  */
 /**
- * Enumerates drm error code.
+ * Enumerates DRM error codes.
  * @enum { number }
  * @syscap SystemCapability.Multimedia.Drm.Core
  * @atomicservice
@@ -103,13 +103,13 @@ declare namespace drm {
   }
 
   /**
-   * Enumerates which config name we can get.
+   * Enumerates the config names that can be obtained.
    * @enum { string }
    * @syscap SystemCapability.Multimedia.Drm.Core
    * @since 11
    */
   /**
-   * Enumerates which config name we can get.
+   * Enumerates the config names that can be obtained.
    * @enum { string }
    * @syscap SystemCapability.Multimedia.Drm.Core
    * @atomicservice
@@ -725,13 +725,13 @@ declare namespace drm {
   }
 
   /**
-   * Used to indicates the event info attached to specific event type.
+   * Used to indicate the event info attached to specific event type.
    * @interface EventInfo
    * @syscap SystemCapability.Multimedia.Drm.Core
    * @since 11
    */
   /**
-   * Used to indicates the event info attached to specific event type.
+   * Used to indicate the event info attached to specific event type.
    * @interface EventInfo
    * @syscap SystemCapability.Multimedia.Drm.Core
    * @atomicservice
@@ -772,13 +772,13 @@ declare namespace drm {
   }
 
   /**
-   * Used to indicates the statistic info.
+   * Used to indicate the statistic info.
    * @interface StatisticKeyValue
    * @syscap SystemCapability.Multimedia.Drm.Core
    * @since 11
    */
   /**
-   * Used to indicates the statistic info.
+   * Used to indicate the statistic info.
    * @interface StatisticKeyValue
    * @syscap SystemCapability.Multimedia.Drm.Core
    * @atomicservice
@@ -819,13 +819,13 @@ declare namespace drm {
   }
 
   /**
-   * Used to indicates the media key status.
+   * Used to indicate the media key status.
    * @interface MediaKeyStatus
    * @syscap SystemCapability.Multimedia.Drm.Core
    * @since 11
    */
   /**
-   * Used to indicates the media key status.
+   * Used to indicate the media key status.
    * @interface MediaKeyStatus
    * @syscap SystemCapability.Multimedia.Drm.Core
    * @atomicservice
@@ -866,13 +866,13 @@ declare namespace drm {
   }
 
   /**
-   * Used to indicates the media key status with a key and its value.
+   * Used to indicate the media key status with a key and its value.
    * @interface KeysInfo
    * @syscap SystemCapability.Multimedia.Drm.Core
    * @since 11
    */
   /**
-   * Used to indicates the media key status with a key and its value.
+   * Used to indicate the media key status with a key and its value.
    * @interface KeysInfo
    * @syscap SystemCapability.Multimedia.Drm.Core
    * @atomicservice
@@ -913,13 +913,13 @@ declare namespace drm {
   }
 
   /**
-   * Used to indicates the media key system info of media source.
+   * Used to indicate the media key system info of media source.
    * @interface MediaKeySystemInfo
    * @syscap SystemCapability.Multimedia.Drm.Core
    * @since 11
    */
   /**
-   * Used to indicates the media key system info of media source.
+   * Used to indicate the media key system info of media source.
    * @interface MediaKeySystemInfo
    * @syscap SystemCapability.Multimedia.Drm.Core
    * @atomicservice
@@ -1611,8 +1611,8 @@ declare namespace drm {
     getOfflineMediaKeyStatus(mediaKeyId: Uint8Array): OfflineMediaKeyStatus;
 
     /**
-     * Remove media key corresponding to the mediaKeyId.
-     * @param { Uint8Array } mediaKeyId - The mediaKeyId specifies which media key should be clear.
+     * Remove media keys corresponding to the mediaKeyId.
+     * @param { Uint8Array } mediaKeyId - The mediaKeyId specifies which media key should be cleared.
      * @throws { BusinessError } 401 - The parameter check failed.Possibly because:
      * 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
      * @throws { BusinessError } 24700101 - All unknown errors.
@@ -1621,8 +1621,8 @@ declare namespace drm {
      * @since 11
      */
     /**
-     * Remove media key corresponding to the mediaKeyId.
-     * @param { Uint8Array } mediaKeyId - The mediaKeyId specifies which media key should be clear.
+     * Remove media keys corresponding to the mediaKeyId.
+     * @param { Uint8Array } mediaKeyId - The mediaKeyId specifies which media key should be cleared.
      * @throws { BusinessError } 401 - The parameter check failed.Possibly because:
      * 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
      * @throws { BusinessError } 24700101 - All unknown errors.
@@ -1707,7 +1707,7 @@ declare namespace drm {
     /**
      * Process the response corresponding to the media key request obtained by the application.
      * @param { Uint8Array } response - The response.
-     * @returns { Promise<Uint8Array> } Promise with media key identifier in Uint8ARRY used to return the result.
+     * @returns { Promise<Uint8Array> } Promise with media key identifier in Uint8Array used to return the result.
      * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
      * 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
      * 3.Parameter verification failed.
@@ -1719,7 +1719,7 @@ declare namespace drm {
     /**
      * Process the response corresponding to the media key request obtained by the application.
      * @param { Uint8Array } response - The response.
-     * @returns { Promise<Uint8Array> } Promise with media key identifier in Uint8ARRY used to return the result.
+     * @returns { Promise<Uint8Array> } Promise with media key identifier in Uint8Array used to return the result.
      * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
      * 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
      * 3.Parameter verification failed.

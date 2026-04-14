@@ -96,6 +96,35 @@ declare namespace asset {
   function add(attributes: AssetMap): Promise<void>;
 
   /**
+   * Add assets in batches based on an attributes array.
+   * To set {@link Tag.IS_PERSISTENT}, the application must have the ohos.permission.STORE_PERSISTENT_DATA permission.
+   *
+   * Only assets with the same {@link Tag.GROUP_ID} and {@link Tag.REQUIRE_ATTR_ENCRYPTED} can be added in batches.
+   *
+   * @param { Array<AssetMap> } attributesArray - an array of assets to be added.
+   * @returns { Promise<BatchResult> } The result of the batch operation, including error information for adding
+   *     failed assets, if there are any failures.
+   * @throws { BusinessError } 24000001 - The ASSET service is unavailable.
+   * @throws { BusinessError } 24000005 - The screen lock status does not match.
+   * @throws { BusinessError } 24000006 - Insufficient memory.
+   * @throws { BusinessError } 24000007 - The asset is corrupted.
+   * @throws { BusinessError } 24000008 - The database operation failed.
+   * @throws { BusinessError } 24000009 - The cryptography operation failed.
+   * @throws { BusinessError } 24000010 - IPC failed.
+   * @throws { BusinessError } 24000011 - Calling the Bundle Manager service failed.
+   * @throws { BusinessError } 24000012 - Calling the OS Account service failed.
+   * @throws { BusinessError } 24000013 - Calling the Access Token service failed.
+   * @throws { BusinessError } 24000014 - The file operation failed.
+   * @throws { BusinessError } 24000015 - Getting the system time failed.
+   * @throws { BusinessError } 24000019 - Each value of {@link Tag.GROUP_ID} and {@link Tag.REQUIRE_ATTR_ENCRYPTED}
+   *     in the array is not consistent.
+   * @syscap SystemCapability.Security.Asset
+   * @FaAndStageModel
+   * @since 26.0.0
+   */
+  function batchAdd(attributesArray: Array<AssetMap>): Promise<BatchResult>;
+
+  /**
    * Add an Asset to a specific user space.
    * Permission ohos.permission.STORE_PERSISTENT_DATA is required when the Asset needs to be stored persistently
    *     by setting {@link Tag.IS_PERSISTENT} tag.
@@ -262,6 +291,32 @@ declare namespace asset {
   function removeAsUser(userId: number, query: AssetMap): Promise<void>;
 
   /**
+   * Delete assets in batches based on an alias list.
+   *
+   * Only assets with the same {@link Tag.GROUP_ID} and {@link Tag.REQUIRE_ATTR_ENCRYPTED} can be deleted in batches.
+   *
+   * @param { Array<AssetMap> } assetsToBeRemoved - an array of attributes of the asset to remove, such as the asset alias,
+   *     access control attributes, and custom data.
+   *     <br>The {@link Tag.GROUP_ID} and {@link Tag.REQUIRE_ATTR_ENCRYPTED} attributes of all data must be the same.
+   * @returns { Promise<void> } the promise object returned by the function.
+   * @throws { BusinessError } 24000001 - The ASSET service is unavailable.
+   * @throws { BusinessError } 24000006 - Insufficient memory.
+   * @throws { BusinessError } 24000007 - The asset is corrupted.
+   * @throws { BusinessError } 24000008 - The database operation failed.
+   * @throws { BusinessError } 24000010 - IPC failed.
+   * @throws { BusinessError } 24000011 - Calling the Bundle Manager service failed.
+   * @throws { BusinessError } 24000012 - Calling the OS Account service failed.
+   * @throws { BusinessError } 24000013 - Calling the Access Token service failed.
+   * @throws { BusinessError } 24000015 - Getting the system time failed.
+   * @throws { BusinessError } 24000019 - Each value of {@link Tag.GROUP_ID} and {@link Tag.REQUIRE_ATTR_ENCRYPTED}
+   *     in the array is not consistent.
+   * @syscap SystemCapability.Security.Asset
+   * @FaAndStageModel
+   * @since 26.0.0
+   */
+  function batchRemove(assetsToBeRemoved: Array<AssetMap>): Promise<void>;
+
+  /**
    * Remove one or more Assets that match a search query.
    *
    * @param { AssetMap } query - a map object containing attributes of the Asset to be removed.
@@ -390,6 +445,35 @@ declare namespace asset {
    * @since 12
    */
   function updateAsUser(userId: number, query: AssetMap, attributesToUpdate: AssetMap): Promise<void>;
+
+
+
+  /**
+   * Update assets in batches based on an attributes array.
+   *
+   * Only assets with the same {@link Tag.GROUP_ID} and {@link Tag.REQUIRE_ATTR_ENCRYPTED} can be updated in batches.
+   *
+   * @param { Array<AssetMap> } sourceAttributes - an array of map objects containing asset attributes to query.
+   *     <br>The {@link Tag.GROUP_ID} and {@link Tag.REQUIRE_ATTR_ENCRYPTED} attributes of all assets must be the same.
+   * @param { Array<AssetMap> } destAttributes - an array of map objects containing asset attributes
+   *     to be updated.
+   *     <br>The {@link Tag.GROUP_ID} and {@link Tag.REQUIRE_ATTR_ENCRYPTED} attributes of all assets must be the same.
+   * @returns { Promise<BatchResult> } the promise object returned by the function.
+   * @throws { BusinessError } 24000001 - The ASSET service is unavailable.
+   * @throws { BusinessError } 24000006 - Insufficient memory.
+   * @throws { BusinessError } 24000007 - The asset is corrupted.
+   * @throws { BusinessError } 24000008 - The database operation failed.
+   * @throws { BusinessError } 24000010 - IPC failed.
+   * @throws { BusinessError } 24000011 - Calling the Bundle Manager service failed.
+   * @throws { BusinessError } 24000012 - Calling the OS Account service failed.
+   * @throws { BusinessError } 24000015 - Getting the system time failed.
+   * @throws { BusinessError } 24000019 - Each value of {@link Tag.GROUP_ID} and {@link Tag.REQUIRE_ATTR_ENCRYPTED}
+   *     in the array is not consistent.
+   * @syscap SystemCapability.Security.Asset
+   * @FaAndStageModel
+   * @since 26.0.0
+   */
+  function batchUpdate(sourceAttributes: Array<AssetMap>, destAttributes: Array<AssetMap>): Promise<BatchResult>;
 
   /**
    * Update an Asset that matches a search query.
@@ -951,7 +1035,7 @@ declare namespace asset {
      * @atomicservice
      * @since 14
      */
-    DEVICE_UNLOCKED = 2,
+    DEVICE_UNLOCKED = 2
   }
 
   /**
@@ -998,7 +1082,7 @@ declare namespace asset {
      * @atomicservice
      * @since 14
      */
-    ANY = 0xFF,
+    ANY = 0xFF
   }
 
   /**
@@ -1076,7 +1160,7 @@ declare namespace asset {
      * @atomicservice
      * @since 14
      */
-    TRUSTED_ACCOUNT = 1 << 2,
+    TRUSTED_ACCOUNT = 1 << 2
   }
 
   /**
@@ -1100,7 +1184,7 @@ declare namespace asset {
      * @syscap SystemCapability.Security.Asset
      * @since 18
      */
-    TRUSTED_ACCOUNT = 1,
+    TRUSTED_ACCOUNT = 1
   }
 
   /**
@@ -1146,7 +1230,7 @@ declare namespace asset {
      * @atomicservice
      * @since 14
      */
-    THROW_ERROR = 1,
+    THROW_ERROR = 1
   }
 
   /**
@@ -1198,7 +1282,7 @@ declare namespace asset {
      * @atomicservice
      * @since 14
      */
-    ATTRIBUTES = 1,
+    ATTRIBUTES = 1
   }
 
   /**
@@ -1222,7 +1306,68 @@ declare namespace asset {
      * @syscap SystemCapability.Security.Asset
      * @since 12
      */
-    NEED_LOGOUT = 1,
+    NEED_LOGOUT = 1
+  }
+
+  /**
+   * Result object containing error information with a specific index, error code, and message for a single asset.
+   *
+   * @syscap SystemCapability.Security.Asset
+   * @FaAndStageModel
+   * @since 26.0.0
+   */
+  interface BatchErrInfo {
+    /**
+     * The index in the source assets array.
+     *
+     * @syscap SystemCapability.Security.Asset
+     * @FaAndStageModel
+     * @since 26.0.0
+     */
+    index: number;
+    /**
+     * The error code of the batch operation.
+     *
+     * @syscap SystemCapability.Security.Asset
+     * @FaAndStageModel
+     * @since 26.0.0
+     */
+    errCode: number;
+    /**
+     * The error message of the batch operation.
+     *
+     * @syscap SystemCapability.Security.Asset
+     * @FaAndStageModel
+     * @since 26.0.0
+     */
+    message: string;
+  }
+
+  /**
+   * Result object containing batch operation,including {@link batchAdd},{@link batchUpdate},{@link batchRemove}.
+   *
+   * @syscap SystemCapability.Security.Asset
+   * @FaAndStageModel
+   * @since 26.0.0
+   */
+  interface BatchResult {
+    /**
+     * Failed count of the batch operation, 0 means all success.
+     *
+     * @syscap SystemCapability.Security.Asset
+     * @FaAndStageModel
+     * @since 26.0.0
+     */
+    failedCount: number;
+    /**
+     * An array of error details for assets that failed in the batch operation,
+     * including {@link BatchResult#failedCount} items, which is an empty array if all succeed.
+     *
+     * @syscap SystemCapability.Security.Asset
+     * @FaAndStageModel
+     * @since 26.0.0
+     */
+    failedErrorInfos: Array<BatchErrInfo>;
   }
 
   /**
@@ -1319,7 +1464,7 @@ declare namespace asset {
      * @atomicservice
      * @since 14
      */
-    BYTES = 0x03 << 28,
+    BYTES = 0x03 << 28
   }
 
   /**
@@ -1766,7 +1911,7 @@ declare namespace asset {
      * @syscap SystemCapability.Security.Asset
      * @since 18
      */
-    WRAP_TYPE = TagType.NUMBER | 0x49,
+    WRAP_TYPE = TagType.NUMBER | 0x49
   }
 
   /**
@@ -2059,6 +2204,15 @@ declare namespace asset {
      * @since 20
      */
     PARAM_VERIFICATION_FAILED = 24000018,
+    /**
+     * The error code indicates that the attributes required to be consistent are inconsistent.
+     *
+     * @syscap SystemCapability.Security.Asset
+     * @FaAndStageModel
+     * @atomicservice
+     * @since 26.0.0
+     */
+    INCONSISTENT_ATTRIBUTE = 24000019
   }
 }
 

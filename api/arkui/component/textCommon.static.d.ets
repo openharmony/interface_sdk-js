@@ -670,6 +670,15 @@ declare type TextBox = text.TextBox;
 export declare type Paragraph = text.Paragraph;
 
 /**
+ * Define the FontVariation type.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare type FontVariation = text.FontVariation;
+
+/**
  * Defines the cursor style
  *
  * @interface CaretStyle
@@ -1963,7 +1972,7 @@ export declare interface FontConfigs {
  * @stagemodelonly
  * @since 24 static
  */
-declare interface FontWeightConfigs {
+export declare interface FontWeightConfigs {
     /**
      * Defines whether VariableFontWeight is supported. The default value is false.
      * True means enable VariableFontWeight, false means disable VariableFontWeight.

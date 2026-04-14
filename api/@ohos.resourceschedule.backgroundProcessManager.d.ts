@@ -56,7 +56,7 @@ declare namespace backgroundProcessManager {
     }
 
     /**
-     * Description the status of the power saving mode.
+     * Describes the status of the power saving mode.
      *
      * @enum { int }
      * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
@@ -120,7 +120,7 @@ declare namespace backgroundProcessManager {
      * @throws { BusinessError } 31800002 - Parameter error. Possible causes:
      * <br>  1. Mandatory parameters are left unspecified;
      * <br>  2. Incorrect parameter types; 3. PowerSaveMode status is out of range.
-     * @throws { BusinessError } 31800003 - Setup erro, This setting is overridden by settings in Task Manager
+     * @throws { BusinessError } 31800003 - Setup error, This setting is overridden by settings in Task Manager
      * @throws { BusinessError } 31800004 - The setting failed due to system scheduling reasons.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager

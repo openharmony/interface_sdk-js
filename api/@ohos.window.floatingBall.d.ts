@@ -266,6 +266,9 @@ declare namespace floatingBall {
 
     /**
      * Restore main window for floating ball creatorBundle.
+     * This interface can only be invoked after the floating ball has been clicked. 
+     * However, if the ohos.permission.AUTO_RESTORE_MAIN_WINDOW permission is granted,
+     * it can be called directly without any user interaction.
      *
      * @permission ohos.permission.USE_FLOAT_BALL
      * @param { Want } want - Params for floating ball restoration.
@@ -278,12 +281,32 @@ declare namespace floatingBall {
      * @throws { BusinessError } 1300023 - Floating ball internal error.
      * @throws { BusinessError } 1300024 - The floating ball window state is abnormal.
      * @throws { BusinessError } 1300025 - The floating ball state does not support this operation.
-     * @throws { BusinessError } 1300026 - Failed to restore the main window.
+     * @throws { BusinessError } 1300026 - Failed to restore the main window. Possible causes: 
+     *     1. Invalid parameter. The provided bundleName does not match the caller's application bundleName.
+     *     2. The application lacks the ohos.permission.AUTO_RESTORE_MAIN_WINDOW permission,
+     *        and no user interaction (click) on the floating ball has occurred.
+     *
      * @syscap SystemCapability.Window.SessionManager
      * @since 20 dynamic
      * @since 23 static
      */
     restoreMainWindow(want: Want): Promise<void>;
+
+    /**
+      * Set whether the floating ball is visible in app.
+      *
+      * @param { boolean } isVisible - True if the floating ball is visible in app, otherwise false.
+      * @returns { Promise<void> } - Promise that returns no value
+      * @throws { BusinessError } 1300003 - This window manager service works abnormally. Possible cause: Internal IPC error.
+      * @throws { BusinessError } 1300023 - Floating ball internal error. Possible cause:
+      *     The floating ball controller is null.
+      * @throws { BusinessError } 1300024 - The floating ball window state is abnormal. Possible causes:
+      *     The floating ball window has not been created or has been destroyed.
+      * @syscap SystemCapability.Window.SessionManager
+      * @stagemodelonly
+      * @since 24 dynamic&static
+      */
+    setFloatingBallVisibilityInApp(isVisible: boolean): Promise<void>;
   }
 
   /**
@@ -344,6 +367,16 @@ declare namespace floatingBall {
      * @since 23 static
      */
     icon?: image.PixelMap;
+
+    /**
+     * The animate type when the floating ball updates text.
+     *
+     * @default FloatingBallTextUpdateAnimationType.ANIMATION_NONE
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    textUpdateAnimationType?: FloatingBallTextUpdateAnimationType;
   }
 
   /**
@@ -439,6 +472,33 @@ declare namespace floatingBall {
      * @since 23 static
      */
     readonly windowId: int;
+  }
+
+  /**
+   * Enumeration for floating ball text update animation type.
+   *
+   * @syscap SystemCapability.Window.SessionManager
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  enum FloatingBallTextUpdateAnimationType {
+    /**
+     * No animation
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    ANIMATION_NONE = 0,
+  
+    /**
+     * Opacity fade animation.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    ANIMATION_OPACITY = 1
   }
 }
 

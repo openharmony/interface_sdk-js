@@ -29,7 +29,6 @@ import media from './@ohos.multimedia.media';
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
- * @since 23 static
  */
 declare interface MovingPhotoViewOptions {
     /**
@@ -40,7 +39,6 @@ declare interface MovingPhotoViewOptions {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 23 static
      */
     movingPhoto: photoAccessHelper.MovingPhoto;
     /**
@@ -51,7 +49,6 @@ declare interface MovingPhotoViewOptions {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 23 static
      */
     controller?: MovingPhotoViewController;
     /**
@@ -62,7 +59,6 @@ declare interface MovingPhotoViewOptions {
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
-     * @since 23 static
      */
     imageAIOptions?: ImageAIOptions;
 
@@ -73,9 +69,9 @@ declare interface MovingPhotoViewOptions {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14 dynamic
-     * @since 23 static
      */
     movingPhotoFormat?: PixelMapFormat;
+    
     /**
      * range mode of MovingPhotoView.
      *
@@ -83,7 +79,6 @@ declare interface MovingPhotoViewOptions {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14 dynamic
-     * @since 23 static
      */
     dynamicRangeMode?: DynamicRangeMode;
     /**
@@ -93,7 +88,6 @@ declare interface MovingPhotoViewOptions {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 19 dynamic
-     * @since 23 static
      */
     playWithMask?: boolean;
 }
@@ -104,8 +98,7 @@ declare interface MovingPhotoViewOptions {
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @crossplatform
  * @atomicservice
- * @since 12 dynamic
- * @since 23 static
+ * @since 12 dynamiconly
  */
 interface MovingPhotoViewInterface {
     /**
@@ -116,8 +109,7 @@ interface MovingPhotoViewInterface {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @atomicservice
-     * @since 12 dynamic
-     * @since 23 static
+     * @since 12 dynamiconly
      */
     (options: MovingPhotoViewOptions): MovingPhotoViewAttribute;
 }
@@ -130,7 +122,6 @@ interface MovingPhotoViewInterface {
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
- * @since 23 static
  */
 declare type MovingPhotoViewEventCallback = () => void;
 
@@ -142,7 +133,6 @@ declare type MovingPhotoViewEventCallback = () => void;
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
- * @since 23 static
  */
 declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttribute> {
     /**
@@ -154,7 +144,6 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 23 static
      */
     muted(isMuted: boolean): MovingPhotoViewAttribute;
 	/**
@@ -166,7 +155,6 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 23 static
      */
     objectFit(value: ImageFit): MovingPhotoViewAttribute;
     /**
@@ -178,7 +166,6 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
-     * @since 23 static
      */
     onComplete(callback: MovingPhotoViewEventCallback): MovingPhotoViewAttribute;
     /**
@@ -190,7 +177,6 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 23 static
      */
     onStart(callback: MovingPhotoViewEventCallback): MovingPhotoViewAttribute;
     /**
@@ -202,7 +188,6 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 23 static
      */
     onStop(callback: MovingPhotoViewEventCallback): MovingPhotoViewAttribute;
     /**
@@ -214,7 +199,6 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 23 static
      */
     onPause(callback: MovingPhotoViewEventCallback): MovingPhotoViewAttribute;
     /**
@@ -226,7 +210,6 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 23 static
      */
     onFinish(callback: MovingPhotoViewEventCallback): MovingPhotoViewAttribute;
     /**
@@ -238,7 +221,6 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 23 static
      */
     onError(callback: MovingPhotoViewEventCallback): MovingPhotoViewAttribute;
     /**
@@ -250,7 +232,6 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 23 static
      */
     onPrepared(callback: MovingPhotoViewEventCallback): MovingPhotoViewAttribute;
     /**
@@ -264,7 +245,6 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
-     * @since 23 static
      */
     autoPlayPeriod(startTime: double, endTime: double): MovingPhotoViewAttribute;
     /**
@@ -277,7 +257,6 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
-     * @since 23 static
      */
     autoPlay(isAutoPlay: boolean): MovingPhotoViewAttribute;
     /**
@@ -290,7 +269,6 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
-     * @since 23 static
      */
     repeatPlay(isRepeatPlay: boolean): MovingPhotoViewAttribute;
 
@@ -304,7 +282,6 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
-     * @since 23 static
      */
     enableAnalyzer(enabled: boolean): MovingPhotoViewAttribute;
 
@@ -317,7 +294,7 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @atomicservice
-     * @since 23 dynamic&static
+     * @since 23 dynamic
      */
     setPlaybackStrategy(strategy: media.PlaybackStrategy): MovingPhotoViewAttribute;
 }
@@ -328,7 +305,6 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
- * @since 23 static
  */
 export class MovingPhotoViewController {
     /**
@@ -338,7 +314,6 @@ export class MovingPhotoViewController {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 23 static
      */
     constructor();
     /**
@@ -348,7 +323,6 @@ export class MovingPhotoViewController {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 23 static
      */
     startPlayback();
     /**
@@ -358,7 +332,6 @@ export class MovingPhotoViewController {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 23 static
      */
     stopPlayback();
     /**
@@ -368,7 +341,6 @@ export class MovingPhotoViewController {
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
-     * @since 23 static
      */
     refreshMovingPhoto();
     /**
@@ -380,7 +352,6 @@ export class MovingPhotoViewController {
      * @systemapi
      * @atomicservice
      * @since 20 dynamic
-     * @since 23 static
      */
     pausePlayback();
     /**
@@ -391,7 +362,6 @@ export class MovingPhotoViewController {
      * @systemapi
      * @atomicservice
      * @since 20 dynamic
-     * @since 23 static
      */
     reset();
     /**
@@ -402,7 +372,6 @@ export class MovingPhotoViewController {
      * @systemapi
      * @atomicservice
      * @since 20 dynamic
-     * @since 23 static
      */
     restart();
     /**
@@ -414,7 +383,6 @@ export class MovingPhotoViewController {
      * @systemapi
      * @atomicservice
      * @since 20 dynamic
-     * @since 23 static
      */
     enableTransition(enabled: boolean);
     /**
@@ -427,7 +395,6 @@ export class MovingPhotoViewController {
      * @systemapi
      * @atomicservice
      * @since 20 dynamic
-     * @since 23 static
      */
     setPlaybackPeriod(startTime: double, endTime: double);
     /**
@@ -440,7 +407,6 @@ export class MovingPhotoViewController {
      * @systemapi
      * @atomicservice
      * @since 20 dynamic
-     * @since 23 static
      */
     enableAutoPlay(enabled: boolean);
     /**
@@ -449,7 +415,7 @@ export class MovingPhotoViewController {
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 23 dynamic&static
+     * @since 23 dynamic
      */
     notifyMovingPhotoTransition(): void;
 }
@@ -460,8 +426,7 @@ export class MovingPhotoViewController {
  * @crossplatform
  * @atomicservice
  * @uicomponent
- * @since 12 dynamic
- * @since 23 static
+ * @since 12 dynamiconly
  */
 declare const MovingPhotoView: MovingPhotoViewInterface;
 /**
@@ -470,8 +435,7 @@ declare const MovingPhotoView: MovingPhotoViewInterface;
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @crossplatform
  * @atomicservice
- * @since 12 dynamic
- * @since 23 static
+ * @since 12 dynamiconly
  */
 declare const MovingPhotoViewInstance: MovingPhotoViewAttribute;
 
@@ -482,7 +446,6 @@ declare const MovingPhotoViewInstance: MovingPhotoViewAttribute;
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @systemapi
  * @since 14 dynamic
- * @since 23 static
  */
 export declare enum DynamicRangeMode {
     /**
@@ -491,7 +454,6 @@ export declare enum DynamicRangeMode {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14 dynamic
-     * @since 23 static
      */
     STANDARD = 2,
     /**
@@ -500,7 +462,6 @@ export declare enum DynamicRangeMode {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14 dynamic
-     * @since 23 static
      */
     CONSTRAINT = 1,
     /**
@@ -509,7 +470,6 @@ export declare enum DynamicRangeMode {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14 dynamic
-     * @since 23 static
      */
     HIGH = 0,
 }
@@ -521,7 +481,6 @@ export declare enum DynamicRangeMode {
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @systemapi
  * @since 14 dynamic
- * @since 23 static
  */
 export declare enum PixelMapFormat {
     /**
@@ -531,7 +490,6 @@ export declare enum PixelMapFormat {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14 dynamic
-     * @since 23 static
      */
     NV21 = 2,
 
@@ -541,7 +499,6 @@ export declare enum PixelMapFormat {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 14 dynamic
-     * @since 23 static
      */
     YCBCR_P010 = 4,
 
@@ -551,7 +508,6 @@ export declare enum PixelMapFormat {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 14 dynamic
-     * @since 23 static
      */
     RGBA_1010102 = 3,
 
@@ -562,7 +518,6 @@ export declare enum PixelMapFormat {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14 dynamic
-     * @since 23 static
      */
     RGBA_8888 = 1,
 
@@ -572,7 +527,6 @@ export declare enum PixelMapFormat {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 14 dynamic
-     * @since 23 static
      */
     YCRCB_P010 = 5,
 
@@ -582,7 +536,6 @@ export declare enum PixelMapFormat {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14 dynamic
-     * @since 23 static
      */
     UNKNOWN = 0
 }

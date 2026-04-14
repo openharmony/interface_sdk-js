@@ -983,7 +983,7 @@ export interface MultiAppMode {
   readonly multiAppModeType: bundleManager.MultiAppModeType;
 
   /**
-   * Indicates the max count of the bundle
+   * Indicates the max count of the bundle,the unit is quantity.
    *
    * @type { int }
    * @readonly
@@ -1052,4 +1052,14 @@ export interface PreinstalledApplicationInfo {
    * @since 23 static
    */
   readonly labelId: long;
+
+  /**
+   * Indicates the description id of the application.
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  readonly descriptionId?: long;
 }

@@ -22,7 +22,7 @@ import { ComponentBuilder } from './builder';
 import { DynamicNode } from './common';
 
 /**
- * Defines type to operation data source.
+ * Defines the types of data source operations.
  *
  * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -98,7 +98,7 @@ export interface DataAddOperation {
      */
     index: int;
     /**
-     * Count of added data in one operation
+     * Count of added data in one operation.
      * Only validate for ADD and DELETE.
      *
      * @type { ?int }
@@ -142,7 +142,7 @@ export interface DataDeleteOperation {
      */
     index: int;
     /**
-     * Count of deleted data in one operation
+     * Count of deleted data in one operation.
      * Only validate for ADD and DELETE.
      *
      * @type { ?int }
@@ -352,7 +352,7 @@ export interface DataReloadOperation {
 }
 
 /**
- * All data operation type
+ * All data operation types.
  *
  * @typedef { DataAddOperation | DataDeleteOperation | DataChangeOperation | DataMoveOperation | DataExchangeOperation
  *  | DataReloadOperation }
@@ -403,18 +403,20 @@ export interface DataChangeListener {
      */
     onDataDelete(index: int): void;
     /**
-     * Call when has data change.
+     * Called when there is a data change.
      *
      * @param { int } index
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     onDataChange(index: int): void;
     /**
-     * Call when multiple data change.
+     * Called when multiple data changes occur.
      *
      * @param { Array<DataOperation> } dataOperations
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     onDatasetChange(dataOperations: Array<DataOperation>): void;
@@ -464,7 +466,7 @@ export interface IDataSource<T> {
 }
 
 /**
- * declare LazyForEachAttribute
+ * Declare LazyForEachAttribute.
  *
  * @extends DynamicNode
  * @interface LazyForEachAttribute
@@ -472,10 +474,21 @@ export interface IDataSource<T> {
  * @since 23 static
  * @noninterop
  */
-export interface LazyForEachAttribute extends DynamicNode {}
+export interface LazyForEachAttribute extends DynamicNode {
+    /**
+     * Set the component's source code redirection information. 
+     * @param { string } sourceLine - the source code line.
+     * @param { string } [moduleName] - module to which the component belongs.
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 24 staticonly
+     */
+    debugLine(sourceLine: string, moduleName?: string): this;
+}
 
 /**
- * Define item generator function.
+ * Defines item generator function.
  *
  * @typedef { function } ItemGeneratorFunc<T>
  * @param { T } item - item in an array
@@ -487,12 +500,12 @@ export interface LazyForEachAttribute extends DynamicNode {}
 declare type ItemGeneratorFunc<T> = (item: T, index: int) => void;
 
 /**
- * Define key generator function.
+ * Defines key generator function.
  *
  * @typedef { function } KeyGeneratorFunc<T>
  * @param { T } item - item in an array
  * @param { int } index - index corresponding to an array item.
- * @returns {string} Character string generated based on item and index
+ * @returns { string } Character string generated based on item and index
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 23 static
  */
@@ -509,8 +522,20 @@ declare type KeyGeneratorFunc<T> = (item: T, index: int) => string;
  * @since 23 static
  * @noninterop
  */
+/**
+ * Enter the value to obtain the LazyForEach.
+ *
+ * @param { IDataSource<T> } dataSource - the array collection to be used in UI
+ * @param { ItemGeneratorFunc<T> } itemGenerator - item generator function
+ * @param { KeyGeneratorFunc<T> } [keyGenerator] - key generator function
+ * @returns { LazyForEachAttribute } LazyForEach attribute
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ * @noninterop
+ */
 @ComponentBuilder
-export declare function LazyForEach<T>(dataSource: IDataSource<T>,
+export declare function LazyForEach<T = Any>(dataSource: IDataSource<T>,
     itemGenerator: ItemGeneratorFunc<T>,
     keyGenerator?: KeyGeneratorFunc<T>,
 ): LazyForEachAttribute;

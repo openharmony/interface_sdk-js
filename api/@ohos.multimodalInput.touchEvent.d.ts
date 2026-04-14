@@ -63,7 +63,34 @@ export declare enum Action {
    * @since 9 dynamic
    * @since 23 static
    */
-  UP = 3
+  UP = 3,
+  
+  /**
+   * Touch Pull-Down
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  PULL_DOWN = 4,
+
+  /**
+   * Touch Pull-Move
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  PULL_MOVE = 5,
+
+  /**
+   * Touch Pull-Up
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  PULL_UP = 6
 }
 
 /**
@@ -424,6 +451,16 @@ export declare interface Touch {
    * @since 23 static
    */
   globalY?: int;
+
+  /**
+   * blobId - blob id.
+   * @type { ?int }
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @systemapi Hide this for inner system use.
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  blobId?: int;
 }
 
 /**

@@ -30,7 +30,7 @@
  */
 export default interface AutoFillRect {
   /**
-   * The left of the rect.
+   * The left of the rect, in px.
    *
    * @type { double }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
@@ -42,7 +42,7 @@ export default interface AutoFillRect {
   left: double;
 
   /**
-   * The top of the rect.
+   * The top of the rect, in px.
    *
    * @type { double }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
@@ -54,7 +54,7 @@ export default interface AutoFillRect {
   top: double;
 
   /**
-   * The width of the rect.
+   * The width of the rect, in px.
    *
    * @type { double }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
@@ -66,7 +66,7 @@ export default interface AutoFillRect {
   width: double;
 
   /**
-   * The height of the rect.
+   * The height of the rect, in px.
    *
    * @type { double }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore

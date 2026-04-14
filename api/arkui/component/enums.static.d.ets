@@ -1,6 +1,6 @@
 'use static'
 /*
- * Copyright (c) 2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2025-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -120,7 +120,7 @@ export declare enum Color {
   Orange = '#FFFFA500',
 
   /**
-   * color.
+   * Pink.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
@@ -798,7 +798,16 @@ export declare enum KeyType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
-  Up = 1
+  Up = 1,
+
+  /**
+   * The key event is canceled.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  CANCEL = 3,
 }
 
 /**
@@ -3878,6 +3887,7 @@ export declare enum CrownAction {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
+   * @deprecated since 24 static
    */
   BEGIN = 0,
 
@@ -4193,6 +4203,16 @@ export declare enum ColorSpace {
    * @since 23 static
    */
   DISPLAY_P3 = 1,
+
+  /**
+   * BT2020 ColorSpace.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @systemapi
+   * @since 24 static
+   */
+  BT2020 = 2,
 }
 
 /**
@@ -4228,6 +4248,41 @@ export declare enum AxisType {
    * @since 23 static
    */
   PINCH_AXIS = 2,
+}
+
+/**
+ * Defines whether a competition for gesture recognition results should occur between the event injector and the
+ * gesture recognizers of the target component.
+ * This strategy determines how the injected input event interacts with the target component's own gesture
+ * handling logic.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 24 static
+ */
+export enum CompetitionStrategy {
+  /**
+   * No competition strategy.
+   * The injected event does not compete with any existing gestures.
+   * Both the injected event and existing gestures can be processed independently and in parallel.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  DEFAULT = 0,
+
+  /**
+   * Competition strategy.
+   * The gesture recognition result from the event injector will compete with those from the target component's own
+   * recognizers.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  COMPETITION = 1,
 }
 
 /**
@@ -4283,16 +4338,7 @@ export enum AttributeModifierState {
    * @FaAndStageModel
    * @since 23 staticonly
    */
-  SELECTED = 1 << 3,
-
-  /**
-   * All states.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @since 23 staticonly
-   */
-  ALL = (1 << 4) - 1
+  SELECTED = 1 << 3
 }
 
 /**
@@ -4338,7 +4384,7 @@ export declare enum PresetFillType {
  */
 export enum SystemProperties {
   /**
-   * System environment breakpoint key that is used to obtain the width and height breakpoing value of the window.
+   * System environment breakpoint key that is used to obtain the width and height breakpoint value of the window.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4354,7 +4400,7 @@ export enum SystemProperties {
    */
   WINDOW_AVOID_AREA = 'system.window.avoidarea',
   /**
-   * System environment avoidarea key that is used to obtain the void area of the window, measured in px.
+   * System environment avoidarea key that is used to obtain the avoid area of the window, measured in px.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4377,4 +4423,277 @@ export enum SystemProperties {
    * @since 24 static
    */
   WINDOW_SIZE_PX = 'system.window.size.px'
+}
+
+/**
+ * Define the gesture and events collection intervention operations.
+ *
+ * @enum {number}
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare enum GestureCollectIntervention {
+  /**
+   * Continue the normal collection process. No intervention will be applied.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  CONTINUE = 0,
+
+  /**
+   * Discard all pending lower-priority gestures and events.
+   * This includes gestures from left sibling nodes and ancestor nodes (parent and above).
+   * Only the already collected gestures from the current node and higher-priority nodes will be retained.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  DISCARD_LOWER = 1,
+
+  /**
+   * Discard already collected higher-priority gestures and events.
+   * This removes gestures from right sibling nodes that have been collected.
+   * The collection will continue with lower-priority gestures (left siblings and ancestors).
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  DISCARD_HIGHER = 2,
+
+  /**
+   * Discard gestures and events from the current node itself.
+   * The current node's gestures and events will be excluded from the gesture tree.
+   * Gestures from sibling nodes (both left and right) and ancestor nodes will still be collected.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  DISCARD_SELF = 3,
+
+  /**
+   * Discard gestures and events from left sibling nodes that are pending collection.
+   * Gestures and events from the current node and already collected right sibling nodes will be retained.
+   * The collection will continue with ancestor nodes.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  DISCARD_LOWER_PRIORITY_SIBLINGS = 4,
+}
+
+/**
+ * Define the type of raw input event.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare enum RawInputEventType {
+  /**
+   * Touch events.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  TOUCH = 0,
+
+  /**
+   * Mouse events.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  MOUSE = 1
+}
+
+/**
+ * Defines the input event subtype mask for monitoring.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare enum InputEventSubTypeMask {
+  /**
+   * Mouse left button down.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  LEFT_MOUSE_DOWN = 1 << 0,
+
+  /**
+   * Mouse left button up.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  LEFT_MOUSE_UP = 1 << 1,
+
+  /**
+   * Mouse right button down.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  RIGHT_MOUSE_DOWN = 1 << 2,
+
+  /**
+   * Mouse right button up.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  RIGHT_MOUSE_UP = 1 << 3,
+
+  /**
+   * Mouse middle button down.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  MIDDLE_MOUSE_DOWN = 1 << 4,
+
+  /**
+   * Mouse middle button up.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  MIDDLE_MOUSE_UP = 1 << 5,
+
+  /**
+   * Mouse left button dragging.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  LEFT_MOUSE_DRAGGING = 1 << 6,
+
+  /**
+   * Mouse right button dragging.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  RIGHT_MOUSE_DRAGGING = 1 << 7,
+
+  /**
+   * Mouse middle button dragging.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  MIDDLE_MOUSE_DRAGGING = 1 << 8,
+
+  /**
+   * Touch down.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  TOUCH_DOWN = 1 << 9,
+
+  /**
+   * Touch up.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  TOUCH_UP = 1 << 10,
+
+  /**
+   * Physical keyboard key down.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  KEY_DOWN = 1 << 11,
+
+  /**
+   * Physical keyboard key up.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  KEY_UP = 1 << 12
+}
+
+/**
+ * Defines the input event intercept action.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare enum InputEventInterceptAction {
+  /**
+   * Continue to deliver the event to the UI framework.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  CONTINUE,
+
+  /**
+   * Block the event from being delivered to the UI framework.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  BLOCK
+}
+
+/**
+ * Enumerates the component animation modes under the UI material effect.
+ *
+ * enum { int }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare enum UIMaterialAnimationMode {
+  /**
+   * When the material is enabled for the component, the animation effect is automatically enabled.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  IMMERSIVE = 0,
+
+  /**
+   * Disable the animation effect.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  NONE = 1
 }

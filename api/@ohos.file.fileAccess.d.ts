@@ -24,17 +24,25 @@ import Context from './application/Context';
 import { Filter } from './@ohos.file.fs';
 
 /**
- * This module provides the capability to access user public files.
+ * The **fileAccess** module provides a framework for accessing and operating user files based on 
+ * [extension](docroot://application-models/extensionability-overview.md). This module interacts with a variety of file 
+ * management services, such as the storage management service, and provides a set of unified file access and management
+ * APIs for system applications. The storage management service manages both the directories of the built-in storage and
+ * resources on external devices, such as shared disks, USB flash drives, and SD cards.
+ * 
+ * > **NOTE**
+ * >
+ * > - Currently, the APIs of this module can be called only by **FilePicker** and **FileManager**.
  *
- * @namespace fileAccess
  * @syscap SystemCapability.FileManagement.UserFileService
  * @since 9 dynamiconly
  * @deprecated since 23
- * @useinstead ohos.file.fs/fileIo
+ * @useinstead @ohos.file.fs:fileIo
  */
 declare namespace fileAccess {
   /**
-   * Query the want information of HAP configured with fileaccess.
+   * Obtains information about all Wants with **extension** set to **fileAccess** in the system. A Want contains 
+   * information for starting an ability. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.FILE_ACCESS_MANAGER and ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { AsyncCallback<Array<Want>> } callback - The callback is used to return a Array<Want> object.
@@ -77,7 +85,8 @@ declare namespace fileAccess {
   function getFileAccessAbilityInfo(callback: AsyncCallback<Array<Want>>): void;
 
   /**
-   * Query the want information of HAP configured with fileaccess.
+   * Obtains information about all Wants with **extension** set to **fileAccess** in the system. A Want contains 
+   * information for starting an ability. This API uses a promise to return the result.
    *
    * @permission ohos.permission.FILE_ACCESS_MANAGER and ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @returns { Promise<Array<Want>> } Returns the wants.
@@ -120,7 +129,8 @@ declare namespace fileAccess {
   function getFileAccessAbilityInfo(): Promise<Array<Want>>;
 
   /**
-   * Obtains the fileAccessHelper that connects all fileaccess servers in the system.
+   * Creates a **Helper** object to bind with all file management services in the system. This API returns the result 
+   * synchronously.
    *
    * @permission ohos.permission.FILE_ACCESS_MANAGER and ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { Context } context Indicates the application context.
@@ -164,7 +174,8 @@ declare namespace fileAccess {
   function createFileAccessHelper(context: Context): FileAccessHelper;
 
   /**
-   * Obtains the fileAccessHelper that connects some specified fileaccess servers in the system.
+   * Creates a **Helper** object to bind with the specified Wants. This API returns the result synchronously. The 
+   * **Helper** object provides file access and management capabilities.
    *
    * @permission ohos.permission.FILE_ACCESS_MANAGER and ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { Context } context Indicates the application context.
@@ -209,9 +220,8 @@ declare namespace fileAccess {
   function createFileAccessHelper(context: Context, wants: Array<Want>): FileAccessHelper;
 
   /**
-   * File Object
+   * Provides APIs for managing file or directory attribute information.
    *
-   * @interface FileInfo
    * @syscap SystemCapability.FileManagement.UserFileService
    * @systemapi
    * @StageModelOnly
@@ -220,10 +230,9 @@ declare namespace fileAccess {
    */
   interface FileInfo {
     /**
-     * Indicates the path of the file.
+     * URI of the file or directory.
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
-     * @type { string }
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
@@ -232,10 +241,9 @@ declare namespace fileAccess {
      */
     uri: string;
     /**
-     * Indicates the relativePath of the file.
+     * Relative path of the file or directory.
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
-     * @type { string }
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
@@ -244,10 +252,9 @@ declare namespace fileAccess {
      */
     relativePath: string;
     /**
-     * Indicates the name of the file.
+     * Name of the file or directory.
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
-     * @type { string }
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
@@ -256,10 +263,9 @@ declare namespace fileAccess {
      */
     fileName: string;
     /**
-     * Indicates the mode of the file.
+     * Permissions on the file or directory.
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
-     * @type { number }
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
@@ -268,34 +274,33 @@ declare namespace fileAccess {
      */
     mode: number;
     /**
-     * Indicates the size of the file.
+     * Size of the file or directory.
+     * <br>Unit: Byte.
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
-     * @type { number }
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9 dynamiconly
      * @deprecated since 23
      */
     size: number;
     /**
-     * Indicates the mtime of the file.
+     * Time when the file or directory was last modified.
+     * <br>Unit: Byte.
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
-     * @type { number }
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9 dynamiconly
      * @deprecated since 23
      */
     mtime: number;
     /**
-     * Indicates the mimeType of the file.
+     * Multipurpose Internet Mail Extensions (MIME) type of the file or directory.
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
-     * @type { string }
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
@@ -305,7 +310,10 @@ declare namespace fileAccess {
     mimeType: string;
 
     /**
-     * List files in the current directory.
+     * Obtains a **FileIterator** object that lists the next-level files or directories matching the specified 
+     * conditions of this directory. This API returns the result synchronously. [FileInfo]{@link fileAccess.FileInfo} is
+     * returned by [next()]{@link fileAccess.FileIterator.next}. Currently, only built-in storage devices support the 
+     * file filter.
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
      * @param { Filter } filter Indicates the filter of file.
@@ -349,12 +357,14 @@ declare namespace fileAccess {
      * @StageModelOnly
      * @since 9 dynamiconly
      * @deprecated since 23
-     * @useinstead ohos.file.fs/fileIo#listfile
+     * @useinstead @ohos.file.fs:fileIo.listFile
      */
     listFile(filter?: Filter): FileIterator;
 
     /**
-     * Recursively list all files in the current directory.
+     * Obtains a **FileIterator** object that recursively retrieves the files matching the specified conditions of this 
+     * directory. This API returns the result synchronously. [FileInfo]{@link fileAccess.FileInfo} is returned by 
+     * [next()]{@link fileAccess.FileIterator.next}. Currently, this API supports only built-in storage devices.
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
      * @param { Filter } filter Indicates the filter of file.
@@ -403,9 +413,8 @@ declare namespace fileAccess {
   }
 
   /**
-   * FileIterator Object
+   * Provides the **FileIterator** object.
    *
-   * @interface FileIterator
    * @syscap SystemCapability.FileManagement.UserFileService
    * @systemapi
    * @StageModelOnly
@@ -414,7 +423,7 @@ declare namespace fileAccess {
    */
   interface FileIterator {
     /**
-     * Get the next fileInfo.
+     * Obtains information about the next-level files or directories.
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
      * @returns { object } Returns FileInfo Object and boolean flag.
@@ -462,9 +471,8 @@ declare namespace fileAccess {
   }
 
   /**
-   * Root Object
+   * Provides APIs for managing the device's root attribute information.
    *
-   * @interface RootInfo
    * @syscap SystemCapability.FileManagement.UserFileService
    * @systemapi
    * @StageModelOnly
@@ -473,8 +481,9 @@ declare namespace fileAccess {
    */
   interface RootInfo {
     /**
+     * Capabilities supported by the device.
+     *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
-     * @type { number }
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
@@ -483,8 +492,9 @@ declare namespace fileAccess {
      */
     deviceType: number;
     /**
+     * Capabilities supported by the device.
+     *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
-     * @type { string }
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
@@ -493,10 +503,9 @@ declare namespace fileAccess {
      */
     uri: string;
     /**
-     * File or directory relative path
+     * Relative path of the root directory.
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
-     * @type { string }
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
@@ -505,8 +514,9 @@ declare namespace fileAccess {
      */
     relativePath: string;
     /**
+     * Capabilities supported by the device.
+     *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
-     * @type { string }
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
@@ -515,8 +525,9 @@ declare namespace fileAccess {
      */
     displayName: string;
     /**
+     * Capabilities supported by the device.
+     *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
-     * @type { number }
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
@@ -526,7 +537,10 @@ declare namespace fileAccess {
     deviceFlags: number;
 
     /**
-     * List files in the current directory.
+     * Obtains a **FileIterator** object that lists the next-level files or directories matching the specified 
+     * conditions of this directory. This API returns the result synchronously. [FileInfo]{@link fileAccess.FileInfo} is
+     * returned by [next()]{@link fileAccess.FileIterator.next}. Currently, only built-in storage devices support the 
+     * file filter.
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
      * @param { Filter } filter Indicates the filter of file.
@@ -570,12 +584,15 @@ declare namespace fileAccess {
      * @StageModelOnly
      * @since 9 dynamiconly
      * @deprecated since 23
-     * @useinstead ohos.file.fs/fileIo#listfile
+     * @useinstead @ohos.file.fs:fileIo.listFile
      */
     listFile(filter?: Filter): FileIterator;
 
     /**
-     * Recursively list all files in the current directory.
+     * Obtains a **FileIterator** object that recursively retrieves the files matching the specified conditions from the
+     * device root directory. This API returns the result synchronously. [FileInfo]{@link fileAccess.FileInfo} is 
+     * returned by [next]{@link fileAccess.FileIterator.next}. Currently, this API supports only built-in storage 
+     * devices.
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
      * @param { Filter } filter Indicates the filter of file.
@@ -624,9 +641,8 @@ declare namespace fileAccess {
   }
 
   /**
-   * RootIterator Object
+   * Provides an iterator object of the device root directory.
    *
-   * @interface RootIterator
    * @syscap SystemCapability.FileManagement.UserFileService
    * @systemapi
    * @StageModelOnly
@@ -635,7 +651,7 @@ declare namespace fileAccess {
    */
   interface RootIterator {
     /**
-     * Get a next RootInfo.
+     * Obtains the next-level root directory.
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
      * @returns { object } Returns RootInfo Object and boolean flag.
@@ -683,9 +699,9 @@ declare namespace fileAccess {
   }
 
   /**
-   * Describes the return information of the copy operation.
+   * Defines the information returned when the file copy operation fails. If the copy operation is successful, no 
+   * information is returned.
    *
-   * @interface CopyResult
    * @syscap SystemCapability.FileManagement.UserFileService
    * @systemapi
    * @stagemodelonly
@@ -694,10 +710,9 @@ declare namespace fileAccess {
    */
   interface CopyResult {
     /**
-     * Represents the source file or directory uri to be copied
+     * URI of the source file or directory.
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
-     * @type { string }
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @stagemodelonly
@@ -706,10 +721,9 @@ declare namespace fileAccess {
      */
     sourceUri: string;
     /**
-     * Represents a file or directory uri in the target folder
+     * URI of the conflicting file. If the error is not caused by a file conflict, **destUri** is empty.
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
-     * @type { string }
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @stagemodelonly
@@ -718,10 +732,9 @@ declare namespace fileAccess {
      */
     destUri: string;
     /**
-     * Error code for failure to copy a file or directory.
+     * Error code.
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
-     * @type { number }
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @stagemodelonly
@@ -730,10 +743,9 @@ declare namespace fileAccess {
      */
     errCode: number;
     /**
-     * Error message for failure to copy a file or directory.
+     * Error message.
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
-     * @type { string }
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @stagemodelonly
@@ -744,50 +756,49 @@ declare namespace fileAccess {
   }
 
   /**
-   * OPENFLAGS represents the way to open the file.
+   * Enumerates the file open modes.
    *
-   * @enum { number } OPENFLAGS
    * @syscap SystemCapability.FileManagement.UserFileService
    * @systemapi
    * @StageModelOnly
    * @since 9 dynamiconly
    * @deprecated since 23
-   * @useinstead ohos.file.fs/fileIo#OpenMode
+   * @useinstead @ohos.file.fs:fileIo.OpenMode
    */
   enum OPENFLAGS {
     /**
-     * Open the file by Read-only mode.
+     * Read mode.
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
      * @since 9 dynamiconly
      * @deprecated since 23
-     * @useinstead ohos.file.fs/fileIo#OpenMode
+     * @useinstead @ohos.file.fs:fileIo.OpenMode
      */
     READ = 0o0,
 
     /**
-     * Open the file by Write-only mode.
+     * Write mode.
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
      * @since 9 dynamiconly
      * @deprecated since 23
-     * @useinstead ohos.file.fs/fileIo#OpenMode
+     * @useinstead @ohos.file.fs:fileIo.OpenMode
      */
     WRITE = 0o1,
 
     /**
-     * Open the file by Write-Read mode.
+     * Read/Write mode.
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
      * @since 9 dynamiconly
      * @deprecated since 23
-     * @useinstead ohos.file.fs/fileIo#OpenMode
+     * @useinstead @ohos.file.fs:fileIo.OpenMode
      */
     WRITE_READ = 0o2
   }
@@ -795,7 +806,6 @@ declare namespace fileAccess {
   /**
    * Property elements that support the file queries.
    *
-   * @enum { string } FileKey
    * @syscap SystemCapability.FileManagement.UserFileService
    * @systemapi
    * @StageModelOnly
@@ -860,9 +870,8 @@ declare namespace fileAccess {
   }
 
   /**
-   * Describes the notifyType.
+   * Enumerates the notification types.
    *
-   * @enum { number } NotifyType
    * @syscap SystemCapability.FileManagement.UserFileService
    * @systemapi
    * @StageModelOnly
@@ -871,7 +880,9 @@ declare namespace fileAccess {
    */
   enum NotifyType {
     /**
-     * Type for add notification
+     * File added.
+     * 
+     * See examples 2 and 3 of **registerObserver**.
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
@@ -879,10 +890,12 @@ declare namespace fileAccess {
      * @since 10 dynamiconly
      * @deprecated since 23
      */
-    NOTIFY_ADD,
+    NOTIFY_ADD = 0,
 
     /**
-     * Type for delete notification
+     * File deleted.
+     * 
+     * See examples 1 and 2 of **unregisterObserver(uri: string, callback: Callback<NotifyMessage>)**.
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
@@ -890,10 +903,13 @@ declare namespace fileAccess {
      * @since 10 dynamiconly
      * @deprecated since 23
      */
-    NOTIFY_DELETE,
+    NOTIFY_DELETE = 1,
 
     /**
-     * The file was moved into the monitored directory.
+     * File or directory moved in (for example, **rename()** is performed on a file or directory in this directory or a 
+     * file or directory is moved to this directory). 
+     * 
+     * See example 1 of **registerObserver** and example 1 of **unregisterObserver(uri: string)**.
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
@@ -901,10 +917,13 @@ declare namespace fileAccess {
      * @since 10 dynamiconly
      * @deprecated since 23
      */
-    NOTIFY_MOVED_TO,
+    NOTIFY_MOVED_TO = 2,
 
     /**
-     * The file in the monitored directory was moved.
+     * File or directory moved out (for example, **rename()** is performed on a file or directory in this directory or a
+     * file or directory is moved out from this directory). 
+     * 
+     * See example 1 of **registerObserver** and example 1 of **unregisterObserver(uri: string)**.
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
@@ -912,10 +931,12 @@ declare namespace fileAccess {
      * @since 10 dynamiconly
      * @deprecated since 23
      */
-    NOTIFY_MOVED_FROM,
+    NOTIFY_MOVED_FROM = 3,
 
     /**
-     * The monitored file or directory was moved.
+     * File moved (for example, the target file or directory is renamed or moved).
+     * 
+     * See example 1 of **registerObserver**.
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
@@ -923,10 +944,10 @@ declare namespace fileAccess {
      * @since 10 dynamiconly
      * @deprecated since 23
      */
-    NOTIFY_MOVE_SELF,
+    NOTIFY_MOVE_SELF = 4,
 
     /**
-     * Event type of device online.
+     * Device goes online.
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
@@ -934,10 +955,10 @@ declare namespace fileAccess {
      * @since 11 dynamiconly
      * @deprecated since 23
      */
-    NOTIFY_DEVICE_ONLINE,
+    NOTIFY_DEVICE_ONLINE = 5,
 
     /**
-     * Event type of device offline.
+     * Device goes offline.
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
@@ -945,26 +966,24 @@ declare namespace fileAccess {
      * @since 11 dynamiconly
      * @deprecated since 23
      */
-    NOTIFY_DEVICE_OFFLINE
+    NOTIFY_DEVICE_OFFLINE = 6
   }
 
   /**
-   * The value of the notify callback function
+   * Represents the notification message.
    *
-   * @interface NotifyMessage
    * @syscap SystemCapability.FileManagement.UserFileService
    * @systemapi
    * @StageModelOnly
    * @since 10 dynamiconly
    * @deprecated since 23
-   * @useinstead ohos.file.fs/fileIo#WatchEvent
+   * @useinstead @ohos.file.fs:fileIo.WatchEvent
    */
   interface NotifyMessage {
     /**
-     * Indicates the change type.
+     * Notification type.
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
-     * @type { NotifyType }
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
@@ -974,10 +993,10 @@ declare namespace fileAccess {
     type: NotifyType;
 
     /**
-     * Indicates the uris generated the change event.
+     * URIs of the changed files. Currently, only one notification is supported. A collection of multiple notifications 
+     * will be supported in later versions.
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
-     * @type { Array<string> }
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
@@ -988,9 +1007,9 @@ declare namespace fileAccess {
   }
 
   /**
-   * Describes the return information of the move operation.
+   * Represents the information returned when the move operation fails. If the operation is successful, no information 
+   * is returned.
    *
-   * @interface MoveResult
    * @syscap SystemCapability.FileManagement.UserFileService
    * @systemapi
    * @StageModelOnly
@@ -999,10 +1018,9 @@ declare namespace fileAccess {
    */
   interface MoveResult {
     /**
-     * Indicates the source file or directory uri to be moved.
+     * URI of the source file or directory.
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
-     * @type { string }
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
@@ -1012,10 +1030,9 @@ declare namespace fileAccess {
     sourceUri: string;
 
     /**
-     * Indicates the file or directory uri in the destination folder.
+     * URI of the conflicting file. If the error is not caused by a file conflict, **destUri** is empty.
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
-     * @type { string }
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
@@ -1025,10 +1042,10 @@ declare namespace fileAccess {
     destUri: string;
 
     /**
-     * Error code for failure to move a file or directory.
+     * Error code. For details about the error codes, see 
+     * [File Management Error Codes](docroot://reference/apis-core-file-kit/errorcode-filemanagement.md).
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
-     * @type { number }
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
@@ -1038,10 +1055,9 @@ declare namespace fileAccess {
     errCode: number;
 
     /**
-     * Error message for failure to move a file.
+     * Error message.
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
-     * @type { string }
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
@@ -1054,7 +1070,6 @@ declare namespace fileAccess {
   /**
    * Indicates the root uri of the device
    *
-   * @constant
    * @syscap SystemCapability.FileManagement.UserFileService
    * @systemapi
    * @StageModelOnly
@@ -1064,9 +1079,8 @@ declare namespace fileAccess {
   const DEVICES_URI = 'file://docs';
 
   /**
-   * FileAccessHelper Object
+   * Provides a **FileAccessHelper** object.
    *
-   * @interface FileAccessHelper
    * @syscap SystemCapability.FileManagement.UserFileService
    * @systemapi
    * @since 9 dynamiconly
@@ -1074,7 +1088,7 @@ declare namespace fileAccess {
    */
   interface FileAccessHelper {
     /**
-     * Open a file.
+     * Opens a file. This API uses a promise to return the result.
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
      * @param { string } uri Indicates the path of the file to open.
@@ -1118,12 +1132,12 @@ declare namespace fileAccess {
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 23
-     * @useinstead ohos.file.fs/fileIo#open
+     * @useinstead @ohos.file.fs:fileIo.open(path: string, mode?: number)
      */
-    openFile(uri: string, flags: OPENFLAGS): Promise<number>;
+    openFile(uri: string, flags: OPENFLAGS) : Promise<number>;
 
     /**
-     * Open a file.
+     * Opens a file. This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
      * @param { string } uri Indicates the path of the file to open.
@@ -1167,12 +1181,12 @@ declare namespace fileAccess {
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 23
-     * @useinstead ohos.file.fs/fileIo#open
+     * @useinstead @ohos.file.fs:fileIo.open(path: string, callback: AsyncCallback<File>)
      */
     openFile(uri: string, flags: OPENFLAGS, callback: AsyncCallback<number>): void;
 
     /**
-     * Create a file.
+     * Creates a file in a directory. This API uses a promise to return the result.
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
      * @param { string } uri Represents a specific parent directory.
@@ -1216,12 +1230,12 @@ declare namespace fileAccess {
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 23
-     * @useinstead ohos.file.fs/fileIo#createRandomAccessFile
+     * @useinstead @ohos.file.fs:fileIo.createRandomAccessFile(file: string | File, mode?: number, options?: RandomAccessFileOptions)
      */
-    createFile(uri: string, displayName: string): Promise<string>;
+    createFile(uri: string, displayName: string) : Promise<string>;
 
     /**
-     * Create a file.
+     * Creates a file in a directory. This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
      * @param { string } uri Represents a specific parent directory.
@@ -1265,12 +1279,12 @@ declare namespace fileAccess {
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 23
-     * @useinstead ohos.file.fs/fileIo#createRandomAccessFile
+     * @useinstead @ohos.file.fs:fileIo.createRandomAccessFile(file: string | File, callback: AsyncCallback<RandomAccessFile>)
      */
     createFile(uri: string, displayName: string, callback: AsyncCallback<string>): void;
 
     /**
-     * Create a Directory.
+     * Creates a directory in a specified directory. This API uses a promise to return the result.
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
      * @param { string } parentUri Represents a specific parent directory.
@@ -1314,12 +1328,12 @@ declare namespace fileAccess {
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 23
-     * @useinstead ohos.file.fs/fileIo#mkdir
+     * @useinstead @ohos.file.fs:fileIo.mkdir(path: string)
      */
-    mkDir(parentUri: string, displayName: string): Promise<string>;
+    mkDir(parentUri: string, displayName: string) : Promise<string>;
 
     /**
-     * Create a Directory.
+     * Creates a directory in a specified directory. This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
      * @param { string } parentUri Represents a specific parent directory.
@@ -1363,12 +1377,12 @@ declare namespace fileAccess {
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 23
-     * @useinstead ohos.file.fs/fileIo#mkdir
+     * @useinstead @ohos.file.fs:fileIo.mkdir(path: string, callback: AsyncCallback<void>)
      */
     mkDir(parentUri: string, displayName: string, callback: AsyncCallback<string>): void;
 
     /**
-     * Delete a file or delete a directory recursively.
+     * Deletes a file or directory. This API uses a promise to return the result.
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
      * @param { string } uri Indicates the file or directory to be deleted.
@@ -1411,12 +1425,12 @@ declare namespace fileAccess {
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 23
-     * @useinstead ohos.file.fs/fileIo#delete
+     * @useinstead @ohos.file.fs:AtomicFile#delete
      */
-    delete(uri: string): Promise<number>;
+    delete(uri: string) : Promise<number>;
 
     /**
-     * Delete a file or delete a directory recursively.
+     * Deletes a file or directory. This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
      * @param { string } uri Indicates the file or directory to be deleted.
@@ -1459,17 +1473,19 @@ declare namespace fileAccess {
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 23
-     * @useinstead ohos.file.fs/fileIo#delete
+     * @useinstead @ohos.file.fs:AtomicFile#delete
      */
     delete(uri: string, callback: AsyncCallback<number>): void;
 
     /**
-     * Move a file or move a directory recursively.
+     * Moves a file or directory. This API uses a promise to return the result. Currently, this API does not support 
+     * move of files or directories across devices.
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
      * @param { string } sourceFile Indicates the file or directory to be moved.
      * @param { string } destFile Represents the destination folder.
-     * @returns { Promise<string> } Returns the generated new file or directory.
+     * @returns { Promise<string> } Promise used to return the URI of the file or directory in the destination 
+     *     directory.
      * @throws { BusinessError } 13900001 - Operation not permitted
      * @throws { BusinessError } 13900002 - No such file or directory
      * @throws { BusinessError } 13900004 - Interrupted system call
@@ -1508,12 +1524,13 @@ declare namespace fileAccess {
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 23
-     * @useinstead ohos.file.fs/fileIo#moveFile
+     * @useinstead @ohos.file.fs:fileIo.moveFile(src: string, dest: string, mode?: number)
      */
-    move(sourceFile: string, destFile: string): Promise<string>;
+    move(sourceFile: string, destFile: string) : Promise<string>;
 
     /**
-     * Move a file or move a directory recursively.
+     * Moves a file or directory. This API uses an asynchronous callback to return the result. Currently, this API does 
+     * not support move of files or directories across devices.
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
      * @param { string } sourceFile Indicates the file or directory to be moved.
@@ -1557,67 +1574,87 @@ declare namespace fileAccess {
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 23
-     * @useinstead ohos.file.fs/fileIo#moveFile
+     * @useinstead @ohos.file.fs:fileIo.moveFile(src: string, dest: string, callback: AsyncCallback<void>)
      */
     move(sourceFile: string, destFile: string, callback: AsyncCallback<string>): void;
 
     /**
-     * Copy file or directory in the promise way.
+     * Copies a file or directory. This API uses a promise to return the result.
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
-     * @param { string } sourceUri - Indicates the file or directory to be copied.
-     * @param { string } destUri - Represents the destination directory.
-     * @param { boolean } force - Optional parameter that determines whether to forcibly copy files.
-     * @returns { Promise<Array<CopyResult>> } Returns the file information where the error occurred.
+     * @param { string } sourceUri - URI of the source file or directory to copy. For example, 
+     *     **file://docs/storage/Users/currentUser/Download/1.txt**.
+     * @param { string } destUri - URI of the destination directory, to which the file or directory is moved. For 
+     *     example, **file://docs/storage/Users/currentUser/Download/test**.
+     * @param { boolean } force - Whether to forcibly overwrite the file with the same name. If **force** is **true**, 
+     *     the file with the same name will be overwritten. If **force** is **false** or not specified, the file with 
+     *     the same name will not be overwritten. The default value is **false**.
+     * @returns { Promise<Array<CopyResult>> } Promise used to return the result. If the file or directory is copied 
+     *     successfully, no information is returned. If the file copy fails, a **copyResult** array is returned.
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @since 10 dynamiconly
      * @deprecated since 23
-     * @useinstead ohos.file.fs/fileIo#copy
+     * @useinstead @ohos.file.fs:fileIo.copy(srcUri: string, destUri: string, options?: CopyOptions)
      */
     copy(sourceUri: string, destUri: string, force?: boolean): Promise<Array<CopyResult>>;
 
     /**
-     * Copy file or directory in the asyncCallback way.
+     * Copies a file or directory. This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
-     * @param { string } sourceUri - Indicates the file or directory to be copied.
-     * @param { string } destUri - Represents the destination directory.
-     * @param { AsyncCallback<Array<CopyResult>> } callback - The callback is used to return the file information where the error occurred.
+     * @param { string } sourceUri - URI of the source file or directory to copy. For example, 
+     *     **file://docs/storage/Users/currentUser/Download/1.txt**.
+     * @param { string } destUri - URI of the destination directory, to which the file or directory is moved. For 
+     *     example, **file://docs/storage/Users/currentUser/Download/test**.
+     * @param { AsyncCallback<Array<CopyResult>> } callback - Callback invoked to return the result. If the file or 
+     *     directory is copied successfully, no information is returned. If the copy fails, a **copyResult** array is 
+     *     returned.
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @since 10 dynamiconly
      * @deprecated since 23
-     * @useinstead ohos.file.fs/fileIo#copy
+     * @useinstead @ohos.file.fs:fileIo.copy(srcUri: string, destUri: string, callback: AsyncCallback<void>)
      */
     copy(sourceUri: string, destUri: string, callback: AsyncCallback<Array<CopyResult>>): void;
 
     /**
-     * Copy file or directory in the asyncCallback way.
+     * Copies a file or directory. If a file with the same name already exists, you can choose whether to forcibly 
+     * overwrite the original file. This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
-     * @param { string } sourceUri - Indicates the file or directory to be copied.
-     * @param { string } destUri - Represents the destination directory.
-     * @param { boolean } force - Determines whether to forcibly copy files.
-     * @param { AsyncCallback<Array<CopyResult>> } callback - The callback is used to return the file information where the error occurred.
+     * @param { string } sourceUri - URI of the source file or directory to copy. For example, 
+     *     **file://docs/storage/Users/currentUser/Download/1.txt**.
+     * @param { string } destUri - URI of the destination directory, to which the file or directory is moved. For 
+     *     example, **file://docs/storage/Users/currentUser/Download/test**.
+     * @param { boolean } force - Whether to forcibly overwrite the original file with the same name. If **force** is 
+     *     set to **true**, the original file is forcibly overwritten. If **force** is left empty or set to **false**, 
+     *     the original file is not overwritten.
+     * @param { AsyncCallback<Array<CopyResult>> } callback - Callback invoked to return the result. If the file or 
+     *     directory is copied successfully, no information is returned. If the copy fails, a **copyResult** array is 
+     *     returned.
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @since 10 dynamiconly
      * @deprecated since 23
-     * @useinstead ohos.file.fs/fileIo#copy
+     * @useinstead @ohos.file.fs:fileIo.copy(srcUri: string, destUri: string, options: CopyOptions, callback: AsyncCallback<void>)
      */
     copy(sourceUri: string, destUri: string, force: boolean, callback: AsyncCallback<Array<CopyResult>>): void;
 
     /**
-     * copy the file with the specified file name in the promise way.
+     * Copies a file with an alternative file name. This API uses a promise to return the result.
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
-     * @param { string } sourceUri - Indicates the file or directory to be moved.
-     * @param { string } destUri - Represents the destination folder.
-     * @param { string } fileName - Represents the name of the specified file.
-     * @returns { Promise<string> } Returns the generated new file uri.
+     * @param { string } sourceUri - URI of the source file or directory to copy. For example, 
+     *     **file://docs/storage/Users/currentUser/Download/1.txt**.
+     * @param { string } destUri - URI of the destination directory, to which the file or directory is moved. For 
+     *     example, **file://docs/storage/Users/currentUser/Download/test**.
+     * @param { string } fileName - File name to use if there is a file with the same name as the source file in the 
+     *     destination directory.
+     * @returns { Promise<string> } URI of the file generated.
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
+     *     uses system API
      * @throws { BusinessError } 13900001 - Operation not permitted
      * @throws { BusinessError } 13900002 - No such file or directory
      * @throws { BusinessError } 13900004 - Interrupted system call
@@ -1645,20 +1682,24 @@ declare namespace fileAccess {
      * @StageModelOnly
      * @since 11 dynamiconly
      * @deprecated since 23
-     * @useinstead ohos.file.fs/fileIo#copyFile
+     * @useinstead @ohos.file.fs:fileIo.copyFile(src: string | number, dest: string | number, mode?: number)
      */
     copyFile(sourceUri: string, destUri: string, fileName: string): Promise<string>;
 
     /**
-     * copy the file with the specified file name in the asyncCallback way.
+     * Copies a file with an alternative file name. This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
-     * @param { string } sourceUri - Indicates the file or directory to be moved.
-     * @param { string } destUri - Represents the destination folder.
-     * @param { string } fileName - Represents the name of the specified file.
-     * @param { AsyncCallback<string> } callback - Returns the generated new file uri.
+     * @param { string } sourceUri - URI of the source file or directory to copy. For example, 
+     *     **file://docs/storage/Users/currentUser/Download/1.txt**.
+     * @param { string } destUri - URI of the destination directory, to which the file or directory is moved. For 
+     *     example, **file://docs/storage/Users/currentUser/Download/test**.
+     * @param { string } fileName - File name to use if there is a file with the same name as the source file in the 
+     *     destination directory.
+     * @param { AsyncCallback<string> } callback - URI of the file generated.
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
+     *     uses system API
      * @throws { BusinessError } 13900001 - Operation not permitted
      * @throws { BusinessError } 13900002 - No such file or directory
      * @throws { BusinessError } 13900004 - Interrupted system call
@@ -1686,12 +1727,12 @@ declare namespace fileAccess {
      * @StageModelOnly
      * @since 11 dynamiconly
      * @deprecated since 23
-     * @useinstead ohos.file.fs/fileIo#copyFile
+     * @useinstead @ohos.file.fs:fileIo.copyFile(src: string | number, dest: string | number, callback: AsyncCallback<void>)
      */
     copyFile(sourceUri: string, destUri: string, fileName: string, callback: AsyncCallback<string>): void;
 
     /**
-     * Rename the selected file or directory.
+     * Renames a file or directory. This API uses a promise to return the result.
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
      * @param { string } uri Indicates the selected file or directory.
@@ -1735,17 +1776,18 @@ declare namespace fileAccess {
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 23
-     * @useinstead ohos.file.fs/fileIo#rename
+     * @useinstead @ohos.file.fs:fileIo.rename(oldPath: string, newPath: string)
      */
-    rename(uri: string, displayName: string): Promise<string>;
+    rename(uri: string, displayName: string) : Promise<string>;
 
     /**
-     * Rename the selected file or directory.
+     * Renames a file or directory. This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
      * @param { string } uri Indicates the selected file or directory.
      * @param { string } displayName Indicates the new directory or file name.
-     * @param { AsyncCallback<string> } callback - The callback is used to return a URI representing the new file or directory.
+     * @param { AsyncCallback<string> } callback - The callback is used to return a URI representing the new file or
+     *     directory.
      * @throws { BusinessError } 13900001 - Operation not permitted
      * @throws { BusinessError } 13900002 - No such file or directory
      * @throws { BusinessError } 13900004 - Interrupted system call
@@ -1784,12 +1826,12 @@ declare namespace fileAccess {
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 23
-     * @useinstead ohos.file.fs/fileIo#rename
+     * @useinstead @ohos.file.fs:fileIo.rename(oldPath: string, newPath: string, callback: AsyncCallback<void>)
      */
     rename(uri: string, displayName: string, callback: AsyncCallback<string>): void;
 
     /**
-     * Obtain the status of a file or directory.
+     * Checks whether a file or directory exists. This API uses a promise to return the result.
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
      * @param { string } sourceFileUri Indicates the selected file or directory.
@@ -1832,12 +1874,12 @@ declare namespace fileAccess {
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 23
-     * @useinstead ohos.file.fs/fileIo#access
+     * @useinstead @ohos.file.fs:fileIo.access(path: string, mode?: AccessModeType)
      */
-    access(sourceFileUri: string): Promise<boolean>;
+    access(sourceFileUri: string) : Promise<boolean>;
 
     /**
-     * Obtain the status of a file or directory.
+     * Checks whether a file or directory exists. This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
      * @param { string } sourceFileUri Indicates the selected file or directory.
@@ -1880,42 +1922,46 @@ declare namespace fileAccess {
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 23
-     * @useinstead ohos.file.fs/fileIo#access
+     * @useinstead @ohos.file.fs:fileIo.access(path: string, callback: AsyncCallback<boolean>)
      */
     access(sourceFileUri: string, callback: AsyncCallback<boolean>): void;
 
     /**
-     * Query file related information by the uri in the promise way.
+     * Queries the attribute information about a file or directory based on a URI. This API uses a promise to return the
+     * result.
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
-     * @param { string } uri - Indicates the selected file or directory.
-     * @param { string } metaJson The json string includes query property.
-     * @returns { Promise<string> } Returns the json string, includes query property and value.
+     * @param { string } uri - File or directory URI obtained from [FileInfo]{@link fileAccess.FileInfo}.
+     * @param { string } metaJson - Attribute [FILEKEY]{@link fileAccess.FileKey} to query.
+     * @returns { Promise<string> } Promise used to return a JSON string that contains the file attribute and the value 
+     *     obtained.
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @since 10 dynamiconly
      * @deprecated since 23
-     * @useinstead ohos.file.fs/fileIo#stat
+     * @useinstead @ohos.file.fs:fileIo.stat(file: string | number)
      */
-    query(uri: string, metaJson: string): Promise<string>;
+    query(uri: string, metaJson: string) : Promise<string>;
 
     /**
-     * Query file related information by the uri in the asyncCallback way.
+     * Queries the attribute information about a file or directory based on a URI. This API uses an asynchronous 
+     * callback to return the result.
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
-     * @param { string } uri - Indicates the selected file or directory.
-     * @param { string } metaJson The json string includes query property.
-     * @param { AsyncCallback<string> } callback - Returns the json string, includes query property and value.
+     * @param { string } uri - File or directory URI obtained from [FileInfo]{@link fileAccess.FileInfo}.
+     * @param { string } metaJson - Attribute [FILEKEY]{@link fileAccess.FileKey} to query.
+     * @param { AsyncCallback<string> } callback - Callback used to return a JSON string that contains the file 
+     *     attribute and the value obtained.
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @since 10 dynamiconly
      * @deprecated since 23
-     * @useinstead ohos.file.fs/fileIo#stat
+     * @useinstead @ohos.file.fs:fileIo.stat(file: string | number, callback: AsyncCallback<Stat>)
      */
-    query(uri: string, metaJson: string, callback: AsyncCallback<string>): void;
+    query(uri: string, metaJson: string, callback: AsyncCallback<string>) : void;
 
     /**
-     * Get a FileInfo by the uri in the promise way.
+     * Obtains a **FileInfo** object based on a URI. This API uses a promise to return the result.
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
      * @param { string } uri - Indicates the selected file or directory.
@@ -1924,12 +1970,12 @@ declare namespace fileAccess {
      * @systemapi
      * @since 10 dynamiconly
      * @deprecated since 23
-     * @useinstead ohos.file.fs/fileIo#stat
+     * @useinstead @ohos.file.fs:fileIo.stat(file: string | number)
      */
-    getFileInfoFromUri(uri: string): Promise<FileInfo>;
+    getFileInfoFromUri(uri: string) : Promise<FileInfo>;
 
     /**
-     * Get a FileInfo by the uri in the asyncCallback way.
+     * Obtains a **FileInfo** object based on a URI. This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
      * @param { string } uri - Indicates the selected file or directory.
@@ -1938,12 +1984,12 @@ declare namespace fileAccess {
      * @systemapi
      * @since 10 dynamiconly
      * @deprecated since 23
-     * @useinstead ohos.file.fs/fileIo#stat
+     * @useinstead @ohos.file.fs:fileIo.stat(file: string | number, callback: AsyncCallback<Stat>)
      */
-    getFileInfoFromUri(uri: string, callback: AsyncCallback<FileInfo>): void;
+    getFileInfoFromUri(uri: string, callback: AsyncCallback<FileInfo>) : void;
 
     /**
-     * Get a FileInfo by the relative path in the promise way.
+     * Obtains a **FileInfo** object based on a relative path. This API uses a promise to return the result.
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
      * @param { string } relativePath - Indicates the selected file or directory.
@@ -1952,12 +1998,13 @@ declare namespace fileAccess {
      * @systemapi
      * @since 10 dynamiconly
      * @deprecated since 23
-     * @useinstead ohos.file.fs/fileIo#stat
+     * @useinstead @ohos.file.fs:fileIo.stat(file: string | number)
      */
-    getFileInfoFromRelativePath(relativePath: string): Promise<FileInfo>;
+    getFileInfoFromRelativePath(relativePath: string) : Promise<FileInfo>;
 
     /**
-     * Get a FileInfo by the relative path in the asyncCallback way.
+     * Obtains a **FileInfo** object based on a relative path. This API uses an asynchronous callback to return the 
+     * result.
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
      * @param { string } relativePath - Indicates the selected file or directory.
@@ -1966,12 +2013,15 @@ declare namespace fileAccess {
      * @systemapi
      * @since 10 dynamiconly
      * @deprecated since 23
-     * @useinstead ohos.file.fs/fileIo#stat
+     * @useinstead @ohos.file.fs:fileIo.stat(file: string | number, callback: AsyncCallback<Stat>)
      */
-    getFileInfoFromRelativePath(relativePath: string, callback: AsyncCallback<FileInfo>): void;
+    getFileInfoFromRelativePath(relativePath: string, callback: AsyncCallback<FileInfo>) : void;
 
     /**
-     * Get a RootIterator.
+     * Obtains information about the device root nodes of the file management services associated with the **Helper** 
+     * object.  
+     * This API uses a promise to return a **RootIterator** object. You can use 
+     * [next]{@link fileAccess.FileIterator.next} to return [RootInfo]{@link fileAccess.RootInfo}.
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
      * @returns { Promise<RootIterator> } Returns a RootIterator.
@@ -2017,7 +2067,10 @@ declare namespace fileAccess {
     getRoots(): Promise<RootIterator>;
 
     /**
-     * Get a RootIterator.
+     * Obtains information about the device root nodes of the file management services associated with the **Helper** 
+     * object.  
+     * This API uses an asynchronous callback to return a **RootIterator** object. You can use 
+     * [next]{@link fileAccess.FileIterator.next} to return [RootInfo]{@link fileAccess.RootInfo}.
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
      * @param { AsyncCallback<RootIterator> } callback - The callback is used to return a RootIterator.
@@ -2063,27 +2116,30 @@ declare namespace fileAccess {
     getRoots(callback: AsyncCallback<RootIterator>): void;
 
     /**
-     * Turn on monitor the specified uri.
+     * Registers a callback to listen for a URI. URIs and callbacks can be in many-to-many relationships. You are 
+     * advised to use one callback to listen for one URI.
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
-     * @param { string } uri - Indicates the file or directory to be monitored.
-     * @param { boolean } notifyForDescendants - Indicates Whether to monitor changes in descendants.
-     * @param { Callback<NotifyMessage> } callback - The callback is used to return the notify message.
+     * @param { string } uri - URI of the file or directory.
+     * @param { boolean } notifyForDescendants - Whether to observe changes of the files in the directory. The value 
+     *     **true** means to observe changes of the files in the directory; the value **false** means the opposite.
+     * @param { Callback<NotifyMessage> } callback - Callback invoked to return the notification.
      * @throws { BusinessError } 14300002 - Invalid uri
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @since 10 dynamiconly
      * @deprecated since 23
-     * @useinstead ohos.file.fs/fileIo#createWtcher
+     * @useinstead @ohos.file.fs:fileIo.createWatcher
      */
     registerObserver(uri: string, notifyForDescendants: boolean, callback: Callback<NotifyMessage>): void;
 
     /**
-     * Turn off monitor the specified uri.
+     * Unregisters a callback that is used to listen for the specified URI.
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
-     * @param { string } uri - Indicates the file or directory the file that will cancel monitored.
-     * @param { Callback<NotifyMessage> } callback - The object bound to the uri.
+     * @param { string } uri - URI of the file or directory.
+     * @param { Callback<NotifyMessage> } callback - Callback to unregister. If this parameter is not specified, all 
+     *     callbacks of the specified URI will be unregistered.
      * @throws { BusinessError } 14300002 - Invalid uri
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
@@ -2093,15 +2149,20 @@ declare namespace fileAccess {
     unregisterObserver(uri: string, callback?: Callback<NotifyMessage>): void;
 
     /**
-     * Move file or directory in the promise way, And return the MoveResult.
+     * Moves a file or directory. This API uses a promise to return the result.
+     * You can forcibly overwrite the file with the same name in the destination directory.
+     * Currently, this API does not support move of files or directories across devices.
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
-     * @param { string } sourceUri - Indicates the file or directory to be moved.
-     * @param { string } destUri - Represents the destination directory.
-     * @param { boolean } [force] - Optional parameter that determines whether to forcibly move files.
-     * @returns { Promise<Array<MoveResult>> } Returns the file information where the error occurred.
+     * @param { string } sourceUri - URI of the source file or directory to move.
+     * @param { string } destUri - URI of the destination directory, to which the file or directory is moved.
+     * @param { boolean } [force] - Whether to forcibly overwrite the file with the same name. The value **true** means 
+     *     to overwrite the file forcibly; the value **false** means the opposite. The default value is **false**.
+     * @returns { Promise<Array<MoveResult>> } Promise used to return the result. If the operation is successful, no 
+     *     information is returned. If the operation fails, a **MoveResult** array is returned.
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
+     *     uses system API.
      * @throws { BusinessError } 13900001 - Operation not permitted
      * @throws { BusinessError } 13900002 - No such file or directory
      * @throws { BusinessError } 13900004 - Interrupted system call
@@ -2129,19 +2190,22 @@ declare namespace fileAccess {
      * @StageModelOnly
      * @since 11 dynamiconly
      * @deprecated since 23
-     * @useinstead ohos.file.fs/fileIo#moveFile
+     * @useinstead @ohos.file.fs:fileIo.moveFile(src: string, dest: string, mode?: number)
      */
     moveItem(sourceUri: string, destUri: string, force?: boolean): Promise<Array<MoveResult>>;
 
     /**
-     * Move file or directory in the asyncCallback way, and return the MoveResult.
+     * Moves a file or directory. This API uses an asynchronous callback to return the result.
+     * Currently, this API does not support move of files or directories across devices.
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
-     * @param { string } sourceUri - Indicates the file or directory to be moved.
-     * @param { string } destUri - Represents the destination directory.
-     * @param { AsyncCallback<Array<MoveResult>> } callback - The callback is used to return the file information where the error occurred.
+     * @param { string } sourceUri - URI of the source file or directory to move.
+     * @param { string } destUri - URI of the destination directory, to which the file or directory is moved.
+     * @param { AsyncCallback<Array<MoveResult>> } callback - Callback invoked to return the result. If the operation is
+     *     successful, no information is returned. If the operation fails, a **MoveResult** array is returned.
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
+     *     uses system API.
      * @throws { BusinessError } 13900001 - Operation not permitted
      * @throws { BusinessError } 13900002 - No such file or directory
      * @throws { BusinessError } 13900004 - Interrupted system call
@@ -2169,20 +2233,25 @@ declare namespace fileAccess {
      * @StageModelOnly
      * @since 11 dynamiconly
      * @deprecated since 23
-     * @useinstead ohos.file.fs/fileIo#moveFile
+     * @useinstead @ohos.file.fs:fileIo.moveFile(src: string, dest: string, callback: AsyncCallback<void>)
      */
     moveItem(sourceUri: string, destUri: string, callback: AsyncCallback<Array<MoveResult>>): void;
 
     /**
-     * Move file or directory in the asyncCallback way, and return the MoveResult.
+     * Moves a file or directory. This API uses an asynchronous callback to return the result.
+     * You can forcibly overwrite the file with the same name in the destination directory.
+     * Currently, this API does not support move of files or directories across devices.
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
-     * @param { string } sourceUri - Indicates the file or directory to be moved.
-     * @param { string } destUri - Represents the destination directory.
-     * @param { boolean } force - Determines whether to forcibly move files.
-     * @param { AsyncCallback<Array<MoveResult>> } callback - The callback is used to return the file information where the error occurred.
+     * @param { string } sourceUri - URI of the source file or directory to move.
+     * @param { string } destUri - URI of the destination directory, to which the file or directory is moved.
+     * @param { boolean } force - Whether to forcibly overwrite the file with the same name. The value **true** means to
+     *     overwrite the file forcibly; the value **false** means the opposite. The default value is **false**.
+     * @param { AsyncCallback<Array<MoveResult>> } callback - Callback invoked to return the result. If the operation is
+     *     successful, no information is returned. If the operation fails, a **MoveResult** array is returned.
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
+     *     uses system API.
      * @throws { BusinessError } 13900001 - Operation not permitted
      * @throws { BusinessError } 13900002 - No such file or directory
      * @throws { BusinessError } 13900004 - Interrupted system call
@@ -2210,20 +2279,25 @@ declare namespace fileAccess {
      * @StageModelOnly
      * @since 11 dynamiconly
      * @deprecated since 23
-     * @useinstead ohos.file.fs/fileIo#moveFile
+     * @useinstead @ohos.file.fs:fileIo.moveFile(src: string, dest: string, mode: number, callback: AsyncCallback<void>)
      */
     moveItem(sourceUri: string, destUri: string, force: boolean, callback: AsyncCallback<Array<MoveResult>>): void;
 
     /**
-     * Move the file with the specified file name in the promise way.
+     * Moves a file, and renames it if a file with the same name already exists in the destination directory. This API 
+     * uses a promise to return the result.
+     * If a file with the same name exists (that is, a file moving conflict occurs), you can rename the file to be moved
+     * and save it to the destination directory.
+     * Currently, this API does not support move of files across devices.
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
-     * @param { string } sourceUri - Indicates the file or directory to be moved.
-     * @param { string } destUri - Represents the destination folder.
-     * @param { string } fileName - Represents the name of the specified file.
-     * @returns { Promise<string> } Returns the generated new file uri.
+     * @param { string } sourceUri - URI of the source file to move.
+     * @param { string } destUri - URI of the destination directory, to which the file is moved.
+     * @param { string } fileName - New name of the file.
+     * @returns { Promise<string> } Promise used to return the URI of the file in the destination directory.
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
+     *     uses system API.
      * @throws { BusinessError } 13900001 - Operation not permitted
      * @throws { BusinessError } 13900002 - No such file or directory
      * @throws { BusinessError } 13900004 - Interrupted system call
@@ -2251,20 +2325,26 @@ declare namespace fileAccess {
      * @StageModelOnly
      * @since 11 dynamiconly
      * @deprecated since 23
-     * @useinstead ohos.file.fs/fileIo#moveFile
+     * @useinstead @ohos.file.fs:fileIo.moveFile(src: string, dest: string, mode?: number)
      */
     moveFile(sourceUri: string, destUri: string, fileName: string): Promise<string>;
 
     /**
-     * Move the file with the specified file name in the asyncCallback way.
+     * Moves a file, and renames it if a file with the same name already exists in the destination directory. This API 
+     * uses an asynchronous callback to return the result.
+     * If a file with the same name exists (that is, a file moving conflict occurs), you can rename the file to be moved
+     * and save it to the destination directory.
+     * Currently, this API does not support move of files across devices.
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
-     * @param { string } sourceUri - Indicates the file or directory to be moved.
-     * @param { string } destUri - Represents the destination folder.
-     * @param { string } fileName - Represents the name of the specified file.
-     * @param { AsyncCallback<string> } callback - The callback is used to return the generated new file uri.
+     * @param { string } sourceUri - URI of the source file to move.
+     * @param { string } destUri - URI of the destination directory, to which the file is moved.
+     * @param { string } fileName - New name of the file.
+     * @param { AsyncCallback<string> } callback - Callback invoked to return the URI of the file in the destination 
+     *     directory.
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
+     *     uses system API.
      * @throws { BusinessError } 13900001 - Operation not permitted
      * @throws { BusinessError } 13900002 - No such file or directory
      * @throws { BusinessError } 13900004 - Interrupted system call
@@ -2292,7 +2372,7 @@ declare namespace fileAccess {
      * @StageModelOnly
      * @since 11 dynamiconly
      * @deprecated since 23
-     * @useinstead ohos.file.fs/fileIo#moveFile
+     * @useinstead @ohos.file.fs:fileIo.moveFile(src: string, dest: string, mode: number, callback: AsyncCallback<void>)
      */
     moveFile(sourceUri: string, destUri: string, fileName: string, callback: AsyncCallback<string>): void;
   }

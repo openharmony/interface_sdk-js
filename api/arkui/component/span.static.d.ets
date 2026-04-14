@@ -24,6 +24,8 @@ import { Resource } from './../../../api/global/resource';
 import { FontStyle, FontWeight, TextCase } from "./enums";
 import { DecorationStyleInterface } from "./styledString";
 import { ComponentBuilder, CustomBuilder } from './builder';
+import { FontConfigs, FontWeightConfigs, FontVariation } from "./textCommon"
+
 /**
  * Define the background style of span.
  *
@@ -93,7 +95,17 @@ export declare interface SpanAttribute {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
      */
-    default font(value: Font | undefined): this;
+    /**
+     * Used to set the font of span.
+     *
+     * @param { Font | undefined } value - the span font size, font weight, font family and font style.
+     * @param { FontConfigs } [fontConfigs] - the configuration of font.
+     * @returns { SpanAttribute } The attribute of the span.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 24 static
+     */
+    default font(value: Font | undefined, fontConfigs?: FontConfigs): this;
     /**
      * Called when the font color is set.
      *
@@ -130,7 +142,17 @@ export declare interface SpanAttribute {
      * @stagemodelonly
      * @since 23 static
      */
-    default fontWeight(value: int | FontWeight | ResourceStr | undefined): this;
+    /**
+     * Used to set the font weight of span.
+     *
+     * @param { int | FontWeight | ResourceStr | undefined } weight - the span font weight.
+     * @param { FontWeightConfigs } [fontWeightConfigs] - the configuration of font weight.
+     * @returns { SpanAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 24 static
+     */
+    default fontWeight(weight: int | FontWeight | ResourceStr | undefined, fontWeightConfigs?: FontWeightConfigs): this;
     /**
      * Called when the font list of text is set.
      *
@@ -261,6 +283,16 @@ export declare interface SpanAttribute {
      */
     default onHover(event: HoverCallback | undefined): this;
     /**
+     * Set the font variation.
+     *
+     * @param { Array<FontVariation> | undefined } fontVariations - Indicates the span font variation.
+     * @returns { SpanAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default fontVariations(fontVariations: Array<FontVariation> | undefined): this;
+    /**
      * Sets the attribute modifier.
      *
      * @param { AttributeModifier<SpanAttribute> | undefined } modifier - The instance of span modifier.
@@ -270,6 +302,16 @@ export declare interface SpanAttribute {
      * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<SpanAttribute> | undefined): this;
+    /**
+     * Set the component's source code redirection information. 
+     * @param { string } sourceLine - the source code line.
+     * @param { string } [moduleName] - module to which the component belongs.
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 24 staticonly
+     */
+    default debugLine(sourceLine: string, moduleName?: string): this;
 }
 
 /**

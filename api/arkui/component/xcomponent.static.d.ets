@@ -20,7 +20,7 @@ import { ImageAIOptions, ImageAnalyzerConfig } from "./imageCommon";
 import { CommonMethod, AttributeModifier, Callback } from "./common";
 import { XComponentType } from "./enums";
 import { VoidCallback, DrawingCanvas } from "./units";
-import { ComponentBuilder, CustomBuilder } from './builder';
+import { ComponentBuilder } from './builder';
 
 /**
  * Surface Rectangle information.
@@ -111,6 +111,41 @@ export declare interface SurfaceConfig {
     * @since 23 static
     */
     isOpaque?: boolean;
+}
+
+/**
+ * Sets the HDR type of the XComponent.
+ *
+ * @enum { int }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 24 static
+ */
+export declare enum HdrType {
+  /**
+   * Default type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  DEFAULT = 0,
+  /**
+   * AIHDR type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  AIHDR = 1,
+  /**
+   * EDR type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  EDR = 2
 }
 
 /**
@@ -375,6 +410,17 @@ export declare interface XComponentAttribute extends CommonMethod {
      */
     default hdrBrightness(brightness: double | undefined): this;
     /**
+     * Set hdrBrightness for XComponent.
+     *
+     * @param { double | undefined } brightness - control the brightness of HDR video
+     * @param { HdrType } [type] - the HDR type of the XComponent
+     * @returns { XComponentAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 24 static
+     */
+    default hdrBrightness(brightness: double | undefined, type?: HdrType): this;
+    /**
      * Call attributeModifier.
      *
      * @param { AttributeModifier<XComponentAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
@@ -430,15 +476,15 @@ export declare interface XComponentParameters {
 /**
  * XComponent is returned when the parameter is transferred.
  *
- * @param { XComponentParameters | XComponentOptions | NativeXComponentParameters } params -
- *     The options to create an XComponent
- * @param { CustomBuilder } [content_]
+ * @param { XComponentParameters | XComponentOptions | NativeXComponentParameters } params - The 
+ *     options to create an XComponent
  * @returns { XComponentAttribute } The attribute of the XComponent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
+ * @noninterop
  */
 @ComponentBuilder
 export declare function XComponent(
-    params: XComponentParameters | XComponentOptions | NativeXComponentParameters, 
-    content_?: CustomBuilder,
+    params: XComponentParameters | XComponentOptions | NativeXComponentParameters,
 ): XComponentAttribute

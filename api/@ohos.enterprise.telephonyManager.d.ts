@@ -75,7 +75,7 @@ declare namespace telephonyManager {
    *                         The admin must have the corresponding permission.
    * @param { number } slotId - Indicates the card slot index number,
    *                         ranging from {@code 0} to the maximum card slot index number supported by the device.
-   * @returns { boolean } the result of sim slot policy, ture means slotid is disableed.
+   * @returns { boolean } the result of sim slot policy, true means slotId is disabled.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
@@ -170,7 +170,7 @@ declare namespace telephonyManager {
   function addIncomingCallPolicyNumbers(admin: Want, policy: adminManager.Policy, numbers: Array<string>): void;
   
   /**
-  * Remove phone number from incoming call pplicy number list.
+  * Remove phone number from incoming call policy number list.
   * This function can be called by a super administrator.
   *
   * @permission ohos.permission.ENTERPRISE_MANAGE_TELEPHONY
@@ -226,6 +226,94 @@ declare namespace telephonyManager {
    * @since 23
    */
   function hangupCalling(admin: Want): void;
+
+  /**
+  * Actives the sim card.
+  *
+  * @permission ohos.permission.ENTERPRISE_MANAGE_TELEPHONY
+  * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+  *                         The admin must have the corresponding permission.
+  * @param { number } slotId - Indicates the card slot index number,
+  *                         ranging from {@code 0} to the maximum card slot index number supported by the device.
+  * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+  * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+  * @throws { BusinessError } 9200012 - Parameter verification failed.
+  * @throws { BusinessError } 9201017 - SIM card activation or deactivation failed.
+  * @throws { BusinessError } 201 - Permission verification failed.
+  *     The application does not have the permission required to call the API.
+  * @throws { BusinessError } 203 - This function is prohibited by enterprise management policies.
+  * @throws { BusinessError } 801 - Capability not supported.
+  *     Failed to call the API due to limited device capabilities.
+  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+  * @stagemodelonly
+  * @since 26.0.0
+  */
+  function activeSim(admin: Want, slotId: number): void;
+
+  /**
+  * Deactives the sim card.
+  *
+  * @permission ohos.permission.ENTERPRISE_MANAGE_TELEPHONY
+  * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+  *                         The admin must have the corresponding permission.
+  * @param { number } slotId - Indicates the card slot index number,
+  *                         ranging from {@code 0} to the maximum card slot index number supported by the device.
+  * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+  * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+  * @throws { BusinessError } 9200012 - Parameter verification failed.
+  * @throws { BusinessError } 9201017 - SIM card activation or deactivation failed.
+  * @throws { BusinessError } 201 - Permission verification failed.
+  *     The application does not have the permission required to call the API.
+  * @throws { BusinessError } 203 - This function is prohibited by enterprise management policies.
+  * @throws { BusinessError } 801 - Capability not supported.
+  *     Failed to call the API due to limited device capabilities.
+  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+  * @stagemodelonly
+  * @since 26.0.0
+  */
+  function deactiveSim(admin: Want, slotId: number): void;
+
+  /**
+  * Sets the default data traffic card.
+  *
+  * @permission ohos.permission.ENTERPRISE_MANAGE_TELEPHONY
+  * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+  *                         The admin must have the corresponding permission.
+  * @param { number } slotId - Indicates the card slot index number.
+  *                         ranges from {@code 0} to the maximum card slot index number supported by the device.
+  * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+  * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+  * @throws { BusinessError } 9200012 - Parameter verification failed.
+  * @throws { BusinessError } 201 - Permission verification failed.
+  *     The application does not have the permission required to call the API.
+  * @throws { BusinessError } 203 - This function is prohibited by enterprise management policies.
+  * @throws { BusinessError } 801 - Capability not supported.
+  *     Failed to call the API due to limited device capabilities.
+  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+  * @stagemodelonly
+  * @since 26.0.0
+  */
+  function setDefaultData(admin: Want, slotId: number): void;
+
+  /**
+  * Gets the default data traffic card.
+  *
+  * @permission ohos.permission.ENTERPRISE_MANAGE_TELEPHONY
+  * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+  *                         The admin must have the corresponding permission.
+  * @returns { number } Returns the slot ID of the SIM card.
+  * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+  * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+  * @throws { BusinessError } 201 - Permission verification failed.
+  *     The application does not have the permission required to call the API.
+  * @throws { BusinessError } 203 - This function is prohibited by enterprise management policies.
+  * @throws { BusinessError } 801 - Capability not supported.
+  *     Failed to call the API due to limited device capabilities.
+  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+  * @stagemodelonly
+  * @since 26.0.0
+  */
+  function getDefaultData(admin: Want): number;
 }
 
 export default telephonyManager;

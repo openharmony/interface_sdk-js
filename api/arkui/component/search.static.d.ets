@@ -632,6 +632,16 @@ export declare interface SearchAttribute extends CommonMethod {
      */
     default onCopy(callback: Callback<string> | undefined): this;
     /**
+     * Called before using the Clipboard copy menu.
+     *
+     * @param { Callback<string, boolean> | undefined } callback - Callback used to check whether copy is allowed.
+     * @returns { SearchAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default onWillCopy(callback: Callback<string, boolean> | undefined): this;
+    /**
      * Called when using the Clipboard menu.
      *
      * Anonymous Object Rectification.
@@ -641,6 +651,16 @@ export declare interface SearchAttribute extends CommonMethod {
      * @since 23 static
      */
     default onCut(callback: Callback<string> | undefined): this;
+    /**
+     * Called before using the Clipboard cut menu.
+     *
+     * @param { Callback<string, boolean> | undefined } callback - Callback used to check whether cut is allowed.
+     * @returns { SearchAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default onWillCut(callback: Callback<string, boolean> | undefined): this;
     /**
      * Called when using the Clipboard menu.
      *

@@ -69,7 +69,8 @@ declare namespace privacyManager {
    *     "ohos.permission.PERMISSION_USED_STATS".
    * @throws { BusinessError } 202 - Not system app. Interface caller is not a system app.
    * @throws { BusinessError } 12100001 - Invalid parameter. The tokenID is 0, the permissionName exceeds
-   *     256 characters, the count value is invalid, or usedType in AddPermissionUsedRecordOptions is invalid.
+   *     256 characters, the count value is invalid, usedType in AddPermissionUsedRecordOptions is invalid,
+   *     or the enhancedIdentity in AddPermissionUsedRecordOptions exceeds 48 characters.
    * @throws { BusinessError } 12100002 - The specified tokenID does not exist or refer to an application process.
    * @throws { BusinessError } 12100003 - The specified permission does not exist or is not a user_grant permission.
    * @throws { BusinessError } 12100007 - The service is abnormal.
@@ -219,6 +220,41 @@ declare namespace privacyManager {
   ): Promise<void>;
 
   /**
+   * Starts using a sensitive permission.
+   *
+   * @permission ohos.permission.PERMISSION_USED_STATS
+   * @param { int } tokenID - Token ID of the application.
+   * @param { Permissions } permissionName - Name of the permission to start.
+   * @param { int } [pid] - PID of the application. The default value is -1.
+   * @param { PermissionUsedType } [usedType] - Usage type of the access permission. The default value is
+   *     NORMAL_TYPE.
+   * @param { PermissionUsingOptions } [options] - Options for permission usage.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission
+   *     "ohos.permission.PERMISSION_USED_STATS".
+   * @throws { BusinessError } 202 - Not system app. Interface caller is not a system app.
+   * @throws { BusinessError } 12100001 - Invalid parameter. The tokenID is 0, the permissionName exceeds
+   *     256 characters, the type of the specified tokenID is not of the application type, usedType is invalid,
+   *     or the enhancedIdentity in PermissionUsingOptions exceeds 48 characters.
+   * @throws { BusinessError } 12100003 - The specified permission does not exist or is not a user_grant permission.
+   * @throws { BusinessError } 12100004 - The API is used repeatedly with the same input.
+   *     It means the application specified by the tokenID has been using the specified permission.
+   * @throws { BusinessError } 12100007 - The service is abnormal.
+   * @throws { BusinessError } 12100008 - Out of memory.
+   * @syscap SystemCapability.Security.AccessToken
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function startUsingPermission(
+    tokenID: int,
+    permissionName: Permissions,
+    pid?: int,
+    usedType?: PermissionUsedType,
+    options?: PermissionUsingOptions
+  ): Promise<void>;
+
+  /**
    * Start using sensitive permission.
    *
    * @permission ohos.permission.PERMISSION_USED_STATS
@@ -315,6 +351,37 @@ declare namespace privacyManager {
    * @since 23 static
    */
   function stopUsingPermission(tokenID: int, permissionName: Permissions, callback: AsyncCallback<void>): void;
+
+  /**
+   * Stops using a sensitive permission.
+   *
+   * @permission ohos.permission.PERMISSION_USED_STATS
+   * @param { int } tokenID - Token ID of the application.
+   * @param { Permissions } permissionName - Name of the permission to stop.
+   * @param { int } [pid] - PID of the application. The default value is -1.
+   * @param { PermissionUsingOptions } [options] - Options for permission usage.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission
+   *     "ohos.permission.PERMISSION_USED_STATS".
+   * @throws { BusinessError } 202 - Not system app. Interface caller is not a system app.
+   * @throws { BusinessError } 12100001 - Invalid parameter. The tokenID is 0, the permissionName exceeds
+   *     256 characters, the type of the specified tokenID is not of the application type, or the enhancedIdentity
+   *     in PermissionUsingOptions exceeds 48 characters.
+   * @throws { BusinessError } 12100003 - The specified permission does not exist or is not a user_grant permission.
+   * @throws { BusinessError } 12100004 - The API is not used in pair with 'startUsingPermission'.
+   * @throws { BusinessError } 12100007 - The service is abnormal.
+   * @throws { BusinessError } 12100008 - Out of memory.
+   * @syscap SystemCapability.Security.AccessToken
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function stopUsingPermission(
+    tokenID: int,
+    permissionName: Permissions,
+    pid?: int,
+    options?: PermissionUsingOptions
+  ): Promise<void>;
 
   /**
    * Subscribes to the change of active state of the specified permission.
@@ -491,6 +558,25 @@ declare namespace privacyManager {
   function getPermissionUsedRecordToggleStatus(): Promise<boolean>;
 
   /**
+   * Checks whether the specified permission is in use.
+   *
+   * @permission ohos.permission.PERMISSION_USED_STATS
+   * @param { Permissions } permissionName - Name of the permission to be queried.
+   * @returns { boolean } Returns true if the permission is in use; returns false otherwise.
+   * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission
+   *     "ohos.permission.PERMISSION_USED_STATS".
+   * @throws { BusinessError } 202 - Not system application. Interface caller is not a system application.
+   * @throws { BusinessError } 12100001 - Invalid parameter. The permissionName is empty or exceeds 256 characters.
+   * @throws { BusinessError } 12100003 - The specified permission does not exist or is not a user_grant permission.
+   * @throws { BusinessError } 12100007 - The service is abnormal.
+   * @syscap SystemCapability.Security.AccessToken
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function checkPermissionInUse(permissionName: Permissions): boolean;
+
+  /**
    * Enum for permission for status.
    *
    * @enum { int } PermissionActiveStatus
@@ -606,6 +692,16 @@ declare namespace privacyManager {
      * @since 23 static
      */
     usedType?: PermissionUsedType;
+
+    /**
+     * Enhanced identity.
+     *
+     * @syscap SystemCapability.Security.AccessToken
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    enhancedIdentity?: string;
   }
 
   /**
@@ -828,6 +924,16 @@ declare namespace privacyManager {
     deviceId: string;
 
     /**
+     * The device name
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Security.AccessToken
+     * @systemapi
+     * @since 24 dynamic&static
+     */
+    deviceName?: string;
+
+    /**
      * The bundle name
      *
      * @type { string }
@@ -947,6 +1053,16 @@ declare namespace privacyManager {
      * @since 23 static
      */
     rejectRecords: Array<UsedRecordDetail>;
+
+    /**
+     * Enhanced identity.
+     *
+     * @syscap SystemCapability.Security.AccessToken
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    enhancedIdentity?: string;
   }
 
   /**
@@ -1131,6 +1247,36 @@ declare namespace privacyManager {
      * @since 23 static
      */
     usedType?: PermissionUsedType;
+
+    /**
+     * Enhanced identity.
+     *
+     * @syscap SystemCapability.Security.AccessToken
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    enhancedIdentity?: string;
+  }
+
+  /**
+   * Options for permission usage.
+   *
+   * @syscap SystemCapability.Security.AccessToken
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface PermissionUsingOptions {
+    /**
+     * Enhanced identity.
+     *
+     * @syscap SystemCapability.Security.AccessToken
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    enhancedIdentity?: string;
   }
 }
 

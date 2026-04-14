@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -21,20 +21,25 @@
  *
  * @enum { number }
  * @syscap SystemCapability.Ability.AbilityRuntime.Core.dynamic
+ * use multiple description syscap
  * @since 20
  */
 export enum ErrorCode {
+    // test[dynamiconly]
     /**
      * Permission denied.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core.dynamic
+     * use multiple description syscap
      * @since 20
      */
     PERMISSION_DENY = -3,
+    // test[staticonly]
     /**
      * Ability not found.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core.dynamic
+     * use multiple description syscap
      * @since 20
      */
     ABILITY_NOT_FOUND = -2,
@@ -42,6 +47,7 @@ export enum ErrorCode {
      * Invalid parameter.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core.dynamic
+     * use multiple description syscap
      * @since 20
      */
     INVALID_PARAMETER = -1,
@@ -49,6 +55,7 @@ export enum ErrorCode {
      * No error.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core.dynamic
+     * use multiple description syscap
      * @since 20
      */
     NO_ERROR = 0

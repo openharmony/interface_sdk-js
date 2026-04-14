@@ -21,7 +21,7 @@
 /*** if arkts static */
 import { ResourceStr } from '@ohos.arkui.component';
 /*** endif */
-import { Shader, MaterialType, Material, Animation, Environment, Image, MeshResource, Sampler, SceneResource, Effect } from './SceneResources';
+import { Shader, MaterialType, Material, Animation, Environment, Image, MeshResource, Sampler, SceneResource, Effect, ImageStream } from './SceneResources';
 import { Camera, LightType, Light, Node, NodeType, Geometry } from './SceneNodes';
 import { Position3, Color, GeometryDefinition, RenderingPipelineType, Vec2, Vec3, Vec4 } from './SceneTypes';
 
@@ -105,7 +105,7 @@ export interface RaycastResult {
   node: Node;
 
   /**
-   * The distance to the center of the axis-aligned bounding box.
+   * The distance to the center of the axis-aligned bounding box, the unit is the scene unit in the world coordinate system (e.g., cm, m, km).
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -115,7 +115,7 @@ export interface RaycastResult {
   centerDistance: double;
 
   /**
-   * The position of the hit in world coordinates.
+   * The position of the hit in world coordinates, the unit is the scene unit in the world coordinate system (e.g., cm, m, km).
    *
    * @type { Position3 }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -168,15 +168,27 @@ export interface RenderResourceFactory {
   createShader(params: SceneResourceParameters): Promise<Shader>;
 
   /**
-    * Create a image.
+    * Create an image.
     *
-    * @param { SceneResourceParameters } params - the param of creating a image
-    * @returns { Promise<Image> } promise a image
+    * @param { SceneResourceParameters } params - the param of creating an image
+    * @returns { Promise<Image> } promise an image
     * @syscap SystemCapability.ArkUi.Graphics3D
     * @since 20 dynamic
     * @since 23 static
     */
   createImage(params: SceneResourceParameters): Promise<Image>;
+
+  /**
+    * Create an image stream.
+    *
+    * @param { SceneResourceParameters } params - the param of creating a image stream
+    *     Create a stream image
+    * @returns { Promise<ImageStream> } promise an image stream
+    * @syscap SystemCapability.ArkUi.Graphics3D
+    * @stagemodelonly
+    * @since 26.0.0 dynamic&static
+    */
+    createImageStream(params: SceneResourceParameters): Promise<ImageStream>;
 
   /**
    * Create a Mesh from an array of vertices.
@@ -191,10 +203,10 @@ export interface RenderResourceFactory {
   createMesh(params: SceneResourceParameters, geometry: GeometryDefinition): Promise<MeshResource>;
 
   /**
-   * create a Sampler
+   * Create a Sampler.
    * 
    * @param { SceneResourceParameters } params - the param of create a sampler
-   * @returns { Promise<Sampler> } - promise a scene
+   * @returns { Promise<Sampler> } - promise a sampler
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
    * @since 23 static
@@ -335,10 +347,10 @@ export interface SceneResourceFactory extends RenderResourceFactory {
   createMaterial(params: SceneResourceParameters, materialType: MaterialType): Promise<Material>;
 
   /**
-   * Create a environment.
+   * Create an environment.
    *
-   * @param { SceneResourceParameters } params - the param of creating a Environment object
-   * @returns { Promise<Environment> } promise a Environment
+   * @param { SceneResourceParameters } params - the param of creating an environment object
+   * @returns { Promise<Environment> } promise an environment
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
    * @since 23 static
@@ -457,7 +469,7 @@ export interface RenderConfiguration {
   /**
    * resolution for single shadow map buffer, undefined by default,
    *  which means we use (1024, 1024) as the resolution of a single shadow map.
-   * You need to provide the same x and y value to get the right shadow effect
+   * You need to provide the same x and y value to get the right shadow effect, the unit is pixel.
    *
    * @type { ?Vec2 }
    * @default { 1024, 1024 }

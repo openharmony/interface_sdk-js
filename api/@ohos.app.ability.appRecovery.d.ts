@@ -110,6 +110,16 @@ declare namespace appRecovery {
     RESTART_WHEN_APP_FREEZE = 0x0002,
 
     /**
+     * Restart if the current app process encounters a cppcrash
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    RESTART_WHEN_CPP_CRASH = 0x0004,
+
+    /**
      * Do not restart in any scenario.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core

@@ -3676,7 +3676,7 @@ declare interface ChainWeightOptions {
  */
 declare interface AccessibilityOptions {
   /**
-   * accessibilityPreferred - Should accessibilityText be prioritized when contatenating child component strings.
+   * accessibilityPreferred - Should accessibilityText be prioritized when concatenating child component strings.
    *
    * @type { ?(boolean) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -3822,6 +3822,38 @@ declare interface CacheCountInfo {
    * @since 22 dynamic
    */
   maxCount: number;
+}
+
+/**
+ * Describes a two-dimension coordinate.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare interface Coordinate2D {
+  /**
+   * Horizontal coordinate.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  x: double;
+  /**
+   * Vertical coordinate.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  y: double;
 }
 
 /**
