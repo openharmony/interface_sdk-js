@@ -3610,7 +3610,15 @@ declare namespace photoAccessHelper {
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    HIDDEN_TIME = 'hidden_time'
+    HIDDEN_TIME = 'hidden_time',
+    /**
+     * Size of local asset, which well matched the content read by the application.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    LOCAL_ASSET_SIZE = 'local_asset_size'
   }
 
   /**
