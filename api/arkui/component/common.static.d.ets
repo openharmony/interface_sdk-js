@@ -13841,6 +13841,15 @@ export declare interface CommonMethod {
      * @since 26.0.0 static
      */
     default smartGestureShortcut(options?: SmartGestureShortcutOptions): this;
+    /**
+      * Set the component's inspector label which only display on DevEco Studio.
+      * @param { string | undefined } label - the inspector label.
+      * @returns { this }
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @stagemodelonly
+      * @since 26.0.0 static
+      */
+    default inspectorLabel(label: string | undefined): this;
 }
 /**
  * CommonAttribute for ide.
