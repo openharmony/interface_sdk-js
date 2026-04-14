@@ -18,7 +18,7 @@
  * @kit ArkUI
  */
 import { Resource } from '../../global/resource';
-import { ResourceColor } from "./units";
+import { ResourceColor, ColorMetrics } from "./units";
 import { FontWeight } from "./enums";
 import { CommonMethod, AttributeModifier, ShadowOptions } from "./common";
 import { ComponentBuilder, CustomBuilder } from './builder';
@@ -412,6 +412,24 @@ export declare interface SymbolGlyphAttribute extends CommonMethod {
      * @since 23 static
      */
     default fontColor(value: Array<ResourceColor> | undefined): this;
+    /**
+     * Called when the SymbolGlyph color is set.
+     *
+     * @param { Array<ResourceColor> | Array<ColorMetrics> | Array<ResourceColor | ColorMetrics> | undefined } value
+     *     - The custom color list applied to the symbol.
+     *     - `Array<ResourceColor>` means each item is a resource-based color value, for example a color resource,
+     *     numeric color value, or color string.
+     *     - `Array<ColorMetrics>` means each item is a ColorMetrics color object.
+     *     - `Array<ResourceColor | ColorMetrics>` means the array can mix resource-based colors and ColorMetrics color
+     *     objects.
+     *     - `undefined` clears the custom setting and restores the default color.
+     *     The final rendered result still depends on `SymbolRenderingStrategy` , see { @link SymbolRenderingStrategy}.
+     * @returns { SymbolGlyphAttribute } The attribute of the SymbolGlyph.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default symbolColor(value: Array<ResourceColor> | Array<ColorMetrics> | Array<ResourceColor | ColorMetrics> | undefined): this;
     /**
      * Called when the font symbolGlyph weight is set.
      *
