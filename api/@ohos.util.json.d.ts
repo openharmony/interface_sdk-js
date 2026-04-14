@@ -19,9 +19,9 @@
  */
 
 /**
- * JSON is a syntax for serializing objects, arrays, numbers, strings, booleans, and null.
+ * The JSON module provides a series of APIs for converting JSON text into JSON objects or values and converting objects
+ * into JSON text.
  *
- * @namespace json
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
@@ -29,12 +29,18 @@
  */
 declare namespace json {
   /**
-   * The type of conversion result function.
+   * Defines the type of the conversion result function.
    *
-   * @typedef { function } Transformer
-   * @param { Object } this - The object to which the parsed key value pair belongs.
-   * @param { string } key - Attribute name.
-   * @param { Object } value - The value of the parsed key value pair.
+   * When used as a parameter of [JSON.parse]{@link json.parse}, the function is called by each member of the object,
+   * allowing for custom data processing or conversion during parsing.
+   *
+   * When used as a parameter of
+   * [JSON.stringify]{@link json.stringify(value: Object, replacer?: Transformer, space?: string | number)}, the
+   * function is used to transfer and handle each property during serialization.
+   *
+   * @param { Object } this - Object to which the key-value pair to parse belongs.
+   * @param { string } key - Key to parse.
+   * @param { Object } value - Value of the key.
    * @returns { Object | undefined | null } Return an Object, undefined or null value
    * @syscap SystemCapability.Utils.Lang
    * @atomicservice
@@ -47,14 +53,15 @@ declare namespace json {
    *
    * @param { string } text - Valid JSON string.
    * @param { Transformer } [reviver] - Conversion function. This parameter can be used to modify the value generated
-   * after parsing. The default value is undefined.
+   *     after parsing. The default value is undefined.
    * @param {ParseOptions} options - Parsing options. This parameter is used to control the type of the parsing result.
-   * The default value is undefined.
-   * @returns { Object | null } Return an Object, array, string, number, boolean, or null value corresponding to JSON text.
+   *     The default value is undefined.
+   * @returns { Object | null } Return an Object, array, string, number, boolean, or null value corresponding to JSON
+   *     text.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types;
-   * 3.Parameter verification failed.
+   *     1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types;
+   *     3.Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -67,19 +74,19 @@ declare namespace json {
    * but non-linear containers are not.
    *
    * @param { Object } value - ArkTS object or array. In the case of a container, linear containers are supported, but
-   * non-linear containers are not.
+   *     non-linear containers are not.
    * @param { (number | string)[] | null } [replacer] - If an array is passed in, only the keys in the array are
-   * serialized to the final JSON string. If null is passed in, all keys of the object are serialized. The default
-   * value is undefined.
-   * @param { string | number } [space] - Indentation, white space, or line break characters inserted into the output
-   * JSON string for readability purposes. If a number is passed in, it indicates the number of space characters to be
-   * used as indentation. If a string is passed in, the string is inserted before the output JSON string. If null is
-   * passed in, no white space is used. The default value is an empty string.
+   *     serialized to the final JSON string. If null is passed in, all keys of the object are serialized. The default
+   *     value is undefined.
+   * @param { string | number } [space] - White spaces or strings inserted into the output JSON string for readability
+   *     purposes. If the parameter is a number, it represents the number of indentation spaces; if it is a string, it
+   *     represents the indentation characters. If no parameter is provided, there will be no indentation. The default
+   *     value is an empty string.
    * @returns { string } Return a JSON text.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types;
-   * 3.Parameter verification failed.
+   *     1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types;
+   *     3.Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -92,18 +99,18 @@ declare namespace json {
    * but non-linear containers are not.
    *
    * @param { Object } value - ArkTS object or array. In the case of a container, linear containers are supported, but
-   * non-linear containers are not.
+   *     non-linear containers are not.
    * @param { Transformer } [replacer] - During serialization, each key of the serialized value is converted and
-   * processed by this function. The default value is undefined.
+   *     processed by this function. The default value is undefined.
    * @param { string | number } [space] - Indentation, white space, or line break characters inserted into the output
-   * JSON string for readability purposes. If a number is passed in, it indicates the number of space characters to be
-   * used as indentation. If a string is passed in, the string is inserted before the output JSON string. If null is
-   * passed in, no white space is used. The default value is an empty string.
+   *     JSON string for readability purposes. If a number is passed in, it indicates the number of space characters to
+   *     be used as indentation. If a string is passed in, the string is inserted before the output JSON string. If null
+   *     is passed in, no white space is used. The default value is an empty string.
    * @returns { string } Return a JSON text.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types;
-   * 3.Parameter verification failed.
+   *     1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types;
+   *     3.Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -112,12 +119,15 @@ declare namespace json {
   function stringify(value: Object, replacer?: Transformer, space?: string | number): string;
 
   /**
-   * Checks whether an ArkTS object contains a key.
+   * Checks whether an ArkTS object contains a key. This API can be used for related operations after
+   * [JSON.parse]{@link json.parse} is called to parse a JSON string. This API supports only valid JSON strings whose
+   * outermost layer is in dictionary format (in braces instead of square brackets).
    *
-   * @param { object } obj - The object parsed from a JSON string.
-   * @param { string } property - Determine whether the object contains the property.
+   * @param { object } obj - ArkTS object.
+   * @param { string } property - Key to check.
    * @returns { boolean } Return true if the key is in the object, otherwise return false.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2
+   *     .Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -126,11 +136,14 @@ declare namespace json {
   function has(obj: object, property: string): boolean;
 
   /**
-   * Removes a key from an ArkTS object.
+   * Removes a key from an ArkTS object. This API can be used for related operations after
+   * [JSON.parse]{@link json.parse} is called to parse a JSON string. This API supports only valid JSON strings whose
+   * outermost layer is in dictionary format (in braces instead of square brackets).
    *
-   * @param { object } obj - The object parsed from a JSON string.
-   * @param { string } property - The property to be removed.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @param { object } obj - ArkTS object.
+   * @param { string } property - Key to remove.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2
+   *     .Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -139,9 +152,8 @@ declare namespace json {
   function remove(obj: object, property: string): void;
 
   /**
-   * Enum defining modes for handling bigint.
+   * Enumerates the modes for processing BigInt.
    *
-   * @enum { number } BigIntMode
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -158,7 +170,7 @@ declare namespace json {
      */
     DEFAULT = 0,
     /**
-     * Parse as BigInt when number less than -(2^53 – 1) or greater than (2^53 – 1).
+     * Parses an integer that is less than -(2^53-1) or greater than (2^53-1) as BigInt.
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -167,20 +179,19 @@ declare namespace json {
      */
     PARSE_AS_BIGINT = 1,
     /**
-     * All numbers parse as BigInt.
+     * Parses all integers as BigInt.
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
      * @since 12 dynamiconly
      */
-    ALWAYS_PARSE_AS_BIGINT = 2,
+    ALWAYS_PARSE_AS_BIGINT = 2
   }
 
   /**
-   * Parse's options
+   * Describes the parsing options, which can define the mode for processing BigInt.
    *
-   * @typedef ParseOptions
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -188,14 +199,15 @@ declare namespace json {
    */
   interface ParseOptions {
     /**
-    * Enum defining modes for handling bigint.
-    * @type { BigIntMode }
-    * @syscap SystemCapability.Utils.Lang
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamiconly
-    */
+     * Mode for processing BigInt.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12 dynamiconly
+     */
     bigIntMode: BigIntMode;
   }
 }
+
 export default json;

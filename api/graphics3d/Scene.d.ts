@@ -21,7 +21,7 @@
 /*** if arkts static */
 import { ResourceStr } from '@ohos.arkui.component';
 /*** endif */
-import { Shader, MaterialType, Material, Animation, Environment, Image, MeshResource, Sampler, SceneResource, Effect } from './SceneResources';
+import { Shader, MaterialType, Material, Animation, Environment, Image, MeshResource, Sampler, SceneResource, Effect, ImageStream } from './SceneResources';
 import { Camera, LightType, Light, Node, NodeType, Geometry } from './SceneNodes';
 import { Position3, Color, GeometryDefinition, RenderingPipelineType, Vec2, Vec3, Vec4 } from './SceneTypes';
 
@@ -177,6 +177,18 @@ export interface RenderResourceFactory {
     * @since 23 static
     */
   createImage(params: SceneResourceParameters): Promise<Image>;
+
+  /**
+    * Create an image stream.
+    *
+    * @param { SceneResourceParameters } params - the param of creating a image stream
+    *     Create a stream image
+    * @returns { Promise<ImageStream> } promise an image stream
+    * @syscap SystemCapability.ArkUi.Graphics3D
+    * @stagemodelonly
+    * @since 26.0.0 dynamic&static
+    */
+    createImageStream(params: SceneResourceParameters): Promise<ImageStream>;
 
   /**
    * Create a Mesh from an array of vertices.

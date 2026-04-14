@@ -29,7 +29,7 @@
  */
 export declare interface Want {
   /**
-   * device id
+   * Device Id
    *
    * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityBase
@@ -40,7 +40,7 @@ export declare interface Want {
   deviceId?: string;
 
   /**
-   * bundle name
+   * Bundle name
    *
    * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityBase
@@ -51,7 +51,7 @@ export declare interface Want {
   bundleName?: string;
 
   /**
-   * ability name
+   * Ability name
    *
    * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityBase
@@ -95,7 +95,7 @@ export declare interface Want {
   flags?: number;
 
   /**
-   * The description of an action in an want.
+   * The description of an action in a Want.
    *
    * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityBase
@@ -106,7 +106,7 @@ export declare interface Want {
   action?: string;
 
   /**
-   * The description of the WantParams object in an Want
+   * The description of the WantParams object in a Want
    *
    * @type { ?object }
    * @syscap SystemCapability.Ability.AbilityBase
@@ -117,7 +117,7 @@ export declare interface Want {
   parameters?: { [key: string]: any };
 
   /**
-   * The description of a entities in a Want.
+   * The description of entities in a Want.
    *
    * @type { ?Array<string> }
    * @syscap SystemCapability.Ability.AbilityBase

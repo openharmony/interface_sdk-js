@@ -84,7 +84,54 @@ declare interface ComponentOptions {
    * @since 12 dynamic
    */
   freezeWhenInactive : boolean,
+
+  /**
+   * the reuse type of a custom component.
+   * 
+   * @default perInstance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  reusePool?: ReusePoolOwnership;
+
+  /**
+   * Collection of custom components to be reused.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  poolAccepts?: ReusableComponentConstructor[];
 }
+
+/**
+ * Defining the reuse type of a custom component.
+ * 
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare type ReusePoolOwnership = 'shared' | 'perInstance';
+
+/**
+ * Defining custom component constructor.
+ * 
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare type ReusableComponentConstructor = Function;
 
 /**
  * Define the ratio of characters entered by the percentage of InputCounterOptions.
@@ -9786,6 +9833,38 @@ declare enum ThemeColorMode {
 }
 
 /**
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare enum AnchoredColorMode {
+ /**
+  * Defines the mode which is follow up with system.
+  *
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @stagemodelonly
+  * @crossplatform
+  * @atomicservice
+  * @since 26.0.0 dynamic
+  */
+ FOLLOW_SYSTEM = 0,
+
+ /**
+  * Defines the mode which is follow up with target.
+  * 
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @stagemodelonly
+  * @crossplatform
+  * @atomicservice
+  * @since 26.0.0 dynamic
+  */
+ FOLLOW_TARGET = 1
+}
+
+/**
  * Defines adaptive color
  *
  * @enum { number }
@@ -17854,6 +17933,19 @@ declare interface PopupCommonOptions {
   borderLinearGradient?: PopupBorderLinearGradient;
 
   /**
+   * Define the popup theme color mode.
+   * 
+   * @type { ?AnchoredColorMode }
+   * @default AnchoredColorMode.FOLLOW_TARGET
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  colorMode?: AnchoredColorMode;
+
+  /**
    * Set system-styled materials for popup. Different materials have different effects, which can influence
    * the backgroundColor, border, shadow, and other visual attributes of popup.
    *
@@ -17978,6 +18070,17 @@ declare interface TipsOptions {
    * @since 20 dynamic
    */
   showAtAnchor?: TipsAnchorType;
+  /**
+   * Set system-styled materials for tips. Different materials have different effects, which can influence
+   * backgroundColor, border, shadow, and other visual attributes of tips.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  systemMaterial?: SystemUiMaterial;
 }
 
 /**
@@ -18717,6 +18820,19 @@ declare interface PopupOptions {
   borderLinearGradient?: PopupBorderLinearGradient;
 
   /**
+   * Define the popup theme color mode.
+   * 
+   * @type { ?AnchoredColorMode }
+   * @default AnchoredColorMode.FOLLOW_TARGET
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  colorMode?: AnchoredColorMode;
+
+  /**
    * Set system-styled materials for popup. Different materials have different effects, which can influence
    * the backgroundColor, border, shadow, and other visual attributes of popup.
    *
@@ -19380,6 +19496,19 @@ declare interface CustomPopupOptions {
    * @since 20 dynamic
    */
   borderLinearGradient?: PopupBorderLinearGradient;
+
+  /**
+   * Define the popup theme color mode.
+   * 
+   * @type { ?AnchoredColorMode }
+   * @default AnchoredColorMode.FOLLOW_TARGET
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  colorMode?: AnchoredColorMode;
 
   /**
    * Set system-styled materials for popup. Different materials have different effects, which can influence
@@ -20218,6 +20347,19 @@ declare interface ContextMenuOptions {
     * @since 20 dynamic
     */
   outlineWidth?: Dimension | EdgeOutlineWidths;
+
+  /**
+   * Define the menu theme color mode.
+   * 
+   * @type { ?AnchoredColorMode }
+   * @default AnchoredColorMode.FOLLOW_TARGET
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  colorMode?: AnchoredColorMode;
 
   /**
    * Defines the haptic feedback mode of menu.

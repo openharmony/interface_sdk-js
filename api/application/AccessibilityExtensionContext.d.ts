@@ -25,7 +25,7 @@ import type accessibility from '../@ohos.accessibility';
 import type { GesturePath } from '../@ohos.accessibility.GesturePath';
 /*** endif */
 import type Want from '../@ohos.app.ability.Want';
-import { AccessibilityAction, FocusMoveResultCode } from '../@ohos.accessibility';
+import { AccessibilityAction, FocusMoveResultCode, InjectActionType } from '../@ohos.accessibility';
 
 /**
  * The accessibility extension context. Used to configure, query information, and inject gestures.
@@ -1839,6 +1839,15 @@ export declare class Parameter {
    * @since 23 static
    */
   scrollType?: string;
+  /**
+   * Indicates the action type for AccessibilityAction.INJECT_ACTION.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  injectActionType?: InjectActionType;
 }
 
 /**

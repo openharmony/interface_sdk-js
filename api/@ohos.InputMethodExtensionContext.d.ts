@@ -23,44 +23,50 @@ import Want from './@ohos.app.ability.Want';
 import ExtensionContext from './application/ExtensionContext';
 
 /**
- * The extension context class of input method.
+ * The **InputMethodExtensionContext** module, inherited from **ExtensionContext**, provides context for 
+ * **InputMethodExtension** abilities. You can use the APIs of this module to start, terminate, connect, and disconnect 
+ * abilities.
+ * 
+ * > **NOTE**
+ * >
+ * > - The APIs of this module can be used only in the stage model.
  *
- * @extends ExtensionContext
  * @syscap SystemCapability.MiscServices.InputMethodFramework
- * @StageModelOnly
+ * @stagemodelonly
  * @since 9 dynamic
  * @since 23 static
  */
 declare class InputMethodExtensionContext extends ExtensionContext {
   /**
-   * Destroy the input method extension.
+   * Destroys this input method. This API uses an asynchronous callback to return the result.
    *
-   * @param { AsyncCallback<void> } callback - the callback of destroy.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+   *     **err** is **undefined**. Otherwise, **err** is an error object.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9 dynamic
    * @since 23 static
    */
   destroy(callback: AsyncCallback<void>): void;
 
   /**
-   * Destroy the input method extension.
+   * Destroys this input method. This API uses a promise to return the result.
    *
-   * @returns { Promise<void> } the promise returned by the function.
+   * @returns { Promise<void> } Promise that returns no value.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9 dynamic
    * @since 23 static
    */
   destroy(): Promise<void>;
 
   /**
-   * Inputmethod extension uses this method to start a specific ability.
+   * Starts an ability. This API uses a promise to return the result.
    *
-   * @param { Want } want - Indicates the ability to start.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - parameter error. Possible causes:
-   *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @param { Want } want - Want information, including the ability name and bundle name of the target application.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Cannot start an invisible component.
@@ -81,7 +87,7 @@ declare class InputMethodExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000070 - The extension cannot start the service.
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 12 dynamic
    * @since 23 static
    */

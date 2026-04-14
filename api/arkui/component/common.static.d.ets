@@ -294,16 +294,6 @@ export declare interface ReuseOptions {
  */
 export type Context = OriginalContext;
 /**
- * Post Card Action.
- *
- * @param { Object } component - indicate the card entry component.
- * @param { Object } action - indicate the router, message or call event.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 23 static
- */
-export declare function postCardAction(component: Object, action: Object): void;
-/**
  * Defines the data type of the interface restriction.
  *
  * @interface Configuration
@@ -2487,7 +2477,19 @@ export declare class DrawModifier {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
      */
-     drawFront(drawContext: DrawContext): void;
+    drawFront(drawContext: DrawContext): void;
+
+    /**
+     * drawforeground Method. This method is executed after drawing the associated Node and its children.
+     * It allows you to perform additional drawing operations on top of the already rendered content.
+     * This can be useful for adding visual elements that should appear above the main content.
+     *
+     * @param { DrawContext } drawContext - The drawContext used to draw.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 24 static
+     */
+    drawForeground(drawContext: DrawContext): void;
 
     /**
      * Draws content in the overlay layer after the associated Node and all its children have been drawn.
@@ -3236,6 +3238,33 @@ export declare enum ThemeColorMode {
      * @since 23 static
      */
     DARK = 2
+}
+
+/**
+ * enum color mode of pointing popup
+
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare enum AnchoredColorMode {
+    /**
+     * Defines the mode which is follow up with system.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+    */
+    FOLLOW_SYSTEM = 0,
+    /**
+     * Defines the mode which is follow up with target.
+     * 
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+    */
+    FOLLOW_TARGET = 1
 }
 
 /**
@@ -7438,6 +7467,16 @@ export declare interface PopupCommonOptions {
      */
     borderLinearGradient?: PopupBorderLinearGradient;
     /**
+ 	 * Define the popup theme color mode.
+ 	 * 
+ 	 * @type { ?AnchoredColorMode }
+ 	 * @default AnchoredColorMode.FOLLOW_TARGET
+ 	 * @syscap SystemCapability.ArkUI.ArkUI.Full
+ 	 * @stagemodelonly
+ 	 * @since 26.0.0 static
+ 	 */
+ 	colorMode?: AnchoredColorMode;
+    /**
      * Set system-styled materials for popup. Different materials have different effects, which can influence
      * the backgroundColor, border, shadow, and other visual attributes of popup.
      *
@@ -7569,6 +7608,15 @@ export declare interface TipsOptions {
      * @since 23 static
      */
     showAtAnchor?: TipsAnchorType;
+    /**
+     * Set system-styled materials for tips. Different materials have different effects, which can influence
+     * backgroundColor, border, shadow, and other visual attributes of tips.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    systemMaterial?: SystemUiMaterial;
 }
 /**
  * Defines the popup button.
@@ -7866,7 +7914,16 @@ export declare interface PopupOptions {
      * @since 23 static
      */
     borderLinearGradient?: PopupBorderLinearGradient;
-
+    /**
+ 	 * Define the popup theme color mode.
+ 	 * 
+ 	 * @type { ?AnchoredColorMode }
+ 	 * @default AnchoredColorMode.FOLLOW_TARGET
+ 	 * @syscap SystemCapability.ArkUI.ArkUI.Full
+ 	 * @stagemodelonly
+ 	 * @since 26.0.0 static
+ 	 */
+ 	colorMode?: AnchoredColorMode;
     /**
      * Set system-styled materials for popup. Different materials have different effects, which can influence
      * the backgroundColor, border, shadow, and other visual attributes of popup.
@@ -8210,7 +8267,16 @@ export declare interface CustomPopupOptions {
      * @since 23 static
      */
     borderLinearGradient?: PopupBorderLinearGradient;
-
+    /**
+ 	 * Define the popup theme color mode.
+ 	 * 
+ 	 * @type { ?AnchoredColorMode }
+ 	 * @default AnchoredColorMode.FOLLOW_TARGET
+ 	 * @syscap SystemCapability.ArkUI.ArkUI.Full
+ 	 * @stagemodelonly
+ 	 * @since 26.0.0 static
+ 	 */
+ 	colorMode?: AnchoredColorMode;
     /**
      * Set system-styled materials for popup. Different materials have different effects, which can influence
      * the backgroundColor, border, shadow, and other visual attributes of popup.
@@ -8806,7 +8872,16 @@ export declare interface ContextMenuOptions {
      * @since 23 static
      */
     anchorPosition?: Position;
-
+    /**
+ 	 * Define the menu theme color mode.
+ 	 * 
+ 	 * @type { ?AnchoredColorMode }
+ 	 * @default AnchoredColorMode.FOLLOW_TARGET
+ 	 * @syscap SystemCapability.ArkUI.ArkUI.Full
+ 	 * @stagemodelonly
+ 	 * @since 26.0.0 static
+ 	 */
+ 	colorMode?: AnchoredColorMode;
     /**
      * Determine the mode of menu how to avoid keyboard.
      *

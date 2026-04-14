@@ -179,7 +179,56 @@ export interface Vector3 {
 }
 
 /**
- * It's a 4x4 matrix, represent by double[].
+ * Defined a vector with four number values.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export interface Vector4 {
+  /**
+   * Value for x-axis of the vector.
+   * Value range:(-∞, +∞).
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  x: double;
+
+  /**
+   * Value for y-axis of the vector.
+   * Value range: (-∞, +∞).
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  y: double;
+
+  /**
+   * Value for z-axis of the vector.
+   * Value range: (-∞, +∞).
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  z: double;
+
+  /**
+   * Value for w-axis of the vector.
+   * Value range: (-∞, +∞).
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  w: double;
+}
+
+/**
+ * It's a 4x4 matrix, represent by number[].
  *
  * @typedef { [double, double, double, double, double, double, double, double, double, double, double, double, double,
  *     double, double, double] } Matrix4

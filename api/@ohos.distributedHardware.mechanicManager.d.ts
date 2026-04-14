@@ -389,6 +389,116 @@ declare namespace mechanicManager {
   function searchTarget(target: TargetInfo, params: SearchParams): Promise<SearchResult>;
 
   /**
+   * Move a mechanical device with the specified parameters.
+   *
+   * @param { int } mechId - ID of the mechanical device.
+   * @param { MoveParams } params - Parameters to use when moving.
+   * @returns { Promise<Result> } Promise that returns the execution result.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 33300001 - Service exception.
+   * @throws { BusinessError } 33300002 - Device not connected.
+   * @throws { BusinessError } 33300003 - Feature not supported.
+   * @syscap SystemCapability.Mechanic.Core
+   * @systemapi
+   * @since 24 dynamic&static
+   */
+  function move(mechId: int, params: MoveParams): Promise<Result>;
+
+  /**
+   * Move a mechanical device at the specified speed.
+   *
+   * @param { int } mechId - ID of the mechanical device.
+   * @param { SpeedParams } params - Parameters to use when moving.
+   * @param { int } duration - Duration of movement, in ms.
+   * @returns { Promise<Result> } Promise that returns the execution result.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 33300001 - Service exception.
+   * @throws { BusinessError } 33300002 - Device not connected.
+   * @throws { BusinessError } 33300003 - Feature not supported.
+   * @syscap SystemCapability.Mechanic.Core
+   * @systemapi
+   * @since 24 dynamic&static
+   */
+  function moveBySpeed(mechId: int, params: SpeedParams, duration: int): Promise<Result>;
+
+  /**
+   * Rotate in place according to the speed.
+   *
+   * @param { int } mechId - ID of the mechanical device.
+   * @param { double } angleSpeed - angular velocity.
+   * @param { int } duration - Duration of movement, unit ms.
+   * @returns { Promise<Result> } Promise that returns the execution result.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 33300001 - Service exception.
+   * @throws { BusinessError } 33300002 - Device not connected.
+   * @throws { BusinessError } 33300003 - Feature not supported.
+   * @syscap SystemCapability.Mechanic.Core
+   * @systemapi
+   * @since 24 dynamic&static
+   */
+  function turnBySpeed(mechId: int, angleSpeed: double, duration: int): Promise<Result>;
+
+  /**
+   * Check whether the specific action type is supported.
+   *
+   * @param { int } mechId - ID of the mechanical device.
+   * @param { ActionType } actionType - Type of action sequence.
+   * @returns { boolean } Indicates whether the action type is supported.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 33300001 - Service exception.
+   * @throws { BusinessError } 33300002 - Device not connected.
+   * @syscap SystemCapability.Mechanic.Core
+   * @systemapi
+   * @since 24 dynamic&static
+   */
+  function isSupportAction(mechId: int, actionType: ActionType): boolean;
+
+  /**
+   * Execute an action sequence.
+   *
+   * @param { int } mechId - ID of the mechanical device.
+   * @param { ActionType } actionType - Type of action sequence.
+   * @returns { Promise<Result> } Promise that returns the execution result.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 33300001 - Service exception.
+   * @throws { BusinessError } 33300002 - Device not connected.
+   * @throws { BusinessError } 33300003 - Feature not supported.
+   * @syscap SystemCapability.Mechanic.Core
+   * @systemapi
+   * @since 24 dynamic&static
+   */
+  function doAction(mechId: int, actionType: ActionType): Promise<Result>;
+
+  /**
+   * Subscribe to the specified events.
+   *
+   * @param { MechEventType[] } events - Events to subscribe to.
+   * @param { Callback<MechEvent> } callback - Callback of event.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 33300001 - Service exception.
+   * @throws { BusinessError } 33300002 - Device not connected.
+   * @throws { BusinessError } 33300003 - Feature not supported.
+   * @syscap SystemCapability.Mechanic.Core
+   * @systemapi
+   * @since 24 dynamic&static
+   */
+  function subscribe(events: MechEventType[], callback: Callback<MechEvent>): void;
+
+  /**
+   * Unsubscribes the specified events.
+   *
+   * @param { MechEventType[] } events - Events to be unsubscribed.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 33300001 - Service exception.
+   * @throws { BusinessError } 33300002 - Device not connected.
+   * @throws { BusinessError } 33300003 - Feature not supported.
+   * @syscap SystemCapability.Mechanic.Core
+   * @systemapi
+   * @since 24 dynamic&static
+   */
+  function unSubscribe(events: MechEventType[]): void;
+
+  /**
    * Checks whether the current device supports embodied control for a specific type of device.
    *
    * @param { MechDeviceType } [mechDeviceType]  - Associated device type.
@@ -1017,7 +1127,25 @@ declare namespace mechanicManager {
      * @since 20 dynamic
      * @since 23 static
      */
-    GIMBAL_DEVICE = 0
+    GIMBAL_DEVICE = 0,
+
+    /**
+     * Desktop gimbal device.
+     *
+     * @syscap SystemCapability.Mechanic.Core
+     * @systemapi
+     * @since 24 dynamic&static
+     */
+    DESKTOP_GIMBAL_DEVICE = 1,
+
+    /**
+     * Wheeled‑mounted base device.
+     *
+     * @syscap SystemCapability.Mechanic.Core
+     * @systemapi
+     * @since 24 dynamic&static
+     */
+    WHEELED_BASE_DEVICE = 2
   }
 
   /**
@@ -1144,6 +1272,438 @@ declare namespace mechanicManager {
      * @since 23 static
      */
     RIGHTWARD = 2
+  }
+
+  /**
+   * Parameters for moving the target.
+   *
+   * @syscap SystemCapability.Mechanic.Core
+   * @systemapi
+   * @since 24 dynamic&static
+   */
+  export interface MoveParams {
+    /**
+     * Moving distance, unit cm.
+     *
+     * @syscap SystemCapability.Mechanic.Core
+     * @systemapi
+     * @since 24 dynamic&static
+     */
+    distance: int;
+
+    /**
+     * Turning angle, unit degree.
+     *
+     * @syscap SystemCapability.Mechanic.Core
+     * @systemapi
+     * @since 24 dynamic&static
+     */
+    angle: double;
+
+    /**
+     * Speed gear.
+     *
+     * @syscap SystemCapability.Mechanic.Core
+     * @systemapi
+     * @since 24 dynamic&static
+     */
+    speedGear?: SpeedGear;
+
+    /**
+     * Movement mode.
+     *
+     * @syscap SystemCapability.Mechanic.Core
+     * @systemapi
+     * @since 24 dynamic&static
+     */
+    mode?: MarchingMode;
+    }
+
+  /**
+   * Speed gear definition.
+   *
+   * @syscap SystemCapability.Mechanic.Core
+   * @systemapi
+   * @since 24 dynamic&static
+   */
+  export enum SpeedGear {
+    /**
+     * Low speed definition.
+     *
+     * @syscap SystemCapability.Mechanic.Core
+     * @systemapi
+     * @since 24 dynamic&static
+     */
+    LOW_SPEED = 0,
+
+    /**
+     * Middle speed definition, default speed.
+     *
+     * @syscap SystemCapability.Mechanic.Core
+     * @systemapi
+     * @since 24 dynamic&static
+     */
+    MIDDLE_SPEED = 1,
+
+    /**
+     * High speed definition.
+     *
+     * @syscap SystemCapability.Mechanic.Core
+     * @systemapi
+     * @since 24 dynamic&static
+     */
+    HIGH_SPEED = 2
+  }
+
+  /**
+   * Marching mode definition.
+   *
+   * @syscap SystemCapability.Mechanic.Core
+   * @systemapi
+   * @since 24 dynamic&static
+   */
+  export enum MarchingMode {
+    /**
+     * Turn first, then move.
+     *
+     * @syscap SystemCapability.Mechanic.Core
+     * @systemapi
+     * @since 24 dynamic&static
+     */
+    TURN_THEN_MOVE = 0,
+
+    /**
+     * Move and rotate simultaneously.
+     *
+     * @syscap SystemCapability.Mechanic.Core
+     * @systemapi
+     * @since 24 dynamic&static
+     */
+    TURNING_MOVING = 1
+  }
+
+  /**
+   * Parameters for moving or turning at a speed.
+   *
+   * @syscap SystemCapability.Mechanic.Core
+   * @systemapi
+   * @since 24 dynamic&static
+   */
+  export interface SpeedParams {
+    /**
+     * Turning or moving speed, unit cm.
+     *
+     * @syscap SystemCapability.Mechanic.Core
+     * @systemapi
+     * @since 24 dynamic&static
+     */
+    speed: int;
+
+    /**
+     * Turning angle, unit degree.
+     *
+     * @syscap SystemCapability.Mechanic.Core
+     * @systemapi
+     * @since 24 dynamic&static
+     */
+    angle: double;
+
+    /**
+     * Movement mode.
+     *
+     * @syscap SystemCapability.Mechanic.Core
+     * @systemapi
+     * @since 24 dynamic&static
+     */
+    mode?: MarchingMode;
+  }
+
+  /**
+   * Type of action sequence.
+   *
+   * @syscap SystemCapability.Mechanic.Core
+   * @systemapi
+   * @since 24 dynamic&static
+   */
+  export enum ActionType {
+    /**
+     * Landscape-to-Portrait switching.
+     *
+     * @syscap SystemCapability.Mechanic.Core
+     * @systemapi
+     * @since 24 dynamic&static
+     */
+    LANDSCAPE_PORTRAIT_SWITCH = 0,
+
+    /**
+     * Action of patrol on the ground.
+     *
+     * @syscap SystemCapability.Mechanic.Core
+     * @systemapi
+     * @since 24 dynamic&static
+     */
+    PATROL_MODE = 1,
+
+    /**
+     * Action of greeting the owner.
+     *
+     * @syscap SystemCapability.Mechanic.Core
+     * @systemapi
+     * @since 24 dynamic&static
+     */
+    GREET_MODE = 2,
+
+    /**
+     * Action of tilting head up.
+     *
+     * @syscap SystemCapability.Mechanic.Core
+     * @systemapi
+     * @since 24 dynamic&static
+     */
+    HEAD_UP = 3,
+
+    /**
+     * Action of tilting head up slightly.
+     *
+     * @syscap SystemCapability.Mechanic.Core
+     * @systemapi
+     * @since 24 dynamic&static
+     */
+    HEAD_UP_SLIGHTLY = 4,
+
+    /**
+     * Action of looking straight ahead.
+     *
+     * @syscap SystemCapability.Mechanic.Core
+     * @systemapi
+     * @since 24 dynamic&static
+     */
+    EYE_LEVEL = 5,
+
+    /**
+     * Action of tilting head down slightly.
+     *
+     * @syscap SystemCapability.Mechanic.Core
+     * @systemapi
+     * @since 24 dynamic&static
+     */
+    HEAD_DOWN_SLIGHTLY = 6,
+
+    /**
+     * Action of tilting head down completely.
+     *
+     * @syscap SystemCapability.Mechanic.Core
+     * @systemapi
+     * @since 24 dynamic&static
+     */
+    HEAD_DOWN = 7,
+
+    /**
+     * Action of wiggling head.
+     *
+     * @syscap SystemCapability.Mechanic.Core
+     * @systemapi
+     * @since 24 dynamic&static
+     */
+    HEAD_WIGGLE = 8,
+
+    /**
+     * Action of nodding.
+     *
+     * @syscap SystemCapability.Mechanic.Core
+     * @systemapi
+     * @since 24 dynamic&static
+     */
+    NOD = 9,
+
+    /**
+     * Action of shaking head.
+     *
+     * @syscap SystemCapability.Mechanic.Core
+     * @systemapi
+     * @since 24 dynamic&static
+     */
+    HEAD_SHAKE = 10,
+
+    /**
+     * Action of happy.
+     *
+     * @syscap SystemCapability.Mechanic.Core
+     * @systemapi
+     * @since 24 dynamic&static
+     */
+    HAPPY = 1000,
+
+    /**
+     * Action of angry.
+     *
+     * @syscap SystemCapability.Mechanic.Core
+     * @systemapi
+     * @since 24 dynamic&static
+     */
+    ANGRY = 1001,
+
+    /**
+     * Action of sad.
+     *
+     * @syscap SystemCapability.Mechanic.Core
+     * @systemapi
+     * @since 24 dynamic&static
+     */
+    SAD = 1002,
+
+    /**
+     * Action of scared.
+     *
+     * @syscap SystemCapability.Mechanic.Core
+     * @systemapi
+     * @since 24 dynamic&static
+     */
+    SCARED = 1003,
+
+    /**
+     * Action of dance.
+     *
+     * @syscap SystemCapability.Mechanic.Core
+     * @systemapi
+     * @since 24 dynamic&static
+     */
+    DANCE = 2000,
+
+    /**
+     * Action of acting cute.
+     *
+     * @syscap SystemCapability.Mechanic.Core
+     * @systemapi
+     * @since 24 dynamic&static
+     */
+    ACTING_CUTE = 2001,
+
+    /**
+     * Action of celebrate.
+     *
+     * @syscap SystemCapability.Mechanic.Core
+     * @systemapi
+     * @since 24 dynamic&static
+     */
+    CELEBRATE = 2002,
+
+    /**
+     * Action of wakeup.
+     *
+     * @syscap SystemCapability.Mechanic.Core
+     * @systemapi
+     * @since 24 dynamic&static
+     */
+    WAKEUP = 2003,
+
+    /**
+     * Action of sleep.
+     *
+     * @syscap SystemCapability.Mechanic.Core
+     * @systemapi
+     * @since 24 dynamic&static
+     */
+    SLEEP = 2004,
+
+    /**
+     * Action of low power.
+     *
+     * @syscap SystemCapability.Mechanic.Core
+     * @systemapi
+     * @since 24 dynamic&static
+     */
+    LOW_POWER = 2005,
+
+    /**
+     * Action of thinking.
+     *
+     * @syscap SystemCapability.Mechanic.Core
+     * @systemapi
+     * @since 24 dynamic&static
+     */
+    THINKING = 2006
+  }
+
+  /**
+   * Mechanic event definition.
+   *
+   * @syscap SystemCapability.Mechanic.Core
+   * @systemapi
+   * @since 24 dynamic&static
+   */
+  export enum MechEventType {
+    /**
+     * Mechanic device attached on base.
+     *
+     * @syscap SystemCapability.Mechanic.Core
+     * @systemapi
+     * @since 24 dynamic&static
+     */
+    DEVICE_ADSORBED = 0,
+
+    /**
+     * Mechanic device detached from the base.
+     *
+     * @syscap SystemCapability.Mechanic.Core
+     * @systemapi
+     * @since 24 dynamic&static
+     */
+    DEVICE_UNADSORBED = 1,
+
+    /**
+     * Mechanic device hits a cliff while moving.
+     *
+     * @syscap SystemCapability.Mechanic.Core
+     * @systemapi
+     * @since 24 dynamic&static
+     */
+    REACH_CLIFF = 2,
+
+    /**
+     * Mechanic device hits an obstacle while moving.
+     *
+     * @syscap SystemCapability.Mechanic.Core
+     * @systemapi
+     * @since 24 dynamic&static
+     */
+    REACH_OBSTACLE = 3,
+
+    /**
+     * Mechanic device is low on power.
+     *
+     * @syscap SystemCapability.Mechanic.Core
+     * @systemapi
+     * @since 24 dynamic&static
+     */
+    LOW_POWER = 4
+  }
+
+  /**
+   * Definition of Mechanic device event.
+   *
+   * @syscap SystemCapability.Mechanic.Core
+   * @systemapi
+   * @since 24 dynamic&static
+   */
+  export interface MechEvent {
+    /**
+     * ID of the mechanical device.
+     *
+     * @syscap SystemCapability.Mechanic.Core
+     * @systemapi
+     * @since 24 dynamic&static
+     */
+    mechId: int;
+
+    /**
+     * Event type of this event.
+     *
+     * @syscap SystemCapability.Mechanic.Core
+     * @systemapi
+     * @since 24 dynamic&static
+     */
+    event: MechEventType;
   }
 }
 
