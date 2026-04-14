@@ -367,6 +367,16 @@ declare namespace floatingBall {
      * @since 23 static
      */
     icon?: image.PixelMap;
+
+    /**
+     * The animate type when the floating ball updates text.
+     *
+     * @default FloatingBallTextUpdateAnimationType.ANIMATION_NONE
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    textUpdateAnimationType?: FloatingBallTextUpdateAnimationType;
   }
 
   /**
@@ -462,6 +472,33 @@ declare namespace floatingBall {
      * @since 23 static
      */
     readonly windowId: int;
+  }
+
+  /**
+   * Enumeration for floating ball text update animation type.
+   *
+   * @syscap SystemCapability.Window.SessionManager
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  enum FloatingBallTextUpdateAnimationType {
+    /**
+     * No animation
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    ANIMATION_NONE = 0,
+  
+    /**
+     * Opacity fade animation.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    ANIMATION_OPACITY = 1
   }
 }
 

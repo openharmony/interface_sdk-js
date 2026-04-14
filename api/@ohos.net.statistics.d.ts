@@ -565,9 +565,9 @@ declare namespace statistics {
    * Updates network statistics data.
    *
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
-   * @returns { Promise<void> } 201 - Permission denied.
-   * @throws { BusinessError } 201 - Non-system applications use system APIs.
-   * @throws { BusinessError } 202 - Failed to connect to the service.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core

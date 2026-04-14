@@ -15,12 +15,18 @@
 
 /**
  * @file
+ * @kit API10LessDeprecatedModules
  */
 
 /**
- * The definition of ConfigurationConstant.
+ * The ConfigurationConstant module provides the enumerated values of the environment configuration information.
+ * 
+ * > **NOTE**
+ * >
+ * > The APIs of this module are supported since API version 8 and deprecated since API version 9. You are advised to 
+ * > use [@ohos.app.ability.ConfigurationConstant]{@link @ohos.app.ability.ConfigurationConstant:ConfigurationConstant}
+ * > instead. Newly added APIs will be marked with a superscript to indicate their earliest API version.
  *
- * @namespace ConfigurationConstant
  * @syscap SystemCapability.Ability.AbilityBase
  * @since 8
  * @deprecated since 9
@@ -28,9 +34,8 @@
  */
 declare namespace ConfigurationConstant {
   /**
-   * Color mode.
+   * Enumerates the color modes.
    *
-   * @enum { number }
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 8
    * @deprecated since 9
@@ -38,7 +43,7 @@ declare namespace ConfigurationConstant {
    */
   export enum ColorMode {
     /**
-     * No color mode set.
+     * Unspecified color mode.
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 8

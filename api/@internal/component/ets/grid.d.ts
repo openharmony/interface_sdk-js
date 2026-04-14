@@ -1028,26 +1028,26 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
   maxCount(value: number): GridAttribute;
 
   /**
-   * Set the minimun number of rows or columns that can be displayed.
+   * Set the minimum number of rows or columns that can be displayed.
    *
-   * @param { number } value - The minimun number of rows or columns that can be displayed. <br>Default value: <em>1</em>
+   * @param { number } value - The minimum number of rows or columns that can be displayed. <br>Default value: <em>1</em>
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
-   * Set the minimun number of rows or columns that can be displayed.
+   * Set the minimum number of rows or columns that can be displayed.
    *
-   * @param { number } value - The minimun number of rows or columns that can be displayed. <br>Default value: <em>1</em>
+   * @param { number } value - The minimum number of rows or columns that can be displayed. <br>Default value: <em>1</em>
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
-   * Set the minimun number of rows or columns that can be displayed.
+   * Set the minimum number of rows or columns that can be displayed.
    *
-   * @param { number } value - The minimun number of rows or columns that can be displayed. <br>Default value: <em>1</em>
+   * @param { number } value - The minimum number of rows or columns that can be displayed. <br>Default value: <em>1</em>
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -1162,7 +1162,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * @since 10
    */
   /**
-   * Set weather to enable grid drag-and-drop animation.
+   * Set whether to enable grid drag-and-drop animation.
    *
    * @param { boolean } value - Whether to enable drag-and-drop animation.
    *     <br><em>false</em> (default): drag-and-drop animation is disabled.

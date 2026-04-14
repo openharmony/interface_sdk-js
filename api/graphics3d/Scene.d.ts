@@ -21,7 +21,7 @@
 /*** if arkts static */
 import { ResourceStr } from '@ohos.arkui.component';
 /*** endif */
-import { Shader, MaterialType, Material, Animation, Environment, Image, MeshResource, Sampler, SceneResource, Effect } from './SceneResources';
+import { Shader, MaterialType, Material, Animation, Environment, Image, MeshResource, Sampler, SceneResource, Effect, ImageStream } from './SceneResources';
 import { Camera, LightType, Light, Node, NodeType, Geometry } from './SceneNodes';
 import { Position3, Color, GeometryDefinition, RenderingPipelineType, Vec2, Vec3, Vec4 } from './SceneTypes';
 
@@ -105,7 +105,7 @@ export interface RaycastResult {
   node: Node;
 
   /**
-   * The distance to the center of the axis-aligned bounding box.
+   * The distance to the center of the axis-aligned bounding box, the unit is the scene unit in the world coordinate system (e.g., cm, m, km).
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -115,7 +115,7 @@ export interface RaycastResult {
   centerDistance: double;
 
   /**
-   * The position of the hit in world coordinates.
+   * The position of the hit in world coordinates, the unit is the scene unit in the world coordinate system (e.g., cm, m, km).
    *
    * @type { Position3 }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -177,6 +177,18 @@ export interface RenderResourceFactory {
     * @since 23 static
     */
   createImage(params: SceneResourceParameters): Promise<Image>;
+
+  /**
+    * Create an image stream.
+    *
+    * @param { SceneResourceParameters } params - the param of creating a image stream
+    *     Create a stream image
+    * @returns { Promise<ImageStream> } promise an image stream
+    * @syscap SystemCapability.ArkUi.Graphics3D
+    * @stagemodelonly
+    * @since 26.0.0 dynamic&static
+    */
+    createImageStream(params: SceneResourceParameters): Promise<ImageStream>;
 
   /**
    * Create a Mesh from an array of vertices.
@@ -457,7 +469,7 @@ export interface RenderConfiguration {
   /**
    * resolution for single shadow map buffer, undefined by default,
    *  which means we use (1024, 1024) as the resolution of a single shadow map.
-   * You need to provide the same x and y value to get the right shadow effect
+   * You need to provide the same x and y value to get the right shadow effect, the unit is pixel.
    *
    * @type { ?Vec2 }
    * @default { 1024, 1024 }

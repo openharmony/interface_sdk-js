@@ -3735,6 +3735,20 @@ export class CursorController {
    * @since 12 dynamic
    */
   setCursor(value: PointerStyle): void;
+  /**
+   * Sets the custom cursor style.
+   *
+   * @param { image.PixelMap } value - custom cursor style.
+   * @param { int } [focusX] - Focus x of the custom cursor. The value is greater than or equal to 0. The default
+   *     value is 0.
+   * @param { int } [focusY] - Focus y of the custom cursor. The value is greater than or equal to 0. The default
+   *     value is 0.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  setCustomCursor(value: image.PixelMap, focusX?: int, focusY?: int): void;
 }
 
 /**
@@ -4178,6 +4192,17 @@ export class ComponentSnapshot {
    */
   getWithRange(start: NodeIdentity, end: NodeIdentity, isStartRect: boolean,
     options?: componentSnapshot.SnapshotOptions): Promise<image.PixelMap>;
+  /**
+   * Query the size limitation for taking a component snapshot.
+   *
+   * @returns { componentSnapshot.SnapshotSizeLimitation } The size limitation for taking a component snapshot.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+   getSizeLimitation(): componentSnapshot.SnapshotSizeLimitation;
 }
 
 /**
@@ -5760,6 +5785,31 @@ export class UIContext {
     * @since 24 dynamic
     */
    isEasySplit(): boolean;
+
+  /**
+   * Whether to enable or disable event passthrough.
+   *
+   * @param { boolean } enabled - enable or disable event passthrough. The default value is false.
+   * @param { RawInputEventType } eventType - the type of raw input event.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservicet
+   * @since 26.0.0 dynamic
+   */
+  enableEventPassthrough(enabled: boolean, eventType: RawInputEventType): void;
+
+  /**
+   * Sets the text selection clear policy for text component.
+   * Default policy: **TextSelectionClearPolicy.KEEP_SELECTED_TEXT_ON_EXTERNAL_TOUCH**
+   *
+   * @param { TextSelectionClearPolicy } policy - The text selection clear policy.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  setTextSelectionClearPolicy(policy: TextSelectionClearPolicy): void;
 }
 
 /**
@@ -5817,6 +5867,39 @@ export const enum KeyboardAvoidMode {
   * @since 14 dynamic
   */
   NONE = 4,
+}
+
+/**
+ * Enum of TextSelectionClearPolicy
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+export const enum TextSelectionClearPolicy {
+  /**
+  * Keep the selected text when touch outside of text component.
+  *
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @stagemodelonly
+  * @crossplatform
+  * @atomicservice
+  * @since 26.0.0 dynamic
+  */
+  KEEP_SELECTED_TEXT_ON_EXTERNAL_TOUCH = 0,
+
+  /**
+   * Clear the selected text when touch outside of text component.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  CLEAR_SELECTED_TEXT_ON_EXTERNAL_TOUCH = 1,
 }
 
 /**

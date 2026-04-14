@@ -530,7 +530,7 @@ export interface FileReadTextOption {
   encoding?: string;
 
   /**
-   * Position where the reading starts.
+   * Position where the reading starts, in bytes.
    * The default value is the start position of the file.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
@@ -541,7 +541,7 @@ export interface FileReadTextOption {
   position?: number;
 
   /**
-   * Length of the content to read.
+   * Length of the content to read, in bytes.
    * If this parameter is not set, all content of the file will be read.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
@@ -614,7 +614,7 @@ export interface FileWriteArrayBufferOption {
   buffer: Uint8Array;
 
   /**
-   * Offset to the position where the writing starts. The default value is 0.
+   * Offset to the position where the writing starts, in bytes. The default value is 0.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
@@ -704,7 +704,7 @@ export interface FileReadArrayBufferOption {
   uri: string;
 
   /**
-   * Position where the reading starts.
+   * Position where the reading starts, in bytes.
    * The default value is the start position of the file.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
@@ -715,7 +715,7 @@ export interface FileReadArrayBufferOption {
   position?: number;
 
   /**
-   * Length of the content to read.
+   * Length of the content to read, in bytes.
    * If this parameter is not set, all content of the file will be read.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite

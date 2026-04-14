@@ -81,7 +81,7 @@ declare namespace common {
      */
     export enum ManagedPolicy {
       /**
-       * Not managed the feature of the device
+       * No management policy applied to the device feature
        *
        * @syscap SystemCapability.Customization.EnterpriseDeviceManager
        * @stagemodelonly
@@ -99,7 +99,7 @@ declare namespace common {
       DISALLOW = 1,
   
       /**
-       * Force open the feature of the device
+       * Forces the device feature to be enabled
        *
        * @syscap SystemCapability.Customization.EnterpriseDeviceManager
        * @stagemodelonly

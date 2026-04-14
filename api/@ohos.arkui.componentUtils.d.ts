@@ -91,20 +91,20 @@ declare namespace componentUtils {
     size: Size
 
     /**
-    * Obtain attribute information relative to the local.
+    * Obtain attribute information relative to the local coordinates.
     * @type {Offset}
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @since 10
     */
     /**
-    * Obtain attribute information relative to the local.
+    * Obtain attribute information relative to the local coordinates.
     * @type {Offset}
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @atomicservice
     * @since 11
     */
     /**
-    * Obtain attribute information relative to the local.
+    * Obtain attribute information relative to the local coordinates.
     * @type {Offset}
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform

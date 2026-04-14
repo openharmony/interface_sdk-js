@@ -92,7 +92,7 @@ declare namespace uiObserver {
     ON_HIDDEN = 1,
 
     /**
-     * When the NavDestination appear.
+     * When the NavDestination appears.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
@@ -102,7 +102,7 @@ declare namespace uiObserver {
     ON_APPEAR = 2,
 
     /**
-     * When the NavDestination disappear.
+     * When the NavDestination disappears.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
@@ -132,7 +132,7 @@ declare namespace uiObserver {
     ON_WILL_HIDE = 5,
 
     /**
-     * Before the NavDestination is appeared.
+     * Before the NavDestination appears.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
@@ -142,7 +142,7 @@ declare namespace uiObserver {
     ON_WILL_APPEAR = 6,
 
     /**
-     * Before the NavDestination is disappeared.
+     * Before the NavDestination disappears.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
@@ -201,14 +201,14 @@ declare namespace uiObserver {
    */
   export enum RouterPageState {
     /**
-     * When the router page create.
+     * when the router page is created.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 11
      */
     /**
-     * When the router page create.
+     * when the router page is created.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
@@ -218,14 +218,14 @@ declare namespace uiObserver {
     ABOUT_TO_APPEAR = 0,
 
     /**
-     * When the router page destroy.
+     * when the router page is destroyed.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 11
      */
     /**
-     * When the router page destroy.
+     * when the router page is destroyed.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
@@ -235,14 +235,14 @@ declare namespace uiObserver {
     ABOUT_TO_DISAPPEAR = 1,
 
     /**
-     * When the router page show.
+     * When the router page is shown.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 11
      */
     /**
-     * When the router page show.
+     * When the router page is shown.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
@@ -252,14 +252,14 @@ declare namespace uiObserver {
     ON_PAGE_SHOW = 2,
 
     /**
-     * When the router page hide.
+     * When the router page is hidden.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 11
      */
     /**
-     * When the router page hide.
+     * When the router page is hidden.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
@@ -297,7 +297,7 @@ declare namespace uiObserver {
    */
     export enum ScrollEventType {
       /**
-       * When the ScrollEvent start.
+       * When the ScrollEvent starts.
        *
        * @syscap SystemCapability.ArkUI.ArkUI.Full
        * @crossplatform
@@ -307,7 +307,7 @@ declare namespace uiObserver {
       SCROLL_START = 0,
   
       /**
-       * When the ScrollEvent stop.
+       * When the ScrollEvent stops.
        *
        * @syscap SystemCapability.ArkUI.ArkUI.Full
        * @crossplatform
@@ -1311,7 +1311,7 @@ declare namespace uiObserver {
    *
    * @param { 'tabContentUpdate' } type - The type of event to listen for. Must be 'tabContentUpdate'.
    * @param { ObserverOptions } options - The options object.
-   * @param { Callback<TabContentInfo> } callback - The callback function to be called when when the tabContent is showed or hidden.
+   * @param { Callback<TabContentInfo> } callback - The callback function to be called when the tabContent is showed or hidden.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice

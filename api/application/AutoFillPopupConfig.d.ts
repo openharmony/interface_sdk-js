@@ -66,7 +66,7 @@
  */
  export interface PopupSize {
   /**
-   * The width of the popup.
+   * The width of the popup, in px.
    *
    * @type { double }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
@@ -78,7 +78,7 @@
   width: double;
 
   /**
-   * The height of the popup.
+   * The height of the popup, in px.
    *
    * @type { double }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore

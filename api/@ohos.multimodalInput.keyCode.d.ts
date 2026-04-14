@@ -2697,7 +2697,7 @@ export declare enum KeyCode {
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @stagemodelonly
-   * @since 24 dynamic&static
+   * @since 26.0.0 dynamic&static
    */
   KEYCODE_AOD_SINGLE_CLICK = 2740,
 
@@ -3248,5 +3248,14 @@ export declare enum KeyCode {
    * @since 20 dynamic
    * @since 23 static
    */
-  KEYCODE_DIV = 3220
+  KEYCODE_DIV = 3220,
+
+  /**
+   * KEYCODE_XKEY
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  KEYCODE_XKEY = 3232
 }

@@ -279,7 +279,7 @@ declare namespace dragController {
     }
     
     /**
-     * Define the drag event paramters
+     * Define the drag event parameters
      *
      * @interface DragEventParam
      * @syscap SystemCapability.ArkUI.ArkUI.Full

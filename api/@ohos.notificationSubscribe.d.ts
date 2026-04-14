@@ -125,6 +125,8 @@ declare namespace notificationSubscribe {
    * @systemapi
    * @since 9 dynamic
    * @since 23 static
+   * @deprecated since 26.0.0
+   * @useinstead subscribeNotification
    */
   function subscribe(subscriber: NotificationSubscriber, callback: AsyncCallback<void>): void;
 
@@ -166,6 +168,8 @@ declare namespace notificationSubscribe {
    * @systemapi
    * @since 9 dynamic
    * @since 23 static
+   * @deprecated since 26.0.0
+   * @useinstead subscribeNotification
    */
   function subscribe(
     subscriber: NotificationSubscriber,
@@ -192,8 +196,47 @@ declare namespace notificationSubscribe {
    * @systemapi
    * @since 9 dynamic
    * @since 23 static
+   * @deprecated since 26.0.0
+   * @useinstead subscribeNotification
    */
   function subscribe(subscriber: NotificationSubscriber, info?: NotificationSubscribeInfo): Promise<void>;
+
+  /**
+   * Subscribe to notifications; After subscribing, new messages are received via a callback function in the subscriber.
+   *
+   * @permission ohos.permission.NOTIFICATION_SYSTEM_SUBSCRIBER
+   * @param { NotificationSubscriber } subscriber - The notification subscriber.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - The caller is not a system application.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function subscribeNotification(subscriber: NotificationSubscriber): Promise<void>;
+
+  /**
+   * Subscribe to notifications; After subscribing, new messages are received via a callback function in the subscriber.
+   *
+   * @permission ohos.permission.NOTIFICATION_SYSTEM_SUBSCRIBER
+   * @param { NotificationSubscriber } subscriber - The notification subscriber.
+   * @param { NotificationSubscribeInfo } info - The notification subscribe info.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - The caller is not a system application.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function subscribeNotification(subscriber: NotificationSubscriber, info: NotificationSubscribeInfo): Promise<void>;
 
   /**
    * Unsubscribe notifications.

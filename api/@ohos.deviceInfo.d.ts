@@ -781,8 +781,7 @@ declare namespace deviceInfo {
     const chipType: string;
 
     /**
-     * Obtains the deviceboot count by a number
-     * if get failed, it will return -1
+     * Obtains boot count since the device starts running
      * 
      * @type { number }
      * @syscap SystemCapability.Startup.SystemInfo
@@ -820,6 +819,15 @@ declare namespace deviceInfo {
    *     ```
    */
   function apiAvailable(version: string | number): boolean;
+
+  /**
+   * Obtain the device color represented by a string. If it cannot be obtained, return an empty string
+   *
+   * @syscap SystemCapability.Startup.SystemInfo
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  const deviceColor: string;
 }
 
 export default deviceInfo;

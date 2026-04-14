@@ -236,6 +236,31 @@ declare namespace media {
   function createAudioRecorder(): AudioRecorder;
 
   /**
+   * Creates a media source from file descriptor.
+   *
+   * @param { AVFileDescriptor } fdSrc - file descriptor handler.
+   *     <br>file descriptor handler.
+   * @returns { MediaSource | undefined } MediaSource instance if the operation is successful; returns null otherwise.
+   * @syscap SystemCapability.Multimedia.Media.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  function createMediaSourceWithFd(fdSrc: AVFileDescriptor): MediaSource | undefined;
+
+  /**
+   * Creates a media source from a custom data source.
+   *
+   * @param { AVDataSrcDescriptor } dataSrc - Interface definition for obtaining media data.
+   * @returns { MediaSource | undefined } MediaSource instance if the operation is successful; returns null otherwise.
+   * @syscap SystemCapability.Multimedia.Media.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  function createMediaSourceWithDataSource(dataSrc: AVDataSrcDescriptor): MediaSource | undefined;
+
+  /**
    * Create MediaSource from url.
    * @param { string } url : The location for the media source.
    * @param { Record<string, string> } headers : Headers attached to network request while player request data.
@@ -250,7 +275,7 @@ declare namespace media {
    * Creates a media source for streaming media to be pre-downloaded.
    * @param { string } url : Url of the media source. The following streaming media formats are supported: HLS,
    *  HTTP-FLV, DASH, and HTTPS.
-   * @param { Record<string, string> } headers : Headers attached to network request while player request data.
+   * @param { Record<string, string> } [headers] : Headers attached to network request while player request data.
    * @returns { MediaSource } MediaSource instance if the operation is successful; returns null otherwise.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3.Parameter verification failed.
@@ -1061,6 +1086,24 @@ declare namespace media {
     fetchMetadata(): Promise<AVMetadata | undefined>;
 
     /**
+     * Obtains media metadata. This API uses a promise to return the result.
+     *
+     * @param { long } timeoutMs - the timeout period is exceeded, then an error will return. The max value is 20000ms.
+     *     The unit is millisecond(ms).
+     * @returns { Promise<AVMetadata | undefined> } Promise used to return the result,
+     *     which is an **AVMetadata** instance.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Returned by promise.
+     * @throws { BusinessError } 5400104 - Operation timeout.
+     * @throws { BusinessError } 5400106 - Unsupported format. Returned by promise.
+     * @throws { BusinessError } 5400108 - Parameter check failed. Returned by promise.
+     * @throws { BusinessError } 5411012 - Http cleartext traffic is not permitted.
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    fetchMetadataWithTimeout(timeoutMs: long): Promise<AVMetadata | undefined>;
+
+    /**
      * It will extract the audio resource to fetch an album cover.
      * @param { AsyncCallback<image.PixelMap> } callback - A callback instance used
      * to return when fetchAlbumCover completed.
@@ -1186,6 +1229,30 @@ declare namespace media {
     fetchFrameByTime(timeUs: long, options: AVImageQueryOptions, param: PixelMapParams): Promise<image.PixelMap | undefined>;
 
     /**
+     * It will decode the given video resource. Then fetch a picture
+     * at @timeUs according the given @options and @param .
+     * @param { long } timeUs - The time expected to fetch picture from the video resource.
+     *     The unit is microsecond(us).
+     * @param { AVImageQueryOptions } options - The time options about the relationship
+     *     between the given timeUs and a key frame, see @AVImageQueryOptions .
+     * @param { PixelMapParams } param - The output pixel map format params, see @PixelMapParams .
+     * @param { long } timeoutMs - the timeout period is exceeded, then an error will return. The max value is 20000ms.
+     *     The unit is millisecond(ms).
+     * @returns { Promise<image.PixelMap | undefined> } A Promise instance used to return the pixel map
+     *     when fetchFrameByTime completed.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Returned by promise.
+     * @throws { BusinessError } 5400104 - Operation timeout.
+     * @throws { BusinessError } 5400106 - Unsupported format. Returned by promise.
+     * @throws { BusinessError } 5400108 - Parameter check failed. Returned by promise.
+     * @throws { BusinessError } 5411012 - Http cleartext traffic is not permitted.
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    fetchFrameByTimeWithTimeout(timeUs: long, options: AVImageQueryOptions, param: PixelMapParams,
+        timeoutMs: long): Promise<image.PixelMap | undefined>;
+
+    /**
      * It will decode the given video resource, then fetch pictures at each time member of @timesUs array
      * according the given @options and @param. When one fetch is done, a callback is called with fetch result.
      * Please note that, the callback order is not same as the time order in @timesUs array.
@@ -1207,6 +1274,31 @@ declare namespace media {
      */
     fetchFramesByTimes(timesUs: long[], queryOption: AVImageQueryOptions, param: PixelMapParams,
         callback: OnFrameFetched): void;
+
+    /**
+     * It will decode the given video resource, then fetch pictures at each time member of @timesUs array
+     * according the given @options and @param. When one fetch is done, a callback is called with fetch result.
+     * Please note that, the callback order is not same as the time order in @timesUs array.
+     * @param { long[] } timesUs - The times array expected to fetch picture from the video resource.
+     *     The unit of time is microsecond(us). The max size of array is 4096.
+     * @param { AVImageQueryOptions } queryOption - The time options about the relationship
+     *     between the given timeUs and a key frame, see @AVImageQueryOptions.
+     * @param { PixelMapParams } param - The output pixel map format params, see @PixelMapParams.
+     * @param { long } timeoutMs - the timeout period is exceeded, then an error will return. The max value is 20000ms.
+     *     The unit is millisecond(ms).
+     * @param { OnFrameFetched } callback - the callback function when a fetch is done\failed\cancelled.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Returned by callback.
+     * @throws { BusinessError } 5400104 - Fetch timeout, Returned by callback.
+     * @throws { BusinessError } 5400106 - Unsupported format. Returned by callback.
+     * @throws { BusinessError } 5400105 - Service died.
+     * @throws { BusinessError } 5400108 - Parameter check failed. e.g. The size of timesUs is larger than 4096.
+     * @throws { BusinessError } 5411012 - Http cleartext not permitted.
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    fetchFramesByTimesWithTimeout(timesUs: long[], queryOption: AVImageQueryOptions, param: PixelMapParams,
+        timeoutMs: long, callback: OnFrameFetched): void;
 
     /**
      * Cancel all fetch tasks which are triggered by { fetchFramesByTimes }. The callbacks of { fetchFramesByTimes }
@@ -3719,6 +3811,114 @@ declare namespace media {
     setVideoWindowSize(width: int, height: int) : Promise<void>;
 
     /**
+     * Ends playback of the current mediasource and starts playback of the next mediasource in the mediasource list.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 5400102 - Operation not allowed . Return by promise.
+	   * @throws { BusinessError } 5400108 - The previous mediasource does not exist in the playlist. Returned via promise.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    advanceToNextMediaSource() : Promise<void>;
+
+    /**
+     * Ends playback of the current mediasource and starts playback of the previous mediasource in the mediasource list.
+     *
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+	   * @throws { BusinessError } 5400108 - The next mediasource does not exist in the playlist. Returned via promise.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    advanceToPrevMediaSource(): Promise<void>;
+
+    /**
+     * Return the current mediasource.
+     *
+     * @returns { MediaSource | undefined } current mediasource if the operation is successful; returns null otherwise.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    getCurrentMediaSource(): MediaSource | undefined;
+
+    /**
+     * Add a new playback source to the player's playlist.
+     *
+     * @param { MediaSource } src - Playback source to be added to the playlist.
+     * @param { string } [id] - Indicates the ID of a media source in the playlist.
+     *     The newly added media source is inserted before the specified media source.
+     *     <br>Default value:if empty, it means adding to the end of the list
+     * @returns { Promise<string> } Promise used to return the result,
+     *     if success, a unique ID corresponding to the media resource will be returned.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @throws { BusinessError } 5400108 - The media source ID does not exist in the playlist. Returned by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    addPlaybackMediaSource(src: MediaSource, id?: string): Promise<string>;
+
+    /**
+     * Removes the specified playback media source from the player's playlist.
+     * If the id does not exist in the current playlist, the method returns immediately.
+     *
+     * @param { string } id - ID returned after a media source is added to the playlist.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @throws { BusinessError } 5400108 - The media source ID does not exist in the playlist. Returned via promise.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    removePlaybackMediaSource(id: string): Promise<void>;
+
+    /**
+     * Clears all the items in the player's playlist. Currently playing media will be terminated immediately.
+     *
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 5400102 - Operation not allowed or no next mediasource in the list. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    clearPlaybackList(): Promise<void>;
+
+    /**
+     * Ends playback of the current mediasource and starts playback of the specified mediasource in the mediasource list.
+     *
+     * @param { string } id - Indicates the ID of the media source to play.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @throws { BusinessError } 5400108 - The mediasource does not exist in the playlist. Returned via promise.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    advanceToMediaSource(id: string): Promise<void>;
+
+    /**
+     * Return the array of mediasources in the playlist.
+     *
+     * @returns { Array<MediaSource | undefined> } array of mediasources in the playlist.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    getMediaSources(): Array<MediaSource | undefined>;
+
+    /**
      * Media URI. Mainstream media formats are supported.
      * Network:http://xxx
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -3829,6 +4029,17 @@ declare namespace media {
      * @since 23 static
      */
     loop: boolean;
+
+    /**
+     * Set the loopmode when playing the media source playlist.
+     * <br>Default value:PLAYLIST_LOOP_MODE_ALL, which means loops all items in the playlist.
+     *
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    playlistLoopMode?: PlaylistLoopMode;
 
     /**
      * Describes audio interrupt mode, refer to {@link #audio.InterruptMode}. If it is not
@@ -5631,6 +5842,80 @@ declare namespace media {
      * @since 23 static
      */
     offSeiMessageReceived(payloadTypes?: Array<int>, callback?: OnSeiMessageHandle): void;
+
+    /**
+     * Registers a listener to detect when the playback content has changed.
+     * The value carried in the callback function is the ID of the media source that is being played in the playlist.
+     *
+     * @param { Callback<string> } callback - Callback invoked when the event is triggered.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    onPlaybackContentChanged(callback: Callback<string>):void;
+
+    /**
+     * Unregisters listener to detect when changes occur in the playback content.
+     *
+     * @param { Callback<string> } [callback] - Callback invoked when the event is triggered.
+     *     <br>Default value:If this parameter is not specified, all callback functions for the event are unsubscribed.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    offPlaybackContentChanged(callback?: Callback<string>):void;
+  }
+
+  /**
+   * Enumerates loop mode keys for playback.
+   *
+   * @syscap SystemCapability.Multimedia.Media.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  enum PlaylistLoopMode {  
+    /**
+     * loops all items in the playlist
+     *
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    PLAYLIST_LOOP_MODE_ALL = 1,
+ 
+    /**
+     * Loops a single playback item.
+     *
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    PLAYLIST_LOOP_MODE_ONE = 2,
+
+    /**
+     * Loops shuffle playback item.
+     *
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    PLAYLIST_LOOP_MODE_SHUFFLE = 3,
+  
+    /**
+     * No looping
+     *
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    PLAYLIST_LOOP_MODE_NONE = 4
   }
 
   /**
@@ -6314,6 +6599,18 @@ declare namespace media {
      * @since 23 static
      */
     setMediaResourceLoaderDelegate(resourceLoader: MediaSourceLoader): void;
+
+    /**
+     * Gets the identifier of the media source.
+     *
+     * @returns { string } Identifier of the media source.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    getID(): string;
   }
 
   /**
@@ -7446,6 +7743,33 @@ declare namespace media {
      * };
      *
      * avRecorder.setMetadata(meta);
+     */
+    /**
+     * Set metadata (key-value pairs) for the recording file of the recorder.
+     * This metadata overwrites the value in config.metadata.customInfo (see {prepare()} and {AVRecorderConfig})
+     * if they have same key.
+     *
+     * This API can be called only after the prepare() event is successfully triggered and
+     * before the stop() API is called.
+     * @param { Record<string, string> } metadata - Tag and value of the metadata in key-value pairs.
+     * <br>- The first string is the key.<br>- The second string is the value.
+     * <br> The key string should start with "com.openharmony.", the length of value can't be more than 256 bytes.
+     * @throws { BusinessError } 5400101 - No memory.
+     * @throws { BusinessError } 5400102 - Operation not allowed.
+     * @throws { BusinessError } 5400108 - Parameter check failed.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @since 26.0.0 dynamic&static
+     * @example
+     * let meta: Record<string, string> = {
+     *   'com.openharmony.userdefine': '10',
+     *   'com.openharmony.userdefine2': '20'
+     * };
+     *
+     * try {
+     *   avRecorder.setMetadata(meta);
+     * } catch (err) {
+     *   console.error('Failed to set metadata and catch error is ' + err.message);
+     * }
      */
     setMetadata(metadata: Record<string, string>): void;
 
@@ -11889,6 +12213,38 @@ declare namespace media {
      * @since 23 static
      */
     SCREENCAPTURE_STATE_STOPPED_BY_USER_SWITCHES = 10,
+    /**
+     * Screen capture paused by user.
+     *
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    SCREENCAPTURE_STATE_PAUSED_BY_USER = 11,
+    /**
+     * Screen capture resumed by user.
+     *
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    SCREENCAPTURE_STATE_RESUMED_BY_USER = 12,
+    /**
+     * Screen capture paused by app.
+     *
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    SCREENCAPTURE_STATE_PAUSED_BY_APP = 13,
+    /**
+     * Screen capture resumed by app.
+     *
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    SCREENCAPTURE_STATE_RESUMED_BY_APP = 14,
   }
 
   /**
@@ -11943,6 +12299,14 @@ declare namespace media {
      * @since 23 dynamic&static
      */
     privacyMaskMode?: int;
+
+    /**
+     * Enable pausing the screen capture. The default value is false.
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    enablePause?: boolean;
   }
 
   /**
@@ -12124,6 +12488,46 @@ declare namespace media {
      * })
      */
     stopRecording(): Promise<void>;
+
+    /**
+     * Pause screen capture. This API uses a promise to return the result.
+     *
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 5400102 - Operation not be permitted. Return by promise.
+     * @throws { BusinessError } 5400103 - IO error. Return by promise.
+     * @throws { BusinessError } 5400105 - Service died. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     * @example
+     * import { BusinessError } from '@kit.BasicServicesKit';
+     * avScreenCaptureRecorder.pauseRecording().then(() => {
+     *     console.info('Succeeded in pausing avScreenCaptureRecorder');
+     * }).catch((err: BusinessError) => {
+     *     console.info('Failed to pause avScreenCaptureRecorder, error: ' + err.message);
+     * })
+     */
+    pauseRecording(): Promise<void>;
+
+    /**
+     * Resume screen capture. This API uses a promise to return the result.
+     *
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 5400102 - Operation not be permitted. Return by promise.
+     * @throws { BusinessError } 5400103 - IO error. Return by promise.
+     * @throws { BusinessError } 5400105 - Service died. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     * @example
+     * import { BusinessError } from '@kit.BasicServicesKit';
+     * avScreenCaptureRecorder.resumeRecording().then(() => {
+     *     console.info('Succeeded in resuming avScreenCaptureRecorder');
+     * }).catch((err: BusinessError) => {
+     *     console.info('Failed to resume avScreenCaptureRecorder, error: ' + err.message);
+     * })
+     */
+    resumeRecording(): Promise<void>;
 
     /**
      * During screen capture, the application can exempt its privacy windows from security purposes.

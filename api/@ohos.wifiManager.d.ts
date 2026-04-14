@@ -527,6 +527,27 @@ declare namespace wifiManager {
   function connectToCandidateConfig(networkId: int): void;
 
   /**
+   * Connect to the specified candidate hotspot using connect settings.
+   *
+   * @permission ohos.permission.SET_WIFI_INFO
+   * @param { ConnectSettings } settings - Indicates the connection settings.
+   * @returns { Promise<void> } - Returns the promise object that used to return the operation result.
+   *     If the operation fails, an error message is returned.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2501000 - Operation failed.
+   * @throws { BusinessError } 2501001 - Wi-Fi STA disabled.
+   * @throws { BusinessError } 2501005 - The user does not respond.
+   * @throws { BusinessError } 2501006 - The user refused the action.
+   * @throws { BusinessError } 2501007 - Parameter validation failed.
+   * @syscap SystemCapability.Communication.WiFi.STA
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  function connectToCandidateConfig(settings: ConnectSettings): Promise<void>;
+
+  /**
    * Connect to a specified candidate hotspot by networkId, and wait for user respond result.
    * Only the configuration which is added by ourself is allowed to be connected.
    * This method connect to a configuration at a time.
@@ -4136,6 +4157,22 @@ declare namespace wifiManager {
   }
 
   /**
+   * Wi-Fi Capability
+   * @syscap SystemCapability.Communication.WiFi.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  enum WifiCapability {  
+    /**
+     * Wi-Fi auto enable capability
+     * @syscap SystemCapability.Communication.WiFi.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    WIFI_AUTO_ENABLE = 0
+  }
+
+  /**
    * Describes the WAPI pre-shared key Type.
    * @enum { int }
    * @syscap SystemCapability.Communication.WiFi.Core
@@ -4563,6 +4600,15 @@ declare namespace wifiManager {
      * @since 23 static
      */
     wifiLinkType?: WifiLinkType;
+
+    /**
+     * Whether Wi-Fi Tx and Rx are both working properly
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    wifiTxRxValid?: boolean;
   }
 
   /**
@@ -4725,6 +4771,55 @@ declare namespace wifiManager {
      * @since 23 static
      */
     secondDNS: string;
+  }
+
+  /**
+   * Describes the settings for Wi-Fi connection.
+   *
+   * @syscap SystemCapability.Communication.WiFi.STA
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  interface ConnectSettings {  
+    /**
+     * The ID (uniquely identifies) of a Wi-Fi connection.
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    networkId: int;
+  
+    /**
+     * Returned with user action, default value is false.
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    withUserAction?: boolean;
+  
+    /**
+     * User action timeout threshold(unit is seconds).
+     * The maximum value cannot exceed 30, and default is 10.
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    userActionTimeout?: int;
+  
+    /**
+     * Whether to add the network to the system for connection.
+     * Default is false, if set to ture, the network will be added to the system
+     * before connection and cannot be retrieved again.
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    addNetworkToSystem?: boolean;
   }
 
   /**
@@ -5508,6 +5603,40 @@ declare namespace wifiManager {
    * @since 23 static
    */
   function isRandomMacDisabled(): boolean;
+
+  /**
+   * Set Wi-Fi capability
+   *
+   * @permission ohos.permission.SET_WIFI_CONFIG
+   * @param { WifiCapability } capability - Identifies the Wi-Fi capability
+   * @param { boolean } enable - Identifies enable or disable specified Wi-Fi capability.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - System API is not allowed called by Non-system application.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2501000 - Operation failed.
+   * @syscap SystemCapability.Communication.WiFi.Core
+   * @systemapi Hide this for inner system use.
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function setWifiCapability(capability: WifiCapability, enable: boolean): void;
+
+  /**
+   * Get Wi-Fi capability
+   *
+   * @permission ohos.permission.GET_WIFI_INFO
+   * @param { WifiCapability } capability - Identifies the Wi-Fi capability
+   * @returns { boolean } Returns {@code true} the specified is enable Returns {@code false} otherwise.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - System API is not allowed called by Non-system application.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2501000 - Operation failed.
+   * @syscap SystemCapability.Communication.WiFi.Core
+   * @systemapi Hide this for inner system use.
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function getWifiCapability(capability: WifiCapability): boolean;
 }
 
 export default wifiManager;

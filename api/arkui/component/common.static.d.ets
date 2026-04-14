@@ -39,10 +39,10 @@ import { ComponentContent } from '../../arkui/ComponentContent';
 import { ResizableOptions } from "./image";
 import intl from '../../@ohos.intl';
 import { ButtonType, ButtonStyleMode, ButtonRole } from "./button";
-import { Area, ResourceColor, Dimension, ResourceStr, Font, Length, EdgeColors, LocalizedEdgeColors, BorderRadiuses, EdgeWidths, LocalizedEdgeWidths, SizeOptions, Bias, EdgeStyles, Position, LocalizedBorderRadiuses, Margin, ChainWeightOptions, Padding, LocalizedPadding, LocalizedMargin, BorderOptions, OutlineOptions, EdgeOutlineStyles, EdgeOutlineWidths, OutlineRadiuses, Edges, LocalizedEdges, LocalizedPosition, AccessibilityOptions, ConstraintSizeOptions, EdgeWidth, DirectionalEdgesT, VoidCallback, ColorMetrics, AccessibilityActionOptions, ScrollBarMargin } from "./units";
+import { Area, ResourceColor, Dimension, ResourceStr, Font, Length, EdgeColors, LocalizedEdgeColors, BorderRadiuses, EdgeWidths, LocalizedEdgeWidths, SizeOptions, Bias, EdgeStyles, Position, LocalizedBorderRadiuses, Margin, ChainWeightOptions, Padding, LocalizedPadding, LocalizedMargin, BorderOptions, OutlineOptions, EdgeOutlineStyles, EdgeOutlineWidths, OutlineRadiuses, Edges, LocalizedEdges, LocalizedPosition, AccessibilityOptions, ConstraintSizeOptions, EdgeWidth, DirectionalEdgesT, VoidCallback, ColorMetrics, AccessibilityActionOptions, ScrollBarMargin, Coordinate2D } from "./units";
 import { BaseGestureEvent, GestureRecognizer, TouchRecognizer, GestureJudgeResult, GestureType, GestureMask, GestureHandler, GesturePriority, GestureInfo } from "./gesture";
 import { ScrollState } from "./list";
-import { AccessibilityHoverType, Curve, PlayMode, SharedTransitionEffectType, KeySource, BorderStyle, HorizontalAlign, LocalizedAlignment, RenderStrategy, VerticalAlign, MouseButton, MouseAction, FontWeight, TouchType, FontStyle, Color, ColoringStrategy, Placement, ArrowPointPosition, ClickEffectLevel, NestedScrollMode, HitTestMode, Alignment, ImageRepeat, ImageSize, HoverEffect, Visibility, ItemAlign, Direction, Axis, GradientDirection, FunctionKey, ModifierKey, ObscuredReasons, RenderFit, LineCapStyle, LineJoinStyle, PixelRoundCalcPolicy, TextDecorationType, TextDecorationStyle, KeyType, ResponseType, BarState, EdgeEffect, ScrollSource, InteractionHand, AxisAction, AxisType, AxisModel, CrownAction, FocusDrawLevel, CrownSensitivity, IlluminatedType, ResponseRegionSupportedTool, TipsAnchorType, InputEventInterceptAction } from "./enums";
+import { AccessibilityHoverType, GestureCollectIntervention, Curve, PlayMode, SharedTransitionEffectType, KeySource, BorderStyle, HorizontalAlign, LocalizedAlignment, RenderStrategy, VerticalAlign, MouseButton, MouseAction, FontWeight, TouchType, FontStyle, Color, ColoringStrategy, Placement, ArrowPointPosition, ClickEffectLevel, NestedScrollMode, HitTestMode, Alignment, ImageRepeat, ImageSize, HoverEffect, Visibility, ItemAlign, Direction, Axis, GradientDirection, FunctionKey, ModifierKey, ObscuredReasons, RenderFit, LineCapStyle, LineJoinStyle, PixelRoundCalcPolicy, TextDecorationType, TextDecorationStyle, KeyType, ResponseType, BarState, EdgeEffect, ScrollSource, InteractionHand, AxisAction, AxisType, AxisModel, CrownAction, FocusDrawLevel, CrownSensitivity, IlluminatedType, ResponseRegionSupportedTool, TipsAnchorType, InputEventInterceptAction, UIMaterialAnimationMode } from "./enums";
 import { TextRange } from "./textCommon";
 import { StyledString } from "./styledString";
 import { CustomBuilder, WrappedBuilder, CustomBuilderT } from './builder';
@@ -293,16 +293,6 @@ export declare interface ReuseOptions {
  * @since 23 static
  */
 export type Context = OriginalContext;
-/**
- * Post Card Action.
- *
- * @param { Object } component - indicate the card entry component.
- * @param { Object } action - indicate the router, message or call event.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 23 static
- */
-export declare function postCardAction(component: Object, action: Object): void;
 /**
  * Defines the data type of the interface restriction.
  *
@@ -2487,7 +2477,19 @@ export declare class DrawModifier {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
      */
-     drawFront(drawContext: DrawContext): void;
+    drawFront(drawContext: DrawContext): void;
+
+    /**
+     * drawforeground Method. This method is executed after drawing the associated Node and its children.
+     * It allows you to perform additional drawing operations on top of the already rendered content.
+     * This can be useful for adding visual elements that should appear above the main content.
+     *
+     * @param { DrawContext } drawContext - The drawContext used to draw.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 24 static
+     */
+    drawForeground(drawContext: DrawContext): void;
 
     /**
      * Draws content in the overlay layer after the associated Node and all its children have been drawn.
@@ -3236,6 +3238,33 @@ export declare enum ThemeColorMode {
      * @since 23 static
      */
     DARK = 2
+}
+
+/**
+ * enum color mode of pointing popup
+
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare enum AnchoredColorMode {
+    /**
+     * Defines the mode which is follow up with system.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+    */
+    FOLLOW_SYSTEM = 0,
+    /**
+     * Defines the mode which is follow up with target.
+     * 
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+    */
+    FOLLOW_TARGET = 1
 }
 
 /**
@@ -4328,6 +4357,17 @@ export declare interface ClickEvent extends BaseEvent {
      * @since 24 static
      */
     globalDisplayY?: double;
+
+ 	/**
+ 	 * Gets the coordinates of the top-left corner of the current component based on its real-time position.
+ 	 *
+ 	 * @returns { Coordinate2D } - return the coordinates of the top-left corner of the current component based on its
+ 	 * real-time position.
+ 	 * @syscap SystemCapability.ArkUI.ArkUI.Full
+ 	 * @stagemodelonly
+ 	 * @since 26.0.0 static
+ 	 */
+ 	default getCurrentLocalPosition(): Coordinate2D;
 }
 /**
  * The hover action triggers this method invocation.
@@ -4549,6 +4589,121 @@ export declare interface MouseEvent extends BaseEvent {
      * @since 24 static
      */
     eventHandleId?: int;
+    /**
+     * Gets the coordinates of the top-left corner of the current component based on its real-time position.
+     *
+     * @returns { Coordinate2D } - return the coordinates of the top-left corner of the current component based on its
+     * real-time position.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default getCurrentLocalPosition(): Coordinate2D;
+    /**
+     * Obtains all historical points of the current frame.
+     *
+     * @returns { MouseHistoricalPoint[] | undefined } - return all historical points. Undefined will be returned
+     *     if the internal runtime environment is broken.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default getHistoricalPoints(): MouseHistoricalPoint[] | undefined;
+}
+/**
+ * Defines the historical point information for mouse event.
+ *
+ * @interface MouseHistoricalPoint
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare interface MouseHistoricalPoint {
+  /**
+   * X coordinate of the mouse pointer relative to the upper left corner of the component being clicked.
+   *
+   * @type { double }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  x: double;
+  
+  /**
+   * Y coordinate of the mouse pointer relative to the upper left corner of the component being clicked.
+   *
+   * @type { double }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  y: double;
+  
+  /**
+   * X coordinate of the mouse pointer relative to the upper left corner of the application screen.
+   *
+   * @type { double }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  displayX: double;
+  
+  /**
+   * Y coordinate of the mouse pointer relative to the upper left corner of the application screen.
+   *
+   * @type { double }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  displayY: double;
+  
+  /**
+   * X coordinate of the mouse pointer relative to the upper left corner of the application window.
+   *
+   * @type { double }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  windowX: double;
+  
+  /**
+   * Y coordinate of the mouse pointer relative to the upper left corner of the application window.
+   *
+   * @type { double }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  windowY: double;
+
+  /**
+   * X coordinate of the point relative to the global display.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  globalDisplayX: double;
+
+  /**
+   * Y coordinate of the point relative to the global display.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  globalDisplayY: double;
+  
+  /**
+   * Timestamp of the mouse event.
+   *
+   * @type { long }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  timestamp: long;
 }
 /**
  * The accessibility hover action triggers this method invocation.
@@ -4766,6 +4921,17 @@ export declare interface TouchObject {
      * @since 24 static
      */
     globalDisplayY?: double;
+
+ 	/**
+ 	 * Gets the coordinates of the top-left corner of the current component based on its real-time position.
+ 	 *
+ 	 * @returns { Coordinate2D } - return the coordinates of the top-left corner of the current component based on its
+ 	 * real-time position.
+ 	 * @syscap SystemCapability.ArkUI.ArkUI.Full
+ 	 * @stagemodelonly
+ 	 * @since 26.0.0 static
+ 	 */
+ 	default getCurrentLocalPosition(): Coordinate2D;
 }
 /**
  * TouchObject getHistoricalPoints Function Parameters
@@ -5018,6 +5184,17 @@ export declare interface AxisEvent extends BaseEvent {
      * @since 24 static
      */
     globalDisplayY?: double;
+
+ 	/**
+ 	 * Gets the coordinates of the top-left corner of the current component based on its real-time position.
+ 	 *
+ 	 * @returns { Coordinate2D } - return the coordinates of the top-left corner of the current component based on its
+ 	 * real-time position.
+ 	 * @syscap SystemCapability.ArkUI.ArkUI.Full
+ 	 * @stagemodelonly
+ 	 * @since 26.0.0 static
+ 	 */
+ 	default getCurrentLocalPosition(): Coordinate2D;
 }
 /**
  * Defines the callback type used in onSizeChange.
@@ -5077,6 +5254,19 @@ export type TransitionFinishCallback = (transitionIn: boolean) => void;
  * @since 23 static
  */
 export type TouchTestDoneCallback = (event: BaseGestureEvent, recognizers: Array<GestureRecognizer>) => void;
+/**
+ * Defines the callback type used in onGestureCollectIntercept.
+ *
+ * @typedef { function } GestureCollectInterceptCallback
+ * @param { Array<GestureRecognizer> } recognizers - the gesture recognizers of the component on the response chain.
+ * @param { Array<TouchRecognizer> } [touchRecognizers] - the touch recognizers of the component on the response chain.
+ * @returns { GestureCollectIntervention } the gesture intervention.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export type GestureCollectInterceptCallback = (recognizers: Array<GestureRecognizer>,
+    touchRecognizers?: Array<TouchRecognizer>) => GestureCollectIntervention;
 /**
  * Defines the callback type used in onNeedSoftkeyboard.
  * Called when component is focused, the return value indicates whether keyboard is needed.
@@ -6461,7 +6651,6 @@ export declare interface SheetOptions extends BindOptions {
       *
       * @type { ?SystemUiMaterial }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
-      * @systemapi
       * @stagemodelonly
       * @since 26.0.0 static
       */
@@ -7278,12 +7467,21 @@ export declare interface PopupCommonOptions {
      */
     borderLinearGradient?: PopupBorderLinearGradient;
     /**
+ 	 * Define the popup theme color mode.
+ 	 * 
+ 	 * @type { ?AnchoredColorMode }
+ 	 * @default AnchoredColorMode.FOLLOW_TARGET
+ 	 * @syscap SystemCapability.ArkUI.ArkUI.Full
+ 	 * @stagemodelonly
+ 	 * @since 26.0.0 static
+ 	 */
+ 	colorMode?: AnchoredColorMode;
+    /**
      * Set system-styled materials for popup. Different materials have different effects, which can influence
      * the backgroundColor, border, shadow, and other visual attributes of popup.
      *
      * @type { ?SystemUiMaterial }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
      * @stagemodelonly
      * @since 26.0.0 static
      */
@@ -7410,6 +7608,15 @@ export declare interface TipsOptions {
      * @since 23 static
      */
     showAtAnchor?: TipsAnchorType;
+    /**
+     * Set system-styled materials for tips. Different materials have different effects, which can influence
+     * backgroundColor, border, shadow, and other visual attributes of tips.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    systemMaterial?: SystemUiMaterial;
 }
 /**
  * Defines the popup button.
@@ -7707,14 +7914,22 @@ export declare interface PopupOptions {
      * @since 23 static
      */
     borderLinearGradient?: PopupBorderLinearGradient;
-
+    /**
+ 	 * Define the popup theme color mode.
+ 	 * 
+ 	 * @type { ?AnchoredColorMode }
+ 	 * @default AnchoredColorMode.FOLLOW_TARGET
+ 	 * @syscap SystemCapability.ArkUI.ArkUI.Full
+ 	 * @stagemodelonly
+ 	 * @since 26.0.0 static
+ 	 */
+ 	colorMode?: AnchoredColorMode;
     /**
      * Set system-styled materials for popup. Different materials have different effects, which can influence
      * the backgroundColor, border, shadow, and other visual attributes of popup.
      *
      * @type { ?SystemUiMaterial }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
      * @stagemodelonly
      * @since 26.0.0 static
      */
@@ -8052,14 +8267,22 @@ export declare interface CustomPopupOptions {
      * @since 23 static
      */
     borderLinearGradient?: PopupBorderLinearGradient;
-
+    /**
+ 	 * Define the popup theme color mode.
+ 	 * 
+ 	 * @type { ?AnchoredColorMode }
+ 	 * @default AnchoredColorMode.FOLLOW_TARGET
+ 	 * @syscap SystemCapability.ArkUI.ArkUI.Full
+ 	 * @stagemodelonly
+ 	 * @since 26.0.0 static
+ 	 */
+ 	colorMode?: AnchoredColorMode;
     /**
      * Set system-styled materials for popup. Different materials have different effects, which can influence
      * the backgroundColor, border, shadow, and other visual attributes of popup.
      *
      * @type { ?SystemUiMaterial }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
      * @stagemodelonly
      * @since 26.0.0 static
      */
@@ -8649,7 +8872,16 @@ export declare interface ContextMenuOptions {
      * @since 23 static
      */
     anchorPosition?: Position;
-
+    /**
+ 	 * Define the menu theme color mode.
+ 	 * 
+ 	 * @type { ?AnchoredColorMode }
+ 	 * @default AnchoredColorMode.FOLLOW_TARGET
+ 	 * @syscap SystemCapability.ArkUI.ArkUI.Full
+ 	 * @stagemodelonly
+ 	 * @since 26.0.0 static
+ 	 */
+ 	colorMode?: AnchoredColorMode;
     /**
      * Determine the mode of menu how to avoid keyboard.
      *
@@ -8705,6 +8937,16 @@ export declare interface ContextMenuOptions {
      * @since 26.0.0 static
      */
     maxHeight?: LengthMetrics;
+    /**
+     * Sets the animation effect mode of the menu with the new material;
+     *
+     * @type { ?UIMaterialAnimationMode }
+     * @default UIMaterialAnimationMode.IMMERSIVE
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    uiMaterialAnimationMode?: UIMaterialAnimationMode;
 }
 /**
  * Defines the menu options.
@@ -8871,6 +9113,218 @@ export declare class TouchResult {
      */
     id?: string;
 }
+
+/**
+ * 3D vector in depth space.
+ *
+ * @interface DepthVector3
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare interface DepthVector3 {
+  /**
+   * X component.
+   *
+   * @type { double }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  x: double;
+
+  /**
+   * Y component.
+   *
+   * @type { double }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  y: double;
+
+  /**
+   * Z component.
+   *
+   * @type { double }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  z: double;
+}
+
+/**
+ * 4D vector in depth space.
+ *
+ * @interface DepthVector4
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare interface DepthVector4 {
+  /**
+   * X component.
+   *
+   * @type { double }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  x: double;
+
+  /**
+   * Y component.
+   *
+   * @type { double }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  y: double;
+
+  /**
+   * Z component.
+   *
+   * @type { double }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  z: double;
+
+  /**
+   * W component.
+   *
+   * @type { double }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  w: double;
+}
+
+/**
+ * RGB color in depth space.
+ *
+ * @interface DepthColorRGB
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare interface DepthColorRGB {
+  /**
+   * Red component (0-255).
+   *
+   * @type { int }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  red: int;
+
+  /**
+   * Green component (0-255).
+   *
+   * @type { int }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  green: int;
+
+  /**
+   * Blue component (0-255).
+   *
+   * @type { int }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  blue: int;
+}
+
+/**
+ * Spatial corner positions in 3D space.
+ *
+ * @interface SpatialPosition
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare interface SpatialPosition {
+  /**
+   * Left-top corner position in 3D space.
+   *
+   * @type { DepthVector3 }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  leftTop: DepthVector3;
+
+  /**
+   * Right-top corner position in 3D space.
+   *
+   * @type { DepthVector3 }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  rightTop: DepthVector3;
+
+  /**
+   * Left-bottom corner position in 3D space.
+   *
+   * @type { DepthVector3 }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  leftBottom: DepthVector3;
+
+  /**
+   * Right-bottom corner position in 3D space.
+   *
+   * @type { DepthVector3 }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  rightBottom: DepthVector3;
+}
+
+/**
+ * Spatial effect params.
+ *
+ * @interface SpatialEffectParams
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare interface SpatialEffectParams {
+  /**
+   * Spatial position defined by corner points.
+   *
+   * @type { SpatialPosition }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  position: SpatialPosition;
+
+  /**
+   * Occlusion weight for spatial effect.
+   * <br>Value range:[0, 1].Default value:0
+   *
+   * @type { double }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  occlusionWeight?: double;
+}
+
 /**
  * Set the edge blur effect distance of the corresponding defense line of the component
  * When the component expand out, no re-layout is triggered
@@ -10851,6 +11305,18 @@ export declare interface CommonMethod {
      */
     default onAreaChange(event: ((oldValue: Area, newValue: Area) => void) | undefined): this;
     /**
+     * This callback is triggered when the size or position of this component has finished changing.
+     * The interval between two area change callbacks will not be less than the expected update interval.
+     *
+     * @param { AreaChangeCallback } event - Callback invoked when the area of the component changes.
+     * @param { AreaChangeOptions } [options] - The options for the area change event.
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default onAreaChange (event: AreaChangeCallback, options?: AreaChangeOptions): this;
+    /**
      * Controls the display or hide of the current component.
      *
      * @param { Visibility | undefined } value - Whether the component is visible.
@@ -11230,6 +11696,16 @@ export declare interface CommonMethod {
      * @since 26.0.0 static
      */
     default overlay(value: string | CustomBuilder | ComponentContent<Object> | undefined, options?: OverlayOptions): this;
+    /**
+     * Config toolbar for current component.
+     *
+     * @param { CustomBuilder | undefined } value
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 24 static
+     */
+    default toolbar(value: CustomBuilder | undefined): this;
     /**
      * Linear Gradient
      * angle: Angle of Linear Gradient. The default value is 180;
@@ -11622,6 +12098,18 @@ export declare interface CommonMethod {
      * @since 23 static
      */
     default lightUpEffect(value: double | undefined): this;
+
+    /**
+     * Applies a spatial effect to component.
+     *
+     * @param { SpatialEffectParams | undefined } params - Spatial effect parameters.
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default spatialEffect(params: SpatialEffectParams | undefined): this;
+
     /**
      * Applies a pixel stretch effect to the component.
      *
@@ -11994,6 +12482,17 @@ export declare interface CommonMethod {
      */
     default onTouchTestDone(callback: TouchTestDoneCallback | undefined): this;
     /**
+     * When the events and gestures on this node and higher-priority nodes have been collected, the callback is executed.
+     * This callback is used to intervene in the event and gesture collection results.
+     *
+     * @param { GestureCollectInterceptCallback } callback - A callback instance used when the component does a touch test.
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default onGestureCollectIntercept(callback: GestureCollectInterceptCallback): this;
+    /**
      * Set system-styled materials for the component. Different materials have different effects, which can influence
      * the backgroundColor, border, shadow, and other visual attributes of the component.
      *
@@ -12007,6 +12506,19 @@ export declare interface CommonMethod {
      * @systemapi
      * @stagemodelonly
      * @since 23 static
+     */
+    /**
+     * Set system-styled materials for the component. The material effect behaves differently on devices with different
+     * level of computing powers. On devices with lower computing power, it affects attributes such as the
+     * backgroundColor, borderWidth, borderColor, shadow. On devices with higher computing power, it adds a filter effect
+     * at the system material layer, which can produce an effect similar to glass.
+     *
+     * @param { SystemUiMaterial | undefined } material - System-styled material. Undefined indicates reverting to
+     *     the effect of no system material.
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
      */
     default systemMaterial(material: SystemUiMaterial | undefined): this;
     /**
@@ -12649,6 +13161,14 @@ export type Filter = uiEffect.Filter;
  * @stagemodelonly
  * @since 23 static
  */
+/**
+ * SystemUiMaterial
+ *
+ * @typedef { uiMaterial.Material } SystemUiMaterial
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
 export type SystemUiMaterial = uiMaterial.Material;
 
 /**
@@ -12709,6 +13229,37 @@ export declare interface RectResult {
      */
     height: double;
 }
+/**
+ * Defines the options about AreaChangeEvent.
+ *
+ * @typedef AreaChangeOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare interface AreaChangeOptions {
+    /**
+     * The value of expectedUpdateInterval indicates the desired update interval (ms).
+     *
+     * @type { ?int }
+     * @default 1000
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    expectedUpdateInterval?: int;
+}
+/**
+ * Defines the options for the AreaChangeEvent.
+ *
+ * @typedef { function } AreaChangeCallback
+ * @param { Area } oldValue - Component area information before the change.
+ * @param { Area } newValue - Component area information after the change.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare type AreaChangeCallback = (oldValue: Area, newValue: Area) => void;
 /**
  * CaretOffset info.
  *

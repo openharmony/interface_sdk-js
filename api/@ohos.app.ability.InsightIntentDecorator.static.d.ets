@@ -730,3 +730,42 @@ export @interface InsightIntentEntry {
    */
   executeMode: insightIntent.ExecuteMode[];
 }
+
+/**
+ * Define InsightIntentEntity Annotation.
+ *
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export @interface InsightIntentEntity {
+  /**
+   * The entity category.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  entityCategory: string;
+
+  /**
+   * The parameters of intent entity.
+   * The value is the name of a variable of type Record<string, RecordData>.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  parameters: string = "";
+
+  /**
+   * Supported query properties.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  supportedQueryProperties: string[] = [];
+}

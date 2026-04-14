@@ -4702,13 +4702,40 @@ declare namespace bundleManager {
    * @param { int } appIndex - Indicates the index of clone app.
    * @returns { Promise<string> } Returns label of specified application.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700001 - The specified bundle is not found.
    * @throws { BusinessError } 17700061 - The specified app index is invalid.
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
   function getApplicationLabel(bundleName: string, appIndex: int): Promise<string>;
+
+  /**
+   * Obtains PreinstalledApplicationInfo of all newly added preinstalled applications during device OTA upgrade.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @returns { Promise<Array<PreinstalledApplicationInfo>> } Returns a list of PreinstalledApplicationInfo objects.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  function getAllNewPreinstalledApplicationInfo(): Promise<Array<PreinstalledApplicationInfo>>;
+
+  /**
+   * Obtains BundleInfo of all bundles available in the system.
+   * 
+   * @permission ohos.permission.ENTERPRISE_GET_INSTALLED_BUNDLE_LIST
+   * @param { int } bundleFlags {@link BundleFlag} - Indicates the flag used to specify information contained in the BundleInfo that will be returned.
+   * @returns { Promise<Array<BundleInfo>> } Returns a list of BundleInfo objects.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function getInstalledBundleList(bundleFlags: int): Promise<Array<BundleInfo>>;
 
   /**
    * Obtains configuration information about an application.

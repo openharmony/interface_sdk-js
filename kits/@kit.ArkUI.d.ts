@@ -115,13 +115,14 @@ import uiObserver from '@ohos.arkui.observer';
 import performanceMonitor from '@ohos.arkui.performanceMonitor';
 import { AppStorageV2, PersistenceV2, Type, UIUtils, ConnectOptions, Binding, MutableBinding, CustomComponentLifecycle, CustomComponentLifecycleObserver, 
 CustomComponentLifecycleState, ComponentInit, ComponentAppear, ComponentBuilt, ComponentReuse, 
-ComponentRecycle, ComponentDisappear, CollectionType, ConnectOptionsCollections } from '@ohos.arkui.StateManagement';
+ComponentRecycle, ComponentDisappear, CollectionType, ConnectOptionsCollections,
+CustomComponentContext, IReusePool, IReusableInfo } from '@ohos.arkui.StateManagement';
 import { RectShape, CircleShape, EllipseShape, PathShape } from '@ohos.arkui.shape';
 import {
   AtomicServiceBar, ComponentUtils, ContextMenuController, CursorController, DragController, Font, KeyboardAvoidMode, MediaQuery, OverlayManager,
   PromptAction, Router, UIContext, UIInspector, UIObserver, PageInfo, SwiperDynamicSyncScene, SwiperDynamicSyncSceneType, MarqueeDynamicSyncScene,
   MarqueeDynamicSyncSceneType, MeasureUtils, FrameCallback, OverlayManagerOptions, TargetInfo, TextMenuController,
-  NodeIdentity, NodeRenderState, NodeRenderStateChangeCallback, Magnifier, ResolvedUIContext
+  NodeIdentity, NodeRenderState, NodeRenderStateChangeCallback, Magnifier, ResolvedUIContext, TextSelectionClearPolicy
 } from '@ohos.arkui.UIContext';
 import curves from '@ohos.curves';
 import {
@@ -136,6 +137,7 @@ import MeasureText, { MeasureOptions } from '@ohos.measure';
 import mediaquery from '@ohos.mediaquery';
 import PiPWindow from '@ohos.PiPWindow';
 import floatingBall from '@ohos.window.floatingBall';
+import floatView from '@ohos.window.floatView';
 import pluginComponentManager, { PluginComponentTemplate } from '@ohos.pluginComponent';
 import prompt from '@ohos.prompt';
 import promptAction, { LevelMode, ImmersiveMode, LevelOrder } from '@ohos.promptAction';
@@ -277,7 +279,7 @@ export {
   ToolBarV2ItemImage, ToolBarV2ItemImageOptions, ToolBarV2, ToolBarV2Item, ToolBarV2ItemOptions, ToolBarV2Modifier, ToolBarV2ItemAction,
   TreeListenerManager, TreeView, UIContext, UIInspector, UIObserver, PageInfo, WindowExtensionAbility, WindowExtensionContext, XComponentNode,
   LengthMetrics, LengthUnit, ColorMetrics, LengthMetricsUnit, LayoutConstraint, ComponentContent, ReactiveComponentContent, NodeContent, Content,
-  componentSnapshot, componentUtils, curves, display, dragController, dragInteraction, floatingBall,
+  componentSnapshot, componentUtils, curves, display, dragController, dragInteraction, floatingBall, floatView,
   font, inspector, matrix4, mediaquery, performanceMonitor, pluginComponentManager, PluginComponentTemplate, prompt, promptAction, router,
   LevelMode, ImmersiveMode, LevelOrder, AtomicServiceWeb, OnMessageEvent, OnErrorReceiveEvent, OnHttpErrorReceiveEvent, OnPageBeginEvent, OnPageEndEvent,
   AtomicServiceWebController, OnLoadInterceptEvent, OnProgressChangeEvent, OnLoadInterceptCallback, WebHeader,
@@ -318,12 +320,13 @@ export {
   TabSegmentButtonV2, CapsuleSegmentButtonV2, MultiCapsuleSegmentButtonV2,
   AlertDialogV2, AdvancedDialogV2Button, AdvancedDialogV2ButtonOptions, AdvancedDialogV2ButtonAction, AdvancedDialogV2OnCheckedChange,
   ConfirmDialogV2, LoadingDialogV2, SelectDialogV2, TipsDialogV2, CustomContentDialogV2, PopoverDialogV2, PopoverDialogV2OnVisibleChange, PopoverDialogV2Options,
-  ExpandMode, Magnifier,
+  ExpandMode, Magnifier, TextSelectionClearPolicy,
   HalfScreenLaunchComponent, ArcSliderPosition, ArcSwiper, ArcSwiperAttribute, ArcDotIndicator, ArcDirection, ArcSwiperController, TargetInfo, UIState,
   StepperModifier, TextMenuController, InputEventType, GestureListenerType, GestureActionPhase, GestureTriggerInfo, GestureObserverConfigs, 
   GestureListenerCallback, NodeIdentity, NodeRenderState, NodeRenderStateChangeCallback, UIPickerComponentModifier, SwiperContentInfo, SwiperItemInfo, 
   ResolvedUIContext, imageGeneration, CustomComponentLifecycle, CustomComponentLifecycleObserver, CustomComponentLifecycleState, 
   ComponentInit, ComponentAppear, ComponentBuilt, ComponentReuse, ComponentRecycle, ComponentDisappear,
   CollectionType, ConnectOptionsCollections, uiMaterial,
-  RowLayoutAlgorithm, ColumnLayoutAlgorithm, StackLayoutAlgorithm, GridLayoutAlgorithm, CustomLayoutAlgorithm, LayoutAlgorithm, DynamicLayout, DynamicLayoutAttribute
+  RowLayoutAlgorithm, ColumnLayoutAlgorithm, StackLayoutAlgorithm, GridLayoutAlgorithm, CustomLayoutAlgorithm, LayoutAlgorithm, DynamicLayout, DynamicLayoutAttribute,
+  CustomComponentContext, IReusePool, IReusableInfo
 };

@@ -37,9 +37,9 @@ import type { ConnectOptions } from '../ability/connectOptions';
  */
 declare class LiveFormExtensionContext extends ExtensionContext {
   /**
-   * Start ability belongs to the application
+   * Start an ability that belongs to the application.
    *
-   * @param { Want } want - includes ability name, parameters and relative info sending to an ability.
+   * @param { Want } want - includes ability name, parameters and relevant info sending to an ability.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 801 - Capability not supported due to limited device capabilities.
    * @throws { BusinessError } 16500050 - An IPC connection error happened.
