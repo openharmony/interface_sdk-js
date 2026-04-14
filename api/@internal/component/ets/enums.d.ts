@@ -12015,3 +12015,86 @@ declare enum UIMaterialAnimationMode {
    */
   NONE = 1
 }
+
+/**
+ * Defines the position of the edge light effect.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.0.0 dynamic
+ */
+declare enum EdgeLightPosition {
+  /**
+   * Edge light effect in the upper left corner.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  TOP_LEFT = 0,
+  /**
+   * Edge light effect is in the upper right corner.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  TOP_RIGHT = 1,
+  /**
+   * Edge light effect is in the lower left corner.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  BOTTOM_LEFT = 2,
+  /**
+   * Edge light effect is in the lower right corner.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  BOTTOM_RIGHT = 3,
+  /**
+   * Edge light effect is on the top edge.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  TOP = 4,
+  /**
+   * The light effect starts from the bottom edge.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  BOTTOM = 5,
+  /**
+   * Edge light effect is on the left edge.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  LEFT = 6,
+  /**
+   * Edge light effect is on the right edge.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  RIGHT = 7,
+}
