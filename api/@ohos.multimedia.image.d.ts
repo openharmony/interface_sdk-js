@@ -6958,8 +6958,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Sets opacity of the PixelMap. Every pixel will be set to the same opacity value.
      *
-     * @param { double } value - The target opacity value to be set.
-     *     The valid range is (0.0, 1.0] where 1.0 is fully opaque and becoming more transparent as it approaches 0.0.
+     * @param { double } value - The target opacity value to be set. Unit: Percentage, Value range: (0,1].
+     *     The valid range is (0.0, 1.0] where 1.0 is fully opaque and becoming transparent as it approaches 0.0.
      * @returns { Promise<void> } A Promise that resolves when the operation completes.
      * @throws { BusinessError } 7600104 - Failed to get image data.
      *     Possible cause: Internal data is corrupted. Please check the logs for detailed information.
@@ -6980,8 +6980,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Sets opacity of the PixelMap. Every pixel will be set to the same opacity value.
      *
-     * @param { double } value - The target opacity value to be set.
-     *     The valid range is (0.0, 1.0] where 1.0 is fully opaque and becoming more transparent as it approaches 0.0.
+     * @param { double } value - The target opacity value to be set. Unit: Percentage, Value range: (0,1].
+     *     The valid range is (0.0, 1.0] where 1.0 is fully opaque and becoming transparent as it approaches 0.0.
      * @throws { BusinessError } 7600104 - Failed to get image data.
      *     Possible cause: Internal data is corrupted. Please check the logs for detailed information.
      * @throws { BusinessError } 7600105 - The PixelMap has been released.
@@ -7240,10 +7240,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Scales the PixelMap in the horizontal and/or vertical dimensions.
      *
-     * @param { double } x - The scale ratio of width.
-     * @param { double } y - The scale ratio of height.
-     * @param { AntiAliasingLevel } [level] - The anti-aliasing algorithm to be used.
-     *     The default value is AntiAliasingLevel.NONE.
+     * @param { double } x - The scale ratio of width. Unit: Percentage.
+     * @param { double } y - The scale ratio of height. Unit: Percentage.
+     * @param { AntiAliasingLevel } [level] - The anti-aliasing algorithm to be used. Default value: NONE.
      * @returns { Promise<void> } A Promise that resolves when the operation completes.
      * @throws { BusinessError } 7600104 - Failed to get image data.
      *     Possible cause: Internal data is corrupted. Please check the logs for detailed information.
@@ -7265,10 +7264,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Scales the PixelMap in the horizontal and/or vertical dimensions.
      *
-     * @param { double } x - The scale ratio of width.
-     * @param { double } y - The scale ratio of height.
-     * @param { AntiAliasingLevel } [level] - The anti-aliasing algorithm to be used.
-     *     The default value is AntiAliasingLevel.NONE.
+     * @param { double } x - The scale ratio of width. Unit: Percentage.
+     * @param { double } y - The scale ratio of height. Unit: Percentage.
+     * @param { AntiAliasingLevel } [level] - The anti-aliasing algorithm to be used. Default value: NONE.
      * @throws { BusinessError } 7600104 - Failed to get image data.
      *     Possible cause: Internal data is corrupted. Please check the logs for detailed information.
      * @throws { BusinessError } 7600105 - The PixelMap has been released.
@@ -7473,8 +7471,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Repositions the PixelMap in the horizontal and/or vertical directions.
      *
-     * @param { double } x - The distance in pixels to move in the horizontal direction.
-     * @param { double } y - The distance in pixels to move in the vertical direction.
+     * @param { double } x - The distance in pixels to move in the horizontal direction. Unit: px.
+     * @param { double } y - The distance in pixels to move in the vertical direction. Unit: px.
      * @returns { Promise<void> } A Promise that resolves when the operation completes.
      * @throws { BusinessError } 7600104 - Failed to get image data.
      *     Possible cause: Internal data is corrupted. Please check the logs for detailed information.
@@ -7496,8 +7494,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Repositions the PixelMap in the horizontal and/or vertical directions.
      *
-     * @param { double } x - The distance in pixels to move in the horizontal direction.
-     * @param { double } y - The distance in pixels to move in the vertical direction.
+     * @param { double } x - The distance in pixels to move in the horizontal direction. Unit: px.
+     * @param { double } y - The distance in pixels to move in the vertical direction. Unit: px.
      * @throws { BusinessError } 7600104 - Failed to get image data.
      *     Possible cause: Internal data is corrupted. Please check the logs for detailed information.
      * @throws { BusinessError } 7600105 - The PixelMap has been released.
@@ -7632,7 +7630,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * 
      * Note: YUV format PixelMaps only support rotation angles that are multiples of 90 degrees.
      *
-     * @param { double } angle - The rotation angle in degrees.
+     * @param { double } angle - The rotation angle in degrees. Unit: Degree.
      * @returns { Promise<void> } A Promise that resolves when the operation completes.
      * @throws { BusinessError } 7600104 - Failed to get image data.
      *     Possible cause: Internal data is corrupted. Please check the logs for detailed information.
@@ -7656,7 +7654,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * 
      * Note: YUV format PixelMaps only support rotation angles that are multiples of 90 degrees.
      *
-     * @param { double } angle - The rotation angle in degrees.
+     * @param { double } angle - The rotation angle in degrees. Unit: Degree.
      * @throws { BusinessError } 7600104 - Failed to get image data.
      *     Possible cause: Internal data is corrupted. Please check the logs for detailed information.
      * @throws { BusinessError } 7600105 - The PixelMap has been released.
