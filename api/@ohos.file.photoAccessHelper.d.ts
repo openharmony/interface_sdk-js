@@ -8300,6 +8300,22 @@ declare namespace photoAccessHelper {
      * @since 26.0.0 dynamic&static
      */
     getPreferredCompatibleMode(bundleName: string): Promise<PreferredCompatibleMode>;
+
+    /**
+     * Query whether the assets exist and whether the invoker has read permission on the assets without permission.
+     * @param { string[] } uris - Asset URI list.
+     * @returns {Promise<Map<string, MediaAssetPermissionState>>} - Returns
+     *     whether the assets exist and whether the invoker has read permission on the assets without permission.
+     * @throws { BusinessError } 23800151 - Scenario-specific parameters are incorrect. Possible causes are as follows:
+     *     1. The length of the input parameter queue is greater than 500.
+     *     2. The input parameter is null or undefined.
+     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
+     *     Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    checkPhotoUrisReadPermission(uris: string[]): Promise<Map<string, MediaAssetPermissionState>>;
   }
 
   /**
@@ -15703,6 +15719,48 @@ declare namespace photoAccessHelper {
      * @since 26.0.0 dynamic&static
      */
     UNAVAILABLE = 'unavailable'
+  }
+
+  /**
+   * Enumeration of permission level for an application to access asset.
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  enum MediaAssetPermissionState {
+    /**
+     * Not media asset uri.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    URI_FORMAT_ERROR = 0,
+    /**
+     * Asset not exists.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    FILE_NOT_EXIST = 1,
+    /**
+     * The application has read permission when accessing the asset
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    READ_PERMISSION = 2,
+    /**
+     * The application has no read permission when accessing the asset.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    NO_READ_PERMISSION = 3
   }
 }
 
