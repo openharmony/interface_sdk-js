@@ -2699,6 +2699,36 @@ declare namespace drawing {
      * @since 23 dynamic&static
      */
     toggleInverseFillType(): void;
+
+    /**
+     * Gets the last point of the path.
+     * 
+     * @returns { common2D.Point } Returns the last point of the path.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     */
+    getLastPoint(): common2D.Point;
+
+    /**
+     * Gets the last point of the path.
+     * 
+     * @returns { common2D.Point | undefined } Returns the last point of the path, or undefined if the path is empty.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    getLastPoint(): common2D.Point | undefined;
+
+    /**
+     * Checks if two paths are equal.
+     * @param { Path } path - Another Path object to compare.
+     * @returns { boolean } Returns true if the two paths are equal, otherwise returns false.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    isEqual(path: Path): boolean;
   }
 
   /**
@@ -12077,6 +12107,37 @@ declare namespace drawing {
      * @since 23 static
      */
     static isEqual(rect: common2D.Rect, other: common2D.Rect): boolean;
+  }
+
+  /**
+   * This class offers a comprehensive set of operations for handling common2D Point objects.
+   *
+   * @syscap SystemCapability.Graphics.Drawing
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  class PointUtils {
+    /**
+     * Negates the point's coordinates.
+     *
+     * @param { common2D.Point } point - Specifies the point to be negated.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    static negate(point: common2D.Point): void;
+
+    /**
+     * Offsets the point's coordinates by dx, dy.
+     *
+     * @param { common2D.Point } point - Specifies the point to be offset.
+     * @param { double } dx - Indicates the distance to offset on the x-axis in pixels.
+     * @param { double } dy - Indicates the distance to offset on the y-axis in pixels.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    static offset(point: common2D.Point, dx: double, dy: double): void;
   }
 }
 

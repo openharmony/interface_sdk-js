@@ -573,6 +573,17 @@ declare namespace formInfo {
      * @since 23 dynamic&static
      */
     readonly isPrivacySensitive?: boolean;
+
+    /**
+     * Obtains whether the font scaling factor follows system settings.
+     * <br>Default value:The default value is true.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    isFontScaleFollowSystem?: boolean;
   }
 
   /**
@@ -1427,7 +1438,39 @@ declare namespace formInfo {
      * @atomicservice
      * @since 24 dynamic&static
      */
-    UPDATE_FORM_REASON_KEY = 'ohos.extra.param.key.update_form_reason'
+    UPDATE_FORM_REASON_KEY = 'ohos.extra.param.key.update_form_reason',
+
+    /**
+     * Indicates the key specifying font size scale of the form.
+     * which is represented as
+     * want: {
+     *   "parameters": {
+     *       FORM_FONT_SIZE_SCALE_KEY: 1.0
+     *    }
+     * }
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    FORM_FONT_SIZE_SCALE_KEY = 'ohos.extra.param.key.form_font_size_scale',
+
+    /**
+     * Indicates the key specifying font weight scale of the form.
+     * which is represented as
+     * want: {
+     *   "parameters": {
+     *       FORM_FONT_WEIGHT_SCALE_KEY: 1.0
+     *    }
+     * }
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    FORM_FONT_WEIGHT_SCALE_KEY = 'ohos.extra.param.key.form_font_weight_scale'
   }
 
   /**
@@ -2410,7 +2453,7 @@ declare namespace formInfo {
   }
 
   /**
-   * Provides OverflowInfo about funInteraction or sceneAniamtion form
+   * Provides OverflowInfo about funInteraction or sceneAnimation form
    *
    * @typedef { OverflowInfo }
    * @syscap SystemCapability.Ability.Form
@@ -2486,7 +2529,7 @@ declare namespace formInfo {
     isOverflow: boolean;
 
     /**
-     * The form's overflow animation paramter
+     * The form's overflow animation parameter
      *
      * @type { ?OverflowInfo }
      * @syscap SystemCapability.Ability.Form

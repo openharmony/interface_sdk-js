@@ -954,14 +954,16 @@ export declare interface NavigationInterception {
  *
  * @interface HomePathInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
-declare interface HomePathInfo {
+export declare interface HomePathInfo {
   /**
    * Name of the home destination.
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   name: string;
@@ -971,6 +973,7 @@ declare interface HomePathInfo {
    *
    * @type { ?Object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   param?: Object;

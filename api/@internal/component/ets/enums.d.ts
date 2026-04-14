@@ -405,14 +405,14 @@ declare enum Color {
   Orange,
 
   /**
-   * color.
+   * Pink.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @since 7
    */
   /**
-   * color.
+   * Pink.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -420,7 +420,7 @@ declare enum Color {
    * @since 9
    */
   /**
-   * color.
+   * Pink.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -429,7 +429,7 @@ declare enum Color {
    * @since 10
    */
   /**
-   * color.
+   * Pink.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -11495,6 +11495,16 @@ declare enum ColorSpace {
    * @since 20 dynamic
    */
   DISPLAY_P3 = 1,
+
+  /**
+   * BT2020 ColorSpace.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 24 dynamic
+   */
+  BT2020 = 2,
 }
 
 /**
@@ -11866,3 +11876,142 @@ declare enum InputEventInterceptAction {
      */
     COMPETITION = 1,
   }
+
+/**
+ * Define the gesture and events collection intervention operations.
+ *
+ * @enum {number}
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare enum GestureCollectIntervention {
+  /**
+   * Continue the normal collection process. No intervention will be applied.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  CONTINUE = 0,
+
+  /**
+   * Discard all pending lower-priority gestures and events.
+   * This includes gestures from left sibling nodes and ancestor nodes (parent and above).
+   * Only the already collected gestures from the current node and higher-priority nodes will be retained.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  DISCARD_LOWER = 1,
+
+  /**
+   * Discard already collected higher-priority gestures and events.
+   * This removes gestures from right sibling nodes that have been collected.
+   * The collection will continue with lower-priority gestures (left siblings and ancestors).
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  DISCARD_HIGHER = 2,
+
+  /**
+   * Discard gestures and events from the current node itself.
+   * The current node's gestures and events will be excluded from the gesture tree.
+   * Gestures from sibling nodes (both left and right) and ancestor nodes will still be collected.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  DISCARD_SELF = 3,
+
+  /**
+   * Discard gestures and events from left sibling nodes that are pending collection.
+   * Gestures and events from the current node and already collected right sibling nodes will be retained.
+   * The collection will continue with ancestor nodes.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  DISCARD_LOWER_PRIORITY_SIBLINGS = 4,
+}
+
+/**
+ * Define the type of raw input event.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare enum RawInputEventType {
+  /**
+   * Touch events.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  TOUCH = 0,
+
+  /**
+   * Mouse events.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  MOUSE = 1
+}
+
+/**
+ * Enumerates the component animation modes under the UI material effect.
+ *
+ * @enum { int }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare enum UIMaterialAnimationMode {
+  /**
+   * When the material is enabled for the component, the animation effect is automatically enabled.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  IMMERSIVE = 0,
+
+  /**
+   * Disable the animation effect.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  NONE = 1
+}

@@ -19,135 +19,66 @@
  */
 
 /**
- * Store unit testing-related parameters, including test case names, and test runner name.
+ * The **AbilityDelegatorArgs** module provides APIs to obtain an **AbilityDelegatorArgs** object during the execution 
+ * of test cases.
+ * 
+ * > **NOTE**
+ * 
+ * > The APIs of this module can be used only in 
+ * >
+ * >
+ * > [JsUnit](docroot://application-test/unittest-guidelines.md)
+ * >
+ * >
+ * > .
  *
- * @typedef AbilityDelegatorArgs
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @since 8
- */
-/**
- * Store unit testing-related parameters, including test case names, and test runner name.
- *
- * @typedef AbilityDelegatorArgs
- * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @crossplatform
- * @since 10
- */
-/**
- * Store unit testing-related parameters, including test case names, and test runner name.
- *
- * @typedef AbilityDelegatorArgs
- * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  * @since 23 static
  */
 export interface AbilityDelegatorArgs {
   /**
-   * the bundle name of the application being tested.
+   * Bundle name of the application to test.
    *
-   * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 8
-   */
-  /**
-   * the bundle name of the application being tested.
-   *
-   * @type { string }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * the bundle name of the application being tested.
-   *
-   * @type { string }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    * @since 23 static
    */
   bundleName: string;
 
   /**
-   * the parameters used for unit testing.
+   * Parameters of the unit test that is started currently.
    *
-   * @type { object }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 8
-   */
-  /**
-   * the parameters used for unit testing.
-   *
-   * @type { object }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * the parameters used for unit testing.
-   *
-   * @type { Record<string, string> }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    * @since 23 static
    */
   parameters: Record<string, string>;
 
   /**
-   * the class names of all test cases.
+   * Test case name.
    *
-   * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 8
-   */
-  /**
-   * the class names of all test cases.
-   *
-   * @type { string }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * the class names of all test cases.
-   *
-   * @type { string }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    * @since 23 static
    */
   testCaseNames: string;
 
   /**
-   * the class name of the test runner used to execute test cases.
+   * Names of the test case executors.
    *
-   * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 8
-   */
-  /**
-   * the class name of the test runner used to execute test cases.
-   *
-   * @type { string }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * the class name of the test runner used to execute test cases.
-   *
-   * @type { string }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    * @since 23 static
    */
   testRunnerClassName: string;

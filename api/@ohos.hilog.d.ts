@@ -54,7 +54,7 @@ declare namespace hilog {
    *
    * @param { number } domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFF
    *                          if the value exceeds the range, logs cannot be printed.
-   * @param { string } tag Identifies the log tag, length cannot exceed 32 bytes, the excess part will be truncated.
+   * @param { string } tag Identifies the log tag, length cannot exceed 31 bytes, the excess part will be truncated.
    * @param { string } format Indicates the log format string.
    * @param { any[] }args Indicates the log parameters.
    * @syscap SystemCapability.HiviewDFX.HiLog
@@ -65,7 +65,7 @@ declare namespace hilog {
    *
    * @param { number } domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFF
    *                          if the value exceeds the range, logs cannot be printed.
-   * @param { string } tag Identifies the log tag, length cannot exceed 32 bytes, the excess part will be truncated.
+   * @param { string } tag Identifies the log tag, length cannot exceed 31 bytes, the excess part will be truncated.
    * @param { string } format Indicates the log format string.
    * @param { any[] }args Indicates the log parameters.
    * @syscap SystemCapability.HiviewDFX.HiLog
@@ -77,7 +77,7 @@ declare namespace hilog {
    *
    * @param { number } domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFF
    *                          if the value exceeds the range, logs cannot be printed.
-   * @param { string } tag Identifies the log tag, length cannot exceed 32 bytes, the excess part will be truncated.
+   * @param { string } tag Identifies the log tag, length cannot exceed 31 bytes, the excess part will be truncated.
    * @param { string } format Indicates the log format string.
    * @param { any[] }args Indicates the log parameters.
    * @syscap SystemCapability.HiviewDFX.HiLog
@@ -92,7 +92,7 @@ declare namespace hilog {
    *
    * @param { int } domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFF
    *                          if the value exceeds the range, logs cannot be printed.
-   * @param { string } tag Identifies the log tag, length cannot exceed 32 bytes, the excess part will be truncated.
+   * @param { string } tag Identifies the log tag, length cannot exceed 31 bytes, the excess part will be truncated.
    * @param { string } format Indicates the log format string.
    * @param { RecordData[] }args Indicates the log parameters.
    * @syscap SystemCapability.HiviewDFX.HiLog
@@ -107,7 +107,7 @@ declare namespace hilog {
    *
    * @param { number } domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFF
    *                          if the value exceeds the range, logs cannot be printed.
-   * @param { string } tag Identifies the log tag, length cannot exceed 32 bytes, the excess part will be truncated.
+   * @param { string } tag Identifies the log tag, length cannot exceed 31 bytes, the excess part will be truncated.
    * @param { string } format Indicates the log format string.
    * @param { any[] }args Indicates the log parameters.
    * @syscap SystemCapability.HiviewDFX.HiLog
@@ -118,7 +118,7 @@ declare namespace hilog {
    *
    * @param { number } domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFF
    *                          if the value exceeds the range, logs cannot be printed.
-   * @param { string } tag Identifies the log tag, length cannot exceed 32 bytes, the excess part will be truncated.
+   * @param { string } tag Identifies the log tag, length cannot exceed 31 bytes, the excess part will be truncated.
    * @param { string } format Indicates the log format string.
    * @param { any[] }args Indicates the log parameters.
    * @syscap SystemCapability.HiviewDFX.HiLog
@@ -130,7 +130,7 @@ declare namespace hilog {
    *
    * @param { number } domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFF
    *                          if the value exceeds the range, logs cannot be printed.
-   * @param { string } tag Identifies the log tag, length cannot exceed 32 bytes, the excess part will be truncated.
+   * @param { string } tag Identifies the log tag, length cannot exceed 31 bytes, the excess part will be truncated.
    * @param { string } format Indicates the log format string.
    * @param { any[] }args Indicates the log parameters.
    * @syscap SystemCapability.HiviewDFX.HiLog
@@ -145,7 +145,7 @@ declare namespace hilog {
    *
    * @param { int } domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFF
    *                          if the value exceeds the range, logs cannot be printed.
-   * @param { string } tag Identifies the log tag, length cannot exceed 32 bytes, the excess part will be truncated.
+   * @param { string } tag Identifies the log tag, length cannot exceed 31 bytes, the excess part will be truncated.
    * @param { string } format Indicates the log format string.
    * @param { RecordData[] }args Indicates the log parameters.
    * @syscap SystemCapability.HiviewDFX.HiLog
@@ -160,7 +160,7 @@ declare namespace hilog {
    *
    * @param { number } domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFF
    *                          if the value exceeds the range, logs cannot be printed.
-   * @param { string } tag Identifies the log tag, length cannot exceed 32 bytes, the excess part will be truncated.
+   * @param { string } tag Identifies the log tag, length cannot exceed 31 bytes, the excess part will be truncated.
    * @param { string } format Indicates the log format string.
    * @param { any[] }args Indicates the log parameters.
    * @syscap SystemCapability.HiviewDFX.HiLog
@@ -171,7 +171,7 @@ declare namespace hilog {
    *
    * @param { number } domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFF
    *                          if the value exceeds the range, logs cannot be printed.
-   * @param { string } tag Identifies the log tag, length cannot exceed 32 bytes, the excess part will be truncated.
+   * @param { string } tag Identifies the log tag, length cannot exceed 31 bytes, the excess part will be truncated.
    * @param { string } format Indicates the log format string.
    * @param { any[] }args Indicates the log parameters.
    * @syscap SystemCapability.HiviewDFX.HiLog
@@ -183,7 +183,7 @@ declare namespace hilog {
    *
    * @param { number } domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFF
    *                          if the value exceeds the range, logs cannot be printed.
-   * @param { string } tag Identifies the log tag, length cannot exceed 32 bytes, the excess part will be truncated.
+   * @param { string } tag Identifies the log tag, length cannot exceed 31 bytes, the excess part will be truncated.
    * @param { string } format Indicates the log format string.
    * @param { any[] }args Indicates the log parameters.
    * @syscap SystemCapability.HiviewDFX.HiLog
@@ -198,7 +198,7 @@ declare namespace hilog {
    *
    * @param { int } domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFF
    *                          if the value exceeds the range, logs cannot be printed.
-   * @param { string } tag Identifies the log tag, length cannot exceed 32 bytes, the excess part will be truncated.
+   * @param { string } tag Identifies the log tag, length cannot exceed 31 bytes, the excess part will be truncated.
    * @param { string } format Indicates the log format string.
    * @param { RecordData[] }args Indicates the log parameters.
    * @syscap SystemCapability.HiviewDFX.HiLog
@@ -213,7 +213,7 @@ declare namespace hilog {
    *
    * @param { number } domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFF
    *                          if the value exceeds the range, logs cannot be printed.
-   * @param { string } tag Identifies the log tag, length cannot exceed 32 bytes, the excess part will be truncated.
+   * @param { string } tag Identifies the log tag, length cannot exceed 31 bytes, the excess part will be truncated.
    * @param { string } format Indicates the log format string.
    * @param { any[] }args Indicates the log parameters.
    * @syscap SystemCapability.HiviewDFX.HiLog
@@ -224,7 +224,7 @@ declare namespace hilog {
    *
    * @param { number } domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFF
    *                          if the value exceeds the range, logs cannot be printed.
-   * @param { string } tag Identifies the log tag, length cannot exceed 32 bytes, the excess part will be truncated.
+   * @param { string } tag Identifies the log tag, length cannot exceed 31 bytes, the excess part will be truncated.
    * @param { string } format Indicates the log format string.
    * @param { any[] }args Indicates the log parameters.
    * @syscap SystemCapability.HiviewDFX.HiLog
@@ -236,7 +236,7 @@ declare namespace hilog {
    *
    * @param { number } domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFF
    *                          if the value exceeds the range, logs cannot be printed.
-   * @param { string } tag Identifies the log tag, length cannot exceed 32 bytes, the excess part will be truncated.
+   * @param { string } tag Identifies the log tag, length cannot exceed 31 bytes, the excess part will be truncated.
    * @param { string } format Indicates the log format string.
    * @param { any[] }args Indicates the log parameters.
    * @syscap SystemCapability.HiviewDFX.HiLog
@@ -251,7 +251,7 @@ declare namespace hilog {
    *
    * @param { int } domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFF
    *                          if the value exceeds the range, logs cannot be printed.
-   * @param { string } tag Identifies the log tag, length cannot exceed 32 bytes, the excess part will be truncated.
+   * @param { string } tag Identifies the log tag, length cannot exceed 31 bytes, the excess part will be truncated.
    * @param { string } format Indicates the log format string.
    * @param { RecordData[] }args Indicates the log parameters.
    * @syscap SystemCapability.HiviewDFX.HiLog
@@ -266,7 +266,7 @@ declare namespace hilog {
    *
    * @param { number } domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFF
    *                          if the value exceeds the range, logs cannot be printed.
-   * @param { string } tag Identifies the log tag, length cannot exceed 32 bytes, the excess part will be truncated.
+   * @param { string } tag Identifies the log tag, length cannot exceed 31 bytes, the excess part will be truncated.
    * @param { string } format Indicates the log format string.
    * @param { any[] }args Indicates the log parameters.
    * @syscap SystemCapability.HiviewDFX.HiLog
@@ -277,7 +277,7 @@ declare namespace hilog {
    *
    * @param { number } domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFF
    *                          if the value exceeds the range, logs cannot be printed.
-   * @param { string } tag Identifies the log tag, length cannot exceed 32 bytes, the excess part will be truncated.
+   * @param { string } tag Identifies the log tag, length cannot exceed 31 bytes, the excess part will be truncated.
    * @param { string } format Indicates the log format string.
    * @param { any[] }args Indicates the log parameters.
    * @syscap SystemCapability.HiviewDFX.HiLog
@@ -289,7 +289,7 @@ declare namespace hilog {
    *
    * @param { number } domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFF
    *                          if the value exceeds the range, logs cannot be printed.
-   * @param { string } tag Identifies the log tag, length cannot exceed 32 bytes, the excess part will be truncated.
+   * @param { string } tag Identifies the log tag, length cannot exceed 31 bytes, the excess part will be truncated.
    * @param { string } format Indicates the log format string.
    * @param { any[] }args Indicates the log parameters.
    * @syscap SystemCapability.HiviewDFX.HiLog
@@ -304,7 +304,7 @@ declare namespace hilog {
    *
    * @param { int } domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFF
    *                          if the value exceeds the range, logs cannot be printed.
-   * @param { string } tag Identifies the log tag, length cannot exceed 32 bytes, the excess part will be truncated.
+   * @param { string } tag Identifies the log tag, length cannot exceed 31 bytes, the excess part will be truncated.
    * @param { string } format Indicates the log format string.
    * @param { RecordData[] }args Indicates the log parameters.
    * @syscap SystemCapability.HiviewDFX.HiLog
@@ -319,7 +319,7 @@ declare namespace hilog {
    *
    * @param { number } domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFF
    *                          if the value exceeds the range, logs cannot be printed.
-   * @param { string } tag Identifies the log tag, length cannot exceed 32 bytes, the excess part will be truncated.
+   * @param { string } tag Identifies the log tag, length cannot exceed 31 bytes, the excess part will be truncated.
    * @param { LogLevel } level log level
    * @returns { boolean }
    * @syscap SystemCapability.HiviewDFX.HiLog
@@ -330,7 +330,7 @@ declare namespace hilog {
    *
    * @param { int } domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFF
    *                          if the value exceeds the range, logs cannot be printed.
-   * @param { string } tag Identifies the log tag, length cannot exceed 32 bytes, the excess part will be truncated.
+   * @param { string } tag Identifies the log tag, length cannot exceed 31 bytes, the excess part will be truncated.
    * @param { LogLevel } level log level
    * @returns { boolean }
    * @syscap SystemCapability.HiviewDFX.HiLog

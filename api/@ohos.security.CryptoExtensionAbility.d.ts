@@ -181,7 +181,7 @@ export interface HuksCryptoExtensionResult {
   /**
    * The cert array.
    *
-   * @type { ?Array<HuksCryptoExtensionCertInfo>}
+   * @type { ?Array<HuksCryptoExtensionCertInfo> }
    * @syscap SystemCapability.Security.Huks.CryptoExtension
    * @since 22
    */
@@ -197,11 +197,20 @@ export interface HuksCryptoExtensionResult {
   /**
    * Returned data.
    *
-   * @type { ?Uint8Array}
+   * @type { ?Uint8Array }
    * @syscap SystemCapability.Security.Huks.CryptoExtension
    * @since 22
    */
-  outData?:Uint8Array;
+  outData?: Uint8Array;
+
+  /**
+   * The returned resource ID.
+   *
+   * @syscap SystemCapability.Security.Huks.CryptoExtension
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  resourceId?: string;
 }
 
 /**
@@ -211,6 +220,24 @@ export interface HuksCryptoExtensionResult {
  * @since 22
  */
 declare class CryptoExtensionAbility {
+  /**
+   *  Callback to get the resource ID of the crypto extension.
+   *
+   * @param { huksExternalCrypto.HuksExternalCryptoParam[] } params - Indicates the needed properties of
+   *     the get resource ID operation.
+   * @returns { Promise<HuksCryptoExtensionResult> } The promise returned by the function.
+   *     If the function execution fails, the extension needs to set the detailed error information in
+   *     HuksCryptoExtensionResult.errInfo.
+   *     HuksCryptoExtensionResult.resultCode may have the following values:
+   *     0 - The operation is successful.
+   *     34800000 - An error occurred in the crypto extension. Possible causes:
+   *                1. The input parameter is invalid.
+   *                2. The crypto extension encountered an unresolvable error state.
+   * @syscap SystemCapability.Security.Huks.CryptoExtension
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  onGetResourceId(params: huksExternalCrypto.HuksExternalCryptoParam[]):Promise<HuksCryptoExtensionResult>;
 
   /**
    * Callback to be called to open the resource handle before crypto operations.
@@ -290,7 +317,7 @@ declare class CryptoExtensionAbility {
    */
   onGetProperty(handle: string, propertyId: string,
       params: Array<huksExternalCrypto.HuksExternalCryptoParam>): Promise<HuksCryptoExtensionResult>;
-
+      
   /**
    * Callback to be called to verify PIN of the provider handle.
    *
@@ -467,24 +494,144 @@ declare class CryptoExtensionAbility {
       params?: Array<huksExternalCrypto.HuksExternalCryptoParam>): Promise<HuksCryptoExtensionResult>;
 
   /**
+   * Callback to import a certificate specified by the resource handle.
+   *
+   * @param { string } handle - Indicates the import certificate's resource handle.
+   * @param { HuksCryptoExtensionCertInfo } certInfo - Indicates the certificate information to be imported.
+   * @param { huksExternalCrypto.HuksExternalCryptoParam[] } [params] - Indicates
+   *     the needed properties for the import certificate operation.
+   * @returns { Promise<HuksCryptoExtensionResult> } The promise returned by the function.
+   *     If the function execution fails, the extension needs to set the detailed error information in
+   *     HuksCryptoExtensionResult.errInfo.
+   *     HuksCryptoExtensionResult.resultCode may have the following values.
+   *     0 - The operation is successful.
+   *     34800000 - An error occurred in the crypto extension. Possible causes:
+   *                1. The input parameter is invalid.
+   *                2. The crypto extension encountered an unresolvable error state.
+   *     34800001 - The UKey does not exist. Possible causes:
+   *                1. The UKey has been removed.
+   *                2. The crypto extension maintains an error UKey state.
+   *     34800002 - Failed to call the UKey driver interface. Please check the UKey's connection and driver status.
+   *     34800004 - The handle does not exist. Possible causes:
+   *                1. The handle you entered is invalid.
+   *                2. The states of huks service and crypto extension are inconsistent. Due to an exception,
+   *                the handle held by huks service was not released.
+   *     34800005 - The handle is unavailable, possibly due to an inconsistent state
+   *                between the crypto extension and the UKey.
+   * @syscap SystemCapability.Security.Huks.CryptoExtension
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  onImportCertificate(handle: string, certInfo: HuksCryptoExtensionCertInfo,
+      params?: huksExternalCrypto.HuksExternalCryptoParam[]): Promise<HuksCryptoExtensionResult>;
+
+  /**
    * Callback to list all certificates of the provider.
    *
    * @param { Array<huksExternalCrypto.HuksExternalCryptoParam> } [params] - params indicates
    *     the properties of the operation.
    * @returns { Promise<HuksCryptoExtensionResult> } the promise returned by the function.
    *     HuksCryptoExtensionResult.resultCode may have the following values:
-   *     0 - The operation is successful
+   *     0 - The operation is successful.
    *     34800000 - An error occurred in the crypto extension. Possible causes:
-   *     1. The input parameter is invalid.
-   *     2. The crypto extension encountered an unresolvable error state.
+   *                1. The input parameter is invalid.
+   *                2. The crypto extension encountered an unresolvable error state.
    *     34800001 - The UKey does not exist. Possible causes:
-   *     1. The UKey has been removed.
-   *     2. The crypto extension maintained an error UKey state.
-   *     34800002 - The UKey driver error. This means an unknown error has occurred in the UKey driver.
+   *                1. The UKey has been removed.
+   *                2. The crypto extension maintained an error UKey state.
+   *     34800002 - Failed to call the UKey driver interface. Please check the UKey's connection and driver status.
    * @syscap SystemCapability.Security.Huks.CryptoExtension
    * @since 22
    */
   onEnumCertificates(params?: Array<huksExternalCrypto.HuksExternalCryptoParam>): Promise<HuksCryptoExtensionResult>;
+
+  /**
+   * Callback to generate a key pair specified by the resource handle.
+   *
+   * @param { string } handle - Indicates the resource handle of the key to be generated.
+   * @param { huks.HuksParam[] } params - Indicates the properties of the key generation operation.
+   * @returns { Promise<HuksCryptoExtensionResult> } The promise returned by the function.
+   *     HuksCryptoExtensionResult.resultCode may have the following values:
+   *     0 - The operation is successful.
+   *     34800000 - An error occurred in the crypto extension. Possible causes:
+   *                1. The input parameter is invalid.
+   *                2. The crypto extension encountered an unresolvable error state.
+   *     34800001 - The UKey does not exist. Possible causes:
+   *                1. The UKey has been removed.
+   *                2. The crypto extension maintains an error UKey state.
+   *     34800002 - Failed to call the UKey driver interface. Please check the UKey's connection and driver status.
+   *     34800004 - The handle does not exist. Possible causes:
+   *                1. The handle you entered is invalid.
+   *                2. The states of huks service and crypto extension are inconsistent. Due to an exception,
+   *                the handle held by huks service was not released.
+   *     34800005 - The handle is unavailable, possibly due to an inconsistent state
+   *                between the crypto extension and the UKey.
+   * @syscap SystemCapability.Security.Huks.CryptoExtension
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  onGenerateKeyItem(handle: string, params: huks.HuksParam[]): Promise<HuksCryptoExtensionResult>;
+
+  /**
+   * Callback to export the public key specified by the resource handle.
+   *
+   * @param { string } handle - Indicates the resource handle of the key to be exported.
+   * @param { huks.HuksParam[] } params - Indicates the needed properties of the export public key operation.
+   * @returns { Promise<HuksCryptoExtensionResult> } The promise returned by the function.
+   *     If the function execution fails, the extension needs to set the detailed error information in
+   *     HuksCryptoExtensionResult.errInfo.
+   *     HuksCryptoExtensionResult.resultCode may have the following values.
+   *     0 - The operation is successful.
+   *     34800000 - An error occurred in the crypto extension. Possible causes:
+   *                1. The input parameter is invalid.
+   *                2. The crypto extension encountered an unresolvable error state.
+   *     34800001 - The UKey does not exist. Possible causes:
+   *                1. The UKey has been removed.
+   *                2. The crypto extension maintains an error UKey state.
+   *     34800002 - Failed to call the UKey driver interface. Please check the UKey's connection and driver status.
+   *     34800004 - The handle does not exist. Possible causes:
+   *                1. The handle you entered is invalid.
+   *                2. The states of huks service and crypto extension are inconsistent. Due to an exception,
+   *                the handle held by huks service was not released.
+   *     34800005 - The handle is unavailable, possibly due to an inconsistent state
+   *                between the crypto extension and the UKey.
+   * @syscap SystemCapability.Security.Huks.CryptoExtension
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  onExportKeyItem(handle: string, params: huks.HuksParam[]): Promise<HuksCryptoExtensionResult>;
+
+  /**
+   * Callback to import the wrapped key pair specified by the resource handle.
+   *
+   * @param { string } handle - Indicates the resource handle of the wrapped key to be imported.
+   * @param { string } wrappedHandle - Indicates the resource handle of the key used to unwrap the imported key.
+   * @param { huks.HuksParam[] } params - Indicates the needed properties for the import wrapped key operation.
+   * @param { Uint8Array } wrappedKey - Indicates the wrapped key data, which format is defined by the crypto extension.
+   * @returns { Promise<HuksCryptoExtensionResult> } The promise returned by the function.
+   *     If the function execution fails, the extension needs to set the detailed error information in
+   *     HuksCryptoExtensionResult.errInfo.
+   *     HuksCryptoExtensionResult.resultCode may have the following values:
+   *     0 - The operation is successful.
+   *     34800000 - An error occurred in the crypto extension. Possible causes:
+   *                1. The input parameter is invalid.
+   *                2. The crypto extension encountered an unresolvable error state.
+   *     34800001 - The UKey does not exist. Possible causes:
+   *                1. The UKey has been removed.
+   *                2. The crypto extension maintains an error UKey state.
+   *     34800002 - Failed to call the UKey driver interface. Please check the UKey's connection and driver status.
+   *     34800004 - The handle does not exist. Possible causes:
+   *                1. The handle you entered is invalid.
+   *                2. The states of HUKS service and crypto extension are inconsistent. Due to an exception,
+   *                the handle held by HUKS service was not released.
+   *     34800005 - The handle is unavailable, possibly due to an inconsistent state
+   *                between the crypto extension and the UKey.
+   * @syscap SystemCapability.Security.Huks.CryptoExtension
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  onImportWrappedKeyItem(handle: string, wrappedHandle: string, params: huks.HuksParam[],
+      wrappedKey: Uint8Array): Promise<HuksCryptoExtensionResult>;
 }
 
 export default CryptoExtensionAbility;

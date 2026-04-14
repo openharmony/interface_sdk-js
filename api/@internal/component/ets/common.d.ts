@@ -84,7 +84,54 @@ declare interface ComponentOptions {
    * @since 12 dynamic
    */
   freezeWhenInactive : boolean,
+
+  /**
+   * the reuse type of a custom component.
+   * 
+   * @default perInstance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  reusePool?: ReusePoolOwnership;
+
+  /**
+   * Collection of custom components to be reused.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  poolAccepts?: ReusableComponentConstructor[];
 }
+
+/**
+ * Defining the reuse type of a custom component.
+ * 
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare type ReusePoolOwnership = 'shared' | 'perInstance';
+
+/**
+ * Defining custom component constructor.
+ * 
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare type ReusableComponentConstructor = Function;
 
 /**
  * Define the ratio of characters entered by the percentage of InputCounterOptions.
@@ -1334,7 +1381,49 @@ declare const Monitor: MonitorDecorator;
  * @atomicservice
  * @since 23 dynamic
  */
-declare type MonitorDecorator = (value: string, ...args: string[]) => MethodDecorator;
+/**
+ * Defines Monitor Decorator type
+ *
+ * @typedef { function } MonitorDecorator
+ * @param { string | MonitorDecoratorOptions } value - Monitored path input by the user or config options.
+ * @param { string[] } args - Monitored path(s) input by the user
+ * @returns { MethodDecorator } Monitor decorator
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ * @noninterop
+ */
+declare type MonitorDecorator = (value: string | MonitorDecoratorOptions, ...args: string[]) => MethodDecorator;
+
+/**
+ * Defines MonitorDecoratorOptions interface
+ *
+ * @interface MonitorDecoratorOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare interface MonitorDecoratorOptions {
+  /**
+   * Enables wildcard feature.
+   * Set to true to enable wildcard feature, set to false to disable it.
+   * The default value is true.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  enableWildcard?: boolean;
+}
 
 /**
  * Define IMonitor interface
@@ -9744,6 +9833,38 @@ declare enum ThemeColorMode {
 }
 
 /**
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare enum AnchoredColorMode {
+ /**
+  * Defines the mode which is follow up with system.
+  *
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @stagemodelonly
+  * @crossplatform
+  * @atomicservice
+  * @since 26.0.0 dynamic
+  */
+ FOLLOW_SYSTEM = 0,
+
+ /**
+  * Defines the mode which is follow up with target.
+  * 
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @stagemodelonly
+  * @crossplatform
+  * @atomicservice
+  * @since 26.0.0 dynamic
+  */
+ FOLLOW_TARGET = 1
+}
+
+/**
  * Defines adaptive color
  *
  * @enum { number }
@@ -13779,6 +13900,22 @@ declare type OnNeedSoftkeyboardCallback = () => boolean;
 declare type TouchTestDoneCallback = (event: BaseGestureEvent, recognizers: Array<GestureRecognizer>) => void;
 
 /**
+ * Defines the callback type used in onGestureCollectIntercept.
+ *
+ * @typedef { function } GestureCollectInterceptCallback
+ * @param { Array<GestureRecognizer> } recognizers - the gesture recognizers of the component on the response chain.
+ * @param { Array<TouchRecognizer> } [touchRecognizers] - the touch recognizers of the component on the response chain.
+ * @returns { GestureCollectIntervention } the gesture intervention.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare type GestureCollectInterceptCallback = (recognizers: Array<GestureRecognizer>,
+    touchRecognizers?: Array<TouchRecognizer>) => GestureCollectIntervention;
+
+/**
  * Defines the PixelMap type object for ui component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -16447,8 +16584,9 @@ declare interface SheetOptions extends BindOptions {
     *
     * @type { ?SystemUiMaterial }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @systemapi
     * @stagemodelonly
+    * @crossplatform
+    * @atomicservice
     * @since 26.0.0 dynamic
     */
   systemMaterial?: SystemUiMaterial;
@@ -17795,12 +17933,24 @@ declare interface PopupCommonOptions {
   borderLinearGradient?: PopupBorderLinearGradient;
 
   /**
+   * Define the popup theme color mode.
+   * 
+   * @type { ?AnchoredColorMode }
+   * @default AnchoredColorMode.FOLLOW_TARGET
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  colorMode?: AnchoredColorMode;
+
+  /**
    * Set system-styled materials for popup. Different materials have different effects, which can influence
    * the backgroundColor, border, shadow, and other visual attributes of popup.
    *
    * @type { ?SystemUiMaterial }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
    * @stagemodelonly
    * @atomicservice
    * @since 26.0.0 dynamic
@@ -17920,6 +18070,17 @@ declare interface TipsOptions {
    * @since 20 dynamic
    */
   showAtAnchor?: TipsAnchorType;
+  /**
+   * Set system-styled materials for tips. Different materials have different effects, which can influence
+   * backgroundColor, border, shadow, and other visual attributes of tips.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  systemMaterial?: SystemUiMaterial;
 }
 
 /**
@@ -18659,12 +18820,24 @@ declare interface PopupOptions {
   borderLinearGradient?: PopupBorderLinearGradient;
 
   /**
+   * Define the popup theme color mode.
+   * 
+   * @type { ?AnchoredColorMode }
+   * @default AnchoredColorMode.FOLLOW_TARGET
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  colorMode?: AnchoredColorMode;
+
+  /**
    * Set system-styled materials for popup. Different materials have different effects, which can influence
    * the backgroundColor, border, shadow, and other visual attributes of popup.
    *
    * @type { ?SystemUiMaterial }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
    * @stagemodelonly
    * @atomicservice
    * @since 26.0.0 dynamic
@@ -19325,12 +19498,24 @@ declare interface CustomPopupOptions {
   borderLinearGradient?: PopupBorderLinearGradient;
 
   /**
+   * Define the popup theme color mode.
+   * 
+   * @type { ?AnchoredColorMode }
+   * @default AnchoredColorMode.FOLLOW_TARGET
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  colorMode?: AnchoredColorMode;
+
+  /**
    * Set system-styled materials for popup. Different materials have different effects, which can influence
    * the backgroundColor, border, shadow, and other visual attributes of popup.
    *
    * @type { ?SystemUiMaterial }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
    * @stagemodelonly
    * @atomicservice
    * @since 26.0.0 dynamic
@@ -20164,6 +20349,19 @@ declare interface ContextMenuOptions {
   outlineWidth?: Dimension | EdgeOutlineWidths;
 
   /**
+   * Define the menu theme color mode.
+   * 
+   * @type { ?AnchoredColorMode }
+   * @default AnchoredColorMode.FOLLOW_TARGET
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  colorMode?: AnchoredColorMode;
+
+  /**
    * Defines the haptic feedback mode of menu.
    *
    * @type { ?HapticFeedbackMode }
@@ -20342,6 +20540,17 @@ declare interface ContextMenuOptions {
    * @since 26.0.0 dynamic
    */
   maxHeight?: LengthMetrics;
+  /**
+   * Sets the animation effect mode of the menu with the new material;
+   *
+   * @type { ?UIMaterialAnimationMode }
+   * @default UIMaterialAnimationMode.IMMERSIVE
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  uiMaterialAnimationMode?: UIMaterialAnimationMode;
 }
 
 /**
@@ -20715,6 +20924,260 @@ declare class TouchResult {
    * @since 12 dynamic
    */
   id?: string;
+}
+
+/**
+ * 3D vector in depth space.
+ *
+ * @interface DepthVector3
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare interface DepthVector3 {
+  /**
+   * X component.
+   *
+   * @type { double }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  x: double;
+
+  /**
+   * Y component.
+   *
+   * @type { double }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  y: double;
+
+  /**
+   * Z component.
+   *
+   * @type { double }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  z: double;
+}
+
+/**
+ * 4D vector in depth space.
+ *
+ * @interface DepthVector4
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare interface DepthVector4 {
+  /**
+   * X component.
+   *
+   * @type { double }
+   * @default 0.0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  x: double;
+
+  /**
+   * Y component.
+   *
+   * @type { double }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  y: double;
+
+  /**
+   * Z component.
+   *
+   * @type { double }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  z: double;
+
+  /**
+   * W component.
+   *
+   * @type { double }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  w: double;
+}
+
+/**
+ * RGB color in depth space.
+ *
+ * @interface DepthColorRGB
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare interface DepthColorRGB {
+  /**
+   * Red component (0-255).
+   *
+   * @type { int }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  red: int;
+
+  /**
+   * Green component (0-255).
+   *
+   * @type { int }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  green: int;
+
+  /**
+   * Blue component (0-255).
+   *
+   * @type { int }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  blue: int;
+}
+
+/**
+ * Spatial corner positions in 3D space.
+ *
+ * @interface SpatialPosition
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare interface SpatialPosition {
+  /**
+   * Left-top corner position in 3D space.
+   *
+   * @type { DepthVector3 }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  leftTop: DepthVector3;
+
+  /**
+   * Right-top corner position in 3D space.
+   *
+   * @type { DepthVector3 }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  rightTop: DepthVector3;
+
+  /**
+   * Left-bottom corner position in 3D space.
+   *
+   * @type { DepthVector3 }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  leftBottom: DepthVector3;
+
+  /**
+   * Right-bottom corner position in 3D space.
+   *
+   * @type { DepthVector3 }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  rightBottom: DepthVector3;
+}
+
+/**
+ * Spatial effect params.
+ *
+ * @interface SpatialEffectParams
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare interface SpatialEffectParams {
+  /**
+   * Spatial position defined by corner points.
+   *
+   * @type { SpatialPosition }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  position: SpatialPosition;
+
+  /**
+   * Occlusion weight for spatial effect.
+   * <br>Value range:[0, 1].Default value:0
+   *
+   * @type { double }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  occlusionWeight?: double;
 }
 
 /**
@@ -22008,6 +22471,17 @@ declare type Matrix4Transit = import('../api/@ohos.matrix4').default.Matrix4Tran
  * @stagemodelonly
  * @form
  * @since 23 dynamic
+ */
+/**
+ * Import the Material type from uiMaterial namespace for common method.
+ *
+ * @typedef { import('../api/@ohos.arkui.uiMaterial').default.Material } SystemUiMaterial
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 26.0.0 dynamic
  */
 declare type SystemUiMaterial = import('../api/@ohos.arkui.uiMaterial').default.Material;
 
@@ -26244,6 +26718,21 @@ declare class CommonMethod<T> {
    */
   onAreaChange(event: (oldValue: Area, newValue: Area) => void): T;
 
+    /**
+   * This callback is triggered when the size or position of this component has finished changing.
+   * The interval between two area change callbacks will not be less than the expected update interval.
+   *
+   * @param { AreaChangeCallback } event - Callback invoked when the area of the component changes.
+   * @param { AreaChangeOptions } [options] - The options for the area change event.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  onAreaChange(event: AreaChangeCallback, options?: AreaChangeOptions): T;
+
   /**
    * Controls the display or hide of the current component.
    *
@@ -28937,6 +29426,19 @@ declare class CommonMethod<T> {
   lightUpEffect(degree: Optional<number>): T;
 
   /**
+   * Applies a spatial effect to component.
+   *
+   * @param { SpatialEffectParams | undefined } params - Spatial effect parameters.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  spatialEffect(params: SpatialEffectParams | undefined): T;
+
+  /**
    * Applies a pixel stretch effect to the component.
    *
    * @param { PixelStretchEffectOptions } options - Pixel stretch effect options.
@@ -29696,6 +30198,20 @@ declare class CommonMethod<T> {
   onTouchTestDone(callback: TouchTestDoneCallback): T;
 
   /**
+   * When the events and gestures on this node and higher-priority nodes have been collected, the callback is executed.
+   * This callback is used to intervene in the event and gesture collection results.
+   *
+   * @param { GestureCollectInterceptCallback } callback - A callback instance used when the component does a touch test.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  onGestureCollectIntercept(callback: GestureCollectInterceptCallback): T;
+
+  /**
    * Enables the component as a drag-and-drop target with spring loading functionality.
    *
    * When a dragged object hovers over the target, it triggers a callback notification. Spring Loading is an enhanced
@@ -29753,6 +30269,22 @@ declare class CommonMethod<T> {
    * @form
    * @since 23 dynamic
    */
+  /**
+    * Set system-styled materials for the component. The material effect behaves differently on devices with different
+    * level of computing powers. On devices with lower computing power, it affects attributes such as the
+    * backgroundColor, borderWidth, borderColor, shadow. On devices with higher computing power, it adds a filter effect
+    * at the system material layer, which can produce an effect similar to glass.
+    *
+    * @param { SystemUiMaterial | undefined } material - System-styled material. Undefined indicates reverting to
+    *     the effect of no system material.
+    * @returns { T }
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @crossplatform
+    * @form
+    * @atomicservice
+    * @since 26.0.0 dynamic
+    */
   systemMaterial(material: SystemUiMaterial | undefined): T;
 
   /**
@@ -31248,6 +31780,46 @@ declare interface LayoutInfo {
    */
   constraint: ConstraintSizeOptions,
 }
+
+/**
+ * Defines the options for the AreaChangeEvent.
+ * 
+ * @typedef AreaChangeOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare interface AreaChangeOptions {
+
+  /**
+   * The value of expectedUpdateInterval indicates the desired update interval (ms).
+   * 
+   * @type { ?int }
+   * @default 1000
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  expectedUpdateInterval?: int;
+  }
+
+/**
+ * Defines the callback type for area change events.
+ * 
+ * @typedef { function } AreaChangeCallback
+ * @param { Area } oldValue - Component area information before the change.
+ * @param { Area } newValue - Component area information after the change.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare type AreaChangeCallback = (oldValue: Area, newValue: Area) => void;
 
 /**
  * Sub component info passed from framework when layout and measure happens.

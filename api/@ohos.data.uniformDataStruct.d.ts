@@ -112,7 +112,7 @@ declare namespace uniformDataStruct {
      */
     readonly uniformDataType: 'general.hyperlink';
     /**
-     * Indicates the url of of the Hyperlink.
+     * Indicates the url of the Hyperlink.
      *
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -200,6 +200,16 @@ declare namespace uniformDataStruct {
      * @since 23 static
      */
     details?: Record<string, string>;
+
+    /**
+     * Defines URI authorization policies for drag intention.
+     *
+     * @type { ?Array<int> }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    uriAuthorizationPolicies?: Array<int>;
   }
 
   /**
@@ -350,7 +360,7 @@ declare namespace uniformDataStruct {
     /**
      * Indicates the app name of content form.
      *
-     * @type { appName }
+     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 14 dynamic
      * @since 23 static
@@ -360,7 +370,7 @@ declare namespace uniformDataStruct {
     /**
      * Indicates the link url of content form.
      *
-     * @type { linkUri }
+     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 14 dynamic
      * @since 23 static
@@ -498,6 +508,16 @@ declare namespace uniformDataStruct {
      * @since 23 static
      */
     details?: Record<string, int | long | double | string | Uint8Array>;
+
+    /**
+     * Defines URI authorization policies for drag intention.
+     *
+     * @type { ?Array<int> }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    uriAuthorizationPolicies?: Array<int>;
   }
 
   /**

@@ -44,7 +44,7 @@ import { InputEventMonitor, InputEventListener } from '@ohos.arkui.component';
 import { CustomBuilder, CustomBuilderT } from '@ohos.arkui.component';
 import { GestureEvent, GestureRecognizer } from '@ohos.arkui.component';
 import { ResourceStr, SizeOptions, VoidCallback } from '@ohos.arkui.component';
-import { Nullable, Color, FontStyle, WidthBreakpoint, HeightBreakpoint, PixelRoundMode } from '@ohos.arkui.component';
+import { Nullable, Color, FontStyle, WidthBreakpoint, HeightBreakpoint, PixelRoundMode, RawInputEventType } from '@ohos.arkui.component';
 import { TimePickerDialogOptions } from '@ohos.arkui.component';
 import { AlertDialogParamWithConfirm, AlertDialogParamWithButtons, AlertDialogParamWithOptions } from '@ohos.arkui.component';
 import { ActionSheetOptions } from '@ohos.arkui.component';
@@ -2583,6 +2583,19 @@ export declare class CursorController {
    * @since 23 static
    */
   setCursor(value: PointerStyle): void;
+  /**
+   * Sets the custom cursor style.
+   *
+   * @param { image.PixelMap } value - custom cursor style.
+   * @param { int } [focusX] - Focus x of the custom cursor. The value is greater than or equal to 0. The default
+   *     value is 0.
+   * @param { int } [focusY] - Focus y of the custom cursor. The value is greater than or equal to 0. The default
+   *     value is 0.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  setCustomCursor(value: image.PixelMap, focusX?: int, focusY?: int): void;
 }
 
 /**
@@ -2827,6 +2840,16 @@ export declare class ComponentSnapshot {
    */
   getWithRange(start: NodeIdentity, end: NodeIdentity, isStartRect: boolean,
     options?: componentSnapshot.SnapshotOptions): Promise<image.PixelMap> | null;
+
+  /**
+   * Query the size limitation for taking a component snapshot.
+   *
+   * @returns { componentSnapshot.SnapshotSizeLimitation } The size limitation for taking a component snapshot.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  getSizeLimitation(): componentSnapshot.SnapshotSizeLimitation;
 }
 
 /**
@@ -3888,6 +3911,28 @@ export declare class UIContext {
    * @since 24 static
    */
   isEasySplit(): boolean;
+
+  /**
+   * Whether to enable or disable event passthrough.
+   *
+   * @param { boolean | undefined } enabled - enable or disable event passthrough. The default value is false.
+   * @param { RawInputEventType } eventType - the type of raw input event.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  enableEventPassthrough(enabled: boolean | undefined, eventType: RawInputEventType): void;
+
+  /**
+   * Sets the text selection clear policy for text component.
+   * Default policy: **TextSelectionClearPolicy.KEEP_SELECTED_TEXT_ON_EXTERNAL_TOUCH**
+   *
+   * @param { TextSelectionClearPolicy } policy - The text selection clear policy.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  setTextSelectionClearPolicy(policy: TextSelectionClearPolicy): void;
 }
 
 /**
@@ -3932,6 +3977,33 @@ export const enum KeyboardAvoidMode {
    * @since 23 static
    */
   NONE = 4
+}
+
+/**
+ * Enum of TextSelectionClearPolicy
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export const enum TextSelectionClearPolicy {
+  /**
+  * Keep the selected text when touch outside of text component.
+  *
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @stagemodelonly
+  * @since 26.0.0 static
+  */
+  KEEP_SELECTED_TEXT_ON_EXTERNAL_TOUCH = 0,
+
+  /**
+   * Clear the selected text when touch outside of text component.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  CLEAR_SELECTED_TEXT_ON_EXTERNAL_TOUCH = 1,
 }
 
 /**

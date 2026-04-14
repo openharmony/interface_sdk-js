@@ -47,7 +47,8 @@ declare namespace sendableImage {
    */
  interface Size extends lang.ISendable {
   /**
-   * Height, in px
+   * Height
+   * <br>Unit:px.
    *
    * @type { number }
    * @syscap SystemCapability.Multimedia.Image.Core
@@ -59,7 +60,8 @@ declare namespace sendableImage {
   height: number;
 
   /**
-   * Width, in px
+   * Width
+   * <br>Unit:px.
    *
    * @type { number }
    * @syscap SystemCapability.Multimedia.Image.Core
@@ -95,7 +97,8 @@ interface Region extends lang.ISendable {
   size: Size;
 
   /**
-   * x-coordinate at the upper left corner of the image, in px.
+   * x-coordinate at the upper left corner of the image (px).
+   * <br>Unit:px.
    *
    * @type { number }
    * @syscap SystemCapability.Multimedia.Image.Core
@@ -107,7 +110,8 @@ interface Region extends lang.ISendable {
   x: number;
 
   /**
-   * y-coordinate at the upper left corner of the image, in px.
+   * y-coordinate at the upper left corner of the image (px).
+   * <br>Unit:px.
    *
    * @type { number }
    * @syscap SystemCapability.Multimedia.Image.Core

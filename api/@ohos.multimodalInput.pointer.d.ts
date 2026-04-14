@@ -814,7 +814,9 @@ declare namespace pointer {
 
   /**
    * Sets the mouse pointer style. This API uses an asynchronous callback to return the result.
-   *
+   * This API does not support setting the mouse pointer style of the window where UIExtensionAbility is hosted.
+   * If you need to set it, see {@link setCursor} in @ohos.arkui.UIContext.d.ts.
+   * 
    * @param { int } windowId - Window ID.
    * @param { PointerStyle } pointerStyle - Pointer style.
    * @param { AsyncCallback<void> } callback - Callback used to return the result.
@@ -830,6 +832,8 @@ declare namespace pointer {
 
   /**
    * Sets the mouse pointer style. This API uses a promise to return the result.
+   * This API does not support setting the mouse pointer style of the window where UIExtensionAbility is hosted.
+   * If you need to set it, see {@link setCursor} in @ohos.arkui.UIContext.d.ts.
    *
    * @param { int } windowId - Window ID.
    * @param { PointerStyle } pointerStyle - Pointer style.
@@ -846,6 +850,8 @@ declare namespace pointer {
 
   /**
    * Sets the mouse pointer style. This API returns the result synchronously.
+   * This API does not support setting the mouse pointer style of the window where UIExtensionAbility is hosted.
+   * If you need to set it, see {@link setCursor} in @ohos.arkui.UIContext.d.ts.
    *
    * @param { int } windowId - Window ID.
    * @param { PointerStyle } pointerStyle - Pointer style.
@@ -1788,7 +1794,9 @@ declare namespace pointer {
 
   /**
    * Sets the custom cursor style. This API uses a promise to return the result.
-   *
+   * This API does not support setting the custom cursor style of the window where UIExtensionAbility is hosted.
+   * If you need to set it, see {@link setCustomCursor} in @ohos.arkui.UIContext.d.ts.
+   * 
    * @param { int } windowId - Window ID.
    * @param { image.PixelMap } pixelMap - Pixel map resource.
    * @param { int } focusX - Focus x of the custom cursor. The value is greater than or equal to 0. The default value is 0.
@@ -1804,6 +1812,8 @@ declare namespace pointer {
 
   /**
    * Sets a custom cursor. This API returns the result synchronously.
+   * This API does not support setting the custom cursor style of the window where UIExtensionAbility is hosted.
+   * If you need to set it, see {@link setCustomCursor} in @ohos.arkui.UIContext.d.ts.
    *
    * @param { int } windowId - Window ID. The value must be an integer greater than 0.
    * @param { image.PixelMap } pixelMap - Pixel map resource.
@@ -1822,6 +1832,8 @@ declare namespace pointer {
    * The cursor may be switched back to the system style in the following cases: application window layout change, hot zone switching, 
    * page redirection, moving of the cursor out of the window and then back to the window, or moving of the cursor in different areas of the window. 
    * In this case, you need to reset the cursor style.
+   * This API does not support setting the custom cursor style of the window where UIExtensionAbility is hosted.
+   * If you need to set it, see {@link setCustomCursor} in @ohos.arkui.UIContext.d.ts.
    *
    * @param { int } windowId - Window ID.
    * @param { CustomCursor } cursor - Pixel map resource.

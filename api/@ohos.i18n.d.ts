@@ -258,7 +258,8 @@ declare namespace i18n {
      *
      * @param { string } language - The language used to get the list of regions. It must be a valid language.
      * @returns { Array<string> } all countries or regions supported by the system in the language.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types.
      * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @syscap SystemCapability.Global.I18n
      * @since 9
@@ -297,7 +298,8 @@ declare namespace i18n {
      * @param { string } language - The language code. It must be a valid language.
      * @param { string } [region] - The region code. It must be a valid region.
      * @returns { boolean } whether the current language or region is recommended.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 
+     *     2.Incorrect parameter types.
      * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @syscap SystemCapability.Global.I18n
      * @since 9
@@ -394,7 +396,7 @@ declare namespace i18n {
      * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     static setSystemLanguage(language: string): void;
 
@@ -453,7 +455,7 @@ declare namespace i18n {
      * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     static setSystemRegion(region: string): void;
 
@@ -582,7 +584,7 @@ declare namespace i18n {
      *                                 2.Incorrect parameter types.
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     static set24HourClock(option: boolean): void;
 
@@ -620,7 +622,7 @@ declare namespace i18n {
      * @static
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     static addPreferredLanguage(language: string, index?: int): void;
 
@@ -653,7 +655,7 @@ declare namespace i18n {
      * @static
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     static removePreferredLanguage(index: int): void;
 
@@ -806,7 +808,7 @@ declare namespace i18n {
      *                                 2.Incorrect parameter types.
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     static setUsingLocalDigit(flag: boolean): void;
 
@@ -1357,7 +1359,7 @@ declare namespace i18n {
    */
   export enum TemperatureType {
     /**
-     * Celesius.
+     * Celsius.
      *
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
@@ -1365,7 +1367,7 @@ declare namespace i18n {
      * @since 23 static
      */
     /**
-     * Celesius.
+     * Celsius.
      *
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
@@ -1552,7 +1554,8 @@ declare namespace i18n {
      * @param { int } hour - the hour value.
      * @param { string } [locale] - specified the locale. Use current app locale by default. It must be a valid locale.
      * @returns { string } the string of time period name. The return value may be empty string
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types.
      * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @syscap SystemCapability.Global.I18n
      * @since 11
@@ -1684,6 +1687,26 @@ declare namespace i18n {
      *
      * @param { string } path - Path to mirror, for example, "/data/out/tmp".
      * @param { string } [delimiter] - Path delimiter. The default value is "/"".
+     * @param { intl.Locale } [locale] - Locale object. The default value is the current system locale.
+     * @returns { string } File path after localization. If the specified locale object corresponds to an RTL language,
+     *                     the processed file path contains a direction control character to ensure that the file path
+     *                     is displayed in mirror mode.
+     * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
+     * @static
+     * @syscap SystemCapability.Global.I18n
+     * @atomicservice
+     * @since 18 dynamiconly
+     * @deprecated since 20
+     * @useinstead getUnicodeWrappedFilePath
+     */
+    static getUnicodeWrappedFilePath(path: string, delimiter?: string, locale?: intl.Locale): string;
+
+    /**
+     * Localizes a file path for the specified locale. For example, /data/out/tmp is changed to tmp/out/data/ after
+     * localization.
+     *
+     * @param { string } path - Path to mirror, for example, "/data/out/tmp".
+     * @param { string } [delimiter] - Path delimiter. The default value is "/"".
      * @param { Intl.Locale } [locale] - Locale object. The default value is the current system locale.
      * @returns { string } File path after localization. If the specified locale object corresponds to an RTL language,
      *                     the processed file path contains a direction control character to ensure that the file path
@@ -1715,24 +1738,18 @@ declare namespace i18n {
     static getUnicodeWrappedFilePath(path: string, delimiter?: string, locale?: Intl.Locale): string;
 
     /**
-     * Localizes a file path for the specified locale. For example, /data/out/tmp is changed to tmp/out/data/ after
-     * localization.
+     * Converts a locale string into canonical locale identifier with BCP47 standard.
+     * [BCP47](https://www.rfc-editor.org/info/bcp47).
      *
-     * @param { string } path - Path to mirror, for example, "/data/out/tmp".
-     * @param { string } [delimiter] - Path delimiter. The default value is "/"".
-     * @param { intl.Locale } [locale] - Locale object. The default value is the current system locale.
-     * @returns { string } File path after localization. If the specified locale object corresponds to an RTL language,
-     *                     the processed file path contains a direction control character to ensure that the file path
-     *                     is displayed in mirror mode.
-     * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
-     * @static
+     * @param { string } locale - Locale string to be converted, which consists of the language, script,
+     *     and country/region.
+     * @returns { string } BCP47 standard locale identifier.
      * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
      * @atomicservice
-     * @since 18 dynamiconly
-     * @deprecated since 20
-     * @useinstead getUnicodeWrappedFilePath
+     * @since 26.0.0 dynamic
      */
-    static getUnicodeWrappedFilePath(path: string, delimiter?: string, locale?: intl.Locale): string;
+    static convertCanonicalLocaleIdentifier(locale: string): string;
 
     /**
      * Sets the text direction for a specific piece of text independently,
@@ -1748,7 +1765,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @stagemodelonly
      * @atomicservice
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     static setUnicodeWrappedBidiDirection(text: string, direction: 'RTL' | 'LTR'): string;
   }
@@ -3500,7 +3517,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @stagemodelonly
      * @atomicservice
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     static detectEncoding(bytes: Uint8Array): EncodingInfo;
   }
@@ -3511,7 +3528,7 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @stagemodelonly
    * @atomicservice
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   export interface EncodingInfo {  
     /**
@@ -3524,7 +3541,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @stagemodelonly
      * @atomicservice
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     encodingName: string;
 
@@ -3535,7 +3552,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @stagemodelonly
      * @atomicservice
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     confidence: int;
   }
@@ -3931,6 +3948,19 @@ declare namespace i18n {
     public getZoneRules(): ZoneRules;
 
     /**
+     * Check if the given date use daylight saving time. The calculation will be based on the matched time zone rules.
+     *
+     * @param { Date } date - Date and time for calculation.
+     *     The value must match the time range supported by the time zone rule.
+     * @returns { boolean } true if the date use daylight saving time, and false otherwise.
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    public isDaylightSavingTime(date: Date): boolean;
+
+    /**
      * Sets the default time zone for the current app, the value will be used on the application's runtime lifecycle.
      * When the date time formatting function is used, the default time zone ID of the app is used preferentially.
      *
@@ -3940,7 +3970,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @stagemodelonly
      * @atomicservice
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     static setAppDefaultTimeZoneById(zoneID: string): void;
 
@@ -3951,7 +3981,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @stagemodelonly
      * @atomicservice
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     static getAppDefaultTimeZone(): TimeZone;
   }
@@ -4127,9 +4157,9 @@ declare namespace i18n {
     /**
      * Get a Transliterator that is specified by id name.
      *
-     * @param { string } id - specified the type of Transliterator. id is formed by source and dest. Transliterator will transliterate
-     *           the input string from source format to the dest format. For example, a Simplified Chinese to Latn
-     *           Transliterator will transform the text written in Chinese to Latn characters.
+     * @param { string } id - specified the type of Transliterator. id is formed by source and dest. Transliterator
+     *     will transliterate the input string from source format to the dest format. For example, a Simplified
+     *     Chinese to Latn Transliterator will transform the text written in Chinese to Latn characters.
      * @returns { Transliterator } Transliterator that is specified by id name.
      * @syscap SystemCapability.Global.I18n
      * @since 9
@@ -4335,7 +4365,8 @@ declare namespace i18n {
      *
      * @param { NormalizerMode } mode - specified the mode of Normalizer. It must be a valid mode.
      * @returns { Normalizer } Transliterator that is specified by id name.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Global.I18n
      * @since 10
      */
@@ -4370,7 +4401,8 @@ declare namespace i18n {
      *
      * @param { string } text - text to normalized.
      * @returns { string } a normalized string from source.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Global.I18n
      * @since 10
      */
@@ -4637,6 +4669,14 @@ declare namespace i18n {
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
      * @since 23 static
+     */
+    /**
+     * Creates a SystemLocaleManager object.
+     *
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @syscap SystemCapability.Global.I18n
+     * @systemapi Hide this for inner system use.
+     * @since 26.0.0 dynamic
      */
     constructor();
 
@@ -4990,7 +5030,8 @@ declare namespace i18n {
      * A constructor used to create a HolidayManager object.
      *
      * @param { String } icsPath - the path of the iCalendar format file to create HolidayManager object.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types.
      * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @syscap SystemCapability.Global.I18n
      * @since 11
@@ -5027,7 +5068,8 @@ declare namespace i18n {
      *
      * @param { Date } [date] - Date object whose attribute is desired.
      * @returns { boolean } whether the date is a holiday day.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Global.I18n
      * @since 11
      */
@@ -5062,10 +5104,10 @@ declare namespace i18n {
     /**
      * Obtains holiday info array for a specified year
      *
-     * @param { int } [year] - specified holiday year. If the year is not given,
-     *  the current year is used.
+     * @param { int } [year] - specified holiday year. If the year is not given, the current year is used.
      * @returns { Array<HolidayInfoItem> } holiday information array for one year.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types.
      * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @syscap SystemCapability.Global.I18n
      * @since 11
@@ -5236,7 +5278,8 @@ declare namespace i18n {
      * A constructor used to create a EntityRecognizer object.
      *
      * @param { string } [locale] - specified the locale. Use current app locale by default. It must be a valid locale.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types.
      * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @syscap SystemCapability.Global.I18n
      * @since 11
@@ -5276,7 +5319,8 @@ declare namespace i18n {
      *
      * @param { string } text - the text to find entities.
      * @returns { Array<EntityInfoItem> } entity information array found.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Global.I18n
      * @since 11
      */
@@ -5702,7 +5746,7 @@ declare namespace i18n {
      */
     timeZoneName?: TextStyle;
   }
-  
+
   /**
    * Building upon the measurement unit formatting capabilities provided by Intl.NumberFormat, the formatting
    * functionality has been enhanced. It supports automatically selecting appropriate measurement units
@@ -5766,245 +5810,870 @@ declare namespace i18n {
     unitUsage?: UnitUsage;
   }
 
-  /**
-   * Enumerates Scenarios for MeasureFormat.
-   *
-   * @enum { int }
-   * @syscap SystemCapability.Global.I18n
-   * @stagemodelonly
-   * @atomicservice
-   * @since 23 dynamic&static
-   */
-  export enum UnitUsage {    
-  /**
-   * Area land agricult scenario.
-   *
-   * @syscap SystemCapability.Global.I18n
-   * @stagemodelonly
-   * @atomicservice
-   * @since 23 dynamic&static
-   */
-  AREA_LAND_AGRICULT = 1,
+    /**
+     * Enumerates Scenarios for MeasureFormat.
+     *
+     * @enum { int }
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    export enum UnitUsage {    
+    /**
+     * Area land agricult scenario.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    AREA_LAND_AGRICULT = 1,
+
+    /**
+     * Area land commercl scenario.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    AREA_LAND_COMMERCL = 2,
+
+    /**
+     * Area land residntl scenario.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    AREA_LAND_RESIDNTL = 3,
+
+    /**
+     * Length person scenario.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    LENGTH_PERSON = 4,
+
+    /**
+     * Length person small scenario.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    LENGTH_PERSON_SMALL = 5,
+
+    /**
+     * Length rainfall scenario.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    LENGTH_RAINFALL = 6,
+
+    /**
+     * Length road scenario.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    LENGTH_ROAD = 7,
+
+    /**
+     * Length road small scenario.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    LENGTH_ROAD_SMALL = 8,
+
+    /**
+     * Length snowfall scenario.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    LENGTH_SNOWFALL = 9,
+
+    /**
+     * Length vehicle scenario.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    LENGTH_VEHICLE = 10,
+
+    /**
+     * Length visiblty scenario.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    LENGTH_VISIBLTY = 11,
+
+    /**
+     * Length visiblty small scenario.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    LENGTH_VISIBLTY_SMALL = 12,
+
+    /**
+     * Length person informal scenario.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    LENGTH_PERSON_INFORMAL = 13,
+
+    /**
+     * Length person small informal scenario.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    LENGTH_PERSON_SMALL_INFORMAL = 14,
+
+    /**
+     * Length road informal scenario.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    LENGTH_ROAD_INFORMAL = 15,
+
+    /**
+     * Speed road travel scenario.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    SPEED_ROAD_TRAVEL = 16,
+
+    /**
+     * Speed wind scenario.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    SPEED_WIND = 17,
+
+    /**
+     * Temperature person scenario.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    TEMPERATURE_PERSON = 18,
+
+    /**
+     * Temperature weather scenario.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    TEMPERATURE_WEATHER = 19,
+
+    /**
+     * Volume vehicle fuel scenario.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    VOLUME_VEHICLE_FUEL = 20,
+
+    /**
+     * Elapsed time second scenario.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    ELAPSED_TIME_SECOND = 21,
+
+    /**
+     * Size file byte scenario.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    SIZE_FILE_BYTE = 22,
+
+    /**
+     * Size shortfile byte scenario.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    SIZE_SHORTFILE_BYTE = 23
+  }
+
+    /**
+     * Provide a DateTime formatting interface that supports custom symbols.
+     * This interface formats date time values into strings with custom symbols,
+     * and can replace variable symbols in the formatted result with custom fixed symbols
+     * (e.g., replacing "2:23 PM" with "2:23 afternoon").
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    export class SymbolDateTimeFormat extends Intl.DateTimeFormat {    
+    /**
+     * A constructor used to create a SymbolDateTimeFormat object.
+     *
+     * @param { Intl.Locale } [locale] - Locale object used for formatting the date time value.
+     *     The default value is the current system locale.
+     *     <br>Default value:The default is the current system locale.
+     *     <br>Default value: system default area.
+     *     <br>Region object.
+     * @param { SymbolDateTimeFormatOptions } [options] - Indicates the symbols used to replace.
+     *     The symbols that support replacement are "AM" and "PM".
+     *     <br>Symbol DateTime Formatting Options.
+     * @throws { BusinessError } 8900001 - Invalid parameter. Possible causes: Parameter verification failed.
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    public constructor(locale?: Intl.Locale, options?: SymbolDateTimeFormatOptions);
+
+    /**
+     * Formats the date and time.
+     *
+     * @param { Date | number } [date] - Date and time. Note: The month starts from 0. For example, 0 indicates January.
+     * @returns { string } The formatted date and time string.
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    public format(date?: Date | number): string;
+
+    /**
+     * Formats date and time ranges.
+     *
+     * @param { Date | number | bigint } startDate - Start date and time, represented as a Date object or timestamp.
+     *      Note: The month starts from 0. For example, 0 indicates January.
+     * @param { Date | number | bigint } endDate - End date and time, represented as a Date object or timestamp.
+     *      Note: The month starts from 0. For example, 0 indicates January.
+     * @returns { string } A date string formatted based on the specified locale.
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    public formatRange(startDate: Date | number | bigint, endDate: Date | number | bigint): string;
+
+    /**
+     * Formats a date time range to Parts.
+     *
+     * @param { Date | number | bigint } startDate - Start date and time, represented as a Date object or timestamp.
+     *      Note: The month starts from 0. For example, 0 indicates January.
+     * @param { Date | number | bigint } endDate - End date and time, represented as a Date object or timestamp.
+     *      Note: The month starts from 0. For example, 0 indicates January.
+     * @returns { Intl.DateTimeRangeFormatPart[] } Locale formatted DateTimeRangeFormatPart array.
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    public formatRangeToParts(startDate: Date | number | bigint, endDate: Date | number | bigint):
+      Intl.DateTimeRangeFormatPart[];
+    /**
+     * Formats a date to parts.
+     *
+     * @param { Date | number } [date] - Date or timestamp. Note: The month starts from 0.
+     *     For example, 0 indicates January.
+     * @returns { Intl.DateTimeFormatPart[] } Locale formatted DateTimeFormatPart array.
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    public formatToParts(date?: Date | number): Intl.DateTimeFormatPart[];
+
+    /**
+     * Obtains the options for creating a SymbolDateTimeFormat object.
+     * This will allow us to check the current config symbols.
+     *
+     * @returns { ResolvedSymbolDateTimeFormatOptions } Symbol options for SymbolDateTimeFormat.
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    public resolvedOptions(): ResolvedSymbolDateTimeFormatOptions;
+  }
 
   /**
-   * Area land commercl scenario.
+   * Represents optional configuration items for the SymbolDateTimeFormat object.
+   * Define the symbol element and value that need to be replaced.
    *
    * @syscap SystemCapability.Global.I18n
    * @stagemodelonly
    * @atomicservice
-   * @since 23 dynamic&static
+   * @since 26.0.0 dynamic
    */
-  AREA_LAND_COMMERCL = 2,
+  export interface SymbolDateTimeFormatOptions extends Intl.DateTimeFormatOptions {
+    /**
+     * AM and PM symbol of date time period part, such as "PM" of "2:23 PM". The parameter array
+     *     must be greater than 2, If greater than 2, the first two will be selected.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    amPMSymbol?: string[] | undefined;
+  }
 
   /**
-   * Area land residntl scenario.
+   * Represents optional element for the ResolvedSymbolDateTimeFormatOptions object.
+   * Define the resolved symbol element and value that need to get.
    *
    * @syscap SystemCapability.Global.I18n
    * @stagemodelonly
    * @atomicservice
-   * @since 23 dynamic&static
+   * @since 26.0.0 dynamic
    */
-  AREA_LAND_RESIDNTL = 3,
+  export interface ResolvedSymbolDateTimeFormatOptions extends Intl.ResolvedDateTimeFormatOptions {
+    /**
+     * AM and PM symbol of date time period part, such as "PM" of "2:23 PM". First parameter is AM,
+     *     second parameter is PM.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    amPMSymbol?: string[];
+  }
 
   /**
-   * Length person scenario.
+   * Provide a Number formatting interface that supports custom symbols.
+   * This interface formats number values into strings with custom symbols,
+   * and can replace variable symbols in the formatted result with custom fixed symbols 
+   * (e.g., replacing "null" to "NA").
    *
    * @syscap SystemCapability.Global.I18n
    * @stagemodelonly
    * @atomicservice
-   * @since 23 dynamic&static
+   * @since 26.0.0 dynamic
    */
-  LENGTH_PERSON = 4,
+  export class SymbolNumberFormat implements Intl.NumberFormat {
+    /**
+     * A constructor used to create a SymbolNumberFormat object.
+     *
+     * @param { Intl.Locale } [locale] - Locale object used for formatting the date time value.
+     *     The default value is the current system locale.
+     *     <br>Default value:The default is the current system locale.
+     *     <br>Default Value: System Locale.
+     *     <br>Region object.
+     * @param { SymbolNumberFormatOptions } [options] - Indicates the symbols used to replace.
+     *     Such as zero, nan, positiveInfinity, etc.
+     *     <br>Symbol Number Formatting Options.
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    public constructor(locale?: Intl.Locale, options?: SymbolNumberFormatOptions);
+
+    /**
+     * Formats a number with give locale and SymbolNumberFormatOptions.
+     *
+     * @param { number | bigint } value - Number to be formatted.
+     * @returns { string } Formatted number.
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    public format(value: number | bigint): string;
+
+    /**
+     * Formats a number range.
+     *
+     * @param { number } startRange - Start number of the range.
+     * @param { number } endRange - End number of the range.
+     * @returns { string } Formatted number range.
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    public formatRange(startRange: number, endRange: number): string;
+
+    /**
+     * Formats a number into parts.
+     *
+     * @param { number | bigint } [value] - Number to be formatted.
+     * @returns { Intl.NumberFormatPart[] } Locale formatted NumberFormatPart array.
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    public formatToParts(value?: number | bigint): Intl.NumberFormatPart[];
+
+    /**
+     * Formats a number range into parts.
+     *
+     * @param { number } startRange - Start number of the range.
+     * @param { number } endRange - End number of the range.
+     * @returns { Intl.NumberFormatPart[] } Locale formatted NumberFormatPart array.
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    public formatRangeToParts(startRange: number, endRange: number): Intl.NumberFormatPart[];
+
+    /**
+     * Represents optional element for the ResolvedSymbolDateTimeFormatOptions object.
+     * Define the resolved symbol element and value that need to get.
+     *
+     * @returns  { ResolvedSymbolNumberFormatOptions } Symbol options for SymbolNumberFormat.
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    public resolvedOptions(): ResolvedSymbolNumberFormatOptions;
+  }
 
   /**
-   * Length person small scenario.
+   * Represents optional configuration items for the SymbolNumberFormat object.
+   * Define the symbol element and value that need to be replaced.
    *
    * @syscap SystemCapability.Global.I18n
    * @stagemodelonly
    * @atomicservice
-   * @since 23 dynamic&static
+   * @since 26.0.0 dynamic
    */
-  LENGTH_PERSON_SMALL = 5,
+  export interface SymbolNumberFormatOptions extends Intl.NumberFormatOptions {
+    /**
+     * Zero symbol of localized number part, such as "0".
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    zero?: string | undefined;
+
+    /**
+     * NaN symbol of localized number part, such as "null".
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    nan?: string | undefined;
+
+    /**
+     * Minus sign of localized number part, such as "-".
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    minusSign?: string | undefined;
+
+    /**
+     * Plus sign of localized number part, such as "+".
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    plusSign?: string | undefined;
+
+    /**
+     * Infinity symbol of localized number part, such as "∞".
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    infinity?: string | undefined;
+
+    /**
+     * Grouping Separator symbol of localized number part, such as "," of "10,000".
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    groupingSeparator?: string | undefined;
+  }
 
   /**
-   * Length rainfall scenario.
+   * Represents optional element for the ResolvedSymbolNumberFormatOptions object.
+   * Define the resolved symbol element and value that need to get.
    *
    * @syscap SystemCapability.Global.I18n
    * @stagemodelonly
    * @atomicservice
-   * @since 23 dynamic&static
+   * @since 26.0.0 dynamic
    */
-  LENGTH_RAINFALL = 6,
+  export interface ResolvedSymbolNumberFormatOptions extends Intl.ResolvedNumberFormatOptions {  
+    /**
+     * Zero symbol of localized number part, such as "0".
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    zero?: string;
+
+    /**
+     * NaN symbol of localized number part, such as "null".
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    nan?: string;
+
+    /**
+     * Minus sign of localized number part, such as "-".
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    minusSign?: string;
+
+    /**
+     * Plus sign of localized number part, such as "+".
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    plusSign?: string;
+
+    /**
+     * Infinity symbol of localized number part, such as "∞".
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    infinity?: string;
+
+    /**
+     * Grouping Separator symbol of localized number part, such as "," of "10,000".
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    groupingSeparator?: string;
+  }
+  
+  /**
+   * Provide a DateTime formatting interface which could format date to ISO 8601 standard string.
+   * [ISO8601](https://iso8601.com/).
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  export class ISO8601DateTimeFormat {  
+    /**
+     * A constructor used to create a ISO8601DateTimeFormat object.
+     *
+     * @param { ISO8601DateTimeFormatOptions } [options] - Indicates the format options formatted result include.
+     *     Default format is yyyy-MM-ddThh:mm:ssZZZZZ.
+     *     <br>ISO8601 Style DateTime Formatting Options.
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    public constructor(options?: ISO8601DateTimeFormatOptions);
+
+    /**
+     * Formats a date to ISO 8601 formatted string.
+     *
+     * @param { Date } date - date to be formatted. Note: The month starts from 0. For example, 0 indicates January.
+     * @returns { string } ISO 8601 formatted string, such as yyyy-MM-dd or yyyy-MM-ddThh:mm:ssZZZZZ.
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    public format(date: Date): string;
+  }
 
   /**
-   * Length road scenario.
+   * Represents optional configuration items for the ISO8601DateTimeFormat object.
+   * These options determine which elements need to be displayed after formatting and the corresponding format.
    *
    * @syscap SystemCapability.Global.I18n
    * @stagemodelonly
    * @atomicservice
-   * @since 23 dynamic&static
+   * @since 26.0.0 dynamic
    */
-  LENGTH_ROAD = 7,
+  export interface ISO8601DateTimeFormatOptions {  
+    /**
+     * The ISO 8601 date format to format. The value can be: "calendar", the format is yyyy-MM-dd; "ordinal",
+     * the format is yyyy-DDD; "week", the format is YYYY-Www-e. Defalut value is "calendar".
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    dateFormat?: 'calendar' | 'ordinal' | 'week';
+
+    /**
+     * The ISO 8601 time precision to format. The value can be: "dateOnly", "hours", "minutes", "seconds",
+     *     "milliSeconds". Defalut value is "seconds".
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    timePrecision?: 'dateOnly' | 'hours' | 'minutes' | 'seconds' | 'milliSeconds';
+
+    /**
+     * The date time separator style. The value can be: "extended": with -/:, "basic": compact mode.
+     * Default separator style is "extended".
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    separatorStyle?: 'extended' | 'basic';
+
+    /**
+     * TimeZone object used to format date, default value UTC.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    timeZone?: TimeZone;
+
+    /**
+     * Check if need to show time zone part. Default value is true that show time zone.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    displayTimeZone?: boolean;
+  }
 
   /**
-   * Length road small scenario.
+   * Obtains the ChineseCalendar object for the specified locale.
    *
+   * @param { Intl.Locale } [locale] - Locale object. The default value is the current system locale.
+   * @returns { ChineseCalendar } ChineseCalendar object.
    * @syscap SystemCapability.Global.I18n
    * @stagemodelonly
    * @atomicservice
-   * @since 23 dynamic&static
+   * @since 26.0.0 dynamic
    */
-  LENGTH_ROAD_SMALL = 8,
+  export function getChineseCalendar(locale?: Intl.Locale): ChineseCalendar;
 
   /**
-   * Length snowfall scenario.
+   * Provide a ChineseCalendar interface which could handle unique characteristics of the chinese calendar,
+   * such as leap month.
    *
    * @syscap SystemCapability.Global.I18n
    * @stagemodelonly
    * @atomicservice
-   * @since 23 dynamic&static
+   * @since 26.0.0 dynamic
    */
-  LENGTH_SNOWFALL = 9,
+  export class ChineseCalendar extends Calendar {  
+    /**
+     * Sets the year, month, day, hour, minute, second, isLeapMonth for this ChineseCalendar object.
+     *
+     * @param { ChineseCalendarTime } chineseCalendarTime - Indicates the time element used to set for ChineseCalendar.
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    public setChineseCalendarTime(chineseCalendarTime: ChineseCalendarTime): void;
+
+    /**
+     * Checks whether a given month exist leap month in gregorianYear and cyclicalYear.
+     *
+     * @param { int } gregorianYear - Gregorian year to check, supported range is from 1900 to 2100.
+     *     The value should be an integer.
+     *     <br>Year.
+     * @param { int } cyclicalYear - Cyclical year to check, supported range is from 1 to 60.
+     *     The value should be an integer.
+     *     <br>Year.
+     * @param { int } month - Month to check. Note: The month starts from 0. For example, 0 indicates January.
+     *     The value should be an integer.
+     *     <br>Month.
+     * @returns { boolean } Check whether the input month is a leap month.
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    public checkLeapMonth(gregorianYear: int, cyclicalYear: int, month: int): boolean;
+  }
 
   /**
-   * Length vehicle scenario.
+   * Represents chinese calendar time element for the ChineseCalendar object.
    *
    * @syscap SystemCapability.Global.I18n
    * @stagemodelonly
    * @atomicservice
-   * @since 23 dynamic&static
+   * @since 26.0.0 dynamic
    */
-  LENGTH_VEHICLE = 10,
+  export interface ChineseCalendarTime {  
+    /**
+     * The gregorian year of date.
+     * If you need to convert between the chinese calendar and the Gregorian calendar,
+     * the year range must be set from 1900 to 2100.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    gregorianYear: int;
 
-  /**
-   * Length visiblty scenario.
-   *
-   * @syscap SystemCapability.Global.I18n
-   * @stagemodelonly
-   * @atomicservice
-   * @since 23 dynamic&static
-   */
-  LENGTH_VISIBLTY = 11,
+    /**
+     * The cyclical year of date.
+     * If you need to convert between the chinese calendar and the Gregorian calendar,
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    cyclicalYear: int;
 
-  /**
-   * Length visiblty small scenario.
-   *
-   * @syscap SystemCapability.Global.I18n
-   * @stagemodelonly
-   * @atomicservice
-   * @since 23 dynamic&static
-   */
-  LENGTH_VISIBLTY_SMALL = 12,
+    /**
+     * Month of the chinese calendar time. Note: The month starts from 0. For example, 0 indicates January.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    month: int;
 
-  /**
-   * Length person informal scenario.
-   *
-   * @syscap SystemCapability.Global.I18n
-   * @stagemodelonly
-   * @atomicservice
-   * @since 23 dynamic&static
-   */
-  LENGTH_PERSON_INFORMAL = 13,
+    /**
+     * Date of the chinese calendar time.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    date: int;
 
-  /**
-   * Length person small informal scenario.
-   *
-   * @syscap SystemCapability.Global.I18n
-   * @stagemodelonly
-   * @atomicservice
-   * @since 23 dynamic&static
-   */
-  LENGTH_PERSON_SMALL_INFORMAL = 14,
+    /**
+     * Determines whether the input month is a leap month.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    isLeapMonth?: boolean;
 
-  /**
-   * Length road informal scenario.
-   *
-   * @syscap SystemCapability.Global.I18n
-   * @stagemodelonly
-   * @atomicservice
-   * @since 23 dynamic&static
-   */
-  LENGTH_ROAD_INFORMAL = 15,
+    /**
+     * Hour of the chinese calendar time.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    hour?: int;
 
-  /**
-   * Speed road travel scenario.
-   *
-   * @syscap SystemCapability.Global.I18n
-   * @stagemodelonly
-   * @atomicservice
-   * @since 23 dynamic&static
-   */
-  SPEED_ROAD_TRAVEL = 16,
+    /**
+     * Minute of the chinese calendar time.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    minute?: int;
 
-  /**
-   * Speed wind scenario.
-   *
-   * @syscap SystemCapability.Global.I18n
-   * @stagemodelonly
-   * @atomicservice
-   * @since 23 dynamic&static
-   */
-  SPEED_WIND = 17,
-
-  /**
-   * Temperature person scenario.
-   *
-   * @syscap SystemCapability.Global.I18n
-   * @stagemodelonly
-   * @atomicservice
-   * @since 23 dynamic&static
-   */
-  TEMPERATURE_PERSON = 18,
-
-  /**
-   * Temperature weather scenario.
-   *
-   * @syscap SystemCapability.Global.I18n
-   * @stagemodelonly
-   * @atomicservice
-   * @since 23 dynamic&static
-   */
-  TEMPERATURE_WEATHER = 19,
-
-  /**
-   * Volume vehicle fuel scenario.
-   *
-   * @syscap SystemCapability.Global.I18n
-   * @stagemodelonly
-   * @atomicservice
-   * @since 23 dynamic&static
-   */
-  VOLUME_VEHICLE_FUEL = 20,
-
-  /**
-   * Elapsed time second scenario.
-   *
-   * @syscap SystemCapability.Global.I18n
-   * @stagemodelonly
-   * @atomicservice
-   * @since 23 dynamic&static
-   */
-  ELAPSED_TIME_SECOND = 21,
-
-  /**
-   * Size file byte scenario.
-   *
-   * @syscap SystemCapability.Global.I18n
-   * @stagemodelonly
-   * @atomicservice
-   * @since 23 dynamic&static
-   */
-  SIZE_FILE_BYTE = 22,
-
-  /**
-   * Size shortfile byte scenario.
-   *
-   * @syscap SystemCapability.Global.I18n
-   * @stagemodelonly
-   * @atomicservice
-   * @since 23 dynamic&static
-   */
-  SIZE_SHORTFILE_BYTE = 23
-}
+    /**
+     * Second of the chinese calendar time.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    second?: int;
+  }
 }
 export default i18n;

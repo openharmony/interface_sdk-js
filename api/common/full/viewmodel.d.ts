@@ -20,6 +20,8 @@
 
 import { Image, ImageData, ImageBitmap } from "./global";
 import image from "../../@ohos.multimedia.image";
+import { WebGLContextAttributes, WebGLRenderingContext } from "./webgl";
+import { WebGL2RenderingContext } from "./webgl2";
 import { CanvasPattern } from './canvaspattern';
 
 /**

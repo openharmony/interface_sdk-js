@@ -4368,6 +4368,21 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @since 26.0.0 dynamic
    */
   orphanCharOptimization(enabled: Optional<boolean>): RichEditorAttribute;
+
+  /**
+   * Whether to enable horizontal scrolling when text is wider than the view.
+   * The default value is false, and text will be wrapped by the view.
+   *
+   * @param { Optional<boolean> } enabled - whether to enable horizontal scrolling.
+   *     True means enable this feature, false means disable this feature.
+   * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  horizontalScrolling(enabled: Optional<boolean>): RichEditorAttribute;
 }
  
 /**
@@ -4422,7 +4437,7 @@ declare interface CopyEvent {
  */
 declare interface RichEditorUrlStyle {
   /**
-   * uniform resoure locator.
+   * uniform resource locator.
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full

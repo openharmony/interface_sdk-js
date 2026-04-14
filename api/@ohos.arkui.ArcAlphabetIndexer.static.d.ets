@@ -73,7 +73,7 @@ export declare type OnSelectCallback = (index: int) => void;
  */
 export declare interface ArcAlphabetIndexerAttribute extends CommonMethod {
   /**
-   * Definitions text color.
+   * Defines text color.
    *
    * @param { Optional<ColorMetrics> } color - Text color.
    *     Default value: 0xFFFFFF.
@@ -181,7 +181,7 @@ export declare interface ArcAlphabetIndexerAttribute extends CommonMethod {
   popupFont(font: Optional<Font>): this;
 
   /**
-   * Definitions fonts.
+   * Defines fonts.
    *
    * @param { Optional<Font> } font - Default font style of the letter index bar.
    *     Default value:

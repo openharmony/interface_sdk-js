@@ -799,6 +799,31 @@ declare interface VisibleListContentInfo {
 }
 
 /**
+ * Defines the back press behavior for List component.
+ *
+ * @interface ListBackPressBehavior
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare interface ListBackPressBehavior {
+  /**
+   * Whether to close the swipe menu when back key is pressed.
+   *
+   * @type { ?boolean }
+   * @default true
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  closeSwipeAction?: boolean;
+}
+
+/**
  * Called when a child component enters or leaves the list display area.
  *
  * @typedef {function} OnScrollVisibleContentChangeCallback
@@ -2301,6 +2326,21 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @since 23 dynamic
    */
   supportEmptyBranchInLazyLoading(supported: boolean | undefined): ListAttribute;
+
+  /**
+   * Sets the back press behavior for the List component.
+   *
+   * @param { ListBackPressBehavior } [behavior] - The back press behavior options.
+   *     <br>If set, the back key behavior will be customized according to the options.
+   *     <br>If set to undefined or not set, the default back press behavior will be restored.
+   * @returns { ListAttribute } The attribute of the list.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  backPressBehavior(behavior: ListBackPressBehavior | undefined): ListAttribute;
 
   /**
    * Called when the offset and status callback of the slide are set.

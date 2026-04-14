@@ -2346,6 +2346,18 @@ export declare interface RichEditorAttribute extends CommonMethod {
      * @since 26.0.0 static
      */
     default orphanCharOptimization(enabled: boolean | undefined): this;
+    /**
+     * Whether to enable horizontal scrolling when text is wider than the view.
+     * The default value is false, and text will be wrapped by the view.
+     *
+     * @param { boolean | undefined } enabled - whether to enable horizontal scrolling.
+     *     True means enable this feature, false means disable this feature.
+     * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default horizontalScrolling(enabled: boolean | undefined): this;
 }
 /**
  * the callback of cut event.
@@ -2385,7 +2397,7 @@ export declare interface CopyEvent {
  */
 export declare interface RichEditorUrlStyle {
     /**
-     * uniform resoure locator.
+     * uniform resource locator.
      *
      * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full

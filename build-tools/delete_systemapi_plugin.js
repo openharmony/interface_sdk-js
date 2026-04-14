@@ -1513,9 +1513,9 @@ function convertSystemApiVersion(substring){
     finalVersion = getFinalVersion(sinceVersionRes[1], publicApiVersion)
   }
 
-  deletedSourceString = sourceString.replace(/\x20*\*\s*(@since\s*).*\n/gi, '')
+  deletedSourceString = sourceString.replace(/[^\S\n]*\*\s*(@since\s*).*\n/gi, '')
   deletedSourceString = deletedSourceString.replace(/@publicapi\s*[^\n]*/i, `@since ${finalVersion}`)
-  finalResult = deletedSourceString.replace(/\x20*\*\s*@systemapi.*(\n)/g, '')
+  finalResult = deletedSourceString.replace(/[^\S\n]*\*\s*@systemapi.*(\n)/g, '')
   return finalResult
 }
 

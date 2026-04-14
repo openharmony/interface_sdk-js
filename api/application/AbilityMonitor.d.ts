@@ -104,20 +104,20 @@ export interface AbilityMonitor {
   moduleName?: string;
 
   /**
-   * Called back when the ability is created for initialization.
+   * Called back when the ability is created.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
    */
   /**
-   * Called back when the ability is created for initialization.
+   * Called back when the ability is created.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @since 10
    */
   /**
-   * Called back when the ability is created for initialization.
+   * Called back when the ability is created.
    *
    * @type { ?function }.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core

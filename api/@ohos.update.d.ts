@@ -656,6 +656,38 @@ declare namespace update {
      * @since 23 dynamic&static
      */
     forceFactoryReset(): Promise<void>;
+
+    /**
+     * Reboots and deep cleans user data and OS.
+     *
+     * @permission ohos.permission.FACTORY_RESET
+     * @param { FactoryResetStrategy } factoryResetStrategy - Factory reset strategy.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 11500104 - IPC error.
+     * @syscap SystemCapability.Update.UpdateService
+     * @systemapi hide for inner use.
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    deepFactoryReset(factoryResetStrategy: FactoryResetStrategy): Promise<void>;
+
+    /**
+     * Gets deep factory reset information.
+     *
+     * @permission ohos.permission.FACTORY_RESET
+     * @param { FactoryResetStrategy } factoryResetStrategy - Factory reset strategy.
+     * @returns { Promise<FactoryResetInfo> } Promise that returns factory reset info.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 11500104 - IPC error.
+     * @syscap SystemCapability.Update.UpdateService
+     * @systemapi hide for inner use.
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    getDeepFactoryResetInfo(factoryResetStrategy: FactoryResetStrategy): Promise<FactoryResetInfo>;
   }
 
   /**
@@ -1626,6 +1658,86 @@ declare namespace update {
   }
 
   /**
+   * Represents factory reset strategy.
+   *
+   * @syscap SystemCapability.Update.UpdateService
+   * @systemapi hide for inner use.
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export interface FactoryResetStrategy {
+    /**
+     * Reset scope.
+     *
+     * @syscap SystemCapability.Update.UpdateService
+     * @systemapi hide for inner use.
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    scope: FactoryResetScope;
+
+    /**
+     * Reset strategy.
+     *
+     * @syscap SystemCapability.Update.UpdateService
+     * @systemapi hide for inner use.
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    strategy: string;
+  }
+
+  /**
+   * Enumerates the factory reset scope.
+   *
+   * @syscap SystemCapability.Update.UpdateService
+   * @systemapi hide for inner use.
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export enum FactoryResetScope {
+    /**
+     * The factory reset scope is data.
+     *
+     * @syscap SystemCapability.Update.UpdateService
+     * @systemapi hide for inner use.
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    DATA = 1,
+
+    /**
+     * The factory reset scope includes data and the OS.
+     *
+     * @syscap SystemCapability.Update.UpdateService
+     * @systemapi hide for inner use.
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    DATA_AND_OS = 2
+  } 
+
+  /**
+   * Represents factory reset info.
+   *
+   * @syscap SystemCapability.Update.UpdateService
+   * @systemapi hide for inner use.
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export interface FactoryResetInfo {
+    /**
+     * The duration of the factory reset.
+     *
+     * @syscap SystemCapability.Update.UpdateService
+     * @systemapi hide for inner use.
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    duration: int;
+  }
+
+  /**
    * Called when upgrade task info changes.
    * You need to implement this method in a child class.
    *
@@ -2151,7 +2263,7 @@ declare namespace update {
   }
 
   /**
-   * Enumerates event id.
+   * Enumerates event IDs.
    *
    * @enum { number }
    * @syscap SystemCapability.Update.UpdateService

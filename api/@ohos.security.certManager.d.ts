@@ -21,25 +21,24 @@
 import type { AsyncCallback } from './@ohos.base';
 
 /**
- * OpenHarmony Universal CertificateManager
+ * The **certManager** module provides system-level certificate management capabilities to implement management and 
+ * secure use of certificates throughout their lifecycle (installation, storage, use, and destruction).
  *
- * @namespace certificateManager
  * @syscap SystemCapability.Security.CertificateManager
  * @since 11 dynamic
  * @since 23 static
  */
 declare namespace certificateManager {
   /**
-   * Enum for result code
+   * Enumerates the error codes used in the certificate management APIs.
    *
-   * @enum { int }
    * @syscap SystemCapability.Security.CertificateManager
    * @since 11 dynamic
    * @since 23 static
    */
   export enum CMErrorCode {
     /**
-     * Indicates that the application has no permission to call the API.
+     * The application does not have the permission to call the API.
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
@@ -48,7 +47,9 @@ declare namespace certificateManager {
     CM_ERROR_NO_PERMISSION = 201,
 
     /**
-     * Indicates that the application is not a system application.
+     * The caller is not a system application.
+     * 
+     * This is a system API.
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @systemapi
@@ -58,8 +59,7 @@ declare namespace certificateManager {
     CM_ERROR_NOT_SYSTEM_APP = 202,
 
     /**
-     * Indicates that the input parameters are invalid.
-     * For example, the number of parameters or the parameter type is incorrect.
+     * Invalid input parameter is found.
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
@@ -68,7 +68,7 @@ declare namespace certificateManager {
     CM_ERROR_INVALID_PARAMS = 401,
 
     /**
-     * Indicates that internal error.
+     * An internal error occurs when the interface is called.
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
@@ -77,7 +77,7 @@ declare namespace certificateManager {
     CM_ERROR_GENERIC = 17500001,
 
     /**
-     * Indicates that the certificate does not exist.
+     * The certificate or credential does not exist.
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
@@ -86,7 +86,7 @@ declare namespace certificateManager {
     CM_ERROR_NO_FOUND = 17500002,
 
     /**
-     * Indicates that the keystore is in an invalid format or the keystore password is incorrect.
+     * The certificate or credential is in invalid format.
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
@@ -95,7 +95,7 @@ declare namespace certificateManager {
     CM_ERROR_INCORRECT_FORMAT = 17500003,
 
     /**
-     * Indicates that the number of certificates or credentials reaches the maximum allowed.
+     * The number of certificates or credentials has reached the limit.
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 12 dynamic
@@ -104,7 +104,7 @@ declare namespace certificateManager {
     CM_ERROR_MAX_CERT_COUNT_REACHED = 17500004,
 
     /**
-     * Indicates that the application is not authorized by the user.
+     * The application has not obtained user authorization.
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 12 dynamic
@@ -113,7 +113,7 @@ declare namespace certificateManager {
     CM_ERROR_NO_AUTHORIZATION = 17500005,
 
     /**
-     * Indicates that the device enters advanced security mode.
+     * The device enters the advanced security mode.
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 18 dynamic
@@ -130,9 +130,9 @@ declare namespace certificateManager {
      * @since 26.0.0 dynamiconly
      */
     CM_ERROR_PASSWORD_IS_ERR = 17500008,
-
+    
     /**
-     * Indicates that the device does not support the specified certificate store path.
+     * The device does not support the specified certificate storage path.
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 20 dynamic
@@ -141,7 +141,7 @@ declare namespace certificateManager {
     CM_ERROR_STORE_PATH_NOT_SUPPORTED = 17500009,
 
     /**
-     * Indicates that access USB key service failed.
+     * The USB credential service fails to be accessed.
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 22 dynamic
@@ -150,8 +150,9 @@ declare namespace certificateManager {
     CM_ERROR_ACCESS_UKEY_SERVICE_FAILED = 17500010,
 
     /**
-     * Indicates that the input parameters validation failed.
-     * For example, the parameter format is incorrect or the value range is invalid.
+     * The input parameter validation fails.
+     * 
+     * For example, the parameter format is incorrect or the parameter range is invalid.
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 22 dynamic
@@ -161,18 +162,16 @@ declare namespace certificateManager {
   }
 
   /**
-   * Provides the CertInfo type.
+   * Represents detailed information about a certificate.
    *
-   * @typedef CertInfo
    * @syscap SystemCapability.Security.CertificateManager
    * @since 11 dynamic
    * @since 23 static
    */
   export interface CertInfo {
     /**
-     * Indicates the uri of certificate.
+     * Unique identifier of a certificate. The value contains up to 256 bytes.
      *
-     * @type { string }
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
      * @since 23 static
@@ -180,9 +179,8 @@ declare namespace certificateManager {
     uri: string;
 
     /**
-     * Indicates the alias of certificate.
+     * Alias of a certificate. The value contains up to 128 bytes.
      *
-     * @type { string }
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
      * @since 23 static
@@ -190,9 +188,9 @@ declare namespace certificateManager {
     certAlias: string;
 
     /**
-     * Indicates the state of certificate.
+     * Certificate state. The value **true** indicates that the certificate is enabled, and **false** means the 
+     * opposite.
      *
-     * @type { boolean }
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
      * @since 23 static
@@ -200,9 +198,8 @@ declare namespace certificateManager {
     state: boolean;
 
     /**
-     * Indicates the issuer name of certificate.
+     * Name of the certificate issuer. The value contains up to 256 bytes.
      *
-     * @type { string }
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
      * @since 23 static
@@ -210,9 +207,8 @@ declare namespace certificateManager {
     issuerName: string;
 
     /**
-     * Indicates the subject name of certificate.
+     * Name of the certificate subject. The value contains up to 1024 bytes.
      *
-     * @type { string }
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
      * @since 23 static
@@ -220,9 +216,9 @@ declare namespace certificateManager {
     subjectName: string;
 
     /**
-     * Indicates the serial number of certificate.
+     * Serial number of a certificate. The value contains up to 64 bytes. The value is a hexadecimal string, for example
+     * , **62C2CB4DE8405E96**.
      *
-     * @type { string }
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
      * @since 23 static
@@ -230,9 +226,8 @@ declare namespace certificateManager {
     serial: string;
 
     /**
-     * Indicates the not before time of certificate.
+     * Start date of a certificate. The value contains up to 32 bytes.
      *
-     * @type { string }
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
      * @since 23 static
@@ -240,9 +235,8 @@ declare namespace certificateManager {
     notBefore: string;
 
     /**
-     * Indicates the not after time of certificate.
+     * Expiry date of a certificate. The value contains up to 32 bytes.
      *
-     * @type { string }
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
      * @since 23 static
@@ -250,9 +244,8 @@ declare namespace certificateManager {
     notAfter: string;
 
     /**
-     * Indicates the fingerprint of certificate.
+     * Fingerprint of a certificate. The value contains up to 128 bytes.
      *
-     * @type { string }
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
      * @since 23 static
@@ -260,9 +253,8 @@ declare namespace certificateManager {
     fingerprintSha256: string;
 
     /**
-     * Indicates the certificate binary data.
+     * Binary data of a certificate. The value contains up to 8196 bytes.
      *
-     * @type { Uint8Array }
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
      * @since 23 static
@@ -271,18 +263,16 @@ declare namespace certificateManager {
   }
 
   /**
-   * Provides the abstract Cert type.
+   * Represents brief information about a certificate.
    *
-   * @typedef CertAbstract
    * @syscap SystemCapability.Security.CertificateManager
    * @since 11 dynamic
    * @since 23 static
    */
   export interface CertAbstract {
     /**
-     * Indicates the uri of certificate.
+     * Unique identifier of a certificate. The value contains up to 256 bytes.
      *
-     * @type { string }
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
      * @since 23 static
@@ -290,9 +280,8 @@ declare namespace certificateManager {
     uri: string;
 
     /**
-     * Indicates the alias of certificate.
+     * Alias of a certificate. The value contains up to 128 bytes.
      *
-     * @type { string }
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
      * @since 23 static
@@ -300,9 +289,9 @@ declare namespace certificateManager {
     certAlias: string;
 
     /**
-     * Indicates the state of certificate.
+     * Certificate state. The value **true** indicates that the certificate is enabled, and **false** means the 
+     * opposite.
      *
-     * @type { boolean }
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
      * @since 23 static
@@ -310,9 +299,8 @@ declare namespace certificateManager {
     state: boolean;
 
     /**
-     * Indicates the subject name of certificate.
+     * Name of the certificate subject. The value contains up to 1024 bytes.
      *
-     * @type { string }
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
      * @since 23 static
@@ -321,18 +309,16 @@ declare namespace certificateManager {
   }
 
   /**
-   * Provides the Credential type.
+   * Represents detailed information about a credential.
    *
-   * @typedef Credential
    * @syscap SystemCapability.Security.CertificateManager
    * @since 11 dynamic
    * @since 23 static
    */
   export interface Credential {
     /**
-     * Indicates the type of Credential.
+     * Type of a credential. The value contains up to 8 bytes.
      *
-     * @type { string }
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
      * @since 23 static
@@ -340,9 +326,8 @@ declare namespace certificateManager {
     type: string;
 
     /**
-     * Indicates the alias of Credential.
+     * Alias of a credential. The value contains up to 128 bytes.
      *
-     * @type { string }
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
      * @since 23 static
@@ -350,9 +335,8 @@ declare namespace certificateManager {
     alias: string;
 
     /**
-     * Indicates the uri of Credential.
+     * Unique identifier of a credential. The value contains up to 256 bytes.
      *
-     * @type { string }
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
      * @since 23 static
@@ -360,9 +344,8 @@ declare namespace certificateManager {
     keyUri: string;
 
     /**
-     * Indicates the number of certificates included in the credential.
+     * Number of certificates contained in the credential.
      *
-     * @type { int }
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
      * @since 23 static
@@ -370,9 +353,8 @@ declare namespace certificateManager {
     certNum: int;
 
     /**
-     * Indicates the number of keys included in the credential.
+     * Number of keys contained in the credential.
      *
-     * @type { int }
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
      * @since 23 static
@@ -380,9 +362,8 @@ declare namespace certificateManager {
     keyNum: int;
 
     /**
-     * Indicates the credential binary data.
+     * Binary data of a credential. The value contains up to 20480 bytes.
      *
-     * @type { Uint8Array }
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
      * @since 23 static
@@ -390,9 +371,8 @@ declare namespace certificateManager {
     credentialData: Uint8Array;
 
     /**
-     * Indicates the certificate purpose.
+     * Credential usage. The default value is **CertificatePurpose.PURPOSE_DEFAULT**.
      *
-     * @type { ?CertificatePurpose }
      * @syscap SystemCapability.Security.CertificateManager
      * @since 22 dynamic
      * @since 23 static
@@ -401,18 +381,16 @@ declare namespace certificateManager {
   }
 
   /**
-   * Provides the abstract Credential type.
+   * Represents brief information about a credential.
    *
-   * @typedef CredentialAbstract
    * @syscap SystemCapability.Security.CertificateManager
    * @since 11 dynamic
    * @since 23 static
    */
   export interface CredentialAbstract {
     /**
-     * Indicates the type of Credential.
+     * Type of a credential. The value contains up to 8 bytes.
      *
-     * @type { string }
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
      * @since 23 static
@@ -420,9 +398,8 @@ declare namespace certificateManager {
     type: string;
 
     /**
-     * Indicates the alias of Credential.
+     * Alias of a credential. The value contains up to 128 bytes.
      *
-     * @type { string }
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
      * @since 23 static
@@ -430,9 +407,8 @@ declare namespace certificateManager {
     alias: string;
 
     /**
-     * Indicates the uri of Credential.
+     * Unique identifier of a credential. The value contains up to 256 bytes.
      *
-     * @type { string }
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
      * @since 23 static
@@ -441,18 +417,16 @@ declare namespace certificateManager {
   }
 
   /**
-   * Provides the CMResult type.
+   * Represents the result returned.
    *
-   * @typedef CMResult
    * @syscap SystemCapability.Security.CertificateManager
    * @since 11 dynamic
    * @since 23 static
    */
   export interface CMResult {
     /**
-     * Indicates the certificate list of CMResult.
+     * Brief certificate information.
      *
-     * @type { ?Array<CertAbstract> }
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
      * @since 23 static
@@ -460,9 +434,8 @@ declare namespace certificateManager {
     certList?: Array<CertAbstract>;
 
     /**
-     * Indicates the certificate info of CMResult.
+     * Detailed certificate information.
      *
-     * @type { ?CertInfo }
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
      * @since 23 static
@@ -470,9 +443,8 @@ declare namespace certificateManager {
     certInfo?: CertInfo;
 
     /**
-     * Indicates the credential list of CMResult.
+     * Brief credential information.
      *
-     * @type { ?Array<CredentialAbstract> }
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
      * @since 23 static
@@ -480,9 +452,8 @@ declare namespace certificateManager {
     credentialList?: Array<CredentialAbstract>;
 
     /**
-     * Indicates the credential of CMResult.
+     * Detailed credential information.
      *
-     * @type { ?Credential }
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
      * @since 23 static
@@ -490,9 +461,8 @@ declare namespace certificateManager {
     credential?: Credential;
 
     /**
-     * Indicates the app uid list of CMResult.
+     * List of authorized applications.
      *
-     * @type { ?Array<string> }
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
      * @since 23 static
@@ -500,9 +470,8 @@ declare namespace certificateManager {
     appUidList?: Array<string>;
 
     /**
-     * Indicates the certificate uri of CMResult.
+     * Unique identifier of a certificate or credential. The value contains up to 256 bytes.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
      * @since 23 static
@@ -510,9 +479,8 @@ declare namespace certificateManager {
     uri?: string;
 
     /**
-     * Indicates the outData of CMResult.
+     * Signature generated.
      *
-     * @type { ?Uint8Array }
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
      * @since 23 static
@@ -520,9 +488,8 @@ declare namespace certificateManager {
     outData?: Uint8Array;
 
     /**
-     * Indicates the credential detail list of CMResult.
+     * Represents detailed information about a credential.
      *
-     * @type { ?Array<Credential> }
      * @syscap SystemCapability.Security.CertificateManager
      * @since 22 dynamic
      * @since 23 static
@@ -530,9 +497,10 @@ declare namespace certificateManager {
     credentialDetailList?: Array<Credential>;
 
     /**
-     * Indicates the certificate URI list of CMResult.
+     * Certificate URI list.
+     * 
+     * **Since**: 26.0.0
      *
-     * @type { ?Array<string> }
      * @syscap SystemCapability.Security.CertificateManager
      * @FaAndStageModel
      * @since 26.0.0 dynamic&static
@@ -541,16 +509,15 @@ declare namespace certificateManager {
   }
 
   /**
-   * Enum for Key Purpose
+   * Enumerates the purposes of using the key.
    *
-   * @enum { int }
    * @syscap SystemCapability.Security.CertificateManager
    * @since 11 dynamic
    * @since 23 static
    */
   export enum CmKeyPurpose {
     /**
-     * Indicates that key for signature.
+     * Signs data.
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
@@ -559,7 +526,7 @@ declare namespace certificateManager {
     CM_KEY_PURPOSE_SIGN = 4,
 
     /**
-     * Indicates that key for verify.
+     * Verifies a signature.
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
@@ -569,16 +536,16 @@ declare namespace certificateManager {
   }
 
   /**
-   * Enum for Key Digest
+   * Enumerates the digest algorithms that can be used for signing and signature verification.
    *
-   * @enum { int }
    * @syscap SystemCapability.Security.CertificateManager
    * @since 11 dynamic
    * @since 23 static
    */
   export enum CmKeyDigest {
     /**
-     * Indicates that key digest is none.
+     * No digest algorithm is required. If this option is used, the service needs to pass in the data with the digest 
+     * generated for signing or signature verification.
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
@@ -587,7 +554,7 @@ declare namespace certificateManager {
     CM_DIGEST_NONE = 0,
 
     /**
-     * Indicates that key digest is md5.
+     * MD5.
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
@@ -596,7 +563,7 @@ declare namespace certificateManager {
     CM_DIGEST_MD5 = 1,
 
     /**
-     * Indicates that key digest is sha1.
+     * SHA-1.
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
@@ -605,7 +572,7 @@ declare namespace certificateManager {
     CM_DIGEST_SHA1 = 2,
 
     /**
-     * Indicates that key digest is sha224.
+     * SHA-224.
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
@@ -614,7 +581,7 @@ declare namespace certificateManager {
     CM_DIGEST_SHA224 = 3,
 
     /**
-     * Indicates that key digest is sha256.
+     * SHA-256.
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
@@ -623,7 +590,7 @@ declare namespace certificateManager {
     CM_DIGEST_SHA256 = 4,
 
     /**
-     * Indicates that key digest is sha384.
+     * SHA-384.
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
@@ -632,7 +599,7 @@ declare namespace certificateManager {
     CM_DIGEST_SHA384 = 5,
 
     /**
-     * Indicates that key digest is sha512.
+     * SHA-512.
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
@@ -641,7 +608,7 @@ declare namespace certificateManager {
     CM_DIGEST_SHA512 = 6,
 
     /**
-     * Indicates that key digest is SM3.
+     * SM3.
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 18 dynamic
@@ -651,16 +618,15 @@ declare namespace certificateManager {
   }
 
   /**
-   * Enum for Key Padding
+   * Enumerates the padding modes that can be used for signing and signature verification.
    *
-   * @enum { int }
    * @syscap SystemCapability.Security.CertificateManager
    * @since 11 dynamic
    * @since 23 static
    */
   export enum CmKeyPadding {
     /**
-     * Indicates that key padding is none.
+     * No padding.
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
@@ -669,7 +635,7 @@ declare namespace certificateManager {
     CM_PADDING_NONE = 0,
 
     /**
-     * Indicates that key padding is PSS.
+     * PSS.
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
@@ -678,7 +644,7 @@ declare namespace certificateManager {
     CM_PADDING_PSS = 1,
 
     /**
-     * Indicates that key padding is PKCS1_V1_5.
+     * PKCS1-V1_5.
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
@@ -688,18 +654,17 @@ declare namespace certificateManager {
   }
 
   /**
-   * Provides the CMSignatureSpec type.
+   * Represents a set of parameters used for signing or signature verification, including the key usage purpose, padding
+   * mode, and digest algorithm.
    *
-   * @typedef CMSignatureSpec
    * @syscap SystemCapability.Security.CertificateManager
    * @since 11 dynamic
    * @since 23 static
    */
   export interface CMSignatureSpec {
     /**
-     * Indicates the key purpose of CMSignatureSpec.
+     * Purpose of using the key.
      *
-     * @type { CmKeyPurpose }
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
      * @since 23 static
@@ -707,9 +672,8 @@ declare namespace certificateManager {
     purpose: CmKeyPurpose;
 
     /**
-     * Indicates the key padding of CMSignatureSpec.
+     * Padding mode.
      *
-     * @type { ?CmKeyPadding }
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
      * @since 23 static
@@ -717,9 +681,8 @@ declare namespace certificateManager {
     padding?: CmKeyPadding;
 
     /**
-     * Indicates the key digest of CMSignatureSpec.
+     * Digest algorithm.
      *
-     * @type { ?CmKeyDigest }
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
      * @since 23 static
@@ -728,18 +691,16 @@ declare namespace certificateManager {
   }
 
   /**
-   * Provides the CMHandle type.
+   * Represents the handle to a signing or signature verification operation.
    *
-   * @typedef CMHandle
    * @syscap SystemCapability.Security.CertificateManager
    * @since 11 dynamic
    * @since 23 static
    */
   export interface CMHandle {
     /**
-     * Indicates the handle .
+     * Handle of the initialization for signing and signature verification. The value contains up to 8 bytes.
      *
-     * @type { Uint8Array }
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
      * @since 23 static
@@ -748,39 +709,28 @@ declare namespace certificateManager {
   }
 
   /**
-   * Install private application certificate.
+   * Installs a private credential. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @param { Uint8Array } keystore - Indicates the keystore file with key pair and certificate.
-   * @param { string } keystorePwd - Indicates the password of keystore file.
-   * @param { string } certAlias - Indicates the certificate name inputted by the user.
-   * @param { AsyncCallback<CMResult> } callback - The callback of installPrivateCertificate.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @param { Uint8Array } keystore - Keystore file with a key pair and certificate. The value contains up to 20480
+   *     bytes.
+   * @param { string } keystorePwd - Password of the keystore file. The password cannot exceed 32 bytes.
+   * @param { string } certAlias - Credential alias. Currently, the alias can contain only digits, letters, and
+   *     underscores (_) and should not exceed 32 bytes.
+   * @param { AsyncCallback<CMResult> } callback - Callback used to return the result. If the operation is successful,
+   *     **err** is **null** and **data** is **uri** in the [CMResult]{@link certificateManager.CMResult} object.
+   *     Otherwise, **err** is an error object.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
-   * <br>2. Memory operation error; 3. File operation error. Please try again.
-   * @throws { BusinessError } 17500003 - The keystore is in an invalid format or the keystore password is incorrect.
-   * @syscap SystemCapability.Security.CertificateManager
-   * @since 11
-   */
-  /**
-   * Install private application certificate.
-   *
-   * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @param { Uint8Array } keystore - Indicates the keystore file with key pair and certificate.
-   * @param { string } keystorePwd - Indicates the password of keystore file.
-   * @param { string } certAlias - Indicates the certificate name inputted by the user.
-   * @param { AsyncCallback<CMResult> } callback - The callback of installPrivateCertificate.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
-   * <br>2. Memory operation error; 3. File operation error. Please try again.
+   *     <br>2. Memory operation error; 3. File operation error. Please try again.
    * @throws { BusinessError } 17500003 - The keystore is in an invalid format or the keystore password is incorrect.
    * @throws { BusinessError } 17500004 - The number of certificates or credentials reaches the maximum allowed.
+   *     [since 12]
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 12 dynamic
+   * @since 11 dynamic
    * @since 23 static
    */
   function installPrivateCertificate(
@@ -791,54 +741,45 @@ declare namespace certificateManager {
   ): void;
 
   /**
-   * Install private application certificate.
+   * Installs a private credential. This API uses a promise to return the result.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @param { Uint8Array } keystore - Indicates the keystore file with key pair and certificate.
-   * @param { string } keystorePwd - Indicates the password of keystore file.
-   * @param { string } certAlias - Indicates the certificate name inputted by the user.
-   * @returns { Promise<CMResult> } The promise returned by the function.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @param { Uint8Array } keystore - Keystore file with a key pair and certificate. The value contains up to 20480
+   *     bytes.
+   * @param { string } keystorePwd - Password of the keystore file. The password cannot exceed 32 bytes.
+   * @param { string } certAlias - Credential alias. Currently, the alias can contain only digits, letters, and
+   *     underscores (_) and should not exceed 32 bytes.
+   * @returns { Promise<CMResult> } Promise used to return the operation result, that is, **uri** in the
+   *     [CMResult]{@link certificateManager.CMResult} object.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
-   * <br>2. Memory operation error; 3. File operation error. Please try again.
-   * @throws { BusinessError } 17500003 - The keystore is in an invalid format or the keystore password is incorrect.
-   * @syscap SystemCapability.Security.CertificateManager
-   * @since 11
-   */
-  /**
-   * Install private application certificate.
-   *
-   * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @param { Uint8Array } keystore - Indicates the keystore file with key pair and certificate.
-   * @param { string } keystorePwd - Indicates the password of keystore file.
-   * @param { string } certAlias - Indicates the certificate name inputted by the user.
-   * @returns { Promise<CMResult> } The promise returned by the function.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
-   * <br>2. Memory operation error; 3. File operation error. Please try again.
+   *     <br>2. Memory operation error; 3. File operation error. Please try again.
    * @throws { BusinessError } 17500003 - The keystore is in an invalid format or the keystore password is incorrect.
    * @throws { BusinessError } 17500004 - The number of certificates or credentials reaches the maximum allowed.
+   *     [since 12]
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 12 dynamic
+   * @since 11 dynamic
    * @since 23 static
    */
   function installPrivateCertificate(keystore: Uint8Array, keystorePwd: string, certAlias: string): Promise<CMResult>;
 
   /**
-   * Uninstall the specified normal application certificate.
+   * Uninstalls a private credential. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @param { string } keyUri - Indicates key's name.
-   * @param { AsyncCallback<void> } callback - The callback of uninstallPrivateCertificate.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @param { string } keyUri - Unique identifier of the credential to be uninstalled. The value contains up to 256
+   *     bytes.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+   *     **err** is **null**. Otherwise, **err** is an error object.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
-   * <br>2. Memory operation error; 3. File operation error. Please try again.
+   *     <br>2. Memory operation error; 3. File operation error. Please try again.
    * @throws { BusinessError } 17500002 - The certificate does not exist.
    * @syscap SystemCapability.Security.CertificateManager
    * @since 11 dynamic
@@ -847,16 +788,18 @@ declare namespace certificateManager {
   function uninstallPrivateCertificate(keyUri: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Uninstall the specified normal application certificate.
+   * Uninstalls a private credential. This API uses a promise to return the result.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @param { string } keyUri - Indicates key's name.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @param { string } keyUri - Unique identifier of the credential to be uninstalled. The value contains up to 256
+   *     bytes.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
-   * <br>2. Memory operation error; 3. File operation error. Please try again.
+   *     <br>2. Memory operation error; 3. File operation error. Please try again.
    * @throws { BusinessError } 17500002 - The certificate does not exist.
    * @syscap SystemCapability.Security.CertificateManager
    * @since 11 dynamic
@@ -865,16 +808,20 @@ declare namespace certificateManager {
   function uninstallPrivateCertificate(keyUri: string): Promise<void>;
 
   /**
-   * Get a list of all applications private certificates.
+   * Obtains all private credentials. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER and ohos.permission.ACCESS_CERT_MANAGER_INTERNAL
-   * @param { AsyncCallback<CMResult> } callback - The callback of getAllAppPrivateCertificates.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @param { AsyncCallback<CMResult> } callback - Callback used to return the result. If all private credentials are
+   *     obtained, **err** is **null**, and **data** is the **credentialList** attribute in the
+   *     [CMResult]{@link @ohos.security.certManager:certificateManager.CMResult} object. Otherwise, **err** is an error
+   *     object.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
-   * <br>2. Memory operation error; 3. File operation error. Please try again.
+   *     <br>2. Memory operation error; 3. File operation error. Please try again.
    * @syscap SystemCapability.Security.CertificateManager
    * @systemapi
    * @since 11 dynamic
@@ -883,14 +830,16 @@ declare namespace certificateManager {
   function getAllAppPrivateCertificates(callback: AsyncCallback<CMResult>): void;
 
   /**
-   * Get a list of all applications private certificates.
+   * Obtains all private credentials. This API uses a promise to return the result.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER and ohos.permission.ACCESS_CERT_MANAGER_INTERNAL
-   * @returns { Promise<CMResult> } The promise returned by the function.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @returns { Promise<CMResult> } Promise used to return the result, which is the value of **credentialList** in the
+   *     [CMResult]{@link @ohos.security.certManager:certificateManager.CMResult} object.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
-   * <br>2. Memory operation error; 3. File operation error. Please try again.
+   *     <br>2. Memory operation error; 3. File operation error. Please try again.
    * @syscap SystemCapability.Security.CertificateManager
    * @systemapi
    * @since 11 dynamic
@@ -899,16 +848,20 @@ declare namespace certificateManager {
   function getAllAppPrivateCertificates(): Promise<CMResult>;
 
   /**
-   * Get the detail of private application certificate.
+   * Obtains detailed information about a private credential. This API uses an asynchronous callback to return the 
+   * result.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @param { string } keyUri - Indicates key's name.
-   * @param { AsyncCallback<CMResult> } callback - The callback of getPrivateCertificate.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @param { string } keyUri - Unique identifier of the credential to be obtained. The value contains up to 256 bytes.
+   * @param { AsyncCallback<CMResult> } callback - Callback used to return the result. If the operation is successful,
+   *     **err** is **null** and **data** is **credential** in the [CMResult]{@link certificateManager.CMResult} object.
+   *     Otherwise, **err** is an error object.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
-   * <br>2. Memory operation error; 3. File operation error. Please try again.
+   *     <br>2. Memory operation error; 3. File operation error. Please try again.
    * @throws { BusinessError } 17500002 - The certificate does not exist.
    * @syscap SystemCapability.Security.CertificateManager
    * @since 11 dynamic
@@ -917,16 +870,18 @@ declare namespace certificateManager {
   function getPrivateCertificate(keyUri: string, callback: AsyncCallback<CMResult>): void;
 
   /**
-   * Get the detail of private application certificate.
+   * Obtains detailed information about a private credential. This API uses a promise to return the result.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @param { string } keyUri - Indicates key's name.
-   * @returns { Promise<CMResult> } The promise returned by the function.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @param { string } keyUri - Unique identifier of the credential to be obtained. The value contains up to 256 bytes.
+   * @returns { Promise<CMResult> } Promise used to return the private credential details obtained, that is,
+   *     **credential** in the [CMResult]{@link certificateManager.CMResult} object.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
-   * <br>2. Memory operation error; 3. File operation error. Please try again.
+   *     <br>2. Memory operation error; 3. File operation error. Please try again.
    * @throws { BusinessError } 17500002 - The certificate does not exist.
    * @syscap SystemCapability.Security.CertificateManager
    * @since 11 dynamic
@@ -935,89 +890,65 @@ declare namespace certificateManager {
   function getPrivateCertificate(keyUri: string): Promise<CMResult>;
 
   /**
-   * Init operation for signing and verifying etc.
+   * Initializes the signing or signature verification operation using the specified credential. This API uses an 
+   * asynchronous callback to return the result.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @param { string } authUri - Indicates the authorization relationship between application and application certificate.
-   * @param { CMSignatureSpec } spec - Indicates the properties of the signature and verification.
-   * @param { AsyncCallback<CMHandle> } callback - The callback of init.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @param { string } authUri - Unique identifier of the credential to be used. The value contains up to 256 bytes.
+   * @param { CMSignatureSpec } spec - Parameters for the signing or signature verification operation.
+   * @param { AsyncCallback<CMHandle> } callback - Callback used to return the result. If the operation is successful,
+   *     **err** is **null** and **data** is the obtained **CMHandle**. Otherwise, **err** is an error object.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
-   * <br>2. Memory operation error; 3. File operation error. Please try again.
+   *     <br>2. Memory operation error; 3. File operation error. Please try again.
    * @throws { BusinessError } 17500002 - The certificate does not exist.
+   * @throws { BusinessError } 17500005 - The application is not authorized by the user. [since 12]
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 11
-   */
-  /**
-   * Init operation for signing and verifying etc.
-   *
-   * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @param { string } authUri - Indicates the authorization relationship between application and application certificate.
-   * @param { CMSignatureSpec } spec - Indicates the properties of the signature and verification.
-   * @param { AsyncCallback<CMHandle> } callback - The callback of init.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
-   * <br>2. Memory operation error; 3. File operation error. Please try again.
-   * @throws { BusinessError } 17500002 - The certificate does not exist.
-   * @throws { BusinessError } 17500005 - The application is not authorized by the user.
-   * @syscap SystemCapability.Security.CertificateManager
-   * @since 12 dynamic
+   * @since 11 dynamic
    * @since 23 static
    */
   function init(authUri: string, spec: CMSignatureSpec, callback: AsyncCallback<CMHandle>): void;
 
   /**
-   * Init operation for signing and verifying etc.
+   * Initializes the signing or signature verification operation using the specified credential. This API uses a promise
+   * to return the result.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @param { string } authUri - Indicates the authorization relationship between application and application certificate.
-   * @param { CMSignatureSpec } spec - Indicates the properties of the signature and verification.
-   * @returns { Promise<CMHandle> } The promise returned by the function.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @param { string } authUri - Unique identifier of the credential to be used. The value contains up to 256 bytes.
+   * @param { CMSignatureSpec } spec - Parameters for the signing or signature verification operation.
+   * @returns { Promise<CMHandle> } Promise used to return the operation result, that is, the **CMHandle** object.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
-   * <br>2. Memory operation error; 3. File operation error. Please try again.
+   *     <br>2. Memory operation error; 3. File operation error. Please try again.
    * @throws { BusinessError } 17500002 - The certificate does not exist.
+   * @throws { BusinessError } 17500005 - The application is not authorized by the user. [since 12]
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 11
-   */
-  /**
-   * Init operation for signing and verifying etc.
-   *
-   * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @param { string } authUri - Indicates the authorization relationship between application and application certificate.
-   * @param { CMSignatureSpec } spec - Indicates the properties of the signature and verification.
-   * @returns { Promise<CMHandle> } The promise returned by the function.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
-   * <br>2. Memory operation error; 3. File operation error. Please try again.
-   * @throws { BusinessError } 17500002 - The certificate does not exist.
-   * @throws { BusinessError } 17500005 - The application is not authorized by the user.
-   * @syscap SystemCapability.Security.CertificateManager
-   * @since 12 dynamic
+   * @since 11 dynamic
    * @since 23 static
    */
   function init(authUri: string, spec: CMSignatureSpec): Promise<CMHandle>;
 
   /**
-   * Update operation for signing and verifying etc.
+   * Updates the data for the signing or signature verification operation. This API uses an asynchronous callback to 
+   * return the result.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @param { Uint8Array } handle - Indicates the handle of the init operation.
-   * @param { Uint8Array } data - Indicates the input value.
-   * @param { AsyncCallback<void> } callback - The callback of update.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @param { Uint8Array } handle - Handle of initialization. The value contains up to 8 bytes.
+   * @param { Uint8Array } data - Data to be signed or verified.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+   *     **err** is **null**. Otherwise, **err** is an error object.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
-   * <br>2. Memory operation error; 3. File operation error. Please try again.
+   *     <br>2. Memory operation error; 3. File operation error. Please try again.
    * @syscap SystemCapability.Security.CertificateManager
    * @since 11 dynamic
    * @since 23 static
@@ -1025,17 +956,18 @@ declare namespace certificateManager {
   function update(handle: Uint8Array, data: Uint8Array, callback: AsyncCallback<void>): void;
 
   /**
-   * Update operation for signing and verifying etc.
+   * Updates the data for the signing or signature verification operation. This API uses a promise to return the result.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @param { Uint8Array } handle - Indicates the handle of the init operation.
-   * @param { Uint8Array } data - Indicates the input value.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @param { Uint8Array } handle - Handle of initialization. The value contains up to 8 bytes.
+   * @param { Uint8Array } data - Data to be signed or verified.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
-   * <br>2. Memory operation error; 3. File operation error. Please try again.
+   *     <br>2. Memory operation error; 3. File operation error. Please try again.
    * @syscap SystemCapability.Security.CertificateManager
    * @since 11 dynamic
    * @since 23 static
@@ -1043,16 +975,19 @@ declare namespace certificateManager {
   function update(handle: Uint8Array, data: Uint8Array): Promise<void>;
 
   /**
-   * Finish operation for signing and verifying etc.
+   * Finishes the signing operation. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @param { Uint8Array } handle - Indicates the handle of the init operation.
-   * @param { AsyncCallback<CMResult> } callback - The callback of finish.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @param { Uint8Array } handle - Handle of initialization. The value contains up to 8 bytes.
+   * @param { AsyncCallback<CMResult> } callback - Callback used to return the result. If the operation is successful,
+   *     **err** is **null** and **data** is the signature, that is, **outData** of the
+   *     [CMResult]{@link certificateManager.CMResult} object. Otherwise, **err** is an error object.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
-   * <br>2. Memory operation error; 3. File operation error. Please try again.
+   *     <br>2. Memory operation error; 3. File operation error. Please try again.
    * @syscap SystemCapability.Security.CertificateManager
    * @since 11 dynamic
    * @since 23 static
@@ -1060,17 +995,19 @@ declare namespace certificateManager {
   function finish(handle: Uint8Array, callback: AsyncCallback<CMResult>): void;
 
   /**
-   * Finish operation for signing and verifying etc.
+   * Finishes the signature verification operation. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @param { Uint8Array } handle - Indicates the handle of the init operation.
-   * @param { Uint8Array } signature - Indicates the sign data.
-   * @param { AsyncCallback<CMResult> } callback - The callback of finish.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @param { Uint8Array } handle - Handle of initialization. The value contains up to 8 bytes.
+   * @param { Uint8Array } signature - Data to sign or verify.
+   * @param { AsyncCallback<CMResult> } callback - Callback used to return the result. If the operation is successful,
+   *     **err** is **null**. Otherwise, **err** is an error object.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
-   * <br>2. Memory operation error; 3. File operation error. Please try again.
+   *     <br>2. Memory operation error; 3. File operation error. Please try again.
    * @syscap SystemCapability.Security.CertificateManager
    * @since 11 dynamic
    * @since 23 static
@@ -1078,17 +1015,21 @@ declare namespace certificateManager {
   function finish(handle: Uint8Array, signature: Uint8Array, callback: AsyncCallback<CMResult>): void;
 
   /**
-   * Finish operation for signing and verifying etc.
+   * Finishes the signing or signature verification operation. This API uses a promise to return the result.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @param { Uint8Array } handle - Indicates the handle of the init operation.
-   * @param { Uint8Array } [options] signature - Indicates the sign data.
-   * @returns { Promise<CMResult> } The promise returned by the function.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @param { Uint8Array } handle - Handle of initialization. The value contains up to 8 bytes.
+   * @param { Uint8Array } signature - Signature data used for signature verification. This parameter needs to be
+   *     specified only for signature verification.
+   * @returns { Promise<CMResult> } Promise used to return the signature of a signing operation, that is, **outData** in
+   *     the [CMResult]{@link certificateManager.CMResult} object. For a signature verification operation, the promise
+   *     returns no value.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
-   * <br>2. Memory operation error; 3. File operation error. Please try again.
+   *     <br>2. Memory operation error; 3. File operation error. Please try again.
    * @syscap SystemCapability.Security.CertificateManager
    * @since 11 dynamic
    * @since 23 static
@@ -1096,16 +1037,19 @@ declare namespace certificateManager {
   function finish(handle: Uint8Array, signature?: Uint8Array): Promise<CMResult>;
 
   /**
-   * Abort operation for signing and verifying etc.
+   * Aborts the signing or signature verification operation. This API uses an asynchronous callback to return the 
+   * result.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @param { Uint8Array } handle - Indicates the handle of the init operation.
-   * @param { AsyncCallback<void> } callback - The callback of abort.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @param { Uint8Array } handle - Handle of initialization. The value contains up to 8 bytes.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+   *     **err** is **null**. Otherwise, **err** is an error object.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
-   * <br>2. Memory operation error; 3. File operation error. Please try again.
+   *     <br>2. Memory operation error; 3. File operation error. Please try again.
    * @syscap SystemCapability.Security.CertificateManager
    * @since 11 dynamic
    * @since 23 static
@@ -1113,16 +1057,17 @@ declare namespace certificateManager {
   function abort(handle: Uint8Array, callback: AsyncCallback<void>): void;
 
   /**
-   * Abort operation for signing and verifying etc.
+   * Aborts the signing or signature verification operation. This API uses a promise to return the result.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @param { Uint8Array } handle - Indicates the handle of the init operation.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @param { Uint8Array } handle - Handle of initialization. The value contains up to 8 bytes.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
-   * <br>2. Memory operation error; 3. File operation error. Please try again.
+   *     <br>2. Memory operation error; 3. File operation error. Please try again.
    * @syscap SystemCapability.Security.CertificateManager
    * @since 11 dynamic
    * @since 23 static
@@ -1130,16 +1075,18 @@ declare namespace certificateManager {
   function abort(handle: Uint8Array): Promise<void>;
 
   /**
-   * Get the detail of public application certificate.
+   * Obtains detailed information about a public credential. This API uses a promise to return the result.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @param { string } keyUri - Indicates the key's name.
-   * @returns { Promise<CMResult> } The promise returned by the function.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @param { string } keyUri - Unique identifier of a user's public credential. The value contains up to 256 bytes.
+   * @returns { Promise<CMResult> } Promise used to return the detailed information about the user's public credential
+   *     obtained, that is, **credential** in the [CMResult]{@link certificateManager.CMResult} object.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
-   * <br>2. Memory operation error; 3. File operation error. Please try again.
+   *     <br>2. Memory operation error; 3. File operation error. Please try again.
    * @throws { BusinessError } 17500002 - The certificate does not exist.
    * @throws { BusinessError } 17500005 - The application is not authorized by the user.
    * @syscap SystemCapability.Security.CertificateManager
@@ -1149,16 +1096,20 @@ declare namespace certificateManager {
   function getPublicCertificate(keyUri: string): Promise<CMResult>;
 
   /**
-   * Whether the current application is authorized by the specified public application certificate.
+   * Checks whether this application is authorized by the specified user credential. This API uses a promise to return 
+   * the result.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @param { string } keyUri - Indicates the key's name.
-   * @returns { Promise<boolean> } The promise returned by the function.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @param { string } keyUri - Unique identifier of the credential authorized by the user to the application. The value
+   *     contains up to 256 bytes.
+   * @returns { Promise<boolean> } Promise used to return whether the application is authorized. The value **true**
+   *     means authorized; the value **false** means the opposite.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
-   * <br>2. Memory operation error; 3. File operation error. Please try again.
+   *     <br>2. Memory operation error; 3. File operation error. Please try again.
    * @syscap SystemCapability.Security.CertificateManager
    * @since 12 dynamic
    * @since 23 static
@@ -1166,13 +1117,15 @@ declare namespace certificateManager {
   function isAuthorizedApp(keyUri: string): Promise<boolean>;
 
   /**
-   * Get a list of all user trusted CA certificates.
+   * Obtains all user trusted root CA certificates of the device. This API uses a promise to return the result.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @returns { Promise<CMResult> } The promise returned by the function.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @returns { Promise<CMResult> } Promise used to return the operation result, that is, **certList** in the
+   *     [CMResult]{@link certificateManager.CMResult} object.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
-   * <br>2. Memory operation error; 3. File operation error. Please try again.
+   *     <br>2. Memory operation error; 3. File operation error. Please try again.
    * @syscap SystemCapability.Security.CertificateManager
    * @since 12 dynamic
    * @since 23 static
@@ -1180,16 +1133,18 @@ declare namespace certificateManager {
   function getAllUserTrustedCertificates(): Promise<CMResult>;
 
   /**
-   * Get the detail of user trusted CA certificate.
+   * Obtains the detailed information about a user root CA certificate. This API uses a promise to return the result.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @param { string } certUri - Indicates the certificate's name.
-   * @returns { Promise<CMResult> } The promise returned by the function.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @param { string } certUri - Unique identifier of a user's root CA certificate. The value contains up to 256 bytes.
+   * @returns { Promise<CMResult> } Promise used to return the operation result, that is, **certInfo** in the
+   *     [CMResult]{@link certificateManager.CMResult} object.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
-   * <br>2. Memory operation error; 3. File operation error. Please try again.
+   *     <br>2. Memory operation error; 3. File operation error. Please try again.
    * @throws { BusinessError } 17500002 - The certificate does not exist.
    * @syscap SystemCapability.Security.CertificateManager
    * @since 12 dynamic
@@ -1198,14 +1153,16 @@ declare namespace certificateManager {
   function getUserTrustedCertificate(certUri: string): Promise<CMResult>;
 
   /**
-   * Get a list of all system application certificates, such as WLAN, VPN certificate.
+   * Obtains all system credentials. This API uses a promise to return the result.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @returns { Promise<CMResult> } The promise returned by the function.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @returns { Promise<CMResult> } Promise used to return the result, which is the value of **credentialList** in the
+   *     [CMResult]{@link @ohos.security.certManager:certificateManager.CMResult} object.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
-   * <br>2. Memory operation error; 3. File operation error. Please try again.
+   *     <br>2. Memory operation error; 3. File operation error. Please try again.
    * @syscap SystemCapability.Security.CertificateManager
    * @systemapi
    * @since 12 dynamic
@@ -1214,13 +1171,16 @@ declare namespace certificateManager {
   function getAllSystemAppCertificates(): Promise<CMResult>;
 
   /**
-   * Get all private certificates installed by the application.
+   * Obtains the credentials for installing the application. This API uses a promise to return the result 
+   * asynchronously.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @returns { Promise<CMResult> } The private certificates installed by the application.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @returns { Promise<CMResult> } Promise used to return credentials obtained, which is **credentialList** in
+   *     [CMResult]{@link certificateManager.CMResult}.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
-   * <br>2. Memory operation error; 3. File operation error. Please try again.
+   *     <br>2. Memory operation error; 3. File operation error. Please try again.
    * @syscap SystemCapability.Security.CertificateManager
    * @since 13 dynamic
    * @since 23 static
@@ -1228,52 +1188,42 @@ declare namespace certificateManager {
   function getPrivateCertificates(): Promise<CMResult>;
 
   /**
-   * Obtains the path of the certificate file.
-   * 
-   * @param { CertStoreProperty } property Properties of the certificate file storage path.
-   * @returns { string } Path of the certificate file obtained.
+   * Obtains the certificate storage path.
+   *
+   * @param { CertStoreProperty } property - Storage information about the target certificate.
+   * @returns { string } Certificate storage path.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left
-   * unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.  For example, CertStoreProperty.certType
-   * is set to CA_CERT_USER, but CertStoreProperty.certScope is not specified.
+   *     unspecified;
+   *     <br>2. Incorrect parameter types; 3. Parameter verification failed. For example, CertStoreProperty.certType
+   *     is set to CA_CERT_USER, but CertStoreProperty.certScope is not specified.
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
-   * <br>2. Memory operation error; 3. File operation error. Please try again.
-   * @syscap SystemCapability.Security.CertificateManager
-   * @since 18
-   */
-  /**
-   * Obtains the path of the certificate file.
-   * @param { CertStoreProperty } property Properties of the certificate file storage path.
-   * @returns { string } Path of the certificate file obtained.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left
-   * unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed. For example, CertStoreProperty.certType
-   * is set to CA_CERT_USER, but CertStoreProperty.certScope is not specified.
-   * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
-   * <br>2. Memory operation error; 3. File operation error. Please try again.
+   *     <br>2. Memory operation error; 3. File operation error. Please try again.
    * @throws { BusinessError } 17500009 - The device does not support the specified certificate storage path,
-   * For example, the device outside China does not support the certificate that uses SM algorithm.
+   *     For example, the device outside China does not support the certificate that uses SM algorithm. [since 20]
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 20 dynamic
+   * @since 18 dynamic
    * @since 23 static
    */
   function getCertificateStorePath(property: CertStoreProperty): string;
 
   /**
-   * Install the user trusted CA certificate.
+   * Installs a user CA certificate.
    *
    * @permission ohos.permission.ACCESS_ENTERPRISE_USER_TRUSTED_CERT or ohos.permission.ACCESS_USER_TRUSTED_CERT
-   * @param { Uint8Array } cert - Indicates the certificate file content to be installed.
-   * @param { CertScope } certScope - Indicates the scope of user ca certificate.
-   * @returns { CMResult } The certificate uri that identifies the installed certificate.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @param { Uint8Array } cert - CA certificate data. The value contains up to 8196 bytes.
+   * @param { CertScope } certScope - Scope of the CA certificate.
+   * @returns { CMResult } CA certificate installation result. The **uri** property in **CMResult** is returned if the
+   *     certificate is installed successfully.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
-   * <br>2. Memory operation error; 3. File operation error. Please try again.
+   *     <br>2. Memory operation error; 3. File operation error. Please try again.
    * @throws { BusinessError } 17500003 - Indicates that the certificate is in an invalid format.
    * @throws { BusinessError } 17500004 - Indicates that the number of certificates reaches the maximum allowed.
-   * @throws { BusinessError } 17500007 - Indicates that the device enters advanced security mode. In this mode, the user CA certificate cannot be installed.
+   * @throws { BusinessError } 17500007 - Indicates that the device enters advanced security mode. In this mode, the
+   *     user CA certificate cannot be installed.
    * @syscap SystemCapability.Security.CertificateManager
    * @since 18 dynamic
    * @since 23 static
@@ -1281,16 +1231,15 @@ declare namespace certificateManager {
   function installUserTrustedCertificateSync(cert: Uint8Array, certScope: CertScope): CMResult;
 
   /**
-   * Enum for storage authentication level
+   * Enumerates the credential storage levels.
    *
-   * @enum { int }
    * @syscap SystemCapability.Security.CertificateManager
    * @since 18 dynamic
    * @since 23 static
    */
   export enum AuthStorageLevel {
     /**
-     * Indicates that the file can be accessed after the device is started.
+     * The credential can be accessed after the device is started.
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 18 dynamic
@@ -1299,7 +1248,7 @@ declare namespace certificateManager {
     EL1 = 1,
 
     /**
-     * Indicates that the file can be accessed after the device is unlocked for the first time.
+     * The credential can be accessed after the device is unlocked for the first time.
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 18 dynamic
@@ -1308,7 +1257,7 @@ declare namespace certificateManager {
     EL2 = 2,
 
     /**
-     * Indicates that the file can be accessed when the device is unlocked.
+     * The credential can be accessed after the device is unlocked.
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 18 dynamic
@@ -1318,18 +1267,16 @@ declare namespace certificateManager {
   }
 
   /**
-   * Provides the certificate file store property type.
+   * Represents the storage information about a certificate, including the certificate type and location.
    *
-   * @typedef CertStoreProperty
    * @syscap SystemCapability.Security.CertificateManager
    * @since 18 dynamic
    * @since 23 static
    */
   export interface CertStoreProperty {
     /**
-     * Indicates the certificate type managed by Certificate Manager.
+     * Type of the certificate.
      *
-     * @type { CertType }
      * @syscap SystemCapability.Security.CertificateManager
      * @since 18 dynamic
      * @since 23 static
@@ -1337,9 +1284,8 @@ declare namespace certificateManager {
     certType: CertType;
 
     /**
-     * Indicates the scope of user ca certificate. This parameter is valid only when certType is set to CA_CERT_USER.
+     * Scope of the certificate. This parameter is mandatory when **certType** is **CA_CERT_USER**.
      *
-     * @type { ?CertScope }
      * @syscap SystemCapability.Security.CertificateManager
      * @since 18 dynamic
      * @since 23 static
@@ -1347,9 +1293,9 @@ declare namespace certificateManager {
     certScope?: CertScope;
 
     /**
-     * Indicates the certificate algorithm type. This parameter is valid only when certType is set to CA_CERT_SYSTEM. default value is INTERNATIONAL.
+     * Certificate algorithm. This parameter is valid only when **certType** is set to **CA_CERT_SYSTEM**. The default 
+     * value is **INTERNATIONAL**.
      *
-     * @type { ?CertAlgorithm }
      * @syscap SystemCapability.Security.CertificateManager
      * @since 20 dynamic
      * @since 23 static
@@ -1358,16 +1304,15 @@ declare namespace certificateManager {
   }
 
   /**
-   * Enum for certificate type managed by Certificate Manager.
+   * Enumerates the certificate types.
    *
-   * @enum { int }
    * @syscap SystemCapability.Security.CertificateManager
    * @since 18 dynamic
    * @since 23 static
    */
   export enum CertType {
     /**
-     * Indicates that CA certificate installed by OS.
+     * System CA certificate.
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 18 dynamic
@@ -1376,7 +1321,7 @@ declare namespace certificateManager {
     CA_CERT_SYSTEM = 0,
 
     /**
-     * Indicates that CA certificate installed by user.
+     * User CA certificate.
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 18 dynamic
@@ -1386,19 +1331,23 @@ declare namespace certificateManager {
   }
 
   /**
-   * Install private application certificate.
+   * Installs a private credential and specifies its storage level. This API uses a promise to return the result.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @param { Uint8Array } keystore - Indicates the keystore file with key pair and certificate.
-   * @param { string } keystorePwd - Indicates the password of keystore file.
-   * @param { string } certAlias - Indicates the certificate name inputted by the user.
-   * @param { AuthStorageLevel } level - Indicates the storage authentication level of key file.
-   * @returns { Promise<CMResult> } The promise returned by the function.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @param { Uint8Array } keystore - Keystore file with a key pair and certificate. The value contains up to 20480
+   *     bytes.
+   * @param { string } keystorePwd - Password of the keystore file.<br>The value contains up to 32 bytes.
+   * @param { string } certAlias - Alias of the credential entered by the user. Only digits, letters, and underscores (_
+   *     ) are supported.<br>The value should contain up to 32 bytes.
+   * @param { AuthStorageLevel } level - Credential storage level.
+   * @returns { Promise<CMResult> } Promise used to return the operation result, that is, **uri** in the
+   *     [CMResult]{@link certificateManager.CMResult} object.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
-   * <br>2. Memory operation error; 3. File operation error. Please try again.
+   *     <br>2. Memory operation error; 3. File operation error. Please try again.
    * @throws { BusinessError } 17500003 - The keystore is in an invalid format or the keystore password is incorrect.
    * @throws { BusinessError } 17500004 - The number of certificates or credentials reaches the maximum allowed.
    * @syscap SystemCapability.Security.CertificateManager
@@ -1408,16 +1357,18 @@ declare namespace certificateManager {
   function installPrivateCertificate(keystore: Uint8Array, keystorePwd: string, certAlias: string, level: AuthStorageLevel): Promise<CMResult>;
 
   /**
-   * Get a list of all user trusted CA certificates.
+   * Obtains the user root CA certificates based on the certificate scope. This API uses a promise to return the result.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @param { CertScope } scope - Indicates the scope of user ca certificate.
-   * @returns { Promise<CMResult> } The user ca certificates.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @param { CertScope } scope - Scope of the certificates to obtain.
+   * @returns { Promise<CMResult> } Promise used to return the operation result, that is, **certList** in the
+   *     [CMResult]{@link certificateManager.CMResult} object.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
-   * <br>2. Memory operation error; 3. File operation error. Please try again.
+   *     <br>2. Memory operation error; 3. File operation error. Please try again.
    * @syscap SystemCapability.Security.CertificateManager
    * @since 18 dynamic
    * @since 23 static
@@ -1425,16 +1376,15 @@ declare namespace certificateManager {
   function getAllUserTrustedCertificates(scope: CertScope): Promise<CMResult>;
 
   /**
-   * Enum for the scope of user ca certificate.
+   * Enumerates the certificate scopes.
    *
-   * @enum { int }
    * @syscap SystemCapability.Security.CertificateManager
    * @since 18 dynamic
    * @since 23 static
    */
   export enum CertScope {
     /**
-     * Indicates that the user ca certificate for a current user.
+     * The certificate is accessible only to the current user.
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 18 dynamic
@@ -1443,7 +1393,7 @@ declare namespace certificateManager {
     CURRENT_USER = 1,
 
     /**
-     * Indicates that the user ca certificate for all users.
+     * The certificate is accessible to all users.
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 18 dynamic
@@ -1453,15 +1403,17 @@ declare namespace certificateManager {
   }
 
   /**
-   * Uninstall the user trusted CA certificate.
+   * Uninstalls a user CA certificate.
    *
    * @permission ohos.permission.ACCESS_ENTERPRISE_USER_TRUSTED_CERT or ohos.permission.ACCESS_USER_TRUSTED_CERT
-   * @param { string } certUri - Indicates the certificate uri to be uninstalled.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @param { string } certUri - Unique identifier of the certificate to be uninstalled. The value contains up to 256
+   *     bytes.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
-   * <br>2. Memory operation error; 3. File operation error. Please try again.
+   *     <br>2. Memory operation error; 3. File operation error. Please try again.
    * @throws { BusinessError } 17500002 - Indicates that the certificate does not exist.
    * @syscap SystemCapability.Security.CertificateManager
    * @since 18 dynamic
@@ -1470,16 +1422,15 @@ declare namespace certificateManager {
   function uninstallUserTrustedCertificateSync(certUri: string): void;
 
   /**
-   * Enum for the certificate algorithm type.
+   * Enumerates the certificate algorithms.
    *
-   * @enum { int }
    * @syscap SystemCapability.Security.CertificateManager
    * @since 20 dynamic
    * @since 23 static
    */
   export enum CertAlgorithm {
     /**
-     * Indicates that the international cryptography algorithms, such as RSA, ECC NIST.
+     * International cryptographic algorithm, such as RSA and NIST ECC.
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 20 dynamic
@@ -1488,7 +1439,7 @@ declare namespace certificateManager {
     INTERNATIONAL = 1,
 
     /**
-     * Indicates that the Commercial Password algorithms, such as SM2, SM4.
+     * Commercial cryptographic algorithm, such as SM2 and SM4.
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 20 dynamic
@@ -1498,16 +1449,15 @@ declare namespace certificateManager {
   }
 
   /**
-   * Enum for certificate purpose
+   * Enumerates the usage of a credential.
    *
-   * @enum { int }
    * @syscap SystemCapability.Security.CertificateManager
    * @since 22 dynamic
    * @since 23 static
    */
   export enum CertificatePurpose {
     /**
-     * Indicates default certificate purpose.
+     * Default usage, which is used for credential signing.
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 22 dynamic
@@ -1516,7 +1466,7 @@ declare namespace certificateManager {
     PURPOSE_DEFAULT = 0,
 
     /**
-     * Indicates all certificate purposes, used for query certificates function.
+     * Query of all credentials.
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 22 dynamic
@@ -1525,7 +1475,7 @@ declare namespace certificateManager {
     PURPOSE_ALL = 1,
 
     /**
-     * Indicates certificate for signature.
+     * Credential signing.
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 22 dynamic
@@ -1534,7 +1484,7 @@ declare namespace certificateManager {
     PURPOSE_SIGN = 2,
 
     /**
-     * Indicates certificate for encryption.
+     * Credential encryption.
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 22 dynamic
@@ -1544,12 +1494,12 @@ declare namespace certificateManager {
   }
 
   /**
-   * Get the detail of USB key certificate.
+   * Obtains the details of a USB credential. This API uses a promise to return the result.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @param { string } keyUri - Indicates the USB key certificate uri.
-   * @param { UkeyInfo } ukeyInfo - Indicates USB key certificate attribute information.
-   * @returns { Promise<CMResult> } Indicates the USB key certificate detail.
+   * @param { string } keyUri - Unique identifier of a USB credential. The value contains up to 256 bytes.
+   * @param { UkeyInfo } ukeyInfo - Attributes of a USB credential.
+   * @returns { Promise<CMResult> } Promise used to return the obtained USB credential details.
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    *     The application does not have the permission required to call the API.
@@ -1566,54 +1516,30 @@ declare namespace certificateManager {
   function getUkeyCertificate(keyUri: string, ukeyInfo: UkeyInfo): Promise<CMResult>;
 
   /**
-   * Provides the USB key certificate attribute information.
+   * Provides USB credential attributes.
    *
-   * @typedef UkeyInfo
    * @syscap SystemCapability.Security.CertificateManager
    * @since 22 dynamic
    * @since 23 static
    */
   export interface UkeyInfo {
     /**
-     * Indicates the purpose of certificate.
-     *
-     * @type { ?CertificatePurpose }
-     * @syscap SystemCapability.Security.CertificateManager
-     * @since 22 dynamic
-     * @since 23 static
-     */
+      * Credential usage.
+      *
+      * @syscap SystemCapability.Security.CertificateManager
+      * @since 22 dynamic
+      * @since 23 static
+      */
      certPurpose?: CertificatePurpose;
   }
 
   /**
-   * Get the detail of system trusted CA certificate.
-   *  This function is only provided for certificate management application.
+   * Obtains the list of CA certificates trusted by the system. This API is called only by the certificate management 
+   * application. This API uses a promise to return the result.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER and ohos.permission.ACCESS_CERT_MANAGER_INTERNAL
-   * @param { string } certUri - Indicates the certificate's URI.
-   *     <br>Unique ID of a certificate, which can be obtained through the getSystemTrustedCertificateList interface.
-   * @returns { Promise<CMResult> } Indicates the detail of system trusted certificate.
-   * @throws { BusinessError } 201 - Permission verification failed.
-   *      <br>The application does not have the permission required to call the API.
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter verification failed.
-   *      <br>Possible causes: the URI is null or the URI format is wrong.
-   * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
-   *     <br>2. Memory operation error; 3. File operation error. Please try again.
-   * @throws { BusinessError } 17500002 - The certificate does not exist.
-   * @syscap SystemCapability.Security.CertificateManager
-   * @systemapi
-   * @FaAndStageModel
-   * @since 26.0.0 dynamiconly
-   */
-  function getSystemTrustedCertificate(certUri: string): Promise<CMResult>;
-
-  /**
-   * Get a list of system trusted CA certificates.
-   *  This function is only provided for certificate management application.
-   *
-   * @permission ohos.permission.ACCESS_CERT_MANAGER and ohos.permission.ACCESS_CERT_MANAGER_INTERNAL
-   * @returns { Promise<CMResult> } Indicates the list of system trusted certificates.
+   * @returns { Promise<CMResult> } Promise used to return the operation result, that is, **certList** in the
+   *     [CMResult]{@link @ohos.security.certManager:certificateManager.CMResult} object.
    * @throws { BusinessError } 201 - Permission verification failed.
    *     <br>The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -1625,17 +1551,42 @@ declare namespace certificateManager {
    * @since 26.0.0 dynamiconly
    */
   function getSystemTrustedCertificateList(): Promise<CMResult>;
+  
+  /**
+   * Obtains details about a CA certificate trusted by the system. This API is called only by the certificate management
+   * application. This API uses a promise to return the result.
+   *
+   * @permission ohos.permission.ACCESS_CERT_MANAGER and ohos.permission.ACCESS_CERT_MANAGER_INTERNAL
+   * @param { string } certUri - Unique identifier of the certificate. You can obtain the value through
+   *     [getSystemTrustedCertificateList]{@link certificateManager.getSystemTrustedCertificateList}.
+   * @returns { Promise<CMResult> } Promise used to return the operation result, that is, **certInfo** in the
+   *     [CMResult]{@link @ohos.security.certManager:certificateManager.CMResult} object.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     <br>The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter verification failed.
+   *     <br>Possible causes: the URI is null or the URI format is wrong.
+   * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
+   *     <br>2. Memory operation error; 3. File operation error. Please try again.
+   * @throws { BusinessError } 17500002 - The certificate does not exist.
+   * @syscap SystemCapability.Security.CertificateManager
+   * @systemapi
+   * @FaAndStageModel
+   * @since 26.0.0 dynamiconly
+   */
+  function getSystemTrustedCertificate(certUri: string): Promise<CMResult>;
 
   /**
-   * Set the certificate status. This function is only provided for certificate management application.
+   * Sets the status of a CA certificate. Currently, only the status of a user's CA certificate can be set. This API is 
+   * called only by the certificate management application. This API uses a promise to return the result.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER and ohos.permission.ACCESS_USER_TRUSTED_CERT
-   * @param { string } certUri - Indicates the certificate's URI.
-   *     <br>Unique ID of the certificate. Currently, this interface only supports the user CA certificate.
-   * @param { CertType } certType - Indicates the certificate type.
-   *     <br>Currently, this interface supports only setting the status of the user CA certificate (CA_CERT_USER).
-   * @param { boolean } enabled - Indicate whether the certificate status is enabled or disabled.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { string } certUri - Unique identifier of the certificate. Currently, only user CA certificates are
+   *     supported.
+   * @param { CertType } certType - Certificate type. Currently, only the status of user CA certificates (
+   *     **CA_CERT_USER**) can be set.
+   * @param { boolean } enabled - Whether the certificate is enabled. **true**: enabled; **false**: disabled.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission verification failed.
    *     <br>The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -1653,79 +1604,75 @@ declare namespace certificateManager {
   function setCertificateStatus(certUri: string, certType: CertType, enabled: boolean) : Promise<void>;
 
   /**
-   * Enum for certificate file format.
+   * Represents the certificate file format.
    *
-   * @enum { int }
    * @syscap SystemCapability.Security.CertificateManager
    * @FaAndStageModel
    * @since 26.0.0 dynamic&static
    */
-  export enum CertFileFormat {
-      /**
-       * Indicates the certificate file format is PEM or DER.
-       *
-       * @syscap SystemCapability.Security.CertificateManager
-       * @FaAndStageModel
-       * @since 26.0.0 dynamic&static
-       */
-      PEM_DER = 0,
-
-      /**
-       * Indicates the certificate file format is P7B.
-       *
-       * @syscap SystemCapability.Security.CertificateManager
-       * @FaAndStageModel
-       * @since 26.0.0 dynamic&static
-       */
-      P7B = 1,
+  export enum CertFileFormat {  
+    /**
+     * The certificate file format is PEM or DER.
+     *
+     * @syscap SystemCapability.Security.CertificateManager
+     * @FaAndStageModel
+     * @since 26.0.0 dynamic&static
+     */
+    PEM_DER = 0,
+    
+    /**
+     * The certificate file format is P7B.
+     *
+     * @syscap SystemCapability.Security.CertificateManager
+     * @FaAndStageModel
+     * @since 26.0.0 dynamic&static
+     */
+    P7B = 1
   }
-
+  
   /**
-   * Provides the Cert Blob type.
+   * Represents the certificate data in binary format.
    *
-   * @typedef CertBlob
    * @syscap SystemCapability.Security.CertificateManager
    * @FaAndStageModel
    * @since 26.0.0 dynamic&static
    */
-  export interface CertBlob {
-      /**
-       * Indicates the certificate file data.
-       *
-       * @type { Uint8Array }
-       * @syscap SystemCapability.Security.CertificateManager
-       * @FaAndStageModel
-       * @since 26.0.0 dynamic&static
-       */
-      certData: Uint8Array;
-
-      /**
-       * Indicates the certificate file format.
-       *
-       * @type { ?CertFileFormat }
-       * @syscap SystemCapability.Security.CertificateManager
-       * @FaAndStageModel
-       * @since 26.0.0 dynamic&static
-       */
-      certFormat? : CertFileFormat;
-
-      /**
-       * Indicates the scope of user CA certificate.
-       *
-       * @type { ?CertScope }
-       * @syscap SystemCapability.Security.CertificateManager
-       * @FaAndStageModel
-       * @since 26.0.0 dynamic&static
-       */
-      certScope? : CertScope;
+  export interface CertBlob {  
+    /**
+     * Certificate file data.
+     *
+     * @syscap SystemCapability.Security.CertificateManager
+     * @FaAndStageModel
+     * @since 26.0.0 dynamic&static
+     */
+    certData: Uint8Array;
+    
+    /**
+     * Certificate file format.
+     *
+     * @syscap SystemCapability.Security.CertificateManager
+     * @FaAndStageModel
+     * @since 26.0.0 dynamic&static
+     */
+    certFormat? : CertFileFormat;
+    
+    /**
+     * Scope of the CA certificate.
+     *
+     * @syscap SystemCapability.Security.CertificateManager
+     * @FaAndStageModel
+     * @since 26.0.0 dynamic&static
+     */
+    certScope? : CertScope;
   }
 
   /**
-   * Install the user trusted CA certificate.
+   * Installs a user CA certificate. This API uses a promise to return the result.
    *
-   * @permission ohos.permission.ACCESS_ENTERPRISE_USER_TRUSTED_CERTorohos.permission.ACCESS_USER_TRUSTED_CERT
-   * @param { CertBlob } certificate - Indicates the certificate information.
-   * @returns { Promise<CMResult> } Indicates the certificate's URI that identifies the installed certificate.
+   * @permission ohos.permission.ACCESS_ENTERPRISE_USER_TRUSTED_CERT or ohos.permission.ACCESS_USER_TRUSTED_CERT
+   * @param { CertBlob } certificate - Certificate information.
+   * @returns { Promise<CMResult> } Promise used to return the operation result, that is, **uri** in the
+   *     [CMResult]{@link certificateManager.CMResult} object.
    * @throws { BusinessError } 201 - Permission verification failed.
    *     <br>The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter verification failed. Possible causes:
@@ -1743,11 +1690,11 @@ declare namespace certificateManager {
   function installUserTrustedCertificate(certificate: CertBlob) : Promise<CMResult>;
 
   /**
-   * Uninstall all the user trusted CA certificates.
-   *  This function is only provided for certificate management application.
+   * Uninstalls all CA certificates trusted by the user. This API is called only by the certificate management 
+   * application. This API uses a promise to return the result.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER and ohos.permission.ACCESS_USER_TRUSTED_CERT
-   * @returns { Promise<void> } The promise returned by the function.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission verification failed.
    *     <br>The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -1761,14 +1708,15 @@ declare namespace certificateManager {
   function uninstallAllUserTrustedCertificate() : Promise<void>;
 
   /**
-   * Install the user public certificate credential.
-   *  This function is only provided for certificate management application.
+   * Installs the public credential of the user. This API is called only by the certificate management application. This
+   * API uses a promise to return the result.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER and ohos.permission.ACCESS_CERT_MANAGER_INTERNAL
-   * @param { Uint8Array } keystore - Indicates the keystore file with key pair and certificate.
-   *     <br>Only the P12 format is supported.
-   * @param { string } keystorePwd - Indicates the password of keystore file.
-   * @returns { Promise<CMResult> } Indicates the certificate's key URI that identifies the installed certificate.
+   * @param { Uint8Array } keystore - Keystore file containing the key pair and certificate. Only the P12 format is
+   *     supported.
+   * @param { string } keystorePwd - Password of the keystore file.
+   * @returns { Promise<CMResult> } Promise used to return the operation result, that is, **uri** in the
+   *     [CMResult]{@link @ohos.security.certManager:certificateManager.CMResult} object.
    * @throws { BusinessError } 201 - Permission verification failed.
    *     <br>The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -1787,12 +1735,12 @@ declare namespace certificateManager {
   function installPublicCertificate(keystore: Uint8Array, keystorePwd: string) : Promise<CMResult>;
 
   /**
-   * Uninstall the user public certificate credential.
-   *  This function is only provided for certificate management application.
+   * Uninstalls the public credential of the user. This API is called only by the certificate management application. 
+   * This API uses a promise to return the result.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER and ohos.permission.ACCESS_CERT_MANAGER_INTERNAL
-   * @param { string } keyUri - Indicates the user public certificate's key URI to be uninstalled.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { string } keyUri - Unique identifier of a user's public credential.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission verification failed.
    *     <br> The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -1809,11 +1757,13 @@ declare namespace certificateManager {
   function uninstallPublicCertificate(keyUri: string) : Promise<void>;
 
   /**
-   * Get all the user public certificate credentials.
-   *  This function is only provided for certificate management application.
+   * Obtains the public credentials of all users. This API is called only by the certificate management application. 
+   * This API uses a promise to return the result.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER and ohos.permission.ACCESS_CERT_MANAGER_INTERNAL
-   * @returns { Promise<CMResult> } Indicates the list of user public certificate credentials.
+   * @returns { Promise<CMResult> } Promise used to return the operation result, that is, **credentialDetailList** in
+   *     the [CMResult]{@link @ohos.security.certManager:certificateManager.CMResult} object.
+   *     <br>Note: If the number of public credentials is 0, the value of **CMResult** is **undefined**.
    * @throws { BusinessError } 201 - Permission verification failed.
    *     <br> The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -1827,14 +1777,14 @@ declare namespace certificateManager {
   function getAllPublicCertificates() : Promise<CMResult>;
 
   /**
-   * Grant application permission to use the user public certificate credential.
-   *  This function is only provided for certificate management application.
+   * Grants the permission for an application to use the public credentials of a user. This API is called only by the 
+   * certificate management application. This API uses a promise to return the result.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER and ohos.permission.ACCESS_CERT_MANAGER_INTERNAL
-   * @param { string } keyUri - Indicates the user public certificate's key URI to grant permission.
-   * @param { int } clientAppUid - Indicates the application UID.
-   * @returns { Promise<CMResult> } Indicates the authorization URI for application
-   *     <br> using the user public certificate credential.
+   * @param { string } keyUri - Unique identifier of a user's public credential.
+   * @param { int } clientAppUid - Application UID.
+   * @returns { Promise<CMResult> } Promise used to return the operation result, that is, **uri** in the
+   *     [CMResult]{@link @ohos.security.certManager:certificateManager.CMResult} object.
    * @throws { BusinessError } 201 - Permission verification failed.
    *     <br> The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -1851,12 +1801,13 @@ declare namespace certificateManager {
   function grantPublicCertificate(keyUri: string, clientAppUid: int) : Promise<CMResult>;
 
   /**
-   * Get the authorized applications list of the user public certificate credential.
-   *  This function is only provided for certificate management application.
+   * Obtains the list of authorized applications of a user's public credential. This API is called only by the 
+   * certificate management application. This API uses a promise to return the result.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER and ohos.permission.ACCESS_CERT_MANAGER_INTERNAL
-   * @param { string } keyUri - Indicates the user public certificate's key URI.
-   * @returns { Promise<CMResult> } Indicates the authorized applications list.
+   * @param { string } keyUri - Unique identifier of a user's public credential.
+   * @returns { Promise<CMResult> } Promise used to return the result, which is the value of **appUidList** in the
+   *     [CMResult]{@link @ohos.security.certManager:certificateManager.CMResult} object.
    * @throws { BusinessError } 201 - Permission verification failed.
    *     <br> The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -1873,13 +1824,13 @@ declare namespace certificateManager {
   function getAuthorizedAppList(keyUri: string) : Promise<CMResult>;
 
   /**
-   * Remove application permission to use the user public certificate credential.
-   *  This function is only provided for certificate management application.
+   * Removes the permission for an application to use the public credentials of a user. This API is called only by the 
+   * certificate management application. This API uses a promise to return the result.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER and ohos.permission.ACCESS_CERT_MANAGER_INTERNAL
-   * @param { string } keyUri - Indicates the user public certificate's key URI to remove permission.
-   * @param { int } clientAppUid - Indicates the application UID.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { string } keyUri - Unique identifier of a user's public credential.
+   * @param { int } clientAppUid - Application UID.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission verification failed.
    *     <br> The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -1896,12 +1847,14 @@ declare namespace certificateManager {
   function removeGrantedPublicCertificate(keyUri: string, clientAppUid: int) : Promise<void>;
 
   /**
-   * Get all the private certificates of specified application.
-   *  This function is only provided for certificate management application.
+   * Obtains all private credentials of a specified application. This API is called only by the certificate management 
+   * application. This API uses a promise to return the result.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER and ohos.permission.ACCESS_CERT_MANAGER_INTERNAL
-   * @param { int } appUid - Indicates the application UID.
-   * @returns { Promise<CMResult> } Indicates the private certificates.
+   * @param { int } appUid - Application UID.
+   * @returns { Promise<CMResult> } Promise used to return the operation result, that is, **credentialDetailList** in
+   *     the [CMResult]{@link @ohos.security.certManager:certificateManager.CMResult} object.
+   *     <br>Note: If the number of private credentials is 0, the returned **CMResult** is **undefined**.
    * @throws { BusinessError } 201 - Permission verification failed.
    *     <br> The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -1915,14 +1868,15 @@ declare namespace certificateManager {
   function getAllAppPrivateCertificatesByUid(appUid: int) : Promise<CMResult>;
 
   /**
-   * Install the system application certificate credential.
-   *  This function is only provided for certificate management application.
+   * Installs the system application credential. This API is called only by the certificate management application. This
+   * API uses a promise to return the result.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER and ohos.permission.ACCESS_SYSTEM_APP_CERT
-   * @param { Uint8Array } keystore - Indicates the keystore file with key pair and certificate.
-   *     <br>Only the P12 format is supported.
-   * @param { string } keystorePwd - Indicates the password of keystore file.
-   * @returns { Promise<CMResult> } Indicates the certificate's key URI that identifies the installed certificate.
+   * @param { Uint8Array } keystore - Keystore file containing the key pair and certificate. Only the P12 format is
+   *     supported.
+   * @param { string } keystorePwd - Password of the keystore file.
+   * @returns { Promise<CMResult> } Promise used to return the operation result, that is, **uri** in the
+   *     [CMResult]{@link @ohos.security.certManager:certificateManager.CMResult} object.
    * @throws { BusinessError } 201 - Permission verification failed.
    *     <br> The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -1941,12 +1895,13 @@ declare namespace certificateManager {
   function installSystemAppCertificate(keystore: Uint8Array, keystorePwd: string): Promise<CMResult>;
 
   /**
-   * Get the detail of system application certificate credential.
-   *  This function is only provided for certificate management application.
+   * Obtains the credential details of the system application. This API is called only by the certificate management 
+   * application. This API uses a promise to return the result.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER and ohos.permission.ACCESS_SYSTEM_APP_CERT
-   * @param { string } keyUri - Indicates the system application certificate's key URI.
-   * @returns { Promise<CMResult> } Indicates the detail of system application certificate.
+   * @param { string } keyUri - Unique identifier of a system application credential.
+   * @returns { Promise<CMResult> } Promise used to return the operation result, that is, **credential** in the
+   *     [CMResult]{@link @ohos.security.certManager:certificateManager.CMResult} object.
    * @throws { BusinessError } 201 - Permission verification failed.
    *     <br> The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -1963,12 +1918,12 @@ declare namespace certificateManager {
   function getSystemAppCertificate(keyUri: string) : Promise<CMResult>;
 
   /**
-   * Uninstall the system application certificate credential.
-   *  This function is only provided for certificate management application.
+   * Uninstalls the credential of the system application. This API is called only by the certificate management 
+   * application. This API uses a promise to return the result.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER and ohos.permission.ACCESS_SYSTEM_APP_CERT
-   * @param { string } keyUri - Indicates the system application certificate's key URI.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { string } keyUri - Unique identifier of a system application credential.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission verification failed.
    *     <br> The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -1985,15 +1940,15 @@ declare namespace certificateManager {
   function uninstallSystemAppCertificate(keyUri: string) : Promise<void>;
 
   /**
-   * Get the USB key certificate list.
+   * Obtains the list of USB credential certificates. This API uses a promise to return the result.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @param { string } ukeyProvider - Indicates the USB key provider.
-   * @param { UkeyInfo } ukeyInfo - Indicates USB key certificate attribute information.
-   * @returns { Promise<CMResult> } Indicates the USB key certificate list.
+   * @param { string } ukeyProvider - USB credential provider.
+   * @param { UkeyInfo } ukeyInfo - Attributes of a USB credential.
+   * @returns { Promise<CMResult> } Promise used to return the operation result, that is, **credentialDetailList** in
+   *     the [CMResult]{@link certificateManager.CMResult} object.
    * @throws { BusinessError } 201 - Permission verification failed.
    *     <br>The application does not have the permission required to call the API.
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
    *     <br>2. Memory operation error; 3. File operation error.
@@ -2008,12 +1963,12 @@ declare namespace certificateManager {
   function getUkeyCertificateList(ukeyProvider: string, ukeyInfo: UkeyInfo): Promise<CMResult>;
 
   /**
-   * Uninstall all the system application certificate credentials and user public certificate credentials.
-   *  This function is only provided for certificate management application.
+   * Uninstalls all system application credentials and public user credentials. This API is called only by the 
+   * certificate management application. This API uses a promise to return the result.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER and ohos.permission.ACCESS_CERT_MANAGER_INTERNAL
    *     and ohos.permission.ACCESS_SYSTEM_APP_CERT
-   * @returns { Promise<void> } The promise returned by the function.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission verification failed.
    *     <br> The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -2025,6 +1980,33 @@ declare namespace certificateManager {
    * @since 26.0.0 dynamiconly
    */
   function uninstallAllAppCertificate() : Promise<void>;
+
+  /**
+   * Import the certificate to the USB key.
+   *
+   * @permission ohos.permission.ACCESS_CERT_MANAGER
+   * @param { string } keyUri - Indicates the USB key certificate URI.
+   *     <br>The keyUri parameter identifies a certificate entity, which can be obtained
+   *     <br>by calling the getUkeyCertificateList interface.
+   * @param { Uint8Array } cert - Indicates the certificate data to be imported.
+   *     <br>The certificate data format complies with the SKF specification.
+   * @param { UkeyInfo } ukeyInfo - Indicates USB key certificate attribute information.
+   *     <br>The value of <br>UkeyInfo.CertificatePurpose must be PURPOSE_SIGN or PURPOSE_ENCRYPT.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
+   *     <br>2. Memory operation error; 3. File operation error. Please try again.
+   * @throws { BusinessError } 17500002 - Indicates that the certificate does not exist.
+   * @throws { BusinessError } 17500010 - Indicates that access USB key service failed.
+   * @throws { BusinessError } 17500011 - Indicates that the input parameters validation failed.
+   *     For example, the parameter format is incorrect or the value range is invalid.
+   * @syscap SystemCapability.Security.CertificateManager
+   * @FaAndStageModel
+   * @since 26.0.0 dynamic&static
+   */
+  function importUkeyCertificate(keyUri: string, cert: Uint8Array, ukeyInfo: UkeyInfo): Promise<void>;
 }
 
 export default certificateManager;

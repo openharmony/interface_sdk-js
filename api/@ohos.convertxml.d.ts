@@ -19,528 +19,200 @@
  */
 
 /**
- * The convertxml module provides utilities for converting XML text to Javascript object.
+ * The convertxml module provides APIs for converting XML text into JavaScript objects.
  *
- * @namespace xml
  * @syscap SystemCapability.Utils.Lang
- * @since 8
- */
-/**
- * The convertxml module provides utilities for converting XML text to Javascript object.
- *
- * @namespace xml
- * @syscap SystemCapability.Utils.Lang
- * @crossplatform
- * @since 10
- */
-/**
- * The convertxml module provides utilities for converting XML text to Javascript object.
- *
- * @namespace xml
- * @syscap SystemCapability.Utils.Lang
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  */
 declare namespace xml {
   /**
-   * The options for conversion.
+   * Options for conversion.
    *
-   * @interface ConvertOptions
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * The options for conversion.
-   *
-   * @interface ConvertOptions
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * The options for conversion.
-   *
-   * @interface ConvertOptions
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   interface ConvertOptions {
     /**
-     * Whether to trim whitespace characters that may exist before and after the text, default false.
+     * Whether to trim the whitespace characters before and after the text. The value **true** means to trim the
+     * whitespace characters before and after the text, and **false** means to keep them.
      *
-     * @type { boolean }
      * @syscap SystemCapability.Utils.Lang
-     * @since 8
-     */
-    /**
-     * Whether to trim whitespace characters that may exist before and after the text, default false.
-     *
-     * @type { boolean }
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Whether to trim whitespace characters that may exist before and after the text, default false.
-     *
-     * @type { boolean }
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 8 dynamic
      */
     trim: boolean;
     /**
-     * Whether to ignore writing declaration directives of xml.
+     * Whether to ignore the XML declaration. The value **true** means to ignore the XML declaration, and **false**
+     * means the opposite. The default value is **false**.
      *
-     * @type { ?boolean }
      * @syscap SystemCapability.Utils.Lang
-     * @since 8
-     */
-    /**
-     * Whether to ignore writing declaration directives of xml.
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Whether to ignore writing declaration directives of xml.
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 8 dynamic
      */
     ignoreDeclaration?: boolean;
     /**
-     * Whether to ignore writing processing instruction of xml.
+     * Whether to ignore the XML processing instruction. The value **true** means to ignore the XML processing
+     * instruction, and **false** means the opposite. The default value is **false**.
      *
-     * @type { ?boolean }
      * @syscap SystemCapability.Utils.Lang
-     * @since 8
-     */
-    /**
-     * Whether to ignore writing processing instruction of xml.
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Whether to ignore writing processing instruction of xml.
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 8 dynamic
      */
     ignoreInstruction?: boolean;
     /**
-     * Whether to print attributes across multiple lines and indent them.
+     * Whether to ignore the element's attribute information. The value **true** means to ignore the element's attribute
+     * information, and **false** means the opposite. The default value is **false**.
      *
-     * @type { ?boolean }
      * @syscap SystemCapability.Utils.Lang
-     * @since 8
-     */
-    /**
-     * Whether to print attributes across multiple lines and indent them.
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Whether to print attributes across multiple lines and indent them.
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 8 dynamic
      */
     ignoreAttributes?: boolean;
     /**
-     * Whether to ignore writing comments of the elements.
+     * Whether to ignore element comments. The value **true** means to ignore element comments, and **false** means the
+     * opposite. The default value is **false**.
      *
-     * @type { ?boolean }
      * @syscap SystemCapability.Utils.Lang
-     * @since 8
-     */
-    /**
-     * Whether to ignore writing comments of the elements.
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Whether to ignore writing comments of the elements.
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 8 dynamic
      */
     ignoreComment?: boolean;
     /**
-     * Whether to ignore writing CDATA of the elements.
+     * Whether to ignore the element's CDATA information. The value **true** means to ignore the element's CDATA
+     * information, and **false** means the opposite. The default value is **false**.
      *
-     * @type { ?boolean }
      * @syscap SystemCapability.Utils.Lang
-     * @since 8
-     */
-    /**
-     * Whether to ignore writing CDATA of the elements.
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Whether to ignore writing CDATA of the elements.
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 8 dynamic
      */
     ignoreCDATA?: boolean;
     /**
-     * Whether to ignore writing Doctype of the elements.
+     * Whether to ignore the element's Doctype information. The value **true** means to ignore the element's Doctype
+     * information, and **false** means the opposite. The default value is **false**.
      *
-     * @type { ?boolean }
      * @syscap SystemCapability.Utils.Lang
-     * @since 8
-     */
-    /**
-     * Whether to ignore writing Doctype of the elements.
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Whether to ignore writing Doctype of the elements.
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 8 dynamic
      */
     ignoreDoctype?: boolean;
     /**
-     * Whether to ignore writing texts of the elements.
+     * Whether to ignore the element's text information. The value **true** means to ignore the element's text
+     * information, and **false** means the opposite. The default value is **false**.
      *
-     * @type { ?boolean }
      * @syscap SystemCapability.Utils.Lang
-     * @since 8
-     */
-    /**
-     * Whether to ignore writing texts of the elements.
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Whether to ignore writing texts of the elements.
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 8 dynamic
      */
     ignoreText?: boolean;
     /**
-     * Name of the property key which will be used for the declaration.
+     * Name of the attribute key for **declaration** in the output object.
      *
-     * @type { string }
      * @syscap SystemCapability.Utils.Lang
-     * @since 8
-     */
-    /**
-     * Name of the property key which will be used for the declaration.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Name of the property key which will be used for the declaration.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 8 dynamic
      */
     declarationKey: string;
     /**
-     * Name of the property key which will be used for the processing instruction.
+     * Name of the attribute key for **instruction** in the output object.
      *
-     * @type { string }
      * @syscap SystemCapability.Utils.Lang
-     * @since 8
-     */
-    /**
-     * Name of the property key which will be used for the processing instruction.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Name of the property key which will be used for the processing instruction.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 8 dynamic
      */
     instructionKey: string;
     /**
-     * Name of the property key which will be used for the attributes.
+     * Name of the attribute key for **attributes** in the output object.
      *
-     * @type { string }
      * @syscap SystemCapability.Utils.Lang
-     * @since 8
-     */
-    /**
-     * Name of the property key which will be used for the attributes.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Name of the property key which will be used for the attributes.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 8 dynamic
      */
     attributesKey: string;
     /**
-     * Name of the property key which will be used for the text.
+     * Name of the attribute key for **text** in the output object.
      *
-     * @type { string }
      * @syscap SystemCapability.Utils.Lang
-     * @since 8
-     */
-    /**
-     * Name of the property key which will be used for the text.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Name of the property key which will be used for the text.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 8 dynamic
      */
     textKey: string;
     /**
-     * Name of the property key which will be used for the cdata.
+     * Name of the attribute key for **cdata** in the output object.
      *
-     * @type { string }
      * @syscap SystemCapability.Utils.Lang
-     * @since 8
-     */
-    /**
-     * Name of the property key which will be used for the cdata.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Name of the property key which will be used for the cdata.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 8 dynamic
      */
     cdataKey: string;
     /**
-     * Name of the property key which will be used for the doctype.
+     * Name of the attribute key for **doctype** in the output object.
      *
-     * @type { string }
      * @syscap SystemCapability.Utils.Lang
-     * @since 8
-     */
-    /**
-     * Name of the property key which will be used for the doctype.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Name of the property key which will be used for the doctype.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 8 dynamic
      */
     doctypeKey: string;
     /**
-     * Name of the property key which will be used for the comment.
+     * Name of the attribute key for **comment** in the output object.
      *
-     * @type { string }
      * @syscap SystemCapability.Utils.Lang
-     * @since 8
-     */
-    /**
-     * Name of the property key which will be used for the comment.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Name of the property key which will be used for the comment.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 8 dynamic
      */
     commentKey: string;
     /**
-     * Name of the property key which will be used for the parent.
+     * Name of the attribute key for **parent** in the output object.
      *
-     * @type { string }
      * @syscap SystemCapability.Utils.Lang
-     * @since 8
-     */
-    /**
-     * Name of the property key which will be used for the parent.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Name of the property key which will be used for the parent.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 8 dynamic
      */
     parentKey: string;
     /**
-     * Name of the property key which will be used for the type.
+     * Name of the attribute key for **type** in the output object.
      *
-     * @type { string }
      * @syscap SystemCapability.Utils.Lang
-     * @since 8
-     */
-    /**
-     * Name of the property key which will be used for the type.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Name of the property key which will be used for the type.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 8 dynamic
      */
     typeKey: string;
     /**
-     * Name of the property key which will be used for the name.
+     * Name of the attribute key for **name** in the output object.
      *
-     * @type { string }
      * @syscap SystemCapability.Utils.Lang
-     * @since 8
-     */
-    /**
-     * Name of the property key which will be used for the name.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Name of the property key which will be used for the name.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 8 dynamic
      */
     nameKey: string;
     /**
-     * Name of the property key which will be used for the elements.
+     * Name of the attribute key for **elements** in the output object.
      *
-     * @type { string }
      * @syscap SystemCapability.Utils.Lang
-     * @since 8
-     */
-    /**
-     * Name of the property key which will be used for the elements.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Name of the property key which will be used for the elements.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 8 dynamic
      */
     elementsKey: string;
   }
@@ -549,93 +221,62 @@ declare namespace xml {
    * ConvertXML representation refers to extensible markup language.
    *
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   * @name ConvertXML
-   */
-  /**
-   * ConvertXML representation refers to extensible markup language.
-   *
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   * @name ConvertXML
-   */
-  /**
-   * ConvertXML representation refers to extensible markup language.
-   *
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   class ConvertXML {
     /**
-     * To convert XML text to JavaScript object.
+     * Converts an XML text to a JavaScript object.
      *
-     * @param { string } xml - xml xml The xml text to be converted.
-     * @param { ConvertOptions } options - options option Option Inputted by user to set.
-     * @returns { Object } Returns a JavaScript object converting from XML text.
+     * @param { string } xml - Input XML text.
+     * @param { ConvertOptions } options - Options for conversion. The default value is a **ConvertOptions** object,
+     *     which consists of the default values of the attributes in the object.
+     * @returns { Object } JavaScript object.
      * @syscap SystemCapability.Utils.Lang
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.convertxml.ConvertXML.fastConvertToJSObject
+     * @useinstead xml.ConvertXML#fastConvertToJSObject
      */
     convert(xml: string, options?: ConvertOptions): Object;
 
     /**
-     * To convert XML text to JavaScript object.
+     * Converts an XML text to an object of the object type.
      *
-     * @param { string } xml - xml xml The xml text to be converted.
-     * @param { ConvertOptions } [options] - options option Option Inputted by user to set.
-     * @returns { Object } Returns a JavaScript object converting from XML text.
+     * @param { string } xml - If the XML text to convert contains the ampersand (&), replace it with the entity
+     *     reference **&amp;**.
+     * @param { ConvertOptions } [options] - Options for conversion. The default value is a **ConvertOptions** object,
+     *     which consists of the default values of the attributes in the object.
+     * @returns { Object } JavaScript object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
+     *     1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types.
      * @throws { BusinessError } 10200002 - Invalid xml string.
      * @syscap SystemCapability.Utils.Lang
-     * @since 9
-     */
-    /**
-     * To convert XML text to JavaScript object.
-     *
-     * @param { string } xml - xml xml The xml text to be converted.
-     * @param { ConvertOptions } [options] - options option Option Inputted by user to set.
-     * @returns { Object } Returns a JavaScript object converting from XML text.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
-     * @throws { BusinessError } 10200002 - Invalid xml string.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * To convert XML text to JavaScript object.
-     *
-     * @param { string } xml - xml xml The xml text to be converted.
-     * @param { ConvertOptions } [options] - options option Option Inputted by user to set.
-     * @returns { Object } Returns a JavaScript object converting from XML text.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
-     * @throws { BusinessError } 10200002 - Invalid xml string.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamiconly
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 9 dynamiconly
      * @deprecated since 14
-     * @useinstead ohos.convertxml.ConvertXML.fastConvertToJSObject
+     * @useinstead xml.ConvertXML#fastConvertToJSObject
      */
     convertToJSObject(xml: string, options?: ConvertOptions): Object;
 
     /**
-     * Converts an XML text into a JavaScript object.
+     * Converts an XML text to an object of the object type.
+     *
+     * > **NOTE**
+     * >
+     * > - This API cannot parse XML files with a large amount of data. If the text content of a single element exceeds
+     * > 10 MB, an error message is displayed and an object that contains only the XML tag header will be returned.
+     * >
+     * > - In Windows, a newline is usually represented by the carriage return (CR) followed by the line feed (LF).
+     * > However, the object obtained by calling this API uses only the LF to indicate a new line.
      *
      * @param { string } xml - XML text to convert. If the XML text contains the ampersand (&), replace it with the
-     * entity reference &amp;.
-     * @param { ConvertOptions } [options] - Options for conversion. The default value is a ConvertOptions object,
-     * which consists of the default values of the attributes in the object.
-     * @returns { Object } Returns a JavaScript object converting from XML text.
+     *     entity reference **&amp;**.
+     * @param { ConvertOptions } [options] - Options for conversion. The default value is a **ConvertOptions** object,
+     *     which consists of the default values of the attributes in the object.
+     * @returns { Object } JavaScript object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified;
      *     2.Incorrect parameter types.
@@ -648,7 +289,7 @@ declare namespace xml {
     fastConvertToJSObject(xml: string, options?: ConvertOptions): Object;
 
     /**
-     * Convert XML text to JavaScript objects, this method supports parsing large XML texts 
+     * Convert XML text to JavaScript objects, this method supports parsing large XML texts
      * with a single node size exceeding 10M.
      *
      * @param { string } xml - XML text to convert. If the XML text contains the ampersand (&), replace it with the
@@ -666,4 +307,5 @@ declare namespace xml {
     largeConvertToJSObject(xml: string, options?: ConvertOptions): Object;
   }
 }
+
 export default xml;

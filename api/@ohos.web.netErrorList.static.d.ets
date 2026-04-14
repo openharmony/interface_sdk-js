@@ -218,7 +218,7 @@ export declare enum WebNetErrorList {
     /**
      * The request failed because the response was delivered along with requirements
      * which are not met ('X-Frame-Options' and 'Content-Security-Policy' ancestor
-     * checks and 'Cross-Origin-Resource-Policy' for instance,.
+     * checks and 'Cross-Origin-Resource-Policy' for instance).
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
@@ -254,14 +254,14 @@ export declare enum WebNetErrorList {
      */
     ERR_BLOCKED_BY_ORB = -32,
     /**
-     * A connection was closed (corresponding to a TCP FIN,.
+     * A connection was closed (corresponding to a TCP FIN).
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
     ERR_CONNECTION_CLOSED = -100,
     /**
-     * A connection was reset (corresponding to a TCP RST,.
+     * A connection was reset (corresponding to a TCP RST).
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
@@ -312,7 +312,7 @@ export declare enum WebNetErrorList {
     ERR_SSL_PROTOCOL_ERROR = -107,
     /**
      * The IP address or port number is invalid (e.g., cannot connect to the IP
-     * address 0 or the port 0,.
+     * address 0 or the port 0).
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
@@ -356,7 +356,7 @@ export declare enum WebNetErrorList {
      */
     ERR_SSL_VERSION_OR_CIPHER_MISMATCH = -113,
     /**
-     * The server requested a renegotiation (rehandshake,.
+     * The server requested a renegotiation (rehandshake).
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
@@ -447,7 +447,7 @@ export declare enum WebNetErrorList {
      */
     ERR_SSL_BAD_RECORD_MAC_ALERT = -126,
     /**
-     * The proxy requested authentication (for tunnel establishment,.
+     * The proxy requested authentication (for tunnel establishment).
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
@@ -501,7 +501,7 @@ export declare enum WebNetErrorList {
      */
     ERR_PROXY_CERTIFICATE_INVALID = -136,
     /**
-     * An error occurred when trying to do a name resolution (DNS,.
+     * An error occurred when trying to do a name resolution (DNS).
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
@@ -546,7 +546,7 @@ export declare enum WebNetErrorList {
     ERR_SSL_CLIENT_AUTH_SIGNATURE_FAILED = -141,
     /**
      * The message was too large for the transport.  (for example a UDP message
-     * which exceeds size threshold,.
+     * which exceeds size threshold).
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
@@ -856,7 +856,7 @@ export declare enum WebNetErrorList {
      * 2. The server operator has a legitimate certificate from a CA we don't
      *    know about, but should trust.
      * 3. The server is presenting a self-signed certificate, providing no
-     *    defense against active attackers (but foiling passive attackers,.
+     *    defense against active attackers (but foiling passive attackers).
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
@@ -930,7 +930,7 @@ export declare enum WebNetErrorList {
     ERR_CERT_NON_UNIQUE_NAME = -210,
     /**
      * The server responded with a certificate that contains a weak key (e.g.
-     * a too-small RSA key,.
+     * a too-small RSA key).
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
@@ -1024,7 +1024,7 @@ export declare enum WebNetErrorList {
     ERR_TOO_MANY_REDIRECTS = -310,
     /**
      * Attempting to load an URL resulted in an unsafe redirect (e.g., a redirect
-     * to file:// is considered unsafe,.
+     * to file:// is considered unsafe).
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
@@ -1253,7 +1253,7 @@ export declare enum WebNetErrorList {
      * GOAWAY frame with error code NO_ERROR and Last-Stream-ID lower than the
      * stream id corresponding to the request indicating that this request has not
      * been processed yet, or a RST_STREAM frame with error code REFUSED_STREAM.
-     * Client MAY retry (on a different connection,.  See RFC7540 Section 8.1.4.
+     * Client MAY retry (on a different connection).  See RFC7540 Section 8.1.4.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
@@ -1577,7 +1577,7 @@ export declare enum WebNetErrorList {
      */
     ERR_CACHE_OPEN_OR_CREATE_FAILURE = -413,
     /**
-     * The server's response was insecure (e.g. there was a cert error,.
+     * The server's response was insecure (e.g. there was a cert error).
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
@@ -1614,7 +1614,7 @@ export declare enum WebNetErrorList {
     ERR_INVALID_WEB_BUNDLE = -505,
     /**
      * A Trust Tokens protocol operation-executing request failed for one of a
-     * number of reasons (precondition failure, internal error, bad response,.
+     * number of reasons (precondition failure, internal error, bad response).
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
@@ -1849,7 +1849,7 @@ export declare enum WebNetErrorList {
      */
     ERR_DNS_SECURE_RESOLVER_HOSTNAME_RESOLUTION_FAILED = -808,
     /**
-     * DNS identified the request as disallowed for insecure connection (http/ws,.
+     * DNS identified the request as disallowed for insecure connection (http/ws).
      * Error should be handled as if an HTTP redirect was received to redirect to
      * https or wss.
      *

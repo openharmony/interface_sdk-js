@@ -293,12 +293,13 @@ export declare interface SecurityComponentMethod {
   /**
    * Id. User can set an id to the component to identify it.
    *
-   * @param { string | undefined } description
+   * @param { string | undefined } id
    * @returns { SecurityComponentMethod } Returns the attribute of the security component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
-  id(description: string | undefined): this;
+  id(id: string | undefined): this;
   /**
    * Specifies the direction and style of chain in relative container
    *

@@ -22,13 +22,15 @@ import { ComponentBuilder, CustomBuilder } from './builder';
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
-declare enum ToolBarItemPlacement {
+export declare enum ToolBarItemPlacement {
     /**
      * Place toolbar item at the leading of top bar.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     TOP_BAR_LEADING = 0,
@@ -36,6 +38,7 @@ declare enum ToolBarItemPlacement {
      * Place toolbar item at the trailing of top bar.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     TOP_BAR_TRAILING = 1
@@ -45,14 +48,16 @@ declare enum ToolBarItemPlacement {
  *
  * @interface ToolBarItemOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
-interface ToolBarItemOptions {
+export interface ToolBarItemOptions {
     /**
      * Vertical layout element spacing.
      *
      * @type { ?ToolBarItemPlacement }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     placement?: ToolBarItemPlacement;
@@ -61,9 +66,10 @@ interface ToolBarItemOptions {
  * Defines the ToolBarItem component attribute functions.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
-declare class ToolBarItemAttribute {
+export declare interface ToolBarItemAttribute {
     /**
      * Set the component's source code redirection information. 
      * @param { string } sourceLine - the source code line.

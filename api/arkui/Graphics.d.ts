@@ -336,6 +336,65 @@ interface Vector3 {
 }
 
 /**
+ * Defined a vector with four number values.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+interface Vector4 {
+  /**
+   * Value for x-axis of the vector.
+   * Value range:(-∞, +∞).
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  x: double;
+
+  /**
+   * Value for y-axis of the vector.
+   * Value range: (-∞, +∞).
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  y: double;
+
+  /**
+   * Value for z-axis of the vector.
+   * Value range: (-∞, +∞).
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  z: double;
+
+  /**
+   * Value for w-axis of the vector.
+   * Value range: (-∞, +∞).
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  w: double;
+}
+
+/**
  * It's a 4x4 matrix, represent by number[].
  * Value range of each number: (-∞, +∞)
  *
@@ -1015,6 +1074,162 @@ declare class ColorMetrics {
    * @since 12 dynamic
    */
   static resourceColor(color: ResourceColor): ColorMetrics;
+
+  /**
+   * Create ColorMetrics class using HDR color with linear exposure.
+   * Create an HDR color value with specified linear exposure.
+   * The exposure value controls the brightness of the color in a linear color space.
+   * When using linear exposure, RGB channel values are typically in the range [0, 1].
+   *
+   * @param { double } linearExposure - Linear exposure value in exposure value.
+   *                                    Valid range: [1, +∞).
+   *                                    A value of 1.0 represents standard exposure.
+   *                                    Values greater than 1.0 increase brightness linearly.
+   * @param { ColorSpace } colorSpace - Color space of color.
+   *                                    Supports SRGB, DISPLAY_P3, and BT2020 color spaces.
+   * @param { double } red - Red component value. Valid range: [0, 1].
+   * @param { double } green - Green component value. Valid range: [0, 1].
+   * @param { double } blue - Blue component value. Valid range: [0, 1].
+   * @param { double } [alpha] - Alpha (opacity) component value. Valid range: [0, 1].
+   *                              The default value is 1.0 (fully opaque).
+   * @returns { ColorMetrics } ColorMetrics class instance with HDR color.
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 24 dynamic
+   */
+  static createHDRColorWithLinearExposure(linearExposure: double, colorSpace: ColorSpace, red: double, green: double, blue: double, alpha?: double): ColorMetrics;
+
+  /**
+   * Create ColorMetrics class using HDR color with linear exposure.
+   * Create an HDR color value with specified logarithmic exposure (stops).
+   * The exposure value controls the brightness in a logarithmic (perceptual) color space.
+   * When using logarithmic exposure, RGB channel values are typically in the range [0, 1].
+   *
+   * @param { double } exposure - Logarithmic exposure value in stops.
+   *                                    Valid range: [0, +∞).
+   *                                    A value of 0.0 represents standard exposure.
+   *                                    each increment of 1.0 doubles the brightness (one stop).
+   * @param { ColorSpace } colorSpace - Color space of color.
+   *                                    Supports SRGB, DISPLAY_P3, and BT2020 color spaces.
+   * @param { double } red - Red component value. Valid range: [0, 1].
+   * @param { double } green - Green component value. Valid range: [0, 1].
+   * @param { double } blue - Blue component value. Valid range: [0, 1].
+   * @param { double } [alpha] - Alpha (opacity) component value. Valid range: [0, 1].
+   *                              The default value is 1.0 (fully opaque).
+   * @returns { ColorMetrics } ColorMetrics class instance with HDR color.
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 24 dynamic
+   */
+  static createHDRColorWithLogExposure(exposure: double, colorSpace: ColorSpace, red: double, green: double, blue: double, alpha?: double): ColorMetrics;
+
+  /**
+   * Create ColorMetrics class using HDR color with default exposure.
+   * Create an HDR color value with default exposure (0.0 for logarithmic, 1.0 for linear).
+   * When no exposure value is specified, RGB channel values can exceed 1.0 to achieve HDR brightness.
+   * This matches iOS UIColor behavior where RGB values > 1.0 enable HDR rendering.
+   *
+   * @param { ColorSpace } colorSpace - Color space of color.
+   *                                    Supports SRGB, DISPLAY_P3, and BT2020 color spaces.
+   * @param { double } red - Red component value. Valid range: [0, +∞).
+   *                          Values greater than 1.0 enable HDR brightness.
+   * @param { double } green - Green component value. Valid range: [0, +∞).
+   *                          Values greater than 1.0 enable HDR brightness.
+   * @param { double } blue - Blue component value. Valid range: [0, +∞).
+   *                          Values greater than 1.0 enable HDR brightness.
+   * @param { double } [alpha] - Alpha (opacity) component value. Valid range: [0, 1].
+   *                              The default value is 1.0 (fully opaque).
+   * @returns { ColorMetrics } ColorMetrics class instance with HDR color.
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 24 dynamic
+   */
+  static createHDRColor(colorSpace: ColorSpace, red: double, green: double, blue: double, alpha?: double): ColorMetrics;
+
+  /**
+   * Get color space of the ColorMetrics.
+   * Returns the color space used when creating this color.
+   *
+   * @returns { ColorSpace } The color space of the ColorMetrics.
+   *    Possible value: ColorSpace.SRGB, ColorSpace.DISPLAY_P3, ColorSpace.BT2020.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 24 dynamic
+   */
+  getColorSpace(): ColorSpace;
+
+  /**
+   * Check if ColorMetrics represents an HDR color.
+   * Returns true if color was created using createHDRColorWithXx or has RGB values > 1.0.
+   *
+   * @returns { boolean } Whether ColorMetrics is an HDR color.
+   *    Returns true if:
+   *    - The color was created using createHDRColorWithXx() method.
+   *    - Any RGB channel value is greater than 1.0.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 24 dynamic
+   */
+  isHDR(): boolean;
+
+  /**
+   * Get red value.
+   * Returns red channel value as a floating-point number.
+   * For SDR colors, value is in range [0, 1].
+   * For HDR colors, value can be greater than 1.0 to represent extended brightness.
+   *
+   * @returns { double } The red value.
+   *    Valid range: [0, +∞).
+   *    For SDR colors: [0, 1].
+   *    Fro HDR colors: [0, +∞), values > 1.0 indicate HDR brightness.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 24 dynamic
+   */
+  getRedValue(): double;
+
+  /**
+   * Get green value.
+   * Returns green channel value as a floating-point number.
+   * For SDR colors, value is in range [0, 1].
+   * For HDR colors, value can be greater than 1.0 to represent extended brightness.
+   *
+   * @returns { double } The green value.
+   *    Valid range: [0, +∞).
+   *    For SDR colors: [0, 1].
+   *    Fro HDR colors: [0, +∞), values > 1.0 indicate HDR brightness.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 24 dynamic
+   */
+  getGreenValue(): double;
+
+  /**
+   * Get blue value.
+   * Returns blue channel value as a floating-point number.
+   * For SDR colors, value is in range [0, 1].
+   * For HDR colors, value can be greater than 1.0 to represent extended brightness.
+   *
+   * @returns { double } The blue value.
+   *    Valid range: [0, +∞).
+   *    For SDR colors: [0, 1].
+   *    Fro HDR colors: [0, +∞), values > 1.0 indicate HDR brightness.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 24 dynamic
+   */
+  getBlueValue(): double;
 	
   /**
    * blend color

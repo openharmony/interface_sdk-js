@@ -2104,6 +2104,138 @@ declare enum MouseButton {
    */
   MOUSE_BUTTON_MIDDLE = 2
 }
+/**
+ * Pen key type enum.
+ *
+ * @enum {int}
+ * @syscap SystemCapability.Test.UiTest
+ * @FaAndStageModel
+ * @atomicservice
+ * @since 26.0.0 dynamic&static
+ * @test
+ */
+declare enum PenKey {
+  /**
+   * Handwriting key.
+   *
+   * @syscap SystemCapability.Test.UiTest
+   * @FaAndStageModel
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   * @test
+   */
+  HANDWRITING = 0,
+  /**
+   * Smart key.
+   *
+   * @syscap SystemCapability.Test.UiTest
+   * @FaAndStageModel
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   * @test
+   */
+  SMART = 1,
+  /**
+   * Air mouse key.
+   *
+   * @syscap SystemCapability.Test.UiTest
+   * @FaAndStageModel
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   * @test
+   */
+  AIR_MOUSE = 2
+}
+
+/**
+ * Pen mode enum.
+ *
+ * @enum {int}
+ * @syscap SystemCapability.Test.UiTest
+ * @FaAndStageModel
+ * @atomicservice
+ * @since 26.0.0 dynamic&static
+ * @test
+ */
+declare enum PenMode {
+  /**
+   * Handwriting mode.
+   *
+   * @syscap SystemCapability.Test.UiTest
+   * @FaAndStageModel
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   * @test
+   */
+  HANDWRITING = 0,
+  /**
+   * Air mouse mode.
+   *
+   * @syscap SystemCapability.Test.UiTest
+   * @FaAndStageModel
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   * @test
+   */
+  AIR_MOUSE = 1,
+}
+
+/**
+ * Pen key operation type enum.
+ *
+ * @enum {int}
+ * @syscap SystemCapability.Test.UiTest
+ * @FaAndStageModel
+ * @atomicservice
+ * @since 26.0.0 dynamic&static
+ * @test
+ */
+declare enum PenKeyOperation {
+  /**
+   * Single click.
+   *
+   * @syscap SystemCapability.Test.UiTest
+   * @FaAndStageModel
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   * @test
+   */
+  CLICK = 0,
+  /**
+   * Double click.
+   *
+   * @syscap SystemCapability.Test.UiTest
+   * @FaAndStageModel
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   * @test
+   */
+  DOUBLE_CLICK = 1,
+}
+
+/**
+ * Pen key operation options.
+ *
+ * @interface PenKeyOperationOptions
+ * @syscap SystemCapability.Test.UiTest
+ * @FaAndStageModel
+ * @atomicservice
+ * @since 26.0.0 dynamic&static
+ * @test
+ */
+declare interface PenKeyOperationOptions {
+  /**
+   * The coordinate point for air mouse mode operations. Required when key is AIR_MOUSE in air mouse mode.
+   *
+   * @type { ?Point }
+   * @syscap SystemCapability.Test.UiTest
+   * @FaAndStageModel
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   * @test
+   */
+  point?: Point;
+}
 
 /**
  * Additional options touchpad multi-finger swipe gestures.
@@ -2236,7 +2368,7 @@ declare interface KeyOptions {
     /**
      * The first keyCode to press during the operation.
      * If not set, no key event will be injected.
-     * Setting only key2 without key1 will result in a BussinessError 17000007.
+     * Setting only key2 without key1 will result in a BusinessError 17000007.
      *
      * @type { ?int }
      * @syscap SystemCapability.Test.UiTest
@@ -2249,7 +2381,7 @@ declare interface KeyOptions {
     /**
      * The second keyCode to press during the operation.
      * If not set, no key event will be injected.
-     * Setting only key2 without key1 will result in a BussinessError 17000007.
+     * Setting only key2 without key1 will result in a BusinessError 17000007.
      *
      * @type { ?int }
      * @syscap SystemCapability.Test.UiTest
@@ -2711,6 +2843,21 @@ declare class On {
   isBefore(on: On): On;
 
   /**
+   * Requires that the target Component is before another Component that is specified by the given {@link Component}
+   * object, used to locate Component relatively.
+   *
+   * @param { Component } com - Describes the Component which the target one is in front of.
+   * @returns { On } this {@link On} object.
+   * @throws { BusinessError } 17000007 - Parameter verification failed.
+   * @syscap SystemCapability.Test.UiTest
+   * @FaAndStageModel
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   * @test
+   */
+  isBefore(com: Component): On;
+
+  /**
    * Requires that the target Component which is after another Component that specified by the given {@link On}
    * object,used to locate Component relatively.
    *
@@ -2738,6 +2885,21 @@ declare class On {
   isAfter(on: On): On;
 
   /**
+   * Requires that the target Component which is after another Component specified by the given {@link Component}
+   * object, used to locate Component relatively.
+   *
+   * @param { Component } com - Describes the Component which the target one is in back of.
+   * @returns { On } this {@link On} object.
+   * @throws { BusinessError } 17000007 - Parameter verification failed.
+   * @syscap SystemCapability.Test.UiTest
+   * @FaAndStageModel
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   * @test
+   */
+  isAfter(com: Component): On;
+
+  /**
    * Requires that the target Component which is inside of another Component that specified by the given {@link On}
    * object,used to locate Component relatively.
    *
@@ -2763,6 +2925,21 @@ declare class On {
    * @test
    */
   within(on: On): On;
+
+  /**
+   * Requires that the target Component which is inside of another Component specified by the given {@link Component}
+   * object, used to locate Component relatively.
+   *
+   * @param { Component } com - Describes the Component which the target one is inside of.
+   * @returns { On } this {@link On} object.
+   * @throws { BusinessError } 17000007 - Parameter verification failed.
+   * @syscap SystemCapability.Test.UiTest
+   * @FaAndStageModel
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   * @test
+   */
+  within(com: Component): On;
 
   /**
    * Specifies the bundleName of the application which the window that the target Component is located belongs.
@@ -4334,6 +4511,32 @@ declare class Driver {
    * @test
    */
   triggerCombineKeys(key0: int, key1: int, key2?: int, displayId?: int): Promise<void>;
+
+  /**
+   * Trigger pen key operation.
+   *
+   * Supported combinations:
+   * - HANDWRITING mode: HANDWRITING key with CLICK or DOUBLE_CLICK operation.
+   * - AIR_MOUSE mode: AIR_MOUSE key with CLICK or DOUBLE_CLICK operation (requires point in options),
+   *   HANDWRITING key with CLICK or DOUBLE_CLICK operation, SMART key with CLICK operation.
+   * Other combinations will result in a BusinessError 17000007.
+   *
+   * @param { PenKey } key - The pen key to operate.
+   * @param { PenMode } mode - The pen mode.
+   * @param { PenKeyOperation } operation - The operation type.
+   * @param { PenKeyOperationOptions } [options] - The operation options, including optional coordinate point.
+   *                                   Default value: Refer to the default value of PenKeyOperationOptions.
+   * @returns { Promise<void> }
+   * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
+   * @throws { BusinessError } 17000005 - This operation is not supported.
+   * @throws { BusinessError } 17000007 - Parameter verification failed. Unsuported key, mode, and operation combination.
+   * @syscap SystemCapability.Test.UiTest
+   * @FaAndStageModel
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   * @test
+   */
+  triggerPenKey(key: PenKey, mode: PenMode, operation: PenKeyOperation, options?: PenKeyOperationOptions): Promise<void>;
 
   /**
    * Click on the specified location on the screen.
@@ -6529,5 +6732,9 @@ export {
   WindowChangeOptions,
   ComponentEventOptions,
   TouchOptions,
-  KeyOptions
+  KeyOptions,
+  PenKey,
+  PenMode,
+  PenKeyOperation,
+  PenKeyOperationOptions
 };

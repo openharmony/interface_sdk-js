@@ -28,18 +28,18 @@ import { LocalStorage } from '@ohos.arkui.stateManagement';
 
 import { InputMethodExtraConfig } from './@ohos.inputMethod.ExtraConfig';
 /**
- * Input method engine
+ * The **inputMethodEngine** module is oriented to input method applications (including system and third-party input 
+ * method applications). With the APIs of this module, input method applications are able to create soft keyboard 
+ * windows, insert or delete characters, select text, and listen for physical keyboard events.
  *
- * @namespace inputMethodEngine
  * @syscap SystemCapability.MiscServices.InputMethodFramework
  * @since 8 dynamic
  * @since 23 static
  */
 declare namespace inputMethodEngine {
   /**
-   * When "enter" key is pressed, there is no action
+   * No function is specified for the key.
    *
-   * @type { int }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8 dynamic
    * @since 23 static
@@ -47,9 +47,8 @@ declare namespace inputMethodEngine {
   const ENTER_KEY_TYPE_UNSPECIFIED: int;
 
   /**
-   * When "enter" key is pressed, it means GO
+   * Key that executes a command or navigates to a specific location.
    *
-   * @type { int }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8 dynamic
    * @since 23 static
@@ -57,9 +56,8 @@ declare namespace inputMethodEngine {
   const ENTER_KEY_TYPE_GO: int;
 
   /**
-   * When "enter" key is pressed, it means SEARCH
+   * Key that initiates a search operation.
    *
-   * @type { int }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8 dynamic
    * @since 23 static
@@ -67,9 +65,8 @@ declare namespace inputMethodEngine {
   const ENTER_KEY_TYPE_SEARCH: int;
 
   /**
-   * When "enter" key is pressed, it means SEND
+   * Key that sends the text to its target.
    *
-   * @type { int }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8 dynamic
    * @since 23 static
@@ -77,9 +74,8 @@ declare namespace inputMethodEngine {
   const ENTER_KEY_TYPE_SEND: int;
 
   /**
-   * When "enter" key is pressed, it means NEXT
+   * Key that moves the focus to the next item in a sequence.
    *
-   * @type { int }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8 dynamic
    * @since 23 static
@@ -87,9 +83,8 @@ declare namespace inputMethodEngine {
   const ENTER_KEY_TYPE_NEXT: int;
 
   /**
-   * When "enter" key is pressed, it means DONE
+   * Key that indicates that a task or input is complete.
    *
-   * @type { int }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8 dynamic
    * @since 23 static
@@ -97,9 +92,8 @@ declare namespace inputMethodEngine {
   const ENTER_KEY_TYPE_DONE: int;
 
   /**
-   * When "enter" key is pressed, it means PREVIOUS
+   * Key that moves the focus to the previous item in a sequence.
    *
-   * @type { int }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8 dynamic
    * @since 23 static
@@ -107,9 +101,8 @@ declare namespace inputMethodEngine {
   const ENTER_KEY_TYPE_PREVIOUS: int;
 
   /**
-   * When "enter" key is pressed, it means NEWLINE
+   * Key that inserts a new line.
    *
-   * @type { int }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 12 dynamic
    * @since 23 static
@@ -117,9 +110,8 @@ declare namespace inputMethodEngine {
   const ENTER_KEY_TYPE_NEWLINE: int;
 
   /**
-   * Editor with no special function
+   * Any type of edit box.
    *
-   * @type { int }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8 dynamic
    * @since 23 static
@@ -127,9 +119,8 @@ declare namespace inputMethodEngine {
   const PATTERN_NULL: int;
 
   /**
-   * Editor of type TEXT
+   * Text edit box.
    *
-   * @type { int }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8 dynamic
    * @since 23 static
@@ -137,9 +128,8 @@ declare namespace inputMethodEngine {
   const PATTERN_TEXT: int;
 
   /**
-   * Editor of type NUMBER
+   * Number edit box.
    *
-   * @type { int }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8 dynamic
    * @since 23 static
@@ -147,9 +137,8 @@ declare namespace inputMethodEngine {
   const PATTERN_NUMBER: int;
 
   /**
-   * Editor of type PHONE NUMBER
+   * Phone number edit box.
    *
-   * @type { int }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8 dynamic
    * @since 23 static
@@ -157,9 +146,8 @@ declare namespace inputMethodEngine {
   const PATTERN_PHONE: int;
 
   /**
-   * Editor of type DATETIME
+   * Date edit box.
    *
-   * @type { int }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8 dynamic
    * @since 23 static
@@ -167,9 +155,8 @@ declare namespace inputMethodEngine {
   const PATTERN_DATETIME: int;
 
   /**
-   * Editor of type EMAIL
+   * Email edit box.
    *
-   * @type { int }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8 dynamic
    * @since 23 static
@@ -177,9 +164,8 @@ declare namespace inputMethodEngine {
   const PATTERN_EMAIL: int;
 
   /**
-   * Editor of type URI
+   * URI edit box.
    *
-   * @type { int }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8 dynamic
    * @since 23 static
@@ -187,9 +173,8 @@ declare namespace inputMethodEngine {
   const PATTERN_URI: int;
 
   /**
-   * Editor of type PASSWORD
+   * Password edit box.
    *
-   * @type { int }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8 dynamic
    * @since 23 static
@@ -197,9 +182,8 @@ declare namespace inputMethodEngine {
   const PATTERN_PASSWORD: int;
 
   /**
-   * Editor of type SCREEN LOCK PASSWORD
+   * Screen lock password edit box.
    *
-   * @type { int }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 11 dynamic
    * @since 23 static
@@ -207,9 +191,8 @@ declare namespace inputMethodEngine {
   const PATTERN_PASSWORD_SCREEN_LOCK: int;
 
   /**
-   * Editor of type NUMBER PASSWORD
+   * Numeric password edit box.
    *
-   * @type { int }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 11 dynamic
    * @since 23 static
@@ -217,9 +200,8 @@ declare namespace inputMethodEngine {
   const PATTERN_PASSWORD_NUMBER: int;
 
   /**
-   * Editor of type PATTERN_USER_NAME
+   * User name edit box.
    *
-   * @type { int }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 20 dynamic
    * @since 23 static
@@ -227,9 +209,8 @@ declare namespace inputMethodEngine {
   const PATTERN_USER_NAME: int = 10;
 
   /**
-   * Editor of type PATTERN_NEW_PASSWORD
+   * New password edit box.
    *
-   * @type { int }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 20 dynamic
    * @since 23 static
@@ -237,9 +218,8 @@ declare namespace inputMethodEngine {
   const PATTERN_NEW_PASSWORD: int = 11;
 
   /**
-   * Editor of type PATTERN_NUMBER_DECIMAL
+   * Edit box for numbers with decimal points.
    *
-   * @type { int }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 20 dynamic
    * @since 23 static
@@ -247,9 +227,8 @@ declare namespace inputMethodEngine {
   const PATTERN_NUMBER_DECIMAL: int = 12;
 
   /**
-   * Editor of type PATTERN_ONE_TIME_CODE
+   * Verification code edit box.
    *
-   * @type { int }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 20 dynamic
    * @since 23 static
@@ -257,9 +236,8 @@ declare namespace inputMethodEngine {
   const PATTERN_ONE_TIME_CODE: int = 13;
 
   /**
-   * Editor in SELECTING state
+   * The edit box is being selected.
    *
-   * @type { int }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8 dynamic
    * @since 23 static
@@ -267,9 +245,8 @@ declare namespace inputMethodEngine {
   const FLAG_SELECTING: int;
 
   /**
-   * Editor in SINGLE_LINE state
+   * The edit box allows only single-line input.
    *
-   * @type { int }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8 dynamic
    * @since 23 static
@@ -277,9 +254,8 @@ declare namespace inputMethodEngine {
   const FLAG_SINGLE_LINE: int;
 
   /**
-   * The Editor displays in PART mode
+   * The edit box is displayed in half-screen mode.
    *
-   * @type { int }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8 dynamic
    * @since 23 static
@@ -287,9 +263,8 @@ declare namespace inputMethodEngine {
   const DISPLAY_MODE_PART: int;
 
   /**
-   * The Editor displays in FULL mode
+   * The edit box is displayed in full screen.
    *
-   * @type { int }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8 dynamic
    * @since 23 static
@@ -297,9 +272,8 @@ declare namespace inputMethodEngine {
   const DISPLAY_MODE_FULL: int;
 
   /**
-   * Allows ASCII to be inputted
+   * ASCII values are allowed.
    *
-   * @type { int }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8 dynamic
    * @since 23 static
@@ -307,9 +281,8 @@ declare namespace inputMethodEngine {
   const OPTION_ASCII: int;
 
   /**
-   * Do not specify Editor's input type
+   * No input attribute is specified.
    *
-   * @type { int }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8 dynamic
    * @since 23 static
@@ -317,9 +290,8 @@ declare namespace inputMethodEngine {
   const OPTION_NONE: int;
 
   /**
-   * Allows CHARACTERS to be inputted
+   * Characters are allowed.
    *
-   * @type { int }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8 dynamic
    * @since 23 static
@@ -327,9 +299,8 @@ declare namespace inputMethodEngine {
   const OPTION_AUTO_CAP_CHARACTERS: int;
 
   /**
-   * Allows SENTENCES to be inputted
+   * Sentences are allowed.
    *
-   * @type { int }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8 dynamic
    * @since 23 static
@@ -337,9 +308,8 @@ declare namespace inputMethodEngine {
   const OPTION_AUTO_CAP_SENTENCES: int;
 
   /**
-   * Allows WORDS to be inputted
+   * Words are allowed.
    *
-   * @type { int }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8 dynamic
    * @since 23 static
@@ -347,9 +317,8 @@ declare namespace inputMethodEngine {
   const OPTION_AUTO_WORDS: int;
 
   /**
-   * Allows MULTI_LINE to be inputted
+   * Multiple lines are allowed.
    *
-   * @type { int }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8 dynamic
    * @since 23 static
@@ -357,9 +326,8 @@ declare namespace inputMethodEngine {
   const OPTION_MULTI_LINE: int;
 
   /**
-   * Half-screen mode
+   * Half-screen style.
    *
-   * @type { int }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8 dynamic
    * @since 23 static
@@ -367,9 +335,8 @@ declare namespace inputMethodEngine {
   const OPTION_NO_FULLSCREEN: int;
 
   /**
-   * The move direction of cursor: UP
+   * The caret moves upward.
    *
-   * @type { int }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9 dynamic
    * @since 23 static
@@ -377,9 +344,8 @@ declare namespace inputMethodEngine {
   const CURSOR_UP: int;
 
   /**
-   * The move direction of cursor: DOWN
+   * The caret moves downward.
    *
-   * @type { int }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9 dynamic
    * @since 23 static
@@ -387,9 +353,8 @@ declare namespace inputMethodEngine {
   const CURSOR_DOWN: int;
 
   /**
-   * The move direction of cursor: LEFT
+   * The caret moves leftward.
    *
-   * @type { int }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9 dynamic
    * @since 23 static
@@ -397,9 +362,8 @@ declare namespace inputMethodEngine {
   const CURSOR_LEFT: int;
 
   /**
-   * The move direction of cursor: RIGHT
+   * The caret moves rightward.
    *
-   * @type { int }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9 dynamic
    * @since 23 static
@@ -407,9 +371,8 @@ declare namespace inputMethodEngine {
   const CURSOR_RIGHT: int;
 
   /**
-   * The window styles for input method ability.
+   * The input method is displayed in a floating window.
    *
-   * @type { int }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9 dynamic
    * @since 23 static
@@ -417,9 +380,13 @@ declare namespace inputMethodEngine {
   const WINDOW_TYPE_INPUT_METHOD_FLOAT: int;
 
   /**
-   * Get InputMethodAbility object to subscribe events about IME.
+   * Obtains an [InputMethodAbility]{@link inputMethodEngine.InputMethodAbility} instance for the input method. This API
+   * can be called only by an input method.
+   * 
+   * The input method can use the obtained instance to subscribe to a soft keyboard display/hide request event, create/
+   * destroy an input method panel, and the like.
    *
-   * @returns { InputMethodAbility } the object of the InputMethodAbility.
+   * @returns { InputMethodAbility } **InputMethodAbility** instance.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9 dynamic
    */
@@ -435,18 +402,25 @@ declare namespace inputMethodEngine {
   function getInputMethodAbility(): InputMethodAbility | null;
 
   /**
-   * @returns { InputMethodEngine }
+   * Obtains an [InputMethodEngine]{@link inputMethodEngine.InputMethodEngine} instance for the input method.
+   * 
+   * The input method can use the obtained instance to subscribe to a soft keyboard display/hide request event.
+   *
+   * @returns { InputMethodEngine } **InputMethodAbility** instance.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead inputMethodEngine#getInputMethodAbility
+   * @useinstead inputMethodEngine.getInputMethodAbility()
    */
   function getInputMethodEngine(): InputMethodEngine;
 
   /**
-   * Get KeyboardDelegate object to subscribe key event or events about editor.
+   * Obtains a [KeyboardDelegate]{@link inputMethodEngine.KeyboardDelegate} instance for the input method.
+   * 
+   * The input method can use the obtained instance to subscribe to a physical keyboard event, text selection change 
+   * event, and more.
    *
-   * @returns { KeyboardDelegate } the object of KeyboardDelegate.
+   * @returns { KeyboardDelegate } **KeyboardDelegate** instance.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9 dynamic
    */
@@ -462,17 +436,24 @@ declare namespace inputMethodEngine {
   function getKeyboardDelegate(): KeyboardDelegate | null;
 
   /**
-   * @returns { KeyboardDelegate }
+   * Obtains a [KeyboardDelegate]{@link inputMethodEngine.KeyboardDelegate} instance for the input method. The input 
+   * method can use the obtained instance to subscribe to a physical keyboard event, text selection change event, and 
+   * more.
+   *
+   * @returns { KeyboardDelegate } **KeyboardDelegate** instance.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead inputMethodEngine#getKeyboardDelegate
+   * @useinstead inputMethodEngine.getKeyboardDelegate()
    */
   function createKeyboardDelegate(): KeyboardDelegate;
 
   /**
-   * Indicates the possible data types of the command.
-   * @typedef { int | string | boolean }
+   * Defines the private data type, which varies depending on its function.
+   *
+   * @unionmember { int } Number.
+   * @unionmember { string } String.
+   * @unionmember { boolean } Boolean.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 12 dynamic
    * @since 23 static
@@ -482,7 +463,6 @@ declare namespace inputMethodEngine {
   /**
    * The callback of 'inputStart' event.
    *
-   * @typedef { function } IMAInputStartCallback.
    * @param { KeyboardController } kbController - keyboard controller.
    * @param { InputClient } inputClient - input client.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -494,7 +474,6 @@ declare namespace inputMethodEngine {
   /**
    * The callback of 'keyDown' or 'keyUp' event.
    *
-   * @typedef { function } KeyEventCallback.
    * @param { KeyEvent } event - the key event.
    * @returns { boolean } whether to consume this key event.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -505,7 +484,6 @@ declare namespace inputMethodEngine {
   /**
    * The callback of 'keyEvent' event.
    *
-   * @typedef { function } InputKeyEventCallback.
    * @param { InputKeyEvent } event - the key event.
    * @returns { boolean } whether to consume this key event.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -516,10 +494,9 @@ declare namespace inputMethodEngine {
   /**
    * The callback of 'cursorContextChange' event.
    *
-   * @typedef { function } CursorContextChangeCallback.
-   * @param { double } x - the left point of the cursor.
-   * @param { double } y - the top point of the cursor.
-   * @param { double } height - the height of the cursor.
+   * @param { double } x - the left point of the cursor, unit is px.
+   * @param { double } y - the top point of the cursor, unit is px.
+   * @param { double } height - the height of the cursor, unit is px.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 23 static
    */
@@ -528,7 +505,6 @@ declare namespace inputMethodEngine {
   /**
    * The callback of 'selectionChange' event.
    *
-   * @typedef { function } SelectionChangeCallback.
    * @param { int } oldBegin - the old begin of the selected text.
    * @param { int } oldEnd - the old end of the selected text.
    * @param { int } newBegin - the new begin of the selected text.
@@ -539,11 +515,10 @@ declare namespace inputMethodEngine {
   export type SelectionChangeCallback = (oldBegin: int, oldEnd: int, newBegin: int, newEnd: int) => void;
 
   /**
-   * The callback of 'sizeUpdate' event.
+   * Callback triggered when the size of the input method panel changes.
    *
-   * @typedef { function } SizeUpdateCallback.
-   * @param { window.Size } size - panel size.
-   * @param { KeyboardArea } keyboardArea - keyboard area.
+   * @param { window.Size } size - Panel size.
+   * @param { KeyboardArea } keyboardArea - Size of the keyboard area.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @systemapi
    * @since 14 dynamic
@@ -552,11 +527,10 @@ declare namespace inputMethodEngine {
   export type SizeUpdateCallback = (size: window.Size, keyboardArea: KeyboardArea) => void;
 
   /**
-   * The callback of 'sizeChange' event.
+   * Callback triggered when the size of the input method panel changes.
    *
-   * @typedef { function } SizeChangeCallback.
-   * @param { window.Size } size - panel size.
-   * @param { KeyboardArea } keyboardArea - keyboard area.
+   * @param { window.Size } size - Panel size.
+   * @param { KeyboardArea } keyboardArea - Size of the keyboard area.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 15 dynamic
    * @since 23 static
@@ -564,16 +538,20 @@ declare namespace inputMethodEngine {
   export type SizeChangeCallback = (size: window.Size, keyboardArea?: KeyboardArea) => void;
 
   /**
-   * @interface KeyboardController
+   * In the following API examples, you must first use 
+   * [getKeyboardDelegate]{@link inputMethodEngine.getKeyboardDelegate()} to obtain a **KeyboardDelegate** instance, and
+   * then call the APIs using the obtained instance.
+   *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8 dynamic
    * @since 23 static
    */
   interface KeyboardController {
     /**
-     * Hide soft keyboard
+     * Hides the keyboard. This API uses an asynchronous callback to return the result.
      *
-     * @param { AsyncCallback<void> } callback - indicates the callback function of hide.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **undefined**. Otherwise, **err** is an error object.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
      *     3.ipc failed due to the large amount of data transferred or other reasons.
@@ -584,9 +562,9 @@ declare namespace inputMethodEngine {
     hide(callback: AsyncCallback<void>): void;
 
     /**
-     * Hide soft keyboard
+     * Hides the keyboard. This API uses a promise to return the result.
      *
-     * @returns { Promise<void> } the promise returned by the function
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
      *     3.ipc failed due to the large amount of data transferred or other reasons.
@@ -597,27 +575,34 @@ declare namespace inputMethodEngine {
     hide(): Promise<void>;
 
     /**
-     * @param { AsyncCallback<void> } callback - indicates the callback function of hideKeyboard.
+     * Hides the keyboard. This API uses an asynchronous callback to return the result.
+     *
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **undefined**. Otherwise, **err** is an error object.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead inputMethodEngine.KeyboardController#hide
+     * @useinstead inputMethodEngine.KeyboardController.hide(callback: AsyncCallback<void>)
      */
     hideKeyboard(callback: AsyncCallback<void>): void;
 
     /**
-     * @returns { Promise<void> } the promise returned by the function
+     * Hides the keyboard. This API uses a promise to return the result.
+     *
+     * @returns { Promise<void> } Promise that returns no value.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead inputMethodEngine.KeyboardController#hide
+     * @useinstead inputMethodEngine.KeyboardController.hide()
      */
     hideKeyboard(): Promise<void>;
 
     /**
-     * Exit the current input type. This function can only be called by default input method configured by system.
+     * Exits this input type. This API can be called only by the preconfigured default input method. This API uses an 
+     * asynchronous callback to return the result.
      *
-     * @param { AsyncCallback<void> } callback - the callback of exitCurrentInputType.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **undefined**. Otherwise, **err** is an error object.
      * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
      *     a system error, such as null pointer, IPC exception.
      * @throws { BusinessError } 12800010 - not the preconfigured default input method.
@@ -628,9 +613,10 @@ declare namespace inputMethodEngine {
     exitCurrentInputType(callback: AsyncCallback<void>): void;
 
     /**
-     * Exit the current input type. This function can only be called by default input method configured by system.
+     * Exits this input type. This API can be called only by the preconfigured default input method. This API uses a 
+     * promise to return the result.
      *
-     * @returns { Promise<void> } the promise returned by the function.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
      *     a system error, such as null pointer, IPC exception.
      * @throws { BusinessError } 12800010 - not the preconfigured default input method.
@@ -642,22 +628,27 @@ declare namespace inputMethodEngine {
   }
 
   /**
-   * @interface InputMethodEngine
+   * In the following API examples, you must first use 
+   * [getInputMethodEngine]{@link inputMethodEngine.getInputMethodEngine} to obtain an **InputMethodEngine** instance, 
+   * and then call the APIs using the obtained instance.
+   *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8 dynamiconly
    * @deprecated since 23
-   * @useinstead inputMethodEngine#InputMethodAbility
+   * @useinstead inputMethodEngine.InputMethodAbility
    */
   interface InputMethodEngine {
     /**
-     * Subscribe 'inputStart'
+     * Enables listening for the input method binding event. This API uses an asynchronous callback to return the 
+     * result.
      *
-     * @param { 'inputStart' } type - indicates the type of subscribe event.
-     * @param { function } callback - indicates the callback of on('inputStart').
+     * @param { 'inputStart' } type - Event type, which is **'inputStart'**.
+     * @param { function } callback - Callback used to return the **KeyboardController** and **TextInputClient**
+     *     instances.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8 dynamiconly
      * @deprecated since 23
-     * @useinstead InputMethodAbility#on
+     * @useinstead inputMethodEngine.InputMethodAbility.on(type: 'inputStart', callback: (kbController: KeyboardController, inputClient: InputClient) => void): void;
      */
     on(
       type: 'inputStart',
@@ -665,14 +656,15 @@ declare namespace inputMethodEngine {
     ): void;
 
     /**
-     * Unsubscribe 'inputStart'
+     * Disables listening for the input method binding event.
      *
-     * @param { 'inputStart' } type - indicates the type of subscribe event.
-     * @param { function } callback - optional, indicates the callback of off('inputStart').
+     * @param { 'inputStart' } type - Event type, which is **'inputStart'**.
+     * @param { function } callback - Callback to unregister. If this parameter is not specified, this API unregisters
+     *     all callbacks for the specified type.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8 dynamiconly
      * @deprecated since 23
-     * @useinstead InputMethodAbility#off
+     * @useinstead inputMethodEngine.InputMethodAbility.off(type: 'inputStart', callback?: (kbController: KeyboardController, inputClient: InputClient) => void): void;
      */
     off(
       type: 'inputStart',
@@ -680,166 +672,190 @@ declare namespace inputMethodEngine {
     ): void;
 
     /**
-     * Subscribe 'keyboardShow'|'keyboardHide'
+     * Enables listening for a keyboard visibility event. This API uses an asynchronous callback to return the result.
      *
-     * @param { 'keyboardShow' | 'keyboardHide' } type - indicates the type of subscribe event.
-     * @param { function } callback - indicates the callback of on('keyboardShow'|'keyboardHide').
+     * @param { 'keyboardShow' | 'keyboardHide' } type - Event type.
+     *     <br>- The value **'keyboardShow'** indicates the keyboard display event.
+     *     <br>- The value **'keyboardHide'** indicates the keyboard hiding event.
+     * @param { function } callback - Callback used to return the result.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8 dynamiconly
      * @deprecated since 23
-     * @useinstead InputMethodAbility#on
+     * @useinstead inputMethodEngine.InputMethodAbility.on(type: 'keyboardShow' | 'keyboardHide', callback: () => void): void;
      */
     on(type: 'keyboardShow' | 'keyboardHide', callback: () => void): void;
 
     /**
-     * Unsubscribe 'keyboardShow'|'keyboardHide'
+     * Disables listening for a keyboard visibility event. This API uses an asynchronous callback to return the result.
      *
-     * @param { 'keyboardShow' | 'keyboardHide' } type - indicates the type of subscribe event.
-     * @param { function } [callback] - optional, indicates the callback of off('keyboardShow'|'keyboardHide').
+     * @param { 'keyboardShow' | 'keyboardHide' } type - Event type.
+     *     <br>- The value **'keyboardShow'** indicates the keyboard display event.
+     *     <br>- The value **'keyboardHide'** indicates the keyboard hiding event.
+     * @param { function } [callback] - Callback to unregister. If this parameter is not specified, this API unregisters
+     *     all callbacks for the specified type.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8 dynamiconly
      * @deprecated since 23
-     * @useinstead InputMethodAbility#off
+     * @useinstead inputMethodEngine.InputMethodAbility.off_keyboardShow
      */
     off(type: 'keyboardShow' | 'keyboardHide', callback?: () => void): void;
   }
 
   /**
-   * <p>Control events about IME.</p>
-   * <p>Events provided for IME to subscribe with callback function. When those events occur, the corresponding callback
-   * will be invoked.</p>
+   * In the following API examples, you must first use 
+   * [getInputMethodAbility]{@link inputMethodEngine.getInputMethodAbility()} to obtain an **InputMethodAbility** 
+   * instance, and then call the APIs using the obtained instance.
    *
-   * @interface InputMethodAbility
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9 dynamic
    * @since 23 static
    */
   interface InputMethodAbility {
     /**
-     * Subscribe 'inputStart' event.
+     * Enables listening for the input method binding event. This API uses an asynchronous callback to return the 
+     * result.
      *
-     * @param { 'inputStart' } type - the type of subscribe event.
-     * @param { function } callback - the callback of on('inputStart').
+     * @param { 'inputStart' } type - Event type, which is **'inputStart'**.
+     * @param { function } callback - Callback used to return instances related to input method operations.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9 dynamic
      */
     on(type: 'inputStart', callback: (kbController: KeyboardController, inputClient: InputClient) => void): void;
 
     /**
-     * Unsubscribe 'inputStart' event.
+     * Disables listening for the input method binding event. This API uses an asynchronous callback to return the 
+     * result.
      *
-     * @param { 'inputStart' } type - the type of unsubscribe event.
-     * @param { function } [callback] - optional, the callback of off('inputStart').
+     * @param { 'inputStart' } type - Event type, which is **'inputStart'**.
+     * @param { function } [callback] - Callback to unregister. If this parameter is not specified, this API unregisters
+     *     all callbacks for the specified type.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9 dynamic
      */
     off(type: 'inputStart', callback?: (kbController: KeyboardController, inputClient: InputClient) => void): void;
 
     /**
-     * Subscribe 'inputStop'.
+     * Enables listening for the input method unbinding event. This API uses an asynchronous callback to return the 
+     * result.
      *
-     * @param { 'inputStop' } type - the type of subscribe event.
-     * @param { function } callback - the callback of on('inputStop').
+     * @param { 'inputStop' } type - Event type, which is **'inputStop'**.
+     * @param { function } callback - Callback used to return the result.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9 dynamic
      */
     on(type: 'inputStop', callback: () => void): void;
 
     /**
-     * Unsubscribe 'inputStop'.
+     * Disables listening for the input method stop event. This API uses an asynchronous callback to return the result.
      *
-     * @param { 'inputStop' } type - the type of unsubscribe event.
-     * @param { function } callback - the callback of off('inputStop').
+     * @param { 'inputStop' } type - Event type, which is **'inputStop'**.
+     * @param { function } callback - Callback to unregister. If this parameter is not specified, this API unregisters
+     *     all callbacks for the specified type.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9 dynamic
      */
     off(type: 'inputStop', callback: () => void): void;
 
     /**
-     * Subscribe 'setCallingWindow'.
+     * Enables listening for the window invocation setting event. This API uses an asynchronous callback to return the 
+     * result.
      *
-     * @param { 'setCallingWindow' } type - the type of subscribe event.
-     * @param { function } callback - the callback of on('setCallingWindow').
+     * @param { 'setCallingWindow' } type - Event type, which is **'setCallingWindow'**.
+     * @param { function } callback - Callback used to return the window ID of the caller.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9 dynamic
      */
     on(type: 'setCallingWindow', callback: (wid: number) => void): void;
 
     /**
-     * Unsubscribe 'setCallingWindow'.
+     * Disables listening for the window invocation setting event. This API uses an asynchronous callback to return the 
+     * result.
      *
-     * @param { 'setCallingWindow' } type - the type of unsubscribe event.
-     * @param { function } callback - the callback of off('setCallingWindow').
+     * @param { 'setCallingWindow' } type - Event type, which is **'setCallingWindow'**.
+     * @param { function } callback - Callback to unregister. If this parameter is not specified, this API unregisters
+     *     all callbacks for the specified type.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9 dynamic
      */
     off(type: 'setCallingWindow', callback: (wid: number) => void): void;
 
     /**
-     * Subscribe 'keyboardShow'|'keyboardHide'.
+     * Enables listening for a keyboard visibility event. This API uses an asynchronous callback to return the result.
      *
-     * @param { 'keyboardShow' | 'keyboardHide' } type - the type of subscribe event.
-     * @param { function } callback - the callback of on('keyboardShow'|'keyboardHide').
+     * @param { 'keyboardShow' | 'keyboardHide' } type - Event type.
+     *     <br>- The value **'keyboardShow'** indicates the keyboard display event.
+     *     <br>- The value **'keyboardHide'** indicates the keyboard hiding event.
+     * @param { function } callback - Callback used to return the result.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9 dynamic
      */
     on(type: 'keyboardShow' | 'keyboardHide', callback: () => void): void;
 
     /**
-     * Unsubscribe 'keyboardShow'|'keyboardHide'.
+     * Disables listening for a keyboard visibility event. This API uses an asynchronous callback to return the result.
      *
-     * @param { 'keyboardShow' | 'keyboardHide' } type - the type of unsubscribe event.
-     * @param { function } [callback] - the callback of off('keyboardShow'|'keyboardHide').
+     * @param { 'keyboardShow' | 'keyboardHide' } type - Event type.
+     *     <br>- The value **'keyboardShow'** indicates the keyboard display event.
+     *     <br>- The value **'keyboardHide'** indicates the keyboard hiding event.
+     * @param { function } [callback] - Callback used to return the result.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9 dynamic
      */
     off(type: 'keyboardShow' | 'keyboardHide', callback?: () => void): void;
 
     /**
-     * Subscribe 'setSubtype'.
+     * Enables listening for the input method subtype setting event. This API uses an asynchronous callback to return 
+     * the result.
      *
-     * @param { 'setSubtype' } type - the type of subscribe event.
-     * @param { function } callback - the callback of on('setSubtype').
+     * @param { 'setSubtype' } type - Event type, which is **'setSubtype'**.
+     * @param { function } callback - Callback used to return the input method subtype.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9 dynamic
      */
     on(type: 'setSubtype', callback: (inputMethodSubtype: InputMethodSubtype) => void): void;
 
     /**
-     * Unsubscribe 'setSubtype'.
+     * Disables listening for the input method subtype setting event. This API uses an asynchronous callback to return 
+     * the result.
      *
-     * @param { 'setSubtype' } type - the type of subscribe event.
-     * @param { function } [callback] - the callback of off('setSubtype').
+     * @param { 'setSubtype' } type - Event type, which is **'setSubtype'**.
+     * @param { function } [callback] - Callback to unregister. If this parameter is not specified, this API unregisters
+     *     all callbacks for the specified type.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9 dynamic
      */
     off(type: 'setSubtype', callback?: (inputMethodSubtype: InputMethodSubtype) => void): void;
 
     /**
-     * Subscribe 'securityModeChange' event.
+     * Enables listening for the security mode changes of the input method. This API uses an asynchronous callback to 
+     * return the result.
      *
-     * @param { 'securityModeChange' } type - the type of subscribe event.
-     * @param { Callback<SecurityMode> } callback - the callback of on('securityModeChange').
+     * @param { 'securityModeChange' } type - Event type, which is **'securityModeChange'**.
+     * @param { Callback<SecurityMode> } callback - Callback used to return the current security mode.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 11 dynamic
      */
     on(type: 'securityModeChange', callback: Callback<SecurityMode>): void;
 
     /**
-     * Unsubscribe 'securityModeChange' event.
+     * Disables listening for the security mode changes of the input method. This API uses an asynchronous callback to 
+     * return the result.
      *
-     * @param { 'securityModeChange' } type - the type of unsubscribe event.
-     * @param { Callback<SecurityMode> } [callback] - optional, the callback of off('securityModeChange').
+     * @param { 'securityModeChange' } type - Event type, which is **'securityModeChange'**.
+     * @param { Callback<SecurityMode> } [callback] - Callback to unregister. If this parameter is not specified, this
+     *     API unregisters all callbacks for the specified type.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 11 dynamic
      */
     off(type: 'securityModeChange', callback?: Callback<SecurityMode>): void;
 
     /**
-     * Subscribe 'privateCommand'.This function can only be called by default input method configured by system.
+     * Enables listening for the private data event of the input method. This API uses an asynchronous callback to 
+     * return the result.
      *
-     * @param { 'privateCommand' } type - indicates the type of subscribe event.
-     * @param { Callback<Record<string, CommandDataType>> } callback - indicates the callback of on('privateCommand').
+     * @param { 'privateCommand' } type - Event type, which is **'privateCommand'**.
+     * @param { Callback<Record<string, CommandDataType>> } callback - Callback used to return the private data sent to
+     *     the input method application.
      * @throws { BusinessError } 12800010 - not the preconfigured default input method.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12 dynamic
@@ -847,11 +863,12 @@ declare namespace inputMethodEngine {
     on(type: 'privateCommand', callback: Callback<Record<string, CommandDataType>>): void;
 
     /**
-     * Unsubscribe 'privateCommand'.This function can only be called by default input method configured by system.
+     * Disables listening for the private data event of the input method. This API uses an asynchronous callback to 
+     * return the result.
      *
-     * @param { 'privateCommand' } type - indicates the type of subscribe event.
-     * @param { Callback<Record<string, CommandDataType>> } [callback] - optional,
-     * indicates the callback of off('privateCommand').
+     * @param { 'privateCommand' } type - Event type, which is **'privateCommand'**.
+     * @param { Callback<Record<string, CommandDataType>> } [callback] - Callback to unregister. If this parameter is
+     *     not specified, this API unregisters all callbacks for the specified type.
      * @throws { BusinessError } 12800010 - not the preconfigured default input method.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12 dynamic
@@ -859,10 +876,12 @@ declare namespace inputMethodEngine {
     off(type: 'privateCommand', callback?: Callback<Record<string, CommandDataType>>): void;
 
     /**
-     * Subscribe 'callingDisplayDidChange' event.
+     * Enables listening for changes of the screen ID of the window associated with the edit box. This API uses an 
+     * asynchronous callback to return the result.
      *
-     * @param { 'callingDisplayDidChange' } type - indicates the type of subscribe event.
-     * @param { Callback<number> } callback - indicates the callback of on('callingDisplayDidChange').
+     * @param { 'callingDisplayDidChange' } type - Event type, which is **'callingDisplayDidChange'**.
+     * @param { Callback<number> } callback - Callback used to return the screen ID of the window corresponding to the
+     *     edit box.
      * @throws { BusinessError } 801 - capability not supported.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 18 dynamic
@@ -870,39 +889,49 @@ declare namespace inputMethodEngine {
     on(type: 'callingDisplayDidChange', callback: Callback<number>): void;
 
     /**
-     * Unsubscribe 'callingDisplayDidChange' event.
+     * Disables listening for changes of the screen ID of the window associated with the edit box. This API uses an 
+     * asynchronous callback to return the result.
      *
-     * @param { 'callingDisplayDidChange' } type - indicates the type of subscribe event.
-     * @param { Callback<number> } [callback] - optional, indicates the callback of off('callingDisplayDidChange').
+     * @param { 'callingDisplayDidChange' } type - Event type, which is **'callingDisplayDidChange'**.
+     * @param { Callback<number> } [callback] - Callback to unregister. If this parameter is not specified, this API
+     *     unregisters all callbacks for the specified type.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 18 dynamic
      */
     off(type: 'callingDisplayDidChange', callback?: Callback<number>): void;
 
-    /** 
-     * Subscribe 'discardTypingText' event.
+    /**
+     * Subscribes to the event of discarding candidate words and sends the event to the input method. This API uses an 
+     * asynchronous callback to return the result.
      *
-     * @param { 'discardTypingText' } type - indicates the type of subscribe event.
-     * @param { Callback<void> } callback - indicates the callback of on('discardTypingText').
+     * @param { 'discardTypingText' } type - Event type, which is **'discardTypingText'**.
+     *     <br> - **'discardTypingText'**
+     *     : indicates subscribing to the event of discarding candidate words and sending the event to the input method.
+     * @param { Callback<void> } callback - Callback used to return the result. If the operation is successful, **err**
+     *     is **undefined**. Otherwise, **err** is an error object.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 20 dynamic
      */
     on(type: 'discardTypingText', callback: Callback<void>): void;
 
     /**
-     * Unsubscribe 'discardTypingText' event.
+     * Unsubscribes from the event of discarding candidate words and sends the event to the input method. This API uses 
+     * an asynchronous callback to return the result.
      *
-     * @param { 'discardTypingText' } type - indicates the type of unsubscribe event.
-     * @param { Callback<void> } [callback] - optional, indicates the callback of off('discardTypingText').
+     * @param { 'discardTypingText' } type - Event type, which is **'discardTypingText'**.
+     *     <br> - **'discardTypingText'**: indicates unsubscribing from the event of discarding candidate words and
+     *     sending the event to the input method.
+     * @param { Callback<void> } [callback] - Callback to unregister. If this parameter is not specified, this API
+     *     unregisters all callbacks for the specified type.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 20 dynamic
      */
     off(type: 'discardTypingText', callback?: Callback<void>): void;
 
     /**
-     * Get input method's security mode.
+     * Obtains the current security mode of the input method.
      *
-     * @returns { SecurityMode } return security mode.
+     * @returns { SecurityMode } Security mode.
      * @throws { BusinessError } 12800004 - not an input method application.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 11 dynamic
@@ -911,14 +940,30 @@ declare namespace inputMethodEngine {
     getSecurityMode(): SecurityMode;
 
     /**
-     * Creates a panel.
-     * <p>The system only allows one soft keyboard and one status bar to be created.</p>
+     * Creates an input method panel. This API can be called only by the input method application in the 
+     * [InputMethodExtensionAbility]{@link @ohos.InputMethodExtensionAbility:InputMethodExtensionAbility} class. This 
+     * API uses an asynchronous callback to return the result.
+     * 
+     * > **NOTE**
+     * >
+     * > Only one [SOFT_KEYBOARD]{@link inputMethodEngine.PanelType} panel and one 
+     * > [STATUS_BAR]{@link inputMethodEngine.PanelType} panel can be created for a single input method.
+     * 
+     * > The input method panel does not support subwindows. For example, subwindows cannot be created using APIs such 
+     * > as 
+     * > [window.createWindow]{@link window.createWindow}
+     * > , [bindContextMenu]{@link CommonMethod<T>.bindContextMenu}, 
+     * > and [CustomDialog]{@link ./@internal/component/ets/custom_dialog_controller}. You are advised to adopt 
+     * > alternative solutions to sub-windows, such as using a [dialog box]{@link @ohos.arkui.advanced.Dialog} or 
+     * > [bindMenu]{@link CommonMethod<T>.bindMenu}, or set 
+     * > **showInSubwindow** to **false**.
      *
-     * @param { BaseContext } ctx - indicates the context on which the window depends.
-     * @param { PanelInfo } info - the info of panel to be created.
-     * @param { AsyncCallback<Panel> } callback - the callback of createPanel.
-     * @throws { BusinessError } 401 - parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 
+     * @param { BaseContext } ctx - Current context of the input method.
+     * @param { PanelInfo } info - Information about the input method panel.
+     * @param { AsyncCallback<Panel> } callback - Callback used to return the result. If the operation is successful,
+     *     the created input method panel is returned.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types;
      * @throws { BusinessError } 12800004 - not an input method application.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -927,13 +972,28 @@ declare namespace inputMethodEngine {
     createPanel(ctx: BaseContext, info: PanelInfo, callback: AsyncCallback<Panel>): void;
 
     /**
-     * Creates a panel.
-     * <p>The system only allows one soft keyboard and one status bar to be created.</p>
+     * Creates an input method panel. This API can be called only by the input method application in the 
+     * [InputMethodExtensionAbility]{@link @ohos.InputMethodExtensionAbility:InputMethodExtensionAbility} class. This 
+     * API uses a promise to return the result.
+     * 
+     * > **NOTE**
+     * >
+     * > Only one [SOFT_KEYBOARD]{@link inputMethodEngine.PanelType} panel and one 
+     * > [STATUS_BAR]{@link inputMethodEngine.PanelType} panel can be created for a single input method.
+     * 
+     * > The input method panel does not support subwindows. For example, subwindows cannot be created using APIs such 
+     * > as 
+     * > [window.createWindow](docroot://windowmanager/application-window-fa.md#setting-the-child-window-of-an-application)
+     * > , [bindContextMenu]{@link CommonMethod<T>.bindContextMenu}, 
+     * > and [CustomDialog]{@link ./@internal/component/ets/custom_dialog_controller}. You are advised to adopt 
+     * > alternative solutions to sub-windows, such as using a [dialog box]{@link @ohos.arkui.advanced.Dialog} or 
+     * > [bindMenu]{@link CommonMethod<T>.bindMenu}, or set 
+     * > **showInSubwindow** to **false**.
      *
-     * @param { BaseContext } ctx - indicates the context on which the window depends.
-     * @param { PanelInfo } info - the info of panel to be created.
+     * @param { BaseContext } ctx - Current context of the input method.
+     * @param { PanelInfo } info - Information about the input method panel.
      * @returns { Promise<Panel> } the promise returned by the function.
-     * @throws { BusinessError } 401 - parameter error. Possible causes:
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types;
      * @throws { BusinessError } 12800004 - not an input method application.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -943,11 +1003,12 @@ declare namespace inputMethodEngine {
     createPanel(ctx: BaseContext, info: PanelInfo): Promise<Panel>;
 
     /**
-     * Destroys a panel.
+     * Destroys the specified input method panel. This API uses an asynchronous callback to return the result.
      *
-     * @param { Panel } panel - to be destroyed.
-     * @param { AsyncCallback<void> } callback - the callback of destroyPanel.
-     * @throws { BusinessError } 401 - parameter error. Possible causes:
+     * @param { Panel } panel - Input method panel to destroy.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **undefined**. Otherwise, **err** is an error object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -956,11 +1017,11 @@ declare namespace inputMethodEngine {
     destroyPanel(panel: Panel, callback: AsyncCallback<void>): void;
 
     /**
-     * Destroys a panel.
+     * Destroys the specified input method panel. This API uses a promise to return the result.
      *
-     * @param { Panel } panel - to be destroyed.
+     * @param { Panel } panel - Input method panel to destroy.
      * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 401 - parameter error. Possible causes:
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -1150,167 +1211,220 @@ declare namespace inputMethodEngine {
   }
 
   /**
-   * @interface TextInputClient
+   * In the following API examples, you must first use 
+   * [on('inputStart')]{@link inputMethodEngine.InputMethodEngine.on(type: 'inputStart',
+   * callback: (kbController: KeyboardController, textInputClient: TextInputClient) => void): void;}
+   * to obtain a **TextInputClient** 
+   * instance, and then call the APIs using the obtained instance.
+   *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead inputMethodEngine#InputClient
+   * @useinstead inputMethodEngine.InputClient
    */
   interface TextInputClient {
     /**
-     * @param { number } action - action indicates the function of "enter" key.
-     * @param { AsyncCallback<boolean> } callback - the callback of sendKeyFunction.
+     * Sends the function key. This API uses an asynchronous callback to return the result.
+     *
+     * @param { number } action - Action of the function key.
+     *     <br>- **0**: invalid key.
+     *     <br>- **1**: confirm key (Enter key).
+     * @param { AsyncCallback<boolean> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **undefined** and **data** is **true**. Otherwise, **err** is an error object.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead inputMethodEngine.InputClient#sendKeyFunction
+     * @useinstead inputMethodEngine.InputClient.sendKeyFunction(action: int, callback: AsyncCallback<boolean>)
      */
     sendKeyFunction(action: number, callback: AsyncCallback<boolean>): void;
 
     /**
-     * @param { number } action - action indicates the function of "enter" key.
-     * @returns { Promise<boolean> } the promise returned by the function.
+     * Sends the function key. This API uses a promise to return the result.
+     *
+     * @param { number } action - Action of the function key.
+     *     <br>**0**: invalid key.
+     *     <br>**1**: confirm key (Enter key).
+     * @returns { Promise<boolean> } Promise used to return the result. The value **true** means that the setting is
+     *     successful, and **false** means the opposite.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead inputMethodEngine.InputClient#sendKeyFunction
+     * @useinstead inputMethodEngine.InputClient.sendKeyFunction(action: int, callback: AsyncCallback<boolean>)
      */
     sendKeyFunction(action: number): Promise<boolean>;
 
     /**
-     * @param { number } length - length of text which will be deleted forward.
-     * @param { AsyncCallback<boolean> } callback - the callback of deleteForward.
+     * Deletes the fixed-length text before the cursor. This API uses an asynchronous callback to return the result.
+     *
+     * @param { number } length - Text length, which cannot be less than 0.
+     * @param { AsyncCallback<boolean> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **undefined** and **data** is **true**. Otherwise, **err** is an error object.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead inputMethodEngine.InputClient#deleteForward
+     * @useinstead inputMethodEngine.InputClient.deleteForward(length: int, callback: AsyncCallback<boolean>)
      */
     deleteForward(length: number, callback: AsyncCallback<boolean>): void;
 
     /**
-     * @param { number } length - length of text which will be deleted forward.
-     * @returns { Promise<boolean> } the promise returned by the function.
+     * Deletes the fixed-length text before the cursor. This API uses a promise to return the result.
+     *
+     * @param { number } length - Text length, which cannot be less than 0.
+     * @returns { Promise<boolean> } Promise used to return the result. The value **true** means that the deletion is
+     *     successful, and **false** means the opposite.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead inputMethodEngine.InputClient#deleteForward
+     * @useinstead inputMethodEngine.InputClient.deleteForward(length: int, callback: AsyncCallback<boolean>)
      */
     deleteForward(length: number): Promise<boolean>;
 
     /**
-     * @param { number } length - length of text which will be deleted backward.
-     * @param { AsyncCallback<boolean> } callback - the callback of deleteBackward.
+     * Deletes the fixed-length text after the cursor. This API uses an asynchronous callback to return the result.
+     *
+     * @param { number } length - Text length, which cannot be less than 0.
+     * @param { AsyncCallback<boolean> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **undefined** and **data** is **true**. Otherwise, **err** is an error object.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead inputMethodEngine.InputClient#deleteBackward
+     * @useinstead inputMethodEngine.InputClient.deleteBackward(length: int, callback: AsyncCallback<boolean>)
      */
     deleteBackward(length: number, callback: AsyncCallback<boolean>): void;
 
     /**
-     * @param { number } length - length of text which will be deleted backward.
-     * @returns { Promise<boolean> } the promise returned by the function.
+     * Deletes the fixed-length text after the cursor. This API uses a promise to return the result.
+     *
+     * @param { number } length - Text length, which cannot be less than 0.
+     * @returns { Promise<boolean> } Promise used to return the result. The value **true** means that the deletion is
+     *     successful, and **false** means the opposite.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead inputMethodEngine.InputClient#deleteBackward
+     * @useinstead inputMethodEngine.InputClient.deleteBackward(length: int, callback: AsyncCallback<boolean>)
      */
     deleteBackward(length: number): Promise<boolean>;
 
     /**
-     * @param { string } text - text which will be inserted.
-     * @param { AsyncCallback<boolean> } callback - the callback of insertText.
+     * Inserts text. This API uses an asynchronous callback to return the result.
+     *
+     * @param { string } text - Text to insert.
+     * @param { AsyncCallback<boolean> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **undefined** and **data** is **true**. Otherwise, **err** is an error object.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead inputMethodEngine.InputClient#insertText
+     * @useinstead inputMethodEngine.InputClient.insertText(text: string, callback: AsyncCallback<boolean>)
      */
     insertText(text: string, callback: AsyncCallback<boolean>): void;
 
     /**
-     * @param { string } text - text which will be inserted.
-     * @returns { Promise<boolean> } the promise returned by the function
+     * Inserts text. This API uses a promise to return the result.
+     *
+     * @param { string } text - Text to insert.
+     * @returns { Promise<boolean> } Promise used to return the result. The value **true** means that the insertion is
+     *     successful, and **false** means the opposite.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead inputMethodEngine.InputClient#insertText
+     * @useinstead inputMethodEngine.InputClient.insertText(text: string, callback: AsyncCallback<boolean>)
      */
     insertText(text: string): Promise<boolean>;
 
     /**
-     * @param { number } length - the length of text which will be got.
-     * @param { AsyncCallback<string> } callback - the callback of getForward.
+     * Obtains the specific-length text before the cursor. This API uses an asynchronous callback to return the result.
+     *
+     * @param { number } length - Text length, which cannot be less than 0.
+     * @param { AsyncCallback<string> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **undefined** and **data** is the obtained text. Otherwise, **err** is an error object.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead inputMethodEngine.InputClient#getForward
+     * @useinstead inputMethodEngine.InputClient.getForward(length: int, callback: AsyncCallback<string>)
      */
     getForward(length: number, callback: AsyncCallback<string>): void;
 
     /**
-     * @param { number } length - the length of text which will be got.
-     * @returns { Promise<string> } the promise returned by the function
+     * Obtains the specific-length text before the cursor. This API uses a promise to return the result.
+     *
+     * @param { number } length - Text length, which cannot be less than 0.
+     * @returns { Promise<string> } Promise used to return the specific-length text before the cursor.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead inputMethodEngine.InputClient#getForward
+     * @useinstead inputMethodEngine.InputClient.getForward(length: int, callback: AsyncCallback<string>)
      */
     getForward(length: number): Promise<string>;
 
     /**
-     * @param { number } length - the length of text which will be got.
-     * @param { AsyncCallback<string> } callback - the callback of getBackward.
+     * Obtains the specific-length text after the cursor. This API uses an asynchronous callback to return the result.
+     *
+     * @param { number } length - Text length, which cannot be less than 0.
+     * @param { AsyncCallback<string> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **undefined** and **data** is the obtained text. Otherwise, **err** is an error object.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead inputMethodEngine.InputClient#getBackward
+     * @useinstead inputMethodEngine.InputClient.getBackward(length: int, callback: AsyncCallback<string>)
      */
     getBackward(length: number, callback: AsyncCallback<string>): void;
 
     /**
-     * @param { number } length - the length of text which will be got.
-     * @returns { Promise<string> } the promise returned by the function.
+     * Obtains the specific-length text after the cursor. This API uses a promise to return the result.
+     *
+     * @param { number } length - Text length, which cannot be less than 0.
+     * @returns { Promise<string> } Promise used to return the specific-length text after the cursor.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead inputMethodEngine.InputClient#getBackward
+     * @useinstead inputMethodEngine.InputClient.getBackward(length: int, callback: AsyncCallback<string>)
      */
     getBackward(length: number): Promise<string>;
 
     /**
-     * @param { AsyncCallback<EditorAttribute> } callback - the callback of getEditorAttribute.
+     * Obtains the attribute of the edit box. This API uses an asynchronous callback to return the result.
+     *
+     * @param { AsyncCallback<EditorAttribute> } callback - Callback used to return the result. If the operation is
+     *     successful, **err** is **undefined** and **data** is the attribute of the edit box. Otherwise, **err** is an
+     *     error object.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead inputMethodEngine.InputClient#getEditorAttribute
+     * @useinstead inputMethodEngine.InputClient.getEditorAttribute(callback: AsyncCallback<EditorAttribute>)
      */
     getEditorAttribute(callback: AsyncCallback<EditorAttribute>): void;
 
     /**
-     * @returns { Promise<EditorAttribute> } the promise returned by the function.
+     * Obtains the attribute of the edit box. This API uses a promise to return the result.
+     *
+     * @returns { Promise<EditorAttribute> } Promise used to return the attribute of the edit box.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead inputMethodEngine.InputClient#getEditorAttribute
+     * @useinstead inputMethodEngine.InputClient.getEditorAttribute(callback: AsyncCallback<EditorAttribute>)
      */
     getEditorAttribute(): Promise<EditorAttribute>;
   }
 
   /**
-   * Control events about Editor.
+   * You must first use [on('inputStart')]{@link inputMethodEngine.InputMethodAbility. on(type: 'inputStart', callback:
+   * (kbController: KeyboardController, inputClient: InputClient) => void): void;} to obtain a 
+   * **InputClient** instance, and then use this instance to call the following APIs.
    *
-   * @interface InputClient
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9 dynamic
    * @since 23 static
    */
   interface InputClient {
     /**
-     * Send the function of the key.
+     * Sends the function key. This API uses an asynchronous callback to return the result.
      *
-     * @param { int } action - action indicates the function of "enter" key.
-     * @param { AsyncCallback<boolean> } callback - the callback of sendKeyFunction.
-     * @throws { BusinessError } 401 - parameter error. Possible causes: 
+     * @param { int } action - Action of the function key.
+     *     <br>- **0**: invalid key.
+     *     <br>- **1**: confirm key (Enter key).
+     * @param { AsyncCallback<boolean> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **undefined** and **data** is **true**. Otherwise, **err** is an error object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
@@ -1322,11 +1436,14 @@ declare namespace inputMethodEngine {
     sendKeyFunction(action: int, callback: AsyncCallback<boolean>): void;
 
     /**
-     * Send the function of the key.
+     * Sends the function key. This API uses a promise to return the result.
      *
-     * @param { number } action - action indicates the function of "enter" key.
-     * @returns { Promise<boolean> } the promise returned by the function.
-     * @throws { BusinessError } 401 - parameter error. Possible causes: 
+     * @param { int } action - Action of the function key.
+     *     <br>**0**: invalid key.
+     *     <br>**1**: confirm key (Enter key).
+     * @returns { Promise<boolean> } Promise used to return the result. The value **true** means that the operation is
+     *     successful, and **false** means the opposite.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
@@ -1338,11 +1455,12 @@ declare namespace inputMethodEngine {
     sendKeyFunction(action: int): Promise<boolean>;
 
     /**
-     * Delete text forward.
+     * Deletes the fixed-length text before the cursor. This API uses an asynchronous callback to return the result.
      *
-     * @param { int } length - length of text which will be deleted forward. It can't be less than 0.
-     * @param { AsyncCallback<boolean> } callback - the callback of deleteForward.
-     * @throws { BusinessError } 401 - parameter error. Possible causes: 
+     * @param { int } length - Text length, which cannot be less than 0.
+     * @param { AsyncCallback<boolean> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **undefined** and **data** is **true**. Otherwise, **err** is an error object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 12800002 - input method engine error. Possible causes:
      *     1.input method panel not created. 2.the input method application does not subscribe to related events.
@@ -1356,11 +1474,12 @@ declare namespace inputMethodEngine {
     deleteForward(length: int, callback: AsyncCallback<boolean>): void;
 
     /**
-     * Delete text forward.
+     * Deletes the fixed-length text before the cursor. This API uses a promise to return the result.
      *
-     * @param { int } length - length of text which will be deleted forward. It can't be less than 0.
-     * @returns { Promise<boolean> } the promise returned by the function.
-     * @throws { BusinessError } 401 - parameter error. Possible causes: 
+     * @param { int } length - Text length, which cannot be less than 0.
+     * @returns { Promise<boolean> } Promise used to return the result. The value **true** means that the deletion is
+     *     successful, and **false** means the opposite.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 12800002 - input method engine error. Possible causes:
      *     1.input method panel not created. 2.the input method application does not subscribe to related events.
@@ -1374,10 +1493,10 @@ declare namespace inputMethodEngine {
     deleteForward(length: int): Promise<boolean>;
 
     /**
-     * Delete text forward.
+     * Deletes the fixed-length text before the cursor.
      *
-     * @param { int } length - length of text which will be deleted forward. It can't be less than 0.
-     * @throws { BusinessError } 401 - parameter error. Possible causes:
+     * @param { int } length - Text length, which cannot be less than 0.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @throws { BusinessError } 12800002 - input method engine error. Possible causes:
      *     1.input method panel not created. 2.the input method application does not subscribe to related events.
@@ -1391,11 +1510,12 @@ declare namespace inputMethodEngine {
     deleteForwardSync(length: int): void;
 
     /**
-     * Delete text backward.
+     * Deletes the fixed-length text after the cursor. This API uses an asynchronous callback to return the result.
      *
-     * @param { int } length - length of text which will be deleted backward. It can't be less than 0.
-     * @param { AsyncCallback<boolean> } callback - the callback of deleteBackward.
-     * @throws { BusinessError } 401 - parameter error. Possible causes: 
+     * @param { int } length - Text length, which cannot be less than 0.
+     * @param { AsyncCallback<boolean> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **undefined** and **data** is **true**. Otherwise, **err** is an error object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 12800002 - input method engine error. Possible causes:
      *     1.input method panel not created. 2.the input method application does not subscribe to related events.
@@ -1409,11 +1529,12 @@ declare namespace inputMethodEngine {
     deleteBackward(length: int, callback: AsyncCallback<boolean>): void;
 
     /**
-     * Delete text backward.
+     * Deletes the fixed-length text after the cursor. This API uses a promise to return the result.
      *
-     * @param { int } length - length of text which will be deleted backward. It can't be less than 0.
-     * @returns { Promise<boolean> } the promise returned by the function.
-     * @throws { BusinessError } 401 - parameter error. Possible causes: 
+     * @param { int } length - Text length, which cannot be less than 0.
+     * @returns { Promise<boolean> } Promise used to return the result. The value **true** means that the deletion is
+     *     successful, and **false** means the opposite.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 12800002 - input method engine error. Possible causes:
      *     1.input method panel not created. 2.the input method application does not subscribe to related events.
@@ -1427,10 +1548,10 @@ declare namespace inputMethodEngine {
     deleteBackward(length: int): Promise<boolean>;
 
     /**
-     * Delete text backward.
+     * Deletes the fixed-length text after the cursor.
      *
-     * @param { int } length - length of text which will be deleted backward. It can't be less than 0.
-     * @throws { BusinessError } 401 - parameter error. Possible causes:
+     * @param { int } length - Text length, which cannot be less than 0.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @throws { BusinessError } 12800002 - input method engine error. Possible causes:
      *     1.input method panel not created. 2.the input method application does not subscribe to related events.
@@ -1444,11 +1565,12 @@ declare namespace inputMethodEngine {
     deleteBackwardSync(length: int): void;
 
     /**
-     * Insert text into Editor.
+     * Inserts text. This API uses an asynchronous callback to return the result.
      *
-     * @param { string } text - text which will be inserted.
-     * @param { AsyncCallback<boolean> } callback - the callback of insertText.
-     * @throws { BusinessError } 401 - parameter error. Possible causes: 
+     * @param { string } text - Text to insert.
+     * @param { AsyncCallback<boolean> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **undefined** and **data** is **true**. Otherwise, **err** is an error object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 12800002 - input method engine error. Possible causes:
      *     1.input method panel not created. 2.the input method application does not subscribe to related events.
@@ -1462,11 +1584,12 @@ declare namespace inputMethodEngine {
     insertText(text: string, callback: AsyncCallback<boolean>): void;
 
     /**
-     * Insert text into Editor.
+     * Inserts text. This API uses a promise to return the result.
      *
-     * @param { string } text - text which will be inserted.
-     * @returns { Promise<boolean> } the promise returned by the function.
-     * @throws { BusinessError } 401 - parameter error. Possible causes: 
+     * @param { string } text - Text to insert.
+     * @returns { Promise<boolean> } Promise used to return the result. The value **true** means that the insertion is
+     *     successful, and **false** means the opposite.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 12800002 - input method engine error. Possible causes:
      *     1.input method panel not created. 2.the input method application does not subscribe to related events.
@@ -1480,10 +1603,10 @@ declare namespace inputMethodEngine {
     insertText(text: string): Promise<boolean>;
 
     /**
-     * Insert text into Editor.
+     * Inserts text.
      *
-     * @param { string } text - text which will be inserted.
-     * @throws { BusinessError } 401 - parameter error. Possible causes:
+     * @param { string } text - Text to insert.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 12800002 - input method engine error. Possible causes:
      *     1.input method panel not created. 2.the input method application does not subscribe to related events.
@@ -1497,11 +1620,12 @@ declare namespace inputMethodEngine {
     insertTextSync(text: string): void;
 
     /**
-     * Get the text before cursor.
+     * Obtains the specific-length text before the cursor. This API uses an asynchronous callback to return the result.
      *
-     * @param { int } length - the length of text which will be got. It can't be less than 0.
-     * @param { AsyncCallback<string> } callback - the callback of getForward.
-     * @throws { BusinessError } 401 - parameter error. Possible causes: 
+     * @param { int } length - Text length, which cannot be less than 0.
+     * @param { AsyncCallback<string> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **undefined** and **data** is the obtained text. Otherwise, **err** is an error object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
@@ -1515,11 +1639,11 @@ declare namespace inputMethodEngine {
     getForward(length: int, callback: AsyncCallback<string>): void;
 
     /**
-     * Get the text before cursor.
+     * Obtains the specific-length text before the cursor. This API uses a promise to return the result.
      *
-     * @param { int } length - the length of text which will be got. It can't be less than 0.
-     * @returns { Promise<string> } the promise returned by the function.
-     * @throws { BusinessError } 401 - parameter error. Possible causes: 
+     * @param { int } length - Text length, which cannot be less than 0.
+     * @returns { Promise<string> } Promise used to return the specific-length text before the cursor.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
@@ -1533,11 +1657,11 @@ declare namespace inputMethodEngine {
     getForward(length: int): Promise<string>;
 
     /**
-     * Get the text before cursor.
+     * Obtains the specific-length text before the cursor.
      *
-     * @param { int } length - the length of text which will be got. It can't be less than 0.
-     * @returns { string } the text string before cursor.
-     * @throws { BusinessError } 401 - parameter error. Possible causes:
+     * @param { int } length - Text length, which cannot be less than 0.
+     * @returns { string } Specific-length text before the cursor.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
@@ -1551,11 +1675,12 @@ declare namespace inputMethodEngine {
     getForwardSync(length: int): string;
 
     /**
-     * Get the text after cursor.
+     * Obtains the specific-length text after the cursor. This API uses an asynchronous callback to return the result.
      *
-     * @param { int } length - the length of text which will be got.It can't be less than 0.
-     * @param { AsyncCallback<string> } callback - the callback of getBackward.
-     * @throws { BusinessError } 401 - parameter error. Possible causes: 
+     * @param { int } length - Text length, which cannot be less than 0.
+     * @param { AsyncCallback<string> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **undefined** and **data** is the obtained text. Otherwise, **err** is an error object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
@@ -1569,11 +1694,11 @@ declare namespace inputMethodEngine {
     getBackward(length: int, callback: AsyncCallback<string>): void;
 
     /**
-     * Get the text after cursor.
+     * Obtains the specific-length text after the cursor. This API uses a promise to return the result.
      *
-     * @param { int } length - the length of text which will be got.It can't be less than 0.
-     * @returns { Promise<string> } the promise returned by the function.
-     * @throws { BusinessError } 401 - parameter error. Possible causes: 
+     * @param { int } length - Text length, which cannot be less than 0.
+     * @returns { Promise<string> } Promise used to return the specific-length text after the cursor.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
@@ -1587,11 +1712,11 @@ declare namespace inputMethodEngine {
     getBackward(length: int): Promise<string>;
 
     /**
-     * Get the text after cursor.
+     * Obtains the specific-length text after the cursor.
      *
-     * @param { int } length - the length of text which will be got. It can't be less than 0.
-     * @returns { string } the text string after cursor.
-     * @throws { BusinessError } 401 - parameter error. Possible causes:
+     * @param { int } length - Text length, which cannot be less than 0.
+     * @returns { string } Specific-length text after the cursor.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
@@ -1605,9 +1730,11 @@ declare namespace inputMethodEngine {
     getBackwardSync(length: int): string;
 
     /**
-     * Get attribute about editor.
+     * Obtains the attribute of the edit box. This API uses an asynchronous callback to return the result.
      *
-     * @param { AsyncCallback<EditorAttribute> } callback - the callback of getEditorAttribute.
+     * @param { AsyncCallback<EditorAttribute> } callback - Callback used to return the result. If the operation is
+     *     successful, **err** is **undefined** and **data** is the attribute of the edit box. Otherwise, **err** is an
+     *     error object.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
      *     3.ipc failed due to the large amount of data transferred or other reasons.
@@ -1629,9 +1756,9 @@ declare namespace inputMethodEngine {
     getEditorAttribute(callback: AsyncCallback<EditorAttribute | null>): void;
 
     /**
-     * Get attribute about editor.
+     * Obtains the attribute of the edit box. This API uses a promise to return the result.
      *
-     * @returns { Promise<EditorAttribute> } the promise returned by the function.
+     * @returns { Promise<EditorAttribute> } Promise used to return the attribute of the edit box.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
      *     3.ipc failed due to the large amount of data transferred or other reasons.
@@ -1653,9 +1780,9 @@ declare namespace inputMethodEngine {
     getEditorAttribute(): Promise<EditorAttribute | null>;
 
     /**
-     * Get attribute about editor.
+     * Obtains the attribute of the edit box.
      *
-     * @returns { EditorAttribute } the attribute of editor.
+     * @returns { EditorAttribute } Attribute information.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
      *     3.ipc failed due to the large amount of data transferred or other reasons.
@@ -1677,11 +1804,16 @@ declare namespace inputMethodEngine {
     getEditorAttributeSync(): EditorAttribute | null;
 
     /**
-     * Move cursor from input method.
+     * Moves the cursor. This API uses an asynchronous callback to return the result.
      *
-     * @param { int } direction - Indicates the distance of cursor to be moved. It can't be less than 0.
-     * @param { AsyncCallback<void> } callback - the callback of moveCursor.
-     * @throws { BusinessError } 401 - parameter error. Possible causes:
+     * @param { int } direction - Direction in which the cursor moves.
+     *     <br>- **1**: upward.
+     *     <br>- **2**: downward.
+     *     <br>- **3**: leftward.
+     *     <br>- **4**: rightward. which cannot be less than 0.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **undefined**. Otherwise, **err** is an error object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
@@ -1693,11 +1825,15 @@ declare namespace inputMethodEngine {
     moveCursor(direction: int, callback: AsyncCallback<void>): void;
 
     /**
-     * Move cursor from input method.
+     * Moves the cursor. This API uses a promise to return the result.
      *
-     * @param { int } direction - Indicates the distance of cursor to be moved. It can't be less than 0.
-     * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 401 - parameter error. Possible causes:
+     * @param { int } direction - Direction in which the cursor moves.
+     *     <br>- **1**: upward.
+     *     <br>- **2**: downward.
+     *     <br>- **3**: leftward.
+     *     <br>- **4**: rightward. which cannot be less than 0.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
@@ -1709,11 +1845,15 @@ declare namespace inputMethodEngine {
     moveCursor(direction: int): Promise<void>;
 
     /**
-     * Move cursor from input method.
+     * Moves the cursor.
      *
-     * @param { int } direction - Indicates the distance of cursor to be moved. It can't be less than 0.
-     * @throws { BusinessError } 401 - parameter error. Possible causes:
-     *    1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+     * @param { int } direction - Direction in which the cursor moves.
+     *     <br>- **1**: upward.
+     *     <br>- **2**: downward.
+     *     <br>- **3**: leftward.
+     *     <br>- **4**: rightward. which cannot be less than 0.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
      *     3.ipc failed due to the large amount of data transferred or other reasons.
@@ -1724,11 +1864,12 @@ declare namespace inputMethodEngine {
     moveCursorSync(direction: int): void;
 
     /**
-     * Select text in editor by range.
+     * Selects text based on the specified range. This API uses an asynchronous callback to return the result.
      *
-     * @param { Range } range - indicates the range of selected text in editor.
-     * @param { AsyncCallback<void> } callback - the callback of selectByRange.
-     * @throws { BusinessError } 401 - parameter error. Possible causes:
+     * @param { Range } range - Range of the selected text.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the selection event is sent,
+     *     **err** is **undefined**; otherwise, **err** is an error object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
@@ -1740,12 +1881,12 @@ declare namespace inputMethodEngine {
     selectByRange(range: Range, callback: AsyncCallback<void>): void;
 
     /**
-     * Select text in editor by range.
+     * Selects text based on the specified range. This API uses a promise to return the result.
      *
-     * @param { Range } range - indicates the range of selected text in editor.
-     * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 401 - parameter error. Possible causes:
-     *    1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+     * @param { Range } range - Range of the selected text.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
      *     3.ipc failed due to the large amount of data transferred or other reasons.
@@ -1756,10 +1897,10 @@ declare namespace inputMethodEngine {
     selectByRange(range: Range): Promise<void>;
 
     /**
-     * Select text in editor by range.
+     * Selects text based on the specified range.
      *
-     * @param { Range } range - indicates the range of selected text in editor.
-     * @throws { BusinessError } 401 - parameter error. Possible causes:
+     * @param { Range } range - Range of the selected text.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
@@ -1771,11 +1912,12 @@ declare namespace inputMethodEngine {
     selectByRangeSync(range: Range): void;
 
     /**
-     * Select text in editor by cursor movement.
+     * Selects text based on the cursor movement direction. This API uses an asynchronous callback to return the result.
      *
-     * @param { Movement } movement - indicates the movement of cursor when selecting.
-     * @param { AsyncCallback<void> } callback - the callback of selectByMovement.
-     * @throws { BusinessError } 401 - parameter error. Possible causes:
+     * @param { Movement } movement - Direction in which the cursor moves when the text is selected.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the selection event is sent,
+     *     **err** is **undefined**; otherwise, **err** is an error object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
@@ -1787,11 +1929,11 @@ declare namespace inputMethodEngine {
     selectByMovement(movement: Movement, callback: AsyncCallback<void>): void;
 
     /**
-     * Select text in editor by cursor movement.
+     * Selects text based on the cursor movement direction. This API uses a promise to return the result.
      *
-     * @param { Movement } movement - indicates the movement of cursor when selecting.
-     * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 401 - parameter error. Possible causes:
+     * @param { Movement } movement - Direction in which the cursor moves when the text is selected.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
@@ -1803,10 +1945,10 @@ declare namespace inputMethodEngine {
     selectByMovement(movement: Movement): Promise<void>;
 
     /**
-     * Select text in editor by cursor movement.
+     * Selects text based on the cursor movement direction.
      *
-     * @param { Movement } movement - indicates the movement of cursor when selecting.
-     * @throws { BusinessError } 401 - parameter error. Possible causes:
+     * @param { Movement } movement - Direction in which the cursor moves when the text is selected.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
@@ -1818,10 +1960,11 @@ declare namespace inputMethodEngine {
     selectByMovementSync(movement: Movement): void;
 
     /**
-     * Get the index number of text at cursor.
+     * Obtains the index of the text where the cursor is located. This API uses an asynchronous callback to return the 
+     * result.
      *
-     * @param { AsyncCallback<int> } callback - the callback of getTextIndexAtCursor, number represents the index
-     *        number of text at cursor.
+     * @param { AsyncCallback<int> } callback - Callback used to return the result. If the text index is obtained,
+     *     **err** is **undefined**; otherwise, **err** is an error object.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
      *     3.ipc failed due to the large amount of data transferred or other reasons.
@@ -1834,10 +1977,9 @@ declare namespace inputMethodEngine {
     getTextIndexAtCursor(callback: AsyncCallback<int>): void;
 
     /**
-     * Get the index number of text at cursor.
+     * Obtains the index of the text where the cursor is located. This API uses a promise to return the result.
      *
-     * @returns { Promise<int> } the promise returned by the function, number represents the index number of text
-     *          at cursor.
+     * @returns { Promise<int> } Promise used to return the result.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
      *     3.ipc failed due to the large amount of data transferred or other reasons.
@@ -1850,9 +1992,9 @@ declare namespace inputMethodEngine {
     getTextIndexAtCursor(): Promise<int>;
 
     /**
-     * Get the index number of text at cursor.
+     * Obtains the index of the text where the cursor is located.
      *
-     * @returns { int } the index number of text at cursor.
+     * @returns { int } Index of the text where the cursor is located.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
      *     3.ipc failed due to the large amount of data transferred or other reasons.
@@ -1865,11 +2007,24 @@ declare namespace inputMethodEngine {
     getTextIndexAtCursorSync(): int;
 
     /**
-     * Send extend action code.
+     * Sends an extended edit action. This API uses an asynchronous callback to return the result.
+     * 
+     * > **NOTE**
+     * >
+     * > The input method applications call this API to send extended edit actions to the edit box. The edit box listens
+     * > for the corresponding event using 
+     * > [on('handleExtendAction')]{@link @ohos.inputMethod:inputMethod.InputMethodController.on(type: 'handleExtendAction',
+     *  callback: (action: ExtendAction) => void): void} for further processing.
+     * >
+     * > When the edit box responds to the **PASTE** command of [ExtendAction]{@link inputMethodEngine.ExtendAction}, 
+     * > the edit box application needs to apply for the 
+     * > [ohos.permission.READ_PASTEBOARD](docroot://security/AccessToken/restricted-permissions.md#ohospermissionread_pasteboard)
+     * > permission.
      *
-     * @param { ExtendAction } action - action code which will be send.
-     * @param { AsyncCallback<void> } callback - the callback of sendExtendAction.
-     * @throws { BusinessError } 401 - parameter error. Possible causes:
+     * @param { ExtendAction } action - Extended edit action to send.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **undefined**. Otherwise, **err** is an error object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
@@ -1883,11 +2038,24 @@ declare namespace inputMethodEngine {
     sendExtendAction(action: ExtendAction, callback: AsyncCallback<void>): void;
 
     /**
-     * Send extend action code.
+     * Sends an extended edit action. This API uses a promise to return the result.
+     * 
+     * > **NOTE**
+     * >
+     * > The input method applications call this API to send extended edit actions to the edit box. The edit box listens
+     * > for the corresponding event using 
+     * > [on('handleExtendAction')]{@link @ohos.inputMethod:inputMethod.InputMethodController.on(type: 'handleExtendAction',
+     *  callback: (action: ExtendAction) => void): void;} for
+     * > further processing.
+     * >
+     * > When the edit box responds to the **PASTE** command of [ExtendAction]{@link inputMethodEngine.ExtendAction}, 
+     * > the edit box application needs to apply for the 
+     * > [ohos.permission.READ_PASTEBOARD](docroot://security/AccessToken/restricted-permissions.md#ohospermissionread_pasteboard)
+     * > permission.
      *
-     * @param { ExtendAction } action - action code which will be send.
-     * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 401 - parameter error. Possible causes:
+     * @param { ExtendAction } action - Extended edit action to send.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
@@ -1901,11 +2069,20 @@ declare namespace inputMethodEngine {
     sendExtendAction(action: ExtendAction): Promise<void>;
 
     /**
-     * Send private command.This function can only be called by default input method configured by system.
+     * Sends private data to the system component that needs to communicate with the input method application. This API 
+     * uses a promise to return the result.
+     * 
+     * > **NOTE**
+     * >
+     * > - The private data channel allows communication between the system preset input method application and specific
+     * > system components (such as a text box or a home screen application). It is usually used to implement custom 
+     * > input on a specific device.
+     * >
+     * > - The total size of the private data is 32 KB, and the maximum number of private data records is 5.
      *
-     * @param { Record<string, CommandDataType> } commandData - command data which will be send.Max size 32KB.
-     * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 401 - parameter error. Possible causes:
+     * @param { Record<string, CommandDataType> } commandData - Private data to send.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
@@ -1918,9 +2095,15 @@ declare namespace inputMethodEngine {
     sendPrivateCommand(commandData: Record<string, CommandDataType>): Promise<void>;
 
     /**
-     * Get info of the calling window.
+     * Obtains information about the application window, in which the input box that starts an input method is located. 
+     * This API uses a promise to return the result.
+     * 
+     * > **NOTE**
+     * >
+     * > This API applies only to the input method applications that use [Panel]{@link inputMethodEngine.Panel} as the 
+     * > soft keyboard window.
      *
-     * @returns { Promise<WindowInfo> } the promise returned by the function.
+     * @returns { Promise<WindowInfo> } Promise used to return the information obtained.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
      *     3.ipc failed due to the large amount of data transferred or other reasons.
@@ -1946,13 +2129,23 @@ declare namespace inputMethodEngine {
     getCallingWindowInfo(): Promise<WindowInfo | null>;
 
     /**
-     * Insert the provided text as preview text.
+     * Sets the preview text. This API uses a promise to return the result.
      *
-     * @param { string } text - the text to be previewed.
-     * @param { Range } range - the range of the text to be replaced by the preview text.
-     * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 401 - parameter error. Possible causes:
-     *    1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+     * @param { string } text - Preview text to set.
+     * @param { Range } range - Range of the preview text.
+     *     <br>- If the value is { start: -1, end: -1 }, **text**
+     *     replaces the entire text in the current preview area by default.
+     *     <br>- If **start** is equal to **end**,
+     *     **text** is inserted into the cursor position specified by **start**.
+     *     <br>- If **start** is not equal to **end**, **text** replaces the text of the specified range.
+     *     <br>- If the values of **start** and **end** are negative values, a parameter error is returned.
+     *     <br>- If there is preview text in the text box, the value of
+     *     **range** cannot exceed the range of the preview text. Otherwise, a parameter error is returned.
+     *     <br>- If there is no preview text in the text box, the value of **range** cannot exceed the text range of
+     *     the text box. Otherwise, a parameter error is returned.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
      *     3.ipc failed due to the large amount of data transferred or other reasons.
@@ -1964,11 +2157,22 @@ declare namespace inputMethodEngine {
     setPreviewText(text: string, range: Range): Promise<void>;
 
     /**
-     * Insert the provided text as preview text.
+     * Sets the preview text.
      *
-     * @param { string } text - the text to be previewed.
-     * @param { Range } range - the range of the text to be replaced by the preview text.
-     * @throws { BusinessError } 401 - parameter error. Possible causes:
+     * @param { string } text - Preview text to set.
+     * @param { Range } range - Range of the preview text.
+     *     <br>- If the value is { start: -1, end: -1 }, **text**
+     *     replaces the entire text in the current preview area by default.
+     *     <br>- If **start** is equal to **end**,
+     *     **text** is inserted into the cursor position specified by **start**.
+     *     <br>- If **start** is not equal to
+     *     **end**, **text** replaces the text of the specified range.
+     *     <br>- If the values of **start** and **end** are negative values, a parameter error is returned.
+     *     <br>- If there is preview text in the text box, the value of
+     *     **range** cannot exceed the range of the preview text. Otherwise, a parameter error is returned.
+     *     <br>- If there is no preview text in the text box, the value of **range** cannot exceed the text range of
+     *     the text box. Otherwise, a parameter error is returned.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
@@ -1981,9 +2185,13 @@ declare namespace inputMethodEngine {
     setPreviewTextSync(text: string, range: Range): void;
 
     /**
-     * Finish the text preview.
+     * Finishes the text preview. This API uses a promise to return the result.
+     * 
+     * > **NOTE**
+     * >
+     * > If there is preview text in the current text box, calling this API will display the preview text on the screen.
      *
-     * @returns { Promise<void> } the promise returned by the function.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
      *     3.ipc failed due to the large amount of data transferred or other reasons.
@@ -1995,7 +2203,11 @@ declare namespace inputMethodEngine {
     finishTextPreview(): Promise<void>;
 
     /**
-     * Finish the text preview.
+     * Finishes the text preview.
+     * 
+     * > **NOTE**
+     * >
+     * > If there is preview text in the current text box, calling this API will display the preview text on the screen.
      *
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
@@ -2008,12 +2220,22 @@ declare namespace inputMethodEngine {
     finishTextPreviewSync(): void;
 
     /**
-     * Send message to edit box.
+     * Sends the custom communication to the edit box application attached to the input method application. This API 
+     * uses a promise to return the result.
+     * 
+     * > **NOTE**
+     * >
+     * > This API can be called only when the edit box is attached to the input method and enter the edit mode, and the 
+     * > input method application is in full experience mode.
+     * >
+     * > The maximum length of **msgId** is 256 B, and the maximum length of **msgParam** is 128 KB.
      *
-     * @param { string } msgId - the identifier of the message. Max size is 256B.
-     * @param { ?ArrayBuffer } [msgParam] - the param of the custom message. Max size is 128KB.
-     * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 401 - parameter error. Possible causes:
+     * @param { string } msgId - Identifier of the custom data to be sent to the edit box application attached to the
+     *     input method application.
+     * @param { ?ArrayBuffer } [msgParam] - Message body of the custom data to be sent to the edit box application
+     *     attached to the input method application.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1. Incorrect parameter types. 2. Incorrect parameter length.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
@@ -2029,29 +2251,39 @@ declare namespace inputMethodEngine {
     sendMessage(msgId: string, msgParam?: ArrayBuffer): Promise<void>;
 
     /**
-     * Start receiving message from edit box.
+     * Registers or unregisters MessageHandler.
+     * 
+     * > **NOTE**
+     * >
+     * > The [MessageHandler]{@link inputMethodEngine.MessageHandler} object is globally unique. After multiple 
+     * > registrations, only the last registered object is valid and retained, and the 
+     * > [onTerminated]{@link inputMethodEngine.MessageHandler.onTerminated()} callback of the penultimate registered 
+     * > object is triggered.
+     * >
+     * > If no parameter is set, unregister [MessageHandler]{@link inputMethodEngine.MessageHandler}. Its 
+     * > [onTerminated]{@link inputMethodEngine.MessageHandler.onTerminated()} callback will be triggered.
      *
-     * @param { ?MessageHandler } [msgHandler] - optional, the handler of the custom message.
-     * @throws { BusinessError } 401 - parameter error. Possible causes: 1. Incorrect parameter types.
+     * @param { ?MessageHandler } [msgHandler] - This object receives custom communication data from the edit box
+     *     application attached to the input method application through
+     *     [onMessage]{@link inputMethodEngine.MessageHandler.onMessage(msgId: string, msgParam?: ArrayBuffer)} and
+     *     receives a message for terminating the subscription to this object through
+     *     [onTerminated]{@link inputMethodEngine.MessageHandler.onTerminated()}.
+     *     <br>If no parameter is set, unregister
+     *     [MessageHandler]{@link inputMethodEngine.MessageHandler}. Its
+     *     [onTerminated]{@link inputMethodEngine.MessageHandler.onTerminated()} callback will be triggered.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 15 dynamic
      * @since 23 static
      */
     recvMessage(msgHandler?: MessageHandler): void;
     /**
-     * Get input attachOptions.
+     * Obtains the additional options for binding an input method.
      *
-     * @returns { AttachOptions } return attach options.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @returns { AttachOptions } Additional options for binding an input method.
+     * @throws { BusinessError } 801 - Capability not supported. [since 19 - 19]
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 19
-     */
-    /**
-     * Get input attachOptions.
-     *
-     * @returns { AttachOptions } return attach options.
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 20 dynamic
+     * @since 19 dynamic
      */
     getAttachOptions(): AttachOptions;
 
@@ -2065,28 +2297,26 @@ declare namespace inputMethodEngine {
     getAttachOptions(): AttachOptions | null;
 
     /**
-     * Subscribe 'attachOptionsDidChange' event.
+     * Subscribes to the event indicating that the additional options for binding an input method are changed. This API 
+     * uses an asynchronous callback to return the result.
      *
-     * @param { 'attachOptionsDidChange' } type - the type of subscribe event.
-     * @param { Callback<AttachOptions> } callback - the callback of on('attachOptionsDidChange').
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @param { 'attachOptionsDidChange' } type - Additional option change event when the input method is bound. The
+     *     value is fixed to **'attachOptionsDidChange'**.
+     * @param { Callback<AttachOptions> } callback - Callback used to return the additional options for binding an input
+     *     method.
+     * @throws { BusinessError } 801 - Capability not supported. [since 19 - 19]
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 19
-     */
-    /**
-     * Subscribe 'attachOptionsDidChange' event.
-     *
-     * @param { 'attachOptionsDidChange' } type - the type of subscribe event.
-     * @param { Callback<AttachOptions> } callback - the callback of on('attachOptionsDidChange').
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 20 dynamic
+     * @since 19 dynamic
      */
     on(type: 'attachOptionsDidChange', callback: Callback<AttachOptions>): void;
     /**
-     * Unsubscribe 'attachOptionsDidChange' event.
+     * Unsubscribes from the event indicating that additional options for binding an input method are changed. This API 
+     * uses an asynchronous callback to return the result.
      *
-     * @param { 'attachOptionsDidChange' } type - the type of unsubscribe event.
-     * @param { Callback<AttachOptions> } [callback] - optional, the callback of off('attachOptionsDidChange').
+     * @param { 'attachOptionsDidChange' } type - Additional option change event when the input method is bound. The
+     *     value is fixed to **'attachOptionsDidChange'**.
+     * @param { Callback<AttachOptions> } [callback] - Callback to unregister. If this parameter is not specified, this
+     *     API unregisters all callbacks for the specified type by default.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 19 dynamic
      */
@@ -2111,79 +2341,100 @@ declare namespace inputMethodEngine {
   }
 
   /**
-   * @interface KeyboardDelegate
+   * In the following API examples, you must first use 
+   * [getKeyboardDelegate]{@link inputMethodEngine.getKeyboardDelegate()} to obtain a **KeyboardDelegate** instance, and
+   * then call the APIs using the obtained instance.
+   *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8 dynamic
    * @since 23 static
    */
   interface KeyboardDelegate {
     /**
-     * Subscribe key up or down event
+     * Enables listening for a physical keyboard event. This API uses an asynchronous callback to return the result.
      *
-     * @param { 'keyDown' | 'keyUp' } type - indicates the type of subscribe event.
-     * @param { function } callback - indicates the callback function of on('keyDown'|'keyUp').
+     * @param { 'keyDown' | 'keyUp' } type - Event type.
+     *     <br>- The value **'keyDown'** indicates the keydown event.
+     *     <br>- The value **'keyUp'** indicates the keyup event.
+     * @param { function } callback - Callback used to return the key information. If the event is consumed by the event
+     *     subscriber, **true** is returned. Otherwise, **false** is returned.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8 dynamic
      */
     on(type: 'keyDown' | 'keyUp', callback: (event: KeyEvent) => boolean): void;
 
     /**
-     * Unsubscribe key up or down event
+     * Disables listening for a physical keyboard event. This API uses an asynchronous callback to return the result.
      *
-     * @param { 'keyDown' | 'keyUp' } type - indicates the type of unsubscribe event.
-     * @param { function } [callback] - optional, indicates the callback function of off('keyDown'|'keyUp').
+     * @param { 'keyDown' | 'keyUp' } type - Event type.
+     *     <br>- The value **'keyDown'** indicates the keydown event.
+     *     <br>- The value **'keyUp'** indicates the keyup event.
+     * @param { function } [callback] - Callback to unregister. If this parameter is not specified, this API unregisters
+     *     all callbacks for the specified type.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8 dynamic
      */
     off(type: 'keyDown' | 'keyUp', callback?: (event: KeyEvent) => boolean): void;
 
     /**
-     * Subscribe key event.
+     * Enables listening for a keyboard event. This API uses an asynchronous callback to return the result.
      *
-     * @param { 'keyEvent' } type - indicates the type of subscribe event.
-     * @param { function } callback - indicates the callback function of on('keyEvent').
-     *     If the key is processed by event subscriber, callback should be return true, else return false.
+     * @param { 'keyEvent' } type - Event type, which is **'keyEvent'**.
+     * @param { function } callback - Callback used to return the result. The input parameter is the key event
+     *     information and the return value is of the Boolean type.
+     *     <br>- Input parameter: [InputKeyEvent]{@link @ohos.multimodalInput.keyEvent:KeyEvent}.
+     *     <br>- If the event is consumed by the event
+     *     subscriber, **true** is returned. Otherwise, **false** is returned.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
      */
     on(type: 'keyEvent', callback: (event: InputKeyEvent) => boolean): void;
 
     /**
-     * Unsubscribe key event.
+     * Disables listening for a keyboard event. This API uses an asynchronous callback to return the result.
      *
-     * @param { 'keyEvent' } type - indicates the type of unsubscribe event.
-     * @param { function } [callback] - optional, indicates the callback function of off('keyEvent').
+     * @param { 'keyEvent' } type - Event type, which is **'keyEvent'**.
+     * @param { function } [callback] - Callback to unregister. If this parameter is not specified, this API unregisters
+     *     all callbacks for the specified type.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
      */
     off(type: 'keyEvent', callback?: (event: InputKeyEvent) => boolean): void;
 
     /**
-     * Subscribe cursor context change
+     * Enables listening for the cursor change event. This API uses an asynchronous callback to return the result.
      *
-     * @param { 'cursorContextChange' } type - indicates the type of subscribe event.
-     * @param { function } callback - indicates the callback function of on('cursorContextChange').
+     * @param { 'cursorContextChange' } type - Event type, which is **'cursorContextChange'**.
+     * @param { function } callback - Callback used to return the cursor information.
+     *     <br>- **x**: x coordinate of the top of the cursor.
+     *     <br>- **y**: y coordinate of the bottom of the cursor.
+     *     <br>- **height**: height of the cursor.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8 dynamic
      */
     on(type: 'cursorContextChange', callback: (x: number, y: number, height: number) => void): void;
 
     /**
-     * Unsubscribe cursor context change
+     * Disables listening for cursor context changes. This API uses an asynchronous callback to return the result.
      *
-     * @param { 'cursorContextChange' } type - indicates the type of unsubscribe event.
-     * @param { function } [callback] - optional, indicates the callback function of off('cursorContextChange').
+     * @param { 'cursorContextChange' } type - Event type, which is **'cursorContextChange'**.
+     * @param { function } [callback] - Callback to unregister. If this parameter is not specified, this API unregisters
+     *     all callbacks for the specified type.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8 dynamic
      */
     off(type: 'cursorContextChange', callback?: (x: number, y: number, height: number) => void): void;
 
     /**
-     * Subscribe selection change
+     * Enables listening for the text selection change event. This API uses an asynchronous callback to return the 
+     * result.
      *
-     * @param { 'selectionChange' } type - indicates the type of subscribe event.
-     * @param { function } callback - indicates the callback function
-     * of on('selectionChange').
+     * @param { 'selectionChange' } type - Event type, which is **'selectionChange'**.
+     * @param { function } callback - Callback used to return the text selection information.
+     *     <br>- **oldBegin**: start of the selected text before the change.
+     *     <br>- **oldEnd**: end of the selected text before the change.
+     *     <br>- **newBegin**: start of the selected text after the change.
+     *     <br>- **newEnd**: end of the selected text after the change.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8 dynamic
      */
@@ -2193,11 +2444,12 @@ declare namespace inputMethodEngine {
     ): void;
 
     /**
-     * Unsubscribe selection change
+     * Disables listening for the text selection change event. This API uses an asynchronous callback to return the 
+     * result.
      *
-     * @param { 'selectionChange' } type - indicates the type of unsubscribe event.
-     * @param { function } [callback] - optional,
-     * indicates the callback function of off('selectionChange').
+     * @param { 'selectionChange' } type - Event type, which is **'selectionChange'**.
+     * @param { function } [callback] - Callback to unregister. If this parameter is not specified, this API unregisters
+     *     all callbacks for the specified type.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8 dynamic
      */
@@ -2207,40 +2459,44 @@ declare namespace inputMethodEngine {
     ): void;
 
     /**
-     * Subscribe text change
+     * Enables listening for the text change event. This API uses an asynchronous callback to return the result.
      *
-     * @param { 'textChange' } type - indicates the type of subscribe event.
-     * @param { function } callback - indicates the callback function of on('textChange').
+     * @param { 'textChange' } type - Event type, which is **'textChange'**.
+     * @param { function } callback - Callback used to return the text content.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8 dynamic
      */
     on(type: 'textChange', callback: (text: string) => void): void;
 
     /**
-     * Unsubscribe text change
+     * Disables listening for the text change event. This API uses an asynchronous callback to return the result.
      *
-     * @param { 'textChange' } type - indicates the type of unsubscribe event.
-     * @param { function } [callback] - optional, indicates the callback function of off('textChange').
+     * @param { 'textChange' } type - Event type, which is **'textChange'**.
+     * @param { function } [callback] - Callback to unregister. If this parameter is not specified, this API unregisters
+     *     all callbacks for the specified type.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8 dynamic
      */
     off(type: 'textChange', callback?: (text: string) => void): void;
 
     /**
-     * Subscribe input text attribute change
+     * Enables listening for the edit box attribute change event. This API uses an asynchronous callback to return the 
+     * result.
      *
-     * @param { 'editorAttributeChanged' } type - indicates the type of subscribe event.
-     * @param { function } callback - indicates the callback function of on('editorAttributeChanged').
+     * @param { 'editorAttributeChanged' } type - Event type, which is **'editorAttributeChanged'**.
+     * @param { function } callback - Callback used to return the changed edit box attribute.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
      */
     on(type: 'editorAttributeChanged', callback: (attr: EditorAttribute) => void): void;
 
     /**
-     * Unsubscribe input text attribute change
+     * Disables listening for the edit box attribute change event. This API uses an asynchronous callback to return the 
+     * result.
      *
-     * @param { 'editorAttributeChanged' } type - indicates the type of subscribe event.
-     * @param { function } [callback] - indicates the callback function of off('editorAttributeChanged').
+     * @param { 'editorAttributeChanged' } type - Event type, which is **'editorAttributeChanged'**.
+     * @param { function } [callback] - Callback used for unsubscription. If this parameter is not specified, this API
+     *     unregisters all callbacks for the specified type by default.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
      */
@@ -2311,7 +2567,8 @@ declare namespace inputMethodEngine {
     /**
      * Unsubscribe cursor context change.
      *
-     * @param { CursorContextChangeCallback } [callback] - optional, the callback called when cursor information changes.
+     * @param { CursorContextChangeCallback } [callback] - optional, the callback called when cursor information
+     *     changes.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 23 static
      */
@@ -2370,9 +2627,8 @@ declare namespace inputMethodEngine {
   }
 
   /**
-   * Defines the immersive mode.
+   * Enumerates the immersive modes of the input method.
    *
-   * @enum { int }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 15 dynamic
    * @since 23 static
@@ -2388,7 +2644,7 @@ declare namespace inputMethodEngine {
     NONE_IMMERSIVE = 0,
 
     /**
-     * Immersive mode.
+     * Immersive mode of the input method.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 15 dynamic
@@ -2398,7 +2654,7 @@ declare namespace inputMethodEngine {
 
     /**
      * Light immersive mode.
-     * 
+     *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 15 dynamic
      * @since 23 static
@@ -2407,7 +2663,7 @@ declare namespace inputMethodEngine {
 
     /**
      * Dark immersive mode.
-     * 
+     *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 15 dynamic
      * @since 23 static
@@ -2416,9 +2672,8 @@ declare namespace inputMethodEngine {
   }
 
   /**
-   *  Gradient mode.
+   * Enumerates the gradient modes of the input method.
    *
-   * @enum { int }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 20 dynamic
    * @since 23 static
@@ -2426,6 +2681,7 @@ declare namespace inputMethodEngine {
   export enum GradientMode {
     /**
      * Disable gradient mode.
+     *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 20 dynamic
      * @since 23 static
@@ -2433,6 +2689,7 @@ declare namespace inputMethodEngine {
     NONE = 0,
     /**
      * Linear gradient mode.
+     *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 20 dynamic
      * @since 23 static
@@ -2441,9 +2698,8 @@ declare namespace inputMethodEngine {
   }
 
   /**
-   *  Fluid light mode.
+   * Enumerates the fluid light modes of the input method.
    *
-   * @enum { int }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @systemapi
    * @since 20 dynamic
@@ -2452,6 +2708,7 @@ declare namespace inputMethodEngine {
   export enum FluidLightMode {
     /**
      * Disable fluid light mode.
+     *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
      * @since 20 dynamic
@@ -2460,7 +2717,9 @@ declare namespace inputMethodEngine {
     NONE = 0,
 
     /**
-     * When the background fluid light mode is enabled, the system panel turns transparent. The fluid light effect must be implemented by the application.
+     * When the background fluid light mode is enabled, the system panel turns transparent. The fluid light effect must 
+     * be implemented by the application.
+     *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
      * @since 20 dynamic
@@ -2470,9 +2729,8 @@ declare namespace inputMethodEngine {
   }
 
   /**
-   * Defines the immersive effect.
+   * Describes the immersive effect.
    *
-   * @interface ImmersiveEffect
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 20 dynamic
    * @since 23 static
@@ -2480,9 +2738,8 @@ declare namespace inputMethodEngine {
   interface ImmersiveEffect {
 
     /**
-     * The height of the gradient effect.
+     * Gradient height, which cannot exceed 15% of the screen height.
      *
-     * @type { int }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 20 dynamic
      * @since 23 static
@@ -2490,9 +2747,9 @@ declare namespace inputMethodEngine {
     gradientHeight: int;
 
     /**
-     * Gradient mode.
+     * Gradient mode. If this attribute is not specified or is set to an invalid value, the gradient mode is not used by
+     * default.
      *
-     * @type { GradientMode }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 20 dynamic
      * @since 23 static
@@ -2500,9 +2757,11 @@ declare namespace inputMethodEngine {
     gradientMode: GradientMode;
 
     /**
-     * Fluid light mode.
+     * Fluid light mode. If this attribute is not specified or is set to an invalid value, the fluid light mode is not 
+     * used by default.
+     * 
+     * This attribute is available only to system applications.
      *
-     * @type { ?FluidLightMode }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
      * @since 20 dynamic
@@ -2512,23 +2771,24 @@ declare namespace inputMethodEngine {
   }
 
   /**
-   *  RequestKeyboardReason of input click. 
+   * Enumerates the reasons for requesting keyboard input.
    *
-   * @enum { int }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 19 dynamic
    * @since 23 static
    */
   export enum RequestKeyboardReason {
     /**
-      * The request keyboard reason is NONE.
-      * @syscap SystemCapability.MiscServices.InputMethodFramework
-      * @since 19 dynamic
-      * @since 23 static
-      */
+     * The request keyboard reason is NONE.
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 19 dynamic
+     * @since 23 static
+     */
     NONE = 0,
     /**
      * The request keyboard reason is MOUSE.
+     *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 19 dynamic
      * @since 23 static
@@ -2536,6 +2796,7 @@ declare namespace inputMethodEngine {
     MOUSE = 1,
     /**
      * The request keyboard reason is TOUCH.
+     *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 19 dynamic
      * @since 23 static
@@ -2543,6 +2804,7 @@ declare namespace inputMethodEngine {
     TOUCH = 2,
     /**
      * The request keyboard reason is OTHER.
+     *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 19 dynamic
      * @since 23 static
@@ -2551,21 +2813,23 @@ declare namespace inputMethodEngine {
   }
 
   /**
-   * A panel is a container used to hold soft keyboard, candidate list, or status bar.
+   * In the following API examples, you must first use 
+   * [createPanel]{@link inputMethodEngine.InputMethodAbility.createPanel(ctx: BaseContext, info: PanelInfo, callback: AsyncCallback<Panel>)}
+   * to obtain a **Panel** instance, and then call the APIs using the obtained instance.
    *
-   * @interface Panel
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 10 dynamic
    * @since 23 static
    */
   interface Panel {
     /**
-     * Sets ui content.
-     * <p>When this method is executed successfully, the content of panel will be replaced.</p>
+     * Loads content from a page to this input method panel. This API uses an asynchronous callback to return the 
+     * result.
      *
-     * @param { string } path - the path of ui content.
-     * @param { AsyncCallback<void> } callback - the callback of setUiContent.
-     * @throws { BusinessError } 401 - parameter error. Possible causes:
+     * @param { string } path - Path of the page from which the content will be loaded.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **undefined**. Otherwise, **err** is an error object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -2574,12 +2838,11 @@ declare namespace inputMethodEngine {
     setUiContent(path: string, callback: AsyncCallback<void>): void;
 
     /**
-     * Sets ui content.
-     * <p>When this method is executed successfully, the content of panel will be replaced.</p>
+     * Loads content from a page to this input method panel. This API uses a promise to return the result.
      *
-     * @param { string } path - the path of ui content.
-     * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 401 - parameter error. Possible causes:
+     * @param { string } path - Path of the page from which the content will be loaded.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -2588,13 +2851,15 @@ declare namespace inputMethodEngine {
     setUiContent(path: string): Promise<void>;
 
     /**
-     * Sets ui content.
-     * <p>When this method is executed successfully, the content of panel will be replaced.</p>
+     * Loads content from a page linked to LocalStorage to this input method panel. This API uses an asynchronous 
+     * callback to return the result.
      *
-     * @param { string } path - the path of ui content.
-     * @param { LocalStorage } storage - the data object shared within the content instance loaded by the panel.
-     * @param { AsyncCallback<void> } callback - the callback of setUiContent.
-     * @throws { BusinessError } 401 - parameter error. Possible causes:
+     * @param { string } path - Path of the page linked to LocalStorage.
+     * @param { LocalStorage } storage - Storage unit that provides storage for mutable and immutable state variables in
+     *     the application.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **undefined**. Otherwise, **err** is an error object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -2603,13 +2868,13 @@ declare namespace inputMethodEngine {
     setUiContent(path: string, storage: LocalStorage, callback: AsyncCallback<void>): void;
 
     /**
-     * Sets ui content.
-     * <p>When this method is executed successfully, the content of panel will be replaced.</p>
+     * Loads content from a page linked to LocalStorage to this panel. This API uses a promise to return the result.
      *
-     * @param { string } path - the path of ui content.
-     * @param { LocalStorage } storage - the data object shared within the content instance loaded by the panel.
-     * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 401 - parameter error. Possible causes:
+     * @param { string } path - Path of the page from which the content will be loaded.
+     * @param { LocalStorage } storage - Storage unit that provides storage for mutable and immutable state variables in
+     *     the application.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -2618,12 +2883,24 @@ declare namespace inputMethodEngine {
     setUiContent(path: string, storage: LocalStorage): Promise<void>;
 
     /**
-     * Resizes a panel.
+     * Resizes this input method panel. This API uses an asynchronous callback to return the result.
+     * 
+     * > **NOTE**
+     * >
+     * > The panel width cannot exceed the screen width, and the panel height cannot be 0.7 times higher than the screen
+     * > height.
+     * >
+     * > When the **PanelFlag** of a smartphone is **FLG_FLOATING** and the panel width is between 0 and 288 vp, the 
+     * > function buttons at the bottom of the panel will dynamically adjust their size according to the panel width. To
+     * > ensure the optimal user experience, it is recommended that the panel width be no less than 90 vp.
      *
-     * @param { long } width - the new width of the panel.
-     * @param { long } height - the new height of the panel.
-     * @param { AsyncCallback<void> } callback - the callback of resize.
-     * @throws { BusinessError } 401 - parameter error. Possible causes:
+     * @param { long } width - Target width of the panel, in px. The value is an integer greater than or equal to 0, and
+     *     cannot be greater than the screen width.
+     * @param { long } height - Target height of the panel, in px. The value is an integer greater than or equal to 0,
+     *     and cannot be greater than 0.7 times the screen height.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **undefined**. Otherwise, **err** is an error object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -2632,12 +2909,23 @@ declare namespace inputMethodEngine {
     resize(width: long, height: long, callback: AsyncCallback<void>): void;
 
     /**
-     * Resizes a panel.
+     * Resizes this input method panel. This API uses a promise to return the result.
+     * 
+     * > **NOTE**
+     * >
+     * > The panel width cannot exceed the screen width, and the panel height cannot be 0.7 times higher than the screen
+     * > height.
+     * >
+     * > When the **PanelFlag** of a smartphone is **FLG_FLOATING** and the panel width is between 0 and 288 vp, the 
+     * > function buttons at the bottom of the panel will dynamically adjust their size according to the panel width. To
+     * > ensure the optimal user experience, it is recommended that the panel width be no less than 90 vp.
      *
-     * @param { long } width - the new width of the panel.
-     * @param { long } height - the new height of the panel.
-     * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 401 - parameter error. Possible causes:
+     * @param { long } width - Target width of the panel, in px. The value is an integer greater than or equal to 0, and
+     *     cannot be greater than the screen width.
+     * @param { long } height - Target height of the panel, in px. The value is an integer greater than or equal to 0,
+     *     and cannot be greater than 0.7 times the screen height.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -2646,13 +2934,16 @@ declare namespace inputMethodEngine {
     resize(width: long, height: long): Promise<void>;
 
     /**
-     * Moves a panel.
-     * <p>It's unusable for SOFT_KEYBOARD panel with FLG_FIXED.</p>
+     * Moves this input method panel to the specified position. This API uses an asynchronous callback to return the 
+     * result. This API does not work on panels in the [FLG_FIXED]{@link inputMethodEngine.PanelFlag} state.
      *
-     * @param { int } x - the x-coordinate of the new position.
-     * @param { int } y - the y-coordinate of the new position.
-     * @param { AsyncCallback<void> } callback - the callback of moveTo.
-     * @throws { BusinessError } 401 - parameter error. Possible causes:
+     * @param { int } x - Distance to move along the horizontal axis, in px. A positive value indicates moving
+     *     rightwards. The value must be an integer.
+     * @param { int } y - Distance to move along the vertical axis, in px. A positive value indicates moving downwards.
+     *     The value must be an integer.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **undefined**. Otherwise, **err** is an error object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -2661,13 +2952,15 @@ declare namespace inputMethodEngine {
     moveTo(x: int, y: int, callback: AsyncCallback<void>): void;
 
     /**
-     * Moves a panel.
-     * <p>It's unusable for SOFT_KEYBOARD panel with FLG_FIXED.</p>
+     * Moves this input method panel to the specified position. This API uses a promise to return the result. This API 
+     * does not work on panels in the [FLG_FIXED]{@link inputMethodEngine.PanelFlag} state.
      *
-     * @param { int } x - the x-coordinate of the new position.
-     * @param { int } y - the y-coordinate of the new position.
-     * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 401 - parameter error. Possible causes:
+     * @param { int } x - Distance to move along the horizontal axis, in px. A positive value indicates moving
+     *     rightwards. The value must be an integer.
+     * @param { int } y - Distance to move along the vertical axis, in px. A positive value indicates moving downwards.
+     *     The value must be an integer.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -2676,47 +2969,23 @@ declare namespace inputMethodEngine {
     moveTo(x: int, y: int): Promise<void>;
 
     /**
-     * Starts moving a panel. The panel starts moving when pressed with finger or mouse and stops moving when released.
-     * <p>It's Only used for STATUS_BAR panel.</p>
+     * Sends a command to start moving the window. The window can be moved only when the mouse is clicked.
      *
      * @throws { BusinessError } 12800002 - input method engine error. Possible causes:
      *     1.input method panel not created. 2.the input method application does not subscribe to related events.
      * @throws { BusinessError } 12800013 - window manager service error.
      * @throws { BusinessError } 12800017 - invalid panel type or panel flag.
+     * @throws { BusinessError } 801 - capability not supported. [since 18]
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 15
-     */
-    /**
-     * Starts moving a panel. The panel starts moving when pressed with finger or mouse and stops moving when released.
-     * <p>It's Only used for STATUS_BAR panel.</p>
-     *
-     * @throws { BusinessError } 801 - capability not supported.
-     * @throws { BusinessError } 12800002 - input method engine error. Possible causes:
-     *     1.input method panel not created. 2.the input method application does not subscribe to related events.
-     * @throws { BusinessError } 12800013 - window manager service error.
-     * @throws { BusinessError } 12800017 - invalid panel type or panel flag.
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 18
-     */
-    /**
-     * Starts moving a panel. The panel starts moving when pressed with finger or mouse and stops moving when released.
-     * <p>It's only used for STATUS_BAR panel or SOFT_KEYBOARD panel with FLG_FLOATING or FLAG_CANDIDATE.</p>
-     *
-     * @throws { BusinessError } 801 - capability not supported.
-     * @throws { BusinessError } 12800002 - input method engine error. Possible causes:
-     *     1.input method panel not created. 2.the input method application does not subscribe to related events.
-     * @throws { BusinessError } 12800013 - window manager service error.
-     * @throws { BusinessError } 12800017 - invalid panel type or panel flag.
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 20 dynamic
+     * @since 15 dynamic
      * @since 23 static
      */
     startMoving(): void;
 
     /**
-     * Get the ID of the display where the input method panel is located.
+     * Obtains the window ID. This API uses a promise to return the result.
      *
-     * @returns { Promise<long> } the promise returned by the function.
+     * @returns { Promise<long> } Promise used to return the result. It returns **displayId** of the window.
      * @throws { BusinessError } 12800002 - input method engine error. Possible causes:
      *     1.input method panel not created. 2.the input method application does not subscribe to related events.
      * @throws { BusinessError } 12800013 - window manager service error.
@@ -2727,9 +2996,11 @@ declare namespace inputMethodEngine {
     getDisplayId(): Promise<long>;
 
     /**
-     * Shows panel.
+     * Shows this input method panel. This API uses an asynchronous callback to return the result. It can be called when
+     * the input method is bound to the edit box.
      *
-     * @param { AsyncCallback<void> } callback - the callback of show.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **undefined**. Otherwise, **err** is an error object.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
      * @since 23 static
@@ -2737,9 +3008,10 @@ declare namespace inputMethodEngine {
     show(callback: AsyncCallback<void>): void;
 
     /**
-     * Shows panel.
+     * Shows this input method panel. This API uses a promise to return the result. It can be called when the input 
+     * method is bound to the edit box.
      *
-     * @returns { Promise<void> } the promise returned by the function.
+     * @returns { Promise<void> } Promise that returns no value.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
      * @since 23 static
@@ -2747,9 +3019,10 @@ declare namespace inputMethodEngine {
     show(): Promise<void>;
 
     /**
-     * Hides panel.
+     * Hides this panel. This API uses an asynchronous callback to return the result.
      *
-     * @param { AsyncCallback<void> } callback - the callback of hide.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **undefined**. Otherwise, **err** is an error object.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
      * @since 23 static
@@ -2757,9 +3030,9 @@ declare namespace inputMethodEngine {
     hide(callback: AsyncCallback<void>): void;
 
     /**
-     * Hides panel.
+     * Hides this panel. This API uses a promise to return the result.
      *
-     * @returns { Promise<void> } the promise returned by the function.
+     * @returns { Promise<void> } Promise that returns no value.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
      * @since 23 static
@@ -2767,22 +3040,22 @@ declare namespace inputMethodEngine {
     hide(): Promise<void>;
 
     /**
-     * Registers panel show event.
-     * <p>The "show" events are triggered when the panel is shown.</p>
+     * Enables listening for the show event of this panel. This API uses an asynchronous callback to return the result.
      *
-     * @param { 'show' } type - events type.
-     * @param { function } callback - the callback will be called when events are triggered.
+     * @param { 'show' } type - Event type, which is **'show'**.
+     * @param { function } callback - Callback used to return the result.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
      */
     on(type: 'show', callback: () => void): void;
 
     /**
-     * Unregisters panel show event.
+     * Disables listening for the show event of this panel. This API uses an asynchronous callback to return the result.
      *
-     * @param { 'show' } type - events type.
-     * @param { function } [callback] - the callback to Unregister.
-     * @throws { BusinessError } 401 - parameter error. Possible causes:
+     * @param { 'show' } type - Event type, which is **'show'**.
+     * @param { function } [callback] - Callback to unregister. If this parameter is not specified, this API unregisters
+     *     all callbacks for the specified type.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -2790,22 +3063,22 @@ declare namespace inputMethodEngine {
     off(type: 'show', callback?: () => void): void;
 
     /**
-     * Registers panel hide event.
-     * <p>The "hide" events are triggered when the panel is hidden.</p>
+     * Enables listening for the hide event of this panel. This API uses an asynchronous callback to return the result.
      *
-     * @param { 'hide' } type - events type.
-     * @param { function } callback - the callback will be called when events are triggered.
+     * @param { 'hide' } type - Event type, which is **'hide'**.
+     * @param { function } callback - Callback used to return the result.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
      */
     on(type: 'hide', callback: () => void): void;
 
     /**
-     * Unregisters panel hide event.
+     * Disables listening for the hide event of this panel. This API uses an asynchronous callback to return the result.
      *
-     * @param { 'hide' } type - events type.
-     * @param { function } [callback] - the callback to Unregister.
-     * @throws { BusinessError } 401 - parameter error. Possible causes:
+     * @param { 'hide' } type - Event type, which is **'hide'**.
+     * @param { function } [callback] - Callback to unregister. If this parameter is not specified, this API unregisters
+     *     all callbacks for the specified type.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -2813,12 +3086,11 @@ declare namespace inputMethodEngine {
     off(type: 'hide', callback?: () => void): void;
 
     /**
-     * Changes panel flag.
-     * <p>Before flag is changed, Developers should hide the panel.After that, developers can change the content, size, point of the panel
-     *    and show it again at appropriate opportunity.</p>
+     * Changes the state type ([PanelFlag]{@link inputMethodEngine.PanelFlag}) of this input method panel. This API only
+     * works for [SOFT_KEYBOARD]{@link inputMethodEngine.PanelType} panels.
      *
-     * @param { PanelFlag } flag - the callback of changeFlag.
-     * @throws { BusinessError } 401 - parameter error. Possible causes:
+     * @param { PanelFlag } flag - Type of the state of the target panel.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -2827,13 +3099,14 @@ declare namespace inputMethodEngine {
     changeFlag(flag: PanelFlag): void;
 
     /**
-     * Sets ime panel private mode or not.
+     * Sets the input method panel to privacy mode. In privacy mode, screenshot and screen recording are blocked.
      *
      * @permission ohos.permission.PRIVACY_WINDOW
-     * @param { boolean } isPrivacyMode - if the value is true, the privacy mode will be set,
-     * otherwise the non-privacy mode will be set.
+     * @param { boolean } isPrivacyMode - Whether to set the input method panel to privacy mode.
+     *     <br>- **true**: privacy mode.
+     *     <br>- **false**: non-privacy mode.
      * @throws { BusinessError } 201 - permissions check fails.
-     * @throws { BusinessError } 401 - parameter error. Possible causes:
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 11 dynamic
@@ -2842,12 +3115,27 @@ declare namespace inputMethodEngine {
     setPrivacyMode(isPrivacyMode: boolean): void;
 
     /**
-     * Adjust the rect of soft keyboard panel for landscape and portrait orientations.
-     * <p>It's only used for SOFT_KEYBOARD panel with FLG_FIXED and FLG_FLOATING.</p>
+     * Adjusts the panel rectangle. After the API is called, the adjust request is submitted to the input method 
+     * framework, but the execution is not complete.
+     * 
+     * > **NOTE**
+     * >
+     * > This API applies only to the panels of the **SOFT_KEYBOARD** type in the **FLG_FIXED** or **FLG_FLOATING** 
+     * > state.
+     * >
+     * > This API returns the result synchronously. The return only indicates that the system receives the setting 
+     * > request, not that the setting is complete.
+     * >
+     * > When the **PanelFlag** of a smartphone is **FLG_FLOATING** and the panel width is between 0 and 288 vp, the 
+     * > function buttons at the bottom of the panel will dynamically adjust their size according to the panel width. To
+     * > ensure the optimal user experience, it is recommended that the panel width be no less than 90 vp.
      *
-     * @param { PanelFlag } flag - panel flag.
-     * @param { PanelRect } rect - panel rect.
-     * @throws { BusinessError } 401 - parameter error. Possible causes:
+     * @param { PanelFlag } flag - Type of the state of the target panel. It can be **FLG_FIXED** or **FLG_FLOATING**.
+     * @param { PanelRect } rect - Landscape rectangle and portrait rectangle of the target panel. For the panel of the
+     *     fixed state, the height cannot exceed 70% of the screen height, and the width cannot exceed the screen width.
+     *     For the panel of the floating state, the height cannot exceed the screen height, and the width cannot exceed
+     *     the screen width.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @throws { BusinessError } 12800013 - window manager service error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -2857,12 +3145,27 @@ declare namespace inputMethodEngine {
     adjustPanelRect(flag: PanelFlag, rect: PanelRect): void;
 
     /**
-     * Adjust the rect of soft keyboard panel for landscape and portrait orientations.
-     * <p>It's only used for SOFT_KEYBOARD panel with fixed or floating flag.</p>
+     * Adjusts the panel rectangle, and customizes the avoid area and touch area.
+     * 
+     * > **NOTE**
+     * >
+     * > This API applies only to the panels of the **SOFT_KEYBOARD** type in the **FLG_FIXED** or **FLG_FLOATING** 
+     * > state. This API is compatible with 
+     * > [adjustPanelRect]{@link inputMethodEngine.Panel.adjustPanelRect(flag: PanelFlag, rect: PanelRect)}. If the 
+     * > input parameter **rect** contains only the **landscapeRect** and **portraitRect** attributes, 
+     * > [adjustPanelRect]{@link inputMethodEngine.Panel.adjustPanelRect(flag: PanelFlag, rect: PanelRect)} is called by
+     * > default.
+     * >
+     * > This API returns the result synchronously. The return only indicates that the system receives the setting 
+     * > request, not that the setting is complete.
+     * >
+     * > When the **PanelFlag** of a smartphone is **FLG_FLOATING** and the panel width is between 0 and 288 vp, the 
+     * > function buttons at the bottom of the panel will dynamically adjust their size according to the panel width. To
+     * > ensure the optimal user experience, it is recommended that the panel width be no less than 90 vp.
      *
-     * @param { PanelFlag } flag - panel flag.
-     * @param { EnhancedPanelRect } rect - panel rect.
-     * @throws { BusinessError } 401 - parameter error. Possible causes:
+     * @param { PanelFlag } flag - Type of the state of the target panel. It can be **FLG_FIXED** or **FLG_FLOATING**.
+     * @param { EnhancedPanelRect } rect - The target panel rectangle, avoid area, and touch area.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @throws { BusinessError } 12800013 - window manager service error.
      * @throws { BusinessError } 12800017 - invalid panel type or panel flag.
@@ -2873,11 +3176,20 @@ declare namespace inputMethodEngine {
     adjustPanelRect(flag: PanelFlag, rect: EnhancedPanelRect): void;
 
     /**
-     * <p>Update the region in the panel which accepts input events.</p>
-     * <p>It's only used for SOFT_KEYBOARD panel with fixed flag or floating flag.</p>
+     * Updates the hot zone on the input method panel in the current state.
+     * 
+     * > **NOTE**
+     * >
+     * > This API applies only to the panels of the **SOFT_KEYBOARD** type in the **FLG_FIXED** or **FLG_FLOATING** 
+     * > state.
+     * >
+     * > This API returns the result synchronously. The return only indicates that the system has received the request 
+     * > for updating the hot zone, not that the hot zone has been updated.
      *
-     * @param { Array<window.Rect> } inputRegion - region in the panel which accepts input event. The size of the array must range from 1 to 4.
-     * @throws { BusinessError } 401 - parameter error. Possible causes:
+     * @param { Array<window.Rect> } inputRegion - Region for receiving input events.
+     *     <br>- The array size is limited to [1, 4].
+     *     <br>- The input hot zone is relative to the left vertex of the input method panel window.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @throws { BusinessError } 12800013 - window manager service error.
      * @throws { BusinessError } 12800017 - invalid panel type or panel flag.
@@ -2888,51 +3200,76 @@ declare namespace inputMethodEngine {
     updateRegion(inputRegion: Array<window.Rect>): void;
 
     /**
-     * Subscribe 'sizeChange' event.
-     * <p>It's only used for SOFT_KEYBOARD panel with FLG_FIXED and FLG_FLOATING.</p>
+     * Enables listening for the panel size change. This API uses an asynchronous callback to return the result.
+     * 
+     * > **NOTE**
+     * >
+     * > This API applies only to the panels of the **SOFT_KEYBOARD** type in the **FLG_FIXED** or **FLG_FLOATING** 
+     * > state. When you call **adjustPanelRect** to adjust the panel size, the system calculates the final value based 
+     * > on certain rules (for example, whether the panel size exceeds the screen). This callback can be used to obtain 
+     * > the actual panel size to refresh the panel layout.
+     * >
+     * > -  This API is supported from API version 12 to 14. The callback function of this API contains only mandatory 
+     * > parameters of the [window.Size]{@link window.Size} type.
+     * >
+     * > -  Since API version 15, after the 
+     * > [adjustPanelRect]{@link inputMethodEngine.Panel.adjustPanelRect(flag: PanelFlag, rect: EnhancedPanelRect)} API 
+     * > is called, an optional parameter of the [KeyboardArea]{@link inputMethodEngine.KeyboardArea} type is added to 
+     * > the callback function of this API.
      *
-     * @param { 'sizeChange' } type - the type of subscribe event.
-     * @param { Callback<window.Size> } callback - the callback of on('sizeChange').
+     * @param { 'sizeChange' } type - Event type, which is **'sizeChange'**.
+     * @param { Callback<window.Size> } callback - Callback used to return the size of the soft keyboard panel,
+     *     including the width and height. [since 12 - 14]
+     * @param { SizeChangeCallback } callback - Callback used to return the size of the soft keyboard panel, including
+     *     the width and height. [since 15]
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 12
-     */
-    /**
-     * Subscribe 'sizeChange' event.
-     * <p>It's only used for SOFT_KEYBOARD panel with FLG_FIXED and FLG_FLOATING.</p>
-     *
-     * @param { 'sizeChange' } type - the type of subscribe event.
-     * @param { SizeChangeCallback } callback - the callback of on('sizeChange').
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 15 dynamic
+     * @since 12 dynamic
      */
     on(type: 'sizeChange', callback: SizeChangeCallback): void;
 
     /**
-     * Unsubscribe 'sizeChange' event.
-     * <p>It's only used for SOFT_KEYBOARD panel with FLG_FIXED and FLG_FLOATING.</p>
+     * Disables listening for the panel size change. This API uses an asynchronous callback to return the result.
+     * 
+     * > **NOTE**
+     * >
+     * > This API applies only to the panels of the **SOFT_KEYBOARD** type in the **FLG_FIXED** or **FLG_FLOATING** 
+     * > state. When you call **adjustPanelRect** to adjust the panel size, the system calculates the final value based 
+     * > on certain rules (for example, whether the panel size exceeds the screen). This callback can be used to obtain 
+     * > the actual panel size to refresh the panel layout.
+     * >
+     * > -  This API is supported from API version 12 to 14. The callback function of this API contains only mandatory 
+     * > parameters of the [window.Size]{@link window.Size} type.
+     * >
+     * > -  Since API version 15, after the 
+     * > [adjustPanelRect]{@link inputMethodEngine.Panel.adjustPanelRect(flag: PanelFlag, rect: EnhancedPanelRect)} API 
+     * > is called, an optional parameter of the [KeyboardArea]{@link inputMethodEngine.KeyboardArea} type is added to 
+     * > the callback function of this API.
      *
-     * @param { 'sizeChange' } type - the type of unsubscribe event.
-     * @param { ?Callback<window.Size> } [callback] - optional, the callback of off('sizeChange').
+     * @param { 'sizeChange' } type - Event type, which is **'sizeChange'**.
+     * @param { ?Callback<window.Size> } [callback] - Callback used to return the size of the soft keyboard panel,
+     *     including the width and height. [since 12 - 14]
+     * @param { ?SizeChangeCallback } [callback] - Callback used to return the size of the soft keyboard panel,
+     *     including the width and height. [since 15]
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 12
-     */
-    /**
-     * Unsubscribe 'sizeChange' event.
-     * <p>It's only used for SOFT_KEYBOARD panel with FLG_FIXED and FLG_FLOATING.</p>
-     *
-     * @param { 'sizeChange' } type - the type of unsubscribe event.
-     * @param { ?SizeChangeCallback } [callback] - optional, the callback of off('sizeChange').
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 15 dynamic
+     * @since 12 dynamic
      */
     off(type: 'sizeChange', callback?: SizeChangeCallback): void;
 
     /**
-     * Subscribe 'sizeUpdate' event.
-     * <p>It's only used for SOFT_KEYBOARD panel with FLG_FIXED and FLG_FLOATING.</p>
+     * Listens for the panel size change. This API uses an asynchronous callback to return the result.
+     * 
+     * > **NOTE**
+     * >
+     * > This API applies only to the panels of the **SOFT_KEYBOARD** type in the **FLG_FIXED** or **FLG_FLOATING** 
+     * > state. When you call 
+     * > [adjustPanelRect]{@link @ohos.inputMethodEngine:inputMethodEngine.Panel.adjustPanelRect(flag: PanelFlag, rect: EnhancedPanelRect)}
+     * > to adjust the panel size, the system calculates the final value based on certain rules (for example, whether 
+     * > the panel size exceeds the screen). This callback can be used to obtain the actual panel size to refresh the 
+     * > panel layout.
      *
-     * @param { 'sizeUpdate' } type - the type of subscribe event.
-     * @param { SizeUpdateCallback } callback - the callback of on('sizeUpdate').
+     * @param { 'sizeUpdate' } type - Event type, which is **'sizeUpdate'**.
+     * @param { SizeUpdateCallback } callback - Callback used to return the size of the soft keyboard panel, including
+     *     the width and height.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
      * @since 14 dynamic
@@ -2940,11 +3277,20 @@ declare namespace inputMethodEngine {
     on(type: 'sizeUpdate', callback: SizeUpdateCallback): void;
 
     /**
-     * Unsubscribe 'sizeUpdate' event.
-     * <p>It's only used for SOFT_KEYBOARD panel with FLG_FIXED and FLG_FLOATING.</p>
+     * Disables listening for the panel size change. This API uses an asynchronous callback to return the result.
+     * 
+     * > **NOTE**
+     * >
+     * > This API applies only to the panels of the **SOFT_KEYBOARD** type in the **FLG_FIXED** or **FLG_FLOATING** 
+     * > state. When you call 
+     * > [adjustPanelRect]{@link @ohos.inputMethodEngine:inputMethodEngine.Panel.adjustPanelRect(flag: PanelFlag, rect: EnhancedPanelRect)}
+     * > to adjust the panel size, the system calculates the final value based on certain rules (for example, whether 
+     * > the panel size exceeds the screen). This callback can be used to obtain the actual panel size to refresh the 
+     * > panel layout.
      *
-     * @param { 'sizeUpdate' } type - the type of unsubscribe event.
-     * @param { ?SizeUpdateCallback } [callback] - optional, the callback of off('sizeUpdate').
+     * @param { 'sizeUpdate' } type - Event type, which is **'sizeUpdate'**.
+     * @param { ?SizeUpdateCallback } [callback] - Callback used to return the size of the soft keyboard panel,
+     *     including the width and height.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
      * @since 14 dynamic
@@ -2952,10 +3298,11 @@ declare namespace inputMethodEngine {
     off(type: 'sizeUpdate', callback?: SizeUpdateCallback): void;
 
     /**
-     * Set immersive mode.
-     * 
+     * Sets the immersive mode of the input method application. You can only set the immersion mode to 
+     * **NONE_IMMERSIVE**, **LIGHT_IMMERSIVE**, or **DARK_IMMERSIVE**. **IMMERSIVE** cannot be set.
+     *
      * @param { ImmersiveMode } mode - Immersive mode.
-     * @throws { BusinessError } 401 - parameter error. Possible causes:
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Incorrect parameter types; 2.Parameter verification failed.
      * @throws { BusinessError } 12800002 - input method engine error. Possible causes:
      *     1.input method panel not created. 2.the input method application does not subscribe to related events.
@@ -2967,8 +3314,8 @@ declare namespace inputMethodEngine {
     setImmersiveMode(mode: ImmersiveMode): void;
 
     /**
-     * Get immersive mode.
-     * 
+     * Obtains the immersive mode of the input method application.
+     *
      * @returns { ImmersiveMode } Immersive mode.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 15 dynamic
@@ -2977,19 +3324,30 @@ declare namespace inputMethodEngine {
     getImmersiveMode(): ImmersiveMode;
 
     /**
-     * Set immersive effect.
-     * If a normal application uses the fluidLightMode property and sets it to a value other than NONE,
-     * the interface will throw 202.
+     * Sets the immersive effect of the input method application.
      * 
-     * @param { ImmersiveEffect } effect - immersive effect.
+     * - Gradient mode and fluid light mode can be used only when the 
+     * [immersive mode]{@link inputMethodEngine.Panel.setImmersiveMode} is enabled.
+     * - The fluid light mode can be used only when the gradient mode is enabled.
+     * - If the gradient mode is disabled, the gradient height must be 0 px.
+     * - Only system applications can set the fluid light mode.
+     * - The current API can be called only after any of the following APIs is called:
+     *  - [adjustPanelRect]{@link inputMethodEngine.Panel.adjustPanelRect(flag: PanelFlag, rect: PanelRect)} (available 
+     * since API version 12)
+     *  - [adjustPanelRect]{@link inputMethodEngine.Panel.adjustPanelRect(flag: PanelFlag, rect: EnhancedPanelRect)} (
+     * available since API version 15)
+     *  - [resize]{@link inputMethodEngine.Panel.resize(width: long, height: long, callback: AsyncCallback<void>)} (
+     * available since API version 10)
+     *
+     * @param { ImmersiveEffect } effect - Immersive effect.
      * @throws { BusinessError } 801 - capability not supported.
      * @throws { BusinessError } 12800002 - input method engine error. Possible causes:
      *     1. input method panel not created. 2. the input method application does not subscribe to related events.
      * @throws { BusinessError } 12800013 - window manager service error.
      * @throws { BusinessError } 12800020 - invalid immersive effect.
-     *    1. The gradient mode and the fluid light mode can only be used when the immersive mode is enabled.
-     *    2. The fluid light mode can only be used when the gradient mode is enabled.
-     *    3. When the gradient mode is not enabled, the gradient height can only be 0.
+     *     1. The gradient mode and the fluid light mode can only be used when the immersive mode is enabled.
+     *     2. The fluid light mode can only be used when the gradient mode is enabled.
+     *     3. When the gradient mode is not enabled, the gradient height can only be 0.
      * @throws { BusinessError } 12800021 - this operation is allowed only after adjustPanelRect or resize is called.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 20 dynamic
@@ -2997,11 +3355,19 @@ declare namespace inputMethodEngine {
      */
     setImmersiveEffect(effect: ImmersiveEffect): void;
     /**
-     * Set keep screen on.
-     * This setting takes effect when the panel is showing and becomes invalid when the panel is hidden.
+     * Sets to keep the screen always on. This API uses a promise to return the result.
      * 
-     * @param { boolean } isKeepScreenOn - is keep screen on.
-     * @returns { Promise<void> } the promise returned by the function.
+     * > **NOTE**
+     * >
+     * > - When the keyboard is displayed, the screen stays on. When the keyboard is hidden, the screen turns off.
+     * >
+     * > - You need to use this API properly. Set the attribute to **true** in necessary scenarios (for example, voice 
+     * > input) and reset this attribute to **false** after exiting necessary scenarios. In other scenarios, do not use 
+     * > this API.
+     *
+     * @param { boolean } isKeepScreenOn - Whether to keep the screen always on. The value **true** means that the
+     *     screen is always on; the value **false** means the opposite.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 12800013 - window manager service error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 20 dynamic
@@ -3010,17 +3376,17 @@ declare namespace inputMethodEngine {
     setKeepScreenOn(isKeepScreenOn: boolean): Promise<void>;
 
     /**
-     * Get the current insets of the system panel of a specified display.
-     * <p>It's only used for SOFT_KEYBOARD panel with FLG_FIXED or FLG_FLOATING.</p>
-     * <p>This interface only supports obtaining the current insets values of a display.
-     * When the display undergoes orientation changes, or is folded or unfolded, it is necessary to
-     * reinvoke this interface to get the latest values.</p>
-     * 
-     * @param { number } displayId - specify which display's system panel insets.
-     * @returns { Promise<SystemPanelInsets> } the promise returned by the function.
+     * Obtains the offset area of the soft keyboard relative to the system panel under the current state of the 
+     * specified screen (for example, folded or unfolded) and the current state of the input method keyboard (for 
+     * example, floating or fixed). This API uses a promise to return the result.
+     *
+     * @param { number } displayId - Display ID of the screen where the input method keyboard is located. It can be
+     *     obtained by calling [getDisplayId]{@link inputMethodEngine.Panel.getDisplayId}.
+     * @returns { Promise<SystemPanelInsets> } Promise used to return the offset area between the input method keyboard
+     *     and the system panel.
      * @throws { BusinessError } 12800013 - window manager service error.
      * @throws { BusinessError } 12800017 - invalid panel type or panel flag. Possible causes:
-     *     1. Current panel's type is not SOFT_KEYBOARD.  2. Panel's flag is not FLG_FIXED or FLG_FLOATING. 
+     *     1. Current panel's type is not SOFT_KEYBOARD.  2. Panel's flag is not FLG_FIXED or FLG_FLOATING.
      * @throws { BusinessError } 12800022 - invalid displayId.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 21 dynamic
@@ -3029,6 +3395,7 @@ declare namespace inputMethodEngine {
 
     /**
      * Get the current insets of the system panel of a specified display.
+     * 
      * <p>It's only used for SOFT_KEYBOARD panel with FLG_FIXED or FLG_FLOATING.</p>
      * <p>This interface only supports obtaining the current insets values of a display.
      * When the display undergoes orientation changes, or is folded or unfolded, it is necessary to
@@ -3046,14 +3413,21 @@ declare namespace inputMethodEngine {
     getSystemPanelCurrentInsets(displayId: long): Promise<SystemPanelInsets | null>;
 
     /**
-     * Set current panel's shadow.
-     * It cannot be used for SOFT_KEYBOARD panel with FLG_FIXED.
+     * Sets the shadow effect of the input method window.
+     * 
+     * > **NOTE**
+     * >
+     * > Panels whose [PanelType]{@link @ohos.inputMethodEngine:inputMethodEngine.PanelType} is **SOFT_KEYBOARD** and 
+     * > [PanelFlag]{@link @ohos.inputMethodEngine:inputMethodEngine.PanelFlag} is **FLG_FIXED** are not supported.
      *
-     * @param { double } radius - the radius of the shadow, unit is px.
-     * @param { string } color - the color of the shadow,
-     *     the value range is [#00000000, #FFFFFFFF] or [#000000, #FFFFFF].
-     * @param { double } offsetX - the offset of the shadow on the x-axis, unit is px.
-     * @param { double } offsetY - the offset of the shadow on the y-axis, unit is px.
+     * @param { double } radius - Radius of the shadow. The value is a floating-point number greater than or equal to 0.
+     *     0, in px. The value **0.0** means that the shadow is disabled for the window borders.
+     * @param { string } color - Color of the shadow. The value is a hexadecimal RGB or ARGB color code and is case
+     *     insensitive, for example, `#000000` or `#FF000000`.
+     * @param { double } offsetX - Offset of the shadow along the x-axis, in pixels. The value is a floating-point
+     *     number.
+     * @param { double } offsetY - Offset of the shadow along the y-axis, in pixels. The value is a floating-point
+     *     number.
      * @throws { BusinessError } 202 - not system application.
      * @throws { BusinessError } 12800013 - window manager service error.
      * @throws { BusinessError } 12800017 - invalid panel type or panel flag.
@@ -3066,16 +3440,15 @@ declare namespace inputMethodEngine {
     setShadow(radius: double, color: string, offsetX: double, offsetY: double): void;
 
     /**
-     * Set current panel function key color and background color.
-     * It is only used for function key with raised areas of the panel.
+     * Sets the color of the function buttons and their background color on the current panel. This API uses a promise 
+     * to return the result.
      *
-     * @param { string | undefined } fillColor - the color of the function key,
-     *     the value range is [#01000000, #FFFFFFFF] or [#000000, #FFFFFF].
-     *     Note: Values with fully transparent alpha channel (#00xxxxxx) are not supported.
-     * @param { string | undefined } backgroundColor - the background color of the function key,
-     *     the value range is [#01000000, #FFFFFFFF] or [#000000, #FFFFFF].
-     *     Note: Values with fully transparent alpha channel (#00xxxxxx) are not supported.
-     * @returns { Promise<void> } the promise returned by the function.
+     * @param { string | undefined } fillColor - Color of the function buttons. The value can be [#01000000, #FFFFFFFF]
+     *     or [#000000, #FFFFFF]. The value of the fully transparent alpha channel (**#00xxxxxx**) is not supported.
+     * @param { string | undefined } backgroundColor - Background color of the function buttons. The value can be
+     *     [#01000000, #FFFFFFFF] or [#000000, #FFFFFF]. The value of the fully transparent alpha channel (#00xxxxxx) is
+     *     not supported.
+     * @returns { Promise<void> } Promise that returns no result.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 22 dynamic
      * @since 23 static
@@ -3084,6 +3457,7 @@ declare namespace inputMethodEngine {
 
     /**
      * Registers panel show event.
+     * 
      * <p>The "show" events are triggered when the panel is shown.</p>
      *
      * @param { Callback<void> } callback - the callback called when the panel shows.
@@ -3102,6 +3476,7 @@ declare namespace inputMethodEngine {
 
     /**
      * Registers panel hide event.
+     * 
      * <p>The "hide" events are triggered when the panel is hidden.</p>
      *
      * @param { Callback<void> } callback - the callback called when the panel hides.
@@ -3120,6 +3495,7 @@ declare namespace inputMethodEngine {
 
     /**
      * Subscribe 'sizeUpdate' event.
+     * 
      * <p>It's only used for SOFT_KEYBOARD panel with FLG_FIXED and FLG_FLOATING.</p>
      *
      * @param { SizeUpdateCallback } callback - the callback called when the panel size updates.
@@ -3130,6 +3506,7 @@ declare namespace inputMethodEngine {
     onSizeUpdate(callback: SizeUpdateCallback): void;
     /**
      * Unsubscribe 'sizeUpdate' event.
+     * 
      * <p>It's only used for SOFT_KEYBOARD panel with FLG_FIXED and FLG_FLOATING.</p>
      *
      * @param { SizeUpdateCallback } [callback] - optional, the callback called when the panel size updates.
@@ -3141,6 +3518,7 @@ declare namespace inputMethodEngine {
 
     /**
      * Subscribe 'sizeChange' event.
+     * 
      * <p>It's only used for SOFT_KEYBOARD panel with FLG_FIXED and FLG_FLOATING.</p>
      *
      * @param { SizeChangeCallback } callback - the callback called when the panel size changes.
@@ -3150,6 +3528,7 @@ declare namespace inputMethodEngine {
     onSizeChange(callback: SizeChangeCallback): void;
     /**
      * Unsubscribe 'sizeChange' event.
+     * 
      * <p>It's only used for SOFT_KEYBOARD panel with FLG_FIXED and FLG_FLOATING.</p>
      *
      * @param { SizeChangeCallback } [callback] - optional, the callback called when the panel size changes.
@@ -3159,42 +3538,36 @@ declare namespace inputMethodEngine {
     offSizeChange(callback?: SizeChangeCallback): void;
   }
 
-  /** 
-   * <p>Input method system panel's insets.</p>
-   * <p>It is used to indicate the distance between the input method panel and the system panel.</p>
-   * <p>The distance unit is px.</p>
-   * 
-   * @interface SystemPanelInsets
+  /**
+   * Defines the offset area between the input method soft keyboard and the system panel.
+   *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 21 dynamic
    * @since 23 static
    */
   interface SystemPanelInsets {
     /**
-     * Distance on the left.
+     * Distance between the left border of the keyboard area and the left border of the system panel area, in px. The 
+     * value is an integer.
      *
-     * @type { int }
-     * @readonly
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 21 dynamic
      * @since 23 static
      */
     readonly left: int;
     /**
-     * Distance on the right.
+     * Distance between the right border of the keyboard area and the right border of the system panel area, in px. The 
+     * value is an integer.
      *
-     * @type { int }
-     * @readonly
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 21 dynamic
      * @since 23 static
      */
     readonly right: int;
     /**
-     * Distance on the bottom.
+     * Distance between the bottom border of the keyboard area and the bottom border of the system panel area, in px. 
+     * The value is an integer.
      *
-     * @type { int }
-     * @readonly
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 21 dynamic
      * @since 23 static
@@ -3203,17 +3576,19 @@ declare namespace inputMethodEngine {
   }
 
   /**
-   * @interface EditorAttribute
+   * In the following API examples, you must first use 
+   * [getKeyboardDelegate]{@link inputMethodEngine.getKeyboardDelegate()} to obtain a **KeyboardDelegate** instance, and
+   * then call the APIs using the obtained instance.
+   *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8 dynamic
    * @since 23 static
    */
   interface EditorAttribute {
     /**
-     * Editor's pattern
+     * Text attribute of the edit box. For details, see 
+     * [edit box definitions in constants](docroot://reference/apis-ime-kit/js-apis-inputmethodengine.md#Constants).
      *
-     * @type { int }
-     * @readonly
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8 dynamic
      * @since 23 static
@@ -3221,10 +3596,9 @@ declare namespace inputMethodEngine {
     readonly inputPattern: int;
 
     /**
-     * Editor's key type
+     * Function attributes of the edit box. For details, see 
+     * [function key definitions in constants](docroot://reference/apis-ime-kit/js-apis-inputmethodengine.md#Constants).
      *
-     * @type { int }
-     * @readonly
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8 dynamic
      * @since 23 static
@@ -3232,9 +3606,11 @@ declare namespace inputMethodEngine {
     readonly enterKeyType: int;
 
     /**
-     * Indicates whether the editor supports the text preview.
+     * Whether text preview is supported.
+     * 
+     * - **true**: Supported.
+     * - **false**: Unsupported.
      *
-     * @type { boolean }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12 dynamic
      * @since 23 static
@@ -3242,10 +3618,9 @@ declare namespace inputMethodEngine {
     isTextPreviewSupported: boolean;
 
     /**
-     * Editor's bundle name.
+     * Name of the application package to which the edit box belongs. The value may be **""**. Handle this scenario when
+     * using the attribute.
      *
-     * @type { ?string }
-     * @readonly
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 14 dynamic
      * @since 23 static
@@ -3253,10 +3628,8 @@ declare namespace inputMethodEngine {
     readonly bundleName?: string;
 
     /**
-     * Immersive mode.
+     * Immersive mode of the input method.
      *
-     * @type { ?ImmersiveMode }
-     * @readonly
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 15 dynamic
      * @since 23 static
@@ -3264,10 +3637,8 @@ declare namespace inputMethodEngine {
     readonly immersiveMode?: ImmersiveMode;
 
     /**
-     * Indicates the ID of the window where the edit box is located.
+     * ID of the window where the edit box is located.
      *
-     * @type { ?int }
-     * @readonly
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 18 dynamic
      * @since 23 static
@@ -3275,10 +3646,9 @@ declare namespace inputMethodEngine {
     readonly windowId?: int;
 
     /**
-     * Indicates the ID of the display where the edit box is located.
+     * Screen ID of the window corresponding to the edit box. If window ID is not set, the screen ID of the focused 
+     * window is used.
      *
-     * @type { ?long }
-     * @readonly
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 18 dynamic
      * @since 23 static
@@ -3286,10 +3656,8 @@ declare namespace inputMethodEngine {
     readonly displayId?: long;
 
     /**
-     * Placeholder text in the edit box.
+     * Placeholder information set for the edit box.
      *
-     * @type { ?string }
-     * @readonly
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 20 dynamic
      * @since 23 static
@@ -3297,10 +3665,8 @@ declare namespace inputMethodEngine {
     readonly placeholder?: string;
 
     /**
-     * The name of the ability where the edit box is located.
+     * Ability name set for the edit box.
      *
-     * @type { ?string }
-     * @readonly
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 20 dynamic
      * @since 23 static
@@ -3308,10 +3674,9 @@ declare namespace inputMethodEngine {
     readonly abilityName?: string;
 
     /**
-     * Editor's capitalization mode.
+     * Whether to capitalize the first letter in the edit box. If it is not set or is set to an invalid value, the first
+     * letter is not capitalized by default.
      *
-     * @type { ?CapitalizeMode }
-     * @readonly
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 20 dynamic
      * @since 23 static
@@ -3319,10 +3684,9 @@ declare namespace inputMethodEngine {
     readonly capitalizeMode?: CapitalizeMode;
 
     /**
-     * Gradient mode.
+     * Gradient mode. If this attribute is not specified or is set to an invalid value, the gradient mode is not used by
+     * default.
      *
-     * @type { ?GradientMode }
-     * @readonly
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 20 dynamic
      * @since 23 static
@@ -3330,10 +3694,11 @@ declare namespace inputMethodEngine {
     readonly gradientMode?: GradientMode;
 
     /**
-     * Fluid light mode.
+     * Fluid light mode. If this attribute is not specified or is set to an invalid value, the fluid light mode is not 
+     * used by default.
+     * 
+     * This attribute is available only to system applications.
      *
-     * @type { ?FluidLightMode }
-     * @readonly
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
      * @since 20 dynamic
@@ -3342,10 +3707,8 @@ declare namespace inputMethodEngine {
     readonly fluidLightMode?: FluidLightMode;
 
     /**
-     * Extra config of edit box.
+     * Extra information about the input method.
      *
-     * @type { ?InputMethodExtraConfig }
-     * @readonly
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 22 dynamic
      * @since 23 static
@@ -3354,17 +3717,18 @@ declare namespace inputMethodEngine {
   }
 
   /**
-   * @interface KeyEvent
+   * In the following API examples, you must first use 
+   * [getKeyboardDelegate]{@link inputMethodEngine.getKeyboardDelegate()} to obtain a **KeyboardDelegate** instance, and
+   * then call the APIs using the obtained instance.
+   *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8 dynamic
    * @since 23 static
    */
   interface KeyEvent {
     /**
-     * Key code
+     * Key value. For details, see [KeyCode]{@link @ohos.multimodalInput.keyCode:KeyCode}.
      *
-     * @type { int }
-     * @readonly
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8 dynamic
      * @since 23 static
@@ -3372,10 +3736,11 @@ declare namespace inputMethodEngine {
     readonly keyCode: int;
 
     /**
-     * Key action
+     * Key event type.
+     * 
+     * - **2**: keydown event.
+     * - **3**: keyup event.
      *
-     * @type { int }
-     * @readonly
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8 dynamic
      * @since 23 static
@@ -3384,9 +3749,8 @@ declare namespace inputMethodEngine {
   }
 
   /**
-   * Enumerates the flags of panel
+   * Enumerates the state types of the input method panel.
    *
-   * @enum { int }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 10 dynamic
    * @since 23 static
@@ -3394,6 +3758,7 @@ declare namespace inputMethodEngine {
   export enum PanelFlag {
     /**
      * Fixed style.
+     * 
      * <p>It's provided for the panel with type of SOFT_KEYBOARD.
      * When the flag is set, the soft keyboard is fixed at the bottom of the screen.</p>
      *
@@ -3405,6 +3770,7 @@ declare namespace inputMethodEngine {
 
     /**
      * Floating style.
+     * 
      * <p>It's provided for the panel with type of SOFT_KEYBOARD.
      * When the flag is set, the soft keyboard is floating.</p>
      *
@@ -3416,6 +3782,7 @@ declare namespace inputMethodEngine {
 
     /**
      * Candidate style.
+     * 
      * <p>It's provided for the panel with type of SOFT_KEYBOARD.
      * When the flag is set, the soft keyboard is a candidate window which will show the possible characters when user types a input code.
      * Panel with candidate style will not be automatically shown or hidden by input method service.
@@ -3429,10 +3796,8 @@ declare namespace inputMethodEngine {
   }
 
   /**
-   * <p>Panel types provided for input method applications.</p>
-   * <p>Input method application developers should select the appropriate panel type according to the user scenario.</p>
+   * Enumerates the types of the input method panel.
    *
-   * @enum { int }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 10 dynamic
    * @since 23 static
@@ -3458,18 +3823,16 @@ declare namespace inputMethodEngine {
   }
 
   /**
-   * Panel information.
+   * Describes the attributes of the input method panel.
    *
-   * @typedef PanelInfo
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 10 dynamic
    * @since 23 static
    */
   export interface PanelInfo {
     /**
-     * Panel type.
+     * Type of the panel.
      *
-     * @type { PanelType }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
      * @since 23 static
@@ -3477,10 +3840,8 @@ declare namespace inputMethodEngine {
     type: PanelType;
 
     /**
-     * <p>Flag of Panel.</p>
-     * <p>Currently only using for SOFT_KEYBOARD panel.</p>
+     * State type of the panel.
      *
-     * @type { ?PanelFlag }
      * @default FLG_FIXED
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -3490,16 +3851,15 @@ declare namespace inputMethodEngine {
   }
 
   /**
-   * Enumerates the moving direction of cursor
+   * Enumerates the directions of cursor movement of the input method.
    *
-   * @enum { int }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 10 dynamic
    * @since 23 static
    */
   export enum Direction {
     /**
-     * Cursor moves up
+     * Upward.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -3508,7 +3868,7 @@ declare namespace inputMethodEngine {
     CURSOR_UP = 1,
 
     /**
-     * Cursor moves down
+     * Downward.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -3517,7 +3877,7 @@ declare namespace inputMethodEngine {
     CURSOR_DOWN,
 
     /**
-     * Cursor moves left
+     * Leftward.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -3526,7 +3886,7 @@ declare namespace inputMethodEngine {
     CURSOR_LEFT,
 
     /**
-     * Cursor moves right
+     * Rightward.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -3536,16 +3896,15 @@ declare namespace inputMethodEngine {
   }
 
   /**
-   * Enumerates the security mode.
+   * Describes the security mode.
    *
-   * @enum { int }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 11 dynamic
    * @since 23 static
    */
   export enum SecurityMode {
     /**
-     * Basic security mode
+     * Basic access mode, where network access is restricted.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 11 dynamic
@@ -3553,7 +3912,7 @@ declare namespace inputMethodEngine {
      */
     BASIC = 0,
     /**
-     * Full security mode
+     * Full access mode, where network access is not restricted.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 11 dynamic
@@ -3563,18 +3922,16 @@ declare namespace inputMethodEngine {
   }
 
   /**
-   * Range of selected text.
+   * Describes the range of the selected text.
    *
-   * @interface Range
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 10 dynamic
    * @since 23 static
    */
   export interface Range {
     /**
-     * Indicates the index of the first character of the selected text.
+     * Index of the first selected character in the text box.
      *
-     * @type { int }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
      * @since 23 static
@@ -3582,9 +3939,8 @@ declare namespace inputMethodEngine {
     start: int;
 
     /**
-     * Indicates the index of the last character of the selected text.
+     * Index of the last selected character in the text box.
      *
-     * @type { int }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
      * @since 23 static
@@ -3593,18 +3949,16 @@ declare namespace inputMethodEngine {
   }
 
   /**
-   * Movement of cursor.
+   * Describes the direction in which the cursor moves when the text is selected.
    *
-   * @interface Movement
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 10 dynamic
    * @since 23 static
    */
   export interface Movement {
     /**
-     * Indicates the direction of cursor movement
+     * Direction in which the cursor moves when the text is selected.
      *
-     * @type { Direction }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
      * @since 23 static
@@ -3613,16 +3967,15 @@ declare namespace inputMethodEngine {
   }
 
   /**
-   * Enumerates the extend action.
+   * Describes the type of the extended edit action on the text box.
    *
-   * @enum { int }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 10 dynamic
    * @since 23 static
    */
   export enum ExtendAction {
     /**
-     * Select all text.
+     * Select all.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -3631,7 +3984,7 @@ declare namespace inputMethodEngine {
     SELECT_ALL = 0,
 
     /**
-     * Cut selecting text.
+     * Cut.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -3640,7 +3993,7 @@ declare namespace inputMethodEngine {
     CUT = 3,
 
     /**
-     * Copy selecting text.
+     * Copy.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -3649,7 +4002,7 @@ declare namespace inputMethodEngine {
     COPY = 4,
 
     /**
-     * Paste from paste board.
+     * Paste.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -3659,18 +4012,16 @@ declare namespace inputMethodEngine {
   }
 
   /**
-   * Window info.
+   * Represents window information.
    *
-   * @interface WindowInfo
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 12 dynamic
    * @since 23 static
    */
   export interface WindowInfo {
     /**
-     * Rectangle.
+     * Rectangular area of the window.
      *
-     * @type { window.Rect }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12 dynamic
      * @since 23 static
@@ -3678,9 +4029,8 @@ declare namespace inputMethodEngine {
     rect: window.Rect;
 
     /**
-     * Window status.
+     * Window status type.
      *
-     * @type { window.WindowStatusType }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12 dynamic
      * @since 23 static
@@ -3689,18 +4039,16 @@ declare namespace inputMethodEngine {
   }
 
   /**
-   * Panel Rect.
+   * Represents the size of the input method panel.
    *
-   * @interface PanelRect
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 12 dynamic
    * @since 23 static
    */
   export interface PanelRect {
     /**
-     * Panel rect in landscape orientation.
+     * Size of the input method panel window in landscape mode.
      *
-     * @type { window.Rect }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12 dynamic
      * @since 23 static
@@ -3708,9 +4056,8 @@ declare namespace inputMethodEngine {
     landscapeRect: window.Rect;
 
     /**
-     * Panel rect in portrait orientation.
+     * Size of the input method panel window in portrait mode.
      *
-     * @type { window.Rect }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12 dynamic
      * @since 23 static
@@ -3720,8 +4067,7 @@ declare namespace inputMethodEngine {
 
   /**
    * Callback function on receiving a custom message.
-   * 
-   * @typedef { function } OnMessageCallback.
+   *
    * @param { string } msgId - the identifier of the message.
    * @param { ArrayBuffer } [msgParam] - the parameter of the custom message.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -3730,10 +4076,22 @@ declare namespace inputMethodEngine {
   type OnMessageCallback = (msgId: string, msgParam?: ArrayBuffer) => void;
 
   /**
-   * <p>Custom message handler.</p>
-   * <p>Implement this interface to respond to custom messages.</p>
+   * Represents a custom communication object.
    * 
-   * @interface MessageHandler
+   * > **NOTE**
+   * >
+   * > You can register this object to receive custom communication data sent by the edit box application attached to 
+   * > the input method application. When the custom communication data is received, the 
+   * > [onMessage]{@link inputMethodEngine.MessageHandler.onMessage(msgId: string, msgParam?: ArrayBuffer)} callback in 
+   * > this object is triggered.
+   * >
+   * > This object is globally unique. After multiple registrations, only the last registered object is valid and 
+   * > retained, and the [onTerminated]{@link inputMethodEngine.MessageHandler.onTerminated()} callback of the 
+   * > penultimate registered object is triggered.
+   * >
+   * > If this object is unregistered, its [onTerminated]{@link inputMethodEngine.MessageHandler.onTerminated()} 
+   * > callback will be triggered.
+   *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 15 dynamic
    * @since 23 static
@@ -3742,7 +4100,6 @@ declare namespace inputMethodEngine {
     /**
      * This method is called when a custom message is received.
      *
-     * @type { OnMessageCallback }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 23 static
      */
@@ -3750,24 +4107,41 @@ declare namespace inputMethodEngine {
     /**
      * This method is called when a new message handler is set.
      *
-     * @type { Callback<void> }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 23 static
      */
     onTerminated: Callback<void>;
 
     /**
-     * This method is called when a custom message is received.
+     * Receives the custom data callback sent by the edit box application attached to the input method application.
+     * 
+     * > **NOTE**
+     * >
+     * > This callback is triggered when the registered [MessageHandler]{@link inputMethodEngine.MessageHandler} 
+     * > receives custom communication data sent by the edit box application attached to the input method application.
+     * >
+     * > The **msgId** parameter is mandatory, and the **msgParam** parameter is optional. If only the custom **msgId** 
+     * > data is received, confirm it with the data sender.
      *
-     * @param { string } msgId - the identifier of the message.
-     * @param { ArrayBuffer } [msgParam] - the parameter of the custom message.
+     * @param { string } msgId - Identifier of the received custom communication data.
+     * @param { ArrayBuffer } [msgParam] - Message body of the received custom communication data.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 15 dynamic
      */
     onMessage(msgId: string, msgParam?: ArrayBuffer): void;
 
     /**
-     * This method is called when a new message handler is set.
+     * Listens for MessageHandler termination.
+     * 
+     * > **NOTE**
+     * >
+     * > When an application registers a new [MessageHandler]{@link inputMethodEngine.MessageHandler} object, the 
+     * > [onTerminated]{@link inputMethodEngine.MessageHandler.onTerminated()} callback of the penultimate registered 
+     * > [MessageHandler]{@link inputMethodEngine.MessageHandler} object is triggered.
+     * >
+     * > When an application unregisters a new [MessageHandler]{@link inputMethodEngine.MessageHandler} object, the 
+     * > [onTerminated]{@link inputMethodEngine.MessageHandler.onTerminated()} callback of the registered 
+     * > [MessageHandler]{@link inputMethodEngine.MessageHandler} object is triggered.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 15 dynamic
@@ -3776,39 +4150,40 @@ declare namespace inputMethodEngine {
   }
 
   /**
-   * Enhanced panel rect information.
+   * Indicates the size of the enhanced input method panel, including the custom avoid area and touch area.
    *
-   * @interface EnhancedPanelRect
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 15 dynamic
    * @since 23 static
    */
   export interface EnhancedPanelRect {
     /**
-     * <p>Panel rect in landscape orientation.</p>
-     * <p>It must be filled when fullScreenMode is flase or not specified.</p>
+     * Size of the input method panel window in landscape mode.
+     * 
+     * - This attribute is mandatory when **fullScreenMode** is not set or is set to **false**.
      *
-     * @type { ?window.Rect }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 15 dynamic
      * @since 23 static
      */
     landscapeRect?: window.Rect;
     /**
-     * <p>Panel rect in portrait orientation.</P>
-     * <p>It must be filled when fullScreenMode is flase or not specified.</p>
+     * Size of the input method panel window in portrait mode.
+     * 
+     * - This attribute is mandatory when **fullScreenMode** is not set or is set to **false**.
      *
-     * @type { ?window.Rect }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 15 dynamic
      * @since 23 static
      */
     portraitRect?: window.Rect;
     /**
-     * The distance between the top of the panel and the top of the avoidance area in landscape orientation.
-     * <p>It's only used for SOFT_KEYBOARD panel with fixed flag or floating flag.</p>
+     * Distance between the avoid line and the top of the panel in landscape mode, in px. The default value is **0**.
+     * 
+     * - Other system components in the application avoid the input method panel area below the avoid line.
+     * - When the panel is fixed, the distance between the avoid line and the bottom of the screen cannot exceed 70% of 
+     * the screen height.
      *
-     * @type { ?int }
      * @default 0
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 15 dynamic
@@ -3816,21 +4191,23 @@ declare namespace inputMethodEngine {
      */
     landscapeAvoidY?: int;
     /**
-     * <p>Region in the panel that accepts input events in landsacpe mode.</p>
-     * <p>It's only used for SOFT_KEYBOARD panel with fixed flag or floating flag. Max array size is 4.</p>
-     * <p>Defaults to entire panel area if not specifed.</p>
+     * Region where the panel receives input events in landscape mode.
+     * 
+     * - The array size is limited to [1, 4]. The default value is the panel size in landscape mode.
+     * - The input hot zone is relative to the left vertex of the input method panel window.
      *
-     * @type { ?Array<window.Rect> }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 15 dynamic
      * @since 23 static
      */
     landscapeInputRegion?: Array<window.Rect>;
     /**
-     * The distance between the top of the panel and the top of the avoidance area in portrait orientation.
-     * <p>It's only used for SOFT_KEYBOARD panel with fixed flag or floating flag.</p>
+     * Distance between the avoid line and the top of the panel in portrait mode, in px. The default value is **0**.
+     * 
+     * - Other system components in the application avoid the input method panel area below the avoid line.
+     * - When the panel is fixed, the distance between the avoid line and the bottom of the screen cannot exceed 70% of 
+     * the screen height.
      *
-     * @type { ?int }
      * @default 0
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 15 dynamic
@@ -3838,21 +4215,22 @@ declare namespace inputMethodEngine {
      */
     portraitAvoidY?: int;
     /**
-     * <p>Region in the panel that accepts input events in portrait mode.</p>
-     * <p>It's only used for SOFT_KEYBOARD panel with fixed flag or floating flag. Max array size is 4.</p>
-     * <p>Defaults to entire panel area if not specifed.</p>
+     * Region where the panel receives input events in portrait mode.
+     * 
+     * - The array size is limited to [1, 4]. The default value is the panel size in portrait mode.
+     * - The input hot zone is relative to the left vertex of the input method panel window.
      *
-     * @type { ?Array<window.Rect> }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 15 dynamic
      * @since 23 static
      */
     portraitInputRegion?: Array<window.Rect>;
     /**
-     * <p>Enter the full screen mode.</p>
-     * <p>It's only used for SOFT_KEYBOARD panel with fixed flag or floating flag.</p>
+     * Indicates whether to enable the full-screen mode. The default value is **false**.
+     * 
+     * - If the value is **true**, **landscapeRect** and **portraitRect** are optional.
+     * - If the value is **false**, **landscapeRect** and **portraitRect** are mandatory.
      *
-     * @type { ?boolean }
      * @default false
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 15 dynamic
@@ -3862,45 +4240,44 @@ declare namespace inputMethodEngine {
   }
 
   /**
-   * Keyboard area.
+   * Represents the keyboard area on the panel.
    *
-   * @interface KeyboardArea
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 15 dynamic
    * @since 23 static
    */
   export interface KeyboardArea {
     /**
-     * Top of the keyboard area in the panel.
+     * Distance between the upper boundary of the keyboard area and the upper boundary of the panel area, in pixels. The
+     * value is an integer.
      *
-     * @type { int }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 15 dynamic
      * @since 23 static
      */
     top: int;
     /**
-     * Bottom of the keyboard area in the panel.
+     * Distance between the lower boundary of the keyboard area and the lower boundary of the panel area, in pixels. The
+     * value is an integer.
      *
-     * @type { int }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 15 dynamic
      * @since 23 static
      */
     bottom: int;
     /**
-     * Left of the keyboard area in the panel.
+     * Distance between the left boundary of the keyboard area and the left boundary of the panel area, in pixels. The 
+     * value is an integer.
      *
-     * @type { int }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 15 dynamic
      * @since 23 static
      */
     left: int;
     /**
-     * Right of the keyboard area in the panel.
+     * Distance between the right border of the keyboard area and the right border of the panel area, in pixels. The 
+     * value is an integer.
      *
-     * @type { int }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 15 dynamic
      * @since 23 static
@@ -3908,18 +4285,17 @@ declare namespace inputMethodEngine {
     right: int;
   }
   /**
-   * Attach options.
+   * Defines additional options for binding an input method.
    *
-   * @interface AttachOptions
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 19 dynamic
    * @since 23 static
    */
   export interface AttachOptions {
     /**
-     * The reason for request keyboard.
+     * Reason for requesting the keyboard. This attribute is set by the edit box application. If this attribute is not 
+     * set or is set to an invalid value, the keyboard will not be triggered by default.
      *
-     * @type { ?RequestKeyboardReason }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 19 dynamic
      * @since 23 static
@@ -3927,9 +4303,11 @@ declare namespace inputMethodEngine {
     requestKeyboardReason?: RequestKeyboardReason;
 
     /**
-     * Is simple keyboard enabled.
+     * Whether to enable the simple keyboard. This attribute is set by the edit box application. The value **true** 
+     * means that the simple keyboard is enabled, and the value **false** means the opposite.
+     * 
+     * If this attribute is not set or is set to an invalid value, the simple keyboard is disabled by default.
      *
-     * @type { ?boolean }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 20 dynamic
      * @since 23 static
@@ -3938,9 +4316,8 @@ declare namespace inputMethodEngine {
   }
 
   /**
-   * Enumerates the capitalization mode.
+   * Enumerates the modes of capitalizing the first letter of a text.
    *
-   * @enum { int }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 20 dynamic
    * @since 23 static

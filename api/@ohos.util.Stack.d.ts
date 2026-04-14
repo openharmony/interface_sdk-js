@@ -14,92 +14,59 @@
  */
 
 /**
+ * Stack is implemented based on the array data structure. It follows the principle Last Out First In (LOFI) and 
+ * supports data insertion and removal at one end.
+ * Unlike [Queue]{@link @ohos.util.Queue}, which is implemented based on the queue data structure and supports insertion
+ * at one end and removal at the other end, Stack supports insertion and removal at the same end.
+ * **Recommended use case**: Use Stack in LOFI scenarios.
+ * This topic uses the following to identify the use of generics:
+ * 
+ * - T: Type
+ * 
+ * > **NOTE**
+ * >
+ * > - Container classes, implemented in static languages, have restrictions on storage locations and properties, and do
+ * > not support custom properties or methods.
+ *
  * @file
  * @kit ArkTS
  */
 
 /**
- * Stack is implemented based on the array data structure. 
+ * Stack is implemented based on the array data structure.
  * It follows the principle Last In First Out (LIFO) and supports data insertion and removal at one end.
  *
  * @syscap SystemCapability.Utils.Lang
- * @since 8
- */
-/**
- * Stack is implemented based on the array data structure. 
- * It follows the principle Last In First Out (LIFO) and supports data insertion and removal at one end.
- *
- * @syscap SystemCapability.Utils.Lang
- * @crossplatform
- * @since 10
- */
-/**
- * Stack is implemented based on the array data structure. 
- * It follows the principle Last In First Out (LIFO) and supports data insertion and removal at one end.
- *
- * @syscap SystemCapability.Utils.Lang
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 12]
+ * @since 8 dynamic
  * @since 23 static
  */
 declare class Stack<T> {
   /**
-   * A constructor used to create a Stack object.
+   * A constructor used to create a **Stack** instance.
    *
    * @throws { BusinessError } 10200012 - The Stack's constructor cannot be directly invoked.
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * A constructor used to create a Stack object.
-   *
-   * @throws { BusinessError } 10200012 - The Stack's constructor cannot be directly invoked.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * A constructor used to create a Stack object.
-   *
-   * @throws { BusinessError } 10200012 - The Stack's constructor cannot be directly invoked.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
    * @since 23 static
    */
   constructor();
   /**
-   * Gets the element number of the Stack. This is a number one higher than the highest index in the Stack.
+   * Number of elements in a Stack.
    *
-   * @type { number }
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * Gets the element number of the Stack. This is a number one higher than the highest index in the Stack.
-   *
-   * @type { number }
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Gets the element number of the Stack. This is a number one higher than the highest index in the Stack.
-   *
-   * @type { number }
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
    */
   length: number;
 
   /**
    * Gets the element number of the Stack.
    *
-   * @type { int }
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -108,216 +75,85 @@ declare class Stack<T> {
   get length(): int;
 
   /**
-   * Tests if this stack is empty
+   * Checks whether this Stack is empty (contains no elements).
    *
-   * @returns { boolean } the boolean type
+   * @returns { boolean } Returns **true** if the Stack is empty; returns **false** otherwise.
    * @throws { BusinessError } 10200011 - The isEmpty method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * Tests if this stack is empty
-   *
-   * @returns { boolean } the boolean type
-   * @throws { BusinessError } 10200011 - The isEmpty method cannot be bound.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Tests if this stack is empty
-   *
-   * @returns { boolean } the boolean type
-   * @throws { BusinessError } 10200011 - The isEmpty method cannot be bound.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
    * @since 23 static
    */
   isEmpty(): boolean;
   /**
-   * Looks at the object at the top of this stack without removing it from the stack
-   * Return undefined if this stack is empty
+   * Obtains the top element of this Stack. If the Stack is empty, **undefined** is returned.
    *
-   * @returns { T } the top value or undefined
+   * @returns { T } Element removed. If the Stack is empty, **undefined** is returned.
    * @throws { BusinessError } 10200011 - The peek method cannot be bound.
+   * @throws { BusinessError } 10200010 - Container is empty. [since 23] [staticonly]
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * Looks at the object at the top of this stack without removing it from the stack
-   * Return undefined if this stack is empty
-   *
-   * @returns { T } the top value or undefined
-   * @throws { BusinessError } 10200011 - The peek method cannot be bound.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Looks at the object at the top of this stack without removing it from the stack
-   * Return undefined if this stack is empty
-   *
-   * @returns { T } the top value or undefined
-   * @throws { BusinessError } 10200010 - Container is empty.[staticonly]
-   * @throws { BusinessError } 10200011 - The peek method cannot be bound.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
    * @since 23 static
    */
   peek(): T;
 
   /**
-   * Removes the object at the top of this stack and returns that object as the value of this function
-   * an exception if the stack is empty
+   * Removes the top element from this Stack.
    *
-   * @returns { T } Stack top value or undefined
+   * @returns { T } Element removed. If the Stack is empty, **undefined** is returned.
    * @throws { BusinessError } 10200011 - The pop method cannot be bound.
+   * @throws { BusinessError } 10200010 - Container is empty. [since 23] [staticonly]
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * Removes the object at the top of this stack and returns that object as the value of this function
-   * an exception if the stack is empty
-   *
-   * @returns { T } Stack top value or undefined
-   * @throws { BusinessError } 10200011 - The pop method cannot be bound.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Removes the object at the top of this stack and returns that object as the value of this function
-   * an exception if the stack is empty
-   *
-   * @returns { T } Stack top value or undefined
-   * @throws { BusinessError } 10200010 - Container is empty.[staticonly]
-   * @throws { BusinessError } 10200011 - The pop method cannot be bound.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
    * @since 23 static
    */
   pop(): T;
 
   /**
-   * Pushes an item onto the top of this stack
+   * Adds an element at the top of this Stack.
    *
-   * @param { T } item - item item to be appended to this Stack
-   * @returns { T } the T type
+   * @param { T } item - Target element.
+   * @returns { T } Element added.
    * @throws { BusinessError } 10200011 - The push method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * Pushes an item onto the top of this stack
-   *
-   * @param { T } item - item item to be appended to this Stack
-   * @returns { T } the T type
-   * @throws { BusinessError } 10200011 - The push method cannot be bound.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Pushes an item onto the top of this stack
-   *
-   * @param { T } item - item item to be appended to this Stack
-   * @returns { T } the T type
-   * @throws { BusinessError } 10200011 - The push method cannot be bound.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
    * @since 23 static
    */
   push(item: T): T;
   /**
-   * Returns the 1-based position where an object is on this stack
+   * Obtains the index of the first occurrence of the specified element in this Stack.
    *
-   * @param { T } element - element to be located
-   * @returns { number } the T type,If there is no such element, return -1
+   * @param { T } element - Target element.
+   * @returns { int } Index of the element. If no match is found, **-1** is returned.
    * @throws { BusinessError } 10200011 - The locate method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * Returns the 1-based position where an object is on this stack
-   *
-   * @param { T } element - element to be located
-   * @returns { number } the T type,If there is no such element, return -1
-   * @throws { BusinessError } 10200011 - The locate method cannot be bound.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Returns the 1-based position where an object is on this stack
-   *
-   * @param { T } element - element to be located
-   * @returns { int } the T type,If there is no such element, return -1
-   * @throws { BusinessError } 10200011 - The locate method cannot be bound.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
    * @since 23 static
    */
   locate(element: T): int;
   /**
-   * Executes a provided function once for each value in the Stack object.
+   * Uses a callback to traverse each element in the **Stack** instance.
    *
-   * @param { function } callbackFn - callbackFn
-   * callbackFn (required) A function that accepts up to three arguments.
-   * The function to be called for each element.
-   * @param { Object } [thisArg] - thisArg
-   * thisArg (Optional) The value to be used as this value for when callbackFn is called.
-   * If thisArg is omitted, undefined is used as the this value.
+   * @param { function } callbackFn - Callback invoked to traverse the elements in the Stack.
+   * @param { Object } [thisArg] - Value of **this** to use when **callbackFn** is invoked. The default value is this
+   *     instance.
    * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
+   *     1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * Executes a provided function once for each value in the Stack object.
-   *
-   * @param { function } callbackFn - callbackFn
-   * callbackFn (required) A function that accepts up to three arguments.
-   * The function to be called for each element.
-   * @param { Object } [thisArg] - thisArg
-   * thisArg (Optional) The value to be used as this value for when callbackFn is called.
-   * If thisArg is omitted, undefined is used as the this value.
-   * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Executes a provided function once for each value in the Stack object.
-   *
-   * @param { function } callbackFn - callbackFn
-   * callbackFn (required) A function that accepts up to three arguments.
-   * The function to be called for each element.
-   * @param { Object } [thisArg] - thisArg
-   * thisArg (Optional) The value to be used as this value for when callbackFn is called.
-   * If thisArg is omitted, undefined is used as the this value.
-   * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
    */
   forEach(callbackFn: (value: T, index?: number, stack?: Stack<T>) => void, thisArg?: Object): void;
 
@@ -338,26 +174,9 @@ declare class Stack<T> {
    * @returns { IterableIterator<T> }
    * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * returns an ES6 iterator.Each item of the iterator is a Javascript Object
-   *
-   * @returns { IterableIterator<T> }
-   * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * returns an ES6 iterator.Each item of the iterator is a Javascript Object
-   *
-   * @returns { IterableIterator<T> }
-   * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
    */
   [Symbol.iterator](): IterableIterator<T>;
 
@@ -377,15 +196,16 @@ declare class Stack<T> {
 /**
  * The type of Stack callback function.
  *
- * @typedef { function } StackForEachCb
  * @param { T } value - The value of current element
  * @param { int } index - The key of current element
+ *     The value should be an integer.
  * @param { Stack<T> } stack - The Stack instance being traversed
  * @returns { void } This callback does not return a value
  * @syscap SystemCapability.Utils.Lang
+ * @stagemodelonly
  * @atomicservice
  * @since 23 static
  */
-export type StackForEachCb<T> = (value: T, index: int, stack: Stack<T>) => void
+export type StackForEachCb<T> = (value: T, index: int, stack: Stack<T>) => void;
 
 export default Stack;

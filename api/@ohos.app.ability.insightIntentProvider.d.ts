@@ -31,7 +31,7 @@ import type insightIntent from './@ohos.app.ability.insightIntent';
 declare namespace insightIntentProvider {
   /**
    * Send execute result.
-   * @param { int } instanceId - The insight intent instanceId ID.
+   * @param { int } instanceId - The insight intent instance ID.
    *     It is from InsightIntentExecutor.context.instanceId.
    * @param { insightIntent.ExecuteResult } result - The result of insight intent execution.
    * @returns { Promise<void> } - The promise returned by the function.
@@ -47,7 +47,7 @@ declare namespace insightIntentProvider {
 
   /**
    * Send intent result.
-   * @param { int } instanceId - The insight intent instanceId ID.
+   * @param { int } instanceId - The insight intent instance ID.
    *     It is from InsightIntentEntryExecutor.context.instanceId.
    * @param { insightIntent.IntentResult<T> } result - The result of insight intent execution.
    * @returns { Promise<void> } - The promise returned by the function.
@@ -57,9 +57,26 @@ declare namespace insightIntentProvider {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 23 dynamiconly
+   * @since 23 dynamic
    */
   function sendIntentResult(instanceId: int, result: insightIntent.IntentResult<T>): Promise<void>;
+
+  /**
+   * Send intent result.
+   * 
+   * @param { int } instanceId - The insight intent instance ID.
+   *     It is from InsightIntentEntryExecutor.context.instanceId.
+   * @param { insightIntent.IntentResult<T> } result - The result of insight intent execution.
+   * @returns { Promise<void> } - The promise returned by the function.
+   * @throws { BusinessError } 16000003 - The specified ID does not exist.
+   * @throws { BusinessError } 16000050 - Internal error. Possible causes: 1. Connect to system service failed;
+   *     2.Send restart message to system service failed; 3.System service failed to communicate with dependency module.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 static
+   */
+  function sendIntentResult<T>(instanceId: int, result: insightIntent.IntentResult<T>): Promise<void>;
 }
 
 export default insightIntentProvider;

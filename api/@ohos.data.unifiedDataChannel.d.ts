@@ -92,7 +92,7 @@ declare namespace unifiedDataChannel {
   }
 
   /**
-   * Indicated delay get UnifiedData
+   * Indicates a callback for getting UnifiedData with delay.
    *
    * @typedef {function} GetDelayData
    * @param { string } type - the type of UnifiedData required.
@@ -128,6 +128,57 @@ declare namespace unifiedDataChannel {
    * @since 23 static
    */
   type ValueType = int | long | double | string | boolean | image.PixelMap | Want | ArrayBuffer | RecordData | null | undefined;
+
+  /**
+   * Defines URI permissions for drag intention.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  export const enum UriPermission {  
+    /**
+     * No permissions granted.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    NONE = 0,
+
+    /**
+     * Permission to read or view data.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    READ = 1,
+
+    /**
+     * Permission to modify data.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    WRITE = 2,
+
+    /**
+     * Permission to persist files.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    PERSIST = 3
+  }
 
   /**
    * Describe the unified data properties.
@@ -186,7 +237,7 @@ declare namespace unifiedDataChannel {
     shareOptions?: ShareOptions;
 
     /**
-     * Indicated delay get UnifiedData.
+     * Indicates a callback for getting UnifiedData with delay.
      * @type { ?GetDelayData }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
@@ -194,6 +245,17 @@ declare namespace unifiedDataChannel {
      * @since 23 static
      */
     getDelayData?: GetDelayData;
+
+    /**
+     * Defines URI authorization policies for drag intention.
+     *
+     * @type { ?Array<UriPermission> }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    uriAuthorizationPolicies?: Array<UriPermission>;
   }
 
   /**
@@ -1337,6 +1399,17 @@ declare namespace unifiedDataChannel {
      * @since 23 static
      */
     set plainContent(value: string | undefined);
+
+    /**
+     * Defines URI authorization policies for drag intention.
+     *
+     * @param { Array<UriPermission> | undefined } value - URI authorization policies.
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    set uriAuthorizationPolicies(value: Array<UriPermission> | undefined);
   }
 
   /**
@@ -1521,6 +1594,17 @@ declare namespace unifiedDataChannel {
      * @since 23 dynamic&static
      */
     set uri(value: string);
+
+    /**
+     * Defines URI authorization policies for drag intention.
+     *
+     * @param { Array<UriPermission> | undefined } value - URI authorization policies.
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    set uriAuthorizationPolicies(value: Array<UriPermission> | undefined);
   }
 
   /**
@@ -2380,6 +2464,7 @@ declare namespace unifiedDataChannel {
      * @returns { string } the id of app icon
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
+     * @atomicservice
      * @since 23 dynamic&static
      */
     get appIconId(): string;
@@ -2404,6 +2489,7 @@ declare namespace unifiedDataChannel {
      * @param { string } the id of app icon
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
+     * @atomicservice
      * @since 23 dynamic&static
      */
     set appIconId(value: string);
@@ -2428,6 +2514,7 @@ declare namespace unifiedDataChannel {
      * @returns { string } the id of app label
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
+     * @atomicservice
      * @since 23 dynamic&static
      */
     get appLabelId(): string;
@@ -2452,6 +2539,7 @@ declare namespace unifiedDataChannel {
      * @param { string } the id of app label
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
+     * @atomicservice
      * @since 23 dynamic&static
      */
     set appLabelId(value: string);

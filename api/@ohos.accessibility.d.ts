@@ -240,9 +240,18 @@ export enum AccessibilityAction {
    * @since 20 dynamic
    * @since 23 static
    */
-  SPAN_CLICK = 20
-}
+  SPAN_CLICK = 20,
 
+  /**
+   * Inject action on an accessibility focus element.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  INJECT_ACTION = 21
+}
 
 /**
  * AccessibilityEvent type
@@ -956,7 +965,17 @@ export enum AccessibilityEventType {
    * @systemapi
    * @since 23 dynamic&static
    */
-  TYPE_PAGE_ACTIVE = 69
+  TYPE_PAGE_ACTIVE = 69,
+
+  /**
+   * notification update type
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  TYPE_NOTIFICATION_UPDATE = 70
 }
 
 /**
@@ -1119,11 +1138,26 @@ declare namespace accessibility {
   * @atomicservice
   * @since 23 dynamic&static
   */
+  /**
+   * The type of the accessibility event.
+   * windowsChange/windowContentChange/windowStateChange/announcement/notificationChange/textTraversedAtMove
+   * value range: { 'accessibilityFocus' | 'accessibilityFocusClear' |
+   * 'click' | 'longClick' | 'focus' | 'select' | 'hoverEnter' | 'hoverExit' |
+   * 'textUpdate' | 'textSelectionUpdate' | 'scroll' | 'requestFocusForAccessibility' |
+   * 'announceForAccessibility' | 'requestFocusForAccessibilityNotInterrupt' |
+   * 'announceForAccessibilityNotInterrupt' | 'scrolling' | 'pageActive' | 'notificationUpdate' }
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
   type EventType = 'accessibilityFocus' | 'accessibilityFocusClear' |
   'click' | 'longClick' | 'focus' | 'select' | 'hoverEnter' | 'hoverExit' |
   'textUpdate' | 'textSelectionUpdate' | 'scroll' | 'requestFocusForAccessibility' |
   'announceForAccessibility' | 'requestFocusForAccessibilityNotInterrupt' |
-  'announceForAccessibilityNotInterrupt' | 'scrolling' | 'pageActive';
+  'announceForAccessibilityNotInterrupt' | 'scrolling' | 'pageActive' | 'notificationUpdate';
 
   /**
    * The change type of the windowsChange event.
@@ -1895,8 +1929,7 @@ declare namespace accessibility {
    *
    * @returns { CaptionsManager } Returns the captions manager.
    * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
-   * @since 8 dynamic
-   * @since 23 static
+   * @since 8 dynamiconly
    * @deprecated since 12
    */
   function getCaptionsManager(): CaptionsManager;
@@ -3005,4 +3038,42 @@ export enum FocusMoveResultCode {
    * @since 23 dynamic&static
    */
   SEARCH_FAILURE_IN_SCROLL = 8
+}
+
+/**
+ * The action inject on accessibility focus element.
+ *
+ * @syscap SystemCapability.BarrierFree.Accessibility.Core
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.0.0 dynamic&static
+ */
+export enum InjectActionType {
+  /**
+   * Click type.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  CLICK = 1,
+  /**
+   * Double click type.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  DOUBLE_CLICK = 2,
+  /**
+   * Long click type.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  LONG_CLICK = 3
 }

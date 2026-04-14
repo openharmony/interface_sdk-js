@@ -1032,9 +1032,9 @@ declare namespace commonEventManager {
 
     /**
      * Remind new user of that the service has been switched to new user.
+     * This API can be called only by system applications.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * This API can be called only by system applications.
      * @since 9 dynamic
      * @since 23 static
      */
@@ -1042,9 +1042,9 @@ declare namespace commonEventManager {
 
     /**
      * Remind new user of that the service has been starting.
+     * This API can be called only by system applications.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * This API can be called only by system applications.
      * @since 9 dynamic
      * @since 23 static
      */
@@ -1083,9 +1083,9 @@ declare namespace commonEventManager {
 
     /**
      * Remind new user of that the service has been stopping.
+     * This API can be called only by system applications.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * This API can be called only by system applications.
      * @since 9 dynamic
      * @since 23 static
      */
@@ -1770,9 +1770,9 @@ declare namespace commonEventManager {
 
     /**
      * User added.
+     * This API can be called only by system applications.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * This API can be called only by system applications.
      * @since 9 dynamic
      * @since 23 static
      */
@@ -1780,9 +1780,9 @@ declare namespace commonEventManager {
 
     /**
      * User removed.
+     * This API can be called only by system applications.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * This API can be called only by system applications.
      * @since 9 dynamic
      * @since 23 static
      */
@@ -2124,9 +2124,9 @@ declare namespace commonEventManager {
     /**
      * Account was deleted.
      * This is a protected common event that can only be sent by system.
+     * This API can be called only by system applications.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * This API can be called only by system applications.
      * @since 9 dynamic
      * @since 23 static
      */
