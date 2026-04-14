@@ -2410,7 +2410,7 @@ declare namespace geoLocationManager {
    *
    * @returns { boolean } Returns {@code true} if GNSS service is available, returns {@code false} otherwise.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
-   * @syscap SystemCapability.Location.location.core
+   * @syscap SystemCapability.Location.Location.Core
    * @stagemodelonly
    * @atomicservice
    * @since 26.0.0 dynamic&static
@@ -2422,7 +2422,7 @@ declare namespace geoLocationManager {
    *
    * @returns { boolean } Returns {@code true} if GNSS fence service is available, returns {@code false} otherwise.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
-   * @syscap SystemCapability.Location.location.core
+   * @syscap SystemCapability.Location.Location.Core
    * @stagemodelonly
    * @atomicservice
    * @since 26.0.0 dynamic&static
@@ -2434,7 +2434,7 @@ declare namespace geoLocationManager {
    *
    * @returns { boolean } Returns {@code true} if cached service is available, returns {@code false} otherwise.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
-   * @syscap SystemCapability.Location.location.core
+   * @syscap SystemCapability.Location.Location.Core
    * @stagemodelonly
    * @atomicservice
    * @since 26.0.0 dynamic&static
