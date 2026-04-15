@@ -18,409 +18,205 @@
  * @kit ArkTS
  */
 
-import type { Callback } from './@ohos.base';
-
 /**
- * TextDecoder support full encoding in ICU data utf-8 utf-16 iso8859 must support in all device, TextEncoder takes a
- * stream of code points as input and emits a stream of UTF-8 bytes, and system help function.
+ * The util module provides common utility functions, such as [TextEncoder]{@link util.TextEncoder} and
+ * [TextDecoder]{@link util.TextDecoderOptions} for string encoding and decoding,
+ * [RationalNumber<sup>8+</sup>]{@link util.RationalNumber} for rational number operations,
+ * [LRUCache<sup>9+</sup>]{@link util.LRUCache} for cache management, [ScopeHelper<sup>9+</sup>]{@link util.ScopeHelper}
+ * for range determination, [Base64Helper<sup>9+</sup>]{@link util.Base64Helper} for Base64 encoding and decoding,
+ * [types<sup>8+</sup>]{@link util.types} for built-in object type check, and [Aspect<sup>11+</sup>]{@link util.Aspect}
+ * for instrumentation and replacement on methods.
  *
- * @namespace util
  * @syscap SystemCapability.Utils.Lang
- * @since 7
- */
-/**
- * TextDecoder support full encoding in ICU data utf-8 utf-16 iso8859 must support in all device, TextEncoder takes a
- * stream of code points as input and emits a stream of UTF-8 bytes, and system help function.
- *
- * @namespace util
- * @syscap SystemCapability.Utils.Lang
- * @crossplatform
- * @since 10
- */
-/**
- * The util module provides common utility functions, such as TextEncoder and TextDecoder for string encoding and decoding,
- * RationalNumber8+ for rational number operations, LRUCache9+ for cache management, ScopeHelper9+ for range determination,
- * Base64Helper9+ for Base64 encoding and decoding, types8+ for built-in object type check, and Aspect11+ for instrumentation
- * and replacement on methods.
- *
- * @namespace util
- * @syscap SystemCapability.Utils.Lang
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare namespace util {
   /**
-   * %s: String will be used to convert all values except BigInt, Object and -0. BigInt values will be represented
-   * with an n and Objects that have no user defined toString function are inspected using util.inspect() with
-   * options { depth: 0, colors: false, compact: 3 }.
-   * %d: Number will be used to convert all values except BigInt and Symbol.
-   * %i: parseInt(value, 10) is used for all values except BigInt and Symbol.
-   * %f: parseFloat(value) is used for all values except Bigint and Symbol.
-   * %j: JSON. Replaced with the string '[Circular]' if the argument contains circular references.
-   * %o: Object. A string representation of an object with generic JavaScript object formatting.Similar to
-   * util.inspect() with options { showHidden: true, showProxy: true}. This will show the full object including
-   * non-enumerable properties and proxies.
-   * %O: Object. A string representation of an object with generic JavaScript object formatting.
-   * %O: Object. A string representation of an object with generic JavaScript object formatting.Similar to
-   * util.inspect() without options. This will show the full object not including non-enumerable properties and
-   * proxies.
-   * %c: CSS. This specifier is ignored and will skip any CSS passed in.
-   * %%: single percent sign ('%'). This does not consume an argument.Returns: <string> The formatted string.
+   * Formats a string by replacing the placeholders in it.
    *
-   * @param { string } format - Styled string
-   * @param { Object[] } args - Data to be formatted
-   * @returns { string } Return the character string formatted in a specific format
+   * @param { string } format - Format string.
+   * @param { Object[] } args - Data used to replace the placeholders in **format**. If **null** is passed in, the first
+   *     argument is returned by default.
+   * @returns { string } String containing the formatted values.
    * @syscap SystemCapability.Utils.Lang
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.util.format
+   * @useinstead util.format
    */
   function printf(format: string, ...args: Object[]): string;
 
   /**
-   * %s: String will be used to convert all values except BigInt, Object and -0. BigInt values will be represented
-   * with an n and Objects that have no user defined toString function are inspected using util.inspect() with
-   * options { depth: 0, colors: false, compact: 3 }.
-   * %d: Number will be used to convert all values except BigInt and Symbol.
-   * %i: parseInt(value, 10) is used for all values except BigInt and Symbol.
-   * %f: parseFloat(value) is used for all values except Bigint and Symbol.
-   * %j: JSON. Replaced with the string '[Circular]' if the argument contains circular references.
-   * %o: Object. A string representation of an object with generic JavaScript object formatting.Similar to
-   * util.inspect() with options { showHidden: true, showProxy: true}. This will show the full object including
-   * non-enumerable properties and proxies.
-   * %O: Object. A string representation of an object with generic JavaScript object formatting.
-   * %O: Object. A string representation of an object with generic JavaScript object formatting.Similar to
-   * util.inspect() without options. This will show the full object not including non-enumerable properties and
-   * proxies.
-   * %c: CSS. This specifier is ignored and will skip any CSS passed in.
-   * %%: single percent sign ('%'). This does not consume an argument.Returns: <string> The formatted string.
-   *
-   * @param { string } format - Styled string
-   * @param { Object[] } args - Data to be formatted
-   * @returns { string } Return the character string formatted in a specific format
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
-   * @syscap SystemCapability.Utils.Lang
-   * @since 9
-   */
-  /**
-   * %s: String will be used to convert all values except BigInt, Object and -0. BigInt values will be represented
-   * with an n and Objects that have no user defined toString function are inspected using util.inspect() with
-   * options { depth: 0, colors: false, compact: 3 }.
-   * %d: Number will be used to convert all values except BigInt and Symbol.
-   * %i: parseInt(value, 10) is used for all values except BigInt and Symbol.
-   * %f: parseFloat(value) is used for all values except Bigint and Symbol.
-   * %j: JSON. Replaced with the string '[Circular]' if the argument contains circular references.
-   * %o: Object. A string representation of an object with generic JavaScript object formatting.Similar to
-   * util.inspect() with options { showHidden: true, showProxy: true}. This will show the full object including
-   * non-enumerable properties and proxies.
-   * %O: Object. A string representation of an object with generic JavaScript object formatting.
-   * %O: Object. A string representation of an object with generic JavaScript object formatting.Similar to
-   * util.inspect() without options. This will show the full object not including non-enumerable properties and
-   * proxies.
-   * %c: CSS. This specifier is ignored and will skip any CSS passed in.
-   * %%: single percent sign ('%'). This does not consume an argument.Returns: <string> The formatted string.
-   *
-   * @param { string } format - Styled string
-   * @param { Object[] } args - Data to be formatted
-   * @returns { string } a string formatted in a specific format.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
    * Formats a string by replacing the placeholders in it.
-   * %s: String will be used to convert all values except BigInt, Object and -0. BigInt values will be represented
-   * with an n and Objects that have no user defined toString function are inspected using util.inspect() with
-   * options { depth: 0, colors: false, compact: 3 }.
-   * %d: Number will be used to convert all values except BigInt and Symbol.
-   * %i: parseInt(value, 10) is used for all values except BigInt and Symbol.
-   * %f: parseFloat(value) is used for all values except Bigint and Symbol.
-   * %j: JSON. Replaced with the string '[Circular]' if the argument contains circular references.
-   * %o: Object. A string representation of an object with generic JavaScript object formatting.Similar to
-   * util.inspect() with options { showHidden: true, showProxy: true}. This will show the full object including
-   * non-enumerable properties and proxies.
-   * %O: Object. A string representation of an object with generic JavaScript object formatting.
-   * %O: Object. A string representation of an object with generic JavaScript object formatting.Similar to
-   * util.inspect() without options. This will show the full object not including non-enumerable properties and
-   * proxies.
-   * %c: CSS. This specifier is ignored and will skip any CSS passed in.
-   * %%: single percent sign ('%'). This does not consume an argument.Returns: <string> The formatted string.
    *
    * @param { string } format - Format string. This string contains zero or more placeholders, which specify the
-   * position and format of the arguments to be inserted.
-   * @param { Object[] } args - Data used to replace the placeholders in format. If null is passed in, the first
-   * argument is returned by default.
-   * @returns { string } a string formatted in a specific format.
+   *     position and format of the arguments to be inserted.
+   * @param { Object[] } args - Data used to replace the placeholders in **format**. If **null** is passed in, the first
+   *     argument is returned by default.
+   * @returns { string } Formatted string.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
+   *     1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 9 dynamic
    */
   function format(format: string, ...args: Object[]): string;
 
   /**
-   * Get the string name of the system errno.
+   * Obtains detailed information about a system error code.
    *
-   * @param { number } errno - The error code generated by an error in the system
-   * @returns { string } Return the string name of a system errno
+   * @param { number } errno - Error code generated.
+   * @returns { string } Detailed information about the error code.
    * @syscap SystemCapability.Utils.Lang
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.util.errnoToString
+   * @useinstead util.errnoToString
    */
   function getErrorString(errno: number): string;
 
   /**
-   * Get the string name of the system errno.
-   *
-   * @param { number } errno - The error code generated by an error in the system
-   * @returns { string } Return the string name of a system errno
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
-   * @syscap SystemCapability.Utils.Lang
-   * @since 9
-   */
-  /**
-   * Get the string name of the system errno.
-   *
-   * @param { number } errno - The error code generated by an error in the system
-   * @returns { string } Return the string name of a system errno
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
    * Obtains detailed information about a system error code.
    *
    * @param { number } errno - Error code generated.
-   * @returns { string } Return the string name of a system errno
+   * @returns { string } Detailed information about the error code.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
+   *     1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 9 dynamic
    */
   function errnoToString(errno: number): string;
 
   /**
-   * Takes an async function (or a function that returns a Promise) and returns a function following the
-   * error-first callback style.
+   * Calls back an asynchronous function. In the callback, the first parameter indicates the cause of the rejection (the
+   * value is **null** if the promise has been resolved), and the second parameter indicates the resolved value.
    *
-   * @param { Function } original - Asynchronous function
-   * @returns { function } Return a Asynchronous function
+   * > **NOTE**
+   * >
+   * > - **original** must be an asynchronous function. If a non-asynchronous function is passed in, the function is not
+   * > intercepted, but the error message "callbackWrapper: The type of Parameter must be AsyncFunction" is displayed.
+   * >
+   * > - This API converts an async function that returns a promise into an error-first callback function. The function
+   * > returned by this API accepts a callback as its second input parameter. When this method is called, the original
+   * > function is executed first. When the promise of **original** returns **resolve**, the first parameter of the
+   * > callback function is **null**, and the second parameter is the value of **resolve**. When the promise of
+   * > **original** returns **reject**, the first parameter of the callback function is an error object, and the second
+   * > parameter is **null**. When **original** is a function without input parameters, the first input parameter of the
+   * > function returned by this API must be an invalid placeholder parameter.
+   *
+   * @param { Function } original - Asynchronous function.
+   * @returns { function } Callback function, in which the first parameter **err** indicates
+   *     the cause of the rejection
+   *     (the value is **null** if the promise has been resolved) and the second parameter **value** indicates the
+   *     resolved value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified;
    *     2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
-   * @since 7
-   */
-  /**
-   * Takes an async function (or a function that returns a Promise) and returns a function following the
-   * error-first callback style.
-   *
-   * @param { Function } original - Asynchronous function
-   * @returns { function } Return a Asynchronous function
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Calls back an asynchronous function. In the callback, the first parameter indicates the cause of the rejection
-   * (the value is null if the promise has been resolved), and the second parameter indicates the resolved value.
-   *
-   * @param { Function } original - Asynchronous function
-   * @returns { function } Return a Asynchronous function
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 7 dynamic
    */
   function callbackWrapper(original: Function): (err: Object, value: Object) => void;
 
   /**
-   * Takes a function following the common error-first callback style, i.e taking an (err, value) =>
-   * callback as the last argument, and return a function that returns promises.
+   * Receives a function that uses the error-first callback mode, that is, uses `(err, value) => callback` as the last
+   * parameter, and uses a promise to return the result.
    *
-   * @param { function } original - Asynchronous function
-   * @returns { function } Return a function that returns promises
+   * @param { function } original - Function, in which the first parameter **err** indicates the cause of the rejection
+   *     (the value is **null** if the promise has been resolved) and the second parameter **value** indicates the
+   *     resolved value.
+   * @returns { function } Return a function that returns promises [since 9 - 11]
+   * @returns { Function } Promise function. [since 10]
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
+   *     1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
-   * @since 9
-   */
-  /**
-   * Takes a function following the common error-first callback style, i.e taking an (err, value) =>
-   * callback as the last argument, and return a function that returns promises.
-   *
-   * @param { function } original - Asynchronous function
-   * @returns { Function } Return a function that returns promises
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Processes an asynchronous function and returns a promise.
-   *
-   * @param { function } original - Function, in which the first parameter err indicates the cause of the rejection
-   * (the value is null if the promise has been resolved) and the second parameter value indicates the resolved value.
-   * @returns { Function } Return a function that returns promises
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 9 dynamic
    */
   function promisify(original: (err: Object, value: Object) => void): Function;
 
   /**
-   * Takes a function following the common error-first callback style, i.e taking an (err, value) =>
-   * callback as the last argument, and return a version that returns promises.
+   * Receives a function that uses the error-first callback mode, that is, uses `(err, value) => callback` as the last
+   * parameter, and uses a promise to return the result.
    *
-   * @param { function } original - Asynchronous function
-   * @returns { Object } Return a version that returns promises
+   * @param { function } original - Asynchronous function.
+   * @returns { Object } Promise in the error-first style (that is, (err, value) => ... is called as the last parameter)
+   *     .
    * @syscap SystemCapability.Utils.Lang
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.util.promisify
+   * @useinstead util.promisify
    */
   function promiseWrapper(original: (err: Object, value: Object) => void): Object;
 
   /**
-   * Generate a random RFC 4122 version 4 UUID using a cryptographically secure random number generator.
+   * Uses a secure random number generator to generate a random universally unique identifier (UUID) of the string type
+   * in RFC 4122 version 4. To improve performance, this API uses cached UUIDs by default, in which **entropyCache** is
+   * set to **true**. A maximum of 128 random UUIDs can be cached. After all the 128 UUIDs in the cache are used, a new
+   * set of UUIDs is generated to maintain their random distribution. If you do not need to use the cached UUID, set
+   * **entropyCache** to **false**.
    *
-   * @param { boolean } [entropyCache] - Whether to generate the UUID with using the cache. Default: true.
-   * @returns { string } Return a string representing this UUID.
+   * @param { boolean } [entropyCache] - Whether to use a cached UUID. The value **true** means to use a cached UUID,
+   *     and **false** means the opposite. The default value is **true**.
+   * @returns { string } A string representing the UUID generated.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
-   * @since 9
-   */
-  /**
-   * Generate a random RFC 4122 version 4 UUID using a cryptographically secure random number generator.
-   *
-   * @param { boolean } [entropyCache] - Whether to generate the UUID with using the cache. Default: true.
-   * @returns { string } Return a string representing this UUID.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Uses a secure random number generator to generate a random universally unique identifier (UUID) of the
-   * string type in RFC 4122 version 4.
-   *
-   * @param { boolean } [entropyCache] - Whether to generate the UUID with using the cache. Default: true.
-   * @returns { string } Return a string representing this UUID.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 9 dynamic
    */
   function generateRandomUUID(entropyCache?: boolean): string;
 
   /**
-   * Generate a random RFC 4122 version 4 binary UUID using a cryptographically secure random number generator.
+   * Uses a secure random number generator to generate a random universally unique identifier (UUID) of RFC 4122 version
+   * 4.
    *
-   * @param { boolean } [entropyCache] - Whether to generate the UUID with using the cache. Default: true.
-   * @returns { Uint8Array } Return a Uint8Array representing this UUID.
+   * @param { boolean } [entropyCache] - Whether to use a cached UUID. The value **true** means to use a cached UUID,
+   *     and **false** means the opposite. The default value is **true**.
+   * @returns { Uint8Array } A Uint8Array value representing the UUID generated.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
-   * @since 9
-   */
-  /**
-   * Generate a random RFC 4122 version 4 binary UUID using a cryptographically secure random number generator.
-   *
-   * @param { boolean } [entropyCache] - Whether to generate the UUID with using the cache. Default: true.
-   * @returns { Uint8Array } Return a Uint8Array representing this UUID.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Uses a secure random number generator to generate a random UUID of the Uint8Array type in RFC 4122 version 4.
-   *
-   * @param { boolean } [entropyCache] - Whether to generate the UUID with using the cache. Default: true.
-   * @returns { Uint8Array } Return a Uint8Array representing this UUID.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 9 dynamic
    */
   function generateRandomBinaryUUID(entropyCache?: boolean): Uint8Array;
 
   /**
-   * Parse a UUID from the string standard representation as described in the RFC 4122 version 4.
+   * Converts a UUID of the string type generated by **generateRandomUUID** to a UUID generated by
+   * **generateRandomBinaryUUID**, as described in RFC 4122.
    *
-   * @param { string } uuid - String that specifies a UUID
-   * @returns { Uint8Array } Return a Uint8Array representing this UUID. Throw SyntaxError if parsing fails.
+   * @param { string } uuid - A string representing the UUID.
+   * @returns { Uint8Array } A Uint8Array value representing the UUID parsed. If the parsing fails, **SyntaxError** is
+   *     thrown.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
+   * @throws { BusinessError } 10200002 - Invalid uuid string. [since 12]
    * @syscap SystemCapability.Utils.Lang
-   * @since 9
-   */
-  /**
-   * Parse a UUID from the string standard representation as described in the RFC 4122 version 4.
-   *
-   * @param { string } uuid - String that specifies a UUID
-   * @returns { Uint8Array } Return a Uint8Array representing this UUID. Throw SyntaxError if parsing fails.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Converts a UUID of the string type generated by generateRandomUUID to a UUID of the Uint8Array type generated
-   * by generateRandomBinaryUUID, as described in RFC 4122 version 4.
-   *
-   * @param { string } uuid - String that specifies a UUID
-   * @returns { Uint8Array } Return a Uint8Array representing this UUID. Throw SyntaxError if parsing fails.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
-   * @throws { BusinessError } 10200002 - Invalid uuid string.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 9 dynamic
    */
   function parseUUID(uuid: string): Uint8Array;
 
   /**
-   * Obtains the hash value of an object. If no hash value has been obtained, a random hash value is generated
-   * saved to the hash field of the object, and returned. If a hash value has been obtained, the hash value saved
-   * in the hash field is returned (the same value is returned for the same object).
+   * Obtains the hash value of an object.
+   * If no hash value has been obtained, a random hash value is generated, saved to the **hash** field of the object,
+   * and returned. If a hash value has been obtained, the hash value saved in the **hash** field is returned (the same
+   * value is returned for the same object).
    *
    * @param { object } [object] - Object whose hash value is to be obtained.
-   * @returns { number } Return a hash code of an object.
+   * @returns { number } Hash value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
+   *     1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -429,19 +225,18 @@ declare namespace util {
   function getHash(object: object): number;
 
   /**
-   * Describes decoding-related options, which include fatal and ignoreBOM.
+   * Describes decoding-related options, which include **fatal** and **ignoreBOM**.
    *
-   * @interface TextDecoderOptions
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
    */
-  interface TextDecoderOptions {  
+  interface TextDecoderOptions {
     /**
-     * Whether to display fatal errors. The value true means to display fatal errors, and false means the opposite.
-     * The default value is false.
-     * @type { ?boolean }
+     * Whether to display fatal errors. The value **true** means to display fatal errors, and **false** means the
+     * opposite. The default value is **false**.
+     *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -449,9 +244,9 @@ declare namespace util {
      */
     fatal?: boolean;
     /**
-     * Whether to ignore the BOM. The value true means to ignore the BOM, and false means the opposite.
-     * The default value is false.
-     * @type { ?boolean }
+     * Whether to ignore the BOM. The value **true** means to ignore the BOM, and **false** means the opposite. The
+     * default value is **false**.
+     *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -461,9 +256,8 @@ declare namespace util {
   }
 
   /**
-   * Defines the decode with stream related options parameters.
+   * Defines whether decoding follows data blocks.
    *
-   * @interface DecodeWithStreamOptions
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -471,20 +265,21 @@ declare namespace util {
    */
   interface DecodeWithStreamOptions {
     /**
-    * Does the call follow additional data blocks. The default value is false.
-    * @type { ?boolean }
-    * @syscap SystemCapability.Utils.Lang
-    * @crossplatform
-    * @atomicservice
-    * @since 11 dynamiconly
-    */
+     * Whether to allow data blocks in subsequent **decodeWithStream()**. If data is processed in blocks, set this
+     * parameter to **true**. If this is the last data block to process or data is not divided into blocks, set this
+     * parameter to **false**. The default value is **false**.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11 dynamiconly
+     */
     stream?: boolean;
   }
 
   /**
-   * Defines options for streaming decoding to string output.
+   * Describes the behavioral parameters for the **decodeToString** method when decoding byte streams.
    *
-   * @interface DecodeToStringOptions
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -492,259 +287,144 @@ declare namespace util {
    */
   interface DecodeToStringOptions {
     /**
-    * Stream option controls stream processing in decoding. The default value is false.
-    * @type { ?boolean }
-    * @syscap SystemCapability.Utils.Lang
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
+     * Whether the incomplete byte sequence at the end of the input needs to be appended to the parameter for the next
+     * call of **decodeToString**. The value **true** means that the incomplete byte sequence is stored in the internal
+     * buffer until the function is called next time. If the value is false, the byte sequence is directly decoded when
+     * the function is called currently. The default value is **false**.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12 dynamic
+     */
     stream?: boolean;
   }
 
   /**
-   * The TextDecoder represents a text decoder that accepts a string as input,
-   * decodes it in UTF-8 format, and outputs UTF-8 byte stream.
+   * Provides APIs to decode byte arrays into strings. It supports multiple formats, including UTF-8, UTF-16LE, UTF-16BE
+   * , ISO-8859, and Windows-1251.
    *
    * @syscap SystemCapability.Utils.Lang
-   * @since 7
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
-  /**
-   * The TextDecoder represents a text decoder that accepts a string as input,
-   * decodes it in UTF-8 format, and outputs UTF-8 byte stream.
-   *
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Provides APIs to decode byte arrays into strings. It supports multiple formats,
-   * including UTF-8, UTF-16LE, UTF-16BE, ISO-8859, and Windows-1251.
-   *
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  class TextDecoder {  
+  class TextDecoder {
     /**
-     * The textDecoder constructor.
+     * A constructor used to create a **TextDecoder** object.
      *
      * @syscap SystemCapability.Utils.Lang
-     * @since 9
-     */
-    /**
-     * The textDecoder constructor.
-     *
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * A constructor used to create a TextDecoder object.
-     *
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 9 dynamic
      */
     constructor();
 
     /**
-     * The source encoding's name, lowercased.
+     * Encoding format.<br>The following formats are supported: utf-8, ibm866, iso-8859-2, iso-8859-3, iso-8859-4, iso-8
+     * 859-5, iso-8859-6, iso-8859-7, iso-8859-8, iso-8859-8-i, iso-8859-10, iso-8859-13, iso-8859-14, iso-8859-15, koi8
+     * -r, koi8-u, macintosh, windows-874, windows-1250, windows-1251, windows-1252, windows-1253, windows-1254, windows
+     * -1255, windows-1256, windows-1257, windows-1258, x-mac-cyrillic, gbk, gb18030, big5, euc-jp, iso-2022-jp,
+     * shift_jis, euc-kr, utf-16be, utf-16le, gb2312, and iso-8859-1.
      *
-     * @type { string }
      * @syscap SystemCapability.Utils.Lang
-     * @since 7
-     */
-    /**
-     * The source encoding's name, lowercased.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * The source encoding's name, lowercased.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 7 dynamic
      */
     readonly encoding: string;
 
     /**
-     * Returns `true` if error mode is "fatal", and `false` otherwise.
+     * Whether to display fatal errors. The value **true** means to display fatal errors, and **false** means the
+     * opposite.
      *
-     * @type { boolean }
      * @syscap SystemCapability.Utils.Lang
-     * @since 7
-     */
-    /**
-     * Returns `true` if error mode is "fatal", and `false` otherwise.
-     *
-     * @type { boolean }
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Returns `true` if error mode is "fatal", and `false` otherwise.
-     *
-     * @type { boolean }
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 7 dynamic
      */
     readonly fatal: boolean;
 
     /**
-     * Returns `true` if ignore BOM flag is set, and `false` otherwise.
+     * Whether to ignore the byte order marker (BOM). The default value is **false**, which indicates that the result
+     * contains the BOM.
      *
-     * @type { false }
      * @syscap SystemCapability.Utils.Lang
-     * @since 7
-     */
-    /**
-     * Returns `true` if ignore BOM flag is set, and `false` otherwise.
-     *
-     * @type { false }
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Returns `true` if ignore BOM flag is set, and `false` otherwise.
-     *
-     * @type { false }
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 7 dynamic
      */
     readonly ignoreBOM = false;
 
     /**
-     * The textDecoder constructor.
+     * A constructor used to create a **TextDecoder** object.
      *
-     * @param { string } encoding - Decoding format
-     * @param { object } options - Options
+     * @param { string } encoding - Encoding format. The default format is **'utf-8'**.
+     * @param { object } options - Decoding-related options, which include **fatal** and **ignoreBOM**.
      * @syscap SystemCapability.Utils.Lang
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.util.TextDecoder.create
+     * @useinstead util.TextDecoder.create
      */
     constructor(encoding?: string, options?: { fatal?: boolean; ignoreBOM?: boolean });
 
     /**
-     * Replaces the original constructor to process arguments and return a textDecoder object.
+     * Creates a **TextDecoder** object. It provides the same function as the deprecated argument constructor.
      *
-     * @param { string } encoding - Decoding format
-     * @param { object } options - Options
-     * @returns { TextDecoder }
+     * @param { string } encoding - Encoding format. The default format is **'utf-8'**. [since 9 - 10]
+     * @param { object } options - Decoding-related options, which include **fatal** and **ignoreBOM**. [since 9 - 10]
+     * @param { string } [encoding] - Encoding format. The default format is **'utf-8'**. [since 11]
+     * @param { TextDecoderOptions } [options] - Decoding-related options, which include **fatal** and **ignoreBOM**.
+     *     [since 11]
+     * @returns { TextDecoder } **TextDecoder** object created.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
-     * @since 9
-     */
-    /**
-     * Replaces the original constructor to process arguments and return a textDecoder object.
-     *
-     * @param { string } encoding - Decoding format
-     * @param { object } options - Options
-     * @returns { TextDecoder }
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Creates a TextDecoder object. It provides the same function as the deprecated argument constructor.
-     *
-     * @param { string } [encoding] - Encoding format. The default format is 'utf-8'.
-     * @param { TextDecoderOptions } [options] - Decoding-related options, which include fatal and ignoreBOM.
-     * @returns { TextDecoder }
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     static create(encoding?: string, options?: TextDecoderOptions): TextDecoder;
 
     /**
-     * Returns the result of running encoding's decoder.
+     * Decodes the input content into a string.
      *
-     * @param { Uint8Array } input - Decoded numbers in accordance with the format
-     * @param { object } options - Options
-     * @returns { string } Return decoded text
+     * @param { Uint8Array } input - Uint8Array object to decode.
+     * @param { object } options - Decoding-related options.
+     * @returns { string } String obtained.
      * @syscap SystemCapability.Utils.Lang
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.util.decodeToString
+     * @useinstead util.TextDecoder.decodeToString
      */
     decode(input: Uint8Array, options?: { stream?: false }): string;
 
     /**
-     * Decodes the input and returns a string. If options.stream is true, any incomplete byte sequences occurring
-     * at the end of the input are buffered internally and emitted after the next call to textDecoder.decode().
-     * If textDecoder.fatal is true, decoding errors that occur will result in a TypeError being thrown.
+     * Decodes the input content into a string. If **input** is an empty array, **undefined** is returned.
      *
-     * @param { Uint8Array } input - Decoded numbers in accordance with the format
-     * @param { object } options - Options
-     * @returns { string } Return decoded text
+     * @param { Uint8Array } input - Uint8Array object to decode.
+     * @param { object } options - Decoding-related options. [since 9 - 10]
+     * @param { DecodeWithStreamOptions } [options] - Decoding-related options. [since 11]
+     * @returns { string } String obtained.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
+     *     1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
-     * @since 9
-     */
-    /**
-     * Decodes the input and returns a string. If options.stream is true, any incomplete byte sequences occurring
-     * at the end of the input are buffered internally and emitted after the next call to textDecoder.decode().
-     * If textDecoder.fatal is true, decoding errors that occur will result in a TypeError being thrown.
-     *
-     * @param { Uint8Array } input - Decoded numbers in accordance with the format
-     * @param { object } options - Options
-     * @returns { string } Return decoded text
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Decodes the input and returns a string. If options.stream is true, any incomplete byte sequences occurring
-     * at the end of the input are buffered internally and emitted after the next call to textDecoder.decode().
-     * If textDecoder.fatal is true, decoding errors that occur will result in a TypeError being thrown.
-     *
-     * @param { Uint8Array } input - Decoded numbers in accordance with the format
-     * @param { DecodeWithStreamOptions } [options] - Options
-     * @returns { string } Return decoded text
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamiconly
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 9 dynamiconly
      * @deprecated since 12
-     * @useinstead ohos.util.decodeToString
+     * @useinstead util.TextDecoder.decodeToString
      */
     decodeWithStream(input: Uint8Array, options?: DecodeWithStreamOptions): string;
     /**
      * Decodes the input content into a string.
      *
      * @param { Uint8Array } input - Uint8Array object to decode.
-     * @param { DecodeToStringOptions } [options] -Decoding-related options. The default value is undefined.
-     * @returns { string } Return decoded text
+     * @param { DecodeToStringOptions } [options] - Decoding-related options. The default value is **undefined**.
+     * @returns { string } String obtained.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
+     *     1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -754,9 +434,8 @@ declare namespace util {
   }
 
   /**
-   * Return encoded text.
+   * Encrypted information, including the number of read characters and the number of written bytes.
    *
-   * @interface EncodeIntoUint8ArrayInfo
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -764,133 +443,77 @@ declare namespace util {
    */
   interface EncodeIntoUint8ArrayInfo {
     /**
-    * The read represents the number of characters that have been encoded.
-    * @type { number }
-    * @syscap SystemCapability.Utils.Lang
-    * @crossplatform
-    * @atomicservice
-    * @since 11 dynamic
-    */
+     * Number of characters that have been read.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11 dynamic
+     */
     read: number;
     /**
-    * The written represents the number of bytes occupied by the encoded characters.
-    * @type { number }
-    * @syscap SystemCapability.Utils.Lang
-    * @crossplatform
-    * @atomicservice
-    * @since 11 dynamic
-    */
+     * Number of bytes that have been written.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11 dynamic
+     */
     written: number;
   }
 
   /**
-   * The TextEncoder interface represents a text encoder.
-   * The encoder takes the byte stream as the input and outputs the String string.
+   * Provides APIs to encode strings into byte arrays. Multiple encoding formats are supported.
+   * When **TextEncoder** is used for encoding, the number of bytes occupied by a character varies according to the
+   * encoding format. You must explicitly specify the encoding format to obtain the required encoding result.
    *
    * @syscap SystemCapability.Utils.Lang
-   * @since 7
-   */
-  /**
-   * The TextEncoder interface represents a text encoder.
-   * The encoder takes the byte stream as the input and outputs the String string.
-   *
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * The TextEncoder interface represents a text encoder.
-   * The encoder takes the byte stream as the input and outputs the String string.
-   *
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   class TextEncoder {
     /**
-     * Encoding format.
+     * Encoding format.<br>The following formats are supported: utf-8, gb2312, gb18030, ibm866, iso-8859-1, iso-8859-2,
+     * iso-8859-3, iso-8859-4, iso-8859-5, iso-8859-6, iso-8859-7, iso-8859-8, iso-8859-8-i, iso-8859-10, iso-8859-13,
+     * iso-8859-14, iso-8859-15, koi8-r, koi8-u, macintosh, windows-874, windows-1250, windows-1251, windows-1252,
+     * windows-1253, windows-1254, windows-1255, windows-1256, windows-1257, windows-1258, gbk, big5, euc-jp, iso-2022-
+     * jp, shift_jis, euc-kr, x-mac-cyrillic, utf-16be, and utf-16le.<br>The default value is **'utf-8'**.
      *
-     * @type { 'utf-8' }
      * @syscap SystemCapability.Utils.Lang
-     * @since 7
-     */
-    /**
-     * Encoding format.
-     *
-     * @type { 'utf-8' }
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Encoding format.
-     *
-     * @type { 'utf-8' }
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 7 dynamic
      */
     readonly encoding = 'utf-8';
 
     /**
-     * The textEncoder constructor.
+     * A constructor used to create a **TextEncoder** object.
      *
      * @syscap SystemCapability.Utils.Lang
-     * @since 7
-     */
-    /**
-     * The textEncoder constructor.
-     *
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * A constructor used to create a TextEncoder object.
-     *
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
      */
     constructor();
 
     /**
-     * The textEncoder constructor.
+     * A constructor used to create a **TextEncoder** object.
      *
-     * @param { string } [encoding] - The string for encoding format.
+     * @param { string } [encoding] - Encoding format. The default format is **'utf-8'**.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
-     * @since 9
-     */
-    /**
-     * The textEncoder constructor.
-     *
-     * @param { string } [encoding] - The string for encoding format.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * A constructor used to create a TextEncoder object.
-     *
-     * @param { string } [encoding] - Encoding format. The default format is 'utf-8'.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     constructor(encoding?: string);
 
     /**
-     * Creates a TextEncoder object.
+     * Creates a **TextEncoder** object.
      *
-     * @param { string } [encoding] - Encoding format. The default format is 'utf-8'.
-     * @returns { TextEncoder }
+     * @param { string } [encoding] - Encoding format. The default format is **'utf-8'**.
+     * @returns { TextEncoder } **TextEncoder** object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -900,10 +523,10 @@ declare namespace util {
     static create(encoding?: string): TextEncoder;
 
     /**
-     * Returns the result of encoder.
+     * Encodes the input content in to a Uint8Array object.
      *
-     * @param { string } [input] - The string to be encoded.
-     * @returns { Uint8Array } Returns the encoded text.
+     * @param { string } [input] - String to encode. The default value is an empty string.
+     * @returns { Uint8Array } Uint8Array object obtained.
      * @syscap SystemCapability.Utils.Lang
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -912,231 +535,126 @@ declare namespace util {
     encode(input?: string): Uint8Array;
 
     /**
-     * UTF-8 encodes the input string and returns a Uint8Array containing the encoded bytes.
-     *
-     * @param { string } [input] - The string to be encoded.
-     * @returns { Uint8Array } Returns the encoded text.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @since 9
-     */
-    /**
-     * UTF-8 encodes the input string and returns a Uint8Array containing the encoded bytes.
-     *
-     * @param { string } [input] - The string to be encoded.
-     * @returns { Uint8Array } Returns the encoded text.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
      * Encodes the input content into a Uint8Array object.
      *
-     * @param { string } [input] - String to encode. The default value is an empty string.
-     * @returns { Uint8Array } Returns the encoded text.
+     * @param { string } [input] - String to encode. The default value is an empty string. If the input parameter is an
+     *     empty string, the return value is undefined.
+     * @returns { Uint8Array } Uint8Array object obtained.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     encodeInto(input?: string): Uint8Array;
 
     /**
-     * Encode string, write the result to dest array.
+     * Writes the generated UTF-8 encoded text to an array.
      *
-     * @param { string } input - The string to be encoded.
-     * @param { Uint8Array } dest - Encoded numbers in accordance with the format
-     * @returns { object } Return the object, where read represents
-     * the number of characters that have been encoded, and written
-     * represents the number of bytes occupied by the encoded characters.
+     * @param { string } input - String to encode.
+     * @param { Uint8Array } dest - Uint8Array object used to store the UTF-8 encoded text.
+     * @returns { object } Object obtained. **read** indicates the number of encoded characters, and **written**
+     *     indicates the number of bytes in the encoded characters.
      * @syscap SystemCapability.Utils.Lang
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.util.encodeIntoUint8Array
+     * @useinstead util.TextEncoder.encodeIntoUint8Array
      */
     encodeInto(input: string, dest: Uint8Array): { read: number; written: number };
 
     /**
-     * Encode string, write the result to dest array.
-     *
-     * @param { string } input - The string to be encoded.
-     * @param { Uint8Array } dest - Encoded numbers in accordance with the format
-     * @returns { object } Return the object, where read represents
-     * the number of characters that have been encoded, and written
-     * represents the number of bytes occupied by the encoded characters.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @since 9
-     */
-    /**
-     * Encode string, write the result to dest array.
-     *
-     * @param { string } input - The string to be encoded.
-     * @param { Uint8Array } dest - Encoded numbers in accordance with the format
-     * @returns { object } Return the object, where read represents
-     * the number of characters that have been encoded, and written
-     * represents the number of bytes occupied by the encoded characters.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Encodes the input content into a Uint8Array object.
+     * Encodes the input content and stores the result into a Uint8Array object.
      *
      * @param { string } input - String to encode.
      * @param { Uint8Array } dest - Uint8Array object used to store the UTF-8 encoded text.
-     * @returns { EncodeIntoUint8ArrayInfo } Return the object, where read represents
-     * the number of characters that have been encoded, and written
-     * represents the number of bytes occupied by the encoded characters.
+     * @returns { object } Return the object, where read represents
+     *     the number of characters that have been encoded, and written
+     *     represents the number of bytes occupied by the encoded characters. [since 9 - 10]
+     * @returns { EncodeIntoUint8ArrayInfo } Object obtained. **read** indicates the number of encoded characters, and
+     *     **written** indicates the number of bytes in the encoded characters. [since 11]
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
+     *     1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     encodeIntoUint8Array(input: string, dest: Uint8Array): EncodeIntoUint8ArrayInfo;
   }
 
   /**
-   * The rational number is mainly to compare rational numbers and obtain the numerator and denominator.
+   * Provides APIs to compare rational numbers and obtain numerators and denominators. For example, the **toString()**
+   * API can be used to convert a rational number into a string.
    *
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * The rational number is mainly to compare rational numbers and obtain the numerator and denominator.
-   *
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * The rational number is mainly to compare rational numbers and obtain the numerator and denominator.
-   *
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
    */
   class RationalNumber {
     /**
-     * A constructor used to create a RationalNumber instance with a given numerator and denominator.
+     * A constructor used to create a **RationalNumber** object.
      *
-     * @param { number } numerator - An integer number
-     * @param { number } denominator - An integer number
+     * @param { number } numerator - Numerator, which is an integer.
+     * @param { number } denominator - Denominator, which is an integer.
      * @syscap SystemCapability.Utils.Lang
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.util.RationalNumber.parseRationalNumber
+     * @useinstead util.RationalNumber.parseRationalNumber
      */
     constructor(numerator: number, denominator: number);
 
     /**
-     * A constructor used to create a RationalNumber instance with a given numerator and denominator.
+     * A constructor used to create a **RationalNumber** object.
      *
      * @syscap SystemCapability.Utils.Lang
-     * @since 9
-     */
-    /**
-     * A constructor used to create a RationalNumber instance with a given numerator and denominator.
-     *
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * A constructor used to create a RationalNumber object.
-     *
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 9 dynamic
      */
     constructor();
 
     /**
-     * Used to create a RationalNumber instance with a given numerator and denominator.
+     * Creates a **RationalNumber** instance with a given numerator and denominator.
      *
-     * @param { number } numerator - An integer number
-     * @param { number } denominator - An integer number
-     * @returns { RationalNumber }
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @since 9
-     */
-    /**
-     * Used to create a RationalNumber instance with a given numerator and denominator.
+     * > **NOTE**
+     * >
+     * > The **numerator** and **denominator** parameters must be integers. If a decimal number is passed in, the
+     * > function is not intercepted, but the error message "parseRationalNumber: The type of Parameter must be integer"
+     * > is displayed.
      *
-     * @param { number } numerator - An integer number
-     * @param { number } denominator - An integer number
-     * @returns { RationalNumber }
+     * @param { number } numerator - Numerator, which is an integer. Value range: -Number.MAX_VALUE <= numerator <=
+     *     Number.MAX_VALUE.
+     * @param { number } denominator - Denominator, which is an integer. Value range: -Number.MAX_VALUE <= denominator <
+     *     = Number.MAX_VALUE.
+     * @returns { RationalNumber } **RationalNumber** object obtained.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
+     *     1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Create a RationalNumber instance with a given numerator and denominator.
-     * The numerator and denominator parameters must be integers. If a decimal number is passed in, the function is not
-     * intercepted, but the error message "parseRationalNumber: The type of Parameter must be integer" is displayed.
-     *
-     * @param { number } numerator - Numerator, which is an integer.
-     * @param { number } denominator - Denominator, which is an integer.
-     * @returns { RationalNumber }
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 9 dynamic
      */
     static parseRationalNumber(numerator: number, denominator: number): RationalNumber;
 
     /**
-     * Creates a RationalNumber object based on a given string.
+     * Creates a **RationalNumber** object based on the given string.
      *
-     * @param { string } rationalString - String Expression of Rational Numbers
+     * > **NOTE**
+     * >
+     * > The **rationalString** parameter must be a string. If a decimal string is passed in, the function is not
+     * > intercepted, but the error message "createRationalFromString: The type of Parameter must be integer string" is
+     * > displayed.
+     *
+     * @param { string } rationalString - String used to create the **RationalNumber** object.
      * @returns { RationalNumber } Returns a RationalNumber object generated based on the given string.
      * @throws { BusinessError } 401 - The type of rationalString must be string.
      * @syscap SystemCapability.Utils.Lang
-     * @since 8
-     */
-    /**
-     * Creates a RationalNumber object based on a given string.
-     *
-     * @param { string } rationalString - String Expression of Rational Numbers
-     * @returns { RationalNumber } Returns a RationalNumber object generated based on the given string.
-     * @throws { BusinessError } 401 - The type of rationalString must be string.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Creates a RationalNumber object based on the given string.
-     * The rationalString parameter must be a string. If a decimal string is passed in, the function is not intercepted,
-     * but the error message "createRationalFromString: The type of Parameter must be integer string" is displayed.
-     *
-     * @param { string } rationalString - String used to create the RationalNumber object.
-     * @returns { RationalNumber } Returns a RationalNumber object generated based on the given string.
-     * @throws { BusinessError } 401 - The type of rationalString must be string.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 8 dynamic
      */
     static createRationalFromString(rationalString: string): RationalNumber;
 
@@ -1158,299 +676,143 @@ declare namespace util {
      * @param { RationalNumber } another - An object of other rational numbers
      * @returns { number } Returns 0 or 1, or -1, depending on the comparison.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
+     *     1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
-     * @since 9
-     */
-    /**
-     * Compares the current RationalNumber object to the given object.
-     *
-     * @param { RationalNumber } another - An object of other rational numbers
-     * @returns { number } Returns 0 or 1, or -1, depending on the comparison.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Compares this RationalNumber object with another RationalNumber object.
-     *
-     * @param { RationalNumber } another - Object used to compare with this RationalNumber object.
-     * @returns { number } Returns 0 or 1, or -1, depending on the comparison.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 9 dynamic
      */
     compare(another: RationalNumber): number;
 
     /**
-     * Compares two objects for equality.
+     * Checks whether this **RationalNumber** object equals the given object.
      *
-     * @param { Object } obj - An object
-     * @returns { boolean } Returns true if the given object is the same as the current object; Otherwise, false is returned.
+     * @param { Object } obj - Object used to compare with this **RationalNumber** object.
+     * @returns { boolean } Check result. The value **true** is returned if the two objects are equal; otherwise,
+     *     **false** is returned.
      * @syscap SystemCapability.Utils.Lang
-     * @since 8
-     */
-    /**
-     * Compares two objects for equality.
-     *
-     * @param { Object } obj - An object
-     * @returns { boolean } Returns true if the given object is the same as the current object; Otherwise, false is returned.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Checks whether this RationalNumber object equals the given object.
-     *
-     * @param { Object } obj - Object used to compare with this RationalNumber object.
-     * @returns { boolean } Returns true if the given object is the same as the current object; Otherwise, false is returned.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 8 dynamic
      */
     equals(obj: Object): boolean;
 
     /**
-     * Gets integer and floating-point values of a rational number object.
+     * Obtains the integer or floating-point value of this **RationalNumber** object.
      *
-     * @returns { number } Returns the integer and floating-point values of a rational number object.
+     * @returns { number } An integer or a floating-point number.
      * @syscap SystemCapability.Utils.Lang
-     * @since 8
-     */
-    /**
-     * Gets integer and floating-point values of a rational number object.
-     *
-     * @returns { number } Returns the integer and floating-point values of a rational number object.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Obtains the value of this RationalNumber object as an integer or a floating-point number.
-     *
-     * @returns { number } Returns the integer and floating-point values of a rational number object.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 8 dynamic
      */
     valueOf(): number;
 
-    /**
-     * Get the greatest common divisor of two integers.
-     *
-     * @param { number } number1 - Is an integer.
-     * @param { number } number2 - Is an integer.
-     * @returns { number } Returns the greatest common divisor of two integers, integer type.
-     * @syscap SystemCapability.Utils.Lang
-     * @since 8 dynamiconly
-     * @deprecated since 9
-     * @useinstead ohos.util.getCommonFactor
-     */
-    static getCommonDivisor(number1: number, number2: number): number;
-
-    /**
-     * Get the greatest common factor of two integers.
-     *
-     * @param { number } number1 - Is an integer.
-     * @param { number } number2 - Is an integer.
-     * @returns { number } Returns the greatest common factor of two integers, integer type.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @since 9
-     */
-    /**
-     * Get the greatest common factor of two integers.
-     *
-     * @param { number } number1 - Is an integer.
-     * @param { number } number2 - Is an integer.
-     * @returns { number } Returns the greatest common factor of two integers, integer type.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
     /**
      * Obtains the greatest common divisor of two specified integers.
      *
      * @param { number } number1 - The first integer used to get the greatest common divisor.
      * @param { number } number2 - The second integer used to get the greatest common divisor.
-     * @returns { number } Returns the greatest common factor of two integers, integer type.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
+     * @returns { number } Greatest common divisor obtained.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @since 8 dynamiconly
+     * @deprecated since 9
+     * @useinstead util.RationalNumber.getCommonFactor
+     */
+    static getCommonDivisor(number1: number, number2: number): number;
+
+    /**
+     * Obtains the greatest common divisor of two specified integers.
+     *
+     * > **NOTE**
+     * >
+     * > The **number1** and **number2** parameters must be integers. If a decimal number is passed in, the function is
+     * > not intercepted, but the error message "getCommonFactor: The type of Parameter must be integer" is displayed.
+     *
+     * @param { number } number1 - The first integer used to get the greatest common divisor. Value range: -
+     *     Number.MAX_VALUE <= number1 <= Number.MAX_VALUE.
+     * @param { number } number2 - The second integer used to get the greatest common divisor. Value range: -
+     *     Number.MAX_VALUE <= number2 <= Number.MAX_VALUE.
+     * @returns { number } Greatest common divisor obtained.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 9 dynamic
      */
     static getCommonFactor(number1: number, number2: number): number;
 
     /**
-     * Gets the denominator of the current object.
+     * Obtains the denominator of this **RationalNumber** object.
      *
-     * @returns { number } Returns the denominator of the current object.
+     * @returns { number } Denominator of this **RationalNumber** object.
      * @syscap SystemCapability.Utils.Lang
-     * @since 8
-     */
-    /**
-     * Gets the denominator of the current object.
-     *
-     * @returns { number } Returns the denominator of the current object.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Obtains the denominator of this RationalNumber object.
-     *
-     * @returns { number } Returns the denominator of the current object.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 8 dynamic
      */
     getDenominator(): number;
 
     /**
-     * Gets the numerator of the current object.
+     * Obtains the numerator of this **RationalNumber** object.
      *
-     * @returns { number } Returns the numerator of the current object.
+     * @returns { number } Numerator of this **RationalNumber** object.
      * @syscap SystemCapability.Utils.Lang
-     * @since 8
-     */
-    /**
-     * Gets the numerator of the current object.
-     *
-     * @returns { number } Returns the numerator of the current object.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Obtains the numerator of this RationalNumber object.
-     *
-     * @returns { number } Returns the numerator of the current object.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 8 dynamic
      */
     getNumerator(): number;
 
     /**
-     * Checks whether the current RationalNumber object represents an infinite value.
+     * Checks whether this **RationalNumber** object represents a finite value.
      *
-     * @returns { boolean } If the denominator is not 0, true is returned. Otherwise, false is returned.
+     * @returns { boolean } Check result. The value **true** is returned if this **RationalNumber** object represents a
+     *     finite value (the denominator is not **0**); otherwise, **false** is returned.
      * @syscap SystemCapability.Utils.Lang
-     * @since 8
-     */
-    /**
-     * Checks whether the current RationalNumber object represents an infinite value.
-     *
-     * @returns { boolean } If the denominator is not 0, true is returned. Otherwise, false is returned.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Checks whether this RationalNumber object represents a finite value.
-     *
-     * @returns { boolean } If the denominator is not 0, true is returned. Otherwise, false is returned.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 8 dynamic
      */
     isFinite(): boolean;
 
     /**
-     * Checks whether the current RationalNumber object represents a Not-a-Number (NaN) value.
+     * Checks whether this **RationalNumber** object is a Not a Number (NaN).
      *
-     * @returns { boolean } If both the denominator and numerator are 0, true is returned. Otherwise, false is returned.
+     * @returns { boolean } Check result. The value **true** is returned if this **RationalNumber** object is a NaN (the
+     *     denominator and numerator are both **0**); otherwise, **false** is returned.
      * @syscap SystemCapability.Utils.Lang
-     * @since 8
-     */
-    /**
-     * Checks whether the current RationalNumber object represents a Not-a-Number (NaN) value.
-     *
-     * @returns { boolean } If both the denominator and numerator are 0, true is returned. Otherwise, false is returned.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Checks whether this RationalNumber object is a Not a Number (NaN).
-     * @returns { boolean } If both the denominator and numerator are 0, true is returned. Otherwise, false is returned.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 8 dynamic
      */
     isNaN(): boolean;
 
     /**
-     * Checks whether the current RationalNumber object represents the value 0.
+     * Checks whether this **RationalNumber** object is **0**.
      *
-     * @returns { boolean } If the value represented by the current object is 0, true is returned. Otherwise, false is returned.
+     * @returns { boolean } Check result. The value **true** is returned if the value of this **RationalNumber** object
+     *     is **0**; otherwise, **false** is returned.
      * @syscap SystemCapability.Utils.Lang
-     * @since 8
-     */
-    /**
-     * Checks whether the current RationalNumber object represents the value 0.
-     *
-     * @returns { boolean } If the value represented by the current object is 0, true is returned. Otherwise, false is returned.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Checks whether this RationalNumber object is 0.
-     *
-     * @returns { boolean } If the value represented by the current object is 0, true is returned. Otherwise, false is returned.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 8 dynamic
      */
     isZero(): boolean;
 
     /**
-     * Obtains a string representation of the current RationalNumber object.
+     * Obtains the string representation of this **RationalNumber** object.
      *
-     * @returns { string } Returns a string representation of the current RationalNumber object.
+     * @returns { string } Returns a string in Numerator/Denominator format in normal cases, for example, 3/5; returns
+     *     **0/1** if the numerator of this object is **0**; returns **Infinity** if the denominator is **0**; returns
+     *     **NaN** if the numerator and denominator are both **0**.
      * @syscap SystemCapability.Utils.Lang
-     * @since 8
-     */
-    /**
-     * Obtains a string representation of the current RationalNumber object.
-     *
-     * @returns { string } Returns a string representation of the current RationalNumber object.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Obtains the string representation of this RationalNumber object.
-     *
-     * @returns { string } Returns a string representation of the current RationalNumber object.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 8 dynamic
      */
     toString(): string;
   }
@@ -1461,46 +823,45 @@ declare namespace util {
    * @syscap SystemCapability.Utils.Lang
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.util.LRUCache
+   * @useinstead util.LRUCache
    */
   class LruBuffer<K, V> {
     /**
-     * Default constructor used to create a new LruBuffer instance with the default capacity of 64.
+     * A constructor used to create a **LruBuffer** instance. The default capacity of the cache is 64.
      *
-     * @param { number } capacity - Indicates the capacity to customize for the buffer.
+     * @param { number } capacity - Capacity of the cache to create. The default value is **64**.
      * @syscap SystemCapability.Utils.Lang
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.util.LRUCache.constructor
+     * @useinstead null
      */
     constructor(capacity?: number);
 
     /**
-     * Updates the buffer capacity to a specified capacity.
+     * Changes the cache capacity. If the new capacity is less than or equal to **0**, an exception will be thrown.
      *
-     * @param { number } newCapacity - Indicates the new capacity to set.
+     * @param { number } newCapacity - New capacity of the cache.
      * @syscap SystemCapability.Utils.Lang
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.util.LRUCache.updateCapacity
+     * @useinstead util.LRUCache.updateCapacity
      */
     updateCapacity(newCapacity: number): void;
 
     /**
-     * Returns a string representation of the object.
+     * Obtains the string representation of this cache.
      *
-     * @returns { string } Returns the string representation of the object and outputs the string representation of the object.
+     * @returns { string } String representation of this cache.
      * @syscap SystemCapability.Utils.Lang
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.util.LRUCache.toString
+     * @useinstead util.LRUCache.toString
      */
     toString(): string;
 
     /**
-     * Obtains a list of all values in the current buffer.
+     * Total number of values in this cache.
      *
-     * @type { number }
      * @syscap SystemCapability.Utils.Lang
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -1509,204 +870,209 @@ declare namespace util {
     length: number;
 
     /**
-     * Obtains the capacity of the current buffer.
+     * Obtains the capacity of this cache.
      *
-     * @returns { number } Returns the capacity of the current buffer.
+     * @returns { number } Capacity of the cache.
      * @syscap SystemCapability.Utils.Lang
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.util.LRUCache.getCapacity
+     * @useinstead util.LRUCache.getCapacity
      */
     getCapacity(): number;
 
     /**
-     * Clears key-value pairs from the current buffer.
+     * Clears key-value pairs from this cache. The **afterRemoval()** API will be called to perform subsequent
+     * operations.
      *
      * @syscap SystemCapability.Utils.Lang
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.util.LRUCache.clear
+     * @useinstead util.LRUCache.clear
      */
     clear(): void;
 
     /**
-     * Obtains the number of times createDefault(Object) returned a value.
+     * Obtains the number of return values for **createDefault()**.
      *
-     * @returns { number } Returns the number of times createDefault(java.lang.Object) returned a value.
+     * @returns { number } Number of return values for **createDefault()**.
      * @syscap SystemCapability.Utils.Lang
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.util.LRUCache.getCreateCount
+     * @useinstead util.LRUCache.getCreateCount
      */
     getCreateCount(): number;
 
     /**
-     * Obtains the number of times that the queried values are not matched.
+     * Obtains the number of times that the queried values are mismatched.
      *
-     * @returns { number } Returns the number of times that the queried values are not matched.
+     * @returns { number } Number of times that the queried values are mismatched.
      * @syscap SystemCapability.Utils.Lang
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.util.LRUCache.getMissCount
+     * @useinstead util.LRUCache.getMissCount
      */
     getMissCount(): number;
 
     /**
-     * Obtains the number of times that values are evicted from the buffer.
+     * Obtains the number of removals from this cache.
      *
-     * @returns { number } Returns the number of times that values are evicted from the buffer.
+     * @returns { number } Number of removals from the cache.
      * @syscap SystemCapability.Utils.Lang
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.util.LRUCache.getRemovalCount
+     * @useinstead util.LRUCache.getRemovalCount
      */
     getRemovalCount(): number;
 
     /**
-     * Obtains the number of times that the queried values are successfully matched.
+     * Obtains the number of times that the queried values are matched.
      *
-     * @returns { number } Returns the number of times that the queried values are successfully matched.
+     * @returns { number } Number of times that the queried values are matched.
      * @syscap SystemCapability.Utils.Lang
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.util.LRUCache.getMatchCount
+     * @useinstead util.LRUCache.getMatchCount
      */
     getMatchCount(): number;
 
     /**
-     * Obtains the number of times that values are added to the buffer.
+     * Obtains the number of additions to this cache.
      *
-     * @returns { number } Returns the number of times that values are added to the buffer.
+     * @returns { number } Number of additions to the cache.
      * @syscap SystemCapability.Utils.Lang
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.util.LRUCache.getPutCount
+     * @useinstead util.LRUCache.getPutCount
      */
     getPutCount(): number;
 
     /**
-     * Checks whether the current buffer is empty.
+     * Checks whether this cache is empty.
      *
-     * @returns { boolean } Returns true if the current buffer contains no value.
+     * @returns { boolean } Returns **true** if the cache does not contain any value.
      * @syscap SystemCapability.Utils.Lang
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.util.LRUCache.isEmpty
+     * @useinstead util.LRUCache.isEmpty
      */
     isEmpty(): boolean;
 
     /**
-     * Obtains the value associated with a specified key.
+     * Obtains the value of the specified key.
      *
-     * @param { K } key - Indicates the key to query.
-     * @returns { V | undefined } Returns the value associated with the key if the specified key is present in the buffer; returns null otherwise.
+     * @param { K } key - Key based on which the value is queried.
+     * @returns { V | undefined } Value of the key. If no match is found, **undefined** is returned.
      * @syscap SystemCapability.Utils.Lang
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.util.LRUCache.get
+     * @useinstead util.LRUCache.get
      */
     get(key: K): V | undefined;
 
     /**
-     * Adds a key-value pair to the buffer.
+     * Adds a key-value pair to this cache.
      *
-     * @param { K } key - Indicates the key to add.
-     * @param { V } value - Indicates the value associated with the key to add.
-     * @returns { V } Returns the value associated with the added key; returns the original value if the key to add already exists.
+     * @param { K } key - Key of the key-value pair to add.
+     * @param { V } value - Value of the key-value pair to add.
+     * @returns { V } Value added. If the key already exists, the existing value is returned; if **null** is passed in
+     *     for **key** or **value**, an error is thrown.
      * @syscap SystemCapability.Utils.Lang
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.util.LRUCache.put
+     * @useinstead util.LRUCache.put
      */
     put(key: K, value: V): V;
 
     /**
-     * Obtains a list of all values in the current buffer.
+     * Obtains all values in this cache, listed from the most to the least recently accessed.
      *
-     * @returns { V[] } Returns the list of all values in the current buffer in ascending order, from the most recently accessed to least recently accessed.
+     * @returns { V[] } All values in the cache, listed from the most to the least recently accessed.
      * @syscap SystemCapability.Utils.Lang
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.util.LRUCache.values
+     * @useinstead util.LRUCache.values
      */
     values(): V[];
 
     /**
-     * Obtains a list of keys for the values in the current buffer.
+     * Obtains all keys in this cache, listed from the most to the least recently accessed.
      *
-     * @returns { K[] } Returns a list of keys sorted from most recently accessed to least recently accessed.
+     * @returns { K[] } All keys in the cache, listed from the most to the least recently accessed.
      * @syscap SystemCapability.Utils.Lang
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.util.LRUCache.keys
+     * @useinstead util.LRUCache.keys
      */
     keys(): K[];
 
     /**
-     * Deletes a specified key and its associated value from the current buffer.
+     * Removes the specified key and its value from this cache.
      *
-     * @param { K } key - Indicates the key to delete.
-     * @returns { V | undefined } Returns an Optional object containing the deleted key-value pair; returns an empty Optional object if the key does not exist.
+     * @param { K } key - Key to remove.
+     * @returns { V | undefined } **Optional** object containing the removed key-value pair. If the key does not exist,
+     *     an empty **Optional** object is returned; if **null** is passed in for **key**, an error is thrown.
      * @syscap SystemCapability.Utils.Lang
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.util.LRUCache.remove
+     * @useinstead util.LRUCache.remove
      */
     remove(key: K): V | undefined;
 
     /**
-     * Executes subsequent operations after a value is deleted.
+     * Performs subsequent operations after a value is removed.
      *
-     * @param { boolean } isEvict - The parameter value is true if this method is called due to insufficient capacity,
-     * and the parameter value is false in other cases.
-     * @param { K } key - Indicates the deleted key.
-     * @param { V } value - Indicates the deleted value.
-     * @param { V } newValue - The parameter value is the new value associated if the put(java.lang.Object,java.lang.Object)
-     * method is called and the key to add already exists. The parameter value is null in other cases.
+     * @param { boolean } isEvict - Whether the capacity is insufficient. If the value is **true**, this API is called
+     *     due to insufficient capacity.
+     * @param { K } key - Key removed.
+     * @param { V } value - Value removed.
+     * @param { V } newValue - New value for the key if the **put()** method is called and the key to be added already
+     *     exists. In other cases, this parameter is left blank.
      * @syscap SystemCapability.Utils.Lang
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.util.LRUCache.afterRemoval
+     * @useinstead util.LRUCache.afterRemoval
      */
     afterRemoval(isEvict: boolean, key: K, value: V, newValue: V): void;
 
     /**
-     * Checks whether the current buffer contains a specified key.
+     * Checks whether this cache contains the specified key.
      *
-     * @param { K } key - Indicates the key to check.
-     * @returns { boolean } Returns true if the buffer contains the specified key.
+     * @param { K } key - Key to check.
+     * @returns { boolean } Check result. The value **true** is returned if the cache contains the specified key;
+     *     otherwise, **false** is returned.
      * @syscap SystemCapability.Utils.Lang
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.util.LRUCache.contains
+     * @useinstead util.LRUCache.contains
      */
     contains(key: K): boolean;
 
     /**
-     * Called after a cache miss to compute a value for the corresponding key.
+     * Creates a value if the value of the specified key is not available.
      *
-     * @param { K } key - Indicates the missed key.
-     * @returns { V } Returns the value associated with the key.
+     * @param { K } key - Key of which the value is missing.
+     * @returns { V } Value of the key.
      * @syscap SystemCapability.Utils.Lang
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.util.LRUCache.createDefault
+     * @useinstead util.LRUCache.createDefault
      */
     createDefault(key: K): V;
 
     /**
-     * Returns an array of key-value pairs of enumeratable properties of a given object.
+     * Obtains a new iterator object that contains all key-value pairs in this object.
      *
-     * @returns { IterableIterator<[K, V]> } Returns an array of key-value pairs for the enumeratable properties of the given object itself.
+     * @returns { IterableIterator<[K, V]> } Iterable array.
      * @syscap SystemCapability.Utils.Lang
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.util.LRUCache.entries
+     * @useinstead util.LRUCache.entries
      */
     entries(): IterableIterator<[K, V]>;
 
     /**
      * Specifies the default iterator for an object.
+     *
      * @returns { IterableIterator<[K, V]> } Returns a two - dimensional array in the form of key - value pairs.
      * @syscap SystemCapability.Utils.Lang
      * @since 8 dynamiconly
@@ -1717,665 +1083,299 @@ declare namespace util {
   }
 
   /**
-   * The LRUCache algorithm replaces the least used data with new data when the buffer space is insufficient.
+   * Provides APIs to discard the least recently used data to make rooms for new elements when the cache is full. This
+   * class uses the Least Recently Used (LRU) algorithm, which believes that the recently used data may be accessed
+   * again in the near future and the least accessed data is the least valuable data and should be removed from the
+   * cache.
    *
    * @syscap SystemCapability.Utils.Lang
-   * @since 9
-   */
-  /**
-   * The LRUCache algorithm replaces the least used data with new data when the buffer space is insufficient.
-   *
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Provides APIs to discard the least recently used data to make rooms for new elements when the cache is full.
-   * This class uses the Least Recently Used (LRU) algorithm, which believes that the recently used data may be accessed
-   * again in the near future and the least accessed data is the least valuable data and should be removed from the cache.
-   *
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 9 dynamic
    */
   class LRUCache<K, V> {
     /**
-     * Default constructor used to create a new LruBuffer instance with the default capacity of 64.
+     * A constructor used to create a **LRUCache** instance. The default capacity of the cache is 64.
      *
-     * @param { number } [capacity] - Indicates the capacity to customize for the buffer.
+     * @param { number } [capacity] - Capacity of the cache to create. The default value is **64**, and the maximum
+     *     value is **2147483647**.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types. [since 12]
      * @syscap SystemCapability.Utils.Lang
-     * @since 9
-     */
-    /**
-     * Default constructor used to create a new LruBuffer instance with the default capacity of 64.
-     *
-     * @param { number } [capacity] - Indicates the capacity to customize for the buffer.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * A constructor used to create a LRUCache instance. The default capacity of the cache is 64.
-     *
-     * @param { number } [capacity] - Capacity of the cache to create. The default value is 64.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 9 dynamic
      */
     constructor(capacity?: number);
 
     /**
-     * Updates the buffer capacity to a specified capacity.
+     * Changes the cache capacity. If the new capacity is less than or equal to **0**, an exception will be thrown. If
+     * the total number of values in the cache is greater than the specified capacity, the deletion operation is
+     * performed.
      *
-     * @param { number } newCapacity - Indicates the new capacity to set.
+     * @param { number } newCapacity - New capacity of the cache. The maximum value is **2147483647**.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
      * @syscap SystemCapability.Utils.Lang
-     * @since 9
-     */
-    /**
-     * Updates the buffer capacity to a specified capacity.
-     *
-     * @param { number } newCapacity - Indicates the new capacity to set.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Changes the cache capacity.
-     *
-     * @param { number } newCapacity - New capacity of the cache.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 9 dynamic
      */
     updateCapacity(newCapacity: number): void;
 
     /**
-     * Returns a string representation of the object.
-     *
-     * @returns { string } Returns the string representation of the object and outputs the string representation of the object.
-     * @syscap SystemCapability.Utils.Lang
-     * @since 9
-     */
-    /**
-     * Returns a string representation of the object.
-     *
-     * @returns { string } Returns the string representation of the object and outputs the string representation of the object.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
      * Obtains the string representation of this cache.
      *
-     * @returns { string } Returns the string representation of the object and outputs the string representation of the object.
+     * @returns { string } String representation of this cache.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 9 dynamic
      */
     toString(): string;
 
     /**
-     * Obtains a list of all values in the current buffer.
-     *
-     * @type { number }
-     * @syscap SystemCapability.Utils.Lang
-     * @since 9
-     */
-    /**
-     * Obtains a list of all values in the current buffer.
-     *
-     * @type { number }
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
      * Total number of values in this cache.
      *
-     * @type { number }
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 9 dynamic
      */
     length: number;
 
     /**
-     * Obtains the capacity of the current buffer.
-     *
-     * @returns { number } Returns the capacity of the current buffer.
-     * @syscap SystemCapability.Utils.Lang
-     * @since 9
-     */
-    /**
-     * Obtains the capacity of the current buffer.
-     *
-     * @returns { number } Returns the capacity of the current buffer.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
      * Obtains the capacity of this cache.
      *
-     * @returns { number } Returns the capacity of the current buffer.
+     * @returns { number } Capacity of the cache.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 9 dynamic
      */
     getCapacity(): number;
 
     /**
-     * Clears key-value pairs from the current buffer.
-     *
-     * @syscap SystemCapability.Utils.Lang
-     * @since 9
-     */
-    /**
-     * Clears key-value pairs from the current buffer.
-     *
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
      * Clears key-value pairs from this cache.
      *
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 9 dynamic
      */
     clear(): void;
 
     /**
-     * Obtains the number of times createDefault(Object) returned a value.
-     *
-     * @returns { number } Returns the number of times createDefault(java.lang.Object) returned a value.
-     * @syscap SystemCapability.Utils.Lang
-     * @since 9
-     */
-    /**
-     * Obtains the number of times createDefault(Object) returned a value.
-     *
-     * @returns { number } Returns the number of times createDefault(java.lang.Object) returned a value.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
      * Obtains the number of times that an object is created.
      *
-     * @returns { number } Returns the number of times createDefault(java.lang.Object) returned a value.
+     * @returns { number } Number of times that objects are created.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 9 dynamic
      */
     getCreateCount(): number;
 
     /**
-     * Obtains the number of times that the queried values are not matched.
-     *
-     * @returns { number } Returns the number of times that the queried values are not matched.
-     * @syscap SystemCapability.Utils.Lang
-     * @since 9
-     */
-    /**
-     * Obtains the number of times that the queried values are not matched.
-     *
-     * @returns { number } Returns the number of times that the queried values are not matched.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
      * Obtains the number of times that the queried values are mismatched.
      *
-     * @returns { number } Returns the number of times that the queried values are not matched.
+     * @returns { number } Number of times that the queried values are mismatched.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 9 dynamic
      */
     getMissCount(): number;
 
     /**
-     * Obtains the number of times that values are evicted from the buffer.
-     *
-     * @returns { number } Returns the number of times that values are evicted from the buffer.
-     * @syscap SystemCapability.Utils.Lang
-     * @since 9
-     */
-    /**
-     * Obtains the number of times that values are evicted from the buffer.
-     *
-     * @returns { number } Returns the number of times that values are evicted from the buffer.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
      * Obtains the number of times that key-value pairs in the cache are recycled.
      *
-     * @returns { number } Returns the number of times that values are evicted from the buffer.
+     * @returns { number } Number of times that key-value pairs in the cache are recycled.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 9 dynamic
      */
     getRemovalCount(): number;
 
     /**
-     * Obtains the number of times that the queried values are successfully matched.
-     *
-     * @returns { number } Returns the number of times that the queried values are successfully matched.
-     * @syscap SystemCapability.Utils.Lang
-     * @since 9
-     */
-    /**
-     * Obtains the number of times that the queried values are successfully matched.
-     *
-     * @returns { number } Returns the number of times that the queried values are successfully matched.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
      * Obtains the number of times that the queried values are matched.
      *
-     * @returns { number } Returns the number of times that the queried values are successfully matched.
+     * @returns { number } Number of times that the queried values are matched.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 9 dynamic
      */
     getMatchCount(): number;
 
     /**
-     * Obtains the number of times that values are added to the buffer.
-     *
-     * @returns { number } Returns the number of times that values are added to the buffer.
-     * @syscap SystemCapability.Utils.Lang
-     * @since 9
-     */
-    /**
-     * Obtains the number of times that values are added to the buffer.
-     *
-     * @returns { number } Returns the number of times that values are added to the buffer.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
      * Obtains the number of additions to this cache.
      *
-     * @returns { number } Returns the number of times that values are added to the buffer.
+     * @returns { number } Number of additions to the cache.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 9 dynamic
      */
     getPutCount(): number;
 
     /**
-     * Checks whether the current buffer is empty.
-     *
-     * @returns { boolean } Returns true if the current buffer contains no value.
-     * @syscap SystemCapability.Utils.Lang
-     * @since 9
-     */
-    /**
-     * Checks whether the current buffer is empty.
-     *
-     * @returns { boolean } Returns true if the current buffer contains no value.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
      * Checks whether this cache is empty.
      *
-     * @returns { boolean } Returns true if the current buffer contains no value.
+     * @returns { boolean } Returns **true** if the cache does not contain any value.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 9 dynamic
      */
     isEmpty(): boolean;
 
     /**
-     * Obtains the value associated with a specified key.
+     * Obtains the value of a key. If the key is not in the cache,
+     * [createDefault<sup>9+</sup>]{@link util.LRUCache.createDefault} is called to create the key. If the value
+     * specified in **createDefault** is not **undefined**,
+     * [afterRemoval<sup>9+</sup>]{@link util.LRUCache.afterRemoval} is called to return the value specified in
+     * **createDefault**.
      *
-     * @param { K } key - Indicates the key to query.
-     * @returns { V | undefined } Returns the value associated with the key if the specified key is present in the buffer; returns null otherwise.
+     * @param { K } key - Key based on which the value is queried.
+     * @returns { V | undefined } Value of the key. If no match is found, the value specified in **createDefault** is
+     *     returned.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
+     *     1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
-     * @since 9
-     */
-    /**
-     * Obtains the value associated with a specified key.
-     *
-     * @param { K } key - Indicates the key to query.
-     * @returns { V | undefined } Returns the value associated with the key if the specified key is present in the buffer; returns null otherwise.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Obtains the value of a key. If the key is not in the cache, createDefault is called to create the key.
-     * If the value specified in createDefault is not undefined, afterRemoval is called to return the value specified in createDefault.
-     *
-     * @param { K } key - Indicates the key to query.
-     * @returns { V | undefined } Returns the value associated with the key if the specified key is present in the buffer; returns null otherwise.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 9 dynamic
      */
     get(key: K): V | undefined;
 
     /**
-     * Adds a key-value pair to the buffer.
+     * Adds a key-value pair to this cache and returns the value associated with the key. If the total number of values
+     * in the cache is greater than the specified capacity, the deletion operation is performed.
      *
-     * @param { K } key - Indicates the key to add.
-     * @param { V } value - Indicates the value associated with the key to add.
-     * @returns { V } Returns the value associated with the added key; returns the original value if the key to add already exists.
+     * @param { K } key - Key of the key-value pair to add.
+     * @param { V } value - Value of the key-value pair to add.
+     * @returns { V } Value of the key-value pair added. If the key or value is empty, an exception is thrown.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
+     *     1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
-     * @since 9
-     */
-    /**
-     * Adds a key-value pair to the buffer.
-     *
-     * @param { K } key - Indicates the key to add.
-     * @param { V } value - Indicates the value associated with the key to add.
-     * @returns { V } Returns the value associated with the added key; returns the original value if the key to add already exists.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Adds a key-value pair to this cache and returns the value associated with the key.
-     * If the total number of values in the cache is greater than the specified capacity, the deletion operation is performed.
-     *
-     * @param { K } key - Indicates the key to add.
-     * @param { V } value - Indicates the value associated with the key to add.
-     * @returns { V } Returns the value associated with the added key; returns the original value if the key to add already exists.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 9 dynamic
      */
     put(key: K, value: V): V;
 
     /**
-     * Obtains a list of all values in the current buffer.
+     * Obtains all values in this cache, listed from the least to the most recently accessed.
      *
-     * @returns { V[] } Returns the list of all values in the current buffer in ascending order, from the most recently accessed to least recently accessed.
+     * @returns { V[] } The list of all values in this cache, listed from the least to the most recently accessed.
      * @syscap SystemCapability.Utils.Lang
-     * @since 9
-     */
-    /**
-     * Obtains a list of all values in the current buffer.
-     *
-     * @returns { V[] } Returns the list of all values in the current buffer in ascending order, from the most recently accessed to least recently accessed.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Obtains all values in this cache, listed from the most to the least recently accessed.
-     *
-     * @returns { V[] } Returns the list of all values in the current buffer in ascending order, from the most recently accessed to least recently accessed.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 9 dynamic
      */
     values(): V[];
 
     /**
-     * Obtains a list of keys for the values in the current buffer.
-     * since 9
+     * Obtains all keys in this cache, listed from the least to the most recently accessed.
      *
-     * @returns { K[] } Returns a list of keys sorted from most recently accessed to least recently accessed.
+     * @returns { K[] } The list of all keys in this cache, listed from the least to the most recently accessed.
      * @syscap SystemCapability.Utils.Lang
-     * @since 9
-     */
-    /**
-     * Obtains a list of keys for the values in the current buffer.
-     * since 9
-     *
-     * @returns { K[] } Returns a list of keys sorted from most recently accessed to least recently accessed.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Obtains all keys in this cache, listed from the most to the least recently accessed.
-     * since 9
-     *
-     * @returns { K[] } Returns a list of keys sorted from most recently accessed to least recently accessed.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 9 dynamic
      */
     keys(): K[];
 
     /**
-     * Deletes a specified key and its associated value from the current buffer.
-     *
-     * @param { K } key - Indicates the key to delete.
-     * @returns { V | undefined } Returns an Optional object containing the deleted key-value pair; returns an empty Optional object if the key does not exist.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @since 9
-     */
-    /**
-     * Deletes a specified key and its associated value from the current buffer.
-     *
-     * @param { K } key - Indicates the key to delete.
-     * @returns { V | undefined } Returns an Optional object containing the deleted key-value pair; returns an empty Optional object if the key does not exist.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Removes a key and its associated value from this cache and returns the value associated with the key. If the key does not exist, undefined is returned.
+     * Removes a key and its associated value from this cache and returns the value associated with the key. If the key
+     * does not exist, **undefined** is returned.
      *
      * @param { K } key - Key to remove.
-     * @returns { V | undefined } Returns an Optional object containing the deleted key-value pair; returns an empty Optional object if the key does not exist.
+     * @returns { V | undefined } Returns an **Optional** object containing the removed key-value pair if the key exists
+     *     in the cache; returns **undefined** if the key does not exist; throws an error if **null** is passed in for
+     *     **key**.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
+     *     1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 9 dynamic
      */
     remove(key: K): V | undefined;
 
     /**
-     * Executes subsequent operations after a value is deleted.
+     * Performs subsequent operations after a value is removed. The subsequent operations must be implemented by
+     * developers. This API is called during deletion operations, such as [get<sup>9+</sup>]{@link util.LRUCache.get},
+     * [put<sup>9+</sup>]{@link util.LRUCache.put}, [remove<sup>9+</sup>]{@link util.LRUCache.remove},
+     * [clear<sup>9+</sup>]{@link util.LRUCache.clear}, and
+     * [updateCapacity<sup>9+</sup>]{@link util.LRUCache.updateCapacity}.
      *
-     * @param { boolean } isEvict - The parameter value is true if this method is called due to insufficient capacity,
-     * and the parameter value is false in other cases.
-     * @param { K } key - Indicates the deleted key.
-     * @param { V } value - Indicates the deleted value.
-     * @param { V } newValue - The parameter value is the new value associated if the put(java.lang.Object,java.lang.Object)
-     * method is called and the key to add already exists. The parameter value is null in other cases.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @since 9
-     */
-    /**
-     * Executes subsequent operations after a value is deleted.
+     * > **NOTE**
+     * >
+     * > If the callback method is executed after [clear<sup>9+</sup>]{@link util.LRUCache.clear} and
+     * > [updateCapacity<sup>9+</sup>]{@link util.LRUCache.updateCapacity} are called and the input **key** and
+     * > **value** parameters are of the MapIterator type, perform subsequent operations by referring to example 2.
      *
-     * @param { boolean } isEvict - The parameter value is true if this method is called due to insufficient capacity,
-     * and the parameter value is false in other cases.
-     * @param { K } key - Indicates the deleted key.
-     * @param { V } value - Indicates the deleted value.
-     * @param { V } newValue - The parameter value is the new value associated if the put(java.lang.Object,java.lang.Object)
-     * method is called and the key to add already exists. The parameter value is null in other cases.
+     * @param { boolean } isEvict - Whether the capacity is insufficient. If the value is **true**, this API is called
+     *     due to insufficient capacity.
+     * @param { K } key - Key removed.
+     * @param { V } value - Value removed.
+     * @param { V } newValue - New value for the key if the **put()** method is called and the key to be added already
+     *     exists. In other cases, this parameter is left blank.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
+     *     1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Performs subsequent operations after a value is removed.
-     *
-     * @param { boolean } isEvict - The parameter value is true if this method is called due to insufficient capacity,
-     * and the parameter value is false in other cases.
-     * @param { K } key - Indicates the deleted key.
-     * @param { V } value - Indicates the deleted value.
-     * @param { V } newValue - The parameter value is the new value associated if the put(java.lang.Object,java.lang.Object)
-     * method is called and the key to add already exists. The parameter value is null in other cases.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 9 dynamic
      */
     afterRemoval(isEvict: boolean, key: K, value: V, newValue: V): void;
 
     /**
-     * Checks whether the current buffer contains a specified key.
-     *
-     * @param { K } key - Indicates the key to check.
-     * @returns { boolean } Returns true if the buffer contains the specified key.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @since 9
-     */
-    /**
-     * Checks whether the current buffer contains a specified key.
-     *
-     * @param { K } key - Indicates the key to check.
-     * @returns { boolean } Returns true if the buffer contains the specified key.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
      * Checks whether this cache contains the specified key.
      *
-     * @param { K } key - Indicates the key to check.
-     * @returns { boolean } Returns true if the buffer contains the specified key.
+     * @param { K } key - Key to check.
+     * @returns { boolean } Check result. The value **true** is returned if the cache contains the specified key;
+     *     otherwise, **false** is returned.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
+     *     1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 9 dynamic
      */
     contains(key: K): boolean;
 
     /**
-     * Executes subsequent operations if miss to compute a value for the specific key.
+     * Performs subsequent operations if no key is matched in the cache and returns the value (**undefined** by default)
+     * associated with the key.
      *
-     * @param { K } key - Indicates the missed key.
-     * @returns { V } Returns the value associated with the key.
+     * @param { K } key - Key.
+     * @returns { V } Value of the key.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
+     *     1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
-     * @since 9
-     */
-    /**
-     * Executes subsequent operations if miss to compute a value for the specific key.
-     *
-     * @param { K } key - Indicates the missed key.
-     * @returns { V } Returns the value associated with the key.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Performs subsequent operations if no key is matched in the cache and returns the value (undefined by default) associated with the key.
-     *
-     * @param { K } key - Indicates the missed key.
-     * @returns { V } Returns the value associated with the key.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 9 dynamic
      */
     createDefault(key: K): V;
 
     /**
-     * Returns an array of key-value pairs of enumeratable properties of a given object.
+     * Returns an iterator object that traverses all key-value pairs ([key, value]) in this object in the insertion
+     * order.
      *
-     * @returns { IterableIterator<[K, V]> } Returns an array of key-value pairs for the enumeratable properties of the given object itself.
+     * @returns { IterableIterator<[K, V]> } Iterable array.
      * @syscap SystemCapability.Utils.Lang
-     * @since 9
-     */
-    /**
-     * Returns an array of key-value pairs of enumeratable properties of a given object.
-     *
-     * @returns { IterableIterator<[K, V]> } Returns an array of key-value pairs for the enumeratable properties of the given object itself.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Obtains a new iterator object that contains all key-value pairs in this object.
-     *
-     * @returns { IterableIterator<[K, V]> } Returns an array of key-value pairs for the enumeratable properties of the given object itself.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 9 dynamic
      */
     entries(): IterableIterator<[K, V]>;
 
@@ -2384,105 +1384,46 @@ declare namespace util {
      *
      * @returns { IterableIterator<[K, V]> } Returns a two - dimensional array in the form of key - value pairs.
      * @syscap SystemCapability.Utils.Lang
-     * @since 9
-     */
-    /**
-     * Specifies the default iterator for an object.
-     *
-     * @returns { IterableIterator<[K, V]> } Returns a two - dimensional array in the form of key - value pairs.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Obtains a two-dimensional array in key-value pairs.
-     *
-     * @returns { IterableIterator<[K, V]> } Returns a two - dimensional array in the form of key - value pairs.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 9 dynamic
      */
     [Symbol.iterator](): IterableIterator<[K, V]>;
   }
 
   /**
-   * The ScopeComparable contains comparison methods.
+   * The values of the **ScopeComparable** type are used to implement the **compareTo** method. Therefore, ensure that
+   * the input parameters are comparable.
    *
-   * @interface ScopeComparable
    * @syscap SystemCapability.Utils.Lang
-   * @since 7
-   */
-  /**
-   * The ScopeComparable contains comparison methods.
-   *
-   * @interface ScopeComparable
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * The values of the ScopeComparable type are used to implement the compareTo method. Therefore,
-   * ensure that the input parameters are comparable.
-   *
-   * @interface ScopeComparable
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 7 dynamic
    */
   interface ScopeComparable {
-    /**
-     * The comparison function is used by the scope.
-     *
-     * @param { ScopeComparable } other - Other
-     * @returns { boolean } Returns whether the current object is greater than or equal to the input object.
-     * @syscap SystemCapability.Utils.Lang
-     * @since 8
-     */
-    /**
-     * The comparison function is used by the scope.
-     *
-     * @param { ScopeComparable } other - Other
-     * @returns { boolean } Returns whether the current object is greater than or equal to the input object.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
     /**
      * Compares two values and returns a Boolean value.
      *
      * @param { ScopeComparable } other - The other value to be compared with the current value.
-     * @returns { boolean } Returns whether the current object is greater than or equal to the input object.
+     * @returns { boolean } Check result. The value **true** is returned if the current value is greater than or equal
+     *     to the input value; otherwise, **false** is returned.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 8 dynamic
      */
     compareTo(other: ScopeComparable): boolean;
   }
 
   /**
-   * A type used to denote ScopeComparable or number.
+   * Defines the type of values in a **Scope** object.
    *
+   * @unionmember { ScopeComparable } The value type is ScopeComparable.
+   * @unionmember { number } The value type is a number.
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
-   */
-  /**
-   * A type used to denote ScopeComparable or number.
-   *
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Defines the type of values in a Scope object.
-   *
-   * @typedef { ScopeComparable | number }
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
    */
   type ScopeType = ScopeComparable | number;
 
@@ -2492,37 +1433,37 @@ declare namespace util {
    * @syscap SystemCapability.Utils.Lang
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.util.ScopeHelper
+   * @useinstead util.ScopeHelper
    */
   class Scope {
     /**
-     * A constructor used to create a Scope instance with the lower and upper bounds specified.
+     * A constructor used to create a **Scope** object with the specified upper and lower limits.
      *
-     * @param { ScopeType } lowerObj - A ScopeType value
-     * @param { ScopeType } upperObj - A ScopeType value
+     * @param { ScopeType } lowerObj - Lower limit of the **Scope** object.
+     * @param { ScopeType } upperObj - Upper limit of the **Scope** object.
      * @syscap SystemCapability.Utils.Lang
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.util.ScopeHelper.constructor
+     * @useinstead null
      */
     constructor(lowerObj: ScopeType, upperObj: ScopeType);
 
     /**
-     * Obtains a string representation of the current range.
+     * Obtains a string representation that contains this **Scope**.
      *
-     * @returns { string } Returns a string representation of the current range object.
+     * @returns { string } String representation containing the **Scope**.
      * @syscap SystemCapability.Utils.Lang
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.util.ScopeHelper.toString
+     * @useinstead util.LRUCache.toString
      */
     toString(): string;
 
     /**
-     * Returns the intersection of a given range and the current range.
+     * Obtains the intersection of this **Scope** and the given **Scope**.
      *
-     * @param { Scope } range - A Scope range object
-     * @returns { Scope } Returns the intersection of a given range and the current range.
+     * @param { Scope } range - **Scope** specified.
+     * @returns { Scope } Intersection of this **Scope** and the given **Scope**.
      * @syscap SystemCapability.Utils.Lang
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -2531,11 +1472,11 @@ declare namespace util {
     intersect(range: Scope): Scope;
 
     /**
-     * Returns the intersection of the current range and the range specified by the given lower and upper bounds.
+     * Obtains the intersection of this **Scope** and the given lower and upper limits.
      *
-     * @param { ScopeType } lowerObj - A ScopeType value
-     * @param { ScopeType } upperObj - A ScopeType value
-     * @returns { Scope } Returns the intersection of the current range and the range specified by the given lower and upper bounds.
+     * @param { ScopeType } lowerObj - Lower limit.
+     * @param { ScopeType } upperObj - Upper limit.
+     * @returns { Scope } Intersection of this **Scope** and the given lower and upper limits.
      * @syscap SystemCapability.Utils.Lang
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -2544,33 +1485,33 @@ declare namespace util {
     intersect(lowerObj: ScopeType, upperObj: ScopeType): Scope;
 
     /**
-     * Obtains the upper bound of the current range.
+     * Obtains the upper limit of this **Scope**.
      *
-     * @returns { ScopeType } Returns the upper bound of the current range.
+     * @returns { ScopeType } Upper limit of this **Scope**.
      * @syscap SystemCapability.Utils.Lang
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.util.ScopeHelper.getUpper
+     * @useinstead util.ScopeHelper.getUpper
      */
     getUpper(): ScopeType;
 
     /**
-     * Obtains the lower bound of the current range.
+     * Obtains the lower limit of this **Scope**.
      *
-     * @returns { ScopeType } Returns the lower bound of the current range.
+     * @returns { ScopeType } Lower limit of this **Scope**.
      * @syscap SystemCapability.Utils.Lang
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.util.ScopeHelper.getLower
+     * @useinstead util.ScopeHelper.getLower
      */
     getLower(): ScopeType;
 
     /**
-     * Creates the smallest range that includes the current range and the given lower and upper bounds.
+     * Obtains the union set of this **Scope** and the given lower and upper limits.
      *
-     * @param { ScopeType } lowerObj - A ScopeType value
-     * @param { ScopeType } upperObj - A ScopeType value
-     * @returns { Scope } Returns the smallest range that includes the current range and the given lower and upper bounds.
+     * @param { ScopeType } lowerObj - Lower limit.
+     * @param { ScopeType } upperObj - Upper limit.
+     * @returns { Scope } Union set of this **Scope** and the given lower and upper limits.
      * @syscap SystemCapability.Utils.Lang
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -2579,10 +1520,10 @@ declare namespace util {
     expand(lowerObj: ScopeType, upperObj: ScopeType): Scope;
 
     /**
-     * Creates the smallest range that includes the current range and a given range.
+     * Obtains the union set of this **Scope** and the given **Scope**.
      *
-     * @param { Scope } range - A Scope range object
-     * @returns { Scope } Returns the smallest range that includes the current range and a given range.
+     * @param { Scope } range - **Scope** specified.
+     * @returns { Scope } Union set of this **Scope** and the given **Scope**.
      * @syscap SystemCapability.Utils.Lang
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -2591,10 +1532,10 @@ declare namespace util {
     expand(range: Scope): Scope;
 
     /**
-     * Creates the smallest range that includes the current range and a given value.
+     * Obtains the union set of this **Scope** and the given value.
      *
-     * @param { ScopeType } value - A ScopeType value
-     * @returns { Scope } Returns the smallest range that includes the current range and a given value.
+     * @param { ScopeType } value - Value specified.
+     * @returns { Scope } Union set of this **Scope** and the given value.
      * @syscap SystemCapability.Utils.Lang
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -2603,474 +1544,228 @@ declare namespace util {
     expand(value: ScopeType): Scope;
 
     /**
-     * Checks whether a given value is within the current range.
+     * Checks whether a value is within this **Scope**.
      *
-     * @param { ScopeType } value - A ScopeType value
-     * @returns { boolean } If the value is within the current range return true,otherwise return false.
+     * @param { ScopeType } value - Value specified.
+     * @returns { boolean } Check result. The value **true** is returned if the value is within this **Scope**;
+     *     otherwise, **false** is returned.
      * @syscap SystemCapability.Utils.Lang
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.util.ScopeHelper.contains
+     * @useinstead util.LRUCache.contains
      */
     contains(value: ScopeType): boolean;
 
     /**
-     * Checks whether a given range is within the current range.
+     * Checks whether a range is within this **Scope**.
      *
-     * @param { Scope } range - A Scope range
-     * @returns { boolean } If the current range is within the given range return true,otherwise return false.
+     * @param { Scope } range - **Scope** specified.
+     * @returns { boolean } Check result. The value **true** is returned if the range is within this **Scope**;
+     *     otherwise, **false** is returned.
      * @syscap SystemCapability.Utils.Lang
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.util.ScopeHelper.contains
+     * @useinstead util.LRUCache.contains
      */
     contains(range: Scope): boolean;
 
     /**
-     * Clamps a given value to the current range.
+     * Limits a value to this **Scope**.
      *
-     * @param { ScopeType } value - A ScopeType value
-     * @returns { ScopeType } Returns a ScopeType object that a given value is clamped to the current range..
+     * @param { ScopeType } value - Value specified.
+     * @returns { ScopeType } Returns **lowerObj** if the specified value is less than the lower limit; returns
+     *     **upperObj** if the specified value is greater than the upper limit; returns the specified value if it is
+     *     within this **Scope**.
      * @syscap SystemCapability.Utils.Lang
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.util.ScopeHelper.clamp
+     * @useinstead util.ScopeHelper.clamp
      */
     clamp(value: ScopeType): ScopeType;
   }
 
   /**
-   * The ScopeHelper interface is used to describe the valid range of a field.
+   * Provides APIs to define the valid range of a field. The constructor of this class creates comparable objects with
+   * lower and upper limits.
    *
    * @syscap SystemCapability.Utils.Lang
-   * @since 9
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 9 dynamic
    */
-  /**
-   * The ScopeHelper interface is used to describe the valid range of a field.
-   *
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Provides APIs to define the valid range of a field. The constructor of this class creates comparable objects
-   * with lower and upper limits.
-   *
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
-   */
-  class ScopeHelper {  
+  class ScopeHelper {
     /**
-     * A constructor used to create a Scope instance with the lower and upper bounds specified.
+     * A constructor used to create a **ScopeHelper** object with the specified upper and lower limits.
      *
-     * @param { ScopeType } lowerObj - A ScopeType value
-     * @param { ScopeType } upperObj - A ScopeType value
+     * @param { ScopeType } lowerObj - Lower limit of the **Scope** object.
+     * @param { ScopeType } upperObj - Upper limit of the **Scope** object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
+     *     1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
-     * @since 9
-     */
-    /**
-     * A constructor used to create a Scope instance with the lower and upper bounds specified.
-     *
-     * @param { ScopeType } lowerObj - A ScopeType value
-     * @param { ScopeType } upperObj - A ScopeType value
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * A constructor used to create a ScopeHelper object with the specified upper and lower limits.
-     *
-     * @param { ScopeType } lowerObj - Lower limit of the Scope object.
-     * @param { ScopeType } upperObj - Upper limit of the Scope object.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 9 dynamic
      */
     constructor(lowerObj: ScopeType, upperObj: ScopeType);
 
     /**
-     * Obtains a string representation of the current range.
+     * Obtains a string representation that contains this **Scope**.
      *
-     * @returns { string } Returns a string representation of the current range object.
+     * @returns { string } String representation containing the **Scope**.
      * @syscap SystemCapability.Utils.Lang
-     * @since 9
-     */
-    /**
-     * Obtains a string representation of the current range.
-     *
-     * @returns { string } Returns a string representation of the current range object.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Obtains a string representation that contains this Scope.
-     *
-     * @returns { string } Returns a string representation of the current range object.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 9 dynamic
      */
     toString(): string;
 
     /**
-     * Returns the intersection of a given range and the current range.
+     * Obtains the intersection of this **Scope** and the given **Scope**. If the intersection is empty, an exception is
+     * thrown.
      *
-     * @param { ScopeHelper } range - A Scope range object
-     * @returns { ScopeHelper } Returns the intersection of a given range and the current range.
+     * @param { ScopeHelper } range - **Scope** specified.
+     * @returns { ScopeHelper } Intersection of this **Scope** and the given **Scope**.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
+     *     1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
-     * @since 9
-     */
-    /**
-     * Returns the intersection of a given range and the current range.
-     *
-     * @param { ScopeHelper } range - A Scope range object
-     * @returns { ScopeHelper } Returns the intersection of a given range and the current range.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Obtains the intersection of this Scope and the given Scope.
-     *
-     * @param { ScopeHelper } range - Scope specified.
-     * @returns { ScopeHelper } Returns the intersection of a given range and the current range.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 9 dynamic
      */
     intersect(range: ScopeHelper): ScopeHelper;
 
     /**
-     * Returns the intersection of the current range and the range specified by the given lower and upper bounds.
-     *
-     * @param { ScopeType } lowerObj - A ScopeType value
-     * @param { ScopeType } upperObj - A ScopeType value
-     * @returns { ScopeHelper } Returns the intersection of the current range and the range specified by the given lower and upper bounds.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @since 9
-     */
-    /**
-     * Returns the intersection of the current range and the range specified by the given lower and upper bounds.
-     *
-     * @param { ScopeType } lowerObj - A ScopeType value
-     * @param { ScopeType } upperObj - A ScopeType value
-     * @returns { ScopeHelper } Returns the intersection of the current range and the range specified by the given lower and upper bounds.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Obtains the intersection of this Scope and the given lower and upper limits.
+     * Obtains the intersection of this **Scope** and the given lower and upper limits. If the intersection is empty, an
+     * exception is thrown.
      *
      * @param { ScopeType } lowerObj - Lower limit.
      * @param { ScopeType } upperObj - Upper limit.
-     * @returns { ScopeHelper } Returns the intersection of the current range and the range specified by the given lower and upper bounds.
+     * @returns { ScopeHelper } Intersection of this **Scope** and the given lower and upper limits.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
+     *     1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 9 dynamic
      */
     intersect(lowerObj: ScopeType, upperObj: ScopeType): ScopeHelper;
 
     /**
-     * Obtains the upper bound of the current range.
+     * Obtains the upper limit of this **Scope**.
      *
-     * @returns { ScopeType } Returns the upper bound of the current range.
+     * @returns { ScopeType } Upper limit of this **Scope**.
      * @syscap SystemCapability.Utils.Lang
-     * @since 9
-     */
-    /**
-     * Obtains the upper bound of the current range.
-     *
-     * @returns { ScopeType } Returns the upper bound of the current range.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Obtains the upper limit of this Scope.
-     *
-     * @returns { ScopeType } Returns the upper bound of the current range.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 9 dynamic
      */
     getUpper(): ScopeType;
 
     /**
-     * Obtains the lower bound of the current range.
+     * Obtains the lower limit of this **Scope**.
      *
-     * @returns { ScopeType } Returns the lower bound of the current range.
+     * @returns { ScopeType } Lower limit of this **Scope**.
      * @syscap SystemCapability.Utils.Lang
-     * @since 9
-     */
-    /**
-     * Obtains the lower bound of the current range.
-     *
-     * @returns { ScopeType } Returns the lower bound of the current range.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Obtains the lower limit of this Scope.
-     *
-     * @returns { ScopeType } Returns the lower bound of the current range.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 9 dynamic
      */
     getLower(): ScopeType;
 
     /**
-     * Creates the smallest range that includes the current range and the given lower and upper bounds.
+     * Obtains the union set of this **Scope** and the given lower and upper limits.
      *
-     * @param { ScopeType } lowerObj - A ScopeType value
-     * @param { ScopeType } upperObj - A ScopeType value
-     * @returns { ScopeHelper } Returns the smallest range that includes the current range and the given lower and upper bounds.
+     * @param { ScopeType } lowerObj - Lower limit.
+     * @param { ScopeType } upperObj - Upper limit.
+     * @returns { ScopeHelper } Union set of this **Scope** and the given lower and upper limits.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
+     *     1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
-     * @since 9
-     */
-    /**
-     * Obtains the union set of this Scope and the given lower and upper limits.
-     *
-     * @param { ScopeType } lowerObj - A ScopeType value
-     * @param { ScopeType } upperObj - A ScopeType value
-     * @returns { ScopeHelper } Returns the smallest range that includes the current range and the given lower and upper bounds.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 9 dynamic
      */
     expand(lowerObj: ScopeType, upperObj: ScopeType): ScopeHelper;
 
     /**
-     * Creates the smallest range that includes the current range and a given range.
+     * Obtains the union set of this **Scope** and the given **Scope**.
      *
-     * @param { ScopeHelper } range - A Scope range object
-     * @returns { ScopeHelper } Returns the smallest range that includes the current range and a given range.
+     * @param { ScopeHelper } range - **Scope** specified.
+     * @returns { ScopeHelper } Union set of this **Scope** and the given **Scope**.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
+     *     1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
-     * @since 9
-     */
-    /**
-     * Creates the smallest range that includes the current range and a given range.
-     *
-     * @param { ScopeHelper } range - A Scope range object
-     * @returns { ScopeHelper } Returns the smallest range that includes the current range and a given range.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Obtains the union set of this Scope and the given Scope.
-     *
-     * @param { ScopeHelper } range - Scope specified.
-     * @returns { ScopeHelper } Returns the smallest range that includes the current range and a given range.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 9 dynamic
      */
     expand(range: ScopeHelper): ScopeHelper;
 
     /**
-     * Creates the smallest range that includes the current range and a given value.
+     * Obtains the union set of this **Scope** and the given value.
      *
-     * @param { ScopeType } value - A ScopeType value
-     * @returns { ScopeHelper } Returns the smallest range that includes the current range and a given value.
+     * @param { ScopeType } value - Value specified.
+     * @returns { ScopeHelper } Union set of this **Scope** and the given value.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
+     *     1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
-     * @since 9
-     */
-    /**
-     * Creates the smallest range that includes the current range and a given value.
-     *
-     * @param { ScopeType } value - A ScopeType value
-     * @returns { ScopeHelper } Returns the smallest range that includes the current range and a given value.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Obtains the union set of this Scope and the given value.
-     *
-     * @param { ScopeType } value - A ScopeType value
-     * @returns { ScopeHelper } Returns the smallest range that includes the current range and a given value.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 9 dynamic
      */
     expand(value: ScopeType): ScopeHelper;
 
     /**
-     * Checks whether a given value is within the current range.
-     *
-     * @param { ScopeType } value - A ScopeType value
-     * @returns { boolean } If the value is within the current range return true,otherwise return false.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @since 9
-     */
-    /**
-     * Checks whether a given value is within the current range.
-     *
-     * @param { ScopeType } value - A ScopeType value
-     * @returns { boolean } If the value is within the current range return true,otherwise return false.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Checks whether a value is within this Scope.
+     * Checks whether a range is within this **Scope**.
      *
      * @param { ScopeType } value - Value specified.
-     * @returns { boolean } If the value is within the current range return true,otherwise return false.
+     * @returns { boolean } Check result. The value **true** is returned if the value is within this **Scope**;
+     *     otherwise, **false** is returned.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
+     *     1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 9 dynamic
      */
     contains(value: ScopeType): boolean;
 
     /**
-     * Checks whether a given range is within the current range.
+     * Checks whether a range is within this **Scope**.
      *
-     * @param { ScopeHelper } range - A Scope range
-     * @returns { boolean } If the current range is within the given range return true,otherwise return false.
+     * @param { ScopeHelper } range - **Scope** specified.
+     * @returns { boolean } Check result. The value **true** is returned if the range is within this **Scope**;
+     *     otherwise, **false** is returned.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
+     *     1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
-     * @since 9
-     */
-    /**
-     * Checks whether a given range is within the current range.
-     *
-     * @param { ScopeHelper } range - A Scope range
-     * @returns { boolean } If the current range is within the given range return true,otherwise return false.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Checks whether a range is within this Scope.
-     *
-     * @param { ScopeHelper } range - Scope specified.
-     * @returns { boolean } If the current range is within the given range return true,otherwise return false.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 9 dynamic
      */
     contains(range: ScopeHelper): boolean;
 
     /**
-     * Clamps a given value to the current range.
-     *
-     * @param { ScopeType } value - A ScopeType value
-     * @returns { ScopeType } Returns a ScopeType object that a given value is clamped to the current range.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @since 9
-     */
-    /**
-     * Clamps a given value to the current range.
-     *
-     * @param { ScopeType } value - A ScopeType value
-     * @returns { ScopeType } Returns a ScopeType object that a given value is clamped to the current range.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Limits a value to this Scope.
+     * Limits a value to this **Scope**.
      *
      * @param { ScopeType } value - Value specified.
-     * @returns { ScopeType } Returns a ScopeType object that a given value is clamped to the current range.
+     * @returns { ScopeType } Returns **lowerObj** if the specified value is less than the lower limit; returns
+     *     **upperObj** if the specified value is greater than the upper limit; returns the specified value if it is
+     *     within this **Scope**.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
+     *     1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 9 dynamic
      */
     clamp(value: ScopeType): ScopeType;
   }
@@ -3081,1808 +1776,895 @@ declare namespace util {
    * @syscap SystemCapability.Utils.Lang
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.util.Base64Helper
+   * @useinstead util.Base64Helper
    */
   class Base64 {
     /**
-     * Constructor for creating base64 encoding and decoding
+     * A constructor used to create a **Base64** object.
      *
      * @syscap SystemCapability.Utils.Lang
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.util.Base64Helper.constructor
+     * @useinstead util.Base64Helper.constructor
      */
     constructor();
 
     /**
-     * Encodes all bytes from the specified u8 array into a newly-allocated u8 array using the Base64 encoding scheme.
+     * Performs Base64 encoding on the input Uint8Array byte array and returns the encoded Uint8Array.
      *
-     * @param { Uint8Array } src - A Uint8Array value
-     * @returns { Uint8Array } Return the encoded new Uint8Array.
+     * @param { Uint8Array } src - Uint8Array object to encode.
+     * @returns { Uint8Array } Uint8Array object obtained.
      * @syscap SystemCapability.Utils.Lang
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.util.Base64Helper.encodeSync
+     * @useinstead util.Base64Helper.encodeSync
      */
     encodeSync(src: Uint8Array): Uint8Array;
 
     /**
-     * Encodes the specified byte array into a String using the Base64 encoding scheme.
+     * Performs Base64 encoding on the input Uint8Array byte array and returns the encoded string.
      *
-     * @param { Uint8Array } src - A Uint8Array value
-     * @returns { string } Return the encoded string.
+     * @param { Uint8Array } src - Uint8Array object to encode.
+     * @returns { string } String obtained.
      * @syscap SystemCapability.Utils.Lang
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.util.Base64Helper.encodeToStringSync
+     * @useinstead util.Base64Helper.encodeToStringSync
      */
     encodeToStringSync(src: Uint8Array): string;
 
     /**
-     * Decodes a Base64-encoded string or Uint8Array into a newly allocated Uint8Array.
+     * Decodes the input content into a Uint8Array object.
      *
-     * @param { Uint8Array | string } src - A Uint8Array value or value A string value
-     * @returns { Uint8Array } Return the decoded Uint8Array.
+     * @param { Uint8Array | string } src - Uint8Array object or string to decode.
+     * @returns { Uint8Array } Uint8Array object obtained.
      * @syscap SystemCapability.Utils.Lang
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.util.Base64Helper.decodeSync
+     * @useinstead util.Base64Helper.decodeSync
      */
     decodeSync(src: Uint8Array | string): Uint8Array;
 
     /**
-     * Asynchronously encodes all bytes in the specified u8 array into the newly allocated u8 array using the Base64 encoding scheme.
+     * Encodes the input content into a Uint8Array object. This API uses a promise to return the result.
      *
-     * @param { Uint8Array } src - A Uint8Array value
-     * @returns { Promise<Uint8Array> } Return the encodes asynchronous new Uint8Array.
+     * @param { Uint8Array } src - Uint8Array object to encode.
+     * @returns { Promise<Uint8Array> } Promise used to return the Uint8Array object obtained.
      * @syscap SystemCapability.Utils.Lang
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.util.Base64Helper.encode
+     * @useinstead util.Base64Helper.encode
      */
     encode(src: Uint8Array): Promise<Uint8Array>;
 
     /**
-     * Asynchronously encodes the specified byte array into a String using the Base64 encoding scheme.
+     * Encodes the input content into a string. This API uses a promise to return the result.
      *
-     * @param { Uint8Array } src - A Uint8Array value
-     * @returns { Promise<string> } Returns the encoded asynchronous string.
+     * @param { Uint8Array } src - Uint8Array object to encode.
+     * @returns { Promise<string> } Promise used to return the string obtained.
      * @syscap SystemCapability.Utils.Lang
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.util.Base64Helper.encodeToString
+     * @useinstead util.Base64Helper.encodeToString
      */
     encodeToString(src: Uint8Array): Promise<string>;
 
     /**
-     * Use the Base64 encoding scheme to asynchronously decode a Base64-encoded string or input u8 array into a newly allocated u8 array.
+     * Decodes the input content into a Uint8Array object. This API uses a promise to return the result.
      *
-     * @param { Uint8Array | string } src - A Uint8Array value or value A string value
-     * @returns { Promise<Uint8Array> } Return the decoded asynchronous Uint8Array.
+     * @param { Uint8Array | string } src - Uint8Array object or string to decode.
+     * @returns { Promise<Uint8Array> } Promise used to return the Uint8Array object obtained.
      * @syscap SystemCapability.Utils.Lang
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.util.Base64Helper.decode
+     * @useinstead util.Base64Helper.decode
      */
     decode(src: Uint8Array | string): Promise<Uint8Array>;
   }
 
   /**
-   * The Type represents two different encoding formats for base64
+   * Enumerates the Base64 encoding formats.
    *
-   * @enum { number } Type
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * The Type represents two different encoding formats for base64
-   *
-   * @enum { number } Type
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * The Type represents four different encoding formats for base64
-   *
-   * @enum { number } Type
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   enum Type {
     /**
-     * The value indicates that the encoding format of base64 is BASIC
+     * Basic format.
+     * This API can be used in atomic services since API version 11.
+     *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
-     * @since 10
+     * @atomicservice [since 11]
+     * @since 10 dynamic
      */
+    BASIC = 0,
     /**
-     * The value indicates that the encoding format of base64 is BASIC
+     * MIME format.
+     * This API can be used in atomic services since API version 11.
+     *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 10 dynamic
      */
-    BASIC,
+    MIME = 1,
     /**
-     * The value indicates that the encoding format of base64 is MIME
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * The value indicates that the encoding format of base64 is MIME
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
-     */
-    MIME,
-    /**
-     * The value indicates that the encoding format of base64 is BASIC_URL_SAFE
+     * BASIC_URL_SAFE format.
+     *
+     * This value is supported since API version 12.
+     * This API can be used in atomic services since API version 12.
+     *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
      */
-    BASIC_URL_SAFE,
+    BASIC_URL_SAFE = 2,
     /**
-     * The value indicates that the encoding format of base64 is MIME_URL_SAFE
+     * MIME_URL_SAFE format.
+     *
+     * This value is supported since API version 12.
+     * This API can be used in atomic services since API version 12.
+     *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
      */
-    MIME_URL_SAFE
+    MIME_URL_SAFE = 3
   }
 
   /**
-   * Decodes a Base64 encoded String or input u8 array into a newly-allocated
-   * u8 array using the Base64 encoding scheme.
+   * Provides encoding and decoding for Base64 and Base64URL. The Base64 encoding table contains 64 characters, which
+   * are the uppercase letters (A-Z), lowercase letters (a-z), digits (0-9), and the special characters plus sign (+)
+   * and slash (/). During encoding, the original data is divided into groups of three bytes, and each group contains a
+   * 6-bit number. Then, the corresponding characters in the Base64 encoding table are used to represent these numbers.
+   * If the last group contains only one or two bytes, the equal sign (=) is used for padding. The Base64URL encoding
+   * table contains 64 characters, which are the uppercase letters (A-Z), lowercase letters (a-z), digits (0-9), and the
+   * special characters plus sign (+) and slash (/). The Base64URL encoding result does not contain equal signs (=).
    *
    * @syscap SystemCapability.Utils.Lang
-   * @since 9
-   */
-  /**
-   * Decodes a Base64 encoded String or input u8 array into a newly-allocated
-   * u8 array using the Base64 encoding scheme.
-   *
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Decodes a Base64 encoded String or input u8 array into a newly-allocated
-   * u8 array using the Base64 encoding scheme.
-   *
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   class Base64Helper {
     /**
-     * Constructor for creating base64 encoding and decoding
+     * A constructor used to create a **Base64Helper** instance.
      *
      * @syscap SystemCapability.Utils.Lang
-     * @since 9
-     */
-    /**
-     * Constructor for creating base64 encoding and decoding
-     *
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * A constructor used to create a Base64Helper instance.
-     *
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     constructor();
 
     /**
-     * Encodes all bytes from the specified u8 array into a newly-allocated u8 array using the Base64 encoding scheme.
-     *
-     * @param { Uint8Array } src - A Uint8Array value
-     * @returns { Uint8Array } Return the encoded new Uint8Array.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @since 9
-     */
-    /**
-     * Encodes all bytes from the specified u8 array into a newly-allocated u8 array using the Base64 encoding scheme.
-     *
-     * @param { Uint8Array } src - A Uint8Array value
-     * @returns { Uint8Array } Return the encoded new Uint8Array.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Encodes all bytes from the specified u8 array into a newly-allocated u8 array using the Base64 encoding scheme.
-     *
-     * @param { Uint8Array } src - A Uint8Array value
-     * @returns { Uint8Array } Return the encoded new Uint8Array.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
      * Encodes the input content into a Uint8Array object.
      *
      * @param { Uint8Array } src - Uint8Array object to encode.
-     * @param { Type } [options] - Encoding format. The following values are available:
-     * - util.Type.BASIC (default): Base64 encoding.
-     * - util.Type.BASIC_URL_SAFE: Base64URL encoding.
-     * @returns { Uint8Array } Return the encoded new Uint8Array.
+     * @param { Type } [options] - Encoding format.<br>The following values are available:<br>- **util.Type.BASIC** (
+     *     default): Base64 encoding.<br>- **util.Type.BASIC_URL_SAFE**: Base64URL encoding. [since 12]
+     * @returns { Uint8Array } Uint8Array object obtained.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
+     *     1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     encodeSync(src: Uint8Array, options?: Type): Uint8Array;
 
     /**
-     * Encodes the specified byte array into a String using the Base64 encoding scheme.
-     *
-     * @param { Uint8Array } src - A Uint8Array value
-     * @returns { string } Return the encoded string.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @since 9
-     */
-    /**
-     * Encodes the specified byte array into a String using the Base64 encoding scheme.
-     *
-     * @param { Uint8Array } src - A Uint8Array value
-     * @param { Type } [options] - Enumerating input parameters includes two encoding formats: BASIC and MIME
-     * @returns { string } Return the encoded string.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Encodes the specified byte array into a String using the Base64 encoding scheme.
-     *
-     * @param { Uint8Array } src - A Uint8Array value
-     * @param { Type } [options] - Enumerating input parameters includes two encoding formats: BASIC and MIME
-     * @returns { string } Return the encoded string.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Encodes the input content into a string. This API returns the result synchronously.
+     * Performs Base64 encoding on the input Uint8Array byte array and returns a string. This method supports multiple
+     * encoding formats, including standard Base64 encoding, MIME-compliant Base64 encoding (with line breaks), and URL-
+     * safe Base64 encoding.
      *
      * @param { Uint8Array } src - Uint8Array object to encode.
-     * @param { Type } [options] - Encoding format. The following values are available:
-     * - util.Type.BASIC (default): Base64 encoding. The return value does not contain carriage return characters or newline characters.
-     * - util.Type.MIME: Base64 encoding. Each line of the return value contains a maximum of 76 characters and ends with '\r\n'.
-     * - util.Type.BASIC_URL_SAFE: Base64URL encoding. The return value does not contain carriage return characters or newline characters.
-     * - util.Type.MIME_URL_SAFE: Base64URL encoding. Each line in the return value contains a maximum of 76 characters and ends with '\r\n'.
-     * @returns { string } Return the encoded string.
+     * @param { Type } [options] - Encoding format.<br>The following values are available:<br>- **util.Type.BASIC** (
+     *     default): Base64 encoding. The return value does not contain carriage return characters or newline
+     *     characters.<br>- **util.Type.MIME**: Base64 encoding. If the return value exceeds 76 characters, a line break
+     *     is inserted every 76 characters, and each line ends with '\r\n'. If the return value is fewer than 76
+     *     characters, an exception is thrown.<br>- **util.Type.BASIC_URL_SAFE**: Base64URL encoding. The return value
+     *     does not contain carriage return characters or newline characters.<br>- **util.Type.MIME_URL_SAFE**: Base64
+     *     URL encoding. Each line in the return value contains a maximum of 76 characters and ends with '\r\n'.
+     *     [since 10 - 11]
+     * @param { Type } options - Encoding format.<br>The following values are available:<br>- **util.Type.BASIC** (
+     *     default): Base64 encoding. The return value does not contain carriage return characters or newline
+     *     characters.<br>- **util.Type.MIME**: Base64 encoding. If the return value exceeds 76 characters, a line break
+     *     is inserted every 76 characters, and each line ends with '\r\n'. If the return value is fewer than 76
+     *     characters, an exception is thrown.<br>- **util.Type.BASIC_URL_SAFE**: Base64URL encoding. The return value
+     *     does not contain carriage return characters or newline characters.<br>- **util.Type.MIME_URL_SAFE**: Base64
+     *     URL encoding. Each line in the return value contains a maximum of 76 characters and ends with '\r\n'.
+     *     [since 12]
+     * @returns { string } String obtained.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
+     *     1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     encodeToStringSync(src: Uint8Array, options?: Type): string;
 
     /**
-     * Decodes a Base64 encoded String or input u8 array into a newly-allocated u8 array using the Base64 encoding scheme.
-     *
-     * @param { Uint8Array | string } src - A Uint8Array value or value A string value
-     * @returns { Uint8Array } Return the decoded Uint8Array.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @since 9
-     */
-    /**
-     * Decodes a Base64 encoded String or input u8 array into a newly-allocated u8 array using the Base64 encoding scheme.
-     *
-     * @param { Uint8Array | string } src - A Uint8Array value or value A string value
-     * @param { Type } [options] - Enumerating input parameters includes two encoding formats: BASIC and MIME
-     * @returns { Uint8Array } Return the decoded Uint8Array.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Decodes a Base64 encoded String or input u8 array into a newly-allocated u8 array using the Base64 encoding scheme.
-     *
-     * @param { Uint8Array | string } src - A Uint8Array value or value A string value
-     * @param { Type } [options] - Enumerating input parameters includes two encoding formats: BASIC and MIME
-     * @returns { Uint8Array } Return the decoded Uint8Array.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
      * Decodes a string into a Uint8Array object. This API returns the result synchronously.
      *
-     * @param { Uint8Array | string } src - 	Uint8Array object or string to decode.
-     * @param { Type } [options] - Decoding format. The following values are available:
-     * - util.Type.BASIC (default): Base64 decoding.
-     * - util.Type.MIME: Base64 decoding. The input parameter src contains carriage return characters and newline characters.
-     * - util.Type.BASIC_URL_SAFE: Base64URL decoding.
-     * - util.Type.MIME_URL_SAFE: Base64 URL decoding. The input parameter src contains carriage return characters and newline characters.
-     * @returns { Uint8Array } Return the decoded Uint8Array.
+     * @param { Uint8Array | string } src - Uint8Array object or string to decode.
+     * @param { Type } [options] - Decoding format.<br>The following values are available:<br>- **util.Type.BASIC** (
+     *     default): Base64 decoding.<br>- **util.Type.MIME**: Base64 decoding. The input parameter **src** contains
+     *     carriage return characters and newline characters.<br>- **util.Type.BASIC_URL_SAFE**: Base64URL decoding.<br>
+     *     - **util.Type.MIME_URL_SAFE**: Base64 URL decoding. The input parameter **src** contains carriage return
+     *     characters and newline characters. [since 10]
+     * @returns { Uint8Array } Uint8Array object obtained.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
+     *     1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     decodeSync(src: Uint8Array | string, options?: Type): Uint8Array;
 
     /**
-     * Asynchronously encodes all bytes in the specified u8 array into the newly allocated u8 array using the Base64 encoding scheme.
-     *
-     * @param { Uint8Array } src - A Uint8Array value
-     * @returns { Promise<Uint8Array> } Return the encodes asynchronous new Uint8Array.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @since 9
-     */
-    /**
-     * Asynchronously encodes all bytes in the specified u8 array into the newly allocated u8 array using the Base64 encoding scheme.
-     *
-     * @param { Uint8Array } src - A Uint8Array value
-     * @returns { Promise<Uint8Array> } Return the encodes asynchronous new Uint8Array.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Asynchronously encodes all bytes in the specified u8 array into the newly allocated u8 array using the Base64 encoding scheme.
-     *
-     * @param { Uint8Array } src - A Uint8Array value
-     * @returns { Promise<Uint8Array> } Return the encodes asynchronous new Uint8Array.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
      * Encodes the input content into a Uint8Array object. This API uses a promise to return the result.
      *
      * @param { Uint8Array } src - Uint8Array object to encode.
-     * @param { Type } [options] - Encoding format. The following values are available:
-     * - util.Type.BASIC (default): Base64 encoding.
-     * - util.Type.BASIC_URL_SAFE: Base64URL encoding.
-     * @returns { Promise<Uint8Array> } Return the encodes asynchronous new Uint8Array.
+     * @param { Type } [options] - Encoding format.<br>The following values are available:<br>- **util.Type.BASIC** (
+     *     default): Base64 encoding.<br>- **util.Type.BASIC_URL_SAFE**: Base64URL encoding. [since 12]
+     * @returns { Promise<Uint8Array> } Promise used to return the Uint8Array object obtained.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
+     *     1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     encode(src: Uint8Array, options?: Type): Promise<Uint8Array>;
 
     /**
-     * Asynchronously encodes the specified byte array into a String using the Base64 encoding scheme.
-     *
-     * @param { Uint8Array } src - A Uint8Array value
-     * @returns { Promise<string> } Returns the encoded asynchronous string.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @since 9
-     */
-    /**
-     * Asynchronously encodes the specified byte array into a String using the Base64 encoding scheme.
-     *
-     * @param { Uint8Array } src - A Uint8Array value
-     * @param { Type } [options] - Enumerating input parameters includes two encoding formats: BASIC and MIME
-     * @returns { Promise<string> } Returns the encoded asynchronous string.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
      * Encodes the input content into a string. This API uses a promise to return the result.
      *
      * @param { Uint8Array } src - Uint8Array object to encode.
-     * @param { Type } [options] - Encoding format. The following values are available:
-     * - util.Type.BASIC (default): Base64 encoding. The return value does not contain carriage return characters or newline characters.
-     * - util.Type.MIME: Base64 encoding. Each line of the return value contains a maximum of 76 characters and ends with '\r\n'.
-     * - util.Type.BASIC_URL_SAFE: Base64URL encoding. The return value does not contain carriage return characters or newline characters.
-     * - util.Type.MIME_URL_SAFE: Base64URL encoding. Each line in the return value contains a maximum of 76 characters and ends with '\r\n'.
-     * @returns { Promise<string> } Returns the encoded asynchronous string.
+     * @param { Type } [options] - Encoding format.<br>The following values are available:<br>- **util.Type.BASIC** (
+     *     default): Base64 encoding. The return value does not contain carriage return characters or newline
+     *     characters.<br>- **util.Type.MIME**: Base64 encoding. Each line of the return value contains a maximum of 76
+     *     characters and ends with '\r\n'.<br>- **util.Type.BASIC_URL_SAFE**: Base64URL encoding. The return value does
+     *     not contain carriage return characters or newline characters.<br>- **util.Type.MIME_URL_SAFE**: Base64URL
+     *     encoding. Each line in the return value contains a maximum of 76 characters and ends with '\r\n'. [since 10]
+     * @returns { Promise<string> } Promise used to return the string obtained.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
+     *     1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 9 dynamic
      */
     encodeToString(src: Uint8Array, options?: Type): Promise<string>;
 
     /**
-     * Use the Base64 encoding scheme to asynchronously decode a Base64-encoded string or
-     * input u8 array into a newly allocated u8 array.
-     *
-     * @param { Uint8Array | string } src - A Uint8Array value or value A string value
-     * @returns { Promise<Uint8Array> } Return the decoded asynchronous Uint8Array.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @since 9
-     */
-    /**
-     * Use the Base64 encoding scheme to asynchronously decode a Base64-encoded string or
-     * input u8 array into a newly allocated u8 array.
-     *
-     * @param { Uint8Array | string } src - A Uint8Array value or value A string value
-     * @param { Type } [options] - Enumerating input parameters includes two encoding formats: BASIC and MIME
-     * @returns { Promise<Uint8Array> } Return the decoded asynchronous Uint8Array.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
      * Decodes the input content into a Uint8Array object. This API uses a promise to return the result.
      *
      * @param { Uint8Array | string } src - Uint8Array object or string to decode.
-     * @param { Type } [options] - Decoding format. The following values are available:
-     * - util.Type.BASIC (default): Base64 decoding.
-     * - util.Type.MIME: Base64 decoding. The input parameter src contains carriage return characters and newline characters.
-     * - util.Type.BASIC_URL_SAFE: Base64URL decoding.
-     * - util.Type.MIME_URL_SAFE: Base64 URL decoding. The input parameter src contains carriage return characters and newline characters.
-     * @returns { Promise<Uint8Array> } Return the decoded asynchronous Uint8Array.
+     * @param { Type } [options] - Decoding format.<br>The following values are available:<br>- **util.Type.BASIC** (
+     *     default): Base64 decoding.<br>- **util.Type.MIME**: Base64 decoding. The input parameter **src** contains
+     *     carriage return characters and newline characters.<br>- **util.Type.BASIC_URL_SAFE**: Base64URL decoding.<br>
+     *     - **util.Type.MIME_URL_SAFE**: Base64 URL decoding. The input parameter **src** contains carriage return
+     *     characters and newline characters. [since 10]
+     * @returns { Promise<Uint8Array> } Promise used to return the Uint8Array object obtained.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
+     *     1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 9 dynamic
      */
     decode(src: Uint8Array | string, options?: Type): Promise<Uint8Array>;
   }
 
   /**
-   * Check the type of parameter.
+   * Provides APIs to check different types of built-in objects, such as ArrayBuffer, Map, and Set, so as to avoid
+   * exceptions caused by type errors.
    *
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 8 dynamic
    */
-  /**
-   * Check the type of parameter.
-   *
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Provides APIs to check different types of built-in objects, such as ArrayBuffer, Map, and Set,
-   * so as to avoid exceptions or crashes caused by type errors.
-   *
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
-   */
-  class types {  
+  class types {
     /**
-     * The types constructor
+     * A constructor used to create a **Types** object.
      *
      * @syscap SystemCapability.Utils.Lang
-     * @since 8
-     */
-    /**
-     * The types constructor
-     *
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * A constructor used to create a Types object.
-     *
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 8 dynamic
      */
     constructor();
     /**
-     * Check whether the entered value is of arraybuffer or sharedarraybuffer type.
-     *
-     * @param { Object } value - A ArrayBuffer or SharedArrayBuffer value
-     * @returns { boolean } Returns true if the value is a built-in ArrayBuffer or SharedArrayBuffer instance.
-     * @syscap SystemCapability.Utils.Lang
-     * @since 8
-     */
-    /**
-     * Check whether the entered value is of arraybuffer or sharedarraybuffer type.
-     *
-     * @param { Object } value - A ArrayBuffer or SharedArrayBuffer value
-     * @returns { boolean } Returns true if the value is a built-in ArrayBuffer or SharedArrayBuffer instance.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Checks whether the input value is of the ArrayBuffer or SharedArrayBuffer type.
+     * Checks whether the value is of the ArrayBuffer or SharedArrayBuffer type.
      *
      * @param { Object } value - Object to check.
-     * @returns { boolean } Returns true if the value is a built-in ArrayBuffer or SharedArrayBuffer instance.
+     * @returns { boolean } Check result. The value **true** is returned if the value is of the ArrayBuffer or
+     *     SharedArrayBuffer type; otherwise, **false** is returned.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 8 dynamic
      */
     isAnyArrayBuffer(value: Object): boolean;
     /**
-     * Check whether the type is included in the isAnyArrayBuffer.
-     *
-     * @param { Object } value - A included in the isAnyArrayBuffer value
-     * @returns { boolean } Returns true if the value is an instance of one of the ArrayBuffer views,
-     * such as typed array objects or DataView.
-     * @syscap SystemCapability.Utils.Lang
-     * @since 8
-     */
-    /**
-     * Check whether the type is included in the isAnyArrayBuffer.
-     *
-     * @param { Object } value - A included in the isAnyArrayBuffer value
-     * @returns { boolean } Returns true if the value is an instance of one of the ArrayBuffer views,
-     * such as typed array objects or DataView.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Checks whether the input value is of the ArrayBufferView type.
+     * Checks whether the value is of the ArrayBufferView type.
      *
      * @param { Object } value - Object to check.
-     * @returns { boolean } Returns true if the value is an instance of one of the ArrayBuffer views,
-     * such as typed array objects or DataView.
+     * @returns { boolean } Check result. The value **true** is returned if the value is of the ArrayBufferView type;
+     *     otherwise, **false** is returned.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 8 dynamic
      */
     isArrayBufferView(value: Object): boolean;
     /**
-     * Check whether the entered value is an arguments object type.
-     *
-     * @param { Object } value - A arguments value
-     * @returns { boolean } Returns true if the value is an arguments object.
-     * @syscap SystemCapability.Utils.Lang
-     * @since 8
-     */
-    /**
-     * Check whether the entered value is an arguments object type.
-     *
-     * @param { Object } value - A arguments value
-     * @returns { boolean } Returns true if the value is an arguments object.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Checks whether the input value is an arguments object.
+     * Checks whether the value is an **arguments** object.
      *
      * @param { Object } value - Object to check.
-     * @returns { boolean } Returns true if the value is an arguments object.
+     * @returns { boolean } Check result. The value **true** is returned if the value is an **arguments** object;
+     *     otherwise, **false** is returned.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamiconly
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 8 dynamiconly
      */
     isArgumentsObject(value: Object): boolean;
     /**
-     * Check whether the entered value is of arraybuffer type.
-     *
-     * @param { Object } value - A arraybuffer value
-     * @returns { boolean } Returns true if the value is a built-in ArrayBuffer instance. This does not include SharedArrayBuffer instances.
-     * Usually, it is desirable to test for both; See isAnyArrayBuffer() for that.
-     * @syscap SystemCapability.Utils.Lang
-     * @since 8
-     */
-    /**
-     * Check whether the entered value is of arraybuffer type.
-     *
-     * @param { Object } value - A arraybuffer value
-     * @returns { boolean } Returns true if the value is a built-in ArrayBuffer instance. This does not include SharedArrayBuffer instances.
-     * Usually, it is desirable to test for both; See isAnyArrayBuffer() for that.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Checks whether the input value is of the ArrayBuffer type.
+     * Checks whether the value is of the ArrayBuffer type.
      *
      * @param { Object } value - Object to check.
-     * @returns { boolean } Returns true if the value is a built-in ArrayBuffer instance. This does not include SharedArrayBuffer instances.
-     * Usually, it is desirable to test for both; See isAnyArrayBuffer() for that.
+     * @returns { boolean } Check result. The value **true** is returned if the value is of the ArrayBuffer type;
+     *     otherwise, **false** is returned.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 8 dynamic
      */
     isArrayBuffer(value: Object): boolean;
     /**
-     * Check whether the value entered is an asynchronous function type.
-     *
-     * @param { Object } value - A async function value
-     * @returns { boolean } Returns true if the value is an async function. This only reports back what the JavaScript engine is seeing;
-     * in particular, the return value may not match the original source code if a transpilation tool was used.
-     * @syscap SystemCapability.Utils.Lang
-     * @since 8
-     */
-    /**
-     * Check whether the value entered is an asynchronous function type.
-     *
-     * @param { Object } value - A async function value
-     * @returns { boolean } Returns true if the value is an async function. This only reports back what the JavaScript engine is seeing;
-     * in particular, the return value may not match the original source code if a transpilation tool was used.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Checks whether the input value is an asynchronous function.
+     * Checks whether the value is an asynchronous function.
      *
      * @param { Object } value - Object to check.
-     * @returns { boolean } Returns true if the value is an async function. This only reports back what the JavaScript engine is seeing;
-     * in particular, the return value may not match the original source code if a transpilation tool was used.
+     * @returns { boolean } Check result. The value **true** is returned if the value is an asynchronous function;
+     *     otherwise, **false** is returned.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 8 dynamic
      */
     isAsyncFunction(value: Object): boolean;
     /**
-     * Check whether the entered value is of bigint64array array type.
-     *
-     * @param { Object } value - A BigInt64Array value
-     * @returns { boolean } Returns true if the value is a BigInt64Array instance.
-     * @syscap SystemCapability.Utils.Lang
-     * @since 8
-     */
-    /**
-     * Check whether the entered value is of bigint64array array type.
-     *
-     * @param { Object } value - A BigInt64Array value
-     * @returns { boolean } Returns true if the value is a BigInt64Array instance.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Checks whether the input value is of the BigInt64Array type.
+     * Checks whether the value is of the BigInt64Array type.
      *
      * @param { Object } value - Object to check.
-     * @returns { boolean } Returns true if the value is a BigInt64Array instance.
+     * @returns { boolean } Check result. The value **true** is returned if the value is of the BigInt64Array type;
+     *     otherwise, **false** is returned.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 8 dynamic
      */
     isBigInt64Array(value: Object): boolean;
     /**
-     * Check whether the entered value is of biguint64array array array type.
-     *
-     * @param { Object } value - A BigUint64Array value
-     * @returns { boolean } Returns true if the value is a BigUint64Array instance.
-     * @syscap SystemCapability.Utils.Lang
-     * @since 8
-     */
-    /**
-     * Check whether the entered value is of biguint64array array array type.
-     *
-     * @param { Object } value - A BigUint64Array value
-     * @returns { boolean } Returns true if the value is a BigUint64Array instance.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Checks whether the input value is of the BigUint64Array type.
+     * Checks whether the value is of the BigUint64Array type.
      *
      * @param { Object } value - Object to check.
-     * @returns { boolean } Returns true if the value is a BigUint64Array instance.
+     * @returns { boolean } Check result. The value **true** is returned if the value is of the BigUint64Array type;
+     *     otherwise, **false** is returned.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 8 dynamic
      */
     isBigUint64Array(value: Object): boolean;
     /**
-     * Check whether the entered value is a Boolean object type.
+     * Checks whether the value is of the Boolean type.
      *
-     * @param { Object } value - A boolean object value
-     * @returns { boolean } Returns true if the value is a boolean object, e.g. created by new Boolean().
-     * @syscap SystemCapability.Utils.Lang
-     * @since 8
-     */
-    /**
-     * Check whether the entered value is a Boolean object type.
+     * > **NOTE**
+     * >
+     * > This API is supported since API version 8 and deprecated since API version 14. No substitute is provided.
      *
-     * @param { Object } value - A boolean object value
-     * @returns { boolean } Returns true if the value is a boolean object, e.g. created by new Boolean().
+     * @param { Object } value - Object to check.
+     * @returns { boolean } Check result. The value **true** is returned if the value is of the Boolean type; otherwise,
+     *     **false** is returned.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Check whether the entered value is a Boolean object type.
-     *
-     * @param { Object } value - A boolean object value
-     * @returns { boolean } Returns true if the value is a boolean object, e.g. created by new Boolean().
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamiconly
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 8 dynamiconly
      * @deprecated since 14
      */
     isBooleanObject(value: Object): boolean;
     /**
-     * Check whether the entered value is a Boolean or number or string or symbol object type.
+     * Checks whether the value is of the Boolean, Number, String, or Symbol type.
      *
-     * @param { Object } value - A boxed primitive object value
-     * @returns { boolean } Returns true if the value is any boxed primitive object, e.g. created by new Boolean(), new String() or Object(Symbol()).
-     * @syscap SystemCapability.Utils.Lang
-     * @since 8
-     */
-    /**
-     * Check whether the entered value is a Boolean or number or string or symbol object type.
+     * > **NOTE**
+     * >
+     * > This API is supported since API version 8 and deprecated since API version 14. No substitute is provided.
      *
-     * @param { Object } value - A boxed primitive object value
-     * @returns { boolean } Returns true if the value is any boxed primitive object, e.g. created by new Boolean(), new String() or Object(Symbol()).
+     * @param { Object } value - Object to check.
+     * @returns { boolean } Check result. The value **true** is returned if the value is of the Boolean, Number, String,
+     *     or Symbol type; otherwise, **false** is returned.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Check whether the entered value is a Boolean or number or string or symbol object type.
-     *
-     * @param { Object } value - A boxed primitive object value
-     * @returns { boolean } Returns true if the value is any boxed primitive object, e.g. created by new Boolean(), new String() or Object(Symbol()).
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamiconly
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 8 dynamiconly
      * @deprecated since 14
      */
     isBoxedPrimitive(value: Object): boolean;
     /**
-     * Check whether the entered value is of DataView type.
-     *
-     * @param { Object } value - A DataView value
-     * @returns { boolean } Returns true if the value is a built-in DataView instance.
-     * @syscap SystemCapability.Utils.Lang
-     * @since 8
-     */
-    /**
-     * Check whether the entered value is of DataView type.
-     *
-     * @param { Object } value - A DataView value
-     * @returns { boolean } Returns true if the value is a built-in DataView instance.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Checks whether the input value is of the DataView type.
+     * Checks whether the value is of the DataView type.
      *
      * @param { Object } value - Object to check.
-     * @returns { boolean } Returns true if the value is a built-in DataView instance.
+     * @returns { boolean } Check result. The value **true** is returned if the value is of the DataView type; otherwise
+     *     , **false** is returned.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 8 dynamic
      */
     isDataView(value: Object): boolean;
     /**
-     * Check whether the entered value is of type date.
+     * Checks whether the value is of the Date type.
      *
-     * @param { Object } value - A Date value
-     * @returns { boolean } Returns true if the value is a built-in Date instance.
+     * @param { Object } value - Object to check.
+     * @returns { boolean } Check result. The value **true** is returned if the value is of the Date type; otherwise,
+     *     **false** is returned.
      * @syscap SystemCapability.Utils.Lang
-     * @since 8
-     */
-    /**
-     * Check whether the entered value is of type date.
-     *
-     * @param { Object } value - A Date value
-     * @returns { boolean } Returns true if the value is a built-in Date instance.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Checks whether the input value is of the Date type.
-     *
-     * @param { Object } value -Object to check.
-     * @returns { boolean } Returns true if the value is a built-in Date instance.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 8 dynamic
      */
     isDate(value: Object): boolean;
     /**
-     * Check whether the entered value is a native external value type.
-     *
-     * @param { Object } value - A External value
-     * @returns { boolean } Returns true if the value is a native External value.
-     * @syscap SystemCapability.Utils.Lang
-     * @since 8
-     */
-    /**
-     * Check whether the entered value is a native external value type.
-     *
-     * @param { Object } value - A External value
-     * @returns { boolean } Returns true if the value is a native External value.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Checks whether the input value is of the native external type.
+     * Checks whether the value is of the native external type.
      *
      * @param { Object } value - Object to check.
-     * @returns { boolean } Returns true if the value is a native External value.
+     * @returns { boolean } Check result. The value **true** is returned if the value is of the native external type;
+     *     otherwise, **false** is returned.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamiconly
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 8 dynamiconly
      */
     isExternal(value: Object): boolean;
     /**
-     * Check whether the entered value is of float32array array type.
-     *
-     * @param { Object } value - A Float32Array value
-     * @returns { boolean } Returns true if the value is a built-in Float32Array instance.
-     * @syscap SystemCapability.Utils.Lang
-     * @since 8
-     */
-    /**
-     * Check whether the entered value is of float32array array type.
-     *
-     * @param { Object } value - A Float32Array value
-     * @returns { boolean } Returns true if the value is a built-in Float32Array instance.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Checks whether the input value is of the Float32Array type.
+     * Checks whether the value is of the Float32Array type.
      *
      * @param { Object } value - Object to check.
-     * @returns { boolean } Returns true if the value is a built-in Float32Array instance.
+     * @returns { boolean } Check result. The value **true** is returned if the value is of the Float32Array type;
+     *     otherwise, **false** is returned.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 8 dynamic
      */
     isFloat32Array(value: Object): boolean;
     /**
-     * Check whether the entered value is of float64array array type.
-     *
-     * @param { Object } value - A Float64Array value
-     * @returns { boolean } Returns true if the value is a built-in Float64Array instance.
-     * @syscap SystemCapability.Utils.Lang
-     * @since 8
-     */
-    /**
-     * Check whether the entered value is of float64array array type.
-     *
-     * @param { Object } value - A Float64Array value
-     * @returns { boolean } Returns true if the value is a built-in Float64Array instance.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Checks whether the input value is of the Float64Array type.
+     * Checks whether the value is of the Float64Array type.
      *
      * @param { Object } value - Object to check.
-     * @returns { boolean } Returns true if the value is a built-in Float64Array instance.
+     * @returns { boolean } Check result. The value **true** is returned if the value is of the Float64Array type;
+     *     otherwise, **false** is returned.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 8 dynamic
      */
     isFloat64Array(value: Object): boolean;
     /**
-     * Check whether the input value is a generator function type.
-     *
-     * @param { Object } value - A generator function value
-     * @returns { boolean } Returns true if the value is a generator function. This only reports back what the JavaScript engine is seeing; in particular,
-     * the return value may not match the original source code if a transpilation tool was used.
-     * @syscap SystemCapability.Utils.Lang
-     * @since 8
-     */
-    /**
-     * Check whether the input value is a generator function type.
-     *
-     * @param { Object } value - A generator function value
-     * @returns { boolean } Returns true if the value is a generator function. This only reports back what the JavaScript engine is seeing; in particular,
-     * the return value may not match the original source code if a transpilation tool was used.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Checks whether the input value is a generator function.
+     * Checks whether the value is a generator function.
      *
      * @param { Object } value - Object to check.
-     * @returns { boolean } Returns true if the value is a generator function. This only reports back what the JavaScript engine is seeing; in particular,
-     * the return value may not match the original source code if a transpilation tool was used.
+     * @returns { boolean } Check result. The value **true** is returned if the value is a generator function; otherwise
+     *     , **false** is returned.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamiconly
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 8 dynamiconly
      */
     isGeneratorFunction(value: Object): boolean;
     /**
-     * Check whether the entered value is a generator object type.
-     *
-     * @param { Object } value - A generator object value
-     * @returns { boolean } Returns true if the value is a generator object as returned from a built-in generator function.
-     * This only reports back what the JavaScript engine is seeing; in particular,
-     *the return value may not match the original source code if a transpilation tool was used.
-     * @syscap SystemCapability.Utils.Lang
-     * @since 8
-     */
-    /**
-     * Check whether the entered value is a generator object type.
-     *
-     * @param { Object } value - A generator object value
-     * @returns { boolean } Returns true if the value is a generator object as returned from a built-in generator function.
-     * This only reports back what the JavaScript engine is seeing; in particular,
-     *the return value may not match the original source code if a transpilation tool was used.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Checks whether the input value is a generator object.
+     * Checks whether the value is a generator object.
      *
      * @param { Object } value - Object to check.
-     * @returns { boolean } Returns true if the value is a generator object as returned from a built-in generator function.
-     * This only reports back what the JavaScript engine is seeing; in particular,
-     *the return value may not match the original source code if a transpilation tool was used.
+     * @returns { boolean } Check result. The value **true** is returned if the value is a generator object; otherwise,
+     *     **false** is returned.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamiconly
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 8 dynamiconly
      */
     isGeneratorObject(value: Object): boolean;
     /**
-     * Check whether the entered value is of int8array array type.
-     *
-     * @param { Object } value - A Int8Array value
-     * @returns { boolean } Returns true if the value is a built-in Int8Array instance.
-     * @syscap SystemCapability.Utils.Lang
-     * @since 8
-     */
-    /**
-     * Check whether the entered value is of int8array array type.
-     *
-     * @param { Object } value - A Int8Array value
-     * @returns { boolean } Returns true if the value is a built-in Int8Array instance.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Checks whether the input value is of the Int8Array type.
+     * Checks whether the value is of the Int8Array type.
      *
      * @param { Object } value - Object to check.
-     * @returns { boolean } Returns true if the value is a built-in Int8Array instance.
+     * @returns { boolean } Check result. The value **true** is returned if the value is of the Int8Array type;
+     *     otherwise, **false** is returned.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 8 dynamic
      */
     isInt8Array(value: Object): boolean;
     /**
-     * Check whether the entered value is the int16array type.
-     *
-     * @param { Object } value - A Int16Array value
-     * @returns { boolean } Returns true if the value is a built-in Int16Array instance.
-     * @syscap SystemCapability.Utils.Lang
-     * @since 8
-     */
-    /**
-     * Check whether the entered value is the int16array type.
-     *
-     * @param { Object } value - A Int16Array value
-     * @returns { boolean } Returns true if the value is a built-in Int16Array instance.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Checks whether the input value is of the Int16Array type.
+     * Checks whether the value is of the Int16Array type.
      *
      * @param { Object } value - Object to check.
-     * @returns { boolean } Returns true if the value is a built-in Int16Array instance.
+     * @returns { boolean } Check result. The value **true** is returned if the value is of the Int16Array type;
+     *     otherwise, **false** is returned.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 8 dynamic
      */
     isInt16Array(value: Object): boolean;
     /**
-     * Check whether the entered value is the int32array array type.
-     *
-     * @param { Object } value - A Int32Array value
-     * @returns { boolean } Returns true if the value is a built-in Int32Array instance.
-     * @syscap SystemCapability.Utils.Lang
-     * @since 8
-     */
-    /**
-     * Check whether the entered value is the int32array array type.
-     *
-     * @param { Object } value - A Int32Array value
-     * @returns { boolean } Returns true if the value is a built-in Int32Array instance.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Checks whether the input value is of the Int32Array type.
+     * Checks whether the value is of the Int32Array type.
      *
      * @param { Object } value - Object to check.
-     * @returns { boolean } Returns true if the value is a built-in Int32Array instance.
+     * @returns { boolean } Check result. The value **true** is returned if the value is of the Int32Array type;
+     *     otherwise, **false** is returned.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 8 dynamic
      */
     isInt32Array(value: Object): boolean;
     /**
-     * Check whether the entered value is of map type.
-     *
-     * @param { Object } value - A Map value
-     * @returns { boolean } Returns true if the value is a built-in Map instance.
-     * @syscap SystemCapability.Utils.Lang
-     * @since 8
-     */
-    /**
-     * Check whether the entered value is of map type.
-     *
-     * @param { Object } value - A Map value
-     * @returns { boolean } Returns true if the value is a built-in Map instance.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Checks whether the input value is of the Map type.
+     * Checks whether the value is of the Map type.
      *
      * @param { Object } value - Object to check.
-     * @returns { boolean } Returns true if the value is a built-in Map instance.
+     * @returns { boolean } Check result. The value **true** is returned if the value is of the Map type; otherwise,
+     *     **false** is returned.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 8 dynamic
      */
     isMap(value: Object): boolean;
     /**
-     * Check whether the entered value is the iterator type of map.
-     *
-     * @param { Object } value - A Map iterator value
-     * @returns { boolean } Returns true if the value is an iterator returned for a built-in Map instance.
-     * @syscap SystemCapability.Utils.Lang
-     * @since 8
-     */
-    /**
-     * Check whether the entered value is the iterator type of map.
-     *
-     * @param { Object } value - A Map iterator value
-     * @returns { boolean } Returns true if the value is an iterator returned for a built-in Map instance.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Checks whether the input value is of the MapIterator type.
+     * Checks whether the value is of the MapIterator type.
      *
      * @param { Object } value - Object to check.
-     * @returns { boolean } Returns true if the value is an iterator returned for a built-in Map instance.
+     * @returns { boolean } Check result. The value **true** is returned if the value is of the MapIterator type;
+     *     otherwise, **false** is returned.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 8 dynamic
      */
     isMapIterator(value: Object): boolean;
     /**
-     * Check whether the entered value is the module namespace object object type.
-     *
-     * @param { Object } value - A Module Namespace Object value
-     * @returns { boolean } Returns true if the value is an instance of a Module Namespace Object.
-     * @syscap SystemCapability.Utils.Lang
-     * @since 8
-     */
-    /**
-     * Check whether the entered value is the module namespace object object type.
-     *
-     * @param { Object } value - A Module Namespace Object value
-     * @returns { boolean } Returns true if the value is an instance of a Module Namespace Object.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Checks whether the input value is a module namespace object.
+     * Checks whether the value is a module namespace object.
      *
      * @param { Object } value - Object to check.
-     * @returns { boolean } Returns true if the value is an instance of a Module Namespace Object.
+     * @returns { boolean } Check result. The value **true** is returned if the value is a module namespace object;
+     *     otherwise, **false** is returned.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamiconly
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 8 dynamiconly
      */
     isModuleNamespaceObject(value: Object): boolean;
     /**
-     * Check whether the value entered is of type error.
-     *
-     * @param { Object } value - A Error value
-     * @returns { boolean } Returns true if the value is an instance of a built-in Error type.
-     * @syscap SystemCapability.Utils.Lang
-     * @since 8
-     */
-    /**
-     * Check whether the value entered is of type error.
-     *
-     * @param { Object } value - A Error value
-     * @returns { boolean } Returns true if the value is an instance of a built-in Error type.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Checks whether the input value is of the Error type.
+     * Checks whether the value is of the Error type.
      *
      * @param { Object } value - Object to check.
-     * @returns { boolean } Returns true if the value is an instance of a built-in Error type.
+     * @returns { boolean } Check result. The value **true** is returned if the value is of the Error type; otherwise,
+     *     **false** is returned.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 8 dynamic
      */
     isNativeError(value: Object): boolean;
     /**
-     * Check whether the entered value is of the number object type.
+     * Checks whether the value is of the Number type.
      *
-     * @param { Object } value - A number object value
-     * @returns { boolean } Returns true if the value is a number object, e.g. created by new Number().
-     * @syscap SystemCapability.Utils.Lang
-     * @since 8
-     */
-    /**
-     * Check whether the entered value is of the number object type.
+     * > **NOTE**
+     * >
+     * > This API is supported since API version 8 and deprecated since API version 14. No substitute is provided.
      *
-     * @param { Object } value - A number object value
-     * @returns { boolean } Returns true if the value is a number object, e.g. created by new Number().
+     * @param { Object } value - Object to check.
+     * @returns { boolean } Check result. The value **true** is returned if the value is of the Number type; otherwise,
+     *     **false** is returned.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Check whether the entered value is of the number object type.
-     *
-     * @param { Object } value - A number object value
-     * @returns { boolean } Returns true if the value is a number object, e.g. created by new Number().
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamiconly
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 8 dynamiconly
      * @deprecated since 14
      */
     isNumberObject(value: Object): boolean;
     /**
-     * Check whether the entered value is of promise type.
-     *
-     * @param { Object } value - A Promise value
-     * @returns { boolean } Returns true if the value is a built-in Promise.
-     * @syscap SystemCapability.Utils.Lang
-     * @since 8
-     */
-    /**
-     * Check whether the entered value is of promise type.
-     *
-     * @param { Object } value - A Promise value
-     * @returns { boolean } Returns true if the value is a built-in Promise.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Checks whether the input value is a promise.
+     * Checks whether the value is a promise.
      *
      * @param { Object } value - Object to check.
-     * @returns { boolean } Returns true if the value is a built-in Promise.
+     * @returns { boolean } Check result. The value **true** is returned if the value is a promise; otherwise, **false**
+     *     is returned.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 8 dynamic
      */
     isPromise(value: Object): boolean;
     /**
-     * Check whether the value entered is of proxy type.
-     *
-     * @param { Object } value - A Proxy value
-     * @returns { boolean } Returns true if the value is a Proxy instance.
-     * @syscap SystemCapability.Utils.Lang
-     * @since 8
-     */
-    /**
-     * Check whether the value entered is of proxy type.
-     *
-     * @param { Object } value - A Proxy value
-     * @returns { boolean } Returns true if the value is a Proxy instance.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Checks whether the input value is a proxy.
+     * Checks whether the value is a proxy.
      *
      * @param { Object } value - Object to check.
-     * @returns { boolean } Returns true if the value is a Proxy instance.
+     * @returns { boolean } Check result. The value **true** is returned if the value is a proxy; otherwise, **false**
+     *     is returned.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamiconly
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 8 dynamiconly
      */
     isProxy(value: Object): boolean;
     /**
-     * Check whether the entered value is of type regexp.
-     *
-     * @param { Object } value - A regular expression object value
-     * @returns { boolean } Returns true if the value is a regular expression object.
-     * @syscap SystemCapability.Utils.Lang
-     * @since 8
-     */
-    /**
-     * Check whether the entered value is of type regexp.
-     *
-     * @param { Object } value - A regular expression object value
-     * @returns { boolean } Returns true if the value is a regular expression object.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Checks whether the input value is of the RegExp type.
+     * Checks whether the value is of the RegExp type.
      *
      * @param { Object } value - Object to check.
-     * @returns { boolean } Returns true if the value is a regular expression object.
+     * @returns { boolean } Check result. The value **true** is returned if the value is of the RegExp type; otherwise,
+     *     **false** is returned.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 8 dynamic
      */
     isRegExp(value: Object): boolean;
     /**
-     * Check whether the entered value is of type set.
-     *
-     * @param { Object } value - A Set instance value
-     * @returns { boolean } Returns true if the value is a built-in Set instance.
-     * @syscap SystemCapability.Utils.Lang
-     * @since 8
-     */
-    /**
-     * Check whether the entered value is of type set.
-     *
-     * @param { Object } value - A Set instance value
-     * @returns { boolean } Returns true if the value is a built-in Set instance.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Checks whether the input value is of the Set type.
+     * Checks whether the value is of the Set type.
      *
      * @param { Object } value - Object to check.
-     * @returns { boolean } Returns true if the value is a built-in Set instance.
+     * @returns { boolean } Check result. The value **true** is returned if the value is of the Set type; otherwise,
+     *     **false** is returned.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 8 dynamic
      */
     isSet(value: Object): boolean;
     /**
-     * Check whether the entered value is the iterator type of set.
-     *
-     * @param { Object } value - A Set iterator value
-     * @returns { boolean } Returns true if the value is an iterator returned for a built-in Set instance.
-     * @syscap SystemCapability.Utils.Lang
-     * @since 8
-     */
-    /**
-     * Check whether the entered value is the iterator type of set.
-     *
-     * @param { Object } value - A Set iterator value
-     * @returns { boolean } Returns true if the value is an iterator returned for a built-in Set instance.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Checks whether the input value is of the SetIterator type.
+     * Checks whether the value is of the SetIterator type.
      *
      * @param { Object } value - Object to check.
-     * @returns { boolean } Returns true if the value is an iterator returned for a built-in Set instance.
+     * @returns { boolean } Check result. The value **true** is returned if the value is of the SetIterator type;
+     *     otherwise, **false** is returned.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 8 dynamic
      */
     isSetIterator(value: Object): boolean;
     /**
-     * Check whether the entered value is of type sharedarraybuffer.
-     *
-     * @param { Object } value - A SharedArrayBuffer instance value
-     * @returns { boolean } Returns true if the value is a built-in SharedArrayBuffer instance. This does not include ArrayBuffer instances.
-     * Usually, it is desirable to test for both; See isAnyArrayBuffer() for that.
-     * @syscap SystemCapability.Utils.Lang
-     * @since 8
-     */
-    /**
-     * Check whether the entered value is of type sharedarraybuffer.
-     *
-     * @param { Object } value - A SharedArrayBuffer instance value
-     * @returns { boolean } Returns true if the value is a built-in SharedArrayBuffer instance. This does not include ArrayBuffer instances.
-     * Usually, it is desirable to test for both; See isAnyArrayBuffer() for that.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Checks whether the input value is of the SharedArrayBuffer type.
+     * Checks whether the value is of the SharedArrayBuffer type.
      *
      * @param { Object } value - Object to check.
-     * @returns { boolean } Returns true if the value is a built-in SharedArrayBuffer instance. This does not include ArrayBuffer instances.
-     * Usually, it is desirable to test for both; See isAnyArrayBuffer() for that.
+     * @returns { boolean } Check result. The value **true** is returned if the value is of the SharedArrayBuffer type;
+     *     otherwise, **false** is returned.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamiconly
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 8 dynamiconly
      */
     isSharedArrayBuffer(value: Object): boolean;
     /**
-     * Check whether the entered value is a string object type.
+     * Checks whether the value is a string object.
      *
-     * @param { Object } value - A String object value
-     * @returns { boolean } Returns true if the value is a string object, e.g. created by new String().
-     * @syscap SystemCapability.Utils.Lang
-     * @since 8
-     */
-    /**
-     * Check whether the entered value is a string object type.
+     * > **NOTE**
+     * >
+     * > This API is supported since API version 8 and deprecated since API version 14. No substitute is provided.
      *
-     * @param { Object } value - A String object value
-     * @returns { boolean } Returns true if the value is a string object, e.g. created by new String().
+     * @param { Object } value - Object to check.
+     * @returns { boolean } Check result. The value **true** is returned if the value is a string object; otherwise,
+     *     **false** is returned.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Check whether the entered value is a string object type.
-     *
-     * @param { Object } value - A String object value
-     * @returns { boolean } Returns true if the value is a string object, e.g. created by new String().
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamiconly
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 8 dynamiconly
      * @deprecated since 14
      */
     isStringObject(value: Object): boolean;
     /**
-     * Check whether the entered value is a symbol object type.
+     * Checks whether the value is a symbol object.
      *
-     * @param { Object } value - A symbol object value
-     * @returns { boolean } Returns true if the value is a symbol object, created by calling Object() on a Symbol primitive.
-     * @syscap SystemCapability.Utils.Lang
-     * @since 8
-     */
-    /**
-     * Check whether the entered value is a symbol object type.
+     * > **NOTE**
+     * >
+     * > This API is supported since API version 8 and deprecated since API version 14. No substitute is provided.
      *
-     * @param { Object } value - A symbol object value
-     * @returns { boolean } Returns true if the value is a symbol object, created by calling Object() on a Symbol primitive.
+     * @param { Object } value - Object to check.
+     * @returns { boolean } Check result. The value **true** is returned if the value is a symbol object; otherwise,
+     *     **false** is returned.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Check whether the entered value is a symbol object type.
-     *
-     * @param { Object } value - A symbol object value
-     * @returns { boolean } Returns true if the value is a symbol object, created by calling Object() on a Symbol primitive.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamiconly
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 8 dynamiconly
      * @deprecated since 14
      */
     isSymbolObject(value: Object): boolean;
     /**
-     * Check whether the entered value is a type contained in typedarray.
-     *
-     * @param { Object } value - A TypedArray instance value
-     * @returns { boolean } Returns true if the value is a built-in TypedArray instance.
-     * @syscap SystemCapability.Utils.Lang
-     * @since 8
-     */
-    /**
-     * Check whether the entered value is a type contained in typedarray.
-     *
-     * @param { Object } value - A TypedArray instance value
-     * @returns { boolean } Returns true if the value is a built-in TypedArray instance.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Checks whether the input value is of the TypedArray type.
+     * Checks whether the value is of the TypedArray type.
      *
      * @param { Object } value - Object to check.
-     * @returns { boolean } Returns true if the value is a built-in TypedArray instance.
+     * @returns { boolean } Check result. The value **true** is returned if the value is of the TypedArray type;
+     *     otherwise, **false** is returned.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 8 dynamic
      */
     isTypedArray(value: Object): boolean;
     /**
-     * Check whether the entered value is the uint8array array type.
-     *
-     * @param { Object } value - A Uint8Array value
-     * @returns { boolean } Returns true if the value is a built-in Uint8Array instance.
-     * @syscap SystemCapability.Utils.Lang
-     * @since 8
-     */
-    /**
-     * Check whether the entered value is the uint8array array type.
-     *
-     * @param { Object } value - A Uint8Array value
-     * @returns { boolean } Returns true if the value is a built-in Uint8Array instance.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Checks whether the input value is of the Uint8Array type.
+     * Checks whether the value is of the Uint8Array type.
      *
      * @param { Object } value - Object to check.
-     * @returns { boolean } Returns true if the value is a built-in Uint8Array instance.
+     * @returns { boolean } Check result. The value **true** is returned if the value is of the Uint8Array type;
+     *     otherwise, **false** is returned.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 8 dynamic
      */
     isUint8Array(value: Object): boolean;
     /**
-     * Check whether the entered value is the uint8clapedarray array type.
-     *
-     * @param { Object } value - A Uint8ClampedArray value
-     * @returns { boolean } Returns true if the value is a built-in Uint8ClampedArray instance.
-     * @syscap SystemCapability.Utils.Lang
-     * @since 8
-     */
-    /**
-     * Check whether the entered value is the uint8clapedarray array type.
-     *
-     * @param { Object } value - A Uint8ClampedArray value
-     * @returns { boolean } Returns true if the value is a built-in Uint8ClampedArray instance.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Checks whether the input value is of the Uint8ClampedArray type.
+     * Checks whether the value is of the Uint8ClampedArray type.
      *
      * @param { Object } value - Object to check.
-     * @returns { boolean } Returns true if the value is a built-in Uint8ClampedArray instance.
+     * @returns { boolean } Check result. The value **true** is returned if the value is of the Uint8ClampedArray type;
+     *     otherwise, **false** is returned.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 8 dynamic
      */
     isUint8ClampedArray(value: Object): boolean;
     /**
-     * Check whether the entered value is the uint16array array array type.
-     *
-     * @param { Object } value - A Uint16Array value
-     * @returns { boolean } Returns true if the value is a built-in Uint16Array instance.
-     * @syscap SystemCapability.Utils.Lang
-     * @since 8
-     */
-    /**
-     * Check whether the entered value is the uint16array array array type.
-     *
-     * @param { Object } value - A Uint16Array value
-     * @returns { boolean } Returns true if the value is a built-in Uint16Array instance.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Checks whether the input value is of the Uint16Array type.
+     * Checks whether the value is of the Uint16Array type.
      *
      * @param { Object } value - Object to check.
-     * @returns { boolean } Returns true if the value is a built-in Uint16Array instance.
+     * @returns { boolean } Check result. The value **true** is returned if the value is of the Uint16Array type;
+     *     otherwise, **false** is returned.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 8 dynamic
      */
     isUint16Array(value: Object): boolean;
     /**
-     * Check whether the entered value is the uint32array array type.
-     *
-     * @param { Object } value - A Uint32Array value
-     * @returns { boolean } Returns true if the value is a built-in Uint32Array instance.
-     * @syscap SystemCapability.Utils.Lang
-     * @since 8
-     */
-    /**
-     * Check whether the entered value is the uint32array array type.
-     *
-     * @param { Object } value - A Uint32Array value
-     * @returns { boolean } Returns true if the value is a built-in Uint32Array instance.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Checks whether the input value is of the Uint32Array type.
+     * Checks whether the value is of the Uint32Array type.
      *
      * @param { Object } value - Object to check.
-     * @returns { boolean } Returns true if the value is a built-in Uint32Array instance.
+     * @returns { boolean } Check result. The value **true** is returned if the value is of the Uint32Array type;
+     *     otherwise, **false** is returned.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 8 dynamic
      */
     isUint32Array(value: Object): boolean;
     /**
-     * Check whether the entered value is of type weakmap.
-     *
-     * @param { Object } value - A WeakMap value
-     * @returns { boolean } Returns true if the value is a built-in WeakMap instance.
-     * @syscap SystemCapability.Utils.Lang
-     * @since 8
-     */
-    /**
-     * Check whether the entered value is of type weakmap.
-     *
-     * @param { Object } value - A WeakMap value
-     * @returns { boolean } Returns true if the value is a built-in WeakMap instance.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Checks whether the input value is of the WeakMap type.
+     * Checks whether the value is of the WeakMap type.
      *
      * @param { Object } value - Object to check.
-     * @returns { boolean } Returns true if the value is a built-in WeakMap instance.
+     * @returns { boolean } Check result. The value **true** is returned if the value is of the WeakMap type; otherwise,
+     *     **false** is returned.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 8 dynamic
      */
     isWeakMap(value: Object): boolean;
     /**
-     * Check whether the entered value is of type weakset.
-     *
-     * @param { Object } value - A WeakSet value
-     * @returns { boolean } Returns true if the value is a built-in WeakSet instance.
-     * @syscap SystemCapability.Utils.Lang
-     * @since 8
-     */
-    /**
-     * Check whether the entered value is of type weakset.
-     *
-     * @param { Object } value - A WeakSet value
-     * @returns { boolean } Returns true if the value is a built-in WeakSet instance.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Checks whether the input value is of the WeakSet type.
+     * Checks whether the value is of the WeakSet type.
      *
      * @param { Object } value - Object to check.
-     * @returns { boolean } Returns true if the value is a built-in WeakSet instance.
+     * @returns { boolean } Check result. The value **true** is returned if the value is of the WeakSet type; otherwise,
+     *     **false** is returned.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 8 dynamic
      */
     isWeakSet(value: Object): boolean;
   }
   /**
-   * Insert before/after logic into a class method or replace implementation for a class method.
+   * Provides APIs that support Aspect Oriented Programming (AOP). These APIs can be used to perform instrumentation or
+   * replacement on class methods.
    *
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Insert before/after logic into a class method or replace implementation for a class method.
-   *
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamiconly
+   * @atomicservice [since 12]
+   * @since 11 dynamiconly
    */
   class Aspect {
     /**
-     * Insert some logic before the method. In implementation the method will be replaced with a new function,
-     * which will execute 'before' with the args 'this' and the args of the original method, and then execute
-     * the original method. The return value of the new function is returned by the original method.
-     *
-     * @param { Object } targetClass - The operated class.
-     * @param { string } methodName - The name of the operated method.
-     * @param { boolean } isStatic - The flag whether the method is static.
-     * @param { Function } before - The logic inserted before the method.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 11
-     */
-    /**
-     * Inserts a function before a method of a class object. The inserted function is executed in prior to the original method of the class object.
+     * Inserts a function before a method of a class object. The inserted function is executed in prior to the original
+     * method of the class object.
      *
      * @param { Object } targetClass - Target class object.
      * @param { string } methodName - Name of the method. Read-only methods are not supported.
-     * @param { boolean } isStatic - Whether the method is a static method.
-     * @param { Function } before - Function to insert.
+     * @param { boolean } isStatic - Whether the method is a static method. The value **true** means a static method,
+     *     and **false** means an instance method.
+     * @param { Function } before - Function to insert. If the function carries parameters, then the first parameter is
+     *     the **this** object, which is the target class object (specified by **targetClass**) if **isStatic** is
+     *     **true** or the instance object of the method if **isStatic** is **false**; other parameters are the
+     *     parameters carried in the original method. If the function does not carry any parameter, no processing is
+     *     performed.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
+     *     1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
-     * @atomicservice
-     * @since 12 dynamiconly
+     * @atomicservice [since 12]
+     * @since 11 dynamiconly
      */
     static addBefore(targetClass: Object, methodName: string, isStatic: boolean, before: Function): void;
     /**
-     * Insert some logic after the method. In implementation the method will be replaced with a new function,
-     * which will execute the original method, and then execute 'after' with the args 'this' and the return value of
-     * the original method, and the args of the original method. The return value of the new function is returned by 'after'.
-     *
-     * @param { Object } targetClass - The operated class.
-     * @param { string } methodName - The name of the operated method.
-     * @param { boolean } isStatic - The flag whether the method is static.
-     * @param { Function } after - The logic inserted after the method.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 11
-     */
-    /**
-     * Inserts a function after a method of a class object. The final return value is the return value of the function inserted.
+     * Inserts a function after a method of a class object. The final return value is the return value of the function
+     * inserted.
      *
      * @param { Object } targetClass - Target class object.
      * @param { string } methodName - Name of the method. Read-only methods are not supported.
-     * @param { boolean } isStatic - Whether the method is a static method.
-     * @param { Function } after - Function to insert.
+     * @param { boolean } isStatic - Whether the method is a static method. The value **true** means a static method,
+     *     and **false** means an instance method.
+     * @param { Function } after - Function to insert. If the function carries parameters, then the first parameter is
+     *     the **this** object, which is the target class object (specified by **targetClass**) if **isStatic** is
+     *     **true** or the instance object of the method if **isStatic** is **false**; the second parameter is the
+     *     return value of the original method (**undefined** if the original method does not have a return value);
+     *     other parameters are the parameters carried by the original method. If the function does not carry any
+     *     parameter, no processing is performed.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
+     *     1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
-     * @atomicservice
-     * @since 12 dynamiconly
+     * @atomicservice [since 12]
+     * @since 11 dynamiconly
      */
     static addAfter(targetClass: Object, methodName: string, isStatic: boolean, after: Function): void;
     /**
-     * Replace the original method with a new function, which will execute 'instead' with the args 'this' and the args
-     * of the original method. The return value of the new function is returned by 'instead'.
+     * Replaces a method of a class object with another function. After the replacement, only the new function logic is
+     * executed. The final return value is the return value of the new function.
      *
-     * @param { Object } targetClass - The operated class.
-     * @param { string } methodName - The name of the operated method.
-     * @param { boolean } isStatic - The flag whether the method is static.
-     * @param { Function } instead - The logic replaced with the method.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 11
-     */
-    /**
-     * Replaces a method of a class object with another function. After the replacement, only the new function logic
-     * is executed. The final return value is the return value of the new function.
-     *
-     * @param { Object } targetClass - 	Target class object.
+     * @param { Object } targetClass - Target class object.
      * @param { string } methodName - Name of the method. Read-only methods are not supported.
-     * @param { boolean } isStatic - Whether the method is a static method.
-     * @param { Function } instead - Function to be used replacement.
+     * @param { boolean } isStatic - Whether the method is a static method. The value **true** means a static method,
+     *     and **false** means an instance method.
+     * @param { Function } instead - Function to be used replacement. If the function carries parameters, then the first
+     *     parameter is the **this** object, which is the target class object (specified by **targetClass**) if
+     *     **isStatic** is **true** or the instance object of the method if **isStatic** is **false**; other parameters
+     *     are the parameters carried in the original method. If the function does not carry any parameter, no
+     *     processing is performed.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
+     *     1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
-     * @atomicservice
-     * @since 12 dynamiconly
+     * @atomicservice [since 12]
+     * @since 11 dynamiconly
      */
     static replace(targetClass: Object, methodName: string, isStatic: boolean, instead: Function) : void;
   }
   /**
-   * Provide the ability to decode binary streams into strings. The supported encoding types include: utf-8, iso-8859-2,
-   * koi8-r, macintosh, windows-1250, windows-1251, gbk, gb18030, big5, utf-16be, utf-16 le, etc.
+   * Provides the capability of decoding binary streams into strings. The following encoding types are supported: utf-8,
+   * iso-8859-2, koi8-r, macintosh, windows-1250, windows-1251, gbk, gb18030, big5, utf-16be, and UTF-16le.
    *
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
@@ -4891,12 +2673,12 @@ declare namespace util {
    */
   class StringDecoder {
     /**
-     * Constructor used to create a StringDecoder instance.
+     * Constructor used to create a **StringDecoder** instance.
      *
-     * @param { string } [encoding] - Encoding type of the input data. The default value is utf-8.
+     * @param { string } [encoding] - Encoding type of the input data. The default value is **utf-8**.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types;
+     *     1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types;
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -4904,15 +2686,16 @@ declare namespace util {
      */
     constructor(encoding?: string);
     /**
-     * Returns a decoded string, Any incomplete multi-byte characters at the end of Uint8Array are filtered out from the
+     * Decodes a string. Any incomplete multi-byte characters at the end of Uint8Array are filtered out from the
      * returned string and stored in an internal buffer for the next call.
      *
-     * @param { string | Uint8Array } chunk - String to decode. Decoding is performed based on the input encoding type. If the input is of the Uint8Array type,
-     * decoding is performed normally. If the input is of the string type, decoding is performed in the original path.
-     * @returns { string } Returns a decoded string.
+     * @param { string | Uint8Array } chunk - String to decode. Decoding is performed based on the input encoding type.
+     *     If the input is of the Uint8Array type, decoding is performed normally. If the input is of the string type,
+     *     the parameter is directly returned.
+     * @returns { string } String decoded.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types;
+     *     1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types;
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -4922,11 +2705,11 @@ declare namespace util {
     /**
      * Ends the decoding process and returns any remaining input stored in the internal buffer as a string.
      *
-     * @param { string | Uint8Array } [chunk] - String to decode. The default value is undefined.
-     * @returns { string } Returns any remaining input stored in the internal buffer as a string.
+     * @param { string | Uint8Array } [chunk] - String to decode. The default value is **undefined**.
+     * @returns { string } String decoded.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types;
+     *     1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types;
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -4935,10 +2718,12 @@ declare namespace util {
     end(chunk?: string | Uint8Array): string;
   }
   /**
-   * Get stack trace information for the main thread, returning up to 64 call frames
-   * This interface may impact main thread performance – use with caution.
+   * Obtains the stack trace information of the main thread. A maximum of 64 call frames can be returned.
+   * This API may affect the performance of the main thread. You are advised to use this API only when necessary, such
+   * as in log recording, error analysis, or debugging scenarios.
    *
-   * @returns { string } Return a stack trace of main thread.
+   * @returns { string } Stack trace information of the main thread. If the main thread is not executing JavaScript code
+   *     , an empty string is returned.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -4949,7 +2734,6 @@ declare namespace util {
    * Provides an interface that can be implemented for releasing a resource
    * which is managed by developers through a developer-defined callback.
    *
-   * @interface AutoFinalizer
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -4981,7 +2765,6 @@ declare namespace util {
      *
      * @param { AutoFinalizer<T> } obj - The object is registered to the cleaner.
      * @param { T } heldValue - The value to pass to the finalizer.
-     * @static
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -4989,6 +2772,7 @@ declare namespace util {
      */
     static register<T>(obj: AutoFinalizer<T>, heldValue: T): void;
   }
+
   /**
    * To provide developers with maintenance and testing capabilities for the ArkTS virtual machine.
    *
@@ -4999,34 +2783,23 @@ declare namespace util {
    */
   class ArkTSVM {
     /**
-    * To turn on or off the multi-thread detection switch. If enabled is true, turn on the switch,
-    * If enable is false, turn off the switch.
-    * 
-    * @param { boolean } enabled - The boolean flag to indicate whether to turn on or off
-    *                              multi-thread detection switch.
-    * @static
-    * @syscap SystemCapability.Utils.Lang
-    * @stagemodelonly
-    * @crossplatform
-    * @since 23 dynamiconly
-    */
-    static setMultithreadingDetectionEnabled(enabled: boolean):void;
-
-    /**
-     * Get all heap memory information from ArkTS-VMs and the shared heap.
-     * 
-     * @returns { Promise<HeapMemoryInfo[]> } Returns a promise containing all the heap memory information
-     *     from ArkTS-VMs' local heap and the shared heap.
+     * To turn on or off the multi-thread detection switch. If enabled is true, turn on the switch,
+     * If enable is false, turn off the switch.
+     *
+     * @param { boolean } enabled - The boolean flag to indicate whether to turn on or off
+     *                              multi-thread detection switch.
+     * @static
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
-     * @since 24 dynamiconly
+     * @crossplatform
+     * @since 23 dynamiconly
      */
-    static getAllVMHeapMemoryInfo(): Promise<HeapMemoryInfo[]>;
+    static setMultithreadingDetectionEnabled(enabled: boolean):void;
 
     /**
      * Register a callback that is triggered if the heap memory exceeds the critical warning threshold after a GC.
      * It must be called on the main thread and only one callback can be registered.
-     * 
+     *
      * NOTE:
      * There is no guarantee that the callback will be triggered before OOM.
      *
@@ -5055,14 +2828,76 @@ declare namespace util {
     static offVMHeapMemoryPressure(): void;
 
     /**
-    * Enable the local handle detection to avoid memory leakage in the event looper of Libuv or EventHandler.
-    * 
-    * @syscap SystemCapability.Utils.Lang
-    * @stagemodelonly
-    * @crossplatform
-    * @since 24 dynamiconly
-    */
+     * Get all heap memory information from ArkTS-VMs and the shared heap.
+     *
+     * @returns { Promise<HeapMemoryInfo[]> } Returns a promise containing all the heap memory information
+     *     from ArkTS-VMs' local heap and the shared heap.
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 24 dynamiconly
+     */
+    static getAllVMHeapMemoryInfo(): Promise<HeapMemoryInfo[]>;
+
+    /**
+     * Enable the local handle detection to avoid memory leakage in the event looper of Libuv or EventHandler.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @crossplatform
+     * @since 24 dynamiconly
+     */
     static enableLocalHandleDetection(): void;
+  }
+
+  /**
+   * Describes heap memory information of either an ArkTS-VM, or the shared heap memory of current process.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @stagemodelonly
+   * @since 24 dynamiconly
+   */
+  interface HeapMemoryInfo {
+    /**
+     * If this memory information describes an ArkTS-VM local heap,
+     * the value is a number representing the running thread;
+     * If this memory information describes the shared heap, the value is undefined.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 24 dynamiconly
+     */
+    threadId?: number;
+
+    /**
+     * If this memory information describes an ArkTS-VM local heap,
+     * the value is a string representing the name of the running thread;
+     * If this memory information describes the shared heap, the value is undefined.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 24 dynamiconly
+     */
+    threadName?: string;
+
+    /**
+     * The value is a string representing whether this memory information is from an ArkTS-VM local heap,
+     * or the shared heap.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 24 dynamiconly
+     */
+    heapType: string;
+
+    /**
+     * The value is a number representing the total size of all heap objects in KB, from either an ArkTS-VM local heap
+     * or the shared heap.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 24 dynamiconly
+     */
+    heapObjectSize: number;
   }
 
   /**
@@ -5110,56 +2945,8 @@ declare namespace util {
      */
     processHeapThreshold?: number;
   }
-
-  /**
-   * Describes heap memory information of either an ArkTS-VM, or the shared heap memory of current process.
-   * 
-   * @syscap SystemCapability.Utils.Lang
-   * @stagemodelonly
-   * @since 24 dynamiconly
-   */
-  interface HeapMemoryInfo {
-    /**
-     * If this memory information describes an ArkTS-VM local heap,
-     * the value is a number representing the running thread;
-     * If this memory information describes the shared heap, the value is undefined.
-     * 
-     * @syscap SystemCapability.Utils.Lang
-     * @stagemodelonly
-     * @since 24 dynamiconly
-     */
-    threadId?: number;
-
-    /**
-     * If this memory information describes an ArkTS-VM local heap,
-     * the value is a string representing the name of the running thread;
-     * If this memory information describes the shared heap, the value is undefined.
-     * 
-     * @syscap SystemCapability.Utils.Lang
-     * @stagemodelonly
-     * @since 24 dynamiconly
-     */
-    threadName?: string;
-
-    /**
-     * The value is a string representing whether this memory information is from an ArkTS-VM local heap,
-     * or the shared heap.
-     * 
-     * @syscap SystemCapability.Utils.Lang
-     * @stagemodelonly
-     * @since 24 dynamiconly
-     */
-    heapType: string;
-
-    /**
-     * The value is a number representing the total size of all heap objects in KB, from either an ArkTS-VM local heap
-     * or the shared heap.
-     * 
-     * @syscap SystemCapability.Utils.Lang
-     * @stagemodelonly
-     * @since 24 dynamiconly
-     */
-    heapObjectSize: number;
-  }
 }
+
+import type { Callback } from './@ohos.base';
+
 export default util;

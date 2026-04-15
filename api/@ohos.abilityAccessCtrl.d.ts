@@ -1385,6 +1385,17 @@ declare namespace abilityAccessCtrl {
     * @since 26.0.0 dynamic&static
     */
     grantFlags: int;
+
+    /**
+    * Timestamp(in milliseconds) of the last permission grant status change.
+    *
+    * @type { ?long }
+    * @syscap SystemCapability.Security.AccessToken
+    * @systemapi
+    * @stagemodelonly
+    * @since 26.0.0 dynamic&static
+    */
+    grantTimestamp?: long;
   }
 }
 

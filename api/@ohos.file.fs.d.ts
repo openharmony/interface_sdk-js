@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -84,6 +84,8 @@ declare namespace fileIo {
   export { getxattrSync };
   export { listFile };
   export { listFileSync };
+  export { listFileExt };
+  export { listFileExtSync };
   export { lseek };
   export { lstat };
   export { lstatSync };
@@ -91,6 +93,8 @@ declare namespace fileIo {
   export { mkdirSync };
   export { mkdtemp };
   export { mkdtempSync };
+  export { mmap };
+  export { mmapSync };
   export { moveDir };
   export { moveDirSync };
   export { moveFile };
@@ -123,6 +127,8 @@ declare namespace fileIo {
   export { AccessModeType };
   export { AccessFlagType };
   export { File };
+  export { FileMapping };
+  export { MappingMode };
   export { OpenMode };
   export { RandomAccessFile };
   export { ReaderIterator };
@@ -380,6 +386,15 @@ declare namespace fileIo {
      * @since 10 dynamic
      */
     const SYNC = 0o4010000;
+    /**
+     * UNCACHE IO.
+     *
+     * @syscap SystemCapability.FileManagement.File.FileIO
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    const UNCACHE = 0o10000000000;
   }
 }
 
@@ -830,43 +845,8 @@ declare function close(file: number | File, callback: AsyncCallback<void>): void
 declare function closeSync(file: number | File): void;
 
 /**
- * Copy file or directory.
- *
- * @param { string } srcUri - src uri.
- * @param { string } destUri - dest uri.
- * @param { CopyOptions } [options] - options.
- * @returns { Promise<void> } The promise returned by the function.
- * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
- *     <br>2.Incorrect parameter types.
- * @throws { BusinessError } 13900001 - Operation not permitted
- * @throws { BusinessError } 13900002 - No such file or directory
- * @throws { BusinessError } 13900004 - Interrupted system call
- * @throws { BusinessError } 13900005 - I/O error
- * @throws { BusinessError } 13900008 - Bad file descriptor
- * @throws { BusinessError } 13900010 - Try again
- * @throws { BusinessError } 13900011 - Out of memory
- * @throws { BusinessError } 13900012 - Permission denied by the file system
- * @throws { BusinessError } 13900015 - File exists
- * @throws { BusinessError } 13900018 - Not a directory
- * @throws { BusinessError } 13900019 - Is a directory
- * @throws { BusinessError } 13900020 - Invalid argument
- * @throws { BusinessError } 13900021 - File table overflow
- * @throws { BusinessError } 13900022 - Too many open files
- * @throws { BusinessError } 13900024 - File too large
- * @throws { BusinessError } 13900025 - No space left on device
- * @throws { BusinessError } 13900027 - Read-only file system
- * @throws { BusinessError } 13900028 - Too many links
- * @throws { BusinessError } 13900030 - File name too long
- * @throws { BusinessError } 13900031 - Function not implemented
- * @throws { BusinessError } 13900034 - Operation would block
- * @throws { BusinessError } 13900038 - Value too large for defined data type
- * @throws { BusinessError } 13900041 - Quota exceeded
- * @throws { BusinessError } 13900042 - Unknown error
- * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 11
- */
-/**
  * Copies a file or directory. This API uses a promise to return the result.
+ *
  * File copy across devices is supported. This API forcibly overwrites the file or directory.
  * The input parameter can be the URI of the file or directory. A maximum of 10 cross-device copy tasks
  * are allowed at the same time, and the number of files to be copied at a time cannot exceed 500.
@@ -902,17 +882,18 @@ declare function closeSync(file: number | File): void;
  * @throws { BusinessError } 13900038 - Value too large for defined data type
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
- * @throws { BusinessError } 13900044 - Network is unreachable
+ * @throws { BusinessError } 13900044 - Network is unreachable [since 12]
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 12 dynamic
+ * @since 11 dynamic
  */
 declare function copy(srcUri: string, destUri: string, options?: CopyOptions): Promise<void>;
 
 /**
  * Copies a file or directory. This API uses an asynchronous callback to return the result.
+ *
  * File copy across devices is supported. This API forcibly overwrites the file or directory.
- * The file or directory URI is supported. A maximum of 10 cross-device copy tasks are allowed at the same time,
- * and the number of files to be copied at a time cannot exceed 500.
+ * The input parameter can be the URI of the file or directory. A maximum of 10 cross-device copy tasks
+ * are allowed at the same time, and the number of files to be copied at a time cannot exceed 500.
  *
  * @param { string } srcUri - URI of the file or directory to copy.
  * @param { string } destUri - URI of the destination file or directory.
@@ -950,9 +931,10 @@ declare function copy(srcUri: string, destUri: string, callback: AsyncCallback<v
 
 /**
  * Copies a file or directory. This API uses an asynchronous callback to return the result.
+ *
  * File copy across devices is supported. This API forcibly overwrites the file or directory.
- * The file or directory URI is supported. A maximum of 10 cross-device copy tasks are allowed at the same time,
- * and the number of files to be copied at a time cannot exceed 500.
+ * The input parameter can be the URI of the file or directory. A maximum of 10 cross-device copy tasks
+ * are allowed at the same time, and the number of files to be copied at a time cannot exceed 500.
  *
  * @param { string } srcUri - URI of the file or directory to copy.
  * @param { string } destUri - URI of the destination file or directory.
@@ -2697,9 +2679,9 @@ declare function createRandomAccessFileSync(file: string | File, mode?: number,
  *
  * @param { string } path - Path of the file.
  * @param { ReadStreamOptions } [options] - The options are as follows:
- *     <br>start (number): start position of the data to read in the file. This parameter is optional.
+ *     <br>start (number): start position of the data to read in the file, in bytes. This parameter is optional.
  *     <br>By default, data is read from the current position.
- *     <br>end (number): end position of the data to read in the file. This parameter is optional.
+ *     <br>end (number): end position of the data to read in the file, in bytes. This parameter is optional.
  *     <br>The default value is the end of the file.
  * @returns { ReadStream } ReadStream instance obtained.
  * @throws { BusinessError } 401 - Parameter error
@@ -2756,7 +2738,7 @@ declare function createReadStream(path: string, options?: ReadStreamOptions): Re
  *
  * @param { string } path - Path of the file.
  * @param { WriteStreamOptions } [options] - The options are as follows:
- *     <br>start (number): start position to write the data in the file. This parameter is optional.
+ *     <br>start (number): start position to write the data in the file, in bytes. This parameter is optional.
  *     <br>By default, data is written from the current position.
  *     <br>mode (number): mode for creating the writeable stream. This parameter is optional.
  *     <br>The default value is the write-only mode.
@@ -3543,6 +3525,48 @@ declare function listFileSync(
 ): string[];
 
 /**
+ * Lists all file names in a directory. This API uses a promise to return the result.
+ * This API supports recursive listing of all file names and custom file name filtering.
+ * The returned result starts with a slash (/) and contains the subdirectory.
+ *
+ * @param { string } path - Application sandbox path of the directory.
+ * @param { ListFileExtOptions } [options] - Options for filtering files. The files are not filtered by default.
+ * @returns { Promise<string[]> } Promise used to return the file names listed.
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @stagemodelonly
+ * @since 26.0.0 dynamic
+ */
+declare function listFileExt(
+  path: string,
+  options?: ListFileExtOptions
+): Promise<string[]>;
+
+/**
+ * Lists all file names in a directory. This API returns the result synchronously.
+ * This API supports recursive listing of all file names and custom file name filtering.
+ * The returned result starts with a slash (/) and contains the subdirectory.
+ *
+ * @param { string } path - Application sandbox path of the directory.
+ * @param { ListFileExtOptions } [options] - Options for filtering files. The files are not filtered by default.
+ * @returns { string[] } List of the file names obtained.
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @stagemodelonly
+ * @since 26.0.0 dynamic
+ */
+declare function listFileExtSync(
+  path: string,
+  options?: ListFileExtOptions
+): string[];
+
+/**
  *  Reposition file offset.
  *
  * @param { number } fd - file descriptor.
@@ -3564,7 +3588,7 @@ declare function listFileSync(
  * @param { number } offset - Number of bytes to move the offset.
  * @param { WhenceType } [whence = WhenceType.SEEK_SET] - Where to start the offset.
  *     <br>If this parameter is not specified, the file start position is used by default.
- * @returns { number } Returns the file offset relative to starting position of file.
+ * @returns { number } Returns the file offset relative to starting position of file, in bytes.
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900020 - Invalid argument
  * @throws { BusinessError } 13900026 - Illegal seek
@@ -4307,6 +4331,86 @@ declare function mkdtemp(prefix: string, callback: AsyncCallback<string>): void;
  * @since 10 dynamic
  */
 declare function mkdtempSync(prefix: string): string;
+
+/**
+ * Creates a file mapping object based on a file descriptor or file object, using promise asynchronous callback. Maps
+ * file contents to memory for efficient read and write access to files.
+ * Note: In the read/write mode (MappingMode.READ_WRITE), if the mapping range exceeds the raw file size, the file size
+ * will be automatically expanded.
+ *
+ * @param { number | File } file - File object or open file descriptor fd that has been opened.
+ * @param { MappingMode } mode - Option to create a file memory-mapped object. You must specify one of the following
+ *     options:
+ *      <br>MappingMode.READ_ONLY(0): read-only mode. The file mapping area is not writable. An exception is thrown
+ * when the file mapping area is modified.
+ *      <br>MappingMode.READ_WRITE(1): read/write mode. The modification is written to the file mapping area and then
+ * synchronized to the file by the operating system (non-real-time).
+ *      <br>MappingMode.PRIVATE(2): private mode. It is a copy-on-write mapping mechanism. Modifications to the mapping
+ * area are visible only to the current process and do not affect the original file.
+ * @param { number } offset - Start position of the file mapping area.
+ * @param { number } size - Size of the file mapping area, in bytes.
+ * @returns { Promise<FileMapping> } Promise object. Returns a FileMapping object.
+ * @throws { BusinessError } 13900001 - Operation not permitted
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900010 - Try again
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900015 - File exists
+ * @throws { BusinessError } 13900017 - No such device
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900021 - File table overflow
+ * @throws { BusinessError } 13900023 - Text file busy
+ * @throws { BusinessError } 13900024 - File too large
+ * @throws { BusinessError } 13900038 - Value too large for defined data type
+ * @throws { BusinessError } 13900050 - Internal resource error
+ * @throws { BusinessError } 13900056 - Mmap does not support mapping this file
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @stagemodelonly
+ * @since 26.0.0 dynamic
+ */
+declare function mmap(file: number | File, mode: MappingMode, offset: number, size: number): Promise<FileMapping>;
+
+/**
+ * Creates a file mapping object based on a file descriptor or file object by using the synchronization method. Maps
+ * file contents to memory for efficient read and write access to files.
+ * Note: In the read/write mode (MappingMode.READ_WRITE), if the mapping range exceeds the raw file size, the file size
+ * will be automatically expanded.
+ *
+ * @param { number | File } file - File object or open file descriptor fd that has been opened.
+ * @param { MappingMode } mode - Option to create a file memory-mapped object. You must specify one of the following
+ *     options:
+ *      <br>MappingMode.READ_ONLY(0): read-only mode. The file mapping area is not writable. An exception is thrown
+ * when the file mapping area is modified.
+ *      <br>MappingMode.READ_WRITE(1): read/write mode. The modification is written to the file mapping area and then
+ * synchronized to the file by the operating system (non-real-time).
+ *      <br>MappingMode.PRIVATE(2): private mode. It is a copy-on-write mapping mechanism. Modifications to the mapping
+ * area are visible only to the current process and do not affect the original file.
+ * @param { number } offset - Start position of the file mapping area.
+ * @param { number } size - Size of the file mapping area, in bytes.
+ * @returns { FileMapping } - FileMapping object.
+ * @throws { BusinessError } 13900001 - Operation not permitted
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900010 - Try again
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900015 - File exists
+ * @throws { BusinessError } 13900017 - No such device
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900021 - File table overflow
+ * @throws { BusinessError } 13900023 - Text file busy
+ * @throws { BusinessError } 13900024 - File too large
+ * @throws { BusinessError } 13900038 - Value too large for defined data type
+ * @throws { BusinessError } 13900050 - Internal resource error
+ * @throws { BusinessError } 13900056 - Mmap does not support mapping this file
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @stagemodelonly
+ * @since 26.0.0 dynamic
+ */
+declare function mmapSync(file: number | File, mode: MappingMode, offset: number, size: number): FileMapping;
 
 /**
  * Moves the source directory to the destination directory. This API uses a promise to return the result.
@@ -5147,6 +5251,59 @@ declare function moveFileSync(src: string, dest: string, mode?: number): void;
  * @atomicservice
  * @since 12 dynamic
  */
+/**
+ * Opens a file or directory. This API uses a promise to return the result. This API supports the use of a URI.
+ *
+ * @param { string } path - Application sandbox path or URI of the file.
+ * @param { number } [mode = OpenMode.READ_ONLY] - Mode for opening the file.
+ *     <br>You must specify one of the following options. By default, the file is opened in read-only mode.
+ *     <br>OpenMode.READ_ONLY(0o0): Open the file in read-only mode.
+ *     <br>OpenMode.WRITE_ONLY(0o1): Open the file in write-only mode.
+ *     <br>OpenMode.READ_WRITE(0o2): Open the file in read/write mode.
+ *     <br>You can add the following function options in bitwise OR mode. By default, no additional option is added.
+ *     <br>OpenMode.CREATE(0o100): Create a file if the file does not exist.
+ *     <br>OpenMode.TRUNC(0o1000): If the file exists and is opened in write mode, truncate the file length to 0.
+ *     <br>OpenMode.APPEND(0o2000): Open the file in append mode. New data will be added to the end of the file.
+ *     <br>OpenMode.NONBLOCK(0o4000): If path points to a named pipe (also known as a FIFO), block special file,
+ *     <br>or character special file, perform non-blocking operations on the opened file and in subsequent I/Os.
+ *     <br>OpenMode.DIR(0o200000): If path does not point to a directory, throw an exception.
+ *     <br>The write permission is not allowed.
+ *     <br>OpenMode.NOFOLLOW(0o400000): If path points to a symbolic link, throw an exception.
+ *     <br>OpenMode.SYNC(0o4010000): Open the file in synchronous I/O mode.
+ *     <br>OpenMode.UNCACHE(0o10000000000): Open the file in uncache I/O mode.
+ * @returns { Promise<File> } Promise used to return the File object.
+ * @throws { BusinessError } 13900001 - Operation not permitted
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900006 - No such device or address
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900014 - Device or resource busy
+ * @throws { BusinessError } 13900015 - File exists
+ * @throws { BusinessError } 13900017 - No such device
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900022 - Too many open files
+ * @throws { BusinessError } 13900023 - Text file busy
+ * @throws { BusinessError } 13900024 - File too large
+ * @throws { BusinessError } 13900025 - No space left on device
+ * @throws { BusinessError } 13900027 - Read-only file system
+ * @throws { BusinessError } 13900029 - Resource deadlock would occur
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900034 - Operation would block
+ * @throws { BusinessError } 13900038 - Value too large for defined data type
+ * @throws { BusinessError } 13900041 - Quota exceeded
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @throws { BusinessError } 13900044 - Network is unreachable
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
 declare function open(path: string, mode?: number): Promise<File>;
 
 /**
@@ -5385,6 +5542,60 @@ declare function open(path: string, callback: AsyncCallback<File>): void;
  * @atomicservice
  * @since 11 dynamic
  */
+/**
+ * Opens a file or directory with the specified mode. This API uses an asynchronous callback to return the result.
+ * This API supports the use of a URI.
+ *
+ * @param { string } path - Application sandbox path or URI of the file.
+ * @param { number } [mode = OpenMode.READ_ONLY] - Mode for opening the file.
+ *     <br>You must specify one of the following options. By default, the file is opened in read-only mode.
+ *     <br>OpenMode.READ_ONLY(0o0): Open the file in read-only mode.
+ *     <br>OpenMode.WRITE_ONLY(0o1): Open the file in write-only mode.
+ *     <br>OpenMode.READ_WRITE(0o2): Open the file in read/write mode.
+ *     <br>You can add the following function options in bitwise OR mode. By default, no additional option is added.
+ *     <br>OpenMode.CREATE(0o100): Create a file if the file does not exist.
+ *     <br>OpenMode.TRUNC(0o1000): If the file exists and is opened in write mode, truncate the file length to 0.
+ *     <br>OpenMode.APPEND(0o2000): Open the file in append mode. New data will be added to the end of the file.
+ *     <br>OpenMode.NONBLOCK(0o4000): If path points to a named pipe (also known as a FIFO), block special file,
+ *     <br>or character special file, perform non-blocking operations on the opened file and in subsequent I/Os.
+ *     <br>OpenMode.DIR(0o200000): If path does not point to a directory, throw an exception.
+ *     <br>The write permission is not allowed.
+ *     <br>OpenMode.NOFOLLOW(0o400000): If path points to a symbolic link, throw an exception.
+ *     <br>OpenMode.SYNC(0o4010000): Open the file in synchronous I/O mode.
+ *     <br>OpenMode.UNCACHE(0o10000000000): Open the file in uncache I/O mode.
+ * @param { AsyncCallback<File> } callback - The callback is used to return the File object to record
+ *     <br>the file descriptor.
+ * @throws { BusinessError } 13900001 - Operation not permitted
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900006 - No such device or address
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900014 - Device or resource busy
+ * @throws { BusinessError } 13900015 - File exists
+ * @throws { BusinessError } 13900017 - No such device
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900022 - Too many open files
+ * @throws { BusinessError } 13900023 - Text file busy
+ * @throws { BusinessError } 13900024 - File too large
+ * @throws { BusinessError } 13900025 - No space left on device
+ * @throws { BusinessError } 13900027 - Read-only file system
+ * @throws { BusinessError } 13900029 - Resource deadlock would occur
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900034 - Operation would block
+ * @throws { BusinessError } 13900038 - Value too large for defined data type
+ * @throws { BusinessError } 13900041 - Quota exceeded
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
 declare function open(path: string, mode: number, callback: AsyncCallback<File>): void;
 
 /**
@@ -5547,6 +5758,59 @@ declare function open(path: string, mode: number, callback: AsyncCallback<File>)
  * @atomicservice
  * @since 12 dynamic
  */
+/**
+ * Opens a file or directory. This API returns the result synchronously. This API supports the use of a URI.
+ *
+ * @param { string } path - Application sandbox path or file URI of the file to open.
+ * @param { number } [mode = OpenMode.READ_ONLY] - Mode for opening the file.
+ *     <br>You must specify one of the following options. By default, the file is opened in read-only mode.
+ *     <br>OpenMode.READ_ONLY(0o0): Open the file in read-only mode.
+ *     <br>OpenMode.WRITE_ONLY(0o1): Open the file in write-only mode.
+ *     <br>OpenMode.READ_WRITE(0o2): Open the file in read/write mode.
+ *     <br>You can add the following function options in bitwise OR mode. By default, no additional option is added.
+ *     <br>OpenMode.CREATE(0o100): Create a file if the file does not exist.
+ *     <br>OpenMode.TRUNC(0o1000): If the file exists and is opened in write mode, truncate the file length to 0.
+ *     <br>OpenMode.APPEND(0o2000): Open the file in append mode. New data will be added to the end of the file.
+ *     <br>OpenMode.NONBLOCK(0o4000): If path points to a named pipe (also known as a FIFO), block special file,
+ *     <br>or character special file, perform non-blocking operations on the opened file and in subsequent I/Os.
+ *     <br>OpenMode.DIR(0o200000): If path does not point to a directory, throw an exception.
+ *     <br>The write permission is not allowed.
+ *     <br>OpenMode.NOFOLLOW(0o400000): If path points to a symbolic link, throw an exception.
+ *     <br>OpenMode.SYNC(0o4010000): Open the file in synchronous I/O mode.
+ *     <br>OpenMode.UNCACHE(0o10000000000): Open the file in uncache I/O mode.
+ * @returns { File } Returns the File object to record the file descriptor.
+ * @throws { BusinessError } 13900001 - Operation not permitted
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900006 - No such device or address
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900014 - Device or resource busy
+ * @throws { BusinessError } 13900015 - File exists
+ * @throws { BusinessError } 13900017 - No such device
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900022 - Too many open files
+ * @throws { BusinessError } 13900023 - Text file busy
+ * @throws { BusinessError } 13900024 - File too large
+ * @throws { BusinessError } 13900025 - No space left on device
+ * @throws { BusinessError } 13900027 - Read-only file system
+ * @throws { BusinessError } 13900029 - Resource deadlock would occur
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900034 - Operation would block
+ * @throws { BusinessError } 13900038 - Value too large for defined data type
+ * @throws { BusinessError } 13900041 - Quota exceeded
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @throws { BusinessError } 13900044 - Network is unreachable
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
 declare function openSync(path: string, mode?: number): File;
 
 /**
@@ -5615,9 +5879,9 @@ declare function openSync(path: string, mode?: number): File;
  * @param { number } fd - FD of the file.
  * @param { ArrayBuffer } buffer - Buffer used to store the file data read.
  * @param { ReadOptions } [options] - The options are as follows:
- *     <br>length (number): length of the data to read. This parameter is optional.
+ *     <br>length (number):  length of the data to read, in bytes. This parameter is optional.
  *     <br>The default value is the buffer length.
- *     <br>offset (number): start position to read the data (it is determined by filePointer plus offset).
+ *     <br>offset (number): start position to read the data, in bytes. (it is determined by filePointer plus offset).
  *     <br>This parameter is optional. By default, data is read from the filePointer.
  * @returns { Promise<number> } Promise used to return the length of the data read, in bytes.
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -5745,9 +6009,9 @@ declare function read(fd: number, buffer: ArrayBuffer, callback: AsyncCallback<n
  * @param { number } fd - FD of the file.
  * @param { ArrayBuffer } buffer - Buffer used to store the file data read.
  * @param { ReadOptions } [options] - The options are as follows:
- *     <br>length (number): length of the data to read. This parameter is optional.
+ *     <br>length (number): length of the data to read, in bytes. This parameter is optional.
  *     <br>The default value is the buffer length.
- *     <br>offset (number): start position to read the data (it is determined by filePointer plus offset).
+ *     <br>offset (number): start position to read the data, in bytes. (it is determined by filePointer plus offset).
  *     <br>This parameter is optional. By default, data is read from the filePointer.
  * @param { AsyncCallback<number> } callback - Callback used to return the length of the data read, in bytes.
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -5837,9 +6101,9 @@ declare function read(
  * @param { number } fd - FD of the file.
  * @param { ArrayBuffer } buffer - Buffer used to store the file data read.
  * @param { ReadOptions } [options] - The options are as follows:
- *     <br>length (number): length of the data to read. This parameter is optional.
+ *     <br>length (number): length of the data to read, in bytes. This parameter is optional.
  *     <br>The default value is the buffer length.
- *     <br>offset (number): start position to read the data (it is determined by filePointer plus offset).
+ *     <br>offset (number): start position to read the data, in bytes. (it is determined by filePointer plus offset).
  *     <br>This parameter is optional. By default, data is read from the filePointer.
  * @returns { number } Length of the data read, in bytes.
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -6179,9 +6443,9 @@ declare function readLinesSync(filePath: string, options?: Options): ReaderItera
  *
  * @param { string } filePath - Application sandbox path of the file.
  * @param { ReadTextOptions } [options] - The options are as follows:
- *     <br>offset (number): start position to read the data. This parameter is optional.
+ *     <br>offset (number): start position to read the data, in bytes. This parameter is optional.
  *     <br>By default, data is read from the current position.
- *     <br>length (number): length of the data to read. This parameter is optional.
+ *     <br>length (number): length of the data to read, in bytes. This parameter is optional.
  *     <br>The default value is the file length.
  *     <br>encoding (string): format of the data to be encoded. It is valid only when the data is of the string type.
  *     <br>The default value is 'utf-8', which is the only value supported.
@@ -6328,9 +6592,9 @@ declare function readText(filePath: string, callback: AsyncCallback<string>): vo
  *
  * @param { string } filePath - Application sandbox path of the file.
  * @param { ReadTextOptions } [options] - The options are as follows:
- *     <br>offset (number): start position to read the data. This parameter is optional.
+ *     <br>offset (number): start position to read the data, in bytes. This parameter is optional.
  *     <br>By default, data is read from the current position.
- *     <br>length (number): length of the data to read. This parameter is optional.
+ *     <br>length (number): length of the data to read, in bytes. This parameter is optional.
  *     <br>The default value is the file length.
  *     <br>encoding (string): format of the data to be encoded. It is valid only when the data is of the string type.
  *     <br>The default value is 'utf-8', which is the only value supported.
@@ -6433,9 +6697,9 @@ declare function readText(
  *
  * @param { string } filePath - Application sandbox path of the file.
  * @param { ReadTextOptions } [options] - The options are as follows:
- *     <br>offset (number): start position to read the data. This parameter is optional.
+ *     <br>offset (number): start position to read the data, in bytes. This parameter is optional.
  *     <br>By default, data is read from the current position.
- *     <br>length (number): length of the data to read. This parameter is optional.
+ *     <br>length (number): length of the data to read, in bytes. This parameter is optional.
  *     <br>The default value is the file length.
  *     <br>encoding (string): format of the data to be encoded. It is valid only when the data is of the string type.
  *     <br>The default value is 'utf-8', which is the only value supported.
@@ -7887,7 +8151,13 @@ declare function utimes(path: string, mtime: number): void;
  *
  * @param { number } fd - FD of the file.
  * @param { ArrayBuffer | string } buffer - Data to write. It can be a string or data from a buffer.
- * @param { WriteOptions } [options] - Defines the options use din write(). It inherits from Options.
+ * @param { WriteOptions } [options] - The options are as follows:
+ *     <br>length (number): length of the data to write, in bytes. This parameter is optional.
+ *     <br>The default value is the buffer length.
+ *     <br>offset (number): start position to write the data in the file, in bytes. This parameter is optional.
+ *     <br>By default, data is written from the current position.
+ *     <br>encoding (string): format of the data to be encoded when the data is a string.
+ *     <br>The default value is 'utf-8', which is the only value supported.
  * @returns { Promise<number> } Returns the number of bytes written to the file in promise mode.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -7960,7 +8230,7 @@ declare function write(
  *
  * @param { number } fd - FD of the file.
  * @param { ArrayBuffer | string } buffer - Data to write. It can be a string or data from a buffer.
- * @param { AsyncCallback<number> } callback - Callback used to return the result.
+ * @param { AsyncCallback<number> } callback - Callback used to return the result, in bytes.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -8031,9 +8301,9 @@ declare function write(fd: number, buffer: ArrayBuffer | string, callback: Async
  * @param { number } fd - FD of the file.
  * @param { ArrayBuffer | string } buffer - Data to write. It can be a string or data from a buffer.
  * @param { WriteOptions } [options] - The options are as follows:
- *     <br>length (number): length of the data to write. This parameter is optional.
+ *     <br>length (number): length of the data to write, in bytes. This parameter is optional.
  *     <br>The default value is the buffer length.
- *     <br>offset (number): start position to write the data in the file. This parameter is optional.
+ *     <br>offset (number): start position to write the data in the file, in bytes. This parameter is optional.
  *     <br>By default, data is written from the current position.
  *     <br>encoding (string): format of the data to be encoded when the data is a string.
  *     <br>The default value is 'utf-8', which is the only value supported.
@@ -8113,9 +8383,9 @@ declare function write(
  * @param { number } fd - FD of the file.
  * @param { ArrayBuffer | string } buffer - Data to write. It can be a string or data from a buffer.
  * @param { WriteOptions } [options] - The options are as follows:
- *     <br>length (number): length of the data to write. This parameter is optional.
+ *     <br>length (number): length of the data to write, in bytes. This parameter is optional.
  *     <br>The default value is the buffer length.
- *     <br>offset (number): start position to write the data in the file. This parameter is optional.
+ *     <br>offset (number): start position to write the data in the file, in bytes. This parameter is optional.
  *     <br>By default, data is written from the current position.
  *     <br>encoding (string): format of the data to be encoded when the data is a string.
  *     <br>The default value is 'utf-8', which is the only value supported.
@@ -8144,14 +8414,18 @@ declare function writeSync(
 ): number;
 
 /**
- * Connect Distributed File System.
+ * Triggers connection. If the peer device is abnormal, [onStatus]{@link DfsListeners.onStatus}
+ * in DfsListeners will be called to notify the application.
  *
  * @permission ohos.permission.DISTRIBUTED_DATASYNC
- * @param { string } networkId - The networkId of device.
- * @param { DfsListeners } listeners - The listeners of Distributed File System.
- * @returns { Promise<void> } The promise returned by the function.
+ * @param { string } networkId - Network ID of the device. The device network ID can be obtained from
+ *     [DeviceBasicInfo]{@link @ohos.distributedDeviceManager:distributedDeviceManager.DeviceBasicInfo}
+ *     using the related [distributedDeviceManager]{@link @ohos.distributedDeviceManager} API.
+ * @param { DfsListeners } listeners - Listeners for distributed file system status.
+ * @returns { Promise<void> } Promise that returns no value.
  * @throws { BusinessError } 201 - Permission denied.
- * @throws { BusinessError } 401 - The parameter check failed.Possible causes:1.Mandatory parameters are left unspecified;
+ * @throws { BusinessError } 401 - The parameter check failed.Possible causes:
+ *     1.Mandatory parameters are left unspecified;
  *     <br>2.Incorrect parameter types.
  * @throws { BusinessError } 13900045 - Connection failed.
  * @throws { BusinessError } 13900046 - Software caused connection abort.
@@ -8161,13 +8435,16 @@ declare function writeSync(
 declare function connectDfs(networkId: string, listeners: DfsListeners): Promise<void>;
 
 /**
- * Disconnect Distributed File System.
+ * Triggers disconnection.
  *
  * @permission ohos.permission.DISTRIBUTED_DATASYNC
- * @param { string } networkId - The networkId of device.
- * @returns { Promise<void> } The promise returned by the function.
+ * @param { string } networkId - Network ID of the device. The device network ID can be obtained from
+ *     [DeviceBasicInfo]{@link @ohos.distributedDeviceManager:distributedDeviceManager.DeviceBasicInfo}
+ *     using the related [distributedDeviceManager]{@link @ohos.distributedDeviceManager} API.
+ * @returns { Promise<void> } Promise that returns no value.
  * @throws { BusinessError } 201 - Permission denied.
- * @throws { BusinessError } 401 - The parameter check failed.Possible causes:1.Mandatory parameters are left unspecified;
+ * @throws { BusinessError } 401 - The parameter check failed.Possible causes:
+ *     1.Mandatory parameters are left unspecified;
  *     <br>2.Incorrect parameter types.
  * @throws { BusinessError } 13600004 - Unmount failed.
  * @syscap SystemCapability.FileManagement.File.FileIO
@@ -8354,7 +8631,8 @@ declare function getxattrSync(path: string, key: string): string;
  */
 interface Progress {
   /**
-   * Size of the copied data.
+   * Size of the copied data, in bytes.
+   * <br>Unit:Byte.
    *
    * @type { number }
    * @readonly
@@ -8364,7 +8642,8 @@ interface Progress {
   readonly processedSize: number;
 
   /**
-   * Total size of the data to be copied.
+   * Total size of the data to be copied, in bytes.
+   * <br>Unit:Byte.
    *
    * @type { number }
    * @readonly
@@ -8395,7 +8674,7 @@ export class TaskSignal {
   /**
    * Subscribes to the event reported when a copy task is canceled.
    *
-   * @returns { Promise<string> } Return the result of the cancel event.
+   * @returns { Promise<string> } Promise used to return the path of the last file copied.
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900008 - Bad file descriptor
    * @throws { BusinessError } 13900042 - Unknown error
@@ -8409,7 +8688,6 @@ export class TaskSignal {
 /**
  * Defines the callback for listening for the copy progress.
  *
- * @typedef CopyOptions
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 11 dynamic
  */
@@ -8417,7 +8695,6 @@ interface CopyOptions {
   /**
    * Listener used to observe the copy progress.
    *
-   * @type { ?ProgressListener }
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 11 dynamic
    */
@@ -8425,7 +8702,6 @@ interface CopyOptions {
   /**
    * Signal used to cancel a copy task.
    *
-   * @type { ?TaskSignal }
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 12 dynamic
    */
@@ -8433,9 +8709,8 @@ interface CopyOptions {
 }
 
 /**
- * Signal used to cancel a copy task.
+ * Listener used to observe the copy progress.
  *
- * @typedef { function } ProgressListener
  * @param { Progress } progress - indicates the progress data of copyFile
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 11 dynamic
@@ -8624,6 +8899,288 @@ declare interface File {
 }
 
 /**
+ * File mapping object. Before invoking the FileMapping method, you need to use the mmap() method (synchronous or
+ * asynchronous) to construct a FileMapping instance.
+ *
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @stagemodelonly
+ * @since 26.0.0 dynamic
+ */
+declare interface FileMapping {
+  /**
+   * Sets the current location of the file mapping area.
+   *
+   * @param { number } position - Target location. The value must be a non-negative number and cannot be greater than
+   *     the current upper bound (limit).
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900050 - Internal resource error
+   * @throws { BusinessError } 13900052 - Mmap buffer released
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  setPosition(position: number): void;
+
+  /**
+   * Gets the current location of the file mapping area.
+   *
+   * @returns { number } - Current location of the file mapping area.
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900050 - Internal resource error
+   * @throws { BusinessError } 13900052 - Mmap buffer released
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  getPosition(): number;
+
+  /**
+   * Obtains the capacity of the file mapping area.
+   *
+   * @returns { number } - Size of the file mapping area, in bytes.
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900050 - Internal resource error
+   * @throws { BusinessError } 13900052 - Mmap buffer released
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  capacity(): number;
+
+  /**
+   * Sets the upper bound of the readable and writable area of the file mapping area. The upper bound does not exceed
+   * the total capacity of the mapping area (0 �? limit �? capacity).
+   *
+   * @param { number } limit - Upper bound of the readable and writable area to be set. If the current position is
+   *     greater than the new upper bound, the value is automatically adjusted to limit.
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900050 - Internal resource error
+   * @throws { BusinessError } 13900052 - Mmap buffer released
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  setLimit(limit: number): void;
+
+  /**
+   * Obtains the upper bound of the readable and writable area of the file mapping area.
+   *
+   * @returns { number } - Upper bound of the current readable and writable area.
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900050 - Internal resource error
+   * @throws { BusinessError } 13900052 - Mmap buffer released
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  getLimit(): number;
+
+  /**
+   * Mode reversal. That is, the limit attribute is set to the current position, and then the current position is set
+   * to 0.
+   *
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900050 - Internal resource error
+   * @throws { BusinessError } 13900052 - Mmap buffer released
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  flip(): void;
+
+  /**
+   * Obtains the number of remaining bytes between the current position (position) and the upper bound (limit) of the
+   * readable and writable area.
+   *
+   * @returns { number } - Number of remaining readable or writable bytes.
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900050 - Internal resource error
+   * @throws { BusinessError } 13900052 - Mmap buffer released
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  remaining(): number;
+
+  /**
+   * Reads data from the current position and moves the position backward by the number of bytes actually read.
+   *
+   * @param { ArrayBuffer } buffer - Buffer for storing the read file data.
+   * @param { number } [length] - Length of the data to be read. This parameter is optional. The default value is the
+   *     buffer length.
+   * @returns { number } - Length of the actually read data, in bytes.
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900050 - Internal resource error
+   * @throws { BusinessError } 13900051 - Buffer read/write out of bounds
+   * @throws { BusinessError } 13900052 - Mmap buffer released
+   * @throws { BusinessError } 13900054 - Mmap buffer is inaccessible
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  read(buffer: ArrayBuffer, length?: number): number;
+
+  /**
+   * Reads data from the specified location without affecting the current location.
+   *
+   * @param { number } position - Start position to read from.
+   * @param { ArrayBuffer } buffer - Buffer for storing the read file data.
+   * @param { number } [length] - Length of the data to be read. This parameter is optional. The default value is the
+   *     buffer length.
+   * @returns { number } - Length of the actually read data, in bytes.
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900050 - Internal resource error
+   * @throws { BusinessError } 13900051 - Buffer read/write out of bounds
+   * @throws { BusinessError } 13900052 - Mmap buffer released
+   * @throws { BusinessError } 13900054 - Mmap buffer is inaccessible
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  read(position: number, buffer: ArrayBuffer, length?: number): number;
+
+  /**
+   * Writes data from the current location and moves the location backward by the number of bytes actually written.
+   *
+   * @param { ArrayBuffer } data - Buffer data to be written to the file.
+   * @param { number } [length] - Length of the data to be written. This parameter is optional. The default value is
+   *     the buffer length.
+   * @returns { number } - Length of the data written.
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900050 - Internal resource error
+   * @throws { BusinessError } 13900051 - Buffer read/write out of bounds
+   * @throws { BusinessError } 13900052 - Mmap buffer released
+   * @throws { BusinessError } 13900053 - Read-only mmap buffer
+   * @throws { BusinessError } 13900054 - Mmap buffer is inaccessible
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  write(data: ArrayBuffer, length?: number): number;
+
+  /**
+   * Writes data from the specified location without affecting the current location.
+   *
+   * @param { number } position - Start position of the expected write.
+   * @param { ArrayBuffer } data - Buffer data to be written to the file.
+   * @param { number } [length] - Length of the data to be written. This parameter is optional. The default value is
+   *     the buffer length.
+   * @returns { number } - Length of the data written.
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900050 - Internal resource error
+   * @throws { BusinessError } 13900051 - Buffer read/write out of bounds
+   * @throws { BusinessError } 13900052 - Mmap buffer released
+   * @throws { BusinessError } 13900053 - Read-only mmap buffer
+   * @throws { BusinessError } 13900054 - Mmap buffer is inaccessible
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  write(position: number, data: ArrayBuffer, length?: number): number;
+
+  /**
+   * Synchronizes the dirty page data in the entire file mapping area to the disk file and uses the promise
+   * asynchronous callback function.
+   * Note: If the file is not stored on the local device, calling this API does not ensure that all changes are
+   * stored persistently.
+   *
+   * @returns { Promise<void> } - Promise object. No return value.
+   * @throws { BusinessError } 13900011 - Out of memory
+   * @throws { BusinessError } 13900014 - Device or resource busy
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900050 - Internal resource error
+   * @throws { BusinessError } 13900052 - Mmap buffer released
+   * @throws { BusinessError } 13900055 - Mmap operation not supported
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  msync(): Promise<void>;
+
+  /**
+   * Synchronizes the dirty page data in the specified range of the file mapping area to the disk file and uses the
+   * promise asynchronous callback function.
+   * Note: If the file is not stored on the local device, calling this API does not ensure that all changes are
+   * stored persistently.
+   *
+   * @param { number } position - Start position to synchronize from.
+   * @param { number } length - Length of the data to be synchronized.
+   * @returns { Promise<void> } - Promise object. No return value.
+   * @throws { BusinessError } 13900011 - Out of memory
+   * @throws { BusinessError } 13900014 - Device or resource busy
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900050 - Internal resource error
+   * @throws { BusinessError } 13900052 - Mmap buffer released
+   * @throws { BusinessError } 13900055 - Mmap operation not supported
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  msync(position: number, length: number): Promise<void>;
+
+  /**
+   * Synchronizes the dirty page data of the entire file mapping area to the disk file by using the synchronization
+   * method.
+   * Note: If the file is not stored on the local device, calling this API does not ensure that all changes are
+   * stored persistently.
+   *
+   * @throws { BusinessError } 13900011 - Out of memory
+   * @throws { BusinessError } 13900014 - Device or resource busy
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900050 - Internal resource error
+   * @throws { BusinessError } 13900052 - Mmap buffer released
+   * @throws { BusinessError } 13900055 - Mmap operation not supported
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  msyncSync(): void;
+
+  /**
+   * Synchronize the dirty page data in the specified range of the file mapping area to the disk file by using the
+   * synchronization method.
+   * Note: If the file is not stored on the local device, calling this API does not ensure that all changes are
+   * stored persistently.
+   *
+   * @param { number } position - Start position to synchronize from.
+   * @param { number } length - Length of the data to be synchronized.
+   * @throws { BusinessError } 13900011 - Out of memory
+   * @throws { BusinessError } 13900014 - Device or resource busy
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900050 - Internal resource error
+   * @throws { BusinessError } 13900052 - Mmap buffer released
+   * @throws { BusinessError } 13900055 - Mmap operation not supported
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  msyncSync(position: number, length: number): void;
+
+  /**
+   * Releases the file mapping area and use the promise asynchronous callback function.
+   *
+   * @returns { Promise<void> } - Promise object. No return value.
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900050 - Internal resource error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  unmap(): Promise<void>;
+
+  /**
+   * Releases the file mapping area by using the synchronization method.
+   *
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900050 - Internal resource error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  unmapSync(): void;
+}
+
+/**
  * Provides APIs for randomly reading and writing a stream. Before invoking any API of RandomAccessFile,
  * you need to use createRandomAccessFile() to create a RandomAccessFile instance synchronously or asynchronously
  *
@@ -8670,7 +9227,7 @@ declare interface RandomAccessFile {
    * @since 10
    */
   /**
-   * Offset pointer to the RandomAccessFile instance.
+   * Offset pointer to the RandomAccessFile instance, in bytes.
    *
    * @type { number }
    * @readonly
@@ -8695,7 +9252,7 @@ declare interface RandomAccessFile {
   /**
    * Sets the file offset pointer.
    *
-   * @param { number } filePointer - Offset pointer to the RandomAccessFile instance.
+   * @param { number } filePointer - Offset pointer to the RandomAccessFile instance, in bytes.
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -8786,8 +9343,8 @@ declare interface RandomAccessFile {
    *
    * @param { ArrayBuffer | string } buffer - Data to write. It can be a string or data from a buffer.
    * @param { WriteOptions } [options] - The options are as follows:
-   *     <br>length (number): length of the data to write. The default value is the buffer length.
-   *     <br>offset (number): start position to write the data (it is determined by filePointer plus offset).
+   *     <br>length (number): length of the data to write, in bytes. The default value is the buffer length.
+   *     <br>offset (number): start position to write the data, in bytes. (it is determined by filePointer plus offset).
    *     <br>This parameter is optional. By default, data is written from the filePointer.
    *     <br>encoding (string): format of the data to be encoded when the data is a string.
    *     <br>The default value is 'utf-8', which is the only value supported.
@@ -8837,7 +9394,7 @@ declare interface RandomAccessFile {
    * Writes data to a file. This API uses an asynchronous callback to return the result.
    *
    * @param { ArrayBuffer | string } buffer - Data to write. It can be a string or data from a buffer.
-   * @param { AsyncCallback<number> } callback - Callback used to return the result.
+   * @param { AsyncCallback<number> } callback - Callback used to return the result, in bytes.
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -8908,12 +9465,12 @@ declare interface RandomAccessFile {
    *
    * @param { ArrayBuffer | string } buffer - Data to write. It can be a string or data from a buffer.
    * @param { WriteOptions } [options] - The options are as follows:
-   *     <br>length (number): length of the data to write. The default value is the buffer length.
-   *     <br>offset (number): start position to write the data (it is determined by filePointer plus offset).
+   *     <br>length (number): length of the data to write, in bytes. The default value is the buffer length.
+   *     <br>offset (number): start position to write the data, in bytes. (it is determined by filePointer plus offset).
    *     <br>This parameter is optional. By default, data is written from the filePointer.
    *     <br>encoding (string): format of the data to be encoded when the data is a string.
    *     <br>The default value is 'utf-8', which is the only value supported.
-   * @param { AsyncCallback<number> } callback - Callback used to return the result.
+   * @param { AsyncCallback<number> } callback - Callback used to return the result, in bytes..
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -8988,12 +9545,12 @@ declare interface RandomAccessFile {
    *
    * @param { ArrayBuffer | string } buffer - Data to write. It can be a string or data from a buffer.
    * @param { WriteOptions } [options] - The options are as follows:
-   *     <br>length (number): length of the data to write. The default value is the buffer length.
-   *     <br>offset (number): start position to write the data (it is determined by filePointer plus offset).
+   *     <br>length (number): length of the data to write, in bytes. The default value is the buffer length.
+   *     <br>offset (number): start position to write the data, in bytes. (it is determined by filePointer plus offset).
    *     <br>This parameter is optional. By default, data is written from the filePointer.
    *     <br>encoding (string): format of the data to be encoded when the data is a string.
    *     <br>The default value is 'utf-8', which is the only value supported.
-   * @returns { number } Length of the data written in the file.
+   * @returns { number } Length of the data written in the file, in bytes.
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -9079,11 +9636,11 @@ declare interface RandomAccessFile {
    *
    * @param { ArrayBuffer } buffer - Buffer used to store the file read.
    * @param { ReadOptions } [options] - The options are as follows:
-   *     <br>length (number): length of the data to read. This parameter is optional.
+   *     <br>length (number): length of the data to read, in bytes. This parameter is optional.
    *     <br>The default value is the buffer length.
-   *     <br>offset (number): start position to read the data (it is determined by filePointer plus offset).
+   *     <br>offset (number): start position to read the data, in bytes. (it is determined by filePointer plus offset).
    *     <br>This parameter is optional. By default, data is read from the filePointer.
-   * @returns { Promise<number> } Promise used to return the data read.
+   * @returns { Promise<number> } Promise used to return the data read, in bytes.
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -9124,7 +9681,7 @@ declare interface RandomAccessFile {
    * Reads data from a file. This API uses an asynchronous callback to return the result.
    *
    * @param { ArrayBuffer } buffer - Buffer used to store the file read.
-   * @param { AsyncCallback<number> } callback - Callback used to return the result.
+   * @param { AsyncCallback<number> } callback - The callback is used to return the number of bytes written to the file.
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -9185,11 +9742,11 @@ declare interface RandomAccessFile {
    *
    * @param { ArrayBuffer } buffer - Buffer used to store the file read.
    * @param { ReadOptions } [options] - The options are as follows:
-   *     <br>length (number): length of the data to read. This parameter is optional.
+   *     <br>length (number): length of the data to read, in bytes. This parameter is optional.
    *     <br>The default value is the buffer length.
-   *     <br>offset (number): start position to read the data (it is determined by filePointer plus offset).
+   *     <br>offset (number): start position to read the data, in bytes. (it is determined by filePointer plus offset).
    *     <br>This parameter is optional. By default, data is read from the filePointer.
-   * @param { AsyncCallback<number> } callback - Callback used to return the result.
+   * @param { AsyncCallback<number> } callback - Callback used to return the result, in bytes.
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -9273,11 +9830,11 @@ declare interface RandomAccessFile {
    *
    * @param { ArrayBuffer } buffer - Buffer used to store the file read.
    * @param { ReadOptions } [options] - The options are as follows:
-   *     <br>length (number): length of the data to read. This parameter is optional.
+   *     <br>length (number): length of the data to read, in bytes. This parameter is optional.
    *     <br>The default value is the buffer length.
-   *     <br>offset (number): start position to read the data (it is determined by filePointer plus offset).
+   *     <br>offset (number): start position to read the data, in bytes. (it is determined by filePointer plus offset).
    *     <br>This parameter is optional. By default, data is read from the filePointer.
-   * @returns { number } Returns the number of file bytes read to buffer.
+   * @returns { number } Returns the number of file bytes read to buffer, in bytes.
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -9425,7 +9982,7 @@ declare class ReadStream extends stream.Readable {
    * @param { number } offset - Number of bytes to move the offset.
    * @param { WhenceType } [whence = WhenceType.SEEK_SET] - Where to start the offset. The default value is SEEK_SET,
    *     <br>which indicates the beginning of the file.
-   * @returns { number } Returns the offset relative to starting position of stream.
+   * @returns { number } Returns the offset relative to starting position of stream, in bytes.
    * @throws { BusinessError } 401 - Parameter error
    * @throws { BusinessError } 13900020 - Invalid argument
    * @throws { BusinessError } 13900026 - Illegal seek
@@ -10540,12 +11097,12 @@ declare interface Stream {
    *
    * @param { ArrayBuffer | string } buffer - Data to write. It can be a string or data from a buffer.
    * @param { WriteOptions } [options] - The options are as follows:
-   *     <br>length (number): length of the data to write. The default value is the buffer length.
-   *     <br>offset (number): start position to write the data in the file. This parameter is optional.
+   *     <br>length (number): length of the data to write, in bytes. The default value is the buffer length.
+   *     <br>offset (number): start position to write the data in the file, in bytes. This parameter is optional.
    *     <br>By default, data is written from the current position.
    *     <br>encoding (string): format of the data to be encoded when the data is a string.
    *     <br>The default value is 'utf-8', which is the only value supported.
-   * @returns { Promise<number> } Promise used to return the length of the data written.
+   * @returns { Promise<number> } Promise used to return the length of the data written, in bytes.
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -10667,12 +11224,12 @@ declare interface Stream {
    *
    * @param { ArrayBuffer | string } buffer - Data to write. It can be a string or data from a buffer.
    * @param { WriteOptions } [options] - The options are as follows:
-   *     <br>length (number): length of the data to write. The default value is the buffer length.
-   *     <br>offset (number): start position to write the data in the file. This parameter is optional.
+   *     <br>length (number): length of the data to write, in bytes. The default value is the buffer length.
+   *     <br>offset (number): start position to write the data in the file, in bytes. This parameter is optional.
    *     <br>By default, data is written from the current position.
    *     <br>encoding (string): format of the data to be encoded when the data is a string.
    *     <br>The default value is 'utf-8', which is the only value supported.
-   * @param { AsyncCallback<number> } callback - Callback used to return the result.
+   * @param { AsyncCallback<number> } callback - Callback used to return the result, in bytes.
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -10748,12 +11305,12 @@ declare interface Stream {
    *
    * @param { ArrayBuffer | string } buffer - Data to write. It can be a string or data from a buffer.
    * @param { WriteOptions } [options] - The options are as follows:
-   *     <br>length (number): length of the data to write. The default value is the buffer length.
-   *     <br>offset (number): start position to write the data in the file. This parameter is optional.
+   *     <br>length (number): length of the data to write, in bytes. The default value is the buffer length.
+   *     <br>offset (number): start position to write the data in the file, in bytes. This parameter is optional.
    *     <br>By default, data is written from the current position.
    *     <br>encoding (string): format of the data to be encoded when the data is a string.
    *     <br>The default value is 'utf-8', which is the only value supported.
-   * @returns { number } Length of the data written in the file.
+   * @returns { number } Length of the data written in the file, in bytes.
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -10840,11 +11397,11 @@ declare interface Stream {
    *
    * @param { ArrayBuffer } buffer - Buffer used to store the file read.
    * @param { ReadOptions } [options] - The options are as follows:
-   *     <br>length (number): length of the data to read. This parameter is optional.
+   *     <br>length (number): length of the data to read, in bytes. This parameter is optional.
    *     <br>The default value is the buffer length.
-   *     <br>offset (number): start position to read the data. This parameter is optional. By default,
+   *     <br>offset (number): start position to read the data, in bytes. This parameter is optional. By default,
    *     <br>data is read from the current position.
-   * @returns { Promise<number> } Promise used to return the data read.
+   * @returns { Promise<number> } Promise used to return the data read, in bytes.
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -10886,7 +11443,7 @@ declare interface Stream {
    * Reads data from this stream. This API uses an asynchronous callback to return the result.
    *
    * @param { ArrayBuffer } buffer - Buffer used to store the file read.
-   * @param { AsyncCallback<number> } callback - Callback used to return the result.
+   * @param { AsyncCallback<number> } callback - Callback used to return the result, in bytes.
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -10948,11 +11505,11 @@ declare interface Stream {
    *
    * @param { ArrayBuffer } buffer - Buffer used to store the file read.
    * @param { ReadOptions } [options] - The options are as follows:
-   *     <br>length (number): length of the data to read. This parameter is optional.
+   *     <br>length (number): length of the data to read, in bytes. This parameter is optional.
    *     <br>The default value is the buffer length.
-   *     <br>offset (number): start position to read the data. This parameter is optional. By default,
+   *     <br>offset (number): start position to read the data, in bytes. This parameter is optional. By default,
    *     <br>data is read from the current position.
-   * @param { AsyncCallback<number> } callback - Callback used to return the result.
+   * @param { AsyncCallback<number> } callback - Callback used to return the result, in bytes.
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -11037,11 +11594,11 @@ declare interface Stream {
    *
    * @param { ArrayBuffer } buffer - Buffer used to store the file read.
    * @param { ReadOptions } [options] - The options are as follows:
-   *     <br>length (number): length of the data to read. This parameter is optional.
+   *     <br>length (number): length of the data to read, in bytes. This parameter is optional.
    *     <br>The default value is the buffer length.
-   *     <br>offset (number): start position to read the data. This parameter is optional. By default,
+   *     <br>offset (number): start position to read the data, in bytes. This parameter is optional. By default,
    *     <br>data is read from the current position.
-   * @returns { number } Length of the data read.
+   * @returns { number } Length of the data read, in bytes.
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -11474,7 +12031,7 @@ export interface Filter {
    * @since 10
    */
   /**
-   * Locate files that are greater than or equal to the specified size.
+   * Locate files that are greater than or equal to the specified size, in Bytes
    *
    * @type { ?number }
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -11829,6 +12386,71 @@ export interface ListFileOptions {
 }
 
 /**
+ * Defines the file name filtering interface used by listFile().
+ *
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @stagemodelonly
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+export interface FileFilter {
+  /**
+   * Filtering function, which determines whether the specified file name should be included in the file list.
+   *
+   * Note: This function is frequently invoked. Avoid time-consuming operations, such as file I/O and network requests.
+   *
+   * @param { string } name - Name of the file to be filtered.
+   * @returns { boolean } Returns true if the file should be included, false otherwise.
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  filter(name: string): boolean;
+}
+
+/**
+ * Defines the options used in listFileExt().
+ *
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @stagemodelonly
+ * @since 26.0.0 dynamic
+ */
+export interface ListFileExtOptions {
+  /**
+   * Whether to list all files in the subdirectories recursively. This parameter is optional.
+   * The default value is false. If recursion is false, the names of files and directories that meet the filtering
+   * requirements in the current directory are returned. If recursion is true, relative paths (starting with /)
+   * of all files that meet the specified conditions in the current directory are returned.
+   *
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  recursion?: boolean;
+
+  /**
+   * Number of file names to list. This parameter is optional. The default value is 0, which means to list all files.
+   * The value should be an integer.
+   *
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  listNum?: number;
+
+  /**
+   * File name filtering interface. This parameter is optional.
+   * Filtering rules can be defined based on file names.
+   *
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  fileFilter?: FileFilter;
+}
+
+/**
  * Defines the options used in createRandomAccessFile().
  *
  * @interface RandomAccessFileOptions
@@ -11989,22 +12611,62 @@ export interface WriteStreamOptions {
 }
 
 /**
- * The listeners of Distributed File System.
+ * Provides APIs for observing events. listening for the distributed file system status.
  *
- * @typedef DfsListeners
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 12 dynamic
  */
 export interface DfsListeners {
   /**
-   * The Listener of Distributed File System status
+   * Called to return the specified status. Its parameters are passed in by [connectDfs]{@link connectDfs}.
    *
-   * @param { string } networkId - The networkId of device.
-   * @param { number } status - The status code of Distributed File System.
+   * @param { string } networkId - Network ID of the device.
+   * @param { number } status - Status code of the distributed file system. The status code is the error code returned
+   *     by **onStatus** invoked by **connectDfs**. If the device is abnormal when **connectDfs()** is called,
+   *     **onStatus** will be called to return the error code:- 13900046: The connection is interrupted by software.
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 12 dynamic
    */
   onStatus(networkId: string, status: number): void;
+}
+
+/**
+ * Enumerated type of the file memory mapping mode, which can be used by the mmap API.
+ *
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @stagemodelonly
+ * @since 26.0.0 dynamic
+ */
+declare enum MappingMode {
+  /**
+   * Read-only mode. The file mapping area is not writable. An exception is thrown when the file mapping area is
+   * modified.
+   *
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  READ_ONLY = 0,
+
+  /**
+   * Read/Write mode. The modification is written to the file mapping area and then synchronized to the file by the
+   * operating system (non-real-time).
+   *
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  READ_WRITE = 1,
+
+  /**
+   * Private mode. It is a copy-on-write mapping mechanism. Modifications to the mapping area are visible only to the
+   * current process and do not affect the raw file.
+   *
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  PRIVATE = 2
 }
 
 /**

@@ -23,7 +23,7 @@ import { Callback, DismissReason, Rectangle, BlurStyle, TransitionEffect, Shadow
 import { DialogButtonStyle, BorderStyle } from './enums';
 import { DialogAlignment } from './alertDialog';
 import { LevelOrder, LevelMode, ImmersiveMode } from '../../@ohos.promptAction';
-import { AttributeModifier, CommonMethod } from './common';
+import { AttributeModifier, CommonMethod, SystemUiMaterial } from './common';
 /**
  * The information of sheet.
  *
@@ -533,4 +533,17 @@ export interface ActionSheetOptions {
      * @since 23 static
      */
     levelOrder?: LevelOrder;
+    /**
+     * Set system-styled materials for dialog. Different materials have different effects, which can influence
+     * backgroundColor, border, shadow, and other visual attributes of dialog.
+     * 
+     * Device Behavior Differences:The effect of same material may vary across different devices depending on
+     * their computing power.
+     *
+     * @type { ?SystemUiMaterial }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    systemMaterial?: SystemUiMaterial;
 }

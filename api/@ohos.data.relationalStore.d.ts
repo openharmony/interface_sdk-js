@@ -109,7 +109,16 @@ declare namespace relationalStore {
      * @since 10 dynamic
      * @since 23 static
      */
-    ASSET_DOWNLOADING
+    ASSET_DOWNLOADING,
+
+    /**
+     * ASSET_TO_DOWNLOAD: means the asset will be downloaded.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    ASSET_TO_DOWNLOAD
   }
 
   /**
@@ -414,6 +423,18 @@ declare namespace relationalStore {
      * @since 23 static
      */
     autoCleanDirtyData?: boolean;
+
+    /**
+     * Specifies whether to clean up dirty data that is synchronized to
+     * the local but deleted on the remote device.
+     * <br>Default value:true.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    autoCleanDeviceDirtyData?: boolean
 
     /**
      * Specifies whether data can be searched.
@@ -1139,7 +1160,16 @@ declare namespace relationalStore {
      * @since 12 dynamic
      * @since 23 static
      */
-    BLOCKED_BY_NETWORK_STRATEGY = 7
+    BLOCKED_BY_NETWORK_STRATEGY = 7,
+
+    /**
+     * STOP_CLOUD_SYNC: means cloud synchronization has been stopped.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    STOP_CLOUD_SYNC = 8
   }
 
   /**
@@ -1170,6 +1200,15 @@ declare namespace relationalStore {
      * @since 23 static
      */
     code: ProgressCode;
+
+    /**
+     * Indicates the code message.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    message?: string;
 
     /**
      * The statistic details of the tables.
@@ -1711,6 +1750,42 @@ declare namespace relationalStore {
   }
 
   /**
+   * Describes the asset conflict policy.
+   *
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  enum AssetConflictPolicy {
+    /**
+     * Indicates the default conflict policy.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    CONFLICT_POLICY_DEFAULT = 0,
+
+    /**
+     * Indicates the time-first conflict policy.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    CONFLICT_POLICY_TIME_FIRST = 1,
+
+    /**
+     * Indicates the temporary path conflict policy.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    CONFLICT_POLICY_TEMP_PATH = 2
+  }
+
+  /**
    * Indicates the reference between tables.
    *
    * @interface Reference
@@ -1812,6 +1887,42 @@ declare namespace relationalStore {
      * @since 23 dynamic&static
      */
     tableType?: DistributedTableType;
+
+    /**
+     * Specifies the asset conflict policy.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    assetConflictPolicy?: AssetConflictPolicy;
+
+    /**
+     * Specifies the asset temp path.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    assetTempPath?: string;
+
+    /**
+     * Specifies whether to download assets on demand.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    assetDownloadOnDemand?: boolean;
+
+    /**
+     * Specifies the auto synchronization switch.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    autoSyncSwitch?: boolean;
   }
 
   /**
@@ -1848,6 +1959,52 @@ declare namespace relationalStore {
   }
 
   /**
+   * Cloud sync configuration.
+   *
+   * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface CloudSyncConfig {
+    /**
+     * Indicates the database synchronization mode.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    mode: relationalStore.SyncMode;
+
+    /**
+     * Indicates whether the sync operation should be download‑only.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    downloadOnly?: boolean;
+
+    /**
+     * Indicates the table-level synchronization switch.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    enablePredicate?: boolean;
+
+    /**
+     * Indicates the table-level synchronization predicate.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    predicate?: RdbPredicates;
+  }
+
+  /**
    * Enumerates the DistributedField.
    *
    * @enum { string }
@@ -1875,7 +2032,30 @@ declare namespace relationalStore {
      * @stagemodelonly
      * @since 24 dynamic&static
      */
-    ORIGIN_ORIDEVICE = '#_ori_device'
+    ORIGIN_ORIDEVICE = '#_ori_device',
+
+    /**
+     * Cursor field.
+     *
+     * This parameter can be used as the input parameter of the predicate of the query interface
+     * and as the query filter condition.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    CURSOR_FIELD = '#_cursor',
+
+    /**
+     * Indicates whether data has been deleted.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    DELETED_FLAG_FIELD = '#_deleted_flag'
   }
   
   
@@ -2466,6 +2646,159 @@ declare namespace relationalStore {
      * @since 23 dynamic&static
      */
     readonly resultSet: LiteResultSet;
+  }
+
+  /**
+   * Describes the status of device sync.
+   *
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  enum SyncResultCode {  
+    /**
+     * Indicates sync success.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    SUCCESS = 0,
+
+    /**
+     * Indicates sync fail, for detailed reasons, please refer to the message.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    FAIL = 1,
+
+    /**
+     * Indicates that the device is offline.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    OFFLINE = 2,
+
+    /**
+     *  Indicates parameter is invalid.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    INVALID_ARGS = 3,
+
+    /**
+     * Indicates that a distributed table is not set.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    DISTRIBUTED_TABLE_NOT_SET = 4,
+
+    /**
+     * Indicates that the synchronization field of the peer device is inconsistent with that of the local device.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    TABLE_FIELD_MISMATCH = 5,
+
+    /**
+     * Indicates that the schema field of the peer device is inconsistent with that of the local device.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    DISTRIBUTED_SCHEMA_MISMATCH = 6,
+
+    /**
+     * Indicates that the database is busy.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    BUSY = 7,
+
+    /**
+     * Indicates that the database is corrupted.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    CORRUPTED = 8,
+
+    /**
+     * Indicates synchronization timeout.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    TIMEOUT = 9,
+
+    /**
+     * Indicates that the table structure changed during the synchronization process.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    SCHEMA_CHANGED = 10,
+
+    /**
+     * Indicates a violation of constraints when synchronizing data.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    CONSTRAINT_VIOLATION = 11,
+  }
+
+  /**
+   * Indicates synchronization result.
+   *
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface SyncResult {  
+    /**
+     * Indicates the synchronization deviceId.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly device:string;
+
+    /**
+     * Indicates the synchronization result code.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly code:SyncResultCode;
+
+    /**
+     * Indicates detailed information about the synchronization results.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly message:string;
   }
 
   /**
@@ -7611,6 +7944,34 @@ declare namespace relationalStore {
     cleanDirtyData(table: string, cursor?: long): Promise<void>;
 
     /**
+     * Cleans dirty data deleted in the cross-device sync.
+     *
+     * If a cursor is specified, data with a cursor smaller than the specified cursor will be cleaned up.
+     * otherwise clean all.
+     *
+     * @param { string } table - Indicates the name of the table to check.
+     *     <br>Length range:[1， 256].Value constraint:Only letters, digits, and underscores (_) are allowed.
+     * @param { long } [cursor] - Indicates the cursor.
+     *     <br>Value range:>0.Default value:Default behavior: Clear all dirty data.
+     * @returns { Promise<void> } -The promise returned by the function.
+     * @throws { BusinessError } 202 - Permission verification failed,
+     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of valid range.
+     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
+     * @throws { BusinessError } 14800014 - The target instance is already closed.
+     * @throws { BusinessError } 14800015 - The database does not respond.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+     * @throws { BusinessError } 14800043 - DB is not support this scenario. Possible causes: 1. DB type is not support;
+     *     <br>2. Table type is not support; 3. This is a readonly db.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    cleanDeviceDirtyData(table: string, cursor?: long): Promise<void>
+
+    /**
      * Obtains sharing resource of rows corresponding to the predicates.
      *
      * @param { RdbPredicates } predicates -
@@ -8924,6 +9285,28 @@ declare namespace relationalStore {
     sync(mode: SyncMode, predicates: RdbPredicates): Promise<Array<[string, int]>>;
 
     /**
+     * Sync data between devices.
+     *
+     * 1. The difference between the sync interface and the syncEx interface is that they can return more error codes,
+     *     but their functionality is similar.
+     * 2. Before invoking synchronization, call setdistributedTable to set the distributed table.
+     *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
+     * @param { SyncMode } mode - Indicates the database synchronization mode.
+     *     <br>Only SYNC_MODE_PUSH and SYNC_MODE_PULL are supported.
+     * @param { RdbPredicates } predicates - The specified sync condition by the instance object
+     *     of {@link RdbPredicates}.
+     * @returns { Promise<Array<SyncResult>> } 201 - the application does not have permission to call this function.
+     * @throws { BusinessError } 201 - the application does not have permission to call this function.
+     * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of valid range.
+     * @throws { BusinessError } 14800014 - The target instance is already closed.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    syncEx(mode: SyncMode, predicates: RdbPredicates): Promise<Array<SyncResult>>;
+
+    /**
      * Sync data to cloud.
      *
      * @param { SyncMode } mode - indicates the database synchronization mode.
@@ -9161,7 +9544,49 @@ declare namespace relationalStore {
      * @since 12 dynamic
      * @since 23 static
      */
+    /**
+     * Sync data to cloud.
+     *
+     * @param { SyncMode } mode - indicates the database synchronization mode.
+     * @param { RdbPredicates } predicates -
+     *     The specified sync condition by the instance object of {@link RdbPredicates}.
+     * @param { Callback<ProgressDetails> } progress -
+     *     Callback used to return the {@link ProgressDetails} result.
+     * @returns { Promise<void> } : The promise returned by the function.
+     * @throws { BusinessError } 801 - Capability not supported
+     *     because the device does not support the device-cloud capability.
+     * @throws { BusinessError } 14800014 - The target instance is already closed.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 26.0.0 dynamic&static
+     */
     cloudSync(mode: SyncMode, predicates: RdbPredicates, progress: Callback<ProgressDetails>): Promise<void>;
+
+    /**
+     * Synchronizes data to the cloud.
+     *
+     * @param { CloudSyncConfig } config - indicates the cloud synchronization config.
+     * @param { Callback<ProgressDetails> } progress - Callback used to return the {@link ProgressDetails} result.
+     * @returns { Promise<void> } : The promise returned by the function.
+     *  @throws { BusinessError } 14800014 - The target instance is already closed.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    cloudSync(config: CloudSyncConfig, progress: Callback<ProgressDetails>): Promise<void>;
+
+    /**
+     * Stops synchronizing data with the cloud.
+     *
+     * @returns { Promise<void> } : The promise returned by the function.
+     * @throws { BusinessError } 801 - Capability not supported
+     *     because the device does not support the cloud synchronization capability.
+     * @throws { BusinessError } 14800000 - Internal error.
+     * @throws { BusinessError } 14800014 - The target instance is already closed.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    stopCloudSync(): Promise<void>;
 
     /**
      * Queries remote data in the database based on specified conditions before Synchronizing Data.
@@ -10099,6 +10524,26 @@ declare namespace relationalStore {
      * @since 23 static
      */
     rekey(cryptoParam?: CryptoParam): Promise<void>;
+
+    /**
+     * Changes the key used to encrypt the database.
+     *
+     * @param { Uint8Array } encryptionKey - Specifies the encryption key used to rekey.
+     *     Value constraint:An empty array indicates that the key generated by the system is used.
+     * @returns { Promise<void> } - Promise that returns no value.
+     * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of valid range.
+     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
+     * @throws { BusinessError } 14800014 - The target instance is already closed.
+     * @throws { BusinessError } 14800015 - The database does not respond.
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+     * @throws { BusinessError } 14800043 - DB is not support this scenario. Possible causes: 1. DB type is not support;
+     *     <br>2. This is a readonly db.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @since 26.0.0 dynamic&static
+     */
+    rekey(encryptionKey: Uint8Array): Promise<void>;
 
     /**
      * Support for collations in different languages.

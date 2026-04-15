@@ -22,23 +22,15 @@
  * The type used to set rounding
  *
  * @syscap SystemCapability.Utils.Lang
+ * @crossplatform [since 18]
  * @atomicservice
- * @since 12
- */
-/**
- * The type used to set rounding
- *
- * @syscap SystemCapability.Utils.Lang
- * @crossplatform
- * @atomicservice
- * @since 18 dynamic
+ * @since 12 dynamic
  */
 type Rounding = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
 
 /**
  * The type used to set rounding
  *
- * @typedef { int }
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
@@ -50,23 +42,15 @@ type Rounding = int;
  * The type used to set modulo
  *
  * @syscap SystemCapability.Utils.Lang
+ * @crossplatform [since 18]
  * @atomicservice
- * @since 12
- */
-/**
- * The type used to set modulo
- *
- * @syscap SystemCapability.Utils.Lang
- * @crossplatform
- * @atomicservice
- * @since 18 dynamic
+ * @since 12 dynamic
  */
 type Modulo = Rounding | 9;
 
 /**
  * The type used to set modulo
  *
- * @typedef { int }
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
@@ -77,18 +61,13 @@ type Modulo = int;
 /**
  * The type used to denote decimal value
  *
+ * @unionmember { string }
+ * @unionmember { double }
+ * @unionmember { Decimal }
  * @syscap SystemCapability.Utils.Lang
+ * @crossplatform [since 18]
  * @atomicservice
- * @since 12
- */
-/**
- * The type used to denote decimal value
- *
- * @typedef { string | double | Decimal }
- * @syscap SystemCapability.Utils.Lang
- * @crossplatform
- * @atomicservice
- * @since 18 dynamic
+ * @since 12 dynamic
  * @since 23 static
  */
 type Value = string | double | Decimal;
@@ -104,32 +83,21 @@ type Value = string | double | Decimal;
 /**
  * Provides configuration for decimal.
  *
- * @interface DecimalConfig
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
  * @since 23 static
  */
-interface DecimalConfig {
+export interface DecimalConfig {
   /**
    * The maximum number of significant digits of the result of an operation.
    * Default value: 20
    *
-   * @type { number } integer, 1 to 1e+9 inclusive
    * @syscap SystemCapability.Utils.Lang
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * The maximum number of significant digits of the result of an operation.
-   * Default value: 20
-   *
-   * @type { ?double } integer, 1 to 1e+9 inclusive
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   precision?: double;
@@ -139,22 +107,10 @@ interface DecimalConfig {
    * toHexadecimal, toNearest, toOctal, toPrecision and toSignificantDigits methods.
    * Default value: 4 (ROUND_HALF_UP)
    *
-   * @type { number } integer, integer, 0 to 8 inclusive
    * @syscap SystemCapability.Utils.Lang
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * The default rounding mode used when rounding the result of an operation to precision significant digits,
-   * and when rounding the return value of the round, toBinary, toDecimalPlaces, toExponential, toFixed,
-   * toHexadecimal, toNearest, toOctal, toPrecision and toSignificantDigits methods.
-   * Default value: 4 (ROUND_HALF_UP)
-   *
-   * @type { ?Rounding } integer, integer, 0 to 8 inclusive
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   rounding?: Rounding;
@@ -162,41 +118,21 @@ interface DecimalConfig {
    * The negative exponent value at and below which toString returns exponential notation.
    * Default value: -7
    *
-   * @type { number } integer, -9e15 to 0 inclusive
    * @syscap SystemCapability.Utils.Lang
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * The negative exponent value at and below which toString returns exponential notation.
-   * Default value: -7
-   *
-   * @type { ?double } integer, -9e15 to 0 inclusive
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   toExpNeg?: double;
   /**
    * The positive exponent value at and above which toString returns exponential notation.
-   * Default value: 20
+   * Default value: 21
    *
-   * @type { number } integer, 0 to 9e15 inclusive
    * @syscap SystemCapability.Utils.Lang
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * The positive exponent value at and above which toString returns exponential notation.
-   * Default value: 20
-   *
-   * @type { ?double } integer, 0 to 9e15 inclusive
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   toExpPos?: double;
@@ -204,20 +140,10 @@ interface DecimalConfig {
    * The negative exponent limit, i.e. the exponent value below which underflow to zero occurs.
    * Default value: -9e15
    *
-   * @type { number } integer, -9e15 to 0 inclusive
    * @syscap SystemCapability.Utils.Lang
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * The negative exponent limit, i.e. the exponent value below which underflow to zero occurs.
-   * Default value: -9e15
-   *
-   * @type { ?double } integer, -9e15 to 0 inclusive
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   minE?: double;
@@ -225,20 +151,10 @@ interface DecimalConfig {
    * The positive exponent limit, i.e. the exponent value above which overflow to Infinity occurs.
    * Default value: 9e15
    *
-   * @type { number } integer, 0 to 9e15 inclusive
    * @syscap SystemCapability.Utils.Lang
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * The positive exponent limit, i.e. the exponent value above which overflow to Infinity occurs.
-   * Default value: 9e15
-   *
-   * @type { ?double } integer, 0 to 9e15 inclusive
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   maxE?: double;
@@ -246,20 +162,10 @@ interface DecimalConfig {
    * The value that determines whether cryptographically-secure pseudo-random number generation is used.
    * Default value: false
    *
-   * @type { boolean }
    * @syscap SystemCapability.Utils.Lang
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * The value that determines whether cryptographically-secure pseudo-random number generation is used.
-   * Default value: false
-   *
-   * @type { ?boolean }
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   crypto?: boolean;
@@ -267,20 +173,10 @@ interface DecimalConfig {
    * The modulo mode used when calculating the modulus: a mod n.
    * Default value: 1 (ROUND_DOWN)
    *
-   * @type { number } integer, 0 to 9 inclusive
    * @syscap SystemCapability.Utils.Lang
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * The modulo mode used when calculating the modulus: a mod n.
-   * Default value: 1 (ROUND_DOWN)
-   *
-   * @type { ?Modulo } integer, 0 to 9 inclusive
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   modulo?: Modulo;
@@ -288,20 +184,10 @@ interface DecimalConfig {
    * If object has a 'defaults' property with value true then the new constructor will use the default configuration.
    * Default value: false
    *
-   * @type { boolean }
    * @syscap SystemCapability.Utils.Lang
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * If object has a 'defaults' property with value true then the new constructor will use the default configuration.
-   * Default value: false
-   *
-   * @type { ?boolean }
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   defaults?: boolean;
@@ -311,45 +197,25 @@ interface DecimalConfig {
  * An arbitrary-precision Decimal type
  *
  * @syscap SystemCapability.Utils.Lang
+ * @crossplatform [since 18]
  * @atomicservice
- * @since 12
- */
-/**
- * An arbitrary-precision Decimal type
- *
- * @syscap SystemCapability.Utils.Lang
- * @crossplatform
- * @atomicservice
- * @since 18 dynamic
+ * @since 12 dynamic
  * @since 23 static
  */
 declare class Decimal {
   /**
    * The numbers of decimal digits.
    *
-   * @type { number[] }
-   * @readonly
    * @syscap SystemCapability.Utils.Lang
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * The numbers of decimal digits.
-   *
-   * @type { number[] }
-   * @readonly
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    */
   readonly d: number[];
 
   /**
    * The numbers of decimal digits.
    *
-   * @type { Array<double> | null }
-   * @readonly
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -360,21 +226,10 @@ declare class Decimal {
   /**
    * The number of decimal exponent.
    *
-   * @type { number }
-   * @readonly
    * @syscap SystemCapability.Utils.Lang
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * The number of decimal exponent.
-   *
-   * @type { double }
-   * @readonly
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   get e(): double;
@@ -382,21 +237,10 @@ declare class Decimal {
   /**
    * The number of decimal sign.
    *
-   * @type { number }
-   * @readonly
    * @syscap SystemCapability.Utils.Lang
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * The number of decimal sign.
-   *
-   * @type { double }
-   * @readonly
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   get s(): double;
@@ -404,25 +248,14 @@ declare class Decimal {
   /**
    * Return a new Decimal whose value is the absolute value of this Decimal.
    *
-   * @param { Value } n {number | string | Decimal}
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
-   * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a new Decimal whose value is the absolute value of this Decimal.
-   *
    * @param { Value } n {double | string | Decimal}
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
+   *     1. Incorrect parameter types;
+   *     2. Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   constructor(n: Value);
@@ -432,17 +265,9 @@ declare class Decimal {
    *
    * @returns { Decimal } the Decimal type
    * @syscap SystemCapability.Utils.Lang
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a new Decimal whose value is the absolute value of this Decimal.
-   *
-   * @returns { Decimal } the Decimal type
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   abs(): Decimal;
@@ -453,18 +278,9 @@ declare class Decimal {
    *
    * @returns { Decimal } the Decimal type
    * @syscap SystemCapability.Utils.Lang
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a new Decimal whose value is the value of this Decimal rounded to a whole number in the
-   * direction of negative Infinity.
-   *
-   * @returns { Decimal } the Decimal type
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   floor(): Decimal;
@@ -475,18 +291,9 @@ declare class Decimal {
    *
    * @returns { Decimal } the Decimal type
    * @syscap SystemCapability.Utils.Lang
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a new Decimal whose value is the value of this Decimal rounded to a whole number in the
-   * direction of positive Infinity.
-   *
-   * @returns { Decimal } the Decimal type
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   ceil(): Decimal;
@@ -496,17 +303,9 @@ declare class Decimal {
    *
    * @returns { Decimal } the Decimal type
    * @syscap SystemCapability.Utils.Lang
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a new Decimal whose value is the value of this Decimal truncated to a whole number.
-   *
-   * @returns { Decimal } the Decimal type
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   trunc(): Decimal;
@@ -515,32 +314,17 @@ declare class Decimal {
    * Return a new Decimal whose value is the value of this Decimal clamped to the range
    * delineated by `min` and `max`.
    *
-   * @param { Value } min {number | string | Decimal}
-   * @param { Value } max {number | string | Decimal}
-   * @returns { Decimal } the Decimal type
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
-   * @throws { BusinessError } 10200001 - The value of `min` is out of range.
-   * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a new Decimal whose value is the value of this Decimal clamped to the range
-   * delineated by `min` and `max`.
-   *
    * @param { Value } min {double | string | Decimal}
    * @param { Value } max {double | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
+   *     1. Incorrect parameter types;
+   *     2. Parameter verification failed.
    * @throws { BusinessError } 10200001 - The value of `min` is out of range.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   clamp(min: Value, max: Value): Decimal;
@@ -549,28 +333,15 @@ declare class Decimal {
    * Return a new Decimal whose value is the value of this Decimal plus `n`, rounded to `precision`
    * significant digits using rounding mode `rounding`.
    *
-   * @param { Value } n {number | string | Decimal}
-   * @returns { Decimal } the Decimal type
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
-   * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a new Decimal whose value is the value of this Decimal plus `n`, rounded to `precision`
-   * significant digits using rounding mode `rounding`.
-   *
    * @param { Value } n {double | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
+   *     1. Incorrect parameter types;
+   *     2. Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   add(n: Value): Decimal;
@@ -579,28 +350,15 @@ declare class Decimal {
    * Return a new Decimal whose value is the value of this Decimal minus `n`, rounded to `precision`
    * significant digits using rounding mode `rounding`.
    *
-   * @param { Value } n {number | string | Decimal}
-   * @returns { Decimal } the Decimal type
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
-   * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a new Decimal whose value is the value of this Decimal minus `n`, rounded to `precision`
-   * significant digits using rounding mode `rounding`.
-   *
    * @param { Value } n {double | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
+   *     1. Incorrect parameter types;
+   *     2. Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   sub(n: Value): Decimal;
@@ -609,28 +367,15 @@ declare class Decimal {
    * Return a new Decimal whose value is this Decimal times `n`, rounded to `precision` significant
    * digits using rounding mode `rounding`.
    *
-   * @param { Value } n {number | string | Decimal}
-   * @returns { Decimal } the Decimal type
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
-   * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a new Decimal whose value is this Decimal times `n`, rounded to `precision` significant
-   * digits using rounding mode `rounding`.
-   *
    * @param { Value } n {double | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
+   *     1. Incorrect parameter types;
+   *     2. Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   mul(n: Value): Decimal;
@@ -639,28 +384,15 @@ declare class Decimal {
    * Return a new Decimal whose value is the value of this Decimal divided by `n`, rounded to
    * `precision` significant digits using rounding mode `rounding`.
    *
-   * @param { Value } n {number | string | Decimal}
-   * @returns { Decimal } the Decimal type
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
-   * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a new Decimal whose value is the value of this Decimal divided by `n`, rounded to
-   * `precision` significant digits using rounding mode `rounding`.
-   *
    * @param { Value } n {double | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
+   *     1. Incorrect parameter types;
+   *     2. Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   div(n: Value): Decimal;
@@ -669,28 +401,15 @@ declare class Decimal {
    * Return a new Decimal whose value is the value of this Decimal modulo `n`, rounded to
    * `precision` significant digits using rounding mode `rounding`.
    *
-   * @param { Value } n {number | string | Decimal}
-   * @returns { Decimal }the Decimal type
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
-   * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a new Decimal whose value is the value of this Decimal modulo `n`, rounded to
-   * `precision` significant digits using rounding mode `rounding`.
-   *
    * @param { Value } n {double | string | Decimal}
    * @returns { Decimal }the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
+   *     1. Incorrect parameter types;
+   *     2. Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   mod(n: Value): Decimal;
@@ -701,18 +420,9 @@ declare class Decimal {
    *
    * @returns { Decimal } the Decimal type
    * @syscap SystemCapability.Utils.Lang
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a new Decimal whose value is the square root of this Decimal, rounded to `precision`
-   * significant digits using rounding mode `rounding`.
-   *
-   * @returns { Decimal } the Decimal type
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   sqrt(): Decimal;
@@ -723,18 +433,9 @@ declare class Decimal {
    *
    * @returns { Decimal } the Decimal type
    * @syscap SystemCapability.Utils.Lang
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a new Decimal whose value is the cube root of the value of this Decimal, rounded to
-   * `precision` significant digits using rounding mode `rounding`.
-   *
-   * @returns { Decimal } the Decimal type
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   cbrt(): Decimal;
@@ -743,30 +444,16 @@ declare class Decimal {
    * Return a new Decimal whose value is the value of this Decimal raised to the power `n`, rounded
    * to `precision` significant digits using rounding mode `rounding`.
    *
-   * @param { Value } n {number | string | Decimal}
-   * @returns { Decimal } the Decimal type
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
-   * @throws { BusinessError } 10200060 - Precision limit exceeded.
-   * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a new Decimal whose value is the value of this Decimal raised to the power `n`, rounded
-   * to `precision` significant digits using rounding mode `rounding`.
-   *
    * @param { Value } n {double | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
+   *     1. Incorrect parameter types;
+   *     2. Parameter verification failed.
    * @throws { BusinessError } 10200060 - Precision limit exceeded.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   pow(n: Value): Decimal;
@@ -779,20 +466,9 @@ declare class Decimal {
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 10200060 - Precision limit exceeded.
    * @syscap SystemCapability.Utils.Lang
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a new Decimal whose value is the natural exponential of the value of this Decimal,
-   * i.e. the base e raised to the power the value of this Decimal, rounded to `precision`
-   * significant digits using rounding mode `rounding`.
-   *
-   * @returns { Decimal } the Decimal type
-   * @throws { BusinessError } 10200060 - Precision limit exceeded.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   exp(): Decimal;
@@ -801,30 +477,16 @@ declare class Decimal {
    * Return the logarithm of the value of this Decimal to the specified base, rounded to `precision`
    * significant digits using rounding mode `rounding`.
    *
-   * @param { Value } n {number | string | Decimal}
-   * @returns { Decimal } the Decimal type
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
-   * @throws { BusinessError } 10200060 - Precision limit exceeded.
-   * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return the logarithm of the value of this Decimal to the specified base, rounded to `precision`
-   * significant digits using rounding mode `rounding`.
-   *
    * @param { Value } n {double | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
+   *     1. Incorrect parameter types;
+   *     2. Parameter verification failed.
    * @throws { BusinessError } 10200060 - Precision limit exceeded.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   log(n: Value): Decimal;
@@ -836,19 +498,9 @@ declare class Decimal {
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 10200060 - Precision limit exceeded.
    * @syscap SystemCapability.Utils.Lang
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a new Decimal whose value is the natural logarithm of the value of this Decimal,
-   * rounded to `precision` significant digits using rounding mode `rounding`.
-   *
-   * @returns { Decimal } the Decimal type
-   * @throws { BusinessError } 10200060 - Precision limit exceeded.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   ln(): Decimal;
@@ -858,17 +510,9 @@ declare class Decimal {
    *
    * @returns { Decimal } the Decimal type
    * @syscap SystemCapability.Utils.Lang
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a new Decimal whose value is the cosine of the value in radians of this Decimal.
-   *
-   * @returns { Decimal } the Decimal type
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   cos(): Decimal;
@@ -878,17 +522,9 @@ declare class Decimal {
    *
    * @returns { Decimal } the Decimal type
    * @syscap SystemCapability.Utils.Lang
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a new Decimal whose value is the sine of the value in radians of this Decimal.
-   *
-   * @returns { Decimal } the Decimal type
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   sin(): Decimal;
@@ -898,17 +534,9 @@ declare class Decimal {
    *
    * @returns { Decimal } the Decimal type
    * @syscap SystemCapability.Utils.Lang
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a new Decimal whose value is the tangent of the value in radians of this Decimal.
-   *
-   * @returns { Decimal } the Decimal type
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   tan(): Decimal;
@@ -919,18 +547,9 @@ declare class Decimal {
    *
    * @returns { Decimal } the Decimal type
    * @syscap SystemCapability.Utils.Lang
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a new Decimal whose value is the hyperbolic cosine of the value in radians of this
-   * Decimal.
-   *
-   * @returns { Decimal } the Decimal type
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   cosh(): Decimal;
@@ -940,17 +559,9 @@ declare class Decimal {
    *
    * @returns { Decimal } the Decimal type
    * @syscap SystemCapability.Utils.Lang
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a new Decimal whose value is the hyperbolic sine of the value in radians of this Decimal.
-   *
-   * @returns { Decimal } the Decimal type
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   sinh(): Decimal;
@@ -960,17 +571,9 @@ declare class Decimal {
    *
    * @returns { Decimal } the Decimal type
    * @syscap SystemCapability.Utils.Lang
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a new Decimal whose value is the hyperbolic tangent of the value in radians of this Decimal.
-   *
-   * @returns { Decimal } the Decimal type
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   tanh(): Decimal;
@@ -981,18 +584,9 @@ declare class Decimal {
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 10200060 - Precision limit exceeded.
    * @syscap SystemCapability.Utils.Lang
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a new Decimal whose value is the arccosine (inverse cosine) in radians of the value of this Decimal.
-   *
-   * @returns { Decimal } the Decimal type
-   * @throws { BusinessError } 10200060 - Precision limit exceeded.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   acos(): Decimal;
@@ -1004,19 +598,9 @@ declare class Decimal {
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 10200060 - Precision limit exceeded.
    * @syscap SystemCapability.Utils.Lang
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a new Decimal whose value is the arcsine (inverse sine) in radians of the value of this
-   * Decimal.
-   *
-   * @returns { Decimal } the Decimal type
-   * @throws { BusinessError } 10200060 - Precision limit exceeded.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   asin(): Decimal;
@@ -1027,18 +611,9 @@ declare class Decimal {
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 10200060 - Precision limit exceeded.
    * @syscap SystemCapability.Utils.Lang
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a new Decimal whose value is the arctangent (inverse tangent) in radians of the value of this Decimal.
-   *
-   * @returns { Decimal } the Decimal type
-   * @throws { BusinessError } 10200060 - Precision limit exceeded.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   atan(): Decimal;
@@ -1050,19 +625,9 @@ declare class Decimal {
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 10200060 - Precision limit exceeded.
    * @syscap SystemCapability.Utils.Lang
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a new Decimal whose value is the inverse of the hyperbolic cosine in radians of the
-   * value of this Decimal.
-   *
-   * @returns { Decimal } the Decimal type
-   * @throws { BusinessError } 10200060 - Precision limit exceeded.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   acosh(): Decimal;
@@ -1074,19 +639,9 @@ declare class Decimal {
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 10200060 - Precision limit exceeded.
    * @syscap SystemCapability.Utils.Lang
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a new Decimal whose value is the inverse of the hyperbolic sine in radians of the value
-   * of this Decimal.
-   *
-   * @returns { Decimal } the Decimal type
-   * @throws { BusinessError } 10200060 - Precision limit exceeded.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   asinh(): Decimal;
@@ -1098,45 +653,19 @@ declare class Decimal {
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 10200060 - Precision limit exceeded.
    * @syscap SystemCapability.Utils.Lang
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a new Decimal whose value is the inverse of the hyperbolic tangent in radians of the
-   * value of this Decimal.
-   *
-   * @returns { Decimal } the Decimal type
-   * @throws { BusinessError } 10200060 - Precision limit exceeded.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   atanh(): Decimal;
 
   /**
    * Return
-   *   1    if the value of this Decimal is greater than the value of `n`,
-   *  -1    if the value of this Decimal is less than the value of `n`,
-   *   0    if they have the same value,
-   *   NaN  if the value of either Decimal is NaN.
-   *
-   * @param { Value } n {number | string | Decimal}
-   * @returns { number } the number type
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1. Incorrect parameter types;
-   *     2. Parameter verification failed.
-   * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return
-   *   1    if the value of this Decimal is greater than the value of `n`,
-   *  -1    if the value of this Decimal is less than the value of `n`,
-   *   0    if they have the same value,
-   *   NaN  if the value of either Decimal is NaN.
+   * 1    if the value of this Decimal is greater than the value of `n`,
+   * -1    if the value of this Decimal is less than the value of `n`,
+   * 0    if they have the same value,
+   * NaN  if the value of either Decimal is NaN.
    *
    * @param { Value } n {double | string | Decimal}
    * @returns { double } the number type
@@ -1144,9 +673,9 @@ declare class Decimal {
    *     1. Incorrect parameter types;
    *     2. Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   comparedTo(n: Value): double;
@@ -1154,27 +683,15 @@ declare class Decimal {
   /**
    * Return true if the value of this Decimal is equal to the value of `n`, otherwise return false.
    *
-   * @param { Value } n {number | string | Decimal}
-   * @returns { boolean } the boolean type
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
-   * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return true if the value of this Decimal is equal to the value of `n`, otherwise return false.
-   *
    * @param { Value } n {double | string | Decimal}
    * @returns { boolean } the boolean type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
+   *     1. Incorrect parameter types;
+   *     2. Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   equals(n: Value): boolean;
@@ -1182,27 +699,15 @@ declare class Decimal {
   /**
    * Return true if the value of this Decimal is greater than the value of `n`, otherwise return false.
    *
-   * @param { Value } n {number | string | Decimal}
-   * @returns { boolean } the boolean type
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
-   * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return true if the value of this Decimal is greater than the value of `n`, otherwise return false.
-   *
    * @param { Value } n {double | string | Decimal}
    * @returns { boolean } the boolean type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
+   *     1. Incorrect parameter types;
+   *     2. Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   greaterThan(n: Value): boolean;
@@ -1211,28 +716,15 @@ declare class Decimal {
    * Return true if the value of this Decimal is greater than or equal to the value of `n`,
    * otherwise return false.
    *
-   * @param { Value } n {number | string | Decimal}
-   * @returns { boolean } the boolean type
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
-   * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return true if the value of this Decimal is greater than or equal to the value of `n`,
-   * otherwise return false.
-   *
    * @param { Value } n {double | string | Decimal}
    * @returns { boolean } the boolean type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
+   *     1. Incorrect parameter types;
+   *     2. Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   greaterThanOrEqualTo(n: Value): boolean;
@@ -1240,27 +732,15 @@ declare class Decimal {
   /**
    * Return true if the value of this Decimal is less than `n`, otherwise return false.
    *
-   * @param { Value } n {number | string | Decimal}
-   * @returns { boolean } the boolean type
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
-   * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return true if the value of this Decimal is less than `n`, otherwise return false.
-   *
    * @param { Value } n {double | string | Decimal}
    * @returns { boolean } the boolean type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
+   *     1. Incorrect parameter types;
+   *     2. Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   lessThan(n: Value): boolean;
@@ -1268,27 +748,15 @@ declare class Decimal {
   /**
    * Return true if the value of this Decimal is less than or equal to `n`, otherwise return false.
    *
-   * @param { Value } n {number | string | Decimal}
-   * @returns { boolean } the boolean type
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
-   * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return true if the value of this Decimal is less than or equal to `n`, otherwise return false.
-   *
    * @param { Value } n {double | string | Decimal}
    * @returns { boolean } the boolean type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
+   *     1. Incorrect parameter types;
+   *     2. Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   lessThanOrEqualTo(n: Value): boolean;
@@ -1298,17 +766,9 @@ declare class Decimal {
    *
    * @returns { boolean } the boolean type
    * @syscap SystemCapability.Utils.Lang
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return true if the value of this Decimal is a finite number, otherwise return false.
-   *
-   * @returns { boolean } the boolean type
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   isFinite(): boolean;
@@ -1318,17 +778,9 @@ declare class Decimal {
    *
    * @returns { boolean } the boolean type
    * @syscap SystemCapability.Utils.Lang
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return true if the value of this Decimal is an integer, otherwise return false.
-   *
-   * @returns { boolean } the boolean type
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   isInteger(): boolean;
@@ -1338,17 +790,9 @@ declare class Decimal {
    *
    * @returns { boolean } the boolean type
    * @syscap SystemCapability.Utils.Lang
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return true if the value of this Decimal is NaN, otherwise return false.
-   *
-   * @returns { boolean } the boolean type
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   isNaN(): boolean;
@@ -1358,17 +802,9 @@ declare class Decimal {
    *
    * @returns { boolean } the boolean type
    * @syscap SystemCapability.Utils.Lang
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return true if the value of this Decimal is negative, otherwise return false.
-   *
-   * @returns { boolean } the boolean type
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   isNegative(): boolean;
@@ -1378,17 +814,9 @@ declare class Decimal {
    *
    * @returns { boolean } the boolean type
    * @syscap SystemCapability.Utils.Lang
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return true if the value of this Decimal is positive, otherwise return false.
-   *
-   * @returns { boolean } the boolean type
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   isPositive(): boolean;
@@ -1398,17 +826,9 @@ declare class Decimal {
    *
    * @returns { boolean } the boolean type
    * @syscap SystemCapability.Utils.Lang
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return true if the value of this Decimal is 0 or -0, otherwise return false.
-   *
-   * @returns { boolean } the boolean type
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   isZero(): boolean;
@@ -1417,28 +837,15 @@ declare class Decimal {
    * Return a new Decimal whose value is the integer part of dividing the value of this Decimal
    * by the value of `n`, rounded to `precision` significant digits using rounding mode `rounding`.
    *
-   * @param { Value } n {number | string | Decimal}
-   * @returns { Decimal } the Decimal type
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
-   * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a new Decimal whose value is the integer part of dividing the value of this Decimal
-   * by the value of `n`, rounded to `precision` significant digits using rounding mode `rounding`.
-   *
    * @param { Value } n {double | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
+   *     1. Incorrect parameter types;
+   *     2. Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   dividedToIntegerBy(n: Value): Decimal;
@@ -1448,17 +855,9 @@ declare class Decimal {
    *
    * @returns { Decimal } the Decimal type
    * @syscap SystemCapability.Utils.Lang
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a new Decimal whose value is the value of this Decimal negated, i.e. as if multiplied by -1.
-   *
-   * @returns { Decimal } the Decimal type
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   negate(): Decimal;
@@ -1468,17 +867,9 @@ declare class Decimal {
    *
    * @returns { string } the string type
    * @syscap SystemCapability.Utils.Lang
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a string representing the value of this Decimal in base 2.
-   *
-   * @returns { string } the string type
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   toBinary(): string;
@@ -1487,24 +878,13 @@ declare class Decimal {
    * Return a string representing the value of this Decimal in base 2, round to `significantDigits`
    * significant digits.
    *
-   * @param { number } significantDigits Significant digits. Integer, 1 to MAX_DIGITS inclusive.
-   * @returns { string } the string type
-   * @throws { BusinessError } 10200001 - The value of `significantDigits` is out of range.
-   * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a string representing the value of this Decimal in base 2, round to `significantDigits`
-   * significant digits.
-   *
    * @param { double } significantDigits Significant digits. Integer, 1 to MAX_DIGITS inclusive.
    * @returns { string } the string type
    * @throws { BusinessError } 10200001 - The value of `significantDigits` is out of range.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   toBinary(significantDigits: double): string;
@@ -1513,26 +893,14 @@ declare class Decimal {
    * Return a string representing the value of this Decimal in base 2, round to `significantDigits`
    * significant digits using rounding mode `rounding`.
    *
-   * @param { number } significantDigits Significant digits. Integer, 1 to MAX_DIGITS inclusive.
-   * @param { Rounding } rounding Rounding mode. Integer, 0 to 8 inclusive.
-   * @returns { string } the string type
-   * @throws { BusinessError } 10200001 - The value of `significantDigits | rounding` is out of range.
-   * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a string representing the value of this Decimal in base 2, round to `significantDigits`
-   * significant digits using rounding mode `rounding`.
-   *
    * @param { double } significantDigits Significant digits. Integer, 1 to MAX_DIGITS inclusive.
    * @param { Rounding } rounding Rounding mode. Integer, 0 to 8 inclusive.
    * @returns { string } the string type
    * @throws { BusinessError } 10200001 - The value of `significantDigits | rounding` is out of range.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   toBinary(significantDigits: double, rounding: Rounding): string;
@@ -1542,17 +910,9 @@ declare class Decimal {
    *
    * @returns { string } the string type
    * @syscap SystemCapability.Utils.Lang
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a string representing the value of this Decimal in base 8.
-   *
-   * @returns { string } the string type
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   toOctal(): string;
@@ -1560,23 +920,13 @@ declare class Decimal {
   /**
    * Return a string representing the value of this Decimal in base 8, round to `significantDigits` significant.
    *
-   * @param { number } significantDigits {number | string | Decimal}
-   * @returns { string } the string type
-   * @throws { BusinessError } 10200001 - The value of `significantDigits` is out of range.
-   * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a string representing the value of this Decimal in base 8, round to `significantDigits` significant.
-   *
    * @param { double } significantDigits {double | string | Decimal}
    * @returns { string } the string type
    * @throws { BusinessError } 10200001 - The value of `significantDigits` is out of range.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   toOctal(significantDigits: double): string;
@@ -1585,26 +935,14 @@ declare class Decimal {
    * Return a string representing the value of this Decimal in base 8, round to `significantDigits` significant
    * digits using rounding mode `rounding`.
    *
-   * @param { number } significantDigits {number | string | Decimal}
-   * @param { Rounding } rounding Rounding mode. Integer, 0 to 8 inclusive.
-   * @returns { string } the string type
-   * @throws { BusinessError } 10200001 - The value of `significantDigits | rounding` is out of range.
-   * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a string representing the value of this Decimal in base 8, round to `significantDigits` significant
-   * digits using rounding mode `rounding`.
-   *
    * @param { double } significantDigits {double | string | Decimal}
    * @param { Rounding } rounding Rounding mode. Integer, 0 to 8 inclusive.
    * @returns { string } the string type
    * @throws { BusinessError } 10200001 - The value of `significantDigits | rounding` is out of range.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   toOctal(significantDigits: double, rounding: Rounding): string;
@@ -1614,17 +952,9 @@ declare class Decimal {
    *
    * @returns { string } the string type
    * @syscap SystemCapability.Utils.Lang
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a string representing the value of this Decimal in base 16
-   *
-   * @returns { string } the string type
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   toHexadecimal(): string;
@@ -1632,23 +962,13 @@ declare class Decimal {
   /**
    * Return a string representing the value of this Decimal in base 16, round to `significantDigits` significant.
    *
-   * @param { number } significantDigits Significant digits. Integer, 1 to MAX_DIGITS inclusive.
-   * @returns { string } the string type
-   * @throws { BusinessError } 10200001 - The value of `significantDigits` is out of range.
-   * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a string representing the value of this Decimal in base 16, round to `significantDigits` significant.
-   *
    * @param { double } significantDigits Significant digits. Integer, 1 to MAX_DIGITS inclusive.
    * @returns { string } the string type
    * @throws { BusinessError } 10200001 - The value of `significantDigits` is out of range.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   toHexadecimal(significantDigits: double): string;
@@ -1657,26 +977,14 @@ declare class Decimal {
    * Return a string representing the value of this Decimal in base 16, round to `significantDigits` significant
    * digits using rounding mode `rounding`.
    *
-   * @param { number } significantDigits Significant digits. Integer, 1 to MAX_DIGITS inclusive.
-   * @param { Rounding } rounding Rounding mode. Integer, 0 to 8 inclusive.
-   * @returns { string } the string type
-   * @throws { BusinessError } 10200001 - The value of `significantDigits | rounding` is out of range.
-   * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a string representing the value of this Decimal in base 16, round to `significantDigits` significant
-   * digits using rounding mode `rounding`.
-   *
    * @param { double } significantDigits Significant digits. Integer, 1 to MAX_DIGITS inclusive.
    * @param { Rounding } rounding Rounding mode. Integer, 0 to 8 inclusive.
    * @returns { string } the string type
    * @throws { BusinessError } 10200001 - The value of `significantDigits | rounding` is out of range.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   toHexadecimal(significantDigits: double, rounding: Rounding): string;
@@ -1686,17 +994,9 @@ declare class Decimal {
    *
    * @returns { Decimal } the Decimal type
    * @syscap SystemCapability.Utils.Lang
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a new Decimal whose value is the value of this Decimal.
-   *
-   * @returns { Decimal } the Decimal type
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   toDecimalPlaces(): Decimal;
@@ -1705,24 +1005,13 @@ declare class Decimal {
    * Return a new Decimal whose value is the value of this Decimal rounded to a maximum of `decimalPlaces`
    * decimal places.
    *
-   * @param { number } decimalPlaces Significant digits. Integer, 1 to MAX_DIGITS inclusive.
-   * @returns { Decimal } the Decimal type
-   * @throws { BusinessError } 10200001 - The value of `decimalPlaces` is out of range.
-   * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a new Decimal whose value is the value of this Decimal rounded to a maximum of `decimalPlaces`
-   * decimal places.
-   *
    * @param { double } decimalPlaces Significant digits. Integer, 1 to MAX_DIGITS inclusive.
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 10200001 - The value of `decimalPlaces` is out of range.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   toDecimalPlaces(decimalPlaces: double): Decimal;
@@ -1731,26 +1020,14 @@ declare class Decimal {
    * Return a new Decimal whose value is the value of this Decimal rounded to a maximum of `decimalPlaces`
    * decimal places using rounding mode `rounding`.
    *
-   * @param { number } decimalPlaces Significant digits. Integer, 1 to MAX_DIGITS inclusive.
-   * @param { Rounding } rounding Rounding mode. Integer, 0 to 8 inclusive.
-   * @returns { Decimal } the Decimal type
-   * @throws { BusinessError } 10200001 - The value of `decimalPlaces | rounding` is out of range.
-   * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a new Decimal whose value is the value of this Decimal rounded to a maximum of `decimalPlaces`
-   * decimal places using rounding mode `rounding`.
-   *
    * @param { double } decimalPlaces Significant digits. Integer, 1 to MAX_DIGITS inclusive.
    * @param { Rounding } rounding Rounding mode. Integer, 0 to 8 inclusive.
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 10200001 - The value of `decimalPlaces | rounding` is out of range.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   toDecimalPlaces(decimalPlaces: double, rounding: Rounding): Decimal;
@@ -1760,17 +1037,9 @@ declare class Decimal {
    *
    * @returns { string } the string type
    * @syscap SystemCapability.Utils.Lang
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a string representing the value of this Decimal in exponential notation.
-   *
-   * @returns { string } the string type
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   toExponential(): string;
@@ -1779,24 +1048,13 @@ declare class Decimal {
    * Return a string representing the value of this Decimal in exponential notation rounded to
    * `decimalPlaces` fixed decimal places.
    *
-   * @param { number } decimalPlaces Decimal places. Integer, 0 to MAX_DIGITS inclusive.
-   * @returns { string } the string type
-   * @throws { BusinessError } 10200001 - The value of `decimalPlaces` is out of range.
-   * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a string representing the value of this Decimal in exponential notation rounded to
-   * `decimalPlaces` fixed decimal places.
-   *
    * @param { double } decimalPlaces Decimal places. Integer, 0 to MAX_DIGITS inclusive.
    * @returns { string } the string type
    * @throws { BusinessError } 10200001 - The value of `decimalPlaces` is out of range.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   toExponential(decimalPlaces: double): string;
@@ -1805,26 +1063,14 @@ declare class Decimal {
    * Return a string representing the value of this Decimal in exponential notation rounded to
    * `decimalPlaces` fixed decimal places using rounding mode `rounding`.
    *
-   * @param { number } decimalPlaces Decimal places. Integer, 0 to MAX_DIGITS inclusive.
-   * @param { Rounding } rounding Rounding mode. Integer, 0 to 8 inclusive.
-   * @returns { string } the string type
-   * @throws { BusinessError } 10200001 - The value of `decimalPlaces | rounding` is out of range.
-   * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a string representing the value of this Decimal in exponential notation rounded to
-   * `decimalPlaces` fixed decimal places using rounding mode `rounding`.
-   *
    * @param { double } decimalPlaces Decimal places. Integer, 0 to MAX_DIGITS inclusive.
    * @param { Rounding } rounding Rounding mode. Integer, 0 to 8 inclusive.
    * @returns { string } the string type
    * @throws { BusinessError } 10200001 - The value of `decimalPlaces | rounding` is out of range.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   toExponential(decimalPlaces: double, rounding: Rounding): string;
@@ -1834,17 +1080,9 @@ declare class Decimal {
    *
    * @returns { string } the string type
    * @syscap SystemCapability.Utils.Lang
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a string representing the value of this Decimal in normal (fixed-point).
-   *
-   * @returns { string } the string type
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   toFixed(): string;
@@ -1853,23 +1091,13 @@ declare class Decimal {
    * Return a string representing the value of this Decimal in normal (fixed-point) notation to
    * `decimalPlaces` fixed decimal places.
    *
-   * @param { number } decimalPlaces Decimal places. Integer, 0 to MAX_DIGITS inclusive.
-   * @returns { string } the string type
-   * @throws { BusinessError } 10200001 - The value of `decimalPlaces` is out of range.
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a string representing the value of this Decimal in normal (fixed-point) notation to
-   * `decimalPlaces` fixed decimal places.
-   *
    * @param { double } decimalPlaces Decimal places. Integer, 0 to MAX_DIGITS inclusive.
    * @returns { string } the string type
    * @throws { BusinessError } 10200001 - The value of `decimalPlaces` is out of range.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
+   * @syscap SystemCapability.Utils.Lang [since 18]
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   toFixed(decimalPlaces: double): string;
@@ -1878,26 +1106,14 @@ declare class Decimal {
    * Return a string representing the value of this Decimal in normal (fixed-point) notation to
    * `decimalPlaces` fixed decimal places and rounded using rounding mode `rounding`.
    *
-   * @param { number } decimalPlaces Decimal places. Integer, 0 to MAX_DIGITS inclusive.
-   * @param { Rounding } rounding Rounding mode. Integer, 0 to 8 inclusive.
-   * @returns { string } the string type
-   * @throws { BusinessError } 10200001 - The value of `decimalPlaces | rounding` is out of range.
-   * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a string representing the value of this Decimal in normal (fixed-point) notation to
-   * `decimalPlaces` fixed decimal places and rounded using rounding mode `rounding`.
-   *
    * @param { double } decimalPlaces Decimal places. Integer, 0 to MAX_DIGITS inclusive.
    * @param { Rounding } rounding Rounding mode. Integer, 0 to 8 inclusive.
    * @returns { string } the string type
    * @throws { BusinessError } 10200001 - The value of `decimalPlaces | rounding` is out of range.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   toFixed(decimalPlaces: double, rounding: Rounding): string;
@@ -1908,18 +1124,9 @@ declare class Decimal {
    *
    * @returns { Decimal[] } the Decimal[] type
    * @syscap SystemCapability.Utils.Lang
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return an array representing the value of this Decimal as a simple fraction with an integer
-   * numerator and an integer denominator.
-   *
-   * @returns { Decimal[] } the Decimal[] type
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   toFraction(): Decimal[];
@@ -1929,29 +1136,15 @@ declare class Decimal {
    * numerator and an integer denominator. The denominator will be a positive non-zero value
    * less than or equal to `max_denominator`.
    *
-   * @param { Value } maxDenominator {number | string | Decimal}
-   * @returns { Decimal[] } the Decimal[] type
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
-   * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return an array representing the value of this Decimal as a simple fraction with an integer
-   * numerator and an integer denominator. The denominator will be a positive non-zero value
-   * less than or equal to `max_denominator`.
-   *
    * @param { Value } maxDenominator {double | string | Decimal}
    * @returns { Decimal[] } the Decimal[] type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
+   *     1. Incorrect parameter types;
+   *     2. Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   toFraction(maxDenominator: Value): Decimal[];
@@ -1959,27 +1152,15 @@ declare class Decimal {
   /**
    * Returns a new Decimal whose value is the nearest multiple of `n`.
    *
-   * @param { Value } n {number | string | Decimal}
-   * @returns { Decimal } the Decimal type
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
-   * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Returns a new Decimal whose value is the nearest multiple of `n`.
-   *
    * @param { Value } n {double | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
+   *     1. Incorrect parameter types;
+   *     2. Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   toNearest(n: Value): Decimal;
@@ -1988,32 +1169,17 @@ declare class Decimal {
    * Returns a new Decimal whose value is the nearest multiple of `n` in the direction of rounding
    * mode `rounding`, to the value of this Decimal.
    *
-   * @param { Value } n {number | string | Decimal}
-   * @param { Rounding } rounding Rounding mode. Integer, 0 to 8 inclusive.
-   * @returns { Decimal } the Decimal type
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
-   * @throws { BusinessError } 10200001 - The value of `rounding` is out of range.
-   * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Returns a new Decimal whose value is the nearest multiple of `n` in the direction of rounding
-   * mode `rounding`, to the value of this Decimal.
-   *
    * @param { Value } n {double | string | Decimal}
    * @param { Rounding } rounding Rounding mode. Integer, 0 to 8 inclusive.
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
+   *     1. Incorrect parameter types;
+   *     2. Parameter verification failed.
    * @throws { BusinessError } 10200001 - The value of `rounding` is out of range.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   toNearest(n: Value, rounding: Rounding): Decimal;
@@ -2023,17 +1189,9 @@ declare class Decimal {
    *
    * @returns { string } the string type
    * @syscap SystemCapability.Utils.Lang
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a string representing the value of this Decimal.
-   *
-   * @returns { string } the string type
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   toPrecision(): string;
@@ -2041,23 +1199,13 @@ declare class Decimal {
   /**
    * Return a string representing the value of this Decimal rounded to `significantDigits` significant digits.
    *
-   * @param { number } significantDigits Significant digits. Integer, 1 to MAX_DIGITS inclusive.
-   * @returns { string } the string type
-   * @throws { BusinessError } 10200001 - The value of `significantDigits` is out of range.
-   * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a string representing the value of this Decimal rounded to `significantDigits` significant digits.
-   *
    * @param { double } significantDigits Significant digits. Integer, 1 to MAX_DIGITS inclusive.
    * @returns { string } the string type
    * @throws { BusinessError } 10200001 - The value of `significantDigits` is out of range.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   toPrecision(significantDigits: double): string;
@@ -2066,26 +1214,14 @@ declare class Decimal {
    * Return a string representing the value of this Decimal rounded to `significantDigits` significant digits
    * using rounding mode `rounding`.
    *
-   * @param { number } significantDigits Significant digits. Integer, 1 to MAX_DIGITS inclusive.
-   * @param { Rounding } rounding Rounding mode. Integer, 0 to 8 inclusive.
-   * @returns { string } the string type
-   * @throws { BusinessError } 10200001 - The value of `significantDigits | rounding` is out of range.
-   * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a string representing the value of this Decimal rounded to `significantDigits` significant digits
-   * using rounding mode `rounding`.
-   *
    * @param { double } significantDigits Significant digits. Integer, 1 to MAX_DIGITS inclusive.
    * @param { Rounding } rounding Rounding mode. Integer, 0 to 8 inclusive.
    * @returns { string } the string type
    * @throws { BusinessError } 10200001 - The value of `significantDigits | rounding` is out of range.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   toPrecision(significantDigits: double, rounding: Rounding): string;
@@ -2095,17 +1231,9 @@ declare class Decimal {
    *
    * @returns { Decimal } the Decimal type
    * @syscap SystemCapability.Utils.Lang
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a new Decimal whose value is the value of this Decimal.
-   *
-   * @returns { Decimal } the Decimal type
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   toSignificantDigits(): Decimal;
@@ -2114,24 +1242,13 @@ declare class Decimal {
    * Return a new Decimal whose value is the value of this Decimal rounded to a maximum of `significantDigits`
    * significant digits.
    *
-   * @param { number } significantDigits Significant digits. Integer, 1 to MAX_DIGITS inclusive.
-   * @returns { Decimal } the Decimal type
-   * @throws { BusinessError } 10200001 - The value of `significantDigits` is out of range.
-   * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a new Decimal whose value is the value of this Decimal rounded to a maximum of `significantDigits`
-   * significant digits.
-   *
    * @param { double } significantDigits Significant digits. Integer, 1 to MAX_DIGITS inclusive.
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 10200001 - The value of `significantDigits` is out of range.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   toSignificantDigits(significantDigits: double): Decimal;
@@ -2140,26 +1257,14 @@ declare class Decimal {
    * Return a new Decimal whose value is the value of this Decimal rounded to a maximum of `significantDigits`
    * significant digits using rounding mode `rounding`.
    *
-   * @param { number } significantDigits Significant digits. Integer, 1 to MAX_DIGITS inclusive.
-   * @param { Rounding } rounding Rounding mode. Integer, 0 to 8 inclusive.
-   * @returns { Decimal } the Decimal type
-   * @throws { BusinessError } 10200001 - The value of `significantDigits | rounding` is out of range.
-   * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a new Decimal whose value is the value of this Decimal rounded to a maximum of `significantDigits`
-   * significant digits using rounding mode `rounding`.
-   *
    * @param { double } significantDigits Significant digits. Integer, 1 to MAX_DIGITS inclusive.
    * @param { Rounding } rounding Rounding mode. Integer, 0 to 8 inclusive.
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 10200001 - The value of `significantDigits | rounding` is out of range.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   toSignificantDigits(significantDigits: double, rounding: Rounding): Decimal;
@@ -2167,19 +1272,11 @@ declare class Decimal {
   /**
    * Return the value of this Decimal converted to a number primitive. Zero keeps its sign.
    *
-   * @returns { number } the number type
-   * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return the value of this Decimal converted to a number primitive. Zero keeps its sign.
-   *
    * @returns { double } the number type
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   toNumber(): double;
@@ -2191,19 +1288,9 @@ declare class Decimal {
    *
    * @returns { string } the string type
    * @syscap SystemCapability.Utils.Lang
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a string representing the value of this Decimal.
-   * Return exponential notation if this Decimal has a positive exponent equal to or greater than
-   * `toExpPos`, or a negative exponent equal to or less than `toExpNeg`.
-   *
-   * @returns { string } the string type
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   toString(): string;
@@ -2214,18 +1301,9 @@ declare class Decimal {
    *
    * @returns { string } the string type
    * @syscap SystemCapability.Utils.Lang
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a string representing the value of this Decimal.
-   * Unlike `toString`, negative zero will include the minus sign.
-   *
-   * @returns { string } the string type
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   valueOf(): string;
@@ -2233,19 +1311,11 @@ declare class Decimal {
   /**
    * Return the number of decimal places of the value of this Decimal.
    *
-   * @returns { number } the number type
-   * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return the number of decimal places of the value of this Decimal.
-   *
    * @returns { double } the number type
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   decimalPlaces(): double;
@@ -2253,35 +1323,15 @@ declare class Decimal {
   /**
    * Return the number of significant digits of the value of this Decimal.
    *
-   * @returns { number } the number type
-   * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return the number of significant digits of the value of this Decimal.
-   *
    * @returns { double } the number type
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   precision(): double;
 
-  /**
-   * Return the number of significant digits of the value of this Decimal, whether to count 
-   * integer-part trailing zeros.
-   *
-   * @param { boolean | number } includeZeros Whether to count integer-part trailing zeros: true, false,
-   *     1 or 0.
-   * @returns { number } the number type
-   * @throws { BusinessError } 10200001 - The value of `includeZeros` is out of range.
-   * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 12
-   */
   /**
    * Return the number of significant digits of the value of this Decimal, whether to count
    * integer-part trailing zeros.
@@ -2291,9 +1341,9 @@ declare class Decimal {
    * @returns { double } the number type
    * @throws { BusinessError } 10200001 - The value of `includeZeros` is out of range.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   precision(includeZeros: boolean | int): double;
@@ -2301,29 +1351,15 @@ declare class Decimal {
   /**
    * Return a new Decimal whose value is the absolute value of `n`.
    *
-   * @param { Value } n {number | string | Decimal}
-   * @returns { Decimal } the Decimal type
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
-   * @static
-   * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a new Decimal whose value is the absolute value of `n`.
-   *
    * @param { Value } n {double | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
-   * @static
+   *     1. Incorrect parameter types;
+   *     2. Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   static abs(n: Value): Decimal;
@@ -2331,29 +1367,15 @@ declare class Decimal {
   /**
    * Return a new Decimal whose value is `n` round to an integer using `ROUND_FLOOR`.
    *
-   * @param { Value } n {number | string | Decimal}
-   * @returns { Decimal } the Decimal type
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
-   * @static
-   * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a new Decimal whose value is `n` round to an integer using `ROUND_FLOOR`.
-   *
    * @param { Value } n {double | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
-   * @static
+   *     1. Incorrect parameter types;
+   *     2. Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   static floor(n: Value): Decimal;
@@ -2361,29 +1383,15 @@ declare class Decimal {
   /**
    * Return a new Decimal whose value is `n` rounded to an integer using `ROUND_CEIL`.
    *
-   * @param { Value } n {number | string | Decimal}
-   * @returns { Decimal } the Decimal type
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
-   * @static
-   * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a new Decimal whose value is `n` rounded to an integer using `ROUND_CEIL`.
-   *
    * @param { Value } n {double | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
-   * @static
+   *     1. Incorrect parameter types;
+   *     2. Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   static ceil(n: Value): Decimal;
@@ -2391,49 +1399,19 @@ declare class Decimal {
   /**
    * Return a new Decimal whose value is `n` truncated to an integer.
    *
-   * @param { Value } n {number | string | Decimal}
-   * @returns { Decimal } the Decimal type
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
-   * @static
-   * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a new Decimal whose value is `n` truncated to an integer.
-   *
    * @param { Value } n {double | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
-   * @static
+   *     1. Incorrect parameter types;
+   *     2. Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   static trunc(n: Value): Decimal;
 
-  /**
-   * Return a new Decimal whose value is `n` clamped to the range delineated by `min` and `max`.
-   *
-   * @param { Value } n {number | string | Decimal}
-   * @param { Value } min {number | string | Decimal}
-   * @param { Value } max {number | string | Decimal}
-   * @returns { Decimal } the Decimal type
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
-   * @throws { BusinessError } 10200001 - The value of `min` is out of range.
-   * @static
-   * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 12
-   */
   /**
    * Return a new Decimal whose value is `n` clamped to the range delineated by `min` and `max`.
    *
@@ -2442,14 +1420,13 @@ declare class Decimal {
    * @param { Value } max {double | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
+   *     1. Incorrect parameter types;
+   *     2. Parameter verification failed.
    * @throws { BusinessError } 10200001 - The value of `min` is out of range.
-   * @static
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   static clamp(n: Value, min: Value, max: Value): Decimal;
@@ -2458,32 +1435,16 @@ declare class Decimal {
    * Return a new Decimal whose value is the sum of `x` and `y`, rounded to `precision` significant
    * digits using rounding mode `rounding`.
    *
-   * @param { Value } x {number | string | Decimal}
-   * @param { Value } y {number | string | Decimal}
-   * @returns { Decimal } the Decimal type
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
-   * @static
-   * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a new Decimal whose value is the sum of `x` and `y`, rounded to `precision` significant
-   * digits using rounding mode `rounding`.
-   *
    * @param { Value } x {double | string | Decimal}
    * @param { Value } y {double | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
-   * @static
+   *     1. Incorrect parameter types;
+   *     2. Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   static add(x: Value, y: Value): Decimal;
@@ -2494,32 +1455,15 @@ declare class Decimal {
    *
    * Only the result is rounded, not the intermediate calculations.
    *
-   * @param { Value[] } n {number | string | Decimal}
-   * @returns { Decimal } the Decimal type
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
-   * @static
-   * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a new Decimal whose value is the sum of the arguments, rounded to `precision`
-   * significant digits using rounding mode `rounding`.
-   *
-   * Only the result is rounded, not the intermediate calculations.
-   *
    * @param { Value[] } n {double | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
-   * @static
+   *     1. Incorrect parameter types;
+   *     2. Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   static sum(...n: Value[]): Decimal;
@@ -2528,32 +1472,16 @@ declare class Decimal {
    * Return a new Decimal whose value is `x` minus `y`, rounded to `precision` significant digits
    * using rounding mode `rounding`.
    *
-   * @param { Value } x {number | string | Decimal}
-   * @param { Value } y {number | string | Decimal}
-   * @returns { Decimal } the Decimal type
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
-   * @static
-   * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a new Decimal whose value is `x` minus `y`, rounded to `precision` significant digits
-   * using rounding mode `rounding`.
-   *
    * @param { Value } x {double | string | Decimal}
    * @param { Value } y {double | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
-   * @static
+   *     1. Incorrect parameter types;
+   *     2. Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   static sub(x: Value, y: Value): Decimal;
@@ -2562,32 +1490,16 @@ declare class Decimal {
    * Return a new Decimal whose value is `x` multiplied by `y`, rounded to `precision` significant
    * digits using rounding mode `rounding`.
    *
-   * @param { Value } x {number | string | Decimal}
-   * @param { Value } y {number | string | Decimal}
-   * @returns { Decimal } the Decimal type
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
-   * @static
-   * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a new Decimal whose value is `x` multiplied by `y`, rounded to `precision` significant
-   * digits using rounding mode `rounding`.
-   *
    * @param { Value } x {double | string | Decimal}
    * @param { Value } y {double | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
-   * @static
+   *     1. Incorrect parameter types;
+   *     2. Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   static mul(x: Value, y: Value): Decimal;
@@ -2596,32 +1508,16 @@ declare class Decimal {
    * Return a new Decimal whose value is `x` divided by `y`, rounded to `precision` significant
    * digits using rounding mode `rounding`.
    *
-   * @param { Value } x {number | string | Decimal}
-   * @param { Value } y {number | string | Decimal}
-   * @returns { Decimal } the Decimal type
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
-   * @static
-   * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a new Decimal whose value is `x` divided by `y`, rounded to `precision` significant
-   * digits using rounding mode `rounding`.
-   *
    * @param { Value } x {double | string | Decimal}
    * @param { Value } y {double | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
-   * @static
+   *     1. Incorrect parameter types;
+   *     2. Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   static div(x: Value, y: Value): Decimal;
@@ -2630,32 +1526,16 @@ declare class Decimal {
    * Return a new Decimal whose value is `x` modulo `y`, rounded to `precision` significant digits
    * using rounding mode `rounding`.
    *
-   * @param { Value } x {number | string | Decimal}
-   * @param { Value } y {number | string | Decimal}
-   * @returns { Decimal } the Decimal type
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
-   * @static
-   * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a new Decimal whose value is `x` modulo `y`, rounded to `precision` significant digits
-   * using rounding mode `rounding`.
-   *
    * @param { Value } x {double | string | Decimal}
    * @param { Value } y {double | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
-   * @static
+   *     1. Incorrect parameter types;
+   *     2. Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   static mod(x: Value, y: Value): Decimal;
@@ -2664,30 +1544,15 @@ declare class Decimal {
    * Return a new Decimal whose value is the square root of `n`, rounded to `precision` significant
    * digits using rounding mode `rounding`.
    *
-   * @param { Value } n {number | string | Decimal}
-   * @returns { Decimal } the Decimal type
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
-   * @static
-   * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a new Decimal whose value is the square root of `n`, rounded to `precision` significant
-   * digits using rounding mode `rounding`.
-   *
    * @param { Value } n {double | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
-   * @static
+   *     1. Incorrect parameter types;
+   *     2. Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   static sqrt(n: Value): Decimal;
@@ -2696,30 +1561,15 @@ declare class Decimal {
    * Return a new Decimal whose value is the cube root of `n`, rounded to `precision` significant
    * digits using rounding mode `rounding`.
    *
-   * @param { Value } n {number | string | Decimal}
-   * @returns { Decimal } the Decimal type
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
-   * @static
-   * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a new Decimal whose value is the cube root of `n`, rounded to `precision` significant
-   * digits using rounding mode `rounding`.
-   *
    * @param { Value } n {double | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
-   * @static
+   *     1. Incorrect parameter types;
+   *     2. Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   static cbrt(n: Value): Decimal;
@@ -2728,34 +1578,17 @@ declare class Decimal {
    * Return a new Decimal whose value is `base` raised to the power `exponent`, rounded to precision
    * significant digits using rounding mode `rounding`.
    *
-   * @param { Value } base {number | string | Decimal} The base.
-   * @param { Value } exponent {number | string | Decimal} The exponent.
-   * @returns { Decimal } the Decimal type
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
-   * @throws { BusinessError } 10200060 - Precision limit exceeded.
-   * @static
-   * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a new Decimal whose value is `base` raised to the power `exponent`, rounded to precision
-   * significant digits using rounding mode `rounding`.
-   *
    * @param { Value } base {double | string | Decimal} The base.
    * @param { Value } exponent {double | string | Decimal} The exponent.
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
+   *     1. Incorrect parameter types;
+   *     2. Parameter verification failed.
    * @throws { BusinessError } 10200060 - Precision limit exceeded.
-   * @static
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   static pow(base: Value, exponent: Value): Decimal;
@@ -2764,32 +1597,16 @@ declare class Decimal {
    * Return a new Decimal whose value is the natural exponential of `n`, rounded to `precision`
    * significant digits using rounding mode `rounding`.
    *
-   * @param { Value } n {number | string | Decimal}
-   * @returns { Decimal } the Decimal type
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
-   * @throws { BusinessError } 10200060 - Precision limit exceeded.
-   * @static
-   * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a new Decimal whose value is the natural exponential of `n`, rounded to `precision`
-   * significant digits using rounding mode `rounding`.
-   *
    * @param { Value } n {double | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
+   *     1. Incorrect parameter types;
+   *     2. Parameter verification failed.
    * @throws { BusinessError } 10200060 - Precision limit exceeded.
-   * @static
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   static exp(n: Value): Decimal;
@@ -2798,34 +1615,17 @@ declare class Decimal {
    * Return a new Decimal whose value is the log of `n` to the base `base`, rounded to `precision`
    * significant digits using rounding mode `rounding`.
    *
-   * @param { Value } n {number | string | Decimal}
-   * @param { Value } base {number | string | Decimal}
-   * @returns { Decimal } the Decimal type
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
-   * @throws { BusinessError } 10200060 - Precision limit exceeded.
-   * @static
-   * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a new Decimal whose value is the log of `n` to the base `base`, rounded to `precision`
-   * significant digits using rounding mode `rounding`.
-   *
    * @param { Value } n {double | string | Decimal}
    * @param { Value } base {double | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
+   *     1. Incorrect parameter types;
+   *     2. Parameter verification failed.
    * @throws { BusinessError } 10200060 - Precision limit exceeded.
-   * @static
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   static log(n: Value, base: Value): Decimal;
@@ -2834,32 +1634,16 @@ declare class Decimal {
    * Return a new Decimal whose value is the natural logarithm of `n`, rounded to `precision`
    * significant digits using rounding mode `rounding`.
    *
-   * @param { Value } n {number | string | Decimal}
-   * @returns { Decimal } the Decimal type
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
-   * @throws { BusinessError } 10200060 - Precision limit exceeded.
-   * @static
-   * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a new Decimal whose value is the natural logarithm of `n`, rounded to `precision`
-   * significant digits using rounding mode `rounding`.
-   *
    * @param { Value } n {double | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
+   *     1. Incorrect parameter types;
+   *     2. Parameter verification failed.
    * @throws { BusinessError } 10200060 - Precision limit exceeded.
-   * @static
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   static ln(n: Value): Decimal;
@@ -2868,32 +1652,16 @@ declare class Decimal {
    * Return a new Decimal whose value is the base 2 logarithm of `n`, rounded to `precision`
    * significant digits using rounding mode `rounding`.
    *
-   * @param { Value } n {number | string | Decimal}
-   * @returns { Decimal } the Decimal type
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
-   * @throws { BusinessError } 10200060 - Precision limit exceeded.
-   * @static
-   * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a new Decimal whose value is the base 2 logarithm of `n`, rounded to `precision`
-   * significant digits using rounding mode `rounding`.
-   *
    * @param { Value } n {double | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
+   *     1. Incorrect parameter types;
+   *     2. Parameter verification failed.
    * @throws { BusinessError } 10200060 - Precision limit exceeded.
-   * @static
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   static log2(n: Value): Decimal;
@@ -2902,32 +1670,16 @@ declare class Decimal {
    * Return a new Decimal whose value is the base 10 logarithm of `n`, rounded to `precision`
    * significant digits using rounding mode `rounding`.
    *
-   * @param { Value } n {number | string | Decimal}
-   * @returns { Decimal } the Decimal type
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
-   * @throws { BusinessError } 10200060 - Precision limit exceeded.
-   * @static
-   * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a new Decimal whose value is the base 10 logarithm of `n`, rounded to `precision`
-   * significant digits using rounding mode `rounding`.
-   *
    * @param { Value } n {double | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
+   *     1. Incorrect parameter types;
+   *     2. Parameter verification failed.
    * @throws { BusinessError } 10200060 - Precision limit exceeded.
-   * @static
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   static log10(n: Value): Decimal;
@@ -2936,30 +1688,15 @@ declare class Decimal {
    * Return a new Decimal whose value is the cosine of `n`, rounded to `precision` significant
    * digits using rounding mode `rounding`
    *
-   * @param { Value } n {number | string | Decimal} A value in radians.
-   * @returns { Decimal } the Decimal type
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
-   * @static
-   * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a new Decimal whose value is the cosine of `n`, rounded to `precision` significant
-   * digits using rounding mode `rounding`
-   *
    * @param { Value } n {double | string | Decimal} A value in radians.
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
-   * @static
+   *     1. Incorrect parameter types;
+   *     2. Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   static cos(n: Value): Decimal;
@@ -2968,30 +1705,15 @@ declare class Decimal {
    * Return a new Decimal whose value is the sine of `n`, rounded to `precision` significant digits
    * using rounding mode `rounding`.
    *
-   * @param { Value } n {number | string | Decimal} A value in radians.
-   * @returns { Decimal } the Decimal type
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
-   * @static
-   * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a new Decimal whose value is the sine of `n`, rounded to `precision` significant digits
-   * using rounding mode `rounding`.
-   *
    * @param { Value } n {double | string | Decimal} A value in radians.
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
-   * @static
+   *     1. Incorrect parameter types;
+   *     2. Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   static sin(n: Value): Decimal;
@@ -3000,30 +1722,15 @@ declare class Decimal {
    * Return a new Decimal whose value is the tangent of `n`, rounded to `precision` significant
    * digits using rounding mode `rounding`.
    *
-   * @param { Value } n {number | string | Decimal} A value in radians.
-   * @returns { Decimal } the Decimal type
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
-   * @static
-   * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a new Decimal whose value is the tangent of `n`, rounded to `precision` significant
-   * digits using rounding mode `rounding`.
-   *
    * @param { Value } n {double | string | Decimal} A value in radians.
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
-   * @static
+   *     1. Incorrect parameter types;
+   *     2. Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   static tan(n: Value): Decimal;
@@ -3032,30 +1739,15 @@ declare class Decimal {
    * Return a new Decimal whose value is the hyperbolic cosine of `n`, rounded to precision
    * significant digits using rounding mode `rounding`.
    *
-   * @param { Value } n {number | string | Decimal} A value in radians.
-   * @returns { Decimal } the Decimal type
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
-   * @static
-   * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a new Decimal whose value is the hyperbolic cosine of `n`, rounded to precision
-   * significant digits using rounding mode `rounding`.
-   *
    * @param { Value } n {double | string | Decimal} A value in radians.
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
-   * @static
+   *     1. Incorrect parameter types;
+   *     2. Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   static cosh(n: Value): Decimal;
@@ -3064,30 +1756,15 @@ declare class Decimal {
    * Return a new Decimal whose value is the hyperbolic sine of `n`, rounded to `precision`
    * significant digits using rounding mode `rounding`.
    *
-   * @param { Value } n {number | string | Decimal}
-   * @returns { Decimal } the Decimal type
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
-   * @static
-   * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a new Decimal whose value is the hyperbolic sine of `n`, rounded to `precision`
-   * significant digits using rounding mode `rounding`.
-   *
    * @param { Value } n {double | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
-   * @static
+   *     1. Incorrect parameter types;
+   *     2. Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   static sinh(n: Value): Decimal;
@@ -3096,30 +1773,15 @@ declare class Decimal {
    * Return a new Decimal whose value is the hyperbolic tangent of `n`, rounded to `precision`
    * significant digits using rounding mode `rounding`.
    *
-   * @param { Value } n {number | string | Decimal} A value in radians.
-   * @returns { Decimal } the Decimal type
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
-   * @static
-   * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a new Decimal whose value is the hyperbolic tangent of `n`, rounded to `precision`
-   * significant digits using rounding mode `rounding`.
-   *
    * @param { Value } n {double | string | Decimal} A value in radians.
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
-   * @static
+   *     1. Incorrect parameter types;
+   *     2. Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   static tanh(n: Value): Decimal;
@@ -3127,31 +1789,16 @@ declare class Decimal {
   /**
    * Return a new Decimal whose value is the arccosine in radians of `n`.
    *
-   * @param { Value } n {number | string | Decimal}
-   * @returns { Decimal } the Decimal type
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
-   * @throws { BusinessError } 10200060 - Precision limit exceeded.
-   * @static
-   * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a new Decimal whose value is the arccosine in radians of `n`.
-   *
    * @param { Value } n {double | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
+   *     1. Incorrect parameter types;
+   *     2. Parameter verification failed.
    * @throws { BusinessError } 10200060 - Precision limit exceeded.
-   * @static
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   static acos(n: Value): Decimal;
@@ -3160,32 +1807,16 @@ declare class Decimal {
    * Return a new Decimal whose value is the arcsine in radians of `n`, rounded to `precision`
    * significant digits using rounding mode `rounding`.
    *
-   * @param { Value } n {number | string | Decimal}
-   * @returns { Decimal } the Decimal type
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
-   * @throws { BusinessError } 10200060 - Precision limit exceeded.
-   * @static
-   * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a new Decimal whose value is the arcsine in radians of `n`, rounded to `precision`
-   * significant digits using rounding mode `rounding`.
-   *
    * @param { Value } n {double | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
+   *     1. Incorrect parameter types;
+   *     2. Parameter verification failed.
    * @throws { BusinessError } 10200060 - Precision limit exceeded.
-   * @static
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   static asin(n: Value): Decimal;
@@ -3194,32 +1825,16 @@ declare class Decimal {
    * Return a new Decimal whose value is the arctangent in radians of `n`, rounded to `precision`
    * significant digits using rounding mode `rounding`.
    *
-   * @param { Value } n {number | string | Decimal}
-   * @returns { Decimal } the Decimal type
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
-   * @throws { BusinessError } 10200060 - Precision limit exceeded.
-   * @static
-   * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a new Decimal whose value is the arctangent in radians of `n`, rounded to `precision`
-   * significant digits using rounding mode `rounding`.
-   *
    * @param { Value } n {double | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
+   *     1. Incorrect parameter types;
+   *     2. Parameter verification failed.
    * @throws { BusinessError } 10200060 - Precision limit exceeded.
-   * @static
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   static atan(n: Value): Decimal;
@@ -3228,32 +1843,16 @@ declare class Decimal {
    * Return a new Decimal whose value is the inverse of the hyperbolic cosine of `n`, rounded to
    * `precision` significant digits using rounding mode `rounding`.
    *
-   * @param { Value } n {number | string | Decimal}
-   * @returns { Decimal } the Decimal type
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
-   * @throws { BusinessError } 10200060 - Precision limit exceeded.
-   * @static
-   * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a new Decimal whose value is the inverse of the hyperbolic cosine of `n`, rounded to
-   * `precision` significant digits using rounding mode `rounding`.
-   *
    * @param { Value } n {double | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
+   *     1. Incorrect parameter types;
+   *     2. Parameter verification failed.
    * @throws { BusinessError } 10200060 - Precision limit exceeded.
-   * @static
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   static acosh(n: Value): Decimal;
@@ -3262,32 +1861,16 @@ declare class Decimal {
    * Return a new Decimal whose value is the inverse of the hyperbolic sine of `n`, rounded to
    * `precision` significant digits using rounding mode `rounding`.
    *
-   * @param { Value } n {number | string | Decimal} A value in radians.
-   * @returns { Decimal } the Decimal type
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
-   * @throws { BusinessError } 10200060 - Precision limit exceeded.
-   * @static
-   * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a new Decimal whose value is the inverse of the hyperbolic sine of `n`, rounded to
-   * `precision` significant digits using rounding mode `rounding`.
-   *
    * @param { Value } n {double | string | Decimal} A value in radians.
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
+   *     1. Incorrect parameter types;
+   *     2. Parameter verification failed.
    * @throws { BusinessError } 10200060 - Precision limit exceeded.
-   * @static
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   static asinh(n: Value): Decimal;
@@ -3296,32 +1879,16 @@ declare class Decimal {
    * Return a new Decimal whose value is the inverse of the hyperbolic tangent of `n`, rounded to
    * `precision` significant digits using rounding mode `rounding`.
    *
-   * @param { Value } n {number | string | Decimal} A value in radians.
-   * @returns { Decimal } the Decimal type
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
-   * @throws { BusinessError } 10200060 - Precision limit exceeded.
-   * @static
-   * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a new Decimal whose value is the inverse of the hyperbolic tangent of `n`, rounded to
-   * `precision` significant digits using rounding mode `rounding`.
-   *
    * @param { Value } n {double | string | Decimal} A value in radians.
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
+   *     1. Incorrect parameter types;
+   *     2. Parameter verification failed.
    * @throws { BusinessError } 10200060 - Precision limit exceeded.
-   * @static
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   static atanh(n: Value): Decimal;
@@ -3330,34 +1897,17 @@ declare class Decimal {
    * Return a new Decimal whose value is the arctangent in radians of `y/x` in the range -pi to pi
    * (inclusive), rounded to `precision` significant digits using rounding mode `rounding`.
    *
-   * @param { Value } y {number | string | Decimal} The y-coordinate.
-   * @param { Value } x {number | string | Decimal} The x-coordinate.
-   * @returns { Decimal } the Decimal type
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
-   * @throws { BusinessError } 10200060 - Precision limit exceeded.
-   * @static
-   * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a new Decimal whose value is the arctangent in radians of `y/x` in the range -pi to pi
-   * (inclusive), rounded to `precision` significant digits using rounding mode `rounding`.
-   *
    * @param { Value } y {double | string | Decimal} The y-coordinate.
    * @param { Value } x {double | string | Decimal} The x-coordinate.
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
+   *     1. Incorrect parameter types;
+   *     2. Parameter verification failed.
    * @throws { BusinessError } 10200060 - Precision limit exceeded.
-   * @static
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   static atan2(y: Value, x: Value): Decimal;
@@ -3366,30 +1916,15 @@ declare class Decimal {
    * Return a new Decimal whose value is the square root of the sum of the squares of the arguments,
    * rounded to `precision` significant digits using rounding mode `rounding`.
    *
-   * @param { Value[] } n {number | string | Decimal} Decimal
-   * @returns { Decimal } the Decimal type
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
-   * @static
-   * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a new Decimal whose value is the square root of the sum of the squares of the arguments,
-   * rounded to `precision` significant digits using rounding mode `rounding`.
-   *
    * @param { Value[] } n {double | string | Decimal} Decimal
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
-   * @static
+   *     1. Incorrect parameter types;
+   *     2. Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   static hypot(...n: Value[]): Decimal;
@@ -3397,29 +1932,15 @@ declare class Decimal {
   /**
    * Return a new Decimal whose value is the maximum of the arguments.
    *
-   * @param { Value[] } n {number | string | Decimal}
-   * @returns { Decimal } the Decimal type
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
-   * @static
-   * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a new Decimal whose value is the maximum of the arguments.
-   *
    * @param { Value[] } n {double | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
-   * @static
+   *     1. Incorrect parameter types;
+   *     2. Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   static max(...n: Value[]): Decimal;
@@ -3427,29 +1948,15 @@ declare class Decimal {
   /**
    * Return a new Decimal whose value is the minimum of the arguments.
    *
-   * @param { Value[] } n {number | string | Decimal}
-   * @returns { Decimal } the Decimal type
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
-   * @static
-   * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a new Decimal whose value is the minimum of the arguments.
-   *
    * @param { Value[] } n {double | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
-   * @static
+   *     1. Incorrect parameter types;
+   *     2. Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   static min(...n: Value[]): Decimal;
@@ -3459,21 +1966,10 @@ declare class Decimal {
    *
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 10200061 - Crypto unavailable
-   * @static
    * @syscap SystemCapability.Utils.Lang
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Returns a new Decimal with a random value equal to or greater than 0 and less than 1.
-   *
-   * @returns { Decimal } the Decimal type
-   * @throws { BusinessError } 10200061 - Crypto unavailable
-   * @static
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   static random(): Decimal;
@@ -3482,72 +1978,39 @@ declare class Decimal {
    * Returns a new Decimal with a random value equal to or greater than 0 and less than 1, and with
    * `significantDigits` significant digits (or less if trailing zeros are produced).
    *
-   * @param { Value } significantDigits {number} Significant digits. Integer, 0 to MAX_DIGITS inclusive.
+   * @param { Value } significantDigits {number} Significant digits. Integer, 0 to MAX_DIGITS inclusive. [since 12 - 17]
+   * @param { double } significantDigits Significant digits. Integer, 0 to MAX_DIGITS inclusive. [since 18]
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Incorrect parameter types;
    *     2. Parameter verification failed.
    * @throws { BusinessError } 10200061 - Crypto unavailable
-   * @static
    * @syscap SystemCapability.Utils.Lang
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Returns a new Decimal with a random value equal to or greater than 0 and less than 1, and with
-   * `significantDigits` significant digits (or less if trailing zeros are produced).
-   *
-   * @param { double } significantDigits Significant digits. Integer, 0 to MAX_DIGITS inclusive.
-   * @returns { Decimal } the Decimal type
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1. Incorrect parameter types;
-   *     2. Parameter verification failed.
-   * @throws { BusinessError } 10200061 - Crypto unavailable
-   * @static
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   static random(significantDigits: double): Decimal;
 
   /**
    * Return the sign of the passed value to the method.
-   *   1    if x > 0,
-   *  -1    if x < 0,
-   *   0    if x is 0,
-   *  -0    if x is -0,
-   *   NaN  otherwise
-   *
-   * @param { Value } n {number | string | Decimal}
-   * @returns { Decimal } the Decimal type
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1. Incorrect parameter types;
-   *     2. Parameter verification failed.
-   * @static
-   * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return the sign of the passed value to the method.
-   *   1    if x > 0,
-   *  -1    if x < 0,
-   *   0    if x is 0,
-   *  -0    if x is -0,
-   *   NaN  otherwise
+   * 1    if x > 0,
+   * -1    if x < 0,
+   * 0    if x is 0,
+   * -0    if x is -0,
+   * NaN  otherwise
    *
    * @param { Value } n {double | string | Decimal}
-   * @returns { double } the Decimal type
+   * @returns { Decimal } the Decimal type [since 12 - 17]
+   * @returns { double } the Decimal type [since 18]
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Incorrect parameter types;
    *     2. Parameter verification failed.
-   * @static
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   static sign(n: Value): double;
@@ -3555,29 +2018,15 @@ declare class Decimal {
   /**
    * Return a new Decimal whose value is `n` rounded to an integer using rounding mode `rounding`.
    *
-   * @param { Value } n {number | string | Decimal}
-   * @returns { Decimal } the Decimal type
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
-   * @static
-   * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Return a new Decimal whose value is `n` rounded to an integer using rounding mode `rounding`.
-   *
    * @param { Value } n {double | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
-   * @static
+   *     1. Incorrect parameter types;
+   *     2. Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   static round(n: Value): Decimal;
@@ -3586,50 +2035,25 @@ declare class Decimal {
    * Configures the 'global' settings for this particular Decimal constructor.
    *
    * @param { DecimalConfig } An object with one or more of the following properties,
-   *   precision  {number}
-   *   rounding   {number}
-   *   toExpNeg   {number}
-   *   toExpPos   {number}
-   *   maxE       {number}
-   *   minE       {number}
-   *   modulo     {number}
-   *   crypto     {boolean|number}
-   *   defaults   {true}
+   *     precision  {double}
+   *     rounding   {Rounding}
+   *     toExpNeg   {double}
+   *     toExpPos   {double}
+   *     maxE       {double}
+   *     minE       {double}
+   *     modulo     {Modulo}
+   *     crypto     {boolean}
+   *     defaults   {true}
    * @returns { void }
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
+   *     1. Incorrect parameter types;
+   *     2. Parameter verification failed.
    * @throws { BusinessError } 10200001 - The value of `DecimalConfig.properties` is out of range.
    * @throws { BusinessError } 10200061 - Crypto unavailable
-   * @static
    * @syscap SystemCapability.Utils.Lang
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Configures the 'global' settings for this particular Decimal constructor.
-   *
-   * @param { DecimalConfig } An object with one or more of the following properties,
-   *   precision  {double}
-   *   rounding   {Rounding}
-   *   toExpNeg   {double}
-   *   toExpPos   {double}
-   *   maxE       {double}
-   *   minE       {double}
-   *   modulo     {Modulo}
-   *   crypto     {boolean}
-   *   defaults   {true}
-   * @returns { void }
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                    1. Incorrect parameter types;
-   *                                    2. Parameter verification failed.
-   * @throws { BusinessError } 10200001 - The value of `DecimalConfig.properties` is out of range.
-   * @throws { BusinessError } 10200061 - Crypto unavailable
-   * @static
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   static set(config: DecimalConfig): void;
@@ -3637,31 +2061,17 @@ declare class Decimal {
   /**
    * Rounds away from zero
    *
-   * @type { number }
-   * @readonly
-   * @static
    * @syscap SystemCapability.Utils.Lang
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Rounds away from zero
-   *
-   * @readonly
-   * @static
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    */
   static readonly ROUND_UP : 0;
 
   /**
    * Rounds away from zero
+   * The value should be an integer.
    *
-   * @type { int }
-   * @readonly
-   * @static
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -3672,30 +2082,17 @@ declare class Decimal {
   /**
    * Rounds towards zero
    *
-   * @readonly
-   * @static
    * @syscap SystemCapability.Utils.Lang
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Rounds towards zero
-   *
-   * @readonly
-   * @static
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    */
   static readonly ROUND_DOWN : 1;
 
   /**
    * Rounds towards zero
+   * The value should be an integer.
    *
-   * @type { int }
-   * @readonly
-   * @static
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -3706,30 +2103,17 @@ declare class Decimal {
   /**
    * Rounds towards Infinity
    *
-   * @readonly
-   * @static
    * @syscap SystemCapability.Utils.Lang
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Rounds towards Infinity
-   *
-   * @readonly
-   * @static
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    */
   static readonly ROUND_CEILING : 2;
 
   /**
    * Rounds towards Infinity
+   * The value should be an integer.
    *
-   * @type { int }
-   * @readonly
-   * @static
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -3740,30 +2124,17 @@ declare class Decimal {
   /**
    * Rounds towards -Infinity
    *
-   * @readonly
-   * @static
    * @syscap SystemCapability.Utils.Lang
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Rounds towards -Infinity
-   *
-   * @readonly
-   * @static
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    */
   static readonly ROUND_FLOOR : 3;
 
   /**
    * Rounds towards -Infinity
+   * The value should be an integer.
    *
-   * @type { int }
-   * @readonly
-   * @static
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -3774,30 +2145,17 @@ declare class Decimal {
   /**
    * Rounds towards nearest neighbour. If equidistant, rounds away from zero
    *
-   * @readonly
-   * @static
    * @syscap SystemCapability.Utils.Lang
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Rounds towards nearest neighbour. If equidistant, rounds away from zero
-   *
-   * @readonly
-   * @static
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    */
   static readonly ROUND_HALF_UP : 4;
 
   /**
    * Rounds towards nearest neighbour. If equidistant, rounds away from zero
+   * The value should be an integer.
    *
-   * @type { int }
-   * @readonly
-   * @static
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -3808,30 +2166,17 @@ declare class Decimal {
   /**
    * Rounds towards nearest neighbour. If equidistant, rounds towards zero
    *
-   * @readonly
-   * @static
    * @syscap SystemCapability.Utils.Lang
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Rounds towards nearest neighbour. If equidistant, rounds towards zero
-   *
-   * @readonly
-   * @static
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    */
   static readonly ROUND_HALF_DOWN : 5;
 
   /**
    * Rounds towards nearest neighbour. If equidistant, rounds towards zero
+   * The value should be an integer.
    *
-   * @type { int }
-   * @readonly
-   * @static
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -3842,30 +2187,17 @@ declare class Decimal {
   /**
    * Rounds towards nearest neighbour. If equidistant, rounds towards even neighbour
    *
-   * @readonly
-   * @static
    * @syscap SystemCapability.Utils.Lang
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Rounds towards nearest neighbour. If equidistant, rounds towards even neighbour
-   *
-   * @readonly
-   * @static
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    */
   static readonly ROUND_HALF_EVEN : 6;
 
   /**
    * Rounds towards nearest neighbour. If equidistant, rounds towards even neighbour
+   * The value should be an integer.
    *
-   * @type { int }
-   * @readonly
-   * @static
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -3876,30 +2208,17 @@ declare class Decimal {
   /**
    * Rounds towards nearest neighbour. If equidistant, rounds towards Infinity
    *
-   * @readonly
-   * @static
    * @syscap SystemCapability.Utils.Lang
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Rounds towards nearest neighbour. If equidistant, rounds towards Infinity
-   *
-   * @readonly
-   * @static
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    */
   static readonly ROUND_HALF_CEILING : 7;
 
   /**
    * Rounds towards nearest neighbour. If equidistant, rounds towards Infinity
+   * The value should be an integer.
    *
-   * @type { int }
-   * @readonly
-   * @static
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -3910,30 +2229,17 @@ declare class Decimal {
   /**
    * Rounds towards nearest neighbour. If equidistant, rounds towards -Infinity
    *
-   * @readonly
-   * @static
    * @syscap SystemCapability.Utils.Lang
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Rounds towards nearest neighbour. If equidistant, rounds towards -Infinity
-   *
-   * @readonly
-   * @static
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    */
   static readonly ROUND_HALF_FLOOR : 8;
 
   /**
    * Rounds towards nearest neighbour. If equidistant, rounds towards -Infinity
+   * The value should be an integer.
    *
-   * @type { int }
-   * @readonly
-   * @static
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -3944,30 +2250,17 @@ declare class Decimal {
   /**
    * Not a rounding mode, see modulo
    *
-   * @readonly
-   * @static
    * @syscap SystemCapability.Utils.Lang
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Not a rounding mode, see modulo
-   *
-   * @readonly
-   * @static
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    */
   static readonly EUCLIDEAN : 9;
 
   /**
    * Not a rounding mode, see modulo
+   * The value should be an integer.
    *
-   * @type { int }
-   * @readonly
-   * @static
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -3975,4 +2268,5 @@ declare class Decimal {
    */
   static readonly EUCLIDEAN: int;
 }
+
 export default Decimal;
