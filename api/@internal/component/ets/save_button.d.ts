@@ -567,7 +567,7 @@ declare class SaveButtonAttribute extends SecurityComponentMethod<SaveButtonAttr
    * Sets the color of the symbol icon.
    *
    * @permission ohos.permission.CUSTOMIZE_SAVE_BUTTON
-   * @param { ResourceColor | Array<ResourceColor> } color  - Color of the symbol icon.
+   * @param { Array<ResourceColor> } color  - Color of the symbol icon.
    * @returns { SaveButtonAttribute } Returns the attributes of the save button.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
